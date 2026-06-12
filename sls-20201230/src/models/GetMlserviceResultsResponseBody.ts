@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMLServiceResultsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: { [key: string]: string }[];
+  /**
+   * @remarks
+   * The status of the task.
+   */
   status?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

@@ -7,12 +7,23 @@ import { Schedule } from "./Schedule";
 export class CreateScheduledSQLRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration of the job.
+   * 
    * This parameter is required.
    */
   configuration?: ScheduledSQLConfiguration;
+  /**
+   * @remarks
+   * The description of the job.
+   * 
+   * @example
+   * Create a scheduled SQL task
+   */
   description?: string;
   /**
    * @remarks
+   * The display name of the job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +32,16 @@ export class CreateScheduledSQLRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The job name. The name must be unique within a project.
+   * 
+   * The naming convention is as follows:
+   * 
+   * - The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The name must start and end with a lowercase letter or a digit.
+   * 
+   * - The name must be 2 to 64 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +50,8 @@ export class CreateScheduledSQLRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The scheduling configuration for the job.
+   * 
    * This parameter is required.
    */
   schedule?: Schedule;

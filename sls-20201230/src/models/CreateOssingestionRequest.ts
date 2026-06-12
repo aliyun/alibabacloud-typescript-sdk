@@ -7,26 +7,40 @@ import { Schedule } from "./Schedule";
 export class CreateOSSIngestionRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the OSS data import job.
+   * The OSS import configuration.
    * 
    * This parameter is required.
    */
   configuration?: OSSIngestionConfiguration;
   /**
    * @remarks
-   * The description of the job.
+   * The job description.
+   * 
+   * @example
+   * Task description
    */
   description?: string;
   /**
    * @remarks
-   * The display name of the job.
+   * The display name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * OSS import
    */
   displayName?: string;
   /**
    * @remarks
-   * The name of the OSS data import job.
+   * The job name. The naming conventions are as follows:
+   * 
+   * The job name must be unique within the project.
+   * 
+   * - The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The name must start and end with a lowercase letter or a digit.
+   * 
+   * - The name must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -36,7 +50,7 @@ export class CreateOSSIngestionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The scheduling type. By default, you do not need to specify this parameter. If you want to import data at regular intervals, such as importing data every Monday at 08: 00., you can specify a cron expression.
+   * The scheduling configuration. This parameter is optional. To meet specific timing requirements, such as importing data at 8:00 AM every Monday, use a cron expression.
    */
   schedule?: Schedule;
   static names(): { [key: string]: string } {

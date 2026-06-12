@@ -6,11 +6,14 @@ export class ListIngestProcessorsRequest extends $dara.Model {
   /**
    * @remarks
    * The display name of the ingest processor.
+   * 
+   * @example
+   * Parse Nginx log
    */
   displayName?: string;
   /**
    * @remarks
-   * The offset. Default value: 0.
+   * The offset value. The default value is 0.
    * 
    * @example
    * 0
@@ -26,7 +29,7 @@ export class ListIngestProcessorsRequest extends $dara.Model {
   processorName?: string;
   /**
    * @remarks
-   * The number of entries. Default value: 200.
+   * The number of entries to return. The default value is 200.
    * 
    * @example
    * 200

@@ -23,7 +23,12 @@ export default class Client extends OpenApi {
    * Applies a Logtail configuration to a machine group.
    * 
    * @remarks
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - The Host consists of the project name and the Simple Log Service endpoint. You must specify the project in the Host.
+   * - Create an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   *  An AccessKey pair for an Alibaba Cloud account provides full access to all API operations. This poses a security risk. For security reasons, we recommend that you create and use a RAM user for API access or routine O\\&M. The RAM user must have the permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Identify the name and region of the project. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
+   * - Create a Logtail configuration and obtain its name. For more information, see [CreateConfig](https://help.aliyun.com/document_detail/29042.html).
+   * - Create a machine group and obtain its name. For more information, see [CreateMachineGroup](https://help.aliyun.com/document_detail/29032.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54,7 +59,12 @@ export default class Client extends OpenApi {
    * Applies a Logtail configuration to a machine group.
    * 
    * @remarks
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - The Host consists of the project name and the Simple Log Service endpoint. You must specify the project in the Host.
+   * - Create an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   *  An AccessKey pair for an Alibaba Cloud account provides full access to all API operations. This poses a security risk. For security reasons, we recommend that you create and use a RAM user for API access or routine O\\&M. The RAM user must have the permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Identify the name and region of the project. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
+   * - Create a Logtail configuration and obtain its name. For more information, see [CreateConfig](https://help.aliyun.com/document_detail/29042.html).
+   * - Create a machine group and obtain its name. For more information, see [CreateMachineGroup](https://help.aliyun.com/document_detail/29032.html).
    * @returns ApplyConfigToMachineGroupResponse
    */
   async applyConfigToMachineGroup(project: string, machineGroup: string, configName: string): Promise<$_model.ApplyConfigToMachineGroupResponse> {
@@ -64,7 +74,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用 ai 工具
+   * Calls observable AI tools. The capabilities of these tools are continuously updated. You can call the tool list API to retrieve the currently supported capabilities.
    * 
    * @param request - CallAiToolsRequest
    * @param headers - map
@@ -105,7 +115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用 ai 工具
+   * Calls observable AI tools. The capabilities of these tools are continuously updated. You can call the tool list API to retrieve the currently supported capabilities.
    * 
    * @param request - CallAiToolsRequest
    * @returns CallAiToolsResponse
@@ -173,21 +183,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends heartbeats to a server from a consumer.
+   * A consumer sends a heartbeat to the server to maintain its active status.
    * 
    * @remarks
-   * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * Connections between consumers and Simple Log Service are established by sending heartbeat messages at regular intervals. If Simple Log Service does not receive heartbeat messages from a consumer on schedule, Simple Log Service deletes the consumer.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:ConsumerGroupHeartBeat`|`acs:log:${regionId}:${accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/{#ConsumerGroupName}`|
+   * ### API description
+   * - The Host consists of a project name and a Simple Log Service Endpoint. You must specify the project in the Host.
+   * - A consumer sends heartbeats to the server at fixed intervals to maintain its connection. If the server does not receive a heartbeat from the consumer within a specified period, the consumer is deleted.
+   * - Obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair of an Alibaba Cloud account has permissions for all API operations. This poses a high security threat. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, region, and Logstore name. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Obtain the consumer group name. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
+   * ### Authorization information
+   * The following table describes the authorization information for this operation. Add this information to the Action element of a RAM policy to grant a RAM user or RAM role the permissions to call this API operation.
+   * | Action                       | Resource in an authorization policy                                                                                   |
+   * | :--------------------------- | :-------------------------------------------------------------------------------------------------------------------- |
+   * | `log:ConsumerGroupHeartBeat` | `acs:log:${regionId}:${accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/{#ConsumerGroupName}` |
    * 
    * @param request - ConsumerGroupHeartBeatRequest
    * @param headers - map
@@ -224,21 +234,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends heartbeats to a server from a consumer.
+   * A consumer sends a heartbeat to the server to maintain its active status.
    * 
    * @remarks
-   * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * Connections between consumers and Simple Log Service are established by sending heartbeat messages at regular intervals. If Simple Log Service does not receive heartbeat messages from a consumer on schedule, Simple Log Service deletes the consumer.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:ConsumerGroupHeartBeat`|`acs:log:${regionId}:${accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/{#ConsumerGroupName}`|
+   * ### API description
+   * - The Host consists of a project name and a Simple Log Service Endpoint. You must specify the project in the Host.
+   * - A consumer sends heartbeats to the server at fixed intervals to maintain its connection. If the server does not receive a heartbeat from the consumer within a specified period, the consumer is deleted.
+   * - Obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair of an Alibaba Cloud account has permissions for all API operations. This poses a high security threat. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, region, and Logstore name. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Obtain the consumer group name. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
+   * ### Authorization information
+   * The following table describes the authorization information for this operation. Add this information to the Action element of a RAM policy to grant a RAM user or RAM role the permissions to call this API operation.
+   * | Action                       | Resource in an authorization policy                                                                                   |
+   * | :--------------------------- | :-------------------------------------------------------------------------------------------------------------------- |
+   * | `log:ConsumerGroupHeartBeat` | `acs:log:${regionId}:${accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/{#ConsumerGroupName}` |
    * 
    * @param request - ConsumerGroupHeartBeatRequest
    * @returns ConsumerGroupHeartBeatResponse
@@ -253,11 +263,11 @@ export default class Client extends OpenApi {
    * Updates the checkpoint of a shard for a consumer group.
    * 
    * @remarks
-   *   If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - ConsumerGroupUpdateCheckPointRequest
    * @param headers - map
@@ -310,11 +320,11 @@ export default class Client extends OpenApi {
    * Updates the checkpoint of a shard for a consumer group.
    * 
    * @remarks
-   *   If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - If you do not specify a consumer, you must set **forceSuccess** to **true**. Otherwise, the checkpoint cannot be updated.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - ConsumerGroupUpdateCheckPointRequest
    * @returns ConsumerGroupUpdateCheckPointResponse
@@ -326,7 +336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateAgentInstanceConfig
+   * Creates a process-level configuration.
    * 
    * @param request - CreateAgentInstanceConfigRequest
    * @param headers - map
@@ -371,7 +381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateAgentInstanceConfig
+   * Creates a process-level configuration.
    * 
    * @param request - CreateAgentInstanceConfigRequest
    * @returns CreateAgentInstanceConfigResponse
@@ -493,7 +503,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a tag table.
+   * Creates an annotation label table.
+   * 
+   * @remarks
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - CreateAnnotationLabelRequest
    * @param headers - map
@@ -521,7 +534,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a tag table.
+   * Creates an annotation label table.
+   * 
+   * @remarks
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - CreateAnnotationLabelRequest
    * @returns CreateAnnotationLabelResponse
@@ -533,7 +549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Azure blob文件导入任务
+   * Creates an Azure BLOB ingestion task.
    * 
    * @param request - CreateAzureBlobIngestionRequest
    * @param headers - map
@@ -585,7 +601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Azure blob文件导入任务
+   * Creates an Azure BLOB ingestion task.
    * 
    * @param request - CreateAzureBlobIngestionRequest
    * @returns CreateAzureBlobIngestionResponse
@@ -601,12 +617,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 100 Logtail configurations in a project.
-   * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create up to 100 Logtail configurations in a project.
+   * - The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
    * 
    * @param request - CreateConfigRequest
    * @param headers - map
@@ -641,12 +657,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 100 Logtail configurations in a project.
-   * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create up to 100 Logtail configurations in a project.
+   * - The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
    * 
    * @param request - CreateConfigRequest
    * @returns CreateConfigResponse
@@ -662,17 +678,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * You can create up to 30 consumer groups for a Logstore. The name of a consumer group must be unique in a project.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Simple Log Service provides examples of both regular log consumption and consumer group-based log consumption by using Simple Log Service SDK for Java. For more information, see [Consume log data](https://help.aliyun.com/document_detail/120035.html) and [Use consumer groups to consume data](https://help.aliyun.com/document_detail/28998.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - You can create up to 30 consumer groups for a Logstore. The name of a consumer group must be unique in a project.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Simple Log Service provides examples of both regular log consumption and consumer group-based log consumption by using Simple Log Service SDK for Java. For more information, see [Consume log data](https://help.aliyun.com/document_detail/120035.html) and [Use consumer groups to consume data](https://help.aliyun.com/document_detail/28998.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:CreateConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
+   * | Action                    | Resource                                                                                                          |
+   * | :------------------------ | :---------------------------------------------------------------------------------------------------------------- |
+   * | `log:CreateConsumerGroup` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}` |
    * 
    * @param request - CreateConsumerGroupRequest
    * @param headers - map
@@ -720,17 +736,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * You can create up to 30 consumer groups for a Logstore. The name of a consumer group must be unique in a project.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Simple Log Service provides examples of both regular log consumption and consumer group-based log consumption by using Simple Log Service SDK for Java. For more information, see [Consume log data](https://help.aliyun.com/document_detail/120035.html) and [Use consumer groups to consume data](https://help.aliyun.com/document_detail/28998.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - You can create up to 30 consumer groups for a Logstore. The name of a consumer group must be unique in a project.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Simple Log Service provides examples of both regular log consumption and consumer group-based log consumption by using Simple Log Service SDK for Java. For more information, see [Consume log data](https://help.aliyun.com/document_detail/120035.html) and [Use consumer groups to consume data](https://help.aliyun.com/document_detail/28998.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:CreateConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
+   * | Action                    | Resource                                                                                                          |
+   * | :------------------------ | :---------------------------------------------------------------------------------------------------------------- |
+   * | `log:CreateConsumerGroup` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}` |
    * 
    * @param request - CreateConsumerGroupRequest
    * @returns CreateConsumerGroupResponse
@@ -746,10 +762,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - CreateDashboardRequest
    * @param headers - map
@@ -784,10 +800,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - CreateDashboardRequest
    * @returns CreateDashboardResponse
@@ -853,7 +869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a log download task in a project.
+   * Creates a log download task in a specified project.
    * 
    * @param request - CreateDownloadJobRequest
    * @param headers - map
@@ -901,7 +917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a log download task in a project.
+   * Creates a log download task in a specified project.
    * 
    * @param request - CreateDownloadJobRequest
    * @returns CreateDownloadJobResponse
@@ -913,7 +929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data transformation job in a project.
+   * Creates a data transformation job in a specified project.
    * 
    * @param request - CreateETLRequest
    * @param headers - map
@@ -961,7 +977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data transformation job in a project.
+   * Creates a data transformation job in a specified project.
    * 
    * @param request - CreateETLRequest
    * @returns CreateETLResponse
@@ -973,7 +989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建ES导入任务
+   * Creates an ES or OpenSearch import job.
    * 
    * @param request - CreateElasticsearchIngestionRequest
    * @param headers - map
@@ -1025,7 +1041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建ES导入任务
+   * Creates an ES or OpenSearch import job.
    * 
    * @param request - CreateElasticsearchIngestionRequest
    * @returns CreateElasticsearchIngestionResponse
@@ -1037,7 +1053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建GCP Cloud Storage文件导入任务
+   * Creates a GCS file import task.
    * 
    * @param request - CreateGCSIngestionRequest
    * @param headers - map
@@ -1085,7 +1101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建GCP Cloud Storage文件导入任务
+   * Creates a GCS file import task.
    * 
    * @param request - CreateGCSIngestionRequest
    * @returns CreateGCSIngestionResponse
@@ -1150,17 +1166,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * * You can create up to 200 Logstores in each project.
-   * * If the retention period of a log reaches the data retention period that you specified for the Logstore, the log is deleted.
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:CreateLogStore`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
+   * - The Host header of the request consists of a project name and a Log Service endpoint. You must specify the project in this header.
+   * - You must create and obtain an AccessKey. For more information, see [AccessKey](https://help.aliyun.com/document_detail/29009.html).
+   * An Alibaba Cloud account\\"s AccessKey pair has full permissions for all API operations, which poses a security risk. For enhanced security, we strongly recommend using a RAM user to call API operations or perform routine O\\&M. You must grant the RAM user permissions to manage Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Ensure you have the name and region of the project where you want to create the Logstore. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create a maximum of 200 Logstores in a project.
+   * - Log Service automatically deletes logs after the specified data retention period expires.
+   * ### Authorization
+   * The following table lists the permission required to call this API. To grant this permission to a RAM user or RAM role, add the corresponding Action to a RAM policy statement.
+   * | Action               | Resource                                                                       |
+   * | :------------------- | :----------------------------------------------------------------------------- |
+   * | `log:CreateLogStore` | `acs:log:{#regionId}:{#accountId}:project/{#project}/logstore/{#logstoreName}` |
    * 
    * @param request - CreateLogStoreRequest
    * @param headers - map
@@ -1178,6 +1194,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoSplit)) {
       body["autoSplit"] = request.autoSplit;
+    }
+
+    if (!$dara.isNull(request.enableModify)) {
+      body["enableModify"] = request.enableModify;
     }
 
     if (!$dara.isNull(request.enableTracking)) {
@@ -1256,17 +1276,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * * You can create up to 200 Logstores in each project.
-   * * If the retention period of a log reaches the data retention period that you specified for the Logstore, the log is deleted.
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:CreateLogStore`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
+   * - The Host header of the request consists of a project name and a Log Service endpoint. You must specify the project in this header.
+   * - You must create and obtain an AccessKey. For more information, see [AccessKey](https://help.aliyun.com/document_detail/29009.html).
+   * An Alibaba Cloud account\\"s AccessKey pair has full permissions for all API operations, which poses a security risk. For enhanced security, we strongly recommend using a RAM user to call API operations or perform routine O\\&M. You must grant the RAM user permissions to manage Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Ensure you have the name and region of the project where you want to create the Logstore. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create a maximum of 200 Logstores in a project.
+   * - Log Service automatically deletes logs after the specified data retention period expires.
+   * ### Authorization
+   * The following table lists the permission required to call this API. To grant this permission to a RAM user or RAM role, add the corresponding Action to a RAM policy statement.
+   * | Action               | Resource                                                                       |
+   * | :------------------- | :----------------------------------------------------------------------------- |
+   * | `log:CreateLogStore` | `acs:log:{#regionId}:{#accountId}:project/{#project}/logstore/{#logstoreName}` |
    * 
    * @param request - CreateLogStoreRequest
    * @returns CreateLogStoreResponse
@@ -1338,9 +1358,6 @@ export default class Client extends OpenApi {
   /**
    * Creates a Logtail pipeline configuration.
    * 
-   * @remarks
-   * The UK (London) region is supported. Supported regions are constantly updated.
-   * 
    * @param request - CreateLogtailPipelineConfigRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1404,9 +1421,6 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a Logtail pipeline configuration.
-   * 
-   * @remarks
-   * The UK (London) region is supported. Supported regions are constantly updated.
    * 
    * @param request - CreateLogtailPipelineConfigRequest
    * @returns CreateLogtailPipelineConfigResponse
@@ -1490,7 +1504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建物化视图
+   * Creates a materialized view.
    * 
    * @param request - CreateMaterializedViewRequest
    * @param headers - map
@@ -1546,7 +1560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建物化视图
+   * Creates a materialized view.
    * 
    * @param request - CreateMaterializedViewRequest
    * @returns CreateMaterializedViewResponse
@@ -1561,10 +1575,10 @@ export default class Client extends OpenApi {
    * Creates a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - CreateMaxComputeExportRequest
    * @param headers - map
@@ -1615,10 +1629,10 @@ export default class Client extends OpenApi {
    * Creates a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - CreateMaxComputeExportRequest
    * @returns CreateMaxComputeExportResponse
@@ -1630,16 +1644,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Metricstore to store metric data.
+   * Creates a Metricstore to store metrics.
    * 
    * @remarks
-   * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 200 Logstores or Metricstores in a project.
-   * *   Metric data is automatically deleted when the retention period of the metric data ends.
+   * A [Metricstore](https://help.aliyun.com/document_detail/171723.html) is used to store [metrics](https://help.aliyun.com/document_detail/174965.html).
+   * - The Host in the request syntax consists of a project name and a Simple Log Service Endpoint. The project name must be specified in the Host.
+   * - An AccessKey pair is required. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has full permissions on all API operations. This poses a high security risk. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform operations and maintenance (O\\&M). If you use a RAM user, you must grant the RAM user the permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - The name and region of the project are required. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - A project can contain a maximum of 200 Logstores or Metricstores.
+   * - Metrics are deleted after the specified data retention period ends.
+   * - A Logstore and a Metricstore in the same project cannot have the same name.
    * 
    * @param request - CreateMetricStoreRequest
    * @param headers - map
@@ -1715,16 +1730,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Metricstore to store metric data.
+   * Creates a Metricstore to store metrics.
    * 
    * @remarks
-   * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 200 Logstores or Metricstores in a project.
-   * *   Metric data is automatically deleted when the retention period of the metric data ends.
+   * A [Metricstore](https://help.aliyun.com/document_detail/171723.html) is used to store [metrics](https://help.aliyun.com/document_detail/174965.html).
+   * - The Host in the request syntax consists of a project name and a Simple Log Service Endpoint. The project name must be specified in the Host.
+   * - An AccessKey pair is required. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has full permissions on all API operations. This poses a high security risk. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform operations and maintenance (O\\&M). If you use a RAM user, you must grant the RAM user the permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - The name and region of the project are required. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - A project can contain a maximum of 200 Logstores or Metricstores.
+   * - Metrics are deleted after the specified data retention period ends.
+   * - A Logstore and a Metricstore in the same project cannot have the same name.
    * 
    * @param request - CreateMetricStoreRequest
    * @returns CreateMetricStoreResponse
@@ -1736,7 +1752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ships logs from a Simple Log Service Logstore to an Object Storage Service (OSS) bucket.
+   * Exports logs from a Logstore to an OSS bucket.
    * 
    * @param request - CreateOSSExportRequest
    * @param headers - map
@@ -1784,7 +1800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ships logs from a Simple Log Service Logstore to an Object Storage Service (OSS) bucket.
+   * Exports logs from a Logstore to an OSS bucket.
    * 
    * @param request - CreateOSSExportRequest
    * @returns CreateOSSExportResponse
@@ -1796,7 +1812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an OSS-HDFS data shipping job in a project.
+   * Creates an export job from OSS to HDFS in a specified project.
    * 
    * @param request - CreateOSSHDFSExportRequest
    * @param headers - map
@@ -1844,7 +1860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an OSS-HDFS data shipping job in a project.
+   * Creates an export job from OSS to HDFS in a specified project.
    * 
    * @param request - CreateOSSHDFSExportRequest
    * @returns CreateOSSHDFSExportResponse
@@ -1856,7 +1872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Object Storage Service (OSS) data import job in a project.
+   * Creates an OSS import task in a specified project.
    * 
    * @param request - CreateOSSIngestionRequest
    * @param headers - map
@@ -1908,7 +1924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Object Storage Service (OSS) data import job in a project.
+   * Creates an OSS import task in a specified project.
    * 
    * @param request - CreateOSSIngestionRequest
    * @returns CreateOSSIngestionResponse
@@ -1921,6 +1937,18 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a project.
+   * 
+   * @remarks
+   * ### Usage notes
+   * - An AccessKey pair is required. For more information, see[AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations, which is high risk. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have permissions to manage Simple Log Service resources. For more information, see[Create a RAM user and authorize the RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - A project name must be globally unique in an Alibaba Cloud region and cannot be changed after the project is created.
+   * - For limits on the number of projects per Alibaba Cloud account, see[Basic resources](https://help.aliyun.com/document_detail/86660.html).
+   * ### Authorization information
+   * The following table describes the authorization information for this API operation. You can add this information to the Action element of a RAM policy statement to grant RAM users or RAM roles permissions to call this operation.
+   * | Action              | Resource in policy                                        |
+   * | :------------------ | :-------------------------------------------------------- |
+   * | `log:CreateProject` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - CreateProjectRequest
    * @param headers - map
@@ -1971,6 +1999,18 @@ export default class Client extends OpenApi {
   /**
    * Creates a project.
    * 
+   * @remarks
+   * ### Usage notes
+   * - An AccessKey pair is required. For more information, see[AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations, which is high risk. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have permissions to manage Simple Log Service resources. For more information, see[Create a RAM user and authorize the RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - A project name must be globally unique in an Alibaba Cloud region and cannot be changed after the project is created.
+   * - For limits on the number of projects per Alibaba Cloud account, see[Basic resources](https://help.aliyun.com/document_detail/86660.html).
+   * ### Authorization information
+   * The following table describes the authorization information for this API operation. You can add this information to the Action element of a RAM policy statement to grant RAM users or RAM roles permissions to call this operation.
+   * | Action              | Resource in policy                                        |
+   * | :------------------ | :-------------------------------------------------------- |
+   * | `log:CreateProject` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
+   * 
    * @param request - CreateProjectRequest
    * @returns CreateProjectResponse
    */
@@ -1981,7 +2021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建S3文件导入任务
+   * Creates an S3 file import job.
    * 
    * @param request - CreateS3IngestionRequest
    * @param headers - map
@@ -2033,7 +2073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建S3文件导入任务
+   * Creates an S3 file import job.
    * 
    * @param request - CreateS3IngestionRequest
    * @returns CreateS3IngestionResponse
@@ -2049,16 +2089,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:CreateSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+   * | Action                  | Resource                                                                                 |
+   * | :---------------------- | :--------------------------------------------------------------------------------------- |
+   * | `log:CreateSavedSearch` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}` |
    * 
    * @param request - CreateSavedSearchRequest
    * @param headers - map
@@ -2114,16 +2154,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:CreateSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+   * | Action                  | Resource                                                                                 |
+   * | :---------------------- | :--------------------------------------------------------------------------------------- |
+   * | `log:CreateSavedSearch` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}` |
    * 
    * @param request - CreateSavedSearchRequest
    * @returns CreateSavedSearchResponse
@@ -2135,7 +2175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Scheduled SQL job in a project.
+   * Creates a scheduled SQL job in a specified project.
    * 
    * @param request - CreateScheduledSQLRequest
    * @param headers - map
@@ -2187,7 +2227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Scheduled SQL job in a project.
+   * Creates a scheduled SQL job in a specified project.
    * 
    * @param request - CreateScheduledSQLRequest
    * @returns CreateScheduledSQLResponse
@@ -2199,10 +2239,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If you use the Standard SQL feature to analyze a large amount of data, the logs within the specified time range cannot be fully scanned in a single query request. In this case, the returned results may not contain all matched data. You can increase the number of shards to improve data read and write capabilities. However, this method takes effect only for incremental data. You can enable the Dedicated SQL feature to increase computing resources and the amount of data that can be analyzed in a single query request.
+   * If you use Standard SQL to analyze a large volume of data, a single query may not be able to scan all logs within a specified time range, which can result in incomplete data. Adding shards improves read and write performance, but this change applies only to new data. To analyze a larger volume of data in a single query, you can enable Dedicated SQL and increase its compute resources.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL.
+   * *Ensure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL before you use this operation.**
    * 
    * @param request - CreateSqlInstanceRequest
    * @param headers - map
@@ -2242,10 +2282,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If you use the Standard SQL feature to analyze a large amount of data, the logs within the specified time range cannot be fully scanned in a single query request. In this case, the returned results may not contain all matched data. You can increase the number of shards to improve data read and write capabilities. However, this method takes effect only for incremental data. You can enable the Dedicated SQL feature to increase computing resources and the amount of data that can be analyzed in a single query request.
+   * If you use Standard SQL to analyze a large volume of data, a single query may not be able to scan all logs within a specified time range, which can result in incomplete data. Adding shards improves read and write performance, but this change applies only to new data. To analyze a larger volume of data in a single query, you can enable Dedicated SQL and increase its compute resources.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL.
+   * *Ensure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/223777.html) of Dedicated SQL before you use this operation.**
    * 
    * @param request - CreateSqlInstanceRequest
    * @returns CreateSqlInstanceResponse
@@ -2362,7 +2402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteAgentInstanceConfig
+   * Deletes a process configuration.
    * 
    * @param tmpReq - DeleteAgentInstanceConfigRequest
    * @param headers - map
@@ -2401,7 +2441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteAgentInstanceConfig
+   * Deletes a process configuration.
    * 
    * @param request - DeleteAgentInstanceConfigRequest
    * @returns DeleteAgentInstanceConfigResponse
@@ -2451,7 +2491,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes data from a dataset.
+   * Deletes data from a dataset.
+   * 
+   * @remarks
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2476,7 +2519,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes data from a dataset.
+   * Deletes data from a dataset.
+   * 
+   * @remarks
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
    * @returns DeleteAnnotationDataResponse
    */
   async deleteAnnotationData(datasetId: string, annotationdataId: string): Promise<$_model.DeleteAnnotationDataResponse> {
@@ -2486,10 +2532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a dataset.
+   * Deletes a dataset. You can delete a dataset only if it contains no data structures.
    * 
    * @remarks
-   * You can delete a dataset only if no data exists in the dataset.
+   * The endpoint for this API is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2514,10 +2560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a dataset.
+   * Deletes a dataset. You can delete a dataset only if it contains no data structures.
    * 
    * @remarks
-   * You can delete a dataset only if no data exists in the dataset.
+   * The endpoint for this API is available only in the China (Shanghai) and Singapore regions.
    * @returns DeleteAnnotationDataSetResponse
    */
   async deleteAnnotationDataSet(datasetId: string): Promise<$_model.DeleteAnnotationDataSetResponse> {
@@ -2527,10 +2573,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a tag table.
+   * Deletes a custom annotation label.
    * 
    * @remarks
-   * Only non-built-in tags can be deleted.
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2555,10 +2601,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a tag table.
+   * Deletes a custom annotation label.
    * 
    * @remarks
-   * Only non-built-in tags can be deleted.
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
    * @returns DeleteAnnotationLabelResponse
    */
   async deleteAnnotationLabel(labelId: string): Promise<$_model.DeleteAnnotationLabelResponse> {
@@ -2568,7 +2614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Azure blob文件导入任务
+   * Create a file import task from Azure Blob
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2596,7 +2642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Azure blob文件导入任务
+   * Create a file import task from Azure Blob
    * @returns DeleteAzureBlobIngestionResponse
    */
   async deleteAzureBlobIngestion(project: string, azureBlobIngestionName: string): Promise<$_model.DeleteAzureBlobIngestionResponse> {
@@ -2606,10 +2652,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log collection policy from a cloud service.
+   * Deletes a log collection rule for an Alibaba Cloud product.
    * 
    * @remarks
-   * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+   * This API can be called only from endpoints in the China (Shanghai), Singapore, and China (Heyuan) Automotive Compliance Cloud (cn-heyuan-acdr-1) regions.
    * 
    * @param request - DeleteCollectionPolicyRequest
    * @param headers - map
@@ -2646,10 +2692,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log collection policy from a cloud service.
+   * Deletes a log collection rule for an Alibaba Cloud product.
    * 
    * @remarks
-   * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+   * This API can be called only from endpoints in the China (Shanghai), Singapore, and China (Heyuan) Automotive Compliance Cloud (cn-heyuan-acdr-1) regions.
    * 
    * @param request - DeleteCollectionPolicyRequest
    * @returns DeleteCollectionPolicyResponse
@@ -2665,12 +2711,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   If a Logtail configuration is applied to a machine group, you cannot collect data from the machine group after you delete the Logtail configuration.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - If a Logtail configuration is applied to a machine group, you cannot collect data from the machine group after you delete the Logtail configuration.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2702,12 +2748,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   If a Logtail configuration is applied to a machine group, you cannot collect data from the machine group after you delete the Logtail configuration.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - If a Logtail configuration is applied to a machine group, you cannot collect data from the machine group after you delete the Logtail configuration.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
    * @returns DeleteConfigResponse
    */
   async deleteConfig(project: string, configName: string): Promise<$_model.DeleteConfigResponse> {
@@ -2717,7 +2763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the consumption processor.
+   * Deletes a consume processor.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2745,7 +2791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the consumption processor.
+   * Deletes a consume processor.
    * @returns DeleteConsumeProcessorResponse
    */
   async deleteConsumeProcessor(project: string, processorName: string): Promise<$_model.DeleteConsumeProcessorResponse> {
@@ -2759,16 +2805,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:DeleteConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
+   * | Action                    | Resource                                                                                                          |
+   * | :------------------------ | :---------------------------------------------------------------------------------------------------------------- |
+   * | `log:DeleteConsumerGroup` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}` |
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2800,16 +2846,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - The name of the consumer group is obtained. For more information, see [ListConsumerGroup](https://help.aliyun.com/document_detail/74964.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:DeleteConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
+   * | Action                    | Resource                                                                                                          |
+   * | :------------------------ | :---------------------------------------------------------------------------------------------------------------- |
+   * | `log:DeleteConsumerGroup` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}` |
    * @returns DeleteConsumerGroupResponse
    */
   async deleteConsumerGroup(project: string, logstore: string, consumerGroup: string): Promise<$_model.DeleteConsumerGroupResponse> {
@@ -2823,10 +2869,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2858,10 +2904,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * @returns DeleteDashboardResponse
    */
   async deleteDashboard(project: string, dashboardName: string): Promise<$_model.DeleteDashboardResponse> {
@@ -2915,7 +2961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a download task.
+   * Deletes a download job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2943,7 +2989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a download task.
+   * Deletes a download job.
    * @returns DeleteDownloadJobResponse
    */
   async deleteDownloadJob(project: string, downloadJobName: string): Promise<$_model.DeleteDownloadJobResponse> {
@@ -2991,7 +3037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ES导入任务
+   * Deletes an ES/OpenSearch ingestion task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3019,7 +3065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ES导入任务
+   * Deletes an ES/OpenSearch ingestion task.
    * @returns DeleteElasticsearchIngestionResponse
    */
   async deleteElasticsearchIngestion(project: string, esIngestionName: string): Promise<$_model.DeleteElasticsearchIngestionResponse> {
@@ -3159,7 +3205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the service log feature for a project.
+   * Deletes the service log for a specified project.
+   * 
+   * @remarks
+   * The host must be specified as a combination of the project name and the Simple Log Service endpoint.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3187,7 +3236,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the service log feature for a project.
+   * Deletes the service log for a specified project.
+   * 
+   * @remarks
+   * The host must be specified as a combination of the project name and the Simple Log Service endpoint.
    * @returns DeleteLoggingResponse
    */
   async deleteLogging(project: string): Promise<$_model.DeleteLoggingResponse> {
@@ -3287,7 +3339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除物化视图
+   * Deletes a materialized view.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3315,7 +3367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除物化视图
+   * Deletes a materialized view.
    * @returns DeleteMaterializedViewResponse
    */
   async deleteMaterializedView(project: string, name: string): Promise<$_model.DeleteMaterializedViewResponse> {
@@ -3328,10 +3380,10 @@ export default class Client extends OpenApi {
    * Deletes a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3362,10 +3414,10 @@ export default class Client extends OpenApi {
    * Deletes a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * @returns DeleteMaxComputeExportResponse
    */
   async deleteMaxComputeExport(project: string, mcExportName: string): Promise<$_model.DeleteMaxComputeExportResponse> {
@@ -3379,13 +3431,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
-   * *   You must specify an existing Metricstore.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - You must specify an existing Metricstore.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 200 Logstores or Metricstores in a project.
-   * *   Metric data is automatically deleted when the retention period of the metric data ends.
+   * - The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create up to 200 Logstores or Metricstores in a project.
+   * - Metric data is automatically deleted when the retention period of the metric data ends.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3417,13 +3469,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
-   * *   You must specify an existing Metricstore.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - You must specify an existing Metricstore.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 200 Logstores or Metricstores in a project.
-   * *   Metric data is automatically deleted when the retention period of the metric data ends.
+   * - The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create up to 200 Logstores or Metricstores in a project.
+   * - Metric data is automatically deleted when the retention period of the metric data ends.
    * @returns DeleteMetricStoreResponse
    */
   async deleteMetricStore(project: string, name: string): Promise<$_model.DeleteMetricStoreResponse> {
@@ -3433,7 +3485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Object Storage Service (OSS) data shipping job.
+   * Deletes a specified OSS data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3461,7 +3513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Object Storage Service (OSS) data shipping job.
+   * Deletes a specified OSS data shipping job.
    * @returns DeleteOSSExportResponse
    */
   async deleteOSSExport(project: string, ossExportName: string): Promise<$_model.DeleteOSSExportResponse> {
@@ -3509,7 +3561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Object Storage Service (OSS) data import job.
+   * Deletes an OSS import task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3537,7 +3589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Object Storage Service (OSS) data import job.
+   * Deletes an OSS import task.
    * @returns DeleteOSSIngestionResponse
    */
   async deleteOSSIngestion(project: string, ossIngestionName: string): Promise<$_model.DeleteOSSIngestionResponse> {
@@ -3547,19 +3599,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a project.
+   * Deletes a specified project.
    * 
    * @remarks
-   * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * After you delete a project, all logs stored in the project and the configurations of the project are deleted and cannot be restored. Proceed with caution.
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:DeleteProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
+   * ### Description
+   * - The Host parameter consists of a project name and a Simple Log Service Endpoint. You must specify the project name in the Host parameter.
+   * - You must create and obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has permissions on all API operations, which poses a high security threat. We recommend that you use a RAM user to call API operations or perform O\\&M. The RAM user must have the permissions to operate on Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - When you delete a project, all its log data and configurations are released and cannot be recovered. To prevent data loss, confirm the action before you delete the project.
+   * ### Authorization
+   * The following table lists the authorization information for this API operation. To grant a RAM user or RAM role the permissions to call this API operation, add this information to the Action element of a RAM access policy statement.
+   * | Action              | Resource description in an authorization policy           |
+   * | :------------------ | :-------------------------------------------------------- |
+   * | `log:DeleteProject` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - DeleteProjectRequest
    * @param headers - map
@@ -3595,19 +3647,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a project.
+   * Deletes a specified project.
    * 
    * @remarks
-   * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * After you delete a project, all logs stored in the project and the configurations of the project are deleted and cannot be restored. Proceed with caution.
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:DeleteProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
+   * ### Description
+   * - The Host parameter consists of a project name and a Simple Log Service Endpoint. You must specify the project name in the Host parameter.
+   * - You must create and obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has permissions on all API operations, which poses a high security threat. We recommend that you use a RAM user to call API operations or perform O\\&M. The RAM user must have the permissions to operate on Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - When you delete a project, all its log data and configurations are released and cannot be recovered. To prevent data loss, confirm the action before you delete the project.
+   * ### Authorization
+   * The following table lists the authorization information for this API operation. To grant a RAM user or RAM role the permissions to call this API operation, add this information to the Action element of a RAM access policy statement.
+   * | Action              | Resource description in an authorization policy           |
+   * | :------------------ | :-------------------------------------------------------- |
+   * | `log:DeleteProject` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - DeleteProjectRequest
    * @returns DeleteProjectResponse
@@ -3623,10 +3675,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3658,10 +3710,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * @returns DeleteProjectPolicyResponse
    */
   async deleteProjectPolicy(project: string): Promise<$_model.DeleteProjectPolicyResponse> {
@@ -3671,7 +3723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除s3导入任务
+   * Deletes an S3 ingestion task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3699,7 +3751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除s3导入任务
+   * Deletes an S3 ingestion task.
    * @returns DeleteS3IngestionResponse
    */
   async deleteS3Ingestion(project: string, s3IngestionName: string): Promise<$_model.DeleteS3IngestionResponse> {
@@ -3713,16 +3765,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * After you delete a saved search, it cannot be restored. Proceed with caution.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - After you delete a saved search, it cannot be restored. Proceed with caution.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:DeleteSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+   * | Action                  | Resource                                                                                 |
+   * | :---------------------- | :--------------------------------------------------------------------------------------- |
+   * | `log:DeleteSavedSearch` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}` |
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3754,16 +3806,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * After you delete a saved search, it cannot be restored. Proceed with caution.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - After you delete a saved search, it cannot be restored. Proceed with caution.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:DeleteSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+   * | Action                  | Resource                                                                                 |
+   * | :---------------------- | :--------------------------------------------------------------------------------------- |
+   * | `log:DeleteSavedSearch` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}` |
    * @returns DeleteSavedSearchResponse
    */
   async deleteSavedSearch(project: string, savedsearchName: string): Promise<$_model.DeleteSavedSearchResponse> {
@@ -3849,7 +3901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries supported regions.
+   * Queries the available regions.
    * 
    * @param request - DescribeRegionsRequest
    * @param headers - map
@@ -3882,7 +3934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries supported regions.
+   * Queries the available regions.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -4046,7 +4098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetAgentInstanceConfig
+   * Retrieves a process-level configuration.
    * 
    * @param tmpReq - GetAgentInstanceConfigRequest
    * @param headers - map
@@ -4085,7 +4137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetAgentInstanceConfig
+   * Retrieves a process-level configuration.
    * 
    * @param request - GetAgentInstanceConfigRequest
    * @returns GetAgentInstanceConfigResponse
@@ -4135,7 +4187,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data in datasets based on the unique identifier of the data.
+   * Retrieves a data struct from a dataset by its unique identity.
+   * 
+   * @remarks
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4160,7 +4215,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data in datasets based on the unique identifier of the data.
+   * Retrieves a data struct from a dataset by its unique identity.
+   * 
+   * @remarks
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * @returns GetAnnotationDataResponse
    */
   async getAnnotationData(datasetId: string, annotationdataId: string): Promise<$_model.GetAnnotationDataResponse> {
@@ -4170,7 +4228,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a dataset.
+   * Retrieves information about a dataset.
+   * 
+   * @remarks
+   * The endpoint for this API is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4195,7 +4256,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a dataset.
+   * Retrieves information about a dataset.
+   * 
+   * @remarks
+   * The endpoint for this API is available only in the China (Shanghai) and Singapore regions.
    * @returns GetAnnotationDataSetResponse
    */
   async getAnnotationDataSet(datasetId: string): Promise<$_model.GetAnnotationDataSetResponse> {
@@ -4205,7 +4269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a tag table by using a label ID.
+   * Retrieves a label table by its ID.
+   * 
+   * @remarks
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4230,7 +4297,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a tag table by using a label ID.
+   * Retrieves a label table by its ID.
+   * 
+   * @remarks
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
    * @returns GetAnnotationLabelResponse
    */
   async getAnnotationLabel(labelId: string): Promise<$_model.GetAnnotationLabelResponse> {
@@ -4328,7 +4398,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取异步SQL的状态以及结果
+   * Retrieves the status and results of an asynchronous SQL query.
+   * 
+   * @remarks
+   * After you submit an SQL request using the SubmitAsyncSql operation, you can use this operation to poll the execution status of the request. You can set the polling interval to 1 second or longer. When the query is complete, use the GetAsyncSql operation to retrieve the results in pages.
    * 
    * @param request - GetAsyncSqlRequest
    * @param headers - map
@@ -4368,7 +4441,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取异步SQL的状态以及结果
+   * Retrieves the status and results of an asynchronous SQL query.
+   * 
+   * @remarks
+   * After you submit an SQL request using the SubmitAsyncSql operation, you can use this operation to poll the execution status of the request. You can set the polling interval to 1 second or longer. When the query is complete, use the GetAsyncSql operation to retrieve the results in pages.
    * 
    * @param request - GetAsyncSqlRequest
    * @returns GetAsyncSqlResponse
@@ -4380,7 +4456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Azure blob文件导入任务信息
+   * Gets the details of an Azure Blob ingestion.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4408,7 +4484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Azure blob文件导入任务信息
+   * Gets the details of an Azure Blob ingestion.
    * @returns GetAzureBlobIngestionResponse
    */
   async getAzureBlobIngestion(project: string, azureBlobIngestionName: string): Promise<$_model.GetAzureBlobIngestionResponse> {
@@ -4472,10 +4548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a log collection policy.
+   * You can call the GetCollectionPolicy operation to retrieve the details of a specific rule.
    * 
    * @remarks
-   * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+   * The endpoint for this operation is available only in the China (Shanghai), Singapore, and China (Heyuan) Automotive Compliance Cloud (cn-heyuan-acdr-1) regions.
    * 
    * @param request - GetCollectionPolicyRequest
    * @param headers - map
@@ -4512,10 +4588,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a log collection policy.
+   * You can call the GetCollectionPolicy operation to retrieve the details of a specific rule.
    * 
    * @remarks
-   * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+   * The endpoint for this operation is available only in the China (Shanghai), Singapore, and China (Heyuan) Automotive Compliance Cloud (cn-heyuan-acdr-1) regions.
    * 
    * @param request - GetCollectionPolicyRequest
    * @returns GetCollectionPolicyResponse
@@ -4527,15 +4603,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Logtail configuration.
+   * Gets the details of a Logtail configuration.
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4563,15 +4639,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Logtail configuration.
+   * Gets the details of a Logtail configuration.
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The name of the required Logtail configuration is obtained. For more information, see [ListConfig](https://help.aliyun.com/document_detail/29043.html).
    * @returns GetConfigResponse
    */
   async getConfig(project: string, configName: string): Promise<$_model.GetConfigResponse> {
@@ -4581,7 +4657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of a consumer processor
+   * Retrieves the details of a consume processor.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4609,7 +4685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of a consumer processor
+   * Retrieves the details of a consume processor.
    * @returns GetConsumeProcessorResponse
    */
   async getConsumeProcessor(project: string, processorName: string): Promise<$_model.GetConsumeProcessorResponse> {
@@ -4623,18 +4699,18 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
-   * * The values of the pack_id and pack_meta fields are obtained before you query logs. The fields are internal fields, and you can obtain the values by using the debugging feature of your browser in the Simple Log Service console.
+   * - You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * - The values of the pack_id and pack_meta fields are obtained before you query logs. The fields are internal fields, and you can obtain the values by using the debugging feature of your browser in the Simple Log Service console.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetLogStoreContextLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
+   * | Action                       | Resource                                                                           |
+   * | :--------------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:GetLogStoreContextLogs` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - GetContextLogsRequest
    * @param headers - map
@@ -4686,18 +4762,18 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
-   * * The values of the pack_id and pack_meta fields are obtained before you query logs. The fields are internal fields, and you can obtain the values by using the debugging feature of your browser in the Simple Log Service console.
+   * - You can specify a log as the start log. The time range of a contextual query is one day before and one day after the generation time of the start log.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * - The values of the pack_id and pack_meta fields are obtained before you query logs. The fields are internal fields, and you can obtain the values by using the debugging feature of your browser in the Simple Log Service console.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetLogStoreContextLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
+   * | Action                       | Resource                                                                           |
+   * | :--------------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:GetLogStoreContextLogs` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - GetContextLogsRequest
    * @returns GetContextLogsResponse
@@ -4709,15 +4785,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a cursor based on a point in time.
+   * Retrieves a cursor based on a specified time.
    * 
    * @remarks
-   * ### Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   The following content describes the relationships among a cursor, project, Logstore, and shard:
-   *     *   A project can have multiple Logstores.
-   *     *   A Logstore can have multiple shards.
-   *     *   You can use a cursor to obtain a log in a shard.
+   * ### Description
+   * - The host consists of a project name and a Simple Log Service endpoint. You must specify the project name in the host.
+   * - The relationship among a cursor, a project, a Logstore, and a shard is as follows:
+   *   - A project contains multiple Logstores.
+   *   - Each Logstore contains multiple shards.
+   *   - A cursor indicates the position of a specific log.
    * 
    * @param request - GetCursorRequest
    * @param headers - map
@@ -4753,15 +4829,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a cursor based on a point in time.
+   * Retrieves a cursor based on a specified time.
    * 
    * @remarks
-   * ### Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   The following content describes the relationships among a cursor, project, Logstore, and shard:
-   *     *   A project can have multiple Logstores.
-   *     *   A Logstore can have multiple shards.
-   *     *   You can use a cursor to obtain a log in a shard.
+   * ### Description
+   * - The host consists of a project name and a Simple Log Service endpoint. You must specify the project name in the host.
+   * - The relationship among a cursor, a project, a Logstore, and a shard is as follows:
+   *   - A project contains multiple Logstores.
+   *   - Each Logstore contains multiple shards.
+   *   - A cursor indicates the position of a specific log.
    * 
    * @param request - GetCursorRequest
    * @returns GetCursorResponse
@@ -4773,7 +4849,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the server time of a cursor.
+   * Retrieves the server time that corresponds to a cursor.
+   * 
+   * @remarks
+   * ### Description
+   * - The host consists of a project name and a Simple Log Service endpoint. You must specify the project in the host.
+   * - Create and obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair that belongs to an Alibaba Cloud account has access permissions on all API operations. Using this AccessKey pair poses a high security threat. For security, we recommend that you create and use a RAM user to call API operations or perform routine operations and maintenance (O\\&M). The RAM user must be granted the permissions to perform operations on Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, the project\\"s region, and the logstore name. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a logstore](https://help.aliyun.com/document_detail/48990.html).
+   * ### Authorization
+   * The following table describes the authorization information for this operation. Add this information to the Action element of a RAM policy to grant a RAM user or RAM role the permissions to call this API operation.
+   * | Action                | Resource description in an authorization policy                                    |
+   * | --------------------- | ---------------------------------------------------------------------------------- |
+   * | `log:GetCursorOrData` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - GetCursorTimeRequest
    * @param headers - map
@@ -4809,7 +4897,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the server time of a cursor.
+   * Retrieves the server time that corresponds to a cursor.
+   * 
+   * @remarks
+   * ### Description
+   * - The host consists of a project name and a Simple Log Service endpoint. You must specify the project in the host.
+   * - Create and obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair that belongs to an Alibaba Cloud account has access permissions on all API operations. Using this AccessKey pair poses a high security threat. For security, we recommend that you create and use a RAM user to call API operations or perform routine operations and maintenance (O\\&M). The RAM user must be granted the permissions to perform operations on Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, the project\\"s region, and the logstore name. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a logstore](https://help.aliyun.com/document_detail/48990.html).
+   * ### Authorization
+   * The following table describes the authorization information for this operation. Add this information to the Action element of a RAM policy to grant a RAM user or RAM role the permissions to call this API operation.
+   * | Action                | Resource description in an authorization policy                                    |
+   * | --------------------- | ---------------------------------------------------------------------------------- |
+   * | `log:GetCursorOrData` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - GetCursorTimeRequest
    * @returns GetCursorTimeResponse
@@ -4825,10 +4925,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4860,10 +4960,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * @returns GetDashboardResponse
    */
   async getDashboard(project: string, dashboardName: string): Promise<$_model.GetDashboardResponse> {
@@ -4873,7 +4973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a download task.
+   * Retrieves information about a download task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4901,7 +5001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a download task.
+   * Retrieves information about a download task.
    * @returns GetDownloadJobResponse
    */
   async getDownloadJob(project: string, downloadJobName: string): Promise<$_model.GetDownloadJobResponse> {
@@ -4911,7 +5011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a data transformation job.
+   * Retrieves the configuration of a specified extract, transform, and load (ETL) job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4939,7 +5039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a data transformation job.
+   * Retrieves the configuration of a specified extract, transform, and load (ETL) job.
    * @returns GetETLResponse
    */
   async getETL(project: string, etlName: string): Promise<$_model.GetETLResponse> {
@@ -4949,7 +5049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ElasticSearch导入任务信息
+   * Retrieves information about an ES/OpenSearch import job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4977,7 +5077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ElasticSearch导入任务信息
+   * Retrieves information about an ES/OpenSearch import job.
    * @returns GetElasticsearchIngestionResponse
    */
   async getElasticsearchIngestion(project: string, esIngestionName: string): Promise<$_model.GetElasticsearchIngestionResponse> {
@@ -4987,7 +5087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取GCP Cloud Storage文件导入任务
+   * Retrieves a Google Cloud Storage (GCS) file import task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5015,7 +5115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取GCP Cloud Storage文件导入任务
+   * Retrieves a Google Cloud Storage (GCS) file import task.
    * @returns GetGCSIngestionResponse
    */
   async getGCSIngestion(project: string, gcsIngestionName: string): Promise<$_model.GetGCSIngestionResponse> {
@@ -5025,19 +5125,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the distribution of logs that meet the specified search conditions in a Logstore.
+   * You can call the GetHistograms operation to query the distribution of logs that meet the search criteria in a specified Logstore.
    * 
    * @remarks
-   * ### Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   The time range is evenly divided into subintervals in the responses. If the time range that is specified in the request remains unchanged, the subintervals in the responses also remain unchanged.
-   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
-   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
-   *     *   Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds.
-   *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval [-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
-   *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
-   * > Simple Log Service calculates the difference between the log time that is specified by the __time__ field and the receiving time that is specified by the __tag__:__receive_time__ field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval [-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
-   * *   Simple Log Service provides examples on how to call the GetHistograms operation by using Simple Log Service SDK for Java. For more information, see [Use GetHistograms to query the distribution of logs](https://help.aliyun.com/document_detail/462234.html).
+   * ### Interface description
+   * - The Host in the request syntax consists of the project name and the Simple Log Service Endpoint. You must specify the project in the Host.
+   * - The subintervals in the response are divided consistently. If the requested time range is the same, the subinterval division in the response is also the same.
+   * - If the number of logs in a query varies greatly, the Simple Log Service application programming interface (API) cannot predict how many calls are needed to retrieve the full result. You must check the status of the progress member in each response. This status indicates whether to call the operation again to retrieve the final result. Each repeated call consumes the same number of query CUs.
+   * - The delay between when a log is written to a Logstore and when it can be queried using the GetHistograms and GetLogs operations varies by log type. Simple Log Service classifies logs into two types based on their timestamps:
+   *   - Real-time data: The log timestamp is within the range of (-180 seconds, +900 seconds] relative to the server\\"s current time. For example, if a log\\"s timestamp is UTC 2014-09-25 12:03:00 and the server receives it at UTC 2014-09-25 12:05:00, the log is processed as real-time data. The maximum latency for real-time data to become searchable is 3 seconds. In 99.9% of cases, the data is searchable within 1 second.
+   *   - Historical data: The log timestamp is within the range of [-7 × 86400 seconds, -180 seconds) relative to the server\\"s current time. For example, if a log\\"s timestamp is UTC 2014-09-25 12:00:00 and the server receives it at UTC 2014-09-25 12:05:00, the log is processed as historical data. This typically happens during data backfill.
+   * > Simple Log Service calculates the difference between the log time (the __time__ field) and the time the server received the log (the __tag__:__receive_time__ field). If the difference is in the range of (-180 seconds, 900 seconds], the data is real-time data. If the difference is in the range of [-7 × 86400 seconds, -180 seconds), the data is historical data.
+   * - Simple Log Service provides a Java software development kit (SDK) example for using the GetHistograms query. For more information, see [Use GetHistograms to query log distribution](https://help.aliyun.com/document_detail/462234.html).
    * 
    * @param request - GetHistogramsRequest
    * @param headers - map
@@ -5085,19 +5184,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the distribution of logs that meet the specified search conditions in a Logstore.
+   * You can call the GetHistograms operation to query the distribution of logs that meet the search criteria in a specified Logstore.
    * 
    * @remarks
-   * ### Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   The time range is evenly divided into subintervals in the responses. If the time range that is specified in the request remains unchanged, the subintervals in the responses also remain unchanged.
-   * *   If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete result. In this case, you must check the value of the progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete result. Each time you call this operation, the same number of charge units (CUs) are consumed.
-   * *   After a log is written to a Logstore, you can call the GetHistograms or GetLogs operation to query the log after a short latency. The latency of a query varies based on the type of the log. Simple Log Service classifies logs into the following types based on the log time:
-   *     *   Real-time data: The difference between the time record in a log and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds.
-   *     *   Historical data: The difference between the time record in a log and the current time on Simple Log Service is within the interval [-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios.
-   *     After real-time data is written to a Logstore, the data can be queried with a maximum latency of 3 seconds. For 99.9% of queries, the latency is no more than 1 second.
-   * > Simple Log Service calculates the difference between the log time that is specified by the __time__ field and the receiving time that is specified by the __tag__:__receive_time__ field for each log. The receiving time indicates the time at which Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds], Simple Log Service processes the log as real-time data. If the difference is within the interval [-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
-   * *   Simple Log Service provides examples on how to call the GetHistograms operation by using Simple Log Service SDK for Java. For more information, see [Use GetHistograms to query the distribution of logs](https://help.aliyun.com/document_detail/462234.html).
+   * ### Interface description
+   * - The Host in the request syntax consists of the project name and the Simple Log Service Endpoint. You must specify the project in the Host.
+   * - The subintervals in the response are divided consistently. If the requested time range is the same, the subinterval division in the response is also the same.
+   * - If the number of logs in a query varies greatly, the Simple Log Service application programming interface (API) cannot predict how many calls are needed to retrieve the full result. You must check the status of the progress member in each response. This status indicates whether to call the operation again to retrieve the final result. Each repeated call consumes the same number of query CUs.
+   * - The delay between when a log is written to a Logstore and when it can be queried using the GetHistograms and GetLogs operations varies by log type. Simple Log Service classifies logs into two types based on their timestamps:
+   *   - Real-time data: The log timestamp is within the range of (-180 seconds, +900 seconds] relative to the server\\"s current time. For example, if a log\\"s timestamp is UTC 2014-09-25 12:03:00 and the server receives it at UTC 2014-09-25 12:05:00, the log is processed as real-time data. The maximum latency for real-time data to become searchable is 3 seconds. In 99.9% of cases, the data is searchable within 1 second.
+   *   - Historical data: The log timestamp is within the range of [-7 × 86400 seconds, -180 seconds) relative to the server\\"s current time. For example, if a log\\"s timestamp is UTC 2014-09-25 12:00:00 and the server receives it at UTC 2014-09-25 12:05:00, the log is processed as historical data. This typically happens during data backfill.
+   * > Simple Log Service calculates the difference between the log time (the __time__ field) and the time the server received the log (the __tag__:__receive_time__ field). If the difference is in the range of (-180 seconds, 900 seconds], the data is real-time data. If the difference is in the range of [-7 × 86400 seconds, -180 seconds), the data is historical data.
+   * - Simple Log Service provides a Java software development kit (SDK) example for using the GetHistograms query. For more information, see [Use GetHistograms to query log distribution](https://help.aliyun.com/document_detail/462234.html).
    * 
    * @param request - GetHistogramsRequest
    * @returns GetHistogramsResponse
@@ -5155,7 +5253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an ingest processor.
+   * Retrieves information about an ingest processor.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5183,7 +5281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an ingest processor.
+   * Retrieves information about an ingest processor.
    * @returns GetIngestProcessorResponse
    */
   async getIngestProcessor(project: string, processorName: string): Promise<$_model.GetIngestProcessorResponse> {
@@ -5193,11 +5291,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Logstore.
+   * Retrieves the details of a Logstore.
    * 
    * @remarks
-   * ### Usage notes
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * ### Description
+   * The host consists of the project name and the Log Service endpoint.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5225,11 +5323,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Logstore.
+   * Retrieves the details of a Logstore.
    * 
    * @remarks
-   * ### Usage notes
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * ### Description
+   * The host consists of the project name and the Log Service endpoint.
    * @returns GetLogStoreResponse
    */
   async getLogStore(project: string, logstore: string): Promise<$_model.GetLogStoreResponse> {
@@ -5239,7 +5337,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志库配置
+   * Retrieves the configuration of a Logstore.
+   * 
+   * @remarks
+   * - The `Host` in the request syntax consists of the Project name and the Log Service endpoint.
+   * - An AccessKey pair is available. For more information, see [AccessKey](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey of an Alibaba Cloud account has full permissions on all APIs and poses a high security risk. Use a RAM user to make API calls or perform routine operations. Grant the RAM user the required permissions to access Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - The Project name, region, and Logstore name are obtained. For more information, see [Manage Project](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * ### Authorization
+   * To grant a RAM user or RAM role the permission to call this operation, add the following Action to a RAM permission policy.
+   * | Action                  | Resource                                                                           |
+   * | :---------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:GetLogStoreConfig` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5267,7 +5376,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志库配置
+   * Retrieves the configuration of a Logstore.
+   * 
+   * @remarks
+   * - The `Host` in the request syntax consists of the Project name and the Log Service endpoint.
+   * - An AccessKey pair is available. For more information, see [AccessKey](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey of an Alibaba Cloud account has full permissions on all APIs and poses a high security risk. Use a RAM user to make API calls or perform routine operations. Grant the RAM user the required permissions to access Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - The Project name, region, and Logstore name are obtained. For more information, see [Manage Project](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * ### Authorization
+   * To grant a RAM user or RAM role the permission to call this operation, add the following Action to a RAM permission policy.
+   * | Action                  | Resource                                                                           |
+   * | :---------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:GetLogStoreConfig` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * @returns GetLogStoreConfigResponse
    */
   async getLogStoreConfig(project: string, logstore: string): Promise<$_model.GetLogStoreConfigResponse> {
@@ -5359,28 +5479,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of a Logstore in a project.
+   * Queries log data from a Logstore in the specified project.
    * 
    * @remarks
-   * ### Usage notes
-   * **Note** Simple Log Service allows you to create a Scheduled SQL job. For more information, see [Create a scheduled SQL job](https://help.aliyun.com/document_detail/286457.html).
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
-   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
-   * * If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete results. In this case, you must check the value of the x-log-progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete results. Each time you call this operation, the same number of charge units (CUs) are consumed.
-   * * After a log is written to a Logstore, you can call the GetHistograms or the GetLogs operation to query the log. The latency of the query varies based on the type of the log. Simple Log Service classifies logs into the following types based on log timestamps:
-   *   * Real-time data: The difference between the time record in a log of this type and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds\\]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. This type of log is usually generated in common scenarios.
-   *   * Historical data: The difference between the time record in a log of this type and the current time on Simple Log Service is within the interval [-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios. After real-time data is written to a Logstore, the data can be queried with an approximate latency of 3 seconds.
-   * **Note** Simple Log Service calculates the difference between the log time that is specified by the __time__ field and the receiving time that is specified by the __tag__:**receive_time** field for each log. The receiving time indicates when Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds\\], Simple Log Service processes the log as real-time data. If the difference is within the interval [-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
-   * * Simple Log Service provides examples on how to call the GetLogs operation by using Simple Log Service SDK for Java and Simple Log Service SDK for Python. For more information, see [Examples of calling the GetLogs operation by using Simple Log Service SDK for Java](https://help.aliyun.com/document_detail/407683.html) and [Examples of calling the GetLogs operation by using Simple Log Service SDK for Python](https://help.aliyun.com/document_detail/407684.html).
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
+   * ###
+   * > Simple Log Service supports scheduled SQL jobs. For details, see [Create a scheduled SQL job](https://help.aliyun.com/document_detail/286457.html).
+   * - The Host in the request syntax consists of the project name and the Simple Log Service endpoint. Specify the project name in the Host.
+   * - Create and obtain an AccessKey pair. For details, see [AccessKey pair](https://help.aliyun.com/document_detail/2766629.html).
+   * Create and use a RAM user to make API calls or perform routine O\\&M. Using an Alibaba Cloud account AccessKey pair grants access to all APIs and poses a high security risk. Ensure the RAM user has the required permissions for Simple Log Service resources. For details, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, region, and Logstore name for the logs to query. See [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Simple Log Service imposes limits on log queries. Design appropriate query and analytic statements and set a reasonable time range. See [Log query limits](https://help.aliyun.com/document_detail/43772.html) and [Log analysis limits](https://help.aliyun.com/document_detail/53608.html).
+   * - Configure indexes before querying logs. See [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * - When the number of matching logs varies significantly, the API cannot predict how many calls are needed to retrieve the complete result. Check the `x-log-progress` header in each response to determine whether to repeat the call. Each repeated call consumes the same number of query capacity units (CUs).
+   * - After a log is written to a Logstore, the latency before it becomes queryable through the GetHistograms and GetLogs operations depends on the log type. Simple Log Service classifies logs into two types based on their timestamps:
+   *   - Real-time data: The log timestamp falls within (-180 seconds, 900 seconds] relative to the current server time. For example, if a log is generated at UTC 2014-09-25 12:03:00 and is received by the server at UTC 2014-09-25 12:05:00, the log is classified as real-time data. This is typical in normal scenarios. Real-time data becomes queryable in about 3 seconds.
+   *   - Historical data: The log timestamp falls within [-7 x 86,400 seconds, -180 seconds) relative to the current server time. For example, if a log is generated at UTC 2014-09-25 12:00:00 and is received by the server at UTC 2014-09-25 12:05:00, the log is classified as historical data. This is typical in data backfill scenarios.
+   * > Simple Log Service calculates the difference between the log time (the __time__ field) and the server receipt time (the __tag__: **receive_time** field). If the difference falls within (-180 seconds, 900 seconds], the log is real-time data. If the difference falls within [-7 x 86,400 seconds, -180 seconds), the log is historical data.
+   * - Simple Log Service provides Java and Python SDK examples for the GetLogs operation. See [GetLogs examples for Java](https://help.aliyun.com/document_detail/407683.html) and [GetLogs examples for Python](https://help.aliyun.com/document_detail/407684.html).
+   * ### Authorization
+   * The following table describes the authorization information required for this operation. Add this information to the Action element of a RAM access policy statement to grant RAM users or RAM roles the permission to call this operation.
+   * | Action                | Resource                                                                           |
+   * | :-------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:GetLogStoreLogs` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - GetLogsRequest
    * @param headers - map
@@ -5444,28 +5564,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of a Logstore in a project.
+   * Queries log data from a Logstore in the specified project.
    * 
    * @remarks
-   * ### Usage notes
-   * **Note** Simple Log Service allows you to create a Scheduled SQL job. For more information, see [Create a scheduled SQL job](https://help.aliyun.com/document_detail/286457.html).
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
-   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
-   * * If the number of logs in a Logstore significantly changes, Simple Log Service cannot predict the number of times that you must call this operation to obtain the complete results. In this case, you must check the value of the x-log-progress parameter in the response of each request and determine whether to call this operation one more time to obtain the complete results. Each time you call this operation, the same number of charge units (CUs) are consumed.
-   * * After a log is written to a Logstore, you can call the GetHistograms or the GetLogs operation to query the log. The latency of the query varies based on the type of the log. Simple Log Service classifies logs into the following types based on log timestamps:
-   *   * Real-time data: The difference between the time record in a log of this type and the current time on Simple Log Service is within the interval (-180 seconds,900 seconds\\]. For example, if a log was generated at 12:03:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as real-time data. This type of log is usually generated in common scenarios.
-   *   * Historical data: The difference between the time record in a log of this type and the current time on Simple Log Service is within the interval [-604,800 seconds,-180 seconds). For example, if a log was generated at 12:00:00, September 25, 2014 (UTC) and Simple Log Service received the log at 12:05:00, September 25, 2014 (UTC), Simple Log Service processes the log as historical data. This type of log is usually generated in data backfill scenarios. After real-time data is written to a Logstore, the data can be queried with an approximate latency of 3 seconds.
-   * **Note** Simple Log Service calculates the difference between the log time that is specified by the __time__ field and the receiving time that is specified by the __tag__:**receive_time** field for each log. The receiving time indicates when Simple Log Service receives the log. If the difference is within the interval (-180 seconds,900 seconds\\], Simple Log Service processes the log as real-time data. If the difference is within the interval [-604,800 seconds,-180 seconds), Simple Log Service processes the log as historical data.
-   * * Simple Log Service provides examples on how to call the GetLogs operation by using Simple Log Service SDK for Java and Simple Log Service SDK for Python. For more information, see [Examples of calling the GetLogs operation by using Simple Log Service SDK for Java](https://help.aliyun.com/document_detail/407683.html) and [Examples of calling the GetLogs operation by using Simple Log Service SDK for Python](https://help.aliyun.com/document_detail/407684.html).
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}`|
+   * ###
+   * > Simple Log Service supports scheduled SQL jobs. For details, see [Create a scheduled SQL job](https://help.aliyun.com/document_detail/286457.html).
+   * - The Host in the request syntax consists of the project name and the Simple Log Service endpoint. Specify the project name in the Host.
+   * - Create and obtain an AccessKey pair. For details, see [AccessKey pair](https://help.aliyun.com/document_detail/2766629.html).
+   * Create and use a RAM user to make API calls or perform routine O\\&M. Using an Alibaba Cloud account AccessKey pair grants access to all APIs and poses a high security risk. Ensure the RAM user has the required permissions for Simple Log Service resources. For details, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, region, and Logstore name for the logs to query. See [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Simple Log Service imposes limits on log queries. Design appropriate query and analytic statements and set a reasonable time range. See [Log query limits](https://help.aliyun.com/document_detail/43772.html) and [Log analysis limits](https://help.aliyun.com/document_detail/53608.html).
+   * - Configure indexes before querying logs. See [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * - When the number of matching logs varies significantly, the API cannot predict how many calls are needed to retrieve the complete result. Check the `x-log-progress` header in each response to determine whether to repeat the call. Each repeated call consumes the same number of query capacity units (CUs).
+   * - After a log is written to a Logstore, the latency before it becomes queryable through the GetHistograms and GetLogs operations depends on the log type. Simple Log Service classifies logs into two types based on their timestamps:
+   *   - Real-time data: The log timestamp falls within (-180 seconds, 900 seconds] relative to the current server time. For example, if a log is generated at UTC 2014-09-25 12:03:00 and is received by the server at UTC 2014-09-25 12:05:00, the log is classified as real-time data. This is typical in normal scenarios. Real-time data becomes queryable in about 3 seconds.
+   *   - Historical data: The log timestamp falls within [-7 x 86,400 seconds, -180 seconds) relative to the current server time. For example, if a log is generated at UTC 2014-09-25 12:00:00 and is received by the server at UTC 2014-09-25 12:05:00, the log is classified as historical data. This is typical in data backfill scenarios.
+   * > Simple Log Service calculates the difference between the log time (the __time__ field) and the server receipt time (the __tag__: **receive_time** field). If the difference falls within (-180 seconds, 900 seconds], the log is real-time data. If the difference falls within [-7 x 86,400 seconds, -180 seconds), the log is historical data.
+   * - Simple Log Service provides Java and Python SDK examples for the GetLogs operation. See [GetLogs examples for Java](https://help.aliyun.com/document_detail/407683.html) and [GetLogs examples for Python](https://help.aliyun.com/document_detail/407684.html).
+   * ### Authorization
+   * The following table describes the authorization information required for this operation. Add this information to the Action element of a RAM access policy statement to grant RAM users or RAM roles the permission to call this operation.
+   * | Action                | Resource                                                                           |
+   * | :-------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:GetLogStoreLogs` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - GetLogsRequest
    * @returns GetLogsResponse
@@ -5477,17 +5597,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
+   * Queries raw logs from a specified Logstore in a project. The response contains raw logs within a specified time range and is compressed for transmission.
    * 
    * @remarks
-   * You can call this operation by using Simple Log Service SDK for Go, Java, or Python. You can call this operation by using Alibaba Cloud SDK for all programming languages.
-   * * When you call this operation, take note of the compression method that you use. The supported compression algorithms vary based on the programming language. For more information, see the description of the Accept-Encoding parameter in this topic.
-   * * For more information, see [GetLogs](https://help.aliyun.com/document_detail/2771313.html).
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a Resource Access Management (RAM) policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
+   * - The Simple Log Service software development kit (SDK) is available for Go, Java, and Python. You can also call all OpenAPI operations directly.
+   * - Specify a compression method when you call this operation. Available compression algorithms depend on your programming language. For more information, see the Accept-Encoding request parameter.
+   * - For more information, see [GetLogs](https://help.aliyun.com/document_detail/2771313.html).
+   * ### Permissions
+   * The following table lists the permissions required to call this API operation. Add the action to a RAM policy statement to grant a RAM user or RAM role permission to call this operation.
+   * | Action                | Resource in an authorization policy                       |
+   * | :-------------------- | :-------------------------------------------------------- |
+   * | `log:GetLogStoreLogs` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - GetLogsV2Request
    * @param headers - GetLogsV2Headers
@@ -5576,17 +5696,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
+   * Queries raw logs from a specified Logstore in a project. The response contains raw logs within a specified time range and is compressed for transmission.
    * 
    * @remarks
-   * You can call this operation by using Simple Log Service SDK for Go, Java, or Python. You can call this operation by using Alibaba Cloud SDK for all programming languages.
-   * * When you call this operation, take note of the compression method that you use. The supported compression algorithms vary based on the programming language. For more information, see the description of the Accept-Encoding parameter in this topic.
-   * * For more information, see [GetLogs](https://help.aliyun.com/document_detail/2771313.html).
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a Resource Access Management (RAM) policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
+   * - The Simple Log Service software development kit (SDK) is available for Go, Java, and Python. You can also call all OpenAPI operations directly.
+   * - Specify a compression method when you call this operation. Available compression algorithms depend on your programming language. For more information, see the Accept-Encoding request parameter.
+   * - For more information, see [GetLogs](https://help.aliyun.com/document_detail/2771313.html).
+   * ### Permissions
+   * The following table lists the permissions required to call this API operation. Add the action to a RAM policy statement to grant a RAM user or RAM role permission to call this operation.
+   * | Action                | Resource in an authorization policy                       |
+   * | :-------------------- | :-------------------------------------------------------- |
+   * | `log:GetLogStoreLogs` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - GetLogsV2Request
    * @returns GetLogsV2Response
@@ -5642,24 +5762,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Simple Log Service provides intelligent analysis capabilities that can be used to analyze basic data such as logs, metrics, and traces. You can call the GetMLServiceResults operation to obtain the analysis results of a model. You can call the operation in the following scenarios: Named Entity Recognition (NER) tasks on logs, anomaly detection on time series, and root cause analysis on high-latency traces.
+   * Alibaba Cloud Simple Log Service (SLS) provides intelligent analysis for data such as logs, metrics, and traces. You can call models to obtain analysis results directly. Its main features include Named Entity Recognition (NER) for log data, anomaly detection for time series data, and root cause analysis for high-latency trace spans.
    * 
    * @remarks
-   * You must obtain the following basic permissions before you call this operation:
-   *     {
-   *         "Version": "1",
-   *         "Statement": [
-   *             {
-   *                 "Action": [
-   *                     "log:Get*"
-   *                 ],
-   *                 "Resource": [
-   *                     "acs:log:*:*:mlservice/sls_builtin_*"
-   *                 ],
-   *                 "Effect": "Allow"
-   *             }
-   *         ]
-   *     }
+   * This API endpoint is available only in the China (Shanghai) and Singapore regions. The following basic permissions are required:
+   * ```
+   * {
+   *     "Version": "1",
+   *     "Statement": [
+   *         {
+   *             "Action": [
+   *                 "log:Get*"
+   *             ],
+   *             "Resource": [
+   *                 "acs:log:*:*:mlservice/sls_builtin_*"
+   *             ],
+   *             "Effect": "Allow"
+   *         }
+   *     ]
+   * }
+   * ```
    * 
    * @param request - GetMLServiceResultsRequest
    * @param headers - map
@@ -5697,24 +5819,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Simple Log Service provides intelligent analysis capabilities that can be used to analyze basic data such as logs, metrics, and traces. You can call the GetMLServiceResults operation to obtain the analysis results of a model. You can call the operation in the following scenarios: Named Entity Recognition (NER) tasks on logs, anomaly detection on time series, and root cause analysis on high-latency traces.
+   * Alibaba Cloud Simple Log Service (SLS) provides intelligent analysis for data such as logs, metrics, and traces. You can call models to obtain analysis results directly. Its main features include Named Entity Recognition (NER) for log data, anomaly detection for time series data, and root cause analysis for high-latency trace spans.
    * 
    * @remarks
-   * You must obtain the following basic permissions before you call this operation:
-   *     {
-   *         "Version": "1",
-   *         "Statement": [
-   *             {
-   *                 "Action": [
-   *                     "log:Get*"
-   *                 ],
-   *                 "Resource": [
-   *                     "acs:log:*:*:mlservice/sls_builtin_*"
-   *                 ],
-   *                 "Effect": "Allow"
-   *             }
-   *         ]
-   *     }
+   * This API endpoint is available only in the China (Shanghai) and Singapore regions. The following basic permissions are required:
+   * ```
+   * {
+   *     "Version": "1",
+   *     "Statement": [
+   *         {
+   *             "Action": [
+   *                 "log:Get*"
+   *             ],
+   *             "Resource": [
+   *                 "acs:log:*:*:mlservice/sls_builtin_*"
+   *             ],
+   *             "Effect": "Allow"
+   *         }
+   *     ]
+   * }
+   * ```
    * 
    * @param request - GetMLServiceResultsRequest
    * @returns GetMLServiceResultsResponse
@@ -5726,7 +5850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a machine group.
+   * Gets the details of a machine group.
    * 
    * @remarks
    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
@@ -5757,7 +5881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a machine group.
+   * Gets the details of a machine group.
    * 
    * @remarks
    * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
@@ -5770,15 +5894,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取物化视图
+   * Retrieve a materialized view.
    * 
+   * @param request - GetMaterializedViewRequest
    * @param headers - GetMaterializedViewHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMaterializedViewResponse
    */
-  async getMaterializedViewWithOptions(project: string, name: string, headers: $_model.GetMaterializedViewHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetMaterializedViewResponse> {
+  async getMaterializedViewWithOptions(project: string, name: string, request: $_model.GetMaterializedViewRequest, headers: $_model.GetMaterializedViewHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetMaterializedViewResponse> {
+    request.validate();
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.returnStatus)) {
+      query["returnStatus"] = request.returnStatus;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -5791,6 +5922,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApiUtil.OpenApiRequest({
       hostMap: hostMap,
       headers: realHeaders,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetMaterializedView",
@@ -5807,23 +5939,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取物化视图
+   * Retrieve a materialized view.
+   * 
+   * @param request - GetMaterializedViewRequest
    * @returns GetMaterializedViewResponse
    */
-  async getMaterializedView(project: string, name: string): Promise<$_model.GetMaterializedViewResponse> {
+  async getMaterializedView(project: string, name: string, request: $_model.GetMaterializedViewRequest): Promise<$_model.GetMaterializedViewResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetMaterializedViewHeaders({ });
-    return await this.getMaterializedViewWithOptions(project, name, headers, runtime);
+    return await this.getMaterializedViewWithOptions(project, name, request, headers, runtime);
   }
 
   /**
    * Queries a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5854,10 +5988,10 @@ export default class Client extends OpenApi {
    * Queries a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * @returns GetMaxComputeExportResponse
    */
   async getMaxComputeExport(project: string, mcExportName: string): Promise<$_model.GetMaxComputeExportResponse> {
@@ -5870,14 +6004,14 @@ export default class Client extends OpenApi {
    * Queries a Metricstore.
    * 
    * @remarks
-   * Metricstores are used to store metric data. For more information about Metricstores, see [Metricstores](https://help.aliyun.com/document_detail/171723.html). For more information about metric data, see [Metric data](https://help.aliyun.com/document_detail/174965.html). You can call this operation to query the settings of a Metricstore. To query the metric data in a Metricstore, see [Query and analysis](https://help.aliyun.com/document_detail/174968.html) and [GetLogsV2](https://help.aliyun.com/document_detail/2771318.html).
-   * *   You must specify an existing Metricstore.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 200 Logstores or Metricstores in a project.
-   * *   Metric data is automatically deleted when the retention period of the metric data ends.
+   * A [Metricstore](https://help.aliyun.com/document_detail/171723.html) is used to store [metrics](https://help.aliyun.com/document_detail/174965.html). This operation queries only the configuration of a Metricstore. To query the metric data, see [Query and analyze data](https://help.aliyun.com/document_detail/174968.html) and [GetLogsV2](https://help.aliyun.com/document_detail/2771318.html).
+   * - You must specify an existing Metricstore.
+   * - The Host in the request syntax consists of a project name and a Simple Log Service endpoint. You must specify the project in the Host.
+   * - You must have an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has full access permissions to all API operations. This poses a high security threat. For security, we recommend that you use a RAM user for API access or routine O\\&M. Grant the RAM user the required permissions to operate Simple Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the name and region of the project that contains the Metricstore. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create a maximum of 200 Logstores or Metricstores in a project.
+   * - Metrics are deleted after their retention period expires.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5908,14 +6042,14 @@ export default class Client extends OpenApi {
    * Queries a Metricstore.
    * 
    * @remarks
-   * Metricstores are used to store metric data. For more information about Metricstores, see [Metricstores](https://help.aliyun.com/document_detail/171723.html). For more information about metric data, see [Metric data](https://help.aliyun.com/document_detail/174965.html). You can call this operation to query the settings of a Metricstore. To query the metric data in a Metricstore, see [Query and analysis](https://help.aliyun.com/document_detail/174968.html) and [GetLogsV2](https://help.aliyun.com/document_detail/2771318.html).
-   * *   You must specify an existing Metricstore.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 200 Logstores or Metricstores in a project.
-   * *   Metric data is automatically deleted when the retention period of the metric data ends.
+   * A [Metricstore](https://help.aliyun.com/document_detail/171723.html) is used to store [metrics](https://help.aliyun.com/document_detail/174965.html). This operation queries only the configuration of a Metricstore. To query the metric data, see [Query and analyze data](https://help.aliyun.com/document_detail/174968.html) and [GetLogsV2](https://help.aliyun.com/document_detail/2771318.html).
+   * - You must specify an existing Metricstore.
+   * - The Host in the request syntax consists of a project name and a Simple Log Service endpoint. You must specify the project in the Host.
+   * - You must have an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has full access permissions to all API operations. This poses a high security threat. For security, we recommend that you use a RAM user for API access or routine O\\&M. Grant the RAM user the required permissions to operate Simple Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the name and region of the project that contains the Metricstore. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create a maximum of 200 Logstores or Metricstores in a project.
+   * - Metrics are deleted after their retention period expires.
    * @returns GetMetricStoreResponse
    */
   async getMetricStore(project: string, name: string): Promise<$_model.GetMetricStoreResponse> {
@@ -5926,6 +6060,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the billing mode of a Metricstore.
+   * 
+   * @remarks
+   * MetricStore supports two billing modes: [pay-by-feature](https://help.aliyun.com/document_detail/48220.html) and [pay-by-write-traffic](https://help.aliyun.com/document_detail/2365756.html).
+   * - You must specify an existing MetricStore when you call this operation.
+   * - In the request syntax, Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is required. For more information, see[AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations, which is high risk. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have permissions to manage Simple Log Service resources. For more information, see[Create a RAM user and authorize the RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Before you call this operation, make sure that you have obtained the project name and region of the logs. For more information, see[Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create up to 200 Logstores or MetricStores in a project.
+   * - When metric data reaches the retention period that you configured, the data is deleted.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5954,6 +6098,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the billing mode of a Metricstore.
+   * 
+   * @remarks
+   * MetricStore supports two billing modes: [pay-by-feature](https://help.aliyun.com/document_detail/48220.html) and [pay-by-write-traffic](https://help.aliyun.com/document_detail/2365756.html).
+   * - You must specify an existing MetricStore when you call this operation.
+   * - In the request syntax, Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is required. For more information, see[AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations, which is high risk. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have permissions to manage Simple Log Service resources. For more information, see[Create a RAM user and authorize the RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Before you call this operation, make sure that you have obtained the project name and region of the logs. For more information, see[Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create up to 200 Logstores or MetricStores in a project.
+   * - When metric data reaches the retention period that you configured, the data is deleted.
    * @returns GetMetricStoreMeteringModeResponse
    */
   async getMetricStoreMeteringMode(project: string, metricStore: string): Promise<$_model.GetMetricStoreMeteringModeResponse> {
@@ -5963,7 +6117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an Object Storage Service (OSS) data shipping job.
+   * Retrieves the specified OSS data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5991,7 +6145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an Object Storage Service (OSS) data shipping job.
+   * Retrieves the specified OSS data shipping job.
    * @returns GetOSSExportResponse
    */
   async getOSSExport(project: string, ossExportName: string): Promise<$_model.GetOSSExportResponse> {
@@ -6001,7 +6155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an OSS-HDFS data shipping job.
+   * Retrieves the details of a specified OSS-HDFS delivery job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6029,7 +6183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an OSS-HDFS data shipping job.
+   * Retrieves the details of a specified OSS-HDFS delivery job.
    * @returns GetOSSHDFSExportResponse
    */
   async getOSSHDFSExport(project: string, ossExportName: string): Promise<$_model.GetOSSHDFSExportResponse> {
@@ -6039,7 +6193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an Object Storage Service (OSS) data import job.
+   * Retrieves a specified OSS import job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6067,7 +6221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an Object Storage Service (OSS) data import job.
+   * Retrieves a specified OSS import job.
    * @returns GetOSSIngestionResponse
    */
   async getOSSIngestion(project: string, ossIngestionName: string): Promise<$_model.GetOSSIngestionResponse> {
@@ -6077,7 +6231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a project.
+   * Gets the details of a project.
    * 
    * @remarks
    * ### Usage notes
@@ -6109,7 +6263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a project.
+   * Gets the details of a project.
    * 
    * @remarks
    * ### Usage notes
@@ -6127,20 +6281,20 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
-   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
-   * * You must set query to a standard SQL statement.
-   * * You must specify a Logstore in the FROM clause of an SQL statement. A Logstore can be used as an SQL table.
-   * * You must specify a time range in an SQL statement by using the __date__ or __time__ parameter. The value of the __date__ parameter is a timestamp. The value of the __time__ parameter is an integer, and the unit of the value is seconds.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * - Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+   * - You must set query to a standard SQL statement.
+   * - You must specify a Logstore in the FROM clause of an SQL statement. A Logstore can be used as an SQL table.
+   * - You must specify a time range in an SQL statement by using the __date__ or __time__ parameter. The value of the __date__ parameter is a timestamp. The value of the __time__ parameter is an integer, and the unit of the value is seconds.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetProjectLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
+   * | Action               | Resource                                                  |
+   * | :------------------- | :-------------------------------------------------------- |
+   * | `log:GetProjectLogs` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - GetProjectLogsRequest
    * @param headers - map
@@ -6184,20 +6338,20 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * * Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
-   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
-   * * You must set query to a standard SQL statement.
-   * * You must specify a Logstore in the FROM clause of an SQL statement. A Logstore can be used as an SQL table.
-   * * You must specify a time range in an SQL statement by using the __date__ or __time__ parameter. The value of the __date__ parameter is a timestamp. The value of the __time__ parameter is an integer, and the unit of the value is seconds.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - Indexes are configured before you query logs. For more information, see [Create indexes](https://help.aliyun.com/document_detail/90732.html).
+   * - Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+   * - You must set query to a standard SQL statement.
+   * - You must specify a Logstore in the FROM clause of an SQL statement. A Logstore can be used as an SQL table.
+   * - You must specify a time range in an SQL statement by using the __date__ or __time__ parameter. The value of the __date__ parameter is a timestamp. The value of the __time__ parameter is an integer, and the unit of the value is seconds.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetProjectLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
+   * | Action               | Resource                                                  |
+   * | :------------------- | :-------------------------------------------------------- |
+   * | `log:GetProjectLogs` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - GetProjectLogsRequest
    * @returns GetProjectLogsResponse
@@ -6213,10 +6367,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6248,10 +6402,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * @returns GetProjectPolicyResponse
    */
   async getProjectPolicy(project: string): Promise<$_model.GetProjectPolicyResponse> {
@@ -6261,7 +6415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取s3导入任务信息
+   * Retrieves information about an S3 import task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6289,7 +6443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取s3导入任务信息
+   * Retrieves information about an S3 import task.
    * @returns GetS3IngestionResponse
    */
   async getS3Ingestion(project: string, s3IngestionName: string): Promise<$_model.GetS3IngestionResponse> {
@@ -6303,16 +6457,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * You can call the ListSavedSearch operation to query the name of a saved search.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - You can call the ListSavedSearch operation to query the name of a saved search.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+   * | Action               | Resource                                                                                 |
+   * | :------------------- | :--------------------------------------------------------------------------------------- |
+   * | `log:GetSavedSearch` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}` |
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6344,16 +6498,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * You can call the ListSavedSearch operation to query the name of a saved search.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - You can call the ListSavedSearch operation to query the name of a saved search.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:GetSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+   * | Action               | Resource                                                                                 |
+   * | :------------------- | :--------------------------------------------------------------------------------------- |
+   * | `log:GetSavedSearch` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}` |
    * @returns GetSavedSearchResponse
    */
   async getSavedSearch(project: string, savedsearchName: string): Promise<$_model.GetSavedSearchResponse> {
@@ -6363,7 +6517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Scheduled SQL job.
+   * Retrieves the specified Scheduled SQL job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6391,7 +6545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Scheduled SQL job.
+   * Retrieves the specified Scheduled SQL job.
    * @returns GetScheduledSQLResponse
    */
   async getScheduledSQL(project: string, scheduledSQLName: string): Promise<$_model.GetScheduledSQLResponse> {
@@ -6401,7 +6555,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the activation status of Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
+   * Call the GetSlsService operation to retrieve the activation status of Simple Log Service. The endpoint must be China (Shanghai) or Singapore.
+   * 
+   * @remarks
+   * This operation requires an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account grants full access to all APIs. This poses a high security threat. Create and use a RAM user for API access or routine operations and maintenance (O\\&M). The RAM user must have permissions to operate Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6426,7 +6584,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the activation status of Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
+   * Call the GetSlsService operation to retrieve the activation status of Simple Log Service. The endpoint must be China (Shanghai) or Singapore.
+   * 
+   * @remarks
+   * This operation requires an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account grants full access to all APIs. This poses a high security threat. Create and use a RAM user for API access or routine operations and maintenance (O\\&M). The RAM user must have permissions to operate Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
    * @returns GetSlsServiceResponse
    */
   async getSlsService(): Promise<$_model.GetSlsServiceResponse> {
@@ -6436,7 +6598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of the Dedicated SQL feature.
+   * Gets information about the Dedicated SQL instance of a project, such as the number of compute units (CUs) and whether the Dedicated SQL instance is enabled by default. Before you call this operation, you must create a Dedicated SQL instance by calling the CreateSqlInstance or UpdateSqlInstance operation.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6464,7 +6626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of the Dedicated SQL feature.
+   * Gets information about the Dedicated SQL instance of a project, such as the number of compute units (CUs) and whether the Dedicated SQL instance is enabled by default. Before you call this operation, you must create a Dedicated SQL instance by calling the CreateSqlInstance or UpdateSqlInstance operation.
    * @returns GetSqlInstanceResponse
    */
   async getSqlInstance(project: string): Promise<$_model.GetSqlInstanceResponse> {
@@ -6550,7 +6712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListAgentInstanceConfigs
+   * This operation lists process-level configurations.
+   * 
+   * @remarks
+   * Retrieves a list of process-level configurations.
    * 
    * @param request - ListAgentInstanceConfigsRequest
    * @param headers - map
@@ -6591,7 +6756,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListAgentInstanceConfigs
+   * This operation lists process-level configurations.
+   * 
+   * @remarks
+   * Retrieves a list of process-level configurations.
    * 
    * @param request - ListAgentInstanceConfigsRequest
    * @returns ListAgentInstanceConfigsResponse
@@ -6603,7 +6771,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 ai 工具列表
+   * Lists the AI tools provided by the observability service, including Copilot capabilities for various services.
+   * 
+   * @remarks
+   * The endpoint for this API is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6628,7 +6799,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 ai 工具列表
+   * Lists the AI tools provided by the observability service, including Copilot capabilities for various services.
+   * 
+   * @remarks
+   * The endpoint for this API is available only in the China (Shanghai) and Singapore regions.
    * @returns ListAiToolsResponse
    */
   async listAiTools(): Promise<$_model.ListAiToolsResponse> {
@@ -6638,7 +6812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of alert rules in a project.
+   * Lists the alert rules in a specified project.
    * 
    * @param request - ListAlertsRequest
    * @param headers - map
@@ -6682,7 +6856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of alert rules in a project.
+   * Lists the alert rules in a specified project.
    * 
    * @param request - ListAlertsRequest
    * @returns ListAlertsResponse
@@ -6694,7 +6868,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data in datasets.
+   * Lists the data records in a specified dataset.
+   * 
+   * @remarks
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - ListAnnotationDataRequest
    * @param headers - map
@@ -6731,7 +6908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data in datasets.
+   * Lists the data records in a specified dataset.
+   * 
+   * @remarks
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - ListAnnotationDataRequest
    * @returns ListAnnotationDataResponse
@@ -6743,7 +6923,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of datasets.
+   * Returns a list of dataset structs.
+   * 
+   * @remarks
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - ListAnnotationDataSetsRequest
    * @param headers - map
@@ -6780,7 +6963,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of datasets.
+   * Returns a list of dataset structs.
+   * 
+   * @remarks
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - ListAnnotationDataSetsRequest
    * @returns ListAnnotationDataSetsResponse
@@ -6792,7 +6978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tag tables.
+   * Lists annotation label tables.
+   * 
+   * @remarks
+   * This API operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - ListAnnotationLabelsRequest
    * @param headers - map
@@ -6829,7 +7018,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tag tables.
+   * Lists annotation label tables.
+   * 
+   * @remarks
+   * This API operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - ListAnnotationLabelsRequest
    * @returns ListAnnotationLabelsResponse
@@ -6841,7 +7033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出Azure blob文件导入任务
+   * Lists Azure Blob ingestion tasks.
    * 
    * @param request - ListAzureBlobIngestionRequest
    * @param headers - map
@@ -6885,7 +7077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出Azure blob文件导入任务
+   * Lists Azure Blob ingestion tasks.
    * 
    * @param request - ListAzureBlobIngestionRequest
    * @returns ListAzureBlobIngestionResponse
@@ -6897,10 +7089,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of log collection policies for cloud services.
+   * Lists the collection rules for logs from Alibaba Cloud services.
    * 
    * @remarks
-   * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+   * This API operation is available only at the endpoints in the following regions: China (Shanghai), Singapore, and Heyuan Automotive Compliance Cloud (cn-heyuan-acdr-1).
    * 
    * @param request - ListCollectionPoliciesRequest
    * @param headers - map
@@ -6957,10 +7149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of log collection policies for cloud services.
+   * Lists the collection rules for logs from Alibaba Cloud services.
    * 
    * @remarks
-   * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
+   * This API operation is available only at the endpoints in the following regions: China (Shanghai), Singapore, and Heyuan Automotive Compliance Cloud (cn-heyuan-acdr-1).
    * 
    * @param request - ListCollectionPoliciesRequest
    * @returns ListCollectionPoliciesResponse
@@ -6976,10 +7168,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - ListConfigRequest
    * @param headers - map
@@ -7031,10 +7223,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - ListConfigRequest
    * @returns ListConfigResponse
@@ -7046,7 +7238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of consumption processors that meet specific conditions.
+   * Retrieves a list of consume processors that match the specified parameters.
    * 
    * @param request - ListConsumeProcessorsRequest
    * @param headers - map
@@ -7094,7 +7286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of consumption processors that meet specific conditions.
+   * Retrieves a list of consume processors that match the specified parameters.
    * 
    * @param request - ListConsumeProcessorsRequest
    * @returns ListConsumeProcessorsResponse
@@ -7110,15 +7302,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:ListConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/*`|
+   * | Action                  | Resource                                                                                           |
+   * | :---------------------- | :------------------------------------------------------------------------------------------------- |
+   * | `log:ListConsumerGroup` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/*` |
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7150,15 +7342,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:ListConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/*`|
+   * | Action                  | Resource                                                                                           |
+   * | :---------------------- | :------------------------------------------------------------------------------------------------- |
+   * | `log:ListConsumerGroup` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}/consumergroup/*` |
    * @returns ListConsumerGroupResponse
    */
   async listConsumerGroup(project: string, logstore: string): Promise<$_model.ListConsumerGroupResponse> {
@@ -7168,14 +7360,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of dashboards.
+   * Queries dashboards.
    * 
    * @remarks
-   * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * ### Description
+   * - The Host in the request syntax consists of the project name and the Simple Log Service endpoint. You must specify the project name in the Host.
+   * - Create an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has the permissions to call all API operations. This is a high-risk practice. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have the permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Identify the name and region of the project that contains the logs you want to query. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param tmpReq - ListDashboardRequest
    * @param headers - map
@@ -7233,14 +7425,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of dashboards.
+   * Queries dashboards.
    * 
    * @remarks
-   * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * ### Description
+   * - The Host in the request syntax consists of the project name and the Simple Log Service endpoint. You must specify the project name in the Host.
+   * - Create an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has the permissions to call all API operations. This is a high-risk practice. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have the permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Identify the name and region of the project that contains the logs you want to query. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - ListDashboardRequest
    * @returns ListDashboardResponse
@@ -7255,8 +7447,8 @@ export default class Client extends OpenApi {
    * Queries the custom domain names that are bound to projects.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   Only one custom domain name can be bound to each project.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - Only one custom domain name can be bound to each project.
    * 
    * @param request - ListDomainsRequest
    * @param headers - map
@@ -7303,8 +7495,8 @@ export default class Client extends OpenApi {
    * Queries the custom domain names that are bound to projects.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   Only one custom domain name can be bound to each project.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - Only one custom domain name can be bound to each project.
    * 
    * @param request - ListDomainsRequest
    * @returns ListDomainsResponse
@@ -7316,7 +7508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of log download tasks in a project.
+   * Lists the log download jobs in a specified project.
    * 
    * @param request - ListDownloadJobsRequest
    * @param headers - map
@@ -7360,7 +7552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of log download tasks in a project.
+   * Lists the log download jobs in a specified project.
    * 
    * @param request - ListDownloadJobsRequest
    * @returns ListDownloadJobsResponse
@@ -7372,7 +7564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of data transformation jobs in a project.
+   * Lists the data transformation jobs in a project.
    * 
    * @param request - ListETLsRequest
    * @param headers - map
@@ -7416,7 +7608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of data transformation jobs in a project.
+   * Lists the data transformation jobs in a project.
    * 
    * @param request - ListETLsRequest
    * @returns ListETLsResponse
@@ -7428,7 +7620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建ES导入任务
+   * Lists the Elasticsearch and OpenSearch ingestion jobs.
    * 
    * @param request - ListElasticsearchIngestionsRequest
    * @param headers - map
@@ -7472,7 +7664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建ES导入任务
+   * Lists the Elasticsearch and OpenSearch ingestion jobs.
    * 
    * @param request - ListElasticsearchIngestionsRequest
    * @returns ListElasticsearchIngestionsResponse
@@ -7484,7 +7676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出GCP Cloud Storage文件导入任务
+   * Lists Google Cloud Storage (GCS) file import jobs.
    * 
    * @param request - ListGCSIngestionsRequest
    * @param headers - map
@@ -7528,7 +7720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出GCP Cloud Storage文件导入任务
+   * Lists Google Cloud Storage (GCS) file import jobs.
    * 
    * @param request - ListGCSIngestionsRequest
    * @returns ListGCSIngestionsResponse
@@ -7540,7 +7732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ingest processors that meet specific conditions.
+   * Lists ingest processors that meet the specified conditions.
    * 
    * @param request - ListIngestProcessorsRequest
    * @param headers - map
@@ -7588,7 +7780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ingest processors that meet specific conditions.
+   * Lists ingest processors that meet the specified conditions.
    * 
    * @param request - ListIngestProcessorsRequest
    * @returns ListIngestProcessorsResponse
@@ -7604,15 +7796,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:ListLogStores`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/*`|
+   * | Action              | Resource                                                             |
+   * | :------------------ | :------------------------------------------------------------------- |
+   * | `log:ListLogStores` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/*` |
    * 
    * @param request - ListLogStoresRequest
    * @param headers - map
@@ -7668,15 +7860,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:ListLogStores`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/*`|
+   * | Action              | Resource                                                             |
+   * | :------------------ | :------------------------------------------------------------------- |
+   * | `log:ListLogStores` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/*` |
    * 
    * @param request - ListLogStoresRequest
    * @returns ListLogStoresResponse
@@ -7688,10 +7880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Logtail pipeline configurations that meet the specified conditions.
-   * 
-   * @remarks
-   * The UK (London) region is supported. Supported regions are constantly updated.
+   * Lists the names of Logtail pipeline configurations that meet specified criteria.
    * 
    * @param request - ListLogtailPipelineConfigRequest
    * @param headers - map
@@ -7743,10 +7932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Logtail pipeline configurations that meet the specified conditions.
-   * 
-   * @remarks
-   * The UK (London) region is supported. Supported regions are constantly updated.
+   * Lists the names of Logtail pipeline configurations that meet specified criteria.
    * 
    * @param request - ListLogtailPipelineConfigRequest
    * @returns ListLogtailPipelineConfigResponse
@@ -7878,7 +8064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举物化视图
+   * Lists the materialized views in a project.
    * 
    * @param request - ListMaterializedViewRequest
    * @param headers - map
@@ -7922,7 +8108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举物化视图
+   * Lists the materialized views in a project.
    * 
    * @param request - ListMaterializedViewRequest
    * @returns ListMaterializedViewResponse
@@ -7934,7 +8120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举物化视图
+   * Lists materialized views.
    * 
    * @param request - ListMaterializedViewsRequest
    * @param headers - map
@@ -7978,7 +8164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举物化视图
+   * Lists materialized views.
    * 
    * @param request - ListMaterializedViewsRequest
    * @returns ListMaterializedViewsResponse
@@ -7990,13 +8176,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of MaxCompute data shipping jobs.
+   * Lists MaxCompute delivery tasks.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The Host consists of the project name and the Simple Log Service endpoint. You must specify the project in the Host.
+   * - Create and obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has permissions to access all APIs. This poses a high security risk. We recommend that you create and use a Resource Access Management (RAM) user for API access or daily O\\&M. The RAM user must have the permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Identify the name and region of the project that contains the logs to query. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - ListMaxComputeExportsRequest
    * @param headers - map
@@ -8040,13 +8226,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of MaxCompute data shipping jobs.
+   * Lists MaxCompute delivery tasks.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The Host consists of the project name and the Simple Log Service endpoint. You must specify the project in the Host.
+   * - Create and obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has permissions to access all APIs. This poses a high security risk. We recommend that you create and use a Resource Access Management (RAM) user for API access or daily O\\&M. The RAM user must have the permissions to manage Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Identify the name and region of the project that contains the logs to query. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - ListMaxComputeExportsRequest
    * @returns ListMaxComputeExportsResponse
@@ -8061,10 +8247,10 @@ export default class Client extends OpenApi {
    * Queries the list of Metricstores in a project. You can use fuzzy search to query the Metricstores by Metricstore name.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - ListMetricStoresRequest
    * @param headers - map
@@ -8115,10 +8301,10 @@ export default class Client extends OpenApi {
    * Queries the list of Metricstores in a project. You can use fuzzy search to query the Metricstores by Metricstore name.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - ListMetricStoresRequest
    * @returns ListMetricStoresResponse
@@ -8130,7 +8316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Object Storage Service (OSS) data shipping jobs in a project.
+   * Queries the OSS shipping jobs in a specified project.
    * 
    * @param request - ListOSSExportsRequest
    * @param headers - map
@@ -8174,7 +8360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Object Storage Service (OSS) data shipping jobs in a project.
+   * Queries the OSS shipping jobs in a specified project.
    * 
    * @param request - ListOSSExportsRequest
    * @returns ListOSSExportsResponse
@@ -8186,7 +8372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of OSS-HDFS data shipping jobs in a project.
+   * Lists the OSS-HDFS export tasks in a specified project.
    * 
    * @param request - ListOSSHDFSExportsRequest
    * @param headers - map
@@ -8230,7 +8416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of OSS-HDFS data shipping jobs in a project.
+   * Lists the OSS-HDFS export tasks in a specified project.
    * 
    * @param request - ListOSSHDFSExportsRequest
    * @returns ListOSSHDFSExportsResponse
@@ -8242,7 +8428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Object Storage Service (OSS) data import jobs in a project.
+   * Lists OSS import tasks in a specified Project.
    * 
    * @param request - ListOSSIngestionsRequest
    * @param headers - map
@@ -8286,7 +8472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Object Storage Service (OSS) data import jobs in a project.
+   * Lists OSS import tasks in a specified Project.
    * 
    * @param request - ListOSSIngestionsRequest
    * @returns ListOSSIngestionsResponse
@@ -8298,11 +8484,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the projects that meet specified conditions.
+   * Lists projects that meet the specified criteria.
    * 
    * @remarks
-   * ### [](#)Usage notes
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * ### API description
+   * The host consists of a project name and a Simple Log Service endpoint. Specify the project in the host.
    * 
    * @param request - ListProjectRequest
    * @param headers - map
@@ -8355,11 +8541,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the projects that meet specified conditions.
+   * Lists projects that meet the specified criteria.
    * 
    * @remarks
-   * ### [](#)Usage notes
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * ### API description
+   * The host consists of a project name and a Simple Log Service endpoint. Specify the project in the host.
    * 
    * @param request - ListProjectRequest
    * @returns ListProjectResponse
@@ -8371,7 +8557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出s3导入任务
+   * Lists S3 import tasks.
    * 
    * @param request - ListS3IngestionsRequest
    * @param headers - map
@@ -8415,7 +8601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出s3导入任务
+   * Lists S3 import tasks.
    * 
    * @param request - ListS3IngestionsRequest
    * @returns ListS3IngestionsResponse
@@ -8487,7 +8673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Scheduled SQL jobs in a project.
+   * Lists the Scheduled SQLs in a specified project.
    * 
    * @param request - ListScheduledSQLsRequest
    * @param headers - map
@@ -8531,7 +8717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Scheduled SQL jobs in a project.
+   * Lists the Scheduled SQLs in a specified project.
    * 
    * @param request - ListScheduledSQLsRequest
    * @returns ListScheduledSQLsResponse
@@ -8645,16 +8831,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
-   * * For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:ListTagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
+   * | Action                 | Resource                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   * | :--------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `log:ListTagResources` | The resource format varies based on the resource type.-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}` |
    * 
    * @param tmpReq - ListTagResourcesRequest
    * @param headers - map
@@ -8709,16 +8895,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
-   * * For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:ListTagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
+   * | Action                 | Resource                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   * | :--------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `log:ListTagResources` | The resource format varies based on the resource type.-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}` |
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -8730,7 +8916,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Merges readwrite shards that are adjacent to each other.
+   * Merges adjacent read/write shards.
+   * 
+   * @remarks
+   * ### API description
+   * - The host consists of the project name and the Simple Log Service endpoint. You must specify the project in the host.
+   * - Each shard has a range, which is a left-closed, right-open MD5 interval of `[BeginKey,EndKey)`. The status of a shard can be readwrite or readonly. You can split and merge shards. For more information, see [Shards](https://help.aliyun.com/document_detail/28976.html).
+   * - You must have an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has access permissions for all APIs. This poses a high security threat. We recommend that you create and use a RAM user for API calls or routine O\\&M. The RAM user must have the required permissions to manage Simple Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - You must have the project name, region, and Logstore name for the logs that you want to query. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstores](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8758,7 +8952,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Merges readwrite shards that are adjacent to each other.
+   * Merges adjacent read/write shards.
+   * 
+   * @remarks
+   * ### API description
+   * - The host consists of the project name and the Simple Log Service endpoint. You must specify the project in the host.
+   * - Each shard has a range, which is a left-closed, right-open MD5 interval of `[BeginKey,EndKey)`. The status of a shard can be readwrite or readonly. You can split and merge shards. For more information, see [Shards](https://help.aliyun.com/document_detail/28976.html).
+   * - You must have an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has access permissions for all APIs. This poses a high security threat. We recommend that you create and use a RAM user for API calls or routine O\\&M. The RAM user must have the required permissions to manage Simple Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - You must have the project name, region, and Logstore name for the logs that you want to query. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstores](https://help.aliyun.com/document_detail/48990.html).
    * @returns MergeShardResponse
    */
   async mergeShard(project: string, logstore: string, shard: string): Promise<$_model.MergeShardResponse> {
@@ -8769,6 +8971,10 @@ export default class Client extends OpenApi {
 
   /**
    * Activates Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
+   * 
+   * @remarks
+   * An AccessKey pair is required. For more information, see[AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations, which is high risk. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have permissions to manage Simple Log Service resources. For more information, see[Create a RAM user and authorize the RAM user](https://help.aliyun.com/document_detail/47664.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8794,6 +9000,10 @@ export default class Client extends OpenApi {
 
   /**
    * Activates Simple Log Service. You must use the endpoint for Simple Log Service only in the China (Shanghai) or Singapore region.
+   * 
+   * @remarks
+   * An AccessKey pair is required. For more information, see[AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations, which is high risk. We recommend that you create and use a RAM user to call API operations or perform routine O\\&M. The RAM user must have permissions to manage Simple Log Service resources. For more information, see[Create a RAM user and authorize the RAM user](https://help.aliyun.com/document_detail/47664.html).
    * @returns OpenSlsServiceResponse
    */
   async openSlsService(): Promise<$_model.OpenSlsServiceResponse> {
@@ -8803,14 +9013,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries logs based on the specified cursors. You can call this operation to obtain raw logs. To query and analyze logs, you can call the GetLogsV2 operation.
+   * Call the PullLogs operation to retrieve log data from a specified cursor position. This operation retrieves raw logs. To query or analyze logs, call the GetLogsV2 operation.
    * 
    * @remarks
-   * *
-   * **Warning** You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see SLS SDK Reference.
-   * *   You must specify a shard when you query the logs.
-   * *   You can query only logs in the Protocol Buffers (protobuf) format. For more information, see [Data encoding](https://help.aliyun.com/document_detail/29055.html).
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * >Warning: 
+   * This operation is not supported by the OpenAPI SDK. Use the [Simple Log Service SDK](https://help.aliyun.com/document_detail/29063.html).
+   * - Specify a shard to retrieve logs.
+   * - This operation supports reading data in only the [Protocol Buffer](https://help.aliyun.com/document_detail/29055.html) format.
+   * - The Host in the request syntax consists of the project name and the Simple Log Service endpoint. Specify the project in the Host.
    * 
    * @param request - PullLogsRequest
    * @param headers - PullLogsHeaders
@@ -8867,14 +9077,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries logs based on the specified cursors. You can call this operation to obtain raw logs. To query and analyze logs, you can call the GetLogsV2 operation.
+   * Call the PullLogs operation to retrieve log data from a specified cursor position. This operation retrieves raw logs. To query or analyze logs, call the GetLogsV2 operation.
    * 
    * @remarks
-   * *
-   * **Warning** You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see SLS SDK Reference.
-   * *   You must specify a shard when you query the logs.
-   * *   You can query only logs in the Protocol Buffers (protobuf) format. For more information, see [Data encoding](https://help.aliyun.com/document_detail/29055.html).
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * >Warning: 
+   * This operation is not supported by the OpenAPI SDK. Use the [Simple Log Service SDK](https://help.aliyun.com/document_detail/29063.html).
+   * - Specify a shard to retrieve logs.
+   * - This operation supports reading data in only the [Protocol Buffer](https://help.aliyun.com/document_detail/29055.html) format.
+   * - The Host in the request syntax consists of the project name and the Simple Log Service endpoint. Specify the project in the Host.
    * 
    * @param request - PullLogsRequest
    * @returns PullLogsResponse
@@ -8886,7 +9096,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds data to a dataset for storage.
+   * Stores annotation data in a dataset.
+   * 
+   * @remarks
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - PutAnnotationDataRequest
    * @param headers - map
@@ -8929,7 +9142,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds data to a dataset for storage.
+   * Stores annotation data in a dataset.
+   * 
+   * @remarks
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - PutAnnotationDataRequest
    * @returns PutAnnotationDataResponse
@@ -8941,7 +9157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a consumption processor.
+   * Creates or updates a consume processor.
    * 
    * @param request - PutConsumeProcessorRequest
    * @param headers - map
@@ -8985,7 +9201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a consumption processor.
+   * Creates or updates a consume processor.
    * 
    * @param request - PutConsumeProcessorRequest
    * @returns PutConsumeProcessorResponse
@@ -9053,7 +9269,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改日志库的配置
+   * Updates the configuration of a Logstore.
+   * 
+   * @remarks
+   * - The `Host` in the request header must contain both the `Project` name and the Simple Log Service (SLS) endpoint.
+   * - This operation requires an AccessKey. For more information, see [Access Key](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey for an Alibaba Cloud account grants full access to all APIs and poses a high security risk. We strongly recommend that you create and use a RAM user for API access and daily operations. The RAM user must have the necessary permissions to operate SLS resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - Identify the names of the target `Project`, `Region`, and `Logstore`. For more information, see [Manage Project](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * ### Permissions
+   * To grant a RAM user or RAM role permission to call this operation, add the Action and Resource in the following table to a permission policy in Resource Access Management (RAM).
+   * | Actions                 | Resource                                                                           |
+   * | :---------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:PutLogStoreConfig` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - PutLogStoreConfigRequest
    * @param headers - map
@@ -9089,7 +9316,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改日志库的配置
+   * Updates the configuration of a Logstore.
+   * 
+   * @remarks
+   * - The `Host` in the request header must contain both the `Project` name and the Simple Log Service (SLS) endpoint.
+   * - This operation requires an AccessKey. For more information, see [Access Key](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey for an Alibaba Cloud account grants full access to all APIs and poses a high security risk. We strongly recommend that you create and use a RAM user for API access and daily operations. The RAM user must have the necessary permissions to operate SLS resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - Identify the names of the target `Project`, `Region`, and `Logstore`. For more information, see [Manage Project](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * ### Permissions
+   * To grant a RAM user or RAM role permission to call this operation, add the Action and Resource in the following table to a permission policy in Resource Access Management (RAM).
+   * | Actions                 | Resource                                                                           |
+   * | :---------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:PutLogStoreConfig` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - PutLogStoreConfigRequest
    * @returns PutLogStoreConfigResponse
@@ -9101,18 +9339,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Writes logs to a Logstore.
+   * Writes log data to a specified logstore.
    * 
    * @remarks
-   * *
-   * **Warning** You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see SLS SDK Reference.
-   * *   When you call the PutLogs operation to write logs to Simple Log Service, Simple Log Servicechecks the format of the logs. If a log does not meet the format requirements, the request fails and no logs are written to Simple Log Service.
-   * *   You can write logs only in the Protocol Buffers (Protobuf) format as log groups. For more information, see [Data encoding](https://help.aliyun.com/document_detail/29055.html).
-   * *   You can write logs in one of the following modes:
-   *     *   LoadBalance mode: In this mode, Log Service automatically writes logs to all writable shards in a Logstore. This mode delivers high availability for write operations and is suitable for data consumption scenarios in which you do not need to preserve the order of logs.
-   *     *   KeyHash: In this mode, a key field is added in the URL parameter. Log Service writes logs to a shard based on the key field. The hash key is optional. If you do not configure the hash key, logs are written to shards in LoadBalance mode. For example, you can use the KeyHash mode to write data from a producer, such as an instance, to the shard whose hash value range includes the hash value of the producer name. This ensures that the data that is written to the shard is ordered and the data in the shard is consumed based on the order. This way, when a shard is split or when shards are merged, the data that is associated with the same hash key is stored only in one shard at a point in time. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
-   * *   You can call the PutLogs operation to write up to 10 MB of raw logs at a time. We recommend that you keep the total size of the values for each log in a log group to or below 1 MB. Historical versions of SDKs may have different limits. We recommend that you upgrade your SDK to the latest version.
-   * *   The references for Log Service SDK for Java and Log Service SDK for Python provide examples on how to call the PutLogs operation. For more information, see [Get started with Simple Log Service SDK for Java](https://help.aliyun.com/document_detail/279525.html) and [Get started with Simple Log Service SDK for Python](https://help.aliyun.com/document_detail/284638.html).
+   * > - The OpenAPI SDK does not support this operation. Use the [Simple Log Service (SLS) SDK](https://help.aliyun.com/document_detail/29063.html) instead.
+   * - The service checks the format of log data for each PutLogs request. If any log entry is invalid, the entire request fails and no logs are written.
+   * - This operation supports only log data in [protobuf format](https://help.aliyun.com/document_detail/29055.html). The log data is structured as a LogGroup.
+   * - Logs can be written in two modes:
+   *   - LoadBalance mode: Data is automatically written to all writable shards in a logstore. This method provides high availability and is suitable for data consumption scenarios that do not require a specific order. Request syntax:
+   *     ```plaintext
+   *     POST /logstores/logstoreName/shards/lb HTTP/1.1
+   *     Authorization: LOG yourAccessKeyId:yourSignature
+   *     Content-Type: application/x-protobuf
+   *     Content-Length: Content Length
+   *     Content-MD5: Content MD5
+   *     Date: GMT Date
+   *     Host: ProjectName.Endpoint
+   *     x-log-apiversion: 0.6.0
+   *     x-log-bodyrawsize: BodyRawSize
+   *     x-log-compresstype: lz4
+   *     x-log-signaturemethod: hmac-sha1
+   *     <Compressed log data in protobuf format>
+   *     ```
+   *   - KeyHash mode: Add a key parameter to the URL to determine which shard receives the data. This parameter is optional. If you do not set this parameter, the system automatically switches to the load balancing mode. For example, pin a producer, such as an instance, to a specific shard based on its name hash. This ensures that data written to and consumed from the shard is strictly ordered. During merge and split operations, a key is associated with only one shard at any given time. Request syntax:
+   *     ```plaintext
+   *     POST /logstores/logstoreName/shards/route?key=14d2f850ad6ea48e46e4547edbbb27e0
+   *     Authorization: LOG yourAccessKeyId:yourSignature
+   *     Content-Type: application/x-protobuf
+   *     Content-Length: Content Length
+   *     Content-MD5: Content MD5
+   *     Date: GMT Date
+   *     Host: ProjectName.Endpoint
+   *     x-log-apiversion: 0.6.0
+   *     x-log-bodyrawsize: BodyRawSize
+   *     x-log-compresstype: lz4
+   *     x-log-signaturemethod: hmac-sha1
+   *     <Compressed log data in protobuf format>
+   *     ```
+   * - The maximum size of raw logs for each PutLogs request is 10 MB. The Value of each log in a log group must not exceed 1 MB. Older SDK versions may have different limits. Upgrade to the latest SDK version.
+   * - SLS provides examples of how to use PutLogs with the Java and Python SDKs.
+   * ## Protobuf data
+   * This section describes the fields for compressed log data in protobuf format. For more information, see [Data model](https://help.aliyun.com/document_detail/29054.html) and [Data encoding](https://help.aliyun.com/document_detail/29055.html).
+   * - Log
+   * | **Parameter** | **Data type** | **Required** | **Description**                                                                                                                         |
+   * | ------------- | ------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+   * | Time          | Integer       | Yes          | The time of the log. The value is a UNIX timestamp that represents the number of seconds that have elapsed since 1970-1-1 00:00:00 UTC. |
+   * | Contents      | List          | Yes          | A list of log fields. The list must contain at least one element. For the element type, see the Content table below.                    |
+   * - Content
+   * | **Parameter** | **Data type** | **Required** | **Description**                               |
+   * | ------------- | ------------- | ------------ | --------------------------------------------- |
+   * | Key           | String        | Yes          | The custom key name.                          |
+   * | Value         | String        | Yes          | The value that corresponds to the custom key. |
+   * - LogTag
+   * | **Parameter** | **Data type** | **Required** | **Description**                               |
+   * | ------------- | ------------- | ------------ | --------------------------------------------- |
+   * | Key           | String        | Yes          | The custom key name.                          |
+   * | Value         | String        | Yes          | The value that corresponds to the custom key. |
+   * - LogGroup
+   * | **Parameter** | **Data type** | **Required** | **Description**                                                                               |
+   * | ------------- | ------------- | ------------ | --------------------------------------------------------------------------------------------- |
+   * | Logs          | List          | Yes          | A list of logs. For each element, see the Log table.                                          |
+   * | Topic         | String        | No           | The topic of the logs. Use this custom field to distinguish log data with different features. |
+   * | Source        | String        | No           | The source of the logs, such as the IP address of the machine that generated the logs.        |
+   * | LogTags       | List          | Yes          | A list of log tags. For each element, see the LogTag table.                                   |
    * 
    * @param request - PutLogsRequest
    * @param headers - PutLogsHeaders
@@ -9152,18 +9441,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Writes logs to a Logstore.
+   * Writes log data to a specified logstore.
    * 
    * @remarks
-   * *
-   * **Warning** You cannot call this operation in OpenAPI Explorer. You can use Simple Log Service SDK to call this operation. For more information, see SLS SDK Reference.
-   * *   When you call the PutLogs operation to write logs to Simple Log Service, Simple Log Servicechecks the format of the logs. If a log does not meet the format requirements, the request fails and no logs are written to Simple Log Service.
-   * *   You can write logs only in the Protocol Buffers (Protobuf) format as log groups. For more information, see [Data encoding](https://help.aliyun.com/document_detail/29055.html).
-   * *   You can write logs in one of the following modes:
-   *     *   LoadBalance mode: In this mode, Log Service automatically writes logs to all writable shards in a Logstore. This mode delivers high availability for write operations and is suitable for data consumption scenarios in which you do not need to preserve the order of logs.
-   *     *   KeyHash: In this mode, a key field is added in the URL parameter. Log Service writes logs to a shard based on the key field. The hash key is optional. If you do not configure the hash key, logs are written to shards in LoadBalance mode. For example, you can use the KeyHash mode to write data from a producer, such as an instance, to the shard whose hash value range includes the hash value of the producer name. This ensures that the data that is written to the shard is ordered and the data in the shard is consumed based on the order. This way, when a shard is split or when shards are merged, the data that is associated with the same hash key is stored only in one shard at a point in time. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
-   * *   You can call the PutLogs operation to write up to 10 MB of raw logs at a time. We recommend that you keep the total size of the values for each log in a log group to or below 1 MB. Historical versions of SDKs may have different limits. We recommend that you upgrade your SDK to the latest version.
-   * *   The references for Log Service SDK for Java and Log Service SDK for Python provide examples on how to call the PutLogs operation. For more information, see [Get started with Simple Log Service SDK for Java](https://help.aliyun.com/document_detail/279525.html) and [Get started with Simple Log Service SDK for Python](https://help.aliyun.com/document_detail/284638.html).
+   * > - The OpenAPI SDK does not support this operation. Use the [Simple Log Service (SLS) SDK](https://help.aliyun.com/document_detail/29063.html) instead.
+   * - The service checks the format of log data for each PutLogs request. If any log entry is invalid, the entire request fails and no logs are written.
+   * - This operation supports only log data in [protobuf format](https://help.aliyun.com/document_detail/29055.html). The log data is structured as a LogGroup.
+   * - Logs can be written in two modes:
+   *   - LoadBalance mode: Data is automatically written to all writable shards in a logstore. This method provides high availability and is suitable for data consumption scenarios that do not require a specific order. Request syntax:
+   *     ```plaintext
+   *     POST /logstores/logstoreName/shards/lb HTTP/1.1
+   *     Authorization: LOG yourAccessKeyId:yourSignature
+   *     Content-Type: application/x-protobuf
+   *     Content-Length: Content Length
+   *     Content-MD5: Content MD5
+   *     Date: GMT Date
+   *     Host: ProjectName.Endpoint
+   *     x-log-apiversion: 0.6.0
+   *     x-log-bodyrawsize: BodyRawSize
+   *     x-log-compresstype: lz4
+   *     x-log-signaturemethod: hmac-sha1
+   *     <Compressed log data in protobuf format>
+   *     ```
+   *   - KeyHash mode: Add a key parameter to the URL to determine which shard receives the data. This parameter is optional. If you do not set this parameter, the system automatically switches to the load balancing mode. For example, pin a producer, such as an instance, to a specific shard based on its name hash. This ensures that data written to and consumed from the shard is strictly ordered. During merge and split operations, a key is associated with only one shard at any given time. Request syntax:
+   *     ```plaintext
+   *     POST /logstores/logstoreName/shards/route?key=14d2f850ad6ea48e46e4547edbbb27e0
+   *     Authorization: LOG yourAccessKeyId:yourSignature
+   *     Content-Type: application/x-protobuf
+   *     Content-Length: Content Length
+   *     Content-MD5: Content MD5
+   *     Date: GMT Date
+   *     Host: ProjectName.Endpoint
+   *     x-log-apiversion: 0.6.0
+   *     x-log-bodyrawsize: BodyRawSize
+   *     x-log-compresstype: lz4
+   *     x-log-signaturemethod: hmac-sha1
+   *     <Compressed log data in protobuf format>
+   *     ```
+   * - The maximum size of raw logs for each PutLogs request is 10 MB. The Value of each log in a log group must not exceed 1 MB. Older SDK versions may have different limits. Upgrade to the latest SDK version.
+   * - SLS provides examples of how to use PutLogs with the Java and Python SDKs.
+   * ## Protobuf data
+   * This section describes the fields for compressed log data in protobuf format. For more information, see [Data model](https://help.aliyun.com/document_detail/29054.html) and [Data encoding](https://help.aliyun.com/document_detail/29055.html).
+   * - Log
+   * | **Parameter** | **Data type** | **Required** | **Description**                                                                                                                         |
+   * | ------------- | ------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+   * | Time          | Integer       | Yes          | The time of the log. The value is a UNIX timestamp that represents the number of seconds that have elapsed since 1970-1-1 00:00:00 UTC. |
+   * | Contents      | List          | Yes          | A list of log fields. The list must contain at least one element. For the element type, see the Content table below.                    |
+   * - Content
+   * | **Parameter** | **Data type** | **Required** | **Description**                               |
+   * | ------------- | ------------- | ------------ | --------------------------------------------- |
+   * | Key           | String        | Yes          | The custom key name.                          |
+   * | Value         | String        | Yes          | The value that corresponds to the custom key. |
+   * - LogTag
+   * | **Parameter** | **Data type** | **Required** | **Description**                               |
+   * | ------------- | ------------- | ------------ | --------------------------------------------- |
+   * | Key           | String        | Yes          | The custom key name.                          |
+   * | Value         | String        | Yes          | The value that corresponds to the custom key. |
+   * - LogGroup
+   * | **Parameter** | **Data type** | **Required** | **Description**                                                                               |
+   * | ------------- | ------------- | ------------ | --------------------------------------------------------------------------------------------- |
+   * | Logs          | List          | Yes          | A list of logs. For each element, see the Log table.                                          |
+   * | Topic         | String        | No           | The topic of the logs. Use this custom field to distinguish log data with different features. |
+   * | Source        | String        | No           | The source of the logs, such as the IP address of the machine that generated the logs.        |
+   * | LogTags       | List          | Yes          | A list of log tags. For each element, see the LogTag table.                                   |
    * 
    * @param request - PutLogsRequest
    * @returns PutLogsResponse
@@ -9175,15 +9515,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a project policy.
+   * Creates a project access policy.
    * 
    * @remarks
-   * ### Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   Alibaba Cloud Simple Log Service allows you to configure a project policy to authorize other users to access the specified Log Service resources.
-   *     *   You must configure a project policy based on policy syntax. Before you configure a project policy, you must be familiar with the Action, Resource, and Condition parameters. For more information, see [RAM](https://help.aliyun.com/document_detail/128139.html).
-   *     *   If you set the Principal element to an asterisk (\\*) and do not configure the Condition element when you configure a project policy, the policy applies to all users except for the project owner. If you set the Principal element to an asterisk (\\*) and configure the Condition element when you configure a project policy, the policy applies to all users including the project owner.
-   *     *   You can configure multiple project policies for a project. The total size of the policies cannot exceed 16 KB.
+   * ###
+   * - The Host in the request syntax consists of the project name and the Simple Log Service (SLS) endpoint. You must specify the project in the Host.
+   * - You have created an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account provides full access to all API operations. This is a high security risk. We recommend that you create and use a Resource Access Management (RAM) user for API access or daily O\\&M. The RAM user must have permissions to manage SLS resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, region, and Logstore name. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstores](https://help.aliyun.com/document_detail/48990.html).
+   * - A project policy is an authorization policy for projects in SLS. You can use a project policy to grant other users access to your specified SLS resources.
+   *   - Before you configure a project policy using policy syntax, you must understand the classification of SLS actions, resources, and conditions. For more information, see [Resource Access Management](https://help.aliyun.com/document_detail/128139.html).
+   *   - When you configure a project policy, if you grant permissions to an anonymous account (\\*) and do not specify a condition, the policy applies to all users except the project owner. If you grant permissions to an anonymous account (\\*) and specify a condition, the policy applies to all users, including the project owner.
+   *   - You can add multiple project policies, but their total size cannot exceed 16 KB.
    * 
    * @param request - PutProjectPolicyRequest
    * @param headers - map
@@ -9214,15 +9557,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a project policy.
+   * Creates a project access policy.
    * 
    * @remarks
-   * ### Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   Alibaba Cloud Simple Log Service allows you to configure a project policy to authorize other users to access the specified Log Service resources.
-   *     *   You must configure a project policy based on policy syntax. Before you configure a project policy, you must be familiar with the Action, Resource, and Condition parameters. For more information, see [RAM](https://help.aliyun.com/document_detail/128139.html).
-   *     *   If you set the Principal element to an asterisk (\\*) and do not configure the Condition element when you configure a project policy, the policy applies to all users except for the project owner. If you set the Principal element to an asterisk (\\*) and configure the Condition element when you configure a project policy, the policy applies to all users including the project owner.
-   *     *   You can configure multiple project policies for a project. The total size of the policies cannot exceed 16 KB.
+   * ###
+   * - The Host in the request syntax consists of the project name and the Simple Log Service (SLS) endpoint. You must specify the project in the Host.
+   * - You have created an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account provides full access to all API operations. This is a high security risk. We recommend that you create and use a Resource Access Management (RAM) user for API access or daily O\\&M. The RAM user must have permissions to manage SLS resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, region, and Logstore name. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstores](https://help.aliyun.com/document_detail/48990.html).
+   * - A project policy is an authorization policy for projects in SLS. You can use a project policy to grant other users access to your specified SLS resources.
+   *   - Before you configure a project policy using policy syntax, you must understand the classification of SLS actions, resources, and conditions. For more information, see [Resource Access Management](https://help.aliyun.com/document_detail/128139.html).
+   *   - When you configure a project policy, if you grant permissions to an anonymous account (\\*) and do not specify a condition, the policy applies to all users except the project owner. If you grant permissions to an anonymous account (\\*) and specify a condition, the policy applies to all users, including the project owner.
+   *   - You can add multiple project policies, but their total size cannot exceed 16 KB.
    * 
    * @param request - PutProjectPolicyRequest
    * @returns PutProjectPolicyResponse
@@ -9286,13 +9632,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * *   You can call this operation to collect logs from web pages or clients.
-   * *   If you use web tracking to collect logs and you do not call this operation, you can send only one log to Simple Log Service in a request. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
-   * *   If you want to collect a large amount of log data, you can call this operation to send multiple logs to Simple Log Service in one request.
-   * *   Before you can call this operation to send logs to a Logstore, you must enable web tracking for the Logstore. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
-   * *   You cannot call this operation to send the logs of multiple topics to Simple Log Service at a time.
-   * *   If you call this operation, anonymous users from the Internet are granted the write permissions on the Logstore. This may generate dirty data because AccessKey pair-based authentication is not performed.
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Use this operation to collect logs from web pages or clients.
+   * - If you use web tracking to collect logs and you do not call this operation, you can send only one log to Simple Log Service in a request. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
+   * - If you want to collect a large amount of log data, you can call this operation to send multiple logs to Simple Log Service in one request.
+   * - Before you can call this operation to send logs to a Logstore, you must enable web tracking for the Logstore. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
+   * - You cannot call this operation to send the logs of multiple topics to Simple Log Service at a time.
+   * - If you call this operation, anonymous users from the Internet are granted the write permissions on the Logstore. This may generate dirty data because AccessKey pair-based authentication is not performed.
    * 
    * @param request - PutWebtrackingRequest
    * @param headers - map
@@ -9344,13 +9690,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * *   You can call this operation to collect logs from web pages or clients.
-   * *   If you use web tracking to collect logs and you do not call this operation, you can send only one log to Simple Log Service in a request. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
-   * *   If you want to collect a large amount of log data, you can call this operation to send multiple logs to Simple Log Service in one request.
-   * *   Before you can call this operation to send logs to a Logstore, you must enable web tracking for the Logstore. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
-   * *   You cannot call this operation to send the logs of multiple topics to Simple Log Service at a time.
-   * *   If you call this operation, anonymous users from the Internet are granted the write permissions on the Logstore. This may generate dirty data because AccessKey pair-based authentication is not performed.
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Use this operation to collect logs from web pages or clients.
+   * - If you use web tracking to collect logs and you do not call this operation, you can send only one log to Simple Log Service in a request. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
+   * - If you want to collect a large amount of log data, you can call this operation to send multiple logs to Simple Log Service in one request.
+   * - Before you can call this operation to send logs to a Logstore, you must enable web tracking for the Logstore. For more information, see [Use web tracking to collect logs](https://help.aliyun.com/document_detail/31752.html).
+   * - You cannot call this operation to send the logs of multiple topics to Simple Log Service at a time.
+   * - If you call this operation, anonymous users from the Internet are granted the write permissions on the Logstore. This may generate dirty data because AccessKey pair-based authentication is not performed.
    * 
    * @param request - PutWebtrackingRequest
    * @returns PutWebtrackingResponse
@@ -9362,7 +9708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refreshes an access token by using a ticket to access the Simple Log Service console.
+   * Refreshes an access token using a ticket. The access token is used to call console API operations.
    * 
    * @param request - RefreshTokenRequest
    * @param headers - map
@@ -9399,7 +9745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refreshes an access token by using a ticket to access the Simple Log Service console.
+   * Refreshes an access token using a ticket. The access token is used to call console API operations.
    * 
    * @param request - RefreshTokenRequest
    * @returns RefreshTokenResponse
@@ -9412,6 +9758,9 @@ export default class Client extends OpenApi {
 
   /**
    * Removes a Logtail configuration from a machine group.
+   * 
+   * @remarks
+   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9440,6 +9789,9 @@ export default class Client extends OpenApi {
 
   /**
    * Removes a Logtail configuration from a machine group.
+   * 
+   * @remarks
+   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
    * @returns RemoveConfigFromMachineGroupResponse
    */
   async removeConfigFromMachineGroup(project: string, machineGroup: string, configName: string): Promise<$_model.RemoveConfigFromMachineGroupResponse> {
@@ -9453,8 +9805,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
    * 
    * @param request - SplitShardRequest
    * @param headers - map
@@ -9498,8 +9850,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - Each shard has an MD5 hash range, and each range is a left-closed, right-open interval. The interval is in the `[BeginKey,EndKey)` format. A shard can be in the readwrite or readonly state. You can split a shard and merge shards. For more information, see [Shard](https://help.aliyun.com/document_detail/28976.html).
    * 
    * @param request - SplitShardRequest
    * @returns SplitShardResponse
@@ -9511,7 +9863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动Azure blob文件导入任务
+   * Starts an Azure Blob ingestion task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9539,7 +9891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动Azure blob文件导入任务
+   * Starts an Azure Blob ingestion task.
    * @returns StartAzureBlobIngestionResponse
    */
   async startAzureBlobIngestion(project: string, azureBlobIngestionName: string): Promise<$_model.StartAzureBlobIngestionResponse> {
@@ -9549,7 +9901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a data transformation job.
+   * Starts a data transformation task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9577,7 +9929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a data transformation job.
+   * Starts a data transformation task.
    * @returns StartETLResponse
    */
   async startETL(project: string, etlName: string): Promise<$_model.StartETLResponse> {
@@ -9587,7 +9939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动ES导入任务
+   * Starts an ES or OpenSearch ingestion task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9615,7 +9967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动ES导入任务
+   * Starts an ES or OpenSearch ingestion task.
    * @returns StartElasticsearchIngestionResponse
    */
   async startElasticsearchIngestion(project: string, elasticsearchIngestionName: string): Promise<$_model.StartElasticsearchIngestionResponse> {
@@ -9625,7 +9977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动GCP Cloud Storage文件导入任务
+   * Starts a GCS file import task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9653,7 +10005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动GCP Cloud Storage文件导入任务
+   * Starts a GCS file import task.
    * @returns StartGCSIngestionResponse
    */
   async startGCSIngestion(project: string, gcsIngestionName: string): Promise<$_model.StartGCSIngestionResponse> {
@@ -9666,10 +10018,10 @@ export default class Client extends OpenApi {
    * Starts a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9700,10 +10052,10 @@ export default class Client extends OpenApi {
    * Starts a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
    * @returns StartMaxComputeExportResponse
    */
   async startMaxComputeExport(project: string, mcExportName: string): Promise<$_model.StartMaxComputeExportResponse> {
@@ -9789,7 +10141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts an Object Storage Service (OSS) data import job.
+   * Starts a specified OSS import task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9817,7 +10169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts an Object Storage Service (OSS) data import job.
+   * Starts a specified OSS import task.
    * @returns StartOSSIngestionResponse
    */
   async startOSSIngestion(project: string, ossIngestionName: string): Promise<$_model.StartOSSIngestionResponse> {
@@ -9827,7 +10179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动Azure blob文件导入任务
+   * Stops an Azure Blob ingestion task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9855,7 +10207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动Azure blob文件导入任务
+   * Stops an Azure Blob ingestion task.
    * @returns StopAzureBlobIngestionResponse
    */
   async stopAzureBlobIngestion(project: string, azureBlobIngestionName: string): Promise<$_model.StopAzureBlobIngestionResponse> {
@@ -9865,7 +10217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a data transformation job.
+   * Stops a specified data transformation task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9893,7 +10245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a data transformation job.
+   * Stops a specified data transformation task.
    * @returns StopETLResponse
    */
   async stopETL(project: string, etlName: string): Promise<$_model.StopETLResponse> {
@@ -9903,7 +10255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止ES导入任务
+   * Stops an ES or OpenSearch import job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9945,7 +10297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止ES导入任务
+   * Stops an ES or OpenSearch import job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9973,7 +10325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止ES导入任务
+   * Stops an ES or OpenSearch import job.
    * @returns StopElasticsearchIngestionResponse
    */
   async stopElasticsearchIngestion(project: string, elasticsearchIngestionName: string): Promise<$_model.StopElasticsearchIngestionResponse> {
@@ -9983,7 +10335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止GCP Cloud Storage文件导入任务
+   * Stops a GCP Cloud Storage file import task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10011,7 +10363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止GCP Cloud Storage文件导入任务
+   * Stops a GCP Cloud Storage file import task.
    * @returns StopGCSIngestionResponse
    */
   async stopGCSIngestion(project: string, gcsIngestionName: string): Promise<$_model.StopGCSIngestionResponse> {
@@ -10024,10 +10376,10 @@ export default class Client extends OpenApi {
    * Stops a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10058,10 +10410,10 @@ export default class Client extends OpenApi {
    * Stops a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * @returns StopMaxComputeExportResponse
    */
   async stopMaxComputeExport(project: string, mcExportName: string): Promise<$_model.StopMaxComputeExportResponse> {
@@ -10147,7 +10499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an Object Storage Service (OSS) data import job.
+   * Stops the specified OSS import task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10175,7 +10527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an Object Storage Service (OSS) data import job.
+   * Stops the specified OSS import task.
    * @returns StopOSSIngestionResponse
    */
   async stopOSSIngestion(project: string, ossIngestionName: string): Promise<$_model.StopOSSIngestionResponse> {
@@ -10185,7 +10537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交异步SQL请求
+   * Submits an asynchronous SQL request.
    * 
    * @param request - SubmitAsyncSqlRequest
    * @param headers - SubmitAsyncSqlHeaders
@@ -10229,7 +10581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交异步SQL请求
+   * Submits an asynchronous SQL request.
    * 
    * @param request - SubmitAsyncSqlRequest
    * @returns SubmitAsyncSqlResponse
@@ -10245,16 +10597,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
-   * * For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:TagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
+   * | Action             | Resource                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   * | :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `log:TagResources` | The resource format varies based on the resource type.-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}` |
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -10299,16 +10651,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
-   * * For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:TagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
+   * | Action             | Resource                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   * | :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `log:TagResources` | The resource format varies based on the resource type.-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}` |
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -10324,15 +10676,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:UntagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
+   * | Action               | Resource                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   * | :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `log:UntagResources` | The resource format varies based on the resource type.-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}` |
    * 
    * @param request - UntagResourcesRequest
    * @param headers - map
@@ -10381,15 +10733,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) For more information, see [Authorization rules](https://help.aliyun.com/document_detail/29049.html). The following types of resources are supported: project, Logstore, dashboard, machine group, and Logtail configuration.
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:UntagResources`|The resource format varies based on the resource type.\\-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`\\-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}`|
+   * | Action               | Resource                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   * | :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `log:UntagResources` | The resource format varies based on the resource type.-`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logstore/${logstoreName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/dashboard/${dashboardName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/machinegroup/${machineGroupName}`-`acs:log:${regionName}:${accountId}:project/${projectName}/logtailconfig/${logtailConfigName}` |
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -10401,7 +10753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateAgentInstanceConfig
+   * Updates process-level configurations.
    * 
    * @param tmpReq - UpdateAgentInstanceConfigRequest
    * @param headers - map
@@ -10450,7 +10802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateAgentInstanceConfig
+   * Updates process-level configurations.
    * 
    * @param request - UpdateAgentInstanceConfigRequest
    * @returns UpdateAgentInstanceConfigResponse
@@ -10524,6 +10876,9 @@ export default class Client extends OpenApi {
   /**
    * Updates a dataset.
    * 
+   * @remarks
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
+   * 
    * @param request - UpdateAnnotationDataSetRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10552,6 +10907,9 @@ export default class Client extends OpenApi {
   /**
    * Updates a dataset.
    * 
+   * @remarks
+   * The endpoint for this operation is available only in the China (Shanghai) and Singapore regions.
+   * 
    * @param request - UpdateAnnotationDataSetRequest
    * @returns UpdateAnnotationDataSetResponse
    */
@@ -10562,10 +10920,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a tag table.
+   * Updates a label table. You can update only the names of labels in a label set.
    * 
    * @remarks
-   * You can update only the names of the tags in a tag set.
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - UpdateAnnotationLabelRequest
    * @param headers - map
@@ -10593,10 +10951,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a tag table.
+   * Updates a label table. You can update only the names of labels in a label set.
    * 
    * @remarks
-   * You can update only the names of the tags in a tag set.
+   * This operation is available only in the China (Shanghai) and Singapore regions.
    * 
    * @param request - UpdateAnnotationLabelRequest
    * @returns UpdateAnnotationLabelResponse
@@ -10608,7 +10966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Azure blob文件导入任务
+   * Updates an Azure Blob ingestion.
    * 
    * @param request - UpdateAzureBlobIngestionRequest
    * @param headers - map
@@ -10656,7 +11014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Azure blob文件导入任务
+   * Updates an Azure Blob ingestion.
    * 
    * @param request - UpdateAzureBlobIngestionRequest
    * @returns UpdateAzureBlobIngestionResponse
@@ -10672,12 +11030,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   After you update a Logtail configuration that is applied to a machine group, the new configuration immediately takes effect.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - After you update a Logtail configuration that is applied to a machine group, the new configuration immediately takes effect.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
    * 
    * @param request - UpdateConfigRequest
    * @param headers - map
@@ -10712,12 +11070,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Usage notes
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   After you update a Logtail configuration that is applied to a machine group, the new configuration immediately takes effect.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - After you update a Logtail configuration that is applied to a machine group, the new configuration immediately takes effect.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a RAM user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - The Logtail configuration is planned out. For more information, see [Logtail configurations](https://help.aliyun.com/document_detail/29058.html).
    * 
    * @param request - UpdateConfigRequest
    * @returns UpdateConfigResponse
@@ -10733,15 +11091,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:UpdateConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
+   * | Action                    | Resource                                                                                                          |
+   * | :------------------------ | :---------------------------------------------------------------------------------------------------------------- |
+   * | `log:UpdateConsumerGroup` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}` |
    * 
    * @param request - UpdateConsumerGroupRequest
    * @param headers - map
@@ -10785,15 +11143,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:UpdateConsumerGroup`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}`|
+   * | Action                    | Resource                                                                                                          |
+   * | :------------------------ | :---------------------------------------------------------------------------------------------------------------- |
+   * | `log:UpdateConsumerGroup` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#logstoreName}/consumergroup/{#ConsumerGroup}` |
    * 
    * @param request - UpdateConsumerGroupRequest
    * @returns UpdateConsumerGroupResponse
@@ -10877,7 +11235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data transformation job.
+   * Updates the configuration of a specified data transformation task and restarts it.
    * 
    * @param request - UpdateETLRequest
    * @param headers - map
@@ -10921,7 +11279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data transformation job.
+   * Updates the configuration of a specified data transformation task and restarts it.
    * 
    * @param request - UpdateETLRequest
    * @returns UpdateETLResponse
@@ -10933,7 +11291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新ES导入任务
+   * Updates an ES or OpenSearch ingestion task.
    * 
    * @param request - UpdateElasticsearchIngestionRequest
    * @param headers - map
@@ -10981,7 +11339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新ES导入任务
+   * Updates an ES or OpenSearch ingestion task.
    * 
    * @param request - UpdateElasticsearchIngestionRequest
    * @returns UpdateElasticsearchIngestionResponse
@@ -10993,7 +11351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新GCP Cloud Storage文件导入任务
+   * Updates a GCP Cloud Storage file ingestion task.
    * 
    * @param request - UpdateGCSIngestionRequest
    * @param headers - map
@@ -11037,7 +11395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新GCP Cloud Storage文件导入任务
+   * Updates a GCP Cloud Storage file ingestion task.
    * 
    * @param request - UpdateGCSIngestionRequest
    * @returns UpdateGCSIngestionResponse
@@ -11100,12 +11458,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of a Logstore.
+   * Updates the properties of a Logstore.
    * 
    * @remarks
    * ### Usage notes
-   * *   Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-   * *   You can call the UpdateLogStore operation to change only the time-to-live (TTL) attribute.
+   * - Before you update a Logstore, call the GetLogStore operation to retrieve the configuration of the Logstore. Then, modify the configuration and pass it to the UpdateLogStore operation.
+   * - The Host in the request syntax consists of a project name and a Simple Log Service (SLS) endpoint. You must specify the project in the Host.
+   * - Obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has permissions on all API operations. This poses a high security risk. We recommend that you create and use a Resource Access Management (RAM) user to make API calls or perform routine O\\&M. The RAM user must be granted the required permissions to operate SLS resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, the Logstore name, and the region where the project resides. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstores](https://help.aliyun.com/document_detail/48990.html).
+   * ### Authorization
+   * The following table describes the authorization required for this operation. To grant a RAM user or RAM role permission to call this operation, add the required action to the Action element of a RAM policy.
+   * | Action               | Resource description in an authorization policy                                    |
+   * | :------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:UpdateLogStore` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - UpdateLogStoreRequest
    * @param headers - map
@@ -11189,12 +11555,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of a Logstore.
+   * Updates the properties of a Logstore.
    * 
    * @remarks
    * ### Usage notes
-   * *   Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
-   * *   You can call the UpdateLogStore operation to change only the time-to-live (TTL) attribute.
+   * - Before you update a Logstore, call the GetLogStore operation to retrieve the configuration of the Logstore. Then, modify the configuration and pass it to the UpdateLogStore operation.
+   * - The Host in the request syntax consists of a project name and a Simple Log Service (SLS) endpoint. You must specify the project in the Host.
+   * - Obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has permissions on all API operations. This poses a high security risk. We recommend that you create and use a Resource Access Management (RAM) user to make API calls or perform routine O\\&M. The RAM user must be granted the required permissions to operate SLS resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the project name, the Logstore name, and the region where the project resides. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html) and [Manage Logstores](https://help.aliyun.com/document_detail/48990.html).
+   * ### Authorization
+   * The following table describes the authorization required for this operation. To grant a RAM user or RAM role permission to call this operation, add the required action to the Action element of a RAM policy.
+   * | Action               | Resource description in an authorization policy                                    |
+   * | :------------------- | :--------------------------------------------------------------------------------- |
+   * | `log:UpdateLogStore` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/logstore/{#LogstoreName}` |
    * 
    * @param request - UpdateLogStoreRequest
    * @returns UpdateLogStoreResponse
@@ -11332,7 +11706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the ingest processor that is associated with a Logstore.
+   * Updates the ingest processor for a Logstore.
    * 
    * @param request - UpdateLogStoreProcessorRequest
    * @param headers - map
@@ -11368,7 +11742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the ingest processor that is associated with a Logstore.
+   * Updates the ingest processor for a Logstore.
    * 
    * @param request - UpdateLogStoreProcessorRequest
    * @returns UpdateLogStoreProcessorResponse
@@ -11440,9 +11814,6 @@ export default class Client extends OpenApi {
   /**
    * Updates a Logtail pipeline configuration.
    * 
-   * @remarks
-   * The UK (London) region is supported. Supported regions are constantly updated.
-   * 
    * @param request - UpdateLogtailPipelineConfigRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11506,9 +11877,6 @@ export default class Client extends OpenApi {
 
   /**
    * Updates a Logtail pipeline configuration.
-   * 
-   * @remarks
-   * The UK (London) region is supported. Supported regions are constantly updated.
    * 
    * @param request - UpdateLogtailPipelineConfigRequest
    * @returns UpdateLogtailPipelineConfigResponse
@@ -11645,7 +12013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新物化视图
+   * Updates a materialized view.
    * 
    * @param request - UpdateMaterializedViewRequest
    * @param headers - map
@@ -11693,7 +12061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新物化视图
+   * Updates a materialized view.
    * 
    * @param request - UpdateMaterializedViewRequest
    * @returns UpdateMaterializedViewResponse
@@ -11708,10 +12076,10 @@ export default class Client extends OpenApi {
    * Updates a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * 
    * @param request - UpdateMaxComputeExportRequest
    * @param headers - map
@@ -11758,10 +12126,10 @@ export default class Client extends OpenApi {
    * Updates a MaxCompute data shipping job.
    * 
    * @remarks
-   *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
    * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html)
    * 
    * @param request - UpdateMaxComputeExportRequest
    * @returns UpdateMaxComputeExportResponse
@@ -11773,17 +12141,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the settings of an existing Metricstore. Metricstores are used to store metric data.
+   * Updates the configuration of an existing Metricstore. A Metricstore is used to store metrics.
    * 
    * @remarks
-   * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
-   * *   You must specify an existing Metricstore.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 200 Logstores or Metricstores in a project.
-   * *   Metric data is automatically deleted when the retention period of the metric data ends.
+   * A [Metricstore](https://help.aliyun.com/document_detail/171723.html) is used to store [metrics](https://help.aliyun.com/document_detail/174965.html).
+   * - The Metricstore that you want to update must already exist.
+   * - The Host in the request syntax consists of a project name and a Simple Log Service endpoint. You must specify a project in the Host.
+   * - You must have an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has full permissions for all API operations, which poses a security risk. We recommend that you use a RAM user to call API operations or perform routine operations and maintenance (O\\&M). The RAM user must be granted only the permissions required to access Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - You must know the name and region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create a maximum of 200 Logstores or Metricstores in a project.
+   * - Metrics are deleted after their retention period expires.
    * 
    * @param request - UpdateMetricStoreRequest
    * @param headers - map
@@ -11847,17 +12215,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the settings of an existing Metricstore. Metricstores are used to store metric data.
+   * Updates the configuration of an existing Metricstore. A Metricstore is used to store metrics.
    * 
    * @remarks
-   * Metricstores are used to store metric data. For more information, see [Metric data](https://help.aliyun.com/document_detail/174965.html).
-   * *   You must specify an existing Metricstore.
-   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * *   An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * *   The information that is required to query metric data is obtained. The information includes the name of the project to which the metric data belong and the region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
-   * *   You can create up to 200 Logstores or Metricstores in a project.
-   * *   Metric data is automatically deleted when the retention period of the metric data ends.
+   * A [Metricstore](https://help.aliyun.com/document_detail/171723.html) is used to store [metrics](https://help.aliyun.com/document_detail/174965.html).
+   * - The Metricstore that you want to update must already exist.
+   * - The Host in the request syntax consists of a project name and a Simple Log Service endpoint. You must specify a project in the Host.
+   * - You must have an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has full permissions for all API operations, which poses a security risk. We recommend that you use a RAM user to call API operations or perform routine operations and maintenance (O\\&M). The RAM user must be granted only the permissions required to access Simple Log Service resources. For more information, see [Create and authorize a RAM user](https://help.aliyun.com/document_detail/47664.html).
+   * - You must know the name and region of the project. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html).
+   * - You can create a maximum of 200 Logstores or Metricstores in a project.
+   * - Metrics are deleted after their retention period expires.
    * 
    * @param request - UpdateMetricStoreRequest
    * @returns UpdateMetricStoreResponse
@@ -11869,7 +12237,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the billing mode of a Metricstore.
+   * Updates the billing mode of a specified Metricstore.
+   * 
+   * @remarks
+   * A Metricstore supports two billing modes: [Pay-by-feature](https://help.aliyun.com/document_detail/48220.html) and [Pay-by-ingested-data](https://help.aliyun.com/document_detail/2365756.html).
+   * - Specify an existing Metricstore.
+   * - The Host in the request syntax consists of a project name and a Simple Log Service endpoint. You must specify the project in the Host.
+   * - Obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair that belongs to an Alibaba Cloud account has permissions for all API operations, which poses a high security threat. We recommend that you use a RAM user to call API operations or perform routine operations and maintenance (O\\&M). The RAM user must be granted the required permissions to manage Simple Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the name and region of the project. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - UpdateMetricStoreMeteringModeRequest
    * @param headers - map
@@ -11905,7 +12281,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the billing mode of a Metricstore.
+   * Updates the billing mode of a specified Metricstore.
+   * 
+   * @remarks
+   * A Metricstore supports two billing modes: [Pay-by-feature](https://help.aliyun.com/document_detail/48220.html) and [Pay-by-ingested-data](https://help.aliyun.com/document_detail/2365756.html).
+   * - Specify an existing Metricstore.
+   * - The Host in the request syntax consists of a project name and a Simple Log Service endpoint. You must specify the project in the Host.
+   * - Obtain an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair that belongs to an Alibaba Cloud account has permissions for all API operations, which poses a high security threat. We recommend that you use a RAM user to call API operations or perform routine operations and maintenance (O\\&M). The RAM user must be granted the required permissions to manage Simple Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * - Obtain the name and region of the project. For more information, see [Manage projects](https://help.aliyun.com/document_detail/48984.html).
    * 
    * @param request - UpdateMetricStoreMeteringModeRequest
    * @returns UpdateMetricStoreMeteringModeResponse
@@ -12077,7 +12461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an Object Storage Service (OSS) data import job.
+   * Updates the specified OSS import task.
    * 
    * @param request - UpdateOSSIngestionRequest
    * @param headers - map
@@ -12125,7 +12509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an Object Storage Service (OSS) data import job.
+   * Updates the specified OSS import task.
    * 
    * @param request - UpdateOSSIngestionRequest
    * @returns UpdateOSSIngestionResponse
@@ -12137,18 +12521,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a project.
+   * Updates project information.
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:UpdateProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
+   * - The Host parameter consists of a project name and a Simple Log Service endpoint. You must specify a project in the Host parameter.
+   * - Make sure that you have an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has permissions on all API operations, which poses a high security risk. For security, we recommend that you create and use a Resource Access Management (RAM) user to make API calls or perform routine O\\&M. The RAM user must have permissions to operate on Simple Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * ### Authorization resources
+   * The following table describes the authorization information for this operation. Add this information to the Action element of a RAM policy statement to grant a RAM user or RAM role the permissions to call this operation.
+   * | Action              | Resource                                                  |
+   * | ------------------- | --------------------------------------------------------- |
+   * | `log:UpdateProject` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - UpdateProjectRequest
    * @param headers - map
@@ -12188,18 +12572,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a project.
+   * Updates project information.
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * ### Authentication resources
-   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:UpdateProject`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
+   * - The Host parameter consists of a project name and a Simple Log Service endpoint. You must specify a project in the Host parameter.
+   * - Make sure that you have an AccessKey pair. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * An AccessKey pair for an Alibaba Cloud account has permissions on all API operations, which poses a high security risk. For security, we recommend that you create and use a Resource Access Management (RAM) user to make API calls or perform routine O\\&M. The RAM user must have permissions to operate on Simple Log Service resources. For more information, see [Create a RAM user and grant permissions](https://help.aliyun.com/document_detail/47664.html).
+   * ### Authorization resources
+   * The following table describes the authorization information for this operation. Add this information to the Action element of a RAM policy statement to grant a RAM user or RAM role the permissions to call this operation.
+   * | Action              | Resource                                                  |
+   * | ------------------- | --------------------------------------------------------- |
+   * | `log:UpdateProject` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}` |
    * 
    * @param request - UpdateProjectRequest
    * @returns UpdateProjectResponse
@@ -12215,16 +12599,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:UpdateSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+   * | Action                  | Resource                                                                                 |
+   * | :---------------------- | :--------------------------------------------------------------------------------------- |
+   * | `log:UpdateSavedSearch` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}` |
    * 
    * @param request - UpdateSavedSearchRequest
    * @param headers - map
@@ -12280,16 +12664,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Usage notes
-   * * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
-   * * An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
-   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O&#x26;M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
-   * * The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
-   * * Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+   * - Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+   * - An AccessKey pair is created and obtained. For more information, see [AccessKey pair](https://help.aliyun.com/document_detail/29009.html).
+   * The AccessKey pair of an Alibaba Cloud account has permissions on all API operations. Using these credentials to perform operations in Simple Log Service is a high-risk operation. We recommend that you use a Resource Access Management (RAM) user to call API operations or perform routine O\\&M. To create a RAM user, log on to the RAM console. Make sure that the RAM user has the management permissions on Simple Log Service resources. For more information, see [Create a RAM user and authorize the RAM user to access Simple Log Service](https://help.aliyun.com/document_detail/47664.html).
+   * - The information that is required to query logs is obtained. The information includes the name of the project to which the logs belong, the region of the project, and the name of the Logstore to which the logs belong. For more information, see [Manage a project](https://help.aliyun.com/document_detail/48984.html) and [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - Limits are imposed when you use Simple Log Service to query logs. We recommend that you specify query statements and query time ranges based on the limits. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
    * ### Authentication resources
    * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a RAM policy statement to grant a RAM user or a RAM role the permissions to call this operation.
-   * |Action|Resource|
-   * |:---|:---|
-   * |`log:UpdateSavedSearch`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}`|
+   * | Action                  | Resource                                                                                 |
+   * | :---------------------- | :--------------------------------------------------------------------------------------- |
+   * | `log:UpdateSavedSearch` | `acs:log:{#regionId}:{#accountId}:project/{#ProjectName}/savedsearch/{#SavedSearchName}` |
    * 
    * @param request - UpdateSavedSearchRequest
    * @returns UpdateSavedSearchResponse
@@ -12301,7 +12685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Scheduled SQL job.
+   * Updates the specified scheduled SQL task.
    * 
    * @param request - UpdateScheduledSQLRequest
    * @param headers - map
@@ -12349,7 +12733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Scheduled SQL job.
+   * Updates the specified scheduled SQL task.
    * 
    * @param request - UpdateScheduledSQLRequest
    * @returns UpdateScheduledSQLResponse
@@ -12361,7 +12745,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of the Dedicated SQL feature.
+   * When you use Standard SQL to analyze large amounts of data, a single query may not scan all logs within a specific time range, which can result in incomplete data. Although adding shards improves read and write performance, this improvement applies only to new data. To analyze more data in a single query, enable Dedicated SQL and add more compute resources.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/223777.html) for Dedicated SQL.**
    * 
    * @param request - UpdateSqlInstanceRequest
    * @param headers - map
@@ -12401,7 +12788,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of the Dedicated SQL feature.
+   * When you use Standard SQL to analyze large amounts of data, a single query may not scan all logs within a specific time range, which can result in incomplete data. Although adding shards improves read and write performance, this improvement applies only to new data. To analyze more data in a single query, enable Dedicated SQL and add more compute resources.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/223777.html) for Dedicated SQL.**
    * 
    * @param request - UpdateSqlInstanceRequest
    * @returns UpdateSqlInstanceResponse

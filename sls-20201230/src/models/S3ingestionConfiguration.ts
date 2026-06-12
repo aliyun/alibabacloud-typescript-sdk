@@ -6,12 +6,16 @@ import { S3IngestionConfigurationSource } from "./S3ingestionConfigurationSource
 export class S3IngestionConfiguration extends $dara.Model {
   /**
    * @remarks
-   * logstore
+   * The name of the Logstore.
    * 
    * @example
    * myLogstore
    */
   logstore?: string;
+  /**
+   * @remarks
+   * The source.
+   */
   source?: S3IngestionConfigurationSource;
   static names(): { [key: string]: string } {
     return {

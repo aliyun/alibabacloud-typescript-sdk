@@ -5,12 +5,22 @@ import { GCSIngestion } from "./Gcsingestion";
 
 export class ListGCSIngestionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of jobs returned on the current page.
+   * 
    * @example
    * 100
    */
   count?: number;
+  /**
+   * @remarks
+   * The details of the job configurations.
+   */
   results?: GCSIngestion[];
   /**
+   * @remarks
+   * The total number of entries that match the query.
+   * 
    * @example
    * 100
    */

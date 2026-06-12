@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   /**
    * @remarks
-   * 对象存储桶
+   * The Object Storage Service (OSS) bucket.
    * 
    * @example
    * ali-test-oss-bucket
@@ -13,7 +13,7 @@ export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * 压缩格式
+   * The compression format.
    * 
    * @example
    * none
@@ -21,26 +21,32 @@ export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   compressionType?: string;
   /**
    * @remarks
-   * 下载文件格式
+   * The file format.
    * 
    * @example
    * csv
    */
   contentType?: string;
   /**
+   * @remarks
+   * The prefix of the file that is saved to the bucket.
+   * 
    * @example
    * download/
    */
   prefix?: string;
   /**
    * @remarks
-   * 下载使用roleArn
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role that is used for the download.
    * 
    * @example
    * acs:ram::0123456789:role/aliyunlogdefaultrole
    */
   roleArn?: string;
   /**
+   * @remarks
+   * The value is fixed to AliyunOSS.
+   * 
    * @example
    * AliyunOSS
    */
@@ -78,13 +84,16 @@ export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
 
 export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to allow downloading incomplete data.
+   * 
    * @example
    * true
    */
   allowInComplete?: boolean;
   /**
    * @remarks
-   * 起点时间戳（精确到秒）
+   * The start time of the download task. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1722409860
@@ -92,7 +101,7 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * 源logstore
+   * The source Logstore.
    * 
    * @example
    * ali-test-logstore
@@ -100,7 +109,7 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * 是否启用powerSql
+   * Specifies whether to enable PowerSQL.
    * 
    * @example
    * false
@@ -108,7 +117,7 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   powerSql?: boolean;
   /**
    * @remarks
-   * 查询语句
+   * The search statement.
    * 
    * @example
    * * | select *
@@ -116,12 +125,12 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * 导出配置
+   * The export configuration.
    */
   sink?: GetDownloadJobResponseBodyConfigurationSink;
   /**
    * @remarks
-   * 结束时间戳（精确到秒）
+   * The end time of the download task. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1722411060
@@ -165,13 +174,16 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
 
 export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   /**
+   * @remarks
+   * The ETag of the file.
+   * 
    * @example
    * EXSFGSDASDASDG123ASD
    */
   checkSum?: string;
   /**
    * @remarks
-   * 下载错误信息
+   * The error message if the download fails.
    * 
    * @example
    * timeout
@@ -179,7 +191,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * 下载执行时间
+   * The duration of the download task in seconds.
    * 
    * @example
    * 123
@@ -187,7 +199,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   executeTime?: number;
   /**
    * @remarks
-   * 下载结果链接
+   * The URL of the download result.
    * 
    * @example
    * https://xxx.csv.zst?xxx
@@ -195,7 +207,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * 下载文件大小
+   * The size of the downloaded file in bytes.
    * 
    * @example
    * 123456
@@ -203,16 +215,23 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * 下载日志条数
+   * The number of downloaded log entries.
    * 
    * @example
    * 123
    */
   logCount?: number;
+  /**
+   * @remarks
+   * Notification text.
+   * 
+   * @example
+   * test
+   */
   notice?: string;
   /**
    * @remarks
-   * 下载进度
+   * The download progress.
    * 
    * @example
    * 100
@@ -256,12 +275,12 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
 export class GetDownloadJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 下载配置
+   * The download configuration.
    */
   configuration?: GetDownloadJobResponseBodyConfiguration;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the task was created.
    * 
    * @example
    * 1722411060
@@ -269,7 +288,7 @@ export class GetDownloadJobResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 任务描述
+   * The description of the task.
    * 
    * @example
    * a download job
@@ -277,7 +296,7 @@ export class GetDownloadJobResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 任务显示名称
+   * The display name.
    * 
    * @example
    * download-123456
@@ -285,12 +304,12 @@ export class GetDownloadJobResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 任务执行细节
+   * The execution details.
    */
   executionDetails?: GetDownloadJobResponseBodyExecutionDetails;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the download task.
    * 
    * @example
    * download-123
@@ -298,10 +317,10 @@ export class GetDownloadJobResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the log download task.
+   * The status of the download task.
    * 
    * @example
-   * running
+   * STARTING、RUNNING、SUCCEEDED、ERROR
    */
   status?: string;
   static names(): { [key: string]: string } {

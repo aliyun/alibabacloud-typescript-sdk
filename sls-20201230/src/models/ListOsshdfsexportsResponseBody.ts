@@ -5,12 +5,22 @@ import { OSSExport } from "./Ossexport";
 
 export class ListOSSHDFSExportsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of OSS-HDFS export tasks returned in the current response.
+   * 
    * @example
    * 2
    */
   count?: number;
+  /**
+   * @remarks
+   * The list of OSS-HDFS export tasks.
+   */
   results?: OSSExport[];
   /**
+   * @remarks
+   * The total number of OSS-HDFS export tasks in the project.
+   * 
    * @example
    * 10
    */

@@ -14,6 +14,9 @@ export class CreateMaxComputeExportRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the MaxCompute data shipping job.
+   * 
+   * @example
+   * Create a MaxCompute delivery task
    */
   description?: string;
   /**

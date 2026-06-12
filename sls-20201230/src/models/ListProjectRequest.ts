@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListProjectRequest extends $dara.Model {
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to retrieve the quota information for the project.
+   * 
+   * @example
+   * false
+   */
   fetchQuota?: boolean;
   /**
    * @remarks
-   * The line from which the query starts. Default value: 0.
+   * The line from which the query starts. The default value is 0.
    * 
    * @example
    * 0
@@ -15,7 +22,7 @@ export class ListProjectRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The name of the project.
+   * The name of the project. Fuzzy queries are supported.
    * 
    * @example
    * ali-test-project
@@ -31,7 +38,7 @@ export class ListProjectRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100. This operation can return up to 500 projects.
+   * The number of rows to return on each page for a paged query. The default value is 100. A maximum of 500 projects can be returned.
    * 
    * @example
    * 10

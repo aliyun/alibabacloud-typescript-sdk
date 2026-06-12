@@ -6,16 +6,23 @@ import { GCSIngestionConfiguration } from "./GcsingestionConfiguration";
 export class CreateGCSIngestionRequest extends $dara.Model {
   /**
    * @remarks
+   * The ingestion configuration.
+   * 
    * This parameter is required.
    */
   configuration?: GCSIngestionConfiguration;
   /**
+   * @remarks
+   * The task description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The display name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +31,14 @@ export class CreateGCSIngestionRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The job name. Must be unique within the same project. Naming rules:
+   * 
+   * - Can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - Must start and end with a lowercase letter or digit.
+   * 
+   * - Must be 2 to 64 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example

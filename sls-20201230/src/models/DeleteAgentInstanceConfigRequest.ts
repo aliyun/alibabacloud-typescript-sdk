@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAgentInstanceConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The process to which the configuration applies.
+   */
   attributes?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

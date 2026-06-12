@@ -5,12 +5,22 @@ import { ESIngestion } from "./Esingestion";
 
 export class ListElasticsearchIngestionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of Elasticsearch/OpenSearch import jobs returned in the current request.
+   * 
    * @example
    * 10
    */
   count?: number;
+  /**
+   * @remarks
+   * The list of Elasticsearch/OpenSearch import jobs.
+   */
   results?: ESIngestion[];
   /**
+   * @remarks
+   * The total number of Elasticsearch/OpenSearch import jobs in the project.
+   * 
    * @example
    * 80
    */

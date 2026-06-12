@@ -6,7 +6,7 @@ import { IngestProcessor } from "./IngestProcessor";
 export class ListIngestProcessorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of entries returned in the current response.
    * 
    * @example
    * 5
@@ -14,12 +14,12 @@ export class ListIngestProcessorsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The ingest processors that are returned.
+   * A list of ingest processors that meet the query conditions.
    */
   processors?: IngestProcessor[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 10

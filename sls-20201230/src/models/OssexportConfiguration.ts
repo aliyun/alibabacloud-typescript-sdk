@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class OSSExportConfigurationSink extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * The name of the destination OSS bucket.
    * 
    * This parameter is required.
    * 
    * @example
-   * test-bucket
+   * my-bucket
    */
   bucket?: string;
   /**
    * @remarks
-   * The interval between two data shipping operations. Valid values: 300 to 900. Unit: seconds.
+   * The time in seconds to buffer data before exporting. The value must be an integer from 300 to 900.
    * 
    * @example
    * 300
@@ -23,7 +23,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
   bufferInterval?: number;
   /**
    * @remarks
-   * The size of the OSS object to which data is shipped. Valid values: 5 to 256. Unit: MB.
+   * The amount of data in MB to buffer before exporting. The value must be an integer from 5 to 256.
    * 
    * @example
    * 256
@@ -31,32 +31,30 @@ export class OSSExportConfigurationSink extends $dara.Model {
   bufferSize?: number;
   /**
    * @remarks
-   * The compression type. Valid values: snappy, gizp, zstd, and none.
+   * The compression type for the exported files. Valid values: `snappy`, `gzip`, `zstd`, and `none` (no compression).
    * 
    * @example
-   * snappy/gizp/zstd/none
+   * snappy
    */
   compressionType?: string;
   /**
    * @remarks
-   * The details of the OSS object. Note: The value of this parameter is in the JSON format and varies based on the value of contentType.
+   * Format-specific settings. The structure of this JSON object depends on the `contentType` value.
    */
   contentDetail?: { [key: string]: any };
   /**
    * @remarks
-   * The storage format of the OSS object. Valid values: json, parquet, csv, and orc.
+   * The format of the files stored in OSS. Valid values: `json`, `parquet`, `csv`, and `orc`.
    * 
    * @example
-   * json/parquet/csv/orc
+   * csv
    */
   contentType?: string;
   /**
    * @remarks
-   * The latency of data shipping.
+   * The delivery delay.
    * 
-   * > 
-   * 
-   * *   This parameter is deprecated.
+   * > - This parameter is deprecated.
    * 
    * @example
    * 123
@@ -66,7 +64,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
   delaySec?: number;
   /**
    * @remarks
-   * The latency of data shipping. The value of this parameter cannot exceed the data retention period of the source Logstore.
+   * The delivery delay, in seconds. This value cannot exceed the data retention period of the source Logstore.
    * 
    * @example
    * 900
@@ -74,56 +72,57 @@ export class OSSExportConfigurationSink extends $dara.Model {
   delaySeconds?: number;
   /**
    * @remarks
-   * *   The endpoint that is used to access OSS. You can specify only an internal OSS endpoint for the region where the Simple Log Service project resides. The value is in the `http://+OSS endpoint` format. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
-   * *   The endpoint that is used to access OSS-HDFS. You can specify only an internal OSS-HDFS endpoint for the region where the Simple Log Service project resides.
+   * - For Object Storage Service (OSS): The OSS internal endpoint. You must use an endpoint in the same region as the Logstore. For more information, see [OSS access domains and data centers](https://help.aliyun.com/document_detail/31837.html). The endpoint must use the HTTPS protocol.
+   * 
+   * - For OSS-HDFS: The OSS-HDFS internal endpoint. You must use an endpoint in the same region as the Logstore.
    * 
    * This parameter is required.
    * 
    * @example
-   * http://xxxxxxxx
+   * https://oss-cn-hangzhou-internal.aliyuncs.com
    */
   endpoint?: string;
   /**
    * @remarks
-   * The partition format. For more information, see [Partition formats](https://help.aliyun.com/document_detail/371934.html).
+   * The path format for exported files. For more information, see [Path format](https://help.aliyun.com/document_detail/371934.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * %Y_%m_%d/good/bad
+   * %Y/%m/%d/%H/%M
    */
   pathFormat?: string;
   /**
    * @remarks
-   * The partition format type.
+   * The type of the path format.
    * 
    * This parameter is required.
    * 
    * @example
-   * only support time
+   * time
    */
   pathFormatType?: string;
   /**
    * @remarks
-   * The prefix of the OSS object.
+   * The prefix for files exported to the OSS bucket.
    * 
    * @example
-   * prefixxxx/
+   * prefix-demo/
    */
   prefix?: string;
   /**
    * @remarks
-   * The ARN of the RAM role that is used to write data to OSS.
+   * The ARN of the RAM role that Log Service assumes to write data to the OSS bucket. You must specify the ARN of your role.
    * 
    * This parameter is required.
    * 
    * @example
-   * acs:ram::xxxxxxx
+   * acs:ram::1234567890:role/aliyunlogdefaultrole
    */
   roleArn?: string;
   /**
    * @remarks
-   * The suffix of the OSS object.
+   * The suffix for the exported files.
    * 
    * @example
    * .json
@@ -131,7 +130,7 @@ export class OSSExportConfigurationSink extends $dara.Model {
   suffix?: string;
   /**
    * @remarks
-   * The time zone. For more information, see [Time zones](https://help.aliyun.com/document_detail/375323.html).
+   * The time zone used for the path format. For more information, see [Time zones](https://help.aliyun.com/document_detail/375323.html).
    * 
    * @example
    * +0800
@@ -192,40 +191,40 @@ export class OSSExportConfigurationSink extends $dara.Model {
 export class OSSExportConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The beginning of the time range to ship data. The value 1 specifies that the data shipping job ships data from the first log in the Logstore.
+   * The start time for the export, specified as a Unix timestamp. Set to 1 to export from the earliest available data in the Logstore.
    * 
    * @example
-   * 123456789
+   * 1718380800
    */
   fromTime?: number;
   /**
    * @remarks
-   * The name of the Logstore.
+   * The name of the source Logstore.
    * 
    * @example
-   * logstore-demo
+   * my-logstore
    */
   logstore?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that is used to read data from Simple Log Service.
+   * The ARN of the Resource Access Management (RAM) role that Log Service assumes to read data from the Logstore. You must specify the ARN of your role.
    * 
    * @example
-   * acs:ram::123456789:role/aliyunlogdefaultrole
+   * acs:ram::1234567890:role/aliyunlogdefaultrole
    */
   roleArn?: string;
   /**
    * @remarks
-   * The configurations of the OSS data shipping job.
+   * The configuration of the destination OSS sink.
    */
   sink?: OSSExportConfigurationSink;
   sourceSecureTransport?: boolean;
   /**
    * @remarks
-   * The end of the time range to ship data. The value 0 specifies that the data shipping job continuously ships data until the job is manually stopped.
+   * The end time for the export, specified as a Unix timestamp. Set to 0 to run the task continuously until it is stopped.
    * 
    * @example
-   * 123456789
+   * 1718380800
    */
   toTime?: number;
   static names(): { [key: string]: string } {

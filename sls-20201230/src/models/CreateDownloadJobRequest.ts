@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   /**
    * @remarks
-   * 对象存储桶
+   * The destination Object Storage Service (OSS) bucket.
    * 
    * @example
    * oss-test-bucket
@@ -13,7 +13,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * 压缩格式
+   * The compression format of the file. Valid values: \\`zstd\\`, \\`lz4\\`, \\`gzip\\`, and \\`none\\`.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   compressionType?: string;
   /**
    * @remarks
-   * 下载文件格式
+   * The format of the downloaded file. Valid values: \\`csv\\` and \\`json\\`.
    * 
    * This parameter is required.
    * 
@@ -32,13 +32,16 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
    */
   contentType?: string;
   /**
+   * @remarks
+   * The prefix of the path in the destination OSS bucket.
+   * 
    * @example
    * download/
    */
   prefix?: string;
   /**
    * @remarks
-   * 下载使用roleArn
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role to use for the download.
    * 
    * @example
    * acs:ram::0123456789:role/aliyunlogdefaultrole
@@ -46,6 +49,8 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
+   * The type of the destination. Set the value to \\`AliyunOSS\\`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -86,6 +91,8 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
 export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to allow the download of incomplete results. Valid values: \\`true\\` and \\`false\\`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -94,7 +101,7 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   allowInComplete?: boolean;
   /**
    * @remarks
-   * 起点时间戳（精确到秒）
+   * The start time. This is a UNIX timestamp that is accurate to the second.
    * 
    * This parameter is required.
    * 
@@ -104,7 +111,7 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * 源logstore
+   * The source Logstore.
    * 
    * This parameter is required.
    * 
@@ -114,7 +121,7 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * 是否启用powerSql
+   * Specifies whether to enable PowerSQL. Valid values: \\`true\\` and \\`false\\`.
    * 
    * @example
    * true
@@ -122,7 +129,7 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   powerSql?: boolean;
   /**
    * @remarks
-   * 查询语句
+   * The search statement.
    * 
    * This parameter is required.
    * 
@@ -132,14 +139,14 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * 导出配置
+   * The export configuration.
    * 
    * This parameter is required.
    */
   sink?: CreateDownloadJobRequestConfigurationSink;
   /**
    * @remarks
-   * 结束时间戳（精确到秒）
+   * The end time. This is a UNIX timestamp that is accurate to the second.
    * 
    * This parameter is required.
    * 
@@ -186,19 +193,22 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
 export class CreateDownloadJobRequest extends $dara.Model {
   /**
    * @remarks
-   * 下载配置
+   * The download configuration.
    * 
    * This parameter is required.
    */
   configuration?: CreateDownloadJobRequestConfiguration;
   /**
    * @remarks
-   * 任务描述
+   * The description of the log download task.
+   * 
+   * @example
+   * Log download task
    */
   description?: string;
   /**
    * @remarks
-   * 任务显示名称
+   * The display name.
    * 
    * This parameter is required.
    * 
@@ -208,7 +218,15 @@ export class CreateDownloadJobRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the job. The name must meet the following requirements:
+   * 
+   * The job name must be unique within a project.
+   * 
+   * - It can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - It must start and end with a lowercase letter or a digit.
+   * 
+   * - The name must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 

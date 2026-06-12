@@ -5,12 +5,22 @@ import { OSSExport } from "./Ossexport";
 
 export class ListOSSExportsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of OSS shipping jobs returned.
+   * 
    * @example
    * 2
    */
   count?: number;
+  /**
+   * @remarks
+   * The list of OSS shipping jobs.
+   */
   results?: OSSExport[];
   /**
+   * @remarks
+   * The total number of OSS shipping jobs in the project.
+   * 
    * @example
    * 10
    */

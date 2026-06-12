@@ -14,6 +14,9 @@ export class UpdateMaxComputeExportRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the MaxCompute data shipping job.
+   * 
+   * @example
+   * Update MaxCompute delivery task
    */
   description?: string;
   /**

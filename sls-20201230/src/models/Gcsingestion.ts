@@ -6,17 +6,22 @@ import { GCSIngestionConfiguration } from "./GcsingestionConfiguration";
 export class GCSIngestion extends $dara.Model {
   /**
    * @remarks
+   * The GCS ingestion configuration.
+   * 
    * This parameter is required.
    */
   configuration?: GCSIngestionConfiguration;
   /**
+   * @remarks
+   * Output only. The creation time of the job, as a Unix timestamp.
+   * 
    * @example
    * 1714360481
    */
   createTime?: number;
   /**
    * @remarks
-   * job description
+   * A user-friendly description for the job.
    * 
    * @example
    * gcs ingestion
@@ -24,7 +29,7 @@ export class GCSIngestion extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * job displayName
+   * The display name for the job.
    * 
    * This parameter is required.
    * 
@@ -33,12 +38,17 @@ export class GCSIngestion extends $dara.Model {
    */
   displayName?: string;
   /**
+   * @remarks
+   * Output only. The last modified time of the job, as a Unix timestamp.
+   * 
    * @example
    * 1714360581
    */
   lastModifiedTime?: number;
   /**
    * @remarks
+   * The job name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,11 +56,17 @@ export class GCSIngestion extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * c7f01719d9feb105fc9d8df92af62010
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * Output only. The ingestion status.
+   * 
    * @example
    * RUNNING
    */

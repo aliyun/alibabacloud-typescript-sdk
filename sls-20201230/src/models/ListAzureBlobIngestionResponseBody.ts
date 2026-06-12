@@ -4,8 +4,20 @@ import { AzureBlobIngestion } from "./AzureBlobIngestion";
 
 
 export class ListAzureBlobIngestionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of tasks returned on the current page.
+   */
   count?: number;
+  /**
+   * @remarks
+   * A list of Azure Blob ingestion tasks.
+   */
   results?: AzureBlobIngestion[];
+  /**
+   * @remarks
+   * The total number of tasks that match the query.
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

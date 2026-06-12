@@ -37,11 +37,12 @@ export class ConsumerGroupUpdateCheckPointRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable forceful updates. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
-   * False
+   * true
    */
   forceSuccess?: boolean;
   static names(): { [key: string]: string } {

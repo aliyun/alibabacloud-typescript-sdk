@@ -8,8 +8,9 @@ export class GetIndexResponseBodyLine extends $dara.Model {
    * @remarks
    * Indicates whether case sensitivity is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -19,8 +20,9 @@ export class GetIndexResponseBodyLine extends $dara.Model {
    * @remarks
    * Indicates whether Chinese characters are included. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false

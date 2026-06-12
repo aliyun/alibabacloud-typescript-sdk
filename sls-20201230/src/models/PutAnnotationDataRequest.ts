@@ -14,7 +14,7 @@ export class PutAnnotationDataRequest extends $dara.Model {
   annotationdataId?: string;
   /**
    * @remarks
-   * The data structure of the request.
+   * The data struct.
    */
   mlDataParam?: MLDataParam;
   /**

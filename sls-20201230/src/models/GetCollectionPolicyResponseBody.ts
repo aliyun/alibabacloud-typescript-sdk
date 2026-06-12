@@ -4,23 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCollectionPolicyResponseBodyCollectionPolicyCentralizeConfig extends $dara.Model {
   /**
+   * @remarks
+   * The destination Logstore for centralized shipping.
+   * 
    * @example
    * your-sls-logstore-in-beijing
    */
   destLogstore?: string;
   /**
+   * @remarks
+   * The destination project for centralized shipping.
+   * 
    * @example
    * your-sls-project-in-beijing
    */
   destProject?: string;
   /**
+   * @remarks
+   * The destination region for centralized shipping.
+   * 
    * @example
    * cn-beijing
    */
   destRegion?: string;
   /**
+   * @remarks
+   * The retention period of the destination Logstore. Unit: days.
+   * 
    * @example
-   * your-sls-logstore-ttl
+   * 0
    */
   destTTL?: number;
   static names(): { [key: string]: string } {
@@ -52,11 +64,17 @@ export class GetCollectionPolicyResponseBodyCollectionPolicyCentralizeConfig ext
 
 export class GetCollectionPolicyResponseBodyCollectionPolicyDataConfig extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is valid only for global log types, such as when \\`productCode\\` is \\`sls\\`. If this parameter is left empty, logs are collected to the default project of the account in the specified \\`dataRegion\\`.
+   * 
    * @example
    * ""
    */
   dataProject?: string;
   /**
+   * @remarks
+   * This parameter is supported only for global log types, such as when \\`productCode\\` is \\`sls\\`. This parameter specifies the region to which global logs are collected during the initial configuration.
+   * 
    * @example
    * cn-beijing
    */
@@ -85,14 +103,28 @@ export class GetCollectionPolicyResponseBodyCollectionPolicyDataConfig extends $
 }
 
 export class GetCollectionPolicyResponseBodyCollectionPolicyPolicyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The regions where the instances reside. Wildcard characters are supported.
+   */
   regions?: string[];
   /**
+   * @remarks
+   * The collection pattern for resources.
+   * 
    * @example
    * all
    */
   resourceMode?: string;
   /**
+   * @remarks
+   * The resource tags.
+   * 
    * @example
    * {"tag1":"value1","tag2":"value2"}
    */
@@ -135,10 +167,17 @@ export class GetCollectionPolicyResponseBodyCollectionPolicyPolicyConfig extends
 
 export class GetCollectionPolicyResponseBodyCollectionPolicyResourceDirectory extends $dara.Model {
   /**
+   * @remarks
+   * The mode for selecting accounts in the resource directory. Valid values: \\`all\\` and \\`custom\\`.
+   * 
    * @example
    * all,custom
    */
   accountGroupType?: string;
+  /**
+   * @remarks
+   * The member accounts. This parameter is returned only when \\`accountGroupType\\` is set to \\`custom\\`.
+   */
   members?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -167,44 +206,81 @@ export class GetCollectionPolicyResponseBodyCollectionPolicyResourceDirectory ex
 }
 
 export class GetCollectionPolicyResponseBodyCollectionPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration for centralized shipping.
+   */
   centralizeConfig?: GetCollectionPolicyResponseBodyCollectionPolicyCentralizeConfig;
   /**
+   * @remarks
+   * Indicates whether centralized storage is enabled.
+   * 
    * @example
    * false
    */
   centralizeEnabled?: boolean;
   /**
+   * @remarks
+   * The code for the log type.
+   * 
    * @example
    * access_log
    */
   dataCode?: string;
+  /**
+   * @remarks
+   * The configuration that is supported only for global log types, such as when \\`productCode\\` is \\`sls\\`. Otherwise, this parameter is empty.
+   */
   dataConfig?: GetCollectionPolicyResponseBodyCollectionPolicyDataConfig;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether the rule is a built-in rule. Built-in rules cannot be modified or deleted.
+   * 
    * @example
    * false
    */
   internalPolicy?: boolean;
+  /**
+   * @remarks
+   * The configuration of the collection rule.
+   */
   policyConfig?: GetCollectionPolicyResponseBodyCollectionPolicyPolicyConfig;
   /**
+   * @remarks
+   * The name of the rule.
+   * 
    * @example
    * your_log_policy
    */
   policyName?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the rule belongs. If the rule is created by a resource directory administrator or a delegated administrator, this parameter specifies the ID of the administrator\\"s Alibaba Cloud account.
+   * 
    * @example
    * 148***********50
    */
   policyUid?: string;
   /**
+   * @remarks
+   * The code of the product.
+   * 
    * @example
    * oss
    */
   productCode?: string;
+  /**
+   * @remarks
+   * The configuration of the resource directory. This parameter is empty if no configuration is specified.
+   */
   resourceDirectory?: GetCollectionPolicyResponseBodyCollectionPolicyResourceDirectory;
   static names(): { [key: string]: string } {
     return {
@@ -260,6 +336,10 @@ export class GetCollectionPolicyResponseBodyCollectionPolicy extends $dara.Model
 }
 
 export class GetCollectionPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the rule.
+   */
   collectionPolicy?: GetCollectionPolicyResponseBodyCollectionPolicy;
   static names(): { [key: string]: string } {
     return {

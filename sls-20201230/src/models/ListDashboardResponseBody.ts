@@ -5,12 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListDashboardResponseBodyDashboardItems extends $dara.Model {
   /**
    * @remarks
-   * The dashboard ID. The ID must be unique in a project. Fuzzy search is supported. For example, if you enter da, all dashboards whose IDs start with da are queried.
+   * The dashboard ID. The ID must be unique within a project. Fuzzy queries are supported. For example, if you enter da, all dashboards whose names start with da are returned.
    * 
    * @example
    * dashboard-1609294922657-434834
    */
   dashboardName?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * tablet_ai
+   */
   description?: string;
   /**
    * @remarks
@@ -48,12 +55,12 @@ export class ListDashboardResponseBodyDashboardItems extends $dara.Model {
 export class ListDashboardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the dashboard.
+   * The dashboards.
    */
   dashboardItems?: ListDashboardResponseBodyDashboardItems[];
   /**
    * @remarks
-   * The queried dashboards. Each dashboard in the array is specified by dashboardName.
+   * A list of dashboard names. This corresponds to dashboardName.
    */
   dashboards?: string[];
   static names(): { [key: string]: string } {

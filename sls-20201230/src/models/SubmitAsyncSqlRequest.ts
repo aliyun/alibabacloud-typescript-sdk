@@ -4,6 +4,10 @@ import { SubmitAsyncSqlParams } from "./SubmitAsyncSqlParams";
 
 
 export class SubmitAsyncSqlRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The format of the response parameters. The value is \\`protobuf\\`.
+   */
   body?: SubmitAsyncSqlParams;
   static names(): { [key: string]: string } {
     return {

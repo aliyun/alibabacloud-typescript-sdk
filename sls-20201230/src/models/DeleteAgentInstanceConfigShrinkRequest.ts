@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAgentInstanceConfigShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The process to which the configuration applies.
+   */
   attributesShrink?: string;
   static names(): { [key: string]: string } {
     return {

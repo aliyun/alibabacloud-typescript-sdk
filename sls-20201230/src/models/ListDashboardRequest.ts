@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDashboardRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,11 +43,25 @@ export class ListDashboardRequestTags extends $dara.Model {
 }
 
 export class ListDashboardRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dashboard name.
+   * 
+   * @example
+   * dashboard-1609294922657-434834
+   */
   dashboardName?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * test
+   */
   displayName?: string;
   /**
    * @remarks
-   * The line from which the query starts. Default value: 0.
+   * The line from which the query starts. The default value is 0.
    * 
    * @example
    * 0
@@ -41,12 +69,16 @@ export class ListDashboardRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 500. Default value: 500.
+   * The number of entries to return on each page for a paged query. The maximum value is 500. The default value is 500.
    * 
    * @example
    * 10
    */
   size?: number;
+  /**
+   * @remarks
+   * The tag information.
+   */
   tags?: ListDashboardRequestTags[];
   static names(): { [key: string]: string } {
     return {

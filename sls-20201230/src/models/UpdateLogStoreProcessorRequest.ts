@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLogStoreProcessorRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the ingest processor.
+   * The name of the ingest processor.
    * 
    * This parameter is required.
    * 

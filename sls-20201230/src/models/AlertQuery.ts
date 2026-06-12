@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AlertQuery extends $dara.Model {
   /**
    * @remarks
-   * The name of the chart.
+   * Chart name
    * 
    * @example
    * chartExmaple
@@ -13,7 +13,7 @@ export class AlertQuery extends $dara.Model {
   chartTitle?: string;
   /**
    * @remarks
-   * The ID of the dashboard.
+   * Dashboard ID
    * 
    * @example
    * dashboardExample
@@ -21,7 +21,7 @@ export class AlertQuery extends $dara.Model {
   dashboardId?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * End time
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class AlertQuery extends $dara.Model {
   end?: string;
   /**
    * @remarks
-   * Specifies whether to enable Dedicated SQL.
+   * Whether to enable Dedicated SQL
    * 
    * @example
    * auto
@@ -39,7 +39,7 @@ export class AlertQuery extends $dara.Model {
   powerSqlMode?: string;
   /**
    * @remarks
-   * The name of the project.
+   * Project name
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class AlertQuery extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The query statement.
+   * Query and analysis statement
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class AlertQuery extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The region.
+   * Region
    * 
    * This parameter is required.
    * 
@@ -69,12 +69,12 @@ export class AlertQuery extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * Role ARN
    */
   roleArn?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * Start time
    * 
    * This parameter is required.
    * 
@@ -84,7 +84,7 @@ export class AlertQuery extends $dara.Model {
   start?: string;
   /**
    * @remarks
-   * The name of the storage.
+   * Store name
    * 
    * This parameter is required.
    * 
@@ -94,7 +94,7 @@ export class AlertQuery extends $dara.Model {
   store?: string;
   /**
    * @remarks
-   * The storage type.
+   * Store type
    * 
    * This parameter is required.
    * 
@@ -104,7 +104,7 @@ export class AlertQuery extends $dara.Model {
   storeType?: string;
   /**
    * @remarks
-   * The type of the time span.
+   * Time span type
    * 
    * This parameter is required.
    * 
@@ -114,7 +114,7 @@ export class AlertQuery extends $dara.Model {
   timeSpanType?: string;
   /**
    * @remarks
-   * The page on which you can record frontend configurations in specified scenarios.
+   * Used by the frontend for specific-scenario alerts
    */
   ui?: string;
   static names(): { [key: string]: string } {

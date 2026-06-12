@@ -32,7 +32,7 @@ export class ListMetricStoresRequest extends $dara.Model {
    * The number of entries per page.
    * 
    * @example
-   * 500
+   * 100
    */
   size?: number;
   static names(): { [key: string]: string } {

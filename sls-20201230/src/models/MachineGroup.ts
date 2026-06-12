@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MachineGroupGroupAttribute extends $dara.Model {
   /**
+   * @remarks
+   * The identifier of the external management system that the machine group depends on.
+   * 
    * @example
    * testgroup
    */
   externalName?: string;
   /**
+   * @remarks
+   * The topic of the machine group.
+   * 
    * @example
    * testtopic
    */
@@ -37,22 +43,37 @@ export class MachineGroupGroupAttribute extends $dara.Model {
 }
 
 export class MachineGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The properties of the machine group.
+   */
   groupAttribute?: MachineGroupGroupAttribute;
   /**
    * @remarks
+   * The name of the machine group.
+   * 
    * This parameter is required.
    * 
    * @example
-   * machineGroup-1
+   * machineGroup-test
    */
   groupName?: string;
   /**
+   * @remarks
+   * The type of the machine group. This parameter is currently an empty string.
+   * 
    * @example
    * “”
    */
   groupType?: string;
   /**
    * @remarks
+   * The machine identity type.
+   * 
+   * - ip: The machine group is identified by IP addresses.
+   * 
+   * - userdefined: The machine group is identified by custom identifiers.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +82,8 @@ export class MachineGroup extends $dara.Model {
   machineIdentifyType?: string;
   /**
    * @remarks
+   * The list of machines.
+   * 
    * This parameter is required.
    */
   machineList?: string[];

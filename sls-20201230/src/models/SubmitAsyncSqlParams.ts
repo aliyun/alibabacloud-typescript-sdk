@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitAsyncSqlParamsExtensions extends $dara.Model {
   /**
+   * @remarks
+   * The maximum running time for the request in milliseconds. Maximum value: 600,000 (10 minutes). Default value: 600,000.
+   * 
    * @example
    * 30000
    */
   maxRunTime?: number;
   /**
+   * @remarks
+   * Specifies whether to enable enhanced SQL. The default value is false.
+   * 
    * @example
    * true
    */
@@ -37,9 +43,15 @@ export class SubmitAsyncSqlParamsExtensions extends $dara.Model {
 }
 
 export class SubmitAsyncSqlParams extends $dara.Model {
+  /**
+   * @remarks
+   * Extensions.
+   */
   extensions?: SubmitAsyncSqlParamsExtensions;
   /**
    * @remarks
+   * The start of the query time range. This time is the log time specified when the log was written. The time range defined by the from and to parameters is left-inclusive and right-exclusive. This means the time range includes the start time but excludes the end time. If the from and to values are the same, the time range is invalid and the function returns an error. The value is a UNIX timestamp in seconds since 00:00:00 UTC on January 1, 1970.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +60,8 @@ export class SubmitAsyncSqlParams extends $dara.Model {
   from?: number;
   /**
    * @remarks
+   * The name of the logstore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +70,8 @@ export class SubmitAsyncSqlParams extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
+   * The SQL statement to execute.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,6 +80,8 @@ export class SubmitAsyncSqlParams extends $dara.Model {
   query?: string;
   /**
    * @remarks
+   * The end of the query time range. This time is the log time specified when the log was written. The time range defined by the from and to parameters is left-inclusive and right-exclusive. This means the time range includes the start time but excludes the end time. If the from and to values are the same, the time range is invalid and the function returns an error. The value is a UNIX timestamp in seconds since 00:00:00 UTC on January 1, 1970.
+   * 
    * This parameter is required.
    * 
    * @example

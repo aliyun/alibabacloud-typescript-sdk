@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag that you want to use to filter resources. For example, if you set the key to `"test-key"`, only resources to which the key is added are returned.``
+   * The key of the tag that you want to use to filter resources. For example, if you set the key to `"test-key"`, only resources to which the key is added are returned.\\`\\`
    * 
    * This parameter is required.
    * 
@@ -57,11 +57,15 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   project
-   * *   logstore
-   * *   dashboard
-   * *   machinegroup
-   * *   logtailconfig
+   * - project
+   * 
+   * - logstore
+   * 
+   * - dashboard
+   * 
+   * - machinegroup
+   * 
+   * - logtailconfig
    * 
    * This parameter is required.
    * 

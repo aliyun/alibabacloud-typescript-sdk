@@ -28,8 +28,9 @@ export class GetContextLogsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the query and analysis results are complete. Valid values:
    * 
-   * *   Complete: The query is successful, and the complete query and analysis results are returned.
-   * *   Incomplete: The query is successful, but the query and analysis results are incomplete. To obtain the complete results, you must repeat the request.
+   * - Complete: The query is successful, and the complete query and analysis results are returned.
+   * 
+   * - Incomplete: The query is successful, but the query and analysis results are incomplete. To obtain the complete results, you must repeat the request.
    * 
    * @example
    * Complete

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumeProcessorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The display name of the consumption processor.
+   * The display name of the consume processor.
    * 
    * @example
    * filter-get-request
@@ -13,7 +13,7 @@ export class ListConsumeProcessorsRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The offset. Default value: 0.
+   * The offset of the query. The default value is 0.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ListConsumeProcessorsRequest extends $dara.Model {
   offset?: string;
   /**
    * @remarks
-   * The identifier of the consumption processor.
+   * The identity of the consume processor.
    * 
    * @example
    * consume-processor-1
@@ -29,7 +29,7 @@ export class ListConsumeProcessorsRequest extends $dara.Model {
   processorName?: string;
   /**
    * @remarks
-   * The number of entries. Default value: 200.
+   * The number of entries to return. The default value is 200.
    * 
    * @example
    * 100

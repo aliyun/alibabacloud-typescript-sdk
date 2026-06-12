@@ -7,8 +7,9 @@ export class GetProjectLogsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the Dedicated SQL feature. For more information, see [Enable Dedicated SQL](https://help.aliyun.com/document_detail/223777.html). Valid values:
    * 
-   * *   true
-   * *   false (default): enables the Standard SQL feature.
+   * - true
+   * 
+   * - false (default): enables the Standard SQL feature.
    * 
    * You can use the powerSql or **query** parameter to configure Dedicated SQL.
    * 
@@ -23,7 +24,7 @@ export class GetProjectLogsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * SELECT COUNT(*) as pv FROM nginx-moni where __time__ &gt; 1646102500 and __time__ &lt; 1646103400
+   * SELECT COUNT(*) as pv FROM nginx-moni where __time__ > 1646102500 and __time__ < 1646103400
    */
   query?: string;
   static names(): { [key: string]: string } {

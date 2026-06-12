@@ -10,7 +10,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rg-aek2i7nhaxifxey
+   * rg-ae******ey
    */
   resourceGroupId?: string;
   /**

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GroupConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The fields of group evaluation.
+   * The group evaluation fields.
    */
   fields?: string[];
   /**
    * @remarks
-   * The type of group evaluation.
+   * The group evaluation type.
    * 
    * This parameter is required.
    * 

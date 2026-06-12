@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAlertsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Logstore from which to obtain alert rules. The default value is empty.
+   * 
    * @example
    * ali-test-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The line from which to start the query. The default value is 0.
+   * 
    * @example
    * 0
    */
   offset?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 200. Default value: 10.
+   * The number of rows to return on each page for a paged query. The maximum value is 200. The default value is 10.
    * 
    * @example
    * 10

@@ -6,7 +6,7 @@ import { MLDataSetParam } from "./MldataSetParam";
 export class UpdateAnnotationDataSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The data structure of the request.
+   * The request body.
    */
   body?: MLDataSetParam;
   static names(): { [key: string]: string } {

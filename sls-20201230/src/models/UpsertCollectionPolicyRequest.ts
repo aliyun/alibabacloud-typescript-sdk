@@ -247,9 +247,11 @@ export class UpsertCollectionPolicyRequest extends $dara.Model {
    * @remarks
    * The name must meet the following requirements:
    * 
-   * *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
-   * *   The name must start with a letter.
-   * *   The name must be 3 to 63 characters in length.
+   * - The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The name must start with a letter.
+   * 
+   * - The name must be 3 to 63 characters in length.
    * 
    * This parameter is required.
    * 

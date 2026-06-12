@@ -5,31 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class ETLConfigurationSink extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID that is used to grant the permissions to write data to the destination Logstore.
+   * The AccessKey ID used to write to the destination Logstore.
    * 
    * @deprecated
    */
   accessKeyId?: string;
   /**
    * @remarks
-   * The AccessKey secret that is used to grant the permissions to write data to the destination Logstore.
+   * The AccessKey Secret used to write to the destination Logstore.
    * 
    * @deprecated
    */
   accessKeySecret?: string;
   /**
    * @remarks
-   * The result data to write.
+   * The datasets to write to the sink.
    */
   datasets?: string[];
   /**
    * @remarks
-   * The Simple Log Service endpoint for the region where the destination project resides.
+   * The endpoint of the destination Project\\"s region.
    */
   endpoint?: string;
   /**
    * @remarks
-   * The name of the destination Logstore.
+   * The destination Logstore name.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ETLConfigurationSink extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the storage destination.
+   * The sink name.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ETLConfigurationSink extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the destination project.
+   * The destination Project name.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ETLConfigurationSink extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role that is used to grant the permissions to write data to the destination Logstore.
+   * The role ARN used to write to the destination Logstore.
    * 
    * This parameter is required.
    * 

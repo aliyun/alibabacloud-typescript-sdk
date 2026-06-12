@@ -7,12 +7,23 @@ import { Schedule } from "./Schedule";
 export class UpdateScheduledSQLRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration of the task.
+   * 
    * This parameter is required.
    */
   configuration?: ScheduledSQLConfiguration;
+  /**
+   * @remarks
+   * The description of the task.
+   * 
+   * @example
+   * Update scheduled SQL task
+   */
   description?: string;
   /**
    * @remarks
+   * The display name of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +32,8 @@ export class UpdateScheduledSQLRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The scheduling configuration of the task.
+   * 
    * This parameter is required.
    */
   schedule?: Schedule;

@@ -7,16 +7,23 @@ import { Schedule } from "./Schedule";
 export class CreateElasticsearchIngestionRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration for the ES or OpenSearch import job.
+   * 
    * This parameter is required.
    */
   configuration?: ESIngestionConfiguration;
   /**
+   * @remarks
+   * The description of the job.
+   * 
    * @example
    * es ingestion
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,18 @@ export class CreateElasticsearchIngestionRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * The unique identifier of the ES or OpenSearch import job.
+   * 
    * This parameter is required.
    * 
    * @example
    * ingest-elasticsearch- 123456-123
    */
   name?: string;
+  /**
+   * @remarks
+   * The schedule structure.
+   */
   schedule?: Schedule;
   static names(): { [key: string]: string } {
     return {

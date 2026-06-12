@@ -8,9 +8,11 @@ export class CreateStoreViewRequest extends $dara.Model {
    * @remarks
    * The name of the dataset.
    * 
-   * *   The name can contain lowercase letters, digits, and underscores (_).
-   * *   The name must start with a lowercase letter.
-   * *   The name must be 3 to 62 characters in length.
+   * - The name can contain only lowercase letters, digits, and underscores (_).
+   * 
+   * - The name must start with a lowercase letter.
+   * 
+   * - The name must be 3 to 62 characters in length.
    * 
    * This parameter is required.
    * 
@@ -20,7 +22,7 @@ export class CreateStoreViewRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the dataset. Valid values: metricstore and logstore.
+   * The type of the dataset. Set this parameter to metricstore to create a Metricstore dataset. Set this parameter to logstore to create a Logstore dataset.
    * 
    * This parameter is required.
    * 
@@ -30,7 +32,7 @@ export class CreateStoreViewRequest extends $dara.Model {
   storeType?: string;
   /**
    * @remarks
-   * The Logstores or Metricstores.
+   * A list of Logstores or Metricstores.
    * 
    * This parameter is required.
    */

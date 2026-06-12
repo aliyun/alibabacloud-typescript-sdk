@@ -15,12 +15,7 @@ export class UpdateProjectRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the recycle bin feature.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable the recycle bin.
    * 
    * @example
    * true

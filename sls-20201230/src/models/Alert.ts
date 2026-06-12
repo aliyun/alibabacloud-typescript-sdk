@@ -7,7 +7,7 @@ import { Schedule } from "./Schedule";
 export class Alert extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the alert rule.
+   * The configuration of the alert rule.
    * 
    * This parameter is required.
    */
@@ -15,6 +15,9 @@ export class Alert extends $dara.Model {
   /**
    * @remarks
    * The time when the alert rule was created.
+   * 
+   * @example
+   * 1695090077
    */
   createTime?: number;
   /**
@@ -27,7 +30,7 @@ export class Alert extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The alert rule name.
+   * The name of the alert rule.
    * 
    * This parameter is required.
    * 
@@ -38,6 +41,9 @@ export class Alert extends $dara.Model {
   /**
    * @remarks
    * The time when the alert rule was last modified.
+   * 
+   * @example
+   * 1714274900
    */
   lastModifiedTime?: number;
   /**
@@ -52,14 +58,14 @@ export class Alert extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The scheduling settings.
+   * The scheduling configuration.
    * 
    * This parameter is required.
    */
   schedule?: Schedule;
   /**
    * @remarks
-   * The alert status.
+   * The status of the alert rule.
    * 
    * @example
    * ENABLED/DISABLED

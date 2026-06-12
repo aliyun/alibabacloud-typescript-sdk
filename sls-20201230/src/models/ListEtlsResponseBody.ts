@@ -6,12 +6,16 @@ import { ETL } from "./Etl";
 export class ListETLsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of data transformation jobs that are returned.
+   * The number of data transformation jobs returned in the current response.
    * 
    * @example
    * 10
    */
   count?: number;
+  /**
+   * @remarks
+   * A list of data transformation results.
+   */
   results?: ETL[];
   /**
    * @remarks

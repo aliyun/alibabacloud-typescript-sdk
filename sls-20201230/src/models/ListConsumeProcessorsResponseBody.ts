@@ -6,7 +6,7 @@ import { ConsumeProcessor } from "./ConsumeProcessor";
 export class ListConsumeProcessorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of consumption processors for offset.
+   * The number of consume processors returned in the current response.
    * 
    * @example
    * 10
@@ -14,12 +14,12 @@ export class ListConsumeProcessorsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The list of consumption processor information.
+   * The list of consume processors.
    */
   processors?: ConsumeProcessor[];
   /**
    * @remarks
-   * The total number of consumption processors that meet the query conditions.
+   * The total number of consume processors that meet the query conditions.
    * 
    * @example
    * 20

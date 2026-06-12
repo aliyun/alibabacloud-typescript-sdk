@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDownloadJobsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Logstore.
+   * 
    * @example
    * ali-test-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The line from which to start the query. The default value is 0.
+   * 
    * @example
    * 0
    */
   offset?: number;
   /**
+   * @remarks
+   * The number of log download jobs to return in a single request.
+   * 
    * @example
    * 10
    */

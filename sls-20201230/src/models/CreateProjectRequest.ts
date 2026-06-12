@@ -7,8 +7,9 @@ export class CreateProjectRequest extends $dara.Model {
    * @remarks
    * The disaster recovery type. Valid values:
    * 
-   * *   LRS: locally redundant storage
-   * *   ZRS: zone-redundant storage
+   * - LRS: locally redundant storage
+   * 
+   * - ZRS: zone-redundant storage
    * 
    * @example
    * LRS
@@ -28,10 +29,13 @@ export class CreateProjectRequest extends $dara.Model {
    * @remarks
    * The project name must be unique in a region. You cannot change the name after you create the project. The name must meet the following requirements:
    * 
-   * *   The name must be globally unique.
-   * *   The name can contain only lowercase letters, digits, and hyphens (-).
-   * *   The name must start and end with a lowercase letter or a digit.
-   * *   The name must be 3 to 63 characters in length.
+   * - The name must be globally unique.
+   * 
+   * - The name can contain only lowercase letters, digits, and hyphens (-).
+   * 
+   * - The name must start and end with a lowercase letter or a digit.
+   * 
+   * - The name must be 3 to 63 characters in length.
    * 
    * This parameter is required.
    * 
@@ -45,8 +49,9 @@ export class CreateProjectRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

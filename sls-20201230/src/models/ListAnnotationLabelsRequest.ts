@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAnnotationLabelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The line from which the query starts.
+   * The starting line of the query.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class ListAnnotationLabelsRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 100

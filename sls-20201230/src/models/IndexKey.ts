@@ -6,7 +6,7 @@ import { IndexJsonKey } from "./IndexJsonKey";
 export class IndexKey extends $dara.Model {
   /**
    * @remarks
-   * Alias.
+   * The alias of the field.
    * 
    * @example
    * myAlias
@@ -14,7 +14,7 @@ export class IndexKey extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * Case sensitivity.
+   * Specifies whether the field is case-sensitive.
    * 
    * @example
    * true
@@ -22,7 +22,7 @@ export class IndexKey extends $dara.Model {
   caseSensitive?: boolean;
   /**
    * @remarks
-   * Whether the field contains Chinese characters.
+   * Specifies whether the field contains Chinese characters.
    * 
    * @example
    * true
@@ -30,7 +30,7 @@ export class IndexKey extends $dara.Model {
   chn?: boolean;
   /**
    * @remarks
-   * Whether to enable statistics.
+   * Specifies whether to enable statistics for the field.
    * 
    * @example
    * true
@@ -39,7 +39,7 @@ export class IndexKey extends $dara.Model {
   embedding?: string;
   /**
    * @remarks
-   * Whether to enable auto indexing for all text fields in JSON.
+   * Specifies whether to automatically create an index for all text fields in the JSON object.
    * 
    * @example
    * true
@@ -47,22 +47,22 @@ export class IndexKey extends $dara.Model {
   indexAll?: boolean;
   /**
    * @remarks
-   * json key
+   * The JSON key.
    */
   jsonKeys?: { [key: string]: IndexJsonKey };
   /**
    * @remarks
-   * Maximum depth.
+   * The maximum depth.
    */
   maxDepth?: number;
   /**
    * @remarks
-   * Delimiter.
+   * The delimiters used for tokenization.
    */
   token?: string[];
   /**
    * @remarks
-   * The data type of the field.
+   * The type of the field.
    * 
    * This parameter is required.
    * 

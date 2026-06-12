@@ -7,8 +7,9 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to unbind all tags. Default value: false. Valid values:
    * 
-   * *   false: unbinds only the tags that match the value of tags.
-   * *   true: unbinds all tags that are bound to the resource.
+   * - false: unbinds only the tags that match the value of tags.
+   * 
+   * - true: unbinds all tags that are bound to the resource.
    * 
    * @example
    * false
@@ -28,11 +29,15 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   project
-   * *   logstore
-   * *   dashboard
-   * *   machinegroup
-   * *   logtailconfig
+   * - project
+   * 
+   * - logstore
+   * 
+   * - dashboard
+   * 
+   * - machinegroup
+   * 
+   * - logtailconfig
    * 
    * @example
    * project

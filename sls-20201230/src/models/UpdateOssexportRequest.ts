@@ -12,6 +12,9 @@ export class UpdateOSSExportRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the job.
+   * 
+   * @example
+   * Update OSS delivery task
    */
   description?: string;
   /**
@@ -19,7 +22,7 @@ export class UpdateOSSExportRequest extends $dara.Model {
    * The display name of the job.
    * 
    * @example
-   * ali-test-oss-job
+   * my-oss-job
    */
   displayName?: string;
   static names(): { [key: string]: string } {

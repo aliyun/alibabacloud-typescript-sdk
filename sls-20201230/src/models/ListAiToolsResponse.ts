@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAiToolsResponseBodyFields extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the field.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The valid values for the field.
+   */
   option?: string[];
+  /**
+   * @remarks
+   * Indicates whether the field is required.
+   */
   required?: boolean;
+  /**
+   * @remarks
+   * The type of the field.
+   */
   type?: string;
+  /**
+   * @remarks
+   * An example of the field.
+   */
   example?: string;
+  /**
+   * @remarks
+   * The description of the field.
+   */
   description?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,8 +68,20 @@ export class ListAiToolsResponseBodyFields extends $dara.Model {
 }
 
 export class ListAiToolsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The fields of the tool.
+   */
   fields?: ListAiToolsResponseBodyFields[];
+  /**
+   * @remarks
+   * The name of the tool.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The description of the tool.
+   */
   description?: string;
   static names(): { [key: string]: string } {
     return {

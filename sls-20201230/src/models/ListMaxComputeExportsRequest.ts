@@ -4,21 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMaxComputeExportsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Logstore.
+   * 
    * @example
    * my-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The position from which to start the query. The default value is 0.
+   * 
    * @example
    * 0
    */
   offset?: number;
   /**
    * @remarks
-   * The number of entries to return. Default value: 10.
+   * The number of entries to return. The default value is 10.
    * 
    * @example
-   * 100
+   * 10
    */
   size?: number;
   static names(): { [key: string]: string } {

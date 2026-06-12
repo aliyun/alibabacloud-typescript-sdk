@@ -322,6 +322,7 @@ export { GetMLServiceResultsResponseBody } from './GetMlserviceResultsResponseBo
 export { GetMLServiceResultsResponse } from './GetMlserviceResultsResponse';
 export { GetMachineGroupResponse } from './GetMachineGroupResponse';
 export { GetMaterializedViewHeaders } from './GetMaterializedViewHeaders';
+export { GetMaterializedViewRequest } from './GetMaterializedViewRequest';
 export { GetMaterializedViewResponseBody } from './GetMaterializedViewResponseBody';
 export { GetMaterializedViewResponse } from './GetMaterializedViewResponse';
 export { GetMaxComputeExportResponse } from './GetMaxComputeExportResponse';

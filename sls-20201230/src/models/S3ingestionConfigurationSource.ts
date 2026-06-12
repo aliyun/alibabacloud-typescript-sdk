@@ -6,7 +6,7 @@ export class S3IngestionConfigurationSource extends $dara.Model {
   advancedParameters?: { [key: string]: any };
   /**
    * @remarks
-   * aws access key
+   * Amazon Web Services (AWS) access key ID
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class S3IngestionConfigurationSource extends $dara.Model {
   awsAccessKey?: string;
   /**
    * @remarks
-   * aws access key secret
+   * Amazon Web Services (AWS) secret access key
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class S3IngestionConfigurationSource extends $dara.Model {
   awsAccessKeySecret?: string;
   /**
    * @remarks
-   * s3 region
+   * Amazon S3 region
    * 
    * This parameter is required.
    * 
@@ -36,20 +36,23 @@ export class S3IngestionConfigurationSource extends $dara.Model {
   awsRegion?: string;
   /**
    * @remarks
-   * sqs queue url
+   * Amazon SQS queue URL
    * 
    * @example
    * https://sqs.ap-northeast-1.amazonaws.com/123456788/chifan
    */
   awsSQSQueueUrl?: string;
   /**
+   * @remarks
+   * Specifies whether to use SQS.
+   * 
    * @example
    * false
    */
   awsUseSQS?: boolean;
   /**
    * @remarks
-   * s3 bucket
+   * Amazon S3 bucket name
    * 
    * This parameter is required.
    * 
@@ -57,10 +60,26 @@ export class S3IngestionConfigurationSource extends $dara.Model {
    * s3bucket
    */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint for the CloudFront distribution.
+   * 
+   * @example
+   * dtfsb7voqy76q.cloudfront.net
+   */
   cloudFrontEndpoint?: string;
+  /**
+   * @remarks
+   * The authentication token for accessing the CloudFront endpoint.
+   * 
+   * @example
+   * @test-s3-access/ABS
+   */
   cloudFrontToken?: string;
   /**
    * @remarks
+   * Compression codec. Valid values: none, snappy, gzip
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +88,8 @@ export class S3IngestionConfigurationSource extends $dara.Model {
   compressionCodec?: string;
   /**
    * @remarks
+   * Character encoding
+   * 
    * This parameter is required.
    * 
    * @example
@@ -76,13 +97,16 @@ export class S3IngestionConfigurationSource extends $dara.Model {
    */
   encoding?: string;
   /**
+   * @remarks
+   * Include only files modified before this Unix timestamp
+   * 
    * @example
    * 1714360481
    */
   endTime?: number;
   /**
    * @remarks
-   * s3 endpoint
+   * Amazon S3 endpoint
    * 
    * @example
    * s3.us-east-1.amazonaws.com
@@ -90,11 +114,15 @@ export class S3IngestionConfigurationSource extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
+   * Format
+   * 
    * This parameter is required.
    */
   format?: { [key: string]: any };
   /**
    * @remarks
+   * Polling interval for new files
+   * 
    * This parameter is required.
    * 
    * @example
@@ -102,55 +130,89 @@ export class S3IngestionConfigurationSource extends $dara.Model {
    */
   interval?: string;
   /**
+   * @remarks
+   * Regular expression to filter file paths
+   * 
    * @example
    * .*
    */
   pattern?: string;
   /**
+   * @remarks
+   * Prefix to filter file paths
+   * 
    * @example
    * prefix
    */
   prefix?: string;
   /**
+   * @remarks
+   * Ingest processor ID
+   * 
    * @example
    * ingest-processor-1756802123-953901
    */
   processorId?: string;
   /**
+   * @remarks
+   * Include only files modified after this Unix timestamp
+   * 
    * @example
    * 1714274081
    */
   startTime?: number;
   /**
+   * @remarks
+   * Enable context browsing
+   * 
    * @example
    * false
    */
   tagPackId?: boolean;
   /**
+   * @remarks
+   * Name of the field that contains event timestamps
+   * 
    * @example
    * __time__
    */
   timeField?: string;
   /**
+   * @remarks
+   * Timestamp format in the time field
+   * 
    * @example
    * yyyy-MM-dd HH:mm:ss
    */
   timeFormat?: string;
   /**
+   * @remarks
+   * Regular expression to extract timestamps from file names or content
+   * 
    * @example
    * [0-9]{0,2}\\/[0-9a-zA-Z]+\\/[0-9:,]+
    */
   timePattern?: string;
   /**
+   * @remarks
+   * Time zone for the time field
+   * 
    * @example
    * GMT+08:00
    */
   timeZone?: string;
   /**
+   * @remarks
+   * Use only Amazon SQS to detect new files
+   * 
    * @example
    * false
    */
   useAwsSQSOnly?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to access S3 through a CloudFront distribution.
+   */
   useCloudFront?: boolean;
   static names(): { [key: string]: string } {
     return {

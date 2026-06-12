@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSqlInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of compute units (CUs). When you use the Dedicated SQL feature, CUs are used in parallel.
+   * The number of compute units (CUs). CUs are the compute cores that can be used in parallel when Dedicated SQL is running.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateSqlInstanceRequest extends $dara.Model {
   cu?: number;
   /**
    * @remarks
-   * Specifies whether to enable the Dedicated SQL feature for the project. If you set this parameter to true, the Dedicated SQL feature is enabled for the specified project and takes effect for all query statements that you execute in the project, including the query statements for alerts and dashboards.
+   * Specifies whether to enable Dedicated SQL by default for the project. If you set this parameter to \\`true\\`, all query and analysis operations in the project, such as alerting and dashboards, use Dedicated SQL.
    * 
    * This parameter is required.
    */

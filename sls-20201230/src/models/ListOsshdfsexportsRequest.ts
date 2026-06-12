@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOSSHDFSExportsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Logstore.
+   * 
+   * @example
+   * ali-test-logstore
+   */
   logstore?: string;
   /**
+   * @remarks
+   * The line from which to start the query. Default value: 0.
+   * 
    * @example
    * 0
    */
@@ -14,7 +24,7 @@ export class ListOSSHDFSExportsRequest extends $dara.Model {
    * The number of entries to return. Default value: 10.
    * 
    * @example
-   * 100
+   * 10
    */
   size?: number;
   static names(): { [key: string]: string } {

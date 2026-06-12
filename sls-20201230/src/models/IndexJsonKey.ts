@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IndexJsonKey extends $dara.Model {
   /**
    * @remarks
-   * Alias.
+   * The alias of the field.
    * 
    * @example
    * myAlias
@@ -13,7 +13,7 @@ export class IndexJsonKey extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * Case sensitivity.
+   * Specifies whether queries on this field are case-sensitive.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class IndexJsonKey extends $dara.Model {
   caseSensitive?: boolean;
   /**
    * @remarks
-   * Whether the field contains Chinese characters.
+   * Specifies whether to enable Chinese tokenization for the field.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class IndexJsonKey extends $dara.Model {
   chn?: boolean;
   /**
    * @remarks
-   * Whether to enable statistics.
+   * Specifies whether to enable doc_value for the field. This enables sorting, aggregation, and statistical analysis on the field.
    * 
    * @example
    * true
@@ -37,12 +37,12 @@ export class IndexJsonKey extends $dara.Model {
   docValue?: boolean;
   /**
    * @remarks
-   * Delimiter.
+   * The delimiters used for tokenization.
    */
   token?: string[];
   /**
    * @remarks
-   * The data type of the field.
+   * Specifies the field type.
    * 
    * This parameter is required.
    * 

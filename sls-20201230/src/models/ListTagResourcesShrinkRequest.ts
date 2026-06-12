@@ -12,11 +12,15 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   project
-   * *   logstore
-   * *   dashboard
-   * *   machinegroup
-   * *   logtailconfig
+   * - project
+   * 
+   * - logstore
+   * 
+   * - dashboard
+   * 
+   * - machinegroup
+   * 
+   * - logtailconfig
    * 
    * This parameter is required.
    * 

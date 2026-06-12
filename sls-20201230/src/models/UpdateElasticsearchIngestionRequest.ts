@@ -7,22 +7,33 @@ import { Schedule } from "./Schedule";
 export class UpdateElasticsearchIngestionRequest extends $dara.Model {
   /**
    * @remarks
+   * ES or OpenSearch ingestion configuration
+   * 
    * This parameter is required.
    */
   configuration?: ESIngestionConfiguration;
   /**
+   * @remarks
+   * Description of the ES or OpenSearch ingestion task
+   * 
    * @example
    * es ingestion test
    */
   description?: string;
   /**
    * @remarks
+   * Display name of the ES or OpenSearch ingestion task
+   * 
    * This parameter is required.
    * 
    * @example
    * es-ingestion-test
    */
   displayName?: string;
+  /**
+   * @remarks
+   * Scheduling type. Leave this field empty unless you need strict scheduling. For example, to run the ingestion task every Monday at 8:00 a.m., use a cron expression
+   */
   schedule?: Schedule;
   static names(): { [key: string]: string } {
     return {

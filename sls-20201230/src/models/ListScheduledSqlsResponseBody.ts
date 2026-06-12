@@ -5,12 +5,22 @@ import { ScheduledSQL } from "./ScheduledSql";
 
 export class ListScheduledSQLsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of Scheduled SQL jobs returned.
+   * 
    * @example
    * 10
    */
   count?: number;
+  /**
+   * @remarks
+   * The list of Scheduled SQL jobs.
+   */
   results?: ScheduledSQL[];
   /**
+   * @remarks
+   * The total number of Scheduled SQL jobs in the project.
+   * 
    * @example
    * 80
    */

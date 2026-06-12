@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AgentInstanceConfigGrayConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The matching rule.
+   * 
    * @example
    * appVersion="1.0.0"
    */
   condition?: string;
   /**
+   * @remarks
+   * The content of the canary release configuration.
+   * 
    * @example
    * {"enable":true}
    */

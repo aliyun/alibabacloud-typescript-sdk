@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConsumerGroupHeartBeatRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of shards whose data is being consumed.
+   * The list of shard IDs that are being consumed.
    * 
    * This parameter is required.
    */

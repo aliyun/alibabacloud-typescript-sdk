@@ -4,20 +4,47 @@ import { ShardingPolicy } from "./ShardingPolicy";
 
 
 export class CreateMetricStoreRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to record the public IP address of the client. The default value is false.
+   * 
+   * - true: Records the public IP address.
+   * 
+   * - false: Does not record the public IP address.
+   * 
+   * @example
+   * false
+   */
   appendMeta?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic sharding.
+   * Specifies whether to enable automatic shard splitting.
    * 
    * @example
    * true
    */
   autoSplit?: boolean;
+  /**
+   * @remarks
+   * The period for which data is stored in the hot tier. Unit: days. The value must be at least 7 and cannot be greater than the value of ttl. If you set this parameter to -1, all data is stored in the hot tier for the duration specified by ttl.
+   * 
+   * When the hot storage period ends, the data is moved to the IA storage class. For more information, see [Tiered Storage of Hot and Cold Data](https://help.aliyun.com/document_detail/308645.html).
+   * 
+   * @example
+   * 60
+   */
   hotTtl?: number;
+  /**
+   * @remarks
+   * The retention period of data in the IA storage class. Unit: days. The minimum value is 30. After this period, data is moved to Archive Storage.
+   * 
+   * @example
+   * 30
+   */
   infrequentAccessTTL?: number;
   /**
    * @remarks
-   * The maximum number of shards into which existing shards can be automatically split. This parameter is valid only when you set the autoSplit parameter to true.
+   * The maximum number of shards into which a shard can be split. This parameter is valid only if autoSplit is set to true.
    * 
    * @example
    * 64
@@ -25,7 +52,7 @@ export class CreateMetricStoreRequest extends $dara.Model {
   maxSplitShard?: number;
   /**
    * @remarks
-   * The type of the metric data. Example: prometheus.
+   * The type of the Metricstore. Only prometheus is supported. The default value is prometheus.
    * 
    * @example
    * prometheus
@@ -33,7 +60,7 @@ export class CreateMetricStoreRequest extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
-   * The type of the Metricstore. For example, you can set the parameter to standard to query Standard Metricstores.
+   * The type of the Metricstore. Only standard is supported. The default value is standard.
    * 
    * @example
    * standard
@@ -41,7 +68,7 @@ export class CreateMetricStoreRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The name of the Metricstore.
+   * The name of the Metricstore to create.
    * 
    * This parameter is required.
    * 
@@ -51,7 +78,7 @@ export class CreateMetricStoreRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of shards in the Metricstore.
+   * The number of [shards](https://help.aliyun.com/document_detail/28976.html) for the Metricstore.
    * 
    * This parameter is required.
    * 
@@ -59,10 +86,14 @@ export class CreateMetricStoreRequest extends $dara.Model {
    * 2
    */
   shardCount?: number;
+  /**
+   * @remarks
+   * The write hashing configuration.
+   */
   shardingPolicy?: ShardingPolicy;
   /**
    * @remarks
-   * The retention period of the metric data in the Metricstore. Unit: days.
+   * The data retention period of the Metricstore. Unit: days.
    * 
    * This parameter is required.
    * 

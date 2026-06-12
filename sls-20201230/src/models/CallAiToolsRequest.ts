@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CallAiToolsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Tool parameters.
+   */
   params?: { [key: string]: string };
+  /**
+   * @remarks
+   * The target region.
+   */
   regionId?: string;
   /**
    * @remarks

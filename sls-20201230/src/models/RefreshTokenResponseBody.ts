@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RefreshTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The access token.
+   * 
    * @example
    * eyJ***************.eyJ******************.KUT****************
    */

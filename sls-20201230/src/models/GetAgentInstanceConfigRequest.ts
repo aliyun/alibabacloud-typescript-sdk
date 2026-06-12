@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentInstanceConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The owner of the process-level configuration.
+   */
   attributes?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

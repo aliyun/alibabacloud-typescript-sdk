@@ -7,15 +7,27 @@ import { Schedule } from "./Schedule";
 export class UpdateAzureBlobIngestionRequest extends $dara.Model {
   /**
    * @remarks
+   * The updated configuration for the Azure Blob ingestion task.
+   * 
    * This parameter is required.
    */
   configuration?: AzureBlobIngestionConfiguration;
+  /**
+   * @remarks
+   * The updated description for the Azure Blob ingestion task.
+   */
   description?: string;
   /**
    * @remarks
+   * The updated display name for the Azure Blob ingestion task.
+   * 
    * This parameter is required.
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The updated ingestion schedule.
+   */
   schedule?: Schedule;
   static names(): { [key: string]: string } {
     return {

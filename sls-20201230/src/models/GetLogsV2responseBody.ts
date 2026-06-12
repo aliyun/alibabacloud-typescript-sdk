@@ -1,25 +1,36 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { LogContent } from "./LogContent";
 
 
 export class GetLogsV2ResponseBodyMetaPhraseQueryInfo extends $dara.Model {
   /**
+   * @remarks
+   * The starting offset of the scan result after index filtering.
+   * 
    * @example
    * 0
    */
   beginOffset?: number;
   /**
+   * @remarks
+   * The end offset of the scan result after index filtering.
+   * 
    * @example
    * 0
    */
   endOffset?: number;
   /**
+   * @remarks
+   * The end time of the scan result after index filtering.
+   * 
    * @example
    * 1
    */
   endTime?: number;
   /**
+   * @remarks
+   * Indicates whether all logs are scanned.
+   * 
    * @example
    * true
    */
@@ -54,34 +65,44 @@ export class GetLogsV2ResponseBodyMetaPhraseQueryInfo extends $dara.Model {
 export class GetLogsV2ResponseBodyMeta extends $dara.Model {
   /**
    * @remarks
-   * The SQL statement after | in the query statement.
+   * The SQL part of the query statement that follows the pipe character (|).
    * 
    * @example
    * select *
    */
   aggQuery?: string;
+  /**
+   * @remarks
+   * The column types.
+   */
   columnTypes?: string[];
   /**
    * @remarks
-   * The number of rows that are returned.
+   * The number of log entries returned in this query.
    * 
    * @example
    * 1
    */
   count?: number;
   /**
+   * @remarks
+   * The number of CPU cores used.
+   * 
    * @example
    * 3
    */
   cpuCores?: number;
   /**
+   * @remarks
+   * The core-hours for the Exclusive SQL.
+   * 
    * @example
    * 0.002
    */
   cpuSec?: number;
   /**
    * @remarks
-   * The amount of time that is consumed by the request. Unit: milliseconds.
+   * The time consumed by the query, in milliseconds.
    * 
    * @example
    * 5
@@ -95,10 +116,14 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
    * false
    */
   hasSQL?: boolean;
-  highlights?: LogContent[][];
   /**
    * @remarks
-   * Indicates whether the returned result is accurate to seconds.
+   * The highlighted content.
+   */
+  highlights?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * Indicates whether nanosecond-level sorting is enabled.
    * 
    * @example
    * true
@@ -110,19 +135,29 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
    */
   keys?: string[];
   /**
+   * @remarks
+   * The number of entries returned. This parameter is returned if the SQL statement does not contain a LIMIT clause.
+   * 
    * @example
    * 100
    */
   limited?: number;
   /**
+   * @remarks
+   * The query mode. Valid values: 0: Normal query, which includes SQL queries. 1: Phrase query. 2: SCAN query. 3: SCAN SQL query.
+   * 
    * @example
    * 0
    */
   mode?: number;
+  /**
+   * @remarks
+   * The information about the phrase query.
+   */
   phraseQueryInfo?: GetLogsV2ResponseBodyMetaPhraseQueryInfo;
   /**
    * @remarks
-   * The number of logs that are processed in the request.
+   * The volume of logs processed in the query, in bytes.
    * 
    * @example
    * 10000
@@ -130,7 +165,7 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
   processedBytes?: number;
   /**
    * @remarks
-   * The number of rows that are processed in the query.
+   * The number of rows processed in the query.
    * 
    * @example
    * 10000
@@ -138,16 +173,20 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
   processedRows?: number;
   /**
    * @remarks
-   * Indicates whether the query result is complete. Valid values:
+   * The progress of the query. Valid values:
    * 
-   * *   Complete: The query was successful, and the complete result is returned.
-   * *   Incomplete: The query was successful, but the query result is incomplete. To obtain the complete result, you must call the operation again.
+   * - Complete: The query is complete, and the returned result is complete.
+   * 
+   * - Incomplete: The query is complete, but the returned result is incomplete. You must send the request again to obtain the complete result.
    * 
    * @example
    * Complete
    */
   progress?: string;
   /**
+   * @remarks
+   * The volume of data scanned in the scan query, in bytes.
+   * 
    * @example
    * 1024
    */
@@ -167,7 +206,7 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
   terms?: { [key: string]: any }[];
   /**
    * @remarks
-   * The part before | in the query statement.
+   * The part of the query statement that precedes the pipe character (|).
    * 
    * @example
    * *
@@ -207,7 +246,7 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
       cpuSec: 'number',
       elapsedMillisecond: 'number',
       hasSQL: 'boolean',
-      highlights: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': LogContent } },
+      highlights: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       isAccurate: 'boolean',
       keys: { 'type': 'array', 'itemType': 'string' },
       limited: 'number',
@@ -250,7 +289,7 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
 export class GetLogsV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The query results.
    */
   data?: { [key: string]: string }[];
   /**

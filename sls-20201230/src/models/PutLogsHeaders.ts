@@ -6,7 +6,7 @@ export class PutLogsHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The compression format. lz4 and gzip are supported.
+   * The compression type of the logs. Valid values: lz4 and gzip.
    * 
    * This parameter is required.
    * 

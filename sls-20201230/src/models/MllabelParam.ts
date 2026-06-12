@@ -74,6 +74,9 @@ export class MLLabelParam extends $dara.Model {
   /**
    * @remarks
    * The description of the tag table.
+   * 
+   * @example
+   * 默认表
    */
   description?: string;
   /**
@@ -95,6 +98,9 @@ export class MLLabelParam extends $dara.Model {
   /**
    * @remarks
    * The name of the tag table.
+   * 
+   * @example
+   * 标签表
    */
   name?: string;
   /**

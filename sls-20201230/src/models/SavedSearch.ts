@@ -8,11 +8,14 @@ export class SavedSearch extends $dara.Model {
    * The display name of the saved search.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Method
    */
   displayName?: string;
   /**
    * @remarks
-   * The name of the Logstore.
+   * The name of the logstore.
    * 
    * This parameter is required.
    * 
@@ -32,7 +35,7 @@ export class SavedSearch extends $dara.Model {
   savedsearchName?: string;
   /**
    * @remarks
-   * The search statement or the analytic statement.
+   * The search statement or analytic statement.
    * 
    * This parameter is required.
    * 
@@ -42,10 +45,10 @@ export class SavedSearch extends $dara.Model {
   searchQuery?: string;
   /**
    * @remarks
-   * The topic of the log. Default value: empty string ("").
+   * The topic of the log. The default value is an empty string ("").
    * 
    * @example
-   * topic
+   * topic-test
    */
   topic?: string;
   static names(): { [key: string]: string } {

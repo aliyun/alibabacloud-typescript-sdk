@@ -3,18 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOSSExportsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries to return. The default value is 10.
+   */
   logstore?: string;
   /**
+   * @remarks
+   * The line number from which to start the query. The default value is 0.
+   * 
    * @example
    * 0
    */
   offset?: number;
   /**
    * @remarks
-   * The number of entries to return. Default value: 10.
+   * The number of jobs to return. The default value is 10.
    * 
    * @example
-   * 100
+   * 10
    */
   size?: number;
   static names(): { [key: string]: string } {

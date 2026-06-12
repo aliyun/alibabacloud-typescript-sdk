@@ -4,24 +4,44 @@ import { AgentInstanceConfigGrayConfigs } from "./AgentInstanceConfigGrayConfigs
 
 
 export class GetAgentInstanceConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The owner of the configuration for the process.
+   */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The default configuration.
+   * 
    * @example
    * {}
    */
   config?: string;
   /**
+   * @remarks
+   * The type of the process-level configuration.
+   * 
    * @example
    * apm_biz_trace
    */
   configType?: string;
   /**
+   * @remarks
+   * The time when the configuration was created.
+   * 
    * @example
    * 1749543828
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The canary release configurations.
+   */
   grayConfigs?: AgentInstanceConfigGrayConfigs[];
   /**
+   * @remarks
+   * The time when the configuration was last modified.
+   * 
    * @example
    * 1749543828
    */

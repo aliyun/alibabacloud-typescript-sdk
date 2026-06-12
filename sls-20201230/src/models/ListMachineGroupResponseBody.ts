@@ -8,7 +8,7 @@ export class ListMachineGroupResponseBody extends $dara.Model {
    * The number of machine groups that are returned on the current page.
    * 
    * @example
-   * 2
+   * 1
    */
   count?: number;
   /**
@@ -24,7 +24,7 @@ export class ListMachineGroupResponseBody extends $dara.Model {
    * The total number of machine groups that meet the query conditions.
    * 
    * @example
-   * 2
+   * 1
    */
   total?: number;
   static names(): { [key: string]: string } {

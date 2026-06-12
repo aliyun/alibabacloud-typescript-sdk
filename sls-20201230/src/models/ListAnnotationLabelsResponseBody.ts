@@ -6,12 +6,12 @@ import { MLLabelParam } from "./MllabelParam";
 export class ListAnnotationLabelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The list of annotation label table structs.
    */
   data?: MLLabelParam[];
   /**
    * @remarks
-   * The total number of tags that meet the query conditions.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 20

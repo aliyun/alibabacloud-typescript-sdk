@@ -6,12 +6,12 @@ import { MLDataParam } from "./MldataParam";
 export class ListAnnotationDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The list of data records.
    */
   data?: MLDataParam[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 20

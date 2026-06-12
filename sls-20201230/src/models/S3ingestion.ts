@@ -5,15 +5,22 @@ import { Schedule } from "./Schedule";
 
 
 export class S3Ingestion extends $dara.Model {
+  /**
+   * @remarks
+   * S3 import configuration
+   */
   configuration?: S3IngestionConfiguration;
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 1714360481
    */
   createTime?: number;
   /**
    * @remarks
-   * job description
+   * Job description
    * 
    * @example
    * s3 ingestion
@@ -21,7 +28,7 @@ export class S3Ingestion extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * job displayName
+   * Job display name
    * 
    * This parameter is required.
    * 
@@ -30,12 +37,17 @@ export class S3Ingestion extends $dara.Model {
    */
   displayName?: string;
   /**
+   * @remarks
+   * Updated At
+   * 
    * @example
    * 1714360481
    */
   lastModifiedTime?: number;
   /**
    * @remarks
+   * Task Name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,15 +56,23 @@ export class S3Ingestion extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * Scan Configuration
+   * 
    * This parameter is required.
    */
   schedule?: Schedule;
   /**
+   * @remarks
+   * Job ID
+   * 
    * @example
    * c7f01719d9feb105fc9d8df92af62010
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * Import Status
+   * 
    * @example
    * RUNNING
    */

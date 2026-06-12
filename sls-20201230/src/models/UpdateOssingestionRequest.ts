@@ -7,26 +7,32 @@ import { Schedule } from "./Schedule";
 export class UpdateOSSIngestionRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the OSS data import job.
+   * The configuration of the OSS import task.
    * 
    * This parameter is required.
    */
   configuration?: OSSIngestionConfiguration;
   /**
    * @remarks
-   * The description of the Object Storage Service (OSS) data import job.
+   * The description of the OSS import task.
+   * 
+   * @example
+   * OSS import
    */
   description?: string;
   /**
    * @remarks
-   * The display name of the OSS data import job.
+   * The display name of the OSS import task.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * OSS import
    */
   displayName?: string;
   /**
    * @remarks
-   * The scheduling type. By default, you do not need to specify this parameter. If you want to import data at regular intervals, such as importing data every Monday at 08: 00., you can specify a cron expression.
+   * The schedule of the task. This parameter is optional. To run the task at a fixed time, such as 08:00 every Monday, use a cron expression.
    */
   schedule?: Schedule;
   static names(): { [key: string]: string } {

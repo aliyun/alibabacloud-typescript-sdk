@@ -2,21 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetAgentInstanceConfigShrinkRequest extends $dara.Model {
+export class GetMaterializedViewRequest extends $dara.Model {
   /**
-   * @remarks
-   * The owner of the process-level configuration.
+   * **if can be null:**
+   * false
    */
-  attributesShrink?: string;
+  returnStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
-      attributesShrink: 'attributes',
+      returnStatus: 'returnStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      attributesShrink: 'string',
+      returnStatus: 'boolean',
     };
   }
 

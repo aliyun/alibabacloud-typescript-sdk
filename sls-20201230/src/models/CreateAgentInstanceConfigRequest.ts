@@ -4,9 +4,15 @@ import { AgentInstanceConfigGrayConfigs } from "./AgentInstanceConfigGrayConfigs
 
 
 export class CreateAgentInstanceConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The process that the configuration applies to.
+   */
   attributes?: { [key: string]: string };
   /**
    * @remarks
+   * The default configurations.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,12 +21,18 @@ export class CreateAgentInstanceConfigRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
+   * The type of the process-level configuration.
+   * 
    * This parameter is required.
    * 
    * @example
    * apm_trace
    */
   configType?: string;
+  /**
+   * @remarks
+   * The canary release environment.
+   */
   grayConfigs?: AgentInstanceConfigGrayConfigs[];
   static names(): { [key: string]: string } {
     return {

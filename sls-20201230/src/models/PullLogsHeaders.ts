@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PullLogsHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
+   * @remarks
+   * The compression format of the data that the server returns. Only the lz4 format is supported.
+   * 
    * @example
    * lz4
    */

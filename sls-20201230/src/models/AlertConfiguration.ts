@@ -16,12 +16,12 @@ import { TemplateConfiguration } from "./TemplateConfiguration";
 export class AlertConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The annotations of the alert rule.
+   * The alert annotations.
    */
   annotations?: AlertTag[];
   /**
    * @remarks
-   * Specifies whether to allow the system to automatically add annotations to the alert rule.
+   * Specifies whether to enable automatic annotation.
    * 
    * This parameter is required.
    * 
@@ -31,37 +31,37 @@ export class AlertConfiguration extends $dara.Model {
   autoAnnotation?: boolean;
   /**
    * @remarks
-   * The alert trigger conditions.
+   * The alert trigger condition.
    */
   conditionConfiguration?: ConditionConfiguration;
   /**
    * @remarks
-   * The ID of the dashboard associated with the alert rule.
+   * The ID of the dashboard to which the alert is attached.
    * 
    * @example
-   * dasnboardExample
+   * DasnboardExample
    */
   dashboard?: string;
   /**
    * @remarks
-   * The configurations of group evaluation.
+   * The group evaluation configuration.
    * 
    * This parameter is required.
    */
   groupConfiguration?: GroupConfiguration;
   /**
    * @remarks
-   * The set operation configurations for the query statements of the alert rule.
+   * The configurations for joining the results of query statements.
    */
   joinConfigurations?: JoinConfiguration[];
   /**
    * @remarks
-   * The labels of the alert rule.
+   * The alert labels.
    */
   labels?: AlertTag[];
   /**
    * @remarks
-   * The time when a paused alert rule is resumed.
+   * The time until which the alert is muted.
    * 
    * @example
    * 1698907508
@@ -69,7 +69,7 @@ export class AlertConfiguration extends $dara.Model {
   muteUntil?: number;
   /**
    * @remarks
-   * Specifies whether to enable the no-data alert feature.
+   * Specifies whether to enable no-data alerts.
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class AlertConfiguration extends $dara.Model {
   noDataFire?: boolean;
   /**
    * @remarks
-   * The severity of the no-data alert.
+   * The severity of no-data alerts.
    * 
    * @example
    * 6
@@ -87,19 +87,19 @@ export class AlertConfiguration extends $dara.Model {
   noDataSeverity?: number;
   /**
    * @remarks
-   * The notification configurations of Simple Log Service.
+   * The configuration for the SLS alert notification service.
    */
   policyConfiguration?: PolicyConfiguration;
   /**
    * @remarks
-   * The query statements.
+   * The list of query statements.
    * 
    * This parameter is required.
    */
   queryList?: AlertQuery[];
   /**
    * @remarks
-   * Specifies whether to send a recovery notification after an alert is cleared.
+   * Specifies whether to send recovery alerts.
    * 
    * This parameter is required.
    * 
@@ -116,32 +116,32 @@ export class AlertConfiguration extends $dara.Model {
   severityConfigurations?: SeverityConfiguration[];
   /**
    * @remarks
-   * The configurations that allow alerts to be sent to the notification system of Simple Log Service.
+   * The configuration for sending alerts to the SLS alert management service.
    */
   sinkAlerthub?: SinkAlerthubConfiguration;
   /**
    * @remarks
-   * The configurations that allow alerts to be sent to CloudMonitor Event Center.
+   * The configuration for sending alerts to Cloud Monitor.
    */
   sinkCms?: SinkCmsConfiguration;
   /**
    * @remarks
-   * The configurations that allow alerts to be sent to an Eventstore.
+   * The configuration for sending alerts to the eventstore.
    */
   sinkEventStore?: SinkEventStoreConfiguration;
   /**
    * @remarks
-   * The custom tags of the alert rule.
+   * The custom alert tags.
    */
   tags?: string[];
   /**
    * @remarks
-   * The alert template configurations.
+   * The alert template configuration.
    */
   templateConfiguration?: TemplateConfiguration;
   /**
    * @remarks
-   * The maximum number of consecutive times that the trigger condition is met.
+   * The consecutive trigger threshold.
    * 
    * This parameter is required.
    * 

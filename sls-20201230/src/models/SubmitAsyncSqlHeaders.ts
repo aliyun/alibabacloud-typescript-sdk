@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAsyncSqlHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
+   * @remarks
+   * The data format of the response. The value must be application/x-protobuf.
+   * 
    * @example
    * application/x-protobuf
    */
   accept?: string;
   /**
+   * @remarks
+   * The compression format of the response. The value can be lz4.
+   * 
    * @example
    * lz4
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAnnotationDataSetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The line from which the query starts.
+   * The line from which to start the query.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class ListAnnotationDataSetsRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page for a paged query.
    * 
    * @example
    * 100

@@ -15,12 +15,15 @@ export class StoreViewStore extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The query statement that contains filter conditions.
+   * The query filter statement.
+   * 
+   * @example
+   * job: IT | select name, age, gender from log
    */
   query?: string;
   /**
    * @remarks
-   * The name of the Logstore or Metricstore.
+   * The name of the LogStore or MetricStore.
    * 
    * This parameter is required.
    * 

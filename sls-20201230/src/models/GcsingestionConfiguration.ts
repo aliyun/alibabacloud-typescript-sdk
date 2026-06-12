@@ -6,7 +6,7 @@ import { GCSIngestionConfigurationSource } from "./GcsingestionConfigurationSour
 export class GCSIngestionConfiguration extends $dara.Model {
   /**
    * @remarks
-   * logstore
+   * The name of the destination logstore.
    * 
    * This parameter is required.
    * 
@@ -16,6 +16,8 @@ export class GCSIngestionConfiguration extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
+   * The data source configuration.
+   * 
    * This parameter is required.
    */
   source?: GCSIngestionConfigurationSource;

@@ -5,14 +5,23 @@ import { MLServiceAnalysisParam } from "./MlserviceAnalysisParam";
 
 export class GetMLServiceResultsRequest extends $dara.Model {
   /**
+   * @remarks
+   * - true: The request can use a built-in system service.
+   * 
+   * - false: The request cannot use a built-in system service.
+   * 
    * @example
    * true
    */
   allowBuiltin?: boolean;
+  /**
+   * @remarks
+   * The request struct.
+   */
   body?: MLServiceAnalysisParam;
   /**
    * @remarks
-   * The version of the algorithm. The algorithm varies based on the version.
+   * The version number of the algorithm. Different versions correspond to different algorithms.
    * 
    * @example
    * v1

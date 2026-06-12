@@ -4,23 +4,40 @@ import { Chart } from "./Chart";
 
 
 export class Dashboard extends $dara.Model {
+  /**
+   * @remarks
+   * The properties of the dashboard.
+   */
   attribute?: { [key: string]: string };
   /**
    * @remarks
+   * The charts in the dashboard.
+   * 
    * This parameter is required.
    */
   charts?: Chart[];
   /**
    * @remarks
+   * The internal display name of the dashboard.
+   * 
    * This parameter is required.
    * 
    * @example
    * dashboard-1609294922657-434834
    */
   dashboardName?: string;
+  /**
+   * @remarks
+   * The description of the dashboard.
+   * 
+   * @example
+   * this is a dashboard
+   */
   description?: string;
   /**
    * @remarks
+   * The display name of the dashboard.
+   * 
    * This parameter is required.
    * 
    * @example

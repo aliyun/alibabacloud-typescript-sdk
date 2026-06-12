@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCursorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The value of the cursor.
+   * The cursor value.
    * 
    * @example
    * MTQ0NzI5OTYwNjg5NjYzMjM1Ng==

@@ -6,7 +6,7 @@ import { OSSExportConfiguration } from "./OssexportConfiguration";
 export class CreateOSSExportRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration details of the job.
+   * The configuration of the job.
    * 
    * This parameter is required.
    */
@@ -14,6 +14,9 @@ export class CreateOSSExportRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the job.
+   * 
+   * @example
+   * Create a Unit OSS delivery task
    */
   description?: string;
   /**
@@ -23,17 +26,25 @@ export class CreateOSSExportRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ali-test-oss-job
+   * my-oss-job
    */
   displayName?: string;
   /**
    * @remarks
-   * The unique identifier of the OSS data shipping job.
+   * The name of the job. The name must meet the following requirements:
+   * 
+   * The job name must be unique within the project.
+   * 
+   * - The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The name must start and end with a lowercase letter or a digit.
+   * 
+   * - The name must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * job-123456789-123456
+   * export-oss-1234567890-123456
    */
   name?: string;
   static names(): { [key: string]: string } {

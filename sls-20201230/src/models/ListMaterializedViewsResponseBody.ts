@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMaterializedViewsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of materialized views returned on the current page.
+   */
   count?: number;
+  /**
+   * @remarks
+   * An array of materialized view names.
+   */
   materializedViews?: string[];
+  /**
+   * @remarks
+   * The total number of materialized views that match the query.
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

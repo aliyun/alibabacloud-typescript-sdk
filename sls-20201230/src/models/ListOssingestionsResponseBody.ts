@@ -6,7 +6,7 @@ import { OSSIngestion } from "./Ossingestion";
 export class ListOSSIngestionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of OSS data import jobs that are returned.
+   * The number of OSS import tasks returned in this response.
    * 
    * @example
    * 10
@@ -14,12 +14,12 @@ export class ListOSSIngestionsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The OSS data import jobs.
+   * A list of OSS import tasks.
    */
   results?: OSSIngestion[];
   /**
    * @remarks
-   * The total number of OSS data import jobs in the project.
+   * The total number of OSS import tasks in the Project.
    * 
    * @example
    * 80

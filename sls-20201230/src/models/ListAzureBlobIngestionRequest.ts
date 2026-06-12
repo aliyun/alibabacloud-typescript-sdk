@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAzureBlobIngestionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the logstore. If specified, the operation returns only tasks from this logstore.
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The number of tasks to skip before returning results. Default: 0.
+   */
   offset?: number;
+  /**
+   * @remarks
+   * The number of tasks to return per page. Range: 0 to 500. Default: 100.
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {

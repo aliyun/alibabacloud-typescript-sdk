@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the localName parameter that is returned.
-   * 
-   * Valid values:
-   * 
-   * *   ja
-   * *   en
-   * *   zh
+   * The language of the returned `localName` value.
    * 
    * @example
    * zh

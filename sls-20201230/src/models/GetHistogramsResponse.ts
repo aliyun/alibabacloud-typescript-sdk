@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetHistogramsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The start time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The beginning of the time range for the subinterval. The value is a UNIX timestamp that represents the number of seconds that have elapsed since 1970-01-01 00:00:00 UTC.
    * 
-   * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned.
+   * The time range is a left-closed, right-open interval. This means that the subinterval includes the start time but not the end time. If the values of from and to are the same, the interval is invalid and an error is returned.
    * 
    * @example
    * 1409529600
@@ -15,9 +15,9 @@ export class GetHistogramsResponseBody extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The end time of the subinterval. The value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The end of the time range for the subinterval. The value is a UNIX timestamp that represents the number of seconds that have elapsed since 1970-01-01 00:00:00 UTC.
    * 
-   * The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the from parameter, but does not include the end time specified by the to parameter. If you specify the same value for the from and to parameters, the interval is invalid, and an error message is returned.
+   * The time range is a left-closed, right-open interval. This means that the subinterval includes the start time but not the end time. If the values of from and to are the same, the interval is invalid and an error is returned.
    * 
    * @example
    * 1409569200
@@ -25,7 +25,7 @@ export class GetHistogramsResponseBody extends $dara.Model {
   to?: number;
   /**
    * @remarks
-   * The number of logs that are generated within the subinterval.
+   * The number of logs that are found in the subinterval.
    * 
    * @example
    * 2
@@ -33,11 +33,11 @@ export class GetHistogramsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Indicates whether the query and analysis results in the subinterval is complete. Valid values:
+   * Indicates whether the query result in the subinterval is complete.
    * 
-   * Complete: The query is successful, and the complete query and analysis results are returned.
+   * Complete: The query is complete and the result is complete.
    * 
-   * Incomplete: The query is successful, but the query and analysis results are incomplete. To obtain the complete results, you must repeat the request.
+   * Incomplete: The query is complete but the result is incomplete. Send the request again to obtain the complete result.
    * 
    * @example
    * Complete

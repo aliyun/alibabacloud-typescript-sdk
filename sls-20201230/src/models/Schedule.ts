@@ -13,7 +13,7 @@ export class Schedule extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The number of seconds for which the scheduled job is delayed.
+   * The delay before a scheduled task is executed, in seconds (s).
    * 
    * @example
    * 4
@@ -24,12 +24,12 @@ export class Schedule extends $dara.Model {
    * The fixed interval.
    * 
    * @example
-   * 1m/1h
+   * 60s
    */
   interval?: string;
   /**
    * @remarks
-   * Specifies whether to run the scheduled job immediately.
+   * Specifies whether to execute the scheduled task immediately.
    * 
    * @example
    * false
@@ -37,20 +37,20 @@ export class Schedule extends $dara.Model {
   runImmediately?: boolean;
   /**
    * @remarks
-   * The time zone for the cron expression. This parameter is empty by default, which indicates that the time zone is UTC+8.
+   * The time zone of the cron expression. If this parameter is left empty, the default time zone UTC+8 is used.
    * 
    * @example
-   * "+0800"
+   * +0800
    */
   timeZone?: string;
   /**
    * @remarks
-   * The scheduling type.
+   * schedule type
    * 
    * This parameter is required.
    * 
    * @example
-   * Cron
+   * FixedRate
    */
   type?: string;
   static names(): { [key: string]: string } {

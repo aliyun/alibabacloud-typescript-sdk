@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCollectionPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The code for the log type.
+   * 
    * @example
    * access_log
    */
   dataCode?: string;
   /**
+   * @remarks
+   * The code of the product.
+   * 
    * @example
    * oss
    */

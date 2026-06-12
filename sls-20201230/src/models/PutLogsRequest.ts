@@ -6,7 +6,7 @@ import { LogGroup } from "./LogGroup";
 export class PutLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The compressed Protobuf data.
+   * The compressed log data in protobuf format.
    */
   body?: LogGroup;
   static names(): { [key: string]: string } {

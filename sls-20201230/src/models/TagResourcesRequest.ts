@@ -7,9 +7,11 @@ export class TagResourcesRequestTags extends $dara.Model {
    * @remarks
    * The key of the tag. The key must meet the following requirements:
    * 
-   * *   The key must be `1 to 128` characters in length.
-   * *   The key cannot contain `http://` or `https://`.
-   * *   The key cannot start with `acs:` or `aliyun`.
+   * - The key must be `1 to 128` characters in length.
+   * 
+   * - The key cannot contain `http://` or `https://`.
+   * 
+   * - The key cannot start with `acs:` or `aliyun`.
    * 
    * This parameter is required.
    * 
@@ -21,8 +23,9 @@ export class TagResourcesRequestTags extends $dara.Model {
    * @remarks
    * The value of the tag. The value must meet the following requirements:
    * 
-   * *   The value must be `1 to 128` characters in length.
-   * *   The value cannot contain `http://` or `https://`.
+   * - The value must be `1 to 128` characters in length.
+   * 
+   * - The value cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -65,11 +68,15 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   project
-   * *   logstore
-   * *   dashboard
-   * *   machinegroup
-   * *   logtailconfig
+   * - project
+   * 
+   * - logstore
+   * 
+   * - dashboard
+   * 
+   * - machinegroup
+   * 
+   * - logtailconfig
    * 
    * This parameter is required.
    * 

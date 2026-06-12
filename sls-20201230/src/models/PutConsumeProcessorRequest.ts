@@ -6,7 +6,7 @@ import { ConsumeProcessorConfiguration } from "./ConsumeProcessorConfiguration";
 export class PutConsumeProcessorRequest extends $dara.Model {
   /**
    * @remarks
-   * Consumption processor configuration.
+   * The configuration of the consume processor.
    * 
    * This parameter is required.
    */
@@ -14,6 +14,9 @@ export class PutConsumeProcessorRequest extends $dara.Model {
   /**
    * @remarks
    * The description.
+   * 
+   * @example
+   * Filter only GET requests
    */
   description?: string;
   /**

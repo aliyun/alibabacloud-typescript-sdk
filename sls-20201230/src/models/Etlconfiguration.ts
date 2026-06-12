@@ -6,21 +6,21 @@ import { ETLConfigurationSink } from "./EtlconfigurationSink";
 export class ETLConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID used to grant the permissions to read data from the source logstore. This parameter is required. If you use a role to grant the required permissions, specify an empty string.
+   * The AccessKey ID that is required to read data from the source Logstore. This parameter is required. If you use a RAM role for authorization, set this parameter to an empty string.
    * 
    * @deprecated
    */
   accessKeyId?: string;
   /**
    * @remarks
-   * The AccessKey secret used to grant the permissions to read data from the source logstore. This parameter is required. If you use a role to grant the required permissions, specify an empty string.
+   * The AccessKey secret that is required to read data from the source Logstore. This parameter is required. If you use a RAM role for authorization, set this parameter to an empty string.
    * 
    * @deprecated
    */
   accessKeySecret?: string;
   /**
    * @remarks
-   * The beginning of the time range for transformation. Specify a Unix timestamp that is accurate to the second. This parameter is required. If you want to transform data from the first log in the source logstore, enter 0.
+   * The start time of the data transformation. The value is a UNIX timestamp. Unit: seconds. This parameter is required. To start the data transformation from the earliest log in the source Logstore, set this parameter to 0.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class ETLConfiguration extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The type of the data transformation syntax.
+   * The language of the data transformation script.
    * 
    * @example
    * SPL
@@ -38,7 +38,7 @@ export class ETLConfiguration extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the source logstore.
+   * The name of the source Logstore.
    * 
    * This parameter is required.
    * 
@@ -48,15 +48,15 @@ export class ETLConfiguration extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The advanced parameter settings.
+   * Advanced parameters.
    * 
    * @example
-   * config.vpc.vpc_id.test1:vpc-uf6mskb0b****n9yj
+   * config.vpc.vpc_id.test1：vpc-uf6mskb0b****n9yj
    */
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role that is used to grant the permissions to read data from the source logstore.
+   * The ARN of the RAM role that is authorized to read data from the source Logstore.
    * 
    * This parameter is required.
    * 
@@ -66,24 +66,24 @@ export class ETLConfiguration extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The transformation script.
+   * The data transformation script.
    * 
    * This parameter is required.
    * 
    * @example
-   * e_set("key","value")
+   * * | extend key=\\"value\\"
    */
   script?: string;
   /**
    * @remarks
-   * The storage destinations.
+   * The output destinations of the data transformation.
    * 
    * This parameter is required.
    */
   sinks?: ETLConfigurationSink[];
   /**
    * @remarks
-   * The end of the time range for transformation. Specify a Unix timestamp that is accurate to the second. This parameter is required. If you want to transform data until the data transformation job is manually stopped, enter 0.
+   * The end time of the data transformation. The value is a UNIX timestamp. Unit: seconds. This parameter is required. To continuously perform the data transformation until you manually stop it, set this parameter to 0.
    * 
    * This parameter is required.
    * 

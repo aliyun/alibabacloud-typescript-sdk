@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutProjectPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The project policy.
+   * The request parameters, which define the authorization policy.
    * 
    * @example
    * { 	"Version": "1", 	"Statement": [{ 		"Action": ["log:PostLogStoreLogs"], 		"Resource": "acs:log:*:*:project/exampleproject/*", 		"Effect": "Deny", 		"Condition": { 			"StringNotLike": { 				"acs:SourceVpc": ["vpc-*"] 			} 		} 	}] }

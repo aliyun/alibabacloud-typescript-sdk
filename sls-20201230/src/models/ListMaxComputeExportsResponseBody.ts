@@ -5,12 +5,22 @@ import { MaxComputeExport } from "./MaxComputeExport";
 
 export class ListMaxComputeExportsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of MaxCompute delivery tasks that are returned.
+   * 
    * @example
    * 2
    */
   count?: number;
+  /**
+   * @remarks
+   * The list of MaxCompute delivery tasks.
+   */
   results?: MaxComputeExport[];
   /**
+   * @remarks
+   * The total number of MaxCompute delivery tasks in the project.
+   * 
    * @example
    * 10
    */

@@ -6,7 +6,7 @@ import { Alert } from "./Alert";
 export class ListAlertsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of alert rules that are returned.
+   * The number of alerts returned in the current response.
    * 
    * @example
    * 10
@@ -14,12 +14,12 @@ export class ListAlertsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The alert rules.
+   * The list of alert configurations.
    */
   results?: Alert[];
   /**
    * @remarks
-   * The total number of alert rules in the project.
+   * The total number of alerts in the project.
    * 
    * @example
    * 80

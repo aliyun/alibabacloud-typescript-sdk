@@ -6,7 +6,7 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   advancedParameters?: { [key: string]: any };
   /**
    * @remarks
-   * The OSS bucket.
+   * The name of the OSS bucket.
    * 
    * This parameter is required.
    * 
@@ -16,17 +16,17 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The compression type.
+   * The compression type of the source files.
    * 
    * This parameter is required.
    * 
    * @example
-   * none,snappy,gzip
+   * none
    */
   compressionCodec?: string;
   /**
    * @remarks
-   * The encoding type.
+   * The encoding of the source files.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   encoding?: string;
   /**
    * @remarks
-   * The point in time before which modified OSS objects are imported.
+   * Imports only files modified before this time. The value is a Unix timestamp in seconds.
    * 
    * @example
    * 1714360481
@@ -54,14 +54,14 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The format.
+   * Defines the format of the source data.
    * 
    * This parameter is required.
    */
   format?: { [key: string]: any };
   /**
    * @remarks
-   * The interval at which the system checks for new files.
+   * The check interval for new files.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The regular expression that is used to filter OSS objects by directory.
+   * A regular expression to filter files by path.
    * 
    * @example
    * .*
@@ -79,20 +79,23 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   pattern?: string;
   /**
    * @remarks
-   * The directory of the OSS objects.
+   * The path prefix for filtering files.
    * 
    * @example
    * prefix
    */
   prefix?: string;
   /**
+   * @remarks
+   * The ID of the writer processor.
+   * 
    * @example
    * ingest-processor-1756802123-953901
    */
   processorId?: string;
   /**
    * @remarks
-   * Specifies whether to import OSS objects of the Archive class.
+   * Specifies whether to import archived files.
    * 
    * @example
    * true
@@ -100,7 +103,7 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   restoreObjectEnabled?: boolean;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * The Role ARN to use for accessing the OSS bucket.
    * 
    * @example
    * acs:ram::12345:role/aliyunlogdefaultrole
@@ -108,20 +111,23 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   roleARN?: string;
   /**
    * @remarks
-   * The point in time after which modified OSS objects are imported.
+   * Imports only files modified after this time. The value is a Unix timestamp in seconds.
    * 
    * @example
    * 1714274081
    */
   startTime?: number;
   /**
+   * @remarks
+   * Specifies whether to enable context retrieval.
+   * 
    * @example
    * true
    */
   tagPackId?: boolean;
   /**
    * @remarks
-   * The time field to extract.
+   * The field containing the log time.
    * 
    * @example
    * __time__
@@ -137,7 +143,7 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   timeFormat?: string;
   /**
    * @remarks
-   * The regular expression that is used to extract time.
+   * The regular expression to extract the time value from a log.
    * 
    * @example
    * [0-9]{0,2}\\/[0-9a-zA-Z]+\\/[0-9:,]+
@@ -145,7 +151,7 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   timePattern?: string;
   /**
    * @remarks
-   * The time zone of the time field.
+   * The time zone of the timestamp in the source data.
    * 
    * @example
    * GMT+08:00
@@ -153,7 +159,7 @@ export class OSSIngestionConfigurationSource extends $dara.Model {
   timeZone?: string;
   /**
    * @remarks
-   * Specifies whether to enable OSS metadata indexing.
+   * Specifies whether to use the OSS metadata index to accelerate file discovery.
    * 
    * This parameter is required.
    * 

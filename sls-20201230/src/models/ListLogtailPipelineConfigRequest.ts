@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogtailPipelineConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the Logtail pipeline configuration.
+   * The name of the pipeline configuration.
    * 
    * @example
    * logtail-config-sample
@@ -22,7 +22,7 @@ export class ListLogtailPipelineConfigRequest extends $dara.Model {
   logstoreName?: string;
   /**
    * @remarks
-   * The line from which the query starts.
+   * The line from which to start the query.
    * 
    * @example
    * 0
@@ -30,7 +30,7 @@ export class ListLogtailPipelineConfigRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The number of Logtail pipeline configurations per page.
+   * The number of pipeline configurations to return on each page.
    * 
    * @example
    * 20

@@ -13,11 +13,19 @@ export class UpdateMetricStoreRequest extends $dara.Model {
    * true
    */
   autoSplit?: boolean;
+  /**
+   * @remarks
+   * The retention period of data in the hot storage layer. Unit: days.
+   */
   hotTtl?: number;
+  /**
+   * @remarks
+   * The retention period for the IA storage class. Unit: days.
+   */
   infrequentAccessTTL?: number;
   /**
    * @remarks
-   * The maximum number of shards into which existing shards can be automatically split. This parameter is valid only when you set the autoSplit parameter to true.
+   * The maximum number of shards for automatic sharding. This parameter is valid only when autoSplit is set to true.
    * 
    * @example
    * 64
@@ -34,7 +42,7 @@ export class UpdateMetricStoreRequest extends $dara.Model {
   shardingPolicy?: ShardingPolicy;
   /**
    * @remarks
-   * The retention period of the metric data. Unit: days.
+   * The data retention period. Unit: days.
    * 
    * @example
    * 7

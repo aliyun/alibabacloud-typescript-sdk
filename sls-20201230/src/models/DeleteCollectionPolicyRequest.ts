@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCollectionPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The code of the log type.
+   * 
    * @example
    * access_log
    */
   dataCode?: string;
   /**
+   * @remarks
+   * The code of the product.
+   * 
    * @example
    * oss
    */

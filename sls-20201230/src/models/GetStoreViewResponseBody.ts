@@ -10,21 +10,21 @@ export class GetStoreViewResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   metricstore
+   * - metricstore
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   logstore
+   * - logstore
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * logstore

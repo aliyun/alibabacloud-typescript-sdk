@@ -10,21 +10,21 @@ export class UpdateStoreViewRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   metricstore
+   * - metricstore
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   logstore
+   * - logstore
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * This parameter is required.
    * 

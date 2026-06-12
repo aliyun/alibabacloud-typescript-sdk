@@ -3,26 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The supported data redundancy types.
+   */
   dataRedundancyType?: string[];
+  /**
+   * @remarks
+   * The accelerated endpoint of the region.
+   */
   internalEndpoint?: string;
   /**
    * @remarks
-   * The public endpoint of Simple Log Service.
+   * The public endpoint of the region.
    */
   internetEndpoint?: string;
   /**
    * @remarks
-   * The internal endpoint of Simple Log Service.
+   * The intranet endpoint of the region.
    */
   intranetEndpoint?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service region.
+   * The display name of the region.
    */
   localName?: string;
   /**
    * @remarks
-   * SLS region
+   * The ID of the region.
    */
   region?: string;
   static names(): { [key: string]: string } {
@@ -60,6 +68,10 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of available regions and their details.
+   */
   regions?: DescribeRegionsResponseBodyRegions[];
   static names(): { [key: string]: string } {
     return {

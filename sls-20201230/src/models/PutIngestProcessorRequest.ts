@@ -14,6 +14,9 @@ export class PutIngestProcessorRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the ingest processor.
+   * 
+   * @example
+   * Extract fields from Nginx logs using regex.
    */
   description?: string;
   /**
@@ -21,6 +24,9 @@ export class PutIngestProcessorRequest extends $dara.Model {
    * The display name of the ingest processor.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Nginx log parsing
    */
   displayName?: string;
   static names(): { [key: string]: string } {

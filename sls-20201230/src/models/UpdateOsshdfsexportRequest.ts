@@ -14,6 +14,9 @@ export class UpdateOSSHDFSExportRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the job.
+   * 
+   * @example
+   * Update OSS-HDFS delivery task
    */
   description?: string;
   /**
@@ -23,7 +26,7 @@ export class UpdateOSSHDFSExportRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ali-test-oss-hdfs-job
+   * my-oss-hdfs-job
    */
   displayName?: string;
   static names(): { [key: string]: string } {

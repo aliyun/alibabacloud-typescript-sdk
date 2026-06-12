@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AzureBlobIngestionConfigurationSource extends $dara.Model {
   /**
    * @remarks
+   * The access key for the Azure Blob Storage account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,15 +15,23 @@ export class AzureBlobIngestionConfigurationSource extends $dara.Model {
   accountKey?: string;
   /**
    * @remarks
+   * The name of the Azure Blob Storage account.
+   * 
    * This parameter is required.
    * 
    * @example
    * test001
    */
   accountName?: string;
+  /**
+   * @remarks
+   * Advanced configuration options.
+   */
   advancedParameters?: { [key: string]: any };
   /**
    * @remarks
+   * The compression codec for the source data. Valid values are `none`, `snappy`, and `gzip`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +40,8 @@ export class AzureBlobIngestionConfigurationSource extends $dara.Model {
   compressionCodec?: string;
   /**
    * @remarks
+   * The name of the container in Azure Blob Storage.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +50,8 @@ export class AzureBlobIngestionConfigurationSource extends $dara.Model {
   containerName?: string;
   /**
    * @remarks
+   * The character encoding of the source files.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,22 +59,32 @@ export class AzureBlobIngestionConfigurationSource extends $dara.Model {
    */
   encoding?: string;
   /**
+   * @remarks
+   * Ingests only files modified before this time, specified as a Unix timestamp.
+   * 
    * @example
    * 1714360481
    */
   endTime?: number;
   /**
+   * @remarks
+   * The service endpoint for Azure Blob Storage.
+   * 
    * @example
    * https://your-storage.blob.core.windows.net
    */
   endpoint?: string;
   /**
    * @remarks
+   * The format of the source data.
+   * 
    * This parameter is required.
    */
   format?: { [key: string]: any };
   /**
    * @remarks
+   * The interval at which to check for new files to ingest.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,46 +92,73 @@ export class AzureBlobIngestionConfigurationSource extends $dara.Model {
    */
   interval?: string;
   /**
+   * @remarks
+   * A pattern used to filter files by path.
+   * 
    * @example
    * .*
    */
   pattern?: string;
   /**
+   * @remarks
+   * The file path prefix used to filter files.
+   * 
    * @example
    * prefix
    */
   prefix?: string;
   /**
+   * @remarks
+   * The ID of the processor that receives the data.
+   * 
    * @example
    * ingest-processor-1756802123-953901
    */
   processorId?: string;
   /**
+   * @remarks
+   * Ingests only files modified after this time, specified as a Unix timestamp.
+   * 
    * @example
    * 1714274081
    */
   startTime?: number;
   /**
+   * @remarks
+   * Specifies whether to enable context query.
+   * 
    * @example
    * false
    */
   tagPackId?: boolean;
   /**
+   * @remarks
+   * The source field for the time value.
+   * 
    * @example
    * __time__
    */
   timeField?: string;
   /**
+   * @remarks
+   * The format of the time field.
+   * 
    * @example
    * yyyy-MM-dd HH:mm:ss
    */
   timeFormat?: string;
   /**
+   * @remarks
+   * The pattern used to extract the time value.
+   * 
    * @example
    * [0-9]{0,2}\\/[0-9a-zA-Z]+\\/[0-9:,]+
    */
   timePattern?: string;
   /**
+   * @remarks
+   * The time zone of the time field.
+   * 
    * @example
    * GMT+08:00
    */

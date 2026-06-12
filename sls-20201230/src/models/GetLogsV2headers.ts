@@ -6,10 +6,11 @@ export class GetLogsV2Headers extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The compression format.
+   * The compression method.
    * 
-   * *   For Java, Python, and Go, only the lz4 and gzip algorithms are supported for decompression.
-   * *   For PHP, JavaScript, and C#, only the gzip algorithm is supported for decompression.
+   * - Java, Python, and Go support lz4 and gzip decompression.
+   * 
+   * - PHP, JavaScript, and C# support gzip decompression only.
    * 
    * @example
    * lz4

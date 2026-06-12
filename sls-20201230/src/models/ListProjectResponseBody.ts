@@ -6,7 +6,7 @@ import { Project } from "./Project";
 export class ListProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of returned projects on the current page.
+   * The number of projects returned on the current page.
    * 
    * @example
    * 2
@@ -14,12 +14,15 @@ export class ListProjectResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The projects that meet the query conditions.
+   * The list of projects that meet the query criteria.
+   * 
+   * @example
+   * Not applicable
    */
   projects?: Project[];
   /**
    * @remarks
-   * The total number of projects that meet the query conditions.
+   * The total number of projects that meet the query criteria.
    * 
    * @example
    * 11

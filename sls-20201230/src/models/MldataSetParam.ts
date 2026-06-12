@@ -38,6 +38,9 @@ export class MLDataSetParam extends $dara.Model {
   /**
    * @remarks
    * The description of the dataset.
+   * 
+   * @example
+   * 数据集A
    */
   description?: string;
   /**

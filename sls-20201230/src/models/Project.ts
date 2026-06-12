@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Project extends $dara.Model {
   /**
    * @remarks
-   * The time at which the project was created.
+   * The time when the project was created.
    * 
    * @example
    * 2021-07-07 14:08:09
@@ -31,7 +31,7 @@ export class Project extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time at which the project was last modified.
+   * The time when the project was last modified.
    * 
    * @example
    * 2022-04-18 13:30:19
@@ -39,7 +39,7 @@ export class Project extends $dara.Model {
   lastModifyTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to create the project.
+   * The Alibaba Cloud account that owns the project.
    * 
    * @example
    * ""
@@ -47,7 +47,7 @@ export class Project extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The name of the project. The name is included in the value of the Host header. The name must be unique in a region. You cannot change the name after the project is created.
+   * The name of the project. The name is a part of the endpoint. The project name must be unique in a region of Alibaba Cloud. After a project is created, its name cannot be changed.
    * 
    * This parameter is required.
    * 
@@ -57,17 +57,20 @@ export class Project extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * project quota
+   * The quota of the project.
    */
   quota?: { [key: string]: any };
   /**
+   * @remarks
+   * Indicates whether the recycle bin is enabled.
+   * 
    * @example
    * false
    */
   recycleBinEnabled?: boolean;
   /**
    * @remarks
-   * The region to which the project belongs.
+   * The region where the project resides.
    * 
    * @example
    * cn-hangzhou
@@ -83,10 +86,11 @@ export class Project extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the project. Valid values:
+   * The status of the project.
    * 
-   * *   Normal
-   * *   Disable
+   * - Normal: The project is in the normal state.
+   * 
+   * - Disable: The project is disabled.
    * 
    * @example
    * Normal

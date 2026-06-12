@@ -7,10 +7,11 @@ import { ShardingPolicy } from "./ShardingPolicy";
 export class CreateLogStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to record the **public IP address** and the **log receiving time**. Default value: false. Valid values:
+   * Specifies whether to record the source **public IP address** and the **server reception time**. Default value: false.
    * 
-   * *   true: records the public IP address and the log receiving time. If you set this parameter to true, Simple Log Service automatically adds the public IP address of the device from which the log is collected and the time when Simple Log Service receives the log to the Tag field of the collected log.
-   * *   false: does not record the public IP address or log receiving time.
+   * - true: Log Service automatically appends the public IP address of the source device and the server reception time to the Tag field of logs.
+   * 
+   * - false: Log Service does not append the source public IP address or the server reception time.
    * 
    * @example
    * false
@@ -18,21 +19,16 @@ export class CreateLogStoreRequest extends $dara.Model {
   appendMeta?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic sharding. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable automatic shard splitting. If you set this parameter to true, Log Service automatically splits a shard to increase write throughput when the write traffic to the shard continuously exceeds the service limit. If you enable automatic shard splitting, you must also specify `maxSplitShard`.
    * 
    * @example
    * true
    */
   autoSplit?: boolean;
+  enableModify?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the web tracking feature. Default value: false. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable WebTracking. The default value is false. This feature lets you collect and analyze user behavior data from browsers or mini programs, such as page views, purchase history, and dwell time.
    * 
    * @example
    * false
@@ -40,14 +36,43 @@ export class CreateLogStoreRequest extends $dara.Model {
   enableTracking?: boolean;
   /**
    * @remarks
-   * The data structure of the encryption configuration. The following parameters are included: `enable`, `encrypt_type`, and `user_cmk_info`. For more information, see [EncryptConf](https://help.aliyun.com/document_detail/409461.html).
+   * The encryption configuration. This data structure includes the `enable`, `encrypt_type`, and `user_cmk_info` parameters. For more information, see [EncryptConf](https://help.aliyun.com/document_detail/409461.html).
+   * 
+   * Example 1 (Enable default encryption):
+   * 
+   * ```
+   * {
+   *     "enable": true,
+   *     "encrypt_conf": "default"
+   * }
+   * ```
+   * 
+   * Example 2 (Enable BYOK encryption):
+   * 
+   * ```
+   * {
+   *     "enable": true,
+   *     "encrypt_conf": "default",
+   *     "user_cmk_info": {
+   *         "cmk_key_id": "xxxxx",
+   *         "arn": "acs:ram::112340000000:role/rolename",
+   *         "region": "cn-hangzhou"
+   *     }
+   * }
+   * ```
    */
   encryptConf?: EncryptConf;
   /**
    * @remarks
-   * The data retention period for the hot storage tier. Unit: days. Minimum value: 7. The value of this parameter cannot exceed the value of ttl. If you set this parameter to -1, all data is stored in the hot storage tier.
+   * The retention period of data in the hot storage tier of the Logstore, in days. The value must be an integer from 7 to the value of `ttl`. If you do not specify this parameter, data is stored in the hot storage tier for the entire data retention period specified by `ttl`.
    * 
-   * After the retention period that is specified for the hot storage tier elapses, the data is moved to the Infrequent Access (IA) storage tier. For more information, see [Enable hot and cold-tiered storage for a Logstore](https://help.aliyun.com/document_detail/308645.html).
+   * After the hot storage retention period expires, data is moved to the Infrequent Access (IA) storage tier. To enable IA storage, you must set the hot storage retention period to at least 7 days. For more information, see [Smart Tiered Storage](https://help.aliyun.com/document_detail/308645.html).
+   * 
+   * Examples:
+   * 
+   * - Scenario 1 (Store data in the hot storage tier for 30 days): `{"ttl": 30}` or `{"ttl": 30, "hot_ttl": 30}`
+   * 
+   * - Scenario 2 (Store data in the hot storage tier for 7 days and in the IA storage tier for 23 days): `{"ttl": 30, "hot_ttl": 7}`
    * 
    * @example
    * 60
@@ -55,7 +80,17 @@ export class CreateLogStoreRequest extends $dara.Model {
   hotTtl?: number;
   /**
    * @remarks
-   * The data retention period for the IA storage tier. You must set this parameter to at least 30 days. After the data retention period that you specify for the IA storage tier elapses, the data is moved to the Archive storage tier.
+   * The retention period for Infrequent Access (IA) storage, in days. While this parameter has no minimum value, data must remain in the IA storage tier for at least 30 days before it can be moved to archive storage.
+   * 
+   * If the total retention period (`ttl`) is longer than the sum of the hot storage period (`hot_ttl`) and the IA storage period (`infrequentAccessTTL`), the remaining time is the archive storage period.
+   * 
+   * Examples:
+   * 
+   * - Scenario 1 (Store data in the hot storage tier for 7 days and in the IA storage tier for 23 days): `{"ttl": 30, "hot_ttl": 7}`
+   * 
+   * - Scenario 2 (Store data in the hot storage tier for 7 days, in the IA storage tier for 30 days, and in the archive storage tier for 60 days): `{"ttl": 97, "hot_ttl": 7, "infrequentAccessTTL": 30}`
+   * 
+   * - Scenario 3 (Store data in the hot storage tier for 60 days and in the archive storage tier for 60 days, with the IA storage period being 0 days): `{"ttl": 120, "hot_ttl": 60, "infrequentAccessTTL": 0}`
    * 
    * @example
    * 30
@@ -65,10 +100,13 @@ export class CreateLogStoreRequest extends $dara.Model {
    * @remarks
    * The name of the Logstore. The name must meet the following requirements:
    * 
-   * *   The name must be unique in a project.
-   * *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
-   * *   The name must start and end with a lowercase letter or digit.
-   * *   The name must be 3 to 63 characters in length.
+   * - The name must be unique within a project.
+   * 
+   * - The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The name must start and end with a lowercase letter or a digit.
+   * 
+   * - The name must be 2 to 63 characters long.
    * 
    * This parameter is required.
    * 
@@ -78,9 +116,9 @@ export class CreateLogStoreRequest extends $dara.Model {
   logstoreName?: string;
   /**
    * @remarks
-   * The maximum number of shards into which existing shards can be automatically split. Valid values: 1 to 256.
+   * The maximum number of shards after an automatic split. The value must be an integer from 1 to 256.
    * 
-   * >  If you set autoSplit to true, you must specify this parameter.
+   * > This parameter is required if you set `autoSplit` to true.
    * 
    * @example
    * 64
@@ -88,10 +126,11 @@ export class CreateLogStoreRequest extends $dara.Model {
   maxSplitShard?: number;
   /**
    * @remarks
-   * The type of the Logstore. Simple Log Service provides two types of Logstores: Standard Logstores and Query Logstores. Valid values:
+   * Log Service provides two types of Logstores: standard and query.
    * 
-   * *   **standard**: Standard Logstore. This type of Logstore supports the log analysis feature and is suitable for scenarios such as real-time monitoring and interactive analysis. You can use this type of Logstore to build a comprehensive observability system.
-   * *   **query**: Query Logstore. This type of Logstore supports high-performance query operations. The index traffic fee of a Query Logstore is approximately half that of a Standard Logstore. Query Logstores do not support SQL analysis. Query Logstores are suitable for scenarios in which the amount of data is large, the data retention period is long, or log analysis is not required. Data retention periods of weeks or months are considered long.
+   * - **standard**: Supports end-to-end data analytics. This mode is suitable for scenarios such as real-time monitoring, interactive analysis, and building a complete observability system.
+   * 
+   * - **query**: Supports high-performance queries. The index traffic cost is approximately half that of the standard mode, but SQL analysis is not supported. This mode is suitable for scenarios that involve large volumes of data, long retention periods such as weeks or months, and do not require SQL-based analysis.
    * 
    * @example
    * standard
@@ -99,15 +138,25 @@ export class CreateLogStoreRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * IngestProcessor ID
+   * The ID of the IngestProcessor.
+   * 
+   * @example
+   * processor-nginx-parser-001
    */
   processorId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the Logstore belongs.
+   * 
+   * @example
+   * rg-xxxxxxxx
+   */
   resourceGroupId?: string;
   /**
    * @remarks
    * The number of shards.
    * 
-   * >  You cannot call the CreateLogStore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
+   * > You cannot update the shard count with this operation. To do so, call the SplitShard or MergeShards operation.
    * 
    * This parameter is required.
    * 
@@ -115,13 +164,18 @@ export class CreateLogStoreRequest extends $dara.Model {
    * 2
    */
   shardCount?: number;
+  /**
+   * @remarks
+   * The configuration for hash-based writes. When you write data, logs are stored in a shard that is selected based on the configured hash-based sharding policy. Before you configure this parameter, make sure that the hash ranges of the shards are evenly distributed. Improper configuration may affect write performance. Configure this parameter with caution.
+   */
   shardingPolicy?: ShardingPolicy;
   /**
    * @remarks
-   * The type of the observable data. Valid values:
+   * The type of observable data. Default value: log data. Valid values:
    * 
-   * *   **None** (default): log data
-   * *   **Metrics**: metric data
+   * - **None**: log data. This is the default value.
+   * 
+   * - **Metrics**: Metrics data.
    * 
    * @example
    * None
@@ -129,7 +183,7 @@ export class CreateLogStoreRequest extends $dara.Model {
   telemetryType?: string;
   /**
    * @remarks
-   * The data retention period. Unit: days. Valid values: 1 to 3650. If you set this parameter to 3650, data is permanently stored.
+   * The data retention period in days. Valid values: 1 to 3,650. If you set this parameter to 3,650, data is stored permanently.
    * 
    * This parameter is required.
    * 
@@ -141,6 +195,7 @@ export class CreateLogStoreRequest extends $dara.Model {
     return {
       appendMeta: 'appendMeta',
       autoSplit: 'autoSplit',
+      enableModify: 'enableModify',
       enableTracking: 'enable_tracking',
       encryptConf: 'encrypt_conf',
       hotTtl: 'hot_ttl',
@@ -161,6 +216,7 @@ export class CreateLogStoreRequest extends $dara.Model {
     return {
       appendMeta: 'boolean',
       autoSplit: 'boolean',
+      enableModify: 'boolean',
       enableTracking: 'boolean',
       encryptConf: EncryptConf,
       hotTtl: 'number',

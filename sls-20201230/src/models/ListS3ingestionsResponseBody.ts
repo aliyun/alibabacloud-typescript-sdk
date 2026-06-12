@@ -4,8 +4,26 @@ import { S3Ingestion } from "./S3ingestion";
 
 
 export class ListS3IngestionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of tasks returned on the current page.
+   * 
+   * @example
+   * 3
+   */
   count?: number;
+  /**
+   * @remarks
+   * The details of the task configurations.
+   */
   results?: S3Ingestion[];
+  /**
+   * @remarks
+   * The total number of entries that match the query.
+   * 
+   * @example
+   * 3
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

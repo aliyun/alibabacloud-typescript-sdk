@@ -70,8 +70,9 @@ export class UpdateMachineGroupRequest extends $dara.Model {
    * @remarks
    * The identifier type of the machine group. Valid values:
    * 
-   * *   ip: The machine group uses IP addresses as identifiers.
-   * *   userdefined: The machine group uses custom identifiers.
+   * - ip: The machine group uses IP addresses as identifiers.
+   * 
+   * - userdefined: The machine group uses custom identifiers.
    * 
    * This parameter is required.
    * 
@@ -83,8 +84,9 @@ export class UpdateMachineGroupRequest extends $dara.Model {
    * @remarks
    * The identifiers of the machines in the machine group.
    * 
-   * *   If you set machineIdentifyType to ip, enter the IP addresses of the machines.
-   * *   If you set machineIdentifyType to userdefined, enter a custom identifier.
+   * - If you set machineIdentifyType to ip, enter the IP addresses of the machines.
+   * 
+   * - If you set machineIdentifyType to userdefined, enter a custom identifier.
    * 
    * This parameter is required.
    * 

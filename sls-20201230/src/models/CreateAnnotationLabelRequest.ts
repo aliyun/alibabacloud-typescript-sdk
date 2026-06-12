@@ -6,7 +6,7 @@ import { MLLabelParam } from "./MllabelParam";
 export class CreateAnnotationLabelRequest extends $dara.Model {
   /**
    * @remarks
-   * The data structure of the request.
+   * The struct of the annotation label table.
    */
   body?: MLLabelParam;
   static names(): { [key: string]: string } {

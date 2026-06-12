@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSqlInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of Compute Units (CUs). A CU is a compute core that can be used for parallel processing when Dedicated SQL is running.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateSqlInstanceRequest extends $dara.Model {
   cu?: number;
   /**
    * @remarks
+   * Specifies whether to enable Dedicated SQL for the project by default. If this parameter is set to true, all query and analysis operations in the project, such as alerts and dashboards, use Dedicated SQL.
+   * 
    * This parameter is required.
    */
   useAsDefault?: boolean;

@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * *   The validity period of the access token. Unit: seconds. Default value: 86400, which specifies one day. Valid values: 0 to 86400.
-   * *   The validity period of the access token is the smaller value between accessTokenExpirationTime and expirationTime.
-   * *   If you use a Security Token Service (STS) token to call this operation, the validity period of the access token is the smallest value among accessTokenExpirationTime, expirationTime, and the validity period of the STS token.
+   * - The expiration time of the access token in seconds. This specifies the period during which the token is valid for accessing page API operations. The default value is 86400 seconds (one day). The value must be an integer from 0 to 86400.
+   * 
+   * - The actual expiration time of the access token is the minimum value of accessTokenExpirationTime and expirationTime.
+   * 
+   * - If you call this operation using Security Token Service (STS), the actual expiration time of the access token is the minimum value of accessTokenExpirationTime, expirationTime, and the STS token expiration time.
    * 
    * @example
    * 600
@@ -15,7 +17,7 @@ export class RefreshTokenRequest extends $dara.Model {
   accessTokenExpirationTime?: number;
   /**
    * @remarks
-   * The ticket that is used for logon-free access.
+   * The logon-free ticket.
    * 
    * @example
    * eyJ***************.eyJ******************.KUT****************

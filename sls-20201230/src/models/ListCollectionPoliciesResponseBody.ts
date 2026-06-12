@@ -4,26 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCollectionPoliciesResponseBodyDataCentralizeConfig extends $dara.Model {
   /**
+   * @remarks
+   * The destination Logstore for centralized data shipping.
+   * 
    * @example
    * your-sls-logstore-in-beijing
    */
   destLogstore?: string;
   /**
+   * @remarks
+   * The destination project for centralized data shipping.
+   * 
    * @example
    * your-sls-project-in-beijing
    */
   destProject?: string;
   /**
+   * @remarks
+   * The destination region for centralized data shipping.
+   * 
    * @example
    * cn-beijing
    */
   destRegion?: string;
   /**
    * @remarks
-   * The data retention period for centralized storage. Unit: days.
+   * The data retention period of the destination Logstore for centralized data shipping. Unit: days.
    * 
    * @example
-   * your-sls-logstore-ttl
+   * 0
    */
   destTTL?: number;
   static names(): { [key: string]: string } {
@@ -55,11 +64,17 @@ export class ListCollectionPoliciesResponseBodyDataCentralizeConfig extends $dar
 
 export class ListCollectionPoliciesResponseBodyDataDataConfig extends $dara.Model {
   /**
+   * @remarks
+   * The project for global logs. This parameter is used only for global log types, such as sls. If this parameter is empty, logs are collected to the default project of the account in the region specified by dataRegion.
+   * 
    * @example
    * ""
    */
   dataProject?: string;
   /**
+   * @remarks
+   * The region where global logs are first collected. This parameter is used only for global log types, such as sls.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -88,14 +103,28 @@ export class ListCollectionPoliciesResponseBodyDataDataConfig extends $dara.Mode
 }
 
 export class ListCollectionPoliciesResponseBodyDataPolicyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the instances.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The regions to which the instances belong.
+   */
   regions?: string[];
   /**
+   * @remarks
+   * The resource collection mode.
+   * 
    * @example
    * all
    */
   resourceMode?: string;
   /**
+   * @remarks
+   * The resource tags.
+   * 
    * @example
    * {"tag1":"value1","tag2":"value2"}
    */
@@ -138,10 +167,17 @@ export class ListCollectionPoliciesResponseBodyDataPolicyConfig extends $dara.Mo
 
 export class ListCollectionPoliciesResponseBodyDataResourceDirectory extends $dara.Model {
   /**
+   * @remarks
+   * The mode for selecting accounts in the resource directory. Valid values: all and custom.
+   * 
    * @example
    * all,custom
    */
   accountGroupType?: string;
+  /**
+   * @remarks
+   * The list of member accounts. This parameter is returned only if accountGroupType is set to custom.
+   */
   members?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -172,46 +208,79 @@ export class ListCollectionPoliciesResponseBodyDataResourceDirectory extends $da
 export class ListCollectionPoliciesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The configuration for centralized storage.
+   * The configuration for centralized data shipping.
    */
   centralizeConfig?: ListCollectionPoliciesResponseBodyDataCentralizeConfig;
   /**
+   * @remarks
+   * Indicates whether centralized data shipping is enabled.
+   * 
    * @example
    * false
    */
   centralizeEnabled?: boolean;
   /**
+   * @remarks
+   * The code of the log type.
+   * 
    * @example
    * access_log
    */
   dataCode?: string;
+  /**
+   * @remarks
+   * Configurations for global log types, such as sls. This parameter is empty for other log types.
+   */
   dataConfig?: ListCollectionPoliciesResponseBodyDataDataConfig;
   /**
+   * @remarks
+   * Indicates whether the collection rule is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether the policy is a built-in policy. Built-in policies cannot be modified or deleted.
+   * 
    * @example
    * false
    */
   internalPolicy?: boolean;
+  /**
+   * @remarks
+   * The configuration of the collection rule.
+   */
   policyConfig?: ListCollectionPoliciesResponseBodyDataPolicyConfig;
   /**
+   * @remarks
+   * The name of the collection rule.
+   * 
    * @example
    * your_log_policy
    */
   policyName?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that owns the collection rule. If a resource directory administrator or delegated administrator creates the rule, this is the ID of that administrator\\"s account.
+   * 
    * @example
    * 148***********50
    */
   policyUid?: string;
   /**
+   * @remarks
+   * The code of the Alibaba Cloud service.
+   * 
    * @example
    * oss
    */
   productCode?: string;
+  /**
+   * @remarks
+   * The configuration of the resource directory. This parameter is empty if no configuration is available.
+   */
   resourceDirectory?: ListCollectionPoliciesResponseBodyDataResourceDirectory;
   static names(): { [key: string]: string } {
     return {
@@ -268,11 +337,17 @@ export class ListCollectionPoliciesResponseBodyData extends $dara.Model {
 
 export class ListCollectionPoliciesResponseBodyStatisticsPolicySourceList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the collection rule.
+   * 
    * @example
    * policy_name1_from148
    */
   policyName?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that owns the collection rule. If a resource directory administrator or delegated administrator creates the rule, this is the ID of that administrator\\"s account.
+   * 
    * @example
    * 148***********50
    */
@@ -301,8 +376,15 @@ export class ListCollectionPoliciesResponseBodyStatisticsPolicySourceList extend
 }
 
 export class ListCollectionPoliciesResponseBodyStatistics extends $dara.Model {
+  /**
+   * @remarks
+   * The list of collection rule sources.
+   */
   policySourceList?: ListCollectionPoliciesResponseBodyStatisticsPolicySourceList[];
   /**
+   * @remarks
+   * The code of the Alibaba Cloud service.
+   * 
    * @example
    * oss
    */
@@ -335,17 +417,27 @@ export class ListCollectionPoliciesResponseBodyStatistics extends $dara.Model {
 
 export class ListCollectionPoliciesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of collection rules returned on the current page.
+   * 
    * @example
    * 1
    */
   currentCount?: number;
   /**
    * @remarks
-   * The data of the policies that are matched against the query conditions. The data is returned based on paginated results.
+   * The collection rules that are returned on the current page.
    */
   data?: ListCollectionPoliciesResponseBodyData[];
+  /**
+   * @remarks
+   * Statistics returned based on the query conditions.
+   */
   statistics?: ListCollectionPoliciesResponseBodyStatistics[];
   /**
+   * @remarks
+   * The total number of collection rules.
+   * 
    * @example
    * 1
    */

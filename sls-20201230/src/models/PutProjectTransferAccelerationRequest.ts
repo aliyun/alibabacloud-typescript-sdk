@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutProjectTransferAccelerationRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable transfer acceleration.
+   * Specifies whether to enable transfer acceleration.
    * 
    * This parameter is required.
    * 

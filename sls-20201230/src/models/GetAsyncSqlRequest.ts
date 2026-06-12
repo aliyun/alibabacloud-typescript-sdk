@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAsyncSqlRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of results to return per page. The maximum value is 1000.
+   * 
    * @example
    * 100
    */
   line?: number;
   /**
+   * @remarks
+   * The offset for paginated results.
+   * 
    * @example
    * 0
    */

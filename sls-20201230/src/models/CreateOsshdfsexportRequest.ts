@@ -6,7 +6,7 @@ import { OSSExportConfiguration } from "./OssexportConfiguration";
 export class CreateOSSHDFSExportRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration details of the job.
+   * The configuration of the job.
    * 
    * This parameter is required.
    */
@@ -14,6 +14,9 @@ export class CreateOSSHDFSExportRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the job.
+   * 
+   * @example
+   * Create a Unit OSS-HDFS delivery task
    */
   description?: string;
   /**
@@ -23,17 +26,25 @@ export class CreateOSSHDFSExportRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ali-test-oss-hdfs-job
+   * my-oss-hdfs-job
    */
   displayName?: string;
   /**
    * @remarks
-   * The unique identifier of the OSS data shipping job.
+   * The name of the job. The name must be unique within the project and follow these conventions:
+   * 
+   * The job name must be unique within the project.
+   * 
+   * - The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The name must start and end with a lowercase letter or a digit.
+   * 
+   * - The name must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * job-123456789-123456
+   * export-osshdfs-1234567890-123456
    */
   name?: string;
   static names(): { [key: string]: string } {
