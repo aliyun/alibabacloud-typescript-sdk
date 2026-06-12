@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The time when the service instance was created.
+   * The time when the resource was created.
    * 
    * @example
    * 2022-01-01T12:00:00
@@ -13,7 +13,7 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The time when the resource expires.
+   * The expiration time.
    * 
    * @example
    * 2022-03-01T12:00:00
@@ -23,8 +23,9 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   Subscription
-   * *   PayAsYouGo
+   * - Subscription: subscription.
+   * 
+   * - PayAsYouGo: pay-as-you-go.
    * 
    * @example
    * Subscription
@@ -32,7 +33,7 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   payType?: string;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The product code.
    * 
    * @example
    * rds
@@ -40,7 +41,7 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   productCode?: string;
   /**
    * @remarks
-   * The type of the cloud service.
+   * The product type.
    * 
    * @example
    * RDS
@@ -48,11 +49,13 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   productType?: string;
   /**
    * @remarks
-   * The renewal state. Valid values:
+   * The renewal status. Valid values:
    * 
-   * *   AutoRenewal
-   * *   ManualRenewal
-   * *   NotRenewal
+   * - AutoRenewal: auto-renewal.
+   * 
+   * - ManualRenewal: manual renewal.
+   * 
+   * - NotRenewal: no renewal.
    * 
    * @example
    * AutoRenewal
@@ -70,8 +73,9 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
    * @remarks
    * The unit of the renewal period. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - Month: month.
+   * 
+   * - Year: year.
    * 
    * @example
    * Month
@@ -79,7 +83,7 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   renewalPeriodUnit?: string;
   /**
    * @remarks
-   * The ARN of the resource.
+   * The Alibaba Cloud Resource Name (ARN) of the resource.
    * 
    * @example
    * arn:acs:sag:cn-hangzhou:130920852836****:ccn/ccn-b3qf0q439sq2de****
@@ -87,16 +91,39 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   resourceARN?: string;
   /**
    * @remarks
-   * The status of the service instance. Valid values:
+   * The status of the resource. Valid values:
    * 
-   * *   Created
-   * *   Deploying
-   * *   DeployedFailed
-   * *   Deployed
-   * *   Upgrading
-   * *   Deleting
-   * *   Deleted
-   * *   DeletedFailed
+   * - INIT_COMPLETE: The resource is pending creation.
+   * 
+   * - CREATE_COMPLETE: The resource is created.
+   * 
+   * - CREATE_FAILED: The resource failed to be created.
+   * 
+   * - CREATE_IN_PROGRESS: The resource is being created.
+   * 
+   * - UPDATE_IN_PROGRESS: The resource is being updated.
+   * 
+   * - UPDATE_FAILED: The resource failed to be updated.
+   * 
+   * - UPDATE_COMPLETE: The resource is updated.
+   * 
+   * - DELETE_IN_PROGRESS: The resource is being deleted.
+   * 
+   * - DELETE_FAILED: The resource failed to be deleted.
+   * 
+   * - DELETE_COMPLETE: The resource is deleted.
+   * 
+   * - CHECK_IN_PROGRESS: The resource is being checked.
+   * 
+   * - CHECK_FAILED: The resource failed to be checked.
+   * 
+   * - CHECK_COMPLETE: The resource is checked.
+   * 
+   * - IMPORT_IN_PROGRESS: The resource is being imported.
+   * 
+   * - IMPORT_FAILED: The resource failed to be imported.
+   * 
+   * - IMPORT_COMPLETE: The resource is imported.
    * 
    * @example
    * CREATE_COMPLETE
@@ -144,7 +171,7 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
 export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -152,7 +179,7 @@ export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token to start the next query.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
@@ -168,7 +195,7 @@ export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of resources.
+   * The resources.
    */
   resources?: ListServiceInstanceResourcesResponseBodyResources[];
   static names(): { [key: string]: string } {

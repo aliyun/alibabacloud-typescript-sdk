@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to filter information based on Alibaba Cloud account IDs.
+   * Specifies whether to filter the results by Alibaba Cloud account ID.
+   * 
+   * Valid values:
+   * 
+   * - true: Filters the results by Alibaba Cloud account ID.
+   * 
+   * - false: Does not filter the results by Alibaba Cloud account ID.
    * 
    * @example
    * false
@@ -23,29 +29,33 @@ export class GetServiceRequest extends $dara.Model {
    * @remarks
    * The service ID.
    * 
+   * Call the [ListServices](https://help.aliyun.com/document_detail/2264368.html) operation to obtain the service ID.
+   * 
    * @example
-   * service-4ee86df83fd948******
+   * service-f8469d2d14eb40af****
    */
   serviceId?: string;
   /**
    * @remarks
-   * The Service Instance Id.
+   * The service instance ID.
    * 
    * @example
-   * si-85b1exxx
+   * si-56eb5823dxxxx
    */
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The Service Name.
+   * The service name.
    * 
    * @example
-   * Wordpress社区版
+   * WordPress Community Edition
    */
   serviceName?: string;
   /**
    * @remarks
    * The service version.
+   * 
+   * Call the [ListServices](https://help.aliyun.com/document_detail/2264368.html) operation to obtain the service version.
    * 
    * @example
    * 1
@@ -53,10 +63,13 @@ export class GetServiceRequest extends $dara.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The share type of the service. Default value: SharedAccount. Valid values:
+   * The service sharing type.
    * 
-   * *   SharedAccount: The service is shared by multiple accounts.
-   * *   Resell: The service is distributed.
+   * Valid values:
+   * 
+   * - SharedAccount (default): common sharing.
+   * 
+   * - Resell: distribution sharing.
    * 
    * @example
    * SharedAccount
@@ -64,7 +77,7 @@ export class GetServiceRequest extends $dara.Model {
   sharedAccountType?: string;
   /**
    * @remarks
-   * The information that you want to query.
+   * The details to be returned.
    */
   showDetail?: string[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
    * @example
    * Key1
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
    * @example
    * Value1
@@ -55,17 +55,20 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify at most 50 resource IDs in each call.
+   * The resource ID.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Valid value:
-   * - service
-   * - serviceinstance
-   * - artifact
+   * The resource type. Valid values:
+   * 
+   * - service: a service.
+   * 
+   * - serviceinstance: a service instance.
+   * 
+   * - artifact: an artifact.
    * 
    * This parameter is required.
    * 
@@ -75,7 +78,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The resource tags.
    */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {

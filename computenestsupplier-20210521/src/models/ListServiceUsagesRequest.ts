@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceUsagesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * The filter name. You can query by one or more names. Valid values:
    * 
-   * *   ServiceId: the ID of the service.
-   * *   ServiceName: the service name.
-   * *   Status: the state of the service.
-   * *   SupplierName: the name of the service provider.
+   * - ServiceId: The service ID.
+   * 
+   * - ServiceName: The service name.
+   * 
+   * - Status: The service status.
+   * 
+   * - SupplierName: The supplier name.
    * 
    * @example
    * ServiceId
@@ -18,7 +21,7 @@ export class ListServiceUsagesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter value N of the filter. Valid values of N: 1 to 10.
+   * The filter values. You can specify 1 to 10 values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +58,7 @@ export class ListServiceUsagesRequest extends $dara.Model {
   filter?: ListServiceUsagesRequestFilter[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -63,7 +66,7 @@ export class ListServiceUsagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to retrieve the next page of results. You can obtain this token from the NextToken parameter in the response to the previous request.
    * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
@@ -72,7 +75,7 @@ export class ListServiceUsagesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The role of the service provider.
+   * The supplier role.
    * 
    * @example
    * Supplier

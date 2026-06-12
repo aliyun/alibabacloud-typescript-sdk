@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceProvisionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are specified to deploy the service instance.
+   * The parameters.
    * 
    * @example
    * {\\"RegionId\\":\\"cn-hangzhou\\"}
@@ -42,7 +42,7 @@ export class GetServiceProvisionsRequest extends $dara.Model {
    * The template name.
    * 
    * @example
-   * 模板1
+   * Template 1
    */
   templateName?: string;
   static names(): { [key: string]: string } {

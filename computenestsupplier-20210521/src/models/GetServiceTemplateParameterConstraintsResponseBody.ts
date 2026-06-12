@@ -70,18 +70,20 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
   allowedValues?: string[];
   /**
    * @remarks
-   * The names of the associated parameters.
+   * The list of associated parameters.
    */
   associationParameterNames?: string[];
   /**
    * @remarks
    * The behavior of the parameter. Valid values:
    * 
-   * *   NoLimit: The value of this parameter is not limited.
-   * *   NotSupport: The value of this parameter cannot be queried.
-   * *   QueryError: The query failed.
+   * - NoLimit: The parameter has no value limit.
    * 
-   * >  If AllowedValues is not returned, Behavior and BehaviorReason are returned.
+   * - NotSupport: The parameter does not support value queries.
+   * 
+   * - QueryError: The query failed.
+   * 
+   * > If the query result does not include AllowedValues, Behavior and BehaviorReason are returned to describe the behavior of the parameter and the reason for the behavior.
    * 
    * @example
    * NoLimit
@@ -89,7 +91,7 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
   behavior?: string;
   /**
    * @remarks
-   * The reason why the behavior of the parameter is returned.
+   * The reason for the parameter behavior.
    * 
    * @example
    * none
@@ -161,12 +163,12 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
 export class GetServiceTemplateParameterConstraintsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The constraint families.
+   * The family constraints.
    */
   familyConstraints?: string[];
   /**
    * @remarks
-   * The parameters in the template.
+   * The parameter information.
    */
   parameterConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints[];
   /**

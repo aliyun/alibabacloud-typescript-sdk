@@ -8,12 +8,12 @@ export class ListServiceTestCasesResponseBodyData extends $dara.Model {
    * The template name.
    * 
    * @example
-   * test-1
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The service test case id.
+   * The ID of the test case.
    * 
    * @example
    * stc-83fcee1383354e35b151
@@ -21,7 +21,7 @@ export class ListServiceTestCasesResponseBodyData extends $dara.Model {
   testCaseId?: string;
   /**
    * @remarks
-   * The service test case name.
+   * The name of the test case.
    * 
    * @example
    * case1
@@ -29,7 +29,7 @@ export class ListServiceTestCasesResponseBodyData extends $dara.Model {
   testCaseName?: string;
   /**
    * @remarks
-   * The service test config.
+   * The user-configured YAML file.
    * 
    * @example
    * ---
@@ -74,7 +74,7 @@ export class ListServiceTestCasesResponseBody extends $dara.Model {
   data?: ListServiceTestCasesResponseBodyData[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -82,7 +82,7 @@ export class ListServiceTestCasesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to start the next query.
    * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
@@ -90,7 +90,7 @@ export class ListServiceTestCasesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CA3AE512-6D30-549A-B52D-B9042CA8D515
@@ -98,7 +98,7 @@ export class ListServiceTestCasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records that meet the filter criteria.
    * 
    * @example
    * 18

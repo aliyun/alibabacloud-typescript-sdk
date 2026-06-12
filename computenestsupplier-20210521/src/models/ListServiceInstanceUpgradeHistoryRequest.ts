@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceUpgradeHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListServiceInstanceUpgradeHistoryRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query, which should be the value of the NextToken parameter from the previous API call.
+   * The token that is used to retrieve the next page of results. Set this to the NextToken value from a previous response.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
@@ -21,7 +21,7 @@ export class ListServiceInstanceUpgradeHistoryRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListServiceInstanceUpgradeHistoryRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Service instance ID.
+   * The service instance ID.
    * 
    * This parameter is required.
    * 

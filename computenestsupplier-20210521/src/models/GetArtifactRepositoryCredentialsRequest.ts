@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactRepositoryCredentialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the deployment package. Valid values:
+   * The type of the artifact. Valid values:
    * 
-   * *   File: Object Storage Service (OSS) object.
-   * *   AcrImage: container image.
+   * - File: an OSS file.
+   * 
+   * - AcrImage: a container image.
    * 
    * This parameter is required.
    * 
@@ -18,7 +19,7 @@ export class GetArtifactRepositoryCredentialsRequest extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region to which the artifact is uploaded.
    * 
    * @example
    * cn-hangzhou

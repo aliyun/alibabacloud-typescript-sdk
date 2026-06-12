@@ -13,10 +13,11 @@ export class UpdateSupplierInformationRequestDeliverySettings extends $dara.Mode
   ossBucketName?: string;
   /**
    * @remarks
-   * Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
+   * Specifies whether to deliver the execution results of Cloud Assistant O\\&M tasks to Object Storage Service (OSS). Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * 
+   * - false (default): Disabled.
    * 
    * @example
    * false
@@ -24,7 +25,7 @@ export class UpdateSupplierInformationRequestDeliverySettings extends $dara.Mode
   ossEnabled?: boolean;
   /**
    * @remarks
-   * The number of days for which the screencasts are saved.
+   * The retention period for screen recordings, in days.
    * 
    * @example
    * 7
@@ -32,7 +33,7 @@ export class UpdateSupplierInformationRequestDeliverySettings extends $dara.Mode
   ossExpirationDays?: number;
   /**
    * @remarks
-   * The OSS path.
+   * The path in OSS.
    * 
    * @example
    * path1/path2/
@@ -68,7 +69,7 @@ export class UpdateSupplierInformationRequestDeliverySettings extends $dara.Mode
 export class UpdateSupplierInformationRequestSupportContacts extends $dara.Model {
   /**
    * @remarks
-   * The type of  contact information
+   * The type of contact method.
    * 
    * @example
    * Email
@@ -76,7 +77,7 @@ export class UpdateSupplierInformationRequestSupportContacts extends $dara.Model
   type?: string;
   /**
    * @remarks
-   * The value of contact information
+   * The contact information.
    * 
    * @example
    * supplier@example.com
@@ -108,12 +109,12 @@ export class UpdateSupplierInformationRequestSupportContacts extends $dara.Model
 export class UpdateSupplierInformationRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery settings.
+   * The custom settings.
    */
   deliverySettings?: UpdateSupplierInformationRequestDeliverySettings;
   /**
    * @remarks
-   * The Ip of operation.
+   * The IP address segments for managed O\\&M access.
    * 
    * @example
    * 192.xxx.xxx.xxx/16,192.xxx.xxx.xxx
@@ -121,7 +122,11 @@ export class UpdateSupplierInformationRequest extends $dara.Model {
   operationIp?: string;
   /**
    * @remarks
-   * The MFA of operation.
+   * Specifies whether to enable multi-factor authentication (MFA). The default value is true. Valid values:
+   * 
+   * - true: Yes.
+   * 
+   * - false: No.
    * 
    * @example
    * true
@@ -129,7 +134,7 @@ export class UpdateSupplierInformationRequest extends $dara.Model {
   operationMfaPresent?: boolean;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -139,15 +144,15 @@ export class UpdateSupplierInformationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The description of service provider.
+   * The description of the supplier.
    * 
    * @example
-   * Test supplier
+   * Alibaba Cloud Compute Nest
    */
   supplierDesc?: string;
   /**
    * @remarks
-   * The Logo of service provider.
+   * The icon of the supplier.
    * 
    * @example
    * http://example.aliyundoc.com/cover/34DB-4F4C-9373-003AA060****.png
@@ -155,7 +160,7 @@ export class UpdateSupplierInformationRequest extends $dara.Model {
   supplierLogo?: string;
   /**
    * @remarks
-   * The URL of the service provider.
+   * The URL of the supplier.
    * 
    * @example
    * http://www.xxx.xxx.cn
@@ -163,7 +168,7 @@ export class UpdateSupplierInformationRequest extends $dara.Model {
   supplierUrl?: string;
   /**
    * @remarks
-   * Contact information of the service provider
+   * The contact information of the supplier.
    */
   supportContacts?: UpdateSupplierInformationRequestSupportContacts[];
   static names(): { [key: string]: string } {

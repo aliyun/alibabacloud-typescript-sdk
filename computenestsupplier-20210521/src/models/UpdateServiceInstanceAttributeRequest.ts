@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo extends $dara.Model {
   /**
    * @remarks
-   * Mock error code.
+   * To impersonate an error message, specify an error code.
    * 
    * @example
    * EntityNotExist.Service
@@ -13,7 +13,7 @@ export class UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo extend
   errorCode?: string;
   /**
    * @remarks
-   * Mock error message.
+   * To impersonate an error message, specify the error message.
    * 
    * @example
    * The provided parameter "ServiceId" is invalid.
@@ -21,7 +21,7 @@ export class UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo extend
   errorMessage?: string;
   /**
    * @remarks
-   * if you want mock response, please open this option.
+   * Specifies whether to modify the return value.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo extend
 export class UpdateServiceInstanceAttributeRequestLicenseData extends $dara.Model {
   /**
    * @remarks
-   * The Custom Data
+   * The custom metadata.
    * 
    * @example
    * {"Test"}
@@ -63,7 +63,7 @@ export class UpdateServiceInstanceAttributeRequestLicenseData extends $dara.Mode
   customData?: string;
   /**
    * @remarks
-   * Mock response info.
+   * The information about the impersonated return value.
    */
   responseInfo?: UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo;
   static names(): { [key: string]: string } {
@@ -105,15 +105,15 @@ export class UpdateServiceInstanceAttributeRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The License Data
+   * The license data.
    */
   licenseData?: UpdateServiceInstanceAttributeRequestLicenseData;
   /**
    * @remarks
-   * Application reason, currently used for trial application extension.
+   * The reason for the request. This parameter is used to extend a trial.
    * 
    * @example
-   * \\"\\"
+   * ""
    */
   reason?: string;
   /**

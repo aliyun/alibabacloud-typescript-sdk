@@ -21,7 +21,7 @@ export class GetArtifactRepositoryCredentialsResponseBodyAvailableResources exte
   regionId?: string;
   /**
    * @remarks
-   * The repository name.
+   * The name of the repository.
    * 
    * @example
    * computenest-artifacts-draft-cn-hangzhou
@@ -79,7 +79,7 @@ export class GetArtifactRepositoryCredentialsResponseBodyCredentials extends $da
   password?: string;
   /**
    * @remarks
-   * The Security Token Service (STS) token.
+   * The security token.
    * 
    * @example
    * xxx
@@ -125,17 +125,17 @@ export class GetArtifactRepositoryCredentialsResponseBodyCredentials extends $da
 export class GetArtifactRepositoryCredentialsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the resources that can be uploaded.
+   * Information about the resources that can be uploaded.
    */
   availableResources?: GetArtifactRepositoryCredentialsResponseBodyAvailableResources[];
   /**
    * @remarks
-   * The credentials.
+   * The access credential.
    */
   credentials?: GetArtifactRepositoryCredentialsResponseBodyCredentials;
   /**
    * @remarks
-   * The time when the credentials expired.
+   * The expiration time.
    * 
    * @example
    * 1526549792000
@@ -143,7 +143,7 @@ export class GetArtifactRepositoryCredentialsResponseBody extends $dara.Model {
   expireDate?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 94E89857-B994-44B6-9C4F-DBD200E9XXXX

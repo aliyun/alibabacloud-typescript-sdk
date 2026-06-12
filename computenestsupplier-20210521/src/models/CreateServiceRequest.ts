@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceRequestComplianceMetadata extends $dara.Model {
   /**
    * @remarks
-   * The compliance package selected.
+   * The selected compliance packages.
    */
   compliancePacks?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class CreateServiceRequestComplianceMetadata extends $dara.Model {
 export class CreateServiceRequestServiceInfoAgreements extends $dara.Model {
   /**
    * @remarks
-   * Protocol name.
+   * The name of the agreement.
    * 
    * @example
    * Name
@@ -43,7 +43,7 @@ export class CreateServiceRequestServiceInfoAgreements extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Protocol url.
+   * The URL of the agreement.
    * 
    * @example
    * https://aliyun.com/xxxxxxxx.html
@@ -75,7 +75,7 @@ export class CreateServiceRequestServiceInfoAgreements extends $dara.Model {
 export class CreateServiceRequestServiceInfoSoftwares extends $dara.Model {
   /**
    * @remarks
-   * The name of the software.
+   * The software name.
    * 
    * @example
    * MySQL
@@ -83,7 +83,7 @@ export class CreateServiceRequestServiceInfoSoftwares extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The version of the software.
+   * The software version.
    * 
    * @example
    * 5.7
@@ -115,7 +115,7 @@ export class CreateServiceRequestServiceInfoSoftwares extends $dara.Model {
 export class CreateServiceRequestServiceInfo extends $dara.Model {
   /**
    * @remarks
-   * Protocol document information about the service.
+   * The information about the service agreements.
    */
   agreements?: CreateServiceRequestServiceInfoAgreements[];
   /**
@@ -130,8 +130,9 @@ export class CreateServiceRequestServiceInfo extends $dara.Model {
    * @remarks
    * The language of the service. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
+   * - zh-CN: Chinese.
+   * 
+   * - en-US: English.
    * 
    * This parameter is required.
    * 
@@ -141,7 +142,7 @@ export class CreateServiceRequestServiceInfo extends $dara.Model {
   locale?: string;
   /**
    * @remarks
-   * The URL of the detailed description of the service.
+   * The detailed description of the service.
    * 
    * @example
    * http://description.tidb.oss.url
@@ -159,15 +160,15 @@ export class CreateServiceRequestServiceInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The description of the service.
+   * A brief description of the service.
    * 
    * @example
-   * TiDB是A公司自主设计、研发的开源分布式关系型数据库。
+   * TiDB is an open-source distributed relational database designed and developed by Company A.
    */
   shortDescription?: string;
   /**
    * @remarks
-   * The list of the software in the service.
+   * The information about the software used in the service.
    */
   softwares?: CreateServiceRequestServiceInfoSoftwares[];
   static names(): { [key: string]: string } {
@@ -252,33 +253,34 @@ export class CreateServiceRequestTag extends $dara.Model {
 export class CreateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert configurations of the service.
+   * The alert configurations for the service.
    * 
-   * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+   * > This configuration takes effect only after an alert-related access policy is configured in \\`PolicyNames\\`.
    * 
    * @example
    * {
-   *   "TemplateUrl": "http://template.file.url",
-   *   // 应用分组级别告警元数据
-   *   "ApplicationGroups": [
-   *     {
-   *       "Name": "applicationGroup1",
-   *       "TemplateUrl": "url1"
-   *     },
-   *     {
-   *       "Name": "applicationGroup2",
-   *       "TemplateUrl": "url2"
-   *     }
-   *   ]
+   *   "TemplateUrl": "http://template.file.url",
+   *   // Application group level alarm metadata
+   *   "ApplicationGroups": [
+   *     {
+   *       "Name": "applicationGroup1",
+   *       "TemplateUrl": "url1"
+   *     },
+   *     {
+   *       "Name": "applicationGroup2",
+   *       "TemplateUrl": "url2"
+   *     }
+   *   ]
    * }
    */
   alarmMetadata?: string;
   /**
    * @remarks
-   * The approval type of the service usage application. Valid values:
+   * The approval type for service usage requests. Valid values:
    * 
-   * *   Manual: The application is manually approved.
-   * *   AutoPass: The application is automatically approved.
+   * - Manual: The request requires manual approval.
+   * 
+   * - AutoPass: The request is automatically approved.
    * 
    * @example
    * Manual
@@ -286,7 +288,7 @@ export class CreateServiceRequest extends $dara.Model {
   approvalType?: string;
   /**
    * @remarks
-   * The parameters for building the service
+   * The parameters for building the service.
    * 
    * @example
    * { "ServiceTemplateId": "st-xxxxx"}
@@ -294,7 +296,7 @@ export class CreateServiceRequest extends $dara.Model {
   buildParameters?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * A client token used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. \\`ClientToken\\` supports only ASCII characters.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -302,29 +304,30 @@ export class CreateServiceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Compliance check metadata.
+   * The compliance check metadata.
    */
   complianceMetadata?: CreateServiceRequestComplianceMetadata;
   /**
    * @remarks
-   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   * The deployment configuration of the service. The information stored varies by deployment type. Different deployment types have different data formats. The data is stored in a JSON string.
    * 
    * @example
-   * {\\"TemplateConfigs\\":[{\\"Name\\":\\"模板1\\",\\"Url\\":\\"oss://computenest-test/template" 
-   *             + ".json?RegionId=cn-beijing\\",\\"PredefinedParameters\\":[{\\"Name\\":\\"低配版\\"," 
-   *             + "\\"Parameters\\":{\\"InstanceType\\":\\"ecs.g5.large\\",\\"DataDiskSize\\":40}},{\\"Name\\":\\"高配版\\"," 
-   *             + "\\"Parameters\\":{\\"InstanceType\\":\\"ecs.g5.large\\",\\"DataDiskSize\\":200}}]}]}
+   * {"TemplateConfigs":[{"Name":"Template 1","Url":"oss://computenest-test/template.json?RegionId=cn-beijing","PredefinedParameters":[{"Name":"Basic","Parameters":{"InstanceType":"ecs.g5.large","DataDiskSize":40}},{"Name":"Advanced","Parameters":{"InstanceType":"ecs.g5.large","DataDiskSize":200}}]}]}
    */
   deployMetadata?: string;
   /**
    * @remarks
-   * The deployment type of the service. Valid values:
+   * The deployment type. Valid values:
    * 
-   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * *   terraform: The service is deployed by using Terraform.
-   * *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
-   * *   spi: The service is deployed by calling a service provider interface (SPI).
-   * *   operation: The service is deployed by using a hosted O\\&M service.
+   * - ros: The service is deployed using ROS.
+   * 
+   * - terraform: The service is deployed using Terraform.
+   * 
+   * - ack: The service is deployed using ACK.
+   * 
+   * - spi: The service is deployed by invoking an SPI.
+   * 
+   * - operation: The service is an O\\&M service.
    * 
    * This parameter is required.
    * 
@@ -334,10 +337,7 @@ export class CreateServiceRequest extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run for the request to check information. Valid values:
-   * 
-   * *   true: performs a dry run for the request, but does not create a service.
-   * *   false: performs a dry run for the request, and create a service if the request passes the dry run.
+   * Specifies whether to perform a dry run to check the request.
    * 
    * @example
    * true
@@ -345,7 +345,7 @@ export class CreateServiceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The duration for which hosted O\\&M is implemented. Unit: seconds.
+   * The O\\&M duration. Unit: seconds.
    * 
    * @example
    * 0
@@ -353,12 +353,13 @@ export class CreateServiceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
+   * Specifies whether to enable O\\&M. Default value: false. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
    * 
-   * >  This parameter is required if you set **ServiceType** to **private**.
+   * - false: Disabled.
+   * 
+   * > This parameter is required when \\`ServiceType\\` is set to \\`private\\`.
    * 
    * @example
    * false
@@ -369,20 +370,28 @@ export class CreateServiceRequest extends $dara.Model {
    * The license metadata.
    * 
    * @example
-   * {\\"RetentionDays\\":3}
+   * {\\"PayType\\":\\"CustomFixTime\\",\\"DefaultLicenseDays\\":7,\\"CustomMetadata\\":[{\\"TemplateName\\":\\" template1\\",\\"SpecificationName\\":\\"bandwith-0\\",\\"CustomData\\":\\"1\\"}]}
    */
   licenseMetadata?: string;
   /**
    * @remarks
-   * The logging configurations.
+   * The application log configuration.
    * 
    * @example
-   * { "Logstores": [ { "LogstoreName": "access-log", "LogPath": "/home/admin/app/logs", # This parameter is not required for containers. Configure the parameter in the YAML file. "FilePattern": "access.log\\*" # This parameter is not required for containers. Configure the parameter in the YAML file. } ] }
+   * {
+   *   "Logstores": [
+   *     {
+   *     "LogstoreName": "access-log",
+   *   "LogPath": "/home/admin/app/logs", # Not required for containers. Configure in YAML
+   *   "FilePattern": "access.log*" # Not required for containers. Configure in YAML
+   *     }
+   *   ]
+   * }
    */
   logMetadata?: string;
   /**
    * @remarks
-   * The hosted O\\&M configurations.
+   * The O\\&M configuration.
    * 
    * @example
    * {\\"PrometheusConfigMap\\":{\\"New_Vpc_Ack_And_Jumpserver\\":{}}}
@@ -390,7 +399,7 @@ export class CreateServiceRequest extends $dara.Model {
   operationMetadata?: string;
   /**
    * @remarks
-   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+   * The policy name. The name of a single policy can be up to 128 characters in length. Separate multiple names with commas (,). Only policies related to O\\&M parameters are supported.
    * 
    * @example
    * policyName1, policyName2
@@ -408,7 +417,11 @@ export class CreateServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Whether resell is supported.
+   * Specifies whether the service can be distributed. Valid values:
+   * 
+   * - false: The service cannot be distributed.
+   * 
+   * - true: The service can be distributed.
    * 
    * @example
    * false
@@ -416,7 +429,7 @@ export class CreateServiceRequest extends $dara.Model {
   resellable?: boolean;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aek25refu7r3opq
@@ -439,10 +452,13 @@ export class CreateServiceRequest extends $dara.Model {
    * @remarks
    * The service type. Valid values:
    * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * *   poc: The service is a trial service.
+   * - private: The service instance is deployed in the user\\"s account.
+   * 
+   * - managed: The service instance is managed in the service provider\\"s account.
+   * 
+   * - operation: An O\\&M service instance.
+   * 
+   * - poc: A trial service instance.
    * 
    * @example
    * private
@@ -450,13 +466,17 @@ export class CreateServiceRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The permission type of the deployment URL. Valid values:
+   * The sharing type. Valid values:
    * 
-   * *   Public: All users can go to the URL to create a service instance or a trial service instance.
-   * *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-   * *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-   * *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-   * *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+   * - Public: The service is public. Full and trial deployments are not restricted.
+   * 
+   * - Restricted: The service is restricted. Full and trial deployments are restricted.
+   * 
+   * - OnlyFormalRestricted: Only full deployments are restricted.
+   * 
+   * - OnlyTrailRestricted: Only trial deployments are restricted.
+   * 
+   * - Hidden: The service is hidden. It is not visible and you cannot request deployment permissions.
    * 
    * @example
    * Public
@@ -464,7 +484,7 @@ export class CreateServiceRequest extends $dara.Model {
   shareType?: string;
   /**
    * @remarks
-   * The source service ID for resell。
+   * The ID of the source service for distribution.
    * 
    * @example
    * service-70a3b15bb62643xxxxxx
@@ -472,7 +492,7 @@ export class CreateServiceRequest extends $dara.Model {
   sourceServiceId?: string;
   /**
    * @remarks
-   * The source service version for resell。
+   * The version of the source service for distribution.
    * 
    * @example
    * 1
@@ -485,10 +505,11 @@ export class CreateServiceRequest extends $dara.Model {
   tag?: CreateServiceRequestTag[];
   /**
    * @remarks
-   * The type of the tenant. Valid values:
+   * The tenant type. Valid values:
    * 
-   * *   SingleTenant
-   * *   MultiTenant
+   * - SingleTenant: Single-tenant.
+   * 
+   * - MultiTenant: Multitenant.
    * 
    * @example
    * SingleTenant
@@ -496,7 +517,7 @@ export class CreateServiceRequest extends $dara.Model {
   tenantType?: string;
   /**
    * @remarks
-   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+   * The trial duration. Unit: days. The maximum trial duration is 30 days.
    * 
    * @example
    * 7
@@ -504,7 +525,7 @@ export class CreateServiceRequest extends $dara.Model {
   trialDuration?: number;
   /**
    * @remarks
-   * The metadata about the upgrade.
+   * The upgrade metadata.
    * 
    * @example
    * {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}

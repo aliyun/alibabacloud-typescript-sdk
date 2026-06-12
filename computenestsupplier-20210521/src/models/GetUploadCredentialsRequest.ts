@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUploadCredentialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The file name to upload.
+   * The name of the file.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetUploadCredentialsRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * Specifies whether the file is publicly accessible. Valid values: **public** or **private**. The default value is **private**.
+   * The visibility of the bucket to which the file is uploaded. Valid values: public and private. A value of **public** means the file is uploaded to a public bucket. A value of **private** means the file is uploaded to a private bucket that requires authorization for access.
    * 
    * @example
    * public

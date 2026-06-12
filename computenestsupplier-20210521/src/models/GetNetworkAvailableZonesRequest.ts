@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNetworkAvailableZonesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the service is a trial service.
+   * 
    * @example
    * true
    */
   isPoc?: boolean;
   /**
+   * @remarks
+   * The region of the virtual Internet.
+   * 
    * @example
    * cn-hangzhou
    */
   networkRegionId?: string;
   /**
+   * @remarks
+   * The connection mode. Valid values: \\`PrivateLink\\` and \\`OverlayLink\\`. \\`OverlayLink\\` is an overlay link that is based on Application-aware Network Service Mesh (ANSM).
+   * 
    * @example
    * VirtualInternet
    */
   privateVpcConnectionMode?: string;
   /**
+   * @remarks
+   * The service ID. This parameter is used with the \\`IsPoc\\` parameter when \\`IsPoc\\` is set to \\`true\\`.
+   * 
    * @example
    * service-63b8a060e9d54cxxxxxx
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The direction of the internal-facing access. Valid values: \\`Forward\\` and \\`Reverse\\`.
+   * 
    * @example
    * Forward
    */
   serviceInstanceEndpointServiceType?: string;
   /**
+   * @remarks
+   * The region where the service is deployed.
+   * 
    * @example
    * cn-hangzhou
    */
   serviceRegionId?: string;
   /**
+   * @remarks
+   * The service version. This parameter is used with the \\`IsPoc\\` parameter when \\`IsPoc\\` is set to \\`true\\`.
+   * 
    * @example
    * draft
    */
   serviceVersion?: string;
   /**
+   * @remarks
+   * The zone where the service is deployed.
+   * 
    * @example
    * cn-hangzhou-k
    */

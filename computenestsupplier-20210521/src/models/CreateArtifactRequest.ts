@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateArtifactRequestArtifactBuildPropertyBuildArgs extends $dara.Model {
   /**
    * @remarks
-   * The name of a specific build argument.
+   * The name of the build argument.
    * 
    * @example
    * ENV
@@ -13,7 +13,7 @@ export class CreateArtifactRequestArtifactBuildPropertyBuildArgs extends $dara.M
   argumentName?: string;
   /**
    * @remarks
-   * The value of a specific build argument.
+   * The value of the build argument.
    * 
    * @example
    * nginx:latest
@@ -45,7 +45,7 @@ export class CreateArtifactRequestArtifactBuildPropertyBuildArgs extends $dara.M
 export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Model {
   /**
    * @remarks
-   * The name of the branch in the code repository.
+   * The name of the code repository branch.
    * 
    * @example
    * main
@@ -53,8 +53,7 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   branch?: string;
   /**
    * @remarks
-   * The endpoint. 
-   * The URL address used to access the privately deployed GitLab instance.
+   * The endpoint. This parameter is required for a private GitLab deployment.
    * 
    * @example
    * http://121.40.25.0
@@ -72,7 +71,7 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * @remarks
    * The owner of the code repository.
    * 
-   * >  This parameter is available only if the git repository is private.
+   * > This parameter is required only when the code repository is a private repository.
    * 
    * @example
    * aliyun-computenest
@@ -80,12 +79,14 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   owner?: string;
   /**
    * @remarks
-   * The platform type. Valid values: 
+   * The platform where the code repository is located. Valid values:
    * 
    * - github
    * 
    * - gitee
+   * 
    * - gitlab
+   * 
    * - codeup
    * 
    * @example
@@ -102,7 +103,7 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   repoId?: number;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * aliyun-computenest/quickstart-Lobexxx
@@ -144,23 +145,23 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
 export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
   /**
    * @remarks
-   * The build arguments used during the image build process.
+   * The build arguments.
    * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   * > This parameter can be set only when ArtifactBuildType is set to Dockerfile.
    */
   buildArgs?: CreateArtifactRequestArtifactBuildPropertyBuildArgs[];
   /**
    * @remarks
-   * The address of the code repository.
+   * The code repository address.
    * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
+   * > This parameter can be set only when ArtifactBuildType is set to Dockerfile or Buildpacks.
    */
   codeRepo?: CreateArtifactRequestArtifactBuildPropertyCodeRepo;
   /**
    * @remarks
-   * The command content.
+   * The content of the command.
    * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
+   * > This parameter can be set only when the artifact is an ECS image artifact.
    * 
    * @example
    * echo "start run command"
@@ -170,11 +171,13 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
    * @remarks
    * The command type. Valid values:
    * 
-   * *   RunBatScript: batch command, applicable to Windows instances.
-   * *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
-   * *   RunShellScript: shell command, applicable to Linux instances.
+   * - RunBatScript: The command is a BAT script that runs on a Windows instance.
    * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
+   * - RunPowerShellScript: The command is a PowerShell script that runs on a Windows instance.
+   * 
+   * - RunShellScript: The command is a shell script that runs on a Linux instance.
+   * 
+   * > This parameter can be set only when the artifact is an ECS image artifact.
    * 
    * @example
    * RunShellScript
@@ -182,9 +185,11 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
   commandType?: string;
   /**
    * @remarks
-   * The relative path to the Dockerfile within the code repository.
+   * The relative address of the Dockerfile file in the code repository.
    * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   * Default value: Dockerfile.
+   * 
+   * > This parameter can be set only when ArtifactBuildType is set to Dockerfile.
    * 
    * @example
    * ./file/Dockerfile
@@ -192,7 +197,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
   dockerfilePath?: string;
   /**
    * @remarks
-   * Whether GPU is required. CPU instance is used by default.
+   * Specifies whether to use a GPU-accelerated instance. By default, a CPU-powered instance is used.
    * 
    * @example
    * false
@@ -200,9 +205,9 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
   enableGpu?: boolean;
   /**
    * @remarks
-   * The region ID where the source mirror image is located.
+   * The ID of the region where the source image is located.
    * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
+   * > This parameter can be set only when the artifact is an ECS image artifact.
    * 
    * @example
    * cn-hangzhou
@@ -210,9 +215,11 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
+   * The pull address of the source container image.
    * 
-   * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
+   * Used for docker pull ${SourceContainerImage}.
+   * 
+   * > This parameter can be set only when ArtifactBuildType is set to ContainerImage.
    * 
    * @example
    * pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
@@ -220,25 +227,23 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
   sourceContainerImage?: string;
   /**
    * @remarks
-   * The source image id. Supported Types:
+   * The source image ID. The following types are supported:
    * 
-   * - Image ID: Pass the Image ID of the Ecs image directly.
+   * - Image ID: The ID of the ECS image.
    * 
-   * - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
+   * - OOS public parameter name: The image ID is automatically obtained based on the name of the Operation Orchestration Service (OOS) public parameter.
    * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
+   * > This parameter can be set only when the artifact is an ECS image artifact.
    * 
    * @example
-   * Image ID：m-t4nhenrdc38pe4*****
+   * Image ID: m-t4nhenrdc38pe4*****
    * ubuntu_22_04_x64_20G_alibase_20240926.vhd
-   * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
+   * OOS public parameter name: aliyun/services/computenest/images/aliyun_3_2104_python_3_11
    */
   sourceImageId?: string;
   /**
    * @remarks
    * The size of the system disk. Unit: GiB.
-   * 
-   * >  The system disk must be at least as large as the image.
    * 
    * @example
    * 40
@@ -292,19 +297,23 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
 export class CreateArtifactRequestArtifactProperty extends $dara.Model {
   /**
    * @remarks
-   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * The commodity code of the product in Alibaba Cloud Marketplace.
    * 
-   * >  This parameter is available only if the deployment package is an image.
+   * Obtain the commodity code in the [Alibaba Cloud Marketplace console](https://market.console.aliyun.com/?spm=a2c4g.11186623.0.0.599d6787eMBBxu#/apiTools?_k=d7j8gk).
+   * 
+   * > This parameter can be set only when the artifact is an image artifact.
    * 
    * @example
-   * cmjj00xxxx
+   * cmjj00****
    */
   commodityCode?: string;
   /**
    * @remarks
-   * The commodity version of the service in Alibaba Cloud Marketplace.
+   * The version of the product in Alibaba Cloud Marketplace.
    * 
-   * >  This parameter is available only if the deployment package is an image.
+   * View the product version on the [Alibaba Cloud Marketplace](https://market.aliyun.com/?spm=5176.24779694.0.0.b2144d22sksKM5) page.
+   * 
+   * > This parameter can be set only when the artifact is an image artifact.
    * 
    * @example
    * V1.0
@@ -314,17 +323,19 @@ export class CreateArtifactRequestArtifactProperty extends $dara.Model {
    * @remarks
    * The image ID.
    * 
-   * >  This parameter is available only if the deployment package is an image.
+   * After you specify a region ID, call the [DescribeImages](https://help.aliyun.com/document_detail/2679797.html) operation to view the available image IDs in the specified region.
+   * 
+   * > This parameter can be set only when the artifact is an image artifact.
    * 
    * @example
-   * m-0xij191j9cuev6xxxxxx
+   * m-uf645fnsef9dsxmw****
    */
   imageId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region of the image.
    * 
-   * >  This parameter is available only if the deployment package is an image.
+   * > This parameter can be set only when the artifact is an image artifact.
    * 
    * @example
    * cn-hangzhou
@@ -334,17 +345,19 @@ export class CreateArtifactRequestArtifactProperty extends $dara.Model {
    * @remarks
    * The ID of the image repository.
    * 
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * Call the [ListAcrImageRepositories](https://help.aliyun.com/document_detail/2539919.html) operation to obtain the image repository ID.
+   * 
+   * > This parameter can be set only when the artifact is a container image artifact or a Helm chart artifact.
    * 
    * @example
-   * crr-d8o1nponyc2t1gcg
+   * crr-d8o1nponyc2t****
    */
   repoId?: string;
   /**
    * @remarks
    * The name of the image repository.
    * 
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * > This parameter can be set only when the artifact is a container image artifact or a Helm chart artifact.
    * 
    * @example
    * wordpress
@@ -352,12 +365,7 @@ export class CreateArtifactRequestArtifactProperty extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The default repository type. Valid values:
-   * 
-   * *   `Public`: a public repository.
-   * *   `Private`: a private repository.
-   * 
-   * You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
+   * The type of the repository. Valid values: Public and Private.
    * 
    * @example
    * Public
@@ -365,9 +373,11 @@ export class CreateArtifactRequestArtifactProperty extends $dara.Model {
   repoType?: string;
   /**
    * @remarks
-   * The version tag of the image repository.
+   * The version of the image in the image repository.
    * 
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * Call the [ListAcrImageTags](https://help.aliyun.com/document_detail/2539920.html) operation to obtain the version of the image in the image repository.
+   * 
+   * > This parameter can be set only when the artifact is a container image artifact or a Helm chart artifact.
    * 
    * @example
    * v1
@@ -375,10 +385,9 @@ export class CreateArtifactRequestArtifactProperty extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The object URL of the deployment package.
+   * The URL of the file artifact.
    * 
-   * @example
-   * https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
+   * Upload a file and obtain its URL in the [Object Storage Service console](https://oss.console.aliyun.com/bucket).
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -461,46 +470,57 @@ export class CreateArtifactRequestTag extends $dara.Model {
 export class CreateArtifactRequest extends $dara.Model {
   /**
    * @remarks
-   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * The content used to build the artifact. This parameter is used for managed artifact builds.
    */
   artifactBuildProperty?: CreateArtifactRequestArtifactBuildProperty;
   /**
    * @remarks
-   * The type of the artifact build task. Valid values:
+   * The type of the artifact to be built. Valid values:
    * 
-   * - EcsImage: Build ECS (Elastic Container Service) image.
+   * - EcsImage: builds an ECS image.
    * 
-   * - Dockerfile: Build container image based on Dockerfile.
+   * - Dockerfile: builds a container image based on a Dockerfile.
    * 
-   * - Buildpacks: Build container image based on Buildpacks.
+   * - Buildpacks: builds a container image based on Buildpacks.
    * 
-   * - ContainerImage: Rebuild container image by renaming an existing container image.
+   * - ContainerImage: builds a container image by renaming an existing container image.
    * 
    * @example
-   * Dockerfile
+   * Dockerflie
    */
   artifactBuildType?: string;
   /**
    * @remarks
-   * The ID of the deployment package.
+   * The artifact ID.
+   * 
+   * This parameter is required to create a new version of an existing artifact.
+   * 
+   * You can call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation to obtain the artifact ID.
    * 
    * @example
-   * artifact-eea08d1e2d3a43aexxxx
+   * artifact-eea08d1e2d3a43ae****
    */
   artifactId?: string;
   /**
    * @remarks
-   * The properties of the deployment object.
+   * The content of the artifact.
    */
   artifactProperty?: CreateArtifactRequestArtifactProperty;
   /**
    * @remarks
-   * The type of the deployment package. Valid values:
+   * The artifact type.
    * 
-   * *   EcsImage: Elastic Compute Service (ECS) image.
-   * *   AcrImage: container image.
-   * *   File: Object Storage Service (OSS) object.
-   * *   Script: script.
+   * Valid values:
+   * 
+   * - EcsImage: an ECS image artifact.
+   * 
+   * - AcrImage: a container image artifact.
+   * 
+   * - File: an Object Storage Service (OSS) file artifact.
+   * 
+   * - Script: a script artifact.
+   * 
+   * - HelmChart: a Helm chart artifact.
    * 
    * This parameter is required.
    * 
@@ -510,7 +530,7 @@ export class CreateArtifactRequest extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotence of the request.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -518,20 +538,20 @@ export class CreateArtifactRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the deployment package.
+   * The description of the artifact.
    * 
    * @example
-   * Test artifact
+   * Redhat8_0 image
    */
   description?: string;
   /**
    * @remarks
-   * The name of the deployment package.
+   * The artifact name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Name
+   * Redhat8_5 image
    */
   name?: string;
   /**
@@ -539,12 +559,12 @@ export class CreateArtifactRequest extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-aekzkt5buxxxxxx
+   * rg-acfm2jfvb7b****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The supported regions.
+   * The regions where the image can be distributed.
    */
   supportRegionIds?: string[];
   /**
@@ -554,7 +574,7 @@ export class CreateArtifactRequest extends $dara.Model {
   tag?: CreateArtifactRequestTag[];
   /**
    * @remarks
-   * The version name of the deployment package.
+   * The name of the artifact version.
    * 
    * This parameter is required.
    * 

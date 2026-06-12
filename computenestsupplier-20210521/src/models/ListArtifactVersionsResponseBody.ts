@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   /**
    * @remarks
-   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * The content used to build the artifact. This parameter is used for managed artifact builds.
    * 
    * @example
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
@@ -13,7 +13,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   artifactBuildProperty?: string;
   /**
    * @remarks
-   * The type of the deployment package to be built.
+   * The artifact build type.
    * 
    * @example
    * Dockerfile
@@ -21,23 +21,23 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   artifactBuildType?: string;
   /**
    * @remarks
-   * The ID of the deployment package.
+   * The artifact ID.
    * 
    * @example
-   * artifact-eea08d1e2d3a43aexxxx
+   * artifact-eea08d1e2d3a43ae****
    */
   artifactId?: string;
   /**
    * @remarks
-   * The properties of the deployment package.
+   * The properties of the artifact.
    * 
    * @example
-   * {\\"CommodityCode\\":\\"cmjj0005xxxx\\",\\"CommodityVersion\\":\\"V2022xxxx\\"}
+   * {\\"CommodityCode\\":\\"cmjj0005****\\",\\"CommodityVersion\\":\\"V2022****\\"}
    */
   artifactProperty?: string;
   /**
    * @remarks
-   * The type of the deployment package.
+   * The artifact type.
    * 
    * @example
    * EcsImage
@@ -45,7 +45,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The version of the deployment package.
+   * The version of the artifact.
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   artifactVersion?: string;
   /**
    * @remarks
-   * The time when the certificate was created.
+   * The time when the artifact was created.
    * 
    * @example
    * 2022-10-20T02:19:53Z
@@ -61,7 +61,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the deployment package was modified.
+   * The time when the artifact was last modified.
    * 
    * @example
    * 2022-10-20T02:19:55Z
@@ -69,12 +69,12 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The distribution result of the image.
+   * The result of the image distribution.
    */
   imageDelivery?: { [key: string]: string };
   /**
    * @remarks
-   * The distribution progress of the deployment package.
+   * The distribution progress of the artifact.
    * 
    * @example
    * 100
@@ -82,19 +82,23 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   progress?: string;
   /**
    * @remarks
-   * The result file of the security scan.
+   * The file that contains the security scan results.
    * 
    * @example
-   * https://compute-nest-security-audit-bucket-ap-southeast-1.oss-ap-southeast-1.aliyuncs.com/51416747xxxx/xxxx
+   * 仅当安全扫描结果的返回值为AtRisk时才会展示。
    */
   resultFile?: string;
   /**
    * @remarks
-   * The result of the security scan. Valid values:
+   * The security scan result.
    * 
-   * *   Normal: No risks exist on the deployment package.
-   * *   AtRisk: Risks exist on the deployment package.
-   * *   Processing: The deployment package is being scanned.
+   * Valid values:
+   * 
+   * - Normal: The artifact is normal and has no threats.
+   * 
+   * - AtRisk: The artifact has security threats.
+   * 
+   * - Processing: The security scan is in progress.
    * 
    * @example
    * Normal
@@ -102,14 +106,21 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   securityAuditResult?: string;
   /**
    * @remarks
-   * The status of the deployment package. Valid values:
+   * The status of the artifact.
    * 
-   * *   Created: The deployment package is created.
-   * *   Scanning: The deployment package is being scanned.
-   * *   ScanFailed: The deployment package failed to be scanned.
-   * *   Delivering: The deployment package is being distributed.
-   * *   Available: The deployment package is available.
-   * *   Deleted: The deployment package is deleted.
+   * Valid values:
+   * 
+   * - Created: The artifact is created.
+   * 
+   * - Scanning: The artifact is being scanned.
+   * 
+   * - ScanFailed: The artifact failed to be scanned.
+   * 
+   * - Delivering: The artifact is being distributed.
+   * 
+   * - Available: The artifact is available.
+   * 
+   * - Deleted: The artifact is deleted.
    * 
    * @example
    * Available
@@ -117,7 +128,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the deployment package.
+   * The description of the artifact status.
    * 
    * @example
    * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
@@ -125,7 +136,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   statusDetail?: string;
   /**
    * @remarks
-   * The ID of the region that supports the deployment package.
+   * The IDs of the regions to which the artifact is distributed.
    * 
    * @example
    * [
@@ -137,7 +148,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
   supportRegionIds?: string;
   /**
    * @remarks
-   * The version name of the deployment package.
+   * The name of the artifact version.
    * 
    * @example
    * v1
@@ -200,12 +211,12 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
 export class ListArtifactVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The version information about the deployment package.
+   * The information about the artifact versions.
    */
   artifacts?: ListArtifactVersionsResponseBodyArtifacts[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -213,10 +224,10 @@ export class ListArtifactVersionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The token that is used to retrieve the next page of results. If the results are not complete, this token is returned. To retrieve the next page of results, include this token in the next request.
    * 
    * @example
-   * AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
+   * AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hR****
    */
   nextToken?: string;
   /**
@@ -224,12 +235,12 @@ export class ListArtifactVersionsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 46577928-3162-15A6-9084-69820EB9xxxx
+   * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the query criteria.
    * 
    * @example
    * 2

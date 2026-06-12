@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceBillRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing cycle. Format: YYYY-MM.
+   * The billing cycle in the YYYY-MM format.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListServiceInstanceBillRequest extends $dara.Model {
   billingCycle?: string;
   /**
    * @remarks
-   * The billing date. This parameter is required only if the **Granularity** parameter is set to DAILY. Format: YYYY-MM-DD.
+   * The billing date. This parameter is required only when **Granularity** is set to DAILY. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-12-05
@@ -23,12 +23,13 @@ export class ListServiceInstanceBillRequest extends $dara.Model {
   billingDate?: string;
   /**
    * @remarks
-   * The granularity at which bills are queried. Valid values:
+   * The granularity at which you want to query bills. Valid values:
    * 
-   * *   MONTHLY: queries bills by month. The data queried is consistent with the data that is displayed for the specified billing cycle on the Billing Details tab of the Bill Details page in User Center.
-   * *   DAILY: queries bills by day. The data queried is consistent with the data that is displayed for the specified day on the Billing Details tab of the Bill Details page in User Center.
+   * - MONTHLY: by month. The bill details are consistent with the bills on the By Billing Cycle tab of the Bill Details page in User Center.
    * 
-   * You must set the **BillingDate** parameter before you can set the Granularity parameter to DAILY.
+   * - DAILY: by day. The bill details are consistent with the bills on the By Day tab of the Bill Details page in User Center.
+   * 
+   * > If you set this parameter to DAILY, you must specify BillingDate.
    * 
    * @example
    * MONTHLY
@@ -36,11 +37,7 @@ export class ListServiceInstanceBillRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -48,7 +45,11 @@ export class ListServiceInstanceBillRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that is used to start the next query. Valid values:
+   * 
+   * - If **NextToken** is empty, no more results exist.
+   * 
+   * - If **NextToken** has a value, the value is the token that is used to start the next query.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -65,6 +66,8 @@ export class ListServiceInstanceBillRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the service instance.
+   * 
+   * You can call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the service instance ID.
    * 
    * @example
    * si-0d0d7bc9accc4e2e8a8f

@@ -5,13 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListSupplierRegistrationsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * Name of the filter field. Allowed values:
+   * The name of the filter. You can query by one or more filter names. Valid values:
    * 
-   * - SupplierUid: The aliUid of supplier.
-   * - SupplierName: The name of supplier.
-   * - RegistrationId: Registration ID.
+   * - SupplierUid: The UID of the service provider.
    * 
-   * - Status: Registration status. Allowed values: Submitted, Approved, Rejected.
+   * - RegistrationId: The review ID.
+   * 
+   * - Status: The review status.
+   * 
+   * - SupplierName: The name of the service provider.
    * 
    * @example
    * SupplierUid
@@ -19,7 +21,7 @@ export class ListSupplierRegistrationsRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Filter value.
+   * The value of the filter condition.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -56,7 +58,7 @@ export class ListSupplierRegistrationsRequest extends $dara.Model {
   filter?: ListSupplierRegistrationsRequestFilter[];
   /**
    * @remarks
-   * Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -64,7 +66,7 @@ export class ListSupplierRegistrationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * AAAAAYChudnQUoBH+mGWFpb6oP0=

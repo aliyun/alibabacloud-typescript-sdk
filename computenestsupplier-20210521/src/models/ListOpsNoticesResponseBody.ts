@@ -4,57 +4,116 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListOpsNoticesResponseBodyOpsNotices extends $dara.Model {
   /**
+   * @remarks
+   * The O\\&M item properties.
+   * 
    * @example
    * {"cveId":"CVE-2021-4034"}
    */
   attributes?: string;
   /**
+   * @remarks
+   * The category. Valid values:
+   * 
+   * - Availability
+   * 
+   * - Cost
+   * 
+   * - Performance
+   * 
+   * - Recovery
+   * 
+   * - Security
+   * 
    * @example
    * Security
    */
   category?: string;
   /**
+   * @remarks
+   * The content.
+   * 
    * @example
    * content
    */
   content?: string;
   /**
+   * @remarks
+   * The O\\&M notice ID.
+   * 
    * @example
    * notice-1749693290
    */
   noticeId?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * service-e10349089de34exxxxxx
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The service name.
+   * 
    * @example
    * test
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service versions.
+   */
   serviceVersions?: string[];
   /**
+   * @remarks
+   * The severity level. Valid values:
+   * 
+   * - Critical
+   * 
+   * - High
+   * 
+   * - Medium
+   * 
+   * - Low
+   * 
    * @example
    * High
    */
   severity?: string;
   /**
+   * @remarks
+   * The solution.
+   * 
    * @example
    * You need to upgrade service instance
    */
   solutions?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2022-10-12T02:03:37Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
   success?: string;
   /**
+   * @remarks
+   * The type. Valid values:
+   * 
+   * - ServiceInstanceUpgrade: upgrade
+   * 
+   * - VulnerabilityFix: vulnerability
+   * 
    * @example
    * Vulnerability
    */
@@ -107,22 +166,38 @@ export class ListOpsNoticesResponseBodyOpsNotices extends $dara.Model {
 
 export class ListOpsNoticesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to start the next page of results. If this parameter is not returned, all results have been returned.
+   * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The O\\&M notices.
+   */
   opsNotices?: ListOpsNoticesResponseBodyOpsNotices[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 51945B04-6AA6-410D-93BA-236E0248B104
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */

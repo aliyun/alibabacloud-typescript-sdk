@@ -29,7 +29,7 @@ export class GetUploadCredentialsResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The time when the AccessKey pair expires.
+   * The time when the permissions expire.
    * 
    * @example
    * 2023-05-18T12:27:59Z
@@ -37,7 +37,7 @@ export class GetUploadCredentialsResponseBodyData extends $dara.Model {
   expireDate?: string;
   /**
    * @remarks
-   * The name of the key.
+   * The specific key.
    * 
    * @example
    * 221514575922756034/cn-hangzhou/d57c62fbd508xxxxxxxx.json
@@ -95,7 +95,7 @@ export class GetUploadCredentialsResponseBodyData extends $dara.Model {
 export class GetUploadCredentialsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code of the call.
    * 
    * @example
    * 200
@@ -103,7 +103,7 @@ export class GetUploadCredentialsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: GetUploadCredentialsResponseBodyData;
   /**
@@ -116,7 +116,7 @@ export class GetUploadCredentialsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The message returned for the request.
    * 
    * @example
    * Success.
@@ -132,7 +132,7 @@ export class GetUploadCredentialsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of true indicates the request was successful. A value of false indicates the request failed.
+   * Indicates whether the call was successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

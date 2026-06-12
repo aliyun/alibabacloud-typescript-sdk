@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * service-xxx
@@ -13,10 +13,13 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. Valid value:
-   * - service
-   * - serviceinstance
-   * - artifact
+   * The resource type. Valid values:
+   * 
+   * - service: a service.
+   * 
+   * - serviceinstance: a service instance.
+   * 
+   * - artifact: a deployment.
    * 
    * @example
    * service
@@ -68,7 +71,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token to start the next query.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -84,7 +87,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources and their tags.
+   * A collection of resources and their tags. The collection includes resource IDs, resource types, and tag key-value pairs.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

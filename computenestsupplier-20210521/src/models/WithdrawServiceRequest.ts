@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WithdrawServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. Generate a value from your client and make sure that the value is unique among different requests. The token can contain only ASCII characters.
    * 
    * @example
    * 788E7CP0EN9D51P
@@ -13,7 +13,7 @@ export class WithdrawServiceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class WithdrawServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Service ID.
+   * The service ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class WithdrawServiceRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Service version.
+   * The service version.
    * 
    * This parameter is required.
    * 

@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveServiceSharedAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * A client token that is used to ensure the idempotence of the request. You must make sure that the token is unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -35,10 +33,11 @@ export class RemoveServiceSharedAccountsRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The share type of the service. Default value: SharedAccount. Valid values:
+   * The service sharing type. The default value is SharedAccount. Valid values:
    * 
-   * *   SharedAccount: The service is shared by multiple accounts.
-   * *   Reseller: The service is distributed.
+   * - SharedAccount: The regular sharing type.
+   * 
+   * - Reseller: The reseller sharing type.
    * 
    * @example
    * SharedAccount
@@ -46,7 +45,7 @@ export class RemoveServiceSharedAccountsRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Whitelist accounts for service sharing.
+   * The whitelisted accounts for service sharing.
    * 
    * This parameter is required.
    */

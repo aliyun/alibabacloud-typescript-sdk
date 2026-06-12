@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token to start the next query.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -53,7 +53,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -63,15 +63,18 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify at most 50 resource IDs in each call.
+   * The resource ID.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Valid value:
-   * - service
-   * - serviceinstance
-   * - artifact
+   * The resource type. Valid values:
+   * 
+   * - service: a service.
+   * 
+   * - serviceinstance: a service instance.
+   * 
+   * - artifact: a deployment.
    * 
    * This parameter is required.
    * 
@@ -81,7 +84,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The custom tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

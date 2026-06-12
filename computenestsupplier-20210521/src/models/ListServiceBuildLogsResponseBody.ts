@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListServiceBuildLogsResponseBodyBuildLogs extends $dara.Model {
   /**
+   * @remarks
+   * The name of the build step.
+   * 
    * @example
    * BuildArtifact
    */
   buildStep?: string;
   /**
+   * @remarks
+   * The content of the log.
+   * 
    * @example
    * build log
    */
   content?: string;
   /**
+   * @remarks
+   * The timestamp of the log entry.
+   * 
    * @example
    * yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"
    */
@@ -44,13 +53,23 @@ export class ListServiceBuildLogsResponseBodyBuildLogs extends $dara.Model {
 }
 
 export class ListServiceBuildLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of build logs.
+   */
   buildLogs?: ListServiceBuildLogsResponseBodyBuildLogs[];
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
    * @example
    * AAAAAW8kZY+u1sYOaYf5JmgmDQQ=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */

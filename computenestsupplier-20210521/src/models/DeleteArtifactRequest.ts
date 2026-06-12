@@ -7,6 +7,8 @@ export class DeleteArtifactRequest extends $dara.Model {
    * @remarks
    * The ID of the artifact.
    * 
+   * Call [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) to obtain the artifact ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,18 +19,18 @@ export class DeleteArtifactRequest extends $dara.Model {
    * @remarks
    * The version of the artifact.
    * 
+   * Call [ListArtifactVersions](https://help.aliyun.com/document_detail/469995.html) to obtain the artifact version.
+   * 
    * @example
    * 2
    */
   artifactVersion?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token that ensures the idempotence of the request. Make sure that the token is unique for each request. **ClientToken** supports only ASCII characters and must be no more than 64 characters long.
    * 
    * @example
-   * 788E7CP0EN9D51P
+   * 10CM943JP0EN9D51H
    */
   clientToken?: string;
   static names(): { [key: string]: string } {

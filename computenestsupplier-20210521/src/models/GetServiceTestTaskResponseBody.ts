@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceTestTaskResponseBodyExecutionDetails extends $dara.Model {
   /**
    * @remarks
-   * The service test case name.
+   * The use case name.
    * 
    * @example
    * case1
@@ -13,7 +13,7 @@ export class GetServiceTestTaskResponseBodyExecutionDetails extends $dara.Model 
   caseName?: string;
   /**
    * @remarks
-   * The execution report
+   * The execution report.
    * 
    * @example
    * -----------------------------------------------------------------------------
@@ -25,7 +25,7 @@ export class GetServiceTestTaskResponseBodyExecutionDetails extends $dara.Model 
   executionReport?: string;
   /**
    * @remarks
-   * The sub task status.
+   * The execution status.
    * 
    * @example
    * Runing
@@ -33,7 +33,7 @@ export class GetServiceTestTaskResponseBodyExecutionDetails extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The sub task id.
+   * The subtask ID.
    * 
    * @example
    * stt-xxxx
@@ -69,12 +69,12 @@ export class GetServiceTestTaskResponseBodyExecutionDetails extends $dara.Model 
 export class GetServiceTestTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution details.
+   * The execution details of the task. This includes the running details for different use cases.
    */
   executionDetails?: GetServiceTestTaskResponseBodyExecutionDetails[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * A361BA9E-xxxx-xxxx-xxxx-C26E5180456E
@@ -82,11 +82,7 @@ export class GetServiceTestTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the service test task. Valid values:
-   * 
-   * *   Running
-   * *   Success
-   * *    Failure
+   * The running status of the service test task.
    * 
    * @example
    * Running
@@ -97,12 +93,12 @@ export class GetServiceTestTaskResponseBody extends $dara.Model {
    * The task name.
    * 
    * @example
-   * nametest
+   * Automated test task 1
    */
   taskName?: string;
   /**
    * @remarks
-   * The task execution region.
+   * The region where the task runs.
    * 
    * @example
    * cn-beijing

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The Actions.
+   * The operation in the access policy.
    */
   action?: string[];
   /**
    * @remarks
-   * The responses.
+   * The resource in the access policy.
    * 
    * @example
    * *
@@ -18,7 +18,7 @@ export class UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extend
   resource?: string;
   /**
    * @remarks
-   * The service name.
+   * The service name in the access policy.
    * 
    * @example
    * ecs
@@ -55,12 +55,12 @@ export class UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extend
 export class UpdateServiceResponseBodyDryRunResultRolePolicy extends $dara.Model {
   /**
    * @remarks
-   * The missing  ram policy for deploying role.
+   * The access policy that is missing for the deployment role.
    */
   missingPolicy?: UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy[];
   /**
    * @remarks
-   * The required ram policy for deploying role.
+   * The access policy that is required for the deployment role.
    * 
    * @example
    * {
@@ -110,7 +110,7 @@ export class UpdateServiceResponseBodyDryRunResultRolePolicy extends $dara.Model
 export class UpdateServiceResponseBodyDryRunResult extends $dara.Model {
   /**
    * @remarks
-   * The required ram policy for deploying role.
+   * The access policy of the deployment role.
    */
   rolePolicy?: UpdateServiceResponseBodyDryRunResultRolePolicy;
   static names(): { [key: string]: string } {
@@ -140,12 +140,12 @@ export class UpdateServiceResponseBodyDryRunResult extends $dara.Model {
 export class UpdateServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dry run result.
+   * The check result. This parameter is returned only when DryRun is set to true.
    */
   dryRunResult?: UpdateServiceResponseBodyDryRunResult;
   /**
    * @remarks
-   * The hosted O\\&M configurations.
+   * The request ID.
    * 
    * @example
    * DF0F666F-FBBC-55C3-A368-C955DE7B4839

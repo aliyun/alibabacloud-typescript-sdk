@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactRisksRequest extends $dara.Model {
   /**
    * @remarks
-   * Artifact ID.
+   * The artifact ID.
    * 
    * @example
    * artifact-3fd95cdfdf0d4b1fa00c
@@ -13,7 +13,7 @@ export class ListArtifactRisksRequest extends $dara.Model {
   artifactId?: string;
   /**
    * @remarks
-   * Artifact version.
+   * The artifact version.
    * 
    * @example
    * 1

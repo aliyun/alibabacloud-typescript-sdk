@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The Actions.
+   * The operations in the access policy.
    */
   action?: string[];
   /**
    * @remarks
-   * Resource in ram policy.
+   * The resource in the access policy.
    * 
    * @example
    * *
@@ -18,7 +18,7 @@ export class CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extend
   resource?: string;
   /**
    * @remarks
-   * The service name in ram policy.
+   * The service name in the access policy.
    * 
    * @example
    * ecs
@@ -55,12 +55,12 @@ export class CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extend
 export class CreateServiceResponseBodyDryRunResultRolePolicy extends $dara.Model {
   /**
    * @remarks
-   * The missing ram policy for deploying role.
+   * The missing access policies for the deployment role.
    */
   missingPolicy?: CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy[];
   /**
    * @remarks
-   * The required ram policy for deploying role.
+   * The access policy required for the deployment role.
    * 
    * @example
    * {
@@ -110,7 +110,7 @@ export class CreateServiceResponseBodyDryRunResultRolePolicy extends $dara.Model
 export class CreateServiceResponseBodyDryRunResult extends $dara.Model {
   /**
    * @remarks
-   * The required ram policy for deploying role.
+   * The access policy of the deployment role.
    */
   rolePolicy?: CreateServiceResponseBodyDryRunResultRolePolicy;
   static names(): { [key: string]: string } {
@@ -140,7 +140,7 @@ export class CreateServiceResponseBodyDryRunResult extends $dara.Model {
 export class CreateServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dry run result.
+   * The check result.
    */
   dryRunResult?: CreateServiceResponseBodyDryRunResult;
   /**
@@ -161,7 +161,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The status of the service.
+   * The service status.
    * 
    * @example
    * Created

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNetworkAvailableZonesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of zone IDs.
+   */
   zoneIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +33,15 @@ export class GetNetworkAvailableZonesResponseBodyData extends $dara.Model {
 }
 
 export class GetNetworkAvailableZonesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetNetworkAvailableZonesResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E8EF75BC-14E4-597A-BE66-FFA9393C0875
    */

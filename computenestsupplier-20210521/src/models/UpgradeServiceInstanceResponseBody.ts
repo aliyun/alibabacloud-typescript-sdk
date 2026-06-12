@@ -13,7 +13,7 @@ export class UpgradeServiceInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the service instance.
+   * The service instance ID.
    * 
    * @example
    * si-5cbae874da0e47xxxxxx
@@ -21,16 +21,23 @@ export class UpgradeServiceInstanceResponseBody extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The deployment state of the service instance. Valid values:
+   * The deployment status of the service instance. Valid values:
    * 
-   * *   Created
-   * *   Deploying
-   * *   DeployedFailed
-   * *   Deployed
-   * *   Upgrading
-   * *   Deleting
-   * *   Deleted
-   * *   DeletedFailed
+   * - Created: The service instance is created.
+   * 
+   * - Deploying: The service instance is being deployed.
+   * 
+   * - DeployedFailed: The service instance failed to be deployed.
+   * 
+   * - Deployed: The service instance is deployed.
+   * 
+   * - Upgrading: The service instance is being upgraded.
+   * 
+   * - Deleting: The service instance is being deleted.
+   * 
+   * - Deleted: The service instance is deleted.
+   * 
+   * - DeletedFailed: The service instance failed to be deleted.
    * 
    * @example
    * Created
@@ -38,7 +45,7 @@ export class UpgradeServiceInstanceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The parameters required for the upgrade.
+   * The parameters that are required for the upgrade.
    */
   upgradeRequiredParameters?: string[];
   static names(): { [key: string]: string } {

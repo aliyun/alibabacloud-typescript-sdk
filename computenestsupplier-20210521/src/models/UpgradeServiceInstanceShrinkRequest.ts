@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeServiceInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The **ClientToken** value can contain only ASCII characters and must be no more than 64 characters in length.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -13,10 +13,11 @@ export class UpgradeServiceInstanceShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * Specifies whether to perform a dry run. A dry run checks for issues such as permission errors and instance status. Valid values:
    * 
-   * *   true: performs a dry run for the request, but does not create a service instance.
-   * *   false: performs a dry run for the request, and creates a service instance if the request passes the dry run.
+   * - true: Sends a dry run request to check whether the request is valid. The service instance is not upgraded.
+   * 
+   * - false: Sends a regular request. The service instance is upgraded after the request passes the check.
    * 
    * @example
    * false
@@ -42,7 +43,7 @@ export class UpgradeServiceInstanceShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the service instance.
+   * The service instance ID.
    * 
    * @example
    * si-5cbae874da0e47xxxxxx

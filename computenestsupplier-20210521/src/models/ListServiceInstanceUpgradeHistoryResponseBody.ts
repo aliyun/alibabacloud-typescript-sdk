@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends $dara.Model {
   /**
    * @remarks
-   * End time of the upgrade.
+   * The upgrade end time.
    * 
    * @example
    * 2022-04-26T09:09:51Z
@@ -13,7 +13,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   endTime?: string;
   /**
    * @remarks
-   * Version before the upgrade.
+   * The version before the upgrade.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   fromVersion?: string;
   /**
    * @remarks
-   * Upgrade result.
+   * The upgrade results.
    * 
    * @example
    * {\\"PreUpgradeExecutionId\\":\\"exec-123\\"}
@@ -29,7 +29,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   results?: string;
   /**
    * @remarks
-   * Start time of the upgrade.
+   * The upgrade start time.
    * 
    * @example
    * 2022-04-26T08:09:51Z
@@ -37,13 +37,13 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   startTime?: string;
   /**
    * @remarks
-   * Upgrade status. Possible values:
+   * The upgrade status. Valid values:
    * 
-   * - upgrading: In progress.
+   * - upgrading: The upgrade is in progress.
    * 
-   * - UpgradeSuccessful: Upgrade successful.
+   * - UpgradeSuccessful: The upgrade is successful.
    * 
-   * - UpgradeFailed: Upgrade failed.
+   * - UpgradeFailed: The upgrade failed.
    * 
    * @example
    * UpgradeFailed
@@ -51,7 +51,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   status?: string;
   /**
    * @remarks
-   * Version after the upgrade.
+   * The version after the upgrade.
    * 
    * @example
    * 3
@@ -59,8 +59,10 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   toVersion?: string;
   /**
    * @remarks
-   * Upgrade type.
+   * The upgrade type.
+   * 
    * - Upgrade
+   * 
    * - Rollback
    * 
    * @example
@@ -69,10 +71,10 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   type?: string;
   /**
    * @remarks
-   * Upgrade history ID.
+   * The ID of the upgrade history record.
    * 
    * @example
-   * uh-1b21d65f75e94fa09745
+   * exec-123
    */
   upgradeHistoryId?: string;
   static names(): { [key: string]: string } {
@@ -113,7 +115,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
 export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -121,7 +123,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to use for the next query.
+   * The token to start the next query.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
@@ -129,7 +131,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 86CAC31E-3527-562C-869F-347E931C9B25
@@ -137,7 +139,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of upgrade history
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -145,7 +147,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * List of upgrade histories.
+   * The list of upgrade history records.
    */
   upgradeHistory?: ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory[];
   static names(): { [key: string]: string } {

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssueListCriterionIssuesExtendInfo extends $dara.Model {
   /**
+   * @remarks
+   * The AssociationProperty of the ROS parameter.
+   * 
    * @example
    * ChargeType
    */
   associationProperty?: string;
   /**
+   * @remarks
+   * The resource property.
+   * 
    * @example
    * null
    */
   property?: string;
   /**
+   * @remarks
+   * The value of the resource property.
+   * 
    * @example
    * null
    */
@@ -44,18 +53,35 @@ export class GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssue
 }
 
 export class GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssueListCriterionIssues extends $dara.Model {
+  /**
+   * @remarks
+   * The supplementary information about the criterion issue.
+   */
   extendInfo?: GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssueListCriterionIssuesExtendInfo;
   /**
+   * @remarks
+   * The severity level of the issue. Valid values:
+   * 
+   * - Mandatory: The issue must be fixed.
+   * 
+   * - Recommended: You are advised to fix the issue.
+   * 
    * @example
    * Mandatory
    */
   level?: string;
   /**
+   * @remarks
+   * The position where the issue exists.
+   * 
    * @example
    * $.Parameters.PayType
    */
   position?: string;
   /**
+   * @remarks
+   * The type of the criterion issue.
+   * 
    * @example
    * ParameterNeedAssociationProperty
    */
@@ -91,19 +117,39 @@ export class GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssue
 }
 
 export class GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssueList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of criterion issues.
+   */
   criterionIssues?: GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssueListCriterionIssues[];
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * Template 1
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The URL of the template.
+   * 
    * @example
    * http://service-private-info/xxx/ros/template/tpl-xxxx.json
    */
   templateUrl?: number;
   /**
+   * @remarks
+   * The total number of criterion issues in the service template.
+   * 
    * @example
    * 3
    */
   totalCriterionIssueCount?: number;
   /**
+   * @remarks
+   * The number of mandatory criterion issues in the service template.
+   * 
    * @example
    * 1
    */
@@ -142,22 +188,38 @@ export class GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssue
 
 export class GetServiceTemplateCriterionIssuesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A361BA9E-xxxx-xxxx-xxxx-C26E5180456E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of templates with criterion issues in the service.
+   * 
    * @example
    * 1
    */
   riskyTemplateCount?: number;
+  /**
+   * @remarks
+   * The list of criterion issues in the template.
+   */
   templateCriterionIssueList?: GetServiceTemplateCriterionIssuesResponseBodyTemplateCriterionIssueList[];
   /**
+   * @remarks
+   * The total number of criterion issues in the service template.
+   * 
    * @example
    * 3
    */
   totalCriterionIssueCount?: number;
   /**
+   * @remarks
+   * The number of mandatory criterion issues in the service template.
+   * 
    * @example
    * 1
    */

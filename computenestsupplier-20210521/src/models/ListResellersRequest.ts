@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListResellersRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * The name of the filter condition. Valid values:
    * 
-   * *   ResellerUid: the uid of the distributor.
-   * *   Name: the name of the distributor.
+   * - ResellerUid: The UID of the reseller.
+   * 
+   * - Name: The name of the reseller.
    * 
    * @example
    * Name
@@ -16,7 +17,7 @@ export class ListResellersRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Filter value array.
+   * The values of the filter condition.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -48,12 +49,12 @@ export class ListResellersRequestFilter extends $dara.Model {
 export class ListResellersRequest extends $dara.Model {
   /**
    * @remarks
-   * The filters.
+   * The filter.
    */
   filter?: ListResellersRequestFilter[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100.
    * 
    * @example
    * 20
@@ -61,7 +62,7 @@ export class ListResellersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * AAAAAWVmrOoWHbw/80lX0TWxe/s=

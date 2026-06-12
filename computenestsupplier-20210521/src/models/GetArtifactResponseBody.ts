@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the deployment package.
+   * The tag key of the artifact.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class GetArtifactResponseBodyTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the deployment package.
+   * The tag value of the artifact.
    * 
    * @example
    * value1
@@ -45,7 +45,7 @@ export class GetArtifactResponseBodyTags extends $dara.Model {
 export class GetArtifactResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * The content used to build the artifact. This parameter is used for managed artifact builds.
    * 
    * @example
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
@@ -53,7 +53,7 @@ export class GetArtifactResponseBody extends $dara.Model {
   artifactBuildProperty?: string;
   /**
    * @remarks
-   * The type of the deployment package to be built.
+   * The type of the artifact build.
    * 
    * @example
    * Dockerfile
@@ -61,23 +61,23 @@ export class GetArtifactResponseBody extends $dara.Model {
   artifactBuildType?: string;
   /**
    * @remarks
-   * The ID of the deployment package.
+   * The ID of the artifact.
    * 
    * @example
-   * artifact-eea08d1e2d3a43aexxxx
+   * artifact-eea08d1e2d3a43ae****
    */
   artifactId?: string;
   /**
    * @remarks
-   * The properties of the deployment package.
+   * The properties of the artifact.
    * 
    * @example
-   * {\\"CommodityCode\\":\\"cmjj0005xxxx\\",\\"CommodityVersion\\":\\"V2022xxxx\\"}
+   * {\\"CommodityCode\\":\\"cmjj0005****\\",\\"CommodityVersion\\":\\"V2022****\\"}
    */
   artifactProperty?: string;
   /**
    * @remarks
-   * The type of the deployment package.
+   * The type of the artifact.
    * 
    * @example
    * EcsImage
@@ -85,7 +85,7 @@ export class GetArtifactResponseBody extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The version of the deployment package.
+   * The version of the artifact.
    * 
    * @example
    * 2
@@ -93,15 +93,15 @@ export class GetArtifactResponseBody extends $dara.Model {
   artifactVersion?: string;
   /**
    * @remarks
-   * The description of the deployment package.
+   * The description of the artifact.
    * 
    * @example
-   * Description
+   * Redhat8_0 image
    */
   description?: string;
   /**
    * @remarks
-   * The time when the deployment package was modified.
+   * The time when the artifact was last modified.
    * 
    * @example
    * 2022-10-20T02:19:55Z
@@ -109,7 +109,7 @@ export class GetArtifactResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The latest version of the deployment package.
+   * The latest version of the artifact.
    * 
    * @example
    * 2
@@ -117,16 +117,18 @@ export class GetArtifactResponseBody extends $dara.Model {
   maxVersion?: number;
   /**
    * @remarks
-   * The name of the deployment package.
+   * The name of the artifact.
    * 
    * @example
-   * Name
+   * Redhat8_5 image
    */
   name?: string;
   /**
    * @remarks
-   * Permission fields are applicable to container image artifact and Helm Chart artifact They can only change from Automatic to Public. Options:
+   * The permission type. This parameter is valid for artifacts of the ContainerImage and HelmChart types. Valid values:
+   * 
    * - Public
+   * 
    * - Automatic
    * 
    * @example
@@ -135,7 +137,7 @@ export class GetArtifactResponseBody extends $dara.Model {
   permissionType?: string;
   /**
    * @remarks
-   * The distribution progress of the deployment package.
+   * The distribution progress of the artifact.
    * 
    * @example
    * 100
@@ -146,7 +148,7 @@ export class GetArtifactResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * B1A0198B-F316-1B72-B8DD-28B6F6D6XXXX
+   * E73F09DC-6C13-5CB1-A10F-7A4E125ABD2C
    */
   requestId?: string;
   /**
@@ -154,12 +156,12 @@ export class GetArtifactResponseBody extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-aekzkt5buxxxxxx
+   * rg-acfmzmhzoaa****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the deployment package. Valid values:
+   * The status of the artifact.
    * 
    * @example
    * Available
@@ -167,7 +169,7 @@ export class GetArtifactResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the deployment package.
+   * The description of the artifact status.
    * 
    * @example
    * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
@@ -175,7 +177,7 @@ export class GetArtifactResponseBody extends $dara.Model {
   statusDetail?: string;
   /**
    * @remarks
-   * The ID of the region that supports the deployment package.
+   * The IDs of the regions where the artifact is supported.
    * 
    * @example
    * ["cn-hangzhou","cn-beijing"]
@@ -183,12 +185,12 @@ export class GetArtifactResponseBody extends $dara.Model {
   supportRegionIds?: string;
   /**
    * @remarks
-   * The tags of the deployment package.
+   * The tags of the artifact.
    */
   tags?: GetArtifactResponseBodyTags[];
   /**
    * @remarks
-   * The version name of the deployment package.
+   * The version name of the artifact.
    * 
    * @example
    * v1

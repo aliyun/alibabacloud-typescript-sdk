@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceDeployDetailsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * Filter Value Names (Equivalent to SQL\\"s WHERE Clause)
+   * The name of the filter. This corresponds to the WHERE clause in SQL.
    * 
-   * Available Options:
+   * Valid values:
    * 
    * - UserId
+   * 
    * - ServiceId
+   * 
    * - ServiceVersion
+   * 
    * - ServiceInstanceId
-   * - DeploySucceeded (Accepts True or False and case-insensitive)
+   * 
+   * - DeploySucceeded (The value can be True or False. The value is case-insensitive.)
+   * 
    * - ErrorType
+   * 
    * - ErrorCode
    * 
    * @example
@@ -23,7 +29,7 @@ export class ListServiceInstanceDeployDetailsRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * A value of the filter condition.
+   * A list of filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -57,9 +63,9 @@ export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
    * @remarks
    * The time zone.
    * 
-   * Reference Format: "+08:00"
+   * Example: +08:00
    * 
-   * Valid Range: "-12:59" to "+13:00"
+   * Valid values: -12:59 to +13:00
    * 
    * @example
    * +08:00
@@ -67,13 +73,16 @@ export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
   cycleTimeZone?: string;
   /**
    * @remarks
-   * Determines the time period over which data is aggregated. If no aggregation dimension is specified, the query defaults to providing detailed, unaggregated results.
+   * The aggregation period. If you do not specify this parameter, the system queries the details.
    * 
-   * Optional Values:
+   * Valid values:
    * 
    * - Year
+   * 
    * - Month
+   * 
    * - Day
+   * 
    * - All
    * 
    * @example
@@ -82,21 +91,30 @@ export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
-   * The dimension names. (Equivalent to SQL\\"s GROUP BY Clause)
-   * Optional Values:
+   * The name of the dimension. This corresponds to the GROUP BY clause in SQL.
+   * 
+   * Valid values:
    * 
    * - UserId
+   * 
    * - ServiceId
+   * 
    * - ServiceVersion
+   * 
    * - ServiceInstanceId
+   * 
    * - DeploySucceeded
+   * 
    * - ErrorType
+   * 
    * - ErrorCode
    */
   dimension?: string[];
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * The end of the time range to query.
+   * 
+   * Use UTC+0 time in the yyyy-MM-ddTHH:mmZ format.
    * 
    * @example
    * 2024-12-31T16:00:00Z
@@ -109,7 +127,7 @@ export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
   filter?: ListServiceInstanceDeployDetailsRequestFilter[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page for a paged query. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -117,7 +135,7 @@ export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to start the next query.
    * 
    * @example
    * AAAAAZbOYA+x9UgM6xrgcMqFUjk=
@@ -125,7 +143,7 @@ export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -135,7 +153,9 @@ export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start of the time range to query.
+   * 
+   * Use UTC+0 time in the yyyy-MM-ddTHH:mmZ format.
    * 
    * @example
    * 2024-08-25T02:23:00Z

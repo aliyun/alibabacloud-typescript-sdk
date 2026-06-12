@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseArtifactRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the artifact.
+   * The artifact ID.
+   * 
+   * Call [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) to obtain the artifact ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +17,7 @@ export class ReleaseArtifactRequest extends $dara.Model {
   artifactId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * A client-generated token that ensures the idempotence of the request. The token must be unique for each request. The value of **ClientToken** can contain only ASCII characters and must be no more than 64 characters in length.
    * 
    * @example
    * 788E7CP0EN9D51P

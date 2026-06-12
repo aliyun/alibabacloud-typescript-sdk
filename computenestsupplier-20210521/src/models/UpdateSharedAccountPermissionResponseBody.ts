@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSharedAccountPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * RequestId
+   * The request ID.
    * 
    * @example
    * C68B41B4-A646-5680-8A33-67884E3823A8

@@ -5,15 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceRequestCommodityComponentsMappings extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not available to the public.
+   * This parameter is not available.
+   * 
+   * @example
+   * This parameter is not publicly available.
    */
   mappings?: { [key: string]: string };
   /**
    * @remarks
-   * This parameter is not available to the public.
+   * This parameter is not available.
    * 
    * @example
-   * This parameter is not available to the public.
+   * This parameter is not publicly available.
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +48,7 @@ export class UpdateServiceRequestCommodityComponentsMappings extends $dara.Model
 export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $dara.Model {
   /**
    * @remarks
-   * Metering entity ID.
+   * The metering item ID.
    * 
    * @example
    * cmgj0006xxxx-Memory-1
@@ -53,7 +56,7 @@ export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $dara
   entityId?: string;
   /**
    * @remarks
-   * Metric name, required when type is ComputeNestBill or ComputeNestPrometheus.
+   * The metric name. This parameter is required when Type is set to ComputeNestBill or ComputeNestPrometheus.
    * 
    * @example
    * VirtualCpu/ecs.InstanceType
@@ -61,7 +64,7 @@ export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $dara
   metricName?: string;
   /**
    * @remarks
-   * Promql statement.
+   * The Prometheus statement.
    * 
    * @example
    * avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
@@ -69,12 +72,15 @@ export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $dara
   promql?: string;
   /**
    * @remarks
-   * Type. Valid values:
+   * The type. Valid values:
    * 
-   * - Custom
-   * - ComputeNestBill
-   * - ComputeNestPrometheus
-   * - ComputeNestTime
+   * - **Custom**
+   * 
+   * - **ComputeNestBill**
+   * 
+   * - **ComputeNestPrometheus**
+   * 
+   * - **ComputeNestTime**
    * 
    * @example
    * Custom
@@ -110,15 +116,15 @@ export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $dara
 export class UpdateServiceRequestCommodityMeteringEntityMappings extends $dara.Model {
   /**
    * @remarks
-   * Metering entity IDs.
+   * The metering item ID.
    */
   entityIds?: string[];
   /**
    * @remarks
-   * The specification name.
+   * The package name.
    * 
    * @example
-   * This parameter is not publicly accessible.
+   * 低配版
    */
   specificationName?: string;
   /**
@@ -126,7 +132,7 @@ export class UpdateServiceRequestCommodityMeteringEntityMappings extends $dara.M
    * The template name.
    * 
    * @example
-   * The service ID.
+   * 模板1
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -160,7 +166,7 @@ export class UpdateServiceRequestCommodityMeteringEntityMappings extends $dara.M
 export class UpdateServiceRequestCommoditySpecificationMappings extends $dara.Model {
   /**
    * @remarks
-   * Specification code.
+   * The specification code.
    * 
    * @example
    * yuncode5767800001
@@ -168,15 +174,10 @@ export class UpdateServiceRequestCommoditySpecificationMappings extends $dara.Mo
   specificationCode?: string;
   /**
    * @remarks
-   * The name of the package specification.
+   * The package name.
    * 
    * @example
-   * Type, value：
-   * 
-   * * **Custom**
-   * * **ComputeNestBill**
-   * * **ComputeNestPrometheus**
-   * * **ComputeNestTime**
+   * Basic edition
    */
   specificationName?: string;
   /**
@@ -184,7 +185,7 @@ export class UpdateServiceRequestCommoditySpecificationMappings extends $dara.Mo
    * The template name.
    * 
    * @example
-   * Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
+   * Template 1
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -215,22 +216,22 @@ export class UpdateServiceRequestCommoditySpecificationMappings extends $dara.Mo
 export class UpdateServiceRequestCommodity extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not available to the public.
+   * This parameter is not available.
    */
   componentsMappings?: UpdateServiceRequestCommodityComponentsMappings[];
   /**
    * @remarks
-   * Metering entity extra information.
+   * The configuration information of the metering item. This parameter is used in the pay-as-you-go scenario of Alibaba Cloud Marketplace.
    */
   meteringEntityExtraInfos?: UpdateServiceRequestCommodityMeteringEntityExtraInfos[];
   /**
    * @remarks
-   * Binding relationship between templates/specifications and metering dimensions (marketplace - PayAsYouGo)
+   * The mapping between templates or packages and metering dimensions. This parameter is used in the pay-as-you-go scenario of Alibaba Cloud Marketplace.
    */
   meteringEntityMappings?: UpdateServiceRequestCommodityMeteringEntityMappings[];
   /**
    * @remarks
-   * SaaS Boost configuration.
+   * The configuration of Software as a Service (SaaS) Boost.
    * 
    * @example
    * {}
@@ -238,7 +239,7 @@ export class UpdateServiceRequestCommodity extends $dara.Model {
   saasBoostConfig?: string;
   /**
    * @remarks
-   * Product specifications and template/package mappings (Used in marketplace - subscription scenario)
+   * The mapping between commodity specifications and templates or packages. This parameter is used in the subscription scenario of Alibaba Cloud Marketplace.
    */
   specificationMappings?: UpdateServiceRequestCommoditySpecificationMappings[];
   static names(): { [key: string]: string } {
@@ -285,7 +286,7 @@ export class UpdateServiceRequestCommodity extends $dara.Model {
 export class UpdateServiceRequestComplianceMetadata extends $dara.Model {
   /**
    * @remarks
-   * The compliance pack.
+   * The selected compliance package.
    */
   compliancePacks?: string[];
   static names(): { [key: string]: string } {
@@ -315,7 +316,7 @@ export class UpdateServiceRequestComplianceMetadata extends $dara.Model {
 export class UpdateServiceRequestServiceInfoAgreements extends $dara.Model {
   /**
    * @remarks
-   * Protocol name.
+   * The name of the agreement document.
    * 
    * @example
    * Name
@@ -323,7 +324,7 @@ export class UpdateServiceRequestServiceInfoAgreements extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Protocol url.
+   * The URL of the agreement.
    * 
    * @example
    * https://aliyun.com/xxxxxxxx.html
@@ -355,7 +356,7 @@ export class UpdateServiceRequestServiceInfoAgreements extends $dara.Model {
 export class UpdateServiceRequestServiceInfoSoftwares extends $dara.Model {
   /**
    * @remarks
-   * The name of the software.
+   * The software name.
    * 
    * @example
    * MySQL
@@ -363,7 +364,7 @@ export class UpdateServiceRequestServiceInfoSoftwares extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The version of the software.
+   * The software version.
    * 
    * @example
    * 5.7
@@ -395,7 +396,7 @@ export class UpdateServiceRequestServiceInfoSoftwares extends $dara.Model {
 export class UpdateServiceRequestServiceInfo extends $dara.Model {
   /**
    * @remarks
-   * Protocol document information about the service.
+   * The information about the service agreements.
    */
   agreements?: UpdateServiceRequestServiceInfoAgreements[];
   /**
@@ -410,8 +411,9 @@ export class UpdateServiceRequestServiceInfo extends $dara.Model {
    * @remarks
    * The language of the service. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
+   * - zh-CN: Chinese.
+   * 
+   * - en-US: English.
    * 
    * @example
    * zh-CN
@@ -430,7 +432,7 @@ export class UpdateServiceRequestServiceInfo extends $dara.Model {
    * The service name.
    * 
    * @example
-   * Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
+   * Database B
    */
   name?: string;
   /**
@@ -438,12 +440,12 @@ export class UpdateServiceRequestServiceInfo extends $dara.Model {
    * The description of the service.
    * 
    * @example
-   * The URL of the detailed description of the service.
+   * B is an open-source distributed relational database independently designed and developed by Company A.
    */
   shortDescription?: string;
   /**
    * @remarks
-   * The list of the software in the service.
+   * The information about the software used in the service.
    */
   softwares?: UpdateServiceRequestServiceInfoSoftwares[];
   static names(): { [key: string]: string } {
@@ -486,8 +488,29 @@ export class UpdateServiceRequestServiceInfo extends $dara.Model {
 }
 
 export class UpdateServiceRequestServiceLocaleConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The English value of the business information.
+   * 
+   * @example
+   * Service Name
+   */
   enValue?: string;
+  /**
+   * @remarks
+   * The raw data value of the business information.
+   * 
+   * @example
+   * Service Name
+   */
   originalValue?: string;
+  /**
+   * @remarks
+   * The Chinese value of the business information.
+   * 
+   * @example
+   * 服务名称
+   */
   zhValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -517,7 +540,7 @@ export class UpdateServiceRequestServiceLocaleConfigs extends $dara.Model {
 export class UpdateServiceRequestUpdateOption extends $dara.Model {
   /**
    * @remarks
-   * Whether to update artifact.
+   * Specifies whether to update the deployment file.
    * 
    * @example
    * true
@@ -525,10 +548,11 @@ export class UpdateServiceRequestUpdateOption extends $dara.Model {
   updateArtifact?: boolean;
   /**
    * @remarks
-   * Update from. Valid values:
+   * The update option. Valid values:
    * 
-   * - CODE
-   * - PARAMETERS
+   * - CODE: code.
+   * 
+   * - PARAMETERS: parameters.
    * 
    * @example
    * PARAMETERS
@@ -560,9 +584,9 @@ export class UpdateServiceRequestUpdateOption extends $dara.Model {
 export class UpdateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert configurations of the service.
+   * The alert configurations for the service.
    * 
-   * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+   * > This configuration takes effect only after you configure an alert-related access policy for **PolicyNames**.
    * 
    * @example
    * {\\"CmsTemplateId\\":1162921,\\"TemplateUrl\\":\\"https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1760465342xxxxxx/template/c072ef50-6c03-4d9c-8f0e-d1c440xxxxxx.json\\"}
@@ -570,10 +594,11 @@ export class UpdateServiceRequest extends $dara.Model {
   alarmMetadata?: string;
   /**
    * @remarks
-   * The approval type of the service usage application. Valid values:
+   * The approval type for service usage requests. Valid values:
    * 
-   * *   Manual: The application is manually approved.
-   * *   AutoPass: The application is automatically approved.
+   * - Manual: The request is manually approved.
+   * 
+   * - AutoPass: The request is automatically approved.
    * 
    * @example
    * Manual
@@ -581,7 +606,7 @@ export class UpdateServiceRequest extends $dara.Model {
   approvalType?: string;
   /**
    * @remarks
-   * The Parameters to build service parameters.
+   * The parameters for building the service.
    * 
    * @example
    * { "ServiceTemplateId": "st-xxxxx"}
@@ -589,7 +614,7 @@ export class UpdateServiceRequest extends $dara.Model {
   buildParameters?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure that the request is idempotent. You can use a client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 788E7CP0EN9D51P
@@ -597,17 +622,17 @@ export class UpdateServiceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The commodity details.
+   * The commodity information.
    */
   commodity?: UpdateServiceRequestCommodity;
   /**
    * @remarks
-   * Compliance check metadata.
+   * The compliance check metadata.
    */
   complianceMetadata?: UpdateServiceRequestComplianceMetadata;
   /**
    * @remarks
-   * The deployment configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   * The information about the service deployment configuration. The data format varies based on the deployment type. The value is a JSON string.
    * 
    * @example
    * {\\"EstimateTime\\":null,\\"SupplierDeployMetadata\\":{\\"DeployTimeout\\":7200},\\"EnableVnc\\":false}
@@ -615,13 +640,19 @@ export class UpdateServiceRequest extends $dara.Model {
   deployMetadata?: string;
   /**
    * @remarks
-   * The deployment type of the service. Valid values:
+   * The deployment type. Valid values:
    * 
-   * ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * terraform: The service is deployed by using Terraform.
-   * ack: The service is deployed by using Container Service for Kubernetes (ACK).
-   * spi: The service is deployed by calling a service provider interface (SPI).
-   * operation: The service is deployed by using a hosted O&M service.
+   * - ros: The service is deployed using ROS.
+   * 
+   * - terraform: The service is deployed using Terraform.
+   * 
+   * - spi: The service is deployed by calling an SPI.
+   * 
+   * - operation: The service is an O\\&M service.
+   * 
+   * - container: The service is deployed using containers.
+   * 
+   * - pkg: The service is a package service.
    * 
    * @example
    * ros
@@ -629,10 +660,11 @@ export class UpdateServiceRequest extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * Specifies whether to perform a dry run for the request. A dry run checks the permissions and the instance status. Valid values:
    * 
-   * *   true: performs a dry run for the request, but does not update a service.
-   * *   false: performs a dry run for the request, and update a service if the request passes the dry run.
+   * - true: sends the request but does not update the service.
+   * 
+   * - false: sends the request. If the check is successful, the service is updated.
    * 
    * @example
    * false
@@ -640,7 +672,7 @@ export class UpdateServiceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The duration for which hosted O\\&M is implemented. Unit: seconds.
+   * The O\\&M duration. Unit: seconds.
    * 
    * @example
    * 259200
@@ -649,12 +681,13 @@ export class UpdateServiceRequest extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
+   * Specifies whether to enable O\\&M. Default value: false. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: enables O\\&M.
    * 
-   * >  This parameter is required if you set **ServiceType** to **private**.
+   * - false: disables O\\&M.
+   * 
+   * > This parameter is required when **ServiceType** is set to **private**.
    * 
    * @example
    * false
@@ -665,23 +698,28 @@ export class UpdateServiceRequest extends $dara.Model {
    * The license metadata.
    * 
    * @example
-   * Metering Item Configuration Information (Cloud Marketplace - Pay-As-You-Go Use)
+   * {\\"PayType\\":\\"CustomFixTime\\",\\"DefaultLicenseDays\\":7,\\"CustomMetadata\\":[{\\"TemplateName\\":\\" template1\\",\\"SpecificationName\\":\\"bandwith-0\\",\\"CustomData\\":\\"1\\"}]}
    */
   licenseMetadata?: string;
   /**
    * @remarks
-   * The logging configurations.
+   * The application log configurations.
    * 
    * @example
-   * Specifies whether to support distribution. Valid values:
-   * 
-   * *   false
-   * *   true
+   * {
+   *   "Logstores": [
+   *     {
+   *     "LogstoreName": "access-log",
+   *   "LogPath": "/home/admin/app/logs", # Not required for containers. Configure in YAML
+   *   "FilePattern": "access.log*" # Not required for containers. Configure in YAML
+   *     }
+   *   ]
+   * }
    */
   logMetadata?: string;
   /**
    * @remarks
-   * The hosted O\\&M configurations.
+   * The O\\&M configuration.
    * 
    * @example
    * {\\"PrometheusConfigMap\\":{\\"Custom_Image_Ecs\\":{\\"EnablePrometheus\\":false}}}
@@ -689,7 +727,7 @@ export class UpdateServiceRequest extends $dara.Model {
   operationMetadata?: string;
   /**
    * @remarks
-   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+   * The policy name. The name of a single policy can be up to 128 characters in length. If you specify multiple policies, separate them with commas (,). Only O\\&M-related policies are supported.
    * 
    * @example
    * policyName1, policyName2
@@ -697,7 +735,7 @@ export class UpdateServiceRequest extends $dara.Model {
   policyNames?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -707,7 +745,11 @@ export class UpdateServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Whether resell is supported.
+   * Specifies whether to enable distribution. Valid values:
+   * 
+   * - false: Distribution is not enabled.
+   * 
+   * - true: Distribution is enabled.
    * 
    * @example
    * false
@@ -728,14 +770,22 @@ export class UpdateServiceRequest extends $dara.Model {
    * The service details.
    */
   serviceInfo?: UpdateServiceRequestServiceInfo[];
+  /**
+   * @remarks
+   * The multilingual configurations of the service.
+   */
   serviceLocaleConfigs?: UpdateServiceRequestServiceLocaleConfigs[];
   /**
    * @remarks
    * The service type. Valid values:
    * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
+   * - private: The service instance is deployed in the user account.
+   * 
+   * - managed: The service instance is deployed in the service provider account.
+   * 
+   * - operation: The service instance is an O\\&M instance.
+   * 
+   * - poc: The service instance is a trial instance.
    * 
    * @example
    * private
@@ -751,13 +801,17 @@ export class UpdateServiceRequest extends $dara.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The permission type of the deployment URL. Valid values:
+   * The sharing type. Valid values:
    * 
-   * *   Public: All users can go to the URL to create a service instance or a trial service instance.
-   * *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-   * *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-   * *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-   * *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+   * - Public: The service is public. Formal and trial deployments are not restricted.
+   * 
+   * - Restricted: The service is restricted. Formal and trial deployments are restricted.
+   * 
+   * - OnlyFormalRestricted: Only formal deployments are restricted.
+   * 
+   * - OnlyTrailRestricted: Only trial deployments are restricted.
+   * 
+   * - Hidden: The service is hidden. You cannot view the service or request deployment permissions.
    * 
    * @example
    * Public
@@ -765,10 +819,11 @@ export class UpdateServiceRequest extends $dara.Model {
   shareType?: string;
   /**
    * @remarks
-   * The type of the tenant. Valid values:
+   * The tenant type. Valid values:
    * 
-   * *   SingleTenant
-   * *   MultiTenant
+   * - SingleTenant: The service is single-tenant.
+   * 
+   * - MultiTenant: The service is multi-tenant.
    * 
    * @example
    * SingleTenant
@@ -776,7 +831,7 @@ export class UpdateServiceRequest extends $dara.Model {
   tenantType?: string;
   /**
    * @remarks
-   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+   * The trial duration. Unit: days. The maximum trial duration is 30 days.
    * 
    * @example
    * 7
@@ -784,12 +839,12 @@ export class UpdateServiceRequest extends $dara.Model {
   trialDuration?: number;
   /**
    * @remarks
-   * The update option.
+   * The update options.
    */
   updateOption?: UpdateServiceRequestUpdateOption;
   /**
    * @remarks
-   * The metadata about the upgrade.
+   * The upgrade metadata.
    * 
    * @example
    * {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}

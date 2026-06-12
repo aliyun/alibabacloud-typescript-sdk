@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends $dara.Model {
   /**
    * @remarks
-   * The comment of this registration.
+   * The review comments.
    * 
    * @example
-   * empty
+   * 无
    */
   comment?: string;
   /**
    * @remarks
-   * Contact email
+   * The email address of the contact person.
    * 
    * @example
    * test@163.com
@@ -21,7 +21,7 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   contactEmail?: string;
   /**
    * @remarks
-   * Contact number
+   * The phone number of the contact person.
    * 
    * @example
    * 135xxxxxxxx
@@ -29,15 +29,15 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   contactNumber?: string;
   /**
    * @remarks
-   * Contact person
+   * The contact person.
    * 
    * @example
-   * Mike
+   * John Doe
    */
   contactPerson?: string;
   /**
    * @remarks
-   * Contact person tiltle.
+   * The title of the contact person.
    * 
    * @example
    * CTO
@@ -45,7 +45,7 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   contactPersonTitle?: string;
   /**
    * @remarks
-   * Whether to enable the resell mode.
+   * Indicates whether the reseller mode is supported.
    * 
    * @example
    * false
@@ -53,15 +53,15 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   enableResellerMode?: boolean;
   /**
    * @remarks
-   * Annual product revenue
+   * The annual revenue of the service provider\\"s product.
    * 
    * @example
-   * empty
+   * 10000000
    */
   productAnnualRevenue?: string;
   /**
    * @remarks
-   * The business of product.
+   * The industry of the service provider\\"s product.
    * 
    * @example
    * AI
@@ -69,13 +69,17 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   productBusiness?: string;
   /**
    * @remarks
-   * Product delivery type，Valid values:
+   * The delivery method of the service provider\\"s product. Valid values:
    * 
-   * SaaS
-   * License
-   * API
-   * DesktopSoftware
-   * Others
+   * - SaaS
+   * 
+   * - License
+   * 
+   * - API
+   * 
+   * - Desktop software
+   * 
+   * - Other
    * 
    * @example
    * SaaS
@@ -83,7 +87,7 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   productDeliveryTypes?: string;
   /**
    * @remarks
-   * The publish time of product.
+   * The product launch date.
    * 
    * @example
    * 2024.10.24
@@ -91,18 +95,19 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   productPublishTime?: string;
   /**
    * @remarks
-   * Product sell type, Valid values:
+   * The sales model of the service provider\\"s product. Valid values:
    * 
    * - Direct
+   * 
    * - Channel
    * 
    * @example
-   * Direct
+   * 直销
    */
   productSellTypes?: string;
   /**
    * @remarks
-   * The registration ID.
+   * The ID of the review request.
    * 
    * @example
    * sr-xxx
@@ -110,19 +115,21 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   registrationId?: string;
   /**
    * @remarks
-   * The description of resell business.
+   * The description of the reseller business.
    * 
    * @example
-   * empty
+   * 无
    */
   resellBusinessDesc?: string;
   /**
    * @remarks
-   * The deployment state of the registration. Valid values:
+   * The review status. Valid values:
    * 
-   * - Submitted
-   * - Approved
-   * - Rejected
+   * - Submitted: The request is submitted.
+   * 
+   * - Approved: The request is approved.
+   * 
+   * - Rejected: The request is rejected.
    * 
    * @example
    * Submitted
@@ -130,7 +137,7 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   status?: string;
   /**
    * @remarks
-   * The submit time of this registration.
+   * The time when the request was submitted.
    * 
    * @example
    * 2025-01-22 09:47:58
@@ -138,15 +145,15 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   submitTime?: string;
   /**
    * @remarks
-   * The description of service provider.
+   * The description of the service provider.
    * 
    * @example
-   * Test supplier
+   * 服务商测试申请
    */
   supplierDesc?: string;
   /**
    * @remarks
-   * The Logo of service provider.
+   * The icon of the service provider.
    * 
    * @example
    * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/xxx/service-xxx/xxx.png
@@ -157,12 +164,12 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
    * The name of the service provider.
    * 
    * @example
-   * Aliibaba Cloud
+   * ComputeNest community service
    */
   supplierName?: string;
   /**
    * @remarks
-   * The english name of the service provider.
+   * The English name of the service provider.
    * 
    * @example
    * Alibaba Cloud ComputeNest
@@ -170,7 +177,7 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   supplierNameEn?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the service provider.
+   * The UID of the service provider.
    * 
    * @example
    * 1256xxx23434
@@ -178,7 +185,7 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
   supplierUid?: string;
   /**
    * @remarks
-   * The URL of the service provider.
+   * The URL of the service provider\\"s official website.
    * 
    * @example
    * https://www.guangbao-uni.com
@@ -248,7 +255,7 @@ export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends 
 export class ListSupplierRegistrationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -256,7 +263,7 @@ export class ListSupplierRegistrationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * AAAAAdx9kBO7qKpr9My/+XQo0oY=
@@ -272,12 +279,12 @@ export class ListSupplierRegistrationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The supplier registrations
+   * A list of service provider registration requests.
    */
   supplierRegistrations?: ListSupplierRegistrationsResponseBodySupplierRegistrations[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 3

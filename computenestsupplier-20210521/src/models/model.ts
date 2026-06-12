@@ -219,6 +219,7 @@ export { GenerateDefaultServiceTestConfigRequest } from './GenerateDefaultServic
 export { GenerateDefaultServiceTestConfigResponseBody } from './GenerateDefaultServiceTestConfigResponseBody';
 export { GenerateDefaultServiceTestConfigResponse } from './GenerateDefaultServiceTestConfigResponse';
 export { GenerateServicePolicyRequest } from './GenerateServicePolicyRequest';
+export { GenerateServicePolicyShrinkRequest } from './GenerateServicePolicyShrinkRequest';
 export { GenerateServicePolicyResponseBody } from './GenerateServicePolicyResponseBody';
 export { GenerateServicePolicyResponse } from './GenerateServicePolicyResponse';
 export { GetArtifactRequest } from './GetArtifactRequest';

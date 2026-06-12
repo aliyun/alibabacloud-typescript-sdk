@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApproveServiceUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * A client token that ensures the idempotence of the request. Generate a unique value from your client for each request. The token can contain only ASCII characters.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -13,10 +13,10 @@ export class ApproveServiceUsageRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Approval comments.
+   * The approval comments.
    * 
    * @example
-   * Welcome to TuGraph. Your application has been approved. Should you have any questions, please feel free to email us at tugraph@service.alipay.com or call our contact number 400-903-0809. Contact person: Yuansu.
+   * Welcome to ComputeNest service
    */
   comments?: string;
   /**
@@ -39,7 +39,11 @@ export class ApproveServiceUsageRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * ServiceSharedAccountType，
+   * The service sharing type. The default value is SharedAccount. Valid values:
+   * 
+   * - SharedAccount: The regular sharing type.
+   * 
+   * - Reseller: The reseller sharing type.
    * 
    * @example
    * SharedAccount
@@ -47,7 +51,7 @@ export class ApproveServiceUsageRequest extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * User ali uid.
+   * The UID of the user\\"s Alibaba Cloud account.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure the idempotence of the request. Generate a unique value from the client for this parameter. The **ClientToken** value can contain only ASCII characters and must be no more than 64 characters long.
    * 
    * @example
    * 10CM943JP0EN9D51H

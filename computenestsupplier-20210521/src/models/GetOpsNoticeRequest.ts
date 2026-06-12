@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetOpsNoticeRequest extends $dara.Model {
   /**
    * @remarks
+   * The notice ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetOpsNoticeRequest extends $dara.Model {
    */
   noticeId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceTestCaseRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class DeleteServiceTestCaseRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service test case id.
+   * The ID of the service test case.
    * 
    * This parameter is required.
    * 

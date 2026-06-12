@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $dara.Model {
   /**
    * @remarks
-   * Comment.
+   * The review comments.
    * 
    * @example
    * some info is missing
@@ -13,7 +13,7 @@ export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $d
   comment?: string;
   /**
    * @remarks
-   * Finish time.
+   * The end time.
    * 
    * @example
    * 2021-05-23T00:00:00Z
@@ -21,7 +21,7 @@ export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $d
   finishTime?: string;
   /**
    * @remarks
-   * Registration ID.
+   * The review request ID.
    * 
    * @example
    * sr-001
@@ -29,7 +29,7 @@ export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $d
   registrationId?: string;
   /**
    * @remarks
-   * Service ID.
+   * The service ID.
    * 
    * @example
    * service-f4c0026a254bxxxxxxxx
@@ -37,19 +37,17 @@ export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $d
   serviceId?: string;
   /**
    * @remarks
-   * Registration status. Allowed values:
+   * The status of the review request. Possible values:
    * 
-   * - Submitted
+   * - Submitted: The request is submitted.
    * 
-   * - Approved
+   * - Approved: The request is approved.
    * 
-   * - Rejected
+   * - Rejected: The request is rejected.
    * 
-   * - Canceled
+   * - Canceled: The request is canceled.
    * 
-   * - Executed
-   * 
-   * - Executed: Executed.
+   * - Executed: The request is executed.
    * 
    * @example
    * Rejected
@@ -57,7 +55,7 @@ export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $d
   status?: string;
   /**
    * @remarks
-   * Submit time.
+   * The time when the request was submitted.
    * 
    * @example
    * 2021-05-22T00:00:00Z
@@ -97,7 +95,7 @@ export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $d
 export class ListServiceRegistrationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+   * The number of entries returned on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -105,7 +103,7 @@ export class ListServiceRegistrationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token for the next page of results.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -113,7 +111,7 @@ export class ListServiceRegistrationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 51945B04-6AA6-410D-93BA-236E0248B104
@@ -121,12 +119,12 @@ export class ListServiceRegistrationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Service registration information.
+   * The service review request information.
    */
   serviceRegistrations?: ListServiceRegistrationsResponseBodyServiceRegistrations[];
   /**
    * @remarks
-   * Total number of records that meet the criteria.
+   * The total number of matching records.
    * 
    * @example
    * 100

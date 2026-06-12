@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceEstimateCostResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The subscription duration information about the purchase order of Alibaba Cloud Marketplace.
+   * The subscription details of the Alibaba Cloud Marketplace order.
    * 
    * @example
    * {\\"PayPeriodUnit\\":Month,\\"PayPeriod\\":1}

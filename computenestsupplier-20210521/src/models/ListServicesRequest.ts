@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListServicesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * The name of the filter. You can query by one or more filter names. Valid values:
    * 
-   * *   ServiceId: the ID of the service.
-   * *   Name: the name of the service.
-   * *   Status: the state of the service.
-   * *   SupplierName: the name of the service provider.
+   * - ServiceId: The service ID.
+   * 
+   * - Name: The service name.
+   * 
+   * - Status: The service status.
+   * 
+   * - SupplierName: The name of the service provider.
    * 
    * @example
    * Status
@@ -18,7 +21,7 @@ export class ListServicesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter values of the filter.
+   * The filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -90,7 +93,7 @@ export class ListServicesRequestTag extends $dara.Model {
 export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return all versions of a service. Default value: false, which specifies that only the default version of a service is returned.
+   * Specifies whether to return all versions of the service. The default value is false. If this parameter is set to false, only the default version of each service is returned.
    * 
    * @example
    * false
@@ -98,12 +101,12 @@ export class ListServicesRequest extends $dara.Model {
   allVersions?: boolean;
   /**
    * @remarks
-   * The filters.
+   * The filter.
    */
   filter?: ListServicesRequestFilter[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 10
@@ -111,7 +114,7 @@ export class ListServicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to retrieve the next page of results. Set this parameter to the NextToken value returned by a previous call.
    * 
    * @example
    * BBBAAfu+XtuBE55iRLHEYYuojI4=
@@ -129,10 +132,10 @@ export class ListServicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
-   * rg-aekzkt5buxxxxxx
+   * rg-aekzkt5bu****
    */
   resourceGroupId?: string;
   /**

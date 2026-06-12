@@ -13,7 +13,7 @@ export class ListServiceTestTasksResponseBodyServiceTestTasks extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * the status of service task.
+   * The execution status.
    * 
    * @example
    * Success
@@ -29,7 +29,7 @@ export class ListServiceTestTasksResponseBodyServiceTestTasks extends $dara.Mode
   taskId?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * dadadad
@@ -37,7 +37,7 @@ export class ListServiceTestTasksResponseBodyServiceTestTasks extends $dara.Mode
   taskName?: string;
   /**
    * @remarks
-   * The task region id.
+   * The region where the task was executed.
    * 
    * @example
    * cn-beijing
@@ -75,7 +75,7 @@ export class ListServiceTestTasksResponseBodyServiceTestTasks extends $dara.Mode
 export class ListServiceTestTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of tasks.
    * 
    * @example
    * 9
@@ -83,7 +83,7 @@ export class ListServiceTestTasksResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * The number of entries returned on each page.
    * 
    * @example
    * 1
@@ -91,7 +91,7 @@ export class ListServiceTestTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is not returned, it indicates that no more results are available.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -107,7 +107,7 @@ export class ListServiceTestTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service test tasks.
+   * The collection of service test tasks.
    */
   serviceTestTasks?: ListServiceTestTasksResponseBodyServiceTestTasks[];
   static names(): { [key: string]: string } {

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tag keys.
+   * The list of tag keys.
    */
   keys?: string[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token to retrieve the next page of results. This token is returned when the response is truncated.
    * 
    * @example
    * AAAAAZ9FmxgN6wKfeK/GOKRnnjU=

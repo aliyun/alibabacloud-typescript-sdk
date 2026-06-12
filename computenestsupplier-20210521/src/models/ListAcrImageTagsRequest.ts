@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListAcrImageTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the deployment package. Default value: AcrImage. Valid values:
+   * The artifact type. The default value is AcrImage. Possible values:
    * 
-   * *   HelmChart: Helm chart image.
-   * *   AcrImage: container image.
+   * - HelmChart: A Helm Chart image.
+   * 
+   * - AcrImage: A container image.
    * 
    * @example
    * AcrImage
@@ -16,7 +17,7 @@ export class ListAcrImageTagsRequest extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -24,7 +25,7 @@ export class ListAcrImageTagsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token for the next page of results.
    * 
    * @example
    * AAAAAW8kZY+u1sYOaYf5JmgmDQQ=
@@ -32,7 +33,7 @@ export class ListAcrImageTagsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The image ID.
+   * The ID of the image repository.
    * 
    * @example
    * crr-3gqhkza0wbxxxxxx

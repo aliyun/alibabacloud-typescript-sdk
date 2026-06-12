@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class CreateServiceInstanceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value1
@@ -45,7 +45,7 @@ export class CreateServiceInstanceRequestTag extends $dara.Model {
 export class CreateServiceInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The token can be up to 64 characters in length and can contain only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -53,10 +53,11 @@ export class CreateServiceInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * Specifies whether to perform a dry run. A dry run checks for permissions and instance status. Valid values:
    * 
-   * *   true: performs a dry run for the request, but does not create a service instance.
-   * *   false: performs a dry run for the request, and creates a service instance if the request passes the dry run.
+   * - true: The system checks the request but does not create the service instance.
+   * 
+   * - false: The system sends the request. If the request passes the check, the service instance is created.
    * 
    * @example
    * false
@@ -64,9 +65,9 @@ export class CreateServiceInstanceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The time when the service instance was released.
+   * The time when the service instance is released.
    * 
-   * >  This parameter is available only for the service instances that are managed by service providers.
+   * > Only service providers can set this parameter for their own service instances in managed scenarios.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -76,10 +77,11 @@ export class CreateServiceInstanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the service instance. The value must meet the following requirements:
+   * The name of the service instance. The name must meet the following requirements:
    * 
-   * *   The name cannot exceed 64 characters in length.
-   * *   It can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
+   * - It can be up to 64 characters in length.
+   * 
+   * - It must start with a letter or a digit and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * TestName
@@ -87,20 +89,26 @@ export class CreateServiceInstanceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameters that are specified for service instance deployment.
+   * The parameters used to deploy the service instance.
    * 
-   * >  If you want to specify the region in which the service instance is deployed, you must specify the information in Parameters.
+   * > If the service instance includes information about the deployment region, specify that information in the deployment parameters.
    * 
    * @example
-   * {"NodeCount": 3, "SystemDiskSize": 40, "InstancePassword": "******"}
+   * {
+   *       "RegionId": "cn-hangzhou"
+   *       "NodeCount": 3,
+   *       "SystemDiskSize": 40,
+   *       "InstancePassword": "******"
+   * }
    */
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The region ID. Valid values:
+   * The ID of the region. Valid values:
    * 
-   * *   cn-hangzhou: China (Hangzhou)
-   * *   ap-southeast-1: Singapore
+   * - cn-hangzhou: China (Hangzhou)
+   * 
+   * - ap-southeast-1: Singapore
    * 
    * This parameter is required.
    * 
@@ -118,7 +126,7 @@ export class CreateServiceInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * This parameter is required.
    * 
@@ -128,7 +136,7 @@ export class CreateServiceInstanceRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service version.
+   * The version of the service.
    * 
    * @example
    * 1
@@ -136,10 +144,10 @@ export class CreateServiceInstanceRequest extends $dara.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The name of the package specification.
+   * The name of the specification package.
    * 
    * @example
-   * 套餐一
+   * Package 1
    */
   specificationName?: string;
   /**
@@ -149,15 +157,15 @@ export class CreateServiceInstanceRequest extends $dara.Model {
   tag?: CreateServiceInstanceRequestTag[];
   /**
    * @remarks
-   * The template name. You must specify a template name if the service supports multiple templates.
+   * The name of the template. Specify this parameter if the service supports multiple templates.
    * 
    * @example
-   * 模板1
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 1563457855xxxxxx

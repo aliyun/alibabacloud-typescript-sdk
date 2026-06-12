@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListResellersResponseBodySupplierInformation extends $dara.Model {
   /**
    * @remarks
-   * The description of distributor.
+   * The description of the reseller.
    * 
    * @example
-   * It is a XXXX  company
+   * It is a XXXX company.
    */
   supplierDesc?: string;
   /**
    * @remarks
-   * The Logo of distributor
+   * The icon of the reseller.
    * 
    * @example
    * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/31978070/service-image/d5c3b585-ff6b-4e4e-8885-xxxx.png
@@ -21,15 +21,15 @@ export class ListResellersResponseBodySupplierInformation extends $dara.Model {
   supplierLogo?: string;
   /**
    * @remarks
-   * The name of the distributor
+   * The name of the reseller.
    * 
    * @example
-   * Distributor A
+   * Distributora
    */
   supplierName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the distributor.
+   * The UID of the reseller.
    * 
    * @example
    * 152xxxxxxxxxxx
@@ -37,7 +37,7 @@ export class ListResellersResponseBodySupplierInformation extends $dara.Model {
   supplierUid?: number;
   /**
    * @remarks
-   * The URL of the distributor.
+   * The URL of the reseller\\"s official website.
    * 
    * @example
    * http://www.aliyun.com
@@ -75,7 +75,7 @@ export class ListResellersResponseBodySupplierInformation extends $dara.Model {
 export class ListResellersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. The maximum value is 100.
    * 
    * @example
    * 20
@@ -83,7 +83,7 @@ export class ListResellersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * AAAAAW8kZY+u1sYOaYf5JmgmDQQ=
@@ -99,12 +99,12 @@ export class ListResellersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * distributor informations
+   * The list of results.
    */
   supplierInformation?: ListResellersResponseBodySupplierInformation[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 4

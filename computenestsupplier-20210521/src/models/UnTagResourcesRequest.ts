@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UnTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the resource. Valid values:
+   * Specifies whether to remove all tags from the resources. This parameter takes effect only when TagKey is not specified. Default value: false. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - true
    * 
-   * >  If you specify both the All and TagKey.N parameters, the All parameter does not take effect.
+   * - false
    * 
    * @example
    * false
@@ -28,18 +27,20 @@ export class UnTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify at most 50 resource IDs in each call.
+   * The resource ID.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. valid value:
+   * The resource type. Valid values:
    * 
-   * - service
-   * - serviceinstance
-   * - artifact
+   * - service: a service.
+   * 
+   * - serviceinstance: a service instance.
+   * 
+   * - artifact: an artifact.
    * 
    * This parameter is required.
    * 
@@ -49,7 +50,7 @@ export class UnTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag keys. You can specify 1 to 20 tag keys.
+   * The tag keys of the resource.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

@@ -13,10 +13,11 @@ export class GetSupplierInformationResponseBodyDeliverySettings extends $dara.Mo
   ossBucketName?: string;
   /**
    * @remarks
-   * Indicates whether screencast delivery to Object Storage Service (OSS) is enabled. Valid values:
+   * Indicates whether the feature that delivers the execution results of Cloud Assistant O\\&M tasks to Object Storage Service (OSS) is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * 
+   * - false (default): Disabled.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class GetSupplierInformationResponseBodyDeliverySettings extends $dara.Mo
   ossEnabled?: boolean;
   /**
    * @remarks
-   * The number of days for which the screencasts are saved.
+   * The expiration period for objects in OSS, in days.
    * 
    * @example
    * 7
@@ -68,7 +69,7 @@ export class GetSupplierInformationResponseBodyDeliverySettings extends $dara.Mo
 export class GetSupplierInformationResponseBodySupportContacts extends $dara.Model {
   /**
    * @remarks
-   * The type of contact information.
+   * The type of the contact method.
    * 
    * @example
    * Email
@@ -76,7 +77,7 @@ export class GetSupplierInformationResponseBodySupportContacts extends $dara.Mod
   type?: string;
   /**
    * @remarks
-   * The value of contact information.
+   * The contact method.
    * 
    * @example
    * supplier@example.com
@@ -108,7 +109,7 @@ export class GetSupplierInformationResponseBodySupportContacts extends $dara.Mod
 export class GetSupplierInformationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Acr container namespace
+   * The namespace for the container image deployment.
    * 
    * @example
    * computenest
@@ -116,12 +117,16 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
   acrNamespace?: string;
   /**
    * @remarks
-   * The delivery settings.
+   * The computing resource configuration.
    */
   deliverySettings?: GetSupplierInformationResponseBodyDeliverySettings;
   /**
    * @remarks
-   * Whether to enable reseller
+   * Indicates whether to enable resellers. Valid values:
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -129,7 +134,7 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
   enableReseller?: boolean;
   /**
    * @remarks
-   * The Ip of the operation.
+   * The IP address for the operation.
    * 
    * @example
    * 10.xxx.xxx.xxx/101
@@ -137,7 +142,11 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
   operationIp?: string;
   /**
    * @remarks
-   * The MFA of the operation.
+   * Indicates whether a multi-factor authentication (MFA) device is used. Valid values:
+   * 
+   * - true: Yes.
+   * 
+   * - false: No.
    * 
    * @example
    * true
@@ -153,15 +162,15 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The description of service provider.
+   * The description of the service provider.
    * 
    * @example
-   * Test supplier
+   * Alibaba Cloud Compute Nest
    */
   supplierDesc?: string;
   /**
    * @remarks
-   * The Logo of service provider.
+   * The icon of the service provider.
    * 
    * @example
    * http://example.aliyundoc.com/cover/34DB-4F4C-9373-003AA060****.png
@@ -172,7 +181,7 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
    * The name of the service provider.
    * 
    * @example
-   * Alibaba Cloud
+   * Company A
    */
   supplierName?: string;
   /**
@@ -185,7 +194,7 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
   supplierUrl?: string;
   /**
    * @remarks
-   * Contact information of the service provider
+   * The contact information of the service provider.
    */
   supportContacts?: GetSupplierInformationResponseBodySupportContacts[];
   static names(): { [key: string]: string } {

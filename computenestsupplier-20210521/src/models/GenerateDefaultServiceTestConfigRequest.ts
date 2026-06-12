@@ -10,7 +10,7 @@ export class GenerateDefaultServiceTestConfigRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * service-41ad58439b4b4bf8ae73
+   * service-fd1aec438c974828bb7b
    */
   serviceId?: string;
   /**
@@ -20,7 +20,7 @@ export class GenerateDefaultServiceTestConfigRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * draft
+   * beta
    */
   serviceVersion?: string;
   /**
@@ -28,7 +28,7 @@ export class GenerateDefaultServiceTestConfigRequest extends $dara.Model {
    * The template name.
    * 
    * @example
-   * test-1
+   * ECS standalone
    */
   templateName?: string;
   static names(): { [key: string]: string } {

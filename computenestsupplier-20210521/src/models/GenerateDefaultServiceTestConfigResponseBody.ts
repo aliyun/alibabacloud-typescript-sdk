@@ -13,7 +13,7 @@ export class GenerateDefaultServiceTestConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service test config
+   * The service test config.
    * 
    * @example
    * ---

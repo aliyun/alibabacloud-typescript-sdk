@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
   /**
    * @remarks
-   * CVE numbers
+   * The CVE ID.
    * 
    * @example
    * CVE-2023-4911
@@ -13,7 +13,7 @@ export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
   cveNos?: string;
   /**
    * @remarks
-   * Extended information, in JSON format, to be parsed according to the risk category
+   * The extended information in JSON format. Parse this information based on the risk type.
    * 
    * @example
    * {
@@ -25,9 +25,9 @@ export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
   extendInfo?: string;
   /**
    * @remarks
-   * Risk level:
+   * The risk level.
    * 
-   * - high represents high
+   * - high: High
    * 
    * @example
    * high
@@ -35,7 +35,7 @@ export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Risk name.
+   * The name of the risk.
    * 
    * @example
    * USN-3686-1: file vulnerabilities
@@ -43,12 +43,17 @@ export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
   riskName?: string;
   /**
    * @remarks
-   * Risk type. Values:
-   * - AcrCve  Container image system vulnerability
-   * - AcrSca  Container image application vulnerability
-   * - EcsVulnerability  ECS image vulnerability information
-   * - EcsAlarm  ECS image security alarm
-   * - EcsBaseline  ECS image baseline check
+   * The risk type. Valid values:
+   * 
+   * - AcrCve: system vulnerabilities in a container image
+   * 
+   * - AcrSca: application vulnerabilities in a container image
+   * 
+   * - EcsVulnerability: ECS image vulnerabilities
+   * 
+   * - EcsAlarm: ECS image security alerts
+   * 
+   * - EcsBaseline: ECS image baseline checks
    * 
    * @example
    * AcrCve
@@ -56,15 +61,15 @@ export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
   riskType?: string;
   /**
    * @remarks
-   * Risk Type name
+   * The name of the risk type.
    * 
    * @example
-   * Container System Vulner
+   * Container image system vulnerability
    */
   riskTypeName?: string;
   /**
    * @remarks
-   * Solution for the risk item.
+   * The solution to the risk.
    * 
    * @example
    * apt-get update && apt-get install ntpdate --only-upgrade
@@ -106,12 +111,12 @@ export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
 export class ListArtifactRisksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of artifact risks
+   * The list of artifact risks.
    */
   artifactRiskList?: ListArtifactRisksResponseBodyArtifactRiskList[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 52919DB1-03A0-55F5-BDD4-DB6DEBB8267A

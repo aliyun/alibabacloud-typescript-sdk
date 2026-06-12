@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateArtifactRequestArtifactBuildPropertyBuildArgs extends $dara.Model {
   /**
    * @remarks
-   * The name of a specific build argument.
+   * The name of the build argument.
    * 
    * @example
    * ENV
@@ -13,7 +13,7 @@ export class UpdateArtifactRequestArtifactBuildPropertyBuildArgs extends $dara.M
   argumentName?: string;
   /**
    * @remarks
-   * The value of a specific build argument.
+   * The value of the build argument.
    * 
    * @example
    * nginx:latest
@@ -45,7 +45,7 @@ export class UpdateArtifactRequestArtifactBuildPropertyBuildArgs extends $dara.M
 export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Model {
   /**
    * @remarks
-   * The name of the branch in the code repository.
+   * The branch name of the code repository.
    * 
    * @example
    * main
@@ -53,8 +53,7 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   branch?: string;
   /**
    * @remarks
-   * The endpoint. 
-   * The URL address used to access the privately deployed GitLab instance.
+   * The endpoint. This parameter is required for a private GitLab deployment.
    * 
    * @example
    * http://121.40.25.0
@@ -72,7 +71,7 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * @remarks
    * The owner of the code repository.
    * 
-   * >  This parameter is available only if the git repository is private.
+   * > This parameter is required only if the code repository is private.
    * 
    * @example
    * aliyun-computenest
@@ -80,7 +79,7 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   owner?: string;
   /**
    * @remarks
-   * The platform type. Valid values:
+   * The platform of the code repository. Valid values:
    * 
    * - github
    * 
@@ -104,7 +103,7 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   repoId?: number;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * aliyun-computenest/quickstart-Lobexxx
@@ -146,23 +145,23 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
 export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
   /**
    * @remarks
-   * The build arguments used during the image build process.
+   * The build arguments.
    * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   * > This parameter is available only when \\`ArtifactBuildType\\` is set to \\`Dockerfile\\`.
    */
   buildArgs?: UpdateArtifactRequestArtifactBuildPropertyBuildArgs[];
   /**
    * @remarks
-   * The address of the code repository.
+   * The code repository address.
    * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
+   * > This parameter is available only when \\`ArtifactBuildType\\` is set to \\`Dockerfile\\` or \\`Buildpacks\\`.
    */
   codeRepo?: UpdateArtifactRequestArtifactBuildPropertyCodeRepo;
   /**
    * @remarks
-   * The command content.
+   * The content of the command.
    * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
+   * > This parameter is available only for ECS image artifacts.
    * 
    * @example
    * echo "start run command"
@@ -172,11 +171,13 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
    * @remarks
    * The command type. Valid values:
    * 
-   * *   RunBatScript: batch command, applicable to Windows instances.
-   * *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
-   * *   RunShellScript: shell command, applicable to Linux instances.
+   * - RunBatScript: The command is a batch script that runs on a Windows instance.
    * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
+   * - RunPowerShellScript: The command is a PowerShell script that runs on a Windows instance.
+   * 
+   * - RunShellScript: The command is a shell script that runs on a Linux instance.
+   * 
+   * > This parameter is available only for ECS image artifacts.
    * 
    * @example
    * RunShellScript
@@ -184,9 +185,11 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
   commandType?: string;
   /**
    * @remarks
-   * The relative path to the Dockerfile within the code repository.
+   * The relative path of the Dockerfile in the code repository.
    * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   * Default value: Dockerfile
+   * 
+   * > This parameter is available only when \\`ArtifactBuildType\\` is set to \\`Dockerfile\\`.
    * 
    * @example
    * ./file/Dockerfile
@@ -194,7 +197,7 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
   dockerfilePath?: string;
   /**
    * @remarks
-   * Whether GPU is required. CPU instance is used by default.
+   * Specifies whether to use a GPU-accelerated instance for the build. By default, a CPU instance is used.
    * 
    * @example
    * false
@@ -202,9 +205,9 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
   enableGpu?: boolean;
   /**
    * @remarks
-   * The region ID where the source mirror image is located.
+   * The ID of the region where the source image is located.
    * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
+   * > This parameter is available only for ECS image artifacts.
    * 
    * @example
    * cn-hangzhou
@@ -212,9 +215,11 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
+   * The pull URL of the source container image.
    * 
-   * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
+   * Used for \\`docker pull ${SourceContainerImage}\\`.
+   * 
+   * > This parameter is available only when \\`ArtifactBuildType\\` is set to \\`ContainerImage\\`.
    * 
    * @example
    * pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
@@ -222,25 +227,23 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
   sourceContainerImage?: string;
   /**
    * @remarks
-   * The source image id. Supported Types:
+   * The source image ID. The following types are supported:
    * 
-   * - Image ID: Pass the Image ID of the Ecs image directly.
+   * - Image ID: The ID of the ECS image.
    * 
-   * - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
+   * - OOS common parameter name: The system automatically obtains the corresponding image ID based on the OOS common parameter name.
    * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
+   * > This parameter is available only for ECS image artifacts.
    * 
    * @example
-   * Image ID：m-t4nhenrdc38pe4*****
+   * Image ID: m-t4nhenrdc38pe4*****
    * ubuntu_22_04_x64_20G_alibase_20240926.vhd
-   * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
+   * OOS public parameter name: aliyun/services/computenest/images/aliyun_3_2104_python_3_11
    */
   sourceImageId?: string;
   /**
    * @remarks
    * The size of the system disk. Unit: GiB.
-   * 
-   * >  The system disk must be at least as large as the image.
    * 
    * @example
    * 40
@@ -294,19 +297,23 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
 export class UpdateArtifactRequestArtifactProperty extends $dara.Model {
   /**
    * @remarks
-   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * The code of the Alibaba Cloud Marketplace product.
    * 
-   * >  This parameter is available only if the deployment package is an image.
+   * You can obtain the product code in the [Alibaba Cloud Marketplace console](https://market.console.aliyun.com/?spm=a2c4g.11186623.0.0.599d6787eMBBxu#/apiTools?_k=d7j8gk).
+   * 
+   * > This parameter is available only for image artifacts.
    * 
    * @example
-   * cmjj00xxxx
+   * cmjj00****
    */
   commodityCode?: string;
   /**
    * @remarks
-   * The commodity version of the service in Alibaba Cloud Marketplace.
+   * The version of the Alibaba Cloud Marketplace product.
    * 
-   * >  This parameter is available only if the deployment package is an image.
+   * You can view the product version on the [Alibaba Cloud Marketplace page](https://market.aliyun.com/?spm=5176.24779694.0.0.b2144d22sksKM5).
+   * 
+   * > This parameter is available only for image artifacts.
    * 
    * @example
    * V1.0
@@ -314,19 +321,21 @@ export class UpdateArtifactRequestArtifactProperty extends $dara.Model {
   commodityVersion?: string;
   /**
    * @remarks
-   * The image ID.
+   * The ID of the image.
    * 
-   * >  This parameter is available only if the deployment package is an image.
+   * After you specify a region ID, call the [DescribeImages](https://help.aliyun.com/document_detail/2679797.html) operation to query available image IDs in that region.
+   * 
+   * > This parameter is available only for image artifacts.
    * 
    * @example
-   * m-0xij191j9cuev6ucxxxx
+   * m-0xij191j9cuev6uc****
    */
   imageId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region of the image.
    * 
-   * >  This parameter is available only if the deployment package is an image.
+   * > This parameter is available only for image artifacts.
    * 
    * @example
    * cn-hangzhou
@@ -334,29 +343,35 @@ export class UpdateArtifactRequestArtifactProperty extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Container Registry  repository.
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * The ID of the image repository.
+   * 
+   * To obtain the image repository ID, call the [ListAcrImageRepositories](https://help.aliyun.com/document_detail/2539919.html) operation.
+   * 
+   * > This parameter is available only for container image artifacts and Helm Chart artifacts.
    * 
    * @example
-   * crr-yy4g68uhi39ttkm8
+   * crr-d8o1nponyc2t****
    */
   repoId?: string;
   /**
    * @remarks
-   * The name of the Container Registry repository.
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * The name of the image repository.
+   * 
+   * > This parameter is available only for container image artifacts and Helm Chart artifacts.
    * 
    * @example
-   * volcanosh/vc-webhook-manager
+   * wordpress
    */
   repoName?: string;
   /**
    * @remarks
-   * The type of the repository.Valid values:
+   * The permission type of the repository. Valid values:
    * 
-   * *   `Public`: a public repository.
-   * *   `Private`: a private repository.
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * - `Public`: public repository
+   * 
+   * - `Private`: private repository
+   * 
+   * > This parameter is available only for container image artifacts and Helm Chart artifacts.
    * 
    * @example
    * Public
@@ -364,9 +379,11 @@ export class UpdateArtifactRequestArtifactProperty extends $dara.Model {
   repoType?: string;
   /**
    * @remarks
-   * The version tag of the image repository.
+   * The version tag of the image in the repository.
    * 
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * To obtain the version tag, call the [ListAcrImageTags](https://help.aliyun.com/document_detail/2539920.html) operation.
+   * 
+   * > This parameter is available only for container image artifacts and Helm Chart artifacts.
    * 
    * @example
    * v1
@@ -374,13 +391,9 @@ export class UpdateArtifactRequestArtifactProperty extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The URL of the deployment package object.
+   * The URL of the file artifact.
    * 
-   * 
-   * > Note This parameter is available only if the deployment package is an file.
-   * 
-   * @example
-   * https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
+   * You can upload the file and obtain its URL in the [Object Storage Service console](https://oss.console.aliyun.com/bucket).
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -423,27 +436,29 @@ export class UpdateArtifactRequestArtifactProperty extends $dara.Model {
 export class UpdateArtifactRequest extends $dara.Model {
   /**
    * @remarks
-   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * The properties for building the artifact. This is used for managed artifact builds.
    */
   artifactBuildProperty?: UpdateArtifactRequestArtifactBuildProperty;
   /**
    * @remarks
-   * The ID of the deployment package.
+   * The ID of the artifact.
+   * 
+   * To obtain the artifact ID, call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * artifact-eea08d1e2d3a43aexxxx
+   * artifact-eea08d1e2d3a43ae****
    */
   artifactId?: string;
   /**
    * @remarks
-   * The properties of the deployment package.
+   * The properties of the artifact.
    */
   artifactProperty?: UpdateArtifactRequestArtifactProperty;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure the idempotence of the request. Generate a unique token for each request from your client. The **ClientToken** can contain only ASCII characters and must be no more than 64 characters long.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -451,19 +466,19 @@ export class UpdateArtifactRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the deployment package.
+   * The description of the artifact.
    * 
    * @example
-   * Description
+   * Redhat8_0 image
    */
   description?: string;
   /**
    * @remarks
-   * Permission fields are applicable to container image artifact and Helm Chart artifact. They can only change from Automatic to Public. Options:
+   * The permission type. This parameter is valid for container image artifacts and Helm Chart artifacts. The value can be changed only from \\`Automatic\\` to \\`Public\\`. Valid values:
    * 
-   * Public
+   * - Public
    * 
-   * Automatic
+   * - Automatic
    * 
    * @example
    * Public
@@ -471,12 +486,12 @@ export class UpdateArtifactRequest extends $dara.Model {
   permissionType?: string;
   /**
    * @remarks
-   * The IDs of the regions that support the deployment package.
+   * The IDs of regions to which the image can be distributed.
    */
   supportRegionIds?: string[];
   /**
    * @remarks
-   * The version name of the deployment package.
+   * The name of the artifact version.
    * 
    * @example
    * v1

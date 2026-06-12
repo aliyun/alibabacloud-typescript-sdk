@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagValuesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token.
+   * The query token. This is the NextToken value returned from the previous API call.
    * 
    * @example
    * AAAAAVz7BQqj2xtiNSC3d3RAD38=
@@ -21,7 +21,7 @@ export class ListTagValuesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the tag values.
+   * The tag values.
    */
   values?: string[];
   static names(): { [key: string]: string } {

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceTestTasksRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * The property to filter by. Valid values:
    * 
-   * *   Status: the status of the task.
-   * *   TaskId: the task id.
+   * - Status: The task status.
+   * 
+   * - TaskId: The task ID.
    * 
    * @example
    * Status
@@ -16,7 +17,7 @@ export class ListServiceTestTasksRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter value N of the filter. Valid values of N: 1 to 10.
+   * A list of filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -48,12 +49,12 @@ export class ListServiceTestTasksRequestFilter extends $dara.Model {
 export class ListServiceTestTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The filters.
+   * One or more filters for the query.
    */
   filter?: ListServiceTestTasksRequestFilter[];
   /**
    * @remarks
-   * Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -61,7 +62,7 @@ export class ListServiceTestTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to retrieve the next page of results. Set this parameter to the value of NextToken returned from the previous API call.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=

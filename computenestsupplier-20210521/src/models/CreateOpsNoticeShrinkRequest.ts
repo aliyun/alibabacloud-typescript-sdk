@@ -4,12 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateOpsNoticeShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The properties of the O\\&M item.
+   * 
    * @example
    * {"cveId":"CVE-2021-4034"}
    */
   attributesShrink?: string;
   /**
    * @remarks
+   * The category of the notice. Valid values:
+   * 
+   * - Availability
+   * 
+   * - Cost
+   * 
+   * - Performance
+   * 
+   * - Recovery
+   * 
+   * - Security
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +32,17 @@ export class CreateOpsNoticeShrinkRequest extends $dara.Model {
    */
   category?: string;
   /**
+   * @remarks
+   * A client token to ensure that the request is idempotent. Generate a unique token for each request. The token can contain only ASCII characters. Note: If you do not set this parameter, the system uses the RequestId as the ClientToken. The RequestId may be different for each request.
+   * 
    * @example
    * 10CM943JP0EN9D51H
    */
   clientToken?: string;
   /**
    * @remarks
+   * The content of the notice.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +51,8 @@ export class CreateOpsNoticeShrinkRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,13 +60,30 @@ export class CreateOpsNoticeShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * service-0e6fca6a51a54420****
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The service versions to which the notice applies.
+   */
   serviceVersion?: string[];
   /**
    * @remarks
+   * The severity level of the notice. Valid values:
+   * 
+   * - Critical
+   * 
+   * - High
+   * 
+   * - Medium
+   * 
+   * - Low
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,12 +91,21 @@ export class CreateOpsNoticeShrinkRequest extends $dara.Model {
    */
   severity?: string;
   /**
+   * @remarks
+   * The solution.
+   * 
    * @example
    * You need to upgrade the service instance
    */
   solutions?: string;
   /**
    * @remarks
+   * The type of the notice. Valid values:
+   * 
+   * - ServiceInstanceUpgrade: Upgrade
+   * 
+   * - VulnerabilityFix: Vulnerability
+   * 
    * This parameter is required.
    * 
    * @example

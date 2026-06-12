@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateArtifactResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * The content used to build the artifact. This parameter is used for managed artifact builds.
    * 
    * @example
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
@@ -13,7 +13,7 @@ export class CreateArtifactResponseBody extends $dara.Model {
   artifactBuildProperty?: string;
   /**
    * @remarks
-   * The type of the deployment package to be built.
+   * The type of the built artifact.
    * 
    * @example
    * Dockerfile
@@ -21,23 +21,23 @@ export class CreateArtifactResponseBody extends $dara.Model {
   artifactBuildType?: string;
   /**
    * @remarks
-   * The ID of the deployment package.
+   * The artifact ID.
    * 
    * @example
-   * artifact-eea08d1e2d3a43aexxxx
+   * artifact-eea08d1e2d3a43ae****
    */
   artifactId?: string;
   /**
    * @remarks
-   * The properties of the deployment object.
+   * The content of the artifact.
    * 
    * @example
-   * {\\"CommodityCode\\":\\"cmjj0005xxxx\\",\\"CommodityVersion\\":\\"V2022xxxx\\"}
+   * {\\"CommodityCode\\":\\"cmjj0005****\\",\\"CommodityVersion\\":\\"V2022****\\"}
    */
   artifactProperty?: string;
   /**
    * @remarks
-   * The type of the deployment package.
+   * The artifact type.
    * 
    * @example
    * EcsImage
@@ -45,7 +45,7 @@ export class CreateArtifactResponseBody extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The version of the deployment package.
+   * The artifact version.
    * 
    * @example
    * 2
@@ -53,15 +53,15 @@ export class CreateArtifactResponseBody extends $dara.Model {
   artifactVersion?: string;
   /**
    * @remarks
-   * The description of the deployment package.
+   * The description of the artifact.
    * 
    * @example
-   * Test artifact
+   * Redhat8_0 image
    */
   description?: string;
   /**
    * @remarks
-   * The time when the deployment package was modified.
+   * The time when the artifact was modified.
    * 
    * @example
    * 2022-11-11T12:00:00Z
@@ -69,7 +69,7 @@ export class CreateArtifactResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The latest version of the deployment package.
+   * The latest version of the artifact.
    * 
    * @example
    * 1
@@ -77,10 +77,10 @@ export class CreateArtifactResponseBody extends $dara.Model {
   maxVersion?: number;
   /**
    * @remarks
-   * The name of the deployment package.
+   * The artifact name.
    * 
    * @example
-   * Name
+   * Redhat8_5 image
    */
   name?: string;
   /**
@@ -88,12 +88,12 @@ export class CreateArtifactResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * B1A0198B-F316-1B72-B8DD-28B6F6D6XXXX
+   * E73F09DC-6C13-5CB1-A10F-7A4E125ABD2C
    */
   requestId?: string;
   /**
    * @remarks
-   * The status of the deployment package. Valid values:
+   * The status of the artifact.
    * 
    * @example
    * Created
@@ -101,7 +101,7 @@ export class CreateArtifactResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The status of the deployment package.
+   * The description of the artifact status.
    * 
    * @example
    * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
@@ -109,7 +109,7 @@ export class CreateArtifactResponseBody extends $dara.Model {
   statusDetail?: string;
   /**
    * @remarks
-   * The ID of the region that supports the deployment package.
+   * The IDs of the regions to which the artifact is distributed.
    * 
    * @example
    * [
@@ -121,7 +121,7 @@ export class CreateArtifactResponseBody extends $dara.Model {
   supportRegionIds?: string;
   /**
    * @remarks
-   * The name of the deployment package.
+   * The name of the artifact version.
    * 
    * @example
    * v1

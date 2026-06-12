@@ -13,7 +13,7 @@ export class ListAcrImageTagsResponseBodyImages extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The image size. Unit: bytes.
+   * The size of the image in bytes.
    * 
    * @example
    * 188394616
@@ -21,7 +21,7 @@ export class ListAcrImageTagsResponseBodyImages extends $dara.Model {
   imageSize?: string;
   /**
    * @remarks
-   * The time when the image was modified.
+   * The time when the image was last modified.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -65,12 +65,12 @@ export class ListAcrImageTagsResponseBodyImages extends $dara.Model {
 export class ListAcrImageTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of images.
+   * A list of images.
    */
   images?: ListAcrImageTagsResponseBodyImages[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -78,7 +78,7 @@ export class ListAcrImageTagsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token for the next page of results.
    * 
    * @example
    * ey14..
@@ -94,7 +94,7 @@ export class ListAcrImageTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

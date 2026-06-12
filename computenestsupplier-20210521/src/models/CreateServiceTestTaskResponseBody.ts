@@ -13,7 +13,7 @@ export class CreateServiceTestTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The unique ID of the task.
    * 
    * @example
    * stt-568c2c5a687a409b977e

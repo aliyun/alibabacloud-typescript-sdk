@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Model {
   /**
    * @remarks
-   * The time when the image was created.
+   * The time when the repository was created.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -13,7 +13,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * The time when the image was modified.
+   * The time when the repository was last modified.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -21,7 +21,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
   modifiedTime?: string;
   /**
    * @remarks
-   * The namespace of the repository
+   * The namespace.
    * 
    * @example
    * computenest
@@ -29,7 +29,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
   namespace?: string;
   /**
    * @remarks
-   * The image repo ID.
+   * The repository ID.
    * 
    * @example
    * crr-3gqhkza0wbxxxxxx
@@ -37,7 +37,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
   repoId?: string;
   /**
    * @remarks
-   * The image repo name.
+   * The repository name.
    * 
    * @example
    * wordpress
@@ -45,13 +45,10 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
   repoName?: string;
   /**
    * @remarks
-   * The type of the repository. Valid values:
-   * 
-   * *   `Private`: a private repository
-   * *   `Public`: a public repository
+   * The type of the repository. Valid values: Public and Private.
    * 
    * @example
-   * Private
+   * Public
    */
   repoType?: string;
   static names(): { [key: string]: string } {
@@ -88,7 +85,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
 export class ListAcrImageRepositoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -96,7 +93,7 @@ export class ListAcrImageRepositoriesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token that is used to start the next query.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -104,7 +101,7 @@ export class ListAcrImageRepositoriesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The images.
+   * The list of repositories.
    */
   repositories?: ListAcrImageRepositoriesResponseBodyRepositories[];
   /**
@@ -117,7 +114,7 @@ export class ListAcrImageRepositoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 4

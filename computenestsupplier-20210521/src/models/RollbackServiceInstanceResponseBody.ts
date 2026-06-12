@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackServiceInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE9EF87D-46F8-5AF6-9A65-6B034E204136
@@ -13,7 +13,7 @@ export class RollbackServiceInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Service instance ID.
+   * The service instance ID.
    * 
    * @example
    * si-5289e1d6d0c14397881d
@@ -21,25 +21,25 @@ export class RollbackServiceInstanceResponseBody extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The deployment status of the service instance. Possible values:
+   * The deployment status of the service instance. Valid values:
    * 
-   * - Created: Created
+   * - Created: The service instance is created.
    * 
-   * - Deploying: Deploying
+   * - Deploying: The service instance is being deployed.
    * 
-   * - DeployedFailed: Deployment Failed
+   * - DeployedFailed: The deployment of the service instance failed.
    * 
-   * - Deployed: Deployed
+   * - Deployed: The service instance is deployed.
    * 
-   * - Upgrading: Upgrading
+   * - Upgrading: The service instance is being upgraded.
    * 
-   * - UpgradeRollbacking: Rolling Back
+   * - UpgradeRollbacking: The service instance is being rolled back.
    * 
-   * - Deleting: Deleting
+   * - Deleting: The service instance is being deleted.
    * 
-   * - Deleted: Deleted
+   * - Deleted: The service instance is deleted.
    * 
-   * - DeletedFailed: Deletion Failed
+   * - DeletedFailed: The deletion of the service instance failed.
    * 
    * @example
    * UpgradeRollbacking

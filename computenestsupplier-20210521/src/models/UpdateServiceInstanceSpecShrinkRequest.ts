@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceInstanceSpecShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A unique identifier that you provide to ensure the idempotence of the request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -13,10 +13,11 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to enable Prometheus on the customer side. Valid values:
+   * Specifies whether to enable Prometheus on the client. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enables Prometheus.
+   * 
+   * - false: Disables Prometheus.
    * 
    * @example
    * true
@@ -24,10 +25,10 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $dara.Model {
   enableUserPrometheus?: boolean;
   /**
    * @remarks
-   * The name of the configuration update operation.
+   * The name of the upgrade or downgrade action.
    * 
    * @example
-   * package modify
+   * Plan configuration change
    */
   operationName?: string;
   /**
@@ -40,15 +41,15 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $dara.Model {
   parametersShrink?: string;
   /**
    * @remarks
-   * The name of the specification package.
+   * The package name.
    * 
    * @example
-   * package one
+   * Package 1
    */
   predefinedParametersName?: string;
   /**
    * @remarks
-   * The service instance ID.
+   * The ID of the service instance.
    * 
    * @example
    * si-0e6fca6a51a54420****

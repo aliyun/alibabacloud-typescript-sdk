@@ -38,12 +38,12 @@ export class CreateServiceTestCaseRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Custom_Image_Ecs
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * Service Test case name.
+   * The name of the test case.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class CreateServiceTestCaseRequest extends $dara.Model {
   testCaseName?: string;
   /**
    * @remarks
-   * The service test config
+   * The test configuration.
    * 
    * This parameter is required.
    * 

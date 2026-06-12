@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token to start the next query.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -23,11 +23,13 @@ export class ListTagKeysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid values:
    * 
-   * - service
-   * - serviceinstance
-   * - artifact
+   * - service: A service.
+   * 
+   * - serviceinstance: A service instance.
+   * 
+   * - artifact: A deployment.
    * 
    * This parameter is required.
    * 

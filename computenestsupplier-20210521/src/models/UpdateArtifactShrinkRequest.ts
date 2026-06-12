@@ -5,27 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateArtifactShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * The properties for building the artifact. This is used for managed artifact builds.
    */
   artifactBuildPropertyShrink?: string;
   /**
    * @remarks
-   * The ID of the deployment package.
+   * The ID of the artifact.
+   * 
+   * To obtain the artifact ID, call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * artifact-eea08d1e2d3a43aexxxx
+   * artifact-eea08d1e2d3a43ae****
    */
   artifactId?: string;
   /**
    * @remarks
-   * The properties of the deployment package.
+   * The properties of the artifact.
    */
   artifactPropertyShrink?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure the idempotence of the request. Generate a unique token for each request from your client. The **ClientToken** can contain only ASCII characters and must be no more than 64 characters long.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -33,19 +35,19 @@ export class UpdateArtifactShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the deployment package.
+   * The description of the artifact.
    * 
    * @example
-   * Description
+   * Redhat8_0 image
    */
   description?: string;
   /**
    * @remarks
-   * Permission fields are applicable to container image artifact and Helm Chart artifact. They can only change from Automatic to Public. Options:
+   * The permission type. This parameter is valid for container image artifacts and Helm Chart artifacts. The value can be changed only from \\`Automatic\\` to \\`Public\\`. Valid values:
    * 
-   * Public
+   * - Public
    * 
-   * Automatic
+   * - Automatic
    * 
    * @example
    * Public
@@ -53,12 +55,12 @@ export class UpdateArtifactShrinkRequest extends $dara.Model {
   permissionType?: string;
   /**
    * @remarks
-   * The IDs of the regions that support the deployment package.
+   * The IDs of regions to which the image can be distributed.
    */
   supportRegionIds?: string[];
   /**
    * @remarks
-   * The version name of the deployment package.
+   * The name of the artifact version.
    * 
    * @example
    * v1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyServiceInstanceResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The imported resources.
+   * The resources to import.
    * 
    * @example
    * {
@@ -32,10 +32,11 @@ export class ModifyServiceInstanceResourcesRequest extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The type of operation performed on the service instance resource. Valid values:
+   * The operation to perform on the resources of the service instance. Valid values:
    * 
-   * *   Import: The resource is imported.
-   * *   UnImport: The resource import is canceled.
+   * - Import: Imports resources.
+   * 
+   * - UnImport: Removes imported resources.
    * 
    * @example
    * Import

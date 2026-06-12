@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseArtifactResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the artifact.
+   * The artifact ID.
    * 
    * @example
-   * artifact-9feded91880e4c78xxxx
+   * artifact-9feded91880e4c78****
    */
   artifactId?: string;
   /**
@@ -21,7 +21,7 @@ export class ReleaseArtifactResponseBody extends $dara.Model {
   artifactProperty?: string;
   /**
    * @remarks
-   * The type of the artifact.
+   * The artifact type.
    * 
    * @example
    * File
@@ -29,7 +29,7 @@ export class ReleaseArtifactResponseBody extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The version of the artifact.
+   * The artifact version.
    * 
    * @example
    * draft
@@ -37,15 +37,15 @@ export class ReleaseArtifactResponseBody extends $dara.Model {
   artifactVersion?: string;
   /**
    * @remarks
-   * The description of the artifact.
+   * The artifact description.
    * 
    * @example
-   * Description
+   * Redhat8_0 image
    */
   description?: string;
   /**
    * @remarks
-   * The time when the artifact was modified.
+   * The time when the artifact was last modified.
    * 
    * @example
    * 1650954178000
@@ -56,19 +56,26 @@ export class ReleaseArtifactResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 3818BA7D-3F50-1A44-9FF3-04A52A59XXXX
+   * 86CAC31E-3527-562C-869F-347E931C9B25
    */
   requestId?: string;
   /**
    * @remarks
-   * The state of the artifact. Valid values:
+   * The status of the artifact.
    * 
-   * *   Created: The artifact is created.
-   * *   Scanning: The artifact is being scanned.
-   * *   ScanFailed: The artifact failed to be scanned.
-   * *   Delivering: The artifact is being distributed.
-   * *   Available: The artifact is available.
-   * *   Deleted: The artifact is deleted.
+   * Valid values:
+   * 
+   * - Created: The artifact is created.
+   * 
+   * - Scanning: The artifact is being scanned.
+   * 
+   * - ScanFailed: The artifact failed to be scanned.
+   * 
+   * - Delivering: The artifact is being distributed.
+   * 
+   * - Available: The artifact is available.
+   * 
+   * - Deleted: The artifact is deleted.
    * 
    * @example
    * Created
@@ -76,10 +83,10 @@ export class ReleaseArtifactResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version name of the artifact.
+   * The name of the artifact version.
    * 
    * @example
-   * V1.0
+   * OSS association upgrade test
    */
   versionName?: string;
   static names(): { [key: string]: string } {

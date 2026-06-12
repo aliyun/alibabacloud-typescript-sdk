@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceSharedAccountsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
-   * 
-   * *   Name: the name of the service.
+   * The name of the filter.
    * 
    * @example
    * UserAliUid
@@ -15,7 +13,7 @@ export class ListServiceSharedAccountsRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter value N of the filter. Valid values of N: 1 to 10.
+   * The list of filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -47,12 +45,12 @@ export class ListServiceSharedAccountsRequestFilter extends $dara.Model {
 export class ListServiceSharedAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The filters.
+   * The filter.
    */
   filter?: ListServiceSharedAccountsRequestFilter[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -60,7 +58,7 @@ export class ListServiceSharedAccountsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token used to start the next query. Set this parameter to the NextToken value returned from the last API call.
    * 
    * @example
    * AAAAAR130adlM4fHHVSWpTca/t4=
@@ -68,10 +66,11 @@ export class ListServiceSharedAccountsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The permissions on the service. Valid values:
+   * The permission type. Valid values:
    * 
-   * *   Deployable: Permissions to deploy the service.
-   * *   Accessible: Permissions to access the service.
+   * - Deployable: The service is deployable.
+   * 
+   * - Accessible: The service is accessible.
    * 
    * @example
    * Accessible
@@ -79,7 +78,7 @@ export class ListServiceSharedAccountsRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * The region ID where the service instance resides.
+   * The region ID.
    * 
    * This parameter is required.
    * 

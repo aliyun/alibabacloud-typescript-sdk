@@ -23,7 +23,7 @@ export class CreateServiceTestTaskRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The Task Execution Region
+   * The region where the task is executed.
    * 
    * @example
    * cn-beijing
@@ -31,7 +31,7 @@ export class CreateServiceTestTaskRequest extends $dara.Model {
   taskRegionId?: string;
   /**
    * @remarks
-   * The service test case ids.
+   * The service test use cases.
    * 
    * This parameter is required.
    */

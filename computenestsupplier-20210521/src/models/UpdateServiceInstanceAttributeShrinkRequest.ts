@@ -15,15 +15,15 @@ export class UpdateServiceInstanceAttributeShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The License Data
+   * The license data.
    */
   licenseDataShrink?: string;
   /**
    * @remarks
-   * Application reason, currently used for trial application extension.
+   * The reason for the request. This parameter is used to extend a trial.
    * 
    * @example
-   * \\"\\"
+   * ""
    */
   reason?: string;
   /**

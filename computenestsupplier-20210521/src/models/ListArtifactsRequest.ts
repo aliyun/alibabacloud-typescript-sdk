@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * The name of the filter. You can specify one or more filter names to query artifacts.
    * 
-   * *   *Name*: The name of the deployment package. Fuzzy match is used.
-   * *   ArtifactId: The ID of the deployment package.
-   * *   ArtifactType: The type of the deployment package.
+   * Valid values:
+   * 
+   * - Name: Performs a fuzzy query by artifact name.
+   * 
+   * - ArtifactId: The artifact ID.
+   * 
+   * - ArtifactType: The artifact type.
    * 
    * @example
    * ArtifactType
@@ -17,7 +21,7 @@ export class ListArtifactsRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter values of the filter.
+   * A list of filter values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -94,7 +98,7 @@ export class ListArtifactsRequest extends $dara.Model {
   filter?: ListArtifactsRequestFilter[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -102,7 +106,7 @@ export class ListArtifactsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The query token. Set it to the NextToken value returned from the previous API call.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
@@ -110,15 +114,15 @@ export class ListArtifactsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
-   * rg-aek25yfxxxxxxxx
+   * rg-acfmzmhzoaa****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag.
    */
   tag?: ListArtifactsRequestTag[];
   static names(): { [key: string]: string } {

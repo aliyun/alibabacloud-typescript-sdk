@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceRegistrationRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetServiceRegistrationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Service registration ID.
+   * The ID of the review request.
    * 
    * @example
    * sr-1b4aabc1c9eb4109****

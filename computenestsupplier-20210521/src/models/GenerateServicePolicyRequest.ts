@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateServicePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of operation N for which you want to generate the policy information.
+   * The operation types for which to generate policy information.
    */
   operationTypes?: string[];
+  parameters?: { [key: string]: any };
   /**
    * @remarks
    * The region ID.
@@ -41,15 +42,16 @@ export class GenerateServicePolicyRequest extends $dara.Model {
    * The template name.
    * 
    * @example
-   * 模板1
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The trial policy. Valid values:
+   * The trial type. Valid values:
    * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
+   * - Trial: The service supports a trial.
+   * 
+   * - NotTrial: The service does not support a trial.
    * 
    * @example
    * NotTrial
@@ -58,6 +60,7 @@ export class GenerateServicePolicyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       operationTypes: 'OperationTypes',
+      parameters: 'Parameters',
       regionId: 'RegionId',
       serviceId: 'ServiceId',
       serviceVersion: 'ServiceVersion',
@@ -69,6 +72,7 @@ export class GenerateServicePolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       operationTypes: { 'type': 'array', 'itemType': 'string' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       regionId: 'string',
       serviceId: 'string',
       serviceVersion: 'string',
@@ -80,6 +84,9 @@ export class GenerateServicePolicyRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.operationTypes)) {
       $dara.Model.validateArray(this.operationTypes);
+    }
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
     }
     super.validate();
   }

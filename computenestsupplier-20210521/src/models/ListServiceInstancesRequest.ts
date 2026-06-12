@@ -5,23 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstancesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * The name of the filter. You can specify one or more filter names to query service instances. Valid values:
    * 
-   * *   Name: The service name. If you want to perform a fuzzy match, specify the service name in the *xxx* format. For example, if the service name is My Service, you can set the filter value to *My* or *Service*.
-   * *   ServiceInstanceId: The ID of the service instance.
-   * *   ServiceId: The service ID.
-   * *   UserId: The user ID.
-   * *   Version: The service version.
-   * *   Status: The status of the service instance.
-   * *   DeployType: The deployment type of the service.
-   * *   ServiceType: The service type.
-   * *   OperationStartTimeBefore: The time before the hosted O\\&M starts.
-   * *   OperationStartTimeAfter: The time after the hosted O\\&M starts.
-   * *   OperationEndTimeBefore: The time before the hosted O\\&M ends.
-   * *   OperationEndTimeAfter: The time after the hosted O\\&M ends.
-   * *   OperatedServiceInstanceId: The ID of the hosted O\\&M instance that belongs to a private service.
-   * *   OperationServiceInstanceId: The ID of the hosted O\\&M service instance that belongs to a hosted O\\&M service.
-   * *   EnableInstanceOps: Whether the hosted O\\&M feature is enabled for service instances.
+   * - Name: The name of the service. To perform a fuzzy search, enter the content in the \\*xxx\\* format for the value parameter. For example, if the service name is `My Service`, you can enter `*My*` or `*Service*` for a fuzzy search.
+   * 
+   * - ServiceInstanceId: The ID of the service instance.
+   * 
+   * - ServiceId: The ID of the service.
+   * 
+   * - UserId: The ID of the user.
+   * 
+   * - Version: The version of the service.
+   * 
+   * - Status: The status of the service instance.
+   * 
+   * - DeployType: The deployment type.
+   * 
+   * - ServiceType: The service type.
+   * 
+   * - OperationStartTimeBefore: The time before the start of the Alibaba Cloud Managed Services.
+   * 
+   * - OperationStartTimeAfter: The time after the start of the Alibaba Cloud Managed Services.
+   * 
+   * - OperationEndTimeBefore: The time before the end of the Alibaba Cloud Managed Services.
+   * 
+   * - OperationEndTimeAfter: The time after the end of the Alibaba Cloud Managed Services.
+   * 
+   * - OperatedServiceInstanceId: The ID of the managed service instance for a private service.
+   * 
+   * - OperationServiceInstanceId: The ID of the service instance for a pure Alibaba Cloud Managed Service.
+   * 
+   * - EnableInstanceOps: Indicates whether Alibaba Cloud Managed Services are enabled for the service instance.
    * 
    * @example
    * ServiceInstanceId
@@ -29,7 +43,7 @@ export class ListServiceInstancesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter values of the filter.
+   * A list of filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -106,7 +120,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   filter?: ListServiceInstancesRequestFilter[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 10
@@ -114,7 +128,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The query token. Set it to the NextToken value returned from the previous API call.
    * 
    * @example
    * BBBAAfu+XtuBE55iRLHEYYuojI4=
@@ -138,10 +152,11 @@ export class ListServiceInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to display the information that the service instance is deleted. Valid values:
+   * Specifies whether to display the deleted service instances. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Displays the deleted service instances.
+   * 
+   * - false: Does not display the deleted service instances.
    * 
    * @example
    * false

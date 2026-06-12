@@ -15,9 +15,11 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
    * @remarks
    * The unit of the subscription duration. Valid values:
    * 
-   * *   Year
-   * *   Month
-   * *   Day
+   * - Year
+   * 
+   * - Month
+   * 
+   * - Day
    * 
    * @example
    * Month
@@ -49,7 +51,7 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
 export class GetServiceEstimateCostRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token that you can use to ensure the idempotence of the request. You can use the client to generate a token, but you must make sure that the token is unique among different requests. The **ClientToken** parameter can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * mRdxWuW2ts
@@ -57,12 +59,12 @@ export class GetServiceEstimateCostRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The subscription duration information about the purchase order of Alibaba Cloud Marketplace.
+   * The subscription details of the Alibaba Cloud Marketplace order.
    */
   commodity?: GetServiceEstimateCostRequestCommodity;
   /**
    * @remarks
-   * The parameters that are specified to deploy the service instance.
+   * The parameters that you enter to deploy the service instance.
    * 
    * @example
    * {\\"PayType\\":\\"PostPaid\\",\\"InstancePassword\\":\\"xxxxxxxxxx\\",\\"EcsInstanceType\\":\\"ecs.g6.large\\",\\"VSwitchId\\":\\"vsw-0jlueyydpuekoxxxxxxxx\\",\\"VpcId\\":\\"vpc-0jlps6mjbgvpqxxxxxxxx\\",\\"ZoneId\\":\\"cn-wulanchabu-a\\",\\"Enable\\":false,\\"RegionId\\":\\"cn-wulanchabu\\"}
@@ -88,7 +90,7 @@ export class GetServiceEstimateCostRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The ID of the service instance.
+   * The service instance ID.
    * 
    * @example
    * si-d6ab3a63ccbb4b17****
@@ -104,7 +106,7 @@ export class GetServiceEstimateCostRequest extends $dara.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The package name.
+   * The specification name.
    * 
    * @example
    * Package 1

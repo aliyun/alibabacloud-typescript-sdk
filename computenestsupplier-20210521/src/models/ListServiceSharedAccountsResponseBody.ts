@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Model {
   /**
    * @remarks
-   * The time when the service was created.
+   * The time when the sharing was created.
    * 
    * @example
    * 2021-12-28T02:47:46.000
@@ -13,7 +13,7 @@ export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * Service logo.
+   * The logo of the distributor.
    * 
    * @example
    * logo
@@ -21,10 +21,7 @@ export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Mod
   logo?: string;
   /**
    * @remarks
-   * The name of the service instance. The value must meet the following requirements:
-   * 
-   * *   The name cannot exceed 64 characters in length.
-   * *   It can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
+   * The name of the distributor.
    * 
    * @example
    * name
@@ -32,10 +29,11 @@ export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The permissions on the service. Valid values:
+   * The permission type. Valid values:
    * 
-   * *   Deployable: Permissions to deploy the service.
-   * *   Accessible: Permissions to access the service.
+   * - Deployable: The service is deployable.
+   * 
+   * - Accessible: The service is accessible.
    * 
    * @example
    * Deployable
@@ -51,7 +49,7 @@ export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Mod
   serviceId?: string;
   /**
    * @remarks
-   * The time when the service was updated.
+   * The time when the sharing was last updated.
    * 
    * @example
    * 2023-02-13T02:16:03.756Z
@@ -59,7 +57,7 @@ export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Mod
   updateTime?: string;
   /**
    * @remarks
-   * The user aliUid.
+   * The Alibaba Cloud account ID of the user.
    * 
    * @example
    * 127383705xxxxxx
@@ -101,7 +99,7 @@ export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Mod
 export class ListServiceSharedAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -109,7 +107,7 @@ export class ListServiceSharedAccountsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token used to start the next query.
    * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
@@ -125,12 +123,12 @@ export class ListServiceSharedAccountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Service shared account information.
+   * The information about the shared accounts.
    */
   shareAccount?: ListServiceSharedAccountsResponseBodyShareAccount[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the filter criteria.
    * 
    * @example
    * 1

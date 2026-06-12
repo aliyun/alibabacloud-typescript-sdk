@@ -13,7 +13,7 @@ export class CreateServiceTestCaseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The test case Id
+   * The test case ID.
    * 
    * @example
    * stc-5ba03a6a9a2746be8739

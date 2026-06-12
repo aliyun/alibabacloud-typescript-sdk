@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a shared account of a service.
+   * Adds shared accounts for a service.
    * 
    * @param request - AddServiceSharedAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77,7 +77,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a shared account of a service.
+   * Adds shared accounts for a service.
    * 
    * @param request - AddServiceSharedAccountsRequest
    * @returns AddServiceSharedAccountsResponse
@@ -88,7 +88,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Merchant uses service request
+   * Approves a service usage request.
    * 
    * @param request - ApproveServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -139,7 +139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Merchant uses service request
+   * Approves a service usage request.
    * 
    * @param request - ApproveServiceUsageRequest
    * @returns ApproveServiceUsageResponse
@@ -150,10 +150,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancel service registration.
+   * Cancels a service review request.
    * 
    * @remarks
-   * Only service registration in the Submitted status can be canceled.
+   * Service review requests can be canceled only if they are in the Submitted state.
    * 
    * @param request - CancelServiceRegistrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -192,10 +192,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancel service registration.
+   * Cancels a service review request.
    * 
    * @remarks
-   * Only service registration in the Submitted status can be canceled.
+   * Service review requests can be canceled only if they are in the Submitted state.
    * 
    * @param request - CancelServiceRegistrationRequest
    * @returns CancelServiceRegistrationResponse
@@ -206,7 +206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Redeploys a service instance after the service instance failed to be deployed.
+   * Continues the deployment of a service instance after a deployment failure. You must specify the region ID, service ID, and the configuration parameters for the service instance.
    * 
    * @param request - ContinueDeployServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -253,7 +253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Redeploys a service instance after the service instance failed to be deployed.
+   * Continues the deployment of a service instance after a deployment failure. You must specify the region ID, service ID, and the configuration parameters for the service instance.
    * 
    * @param request - ContinueDeployServiceInstanceRequest
    * @returns ContinueDeployServiceInstanceResponse
@@ -264,7 +264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a deployment package.
+   * Creates an artifact.
    * 
    * @param tmpReq - CreateArtifactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -349,7 +349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a deployment package.
+   * Creates an artifact.
    * 
    * @param request - CreateArtifactRequest
    * @returns CreateArtifactResponse
@@ -360,7 +360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建运维公告
+   * Creates an operations and maintenance (O&M) notice.
    * 
    * @param tmpReq - CreateOpsNoticeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -433,7 +433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建运维公告
+   * Creates an operations and maintenance (O&M) notice.
    * 
    * @param request - CreateOpsNoticeRequest
    * @returns CreateOpsNoticeResponse
@@ -444,7 +444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service.
+   * Creates a service by specifying parameters, such as the region ID, deployment type, service type, and service name.
    * 
    * @param tmpReq - CreateServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -589,7 +589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service.
+   * Creates a service by specifying parameters, such as the region ID, deployment type, service type, and service name.
    * 
    * @param request - CreateServiceRequest
    * @returns CreateServiceResponse
@@ -600,7 +600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and deploys a service instance.
+   * You can create and deploy a service instance by specifying parameters such as the region ID, service ID, and service version.
    * 
    * @param tmpReq - CreateServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -685,7 +685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and deploys a service instance.
+   * You can create and deploy a service instance by specifying parameters such as the region ID, service ID, and service version.
    * 
    * @param request - CreateServiceInstanceRequest
    * @returns CreateServiceInstanceResponse
@@ -696,7 +696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create service test case.
+   * Creates a service test case.
    * 
    * @param request - CreateServiceTestCaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -747,7 +747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create service test case.
+   * Creates a service test case.
    * 
    * @param request - CreateServiceTestCaseRequest
    * @returns CreateServiceTestCaseResponse
@@ -758,7 +758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create service test task
+   * Creates a test task for a service.
    * 
    * @param request - CreateServiceTestTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -801,7 +801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create service test task
+   * Creates a test task for a service.
    * 
    * @param request - CreateServiceTestTaskRequest
    * @returns CreateServiceTestTaskResponse
@@ -812,7 +812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create  Service resell application.
+   * You can create a service distribution request.
    * 
    * @param request - CreateServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -851,7 +851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create  Service resell application.
+   * You can create a service distribution request.
    * 
    * @param request - CreateServiceUsageRequest
    * @returns CreateServiceUsageResponse
@@ -862,7 +862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Register as a service provider
+   * Registers a service provider.
    * 
    * @param request - CreateSupplierRegistrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -961,7 +961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Register as a service provider
+   * Registers a service provider.
    * 
    * @param request - CreateSupplierRegistrationRequest
    * @returns CreateSupplierRegistrationResponse
@@ -972,7 +972,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Acr镜像仓库
+   * Deletes ACR image repositories.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Before you delete an image repository, ensure that no deployments reference its container images. If you delete a repository that contains referenced images, the associated deployments become unavailable.
    * 
    * @param request - DeleteAcrImageRepositoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1015,7 +1019,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Acr镜像仓库
+   * Deletes ACR image repositories.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Before you delete an image repository, ensure that no deployments reference its container images. If you delete a repository that contains referenced images, the associated deployments become unavailable.
    * 
    * @param request - DeleteAcrImageRepositoriesRequest
    * @returns DeleteAcrImageRepositoriesResponse
@@ -1026,7 +1034,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Acr容器镜像版本
+   * Delete a container image version from ACR
+   * 
+   * @remarks
+   * ###
+   * You must delete the deployments that use the container image before you delete the image tag. After the tag is deleted, the corresponding deployments become unusable.
    * 
    * @param request - DeleteAcrImageTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1073,7 +1085,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Acr容器镜像版本
+   * Delete a container image version from ACR
+   * 
+   * @remarks
+   * ###
+   * You must delete the deployments that use the container image before you delete the image tag. After the tag is deleted, the corresponding deployments become unusable.
    * 
    * @param request - DeleteAcrImageTagsRequest
    * @returns DeleteAcrImageTagsResponse
@@ -1084,7 +1100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an artifact.
+   * You can call DeleteArtifact to delete an artifact or a specific version of an artifact.
    * 
    * @param request - DeleteArtifactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1123,7 +1139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an artifact.
+   * You can call DeleteArtifact to delete an artifact or a specific version of an artifact.
    * 
    * @param request - DeleteArtifactRequest
    * @returns DeleteArtifactResponse
@@ -1134,7 +1150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service.
+   * Deletes a specified service based on its region ID, service ID, and service version.
    * 
    * @param request - DeleteServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1177,7 +1193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service.
+   * Deletes a specified service based on its region ID, service ID, and service version.
    * 
    * @param request - DeleteServiceRequest
    * @returns DeleteServiceResponse
@@ -1188,7 +1204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service instance.
+   * Deletes service instances by specifying a region ID and service instance IDs.
    * 
    * @param request - DeleteServiceInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1227,7 +1243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service instance.
+   * Deletes service instances by specifying a region ID and service instance IDs.
    * 
    * @param request - DeleteServiceInstancesRequest
    * @returns DeleteServiceInstancesResponse
@@ -1238,7 +1254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete service test configuration
+   * Deletes a service test case.
    * 
    * @param request - DeleteServiceTestCaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1273,7 +1289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete service test configuration
+   * Deletes a service test case.
    * 
    * @param request - DeleteServiceTestCaseRequest
    * @returns DeleteServiceTestCaseResponse
@@ -1334,7 +1350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成默认服务测试配置
+   * You can call the GenerateDefaultServiceTestConfig operation to modify the service test configuration.
    * 
    * @param request - GenerateDefaultServiceTestConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1373,7 +1389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成默认服务测试配置
+   * You can call the GenerateDefaultServiceTestConfig operation to modify the service test configuration.
    * 
    * @param request - GenerateDefaultServiceTestConfigRequest
    * @returns GenerateDefaultServiceTestConfigResponse
@@ -1384,17 +1400,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generate and validate the stack required for service creation
+   * Generates the required access policies before you create a service instance.
    * 
-   * @param request - GenerateServicePolicyRequest
+   * @param tmpReq - GenerateServicePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateServicePolicyResponse
    */
-  async generateServicePolicyWithOptions(request: $_model.GenerateServicePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateServicePolicyResponse> {
-    request.validate();
+  async generateServicePolicyWithOptions(tmpReq: $_model.GenerateServicePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateServicePolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.GenerateServicePolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.operationTypes)) {
       query["OperationTypes"] = request.operationTypes;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -1435,7 +1461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generate and validate the stack required for service creation
+   * Generates the required access policies before you create a service instance.
    * 
    * @param request - GenerateServicePolicyRequest
    * @returns GenerateServicePolicyResponse
@@ -1446,7 +1472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a deployment package.
+   * Retrieves the details of an artifact.
    * 
    * @param request - GetArtifactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1485,7 +1511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a deployment package.
+   * Retrieves the details of an artifact.
    * 
    * @param request - GetArtifactRequest
    * @returns GetArtifactResponse
@@ -1496,7 +1522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the credentials that are required to upload a deployment package.
+   * Obtains the credentials required to upload an artifact.
    * 
    * @param request - GetArtifactRepositoryCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1531,7 +1557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the credentials that are required to upload a deployment package.
+   * Obtains the credentials required to upload an artifact.
    * 
    * @param request - GetArtifactRepositoryCredentialsRequest
    * @returns GetArtifactRepositoryCredentialsResponse
@@ -1542,7 +1568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据地域参数获取地域可用区列表
+   * Retrieves a list of available zones in a region.
    * 
    * @param request - GetNetworkAvailableZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1601,7 +1627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据地域参数获取地域可用区列表
+   * Retrieves a list of available zones in a region.
    * 
    * @param request - GetNetworkAvailableZonesRequest
    * @returns GetNetworkAvailableZonesResponse
@@ -1612,7 +1638,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看运维公告详情
+   * Retrieves the details of an operations and maintenance (O&M) notice.
+   * 
+   * @remarks
+   * Services must be approved before they can be published.
    * 
    * @param request - GetOpsNoticeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1647,7 +1676,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看运维公告详情
+   * Retrieves the details of an operations and maintenance (O&M) notice.
+   * 
+   * @remarks
+   * Services must be approved before they can be published.
    * 
    * @param request - GetOpsNoticeRequest
    * @returns GetOpsNoticeResponse
@@ -1658,7 +1690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a service.
+   * Retrieves the details of a specified service.
    * 
    * @param request - GetServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1717,7 +1749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a service.
+   * Retrieves the details of a specified service.
    * 
    * @param request - GetServiceRequest
    * @returns GetServiceResponse
@@ -1728,7 +1760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the estimated price for creating a service instance.
+   * Retrieves the estimated cost of creating a service instance.
    * 
    * @param tmpReq - GetServiceEstimateCostRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1801,7 +1833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the estimated price for creating a service instance.
+   * Retrieves the estimated cost of creating a service instance.
    * 
    * @param request - GetServiceEstimateCostRequest
    * @returns GetServiceEstimateCostResponse
@@ -1812,7 +1844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a service instance.
+   * Queries the details of a specified service instance using the service instance ID and region ID. The returned information includes the deployment status, template name, and service details.
    * 
    * @param request - GetServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1847,7 +1879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a service instance.
+   * Queries the details of a specified service instance using the service instance ID and region ID. The returned information includes the deployment status, template name, and service details.
    * 
    * @param request - GetServiceInstanceRequest
    * @returns GetServiceInstanceResponse
@@ -1858,7 +1890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+   * Queries the activation status of a service and the information about its service roles.
    * 
    * @param tmpReq - GetServiceProvisionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1911,7 +1943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+   * Queries the activation status of a service and the information about its service roles.
    * 
    * @param request - GetServiceProvisionsRequest
    * @returns GetServiceProvisionsResponse
@@ -1922,7 +1954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get service registration detail.
+   * Queries the details of a service registration.
    * 
    * @param request - GetServiceRegistrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1957,7 +1989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get service registration detail.
+   * Queries the details of a service registration.
    * 
    * @param request - GetServiceRegistrationRequest
    * @returns GetServiceRegistrationResponse
@@ -1968,7 +2000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询服务模板存在的规范问题
+   * Queries for criterion issues in a service template.
    * 
    * @param request - GetServiceTemplateCriterionIssuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2007,7 +2039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询服务模板存在的规范问题
+   * Queries for criterion issues in a service template.
    * 
    * @param request - GetServiceTemplateCriterionIssuesRequest
    * @returns GetServiceTemplateCriterionIssuesResponse
@@ -2018,7 +2050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
+   * Queries the parameter constraints for a Resource Orchestration Service (ROS) template.
    * 
    * @param request - GetServiceTemplateParameterConstraintsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2081,7 +2113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
+   * Queries the parameter constraints for a Resource Orchestration Service (ROS) template.
    * 
    * @param request - GetServiceTemplateParameterConstraintsRequest
    * @returns GetServiceTemplateParameterConstraintsResponse
@@ -2092,7 +2124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the execution status of Cases in the service test task
+   * After a service test task is created, you can call this API to retrieve the execution details of each use case in the task.
    * 
    * @param request - GetServiceTestTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2127,7 +2159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the execution status of Cases in the service test task
+   * After a service test task is created, you can call this API to retrieve the execution details of each use case in the task.
    * 
    * @param request - GetServiceTestTaskRequest
    * @returns GetServiceTestTaskResponse
@@ -2138,7 +2170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get service provider information
+   * Retrieves service provider information.
    * 
    * @param request - GetSupplierInformationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2169,7 +2201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get service provider information
+   * Retrieves service provider information.
    * 
    * @param request - GetSupplierInformationRequest
    * @returns GetSupplierInformationResponse
@@ -2180,7 +2212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the AccessKey pair of uploaded files.
+   * Retrieves credentials to upload a file.
    * 
    * @param request - GetUploadCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2215,7 +2247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the AccessKey pair of uploaded files.
+   * Retrieves credentials to upload a file.
    * 
    * @param request - GetUploadCredentialsRequest
    * @returns GetUploadCredentialsResponse
@@ -2226,10 +2258,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Launch service
+   * Publishes a service.
    * 
    * @remarks
-   * 需要上线的服务必须为已通过审核的服务。
+   * Only approved services can be published.
    * 
    * @param request - LaunchServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2280,10 +2312,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Launch service
+   * Publishes a service.
    * 
    * @remarks
-   * 需要上线的服务必须为已通过审核的服务。
+   * Only approved services can be published.
    * 
    * @param request - LaunchServiceRequest
    * @returns LaunchServiceResponse
@@ -2294,7 +2326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of images uploaded to Container Registry.
+   * You can call the ListAcrImageRepositories operation to query a list of image repositories in ACR.
    * 
    * @param request - ListAcrImageRepositoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2337,7 +2369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of images uploaded to Container Registry.
+   * You can call the ListAcrImageRepositories operation to query a list of image repositories in ACR.
    * 
    * @param request - ListAcrImageRepositoriesRequest
    * @returns ListAcrImageRepositoriesResponse
@@ -2348,7 +2380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of images that are uploaded to the image repository.
+   * Lists the uploaded image versions in an image repository.
    * 
    * @param request - ListAcrImageTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2391,7 +2423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of images that are uploaded to the image repository.
+   * Lists the uploaded image versions in an image repository.
    * 
    * @param request - ListAcrImageTagsRequest
    * @returns ListAcrImageTagsResponse
@@ -2402,7 +2434,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询部署实例、升级以及应用的日志
+   * Queries the build logs of an artifact.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * None
    * 
    * @param request - ListArtifactBuildLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2457,7 +2493,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询部署实例、升级以及应用的日志
+   * Queries the build logs of an artifact.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * None
    * 
    * @param request - ListArtifactBuildLogsRequest
    * @returns ListArtifactBuildLogsResponse
@@ -2468,7 +2508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the list of artifact security risks
+   * Retrieves a list of security risks for an artifact.
    * 
    * @param request - ListArtifactRisksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2503,7 +2543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the list of artifact security risks
+   * Retrieves a list of security risks for an artifact.
    * 
    * @param request - ListArtifactRisksRequest
    * @returns ListArtifactRisksResponse
@@ -2514,7 +2554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the version information about a deployment package.
+   * Queries artifact versions.
    * 
    * @param tmpReq - ListArtifactVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2563,7 +2603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the version information about a deployment package.
+   * Queries artifact versions.
    * 
    * @param request - ListArtifactVersionsRequest
    * @returns ListArtifactVersionsResponse
@@ -2574,7 +2614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of deployment packages.
+   * Queries a list of artifacts.
    * 
    * @param request - ListArtifactsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2621,7 +2661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of deployment packages.
+   * Queries a list of artifacts.
    * 
    * @param request - ListArtifactsRequest
    * @returns ListArtifactsResponse
@@ -2632,7 +2672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询运维公告
+   * Queries the operations and maintenance (O&M) notices published by a service provider.
    * 
    * @param request - ListOpsNoticesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2675,7 +2715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询运维公告
+   * Queries the operations and maintenance (O&M) notices published by a service provider.
    * 
    * @param request - ListOpsNoticesRequest
    * @returns ListOpsNoticesResponse
@@ -2686,7 +2726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginated query of distributor information list
+   * Queries a list of resellers for display on the frontend.
    * 
    * @param request - ListResellersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2729,7 +2769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginated query of distributor information list
+   * Queries a list of resellers for display on the frontend.
    * 
    * @param request - ListResellersRequest
    * @returns ListResellersResponse
@@ -2740,7 +2780,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询部署实例、升级以及应用的日志
+   * Queries the logs for service instances, upgrades, and applications.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you add the startup and shutdown Operations and Maintenance (O\\&M) operations when you create a service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
    * 
    * @param request - ListServiceBuildLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2791,7 +2835,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询部署实例、升级以及应用的日志
+   * Queries the logs for service instances, upgrades, and applications.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you add the startup and shutdown Operations and Maintenance (O\\&M) operations when you create a service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
    * 
    * @param request - ListServiceBuildLogsRequest
    * @returns ListServiceBuildLogsResponse
@@ -2802,7 +2850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display service instance bill
+   * You can call the ListServiceInstanceBill operation to query the bills of a service instance.
    * 
    * @param request - ListServiceInstanceBillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2861,7 +2909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display service instance bill
+   * You can call the ListServiceInstanceBill operation to query the bills of a service instance.
    * 
    * @param request - ListServiceInstanceBillRequest
    * @returns ListServiceInstanceBillResponse
@@ -2872,7 +2920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query service instance deployment details
+   * Queries the deployment details for service instances.
    * 
    * @param request - ListServiceInstanceDeployDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2935,7 +2983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query service instance deployment details
+   * Queries the deployment details for service instances.
    * 
    * @param request - ListServiceInstanceDeployDetailsRequest
    * @returns ListServiceInstanceDeployDetailsResponse
@@ -2946,7 +2994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * “Query logs at various levels, including service instance application, instance, and resource.”
+   * Call the ListServiceInstanceLogs operation to query deployment, upgrade, and application logs for a service instance.
    * 
    * @param request - ListServiceInstanceLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3005,7 +3053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * “Query logs at various levels, including service instance application, instance, and resource.”
+   * Call the ListServiceInstanceLogs operation to query deployment, upgrade, and application logs for a service instance.
    * 
    * @param request - ListServiceInstanceLogsRequest
    * @returns ListServiceInstanceLogsResponse
@@ -3016,7 +3064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query service instance resources
+   * Lists the resources in a service instance.
    * 
    * @param request - ListServiceInstanceResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3071,7 +3119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query service instance resources
+   * Lists the resources in a service instance.
    * 
    * @param request - ListServiceInstanceResourcesRequest
    * @returns ListServiceInstanceResourcesResponse
@@ -3082,7 +3130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the upgrade history of a service instance
+   * You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
    * 
    * @param request - ListServiceInstanceUpgradeHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3125,7 +3173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the upgrade history of a service instance
+   * You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
    * 
    * @param request - ListServiceInstanceUpgradeHistoryRequest
    * @returns ListServiceInstanceUpgradeHistoryResponse
@@ -3202,7 +3250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query service registrations.
+   * Queries service registration requests.
    * 
    * @param request - ListServiceRegistrationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3245,7 +3293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query service registrations.
+   * Queries service registration requests.
    * 
    * @param request - ListServiceRegistrationsRequest
    * @returns ListServiceRegistrationsResponse
@@ -3256,7 +3304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用ListServiceSharedAccounts查看服务共享账号列表。
+   * Queries the accounts that a service is shared with.
    * 
    * @param request - ListServiceSharedAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3307,7 +3355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用ListServiceSharedAccounts查看服务共享账号列表。
+   * Queries the accounts that a service is shared with.
    * 
    * @param request - ListServiceSharedAccountsRequest
    * @returns ListServiceSharedAccountsResponse
@@ -3318,7 +3366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Service test case list
+   * Queries the service test cases for the current service version.
    * 
    * @param request - ListServiceTestCasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3369,7 +3417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Service test case list
+   * Queries the service test cases for the current service version.
    * 
    * @param request - ListServiceTestCasesRequest
    * @returns ListServiceTestCasesResponse
@@ -3380,7 +3428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get service test real-time logs
+   * Retrieves the real-time logs of a service test.
    * 
    * @param request - ListServiceTestTaskLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3423,7 +3471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get service test real-time logs
+   * Retrieves the real-time logs of a service test.
    * 
    * @param request - ListServiceTestTaskLogsRequest
    * @returns ListServiceTestTaskLogsResponse
@@ -3434,7 +3482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get task execution list
+   * Queries the test tasks for a service.
    * 
    * @param request - ListServiceTestTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3485,7 +3533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get task execution list
+   * Queries the test tasks for a service.
    * 
    * @param request - ListServiceTestTasksRequest
    * @returns ListServiceTestTasksResponse
@@ -3496,7 +3544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications for using a service.
+   * Queries the usage of your services.
    * 
    * @param request - ListServiceUsagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3523,7 +3571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications for using a service.
+   * Queries the usage of your services.
    * 
    * @param request - ListServiceUsagesRequest
    * @returns ListServiceUsagesResponse
@@ -3534,7 +3582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services.
+   * Queries for a list of services based on specified parameters, such as a region ID and service IDs. The returned information includes the service status, service version, and publish time.
    * 
    * @param request - ListServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3589,7 +3637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services.
+   * Queries for a list of services based on specified parameters, such as a region ID and service IDs. The returned information includes the service status, service version, and publish time.
    * 
    * @param request - ListServicesRequest
    * @returns ListServicesResponse
@@ -3600,7 +3648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of service provider onboarding reviews
+   * Queries service provider registration requests.
    * 
    * @param request - ListSupplierRegistrationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3643,7 +3691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of service provider onboarding reviews
+   * Queries service provider registration requests.
    * 
    * @param request - ListSupplierRegistrationsRequest
    * @returns ListSupplierRegistrationsResponse
@@ -3654,7 +3702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query tag key list
+   * Queries the existing tag keys.
    * 
    * @param request - ListTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3693,7 +3741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query tag key list
+   * Queries the existing tag keys.
    * 
    * @param request - ListTagKeysRequest
    * @returns ListTagKeysResponse
@@ -3704,7 +3752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query resource tags
+   * Queries the tags of one or more resources.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3751,7 +3799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query resource tags
+   * Queries the tags of one or more resources.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -3762,7 +3810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query tag value list
+   * Queries the tag values for a specific tag key.
    * 
    * @param request - ListTagValuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3805,7 +3853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query tag value list
+   * Queries the tag values for a specific tag key.
    * 
    * @param request - ListTagValuesRequest
    * @returns ListTagValuesResponse
@@ -3816,7 +3864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the resource information about a service instance.
+   * Modifies the resources of a service instance.
    * 
    * @param request - ModifyServiceInstanceResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3855,7 +3903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the resource information about a service instance.
+   * Modifies the resources of a service instance.
    * 
    * @param request - ModifyServiceInstanceResourcesRequest
    * @returns ModifyServiceInstanceResourcesResponse
@@ -3866,7 +3914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pre-release service
+   * Prelaunches a service.
    * 
    * @param request - PreLaunchServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3905,7 +3953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pre-release service
+   * Prelaunches a service.
    * 
    * @param request - PreLaunchServiceRequest
    * @returns PreLaunchServiceResponse
@@ -3916,7 +3964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pushes metering data of an Alibaba Cloud Marketplace commodity.
+   * This API pushes metering data for pay-as-you-go Compute Nest service instances. The metering items must be predefined by the service provider.
    * 
    * @param request - PushMeteringDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3951,7 +3999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pushes metering data of an Alibaba Cloud Marketplace commodity.
+   * This API pushes metering data for pay-as-you-go Compute Nest service instances. The metering items must be predefined by the service provider.
    * 
    * @param request - PushMeteringDataRequest
    * @returns PushMeteringDataResponse
@@ -3962,7 +4010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers an artifact.
+   * Registers a Service deployment.
    * 
    * @param request - RegisterServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4001,7 +4049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers an artifact.
+   * Registers a Service deployment.
    * 
    * @param request - RegisterServiceRequest
    * @returns RegisterServiceResponse
@@ -4012,7 +4060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reject service usage.
+   * You can call RejectServiceUsage to reject a service request.
    * 
    * @param request - RejectServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4063,7 +4111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reject service usage.
+   * You can call RejectServiceUsage to reject a service request.
    * 
    * @param request - RejectServiceUsageRequest
    * @returns RejectServiceUsageResponse
@@ -4075,6 +4123,10 @@ export default class Client extends OpenApi {
 
   /**
    * Publishes an artifact.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you have created and saved an artifact.
    * 
    * @param request - ReleaseArtifactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4111,6 +4163,10 @@ export default class Client extends OpenApi {
   /**
    * Publishes an artifact.
    * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you have created and saved an artifact.
+   * 
    * @param request - ReleaseArtifactRequest
    * @returns ReleaseArtifactResponse
    */
@@ -4120,7 +4176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove  service shared account.
+   * Removes shared accounts.
    * 
    * @param request - RemoveServiceSharedAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4167,7 +4223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove  service shared account.
+   * Removes shared accounts.
    * 
    * @param request - RemoveServiceSharedAccountsRequest
    * @returns RemoveServiceSharedAccountsResponse
@@ -4178,7 +4234,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+   * Call the RestartServiceInstance operation to restart a service instance whose status is Deployed.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you add the restart Operations and Maintenance (O\\&M) operation when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
    * 
    * @param request - RestartServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4217,7 +4277,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+   * Call the RestartServiceInstance operation to restart a service instance whose status is Deployed.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you add the restart Operations and Maintenance (O\\&M) operation when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
    * 
    * @param request - RestartServiceInstanceRequest
    * @returns RestartServiceInstanceResponse
@@ -4228,7 +4292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rollback Service Instance
+   * Rolls back an upgraded service instance to its previous version.
    * 
    * @param request - RollbackServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4267,7 +4331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rollback Service Instance
+   * Rolls back an upgraded service instance to its previous version.
    * 
    * @param request - RollbackServiceInstanceRequest
    * @returns RollbackServiceInstanceResponse
@@ -4278,7 +4342,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+   * Starts a service instance when its status is Stopped or StartFailed.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you add the startup and shutdown O\\&M operations when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
    * 
    * @param request - StartServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4317,7 +4385,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+   * Starts a service instance when its status is Stopped or StartFailed.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you add the startup and shutdown O\\&M operations when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
    * 
    * @param request - StartServiceInstanceRequest
    * @returns StartServiceInstanceResponse
@@ -4328,7 +4400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a service instance that is in the Deployed or StopFailed state.
+   * This operation stops a service instance that is in the Deployed or StopFailed state.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you configured the startup and shutdown operations and maintenance (O\\&M) when you created the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
    * 
    * @param request - StopServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4367,7 +4443,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a service instance that is in the Deployed or StopFailed state.
+   * This operation stops a service instance that is in the Deployed or StopFailed state.
+   * 
+   * @remarks
+   * ### Prerequisites
+   * Ensure that you configured the startup and shutdown operations and maintenance (O\\&M) when you created the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
    * 
    * @param request - StopServiceInstanceRequest
    * @returns StopServiceInstanceResponse
@@ -4378,7 +4458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag a resource
+   * Creates and attaches tags to one or more resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4421,7 +4501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag a resource
+   * Creates and attaches tags to one or more resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -4432,7 +4512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbind resource from tag
+   * Removes tags from resources.
    * 
    * @param request - UnTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4479,7 +4559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbind resource from tag
+   * Removes tags from resources.
    * 
    * @param request - UnTagResourcesRequest
    * @returns UnTagResourcesResponse
@@ -4490,7 +4570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a deployment package.
+   * Updates an artifact.
    * 
    * @param tmpReq - UpdateArtifactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4559,7 +4639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a deployment package.
+   * Updates an artifact.
    * 
    * @param request - UpdateArtifactRequest
    * @returns UpdateArtifactResponse
@@ -4570,7 +4650,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a service.
+   * Updates a service.
+   * 
+   * @remarks
+   * Only approved services can be published.
    * 
    * @param tmpReq - UpdateServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4727,7 +4810,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a service.
+   * Updates a service.
+   * 
+   * @remarks
+   * Only approved services can be published.
    * 
    * @param request - UpdateServiceRequest
    * @returns UpdateServiceResponse
@@ -4738,7 +4824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of a service instance.
+   * Updates the attributes of a service instance.
    * 
    * @param tmpReq - UpdateServiceInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4791,7 +4877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of a service instance.
+   * Updates the attributes of a service instance.
    * 
    * @param request - UpdateServiceInstanceAttributeRequest
    * @returns UpdateServiceInstanceAttributeResponse
@@ -4802,7 +4888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of a service instance.
+   * Upgrades or downgrades a service instance.
    * 
    * @param tmpReq - UpdateServiceInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4859,7 +4945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of a service instance.
+   * Upgrades or downgrades a service instance.
    * 
    * @param request - UpdateServiceInstanceSpecRequest
    * @returns UpdateServiceInstanceSpecResponse
@@ -4870,7 +4956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Service Test Case
+   * Updates a service test case.
    * 
    * @param request - UpdateServiceTestCaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4913,7 +4999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Service Test Case
+   * Updates a service test case.
    * 
    * @param request - UpdateServiceTestCaseRequest
    * @returns UpdateServiceTestCaseResponse
@@ -4924,7 +5010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Service Sharing Permissions
+   * You can call UpdateSharedAccountPermission to update the permissions of a shared account.
    * 
    * @param request - UpdateSharedAccountPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4975,7 +5061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Service Sharing Permissions
+   * You can call UpdateSharedAccountPermission to update the permissions of a shared account.
    * 
    * @param request - UpdateSharedAccountPermissionRequest
    * @returns UpdateSharedAccountPermissionResponse
@@ -4986,7 +5072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the information of supplier.
+   * You can call the UpdateSupplierInformation operation to update supplier information.
    * 
    * @param request - UpdateSupplierInformationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5045,7 +5131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the information of supplier.
+   * You can call the UpdateSupplierInformation operation to update supplier information.
    * 
    * @param request - UpdateSupplierInformationRequest
    * @returns UpdateSupplierInformationResponse
@@ -5056,7 +5142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades a service instance.
+   * The UpgradeServiceInstance operation upgrades a service instance based on parameters such as the region ID and service version.
    * 
    * @param tmpReq - UpgradeServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5113,7 +5199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades a service instance.
+   * The UpgradeServiceInstance operation upgrades a service instance based on parameters such as the region ID and service version.
    * 
    * @param request - UpgradeServiceInstanceRequest
    * @returns UpgradeServiceInstanceResponse
@@ -5124,7 +5210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Withdraw service version.
+   * Unpublishes a service version.
    * 
    * @param request - WithdrawServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5167,7 +5253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Withdraw service version.
+   * Unpublishes a service version.
    * 
    * @param request - WithdrawServiceRequest
    * @returns WithdrawServiceResponse

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactVersionsRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * The filter name. This parameter supports querying by one or more filter names. Valid values:
    * 
-   * **Status**：The artifact status
+   * **Status**: Filters by artifact status.
    * 
    * @example
    * Status
@@ -15,7 +15,7 @@ export class ListArtifactVersionsRequestFilters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter values of the filter.
+   * The list of filter values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -47,12 +47,14 @@ export class ListArtifactVersionsRequestFilters extends $dara.Model {
 export class ListArtifactVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deployment package.
+   * The artifact ID.
+   * 
+   * To obtain the artifact ID, call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * artifact-eea08d1e2d3a43aexxxx
+   * artifact-eea08d1e2d3a43ae****
    */
   artifactId?: string;
   /**
@@ -62,7 +64,7 @@ export class ListArtifactVersionsRequest extends $dara.Model {
   filters?: ListArtifactVersionsRequestFilters[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -70,10 +72,10 @@ export class ListArtifactVersionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token to retrieve the next page of results. Set this to the NextToken value from the previous call.
    * 
    * @example
-   * AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
+   * AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hR****
    */
   nextToken?: string;
   static names(): { [key: string]: string } {

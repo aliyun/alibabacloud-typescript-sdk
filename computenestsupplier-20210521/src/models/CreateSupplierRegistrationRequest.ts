@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSupplierRegistrationRequest extends $dara.Model {
   /**
    * @remarks
-   * Contact email
+   * The email address of the contact person.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
   contactEmail?: string;
   /**
    * @remarks
-   * Contact number
+   * The phone number of the contact person.
    * 
    * This parameter is required.
    * 
@@ -25,17 +25,17 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
   contactNumber?: string;
   /**
    * @remarks
-   * Contact person
+   * The contact person.
    * 
    * This parameter is required.
    * 
    * @example
-   * Mike
+   * John Doe
    */
   contactPerson?: string;
   /**
    * @remarks
-   * Contact person tiltle
+   * The title of the contact person.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
   contactPersonTitle?: string;
   /**
    * @remarks
-   * Whether to enable the resell mode
+   * Specifies whether to enable distribution.
    * 
    * @example
    * true
@@ -53,15 +53,15 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
   enableResellerMode?: boolean;
   /**
    * @remarks
-   * Annual product revenue
+   * The annual revenue of the product.
    * 
    * @example
-   * 1000
+   * 10000000
    */
   productAnnualRevenue?: string;
   /**
    * @remarks
-   * The business of product
+   * The industry of the service provider\\"s product.
    * 
    * @example
    * AI
@@ -69,14 +69,24 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
   productBusiness?: string;
   /**
    * @remarks
-   * Product delivery type
+   * The delivery methods of the service provider\\"s product. Valid values:
+   * 
+   * - SaaS
+   * 
+   * - License
+   * 
+   * - API
+   * 
+   * - DesktopSoftware
+   * 
+   * - Others
    * 
    * This parameter is required.
    */
   productDeliveryTypes?: string[];
   /**
    * @remarks
-   * The publish time of product
+   * The launch date of the product.
    * 
    * @example
    * 2020.10.10
@@ -84,7 +94,11 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
   productPublishTime?: string;
   /**
    * @remarks
-   * Product sell type
+   * The sales models of the service provider\\"s product. Valid values:
+   * 
+   * - Direct: Direct sales
+   * 
+   * - Channel: Channel sales
    * 
    * This parameter is required.
    */
@@ -101,33 +115,33 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The description of resell business.
+   * The description of the distribution business.
    * 
    * @example
-   * empty
+   * 无
    */
   resellBusinessDesc?: string;
   /**
    * @remarks
-   * The demands of service providers.
+   * The suggestions from the service provider.
    * 
    * @example
-   * empty
+   * 无
    */
   suggestion?: string;
   /**
    * @remarks
-   * The description of service provider.
+   * The description of the service provider.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test supplier
+   * Alibaba Cloud Compute Nest
    */
   supplierDesc?: string;
   /**
    * @remarks
-   * The Logo of service provider.
+   * The icon of the service provider.
    * 
    * @example
    * http://example.aliyundoc.com/cover/34DB-4F4C-9373-003AA060****.png
@@ -140,12 +154,12 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Alibaba Cloud
+   * Company A
    */
   supplierName?: string;
   /**
    * @remarks
-   * The english name of the service provider.
+   * The English name of the service provider.
    * 
    * This parameter is required.
    * 
@@ -155,7 +169,7 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
   supplierNameEn?: string;
   /**
    * @remarks
-   * The URL of the service provider.
+   * The supplier\\"s address.
    * 
    * This parameter is required.
    * 

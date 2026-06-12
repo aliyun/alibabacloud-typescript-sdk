@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListAcrImageRepositoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the artifact. Default value: AcrImage. Valid values:
+   * The type of the artifact. The default value is AcrImage. Valid values:
    * 
-   * *   HelmChart: Helm chart image.
-   * *   AcrImage: container image.
+   * - HelmChart: a Helm chart image.
+   * 
+   * - AcrImage: a container image.
    * 
    * @example
    * AcrImage
@@ -16,7 +17,7 @@ export class ListAcrImageRepositoriesRequest extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -24,7 +25,7 @@ export class ListAcrImageRepositoriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used to start the next query.
    * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=

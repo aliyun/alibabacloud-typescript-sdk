@@ -13,11 +13,13 @@ export class LaunchServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The mode of the service online. Valid Type
+   * The type of the service publishing action. Valid values:
    * 
-   * - PublishNewVersion: Launch new version
-   * - PublishOfflineVersion:  The offline version is online again.
-   * - UpdateLatestVersion: Update the latest version online
+   * - PublishNewVersion: A new version is published.
+   * 
+   * - PublishOfflineVersion: An unpublished version is republished.
+   * 
+   * - UpdateLatestVersion: The latest online version is updated.
    * 
    * @example
    * PublishNewVersion

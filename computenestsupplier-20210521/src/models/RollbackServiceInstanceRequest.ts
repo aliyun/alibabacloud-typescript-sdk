@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackServiceInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures idempotence of the request. Generate a value from your client to ensure it is unique across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value on your client for each request. The **ClientToken** can contain only ASCII characters and must be no more than 64 characters in length.
    * 
    * @example
    * 10CM943JP0EN9D51H
@@ -13,7 +13,7 @@ export class RollbackServiceInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -21,9 +21,9 @@ export class RollbackServiceInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Service instance ID.
+   * The service instance ID.
    * 
-   * You can obtain the service instance ID by calling [ListServiceInstances - Query Service Instance List](https://help.aliyun.com/document_detail/396200.html).
+   * Call [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) to obtain the service instance ID.
    * 
    * @example
    * si-3a8f9a75da074f52b969

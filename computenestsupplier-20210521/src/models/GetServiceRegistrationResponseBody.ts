@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceRegistrationResponseBodyDetail extends $dara.Model {
   /**
    * @remarks
-   * Whether risk exists.
+   * Indicates whether the service has risks.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetServiceRegistrationResponseBodyDetail extends $dara.Model {
   atRisk?: boolean;
   /**
    * @remarks
-   * Whether service is associated with artifact.
+   * Indicates whether the service is associated with an artifact.
    * 
    * @example
    * true
@@ -21,15 +21,15 @@ export class GetServiceRegistrationResponseBodyDetail extends $dara.Model {
   hasRelatedArtifact?: boolean;
   /**
    * @remarks
-   * The reports.
+   * The review reports.
    * 
    * @example
-   * { "template1":"https://compute-nest-security-audit-bucket.oss-cn-hangzhou.aliyuncs.com/report" }
+   * { "template":"https://compute-nest-security-audit-bucket.oss-cn-hangzhou.aliyuncs.com/report" }
    */
   reports?: string;
   /**
    * @remarks
-   * The url of template diff file.
+   * The URL to view the differences in the template.
    * 
    * @example
    * https://compute-nest-template-diff-bucket.oss-cn-hangzhou.aliyuncs.com/service-abc/diff
@@ -65,11 +65,7 @@ export class GetServiceRegistrationResponseBodyDetail extends $dara.Model {
 export class GetServiceRegistrationResponseBodyServiceInfo extends $dara.Model {
   /**
    * @remarks
-   * The type of the service. Valid values:
-   * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
+   * The service type.
    * 
    * @example
    * private
@@ -77,10 +73,13 @@ export class GetServiceRegistrationResponseBodyServiceInfo extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The trial policy. Valid values:
+   * The trial type.
    * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
+   * Valid values:
+   * 
+   * - Trial: The service supports trial.
+   * 
+   * - NotTrial: The service does not support trial.
    * 
    * @example
    * Trial
@@ -122,7 +121,7 @@ export class GetServiceRegistrationResponseBodyServiceInfo extends $dara.Model {
 export class GetServiceRegistrationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Comment from reviewer.
+   * The review comments.
    * 
    * @example
    * comment message
@@ -130,12 +129,12 @@ export class GetServiceRegistrationResponseBody extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The details of service audit.
+   * The review details.
    */
   detail?: GetServiceRegistrationResponseBodyDetail;
   /**
    * @remarks
-   * Finish time.
+   * The time when the review was completed.
    * 
    * @example
    * 2024-12-07T11:05:50Z
@@ -143,7 +142,7 @@ export class GetServiceRegistrationResponseBody extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * Service registration ID.
+   * The ID of the review request.
    * 
    * @example
    * sr-1b4aabc1c9eb4109****
@@ -180,13 +179,17 @@ export class GetServiceRegistrationResponseBody extends $dara.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The status of service registration. Valid values:
+   * The status of the review request. Valid values:
    * 
-   * *   Submitted
-   * *   Approved
-   * *   Rejected
-   * *   Canceled
-   * *   Executed
+   * - Submitted
+   * 
+   * - Approved
+   * 
+   * - Rejected
+   * 
+   * - Canceled
+   * 
+   * - Executed: The service version is published.
    * 
    * @example
    * Submitted
@@ -194,7 +197,7 @@ export class GetServiceRegistrationResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Submit time.
+   * The time when the request was submitted.
    * 
    * @example
    * 2024-12-07T11:05:50Z

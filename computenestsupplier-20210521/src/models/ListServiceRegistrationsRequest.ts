@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceRegistrationsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * Name of the filter field. Allowed values:
+   * The name of the filter field. Valid values:
    * 
-   * - ServiceId: Service ID.
+   * - ServiceId: The service ID.
    * 
-   * - RegistrationId: Registration ID.
+   * - RegistrationId: The review request ID.
    * 
-   * - Status: Registration status. Allowed values: Submitted, Approved, Rejected, Canceled, and Executed.
+   * - Status: The service status. Valid values: Submitted, Approved, Rejected, Canceled, and Executed.
    * 
    * @example
    * Canceled
@@ -19,7 +19,7 @@ export class ListServiceRegistrationsRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * List of filter values.
+   * The list of filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -51,12 +51,12 @@ export class ListServiceRegistrationsRequestFilter extends $dara.Model {
 export class ListServiceRegistrationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter.
+   * The filter.
    */
   filter?: ListServiceRegistrationsRequestFilter[];
   /**
    * @remarks
-   * The number of items to return per page during a paginated query. The maximum is 100, and the default is 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 10
@@ -64,7 +64,7 @@ export class ListServiceRegistrationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The query token. Set it to the NextToken value returned from the previous API call.
    * 
    * @example
    * BBBAAfu+XtuBE55iRLHEYYuojI4=
@@ -72,7 +72,7 @@ export class ListServiceRegistrationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 

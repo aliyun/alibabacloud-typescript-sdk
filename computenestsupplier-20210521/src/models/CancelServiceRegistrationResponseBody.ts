@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelServiceRegistrationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * C4A145D8-6F6C-532A-9001-9730CDA27578

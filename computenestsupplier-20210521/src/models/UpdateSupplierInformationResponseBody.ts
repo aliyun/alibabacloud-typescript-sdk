@@ -13,23 +13,23 @@ export class UpdateSupplierInformationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The description of service provider.
+   * The description of the supplier.
    * 
    * @example
-   * Test supplier
+   * Alibaba Cloud Compute Nest
    */
   supplierDesc?: string;
   /**
    * @remarks
-   * The name of the service provider.
+   * The name of the supplier.
    * 
    * @example
-   * Alibaba Cloud
+   * Company A
    */
   supplierName?: string;
   /**
    * @remarks
-   * The URL of the service provider.
+   * The URL of the supplier.
    * 
    * @example
    * http://www.xxx.xxx.cn

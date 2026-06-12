@@ -13,7 +13,7 @@ export class GetServiceTestTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the service test task.
    * 
    * @example
    * stt-xxxx

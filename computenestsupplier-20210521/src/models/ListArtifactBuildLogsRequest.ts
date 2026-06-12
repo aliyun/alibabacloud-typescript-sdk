@@ -4,10 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListArtifactBuildLogsRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The name of the filter.
+   * 
+   * Valid values:
+   * 
+   * - StartTime
+   * 
+   * - EndTime
+   * 
+   * - ApplicationGroupName
+   * 
+   * - ResouceName
+   * 
+   * - EventName
+   * 
    * @example
    * BuildStartTime
    */
   name?: string;
+  /**
+   * @remarks
+   * The filter values.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,6 +57,10 @@ export class ListArtifactBuildLogsRequestFilter extends $dara.Model {
 export class ListArtifactBuildLogsRequest extends $dara.Model {
   /**
    * @remarks
+   * The artifact ID.
+   * 
+   * You can call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation to obtain the artifact ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,23 +68,40 @@ export class ListArtifactBuildLogsRequest extends $dara.Model {
    */
   artifactId?: string;
   /**
+   * @remarks
+   * The artifact version.
+   * 
+   * You can call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation to obtain the artifact version.
+   * 
    * @example
    * draft
    */
   artifactVersion?: string;
+  /**
+   * @remarks
+   * The filter.
+   */
   filter?: ListArtifactBuildLogsRequestFilter[];
   /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to start the next paged query.
+   * 
    * @example
    * AAAAAbL3H6CZmy6oocwGDqzQ+Gc=
    */
   nextToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +109,13 @@ export class ListArtifactBuildLogsRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * - **Ascending**: sorts the results in ascending order.
+   * 
+   * - **Descending** (default): sorts the results in descending order.
+   * 
    * @example
    * Ascending
    */

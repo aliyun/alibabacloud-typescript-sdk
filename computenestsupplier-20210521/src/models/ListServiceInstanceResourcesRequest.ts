@@ -5,10 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceResourcesRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * Vaild values:
+   * The filter name. You can specify one or more filter names to query resources. Valid values:
+   * 
    * - ExpireTimeStart
+   * 
    * - ExpireTimeEnd
+   * 
    * - PayType
+   * 
    * - ResourceARN
    * 
    * @example
@@ -17,7 +21,7 @@ export class ListServiceInstanceResourcesRequestFilters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * A value of the filter condition.
+   * The filter value.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -49,7 +53,7 @@ export class ListServiceInstanceResourcesRequestFilters extends $dara.Model {
 export class ListServiceInstanceResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
    * @example
    * key1
@@ -57,7 +61,7 @@ export class ListServiceInstanceResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
    * @example
    * value1
@@ -94,11 +98,7 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   filters?: ListServiceInstanceResourcesRequestFilters[];
   /**
    * @remarks
-   * The maximum number of entries per page.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -106,7 +106,7 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The query token. Set this to the NextToken value returned from the previous API call to retrieve the next page of results.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
@@ -114,7 +114,7 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID where the service instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -132,7 +132,11 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * Service Instance resource type，include AliyunResource and ContainerResource.
+   * The type of the resource in the service instance. Valid values:
+   * 
+   * - AliyunResource: an Alibaba Cloud resource.
+   * 
+   * - ContainerResource: a pod.
    * 
    * @example
    * AliyunResource
@@ -140,7 +144,7 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   serviceInstanceResourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The resource tags.
    */
   tag?: ListServiceInstanceResourcesRequestTag[];
   static names(): { [key: string]: string } {
