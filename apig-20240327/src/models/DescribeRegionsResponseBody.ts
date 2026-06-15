@@ -2,6 +2,58 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeRegionsResponseBodyDataRegions extends $dara.Model {
+  localName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'localName',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyData extends $dara.Model {
+  regions?: DescribeRegionsResponseBodyDataRegions[];
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyDataRegions },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
   /**
    * @example
@@ -68,11 +120,15 @@ export class DescribeRegionsResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
+  data?: DescribeRegionsResponseBodyData;
   /**
    * @example
    * success
    */
   message?: string;
+  /**
+   * @deprecated
+   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @example
@@ -82,6 +138,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'code',
+      data: 'data',
       message: 'message',
       regions: 'regions',
       requestId: 'requestId',
@@ -91,6 +148,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeRegionsResponseBodyData,
       message: 'string',
       regions: DescribeRegionsResponseBodyRegions,
       requestId: 'string',
@@ -98,6 +156,9 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
     if(this.regions && typeof (this.regions as any).validate === 'function') {
       (this.regions as any).validate();
     }

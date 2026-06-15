@@ -147,6 +147,8 @@ export { DeployHttpApiRequestRestApiConfigEnvironment } from './DeployHttpApiReq
 export { DeployHttpApiRequestRestApiConfigOperationDeployments } from './DeployHttpApiRequest';
 export { DeployHttpApiRequestRestApiConfig } from './DeployHttpApiRequest';
 export { DeployHttpApiResponseBodyData } from './DeployHttpApiResponseBody';
+export { DescribeRegionsResponseBodyDataRegions } from './DescribeRegionsResponseBody';
+export { DescribeRegionsResponseBodyData } from './DescribeRegionsResponseBody';
 export { DescribeRegionsResponseBodyRegionsRegion } from './DescribeRegionsResponseBody';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
 export { ExportHttpApiRequestExtensionConfig } from './ExportHttpApiRequest';
