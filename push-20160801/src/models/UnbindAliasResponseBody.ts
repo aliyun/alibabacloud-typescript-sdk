@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnbindAliasResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 159E4422-6624-4750-8943-DFD98D34858C
    */

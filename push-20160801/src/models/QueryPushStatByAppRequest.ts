@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPushStatByAppRequest extends $dara.Model {
   /**
    * @remarks
+   * The AppKey value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryPushStatByAppRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The end time of the query. Specify the time in ISO 8601 format, YYYY-MM-DDThh:mm:ssZ.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class QueryPushStatByAppRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The data granularity of the response. You can only query data for up to 31 days at daily granularity. Valid values:
+   * 
+   * - **DAY**: Query data at daily granularity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +37,8 @@ export class QueryPushStatByAppRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
+   * The start time of the query. Specify the time in ISO 8601 format, YYYY-MM-DDThh:mm:ssZ.
+   * 
    * This parameter is required.
    * 
    * @example

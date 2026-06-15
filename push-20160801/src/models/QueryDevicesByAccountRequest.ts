@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDevicesByAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * Account name. You can query only one account at a time.
+   * 
    * This parameter is required.
    * 
    * @example
-   * accountName
+   * test_account
    */
   account?: string;
   /**
    * @remarks
+   * AppKey information.
+   * 
    * This parameter is required.
    * 
    * @example

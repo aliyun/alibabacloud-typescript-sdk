@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CompleteContinuouslyPushResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The message ID for the push request.
+   * 
    * @example
-   * 4010290149170430
+   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
    */
   messageId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+   * 500131
    */
   requestId?: string;
   static names(): { [key: string]: string } {

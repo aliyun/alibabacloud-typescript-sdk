@@ -60,6 +60,9 @@ export class QueryDeviceStatResponseBodyAppDeviceStats extends $dara.Model {
 export class QueryDeviceStatResponseBody extends $dara.Model {
   appDeviceStats?: QueryDeviceStatResponseBodyAppDeviceStats;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
    */

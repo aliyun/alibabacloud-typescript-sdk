@@ -4,53 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   /**
+   * @remarks
+   * Account attached to the device.
+   * 
    * @example
    * test@aliyun.com
    */
   account?: string;
   /**
+   * @remarks
+   * Alias attached to the device.
+   * 
    * @example
    * test_alias,test_alias2
    */
   alias?: string;
+  /**
+   * @remarks
+   * Device brand.
+   * 
+   * @example
+   * HUAWEI
+   */
   brand?: string;
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * a64ae296f3b04a58a05b30c95****
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Device token.
+   * 
    * @example
    * 5ecc7b4012aaa801b63******5543ccbda6b4930d09629e936e1ac4b762a7df
    */
   deviceToken?: string;
   /**
+   * @remarks
+   * Device type.
+   * 
    * @example
    * iOS
    */
   deviceType?: string;
   /**
+   * @remarks
+   * Last online time.
+   * 
    * @example
    * 2018-03-27T02:19:40Z
    */
   lastOnlineTime?: string;
+  /**
+   * @remarks
+   * Device model.
+   * 
+   * @example
+   * VOG-AL00
+   */
   model?: string;
   /**
+   * @remarks
+   * Is online.
+   * 
    * @example
    * false
    */
   online?: boolean;
   /**
+   * @remarks
+   * Phone number.
+   * 
    * @example
    * 133********
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * Is push feature enabled.
+   * 
    * @example
    * true
    */
   pushEnabled?: boolean;
   /**
+   * @remarks
+   * Tags attached to the device.
+   * 
    * @example
    * test_tag,test_tag2
    */
@@ -99,8 +143,15 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
 }
 
 export class QueryDeviceInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Device details.
+   */
   deviceInfo?: QueryDeviceInfoResponseBodyDeviceInfo;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
    */

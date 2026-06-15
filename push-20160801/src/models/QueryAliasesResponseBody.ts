@@ -54,6 +54,9 @@ export class QueryAliasesResponseBodyAliasInfos extends $dara.Model {
 export class QueryAliasesResponseBody extends $dara.Model {
   aliasInfos?: QueryAliasesResponseBodyAliasInfos;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 159E4422-6624-4750-8943-DFD98D34858C
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CompleteContinuouslyPushRequest extends $dara.Model {
   /**
    * @remarks
+   * The AppKey value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,10 +15,14 @@ export class CompleteContinuouslyPushRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The message ID.
+   * 
+   * This ID is returned after you call the Push operation and set Target to TBD. It identifies a message saved in the push system.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 4010290149170430
+   * 500131
    */
   messageId?: string;
   static names(): { [key: string]: string } {

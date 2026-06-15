@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTagsRequest extends $dara.Model {
   /**
    * @remarks
+   * The AppKey value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryTagsRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The device, account, or alias. Query one ClientKey at a time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class QueryTagsRequest extends $dara.Model {
   clientKey?: string;
   /**
    * @remarks
+   * The type of the ClientKey.
+   * 
    * This parameter is required.
    * 
    * @example

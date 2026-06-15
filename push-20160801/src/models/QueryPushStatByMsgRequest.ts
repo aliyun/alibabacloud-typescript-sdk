@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPushStatByMsgRequest extends $dara.Model {
   /**
    * @remarks
+   * The AppKey.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class QueryPushStatByMsgRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The ID of the pushed message. This ID is returned after a message is pushed.
+   * 
+   * > Push data is available the next day. You cannot query data for the current day.
+   * 
    * This parameter is required.
    * 
    * @example

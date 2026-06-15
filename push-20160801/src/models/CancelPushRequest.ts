@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelPushRequest extends $dara.Model {
   /**
    * @remarks
+   * Your AppKey.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CancelPushRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The message ID of the push task to cancel.
+   * 
    * This parameter is required.
    * 
    * @example

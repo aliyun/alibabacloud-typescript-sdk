@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveTagRequest extends $dara.Model {
   /**
    * @remarks
+   * The AppKey value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemoveTagRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The name of the tag to remove. You can remove only one tag at a time. Maximum length: 128 characters.
+   * 
    * This parameter is required.
    * 
    * @example

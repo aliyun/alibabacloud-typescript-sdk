@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindPhoneResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
    */

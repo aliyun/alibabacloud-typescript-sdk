@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDeviceRequest extends $dara.Model {
   /**
    * @remarks
+   * The AppKey value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CheckDeviceRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The unique identity of the device in Push. It is 32 characters long and contains only digits and lowercase letters.
+   * 
    * This parameter is required.
    * 
    * @example

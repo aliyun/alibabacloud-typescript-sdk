@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCertificateRequest extends $dara.Model {
   /**
    * @remarks
+   * The AppKey of the application.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -53,6 +53,9 @@ export class ListTagsResponseBodyTagInfos extends $dara.Model {
 
 export class ListTagsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
    */

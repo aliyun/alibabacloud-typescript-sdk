@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MassPushV2ResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of message IDs.
+   */
   messageIds?: string[];
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 159E4422-6624-****-8943-DFD98D34858C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

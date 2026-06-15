@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagsRequest extends $dara.Model {
   /**
    * @remarks
+   * AppKey information.
+   * 
    * This parameter is required.
    * 
    * @example

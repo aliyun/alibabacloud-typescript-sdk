@@ -31,6 +31,9 @@ export class QueryDevicesByAliasResponseBodyDeviceIds extends $dara.Model {
 export class QueryDevicesByAliasResponseBody extends $dara.Model {
   deviceIds?: QueryDevicesByAliasResponseBodyDeviceIds;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 6A9FD644-35A5-40E4-89B0-2021CAEDC1B4
    */

@@ -80,27 +80,42 @@ export class QueryPushRecordsResponseBodyPushInfos extends $dara.Model {
 
 export class QueryPushRecordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Deprecated. This parameter is no longer used.
+   * 
    * @example
    * i91D***********kXIh/dVBEQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 11
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   pushInfos?: QueryPushRecordsResponseBodyPushInfos;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9B24B396-249D-55E4-8CA1-66C9B50BB734
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 193
    */

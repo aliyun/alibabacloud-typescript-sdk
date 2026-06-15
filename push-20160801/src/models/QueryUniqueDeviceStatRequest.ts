@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUniqueDeviceStatRequest extends $dara.Model {
   /**
    * @remarks
+   * Your app key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryUniqueDeviceStatRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The end time of the query, in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,12 @@ export class QueryUniqueDeviceStatRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The time granularity for the query. Valid values:
+   * 
+   * - DAY
+   * 
+   * - MONTH
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,8 @@ export class QueryUniqueDeviceStatRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
+   * The start time of the query, in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ.
+   * 
    * This parameter is required.
    * 
    * @example

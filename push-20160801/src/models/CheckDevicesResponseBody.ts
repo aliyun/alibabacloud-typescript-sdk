@@ -57,6 +57,9 @@ export class CheckDevicesResponseBodyDeviceCheckInfos extends $dara.Model {
 export class CheckDevicesResponseBody extends $dara.Model {
   deviceCheckInfos?: CheckDevicesResponseBodyDeviceCheckInfos;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
    */

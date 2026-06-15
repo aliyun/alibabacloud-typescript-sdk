@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindPhoneRequest extends $dara.Model {
   /**
    * @remarks
+   * AppKey information.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BindPhoneRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
+   * The unique identity of the device, 32-bit, a combination of numbers and lowercase letters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class BindPhoneRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * Phone number.
+   * 
    * This parameter is required.
    * 
    * @example

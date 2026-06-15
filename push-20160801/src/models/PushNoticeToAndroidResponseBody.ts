@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PushNoticeToAndroidResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The message ID for this push request.
+   * 
    * @example
    * 501029
    */
   messageId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
    */

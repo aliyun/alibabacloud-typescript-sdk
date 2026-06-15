@@ -53,6 +53,9 @@ export class QueryTagsResponseBodyTagInfos extends $dara.Model {
 
 export class QueryTagsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D68AE5C6-8AAF-46C9-B627-3FDACD1A4168
    */

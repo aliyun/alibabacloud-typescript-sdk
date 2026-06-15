@@ -84,6 +84,9 @@ export class QueryPushStatByMsgResponseBodyPushStats extends $dara.Model {
 export class QueryPushStatByMsgResponseBody extends $dara.Model {
   pushStats?: QueryPushStatByMsgResponseBodyPushStats;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CF195C34-98FB-491A-98D7-19CBC1FA880B
    */

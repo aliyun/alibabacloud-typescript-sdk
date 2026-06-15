@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDevicesByAliasRequest extends $dara.Model {
   /**
    * @remarks
+   * The alias. You can query only one alias at a time.
+   * 
    * This parameter is required.
    * 
    * @example
-   * aliasName
+   * test_alias
    */
   alias?: string;
   /**
    * @remarks
+   * AppKey information.
+   * 
    * This parameter is required.
    * 
    * @example
