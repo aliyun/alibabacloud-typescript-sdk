@@ -74,7 +74,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 0,1,…23
+   * 0,1,…,23
    */
   timePoints?: string;
   static names(): { [key: string]: string } {

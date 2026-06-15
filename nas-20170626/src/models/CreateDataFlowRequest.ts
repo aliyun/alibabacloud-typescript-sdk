@@ -195,7 +195,7 @@ export class CreateDataFlowRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * oss://bucket1
+   * oss://178321033379****:bucket-01
    */
   sourceStorage?: string;
   /**

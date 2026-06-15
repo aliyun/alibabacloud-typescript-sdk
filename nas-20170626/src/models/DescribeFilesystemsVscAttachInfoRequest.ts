@@ -42,6 +42,35 @@ export class DescribeFilesystemsVscAttachInfoRequestResourceIds extends $dara.Mo
   }
 }
 
+export class DescribeFilesystemsVscAttachInfoRequestRoleChain extends $dara.Model {
+  assumeRoleFor?: string;
+  roleArn?: string;
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      roleArn: 'RoleArn',
+      roleType: 'RoleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'string',
+      roleArn: 'string',
+      roleType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
   /**
    * @remarks
@@ -68,11 +97,13 @@ export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
    * This parameter is required.
    */
   resourceIds?: DescribeFilesystemsVscAttachInfoRequestResourceIds[];
+  roleChain?: DescribeFilesystemsVscAttachInfoRequestRoleChain[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       resourceIds: 'ResourceIds',
+      roleChain: 'RoleChain',
     };
   }
 
@@ -81,12 +112,16 @@ export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       resourceIds: { 'type': 'array', 'itemType': DescribeFilesystemsVscAttachInfoRequestResourceIds },
+      roleChain: { 'type': 'array', 'itemType': DescribeFilesystemsVscAttachInfoRequestRoleChain },
     };
   }
 
   validate() {
     if(Array.isArray(this.resourceIds)) {
       $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.roleChain)) {
+      $dara.Model.validateArray(this.roleChain);
     }
     super.validate();
   }

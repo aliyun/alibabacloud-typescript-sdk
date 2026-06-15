@@ -26,7 +26,7 @@ export class ModifyProtocolServiceRequest extends $dara.Model {
    * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * test
+   * 此协议服务的描述信息
    * 
    * **if can be null:**
    * false
@@ -52,7 +52,7 @@ export class ModifyProtocolServiceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cpfs-123****
+   * cpfs-099394bd928c****
    */
   fileSystemId?: string;
   /**
@@ -62,7 +62,7 @@ export class ModifyProtocolServiceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ptc-123****
+   * ptc-197ed6a00f2b****
    */
   protocolServiceId?: string;
   static names(): { [key: string]: string } {

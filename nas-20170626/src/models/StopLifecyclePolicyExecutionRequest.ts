@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopLifecyclePolicyExecutionRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the file system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StopLifecyclePolicyExecutionRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
+   * The ID of the lifecycle policy.
+   * 
    * This parameter is required.
    * 
    * @example

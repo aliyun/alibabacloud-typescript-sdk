@@ -195,6 +195,10 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
 }
 
 export class DescribeMountTargetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of mount targets.
+   */
   mountTargets?: DescribeMountTargetsResponseBodyMountTargets;
   /**
    * @remarks
@@ -206,7 +210,7 @@ export class DescribeMountTargetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of mount targets per page.
    * 
    * @example
    * 1

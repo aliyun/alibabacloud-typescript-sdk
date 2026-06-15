@@ -21,7 +21,7 @@ export class DescribeMountedClientsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 109c****66
+   * 31a8e4****
    */
   fileSystemId?: string;
   /**

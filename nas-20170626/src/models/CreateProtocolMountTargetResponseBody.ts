@@ -8,7 +8,7 @@ export class CreateProtocolMountTargetResponseBody extends $dara.Model {
    * The ID of the export directory for the protocol service.
    * 
    * @example
-   * exp-123****
+   * exp-19abf5beab8d****
    */
   exportId?: string;
   /**

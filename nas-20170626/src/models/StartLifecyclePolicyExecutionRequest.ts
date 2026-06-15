@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartLifecyclePolicyExecutionRequest extends $dara.Model {
   /**
    * @remarks
+   * The file system ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StartLifecyclePolicyExecutionRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
+   * The lifecycle policy ID.
+   * 
    * This parameter is required.
    * 
    * @example

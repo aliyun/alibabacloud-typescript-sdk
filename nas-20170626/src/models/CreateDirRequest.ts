@@ -69,7 +69,7 @@ export class CreateDirRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * /test
    */
   rootDirectory?: string;
   static names(): { [key: string]: string } {

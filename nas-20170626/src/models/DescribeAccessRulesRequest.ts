@@ -10,7 +10,7 @@ export class DescribeAccessRulesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * vpc-test
+   * classic-test
    */
   accessGroupName?: string;
   /**
@@ -27,7 +27,7 @@ export class DescribeAccessRulesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard (default): General-purpose NAS file system.
+   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
    * *   extreme: Extreme NAS file system.
    * 
    * @example
@@ -36,7 +36,7 @@ export class DescribeAccessRulesRequest extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The page number.
+   * The number of the page to return.
    * 
    * Pages start from page 1. Default value: 1.
    * 

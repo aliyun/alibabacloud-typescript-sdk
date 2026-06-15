@@ -124,7 +124,7 @@ export class CreateAccessPointRequest extends $dara.Model {
    * This field takes effect only if you specify the OwnerUserId and OwnerGroupId parameters.
    * 
    * @example
-   * 0777
+   * 0755
    */
   permission?: string;
   /**

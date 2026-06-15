@@ -4,11 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateLifecyclePolicyRequestRetrieveRules extends $dara.Model {
   /**
+   * @remarks
+   * The rule attribute. Valid value:
+   * 
+   * - `RetrieveType`: The retrieval method.
+   * 
    * @example
    * RetrieveType
    */
   attribute?: string;
   /**
+   * @remarks
+   * The retrieval method. Valid values:
+   * 
+   * - If `Attribute` is set to `RetrieveType`:
+   * 
+   *   - `AfterVisit`: Retrieves data on a best-effort basis after a file is accessed. This value is valid only when `LifecyclePolicyType` is `Auto`.
+   * 
+   *   - `All`: Retrieves all data. This value is valid only when `LifecyclePolicyType` is `OnDemand`.
+   * 
    * @example
    * All
    */
@@ -38,11 +52,25 @@ export class UpdateLifecyclePolicyRequestRetrieveRules extends $dara.Model {
 
 export class UpdateLifecyclePolicyRequestTransitRules extends $dara.Model {
   /**
+   * @remarks
+   * The rule attribute.
+   * 
+   * Valid value:
+   * 
+   * - `Atime`: The last access time of a file.
+   * 
    * @example
    * Atime
    */
   attribute?: string;
   /**
+   * @remarks
+   * The rule threshold.
+   * 
+   * Valid value:
+   * 
+   * - If `Attribute` is set to `Atime`, this parameter specifies the number of days since a file was last accessed. The value must be between 1 and 365.
+   * 
    * @example
    * 3
    */
@@ -72,12 +100,21 @@ export class UpdateLifecyclePolicyRequestTransitRules extends $dara.Model {
 
 export class UpdateLifecyclePolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the lifecycle policy.
+   * 
+   * The description must be 3 to 64 characters long and must start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
+   * 
+   * > This parameter is supported only for CPFS for AI file systems.
+   * 
    * @example
    * Lifecycle policy description
    */
   description?: string;
   /**
    * @remarks
+   * The ID of the file system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -86,19 +123,46 @@ export class UpdateLifecyclePolicyRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
+   * The ID of the lifecycle policy.
+   * 
+   * > This parameter is required for CPFS for AI file systems.
+   * 
    * This parameter is required.
    * 
    * @example
    * lsp-bp1234567890ab****
    */
   lifecyclePolicyId?: string;
+  /**
+   * @remarks
+   * The absolute paths of the directories to which the lifecycle policy applies.
+   */
   paths?: string[];
+  /**
+   * @remarks
+   * The retrieval rule for files. You can specify only one retrieval rule.
+   * 
+   * > This parameter is supported only for CPFS for AI file systems.
+   */
   retrieveRules?: UpdateLifecyclePolicyRequestRetrieveRules[];
   /**
+   * @remarks
+   * The storage tier.
+   * 
+   * - `InfrequentAccess`: The Infrequent Access storage tier. This is the default value.
+   * 
+   * - `Archive`: The Archive storage tier.
+   * 
    * @example
    * InfrequentAccess
    */
   storageType?: string;
+  /**
+   * @remarks
+   * The transition rule for files. You can specify only one transition rule.
+   * 
+   * > This parameter is supported only for CPFS for AI file systems when `LifecyclePolicyType` is set to `Auto`.
+   */
   transitRules?: UpdateLifecyclePolicyRequestTransitRules[];
   static names(): { [key: string]: string } {
     return {

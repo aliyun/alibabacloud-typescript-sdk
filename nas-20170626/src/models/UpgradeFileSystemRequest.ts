@@ -52,7 +52,7 @@ export class UpgradeFileSystemRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1ca404****
+   * extreme-0015****
    */
   fileSystemId?: string;
   static names(): { [key: string]: string } {

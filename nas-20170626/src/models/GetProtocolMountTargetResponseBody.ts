@@ -7,7 +7,7 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
    * @remarks
    * The name of the permission group.
    * 
-   * Default permission group: DEFAULT\\\_VPC\\\_GROUP\\\_NAME
+   * Default permission group: DEFAULT\_VPC\_GROUP\_NAME
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -26,7 +26,7 @@ export class GetProtocolMountTargetResponseBodyProtocolMountTarget extends $dara
    * The description of the export directory.
    * 
    * @example
-   * The description of the export directory.
+   * 此协议服务导出的描述。
    */
   description?: string;
   /**

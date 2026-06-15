@@ -9,9 +9,11 @@ export class ModifyFileSystemShrinkRequest extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   The description must be 2 to 128 characters in length.
-   * *   It must start with a letter but cannot start with `http://` or `https://`.
-   * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * - The description must be 2 to 128 characters.
+   * 
+   * - It must start with an uppercase or lowercase letter or a Chinese character, and cannot start with `http://` or `https://`.
+   * 
+   * - It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * NAS-test-1
@@ -21,9 +23,11 @@ export class ModifyFileSystemShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the file system.
    * 
-   * *   Sample ID of a General-purpose NAS file system: `31a8e4****`.
-   * *   The IDs of Extreme NAS file systems must start with `extreme-`. Example: `extreme-0015****`.
-   * *   The IDs of Cloud Paralleled File System (CPFS) file systems must start with `cpfs-`. Example: `cpfs-125487****`.
+   * - General-purpose NAS: For example, `31a8e4****`.
+   * 
+   * - Extreme NAS: The ID must start with `extreme-`. For example, `extreme-0015****`.
+   * 
+   * - CPFS: The ID must start with `cpfs-`. For example, `cpfs-125487****`.
    * 
    * This parameter is required.
    * 
@@ -33,7 +37,7 @@ export class ModifyFileSystemShrinkRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The options.
+   * Additional options for the file system.
    */
   optionsShrink?: string;
   static names(): { [key: string]: string } {

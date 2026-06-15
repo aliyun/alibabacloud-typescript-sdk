@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateLifecyclePolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
+   * Valid values:
+   * 
+   * - true: The request succeeded.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

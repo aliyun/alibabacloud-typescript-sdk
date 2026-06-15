@@ -51,7 +51,7 @@ export class CreateAccessGroupRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard (default): General-purpose NAS file system.
+   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
    * *   extreme: Extreme NAS file system.
    * 
    * @example

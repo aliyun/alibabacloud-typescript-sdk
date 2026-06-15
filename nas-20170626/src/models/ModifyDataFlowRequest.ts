@@ -36,7 +36,7 @@ export class ModifyDataFlowRequest extends $dara.Model {
    * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * test
+   * Bucket01数据流动
    */
   description?: string;
   /**

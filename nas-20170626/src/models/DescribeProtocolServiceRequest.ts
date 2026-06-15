@@ -24,7 +24,7 @@ export class DescribeProtocolServiceRequest extends $dara.Model {
    * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * test
+   * 此协议服务的描述
    */
   description?: string;
   /**

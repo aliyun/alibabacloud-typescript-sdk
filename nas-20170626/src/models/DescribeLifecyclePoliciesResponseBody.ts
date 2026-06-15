@@ -98,7 +98,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * Description
    * 
    * @example
-   * Description
+   * 描述
    */
   description?: string;
   /**

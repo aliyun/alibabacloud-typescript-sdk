@@ -5,14 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListDirectoriesAndFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to query only directories.
+   * Whether to list only directories.
    * 
    * Valid values:
    * 
-   * *   false (default): queries both directories and files.
-   * *   true: queries only directories.
+   * - `false` (default): Lists both directories and files.
    * 
-   * >  If you set the StorageType parameter to All, you must set the DirectoryOnly parameter to true.
+   * - `true`: Lists only directories.
+   * 
+   * > If you set `StorageType` to `All`, you must set `DirectoryOnly` to `true`.
    * 
    * @example
    * false
@@ -30,11 +31,11 @@ export class ListDirectoriesAndFilesRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The maximum number of directories or files to include in the results of each query.
+   * The maximum number of directories or files to return per page.
    * 
-   * Valid values: 10 to 128.
+   * Value range: 10–128
    * 
-   * Default value: 100.
+   * Default value: 100
    * 
    * @example
    * 100
@@ -42,7 +43,7 @@ export class ListDirectoriesAndFilesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * A continuation token used to retrieve the next page of results when the response is truncated.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
@@ -52,7 +53,7 @@ export class ListDirectoriesAndFilesRequest extends $dara.Model {
    * @remarks
    * The absolute path of the directory.
    * 
-   * The path must start with a forward slash (/) and must be a path that exists in the mount target.
+   * The path must start with a forward slash (/) and exist on the mount target.
    * 
    * This parameter is required.
    * 
@@ -62,13 +63,15 @@ export class ListDirectoriesAndFilesRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The storage class.
+   * The storage type.
    * 
-   * *   InfrequentAccess: the Infrequent Access (IA) storage class.
-   * *   Archive: the Archive storage class.
-   * *   All: all stored data.
+   * - `InfrequentAccess`: infrequent access.
    * 
-   * >  If you set the StorageType parameter to All, you must set the DirectoryOnly parameter to true.
+   * - `Archive`: archive storage.
+   * 
+   * - `All`: all storage types.
+   * 
+   * > If you set `StorageType` to `All`, you must set `DirectoryOnly` to `true`.
    * 
    * This parameter is required.
    * 

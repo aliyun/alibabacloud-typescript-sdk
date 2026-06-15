@@ -26,7 +26,7 @@ export class ModifyProtocolMountTargetRequest extends $dara.Model {
    * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * test
+   * 此导出目录的描述信息
    */
   description?: string;
   /**

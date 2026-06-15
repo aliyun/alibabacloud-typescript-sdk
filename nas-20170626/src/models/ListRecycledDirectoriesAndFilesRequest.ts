@@ -44,7 +44,7 @@ export class ListRecycledDirectoriesAndFilesRequest extends $dara.Model {
    * If all the files and directories are incompletely returned in a query, the return value of the NextToken parameter is not empty. In this case, you can specify a valid value for the NextToken parameter to continue the query.
    * 
    * @example
-   * CJyNARIsMTY5OTI2NjQ3NTEzMjY2OTMwOF8xODA5NF8ufnl0YkROTl9uZXcuaXB5bmI=
+   * 1256****25
    */
   nextToken?: string;
   static names(): { [key: string]: string } {

@@ -66,7 +66,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * A pagination token. It can be used in the next request to retrieve a new page of results. If the value of this parameter is null, no queries are performed after the current query.
    * 
    * @example
-   * MTcyNDU1MTYyNjIxNTMyNzM4NiMzNjExMzQxNw==
+   * 无
    */
   nextToken?: string;
   /**

@@ -13,7 +13,7 @@ export class CreateDataFlowTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the dataflow task.
+   * The Dataflow task ID.
    * 
    * @example
    * task-38aa8e890f45****

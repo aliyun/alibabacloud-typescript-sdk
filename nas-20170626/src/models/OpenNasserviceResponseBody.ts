@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenNASServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the failed permission verification.
+   * The access denied details.
    * 
    * @example
    * {
@@ -21,7 +21,7 @@ export class OpenNASServiceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The order ID.
+   * The order ID for enabling the service.
    * 
    * @example
    * 20671870151****

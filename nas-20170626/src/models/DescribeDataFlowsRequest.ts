@@ -70,7 +70,7 @@ export class DescribeDataFlowsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * bmcpfs-290w65p03ok64ya****
+   * cpfs-099394bd928c****
    */
   fileSystemId?: string;
   /**

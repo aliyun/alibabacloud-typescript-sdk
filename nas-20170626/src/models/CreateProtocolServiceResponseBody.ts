@@ -8,7 +8,7 @@ export class CreateProtocolServiceResponseBody extends $dara.Model {
    * The ID of the protocol service.
    * 
    * @example
-   * ptc-123****
+   * ptc-197ed6a00f2b****
    */
   protocolServiceId?: string;
   /**

@@ -17,7 +17,7 @@ export class CancelDataFlowSubTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the data flow.
+   * The ID of the dataflow.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CancelDataFlowSubTaskRequest extends $dara.Model {
   dataFlowSubTaskId?: string;
   /**
    * @remarks
-   * The ID of the data flow task.
+   * The ID of the dataflow task.
    * 
    * This parameter is required.
    * 

@@ -9,13 +9,16 @@ export class DescribeFileSystemsRequestTag extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   Valid values of N: 1 to 20.
-   * *   The tag key can be up to 128 characters in length.
-   * *   The tag key cannot start with `aliyun` or `acs:`.
-   * *   The tag key cannot contain `http://` or `https://`.
+   * -
+   * 
+   * - The tag key can be up to 128 characters long.
+   * 
+   * - It cannot start with `aliyun` or `acs:`.
+   * 
+   * - It cannot contain `http://` or `https://`.
    * 
    * @example
-   * test
+   * testKey
    */
   key?: string;
   /**
@@ -24,13 +27,16 @@ export class DescribeFileSystemsRequestTag extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   Valid values of N: 1 to 20.
-   * *   The tag value can be up to 128 characters in length.
-   * *   The tag value cannot start with `aliyun` or `acs:`.
-   * *   The tag value cannot contain `http://` or `https://`.
+   * -
+   * 
+   * - The tag value can be up to 128 characters long.
+   * 
+   * - It cannot start with `aliyun` or `acs:`.
+   * 
+   * - It cannot contain `http://` or `https://`.
    * 
    * @example
-   * test-value
+   * testValue
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -61,10 +67,13 @@ export class DescribeFileSystemsRequest extends $dara.Model {
    * @remarks
    * The ID of the file system.
    * 
-   * *   Sample ID of a General-purpose NAS file system: 31a8e4\\*\\*\\*\\*.
-   * *   The IDs of Extreme NAS file systems must start with extreme-, for example, extreme-0015\\*\\*\\*\\*.
-   * *   The IDs of CPFS file systems must start with cpfs-. Example: cpfs-125487\\*\\*\\*\\*.
-   * *   The IDs of CPFS SE file systems must start with cpfsse-. Example: cpfsse-022c71b134\\*\\*\\*\\*.
+   * - For General-purpose NAS file systems, the ID is a string of characters, such as `31a8e4****`.
+   * 
+   * - For Extreme NAS file systems, the ID must start with `extreme-`, such as `extreme-0015****`.
+   * 
+   * - For Cloud Parallel File System (CPFS) file systems, the ID must start with `cpfs-`, such as `cpfs-125487****`.
+   * 
+   * - For Cloud Parallel File System SE (CPFS SE) file systems, the ID must start with `cpfsse-`, such as `cpfsse-022c71b134****`.
    * 
    * @example
    * 31a8e4****
@@ -72,17 +81,21 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The type of the file system.
+   * The file system type.
    * 
    * Valid values:
    * 
-   * *   all (default): All types.
-   * *   standard: General-purpose NAS
-   * *   extreme: Extreme NAS
-   * *   cpfs: CPFS (locally redundant storage)
-   * *   cpfsse: CPFS SE (zone-redundant storage)
+   * - `all` (default): all file system types.
    * 
-   * >  Separate multiple data types with commas (,).
+   * - `standard`: General-purpose NAS.
+   * 
+   * - `extreme`: Extreme NAS.
+   * 
+   * - `cpfs`: Cloud Parallel File System (CPFS).
+   * 
+   * - `cpfsse`: Cloud Parallel File System SE (CPFS SE).
+   * 
+   * > Separate multiple types with commas.
    * 
    * @example
    * standard
@@ -90,9 +103,9 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the file system list.
    * 
-   * Pages start from page 1. Default value: 1.
+   * The page number starts at 1. The default value is 1.
    * 
    * @example
    * 1
@@ -100,36 +113,36 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of file systems to return on each page.
    * 
-   * Valid values: 1 to 100.
+   * Value range: 1 to 100.
    * 
    * Default value: 10.
    * 
    * @example
-   * 10
+   * 1
    */
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
-   * You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?) to view resource group IDs.
+   * You can view this ID in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?).
    * 
    * @example
-   * rg-acfmwavnfdf****
+   * rg-acfmwavnfef****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The details about the tags.
+   * The tags used to filter file systems. You can specify 1 to 20 tags.
    */
   tag?: DescribeFileSystemsRequestTag[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The ID of the VPC.
    * 
-   * If you want to mount the file system on an Elastic Compute Service (ECS) instance, the file system and the ECS instance must reside in the same VPC.
+   * The file system and the ECS instance used for mounting must be in the same VPC.
    * 
    * @example
    * vpc-bp1sevsgtqvk5gxbl****

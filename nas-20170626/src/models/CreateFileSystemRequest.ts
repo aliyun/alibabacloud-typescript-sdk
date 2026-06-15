@@ -123,7 +123,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * *   Can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * test
+   * 此文件系统的描述。
    */
   description?: string;
   /**
@@ -197,7 +197,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * This parameter is required if EncryptType is set to 2.
    * 
    * @example
-   * 3c0b3885-2adf-483d-8a65-5e280689****
+   * fcbd****-62**-4a**-b605-c58cc1d5****
    */
   kmsKeyId?: string;
   /**
@@ -257,7 +257,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * > You can create a file system from a snapshot. The version of the file system is the same as that of the source file system. For example, the source file system of the snapshot uses version 1. To create a file system of version 2, create File System A from the snapshot and create File System B of version 2. Then copy the data and migrate your business from File System A to File System B.
    * 
    * @example
-   * s-xxx
+   * s-extreme-snapsho****
    */
   snapshotId?: string;
   /**
@@ -290,7 +290,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * *   If FileSystemType is not set to cpfs, this parameter is reserved and not required.
    * 
    * @example
-   * vsw-2ze37k6jh8ums2fw2****
+   * vsw-bp131dkqilvw5pnlt****
    */
   vSwitchId?: string;
   /**
@@ -301,7 +301,7 @@ export class CreateFileSystemRequest extends $dara.Model {
    * *   This parameter is reserved and not required if FileSystemType is set to standard or extreme.
    * 
    * @example
-   * vpc-bp1cbv1ljve4j5hlw****
+   * vpc-bp18cx9a7zoh0h9b4****
    */
   vpcId?: string;
   /**

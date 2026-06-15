@@ -62,7 +62,7 @@ export class CreateDataFlowSubTaskRequest extends $dara.Model {
   condition?: CreateDataFlowSubTaskRequestCondition;
   /**
    * @remarks
-   * The ID of the data flow.
+   * The ID of the dataflow.
    * 
    * This parameter is required.
    * 
@@ -72,9 +72,9 @@ export class CreateDataFlowSubTaskRequest extends $dara.Model {
   dataFlowId?: string;
   /**
    * @remarks
-   * The ID of the data flow task.
+   * The ID of the dataflow task.
    * 
-   * >  Only the IDs of data streaming tasks are supported.
+   * > Only the IDs of data streaming tasks are supported.
    * 
    * This parameter is required.
    * 

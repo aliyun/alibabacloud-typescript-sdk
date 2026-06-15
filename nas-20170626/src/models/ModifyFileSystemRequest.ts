@@ -6,12 +6,13 @@ export class ModifyFileSystemRequestOptions extends $dara.Model {
   enableABE?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the oplock feature. Valid values:
+   * Specifies whether to enable OpLock. Valid values:
    * 
-   * *   true: enables the feature.
-   * *   false: disables the feature.
+   * - true: Enables OpLock.
    * 
-   * >  Only Server Message Block (SMB) file systems support this feature.
+   * - false: Disables OpLock.
+   * 
+   * > This feature is available only for file systems that use the SMB protocol.
    * 
    * @example
    * true
@@ -50,9 +51,11 @@ export class ModifyFileSystemRequest extends $dara.Model {
    * 
    * Limits:
    * 
-   * *   The description must be 2 to 128 characters in length.
-   * *   It must start with a letter but cannot start with `http://` or `https://`.
-   * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * - The description must be 2 to 128 characters.
+   * 
+   * - It must start with an uppercase or lowercase letter or a Chinese character, and cannot start with `http://` or `https://`.
+   * 
+   * - It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * NAS-test-1
@@ -62,9 +65,11 @@ export class ModifyFileSystemRequest extends $dara.Model {
    * @remarks
    * The ID of the file system.
    * 
-   * *   Sample ID of a General-purpose NAS file system: `31a8e4****`.
-   * *   The IDs of Extreme NAS file systems must start with `extreme-`. Example: `extreme-0015****`.
-   * *   The IDs of Cloud Paralleled File System (CPFS) file systems must start with `cpfs-`. Example: `cpfs-125487****`.
+   * - General-purpose NAS: For example, `31a8e4****`.
+   * 
+   * - Extreme NAS: The ID must start with `extreme-`. For example, `extreme-0015****`.
+   * 
+   * - CPFS: The ID must start with `cpfs-`. For example, `cpfs-125487****`.
    * 
    * This parameter is required.
    * 
@@ -74,7 +79,7 @@ export class ModifyFileSystemRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The options.
+   * Additional options for the file system.
    */
   options?: ModifyFileSystemRequestOptions;
   static names(): { [key: string]: string } {

@@ -7,7 +7,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
    * @remarks
    * The dual-stack (IPv4 and IPv6) domain name of the mount target.
    * 
-   * > Only Extreme NAS file systems that reside in the Chinese mainland support IPv6.
+   * > Currently, only Extreme NAS file systems in Chinese mainland regions support IPv6.
    * 
    * @example
    * 1ca404****-x****.dualstack.cn-hangzhou.nas.aliyuncs.com
@@ -17,9 +17,11 @@ export class DescribeMountTargetsRequest extends $dara.Model {
    * @remarks
    * The ID of the file system.
    * 
-   * *   Sample ID of a General-purpose NAS file system: 31a8e4\\*\\*\\*\\*.
-   * *   The IDs of Extreme NAS file systems must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
-   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+   * - general-purpose NAS: 31a8e4\\*\\*\\*\\*.
+   * 
+   * - Extreme NAS: The ID must start with `extreme-`. Example: extreme-0015\\*\\*\\*\\*.
+   * 
+   * - CPFS: The ID must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
    * 
    * This parameter is required.
    * 
@@ -29,7 +31,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The address of the mount target.
+   * The domain name of the mount target.
    * 
    * @example
    * 1ca404****-x****.cn-hangzhou.nas.aliyuncs.com
@@ -37,9 +39,9 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number to return.
    * 
-   * Pages start from page 1. Default value: 1.
+   * The value must be 1 or greater. Default value: 1.
    * 
    * @example
    * 1
@@ -47,7 +49,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of mount targets to return per page.
    * 
    * Valid values: 1 to 100.
    * 

@@ -42,6 +42,35 @@ export class DetachVscFromFilesystemsRequestResourceIds extends $dara.Model {
   }
 }
 
+export class DetachVscFromFilesystemsRequestRoleChain extends $dara.Model {
+  assumeRoleFor?: string;
+  roleArn?: string;
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      roleArn: 'RoleArn',
+      roleType: 'RoleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'string',
+      roleArn: 'string',
+      roleType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachVscFromFilesystemsRequest extends $dara.Model {
   /**
    * @remarks
@@ -62,10 +91,12 @@ export class DetachVscFromFilesystemsRequest extends $dara.Model {
    * This parameter is required.
    */
   resourceIds?: DetachVscFromFilesystemsRequestResourceIds[];
+  roleChain?: DetachVscFromFilesystemsRequestRoleChain[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       resourceIds: 'ResourceIds',
+      roleChain: 'RoleChain',
     };
   }
 
@@ -73,12 +104,16 @@ export class DetachVscFromFilesystemsRequest extends $dara.Model {
     return {
       clientToken: 'string',
       resourceIds: { 'type': 'array', 'itemType': DetachVscFromFilesystemsRequestResourceIds },
+      roleChain: { 'type': 'array', 'itemType': DetachVscFromFilesystemsRequestRoleChain },
     };
   }
 
   validate() {
     if(Array.isArray(this.resourceIds)) {
       $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.roleChain)) {
+      $dara.Model.validateArray(this.roleChain);
     }
     super.validate();
   }

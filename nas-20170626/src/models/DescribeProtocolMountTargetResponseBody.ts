@@ -24,7 +24,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
    * The description of the export directory for the protocol service.
    * 
    * @example
-   * test
+   * 此协议服务导出目录的描述。
    */
   description?: string;
   /**

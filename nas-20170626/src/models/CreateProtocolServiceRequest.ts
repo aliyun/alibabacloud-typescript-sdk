@@ -26,7 +26,7 @@ export class CreateProtocolServiceRequest extends $dara.Model {
    * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * test
+   * 此协议服务的描述。
    */
   description?: string;
   /**
@@ -51,7 +51,7 @@ export class CreateProtocolServiceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cpfs-123****
+   * cpfs-099394bd928c****
    */
   fileSystemId?: string;
   /**
@@ -99,7 +99,7 @@ export class CreateProtocolServiceRequest extends $dara.Model {
    * The vSwitch ID of the protocol service.
    * 
    * @example
-   * vsw-123****
+   * vsw-2vc3c2lybvdllxyq4****
    * 
    * **if can be null:**
    * true
@@ -110,7 +110,7 @@ export class CreateProtocolServiceRequest extends $dara.Model {
    * The virtual private cloud (VPC) ID of the protocol service. The VPC ID of the protocol service must be the same as the VPC ID of the file system.
    * 
    * @example
-   * vpc-123****
+   * vpc-2vct297b8157bth9z****
    * 
    * **if can be null:**
    * true

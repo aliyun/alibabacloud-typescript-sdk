@@ -10,7 +10,7 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
    * >  Only CPFS for Lingjun supports this parameter.
    * 
    * @example
-   * Description
+   * 描述
    */
   description?: string;
   /**

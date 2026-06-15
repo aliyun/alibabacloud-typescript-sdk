@@ -60,7 +60,7 @@ export class CreateFilesetRequest extends $dara.Model {
    * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
    * 
    * @example
-   * 123e4567-e89b-12d3-a456-42665544****
+   * 123e4567-e89b-12d3-a456-4266554*****
    */
   clientToken?: string;
   /**
@@ -85,7 +85,7 @@ export class CreateFilesetRequest extends $dara.Model {
    * *   The description can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
-   * test
+   * 内部事务目录
    */
   description?: string;
   /**
@@ -113,7 +113,7 @@ export class CreateFilesetRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * bmcpfs-290w65p03ok64ya****
+   * bmcpfs-290w65p03ok64y*****
    */
   fileSystemId?: string;
   /**

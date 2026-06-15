@@ -36,7 +36,7 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
    * *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * test
+   * 此导出目录的描述
    */
   description?: string;
   /**
@@ -59,7 +59,7 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cpfs-123****
+   * cpfs-099394bd928c****
    */
   fileSystemId?: string;
   /**
@@ -73,7 +73,7 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
    * *   You can specify either a fileset or a path.
    * 
    * @example
-   * fset-123****
+   * fset-1902718ea0ae****
    */
   fsetId?: string;
   /**
@@ -103,7 +103,7 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ptc-123****
+   * ptc-197ed6a00f2b****
    */
   protocolServiceId?: string;
   /**
@@ -113,7 +113,7 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
    * If the storage redundancy type of the file system is not zone-redundant (ZRS) and the VpcId is set, this field is required.
    * 
    * @example
-   * vsw-123****
+   * vsw-2vc3c2lybvdllxyq4****
    * 
    * **if can be null:**
    * true
@@ -132,7 +132,7 @@ export class CreateProtocolMountTargetRequest extends $dara.Model {
    * The VPC ID of the export directory.
    * 
    * @example
-   * vpc-123****
+   * vpc-2vct297b8157bth9z****
    * 
    * **if can be null:**
    * true

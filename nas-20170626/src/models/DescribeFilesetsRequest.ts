@@ -28,7 +28,7 @@ export class DescribeFilesetsRequestFilters extends $dara.Model {
    * *   If Key is set to QuotaExists, set Value to true or false. If you do not specify the parameter, all filesets are returned.
    * 
    * @example
-   * fset-1902718ea0ae****,fset-3212718ea0ae****
+   * fset-1902718ea0ae****
    */
   value?: string;
   static names(): { [key: string]: string } {

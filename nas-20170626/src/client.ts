@@ -192,17 +192,16 @@ export default class Client extends OpenApi {
    * Adds AutoRefresh configurations to a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
-   * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
-   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the dataflow status.
-   * *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
-   *     **
-   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-   * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS data flow.
-   * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a data flow task to load the updated data.
-   * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS data flow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the data flow status becomes Misconfigured. To resolve these issues, you can increase the data flow specifications or reduce the frequency of triggering the object modification event.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持状态为`Running（正常）`状态的数据流动添加自动更新配置。
+   * - 一个数据流动最多可以添加5个自动更新配置。
+   * - 创建自动更新配置一般耗时2～5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html)查询数据流动状态。
+   * - 自动更新依赖EventBridge收集源端OSS存储的对象修改事件。需要先[开通EventBridge服务](https://help.aliyun.com/document_detail/182246.html)。
+   *   > CPFS在EventBridge创建的事件总线、事件规则带有`Create for cpfs auto refresh`的描述，事件总线、事件规则都不能修改和删除，否则自动更新无法正常工作。
+   * - 自动更新的作用对象是prefix，由参数RefreshPath指定。在CPFS数据流动对prefix配置自动更新时，会在用户侧创建事件总线，并创建源端OSS Bucket的prefix的事件规则。当源端OSS Bucket的prefix内发生对象修改后，会在EventBridge中产生OSS事件，由CPFS数据流动处理。
+   * - 配置自动更新（AutoRefresh）后，当源端存储数据发生变化时，变化的元数据会自动同步到CPFS文件系统，变化的数据会在用户访问文件时按需加载，或者启动数据流动任务加载数据。
+   * - 自动更新间隔（AutoRefreshInterval）指CPFS每隔该时间间隔，检查源端OSS Bucket该prefix内是否存在数据更新，如果有数据更新则启动自动更新任务。当OSS源端的对象修改事件频率超过CPFS数据流动处理能力时，自动更新任务会堆积，元数据更新会延迟，数据流动的状态为Misconfigured，您可以提升数据流动规格，或者降低OSS修改频率来解决。
    * 
    * @param request - ApplyDataFlowAutoRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -260,17 +259,16 @@ export default class Client extends OpenApi {
    * Adds AutoRefresh configurations to a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
-   * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
-   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the dataflow status.
-   * *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
-   *     **
-   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-   * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS data flow.
-   * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a data flow task to load the updated data.
-   * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS data flow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the data flow status becomes Misconfigured. To resolve these issues, you can increase the data flow specifications or reduce the frequency of triggering the object modification event.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持状态为`Running（正常）`状态的数据流动添加自动更新配置。
+   * - 一个数据流动最多可以添加5个自动更新配置。
+   * - 创建自动更新配置一般耗时2～5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html)查询数据流动状态。
+   * - 自动更新依赖EventBridge收集源端OSS存储的对象修改事件。需要先[开通EventBridge服务](https://help.aliyun.com/document_detail/182246.html)。
+   *   > CPFS在EventBridge创建的事件总线、事件规则带有`Create for cpfs auto refresh`的描述，事件总线、事件规则都不能修改和删除，否则自动更新无法正常工作。
+   * - 自动更新的作用对象是prefix，由参数RefreshPath指定。在CPFS数据流动对prefix配置自动更新时，会在用户侧创建事件总线，并创建源端OSS Bucket的prefix的事件规则。当源端OSS Bucket的prefix内发生对象修改后，会在EventBridge中产生OSS事件，由CPFS数据流动处理。
+   * - 配置自动更新（AutoRefresh）后，当源端存储数据发生变化时，变化的元数据会自动同步到CPFS文件系统，变化的数据会在用户访问文件时按需加载，或者启动数据流动任务加载数据。
+   * - 自动更新间隔（AutoRefreshInterval）指CPFS每隔该时间间隔，检查源端OSS Bucket该prefix内是否存在数据更新，如果有数据更新则启动自动更新任务。当OSS源端的对象修改事件频率超过CPFS数据流动处理能力时，自动更新任务会堆积，元数据更新会延迟，数据流动的状态为Misconfigured，您可以提升数据流动规格，或者降低OSS修改频率来解决。
    * 
    * @param request - ApplyDataFlowAutoRefreshRequest
    * @returns ApplyDataFlowAutoRefreshResponse
@@ -284,8 +282,8 @@ export default class Client extends OpenApi {
    * Associates the VSC device with the file system.
    * 
    * @remarks
-   *   Only CPFS for Lingjun supports this operation.
-   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * - 仅CPFS智算版支持该功能。
+   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
    * 
    * @param request - AttachVscToFilesystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -300,6 +298,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceIds)) {
       query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.roleChain)) {
+      query["RoleChain"] = request.roleChain;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -323,8 +325,8 @@ export default class Client extends OpenApi {
    * Associates the VSC device with the file system.
    * 
    * @remarks
-   *   Only CPFS for Lingjun supports this operation.
-   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * - 仅CPFS智算版支持该功能。
+   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
    * 
    * @param request - AttachVscToFilesystemsRequest
    * @returns AttachVscToFilesystemsResponse
@@ -388,10 +390,10 @@ export default class Client extends OpenApi {
    * Cancels the AutoRefresh configuration for a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the status of the AutoRefresh tasks.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持取消`Running（正常）`、`Stopped（停止）`状态数据流动的自动更新配置。
+   * - 取消自动更新配置一般耗时2～5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html)查询取消自动更新任务的状态。
    * 
    * @param request - CancelDataFlowAutoRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -441,10 +443,10 @@ export default class Client extends OpenApi {
    * Cancels the AutoRefresh configuration for a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the status of the AutoRefresh tasks.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持取消`Running（正常）`、`Stopped（停止）`状态数据流动的自动更新配置。
+   * - 取消自动更新配置一般耗时2～5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html)查询取消自动更新任务的状态。
    * 
    * @param request - CancelDataFlowAutoRefreshRequest
    * @returns CancelDataFlowAutoRefreshResponse
@@ -458,9 +460,9 @@ export default class Client extends OpenApi {
    * Cancels a data streaming task.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
-   * *   You can cancel a data streaming task only when the task is in the CREATED or RUNNING state.
-   * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
+   * - 仅CPFS智算版2.6.0 及以上版本支持。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持在 CREATED和RUNNING状态下取消数据流动流式任务。
+   * - 数据流动流式任务是异步执行的，您可通过DescribeDataFlowSubTasks查询流式任务执行状态。
    * 
    * @param request - CancelDataFlowSubTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -514,9 +516,9 @@ export default class Client extends OpenApi {
    * Cancels a data streaming task.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
-   * *   You can cancel a data streaming task only when the task is in the CREATED or RUNNING state.
-   * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
+   * - 仅CPFS智算版2.6.0 及以上版本支持。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持在 CREATED和RUNNING状态下取消数据流动流式任务。
+   * - 数据流动流式任务是异步执行的，您可通过DescribeDataFlowSubTasks查询流式任务执行状态。
    * 
    * @param request - CancelDataFlowSubTaskRequest
    * @returns CancelDataFlowSubTaskResponse
@@ -527,13 +529,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a batch or streaming task that is in the Pending or Execute state.
+   * Cancels a batch or streaming data flow task that is in the Pending or Executing state.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support this operation. You can view the version information on the file system details page in the console.
-   * *   You can cancel only the data flow tasks that are in the `Pending` and `Executing` states.
-   * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
-   * *   If a data streaming task contains running subtasks, you cannot cancel the streaming task. Otherwise, an InvalidStatus.ResourceMismatch error message is returned.
+   * - Data flow tasks are supported only by CPFS 2.2.0 or later and CPFS for AI Computing 2.4.0 or later. The file system details page in the console displays the version information.
+   * - A data flow task can be canceled only if it is in the `Pending or Executing` state.
+   * - Canceling a data flow task typically takes 5 to 10 minutes. Call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation to query the task execution status.
+   * - You cannot cancel a streaming task if it has running streaming subtasks. Otherwise, the system returns an InvalidStatus.ResourceMismatch error.
    * 
    * @param request - CancelDataFlowTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -580,13 +582,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a batch or streaming task that is in the Pending or Execute state.
+   * Cancels a batch or streaming data flow task that is in the Pending or Executing state.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support this operation. You can view the version information on the file system details page in the console.
-   * *   You can cancel only the data flow tasks that are in the `Pending` and `Executing` states.
-   * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
-   * *   If a data streaming task contains running subtasks, you cannot cancel the streaming task. Otherwise, an InvalidStatus.ResourceMismatch error message is returned.
+   * - Data flow tasks are supported only by CPFS 2.2.0 or later and CPFS for AI Computing 2.4.0 or later. The file system details page in the console displays the version information.
+   * - A data flow task can be canceled only if it is in the `Pending or Executing` state.
+   * - Canceling a data flow task typically takes 5 to 10 minutes. Call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation to query the task execution status.
+   * - You cannot cancel a streaming task if it has running streaming subtasks. Otherwise, the system returns an InvalidStatus.ResourceMismatch error.
    * 
    * @param request - CancelDataFlowTaskRequest
    * @returns CancelDataFlowTaskResponse
@@ -660,7 +662,7 @@ export default class Client extends OpenApi {
    * Cancels the quota set for a fileset.
    * 
    * @remarks
-   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+   * 仅CPFS智算版2.7.0及以上版本支持取消配额。
    * 
    * @param request - CancelFilesetQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -706,7 +708,7 @@ export default class Client extends OpenApi {
    * Cancels the quota set for a fileset.
    * 
    * @remarks
-   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+   * 仅CPFS智算版2.7.0及以上版本支持取消配额。
    * 
    * @param request - CancelFilesetQuotaRequest
    * @returns CancelFilesetQuotaResponse
@@ -871,6 +873,11 @@ export default class Client extends OpenApi {
   /**
    * Creates a permission group.
    * 
+   * @remarks
+   * - 一个阿里云账号在单个地域内最多可以创建20个权限组。
+   * - 一个权限组最多支持添加300个规则。
+   * - 仅支持创建专有网络类型的权限组。
+   * 
    * @param request - CreateAccessGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAccessGroupResponse
@@ -914,6 +921,11 @@ export default class Client extends OpenApi {
   /**
    * Creates a permission group.
    * 
+   * @remarks
+   * - 一个阿里云账号在单个地域内最多可以创建20个权限组。
+   * - 一个权限组最多支持添加300个规则。
+   * - 仅支持创建专有网络类型的权限组。
+   * 
    * @param request - CreateAccessGroupRequest
    * @returns CreateAccessGroupResponse
    */
@@ -926,9 +938,9 @@ export default class Client extends OpenApi {
    * Creates an access point.
    * 
    * @remarks
-   *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you call the CreateAccessPoint operation successfully, call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
-   * *   Only General-purpose Network File System (NFS) file systems support access points.
-   * *   If you want to call the EnabledRam operation to enable a Resource Access Management (RAM) policy, you must configure the corresponding RAM permissions. For more information, see [Manage endpoints](https://help.aliyun.com/document_detail/2545998.html).
+   * - 在使用CreateAccessPoint接口创建接入点时部分资源的生成是异步完成的。因此在执行CreateAccessPoint接口成功后，请先调用[DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html)或者[DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html)接口查询接入点状态，当接入点状态为**Active**后再执行挂载文件系统操作，否则可能会挂载失败。
+   * - 仅通用型NAS NFS协议文件系统支持该功能。
+   * - 如果开启RAM策略（EnabledRam），需要配置对应的RAM权限，具体请参考[管理接入点](https://help.aliyun.com/document_detail/2545998.html)。
    * 
    * @param request - CreateAccessPointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1014,9 +1026,9 @@ export default class Client extends OpenApi {
    * Creates an access point.
    * 
    * @remarks
-   *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you call the CreateAccessPoint operation successfully, call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
-   * *   Only General-purpose Network File System (NFS) file systems support access points.
-   * *   If you want to call the EnabledRam operation to enable a Resource Access Management (RAM) policy, you must configure the corresponding RAM permissions. For more information, see [Manage endpoints](https://help.aliyun.com/document_detail/2545998.html).
+   * - 在使用CreateAccessPoint接口创建接入点时部分资源的生成是异步完成的。因此在执行CreateAccessPoint接口成功后，请先调用[DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html)或者[DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html)接口查询接入点状态，当接入点状态为**Active**后再执行挂载文件系统操作，否则可能会挂载失败。
+   * - 仅通用型NAS NFS协议文件系统支持该功能。
+   * - 如果开启RAM策略（EnabledRam），需要配置对应的RAM权限，具体请参考[管理接入点](https://help.aliyun.com/document_detail/2545998.html)。
    * 
    * @param request - CreateAccessPointRequest
    * @returns CreateAccessPointResponse
@@ -1028,6 +1040,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a rule for a permission group.
+   * 
+   * @remarks
+   * 一个权限组最多支持添加300个规则。
    * 
    * @param request - CreateAccessRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1083,6 +1098,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a rule for a permission group.
+   * 
+   * @remarks
+   * 一个权限组最多支持添加300个规则。
    * 
    * @param request - CreateAccessRuleRequest
    * @returns CreateAccessRuleResponse
@@ -1178,66 +1196,69 @@ export default class Client extends OpenApi {
    * Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
    * 
    * @remarks
-   *   Basic operations
-   *     *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support data flows.
-   *     *   You can create a data flow only when a CPFS or CPFS for Lingjun file system is in the Running state.
-   *     *   A maximum of 10 data flows can be created for a CPFS or CPFS for Lingjun file system.
-   *     *   It generally takes 2 to 5 minutes to create a data flow. You can call the DescribeDataFlows operation to check whether the data flow has been created.
-   * *   Permission
-   *     When you create a data flow, CPFS obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
-   * *   CPFS usage notes
-   *     *   Billing
-   *         *   If you create a data flow, you are charged for using the data flow throughput. For more information, see [Billing of CPFS](https://help.aliyun.com/document_detail/111858.html).
-   *         *   When you configure the AutoRefresh feature for a data flow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](https://help.aliyun.com/document_detail/163752.html).
-   *     *   Data flow specifications
-   *         *   The data flow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The data flow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a data flow.
-   *         *   When you create a data flow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
-   *         *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the data flow whose throughput is changed meet the requirements.
-   *     *   Fileset
-   *         *   The destination for a data flow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
-   *         *   When you create a data flow for a CPFS file system, the related fileset must already exist and cannot be nested with other filesets. Only one data flow can be created in a fileset, which corresponds to one source storage.
-   *         *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
-   *     **
-   *     **Note **If data already exists in the fileset, after you create a data flow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
-   *     *   AutoRefresh
-   *         *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a data flow task to load the updated data.
-   *         *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
-   *         *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a data flow.
-   *         *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS data flow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the data flow status becomes `Misconfigured`. To resolve these issues, you can increase the data flow specifications or reduce the frequency of triggering the object modification event.
-   *         *   When you add an AutoRefresh configuration to the prefix for a CPFS data flow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS data flow.
-   *         **
-   *         **Note **The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-   *     *   Source storage
-   *         *   The source storage is an OSS bucket. SourceStorage for a data flow must be an OSS bucket.
-   *         *   CPFS data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-   *         *   If data flows for multiple CPFS file systems or multiple data flows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
-   *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *         **
-   *         **Note **Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS cannot access the data in the OSS bucket.
-   * *   CPFS for Lingjun usage notes
-   *     *   Source storage
-   *         *   The source storage is an OSS bucket. SourceStorage for a data flow must be an OSS bucket.
-   *         *   CPFS for Lingjun data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-   *         *   If data flows for multiple CPFS for Lingjun file systems or multiple data flows for the same CPFS for Lingjun file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS for Lingjun file systems to one OSS bucket.
-   *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *         *   CPFS for Lingjun V2.6.0 and later allow you to create data flows for OSS buckets across accounts.
-   *         *   The account id parameter is required only when you use OSS buckets across accounts.
-   *         *   To use OSS buckets across accounts, you must first grant permissions to the related accounts. For more information, see [Cross-account authorization on data flows](https://help.aliyun.com/document_detail/2713462.html).
-   *             **
-   *             **Note **Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for Lingjun cannot access the data in the OSS bucket.
-   *     *   Limits of data flows on file systems
-   *         *   You cannot rename a non-empty directory in a path that is associated with a data flow. Otherwise, the Permission Denied error message or an error message indicating that the directory is not empty is returned.
-   *         *   Proceed with caution when you use special characters in the names of directories and files. The following characters are supported: letters, digits, exclamation points (!), hyphens (-), underscores (_), periods (.), asterisks (\\*), and parentheses (()).
-   *         *   The path can be up to 1,023 characters in length.
-   *     *   Limits of data flows on import
-   *         *   After a symbolic link is imported to CPFS for Lingjun, the symbolic link is converted into a common data file that contains no symbolic link information.
-   *         *   If an OSS bucket has multiple versions, only data of the latest version is used.
-   *         *   The name of a file or a subdirectory can be up to 255 bytes in length.
-   *     *   Limits of data flows on export
-   *         *   After a symbolic link is synchronized to OSS, the file that the symbolic link points to is not synchronized to OSS. In this case, the symbolic link is converted into a common object that contains no data.
-   *         *   Hard links can be synchronized to OSS only as common files that contain no link information.
-   *         *   After a file of the Socket, Device, or Pipe type is exported to an OSS bucket, the file is converted into a common object that contains no data.
-   *         *   The directory path can be up to 1,023 characters in length.
+   * - 本接口适用于以下产品：
+   * | 产品 | 文件系统ID格式 | 支持数据流动的最低版本 |
+   * |------|----------------|------------------------|
+   * | **CPFS通用版** | 以 `cpfs-` 开头，例如 cpfs-125487**** | 2.2.0 及以上 |
+   * | **CPFS智算版** | 以 `bmcpfs-` 开头，例如 bmcpfs-0015**** | 2.4.0 及以上 |
+   * > ：CPFS通用版和CPFS智算版共用同一套API，但在参数取值和功能支持上有所区别。请根据您使用的产品类型参考相应章节。
+   * - 基础操作
+   *     - CPFS通用版、CPFS智算版文件系统状态为运行中时，才能创建数据流动。
+   *     - 一个CPFS通用版或CPFS智算版文件系统最多允许创建 **10 个**数据流动。
+   *     - 创建数据流动一般耗时 2～5 分钟，您可通过 [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) 检查数据流动创建是否完成。
+   * - 权限
+   *     创建数据流动时，文件存储CPFS会获取`AliyunServiceRoleForNasOssDataflow`和`AliyunServiceRoleForNasEventNotification`两个服务关联角色。更多信息，请参见[CPFS服务关联角色](https://help.aliyun.com/document_detail/185138.html)。
+   * - CPFS通用版使用说明
+   *      本章节适用于文件系统ID以 `cpfs-` 开头的CPFS通用版。
+   *   - 计费
+   *     - 创建数据流动将按照数据流动带宽计费。更多信息，请参见[CPFS通用版计费说明](https://help.aliyun.com/document_detail/111858.html)。
+   *     - 使用自动更新（AutoRefresh）时，需要通过EventBridge收集源端OSS存储的对象修改事件，事件将产生费用。更多信息，请参见[EventBridge计费说明](https://help.aliyun.com/document_detail/163752.html)。
+   *   - 数据流动规格
+   *       - 数据流动带宽（Throughput）支持600 MB/s、1200 MB/s和1500 MB/s三种规格。数据流动带宽是指该数据流动进行导入或导出数据时能达到的最大传输带宽。
+   *     - 创建一个数据流动，会消耗1个文件存储CPFS通用版挂载点使用的vSwitch IP地址，请您确保该vSwitch IP资源充足。
+   *     - 库存查询：当设置DryRun为true时，可校验创建该规格的数据流动的资源是否满足。
+   *   - Fileset
+   *     - 数据流动的目的端是CPFS通用版文件系统中的Fileset。Fileset是CPFS通用版文件系统中一种新的目录树结构，是在父文件系统中的一个小型文件系统，拥有独立的inode空间和管理能力。
+   *     -  创建数据流动时该Fileset必须已存在，且不能与其他Fileset嵌套。一个Fileset上只能创建一个数据流动，对应一个源端存储。
+   *     - Fileset内的文件数量上限是100万，如果从OSS Bucket导入的文件数量超过上限，创建新文件会报错`no space`。
+   *    > 如果Fileset中已存在数据，创建数据流动后，Fileset内的已有数据会被清空，替换为OSS端同步过来的数据。
+   *   - 自动更新
+   *     -  配置自动更新（AutoRefresh）后，当源端存储数据发生变化时，变化的元数据会自动同步到CPFS通用版文件系统，变化的数据会在用户访问文件时按需加载，或者启动数据流动任务加载数据。
+   *     -  自动更新依赖EventBridge收集源端OSS存储的对象修改事件。需要先[开通EventBridge服务](https://help.aliyun.com/document_detail/182246.html)。
+   *     -  自动更新的作用范围是prefix，由参数RefreshPath指定。一个数据流动最多可配置5个自动更新目录。
+   *     -  自动更新间隔（AutoRefreshInterval）指CPFS通用版设置的自动更新时间，检查源端OSS Bucket该prefix内是否存在数据更新，如果有数据更新则启动自动更新任务。当OSS源端的对象修改事件频率超过CPFS通用版数据流动处理能力时，自动更新任务会堆积，元数据更新会延迟，数据流动的状态为`Misconfigured`，您可以提升数据流动规格，或者降低OSS修改频率来解决。
+   *     -  在文件存储CPFS通用版数据流动对prefix配置自动更新时，会在用户侧创建事件总线，并创建源端OSS Bucket的prefix的事件规则。当源端OSS Bucket的prefix内发生对象修改后，会在EventBridge中产生OSS事件，由CPFS通用版数据流动处理。
+   *      > 文件存储CPFS通用版在EventBridge创建的事件总线、事件规则带有`Create for cpfs auto refresh`的描述，事件总线、事件规则都不能修改或删除，否则自动更新无法正常工作。
+   *   -  源端存储
+   *      -  源端存储仅支持OSS。数据流动的源端存储（SourceStorage）必须是OSS Bucket。
+   *      -  CPFS通用版数据流动支持加密和非加密两种方式访问OSS。选择加密（SSL）方式访问OSS时，需确认OSS Bucket的传输加密支持加密访问方式。
+   *      -  如果多个CPFS通用版的数据流动、或者同一个文件存储CPFS通用版的多个数据流动的源端存储是同一个OSS Bucket，为了防止多个文件存储CPFS通用版向同一个源导出数据产生数据冲突，需要该OSS Bucket开启版本控制。
+   *      -  不支持跨地域的OSS数据流动，OSS Bucket必须与CPFS通用版文件系统在同一个地域。
+   *        > 创建数据流动前，您需要先给源端OSS Bucket设置标签（key: cpfs-dataflow, value: true），以便CPFS通用版数据流动访问该Bucket的数据。在数据流动的使用过程中，不能删除和修改该标签，否则CPFS通用版数据流动无法访问Bucket的数据。
+   * - CPFS智算版使用说明
+   *      本章节适用于文件系统ID以 `bmcpfs-` 开头的CPFS智算版。
+   *   -  源端存储
+   *       -  源端存储仅支持OSS。数据流动的源端存储（SourceStorage）必须是OSS Bucket。
+   *       -  CPFS智算版数据流动支持加密和非加密两种方式访问OSS。选择加密（SSL）方式访问OSS时，需确认OSS Bucket的传输加密支持加密访问方式。
+   *       -  如果多个CPFS智算版的数据流动、或者同一个CPFS智算版的多个数据流动的源端存储是同一个OSS Bucket，为了防止多个CPFS智算版向同一个源导出数据产生数据冲突，需要该OSS Bucket开启版本控制。
+   *       -  不支持跨地域的OSS数据流动，OSS Bucket必须与CPFS智算版文件系统在同一个地域。
+   *      - CPFS智算版2.6.0及以上版本支持使用跨账号OSS进行数据流动的创建。
+   *      - 只有在使用跨账号的OSS时，需要设置account id参数。
+   *      - 使用跨账号的OSS时，需要先进行账号授权。具体授权请参考[跨账号数据流动授权](https://help.aliyun.com/document_detail/2713462.html)。
+   *        > 创建数据流动前，您需要先给源端OSS Bucket设置标签（key: cpfs-dataflow, value: true），以便CPFS智算版数据流动访问该Bucket的数据。在数据流动的使用过程中，不能删除和修改该标签，否则CPFS智算版数据流动无法访问Bucket的数据。
+   *   - 数据流动对文件系统的限制
+   *     - 在数据流动关联的文件系统路径中，不可对非空目录执行重命名操作，否则报错Permission Denied或者目录非空。
+   *      - 目录、文件名中的特殊字符需要谨慎使用，支持大小写字母、数字、感叹号（！）、短划线（-）、下划线（_）、半角句号（.）、星号（*）和半角圆括号（()）。
+   *     - 不支持超长路径，数据流动支持的路径最大长度是1023字符。
+   *   - 数据流动导入限制
+   *     - Symlink类型的文件导入到CPFS智算版后，会转变为包含数据的普通文件，并丢失Symlink信息。
+   *     - 如果OSS Bucket存在多个版本，则只复制最新的版本。
+   *     - 不支持长度大于255字节的文件名或子目录名。
+   *   - 数据流动导出限制
+   *     - Symlink类型的文件在同步到OSS后，不会同步Symlink所指向的文件，而是会变成一个普通的无数据空白对象。
+   *     - Hardlink类型的文件仅作为普通文件同步到OSS。
+   *     - Socket、Device、Pipe类型的文件导出到OSS Bucket时，会变成一个普通的无数据空白对象。
+   *     - 不支持长度大于1023字符的目录路径。
    * 
    * @param request - CreateDataFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1319,66 +1340,69 @@ export default class Client extends OpenApi {
    * Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
    * 
    * @remarks
-   *   Basic operations
-   *     *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support data flows.
-   *     *   You can create a data flow only when a CPFS or CPFS for Lingjun file system is in the Running state.
-   *     *   A maximum of 10 data flows can be created for a CPFS or CPFS for Lingjun file system.
-   *     *   It generally takes 2 to 5 minutes to create a data flow. You can call the DescribeDataFlows operation to check whether the data flow has been created.
-   * *   Permission
-   *     When you create a data flow, CPFS obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
-   * *   CPFS usage notes
-   *     *   Billing
-   *         *   If you create a data flow, you are charged for using the data flow throughput. For more information, see [Billing of CPFS](https://help.aliyun.com/document_detail/111858.html).
-   *         *   When you configure the AutoRefresh feature for a data flow, CPFS must use EventBridge to collect object modification events from the source Object Storage Service (OSS) bucket. Event fees are incurred. For more information, see [Billing of EventBridge](https://help.aliyun.com/document_detail/163752.html).
-   *     *   Data flow specifications
-   *         *   The data flow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The data flow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a data flow.
-   *         *   When you create a data flow, the vSwitch IP addresses used by a CPFS mount target are consumed. Make sure that the vSwitch can provide sufficient IP addresses.
-   *         *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the data flow whose throughput is changed meet the requirements.
-   *     *   Fileset
-   *         *   The destination for a data flow is a fileset in the CPFS file system. A fileset is a new directory tree structure (a small file directory) in a CPFS file system. Each fileset independently manages an inode space.
-   *         *   When you create a data flow for a CPFS file system, the related fileset must already exist and cannot be nested with other filesets. Only one data flow can be created in a fileset, which corresponds to one source storage.
-   *         *   A fileset supports a maximum of one million files. If the number of files imported from an OSS bucket into the fileset exceeds the upper limit, the `no space` error message is returned when you add new files.
-   *     **
-   *     **Note **If data already exists in the fileset, after you create a data flow, the existing data in the fileset is cleared and replaced with the data synchronized from the OSS bucket.
-   *     *   AutoRefresh
-   *         *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a data flow task to load the updated data.
-   *         *   AutoRefresh depends on the object modification events collected by EventBridge from the source OSS bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
-   *         *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. You can configure a maximum of five AutoRefresh directories for a data flow.
-   *         *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS data flow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the data flow status becomes `Misconfigured`. To resolve these issues, you can increase the data flow specifications or reduce the frequency of triggering the object modification event.
-   *         *   When you add an AutoRefresh configuration to the prefix for a CPFS data flow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS data flow.
-   *         **
-   *         **Note **The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
-   *     *   Source storage
-   *         *   The source storage is an OSS bucket. SourceStorage for a data flow must be an OSS bucket.
-   *         *   CPFS data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-   *         *   If data flows for multiple CPFS file systems or multiple data flows for the same CPFS file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS file systems to one OSS bucket.
-   *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *         **
-   *         **Note **Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS cannot access the data in the OSS bucket.
-   * *   CPFS for Lingjun usage notes
-   *     *   Source storage
-   *         *   The source storage is an OSS bucket. SourceStorage for a data flow must be an OSS bucket.
-   *         *   CPFS for Lingjun data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-   *         *   If data flows for multiple CPFS for Lingjun file systems or multiple data flows for the same CPFS for Lingjun file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS for Lingjun file systems to one OSS bucket.
-   *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *         *   CPFS for Lingjun V2.6.0 and later allow you to create data flows for OSS buckets across accounts.
-   *         *   The account id parameter is required only when you use OSS buckets across accounts.
-   *         *   To use OSS buckets across accounts, you must first grant permissions to the related accounts. For more information, see [Cross-account authorization on data flows](https://help.aliyun.com/document_detail/2713462.html).
-   *             **
-   *             **Note **Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for Lingjun cannot access the data in the OSS bucket.
-   *     *   Limits of data flows on file systems
-   *         *   You cannot rename a non-empty directory in a path that is associated with a data flow. Otherwise, the Permission Denied error message or an error message indicating that the directory is not empty is returned.
-   *         *   Proceed with caution when you use special characters in the names of directories and files. The following characters are supported: letters, digits, exclamation points (!), hyphens (-), underscores (_), periods (.), asterisks (\\*), and parentheses (()).
-   *         *   The path can be up to 1,023 characters in length.
-   *     *   Limits of data flows on import
-   *         *   After a symbolic link is imported to CPFS for Lingjun, the symbolic link is converted into a common data file that contains no symbolic link information.
-   *         *   If an OSS bucket has multiple versions, only data of the latest version is used.
-   *         *   The name of a file or a subdirectory can be up to 255 bytes in length.
-   *     *   Limits of data flows on export
-   *         *   After a symbolic link is synchronized to OSS, the file that the symbolic link points to is not synchronized to OSS. In this case, the symbolic link is converted into a common object that contains no data.
-   *         *   Hard links can be synchronized to OSS only as common files that contain no link information.
-   *         *   After a file of the Socket, Device, or Pipe type is exported to an OSS bucket, the file is converted into a common object that contains no data.
-   *         *   The directory path can be up to 1,023 characters in length.
+   * - 本接口适用于以下产品：
+   * | 产品 | 文件系统ID格式 | 支持数据流动的最低版本 |
+   * |------|----------------|------------------------|
+   * | **CPFS通用版** | 以 `cpfs-` 开头，例如 cpfs-125487**** | 2.2.0 及以上 |
+   * | **CPFS智算版** | 以 `bmcpfs-` 开头，例如 bmcpfs-0015**** | 2.4.0 及以上 |
+   * > ：CPFS通用版和CPFS智算版共用同一套API，但在参数取值和功能支持上有所区别。请根据您使用的产品类型参考相应章节。
+   * - 基础操作
+   *     - CPFS通用版、CPFS智算版文件系统状态为运行中时，才能创建数据流动。
+   *     - 一个CPFS通用版或CPFS智算版文件系统最多允许创建 **10 个**数据流动。
+   *     - 创建数据流动一般耗时 2～5 分钟，您可通过 [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) 检查数据流动创建是否完成。
+   * - 权限
+   *     创建数据流动时，文件存储CPFS会获取`AliyunServiceRoleForNasOssDataflow`和`AliyunServiceRoleForNasEventNotification`两个服务关联角色。更多信息，请参见[CPFS服务关联角色](https://help.aliyun.com/document_detail/185138.html)。
+   * - CPFS通用版使用说明
+   *      本章节适用于文件系统ID以 `cpfs-` 开头的CPFS通用版。
+   *   - 计费
+   *     - 创建数据流动将按照数据流动带宽计费。更多信息，请参见[CPFS通用版计费说明](https://help.aliyun.com/document_detail/111858.html)。
+   *     - 使用自动更新（AutoRefresh）时，需要通过EventBridge收集源端OSS存储的对象修改事件，事件将产生费用。更多信息，请参见[EventBridge计费说明](https://help.aliyun.com/document_detail/163752.html)。
+   *   - 数据流动规格
+   *       - 数据流动带宽（Throughput）支持600 MB/s、1200 MB/s和1500 MB/s三种规格。数据流动带宽是指该数据流动进行导入或导出数据时能达到的最大传输带宽。
+   *     - 创建一个数据流动，会消耗1个文件存储CPFS通用版挂载点使用的vSwitch IP地址，请您确保该vSwitch IP资源充足。
+   *     - 库存查询：当设置DryRun为true时，可校验创建该规格的数据流动的资源是否满足。
+   *   - Fileset
+   *     - 数据流动的目的端是CPFS通用版文件系统中的Fileset。Fileset是CPFS通用版文件系统中一种新的目录树结构，是在父文件系统中的一个小型文件系统，拥有独立的inode空间和管理能力。
+   *     -  创建数据流动时该Fileset必须已存在，且不能与其他Fileset嵌套。一个Fileset上只能创建一个数据流动，对应一个源端存储。
+   *     - Fileset内的文件数量上限是100万，如果从OSS Bucket导入的文件数量超过上限，创建新文件会报错`no space`。
+   *    > 如果Fileset中已存在数据，创建数据流动后，Fileset内的已有数据会被清空，替换为OSS端同步过来的数据。
+   *   - 自动更新
+   *     -  配置自动更新（AutoRefresh）后，当源端存储数据发生变化时，变化的元数据会自动同步到CPFS通用版文件系统，变化的数据会在用户访问文件时按需加载，或者启动数据流动任务加载数据。
+   *     -  自动更新依赖EventBridge收集源端OSS存储的对象修改事件。需要先[开通EventBridge服务](https://help.aliyun.com/document_detail/182246.html)。
+   *     -  自动更新的作用范围是prefix，由参数RefreshPath指定。一个数据流动最多可配置5个自动更新目录。
+   *     -  自动更新间隔（AutoRefreshInterval）指CPFS通用版设置的自动更新时间，检查源端OSS Bucket该prefix内是否存在数据更新，如果有数据更新则启动自动更新任务。当OSS源端的对象修改事件频率超过CPFS通用版数据流动处理能力时，自动更新任务会堆积，元数据更新会延迟，数据流动的状态为`Misconfigured`，您可以提升数据流动规格，或者降低OSS修改频率来解决。
+   *     -  在文件存储CPFS通用版数据流动对prefix配置自动更新时，会在用户侧创建事件总线，并创建源端OSS Bucket的prefix的事件规则。当源端OSS Bucket的prefix内发生对象修改后，会在EventBridge中产生OSS事件，由CPFS通用版数据流动处理。
+   *      > 文件存储CPFS通用版在EventBridge创建的事件总线、事件规则带有`Create for cpfs auto refresh`的描述，事件总线、事件规则都不能修改或删除，否则自动更新无法正常工作。
+   *   -  源端存储
+   *      -  源端存储仅支持OSS。数据流动的源端存储（SourceStorage）必须是OSS Bucket。
+   *      -  CPFS通用版数据流动支持加密和非加密两种方式访问OSS。选择加密（SSL）方式访问OSS时，需确认OSS Bucket的传输加密支持加密访问方式。
+   *      -  如果多个CPFS通用版的数据流动、或者同一个文件存储CPFS通用版的多个数据流动的源端存储是同一个OSS Bucket，为了防止多个文件存储CPFS通用版向同一个源导出数据产生数据冲突，需要该OSS Bucket开启版本控制。
+   *      -  不支持跨地域的OSS数据流动，OSS Bucket必须与CPFS通用版文件系统在同一个地域。
+   *        > 创建数据流动前，您需要先给源端OSS Bucket设置标签（key: cpfs-dataflow, value: true），以便CPFS通用版数据流动访问该Bucket的数据。在数据流动的使用过程中，不能删除和修改该标签，否则CPFS通用版数据流动无法访问Bucket的数据。
+   * - CPFS智算版使用说明
+   *      本章节适用于文件系统ID以 `bmcpfs-` 开头的CPFS智算版。
+   *   -  源端存储
+   *       -  源端存储仅支持OSS。数据流动的源端存储（SourceStorage）必须是OSS Bucket。
+   *       -  CPFS智算版数据流动支持加密和非加密两种方式访问OSS。选择加密（SSL）方式访问OSS时，需确认OSS Bucket的传输加密支持加密访问方式。
+   *       -  如果多个CPFS智算版的数据流动、或者同一个CPFS智算版的多个数据流动的源端存储是同一个OSS Bucket，为了防止多个CPFS智算版向同一个源导出数据产生数据冲突，需要该OSS Bucket开启版本控制。
+   *       -  不支持跨地域的OSS数据流动，OSS Bucket必须与CPFS智算版文件系统在同一个地域。
+   *      - CPFS智算版2.6.0及以上版本支持使用跨账号OSS进行数据流动的创建。
+   *      - 只有在使用跨账号的OSS时，需要设置account id参数。
+   *      - 使用跨账号的OSS时，需要先进行账号授权。具体授权请参考[跨账号数据流动授权](https://help.aliyun.com/document_detail/2713462.html)。
+   *        > 创建数据流动前，您需要先给源端OSS Bucket设置标签（key: cpfs-dataflow, value: true），以便CPFS智算版数据流动访问该Bucket的数据。在数据流动的使用过程中，不能删除和修改该标签，否则CPFS智算版数据流动无法访问Bucket的数据。
+   *   - 数据流动对文件系统的限制
+   *     - 在数据流动关联的文件系统路径中，不可对非空目录执行重命名操作，否则报错Permission Denied或者目录非空。
+   *      - 目录、文件名中的特殊字符需要谨慎使用，支持大小写字母、数字、感叹号（！）、短划线（-）、下划线（_）、半角句号（.）、星号（*）和半角圆括号（()）。
+   *     - 不支持超长路径，数据流动支持的路径最大长度是1023字符。
+   *   - 数据流动导入限制
+   *     - Symlink类型的文件导入到CPFS智算版后，会转变为包含数据的普通文件，并丢失Symlink信息。
+   *     - 如果OSS Bucket存在多个版本，则只复制最新的版本。
+   *     - 不支持长度大于255字节的文件名或子目录名。
+   *   - 数据流动导出限制
+   *     - Symlink类型的文件在同步到OSS后，不会同步Symlink所指向的文件，而是会变成一个普通的无数据空白对象。
+   *     - Hardlink类型的文件仅作为普通文件同步到OSS。
+   *     - Socket、Device、Pipe类型的文件导出到OSS Bucket时，会变成一个普通的无数据空白对象。
+   *     - 不支持长度大于1023字符的目录路径。
    * 
    * @param request - CreateDataFlowRequest
    * @returns CreateDataFlowResponse
@@ -1392,10 +1416,10 @@ export default class Client extends OpenApi {
    * Creates a data streaming subtask.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
-   * *   You can create subtasks only for a data streaming subtask in the Executing state.
-   * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
-   * *   When the type of data flow task is streaming, the running status only indicates that a streaming import or export task can be created. It does not indicate that the import or export task is running.
+   * - 仅CPFS智算版2.6.0 及以上版本支持。您可以在控制台文件系统详情页面查看版本信息。
+   *  - 仅支持状态为Executing（执行中）的数据流动流式任务创建子任务。
+   * - 数据流动流式任务是异步执行的，您可通过DescribeDataFlowSubTasks查询流式任务执行状态。
+   * - 当数据流动任务类型为流式任务时，运行中状态仅代表可以创建流式导入任务或流式导出任务（并不代表导入或导出任务运行中）。
    * 
    * @param request - CreateDataFlowSubTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1457,10 +1481,10 @@ export default class Client extends OpenApi {
    * Creates a data streaming subtask.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
-   * *   You can create subtasks only for a data streaming subtask in the Executing state.
-   * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
-   * *   When the type of data flow task is streaming, the running status only indicates that a streaming import or export task can be created. It does not indicate that the import or export task is running.
+   * - 仅CPFS智算版2.6.0 及以上版本支持。您可以在控制台文件系统详情页面查看版本信息。
+   *  - 仅支持状态为Executing（执行中）的数据流动流式任务创建子任务。
+   * - 数据流动流式任务是异步执行的，您可通过DescribeDataFlowSubTasks查询流式任务执行状态。
+   * - 当数据流动任务类型为流式任务时，运行中状态仅代表可以创建流式导入任务或流式导出任务（并不代表导入或导出任务运行中）。
    * 
    * @param request - CreateDataFlowSubTaskRequest
    * @returns CreateDataFlowSubTaskResponse
@@ -1471,21 +1495,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dataflow task.
+   * Create a data flow task.
    * 
    * @remarks
-   *   CPFS usage notes
-   *     *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   *     *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-   *     *   You can create a dataflow task only for a dataflow that is in the Running state.
-   *     *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
-   *     *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS file system does not exceed 1,023 characters.
-   * *   CPFS for Lingjun usage notes
-   *     *   Only CPFS for Lingjun V2.4.0 and later support dataflow. You can view the version information on the file system details page in the console.
-   *     *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-   *     *   You can create a dataflow task only for a dataflow that is in the Running state.
-   *     *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS for Lingjun file system does not exceed 1,023 characters.
-   *     *   CPFS for Lingjun supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
+   * - CPFS usage notes
+   *   - Data flow is supported only on CPFS 2.2.0 and later. You can view the version information on the file system details page in the console.
+   *   - Data flow tasks execute asynchronously. You can query the task status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation. Task duration depends on the amount of data. For large datasets, split the workload into multiple tasks.
+   *   - You can create data flow tasks only on a data flow that is in the Running state.
+   *   - Manually running a data flow task pauses the corresponding automatic data update task.
+   *   - When you create an export task, ensure that the absolute path of each file to be exported from CPFS does not exceed 1,023 characters.
+   * - CPFS AI-Computing Edition usage notes
+   *   - Data flow is supported only on CPFS AI-Computing Edition 2.4.0 and later. You can view the version information on the file system details page in the console.
+   *   - Data flow tasks execute asynchronously. You can query the task status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation. Task duration depends on the amount of data. For large datasets, split the workload into multiple tasks.
+   *   - You can create data flow tasks only on a data flow that is in the Running state.
+   *   - When you create an export task, ensure that the absolute path of each file to be exported from CPFS AI-Computing Edition does not exceed 1,023 characters.
+   *   - CPFS AI-Computing Edition supports two task types: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
    * 
    * @param request - CreateDataFlowTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1568,21 +1592,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dataflow task.
+   * Create a data flow task.
    * 
    * @remarks
-   *   CPFS usage notes
-   *     *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   *     *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-   *     *   You can create a dataflow task only for a dataflow that is in the Running state.
-   *     *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
-   *     *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS file system does not exceed 1,023 characters.
-   * *   CPFS for Lingjun usage notes
-   *     *   Only CPFS for Lingjun V2.4.0 and later support dataflow. You can view the version information on the file system details page in the console.
-   *     *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-   *     *   You can create a dataflow task only for a dataflow that is in the Running state.
-   *     *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS for Lingjun file system does not exceed 1,023 characters.
-   *     *   CPFS for Lingjun supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
+   * - CPFS usage notes
+   *   - Data flow is supported only on CPFS 2.2.0 and later. You can view the version information on the file system details page in the console.
+   *   - Data flow tasks execute asynchronously. You can query the task status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation. Task duration depends on the amount of data. For large datasets, split the workload into multiple tasks.
+   *   - You can create data flow tasks only on a data flow that is in the Running state.
+   *   - Manually running a data flow task pauses the corresponding automatic data update task.
+   *   - When you create an export task, ensure that the absolute path of each file to be exported from CPFS does not exceed 1,023 characters.
+   * - CPFS AI-Computing Edition usage notes
+   *   - Data flow is supported only on CPFS AI-Computing Edition 2.4.0 and later. You can view the version information on the file system details page in the console.
+   *   - Data flow tasks execute asynchronously. You can query the task status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation. Task duration depends on the amount of data. For large datasets, split the workload into multiple tasks.
+   *   - You can create data flow tasks only on a data flow that is in the Running state.
+   *   - When you create an export task, ensure that the absolute path of each file to be exported from CPFS AI-Computing Edition does not exceed 1,023 characters.
+   *   - CPFS AI-Computing Edition supports two task types: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
    * 
    * @param request - CreateDataFlowTaskRequest
    * @returns CreateDataFlowTaskResponse
@@ -1730,9 +1754,9 @@ export default class Client extends OpenApi {
    * Creates a file system.
    * 
    * @remarks
-   *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
-   * *   Before you create a file system, you must complete real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
-   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+   * - 请确保在使用该接口前，已充分了解NAS产品的计费说明和价格。更多信息，请参见[计费说明](https://help.aliyun.com/document_detail/178365.html)和[价格](https://www.aliyun.com/price/product?#/nas/detail)。
+   * -  创建文件系统实例需要通过实名认证。具体操作，请参见[账号实名认证](https://help.aliyun.com/document_detail/48263.html)。
+   * -  调用此接口将自动创建操作所需的NAS服务关联角色。更多信息，请参见[管理NAS服务关联角色](https://help.aliyun.com/document_detail/208530.html)。
    * 
    * @param request - CreateFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1842,9 +1866,9 @@ export default class Client extends OpenApi {
    * Creates a file system.
    * 
    * @remarks
-   *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
-   * *   Before you create a file system, you must complete real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
-   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+   * - 请确保在使用该接口前，已充分了解NAS产品的计费说明和价格。更多信息，请参见[计费说明](https://help.aliyun.com/document_detail/178365.html)和[价格](https://www.aliyun.com/price/product?#/nas/detail)。
+   * -  创建文件系统实例需要通过实名认证。具体操作，请参见[账号实名认证](https://help.aliyun.com/document_detail/48263.html)。
+   * -  调用此接口将自动创建操作所需的NAS服务关联角色。更多信息，请参见[管理NAS服务关联角色](https://help.aliyun.com/document_detail/208530.html)。
    * 
    * @param request - CreateFileSystemRequest
    * @returns CreateFileSystemResponse
@@ -1858,24 +1882,24 @@ export default class Client extends OpenApi {
    * Creates a fileset.
    * 
    * @remarks
-   *   CPFS usage notes
-   *     *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
-   *     *   A maximum of 10 filesets can be created for a CPFS file system.
-   *     *   The parent directory must be an existing directory.
-   *     *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
-   *     *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
-   *     *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
-   * *   CPFS for Lingjun usage notes
-   *     *   Only CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
-   *     *   A maximum of 500 filesets can be created for a CPFS file system.
-   *     *   The fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
-   *     *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
-   *     *   If the fileset path is a multi-level path, the parent directory must be an existing directory.
-   *     *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset. A fileset path supports only one quota.
-   *     *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB.
-   *     *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
-   *     *   When you modify a directory quota, you must set the quota capacity or the number of files to be greater than the capacity or file quantity that has been used.
-   *     *   The quota statistics have a 15-minute latency. The actual usage takes effect after 15 minutes.
+   * - CPFS使用说明
+   *   - 仅支持CPFS 2.2.0及以上版本创建Fileset。您可以在控制台文件系统详情页面查看版本信息。
+   *   - 单个CPFS文件系统最多支持创建10个Fileset。
+   *   - 父目录必须是已存在的目录。
+   *   - Fileset路径支持的最大深度为8层，根目录/为0层。例如，Fileset路径为/test/aaa/ccc/，则表示路径深度为3层。
+   *   - 不支持Fileset中嵌套Fileset。即当父目录已指定为Fileset，其子目录不支持指定为Fileset。
+   *   - Fileset最多支持100万个文件，如果文件数量超过此上限，添加新文件会返回`no space`错误信息。
+   * - CPFS智算版使用说明
+   *   - 仅支持CPFS智算版 2.7.0及以上版本创建Fileset。您可以在控制台文件系统详情页面查看版本信息。
+   *   - 单个CPFS文件系统最多支持创建500个Fileset。
+   *   - Fileset路径必须为新路径，不能为已存在路径，Fileset 路径不支持重命名，不支持路径为软链接。
+   *   - Fileset路径支持的最大深度为8层，根目录/为0层。例如，Fileset路径为/test/aaa/ccc/，则表示路径深度为3层。
+   *   - Fileset路径为多层目录时，父目录必须是已存在的目录。
+   *   - 不支持在 Fileset 中嵌套 Fileset，即当父目录已指定为Fileset，其子目录不支持指定为Fileset。一个 Fileset 路径只支持一个配额。
+   *   - Fileset容量配额，最小起步10 GiB，扩容单位为1 GiB。
+   *   - Fileset最多支持100亿个文件或目录，最小起步10000，扩容单位为1。
+   *   - 修改目录配额时，设置的配额容量或文件数必须高于已使用容量或文件数。
+   *   - 配额的统计有15分钟的延迟，当前的实际使用量15分钟之后才会生效。
    * 
    * @param request - CreateFilesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1933,24 +1957,24 @@ export default class Client extends OpenApi {
    * Creates a fileset.
    * 
    * @remarks
-   *   CPFS usage notes
-   *     *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
-   *     *   A maximum of 10 filesets can be created for a CPFS file system.
-   *     *   The parent directory must be an existing directory.
-   *     *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
-   *     *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
-   *     *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
-   * *   CPFS for Lingjun usage notes
-   *     *   Only CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
-   *     *   A maximum of 500 filesets can be created for a CPFS file system.
-   *     *   The fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
-   *     *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
-   *     *   If the fileset path is a multi-level path, the parent directory must be an existing directory.
-   *     *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset. A fileset path supports only one quota.
-   *     *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB.
-   *     *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
-   *     *   When you modify a directory quota, you must set the quota capacity or the number of files to be greater than the capacity or file quantity that has been used.
-   *     *   The quota statistics have a 15-minute latency. The actual usage takes effect after 15 minutes.
+   * - CPFS使用说明
+   *   - 仅支持CPFS 2.2.0及以上版本创建Fileset。您可以在控制台文件系统详情页面查看版本信息。
+   *   - 单个CPFS文件系统最多支持创建10个Fileset。
+   *   - 父目录必须是已存在的目录。
+   *   - Fileset路径支持的最大深度为8层，根目录/为0层。例如，Fileset路径为/test/aaa/ccc/，则表示路径深度为3层。
+   *   - 不支持Fileset中嵌套Fileset。即当父目录已指定为Fileset，其子目录不支持指定为Fileset。
+   *   - Fileset最多支持100万个文件，如果文件数量超过此上限，添加新文件会返回`no space`错误信息。
+   * - CPFS智算版使用说明
+   *   - 仅支持CPFS智算版 2.7.0及以上版本创建Fileset。您可以在控制台文件系统详情页面查看版本信息。
+   *   - 单个CPFS文件系统最多支持创建500个Fileset。
+   *   - Fileset路径必须为新路径，不能为已存在路径，Fileset 路径不支持重命名，不支持路径为软链接。
+   *   - Fileset路径支持的最大深度为8层，根目录/为0层。例如，Fileset路径为/test/aaa/ccc/，则表示路径深度为3层。
+   *   - Fileset路径为多层目录时，父目录必须是已存在的目录。
+   *   - 不支持在 Fileset 中嵌套 Fileset，即当父目录已指定为Fileset，其子目录不支持指定为Fileset。一个 Fileset 路径只支持一个配额。
+   *   - Fileset容量配额，最小起步10 GiB，扩容单位为1 GiB。
+   *   - Fileset最多支持100亿个文件或目录，最小起步10000，扩容单位为1。
+   *   - 修改目录配额时，设置的配额容量或文件数必须高于已使用容量或文件数。
+   *   - 配额的统计有15分钟的延迟，当前的实际使用量15分钟之后才会生效。
    * 
    * @param request - CreateFilesetRequest
    * @returns CreateFilesetResponse
@@ -2023,9 +2047,9 @@ export default class Client extends OpenApi {
    * Creates a lifecycle policy.
    * 
    * @remarks
-   *   Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
-   * *   Up to 10 Auto and 100 OnDemand lifecycle policies can be created for each CPFS for Lingjun file system.
-   * *   For general-purpose NAS file systems, up to 20 lifecycle policies can be created in each region.
+   * - 仅通用型NAS文件系统和CPFS智算版支持创建生命周期管理策略。
+   * - 每个 CPFS 智算版文件系统最多创建 10 个 Auto 类型 和 100 个 OnDemand 类型的生命周期管理策略。
+   * - 每个地域可以创建 20 个通用型 NAS 的生命周期管理策略。
    * 
    * @param request - CreateLifecyclePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2095,9 +2119,9 @@ export default class Client extends OpenApi {
    * Creates a lifecycle policy.
    * 
    * @remarks
-   *   Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
-   * *   Up to 10 Auto and 100 OnDemand lifecycle policies can be created for each CPFS for Lingjun file system.
-   * *   For general-purpose NAS file systems, up to 20 lifecycle policies can be created in each region.
+   * - 仅通用型NAS文件系统和CPFS智算版支持创建生命周期管理策略。
+   * - 每个 CPFS 智算版文件系统最多创建 10 个 Auto 类型 和 100 个 OnDemand 类型的生命周期管理策略。
+   * - 每个地域可以创建 20 个通用型 NAS 的生命周期管理策略。
    * 
    * @param request - CreateLifecyclePolicyRequest
    * @returns CreateLifecyclePolicyResponse
@@ -2215,8 +2239,8 @@ export default class Client extends OpenApi {
    * Creates a mount target.
    * 
    * @remarks
-   *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+   * - 在使用CreateMountTarget接口创建挂载点时部分资源的生成是异步完成的。因此在执行CreateMountTarget接口成功后，请先调用DescribeMountTargets接口查询挂载点状态，当挂载点状态为**Active**后再执行挂载文件系统操作，否则可能会挂载失败。
+   * - 调用此接口将自动创建操作所需的NAS服务关联角色。更多信息，请参见[管理NAS服务关联角色](https://help.aliyun.com/document_detail/208530.html)。
    * 
    * @param request - CreateMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2278,8 +2302,8 @@ export default class Client extends OpenApi {
    * Creates a mount target.
    * 
    * @remarks
-   *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-   * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+   * - 在使用CreateMountTarget接口创建挂载点时部分资源的生成是异步完成的。因此在执行CreateMountTarget接口成功后，请先调用DescribeMountTargets接口查询挂载点状态，当挂载点状态为**Active**后再执行挂载文件系统操作，否则可能会挂载失败。
+   * - 调用此接口将自动创建操作所需的NAS服务关联角色。更多信息，请参见[管理NAS服务关联角色](https://help.aliyun.com/document_detail/208530.html)。
    * 
    * @param request - CreateMountTargetRequest
    * @returns CreateMountTargetResponse
@@ -2293,14 +2317,15 @@ export default class Client extends OpenApi {
    * Creates an export directory for a protocol service.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Prerequisites
-   *     A protocol service is created.
-   * *   Others
-   *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
-   *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
-   *     *   You can create a maximum of 10 export directories for a protocol service.
-   *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+   * -  该接口仅适用于CPFS文件系统。
+   * -  前提条件
+   *   
+   *    已创建协议服务。
+   * - 其它
+   *     - 协议服务的导出VPC网段不可与文件系统VPC网段重叠。
+   *     - 一个协议服务上的多个导出VPC之间网段不可重叠。
+   *     - 同一个协议服务最多可以创建10个导出目录。
+   *     - 创建协议服务导出目录会消耗指定vSwitch上的IP地址（最多消耗32个IP地址），请确保目标vSwitch IP资源充足。
    * 
    * @param request - CreateProtocolMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2374,14 +2399,15 @@ export default class Client extends OpenApi {
    * Creates an export directory for a protocol service.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Prerequisites
-   *     A protocol service is created.
-   * *   Others
-   *     *   The virtual private cloud (VPC) CIDR block of the export directory for the protocol service cannot overlap with the VPC CIDR block of the file system.
-   *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
-   *     *   You can create a maximum of 10 export directories for a protocol service.
-   *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+   * -  该接口仅适用于CPFS文件系统。
+   * -  前提条件
+   *   
+   *    已创建协议服务。
+   * - 其它
+   *     - 协议服务的导出VPC网段不可与文件系统VPC网段重叠。
+   *     - 一个协议服务上的多个导出VPC之间网段不可重叠。
+   *     - 同一个协议服务最多可以创建10个导出目录。
+   *     - 创建协议服务导出目录会消耗指定vSwitch上的IP地址（最多消耗32个IP地址），请确保目标vSwitch IP资源充足。
    * 
    * @param request - CreateProtocolMountTargetRequest
    * @returns CreateProtocolMountTargetResponse
@@ -2395,19 +2421,19 @@ export default class Client extends OpenApi {
    * Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](https://help.aliyun.com/document_detail/163314.html) operation.
-   * *   Protocol service types
-   *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
-   *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](https://help.aliyun.com/document_detail/427175.html) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. The compliance package check feature is free of charge.
-   *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
-   *     **
-   *     **Note** You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](https://help.aliyun.com/document_detail/111858.html). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
-   * *   Protocol Type
-   *     Only NFSv3 is supported.
-   * *   Others
-   *     *   Only one protocol service can be created for a CPFS file system.
-   *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+   * - 该接口仅适用于CPFS文件系统。
+   * -  仅CPFS 2.3.0及以上版本支持协议服务。您可以通过调用[DescribeFileSystems](https://help.aliyun.com/document_detail/163314.html)接口查询目标文件系统的版本号。
+   * - 协议服务规格
+   *   协议服务包括两种协议类型：通用型和缓存型。缓存型相比通用型，提供热点数据缓存能力。在命中缓存的情况下，缓存型协议服务的带宽可超过CPFS文件系统的带宽，达到协议服务设定的最大带宽值。
+   *   
+   *     -   通用型：为CPFS提供NFS协议访问能力和[目录级挂载点](https://help.aliyun.com/document_detail/427175.html)，用户无需配置POSIX客户端管理集群。该功能免费。
+   *     -  缓存型：在通用型基础上提供基于LRU策略的服务端内存缓存。当数据缓存于内存中时，CPFS可提供更高的内网带宽。缓存型协议服务分为缓存1型和缓存2型两种协议服务规格，差异点为内网带宽大小和内存缓存大小。
+   *      >  缓存型协议服务为收费服务，正在邀测。有关缓存型协议服务的付费方式，请参见[计费项](https://help.aliyun.com/document_detail/111858.html)。如果您有任何反馈或疑问，欢迎加入钉钉用户群（钉钉群号：31045006299）与CPFS工程师进行交流讨论。
+   * - 协议类型
+   *   仅支持NFSv3协议。
+   * - 其它
+   *     - 一个CPFS文件系统只能创建一个协议服务。
+   *     - 创建协议服务会消耗指定vSwitch上的IP地址（最多消耗32个IP地址），请确保目标vSwitch IP资源充足。
    * 
    * @param request - CreateProtocolServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2473,19 +2499,19 @@ export default class Client extends OpenApi {
    * Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](https://help.aliyun.com/document_detail/163314.html) operation.
-   * *   Protocol service types
-   *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
-   *     *   General-purpose protocol services: provide NFS access and [directory-level mount targets](https://help.aliyun.com/document_detail/427175.html) for CPFS file systems. You do not need to configure a POSIX client to manage clusters. The compliance package check feature is free of charge.
-   *     *   Cache protocol services: provide the server memory cache based on the least recently used (LRU) policy. When data is cached in the memory, CPFS provides higher internal bandwidth. Cache protocol services are divided into Cache L1 and Cache L2 specifications. The differences are the internal bandwidth size and memory cache size.
-   *     **
-   *     **Note** You are charged for using cache protocol services, which are in invitational preview. For more information about the billing method of cache protocol services, see [Billable items](https://help.aliyun.com/document_detail/111858.html). If you have any feedback or questions, you can join the DingTalk group (group number: 31045006299).
-   * *   Protocol Type
-   *     Only NFSv3 is supported.
-   * *   Others
-   *     *   Only one protocol service can be created for a CPFS file system.
-   *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
+   * - 该接口仅适用于CPFS文件系统。
+   * -  仅CPFS 2.3.0及以上版本支持协议服务。您可以通过调用[DescribeFileSystems](https://help.aliyun.com/document_detail/163314.html)接口查询目标文件系统的版本号。
+   * - 协议服务规格
+   *   协议服务包括两种协议类型：通用型和缓存型。缓存型相比通用型，提供热点数据缓存能力。在命中缓存的情况下，缓存型协议服务的带宽可超过CPFS文件系统的带宽，达到协议服务设定的最大带宽值。
+   *   
+   *     -   通用型：为CPFS提供NFS协议访问能力和[目录级挂载点](https://help.aliyun.com/document_detail/427175.html)，用户无需配置POSIX客户端管理集群。该功能免费。
+   *     -  缓存型：在通用型基础上提供基于LRU策略的服务端内存缓存。当数据缓存于内存中时，CPFS可提供更高的内网带宽。缓存型协议服务分为缓存1型和缓存2型两种协议服务规格，差异点为内网带宽大小和内存缓存大小。
+   *      >  缓存型协议服务为收费服务，正在邀测。有关缓存型协议服务的付费方式，请参见[计费项](https://help.aliyun.com/document_detail/111858.html)。如果您有任何反馈或疑问，欢迎加入钉钉用户群（钉钉群号：31045006299）与CPFS工程师进行交流讨论。
+   * - 协议类型
+   *   仅支持NFSv3协议。
+   * - 其它
+   *     - 一个CPFS文件系统只能创建一个协议服务。
+   *     - 创建协议服务会消耗指定vSwitch上的IP地址（最多消耗32个IP地址），请确保目标vSwitch IP资源充足。
    * 
    * @param request - CreateProtocolServiceRequest
    * @returns CreateProtocolServiceResponse
@@ -2499,9 +2525,9 @@ export default class Client extends OpenApi {
    * Creates a job to permanently delete a file or directory from the recycle bin.
    * 
    * @remarks
-   *   Only General-purpose NAS file systems support this operation.
-   * *   If you permanently delete a directory, the files in the directory are recursively cleared.
-   * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
+   * - 仅通用型NAS文件系统支持该功能。
+   * - 彻底删除目录时，目录中的内容会被递归清理。
+   * - 单个文件系统一次只能执行一个彻底删除任务。正在彻底删除文件或目录时，无法发起新的恢复或清理任务。
    * 
    * @param request - CreateRecycleBinDeleteJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2531,9 +2557,9 @@ export default class Client extends OpenApi {
    * Creates a job to permanently delete a file or directory from the recycle bin.
    * 
    * @remarks
-   *   Only General-purpose NAS file systems support this operation.
-   * *   If you permanently delete a directory, the files in the directory are recursively cleared.
-   * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
+   * - 仅通用型NAS文件系统支持该功能。
+   * - 彻底删除目录时，目录中的内容会被递归清理。
+   * - 单个文件系统一次只能执行一个彻底删除任务。正在彻底删除文件或目录时，无法发起新的恢复或清理任务。
    * 
    * @param request - CreateRecycleBinDeleteJobRequest
    * @returns CreateRecycleBinDeleteJobResponse
@@ -2547,10 +2573,10 @@ export default class Client extends OpenApi {
    * Restores a file or directory from the recycle bin.
    * 
    * @remarks
-   *   Only General-purpose NAS file systems support this operation.
-   * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
-   * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
-   * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
+   * - 仅通用型NAS文件系统支持该功能。
+   * - 单个文件系统一次只能执行一个文件恢复或清理任务。正在恢复文件时，无法发起新的文件恢复或清理任务。
+   * - 单个恢复任务只能恢复一个文件或目录，恢复指定目录会递归恢复目录下的所有文件。
+   * - 文件被恢复后会进行数据整理，数据整理期间读请求性能稍有下降。
    * 
    * @param request - CreateRecycleBinRestoreJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2580,10 +2606,10 @@ export default class Client extends OpenApi {
    * Restores a file or directory from the recycle bin.
    * 
    * @remarks
-   *   Only General-purpose NAS file systems support this operation.
-   * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
-   * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
-   * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
+   * - 仅通用型NAS文件系统支持该功能。
+   * - 单个文件系统一次只能执行一个文件恢复或清理任务。正在恢复文件时，无法发起新的文件恢复或清理任务。
+   * - 单个恢复任务只能恢复一个文件或目录，恢复指定目录会递归恢复目录下的所有文件。
+   * - 文件被恢复后会进行数据整理，数据整理期间读请求性能稍有下降。
    * 
    * @param request - CreateRecycleBinRestoreJobRequest
    * @returns CreateRecycleBinRestoreJobResponse
@@ -2673,7 +2699,7 @@ export default class Client extends OpenApi {
    * Deletes a permission group.
    * 
    * @remarks
-   * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+   * 默认权限组（DEFAULT_VPC_GROUP_NAME）不支持删除。
    * 
    * @param request - DeleteAccessGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2711,7 +2737,7 @@ export default class Client extends OpenApi {
    * Deletes a permission group.
    * 
    * @remarks
-   * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+   * 默认权限组（DEFAULT_VPC_GROUP_NAME）不支持删除。
    * 
    * @param request - DeleteAccessGroupRequest
    * @returns DeleteAccessGroupResponse
@@ -2779,7 +2805,7 @@ export default class Client extends OpenApi {
    * Deletes a rule from a permission group.
    * 
    * @remarks
-   * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+   * 默认权限组（DEFAULT_VPC_GROUP_NAME）中的规则不支持删除。
    * 
    * @param request - DeleteAccessRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2821,7 +2847,7 @@ export default class Client extends OpenApi {
    * Deletes a rule from a permission group.
    * 
    * @remarks
-   * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+   * 默认权限组（DEFAULT_VPC_GROUP_NAME）中的规则不支持删除。
    * 
    * @param request - DeleteAccessRuleRequest
    * @returns DeleteAccessRuleResponse
@@ -2887,9 +2913,9 @@ export default class Client extends OpenApi {
    * Deletes a dataflow.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can delete the data flows that are only in the `Running` or `Stopped` state.
-   * *   After a data flow is deleted, the resources related to the data flow are released and cannot be restored. You must create a data flow again if required.
+   * - 仅CPFS 2.2.0及以上版本、智算CPFS 2.4.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持删除`Running`、`Stopped`状态的数据流动。
+   * - 删除后，数据流动相关的资源会被释放，且无法恢复。如需数据流动，请您重新创建。
    * 
    * @param request - DeleteDataFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2935,9 +2961,9 @@ export default class Client extends OpenApi {
    * Deletes a dataflow.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can delete the data flows that are only in the `Running` or `Stopped` state.
-   * *   After a data flow is deleted, the resources related to the data flow are released and cannot be restored. You must create a data flow again if required.
+   * - 仅CPFS 2.2.0及以上版本、智算CPFS 2.4.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持删除`Running`、`Stopped`状态的数据流动。
+   * - 删除后，数据流动相关的资源会被释放，且无法恢复。如需数据流动，请您重新创建。
    * 
    * @param request - DeleteDataFlowRequest
    * @returns DeleteDataFlowResponse
@@ -2951,9 +2977,9 @@ export default class Client extends OpenApi {
    * Deletes a file system.
    * 
    * @remarks
-   *   Before you delete a file system, you must delete all mount targets of the file system.
-   * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
-   * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
+   * - 仅当文件系统的挂载点数目为0时，支持删除文件系统实例。
+   * - 当文件系统未创建生命周期策略时，支持删除文件系统实例。
+   * - 文件系统实例一旦删除，数据将不可恢复，请谨慎操作。
    * 
    * @param request - DeleteFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2987,9 +3013,9 @@ export default class Client extends OpenApi {
    * Deletes a file system.
    * 
    * @remarks
-   *   Before you delete a file system, you must delete all mount targets of the file system.
-   * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
-   * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
+   * - 仅当文件系统的挂载点数目为0时，支持删除文件系统实例。
+   * - 当文件系统未创建生命周期策略时，支持删除文件系统实例。
+   * - 文件系统实例一旦删除，数据将不可恢复，请谨慎操作。
    * 
    * @param request - DeleteFileSystemRequest
    * @returns DeleteFileSystemResponse
@@ -3003,9 +3029,9 @@ export default class Client extends OpenApi {
    * Deletes a fileset.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
-   * *   If deletion protection is enabled for the fileset, you must disable deletion protection before you delete the fileset.
-   * *   After you delete a fileset of CPFS for Lingjun, the storage space is not immediately released and will be recycled within 24 hours. If you want to release storage space immediately, you can clear the data in the fileset and then delete the fileset. Deleted data cannot be restored. Proceed with caution.
+   * - This operation is supported only for CPFS file systems of version 2.2.0 or later and CPFS for AI and HPC file systems of version 2.7.0 or later. Deleting a fileset permanently removes all data in the associated directory. Use this operation with caution.
+   * - If deletion protection is enabled, you must disable it before you can delete the fileset.
+   * - When you delete a fileset from a CPFS file system, the disk space is released immediately. When you delete a fileset from a CPFS for AI and HPC file system, the disk space is released gradually.
    * 
    * @param request - DeleteFilesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3051,9 +3077,9 @@ export default class Client extends OpenApi {
    * Deletes a fileset.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
-   * *   If deletion protection is enabled for the fileset, you must disable deletion protection before you delete the fileset.
-   * *   After you delete a fileset of CPFS for Lingjun, the storage space is not immediately released and will be recycled within 24 hours. If you want to release storage space immediately, you can clear the data in the fileset and then delete the fileset. Deleted data cannot be restored. Proceed with caution.
+   * - This operation is supported only for CPFS file systems of version 2.2.0 or later and CPFS for AI and HPC file systems of version 2.7.0 or later. Deleting a fileset permanently removes all data in the associated directory. Use this operation with caution.
+   * - If deletion protection is enabled, you must disable it before you can delete the fileset.
+   * - When you delete a fileset from a CPFS file system, the disk space is released immediately. When you delete a fileset from a CPFS for AI and HPC file system, the disk space is released gradually.
    * 
    * @param request - DeleteFilesetRequest
    * @returns DeleteFilesetResponse
@@ -3065,6 +3091,10 @@ export default class Client extends OpenApi {
 
   /**
    * {"summary1":""}
+   * 
+   * @remarks
+   * # 说明
+   * 本接口只支持CPFS并行文件系统。
    * 
    * @deprecated OpenAPI DeleteLDAPConfig is deprecated
    * 
@@ -3099,6 +3129,10 @@ export default class Client extends OpenApi {
   /**
    * {"summary1":""}
    * 
+   * @remarks
+   * # 说明
+   * 本接口只支持CPFS并行文件系统。
+   * 
    * @deprecated OpenAPI DeleteLDAPConfig is deprecated
    * 
    * @param request - DeleteLDAPConfigRequest
@@ -3114,7 +3148,7 @@ export default class Client extends OpenApi {
    * Deletes a lifecycle policy.
    * 
    * @remarks
-   * Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
+   * 仅通用型NAS文件系统和CPFS智算版支持该功能。
    * 
    * @param request - DeleteLifecyclePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3156,7 +3190,7 @@ export default class Client extends OpenApi {
    * Deletes a lifecycle policy.
    * 
    * @remarks
-   * Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
+   * 仅通用型NAS文件系统和CPFS智算版支持该功能。
    * 
    * @param request - DeleteLifecyclePolicyRequest
    * @returns DeleteLifecyclePolicyResponse
@@ -3216,7 +3250,7 @@ export default class Client extends OpenApi {
    * Deletes a mount target.
    * 
    * @remarks
-   * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+   * 删除挂载点后，无法恢复，请谨慎操作。
    * 
    * @param request - DeleteMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3254,7 +3288,7 @@ export default class Client extends OpenApi {
    * Deletes a mount target.
    * 
    * @remarks
-   * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+   * 删除挂载点后，无法恢复，请谨慎操作。
    * 
    * @param request - DeleteMountTargetRequest
    * @returns DeleteMountTargetResponse
@@ -3268,7 +3302,7 @@ export default class Client extends OpenApi {
    * Deletes an export directory of a protocol service.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - DeleteProtocolMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3318,7 +3352,7 @@ export default class Client extends OpenApi {
    * Deletes an export directory of a protocol service.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - DeleteProtocolMountTargetRequest
    * @returns DeleteProtocolMountTargetResponse
@@ -3332,8 +3366,8 @@ export default class Client extends OpenApi {
    * Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 删除协议服务时，会同时删除协议服务中的导出目录。
    * 
    * @param request - DeleteProtocolServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3379,8 +3413,8 @@ export default class Client extends OpenApi {
    * Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 删除协议服务时，会同时删除协议服务中的导出目录。
    * 
    * @param request - DeleteProtocolServiceRequest
    * @returns DeleteProtocolServiceResponse
@@ -3502,7 +3536,7 @@ export default class Client extends OpenApi {
    * Queries the details of an access point.
    * 
    * @remarks
-   * Only General-purpose Network File System (NFS) file systems support this operation.
+   * 仅通用型NAS NFS协议文件系统支持该功能。
    * 
    * @param request - DescribeAccessPointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3540,7 +3574,7 @@ export default class Client extends OpenApi {
    * Queries the details of an access point.
    * 
    * @remarks
-   * Only General-purpose Network File System (NFS) file systems support this operation.
+   * 仅通用型NAS NFS协议文件系统支持该功能。
    * 
    * @param request - DescribeAccessPointRequest
    * @returns DescribeAccessPointResponse
@@ -3554,7 +3588,7 @@ export default class Client extends OpenApi {
    * Queries a list of access points.
    * 
    * @remarks
-   * Only General-purpose NAS file systems that use the NFS protocol support this operation.
+   * 仅通用型NAS NFS协议文件系统支持该功能。
    * 
    * @param request - DescribeAccessPointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3604,7 +3638,7 @@ export default class Client extends OpenApi {
    * Queries a list of access points.
    * 
    * @remarks
-   * Only General-purpose NAS file systems that use the NFS protocol support this operation.
+   * 仅通用型NAS NFS协议文件系统支持该功能。
    * 
    * @param request - DescribeAccessPointsRequest
    * @returns DescribeAccessPointsResponse
@@ -3865,7 +3899,7 @@ export default class Client extends OpenApi {
    * Queries data flow subtasks in batches.
    * 
    * @remarks
-   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * 仅CPFS智算版2.6.0 及以上版本支持。您可以在控制台文件系统详情页面查看版本信息。
    * 
    * @param request - DescribeDataFlowSubTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3911,7 +3945,7 @@ export default class Client extends OpenApi {
    * Queries data flow subtasks in batches.
    * 
    * @remarks
-   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * 仅CPFS智算版2.6.0 及以上版本支持。您可以在控制台文件系统详情页面查看版本信息。
    * 
    * @param request - DescribeDataFlowSubTasksRequest
    * @returns DescribeDataFlowSubTasksResponse
@@ -3922,10 +3956,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of dataflow tasks.
+   * Retrieves data flow task details.
    * 
    * @remarks
-   * Only CPFS V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * Querying data flow tasks is supported only on CPFS 2.2.0 or later and CPFS AI Computing Edition 2.4.0 or later. You can find the version information on the file system details page in the console.
    * 
    * @param request - DescribeDataFlowTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3972,10 +4006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of dataflow tasks.
+   * Retrieves data flow task details.
    * 
    * @remarks
-   * Only CPFS V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * Querying data flow tasks is supported only on CPFS 2.2.0 or later and CPFS AI Computing Edition 2.4.0 or later. You can find the version information on the file system details page in the console.
    * 
    * @param request - DescribeDataFlowTasksRequest
    * @returns DescribeDataFlowTasksResponse
@@ -3989,9 +4023,9 @@ export default class Client extends OpenApi {
    * Queries the dataflows of a CPFS file system.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath, Description, and SourceStoragePath support fuzzy match.
-   * *   Combined query is supported.
+   * - 仅CPFS 2.2.0及以上版本、CPFS智算版2.4.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 筛选键（Filters）中，FsetIds、DataFlowlds、SourceStorage、ThroughputList、Status需要做全字匹配，FileSystemPath、Description、SourceStoragePath支持模糊匹配。
+   * - 支持组合查询。
    * 
    * @param request - DescribeDataFlowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4037,9 +4071,9 @@ export default class Client extends OpenApi {
    * Queries the dataflows of a CPFS file system.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath, Description, and SourceStoragePath support fuzzy match.
-   * *   Combined query is supported.
+   * - 仅CPFS 2.2.0及以上版本、CPFS智算版2.4.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 筛选键（Filters）中，FsetIds、DataFlowlds、SourceStorage、ThroughputList、Status需要做全字匹配，FileSystemPath、Description、SourceStoragePath支持模糊匹配。
+   * - 支持组合查询。
    * 
    * @param request - DescribeDataFlowsRequest
    * @returns DescribeDataFlowsResponse
@@ -4161,7 +4195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries file systems.
+   * This operation retrieves information about file systems.
    * 
    * @param request - DescribeFileSystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4216,7 +4250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries file systems.
+   * This operation retrieves information about file systems.
    * 
    * @param request - DescribeFileSystemsRequest
    * @returns DescribeFileSystemsResponse
@@ -4230,9 +4264,9 @@ export default class Client extends OpenApi {
    * Queries the information about created filesets.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
-   * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
-   * *   Combined query is supported.
+   * - 仅CPFS 2.2.0和CPFS智算版2.7.0及以上版本支持Fileset。您可以在控制台文件系统详情页面查看版本信息。
+   * - 筛选键（Filters）中，FsetIds需要做全字匹配，FileSystemPath、Description支持模糊匹配。
+   * - 支持组合查询。
    * 
    * @param request - DescribeFilesetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4286,9 +4320,9 @@ export default class Client extends OpenApi {
    * Queries the information about created filesets.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
-   * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
-   * *   Combined query is supported.
+   * - 仅CPFS 2.2.0和CPFS智算版2.7.0及以上版本支持Fileset。您可以在控制台文件系统详情页面查看版本信息。
+   * - 筛选键（Filters）中，FsetIds需要做全字匹配，FileSystemPath、Description支持模糊匹配。
+   * - 支持组合查询。
    * 
    * @param request - DescribeFilesetsRequest
    * @returns DescribeFilesetsResponse
@@ -4302,8 +4336,8 @@ export default class Client extends OpenApi {
    * Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
    * 
    * @remarks
-   *   Only CPFS for Lingjun supports this operation.
-   * *   You can call this operation to query up to 20 file systems at a time.
+   * - 仅支持CPFS智算版文件系统。
+   * - 此接口为批量接口，每次最多允许查询 20 个文件系统。
    * 
    * @param tmpReq - DescribeFilesystemsAssociatedHpnZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4347,8 +4381,8 @@ export default class Client extends OpenApi {
    * Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
    * 
    * @remarks
-   *   Only CPFS for Lingjun supports this operation.
-   * *   You can call this operation to query up to 20 file systems at a time.
+   * - 仅支持CPFS智算版文件系统。
+   * - 此接口为批量接口，每次最多允许查询 20 个文件系统。
    * 
    * @param request - DescribeFilesystemsAssociatedHpnZonesRequest
    * @returns DescribeFilesystemsAssociatedHpnZonesResponse
@@ -4362,8 +4396,8 @@ export default class Client extends OpenApi {
    * Queries information about virtual storage channels associated with a file system.
    * 
    * @remarks
-   *   Only CPFS for Lingjun supports this operation.
-   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * - 仅CPFS智算版支持该功能。
+   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
    * 
    * @param request - DescribeFilesystemsVscAttachInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4382,6 +4416,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceIds)) {
       query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.roleChain)) {
+      query["RoleChain"] = request.roleChain;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4405,8 +4443,8 @@ export default class Client extends OpenApi {
    * Queries information about virtual storage channels associated with a file system.
    * 
    * @remarks
-   *   Only CPFS for Lingjun supports this operation.
-   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * - 仅CPFS智算版支持该功能。
+   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
    * 
    * @param request - DescribeFilesystemsVscAttachInfoRequest
    * @returns DescribeFilesystemsVscAttachInfoResponse
@@ -4420,7 +4458,7 @@ export default class Client extends OpenApi {
    * Queries lifecycle policies.
    * 
    * @remarks
-   * Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
+   * 仅通用型NAS文件系统和 CPFS 智算版支持该功能。
    * 
    * @param request - DescribeLifecyclePoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4450,7 +4488,7 @@ export default class Client extends OpenApi {
    * Queries lifecycle policies.
    * 
    * @remarks
-   * Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
+   * 仅通用型NAS文件系统和 CPFS 智算版支持该功能。
    * 
    * @param request - DescribeLifecyclePoliciesRequest
    * @returns DescribeLifecyclePoliciesResponse
@@ -4461,7 +4499,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operational logs of a lifecycle policy. You can query up to 1000 log entries in the last 90 days. Only CPFS for Lingjun supports this operation.
+   * Queries the execution logs of a lifecycle policy, returning up to 1,000 entries from the last 90 days. This feature is only available for CPFS AI Computing Edition.
+   * 
+   * @remarks
+   * Queries the execution logs of a lifecycle policy. You can query up to 1,000 log entries from the last 90 days. Only CPFS (AI Computing Edition) supports this operation.
    * 
    * @param request - DescribeLifecyclePolicyLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4504,7 +4545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operational logs of a lifecycle policy. You can query up to 1000 log entries in the last 90 days. Only CPFS for Lingjun supports this operation.
+   * Queries the execution logs of a lifecycle policy, returning up to 1,000 entries from the last 90 days. This feature is only available for CPFS AI Computing Edition.
+   * 
+   * @remarks
+   * Queries the execution logs of a lifecycle policy. You can query up to 1,000 log entries from the last 90 days. Only CPFS (AI Computing Edition) supports this operation.
    * 
    * @param request - DescribeLifecyclePolicyLogsRequest
    * @returns DescribeLifecyclePolicyLogsResponse
@@ -4569,7 +4613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries mount targets.
+   * Retrieves information about mount targets.
    * 
    * @param request - DescribeMountTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4616,7 +4660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries mount targets.
+   * Retrieves information about mount targets.
    * 
    * @param request - DescribeMountTargetsRequest
    * @returns DescribeMountTargetsResponse
@@ -4630,8 +4674,8 @@ export default class Client extends OpenApi {
    * Queries the clients on which a file system is mounted.
    * 
    * @remarks
-   *   Only General-purpose NAS file systems support this operation.
-   * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+   * - 仅通用型NAS支持该接口。
+   * - 客户端列表显示近一分钟对文件系统有读写访问的客户端IP，部分已挂载而没有访问文件系统的客户端IP可能不在此列表中显示。
    * 
    * @param request - DescribeMountedClientsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4685,8 +4729,8 @@ export default class Client extends OpenApi {
    * Queries the clients on which a file system is mounted.
    * 
    * @remarks
-   *   Only General-purpose NAS file systems support this operation.
-   * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+   * - 仅通用型NAS支持该接口。
+   * - 客户端列表显示近一分钟对文件系统有读写访问的客户端IP，部分已挂载而没有访问文件系统的客户端IP可能不在此列表中显示。
    * 
    * @param request - DescribeMountedClientsRequest
    * @returns DescribeMountedClientsResponse
@@ -4698,6 +4742,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries whether the NFS ACL feature is enabled for a file system.
+   * 
+   * @remarks
+   * 仅通用型NAS NFS协议文件系统支持该功能。
    * 
    * @param request - DescribeNfsAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4730,6 +4777,9 @@ export default class Client extends OpenApi {
   /**
    * Queries whether the NFS ACL feature is enabled for a file system.
    * 
+   * @remarks
+   * 仅通用型NAS NFS协议文件系统支持该功能。
+   * 
    * @param request - DescribeNfsAclRequest
    * @returns DescribeNfsAclResponse
    */
@@ -4742,7 +4792,7 @@ export default class Client extends OpenApi {
    * Queries the export directories of a protocol service.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - DescribeProtocolMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4796,7 +4846,7 @@ export default class Client extends OpenApi {
    * Queries the export directories of a protocol service.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - DescribeProtocolMountTargetRequest
    * @returns DescribeProtocolMountTargetResponse
@@ -4810,7 +4860,7 @@ export default class Client extends OpenApi {
    * Queries the information about protocol services.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - DescribeProtocolServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4868,7 +4918,7 @@ export default class Client extends OpenApi {
    * Queries the information about protocol services.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - DescribeProtocolServiceRequest
    * @returns DescribeProtocolServiceResponse
@@ -5152,8 +5202,8 @@ export default class Client extends OpenApi {
    * Unassociates a VSC device from a file system.
    * 
    * @remarks
-   *   Only CPFS for Lingjun supports this operation.
-   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * - 仅CPFS智算版支持该功能。
+   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
    * 
    * @param request - DetachVscFromFilesystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5168,6 +5218,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceIds)) {
       query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.roleChain)) {
+      query["RoleChain"] = request.roleChain;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5191,8 +5245,8 @@ export default class Client extends OpenApi {
    * Unassociates a VSC device from a file system.
    * 
    * @remarks
-   *   Only CPFS for Lingjun supports this operation.
-   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * - 仅CPFS智算版支持该功能。
+   * - 支持批量执行，批量执行情况下，目前仅支持1个VscId关联到多个FileSystemId，即ResourceIds.VscId需相等。
    * 
    * @param request - DetachVscFromFilesystemsRequest
    * @returns DetachVscFromFilesystemsResponse
@@ -5253,6 +5307,9 @@ export default class Client extends OpenApi {
   /**
    * Disables the NFS ACL feature for a file system.
    * 
+   * @remarks
+   * 仅通用型NAS NFS协议文件系统支持该功能。
+   * 
    * @param request - DisableNfsAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableNfsAclResponse
@@ -5283,6 +5340,9 @@ export default class Client extends OpenApi {
 
   /**
    * Disables the NFS ACL feature for a file system.
+   * 
+   * @remarks
+   * 仅通用型NAS NFS协议文件系统支持该功能。
    * 
    * @param request - DisableNfsAclRequest
    * @returns DisableNfsAclResponse
@@ -5337,6 +5397,9 @@ export default class Client extends OpenApi {
   /**
    * Enables the NFS ACL feature for a file system.
    * 
+   * @remarks
+   * 仅通用型NAS NFS协议文件系统支持该功能。
+   * 
    * @param request - EnableNfsAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableNfsAclResponse
@@ -5367,6 +5430,9 @@ export default class Client extends OpenApi {
 
   /**
    * Enables the NFS ACL feature for a file system.
+   * 
+   * @remarks
+   * 仅通用型NAS NFS协议文件系统支持该功能。
    * 
    * @param request - EnableNfsAclRequest
    * @returns EnableNfsAclResponse
@@ -5479,10 +5545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
+   * Checks if a specified directory contains infrequent access or archive storage files, or if a specified file is an infrequent access or archive storage file.
    * 
    * @remarks
-   * Only General-purpose NAS file systems support this operation.
+   * This operation is available only for general-purpose NAS file systems.
    * 
    * @param request - GetDirectoryOrFilePropertiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5517,10 +5583,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
+   * Checks if a specified directory contains infrequent access or archive storage files, or if a specified file is an infrequent access or archive storage file.
    * 
    * @remarks
-   * Only General-purpose NAS file systems support this operation.
+   * This operation is available only for general-purpose NAS file systems.
    * 
    * @param request - GetDirectoryOrFilePropertiesRequest
    * @returns GetDirectoryOrFilePropertiesResponse
@@ -5534,7 +5600,7 @@ export default class Client extends OpenApi {
    * Queries the information about the created fileset.
    * 
    * @remarks
-   * Only CPFS V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * 仅CPFS 2.2.0和CPFS智算版2.7.0及以上版本支持Fileset。您可以在控制台文件系统详情页面查看版本信息。
    * 
    * @param request - GetFilesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5572,7 +5638,7 @@ export default class Client extends OpenApi {
    * Queries the information about the created fileset.
    * 
    * @remarks
-   * Only CPFS V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * 仅CPFS 2.2.0和CPFS智算版2.7.0及以上版本支持Fileset。您可以在控制台文件系统详情页面查看版本信息。
    * 
    * @param request - GetFilesetRequest
    * @returns GetFilesetResponse
@@ -5689,10 +5755,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
+   * Lists Infrequent Access files and the subdirectories that contain them from a specified directory on a General-purpose NAS file system.
    * 
    * @remarks
-   * Only General-purpose NAS file systems support this operation.
+   * Only general-purpose NAS file systems support this feature.
    * 
    * @param request - ListDirectoriesAndFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5743,10 +5809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
+   * Lists Infrequent Access files and the subdirectories that contain them from a specified directory on a General-purpose NAS file system.
    * 
    * @remarks
-   * Only General-purpose NAS file systems support this operation.
+   * Only general-purpose NAS file systems support this feature.
    * 
    * @param request - ListDirectoriesAndFilesRequest
    * @returns ListDirectoriesAndFilesResponse
@@ -6012,7 +6078,7 @@ export default class Client extends OpenApi {
    * Modifies a permission group.
    * 
    * @remarks
-   * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+   * 默认权限组（DEFAULT_VPC_GROUP_NAME）不支持修改。
    * 
    * @param request - ModifyAccessGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6054,7 +6120,7 @@ export default class Client extends OpenApi {
    * Modifies a permission group.
    * 
    * @remarks
-   * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+   * 默认权限组（DEFAULT_VPC_GROUP_NAME）不支持修改。
    * 
    * @param request - ModifyAccessGroupRequest
    * @returns ModifyAccessGroupResponse
@@ -6132,7 +6198,7 @@ export default class Client extends OpenApi {
    * Modifies a rule in a permission group.
    * 
    * @remarks
-   * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+   * 默认权限组（DEFAULT_VPC_GROUP_NAME）中的规则不支持修改。
    * 
    * @param request - ModifyAccessRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6194,7 +6260,7 @@ export default class Client extends OpenApi {
    * Modifies a rule in a permission group.
    * 
    * @remarks
-   * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+   * 默认权限组（DEFAULT_VPC_GROUP_NAME）中的规则不支持修改。
    * 
    * @param request - ModifyAccessRuleRequest
    * @returns ModifyAccessRuleResponse
@@ -6274,14 +6340,14 @@ export default class Client extends OpenApi {
    * Modifies the attributes of a dataflow.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support data flows.
-   * *   You can modify the attributes only of the data flows that are in the `Running` state.
-   * *   It generally takes 2 to 5 minutes to modify the attributes of a data flow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the status of the data flow to be modified.
-   * *   CPFS data flow specifications:
-   *     *   The data flow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The data flow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a data flow.
-   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-   * *   Billing of CPFS file systems
-   *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+   * - CPFS 2.2.0及以上版本、CPFS智算版 2.4.0及以上版本支持数据流动。
+   * - 仅支持状态为`Running（正常）`状态的数据流动修改属性。
+   * - 修改数据流动一般耗时2~5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html)查询修改数据流动的状态。
+   * - CPFS数据流动规格：
+   *     - 数据流动带宽（Throughput）支持600 MB/s、1200 MB/s和1500 MB/s三种规格。数据流动带宽是指该数据流动进行导入或导出数据时能达到的最大传输带宽。
+   *     - 库存查询：当设置DryRun为true时，可校验修改该规格的数据流动的资源是否满足。
+   * - CPFS计费
+   *   修改数据流动带宽（Throughput）涉及数据流动带宽计费，建议您提前了解CPFS的计费方式。更多详情，请参见[CPFS计费说明](https://help.aliyun.com/document_detail/111858.html)。
    * 
    * @param request - ModifyDataFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6335,14 +6401,14 @@ export default class Client extends OpenApi {
    * Modifies the attributes of a dataflow.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for Lingjun V2.4.0 and later support data flows.
-   * *   You can modify the attributes only of the data flows that are in the `Running` state.
-   * *   It generally takes 2 to 5 minutes to modify the attributes of a data flow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the status of the data flow to be modified.
-   * *   CPFS data flow specifications:
-   *     *   The data flow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The data flow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a data flow.
-   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-   * *   Billing of CPFS file systems
-   *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+   * - CPFS 2.2.0及以上版本、CPFS智算版 2.4.0及以上版本支持数据流动。
+   * - 仅支持状态为`Running（正常）`状态的数据流动修改属性。
+   * - 修改数据流动一般耗时2~5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html)查询修改数据流动的状态。
+   * - CPFS数据流动规格：
+   *     - 数据流动带宽（Throughput）支持600 MB/s、1200 MB/s和1500 MB/s三种规格。数据流动带宽是指该数据流动进行导入或导出数据时能达到的最大传输带宽。
+   *     - 库存查询：当设置DryRun为true时，可校验修改该规格的数据流动的资源是否满足。
+   * - CPFS计费
+   *   修改数据流动带宽（Throughput）涉及数据流动带宽计费，建议您提前了解CPFS的计费方式。更多详情，请参见[CPFS计费说明](https://help.aliyun.com/document_detail/111858.html)。
    * 
    * @param request - ModifyDataFlowRequest
    * @returns ModifyDataFlowResponse
@@ -6356,10 +6422,10 @@ export default class Client extends OpenApi {
    * Modifies an AutoRefresh configuration of a dataflow.
    * 
    * @remarks
-   *   This operation is available only to CPFS file systems.
-   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   * *   You can modify the AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the task of modifying an AutoRefresh configuration.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持修改`Running（正常`）、`Stopped（停止）`状态数据流动的自动更新配置。
+   * - 修改自动更新配置一般耗时2～5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html)查询修改自动更新任务的状态。
    * 
    * @param request - ModifyDataFlowAutoRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6413,10 +6479,10 @@ export default class Client extends OpenApi {
    * Modifies an AutoRefresh configuration of a dataflow.
    * 
    * @remarks
-   *   This operation is available only to CPFS file systems.
-   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   * *   You can modify the AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the task of modifying an AutoRefresh configuration.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 仅支持修改`Running（正常`）、`Stopped（停止）`状态数据流动的自动更新配置。
+   * - 修改自动更新配置一般耗时2～5分钟，您可以通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html)查询修改自动更新任务的状态。
    * 
    * @param request - ModifyDataFlowAutoRefreshRequest
    * @returns ModifyDataFlowAutoRefreshResponse
@@ -6486,7 +6552,7 @@ export default class Client extends OpenApi {
    * Modifies a fileset.
    * 
    * @remarks
-   * Only Cloud Parallel File Storage (CPFS) V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation.
+   * 仅支持CPFS 2.2.0和CPFS智算版2.7.0及以上版本修改Fileset信息。
    * 
    * @param request - ModifyFilesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6540,7 +6606,7 @@ export default class Client extends OpenApi {
    * Modifies a fileset.
    * 
    * @remarks
-   * Only Cloud Parallel File Storage (CPFS) V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation.
+   * 仅支持CPFS 2.2.0和CPFS智算版2.7.0及以上版本修改Fileset信息。
    * 
    * @param request - ModifyFilesetRequest
    * @returns ModifyFilesetResponse
@@ -6619,7 +6685,7 @@ export default class Client extends OpenApi {
    * Modifies a lifecycle policy.
    * 
    * @remarks
-   * Only General-purpose NAS file systems support this operation.
+   * 仅通用型NAS文件系统支持该功能。
    * 
    * @param request - ModifyLifecyclePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6673,7 +6739,7 @@ export default class Client extends OpenApi {
    * Modifies a lifecycle policy.
    * 
    * @remarks
-   * Only General-purpose NAS file systems support this operation.
+   * 仅通用型NAS文件系统支持该功能。
    * 
    * @param request - ModifyLifecyclePolicyRequest
    * @returns ModifyLifecyclePolicyResponse
@@ -6684,7 +6750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a mount target.
+   * Modifies the properties of a mount target.
+   * 
+   * @remarks
+   * This operation applies only to mount targets on General-purpose NAS and Extreme NAS file systems.
    * 
    * @param request - ModifyMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6735,7 +6804,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a mount target.
+   * Modifies the properties of a mount target.
+   * 
+   * @remarks
+   * This operation applies only to mount targets on General-purpose NAS and Extreme NAS file systems.
    * 
    * @param request - ModifyMountTargetRequest
    * @returns ModifyMountTargetResponse
@@ -6749,7 +6821,7 @@ export default class Client extends OpenApi {
    * Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - ModifyProtocolMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6803,7 +6875,7 @@ export default class Client extends OpenApi {
    * Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - ModifyProtocolMountTargetRequest
    * @returns ModifyProtocolMountTargetResponse
@@ -6817,7 +6889,7 @@ export default class Client extends OpenApi {
    * Modifies a protocol service. You can modify the description of a protocol service.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - ModifyProtocolServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6867,7 +6939,7 @@ export default class Client extends OpenApi {
    * Modifies a protocol service. You can modify the description of a protocol service.
    * 
    * @remarks
-   * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+   * 该接口仅适用于CPFS文件系统。
    * 
    * @param request - ModifyProtocolServiceRequest
    * @returns ModifyProtocolServiceResponse
@@ -6948,7 +7020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates File Storage NAS.
+   * Activates the NAS service.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenNASServiceResponse
@@ -6970,7 +7042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates File Storage NAS.
+   * Activates the NAS service.
    * @returns OpenNASServiceResponse
    */
   async openNASService(): Promise<$_model.OpenNASServiceResponse> {
@@ -7225,12 +7297,12 @@ export default class Client extends OpenApi {
    * Sets the quota for a fileset.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.7.0 and later support this operation.
-   * *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB.
-   * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
-   * *   When modifying a directory quota, you must set the new capacity or file quantity higher than what is currently used.
-   * *   You must configure at least one of the Capacity Limit (GiB) and File Limit parameters.
-   * *   The quota statistics have a 15-minute latency. The actual usage takes effect after 15 minutes.
+   * - 仅CPFS智算版2.7.0及以上版本支持为文件集设置配额。
+   * - Fileset容量配额，最小起步10 GiB，扩容单位为1 GiB。
+   * - Fileset最多支持100亿个文件或目录，最小起步10000，扩容单位为1。
+   * - 修改目录配额时，设置的配额容量或文件数必须高于已使用容量或文件数。
+   * - 容量限制和文件数限制至少填写其中一项。
+   * - 配额的统计有15分钟的延迟，当前的实际使用量15分钟之后才会生效。
    * 
    * @param request - SetFilesetQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7284,12 +7356,12 @@ export default class Client extends OpenApi {
    * Sets the quota for a fileset.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.7.0 and later support this operation.
-   * *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB.
-   * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
-   * *   When modifying a directory quota, you must set the new capacity or file quantity higher than what is currently used.
-   * *   You must configure at least one of the Capacity Limit (GiB) and File Limit parameters.
-   * *   The quota statistics have a 15-minute latency. The actual usage takes effect after 15 minutes.
+   * - 仅CPFS智算版2.7.0及以上版本支持为文件集设置配额。
+   * - Fileset容量配额，最小起步10 GiB，扩容单位为1 GiB。
+   * - Fileset最多支持100亿个文件或目录，最小起步10000，扩容单位为1。
+   * - 修改目录配额时，设置的配额容量或文件数必须高于已使用容量或文件数。
+   * - 容量限制和文件数限制至少填写其中一项。
+   * - 配额的统计有15分钟的延迟，当前的实际使用量15分钟之后才会生效。
    * 
    * @param request - SetFilesetQuotaRequest
    * @returns SetFilesetQuotaResponse
@@ -7303,11 +7375,11 @@ export default class Client extends OpenApi {
    * Enables a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can enable the data flows that are only in the `Stopped` state.
-   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified data flow. If the resources are insufficient, the data flow cannot be enabled.
-   * *   It generally takes 2 to 5 minutes to enable a data flow. You can query the data flow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 只能启动`Stopped（停止）`状态的数据流动。
+   * - 当DryRun为`true`时，可校验启动该规格的数据流动的资源是否充足。如果库存资源不足，数据流动则无法启动。
+   * - 启动数据流动一般耗时2～5分钟，您可通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html)查询数据流动状态。
    * 
    * @param request - StartDataFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7353,11 +7425,11 @@ export default class Client extends OpenApi {
    * Enables a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems.
-   * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can enable the data flows that are only in the `Stopped` state.
-   * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified data flow. If the resources are insufficient, the data flow cannot be enabled.
-   * *   It generally takes 2 to 5 minutes to enable a data flow. You can query the data flow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 只能启动`Stopped（停止）`状态的数据流动。
+   * - 当DryRun为`true`时，可校验启动该规格的数据流动的资源是否充足。如果库存资源不足，数据流动则无法启动。
+   * - 启动数据流动一般耗时2～5分钟，您可通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html)查询数据流动状态。
    * 
    * @param request - StartDataFlowRequest
    * @returns StartDataFlowResponse
@@ -7368,7 +7440,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts the execution of lifecycle policies.
+   * Starts the execution of a lifecycle policy.
+   * 
+   * @remarks
+   * This operation is supported only when the `LifecyclePolicyType` of a lifecycle policy is set to `OnDemand` for a CPFS AI-Computing Edition file system.
    * 
    * @param request - StartLifecyclePolicyExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7403,7 +7478,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts the execution of lifecycle policies.
+   * Starts the execution of a lifecycle policy.
+   * 
+   * @remarks
+   * This operation is supported only when the `LifecyclePolicyType` of a lifecycle policy is set to `OnDemand` for a CPFS AI-Computing Edition file system.
    * 
    * @param request - StartLifecyclePolicyExecutionRequest
    * @returns StartLifecyclePolicyExecutionResponse
@@ -7417,12 +7495,12 @@ export default class Client extends OpenApi {
    * Disables a dataflow.
    * 
    * @remarks
-   *   This operation is available only to CPFS file systems.
-   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   * *   You can disable only the dataflows that are in the `Running` state.
-   * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
-   * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
-   * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html) operation to query the dataflow status.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 只能停用`Running（正常）`状态的数据流动。
+   * - 停用后，不可在数据流动上创建数据流动任务。如果配置了自动更新，源端发生的数据更新也不会同步到CPFS上。
+   * - 停用后，由于资源被回收，数据流动带宽将不再计费，但重新启动数据流动可能因为库存不足导致启动失败。
+   * - 停用数据流动一般耗时2～5分钟，您可通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html)查询数据流动状态。
    * 
    * @param request - StopDataFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7468,12 +7546,12 @@ export default class Client extends OpenApi {
    * Disables a dataflow.
    * 
    * @remarks
-   *   This operation is available only to CPFS file systems.
-   * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
-   * *   You can disable only the dataflows that are in the `Running` state.
-   * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
-   * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
-   * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html) operation to query the dataflow status.
+   * - 该接口仅适用于CPFS文件系统。
+   * - 仅CPFS 2.2.0及以上版本支持数据流动。您可以在控制台文件系统详情页面查看版本信息。
+   * - 只能停用`Running（正常）`状态的数据流动。
+   * - 停用后，不可在数据流动上创建数据流动任务。如果配置了自动更新，源端发生的数据更新也不会同步到CPFS上。
+   * - 停用后，由于资源被回收，数据流动带宽将不再计费，但重新启动数据流动可能因为库存不足导致启动失败。
+   * - 停用数据流动一般耗时2～5分钟，您可通过[DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html)查询数据流动状态。
    * 
    * @param request - StopDataFlowRequest
    * @returns StopDataFlowResponse
@@ -7484,7 +7562,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops the execution of lifecycle policies.
+   * Stops the execution of a lifecycle policy.
+   * 
+   * @remarks
+   * This operation applies only when the LifecyclePolicyType parameter of a lifecycle management policy for a CPFS file system is set to OnDemand.
    * 
    * @param request - StopLifecyclePolicyExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7519,7 +7600,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops the execution of lifecycle policies.
+   * Stops the execution of a lifecycle policy.
+   * 
+   * @remarks
+   * This operation applies only when the LifecyclePolicyType parameter of a lifecycle management policy for a CPFS file system is set to OnDemand.
    * 
    * @param request - StopLifecyclePolicyExecutionRequest
    * @returns StopLifecyclePolicyExecutionResponse
@@ -7530,7 +7614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and adds tags to specified resources. File systems and access points are supported.
+   * Creates tags and binds the tags to file systems.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7569,7 +7653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and adds tags to specified resources. File systems and access points are supported.
+   * Creates tags and binds the tags to file systems.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -7580,7 +7664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a tag from a specified resource.
+   * Removes tags from a file system.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7623,7 +7707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a tag from a specified resource.
+   * Removes tags from a file system.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -7634,7 +7718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a rule of a lifecycle management policy. Only CPFS for Lingjun supports this operation. The UpdateLifecyclePolicy specifies the overwriting semantics. If you do not specify an optional parameter, the corresponding field is deleted. If you want to configure a new lifecycle rule for a bucket, call the DescribeLifecyclePolicies operation to query the configurations of the existing lifecycle rule, add new lifecycle rules, and then call the UpdateLifecyclePolicy operation to update the configurations.
+   * Updates the rules of a lifecycle policy. This operation is supported only for CPFS for AI file systems. The `UpdateLifecyclePolicy` operation overwrites the entire policy. Omitting an optional parameter deletes its corresponding configuration. To add a rule to an existing policy, call the `DescribeLifecyclePolicies` operation to retrieve the current policy, append the new rule, and then call `UpdateLifecyclePolicy` with the updated configuration.
    * 
    * @param request - UpdateLifecyclePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7689,7 +7773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a rule of a lifecycle management policy. Only CPFS for Lingjun supports this operation. The UpdateLifecyclePolicy specifies the overwriting semantics. If you do not specify an optional parameter, the corresponding field is deleted. If you want to configure a new lifecycle rule for a bucket, call the DescribeLifecyclePolicies operation to query the configurations of the existing lifecycle rule, add new lifecycle rules, and then call the UpdateLifecyclePolicy operation to update the configurations.
+   * Updates the rules of a lifecycle policy. This operation is supported only for CPFS for AI file systems. The `UpdateLifecyclePolicy` operation overwrites the entire policy. Omitting an optional parameter deletes its corresponding configuration. To add a rule to an existing policy, call the `DescribeLifecyclePolicies` operation to retrieve the current policy, append the new rule, and then call `UpdateLifecyclePolicy` with the updated configuration.
    * 
    * @param request - UpdateLifecyclePolicyRequest
    * @returns UpdateLifecyclePolicyResponse
@@ -7747,8 +7831,8 @@ export default class Client extends OpenApi {
    * Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
    * 
    * @remarks
-   *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
-   * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+   * - 仅支持极速型NAS文件系统和CPFS文件系统扩容。
+   * - 通用型NAS按需自动扩容，无须使用本API。
    * 
    * @param request - UpgradeFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7794,8 +7878,8 @@ export default class Client extends OpenApi {
    * Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
    * 
    * @remarks
-   *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
-   * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+   * - 仅支持极速型NAS文件系统和CPFS文件系统扩容。
+   * - 通用型NAS按需自动扩容，无须使用本API。
    * 
    * @param request - UpgradeFileSystemRequest
    * @returns UpgradeFileSystemResponse

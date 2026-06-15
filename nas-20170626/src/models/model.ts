@@ -1,5 +1,6 @@
 export { ApplyDataFlowAutoRefreshRequestAutoRefreshs } from './ApplyDataFlowAutoRefreshRequest';
 export { AttachVscToFilesystemsRequestResourceIds } from './AttachVscToFilesystemsRequest';
+export { AttachVscToFilesystemsRequestRoleChain } from './AttachVscToFilesystemsRequest';
 export { CreateAccessPointRequestTag } from './CreateAccessPointRequest';
 export { CreateAccessPointResponseBodyAccessPoint } from './CreateAccessPointResponseBody';
 export { CreateDataFlowRequestAutoRefreshs } from './CreateDataFlowRequest';
@@ -75,6 +76,7 @@ export { DescribeFilesetsResponseBodyEntries } from './DescribeFilesetsResponseB
 export { DescribeFilesystemsAssociatedHpnZonesRequestFilesystems } from './DescribeFilesystemsAssociatedHpnZonesRequest';
 export { DescribeFilesystemsAssociatedHpnZonesResponseBodyFilesystems } from './DescribeFilesystemsAssociatedHpnZonesResponseBody';
 export { DescribeFilesystemsVscAttachInfoRequestResourceIds } from './DescribeFilesystemsVscAttachInfoRequest';
+export { DescribeFilesystemsVscAttachInfoRequestRoleChain } from './DescribeFilesystemsVscAttachInfoRequest';
 export { DescribeFilesystemsVscAttachInfoResponseBodyVscAttachInfoVscAttachInfo } from './DescribeFilesystemsVscAttachInfoResponseBody';
 export { DescribeFilesystemsVscAttachInfoResponseBodyVscAttachInfo } from './DescribeFilesystemsVscAttachInfoResponseBody';
 export { DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules } from './DescribeLifecyclePoliciesResponseBody';
@@ -112,6 +114,7 @@ export { DescribeZonesResponseBodyZonesZonePerformance } from './DescribeZonesRe
 export { DescribeZonesResponseBodyZonesZone } from './DescribeZonesResponseBody';
 export { DescribeZonesResponseBodyZones } from './DescribeZonesResponseBody';
 export { DetachVscFromFilesystemsRequestResourceIds } from './DetachVscFromFilesystemsRequest';
+export { DetachVscFromFilesystemsRequestRoleChain } from './DetachVscFromFilesystemsRequest';
 export { GetDirectoryOrFilePropertiesResponseBodyEntry } from './GetDirectoryOrFilePropertiesResponseBody';
 export { GetFilesetResponseBodyDataQuota } from './GetFilesetResponseBody';
 export { GetFilesetResponseBodyData } from './GetFilesetResponseBody';
