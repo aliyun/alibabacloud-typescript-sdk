@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/green20220926",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

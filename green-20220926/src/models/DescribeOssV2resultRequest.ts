@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeOssV2ResultRequest extends $dara.Model {
-  /**
-   * @example
-   * buckect_test
-   */
   bucket?: string;
-  /**
-   * @example
-   * 1
-   */
   currentPage?: number;
-  /**
-   * @example
-   * 2024-09-14 16:08:38
-   */
   endDate?: string;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * high
-   */
   riskLevel?: string;
-  /**
-   * @example
-   * 2024-09-14 16:08:38
-   */
   startDate?: string;
   taskName?: string;
   static names(): { [key: string]: string } {

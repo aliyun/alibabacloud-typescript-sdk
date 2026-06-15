@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class MarkOssV2ResultResponseBody extends $dara.Model {
   failureRequestIds?: string[];
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
   requestId?: string;
   successRequestIds?: string[];
   static names(): { [key: string]: string } {

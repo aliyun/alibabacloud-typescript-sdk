@@ -756,6 +756,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建图库
+   * 
+   * @param request - CreateImageLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageLibResponse
+   */
+  async createImageLibWithOptions(request: $_model.CreateImageLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImageLibResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.libName)) {
+      body["LibName"] = request.libName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateImageLib",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateImageLibResponse>(await this.callApi(params, req, runtime), new $_model.CreateImageLibResponse({}));
+  }
+
+  /**
+   * 创建图库
+   * 
+   * @param request - CreateImageLibRequest
+   * @returns CreateImageLibResponse
+   */
+  async createImageLib(request: $_model.CreateImageLibRequest): Promise<$_model.CreateImageLibResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createImageLibWithOptions(request, runtime);
+  }
+
+  /**
    * Online Test
    * 
    * @param request - CreateOnlineTestRequest
@@ -3345,6 +3397,48 @@ export default class Client extends OpenApi {
   async getTextScanResult(request: $_model.GetTextScanResultRequest): Promise<$_model.GetTextScanResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTextScanResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取开关配置调优意见
+   * 
+   * @param request - GetTuneProposalByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTuneProposalByIdResponse
+   */
+  async getTuneProposalByIdWithOptions(request: $_model.GetTuneProposalByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTuneProposalByIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTuneProposalById",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTuneProposalByIdResponse>(await this.callApi(params, req, runtime), new $_model.GetTuneProposalByIdResponse({}));
+  }
+
+  /**
+   * 获取开关配置调优意见
+   * 
+   * @param request - GetTuneProposalByIdRequest
+   * @returns GetTuneProposalByIdResponse
+   */
+  async getTuneProposalById(request: $_model.GetTuneProposalByIdRequest): Promise<$_model.GetTuneProposalByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTuneProposalByIdWithOptions(request, runtime);
   }
 
   /**

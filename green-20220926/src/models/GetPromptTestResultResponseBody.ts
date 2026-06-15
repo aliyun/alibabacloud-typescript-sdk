@@ -9,10 +9,12 @@ export class GetPromptTestResultResponseBodyResultLabelDetails extends $dara.Mod
    * terrorism
    */
   label?: string;
+  reason?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       label: 'Label',
+      reason: 'Reason',
     };
   }
 
@@ -20,6 +22,7 @@ export class GetPromptTestResultResponseBodyResultLabelDetails extends $dara.Mod
     return {
       description: 'string',
       label: 'string',
+      reason: 'string',
     };
   }
 
