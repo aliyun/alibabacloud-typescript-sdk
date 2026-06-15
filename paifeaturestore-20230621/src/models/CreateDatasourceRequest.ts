@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDatasourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The configuration of the resource.
+   * 
    * @example
    * {"address": ""}
    */
   config?: string;
   /**
    * @remarks
+   * The name of the datasource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,16 @@ export class CreateDatasourceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The datasource type. Valid values are:
+   * 
+   * ● Hologres
+   * 
+   * ● GraphCompute
+   * 
+   * ● Redis
+   * 
+   * ● MaxCompute
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +41,8 @@ export class CreateDatasourceRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
+   * The URI of the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +51,8 @@ export class CreateDatasourceRequest extends $dara.Model {
   uri?: string;
   /**
    * @remarks
+   * The ID of the workspace. Call the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation to obtain this ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFeatureViewRequestFieldsTransformInput extends $dara.Model {
   /**
+   * @remarks
+   * The modality of the input, such as text or image.
+   * 
    * @example
    * NONE
    */
   modality?: string;
   /**
    * @remarks
+   * The name of the input field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdateFeatureViewRequestFieldsTransformInput extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The data type of the input field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,11 +59,15 @@ export class UpdateFeatureViewRequestFieldsTransformInput extends $dara.Model {
 export class UpdateFeatureViewRequestFieldsTransform extends $dara.Model {
   /**
    * @remarks
+   * The input fields.
+   * 
    * This parameter is required.
    */
   input?: UpdateFeatureViewRequestFieldsTransformInput[];
   /**
    * @remarks
+   * The ID of the LLM configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,6 +76,8 @@ export class UpdateFeatureViewRequestFieldsTransform extends $dara.Model {
   LLMConfigId?: number;
   /**
    * @remarks
+   * The type of feature generation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -102,20 +115,36 @@ export class UpdateFeatureViewRequestFieldsTransform extends $dara.Model {
 export class UpdateFeatureViewRequestFields extends $dara.Model {
   /**
    * @remarks
+   * A list of field attributes. Valid values:
+   * 
+   * - `Partition`: Indicates that the field is a partition field.
+   * 
+   * - `PrimaryKey`: Indicates that the field is a primary key.
+   * 
+   * - `EventTime`: Indicates that the field is the event time.
+   * 
    * This parameter is required.
    */
   attributes?: string[];
   /**
    * @remarks
+   * The name of the field.
+   * 
    * This parameter is required.
    * 
    * @example
    * user_id
    */
   name?: string;
+  /**
+   * @remarks
+   * The feature generation configuration.
+   */
   transform?: UpdateFeatureViewRequestFieldsTransform[];
   /**
    * @remarks
+   * The data type of the field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -158,6 +187,8 @@ export class UpdateFeatureViewRequestFields extends $dara.Model {
 export class UpdateFeatureViewRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of fields.
+   * 
    * This parameter is required.
    */
   fields?: UpdateFeatureViewRequestFields[];

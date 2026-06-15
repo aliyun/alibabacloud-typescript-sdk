@@ -4,12 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckInstanceDatasourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The resource configuration.
+   * 
    * @example
    * {"address": ""}
    */
   config?: string;
   /**
    * @remarks
+   * The data source type.
+   * 
+   * - Hologres
+   * 
+   * - Redis
+   * 
+   * - MaxCompute
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +29,8 @@ export class CheckInstanceDatasourceRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
+   * The resource URI.
+   * 
    * This parameter is required.
    * 
    * @example

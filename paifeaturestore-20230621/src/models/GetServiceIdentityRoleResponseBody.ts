@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetServiceIdentityRoleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * 关联策略。
+   * 
    * @example
    * {
    * "Version": "1",
@@ -12,11 +15,17 @@ export class GetServiceIdentityRoleResponseBody extends $dara.Model {
    */
   policy?: string;
   /**
+   * @remarks
+   * 请求ID。
+   * 
    * @example
    * 6F629E92-F64D-502D-85AA-A9C54894CA3D
    */
   requestId?: string;
   /**
+   * @remarks
+   * 服务账户角色名称。
+   * 
    * @example
    * AliyunServiceRoleForPaiFeatureStore
    */

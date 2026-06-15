@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFeatureViewOnlineFeaturesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of the retrieved online feature records.
+   */
   onlineFeatures?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BF349686-C932-55B5-9B31-DAFA395C0E06
    */

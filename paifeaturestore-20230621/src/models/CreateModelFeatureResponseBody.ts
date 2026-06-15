@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateModelFeatureResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The model feature ID.
+   * 
    * @example
    * 3
    */
   modelFeatureId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 37D19490-AB69-567D-A852-407C94E510E9
    */

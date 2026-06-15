@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDatasourceFeatureViewsResponseBodyFeatureViewsUsageStatisticsReadWriteCount extends $dara.Model {
   /**
+   * @remarks
+   * Date.
+   * 
    * @example
    * 2025-03-18T00:00:00+08:00
    */
   date?: string;
   /**
+   * @remarks
+   * Read count.
+   * 
    * @example
    * 200
    */
   readCount?: number;
   /**
+   * @remarks
+   * Write count.
+   * 
    * @example
    * 100
    */
@@ -45,17 +54,30 @@ export class ListDatasourceFeatureViewsResponseBodyFeatureViewsUsageStatisticsRe
 
 export class ListDatasourceFeatureViewsResponseBodyFeatureViewsUsageStatistics extends $dara.Model {
   /**
+   * @remarks
+   * Disk usage.
+   * 
    * @example
    * 1.23
    */
   diskUsage?: number;
   /**
+   * @remarks
+   * Memory usage.
+   * 
    * @example
    * 0.12
    */
   memoryUsage?: number;
+  /**
+   * @remarks
+   * Read/write count statistics.
+   */
   readWriteCount?: ListDatasourceFeatureViewsResponseBodyFeatureViewsUsageStatisticsReadWriteCount[];
   /**
+   * @remarks
+   * Row count.
+   * 
    * @example
    * 10000
    */
@@ -92,40 +114,71 @@ export class ListDatasourceFeatureViewsResponseBodyFeatureViewsUsageStatistics e
 
 export class ListDatasourceFeatureViewsResponseBodyFeatureViews extends $dara.Model {
   /**
+   * @remarks
+   * Feature view configuration. Only feature views using FeatureDB have values, showing number of shards and number of replicas.
+   * 
    * @example
    * {"shard_count":5,"replication_count":1}
    */
   config?: string;
   /**
+   * @remarks
+   * Feature entity name.
+   * 
    * @example
    * user
    */
   featureEntityName?: string;
   /**
+   * @remarks
+   * Feature view ID.
+   * 
    * @example
    * 3
    */
   featureViewId?: string;
   /**
+   * @remarks
+   * Feature view name.
+   * 
    * @example
    * fv1
    */
   name?: string;
   /**
+   * @remarks
+   * Project name.
+   * 
    * @example
    * p1
    */
   projectName?: string;
   /**
+   * @remarks
+   * Lifecycle. Unit: seconds.
+   * 
    * @example
    * 86400
    */
   TTL?: number;
   /**
+   * @remarks
+   * Feature view type.
+   * 
+   * - Batch - offline feature
+   * 
+   * - Stream - real-time feature
+   * 
+   * - Sequence - sequence feature
+   * 
    * @example
    * Batch
    */
   type?: string;
+  /**
+   * @remarks
+   * Usage statistics. Only displayed for feature views using FeatureDB.
+   */
   usageStatistics?: ListDatasourceFeatureViewsResponseBodyFeatureViewsUsageStatistics;
   static names(): { [key: string]: string } {
     return {
@@ -167,16 +220,25 @@ export class ListDatasourceFeatureViewsResponseBodyFeatureViews extends $dara.Mo
 
 export class ListDatasourceFeatureViewsResponseBodyTotalUsageStatisticsTotalReadWriteCount extends $dara.Model {
   /**
+   * @remarks
+   * Date.
+   * 
    * @example
    * 2025-03-18T00:00:00+08:00
    */
   date?: string;
   /**
+   * @remarks
+   * Total read count.
+   * 
    * @example
    * 456
    */
   totalReadCount?: number;
   /**
+   * @remarks
+   * Total write count.
+   * 
    * @example
    * 123
    */
@@ -208,15 +270,25 @@ export class ListDatasourceFeatureViewsResponseBodyTotalUsageStatisticsTotalRead
 
 export class ListDatasourceFeatureViewsResponseBodyTotalUsageStatistics extends $dara.Model {
   /**
+   * @remarks
+   * Total disk usage.
+   * 
    * @example
    * 12.3
    */
   totalDiskUsage?: number;
   /**
+   * @remarks
+   * Total memory usage.
+   * 
    * @example
    * 1.23
    */
   totalMemoryUsage?: number;
+  /**
+   * @remarks
+   * Total read/write count statistics.
+   */
   totalReadWriteCount?: ListDatasourceFeatureViewsResponseBodyTotalUsageStatisticsTotalReadWriteCount[];
   static names(): { [key: string]: string } {
     return {
@@ -247,12 +319,23 @@ export class ListDatasourceFeatureViewsResponseBodyTotalUsageStatistics extends 
 }
 
 export class ListDatasourceFeatureViewsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Feature view list.
+   */
   featureViews?: ListDatasourceFeatureViewsResponseBodyFeatureViews[];
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 10
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * Overall usage statistics. Only displayed for feature views using FeatureDB.
+   */
   totalUsageStatistics?: ListDatasourceFeatureViewsResponseBodyTotalUsageStatistics;
   /**
    * @remarks

@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListProjectFeaturesResponseBodyFeatures extends $dara.Model {
   /**
+   * @remarks
+   * A comma-separated list of aliases for the feature.
+   * 
    * @example
    * age1,age2
    */
   aliasNames?: string;
   /**
+   * @remarks
+   * The ID of the parent feature view.
+   * 
    * @example
    * 1
    */
   featureViewId?: string;
   /**
+   * @remarks
+   * The name of the parent feature view.
+   * 
    * @example
    * fv1
    */
   featureViewName?: string;
   /**
+   * @remarks
+   * The time the feature was created, in ISO 8601 format.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The number of model features that reference this feature.
+   * 
    * @example
    * 10
    */
   modelFeatureCount?: number;
   /**
+   * @remarks
+   * The name of the feature.
+   * 
    * @example
    * f1
    */
   name?: string;
   /**
+   * @remarks
+   * The owner of the feature.
+   * 
    * @example
    * 123456
    */
   owner?: string;
   /**
+   * @remarks
+   * The data type of the feature.
+   * 
    * @example
    * STRING
    */
@@ -79,15 +103,22 @@ export class ListProjectFeaturesResponseBodyFeatures extends $dara.Model {
 }
 
 export class ListProjectFeaturesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of returned features.
+   */
   features?: ListProjectFeaturesResponseBodyFeatures[];
   /**
+   * @remarks
+   * The total number of features that match the query criteria.
+   * 
    * @example
    * 10
    */
   totalCount?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 7D497816-607C-5B67-97B1-61354B6ACB2B

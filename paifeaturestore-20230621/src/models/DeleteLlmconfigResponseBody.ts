@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLLMConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 96EE513F-8626-50B8-B046-D57FD3D037C2
    */
   requestId?: string;
   static names(): { [key: string]: string } {

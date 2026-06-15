@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateModelFeatureRequestFeatures extends $dara.Model {
   /**
+   * @remarks
+   * The feature alias.
+   * 
    * @example
    * sex
    */
   aliasName?: string;
   /**
    * @remarks
+   * The feature view ID. You can call the ListFeatureViews operation to query the feature view ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdateModelFeatureRequestFeatures extends $dara.Model {
   featureViewId?: string;
   /**
    * @remarks
+   * The feature name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,7 +32,22 @@ export class UpdateModelFeatureRequestFeatures extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * cand_seq__
+   */
+  prefixName?: string;
+  /**
    * @remarks
+   * The feature type. Valid values:
+   * 
+   * - INT32
+   * - INT64
+   * - FLOAT
+   * - DOUBLE
+   * - STRING
+   * - BOOLEAN
+   * - TIMESTAMP.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +59,7 @@ export class UpdateModelFeatureRequestFeatures extends $dara.Model {
       aliasName: 'AliasName',
       featureViewId: 'FeatureViewId',
       name: 'Name',
+      prefixName: 'PrefixName',
       type: 'Type',
     };
   }
@@ -46,6 +69,7 @@ export class UpdateModelFeatureRequestFeatures extends $dara.Model {
       aliasName: 'string',
       featureViewId: 'string',
       name: 'string',
+      prefixName: 'string',
       type: 'string',
     };
   }
@@ -60,6 +84,10 @@ export class UpdateModelFeatureRequestFeatures extends $dara.Model {
 }
 
 export class UpdateModelFeatureRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of features.
+   */
   features?: UpdateModelFeatureRequestFeatures[];
   /**
    * @example
@@ -67,6 +95,9 @@ export class UpdateModelFeatureRequest extends $dara.Model {
    */
   labelPriorityLevel?: number;
   /**
+   * @remarks
+   * The label table ID. You can call the ListLabelTables operation to query the label table ID.
+   * 
    * @example
    * 4
    */

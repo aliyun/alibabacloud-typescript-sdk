@@ -3,13 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDatasourceTableResponseBodyFields extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes of the field. Valid values:
+   * 
+   * ● Partition: indicates that the field is a partition field.
+   * 
+   * ● EventTime: indicates that the field is an event time field.
+   * 
+   * ● PrimaryKey: indicates that the field is a primary key field.
+   */
   attributes?: string[];
   /**
+   * @remarks
+   * The name of the field.
+   * 
    * @example
    * field1
    */
   name?: string;
   /**
+   * @remarks
+   * The data type of the field. Valid values:
+   * 
+   * ● INT32
+   * 
+   * ● INT64
+   * 
+   * ● FLOAT
+   * 
+   * ● DOUBLE
+   * 
+   * ● STRING
+   * 
+   * ● BOOLEAN
+   * 
+   * ● TIMESTAMP
+   * 
    * @example
    * INT32
    */
@@ -43,13 +73,23 @@ export class GetDatasourceTableResponseBodyFields extends $dara.Model {
 }
 
 export class GetDatasourceTableResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of fields.
+   */
   fields?: GetDatasourceTableResponseBodyFields[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D7B2F8C4-49C7-5CFA-8075-9D715A114873
    */
   requestId?: string;
   /**
+   * @remarks
+   * The name of the data table.
+   * 
    * @example
    * table1
    */

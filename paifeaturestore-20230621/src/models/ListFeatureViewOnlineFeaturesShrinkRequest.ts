@@ -10,6 +10,8 @@ export class ListFeatureViewOnlineFeaturesShrinkRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
+   * The join IDs used to retrieve online features.
+   * 
    * This parameter is required.
    */
   joinIdsShrink?: string;

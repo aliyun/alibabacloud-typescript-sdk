@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateModelFeatureFGFeatureResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 7D497816-607C-5B67-97B1-61354B6ACB2B
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateLabelTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The label table ID.
+   * 
    * @example
    * 1
    */
   labelTableId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0FA90B3B-F30A-5C9D-A9FD-8114F8868062
    */

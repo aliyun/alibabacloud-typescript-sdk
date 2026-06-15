@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $dara.Model {
   /**
    * @remarks
+   * Default value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $dara.Mode
   defaultValue?: string;
   /**
    * @remarks
+   * Generated feature name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,14 @@ export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $dara.Mode
   featureName?: string;
   /**
    * @remarks
+   * Key feature domain.
+   * 
+   * - User
+   * 
+   * - Item
+   * 
+   * - Context
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +41,8 @@ export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $dara.Mode
   keyFeatureDomain?: string;
   /**
    * @remarks
+   * The name of the key feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +51,14 @@ export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $dara.Mode
   keyFeatureName?: string;
   /**
    * @remarks
+   * Map feature domain.
+   * 
+   * - User
+   * 
+   * - Item
+   * 
+   * - Context
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +67,8 @@ export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $dara.Mode
   mapFeatureDomain?: string;
   /**
    * @remarks
+   * Map feature name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +77,14 @@ export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $dara.Mode
   mapFeatureName?: string;
   /**
    * @remarks
+   * Feature value type.
+   * 
+   * - INTEGER
+   * 
+   * - DOUBLE
+   * 
+   * - STRING
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,6 +127,8 @@ export class UpdateModelFeatureFGFeatureRequestLookupFeatures extends $dara.Mode
 export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $dara.Model {
   /**
    * @remarks
+   * Default value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +137,14 @@ export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
+   * Input feature domain.
+   * 
+   * - User
+   * 
+   * - Item
+   * 
+   * - Context
+   * 
    * This parameter is required.
    * 
    * @example
@@ -111,6 +153,8 @@ export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $dara.Model {
   featureDomain?: string;
   /**
    * @remarks
+   * Generated feature name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -119,6 +163,12 @@ export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $dara.Model {
   featureName?: string;
   /**
    * @remarks
+   * FG basic feature type.
+   * 
+   * - IdFeature
+   * 
+   * - RawFeature
+   * 
    * This parameter is required.
    * 
    * @example
@@ -127,6 +177,8 @@ export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $dara.Model {
   featureType?: string;
   /**
    * @remarks
+   * The original name of the feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -135,6 +187,14 @@ export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $dara.Model {
   inputFeatureName?: string;
   /**
    * @remarks
+   * Feature value type.
+   * 
+   * - INTEGER
+   * 
+   * - DOUBLE
+   * 
+   * - STRING
+   * 
    * This parameter is required.
    * 
    * @example
@@ -175,6 +235,8 @@ export class UpdateModelFeatureFGFeatureRequestRawFeatures extends $dara.Model {
 export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures extends $dara.Model {
   /**
    * @remarks
+   * Default value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -183,6 +245,14 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures exten
   defaultValue?: string;
   /**
    * @remarks
+   * Input feature domain.
+   * 
+   * - User
+   * 
+   * - Item
+   * 
+   * - Context
+   * 
    * This parameter is required.
    * 
    * @example
@@ -191,6 +261,8 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures exten
   featureDomain?: string;
   /**
    * @remarks
+   * Generated subfeature name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -199,6 +271,12 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures exten
   featureName?: string;
   /**
    * @remarks
+   * FG sequence subfeature type.
+   * 
+   * - IdFeature
+   * 
+   * - RawFeature
+   * 
    * This parameter is required.
    * 
    * @example
@@ -207,6 +285,8 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures exten
   featureType?: string;
   /**
    * @remarks
+   * Original feature name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -215,6 +295,14 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures exten
   inputFeatureName?: string;
   /**
    * @remarks
+   * Feature value type.
+   * 
+   * - INTEGER
+   * 
+   * - DOUBLE
+   * 
+   * - STRING
+   * 
    * This parameter is required.
    * 
    * @example
@@ -255,6 +343,8 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures exten
 export class UpdateModelFeatureFGFeatureRequestSequenceFeatures extends $dara.Model {
   /**
    * @remarks
+   * Feature attribute delimiter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -263,6 +353,8 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeatures extends $dara.Mo
   attributeDelim?: string;
   /**
    * @remarks
+   * Sequence feature name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -271,6 +363,8 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeatures extends $dara.Mo
   featureName?: string;
   /**
    * @remarks
+   * Sequence feature delimiter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -279,12 +373,18 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeatures extends $dara.Mo
   sequenceDelim?: string;
   /**
    * @remarks
+   * Maximum length of the sequence feature.
+   * 
    * This parameter is required.
    * 
    * @example
    * 50
    */
   sequenceLength?: number;
+  /**
+   * @remarks
+   * List of subfeatures for the sequence feature.
+   */
   subFeatures?: UpdateModelFeatureFGFeatureRequestSequenceFeaturesSubFeatures[];
   static names(): { [key: string]: string } {
     return {
@@ -319,9 +419,25 @@ export class UpdateModelFeatureFGFeatureRequestSequenceFeatures extends $dara.Mo
 }
 
 export class UpdateModelFeatureFGFeatureRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Lookup feature information.
+   */
   lookupFeatures?: UpdateModelFeatureFGFeatureRequestLookupFeatures[];
+  /**
+   * @remarks
+   * Basic feature information.
+   */
   rawFeatures?: UpdateModelFeatureFGFeatureRequestRawFeatures[];
+  /**
+   * @remarks
+   * Reserved fields.
+   */
   reserves?: string[];
+  /**
+   * @remarks
+   * Sequence feature information.
+   */
   sequenceFeatures?: UpdateModelFeatureFGFeatureRequestSequenceFeatures[];
   static names(): { [key: string]: string } {
     return {

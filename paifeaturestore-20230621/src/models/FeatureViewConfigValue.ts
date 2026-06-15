@@ -7,8 +7,15 @@ import { FeatureViewConfigValueSnapshotPartitionsValue } from "./FeatureViewConf
 /**
  */
 export class FeatureViewConfigValueSnapshot extends $dara.Model {
+  /**
+   * @remarks
+   * The partition configuration for the snapshot.
+   */
   partitions?: { [key: string]: FeatureViewConfigValueSnapshotPartitionsValue };
   /**
+   * @remarks
+   * The name of the snapshot table.
+   * 
    * @example
    * table_name
    */
@@ -40,16 +47,44 @@ export class FeatureViewConfigValueSnapshot extends $dara.Model {
 }
 
 export class FeatureViewConfigValue extends $dara.Model {
+  /**
+   * @remarks
+   * The list of partitions.
+   */
   partitions?: { [key: string]: FeatureViewConfigValuePartitionsValue };
   /**
+   * @remarks
+   * The event time.
+   * 
    * @example
    * 1721186536
    */
   eventTime?: string;
+  /**
+   * @remarks
+   * Specifies whether the feature\\"s timestamp must match the event time.
+   * 
+   * @example
+   * False
+   */
   equal?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use a mock data table.
+   * 
+   * @example
+   * True
+   */
   useMock?: boolean;
+  /**
+   * @remarks
+   * The snapshot configuration.
+   */
   snapshot?: FeatureViewConfigValueSnapshot;
   /**
+   * @remarks
+   * The second join key.
+   * 
    * @example
    * request_id
    */

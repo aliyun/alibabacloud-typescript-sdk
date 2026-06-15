@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFeatureViewFieldRelationshipsResponseBodyRelationshipsModels extends $dara.Model {
   /**
+   * @remarks
+   * The feature alias.
+   * 
    * @example
    * f1
    */
   featureAliasName?: string;
   /**
+   * @remarks
+   * The ID of the model.
+   * 
    * @example
    * 3
    */
   modelId?: string;
   /**
+   * @remarks
+   * The name of the model.
+   * 
    * @example
    * dbmtl
    */
@@ -45,17 +54,30 @@ export class ListFeatureViewFieldRelationshipsResponseBodyRelationshipsModels ex
 
 export class ListFeatureViewFieldRelationshipsResponseBodyRelationships extends $dara.Model {
   /**
+   * @remarks
+   * The feature view name.
+   * 
    * @example
    * featureView1
    */
   featureName?: string;
+  /**
+   * @remarks
+   * A list of models.
+   */
   models?: ListFeatureViewFieldRelationshipsResponseBodyRelationshipsModels[];
   /**
+   * @remarks
+   * The name of the offline table.
+   * 
    * @example
    * table2
    */
   offlineTableName?: string;
   /**
+   * @remarks
+   * The name of the online table.
+   * 
    * @example
    * table1
    */
@@ -91,8 +113,15 @@ export class ListFeatureViewFieldRelationshipsResponseBodyRelationships extends 
 }
 
 export class ListFeatureViewFieldRelationshipsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of relationships.
+   */
   relationships?: ListFeatureViewFieldRelationshipsResponseBodyRelationships[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BF349686-C932-55B5-9B31-DAFA395C0E06
    */

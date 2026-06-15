@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportModelFeatureTrainingSetTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0FBBE454-9BD1-5D8F-9129-D14DB7FAFE0B
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
-   * 1
+   * 51
    */
   taskId?: string;
   static names(): { [key: string]: string } {

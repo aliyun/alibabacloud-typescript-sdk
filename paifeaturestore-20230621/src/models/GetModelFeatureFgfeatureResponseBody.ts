@@ -4,36 +4,75 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetModelFeatureFGFeatureResponseBodyLookupFeatures extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * -1024
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The name of the generated feature.
+   * 
    * @example
    * item_id
    */
   featureName?: string;
   /**
+   * @remarks
+   * The domain of the key feature.
+   * 
+   * - User: The user side.
+   * 
+   * - Item: The item side.
+   * 
+   * - Context: The context.
+   * 
    * @example
    * Item
    */
   keyFeatureDomain?: string;
   /**
+   * @remarks
+   * The name of the key feature.
+   * 
    * @example
    * 1
    */
   keyFeatureName?: string;
   /**
+   * @remarks
+   * The domain of the map feature.
+   * 
+   * - User: The user side.
+   * 
+   * - Item: The item side.
+   * 
+   * - Context: The context.
+   * 
    * @example
    * User
    */
   mapFeatureDomain?: string;
   /**
+   * @remarks
+   * The name of the map feature.
+   * 
    * @example
    * item_id
    */
   mapFeatureName?: string;
   /**
+   * @remarks
+   * The value type of the feature.
+   * 
+   * - INTEGER
+   * 
+   * - DOUBLE
+   * 
+   * - STRING
+   * 
    * @example
    * STRING
    */
@@ -73,31 +112,65 @@ export class GetModelFeatureFGFeatureResponseBodyLookupFeatures extends $dara.Mo
 
 export class GetModelFeatureFGFeatureResponseBodyRawFeatures extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * -1024
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The domain of the original feature.
+   * 
+   * - User: The user side.
+   * 
+   * - Item: The item side.
+   * 
+   * - Context: The context.
+   * 
    * @example
    * User
    */
   featureDomain?: string;
   /**
+   * @remarks
+   * The name of the generated feature.
+   * 
    * @example
    * item_id
    */
   featureName?: string;
   /**
+   * @remarks
+   * The type of the raw FG feature.
+   * 
+   * - IdFeature: The primary key.
+   * 
+   * - RawFeature: The raw feature.
+   * 
    * @example
    * IdFeature
    */
   featureType?: string;
   /**
+   * @remarks
+   * The name of the original feature.
+   * 
    * @example
    * item_id
    */
   inputFeatureName?: string;
   /**
+   * @remarks
+   * The value type of the feature.
+   * 
+   * - INTEGER
+   * 
+   * - DOUBLE
+   * 
+   * - STRING
+   * 
    * @example
    * STRING
    */
@@ -135,31 +208,65 @@ export class GetModelFeatureFGFeatureResponseBodyRawFeatures extends $dara.Model
 
 export class GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * -1024
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The domain of the original feature.
+   * 
+   * - User: The user side.
+   * 
+   * - Item: The item side.
+   * 
+   * - Context: The context.
+   * 
    * @example
    * User
    */
   featureDomain?: string;
   /**
+   * @remarks
+   * The name of the generated feature.
+   * 
    * @example
    * item_id
    */
   featureName?: string;
   /**
+   * @remarks
+   * The type of the FG feature.
+   * 
+   * - IdFeature: The primary key.
+   * 
+   * - RawFeature: The raw feature.
+   * 
    * @example
    * IdFeature
    */
   featureType?: string;
   /**
+   * @remarks
+   * The name of the original feature.
+   * 
    * @example
    * item_id
    */
   inputFeatureName?: string;
   /**
+   * @remarks
+   * The value type of the feature.
+   * 
+   * - INTEGER
+   * 
+   * - DOUBLE
+   * 
+   * - STRING
+   * 
    * @example
    * STRING
    */
@@ -197,25 +304,41 @@ export class GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures ext
 
 export class GetModelFeatureFGFeatureResponseBodySequenceFeatures extends $dara.Model {
   /**
+   * @remarks
+   * The separator for feature attributes.
+   * 
    * @example
    * #
    */
   attributeDelim?: string;
   /**
+   * @remarks
+   * The name of the sequence feature.
+   * 
    * @example
    * item_id
    */
   featureName?: string;
   /**
+   * @remarks
+   * The separator for the sequence feature.
+   * 
    * @example
    * ;
    */
   sequenceDelim?: string;
   /**
+   * @remarks
+   * The maximum length of the sequence feature.
+   * 
    * @example
    * 50
    */
   sequenceLength?: number;
+  /**
+   * @remarks
+   * A list of sub-features for the sequence feature.
+   */
   subFeatures?: GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures[];
   static names(): { [key: string]: string } {
     return {
@@ -250,14 +373,33 @@ export class GetModelFeatureFGFeatureResponseBodySequenceFeatures extends $dara.
 }
 
 export class GetModelFeatureFGFeatureResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the lookup features.
+   */
   lookupFeatures?: GetModelFeatureFGFeatureResponseBodyLookupFeatures[];
+  /**
+   * @remarks
+   * The information about the raw features.
+   */
   rawFeatures?: GetModelFeatureFGFeatureResponseBodyRawFeatures[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * E23EFF09-58AA-5420-934F-8453AE01548D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The reserved fields.
+   */
   reserves?: string[];
+  /**
+   * @remarks
+   * The information about the sequence features.
+   */
   sequenceFeatures?: GetModelFeatureFGFeatureResponseBodySequenceFeatures[];
   static names(): { [key: string]: string } {
     return {

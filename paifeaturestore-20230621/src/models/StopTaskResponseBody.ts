@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 514F82AF-3C04-5C3D-8F38-A11261BF37B0

@@ -10,11 +10,15 @@ export class UpdateLabelTableRequestFields extends $dara.Model {
   alignedEntityName?: string;
   /**
    * @remarks
+   * The field\\"s attributes.
+   * 
    * This parameter is required.
    */
   attributes?: string[];
   /**
    * @remarks
+   * The name of the field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +27,8 @@ export class UpdateLabelTableRequestFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The data type of the field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,16 +67,24 @@ export class UpdateLabelTableRequestFields extends $dara.Model {
 
 export class UpdateLabelTableRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the data source for the label table.
+   * 
    * @example
    * 3
    */
   datasourceId?: string;
   /**
    * @remarks
+   * The fields to modify.
+   * 
    * This parameter is required.
    */
   fields?: UpdateLabelTableRequestFields[];
   /**
+   * @remarks
+   * The name of the label table.
+   * 
    * @example
    * rec_test
    */

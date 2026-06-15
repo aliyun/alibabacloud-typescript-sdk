@@ -4,19 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class FeatureViewConfigValuePartitionsValue extends $dara.Model {
   /**
+   * @remarks
+   * Partition value.
+   * 
    * @example
-   * 20250101
+   * 20230101
    */
   value?: string;
+  /**
+   * @remarks
+   * List of partitions.
+   */
   values?: string[];
   /**
+   * @remarks
+   * Start time partition.
+   * 
    * @example
-   * 20250101
+   * 20230101
    */
   startValue?: string;
   /**
+   * @remarks
+   * End time partition.
+   * 
    * @example
-   * 20250201
+   * 20230202
    */
   endValue?: string;
   static names(): { [key: string]: string } {

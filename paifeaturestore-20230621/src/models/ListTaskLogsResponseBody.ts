@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTaskLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of log entries.
+   */
   logs?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 72F15A8A-5A28-5B18-A0DE-0EABD7D3245A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of log entries.
+   * 
    * @example
    * 100
    */

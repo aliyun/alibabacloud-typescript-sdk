@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class WriteFeatureViewTableRequestUrlDatasource extends $dara.Model {
   /**
+   * @remarks
+   * The file delimiter.
+   * 
    * @example
    * ,
    */
   delimiter?: string;
   /**
+   * @remarks
+   * Specifies whether to omit the header from the source file.
+   * 
    * @example
    * true
    */
   omitHeader?: boolean;
   /**
+   * @remarks
+   * The data source path.
+   * 
    * @example
    * xxx.xxx.com/file.csv
    */
@@ -46,13 +55,27 @@ export class WriteFeatureViewTableRequestUrlDatasource extends $dara.Model {
 export class WriteFeatureViewTableRequest extends $dara.Model {
   /**
    * @remarks
+   * The write mode.
+   * 
+   * - Overwrite: Overwrites existing data.
+   * 
+   * - Merge: Merges the new data with existing data.
+   * 
    * This parameter is required.
    * 
    * @example
    * Merge
    */
   mode?: string;
+  /**
+   * @remarks
+   * The partitions to write to.
+   */
   partitions?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * The file data source.
+   */
   urlDatasource?: WriteFeatureViewTableRequestUrlDatasource;
   static names(): { [key: string]: string } {
     return {

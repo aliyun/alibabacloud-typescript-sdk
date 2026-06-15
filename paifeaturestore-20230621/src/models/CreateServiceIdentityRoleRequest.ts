@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceIdentityRoleRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the service account role.
+   * 
    * This parameter is required.
    * 
    * @example

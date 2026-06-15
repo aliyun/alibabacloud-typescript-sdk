@@ -4,21 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures extends $dara.Model {
   /**
+   * @remarks
+   * Feature name.
+   * 
    * @example
    * age
    */
   name?: string;
   /**
+   * @remarks
+   * Source name.
+   * 
    * @example
    * user_fea
    */
   sourceName?: string;
   /**
+   * @remarks
+   * Feature source.
+   * 
+   * - FeatureView
+   * 
+   * - LabelTable
+   * 
    * @example
    * FeatureView
    */
   sourceType?: string;
   /**
+   * @remarks
+   * Feature value type.
+   * 
+   * - INTEGER
+   * 
+   * - DOUBLE
+   * 
+   * - STRING
+   * 
    * @example
    * STRING
    */
@@ -51,13 +73,23 @@ export class ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures exte
 }
 
 export class ListModelFeatureAvailableFeaturesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of available features.
+   */
   avaliableFeatures?: ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures[];
   /**
+   * @remarks
+   * Total number of features.
+   * 
    * @example
    * 10
    */
   totalCount?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ED4DEA2F-F216-57F0-AE28-08D791233280
    */

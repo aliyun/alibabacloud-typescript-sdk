@@ -4,12 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class FeatureViewConfigValueSnapshotPartitionsValue extends $dara.Model {
   /**
+   * @remarks
+   * The partition value.
+   * 
    * @example
    * 20260101
    */
   value?: string;
+  /**
+   * @remarks
+   * An array of partition values.
+   */
   values?: string[];
+  /**
+   * @remarks
+   * The start value of the partition range.
+   */
   startValue?: string;
+  /**
+   * @remarks
+   * The end value of the partition range.
+   */
   endValue?: string;
   static names(): { [key: string]: string } {
     return {

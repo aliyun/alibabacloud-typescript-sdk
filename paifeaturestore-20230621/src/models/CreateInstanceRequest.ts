@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance type. The only supported value is `Basic`.
+   * 
    * @example
    * Basic
    */

@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublishFeatureViewTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 627B5776-4D06-5A49-8A04-508AA39653F4
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the data synchronization task.
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

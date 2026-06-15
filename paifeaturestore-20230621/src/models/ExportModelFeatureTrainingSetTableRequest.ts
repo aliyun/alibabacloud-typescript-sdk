@@ -5,10 +5,17 @@ import { FeatureViewConfigValue } from "./FeatureViewConfigValue";
 
 export class ExportModelFeatureTrainingSetTableRequestLabelInputConfig extends $dara.Model {
   /**
+   * @remarks
+   * The event time.
+   * 
    * @example
    * 2022-07-02 00:00:00
    */
   eventTime?: string;
+  /**
+   * @remarks
+   * The list of partitions.
+   */
   partitions?: { [key: string]: {[key: string]: any} };
   static names(): { [key: string]: string } {
     return {
@@ -37,6 +44,10 @@ export class ExportModelFeatureTrainingSetTableRequestLabelInputConfig extends $
 }
 
 export class ExportModelFeatureTrainingSetTableRequestTrainingSetConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of partitions.
+   */
   partitions?: { [key: string]: {[key: string]: any} };
   static names(): { [key: string]: string } {
     return {
@@ -63,18 +74,36 @@ export class ExportModelFeatureTrainingSetTableRequestTrainingSetConfig extends 
 }
 
 export class ExportModelFeatureTrainingSetTableRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A map of feature view configurations.
+   */
   featureViewConfig?: { [key: string]: FeatureViewConfigValue };
+  /**
+   * @remarks
+   * The input configuration for the label table.
+   */
   labelInputConfig?: ExportModelFeatureTrainingSetTableRequestLabelInputConfig;
   /**
+   * @remarks
+   * The polling interval for retrieving real-time features.
+   * 
    * @example
    * 1
    */
   realTimeIterateInterval?: number;
   /**
+   * @remarks
+   * The number of days for partition statistics of the real-time feature view.
+   * 
    * @example
    * 5
    */
   realTimePartitionCountValue?: number;
+  /**
+   * @remarks
+   * The configuration for the training set.
+   */
   trainingSetConfig?: ExportModelFeatureTrainingSetTableRequestTrainingSetConfig;
   static names(): { [key: string]: string } {
     return {

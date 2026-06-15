@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDatasourceTablesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The schema name.
+   * 
    * @example
    * default
    */
   schemaName?: string;
   /**
+   * @remarks
+   * Filters the results by table name.
+   * 
    * @example
    * table1
    */

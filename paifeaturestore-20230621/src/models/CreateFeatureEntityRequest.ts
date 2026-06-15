@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFeatureEntityRequest extends $dara.Model {
   /**
    * @remarks
+   * The join key that links feature views to the feature entity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateFeatureEntityRequest extends $dara.Model {
   joinId?: string;
   /**
    * @remarks
+   * The feature entity name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class CreateFeatureEntityRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The parent feature entity ID.
+   * 
    * @example
    * 1
    */
   parentFeatureEntityId?: string;
   /**
    * @remarks
+   * The project ID. To get this ID, call the ListInstances operation.
+   * 
    * This parameter is required.
    * 
    * @example

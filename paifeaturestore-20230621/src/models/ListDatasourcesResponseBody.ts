@@ -4,41 +4,71 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDatasourcesResponseBodyDatasources extends $dara.Model {
   /**
+   * @remarks
+   * The resource configuration.
+   * 
    * @example
    * {"address": ""}
    */
   config?: string;
   /**
+   * @remarks
+   * The ID of the data source.
+   * 
    * @example
    * 3
    */
   datasourceId?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The last modified time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * datasource1
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the data source.
+   * 
+   * - Hologres
+   * 
+   * - Redis
+   * 
+   * - MaxCompute
+   * 
    * @example
    * Hologres
    */
   type?: string;
   /**
+   * @remarks
+   * The resource URI.
+   * 
    * @example
    * igraph_instance1
    */
   uri?: string;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 32324
    */
@@ -79,13 +109,23 @@ export class ListDatasourcesResponseBodyDatasources extends $dara.Model {
 }
 
 export class ListDatasourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data sources.
+   */
   datasources?: ListDatasourcesResponseBodyDatasources[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 44933189-493B-5C43-A5C6-11EEC2A43520
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count of data sources.
+   * 
    * @example
    * 10
    */

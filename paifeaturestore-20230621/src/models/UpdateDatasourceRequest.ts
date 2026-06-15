@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDatasourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The resource configuration.
+   * 
    * @example
    * {"address": ""}
    */
   config?: string;
   /**
    * @remarks
+   * The data source name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdateDatasourceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The resource URI.
+   * 
    * This parameter is required.
    * 
    * @example

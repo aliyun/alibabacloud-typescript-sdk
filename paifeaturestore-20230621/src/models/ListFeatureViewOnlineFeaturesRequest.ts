@@ -10,6 +10,8 @@ export class ListFeatureViewOnlineFeaturesRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
+   * The join IDs used to retrieve online features.
+   * 
    * This parameter is required.
    */
   joinIds?: string[];

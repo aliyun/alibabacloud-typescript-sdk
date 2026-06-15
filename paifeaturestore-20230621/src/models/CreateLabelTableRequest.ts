@@ -10,11 +10,25 @@ export class CreateLabelTableRequestFields extends $dara.Model {
   alignedEntityName?: string;
   /**
    * @remarks
+   * The field attributes. Valid values include:
+   * 
+   * ● `Partition`: A partition field.
+   * 
+   * ● `FeatureField`: A feature field.
+   * 
+   * ● `FeatureGenerationReserveField`: A reserved field for Feature Generation (FG).
+   * 
+   * ● `EventTime`: The event time.
+   * 
+   * ● `LabelField`: A label field.
+   * 
    * This parameter is required.
    */
   attributes?: string[];
   /**
    * @remarks
+   * The name of the field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +37,8 @@ export class CreateLabelTableRequestFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The data type of the field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +78,8 @@ export class CreateLabelTableRequestFields extends $dara.Model {
 export class CreateLabelTableRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data source that contains the label table. Call the ListDatasources operation to obtain this ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,11 +88,15 @@ export class CreateLabelTableRequest extends $dara.Model {
   datasourceId?: string;
   /**
    * @remarks
+   * The field list.
+   * 
    * This parameter is required.
    */
   fields?: CreateLabelTableRequestFields[];
   /**
    * @remarks
+   * The name of the label table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -83,6 +105,8 @@ export class CreateLabelTableRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The project ID. Call the ListProjects operation to obtain this ID.
+   * 
    * This parameter is required.
    * 
    * @example

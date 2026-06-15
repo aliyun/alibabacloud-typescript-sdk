@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateModelFeatureRequestFeatures extends $dara.Model {
   /**
+   * @remarks
+   * The alias of the feature.
+   * 
    * @example
    * userid
    */
   aliasName?: string;
   /**
    * @remarks
+   * The feature view ID. You can call the ListFeatureViews operation to obtain the feature view ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class CreateModelFeatureRequestFeatures extends $dara.Model {
   featureViewId?: string;
   /**
    * @remarks
+   * The feature name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,7 +32,22 @@ export class CreateModelFeatureRequestFeatures extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * cand_seq__
+   */
+  prefixName?: string;
+  /**
    * @remarks
+   * The feature type. Valid values:
+   * 
+   * - INT32
+   * - INT64
+   * - FLOAT
+   * - DOUBLE
+   * - STRING
+   * - BOOLEAN
+   * - TIMESTAMP.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +59,7 @@ export class CreateModelFeatureRequestFeatures extends $dara.Model {
       aliasName: 'AliasName',
       featureViewId: 'FeatureViewId',
       name: 'Name',
+      prefixName: 'PrefixName',
       type: 'Type',
     };
   }
@@ -46,6 +69,7 @@ export class CreateModelFeatureRequestFeatures extends $dara.Model {
       aliasName: 'string',
       featureViewId: 'string',
       name: 'string',
+      prefixName: 'string',
       type: 'string',
     };
   }
@@ -62,16 +86,23 @@ export class CreateModelFeatureRequestFeatures extends $dara.Model {
 export class CreateModelFeatureRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of features.
+   * 
    * This parameter is required.
    */
   features?: CreateModelFeatureRequestFeatures[];
   /**
+   * @remarks
+   * The priority level of the label table. Default value: 0, which indicates that conflicts between label table features and feature view features are not allowed. A value of 1 indicates that the label table takes precedence when conflicts occur. A value of 2 indicates that the feature view takes precedence.
+   * 
    * @example
    * 0
    */
   labelPriorityLevel?: number;
   /**
    * @remarks
+   * The label table ID. You can call the ListLabelTables operation to obtain the label table ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,6 +111,8 @@ export class CreateModelFeatureRequest extends $dara.Model {
   labelTableId?: string;
   /**
    * @remarks
+   * The name of the model feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88,12 +121,18 @@ export class CreateModelFeatureRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The project ID. You can call the ListProjects operation to obtain the project ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 3
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The sequence feature view IDs.
+   */
   sequenceFeatureViewIds?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckInstanceDatasourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C03B2680-AC9C-59CD-93C5-8142B92537FA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The resource check status.
+   * 
+   * - Success: succeeded
+   * 
+   * - Failure: failed
+   * 
    * @example
    * Success
    */

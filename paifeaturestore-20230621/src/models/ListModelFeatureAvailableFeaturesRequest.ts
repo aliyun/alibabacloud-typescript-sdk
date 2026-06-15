@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelFeatureAvailableFeaturesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Filter by feature name.
+   * 
    * @example
    * f1
    */

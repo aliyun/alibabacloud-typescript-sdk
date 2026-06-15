@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFeatureViewRelationshipsResponseBodyRelationshipsModels extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the model.
+   * 
    * @example
    * 3
    */
   modelId?: string;
   /**
+   * @remarks
+   * The name of the model.
+   * 
    * @example
    * dbmtl
    */
@@ -38,12 +44,22 @@ export class ListFeatureViewRelationshipsResponseBodyRelationshipsModels extends
 
 export class ListFeatureViewRelationshipsResponseBodyRelationships extends $dara.Model {
   /**
+   * @remarks
+   * The name of the feature view.
+   * 
    * @example
    * fv1
    */
   featureViewName?: string;
+  /**
+   * @remarks
+   * A list of models.
+   */
   models?: ListFeatureViewRelationshipsResponseBodyRelationshipsModels[];
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * project1
    */
@@ -77,8 +93,15 @@ export class ListFeatureViewRelationshipsResponseBodyRelationships extends $dara
 }
 
 export class ListFeatureViewRelationshipsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of relationships to models that use this feature view.
+   */
   relationships?: ListFeatureViewRelationshipsResponseBodyRelationships[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0FBBE454-9BD1-5D8F-9129-D14DB7FAFE0B
    */

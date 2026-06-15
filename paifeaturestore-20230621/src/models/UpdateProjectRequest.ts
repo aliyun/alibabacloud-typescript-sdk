@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateProjectRequest extends $dara.Model {
   /**
+   * @remarks
+   * The project description.
+   * 
    * @example
    * This is a test.
    */
   description?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * project1
    */

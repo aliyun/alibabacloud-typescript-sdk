@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class WriteFeatureViewTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0C89F5E1-7F24-5EEC-9F05-508A39278CC8
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

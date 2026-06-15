@@ -4,37 +4,74 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTasksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the object. You can call the ListModelFeatures or ListFeatureViews operation to obtain the ID.
+   * 
    * @example
    * 4
    */
   objectId?: string;
   /**
+   * @remarks
+   * The type of the object.
+   * 
+   * ● `ModelFeature`: a model feature.
+   * 
+   * ● `FeatureView`: a feature view.
+   * 
    * @example
    * ModelFeature
    */
   objectType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the project. You can call the ListProjects operation to obtain the ID.
+   * 
    * @example
    * 4
    */
   projectId?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
+   * ● `Initializing`: The task is being initialized.
+   * 
+   * ● `Running`: The task is running.
+   * 
+   * ● `Success`: The task is successful.
+   * 
+   * ● `Failure`: The task fails.
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The task IDs by which to filter tasks.
+   */
   taskIds?: string[];
   /**
+   * @remarks
+   * The task type by which to filter tasks.
+   * 
    * @example
    * OfflineToOnline
    */

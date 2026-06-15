@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InstanceAlreadyExistsErrorProblem
    */
   code?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * featureStore-cn-7mz2xfu****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C33E160C-BFCA-5719-B958-942850E949F6
    */

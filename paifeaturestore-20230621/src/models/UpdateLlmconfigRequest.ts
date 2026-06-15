@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLLMConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The API key used to call the large language model (LLM).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateLLMConfigRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
+   * The base URL for calling the large language model (LLM).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,18 +24,30 @@ export class UpdateLLMConfigRequest extends $dara.Model {
    */
   baseUrl?: string;
   /**
+   * @remarks
+   * The batch size.
+   * 
    * @example
    * 8
    */
   batchSize?: number;
   /**
+   * @remarks
+   * The embedding dimension. If you omit this parameter or set it to 0, the model uses its default dimension.
+   * 
    * @example
    * 1024
    */
   embeddingDimension?: number;
+  /**
+   * @remarks
+   * Whether to enable data fusion.
+   */
   enableFusion?: boolean;
   /**
    * @remarks
+   * The maximum number of input tokens per row.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,15 +56,23 @@ export class UpdateLLMConfigRequest extends $dara.Model {
   maxTokens?: number;
   /**
    * @remarks
+   * The model name.
+   * 
    * This parameter is required.
    * 
    * @example
    * text-embedding-v1
    */
   model?: string;
+  /**
+   * @remarks
+   * The model type.
+   */
   modelType?: string;
   /**
    * @remarks
+   * The name of the large language model (LLM) call configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +81,8 @@ export class UpdateLLMConfigRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The maximum number of requests per second (RPS).
+   * 
    * This parameter is required.
    * 
    * @example

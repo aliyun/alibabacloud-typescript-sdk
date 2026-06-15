@@ -8,13 +8,23 @@ export class GetLabelTableResponseBodyFields extends $dara.Model {
    * item
    */
   alignedEntityName?: string;
+  /**
+   * @remarks
+   * A list of field attributes.
+   */
   attributes?: string[];
   /**
+   * @remarks
+   * The field name.
+   * 
    * @example
    * field1
    */
   name?: string;
   /**
+   * @remarks
+   * The field type.
+   * 
    * @example
    * INT32
    */
@@ -51,48 +61,83 @@ export class GetLabelTableResponseBodyFields extends $dara.Model {
 
 export class GetLabelTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 1
    */
   datasourceId?: string;
   /**
+   * @remarks
+   * The data source name.
+   * 
    * @example
    * datasource1
    */
   datasourceName?: string;
+  /**
+   * @remarks
+   * The fields in the label table.
+   */
   fields?: GetLabelTableResponseBodyFields[];
   /**
+   * @remarks
+   * The time when the label table was created.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the label table was last modified.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The label table name.
+   * 
    * @example
    * label_table1
    */
   name?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the creator.
+   * 
    * @example
    * 12321312*****
    */
   owner?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 1
    */
   projectId?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * project1
    */
   projectName?: string;
+  /**
+   * @remarks
+   * A list of related model feature names.
+   */
   relatedModelFeatures?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */

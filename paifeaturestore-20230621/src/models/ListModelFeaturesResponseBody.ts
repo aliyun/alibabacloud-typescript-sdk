@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelFeaturesResponseBodyModelFeatures extends $dara.Model {
   /**
+   * @remarks
+   * The time the model feature was created.
+   * 
    * @example
    * 2023-07-04T14:46:22.227+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time the model feature was last updated.
+   * 
    * @example
    * 2023-07-04T14:46:22.227+08:00
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The label table name.
+   * 
    * @example
    * label_table_1
    */
   labelTableName?: string;
   /**
+   * @remarks
+   * The model feature ID.
+   * 
    * @example
    * 3
    */
   modelFeatureId?: string;
   /**
+   * @remarks
+   * The model feature name.
+   * 
    * @example
    * model_feature1
    */
   name?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the owner.
+   * 
    * @example
    * 1231243253****
    */
   owner?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 5
    */
   projectId?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * project1
    */
@@ -79,13 +103,23 @@ export class ListModelFeaturesResponseBodyModelFeatures extends $dara.Model {
 }
 
 export class ListModelFeaturesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of model features.
+   */
   modelFeatures?: ListModelFeaturesResponseBodyModelFeatures[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2CA11923-2A3D-5E5A-8314-E699D2DD15DE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of model features.
+   * 
    * @example
    * 4
    */

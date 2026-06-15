@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLLMConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The API key for the model.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,28 +14,42 @@ export class CreateLLMConfigRequest extends $dara.Model {
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The base URL of the model service.
+   * 
    * @example
    * https://dashscope.aliyuncs.com/compatible-mode/v1
    */
   baseUrl?: string;
   /**
+   * @remarks
+   * The batch size.
+   * 
    * @example
    * 8
    */
   batchSize?: number;
   /**
+   * @remarks
+   * The embedding dimension. For a DashScope model, this value must match one of the fixed, valid dimensions supported by the model.
+   * 
    * @example
    * 1024
    */
   embeddingDimension?: number;
   enableFusion?: boolean;
   /**
+   * @remarks
+   * The maximum number of input tokens.
+   * 
    * @example
    * 8192
    */
   maxTokens?: number;
   /**
    * @remarks
+   * The name of the model.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +59,8 @@ export class CreateLLMConfigRequest extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
+   * The name of the LLM configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,12 +68,17 @@ export class CreateLLMConfigRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The number of requests per second.
+   * 
    * @example
    * 30
    */
   rps?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

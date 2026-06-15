@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测资源连接状态。
+   * Tests connectivity to a data source.
    * 
    * @param request - CheckInstanceDatasourceRequest
    * @param headers - map
@@ -71,7 +71,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测资源连接状态。
+   * Tests connectivity to a data source.
    * 
    * @param request - CheckInstanceDatasourceRequest
    * @returns CheckInstanceDatasourceResponse
@@ -83,7 +83,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查FG配置内容是否正确，是否满足所有规则。
+   * Verify that the FG configuration is correct and meets all rules.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -108,7 +108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查FG配置内容是否正确，是否满足所有规则。
+   * Verify that the FG configuration is correct and meets all rules.
    * @returns CheckModelFeatureFGFeatureResponse
    */
   async checkModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string): Promise<$_model.CheckModelFeatureFGFeatureResponse> {
@@ -118,7 +118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
+   * Registers a datasource in a FeatureStore instance. A datasource provides offline or online storage for a project.
    * 
    * @param request - CreateDatasourceRequest
    * @param headers - map
@@ -167,7 +167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
+   * Registers a datasource in a FeatureStore instance. A datasource provides offline or online storage for a project.
    * 
    * @param request - CreateDatasourceRequest
    * @returns CreateDatasourceResponse
@@ -179,7 +179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建特征实体
+   * Creates a feature entity. A feature entity defines a join key that links multiple feature views to it, enabling feature joining.
    * 
    * @param request - CreateFeatureEntityRequest
    * @param headers - map
@@ -224,7 +224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建特征实体
+   * Creates a feature entity. A feature entity defines a join key that links multiple feature views to it, enabling feature joining.
    * 
    * @param request - CreateFeatureEntityRequest
    * @returns CreateFeatureEntityResponse
@@ -236,7 +236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建特征视图。
+   * You can create three types of feature views: offline, real-time, and behavior sequence. Each feature view uses fields to define its structure and links to a feature entity.
    * 
    * @param request - CreateFeatureViewRequest
    * @param headers - map
@@ -317,7 +317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建特征视图。
+   * You can create three types of feature views: offline, real-time, and behavior sequence. Each feature view uses fields to define its structure and links to a feature entity.
    * 
    * @param request - CreateFeatureViewRequest
    * @returns CreateFeatureViewResponse
@@ -329,7 +329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Feature Store实例。
+   * Creates a FeatureStore instance. This operation is idempotent. If an instance is already running or initializing in the same account, this operation returns the existing instance ID.
    * 
    * @param request - CreateInstanceRequest
    * @param headers - map
@@ -362,7 +362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Feature Store实例。
+   * Creates a FeatureStore instance. This operation is idempotent. If an instance is already running or initializing in the same account, this operation returns the existing instance ID.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -374,7 +374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建大模型调用信息配置
+   * Creates an LLM configuration that contains the call parameters and API key for an embedding model. During creation, the service validates the ApiKey and Model. For a DashScope model, the EmbeddingDimension must match one of the fixed, valid dimensions supported by the model.
    * 
    * @param request - CreateLLMConfigRequest
    * @param headers - map
@@ -447,7 +447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建大模型调用信息配置
+   * Creates an LLM configuration that contains the call parameters and API key for an embedding model. During creation, the service validates the ApiKey and Model. For a DashScope model, the EmbeddingDimension must match one of the fixed, valid dimensions supported by the model.
    * 
    * @param request - CreateLLMConfigRequest
    * @returns CreateLLMConfigResponse
@@ -459,7 +459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建label表
+   * Creates a label table. A label table defines the schema for label data referenced by model features.
    * 
    * @param request - CreateLabelTableRequest
    * @param headers - map
@@ -504,7 +504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建label表
+   * Creates a label table. A label table defines the schema for label data referenced by model features.
    * 
    * @param request - CreateLabelTableRequest
    * @returns CreateLabelTableResponse
@@ -516,7 +516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型特征。
+   * Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
    * 
    * @param request - CreateModelFeatureRequest
    * @param headers - map
@@ -569,7 +569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型特征。
+   * Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
    * 
    * @param request - CreateModelFeatureRequest
    * @returns CreateModelFeatureResponse
@@ -581,7 +581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
+   * Creates a FeatureStore project. A project is a container for feature entities, feature views, and model features.
    * 
    * @param request - CreateProjectRequest
    * @param headers - map
@@ -634,7 +634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
+   * Creates a FeatureStore project. A project is a container for feature entities, feature views, and model features.
    * 
    * @param request - CreateProjectRequest
    * @returns CreateProjectResponse
@@ -646,7 +646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建feature store服务账户角色
+   * Creates a service-linked role that authorizes the FeatureStore service to access other cloud resources of the user. Returns a conflict error if the role already exists.
    * 
    * @param request - CreateServiceIdentityRoleRequest
    * @param headers - map
@@ -679,7 +679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建feature store服务账户角色
+   * Creates a service-linked role that authorizes the FeatureStore service to access other cloud resources of the user. Returns a conflict error if the role already exists.
    * 
    * @param request - CreateServiceIdentityRoleRequest
    * @returns CreateServiceIdentityRoleResponse
@@ -691,7 +691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a datasource from a FeatureStore Instance.
+   * Deletes a datasource from a FeatureStore instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -716,7 +716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a datasource from a FeatureStore Instance.
+   * Deletes a datasource from a FeatureStore instance.
    * @returns DeleteDatasourceResponse
    */
   async deleteDatasource(InstanceId: string, DatasourceId: string): Promise<$_model.DeleteDatasourceResponse> {
@@ -726,7 +726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定特征实体
+   * Deletes a feature entity.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -751,7 +751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定特征实体
+   * Deletes a feature entity.
    * @returns DeleteFeatureEntityResponse
    */
   async deleteFeatureEntity(InstanceId: string, FeatureEntityId: string): Promise<$_model.DeleteFeatureEntityResponse> {
@@ -761,7 +761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定特征视图。
+   * Deletes a feature view. A feature view cannot be deleted if it is referenced by a model feature. To delete the feature view, you must first delete the associated model feature.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -786,7 +786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定特征视图。
+   * Deletes a feature view. A feature view cannot be deleted if it is referenced by a model feature. To delete the feature view, you must first delete the associated model feature.
    * @returns DeleteFeatureViewResponse
    */
   async deleteFeatureView(InstanceId: string, FeatureViewId: string): Promise<$_model.DeleteFeatureViewResponse> {
@@ -796,7 +796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除大模型调用信息配置
+   * Deletes an LLM call configuration. You cannot delete a configuration referenced by a feature view. You must first delete the associated feature view.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -821,7 +821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除大模型调用信息配置
+   * Deletes an LLM call configuration. You cannot delete a configuration referenced by a feature view. You must first delete the associated feature view.
    * @returns DeleteLLMConfigResponse
    */
   async deleteLLMConfig(InstanceId: string, LLMConfigId: string): Promise<$_model.DeleteLLMConfigResponse> {
@@ -831,7 +831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除label表
+   * Deletes a label table. You cannot delete a label table that is referenced by a model feature. Delete the associated model feature first.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -856,7 +856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除label表
+   * Deletes a label table. You cannot delete a label table that is referenced by a model feature. Delete the associated model feature first.
    * @returns DeleteLabelTableResponse
    */
   async deleteLabelTable(InstanceId: string, LabelTableId: string): Promise<$_model.DeleteLabelTableResponse> {
@@ -866,7 +866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定模型特征。
+   * Deletes a model feature and its associated training set table.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -891,7 +891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定模型特征。
+   * Deletes a model feature and its associated training set table.
    * @returns DeleteModelFeatureResponse
    */
   async deleteModelFeature(InstanceId: string, ModelFeatureId: string): Promise<$_model.DeleteModelFeatureResponse> {
@@ -901,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定Feature Store项目。
+   * Deletes a FeatureStore project.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -926,7 +926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定Feature Store项目。
+   * Deletes a FeatureStore project.
    * @returns DeleteProjectResponse
    */
   async deleteProject(InstanceId: string, ProjectId: string): Promise<$_model.DeleteProjectResponse> {
@@ -936,7 +936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出训练集表。
+   * Export a training set table for model features. Create an export task by configuring the Label table input, the data source partition for each feature view, and the training set output partition.
    * 
    * @param request - ExportModelFeatureTrainingSetTableRequest
    * @param headers - map
@@ -985,7 +985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出训练集表。
+   * Export a training set table for model features. Create an export task by configuring the Label table input, the data source partition for each feature view, and the training set output partition.
    * 
    * @param request - ExportModelFeatureTrainingSetTableRequest
    * @returns ExportModelFeatureTrainingSetTableResponse
@@ -997,7 +997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the details of a datasource, including its type, connection info, and Config.
+   * Gets the detailed information about a data source, including its type, connection information, and configuration.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1022,7 +1022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the details of a datasource, including its type, connection info, and Config.
+   * Gets the detailed information about a data source, including its type, connection information, and configuration.
    * @returns GetDatasourceResponse
    */
   async getDatasource(InstanceId: string, DatasourceId: string): Promise<$_model.GetDatasourceResponse> {
@@ -1032,7 +1032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源下指定表的详细信息。
+   * Gets the field information for a specified table in a data source. This operation supports only MaxCompute data sources.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1057,7 +1057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源下指定表的详细信息。
+   * Gets the field information for a specified table in a data source. This operation supports only MaxCompute data sources.
    * @returns GetDatasourceTableResponse
    */
   async getDatasourceTable(InstanceId: string, DatasourceId: string, TableName: string): Promise<$_model.GetDatasourceTableResponse> {
@@ -1067,7 +1067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征实体详细信息
+   * Retrieves the details of a feature entity.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1092,7 +1092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征实体详细信息
+   * Retrieves the details of a feature entity.
    * @returns GetFeatureEntityResponse
    */
   async getFeatureEntity(InstanceId: string, FeatureEntityId: string): Promise<$_model.GetFeatureEntityResponse> {
@@ -1102,7 +1102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图详细信息。
+   * Gets the details of a feature view, including its field definitions, data source binding, and synchronization status.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1127,7 +1127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图详细信息。
+   * Gets the details of a feature view, including its field definitions, data source binding, and synchronization status.
    * @returns GetFeatureViewResponse
    */
   async getFeatureView(InstanceId: string, FeatureViewId: string): Promise<$_model.GetFeatureViewResponse> {
@@ -1137,7 +1137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详细信息
+   * Retrieves the details of a FeatureStore instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1162,7 +1162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详细信息
+   * Retrieves the details of a FeatureStore instance.
    * @returns GetInstanceResponse
    */
   async getInstance(InstanceId: string): Promise<$_model.GetInstanceResponse> {
@@ -1172,7 +1172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 LLMConfig 信息
+   * Retrieves the details of an LLM call configuration.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1197,7 +1197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 LLMConfig 信息
+   * Retrieves the details of an LLM call configuration.
    * @returns GetLLMConfigResponse
    */
   async getLLMConfig(InstanceId: string, LLMConfigId: string, RegionId: string): Promise<$_model.GetLLMConfigResponse> {
@@ -1207,7 +1207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Label表详细信息。
+   * Retrieves the details of a label table, including its field definitions and related models.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1232,7 +1232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Label表详细信息。
+   * Retrieves the details of a label table, including its field definitions and related models.
    * @returns GetLabelTableResponse
    */
   async getLabelTable(InstanceId: string, LabelTableId: string): Promise<$_model.GetLabelTableResponse> {
@@ -1242,7 +1242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型特征详情。
+   * Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1267,7 +1267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型特征详情。
+   * Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
    * @returns GetModelFeatureResponse
    */
   async getModelFeature(InstanceId: string, ModelFeatureId: string): Promise<$_model.GetModelFeatureResponse> {
@@ -1277,7 +1277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型特征的FG特征配置信息。
+   * Retrieves the Feature Generation (FG) feature configuration of a model feature.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1302,7 +1302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型特征的FG特征配置信息。
+   * Retrieves the Feature Generation (FG) feature configuration of a model feature.
    * @returns GetModelFeatureFGFeatureResponse
    */
   async getModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string): Promise<$_model.GetModelFeatureFGFeatureResponse> {
@@ -1312,7 +1312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型特征的fg.json文件配置信息。
+   * Retrieves the fg.json file configuration for a model feature.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1337,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型特征的fg.json文件配置信息。
+   * Retrieves the fg.json file configuration for a model feature.
    * @returns GetModelFeatureFGInfoResponse
    */
   async getModelFeatureFGInfo(InstanceId: string, ModelFeatureId: string): Promise<$_model.GetModelFeatureFGInfoResponse> {
@@ -1347,7 +1347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定Feature Store项目详细信息。
+   * Gets the details of a project, including its data source bindings and resource counts.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1372,7 +1372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定Feature Store项目详细信息。
+   * Gets the details of a project, including its data source bindings and resource counts.
    * @returns GetProjectResponse
    */
   async getProject(InstanceId: string, ProjectId: string): Promise<$_model.GetProjectResponse> {
@@ -1382,7 +1382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目下特征实体详细信息
+   * Retrieve details of a feature entity in a project by name.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1407,7 +1407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目下特征实体详细信息
+   * Retrieve details of a feature entity in a project by name.
    * @returns GetProjectFeatureEntityResponse
    */
   async getProjectFeatureEntity(InstanceId: string, ProjectId: string, FeatureEntityName: string): Promise<$_model.GetProjectFeatureEntityResponse> {
@@ -1417,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取feature store服务账户角色。
+   * Queries the details of a service-linked role and verifies whether the role exists and is available.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1442,7 +1442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取feature store服务账户角色。
+   * Queries the details of a service-linked role and verifies whether the role exists and is available.
    * @returns GetServiceIdentityRoleResponse
    */
   async getServiceIdentityRole(RoleName: string): Promise<$_model.GetServiceIdentityRoleResponse> {
@@ -1452,7 +1452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务详情
+   * Gets the details of an asynchronous task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1477,7 +1477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务详情
+   * Gets the details of an asynchronous task.
    * @returns GetTaskResponse
    */
   async getTask(InstanceId: string, TaskId: string): Promise<$_model.GetTaskResponse> {
@@ -1487,7 +1487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源下所有特征视图信息。
+   * Retrieve all feature view information from the data source.
    * 
    * @param request - ListDatasourceFeatureViewsRequest
    * @param headers - map
@@ -1568,7 +1568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源下所有特征视图信息。
+   * Retrieve all feature view information from the data source.
    * 
    * @param request - ListDatasourceFeatureViewsRequest
    * @returns ListDatasourceFeatureViewsResponse
@@ -1580,7 +1580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源下所有表。
+   * Lists the tables in a datasource. This operation supports only MaxCompute datasources.
    * 
    * @param request - ListDatasourceTablesRequest
    * @param headers - map
@@ -1617,7 +1617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源下所有表。
+   * Lists the tables in a datasource. This operation supports only MaxCompute datasources.
    * 
    * @param request - ListDatasourceTablesRequest
    * @returns ListDatasourceTablesResponse
@@ -1629,7 +1629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
+   * Lists the data sources in a FeatureStore instance. You can filter the results by workspace, type, and name.
    * 
    * @param request - ListDatasourcesRequest
    * @param headers - map
@@ -1686,7 +1686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
+   * Lists the data sources in a FeatureStore instance. You can filter the results by workspace, type, and name.
    * 
    * @param request - ListDatasourcesRequest
    * @returns ListDatasourcesResponse
@@ -1698,7 +1698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建特征实体列表
+   * Lists the feature entities in a FeatureStore instance. You can filter the results by project, name, owner, and parent feature entity.
    * 
    * @param tmpReq - ListFeatureEntitiesRequest
    * @param headers - map
@@ -1769,7 +1769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建特征实体列表
+   * Lists the feature entities in a FeatureStore instance. You can filter the results by project, name, owner, and parent feature entity.
    * 
    * @param request - ListFeatureEntitiesRequest
    * @returns ListFeatureEntitiesResponse
@@ -1781,7 +1781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征字段血缘关系。
+   * Retrieves the relationships for a specific field in a feature view, returning a list of models that reference the field and the names of the associated online and offline tables.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1806,7 +1806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征字段血缘关系。
+   * Retrieves the relationships for a specific field in a feature view, returning a list of models that reference the field and the names of the associated online and offline tables.
    * @returns ListFeatureViewFieldRelationshipsResponse
    */
   async listFeatureViewFieldRelationships(InstanceId: string, FeatureViewId: string, FieldName: string): Promise<$_model.ListFeatureViewFieldRelationshipsResponse> {
@@ -1816,7 +1816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图下的在线特征数据。
+   * Retrieves online features from a feature view based on one or more join IDs. For each join ID provided, the operation returns the corresponding feature fields as key-value pairs.
    * 
    * @param tmpReq - ListFeatureViewOnlineFeaturesRequest
    * @param headers - map
@@ -1859,7 +1859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图下的在线特征数据。
+   * Retrieves online features from a feature view based on one or more join IDs. For each join ID provided, the operation returns the corresponding feature fields as key-value pairs.
    * 
    * @param request - ListFeatureViewOnlineFeaturesRequest
    * @returns ListFeatureViewOnlineFeaturesResponse
@@ -1871,7 +1871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图血缘关系。
+   * Lists the relationships for a feature view, including the models that reference it.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1896,7 +1896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图血缘关系。
+   * Lists the relationships for a feature view, including the models that reference it.
    * @returns ListFeatureViewRelationshipsResponse
    */
   async listFeatureViewRelationships(InstanceId: string, FeatureViewId: string): Promise<$_model.ListFeatureViewRelationshipsResponse> {
@@ -1906,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图列表。
+   * Lists feature views, filterable by project, name, type, tag, and feature name.
    * 
    * @param tmpReq - ListFeatureViewsRequest
    * @param headers - map
@@ -1985,7 +1985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图列表。
+   * Lists feature views, filterable by project, name, type, tag, and feature name.
    * 
    * @param request - ListFeatureViewsRequest
    * @returns ListFeatureViewsResponse
@@ -1997,7 +1997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Feature Store实例列表。
+   * Lists FeatureStore instances in the current account. You can filter the instances by status.
    * 
    * @param request - ListInstancesRequest
    * @param headers - map
@@ -2046,7 +2046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Feature Store实例列表。
+   * Lists FeatureStore instances in the current account. You can filter the instances by status.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -2058,7 +2058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取大模型调用信息配置
+   * Lists LLM call configurations.
    * 
    * @param request - ListLLMConfigsRequest
    * @param headers - map
@@ -2119,7 +2119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取大模型调用信息配置
+   * Lists LLM call configurations.
    * 
    * @param request - ListLLMConfigsRequest
    * @returns ListLLMConfigsResponse
@@ -2131,7 +2131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Label表列表。
+   * Lists label tables, filterable by project, name, owner, and ID.
    * 
    * @param tmpReq - ListLabelTablesRequest
    * @param headers - map
@@ -2198,7 +2198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Label表列表。
+   * Lists label tables, filterable by project, name, owner, and ID.
    * 
    * @param request - ListLabelTablesRequest
    * @returns ListLabelTablesResponse
@@ -2210,7 +2210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取注册FG特征时模型特征下可选的所有特征。
+   * Lists the available features for a model feature when you register a feature group (FG).
    * 
    * @param request - ListModelFeatureAvailableFeaturesRequest
    * @param headers - map
@@ -2243,7 +2243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取注册FG特征时模型特征下可选的所有特征。
+   * Lists the available features for a model feature when you register a feature group (FG).
    * 
    * @param request - ListModelFeatureAvailableFeaturesRequest
    * @returns ListModelFeatureAvailableFeaturesResponse
@@ -2255,7 +2255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型特征列表。
+   * Lists model features, with sorting, pagination, and filtering by project, name, creator, and ID.
    * 
    * @param tmpReq - ListModelFeaturesRequest
    * @param headers - map
@@ -2322,7 +2322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型特征列表。
+   * Lists model features, with sorting, pagination, and filtering by project, name, creator, and ID.
    * 
    * @param request - ListModelFeaturesRequest
    * @returns ListModelFeaturesResponse
@@ -2334,7 +2334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目下的所有特征视图、特征信息。
+   * Lists all feature views and their available features in a project. Use this operation to select feature views and features for the CreateModelFeature and UpdateModelFeature operations.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2359,7 +2359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目下的所有特征视图、特征信息。
+   * Lists all feature views and their available features in a project. Use this operation to select feature views and features for the CreateModelFeature and UpdateModelFeature operations.
    * @returns ListProjectFeatureViewsResponse
    */
   async listProjectFeatureViews(InstanceId: string, ProjectId: string): Promise<$_model.ListProjectFeatureViewsResponse> {
@@ -2369,7 +2369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目下所有特征信息
+   * Lists all features in a project. This operation supports filtering by name, alias, and feature view, as well as sorting and pagination. The response includes the data type, parent feature view, and the number of model features that reference each feature.
    * 
    * @param request - ListProjectFeaturesRequest
    * @param headers - map
@@ -2426,7 +2426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目下所有特征信息
+   * Lists all features in a project. This operation supports filtering by name, alias, and feature view, as well as sorting and pagination. The response includes the data type, parent feature view, and the number of model features that reference each feature.
    * 
    * @param request - ListProjectFeaturesRequest
    * @returns ListProjectFeaturesResponse
@@ -2438,7 +2438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Feature Store项目列表。
+   * Lists projects in a Feature Store instance, filterable by name, workspace, and owner.
    * 
    * @param tmpReq - ListProjectsRequest
    * @param headers - map
@@ -2505,7 +2505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Feature Store项目列表。
+   * Lists projects in a Feature Store instance, filterable by name, workspace, and owner.
    * 
    * @param request - ListProjectsRequest
    * @returns ListProjectsResponse
@@ -2517,7 +2517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务日志列表
+   * Lists the execution logs of an asynchronous task. This operation supports pagination.
    * 
    * @param request - ListTaskLogsRequest
    * @param headers - map
@@ -2554,7 +2554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务日志列表
+   * Lists the execution logs of an asynchronous task. This operation supports pagination.
    * 
    * @param request - ListTaskLogsRequest
    * @returns ListTaskLogsResponse
@@ -2566,7 +2566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务列表
+   * Lists asynchronous tasks for an instance, supporting pagination and filtering by project, object type, and status.
    * 
    * @param tmpReq - ListTasksRequest
    * @param headers - map
@@ -2633,7 +2633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务列表
+   * Lists asynchronous tasks for an instance, supporting pagination and filtering by project, object type, and status.
    * 
    * @param request - ListTasksRequest
    * @returns ListTasksResponse
@@ -2645,7 +2645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将特征视图的离线数据发布/同步到线上。
+   * Creates a data synchronization task to synchronize data from a feature view\\"s offline table to its online store.
    * 
    * @param request - PublishFeatureViewTableRequest
    * @param headers - map
@@ -2694,7 +2694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将特征视图的离线数据发布/同步到线上。
+   * Creates a data synchronization task to synchronize data from a feature view\\"s offline table to its online store.
    * 
    * @param request - PublishFeatureViewTableRequest
    * @returns PublishFeatureViewTableResponse
@@ -2706,7 +2706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止任务。
+   * Stops an asynchronous task. You can only stop tasks in the Initializing or Running state.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2731,7 +2731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止任务。
+   * Stops an asynchronous task. You can only stop tasks in the Initializing or Running state.
    * @returns StopTaskResponse
    */
   async stopTask(InstanceId: string, TaskId: string): Promise<$_model.StopTaskResponse> {
@@ -2741,7 +2741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a datasource\\"s info. The datasource type and workspace cannot be changed.
+   * Updates information for a data source. Its type and workspace cannot be changed.
    * 
    * @param request - UpdateDatasourceRequest
    * @param headers - map
@@ -2782,7 +2782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a datasource\\"s info. The datasource type and workspace cannot be changed.
+   * Updates information for a data source. Its type and workspace cannot be changed.
    * 
    * @param request - UpdateDatasourceRequest
    * @returns UpdateDatasourceResponse
@@ -2794,7 +2794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新特征视图。
+   * Updates a feature view.
    * 
    * @param request - UpdateFeatureViewRequest
    * @param headers - map
@@ -2827,7 +2827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新特征视图。
+   * Updates a feature view.
    * 
    * @param request - UpdateFeatureViewRequest
    * @returns UpdateFeatureViewResponse
@@ -2839,7 +2839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新大模型调用信息配置
+   * Updates the large language model (LLM) call configuration. If you do not specify the `ApiKey` parameter, the existing key is retained. After the update, the system revalidates the model\\"s availability and its parameters.
    * 
    * @param request - UpdateLLMConfigRequest
    * @param headers - map
@@ -2908,7 +2908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新大模型调用信息配置
+   * Updates the large language model (LLM) call configuration. If you do not specify the `ApiKey` parameter, the existing key is retained. After the update, the system revalidates the model\\"s availability and its parameters.
    * 
    * @param request - UpdateLLMConfigRequest
    * @returns UpdateLLMConfigResponse
@@ -2920,7 +2920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新label表。
+   * Updates the attributes of fields in a label table. You can modify the attributes of existing fields, but you cannot add or delete fields, or change field names and types.
    * 
    * @param request - UpdateLabelTableRequest
    * @param headers - map
@@ -2961,7 +2961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新label表。
+   * Updates the attributes of fields in a label table. You can modify the attributes of existing fields, but you cannot add or delete fields, or change field names and types.
    * 
    * @param request - UpdateLabelTableRequest
    * @returns UpdateLabelTableResponse
@@ -2973,7 +2973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型特征。
+   * Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
    * 
    * @param request - UpdateModelFeatureRequest
    * @param headers - map
@@ -3018,7 +3018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型特征。
+   * Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
    * 
    * @param request - UpdateModelFeatureRequest
    * @returns UpdateModelFeatureResponse
@@ -3030,7 +3030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型特征的FG特征配置信息。
+   * Update the FG feature configuration for a model feature.
    * 
    * @param request - UpdateModelFeatureFGFeatureRequest
    * @param headers - map
@@ -3075,7 +3075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型特征的FG特征配置信息。
+   * Update the FG feature configuration for a model feature.
    * 
    * @param request - UpdateModelFeatureFGFeatureRequest
    * @returns UpdateModelFeatureFGFeatureResponse
@@ -3087,7 +3087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新指定Feature Store项目信息。
+   * Updates the description of a project.
    * 
    * @param request - UpdateProjectRequest
    * @param headers - map
@@ -3124,7 +3124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新指定Feature Store项目信息。
+   * Updates the description of a project.
    * 
    * @param request - UpdateProjectRequest
    * @returns UpdateProjectResponse
@@ -3136,7 +3136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图血缘关系。
+   * Imports data from a URL to the offline table of a feature view. This is an asynchronous operation.
    * 
    * @param request - WriteFeatureViewTableRequest
    * @param headers - map
@@ -3177,7 +3177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取特征视图血缘关系。
+   * Imports data from a URL to the offline table of a feature view. This is an asynchronous operation.
    * 
    * @param request - WriteFeatureViewTableRequest
    * @returns WriteFeatureViewTableResponse

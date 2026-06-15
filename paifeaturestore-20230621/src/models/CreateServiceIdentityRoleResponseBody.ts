@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateServiceIdentityRoleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * ServiceLinkedRoleAlreadyExistsErrorProblem
    */
   code?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C03B2680-AC9C-59CD-93C5-8142B92537FA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The name of the service account role.
+   * 
    * @example
    * AliyunServiceRoleForFeatureStore
    */
