@@ -81,10 +81,10 @@ export class GetTrackListByMailFromAndTagNameResponseBodyTrackList extends $dara
 export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Used for pagination. Not set for the first query; for subsequent queries, set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
+   * Used for paging. Do not set this parameter for the first query. For subsequent queries, set this parameter to the OffsetCreateTime value from the previous response. (This field is deprecated)
    * 
    * @example
-   * （本字段已废弃）
+   * (This field is deprecated.)
    */
   offsetCreateTime?: string;
   /**
@@ -92,12 +92,12 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
    * (This field is deprecated)
    * 
    * @example
-   * （本字段已废弃）
+   * (This field is deprecated.)
    */
   offsetCreateTimeDesc?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -113,7 +113,7 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -127,6 +127,13 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
    * 4
    */
   total?: number;
+  /**
+   * @remarks
+   * The total number of pages.
+   * 
+   * @example
+   * 2
+   */
   totalPages?: string;
   trackList?: GetTrackListByMailFromAndTagNameResponseBodyTrackList;
   static names(): { [key: string]: string } {

@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ValidateEmailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to check the graylist. The default value is false. The result is sent through an asynchronous notification message from EventBridge.
+   * 
+   * @example
+   * true
+   */
   checkGraylist?: boolean;
   /**
    * @remarks
+   * The email address to validate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +22,9 @@ export class ValidateEmailRequest extends $dara.Model {
    */
   email?: string;
   /**
+   * @remarks
+   * The timeout period. The default value is 60 seconds.
+   * 
    * @example
    * 20
    */

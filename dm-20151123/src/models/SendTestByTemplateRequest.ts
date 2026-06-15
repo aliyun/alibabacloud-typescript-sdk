@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SendTestByTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Sender address, with a maximum length of 60 characters
+   * The sender address. Maximum length: 60 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * test@example.com
+   * Account+@+domain
    */
   accountName?: string;
   /**
    * @remarks
-   * Birthday, with a maximum length of 30 characters
+   * The birthday. Maximum length: 30 characters.
    * 
    * @example
    * 2000/01/01
@@ -23,25 +23,25 @@ export class SendTestByTemplateRequest extends $dara.Model {
   birthday?: string;
   /**
    * @remarks
-   * Recipient address, with a maximum length of 60 characters
+   * The recipient email address. Maximum length: 60 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * test1@example.com
+   * Account+@+domain
    */
   email?: string;
   /**
    * @remarks
-   * Gender, with a maximum length of 30 characters
+   * The gender. Maximum length: 30 characters.
    * 
    * @example
-   * doctor
+   * Mr.
    */
   gender?: string;
   /**
    * @remarks
-   * Mobile, with a maximum length of 30 characters
+   * The mobile number. Maximum length: 30 characters.
    * 
    * @example
    * 1380000****
@@ -49,10 +49,10 @@ export class SendTestByTemplateRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * NickName, with a maximum length of 30 characters
+   * The nickname. Maximum length: 30 characters.
    * 
    * @example
-   * LC
+   * Nickname
    */
   nickName?: string;
   ownerId?: number;
@@ -60,7 +60,7 @@ export class SendTestByTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Template ID
+   * The template ID.
    * 
    * This parameter is required.
    * 
@@ -69,16 +69,19 @@ export class SendTestByTemplateRequest extends $dara.Model {
    */
   templateId?: number;
   /**
+   * @remarks
+   * The custom parameters, formatted as a JSON string.
+   * 
    * @example
    * {"age":"20","nickName":"tom"}
    */
   templateParams?: string;
   /**
    * @remarks
-   * UserName, with a maximum length of 30 characters
+   * The user name. Maximum length: 30 characters.
    * 
    * @example
-   * Lucy
+   * John
    */
   userName?: string;
   static names(): { [key: string]: string } {

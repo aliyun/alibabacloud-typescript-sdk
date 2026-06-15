@@ -5,35 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class SenderStatisticsDetailByParamRequest extends $dara.Model {
   /**
    * @remarks
-   * Sending address. If not filled, it represents all addresses.
+   * The sender address. If you leave this parameter empty, emails from all sender addresses are queried.
    * 
-   * > **AccountName**, **TagName**, and **ToAddress** can all be left unfilled. If any are filled, only one of these parameters can be passed; you cannot pass a combination of two or more.
+   * > You can leave **AccountName**, **TagName**, and **ToAddress** empty. You can specify a value for only one of these parameters at a time.
    * 
    * @example
    * s***@example.net
    */
   accountName?: string;
   /**
+   * @remarks
+   * The ID of the configuration set.
+   * 
+   * @example
+   * 95437e39-5433-4c6c-8b66-0c4eac2f4d97
+   * 
    * **if can be null:**
    * true
    */
   configSetId?: string;
   /**
    * @remarks
-   * End time. The span between start and end times cannot exceed 30 days, format: yyyy-MM-dd HH:mm.
+   * The end time. The time range between the start time and the end time cannot exceed 30 days. The format is yyyy-MM-dd HH:mm.
    * 
    * @example
    * 2021-04-29 00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The ID of the independent IP address pool.
+   * 
+   * @example
+   * e42a4d8e-66e0-4ea3-88aa-74c66c661cef
+   * 
    * **if can be null:**
    * true
    */
   ipPoolId?: string;
   /**
    * @remarks
-   * Specifies the number of results to return in this request. Range is 1~100.
+   * The number of results to return. The value can range from 1 to 100.
    * 
    * @example
    * 5
@@ -41,7 +53,7 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
   length?: number;
   /**
    * @remarks
-   * Used for pagination. Specifies the offset for this request. If there are more results, set this returned value to the NextStart in the next request.
+   * The offset for this request, used for paging. If more results are available, set the \\`NextStart\\` parameter in your next request to this return value.
    * 
    * @example
    * 90f0243616#203#a***@example.net-1658817837#a***@example.net.247475288187
@@ -52,7 +64,7 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Start time. The span between start and end times cannot exceed 30 days, format: yyyy-MM-dd HH:mm
+   * The start time. The time range between the start time and the end time cannot exceed 30 days. The format is yyyy-MM-dd HH:mm.
    * 
    * @example
    * 2021-04-28 00:00
@@ -60,12 +72,15 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Delivery result. If not filled, it represents all statuses. Values:
+   * The delivery status. If you leave this parameter empty, emails in all delivery statuses are queried. Valid values:
    * 
-   * - 0: Success
-   * - 2: Invalid Address
-   * - 3: Spam
-   * - 4: Failure
+   * - 0: delivered successfully
+   * 
+   * - 2: invalid address
+   * 
+   * - 3: spam
+   * 
+   * - 4: failed
    * 
    * @example
    * 0
@@ -73,7 +88,8 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Email tag. If not filled, it represents all tags.
+   * The email tag. If you leave this parameter empty, emails with all tags are queried.
+   * When you send an email using SMTP, specify the \\`TagName\\` and its value for the \\`X-AliDM-Trace\\` field. For more information, see the examples for email tracking.
    * 
    * @example
    * EmailQuestionnaireHelioscam
@@ -81,7 +97,7 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
   tagName?: string;
   /**
    * @remarks
-   * Recipient address. If not filled, it represents all recipient addresses.
+   * The recipient address. If you leave this parameter empty, emails sent to all recipient addresses are queried.
    * 
    * @example
    * b***@example.net

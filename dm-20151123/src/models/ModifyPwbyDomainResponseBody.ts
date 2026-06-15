@@ -16,7 +16,7 @@ export class ModifyPWByDomainResponseBody extends $dara.Model {
    * Description of the status code
    * 
    * @example
-   * test
+   * Request succeeded.
    */
   message?: string;
   /**

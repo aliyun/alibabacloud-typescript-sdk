@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescAccountSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Daily quota
+   * The daily quota.
    * 
    * @example
    * 2000
@@ -13,7 +13,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   dailyQuota?: number;
   /**
    * @remarks
-   * remaining amount of daily free quota
+   * The remaining daily free quota.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   dailyRemainFreeQuota?: number;
   /**
    * @remarks
-   * Dayu status (deprecated, retained for compatibility reasons.)
+   * The status of Dayu. This parameter is deprecated and retained for compatibility.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   dayuStatus?: number;
   /**
    * @remarks
-   * Number of domains
+   * The number of domain names.
    * 
    * @example
    * 1
@@ -37,20 +37,30 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   domains?: number;
   /**
    * @remarks
-   * Effective time
+   * The effective period.
    * 
    * @example
    * 0
    */
   enableTimes?: number;
   /**
+   * @remarks
+   * The type of the outbound IP channel.
+   * 
+   * 1. backup: A backup IP channel that is not actively maintained. Customers using this channel are advised to purchase a dedicated IP for better stability.
+   * 
+   * 2. normal: A normal IP channel that is continuously maintained by the email delivery team to ensure stable and reliable service.
+   * 
+   * @example
+   * normal
+   * 
    * **if can be null:**
    * true
    */
   ipChannelType?: string;
   /**
    * @remarks
-   * Number of sending addresses
+   * The number of sender addresses.
    * 
    * @example
    * 0
@@ -58,7 +68,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   mailAddresses?: number;
   /**
    * @remarks
-   * Maximum level
+   * The maximum reputation level.
    * 
    * @example
    * 10
@@ -66,7 +76,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   maxQuotaLevel?: number;
   /**
    * @remarks
-   * Monthly quota
+   * The monthly quota.
    * 
    * @example
    * 60000
@@ -74,7 +84,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   monthQuota?: number;
   /**
    * @remarks
-   * Credit level
+   * The reputation level.
    * 
    * @example
    * 2
@@ -82,7 +92,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   quotaLevel?: number;
   /**
    * @remarks
-   * Number of recipients
+   * The number of recipients.
    * 
    * @example
    * 0
@@ -90,7 +100,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   receivers?: number;
   /**
    * @remarks
-   * Remaining amount of total free quota
+   * The remaining free quota.
    * 
    * @example
    * 1910
@@ -98,7 +108,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   remainFreeQuota?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 82B295BB-7E69-491F-9896-ECEAFF09E1A4
@@ -106,7 +116,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Deprecated, retained for compatibility reasons.
+   * This parameter is deprecated. It is retained for compatibility.
    * 
    * @example
    * 0
@@ -114,7 +124,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   smsRecord?: number;
   /**
    * @remarks
-   * Deprecated, retained for compatibility reasons.
+   * This parameter is deprecated. It is retained for compatibility.
    * 
    * @example
    * 0
@@ -122,7 +132,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   smsSign?: number;
   /**
    * @remarks
-   * Deprecated, retained for compatibility reasons.
+   * This parameter is deprecated. It is retained for compatibility.
    * 
    * @example
    * 0
@@ -130,7 +140,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   smsTemplates?: number;
   /**
    * @remarks
-   * Number of tags
+   * The number of tags.
    * 
    * @example
    * 0
@@ -138,7 +148,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   tags?: number;
   /**
    * @remarks
-   * Number of templates
+   * The number of templates.
    * 
    * @example
    * 1
@@ -146,11 +156,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
   templates?: number;
   /**
    * @remarks
-   * User status:
-   * 1 Frozen
-   * 2 In arrears
-   * 4 Restricted from sending
-   * 8 Logically deleted
+   * The status of the user. Valid values: 0: Normal. 1: Freeze. 2: Overdue payment. 4: Outbound messages are restricted. 8: The user is logically deleted.
    * 
    * @example
    * 0

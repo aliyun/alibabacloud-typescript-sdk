@@ -8,6 +8,7 @@ export class CheckDomainResponseBody extends $dara.Model {
    * Domain status. Indicates whether the verification was successful, with values as follows:
    * 
    * - **0**: Available, verified successfully
+   * 
    * - **1**: Unavailable, verification failed
    * 
    * @example

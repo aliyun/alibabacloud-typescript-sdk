@@ -222,14 +222,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Send Emails
+   * Sends emails in batch.
    * 
-   * @param request - BatchSendMailRequest
+   * @param tmpReq - BatchSendMailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchSendMailResponse
    */
-  async batchSendMailWithOptions(request: $_model.BatchSendMailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchSendMailResponse> {
-    request.validate();
+  async batchSendMailWithOptions(tmpReq: $_model.BatchSendMailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchSendMailResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchSendMailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.receivers)) {
+      request.receiversShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.receivers, "Receivers", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.templateContent)) {
+      request.templateContentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateContent, "TemplateContent", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
@@ -295,8 +305,18 @@ export default class Client extends OpenApi {
       query["UnSubscribeLinkType"] = request.unSubscribeLinkType;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.receiversShrink)) {
+      body["Receivers"] = request.receiversShrink;
+    }
+
+    if (!$dara.isNull(request.templateContentShrink)) {
+      body["TemplateContent"] = request.templateContentShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "BatchSendMail",
@@ -313,7 +333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Send Emails
+   * Sends emails in batch.
    * 
    * @param request - BatchSendMailRequest
    * @returns BatchSendMailResponse
@@ -540,7 +560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集取消关联发信地址
+   * Disassociates a sender address from a configuration set.
    * 
    * @param request - ConfigSetCancelRelationFromAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -575,7 +595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集取消关联发信地址
+   * Disassociates a sender address from a configuration set.
    * 
    * @param request - ConfigSetCancelRelationFromAddressRequest
    * @returns ConfigSetCancelRelationFromAddressResponse
@@ -586,7 +606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集创建
+   * Creates a configuration set. You can create up to 100 configuration sets.
    * 
    * @param request - ConfigSetCreateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -629,7 +649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集创建
+   * Creates a configuration set. You can create up to 100 configuration sets.
    * 
    * @param request - ConfigSetCreateRequest
    * @returns ConfigSetCreateResponse
@@ -640,7 +660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除配置集
+   * Deletes configuration sets.
    * 
    * @param request - ConfigSetDeleteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -675,7 +695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除配置集
+   * Deletes configuration sets.
    * 
    * @param request - ConfigSetDeleteRequest
    * @returns ConfigSetDeleteResponse
@@ -686,7 +706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集详情
+   * Retrieves the details of a specified configuration set.
    * 
    * @param request - ConfigSetDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -717,7 +737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集详情
+   * Retrieves the details of a specified configuration set.
    * 
    * @param request - ConfigSetDetailRequest
    * @returns ConfigSetDetailResponse
@@ -728,7 +748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集列表
+   * Lists ConfigSets.
    * 
    * @param request - ConfigSetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -771,7 +791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集列表
+   * Lists ConfigSets.
    * 
    * @param request - ConfigSetListRequest
    * @returns ConfigSetListResponse
@@ -782,7 +802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集关联发信地址
+   * Associates a configuration set with a sender address.
    * 
    * @param request - ConfigSetRelationFromAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -817,7 +837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集关联发信地址
+   * Associates a configuration set with a sender address.
    * 
    * @param request - ConfigSetRelationFromAddressRequest
    * @returns ConfigSetRelationFromAddressResponse
@@ -828,7 +848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集更新
+   * Updates a configuration set.
    * 
    * @param request - ConfigSetUpdateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -875,7 +895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置集更新
+   * Updates a configuration set.
    * 
    * @param request - ConfigSetUpdateRequest
    * @returns ConfigSetUpdateResponse
@@ -1068,7 +1088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Tag
+   * Creates a tag.
    * 
    * @param request - CreateTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1115,7 +1135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Tag
+   * Creates a tag.
    * 
    * @param request - CreateTagRequest
    * @returns CreateTagResponse
@@ -1126,7 +1146,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板
+   * Creates a new mail template in DirectMail.
+   * 
+   * @remarks
+   * ## Description
+   * - Set the **templateType** parameter to `0` to create a mail template.
+   * - For a mail template, specify `templateSubject` (email subject), `templateNickName` (sender name), and `templateText` (email HTML body).
+   * - The template name (`templateName`) must be unique within an account.
+   * - Newly created templates have a default status of `pending approval`.
    * 
    * @param request - CreateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1201,7 +1228,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板
+   * Creates a new mail template in DirectMail.
+   * 
+   * @remarks
+   * ## Description
+   * - Set the **templateType** parameter to `0` to create a mail template.
+   * - For a mail template, specify `templateSubject` (email subject), `templateNickName` (sender name), and `templateText` (email HTML body).
+   * - The template name (`templateName`) must be unique within an account.
+   * - Newly created templates have a default status of `pending approval`.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -1266,7 +1300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set Dedicated IP Auto Renewal
+   * Sets auto-renewal for a dedicated IP address.
    * 
    * @param request - DedicatedIpAutoRenewalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1301,7 +1335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set Dedicated IP Auto Renewal
+   * Sets auto-renewal for a dedicated IP address.
    * 
    * @param request - DedicatedIpAutoRenewalRequest
    * @returns DedicatedIpAutoRenewalResponse
@@ -1312,7 +1346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change the warmup method for a dedicated IP
+   * Updates the prefetch method for a dedicated IP address.
    * 
    * @param request - DedicatedIpChangeWarmupTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1347,7 +1381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change the warmup method for a dedicated IP
+   * Updates the prefetch method for a dedicated IP address.
    * 
    * @param request - DedicatedIpChangeWarmupTypeRequest
    * @returns DedicatedIpChangeWarmupTypeResponse
@@ -1358,7 +1392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dedicated IP User IP List
+   * Lists purchased IPs.
    * 
    * @param request - DedicatedIpListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1397,7 +1431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dedicated IP User IP List
+   * Lists purchased IPs.
    * 
    * @param request - DedicatedIpListRequest
    * @returns DedicatedIpListResponse
@@ -1408,7 +1442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchased Independent IPs Not Added to Pool
+   * Lists the IP addresses that are not assigned to any IP pool. This operation is used for IP pool configuration.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DedicatedIpNonePoolListResponse
@@ -1430,7 +1464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchased Independent IPs Not Added to Pool
+   * Lists the IP addresses that are not assigned to any IP pool. This operation is used for IP pool configuration.
    * @returns DedicatedIpNonePoolListResponse
    */
   async dedicatedIpNonePoolList(): Promise<$_model.DedicatedIpNonePoolListResponse> {
@@ -1439,7 +1473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creation of Independent IP Pool
+   * Creates a dedicated IP pool.
    * 
    * @param request - DedicatedIpPoolCreateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1474,7 +1508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creation of Independent IP Pool
+   * Creates a dedicated IP pool.
    * 
    * @param request - DedicatedIpPoolCreateRequest
    * @returns DedicatedIpPoolCreateResponse
@@ -1485,7 +1519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dedicated IP Pool Deletion
+   * Deletes a dedicated IP pool.
    * 
    * @param request - DedicatedIpPoolDeleteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1516,7 +1550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dedicated IP Pool Deletion
+   * Deletes a dedicated IP pool.
    * 
    * @param request - DedicatedIpPoolDeleteRequest
    * @returns DedicatedIpPoolDeleteResponse
@@ -1527,7 +1561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dedicated IP Pool List
+   * Lists IP pools.
    * 
    * @param request - DedicatedIpPoolListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1574,7 +1608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dedicated IP Pool List
+   * Lists IP pools.
    * 
    * @param request - DedicatedIpPoolListRequest
    * @returns DedicatedIpPoolListResponse
@@ -1585,7 +1619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update of dedicated IP Pool
+   * Updates an IP pool.
    * 
    * @param request - DedicatedIpPoolUpdateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1624,7 +1658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update of dedicated IP Pool
+   * Updates an IP pool.
    * 
    * @param request - DedicatedIpPoolUpdateRequest
    * @returns DedicatedIpPoolUpdateResponse
@@ -2021,7 +2055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除批量校验任务的结果文件
+   * Deletes the verification file after the verification process is complete.
    * 
    * @param request - DeleteValidateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2052,7 +2086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除批量校验任务的结果文件
+   * Deletes the verification file after the verification process is complete.
    * 
    * @param request - DeleteValidateFileRequest
    * @returns DeleteValidateFileResponse
@@ -2063,7 +2097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve account information.
+   * Retrieves account information.
    * 
    * @param request - DescAccountSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2102,7 +2136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve account information.
+   * Retrieves account information.
    * 
    * @param request - DescAccountSummaryRequest
    * @returns DescAccountSummaryResponse
@@ -2113,7 +2147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Domain Details
+   * Configure the domain name.
    * 
    * @param request - DescDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2160,7 +2194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Domain Details
+   * Configure the domain name.
    * 
    * @param request - DescDomainRequest
    * @returns DescDomainResponse
@@ -2171,7 +2205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看模板信息
+   * Retrieves the information about an email template.
+   * 
+   * @remarks
+   * Retrieves information about a specific email template, including its name, creation time, and content.
    * 
    * @param request - DescTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2218,7 +2255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看模板信息
+   * Retrieves the information about an email template.
+   * 
+   * @remarks
+   * Retrieves information about a specific email template, including its name, creation time, and content.
    * 
    * @param request - DescTemplateRequest
    * @returns DescTemplateResponse
@@ -2537,7 +2577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get tracking information
+   * Email Tracking retrieves data on sent emails.
    * 
    * @param request - GetTrackListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2636,7 +2676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get tracking information
+   * Email Tracking retrieves data on sent emails.
    * 
    * @param request - GetTrackListRequest
    * @returns GetTrackListResponse
@@ -2647,7 +2687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get tracking information based on the sender address and tag name
+   * Retrieves email tracking data that meets specified conditions.
    * 
    * @param request - GetTrackListByMailFromAndTagNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2742,7 +2782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get tracking information based on the sender address and tag name
+   * Retrieves email tracking data that meets specified conditions.
    * 
    * @param request - GetTrackListByMailFromAndTagNameRequest
    * @returns GetTrackListByMailFromAndTagNameResponse
@@ -2784,7 +2824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取批量校验任务的结果文件
+   * Retrieves the results file of a batch validation task.
    * 
    * @param request - GetValidateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2815,7 +2855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取批量校验任务的结果文件
+   * Retrieves the results file of a batch validation task.
    * 
    * @param request - GetValidateFileRequest
    * @returns GetValidateFileResponse
@@ -2826,7 +2866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取批量校验任务的状态
+   * Retrieves the status of a file validation task.
    * 
    * @param request - GetValidateFileStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2857,7 +2897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取批量校验任务的状态
+   * Retrieves the status of a file validation task.
    * 
    * @param request - GetValidateFileStatusRequest
    * @returns GetValidateFileStatusResponse
@@ -2868,7 +2908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取电子邮件校验额度
+   * Retrieves the email validation quota.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetValidationQuotaResponse
@@ -2890,7 +2930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取电子邮件校验额度
+   * Retrieves the email validation quota.
    * @returns GetValidationQuotaResponse
    */
   async getValidationQuota(): Promise<$_model.GetValidationQuotaResponse> {
@@ -2899,7 +2939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取发信的黑名单列表
+   * Queries the email sending blacklist.
+   * 
+   * @remarks
+   * Queries data about unsubscribes or spam reports.
    * 
    * @param request - ListBlockSendingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2954,7 +2997,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取发信的黑名单列表
+   * Queries the email sending blacklist.
+   * 
+   * @remarks
+   * Queries data about unsubscribes or spam reports.
    * 
    * @param request - ListBlockSendingRequest
    * @returns ListBlockSendingResponse
@@ -3043,7 +3089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上传的校验文件的列表
+   * Retrieves a list of uploaded validation files.
    * 
    * @param request - ListValidateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3090,7 +3136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上传的校验文件的列表
+   * Retrieves a list of uploaded validation files.
    * 
    * @param request - ListValidateFileRequest
    * @returns ListValidateFileResponse
@@ -3456,7 +3502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of sending addresses.
+   * Queries a list of sender addresses.
    * 
    * @param request - QueryMailAddressByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3511,7 +3557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of sending addresses.
+   * Queries a list of sender addresses.
    * 
    * @param request - QueryMailAddressByParamRequest
    * @returns QueryMailAddressByParamResponse
@@ -3522,7 +3568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of the recipient list
+   * Retrieves recipient lists.
    * 
    * @param request - QueryReceiverByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3577,7 +3623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of the recipient list
+   * Retrieves recipient lists.
    * 
    * @param request - QueryReceiverByParamRequest
    * @returns QueryReceiverByParamResponse
@@ -3716,7 +3762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query task list
+   * Queries tasks based on specified parameters.
    * 
    * @param request - QueryTaskByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3771,7 +3817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query task list
+   * Queries tasks based on specified parameters.
    * 
    * @param request - QueryTaskByParamRequest
    * @returns QueryTaskByParamResponse
@@ -3782,7 +3828,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模板信息
+   * Performs a paged query to retrieve a list of templates.
+   * 
+   * @remarks
+   * Performs a paged query to retrieve a list of templates.
    * 
    * @param request - QueryTemplateByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3841,7 +3890,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模板信息
+   * Performs a paged query to retrieve a list of templates.
+   * 
+   * @remarks
+   * Performs a paged query to retrieve a list of templates.
    * 
    * @param request - QueryTemplateByParamRequest
    * @returns QueryTemplateByParamResponse
@@ -3852,7 +3904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete User\\"s Invalid Addresses
+   * Deletes system-identified and manually added addresses from the user-level suppression list.
    * 
    * @param request - RemoveUserSuppressionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3895,7 +3947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete User\\"s Invalid Addresses
+   * Deletes system-identified and manually added addresses from the user-level suppression list.
    * 
    * @param request - RemoveUserSuppressionRequest
    * @returns RemoveUserSuppressionResponse
@@ -3906,7 +3958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Single Recipient
+   * Create a single recipient.
    * 
    * @param request - SaveReceiverDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3957,7 +4009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Single Recipient
+   * Create a single recipient.
    * 
    * @param request - SaveReceiverDetailRequest
    * @returns SaveReceiverDetailResponse
@@ -3968,7 +4020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Send Template Test Email
+   * Sends a test email using a template.
    * 
    * @param request - SendTestByTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4043,7 +4095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Send Template Test Email
+   * Sends a test email using a template.
    * 
    * @param request - SendTestByTemplateRequest
    * @returns SendTestByTemplateResponse
@@ -4054,7 +4106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交批量校验任务
+   * You can upload the list of addresses to be verified.
    * 
    * @param request - SendValidateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4101,7 +4153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交批量校验任务
+   * You can upload the list of addresses to be verified.
    * 
    * @param request - SendValidateFileRequest
    * @returns SendValidateFileResponse
@@ -4198,7 +4250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve Sending Data under Specified Conditions
+   * Retrieves sending statistics that match specified criteria.
    * 
    * @param request - SenderStatisticsByTagNameAndBatchIDRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4269,7 +4321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve Sending Data under Specified Conditions
+   * Retrieves sending statistics that match specified criteria.
    * 
    * @param request - SenderStatisticsByTagNameAndBatchIDRequest
    * @returns SenderStatisticsByTagNameAndBatchIDResponse
@@ -4280,7 +4332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Delivery Result Details
+   * Queries sending details.
    * 
    * @param request - SenderStatisticsDetailByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4359,7 +4411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Delivery Result Details
+   * Queries sending details.
    * 
    * @param request - SenderStatisticsDetailByParamRequest
    * @returns SenderStatisticsDetailByParamResponse
@@ -4424,7 +4476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * API for Sending Emails
+   * Send a single email.
    * 
    * @param tmpReq - SingleSendMailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4551,7 +4603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * API for Sending Emails
+   * Send a single email.
    * 
    * @param request - SingleSendMailRequest
    * @returns SingleSendMailResponse
@@ -4657,7 +4709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lift sending restrictions due to unsubscription, reporting, etc.
+   * Removes sending restrictions caused by unsubscribes or complaints.
    * 
    * @param request - UnblockSendingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4696,7 +4748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lift sending restrictions due to unsubscription, reporting, etc.
+   * Removes sending restrictions caused by unsubscribes or complaints.
    * 
    * @param request - UnblockSendingRequest
    * @returns UnblockSendingResponse
@@ -4809,7 +4861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验电子邮件地址
+   * Validates an email address.
    * 
    * @param request - ValidateEmailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4848,7 +4900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验电子邮件地址
+   * Validates an email address.
    * 
    * @param request - ValidateEmailRequest
    * @returns ValidateEmailResponse

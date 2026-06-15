@@ -8,7 +8,7 @@ export class CreateReceiverRequest extends $dara.Model {
    * List description.
    * 
    * @example
-   * the description
+   * Description
    */
   desc?: string;
   ownerId?: number;

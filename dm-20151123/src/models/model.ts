@@ -1,3 +1,5 @@
+export { BatchSendMailRequestReceivers } from './BatchSendMailRequest';
+export { BatchSendMailRequestTemplateContent } from './BatchSendMailRequest';
 export { ConfigSetDetailResponseBodyDetailIpPool } from './ConfigSetDetailResponseBody';
 export { ConfigSetDetailResponseBodyDetail } from './ConfigSetDetailResponseBody';
 export { ConfigSetListResponseBodyConfigSetsIpPool } from './ConfigSetListResponseBody';
@@ -55,6 +57,7 @@ export { ApproveReplyMailAddressRequest } from './ApproveReplyMailAddressRequest
 export { ApproveReplyMailAddressResponseBody } from './ApproveReplyMailAddressResponseBody';
 export { ApproveReplyMailAddressResponse } from './ApproveReplyMailAddressResponse';
 export { BatchSendMailRequest } from './BatchSendMailRequest';
+export { BatchSendMailShrinkRequest } from './BatchSendMailShrinkRequest';
 export { BatchSendMailResponseBody } from './BatchSendMailResponseBody';
 export { BatchSendMailResponse } from './BatchSendMailResponse';
 export { ChangeDomainDkimRecordRequest } from './ChangeDomainDkimRecordRequest';

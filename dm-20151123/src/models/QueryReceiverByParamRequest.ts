@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryReceiverByParamRequest extends $dara.Model {
   /**
    * @remarks
-   * Keyword, defaults to all information if not specified
+   * The keyword to search for recipient lists. If omitted, all recipient lists are returned.
    * 
    * @example
    * mesh-notification
@@ -14,7 +14,9 @@ export class QueryReceiverByParamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Current page number
+   * This deprecated field is kept for backward compatibility. You can omit this parameter.
+   * 
+   * The page number.
    * 
    * @example
    * 1
@@ -22,7 +24,9 @@ export class QueryReceiverByParamRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of items per page, default: 10
+   * The page size. Default value: 100.
+   * 
+   * Omitting this parameter returns all results. However, because the PageNo parameter is deprecated, the effect of PageSize on pagination is limited.
    * 
    * @example
    * 10
@@ -32,12 +36,13 @@ export class QueryReceiverByParamRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Delivery result. If not filled, it represents all statuses. Values:
+   * This deprecated field is kept for backward compatibility. You can omit this parameter.
    * 
-   * - 0: Success
-   * - 2: Invalid address
-   * - 3: Spam
-   * - 4: Failure
+   * The list status. Valid values:
+   * 
+   * - 0: uploading
+   * 
+   * - 1: upload complete
    * 
    * @example
    * 1

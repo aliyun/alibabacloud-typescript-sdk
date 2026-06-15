@@ -93,7 +93,7 @@ export class QueryMailAddressByParamResponseBodyData extends $dara.Model {
 export class QueryMailAddressByParamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class QueryMailAddressByParamResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -109,7 +109,7 @@ export class QueryMailAddressByParamResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 95A7D497-F8DD-4834-B81E-C1783236E55F
@@ -117,7 +117,7 @@ export class QueryMailAddressByParamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count
+   * The total number of entries.
    * 
    * @example
    * 2

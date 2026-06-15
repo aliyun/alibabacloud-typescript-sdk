@@ -8,7 +8,7 @@ export class DeleteIpfilterByEdmIdRequest extends $dara.Model {
    * Deprecated, kept for historical compatibility.
    * 
    * @example
-   * 1
+   * Deprecated. Kept for backward compatibility.
    */
   fromType?: number;
   /**

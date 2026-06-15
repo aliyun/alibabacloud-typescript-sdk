@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendTestByTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The unique ID for the request.
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837

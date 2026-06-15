@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListValidateFileRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time. The time is in UTC and follows the RFC 3339 format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,22 +14,33 @@ export class ListValidateFileRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * A keyword in the file name.
+   * 
    * @example
    * keyword
    */
   fileKeyword?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The start time. The time is in UTC and follows the RFC 3339 format.
+   * 
    * This parameter is required.
    * 
    * @example

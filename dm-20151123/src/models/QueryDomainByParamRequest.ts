@@ -33,6 +33,7 @@ export class QueryDomainByParamRequest extends $dara.Model {
   /**
    * @remarks
    * - 0 indicates normal
+   * 
    * - 1 indicates abnormal
    * 
    * @example

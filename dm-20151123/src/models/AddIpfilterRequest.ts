@@ -10,9 +10,9 @@ export class AddIpfilterRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * xxx.xxx.xxx.xxx
-   * xxx.xxx.xxx.xxx-xxx.xxx.xxx.xxx
-   * xxx.xxx.xxx.xxx/xxx
+   * Single IP: xxx.xxx.xxx.xxx
+   * IP range: xxx.xxx.xxx.xxx-xxx.xxx.xxx.xxx
+   * CIDR: xxx.xxx.xxx.xxx/xxx
    */
   ipAddress?: string;
   ownerId?: number;

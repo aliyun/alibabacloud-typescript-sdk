@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpListRequest extends $dara.Model {
   /**
    * @remarks
-   * IP search keyword
+   * The search keyword for IP addresses.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class DedicatedIpListRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Pagination index, starting from 1
+   * The page index, starting from 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DedicatedIpListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * Page size
+   * The page size.
    * 
    * @example
    * 10

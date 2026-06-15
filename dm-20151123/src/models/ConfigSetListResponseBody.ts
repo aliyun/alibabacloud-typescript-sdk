@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigSetListResponseBodyConfigSetsIpPool extends $dara.Model {
   /**
+   * @remarks
+   * The associated IP pool ID.
+   * 
    * @example
    * xxx
    */
   ipPoolId?: string;
   /**
+   * @remarks
+   * The associated IP pool name.
+   * 
    * @example
    * xxx
    */
@@ -38,19 +44,36 @@ export class ConfigSetListResponseBodyConfigSetsIpPool extends $dara.Model {
 
 export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * xxx
    */
   description?: string;
+  /**
+   * @remarks
+   * The list of from addresses associated with the ConfigSet.
+   */
   fromAddresses?: string[];
   /**
+   * @remarks
+   * The ConfigSet ID.
+   * 
    * @example
    * xxx
    */
   id?: string;
+  /**
+   * @remarks
+   * The IP pool associated with the ConfigSet.
+   */
   ipPool?: ConfigSetListResponseBodyConfigSetsIpPool;
   isPublicChannelBackoff?: boolean;
   /**
+   * @remarks
+   * The ConfigSet name.
+   * 
    * @example
    * xxx
    */
@@ -93,28 +116,47 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
 }
 
 export class ConfigSetListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of ConfigSets.
+   */
   configSets?: ConfigSetListResponseBodyConfigSets[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * Indicates whether more results are available.
+   * 
    * @example
    * false
    */
   hasMore?: boolean;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of matching entries.
+   * 
    * @example
    * 5
    */

@@ -2,117 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
-export class BatchSendMailRequestReceivers extends $dara.Model {
-  /**
-   * @remarks
-   * The email template parameters. This is a JSON map data type.
-   */
-  templateData?: { [key: string]: string };
-  /**
-   * @remarks
-   * The recipient list. This is an array type.
-   */
-  to?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      templateData: 'TemplateData',
-      to: 'To',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      to: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(this.templateData) {
-      $dara.Model.validateMap(this.templateData);
-    }
-    if(Array.isArray(this.to)) {
-      $dara.Model.validateArray(this.to);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchSendMailRequestTemplateContent extends $dara.Model {
-  /**
-   * @remarks
-   * The display name of the sender.
-   * 
-   * @example
-   * Jackie
-   */
-  alias?: string;
-  /**
-   * @remarks
-   * The HTML body of the email.
-   * 
-   * > **Note:** HtmlBody and TextBody are for different types of email content. You must specify at least one of them.
-   * 
-   * The new SDK uses Body for parameter passing with a limit of approximately 8 MB (Java 1.4.0 and later, Python3 1.4.0 and later, PHP 1.4.0 and later).
-   * 
-   * @example
-   * <h1>全场九折，仅限今日</h1>
-   */
-  htmlBody?: string;
-  /**
-   * @remarks
-   * The email subject.
-   * 
-   * @example
-   * 黑色星期五，专属折扣来袭
-   */
-  subject?: string;
-  /**
-   * @remarks
-   * The plain text body of the email.
-   * 
-   * > **Note:** HtmlBody and TextBody are for different types of email content. You must specify at least one of them.
-   * 
-   * The new SDK uses Body for parameter passing with a limit of approximately 8 MB (Java 1.4.0 and later, Python3 1.4.0 and later, PHP 1.4.0 and later).
-   * 
-   * @example
-   * 全场九折，仅限今日
-   */
-  textBody?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      htmlBody: 'HtmlBody',
-      subject: 'Subject',
-      textBody: 'TextBody',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      htmlBody: 'string',
-      subject: 'string',
-      textBody: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchSendMailRequest extends $dara.Model {
+export class BatchSendMailShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sender address configured in the management console.
@@ -221,7 +111,7 @@ export class BatchSendMailRequest extends $dara.Model {
    * 
    * Example: [{"To":["Jackie@example.com"],"TemplateData":{"UserName":"Jackie"}},{"To":["Tom@example.com"],"TemplateData":{"UserName":"Tom"}}].
    */
-  receivers?: BatchSendMailRequestReceivers[];
+  receiversShrink?: string;
   /**
    * @remarks
    * The name of a pre-created recipient list that has recipients uploaded.
@@ -266,7 +156,7 @@ export class BatchSendMailRequest extends $dara.Model {
    * @remarks
    * The custom email content. Directly specify the content without creating a template in advance. Use this parameter or TemplateName. If both TemplateContent and TemplateName are specified, TemplateName takes precedence.
    */
-  templateContent?: BatchSendMailRequestTemplateContent;
+  templateContentShrink?: string;
   /**
    * @remarks
    * The name of a pre-created and approved template.
@@ -309,14 +199,14 @@ export class BatchSendMailRequest extends $dara.Model {
       headers: 'Headers',
       ipPoolId: 'IpPoolId',
       ownerId: 'OwnerId',
-      receivers: 'Receivers',
+      receiversShrink: 'Receivers',
       receiversName: 'ReceiversName',
       replyAddress: 'ReplyAddress',
       replyAddressAlias: 'ReplyAddressAlias',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tagName: 'TagName',
-      templateContent: 'TemplateContent',
+      templateContentShrink: 'TemplateContent',
       templateName: 'TemplateName',
       unSubscribeFilterLevel: 'UnSubscribeFilterLevel',
       unSubscribeLinkType: 'UnSubscribeLinkType',
@@ -332,14 +222,14 @@ export class BatchSendMailRequest extends $dara.Model {
       headers: 'string',
       ipPoolId: 'string',
       ownerId: 'number',
-      receivers: { 'type': 'array', 'itemType': BatchSendMailRequestReceivers },
+      receiversShrink: 'string',
       receiversName: 'string',
       replyAddress: 'string',
       replyAddressAlias: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tagName: 'string',
-      templateContent: BatchSendMailRequestTemplateContent,
+      templateContentShrink: 'string',
       templateName: 'string',
       unSubscribeFilterLevel: 'string',
       unSubscribeLinkType: 'string',
@@ -347,12 +237,6 @@ export class BatchSendMailRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.receivers)) {
-      $dara.Model.validateArray(this.receivers);
-    }
-    if(this.templateContent && typeof (this.templateContent as any).validate === 'function') {
-      (this.templateContent as any).validate();
-    }
     super.validate();
   }
 

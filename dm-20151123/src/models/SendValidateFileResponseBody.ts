@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendValidateFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the file. Use this ID to query the results.
+   * 
    * @example
    * yyyy-yyyy-yyyy-yyyy
    */
   fileId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxx
    */
