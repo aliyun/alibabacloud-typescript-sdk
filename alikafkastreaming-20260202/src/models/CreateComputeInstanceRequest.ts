@@ -13,10 +13,14 @@ export class CreateComputeInstanceRequest extends $dara.Model {
    * This parameter is required.
    */
   regionId?: string;
+  resourceGroupId?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       paidType: 'PaidType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -24,6 +28,8 @@ export class CreateComputeInstanceRequest extends $dara.Model {
     return {
       paidType: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
+      resourceType: 'string',
     };
   }
 
