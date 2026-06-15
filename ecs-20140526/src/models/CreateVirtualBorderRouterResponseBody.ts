@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVirtualBorderRouterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual border router.
+   */
   vbrId?: string;
   static names(): { [key: string]: string } {
     return {

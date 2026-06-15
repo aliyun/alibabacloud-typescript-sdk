@@ -13,7 +13,7 @@ export class ModifySnapshotCategoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the archive task. You can call the DescribeTasks operation to query the status and progress of the archive task.
+   * The archive task ID. You can call the DescribeTasks operation to query the status and progress of the task.
    * 
    * @example
    * t-dxh34xds**d

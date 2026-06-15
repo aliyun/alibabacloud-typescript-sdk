@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDeploymentSetAttributeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The affinity level of the deployment set. Instances in the deployment set are distributed based on this affinity level. Valid values: 1 to 10. Default value: 1.>Notice:  The affinity setting is available only when the deployment strategy is set to high availability (`Strategy = Availability`).
+   * 
+   * @example
+   * 3
+   */
   affinity?: number;
   /**
    * @remarks
@@ -16,7 +23,7 @@ export class ModifyDeploymentSetAttributeRequest extends $dara.Model {
   deploymentSetId?: string;
   /**
    * @remarks
-   * The new name of the deployment set. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The new name of the deployment set. The name must be 2 to 128 characters long and can contain letters, digits, Chinese characters, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * DeploymentSetTestName
@@ -24,7 +31,7 @@ export class ModifyDeploymentSetAttributeRequest extends $dara.Model {
   deploymentSetName?: string;
   /**
    * @remarks
-   * The new description of the deployment set. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * The new description of the deployment set. It must be 2 to 256 characters long and cannot start with `http://` or `https://`.
    * 
    * @example
    * TestDescription
@@ -34,7 +41,7 @@ export class ModifyDeploymentSetAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to obtain the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 

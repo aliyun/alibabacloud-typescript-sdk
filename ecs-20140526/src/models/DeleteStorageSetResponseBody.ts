@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteStorageSetResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

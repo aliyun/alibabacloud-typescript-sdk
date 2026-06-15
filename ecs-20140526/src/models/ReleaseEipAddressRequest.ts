@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseEipAddressRequest extends $dara.Model {
   /**
    * @remarks
+   * The allocation ID of the EIP to release.
+   * 
    * This parameter is required.
    */
   allocationId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region where the EIP is located. You can call the `DescribeRegions` operation to get the latest list of regions.
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccessPointsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The filter key. Valid values:
+   * 
+   * - `AccessPointId`: Filter by access point ID.
+   * - `AccessPointName`: Filter by access point name.
+   */
   key?: string;
+  /**
+   * @remarks
+   * The filter values.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -32,17 +43,41 @@ export class DescribeAccessPointsRequestFilter extends $dara.Model {
 }
 
 export class DescribeAccessPointsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filters to apply to the query results.
+   */
   filter?: DescribeAccessPointsRequestFilter[];
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Default value: 1.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 10.
+   */
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the region where the access points are located. Call the `DescribeRegions` operation to query the latest list of regions.
+   * 
    * This parameter is required.
    */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The type of the access point. Set the value to `ecs`.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

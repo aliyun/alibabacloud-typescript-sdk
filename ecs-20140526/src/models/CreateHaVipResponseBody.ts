@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateHaVipResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the HaVip.
+   */
   haVipId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

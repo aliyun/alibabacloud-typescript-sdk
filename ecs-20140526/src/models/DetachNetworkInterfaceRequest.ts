@@ -7,7 +7,7 @@ export class DetachNetworkInterfaceRequest extends $dara.Model {
    * @remarks
    * The ID of the trunk ENI.
    * 
-   * >  This parameter is unavailable for use.
+   * > This parameter is unavailable for use.
    * 
    * This parameter is required.
    * 

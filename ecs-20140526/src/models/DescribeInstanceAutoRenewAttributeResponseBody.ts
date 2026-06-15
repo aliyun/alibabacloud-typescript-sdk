@@ -67,6 +67,10 @@ export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttribut
 }
 
 export class DescribeInstanceAutoRenewAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The auto-renewal attributes of the instances.
+   */
   instanceRenewAttributes?: DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttributes;
   /**
    * @remarks
@@ -94,7 +98,7 @@ export class DescribeInstanceAutoRenewAttributeResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The total number of queried instances.
+   * The total number of instances that are returned.
    * 
    * @example
    * 6

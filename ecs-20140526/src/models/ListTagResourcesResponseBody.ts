@@ -63,7 +63,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token.
+   * The token to retrieve the next page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

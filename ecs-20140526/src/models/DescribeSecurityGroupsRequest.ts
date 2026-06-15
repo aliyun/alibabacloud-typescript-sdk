@@ -49,8 +49,9 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * *   true: performs only a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request passes the dry run, the DryRunOperation error code is returned. Otherwise, an error message is returned.
-   * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - true: performs only a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request passes the dry run, the DryRunOperation error code is returned. Otherwise, an error message is returned.
+   * 
+   * - false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * Default value: false.
    * 
@@ -70,7 +71,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query the capacity of the security group. If you set this parameter to True, the `EcsCount` and `AvailableInstanceAmount` values in the response are valid.
    * 
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @example
    * null
@@ -92,8 +93,9 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * @remarks
    * The network type of the security group. Valid values:
    * 
-   * *   vpc
-   * *   classic
+   * - vpc
+   * 
+   * - classic
    * 
    * @example
    * vpc
@@ -111,7 +113,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 1
@@ -119,7 +121,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 10
@@ -175,8 +177,9 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * @remarks
    * The type of the security group. Valid values:
    * 
-   * *   normal: basic security group
-   * *   enterprise: advanced security group
+   * - normal: basic security group
+   * 
+   * - enterprise: advanced security group
    * 
    * > If you do not specify this parameter, both basic and advanced security groups are queried.
    * 
@@ -188,8 +191,9 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query managed security groups. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false

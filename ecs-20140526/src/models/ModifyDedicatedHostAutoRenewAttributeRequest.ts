@@ -7,8 +7,9 @@ export class ModifyDedicatedHostAutoRenewAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to automatically renew the subscription. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false
    * 
@@ -28,9 +29,11 @@ export class ModifyDedicatedHostAutoRenewAttributeRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AutoRenewWithEcs: automatically renews the subscription dedicated hosts along with the subscription ECS instances hosted on the dedicated hosts.
-   * *   StopRenewWithEcs: does not automatically renew the subscription dedicated hosts along with the subscription ECS instances hosted on the dedicated hosts.
-   * *   NoOperation: does not change the current settings for the dedicated hosts.
+   * - AutoRenewWithEcs: automatically renews the subscription dedicated hosts along with the subscription ECS instances hosted on the dedicated hosts.
+   * 
+   * - StopRenewWithEcs: does not automatically renew the subscription dedicated hosts along with the subscription ECS instances hosted on the dedicated hosts.
+   * 
+   * - NoOperation: does not change the current settings for the dedicated hosts.
    * 
    * > If you set this parameter to AutoRenewWithEcs, make sure that `AutoRenew` is set to true to enable auto-renewal for the dedicated hosts. Otherwise, the subscription dedicated hosts are not automatically renewed along with the subscription ECS instances hosted on the dedicated hosts.
    * 
@@ -54,8 +57,9 @@ export class ModifyDedicatedHostAutoRenewAttributeRequest extends $dara.Model {
    * @remarks
    * The renewal duration.
    * 
-   * *   Valid values when PeriodUnit is set to Month: 1 and 12
-   * *   Valid values when PeriodUnit is set to Year: 1 and 12
+   * - Valid values when PeriodUnit is set to Month: 1 and 12
+   * 
+   * - Valid values when PeriodUnit is set to Year: 1 and 12
    * 
    * @example
    * 1
@@ -67,8 +71,9 @@ export class ModifyDedicatedHostAutoRenewAttributeRequest extends $dara.Model {
    * @remarks
    * The unit of the renewal period. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - Month
+   * 
+   * - Year
    * 
    * Default value: Month
    * 
@@ -90,9 +95,11 @@ export class ModifyDedicatedHostAutoRenewAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to automatically renew the subscription dedicated host. The `RenewalStatus` parameter takes precedence over the `AutoRenew` parameter. Valid values:
    * 
-   * *   AutoRenewal: The dedicated hosts are automatically renewed.
-   * *   Normal: The dedicated hosts are not automatically renewed, and renewal notifications are sent.
-   * *   NotRenewal: The dedicated hosts are not automatically renewed, and no expiration notification is sent. A notification of no renewal is automatically sent three days before the end of the current subscription cycle. You can change the value of this parameter from NotRenewal to Normal and manually renew the dedicated hosts by calling the [RenewDedicatedHosts](https://help.aliyun.com/document_detail/134250.html) operation. Alternatively, you can renew the dedicated hosts by setting this parameter to AutoRenewal.
+   * - AutoRenewal: The dedicated hosts are automatically renewed.
+   * 
+   * - Normal: The dedicated hosts are not automatically renewed, and renewal notifications are sent.
+   * 
+   * - NotRenewal: The dedicated hosts are not automatically renewed, and no expiration notification is sent. A notification of no renewal is automatically sent three days before the end of the current subscription cycle. You can change the value of this parameter from NotRenewal to Normal and manually renew the dedicated hosts by calling the [RenewDedicatedHosts](https://help.aliyun.com/document_detail/134250.html) operation. Alternatively, you can renew the dedicated hosts by setting this parameter to AutoRenewal.
    * 
    * @example
    * Normal

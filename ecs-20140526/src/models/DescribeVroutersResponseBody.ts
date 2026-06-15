@@ -99,10 +99,30 @@ export class DescribeVRoutersResponseBodyVRouters extends $dara.Model {
 }
 
 export class DescribeVRoutersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * A wrapper object for the VRouter list.
+   */
   VRouters?: DescribeVRoutersResponseBodyVRouters;
   static names(): { [key: string]: string } {
     return {

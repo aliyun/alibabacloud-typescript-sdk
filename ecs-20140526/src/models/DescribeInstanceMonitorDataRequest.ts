@@ -29,9 +29,11 @@ export class DescribeInstanceMonitorDataRequest extends $dara.Model {
    * @remarks
    * The interval at which to retrieve monitoring data. Unit: seconds. Valid values:
    * 
-   * *   60
-   * *   600
-   * *   3600
+   * - 60
+   * 
+   * - 600
+   * 
+   * - 3600
    * 
    * Default value: 60.
    * 

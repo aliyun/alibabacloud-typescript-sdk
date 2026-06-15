@@ -7,12 +7,13 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to automatically complete the payment. Valid values:
    * 
-   * *   true: enables automatic payment. Maintain a sufficient account balance. Otherwise, your order becomes invalid and is canceled.
-   * *   false: disables automatic payment. An order is generated but no payment is made.
+   * - true: enables automatic payment. Maintain a sufficient account balance. Otherwise, your order becomes invalid and is canceled.
+   * 
+   * - false: disables automatic payment. An order is generated but no payment is made.
    * 
    * Default value: true.
    * 
-   * >  If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
+   * > If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
    * 
    * @example
    * false
@@ -30,8 +31,9 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * Default value: false.
    * 
@@ -43,8 +45,9 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to change the billing method of all data disks on the instance from pay-as-you-go to subscription. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -56,8 +59,9 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * The new billing method of the instance. Valid values:
    * 
-   * *   PrePaid: subscription
-   * *   PostPaid: pay-as-you-go
+   * - PrePaid: subscription
+   * 
+   * - PostPaid: pay-as-you-go
    * 
    * Default value: PrePaid.
    * 
@@ -79,8 +83,9 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return cost details of the order after the billing method is changed from subscription to pay-as-you-go. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 

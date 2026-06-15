@@ -121,11 +121,11 @@ export class DescribePriceResponseBodyPriceInfoPriceDetailInfos extends $dara.Mo
 export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency unit.
+   * The currency.
    * 
-   * Alibaba Cloud China site (aliyun.com): CNY.
+   * CNY for sites in the Chinese mainland.
    * 
-   * Alibaba Cloud International site (alibabacloud.com): USD.
+   * USD for international sites.
    * 
    * @example
    * CNY
@@ -134,7 +134,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   detailInfos?: DescribePriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
-   * The discount.
+   * The discount amount.
    * 
    * @example
    * 655.2
@@ -150,7 +150,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * The hourly price of the reserved instance for which the No Upfront or Partial Upfront payment option is used.
+   * The hourly price of a No Upfront or Partial Upfront Reserved Instance Voucher.
    * 
    * @example
    * 1
@@ -158,7 +158,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   reservedInstanceHourPrice?: number;
   /**
    * @remarks
-   * The transaction price of the order. The transaction price is equal to the original price minus the discount.
+   * The trade price, calculated as `OriginalPrice` - `DiscountPrice`.
    * 
    * @example
    * 3712.8
@@ -201,11 +201,11 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
 export class DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice extends $dara.Model {
   /**
    * @remarks
-   * The currency unit.
+   * The currency.
    * 
-   * China site (aliyun.com): CNY
+   * CNY for sites in the Chinese mainland.
    * 
-   * International site (alibabacloud.com): USD
+   * USD for international sites.
    * 
    * @example
    * CNY
@@ -213,7 +213,7 @@ export class DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice
   currency?: string;
   /**
    * @remarks
-   * The discount.
+   * The discount amount.
    * 
    * @example
    * 0
@@ -229,7 +229,7 @@ export class DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice
   originalPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * The trade price, calculated as `OriginalPrice` - `DiscountPrice`.
    * 
    * @example
    * 100
@@ -265,7 +265,7 @@ export class DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice
 export class DescribePriceResponseBodyPriceInfoRelatedPrice extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Marketplace image price.
+   * The price of the marketplace image.
    */
   marketplaceImagePrice?: DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice;
   static names(): { [key: string]: string } {
@@ -347,12 +347,12 @@ export class DescribePriceResponseBodyPriceInfoRules extends $dara.Model {
 export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The price.
+   * The price details.
    */
   price?: DescribePriceResponseBodyPriceInfoPrice;
   /**
    * @remarks
-   * The related price.
+   * The related prices.
    */
   relatedPrice?: DescribePriceResponseBodyPriceInfoRelatedPrice;
   rules?: DescribePriceResponseBodyPriceInfoRules;
@@ -393,7 +393,7 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
 export class DescribePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the prices and promotion rules.
+   * Details about the price and promotional rules.
    */
   priceInfo?: DescribePriceResponseBodyPriceInfo;
   /**

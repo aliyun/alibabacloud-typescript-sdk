@@ -74,37 +74,9 @@ export class DescribeStorageSetDetailsResponseBodyDisks extends $dara.Model {
 
 export class DescribeStorageSetDetailsResponseBody extends $dara.Model {
   disks?: DescribeStorageSetDetailsResponseBodyDisks;
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 1
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 49765E79-0D5D-4451-B3AE-580A20831846
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of storage sets.
-   * 
-   * @example
-   * 1
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

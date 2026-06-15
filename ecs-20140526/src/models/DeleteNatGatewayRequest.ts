@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNatGatewayRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the NAT gateway that you want to delete.
+   * 
    * This parameter is required.
    */
   natGatewayId?: string;
@@ -12,6 +14,8 @@ export class DeleteNatGatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region where the NAT gateway is deployed.
+   * 
    * This parameter is required.
    */
   regionId?: string;

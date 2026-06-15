@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExportSnapshotResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The export task ID. Call the `DescribeTasks` operation to check the task status.
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

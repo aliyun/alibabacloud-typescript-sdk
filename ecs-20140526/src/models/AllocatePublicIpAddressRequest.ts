@@ -17,7 +17,7 @@ export class AllocatePublicIpAddressRequest extends $dara.Model {
    * @remarks
    * The static public IP address that you want to assign to the instance. This parameter is empty by default, which indicates that a static public IP address is randomly assigned by the system.
    * 
-   * >  Only users in the whitelist can specify this parameter.
+   * > Only users in the whitelist can specify this parameter.
    * 
    * @example
    * ``112.124.**.**``

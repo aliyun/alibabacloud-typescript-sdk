@@ -27,8 +27,9 @@ export class RenewDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The renewal duration. Valid values:
    * 
-   * *   Valid values when the PeriodUnit parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
-   * *   Valid values when the PeriodUnit parameter is set to Year: 1, 2, 3, 4, and 5.
+   * - Valid values when the PeriodUnit parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * 
+   * - Valid values when the PeriodUnit parameter is set to Year: 1, 2, 3, 4, and 5.
    * 
    * This parameter is required.
    * 
@@ -40,8 +41,9 @@ export class RenewDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The unit of the renewal period. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - Month
+   * 
+   * - Year
    * 
    * Default value: Month.
    * 

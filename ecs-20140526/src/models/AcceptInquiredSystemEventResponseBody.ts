@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AcceptInquiredSystemEventResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DD56CA6-6D75-4D33-BE34-E4A44EBE1C3D
    */

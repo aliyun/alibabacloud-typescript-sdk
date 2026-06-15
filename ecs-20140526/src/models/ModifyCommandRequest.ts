@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is no longer used and does not take effect.
+   * > This parameter is no longer used and does not take effect.
    * 
    * @example
    * echo

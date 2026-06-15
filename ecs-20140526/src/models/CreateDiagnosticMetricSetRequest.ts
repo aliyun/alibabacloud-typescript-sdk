@@ -8,7 +8,7 @@ export class CreateDiagnosticMetricSetRequest extends $dara.Model {
    * The description of the diagnostic metric set.
    * 
    * @example
-   * The ID of the request.
+   * 远程连接问题诊断
    */
   description?: string;
   /**
@@ -23,7 +23,7 @@ export class CreateDiagnosticMetricSetRequest extends $dara.Model {
    * The name of the diagnostic metric set.
    * 
    * @example
-   * The IDs of diagnostic metrics. You can specify up to 100 diagnostic metric IDs.
+   * 远程连接问题诊断
    */
   metricSetName?: string;
   /**

@@ -7,8 +7,9 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to automatically complete the payment. Valid values:
    * 
-   * *   true (default): The payment is automatically completed. Maintain sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled.
-   * *   false: An order is generated but no payment is made. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, log on to the **Expenses and Costs console**, go to the [Orders page](https://usercenter2-intl.aliyun.com/order/list), and pay for the order.
+   * - true (default): The payment is automatically completed. Maintain sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled.
+   * 
+   * - false: An order is generated but no payment is made. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, log on to the **Expenses and Costs console**, go to the [Orders page](https://usercenter2-intl.aliyun.com/order/list), and pay for the order.
    * 
    * @example
    * true
@@ -26,10 +27,11 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
    * @remarks
    * The new billing method of the disk. Valid values:
    * 
-   * *   PrePaid (default): changes the billing method from pay-as-you-go to subscription.
-   * *   PostPaid: changes the billing method from subscription to pay-as-you-go.
+   * - PrePaid (default): changes the billing method from pay-as-you-go to subscription.
    * 
-   * >  When you change the billing method of a pay-as-you-go disk to subscription, the billing cycle of the disk is automatically synchronized with that of the associated ECS instance.
+   * - PostPaid: changes the billing method from subscription to pay-as-you-go.
+   * 
+   * > When you change the billing method of a pay-as-you-go disk to subscription, the billing cycle of the disk is automatically synchronized with that of the associated ECS instance.
    * 
    * @example
    * PostPaid
@@ -42,7 +44,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * [“d-bp67acfmxazb4ph****”, “d-bp67acfmxazb4pi****”, … “d-bp67acfmxazb4pj****”]
+   * ["d-bp67acfmxazb4ph****", "d-bp67acfmxazb4pi****", … "d-bp67acfmxazb4pj****"]
    */
   diskIds?: string;
   /**

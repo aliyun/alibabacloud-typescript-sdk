@@ -7,7 +7,7 @@ export class DescribeInstanceRamRoleRequest extends $dara.Model {
    * @remarks
    * The IDs of ECS instances. You can specify up to 50 instance IDs in a single request.
    * 
-   * >  You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
+   * > You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
    * 
    * @example
    * ["i-bp67acfmxazb1p****", "i-bp67acfmxazb2p****", "bp67acfmxazb3p****"…]
@@ -42,7 +42,7 @@ export class DescribeInstanceRamRoleRequest extends $dara.Model {
    * @remarks
    * The name of the instance RAM role. If you specify this parameter, all ECS instances to which the instance RAM role is attached are returned in the response. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation of RAM to query the names of available instance RAM roles.
    * 
-   * >  You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
+   * > You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
    * 
    * @example
    * EcsServiceRole-EcsDocGuideTest

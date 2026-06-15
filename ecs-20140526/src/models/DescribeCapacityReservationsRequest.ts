@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCapacityReservationsRequestPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The IDs of capacity reservations. The value can be a JSON array that consists of up to 100 capacity reservation IDs. Separate the IDs with commas (,).
+   * The IDs of the capacity reservations. The value can be a JSON array that consists of up to 100 capacity reservation IDs.
    * 
    * @example
    * ["crp-bp1gubrkqutenqdd****", "crp-bp67acfmxazb5****"]
@@ -35,9 +35,9 @@ export class DescribeCapacityReservationsRequestPrivatePoolOptions extends $dara
 export class DescribeCapacityReservationsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the capacity reservation. Valid values of N: 1 to 20.
+   * The key of the Nth tag. You can specify up to 20 tags.
    * 
-   * If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * A maximum of 1,000 resources that match the specified tags can be returned. If you specify multiple tags, only resources that have all of these tags are returned. If the number of matching resources exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
    * @example
    * TestKey
@@ -45,7 +45,7 @@ export class DescribeCapacityReservationsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the capacity reservation. Valid values of N: 1 to 20.
+   * The value of the Nth tag. You can specify up to 20 tags.
    * 
    * @example
    * TestValue
@@ -80,8 +80,9 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
+   * - PostPaid: pay-as-you-go.
+   * 
+   * - PrePaid: subscription.
    * 
    * Default value: PostPaid.
    * 
@@ -91,7 +92,7 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance type of the capacity reservation. You can specify this parameter to query only effective capacity reservations. To query capacity reservations that are released, you must specify PrivatePoolOptions.Ids.
+   * The instance type. You can use this parameter to query only active capacity reservations. To query released capacity reservations, you must specify `PrivatePoolOptions.Ids`.
    * 
    * @example
    * ecs.c6.large
@@ -99,9 +100,9 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The number of entries to return on each page.
    * 
-   * Maximum value: 100
+   * Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -111,7 +112,7 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of the NextToken parameter.
+   * The query token. Set the value to the `NextToken` value returned in the previous call to retrieve the next page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -123,9 +124,11 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
    * @remarks
    * The operating system of the instance. Valid values:
    * 
-   * *   windows: Windows operating systems.
-   * *   linux: Linux operating systems.
-   * *   all: all operating system types.
+   * - windows: Returns only capacity reservations for Windows.
+   * 
+   * - linux: Returns only capacity reservations for Linux.
+   * 
+   * - all: Returns all capacity reservations.
    * 
    * Default value: all.
    * 
@@ -135,7 +138,7 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The region ID of the capacity reservation. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the capacity reservation. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -145,9 +148,9 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the capacity reservation belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+   * The ID of the resource group. When you use this parameter to filter resources, the operation returns a maximum of 1,000 resources.
    * 
-   * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
+   * > Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -159,14 +162,19 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
    * @remarks
    * The status of the capacity reservation. Valid values:
    * 
-   * *   All: All states.
-   * *   Pending: The capacity reservation is being initialized. Scheduled capacity reservations enter the Pending state after they are created.
-   * *   Preparing: The capacity reservation is being prepared. Scheduled capacity reservations are in the Preparing state while resources are being provisioned.
-   * *   Prepared: The capacity reservation is to take effect. After resources are provisioned, scheduled capacity reservations remain in the Prepared state until they take effect.
-   * *   Active: The capacity reservation is in effect.
-   * *   Released: The capacity reservation is manually or automatically released when it expires.
+   * - All: all statuses.
    * 
-   * If you do not specify this parameter, capacity reservations in states other than Pending and Released are queried.
+   * - Pending: The capacity reservation is initializing. This is the initial status of a scheduled capacity reservation.
+   * 
+   * - Preparing: The system is preparing resources for the scheduled capacity reservation.
+   * 
+   * - Prepared: The resources are prepared, and the scheduled capacity reservation is waiting to take effect.
+   * 
+   * - Active: The capacity reservation is active.
+   * 
+   * - Released: The capacity reservation is released, either manually or automatically upon expiration.
+   * 
+   * If you do not specify this parameter, the operation returns capacity reservations in all states except `Pending` and `Released`.
    * 
    * @example
    * Active
@@ -174,7 +182,7 @@ export class DescribeCapacityReservationsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the capacity reservation.
+   * The tags attached to the capacity reservations.
    */
   tag?: DescribeCapacityReservationsRequestTag[];
   /**

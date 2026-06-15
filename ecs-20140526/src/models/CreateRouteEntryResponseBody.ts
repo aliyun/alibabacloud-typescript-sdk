@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRouteEntryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

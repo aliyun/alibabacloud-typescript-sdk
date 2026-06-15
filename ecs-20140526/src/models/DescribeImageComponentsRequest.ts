@@ -49,21 +49,22 @@ export class DescribeImageComponentsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Build
-   * *   Test
+   * - Build
+   * 
+   * - Test
    * 
    * @example
-   * null
+   * Build
    */
   componentType?: string;
   /**
    * @remarks
    * The version number of the image component in the \\<major>.\\<minor>.\\<patch> format. You can set \\<major>, \\<minor>, and \\<patch> to non-negative integers, or set one of \\<major>, \\<minor>, and \\<patch> to the wildcard (\\*) and the other two to non-negative integers.
    * 
-   * >  This parameter takes effect only if you specify Name.
+   * > This parameter takes effect only if you specify Name.
    * 
    * @example
-   * null
+   * 1.0.*
    */
   componentVersion?: string;
   /**
@@ -104,8 +105,9 @@ export class DescribeImageComponentsRequest extends $dara.Model {
    * @remarks
    * The type of the image component. Valid values:
    * 
-   * *   SELF: the custom component that you created.
-   * *   ALIYUN: the system component provided by Alibaba Cloud.
+   * - SELF: the custom component that you created.
+   * 
+   * - ALIYUN: the system component provided by Alibaba Cloud.
    * 
    * @example
    * SELF
@@ -127,7 +129,7 @@ export class DescribeImageComponentsRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
    * 
-   * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+   * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -141,11 +143,12 @@ export class DescribeImageComponentsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Linux
-   * *   Windows
+   * - Linux
+   * 
+   * - Windows
    * 
    * @example
-   * null
+   * Linux
    */
   systemType?: string;
   /**

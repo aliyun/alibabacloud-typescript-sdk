@@ -7,7 +7,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddTagsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the resource. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain [http:// or https://](http://https://).
+   * The tag key.
+   * 
+   * > For compatibility, we recommend that you use the `Tag.N.Key` parameter.
    * 
    * @example
    * TestKey
@@ -15,7 +17,7 @@ export class AddTagsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain [http:// or https://](http://https://).
+   * The tag value. The value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -48,7 +50,7 @@ export class AddTagsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the region where the resource is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -58,7 +60,7 @@ export class AddTagsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource. When the resources are instances, this parameter can be interpreted as InstanceId.
+   * The ID of the resource to tag. For example, if `ResourceType` is set to `instance`, this parameter is the instance ID.
    * 
    * This parameter is required.
    * 
@@ -72,20 +74,31 @@ export class AddTagsRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   instance: ECS instance
-   * *   disk: disk
-   * *   snapshot: snapshot
-   * *   image: image
-   * *   securitygroup: security group
-   * *   volume: storage volume
-   * *   eni: elastic network interface (ENI)
-   * *   ddh: dedicated host
-   * *   keypair: SSH key pair
-   * *   launchtemplate: launch template
-   * *   reservedinstance: reserved instance
-   * *   snapshotpolicy: automatic snapshot policy
+   * - instance: an ECS instance
    * 
-   * All values must be lowercase.
+   * - disk: a disk
+   * 
+   * - snapshot: a snapshot
+   * 
+   * - image: an image
+   * 
+   * - securitygroup: a security group
+   * 
+   * - volume: a storage volume
+   * 
+   * - eni: an elastic network interface (ENI)
+   * 
+   * - ddh: a Dedicated Host
+   * 
+   * - keypair: an SSH key pair
+   * 
+   * - launchtemplate: a launch template
+   * 
+   * - reservedinstance: a reserved instance
+   * 
+   * - snapshotpolicy: an automatic snapshot policy
+   * 
+   * All values are in lowercase.
    * 
    * This parameter is required.
    * 
@@ -95,7 +108,7 @@ export class AddTagsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * A list of tags.
    * 
    * This parameter is required.
    */

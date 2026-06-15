@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of ENI N. You must specify `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query range.
+   * The network interface ID. You must specify either `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query scope.
    * 
    * @example
    * eni-bp17pdijfczax****
@@ -13,7 +13,7 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The IDs of ENI permissions. You can specify up to 100 ENI permission IDs.
+   * An array of network interface permission IDs. The array can contain 1 to 100 IDs.
    * 
    * @example
    * eni-perm-bp1cs4lwn56lfb****
@@ -23,11 +23,11 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number to return.
    * 
-   * Pages start from page 1.
+   * Starting value: 1
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -37,9 +37,9 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * Maximum value: 100.
+   * Maximum value: 100
    * 
-   * Default value: 10.
+   * Default value: 10
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the ENI permission. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the region for the network interface permission. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to obtain the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 

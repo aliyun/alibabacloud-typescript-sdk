@@ -85,7 +85,7 @@ export class DescribeResourceByTagsResponseBody extends $dara.Model {
   resources?: DescribeResourceByTagsResponseBodyResources;
   /**
    * @remarks
-   * The total number of resources returned.
+   * The total number of resources.
    * 
    * @example
    * 8

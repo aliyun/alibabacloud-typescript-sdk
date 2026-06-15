@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkInterfaceRequestConnectionTrackingConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The timeout period for TCP connections in the TIME_WAIT or CLOSE_WAIT state. Unit: seconds. Valid values: integers from 3 to 15.
+   * The timeout for a TCP connection in the TIME_WAIT or closing state, in seconds. Valid values: integers from 3 to 15.
    * 
    * Default value: 3.
    * 
-   * >  If the associated Elastic Compute Service (ECS) instance is used with a Network Load Balancer (NLB) or Classic Load Balancer (CLB) instance, the default timeout period for TCP connections in the `TIME_WAIT` state is 15 seconds.
+   * > If your ECS instance works with NLB or CLB, the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
    * 
    * @example
    * 3
@@ -17,7 +17,7 @@ export class CreateNetworkInterfaceRequestConnectionTrackingConfiguration extend
   tcpClosedAndTimeWaitTimeout?: number;
   /**
    * @remarks
-   * The timeout period for TCP connections in the ESTABLISHED state. Unit: seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
+   * The timeout for an established TCP connection, in seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
    * 
    * Default value: 910.
    * 
@@ -27,11 +27,11 @@ export class CreateNetworkInterfaceRequestConnectionTrackingConfiguration extend
   tcpEstablishedTimeout?: number;
   /**
    * @remarks
-   * The timeout period for UDP flows. Unit: seconds. Valid values: 10, 20, 30, 60, 80, and 100.
+   * The timeout for a UDP stream, in seconds. Valid values: 10, 20, 30, 60, 80, and 100.
    * 
    * Default value: 30.
    * 
-   * >  If the associated ECS instance is used with an NLB or CLB instance, the default timeout period for UDP flows is 100 seconds.
+   * > If your ECS instance works with NLB or CLB, the default value is 100 seconds.
    * 
    * @example
    * 30
@@ -65,7 +65,7 @@ export class CreateNetworkInterfaceRequestConnectionTrackingConfiguration extend
 export class CreateNetworkInterfaceRequestEnhancedNetwork extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * true
@@ -73,7 +73,7 @@ export class CreateNetworkInterfaceRequestEnhancedNetwork extends $dara.Model {
   enableRss?: boolean;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * true
@@ -111,7 +111,7 @@ export class CreateNetworkInterfaceRequestEnhancedNetwork extends $dara.Model {
 export class CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig extends $dara.Model {
   /**
    * @remarks
-   * The communication mode of the ENI.
+   * The traffic mode of the elastic network interface.
    * 
    * @example
    * HighPerformance
@@ -119,7 +119,7 @@ export class CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig extends 
   networkInterfaceTrafficMode?: string;
   /**
    * @remarks
-   * The number of queues supported by the ENI.
+   * The number of queues for the elastic network interface.
    * 
    * @example
    * 8
@@ -127,7 +127,7 @@ export class CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig extends 
   queueNumber?: number;
   /**
    * @remarks
-   * The number of QPs supported by the ERI.
+   * The number of queue pairs for the RDMA-enabled elastic network interface.
    * 
    * @example
    * 8
@@ -135,15 +135,25 @@ export class CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig extends 
   queuePairNumber?: number;
   /**
    * @remarks
-   * The Rx queue depth of the ENI.
+   * The receive (Rx) queue depth of the elastic network interface.
    * 
-   * >  This parameter is in invitational preview and is not publicly available. To use this parameter, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
+   * <props="china">
    * 
-   * When you specify this parameter, take note of the following items:
+   * > This parameter is available by invitation only. To request access, submit a ticket.
    * 
-   * *   This parameter is applicable only to 7th-generation or later ECS instance types.
-   * *   This parameter is applicable to Linux images.
-   * *   A larger Rx queue depth yields higher inbound throughput and reduces packet loss rates but consumes more memory.
+   * 
+   * 
+   * <props="intl">
+   * 
+   * > This parameter is available by invitation only. To request access, submit a ticket.
+   * 
+   * 
+   * 
+   * - This parameter is applicable only to seventh-generation or later ECS instance types.
+   * 
+   * - This parameter is applicable only to Linux images.
+   * 
+   * - A larger Rx queue depth can improve receive throughput and reduce the packet loss rate, but consumes more memory.
    * 
    * @example
    * 8192
@@ -151,15 +161,25 @@ export class CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig extends 
   rxQueueSize?: number;
   /**
    * @remarks
-   * The Tx queue depth of the ENI.
+   * The transmit (Tx) queue depth of the elastic network interface.
    * 
-   * >  This parameter is in invitational preview and is not publicly available. To use this parameter, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
+   * <props="china">
    * 
-   * When you specify this parameter, take note of the following items:
+   * > This parameter is available by invitation only. To request access, submit a ticket.
    * 
-   * *   This parameter is applicable only to 7th-generation or later ECS instance types.
-   * *   This parameter is applicable to Linux images.
-   * *   A larger Tx queue depth yields higher outbound throughput and reduces packet loss rates but consumes more memory.
+   * 
+   * 
+   * <props="intl">
+   * 
+   * > This parameter is available by invitation only. To request access, submit a ticket.
+   * 
+   * 
+   * 
+   * - This parameter is applicable only to seventh-generation or later ECS instance types.
+   * 
+   * - This parameter is applicable only to Linux images.
+   * 
+   * - A larger Tx queue depth can improve transmit throughput and reduce the packet loss rate, but consumes more memory.
    * 
    * @example
    * 8192
@@ -197,7 +217,7 @@ export class CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig extends 
 export class CreateNetworkInterfaceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain `http://` or `https://`.
+   * The key of the tag. Valid values for N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters long and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -205,7 +225,7 @@ export class CreateNetworkInterfaceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the ENI. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The value of the tag. Valid values for N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters long and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -237,7 +257,7 @@ export class CreateNetworkInterfaceRequestTag extends $dara.Model {
 export class CreateNetworkInterfaceRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is no longer used.
+   * > This parameter is deprecated.
    * 
    * @example
    * null
@@ -245,7 +265,7 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * A client token to ensure request idempotence. Your client generates this token, which must be unique across requests. The token can contain only ASCII characters and must not exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -253,17 +273,18 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The connection tracking configurations of the ENI.
+   * The connection tracking settings.
    * 
-   * Before you use this parameter, learn about how to manage connection timeout periods. For more information, see [Manage connection timeout periods](https://help.aliyun.com/document_detail/2865958.html).
+   * Before using this parameter, read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
    */
   connectionTrackingConfiguration?: CreateNetworkInterfaceRequestConnectionTrackingConfiguration;
   /**
    * @remarks
-   * Specifies whether to release the ENI when the associated instance is released. Valid values:
+   * Specifies whether to release the elastic network interface when its attached instance is released. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The elastic network interface is released.
+   * 
+   * - `false`: The elastic network interface is retained.
    * 
    * @example
    * true
@@ -271,9 +292,9 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   deleteOnRelease?: boolean;
   /**
    * @remarks
-   * The description of the ENI. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the elastic network interface. The description must be 2 to 256 characters long and cannot start with `http://` or `https://`.
    * 
-   * This parameter is empty by default.
+   * Default value: empty.
    * 
    * @example
    * testDescription
@@ -281,46 +302,47 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    */
   enhancedNetwork?: CreateNetworkInterfaceRequestEnhancedNetwork;
   /**
    * @remarks
-   * The type of the ENI. Valid values:
+   * The type of the elastic network interface. Valid values:
    * 
-   * *   Secondary: secondary ENI.
-   * *   Trunk: trunk ENI. This value is in invitational preview.
+   * - `Secondary`: a secondary elastic network interface.
    * 
-   * Default value: Secondary.
+   * - `Trunk`: a trunk network interface. (This feature is available by invitation only.)
+   * 
+   * Default value: `Secondary`.
    * 
    * @example
-   * null
+   * Secondary
    */
   instanceType?: string;
   /**
    * @remarks
-   * IPv4 prefixes to assign to the ENI. Valid values of N: 1 to 10.
+   * One or more IPv4 prefixes to assign to the elastic network interface. Valid values of N: 1 to 10.
    * 
-   * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
+   * > You must specify either `Ipv4Prefix.N` or `Ipv4PrefixCount`, but not both, to assign IPv4 prefixes.
    */
   ipv4Prefix?: string[];
   /**
    * @remarks
-   * The number of IPv4 prefixes to assign to the ENI. Valid values: 1 to 10.
+   * The number of IPv4 prefixes to assign to the elastic network interface. Valid values: 1 to 10.
    * 
-   * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
+   * > You must specify either `Ipv4Prefix.N` or `Ipv4PrefixCount`, but not both, to assign IPv4 prefixes.
    * 
    * @example
-   * hide
+   * 1
    */
   ipv4PrefixCount?: number;
   /**
    * @remarks
-   * IPv6 addresses to assign to the ENI. Valid values of N: 1 to 10.
+   * One or more IPv6 addresses to assign to the elastic network interface. You can specify up to 10 IPv6 addresses. Valid values of N: 1 to 10.
    * 
-   * Example: Ipv6Address.1=2001:db8:1234:1a00::\\*\\*\\*\\*
+   * Example: `Ipv6Address.1=2001:db8:1234:1a00::****`
    * 
-   * >  To assign IPv6 addresses to the ENI, you must specify the `Ipv6Addresses.N` or `Ipv6AddressCount` parameter, but not both.
+   * > You must specify either `Ipv6Address.N` or `Ipv6AddressCount`, but not both, to assign IPv6 addresses.
    * 
    * @example
    * 2001:db8:1234:1a00::****
@@ -328,9 +350,9 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   ipv6Address?: string[];
   /**
    * @remarks
-   * The number of IPv6 addresses to randomly generate for the ENI. Valid values: 1 to 10.
+   * The number of random IPv6 addresses to assign to the elastic network interface. Valid values: 1 to 10.
    * 
-   * >  To assign IPv6 addresses to the ENI, you must specify the `Ipv6Addresses.N` or `Ipv6AddressCount` parameter, but not both.
+   * > You must specify either `Ipv6Address.N` or `Ipv6AddressCount`, but not both, to assign IPv6 addresses.
    * 
    * @example
    * 1
@@ -338,26 +360,26 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   ipv6AddressCount?: number;
   /**
    * @remarks
-   * IPv6 prefixes to assign to the ENI. Valid values of N: 1 to 10.
+   * One or more IPv6 prefixes to assign to the elastic network interface. Valid values of N: 1 to 10.
    * 
-   * >  To assign IPv6 prefixes to the ENI, you must specify the Ipv6Prefix.N or Ipv6PrefixCount parameter, but not both.
+   * > You must specify either `Ipv6Prefix.N` or `Ipv6PrefixCount`, but not both, to assign IPv6 prefixes.
    */
   ipv6Prefix?: string[];
   /**
    * @remarks
-   * The number of IPv6 prefixes to assign to the ENI. Valid values: 1 to 10.
+   * The number of IPv6 prefixes to assign to the elastic network interface. Valid values: 1 to 10.
    * 
-   * >  To assign IPv6 prefixes to the ENI, you must specify the Ipv6Prefix.N or Ipv6PrefixCount parameter, but not both.
+   * > You must specify either `Ipv6Prefix.N` or `Ipv6PrefixCount`, but not both, to assign IPv6 prefixes.
    * 
    * @example
-   * hide
+   * 1
    */
   ipv6PrefixCount?: number;
   /**
    * @remarks
-   * The name of the ENI. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the elastic network interface. The name must be 2 to 128 characters long and can contain Unicode letters (such as English and Chinese characters), digits (0-9), colons (:), underscores (_), periods (.), and hyphens (-).
    * 
-   * This parameter is left empty by default.
+   * Default value: empty.
    * 
    * @example
    * testNetworkInterfaceName
@@ -365,19 +387,20 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The communication settings of the ENI.
+   * The communication parameters of the elastic network interface.
    */
   networkInterfaceTrafficConfig?: CreateNetworkInterfaceRequestNetworkInterfaceTrafficConfig;
   /**
    * @remarks
-   * The communication mode of the ENI. Valid values:
+   * The traffic mode of the elastic network interface. Valid values:
    * 
-   * *   Standard: uses the TCP communication mode.
-   * *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
+   * - `Standard`: uses the TCP traffic mode.
    * 
-   * >  ENIs in RDMA mode can be attached only to instances of the instance types that support ERIs. The number of ENIs in RDMA mode that are attached to an instance cannot exceed the maximum number of ENIs that the instance type supports. For more information, see [Overview of ECS instance families](https://help.aliyun.com/document_detail/25378.html) and [Configure eRDMA on an enterprise-level instance](https://help.aliyun.com/document_detail/336853.html).
+   * - `HighPerformance`: enables the Elastic RDMA Interface (ERI) and uses the RDMA traffic mode.
    * 
-   * Default value: Standard.
+   * > An elastic network interface in RDMA traffic mode can be attached only to an ERI-supported instance type. The number of these elastic network interfaces that can be attached is limited by the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html), [Configure eRDMA on an enterprise-level instance](https://help.aliyun.com/document_detail/336853.html)<props="china">, and [Configure eRDMA on a GPU instance](https://help.aliyun.com/document_detail/2248432.html).
+   * 
+   * Default value: `Standard`.
    * 
    * @example
    * Standard
@@ -387,9 +410,9 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The primary private IP address of the ENI.
+   * The primary private IP address of the elastic network interface.
    * 
-   * The specified IP address must be an idle IP address within the CIDR block of the vSwitch. If you do not specify this parameter, a random idle IP address within the vSwitch CIDR block is assigned to the ENI.
+   * The IP address must be an available IP address within the CIDR block of the VSwitch. If this parameter is not specified, the system randomly assigns an available IP address from the VSwitch\\"s CIDR block.
    * 
    * @example
    * ``172.17.**.**``
@@ -397,9 +420,9 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   primaryIpAddress?: string;
   /**
    * @remarks
-   * Secondary private IP addresses to assign to the ENI. The IP addresses must be idle IP addresses in the CIDR block of the vSwitch with which to associate the ENI. Valid values of N: 0 to 10.
+   * One or more secondary private IP addresses to assign to the elastic network interface. The IP addresses must be available addresses from the CIDR block of the VSwitch to which the elastic network interface belongs. Valid values of N: 0 to 10.
    * 
-   * >  To assign secondary private IP addresses to the ENI, you can specify the `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` parameter, but not both.
+   * > You cannot specify both `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` to assign secondary private IP addresses.
    * 
    * @example
    * ``172.17.**.**``
@@ -407,11 +430,11 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   privateIpAddress?: string[];
   /**
    * @remarks
-   * The number of queues supported by the ENI. Valid values: 1 to 2048.
+   * The number of queues for the elastic network interface. Valid values: 1 to 2048.
    * 
-   * When you attach the ENI to an instance, make sure that the value of this parameter is less than the maximum number of queues per ENI that is allowed for the instance type. To view the maximum number of queues per ENI allowed for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and then check the return value of `MaximumQueueNumberPerEni`.
+   * When attached to an instance, this value must be less than the maximum number of queues per elastic network interface that the instance type supports. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and check the `MaximumQueueNumberPerEni` value in the response to query this limit.
    * 
-   * This parameter is left empty by default. If you do not specify this parameter, the default number of queues per ENI for the instance type of an instance is used when you attach the ENI to the instance. To view the default number of queues per ENI for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and then check the return value of `SecondaryEniQueueNumber`.
+   * If you do not specify this parameter, the default queue number for the instance type is used upon attachment.
    * 
    * @example
    * 1
@@ -419,11 +442,13 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   queueNumber?: number;
   /**
    * @remarks
-   * The number of queue pairs (QPs) supported by the elastic RDMA interface (ERI).
+   * The number of queue pairs for the RDMA-enabled elastic network interface.
    * 
-   * If you want to attach multiple ERIs to an instance, we recommend that you specify QueuePairNumber for each ERI based on the value of `QueuePairNumber` supported by the instance type and the number of ERIs that you want to use. Make sure that the total number of QPs of all ERIs does not exceed the maximum number of QPs supported by the instance type. For information about the maximum number of QPs supported by an instance type, see [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html).
+   * If you want to attach multiple RDMA-enabled elastic network interfaces to an instance, we recommend that you specify a `QueuePairNumber` value for each elastic network interface. The value should be based on the maximum `QueuePairNumber` value supported by the instance type and the number of elastic network interfaces that you plan to use. The total number of queue pairs for all elastic network interfaces cannot exceed the maximum value for the instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation to query the maximum value.
    * 
-   * >  If you do not specify QueuePairNumber for an ERI, the maximum number of QPs supported by the instance type may be used as the number of QPs supported by the ERI. In this case, you cannot attach an additional ERI to the instance. However, you can attach other types of ENIs to the instance.
+   * >Notice: 
+   * 
+   * If you do not specify `QueuePairNumber` for an RDMA-enabled elastic network interface, the system defaults to the maximum value that the instance type supports. Consequently, you cannot attach any more RDMA-enabled elastic network interfaces to that instance. This does not affect standard elastic network interfaces.
    * 
    * @example
    * 22
@@ -431,7 +456,7 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   queuePairNumber?: number;
   /**
    * @remarks
-   * The region in which to create the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the region in which to create the elastic network interface. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to view the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -441,7 +466,7 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which you want to assign the ENI. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the most recent resource group list.
+   * The ID of the resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
    * 
    * @example
    * rg-bp67acfmxazb4ph****
@@ -451,14 +476,13 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The receive (Rx) queue depth of the ENI.
+   * The receive (Rx) queue depth of the elastic network interface.
    * 
-   * When you specify this parameter, take note of the following items:
+   * - The receive (Rx) and transmit (Tx) queue depths must be equal. The value must be a power of 2 between 8,192 and 16,384.
    * 
-   * *   The Rx queue depth of an ENI must be the same as the Tx queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
-   * *   A larger Rx queue depth yields higher inbound throughput but consumes more memory.
+   * - A larger Rx queue depth can improve receive throughput but consumes more memory.
    * 
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 8192
@@ -466,7 +490,7 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   rxQueueSize?: number;
   /**
    * @remarks
-   * The number of private IP addresses to be assigned by ECS. Valid values: 1 to 49.
+   * The number of secondary private IP addresses to automatically assign to the elastic network interface. Valid values: 1 to 49.
    * 
    * @example
    * 1
@@ -474,9 +498,9 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   secondaryPrivateIpAddressCount?: number;
   /**
    * @remarks
-   * The ID of the security group to which to assign the ENI. The security group and the ENI must belong to the same VPC.
+   * The ID of the security group for the elastic network interface. The security group and the elastic network interface must be in the same VPC.
    * 
-   * > You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
+   * > You must specify either `SecurityGroupId` or `SecurityGroupIds.N`, but not both.
    * 
    * @example
    * sg-bp1fg655nh68xyz9i****
@@ -484,9 +508,9 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The IDs of security groups to which to assign the ENI. The security groups and the ENI must belong to the same VPC. The valid values of N are determined based on the maximum number of security groups to which an ENI can be assigned. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
+   * The IDs of one or more security groups to which to add the elastic network interface. The security groups and the elastic network interface must be in the same VPC. The valid values of N depend on the maximum number of security groups to which an elastic network interface can be added. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
    * 
-   * >  You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
+   * > You must specify either `SecurityGroupId` or `SecurityGroupIds.N`, but not both.
    * 
    * @example
    * sg-bp1fg655nh68xyz9i****
@@ -494,14 +518,15 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   securityGroupIds?: string[];
   /**
    * @remarks
-   * Specifies whether to enable the source and destination IP address check feature. We recommend that you enable the feature to improve network security. Valid value:
+   * Specifies whether to enable source/destination check. Enabling this feature enhances network security. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: enabled.
+   * 
+   * - `false`: disabled.
    * 
    * Default value: false.
    * 
-   * >  This feature is available only in some regions. Before you use this method, read [Source and destination IP address check](https://help.aliyun.com/document_detail/2863210.html).
+   * > This feature is available only in some regions. Before you use this feature, read [Source/destination check](https://help.aliyun.com/document_detail/2863210.html).
    * 
    * @example
    * false
@@ -509,19 +534,18 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   sourceDestCheck?: boolean;
   /**
    * @remarks
-   * The tags to add to the ENI.
+   * The tags to add to the elastic network interface.
    */
   tag?: CreateNetworkInterfaceRequestTag[];
   /**
    * @remarks
-   * The transmit (Tx) queue depth of the ENI.
+   * The transmit (Tx) queue depth of the elastic network interface.
    * 
-   * When you specify this parameter, take note of the following items:
+   * - The transmit (Tx) and receive (Rx) queue depths must be equal. The value must be a power of 2 between 8,192 and 16,384.
    * 
-   * *   The Tx queue depth of an ENI must be the same as the Rx queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
-   * *   A larger Tx queue depth yields higher outbound throughput but consumes more memory.
+   * - A larger Tx queue depth can improve transmit throughput but consumes more memory.
    * 
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 8192
@@ -529,9 +553,11 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   txQueueSize?: number;
   /**
    * @remarks
-   * The ID of the vSwitch to which to connect the ENI. Private IP addresses are assigned to the ENI from within the CIDR block of the vSwitch.
+   * The ID of the VSwitch for the elastic network interface. The private IP addresses for the elastic network interface are assigned from the available CIDR block of the VSwitch.
    * 
-   * >  A secondary ENI can be attached to only an instance that is in the same zone as the ENI. The instance and the ENI can be connected to different vSwitches.
+   * >Notice: 
+   * 
+   * The elastic network interface and the instance to be attached must be in the same availability zone but can belong to different VSwitches.
    * 
    * This parameter is required.
    * 
@@ -541,7 +567,7 @@ export class CreateNetworkInterfaceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * > This parameter is no longer used.
+   * > This parameter is deprecated.
    * 
    * @example
    * null

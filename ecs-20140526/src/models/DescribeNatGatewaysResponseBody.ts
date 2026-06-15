@@ -143,10 +143,30 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $dara.Model {
 }
 
 export class DescribeNatGatewaysResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the NAT gateways.
+   */
   natGateways?: DescribeNatGatewaysResponseBodyNatGateways;
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The unique ID of the request.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries that match the query.
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

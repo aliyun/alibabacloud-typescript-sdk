@@ -364,7 +364,7 @@ export class DescribeElasticityAssurancesResponseBody extends $dara.Model {
   elasticityAssuranceSet?: DescribeElasticityAssurancesResponseBodyElasticityAssuranceSet;
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -372,7 +372,7 @@ export class DescribeElasticityAssurancesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token used to retrieve the next page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -388,7 +388,7 @@ export class DescribeElasticityAssurancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of matching entries.
    * 
    * @example
    * 1

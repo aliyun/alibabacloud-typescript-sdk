@@ -126,8 +126,9 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
    * @remarks
    * The architecture of the image. Valid values:
    * 
-   * *   i386
-   * *   x86_64
+   * - i386
+   * 
+   * - x86_64
    * 
    * @example
    * x86_64
@@ -178,10 +179,13 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
    * @remarks
    * The alias of the image owner. Valid values:
    * 
-   * *   system: public images provided by Alibaba Cloud
-   * *   self: your custom images
-   * *   others: shared images from other Alibaba Cloud accounts
-   * *   marketplace: Alibaba Cloud Marketplace images
+   * - system: public images provided by Alibaba Cloud
+   * 
+   * - self: your custom images
+   * 
+   * - others: shared images from other Alibaba Cloud accounts
+   * 
+   * - marketplace: Alibaba Cloud Marketplace images
    * 
    * @example
    * self
@@ -247,8 +251,9 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
    * @remarks
    * The type of the operating system. Valid values:
    * 
-   * *   windows
-   * *   linux
+   * - windows
+   * 
+   * - linux
    * 
    * @example
    * linux
@@ -290,10 +295,13 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
    * @remarks
    * The state of the image. Valid values:
    * 
-   * *   UnAvailable
-   * *   Available
-   * *   Creating
-   * *   CreateFailed
+   * - UnAvailable
+   * 
+   * - Available
+   * 
+   * - Creating
+   * 
+   * - CreateFailed
    * 
    * @example
    * Available
@@ -304,8 +312,9 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
    * @remarks
    * Indicates whether the image has been used to create ECS instances. Valid values:
    * 
-   * *   instance: The image was used to create one or more ECS instances.
-   * *   none: The image was not used to create ECS instances.
+   * - instance: The image was used to create one or more ECS instances.
+   * 
+   * - none: The image was not used to create ECS instances.
    * 
    * @example
    * none

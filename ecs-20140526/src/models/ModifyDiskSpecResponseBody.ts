@@ -7,7 +7,7 @@ export class ModifyDiskSpecResponseBody extends $dara.Model {
    * @remarks
    * The order ID.
    * 
-   * >  This parameter is returned only when the category of a subscription disk or the performance level of a subscription ESSD is modified.
+   * > This parameter is returned only when the category of a subscription disk or the performance level of a subscription ESSD is modified.
    * 
    * @example
    * 20413515388****
@@ -25,7 +25,7 @@ export class ModifyDiskSpecResponseBody extends $dara.Model {
    * @remarks
    * The ID of the disk category change task.
    * 
-   * >  If you only modify the performance level of an ESSD, this parameter is not returned.
+   * > If you only modify the performance level of an ESSD, this parameter is not returned.
    * 
    * @example
    * t-bp67acfmxazb4p****

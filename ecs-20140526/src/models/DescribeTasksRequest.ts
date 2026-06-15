@@ -66,17 +66,29 @@ export class DescribeTasksRequest extends $dara.Model {
    * @remarks
    * The name of the operation that generates the task. Valid values:
    * 
-   * *   ImportImage
-   * *   ExportImage
-   * *   RedeployInstance
-   * *   ModifyDiskSpec
-   * *   ArchiveSnapshot
+   * - ImportImage
+   * 
+   * - ExportImage
+   * 
+   * - RedeployInstance
+   * 
+   * - ModifyDiskSpec
+   * 
+   * - ArchiveSnapshot
    * 
    * @example
    * ImportImage
    */
   taskAction?: string;
   /**
+   * @remarks
+   * Task group ID.
+   * 
+   * > This parameter is in invitational preview. When this parameter is used, other query conditions become invalid.
+   * 
+   * @example
+   * g-2ze2op2grqpclwu7****
+   * 
    * **if can be null:**
    * false
    */
@@ -93,13 +105,15 @@ export class DescribeTasksRequest extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   Finished
-   * *   Processing
-   * *   Failed
+   * - Finished
+   * 
+   * - Processing
+   * 
+   * - Failed
    * 
    * This parameter is left empty by default.
    * 
-   * >  The system only queries tasks in the Finished, Processing, and Failed states and ignores other values.
+   * > The system only queries tasks in the Finished, Processing, and Failed states and ignores other values.
    * 
    * @example
    * Finished

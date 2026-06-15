@@ -7,7 +7,7 @@ export class DescribePortRangeListEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the port list.
+   * The ID of the port range list.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribePortRangeListEntriesRequest extends $dara.Model {
   portRangeListId?: string;
   /**
    * @remarks
-   * The region ID of the port list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
+   * The region ID of the port range list. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

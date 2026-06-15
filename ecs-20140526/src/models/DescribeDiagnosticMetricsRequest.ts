@@ -9,8 +9,9 @@ export class DescribeDiagnosticMetricsRequest extends $dara.Model {
    * 
    * Default value:
    * 
-   * *   If this parameter is left empty, the default value is 10.
-   * *   If you set this parameter to a value that is greater than 100, the default value is 100.
+   * - If this parameter is left empty, the default value is 10.
+   * 
+   * - If you set this parameter to a value that is greater than 100, the default value is 100.
    * 
    * @example
    * 10

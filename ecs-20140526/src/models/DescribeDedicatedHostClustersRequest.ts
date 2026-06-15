@@ -63,7 +63,7 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   dedicatedHostClusterName?: string;
   /**
    * @remarks
-   * >  This parameter is unavailable for use.
+   * > This parameter is unavailable for use.
    * 
    * @example
    * null
@@ -109,7 +109,7 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
    * @remarks
    * The resource group ID of the host group. You can use a resource group ID to filter no more than 1,000 host groups.
    * 
-   * >  A default resource group is not supported.
+   * > A default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -119,7 +119,7 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * >  This parameter is unavailable for use.
+   * > This parameter is unavailable for use.
    * 
    * @example
    * null

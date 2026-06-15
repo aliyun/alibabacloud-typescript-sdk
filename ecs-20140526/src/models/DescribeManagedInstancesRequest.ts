@@ -58,6 +58,13 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
    */
   activationId?: string;
   /**
+   * @remarks
+   * Indicates whether the managed instance is connected.
+   * 
+   * true: The managed instance is connected, and you can manage it by using Cloud Assistant.
+   * 
+   * false: The managed instance is not connected. The server may be shut down or the Cloud Assistant Agent may not be installed correctly.
+   * 
    * @example
    * true
    */
@@ -90,16 +97,20 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
    * @remarks
    * The value of the MachineId parameter that you specify when you register a managed instance. A maximum of 36 characters are allowed. Sample registration script:
    * 
-   *     aliyun-service --register \\
-   *       --RegionId=cn-hangznou \\
-   *       --ActivationId=xxxxxxxxxxx \\
-   *       --ActivationCode=xxxxxxxxx \\
-   *     --MachineId=xxxxxx \\ # Optional. The unique identifier of the machine.
-   *       --ForceResue                 
+   * ```
+   * aliyun-service --register \\
+   *   --RegionId=cn-hangznou \\
+   *   --ActivationId=xxxxxxxxxxx \\
+   *   --ActivationCode=xxxxxxxxx \\
+   * --MachineId=xxxxxx \\ # Optional. The unique identifier of the machine.
+   *   --ForceResue                 
+   * ```
    * 
-   * *   If the MachineId and ForceResult parameters are specified during registration, the Cloud Assistant generates a fixed managed instance ID for this MachineId.
-   * *   If the MachineId parameter is not explicitly specified, the Cloud Assistant will automatically generate a MachineId value based on the hardware information of the machine.
-   * *   We recommend that you explicitly specify the MachineId and ForceResult parameters to mark the mapping between a managed instance and an on-premises machine.
+   * - If the MachineId and ForceResult parameters are specified during registration, the Cloud Assistant generates a fixed managed instance ID for this MachineId.
+   * 
+   * - If the MachineId parameter is not explicitly specified, the Cloud Assistant will automatically generate a MachineId value based on the hardware information of the machine.
+   * 
+   * - We recommend that you explicitly specify the MachineId and ForceResult parameters to mark the mapping between a managed instance and an on-premises machine.
    * 
    * @example
    * GOG4X8312A0188
@@ -129,9 +140,11 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
    * @remarks
    * The operating system type of the managed instance. Valid values:
    * 
-   * *   windows
-   * *   linux
-   * *   FreeBSD
+   * - windows
+   * 
+   * - linux
+   * 
+   * - FreeBSD
    * 
    * @example
    * windows
@@ -141,7 +154,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 1
@@ -149,7 +162,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 10

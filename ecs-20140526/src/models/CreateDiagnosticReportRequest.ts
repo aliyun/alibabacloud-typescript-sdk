@@ -6,15 +6,15 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   additionalOptions?: { [key: string]: string };
   /**
    * @remarks
-   * The end time. This parameter takes effect only for diagnostic metrics that do not need to be assessed by running Cloud Assistant commands in guest operating systems.
+   * The end time. This parameter applies only to diagnostic metrics that do not require running Cloud Assistant commands in the guest OS.
    * 
    * @example
-   * 2022-07-11T14:00:00Z
+   * 2022-07-11T14:00Z
    */
   endTime?: string;
   /**
    * @remarks
-   * The ID of the diagnostic metric set. If this parameter is left empty, the dms-instancedefault set is used, which is the default diagnostic metric set provided for Elastic Compute Service (ECS) instances.
+   * The diagnostic metric set ID. If this parameter is omitted, the default diagnostic metric set for ECS instances, `dms-instancedefault`, is used.
    * 
    * @example
    * dms-uf6i0tv2refv8wz*****
@@ -22,7 +22,7 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   metricSetId?: string;
   /**
    * @remarks
-   * The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to get the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of resource N.
+   * The resource ID.
    * 
    * This parameter is required.
    * 
@@ -42,10 +42,10 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The start time. This parameter takes effect only for diagnostic metrics that do not need to be assessed by running Cloud Assistant commands in guest operating systems.
+   * The start time. This parameter applies only to diagnostic metrics that do not require running Cloud Assistant commands in the guest OS.
    * 
    * @example
-   * 2022-07-11T12:00:00Z
+   * 2022-07-11T12:00Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {

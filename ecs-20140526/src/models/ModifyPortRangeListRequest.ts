@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPortRangeListRequestAddEntry extends $dara.Model {
   /**
    * @remarks
-   * The description of the port range in entry N. The description must be 2 to 32 characters in length and cannot start with http:// or https://. Valid values of N: 0 to 200.
+   * The description of the port range in entry N. The description must be 2 to 32 characters in length and cannot start with http\\:// or https\\://. Valid values of N: 0 to 200.
    * 
    * @example
    * This is description.
@@ -15,9 +15,11 @@ export class ModifyPortRangeListRequestAddEntry extends $dara.Model {
    * @remarks
    * The port range in entry N. Valid values of N: 0 to 200. Take note of the following limits:
    * 
-   * *   The total number of entries in the port list cannot exceed the `MaxEntries` value.
-   * *   `PortRange` in different entries cannot be duplicated.
-   * *   The value of this parameter cannot be the same as the value of `RemoveEntry.N.PortRange`.
+   * - The total number of entries in the port list cannot exceed the `MaxEntries` value.
+   * 
+   * - `PortRange` in different entries cannot be duplicated.
+   * 
+   * - The value of this parameter cannot be the same as the value of `RemoveEntry.N.PortRange`.
    * 
    * @example
    * 80/80
@@ -51,8 +53,9 @@ export class ModifyPortRangeListRequestRemoveEntry extends $dara.Model {
    * @remarks
    * The port range in entry N. Valid values of N: 0 to 200. Take note of the following limits:
    * 
-   * *   `PortRange` in different entries cannot be duplicated.
-   * *   The value of this parameter cannot be the same as the value of `AddEntry.N.PortRange`.
+   * - `PortRange` in different entries cannot be duplicated.
+   * 
+   * - The value of this parameter cannot be the same as the value of `AddEntry.N.PortRange`.
    * 
    * @example
    * 80/80
@@ -95,7 +98,7 @@ export class ModifyPortRangeListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the port list. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * The description of the port list. The description must be 2 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * This is description.
@@ -115,7 +118,7 @@ export class ModifyPortRangeListRequest extends $dara.Model {
   portRangeListId?: string;
   /**
    * @remarks
-   * The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http://, https://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\://, https\\://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * PortRangeListNameSample

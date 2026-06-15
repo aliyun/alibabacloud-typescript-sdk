@@ -3,18 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeForwardTableEntriesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the DNAT entry.
+   */
   forwardEntryId?: string;
   /**
    * @remarks
+   * The ID of the DNAT table.
+   * 
    * This parameter is required.
    */
   forwardTableId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   */
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the region that contains the DNAT table. Call the DescribeRegions operation to get the latest list of regions.
+   * 
    * This parameter is required.
    */
   regionId?: string;

@@ -416,7 +416,7 @@ export class DescribeImagesResponseBody extends $dara.Model {
   images?: DescribeImagesResponseBodyImages;
   /**
    * @remarks
-   * The page number returned.
+   * Current page number.
    * 
    * @example
    * 1
@@ -424,7 +424,7 @@ export class DescribeImagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Number of entries on the current page.
    * 
    * @example
    * 1
@@ -432,7 +432,7 @@ export class DescribeImagesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the image.
+   * The region ID to which the image belongs.
    * 
    * @example
    * cn-hangzhou
@@ -440,7 +440,7 @@ export class DescribeImagesResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 66189103-EDB2-43E2-BB60-BFF2B62F4EB8
@@ -448,7 +448,7 @@ export class DescribeImagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of images.
+   * Total number of images.
    * 
    * @example
    * 1

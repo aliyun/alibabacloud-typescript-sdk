@@ -29,8 +29,9 @@ export class GetInstanceConsoleOutputRequest extends $dara.Model {
    * @remarks
    * Specifies whether to remove formatting symbols from the returned command output. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 

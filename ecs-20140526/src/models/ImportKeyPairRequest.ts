@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportKeyPairRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the key pair. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain [http:// or https://](http://https://。). The tag key cannot start with acs: or aliyun.
+   * The key of tag N to add to the key pair. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain [http:// or https://](http://https://%E3%80%82). The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class ImportKeyPairRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the key pair. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain [http:// or https://](http://https://。). The tag value cannot start with acs:.
+   * The value of tag N to add to the key pair. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain [http:// or https://](http://https://%E3%80%82). The tag value cannot start with acs:.
    * 
    * @example
    * TestValue
@@ -45,7 +45,7 @@ export class ImportKeyPairRequestTag extends $dara.Model {
 export class ImportKeyPairRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the key pair. The name must be unique. It must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the key pair. The name must be unique. It must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\:// or https\\://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 

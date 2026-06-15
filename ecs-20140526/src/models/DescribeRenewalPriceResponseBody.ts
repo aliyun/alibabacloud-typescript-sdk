@@ -121,11 +121,11 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfos extends $
 export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency unit.
+   * Currency unit.
    * 
-   * Alibaba Cloud China site (aliyun.com): CNY.
+   * China site (aliyun.com): CNY.
    * 
-   * Alibaba Cloud International site (alibabacloud.com): USD.
+   * International site (alibabacloud.com): USD.
    * 
    * @example
    * CNY
@@ -134,7 +134,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   detailInfos?: DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
-   * The discount.
+   * Discounted price.
    * 
    * @example
    * 655.2
@@ -142,7 +142,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   discountPrice?: number;
   /**
    * @remarks
-   * The original price.
+   * Original price.
    * 
    * @example
    * 4368
@@ -150,7 +150,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   originalPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * Final price, calculated as the original price minus discounts.
    * 
    * @example
    * 3712.8
@@ -317,7 +317,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRules extends $dara.Model 
 export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The price.
+   * Price.
    */
   price?: DescribeRenewalPriceResponseBodyPriceInfoPrice;
   relatedPrice?: DescribeRenewalPriceResponseBodyPriceInfoRelatedPrice;
@@ -359,12 +359,12 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
 export class DescribeRenewalPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the prices and promotion rules.
+   * A data type composed of price information (PriceInfo), including pricing and discount rule details.
    */
   priceInfo?: DescribeRenewalPriceResponseBodyPriceInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

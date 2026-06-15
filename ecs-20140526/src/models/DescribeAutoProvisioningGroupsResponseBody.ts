@@ -443,10 +443,14 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroups ex
 }
 
 export class DescribeAutoProvisioningGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The auto provisioning groups.
+   */
   autoProvisioningGroups?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroups;
   /**
    * @remarks
-   * The number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -454,7 +458,7 @@ export class DescribeAutoProvisioningGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -462,7 +466,7 @@ export class DescribeAutoProvisioningGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 745CEC9F-0DD7-4451-9FE7-8B752F39****
@@ -470,7 +474,7 @@ export class DescribeAutoProvisioningGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of queried auto provisioning groups.
+   * The total number of auto provisioning groups found.
    * 
    * @example
    * 10

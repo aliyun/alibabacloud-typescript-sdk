@@ -13,7 +13,7 @@ export class ModifyHpcClusterAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the HPC cluster. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
+   * The description of the HPC cluster. The description must be 2 to 256 characters in length, and cannot start with http\\:// or https\\://.
    * 
    * This parameter is empty by default.
    * 
@@ -33,7 +33,7 @@ export class ModifyHpcClusterAttributeRequest extends $dara.Model {
   hpcClusterId?: string;
   /**
    * @remarks
-   * The name of the HPC cluster. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, underscores (_), and hyphens (-).
+   * The name of the HPC cluster. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http\\:// or https\\://. The name can contain letters, digits, underscores (_), and hyphens (-).
    * 
    * This parameter is empty by default.
    * 

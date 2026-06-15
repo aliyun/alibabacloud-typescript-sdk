@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBandwidthPackageSpecRequest extends $dara.Model {
   /**
    * @remarks
+   * The new bandwidth of the bandwidth package. Unit: Mbit/s. The value must be an integer.
+   * 
    * This parameter is required.
    */
   bandwidth?: string;
   /**
    * @remarks
+   * The ID of the bandwidth package.
+   * 
    * This parameter is required.
    */
   bandwidthPackageId?: string;
@@ -17,6 +21,8 @@ export class ModifyBandwidthPackageSpecRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region where the bandwidth package is located. You can call the `DescribeRegions` operation to query the most recent region list.
+   * 
    * This parameter is required.
    */
   regionId?: string;

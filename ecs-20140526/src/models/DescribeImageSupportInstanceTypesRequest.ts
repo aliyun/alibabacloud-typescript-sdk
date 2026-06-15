@@ -47,8 +47,9 @@ export class DescribeImageSupportInstanceTypesRequest extends $dara.Model {
    * @remarks
    * The scenario in which the image is used. Valid values:
    * 
-   * *   CreateEcs (default): instance creation
-   * *   ChangeOS: replacement of the system disk or operating system
+   * - CreateEcs (default): instance creation
+   * 
+   * - ChangeOS: replacement of the system disk or operating system
    * 
    * @example
    * CreateEcs

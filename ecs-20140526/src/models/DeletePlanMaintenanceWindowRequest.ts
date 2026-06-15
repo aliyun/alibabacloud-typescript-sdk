@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePlanMaintenanceWindowRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the maintenance window to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeletePlanMaintenanceWindowRequest extends $dara.Model {
   planWindowId?: string;
   /**
    * @remarks
+   * The ID of the region. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to retrieve the latest list of Alibaba Cloud regions.
+   * 
    * This parameter is required.
    * 
    * @example

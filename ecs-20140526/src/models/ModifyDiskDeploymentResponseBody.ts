@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskDeploymentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D69846D9-F17F-51C0-8AC6-B4B71777****
@@ -13,7 +13,7 @@ export class ModifyDiskDeploymentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the disk migration task.
+   * The disk migration task ID.
    * 
    * @example
    * t-bp67acfmxazb4p****

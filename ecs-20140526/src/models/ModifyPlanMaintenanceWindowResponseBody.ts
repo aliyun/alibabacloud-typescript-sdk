@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyPlanMaintenanceWindowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F3CD6886-D8D0-4FEE-B93E-1B732396****
    */

@@ -92,13 +92,13 @@ export class AllocateDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The policy for migrating the instances deployed on the dedicated host when the dedicated host fails or needs to be repaired online. Valid values:
    * 
-   * *   Migrate: The instances are migrated to another physical machine and then restarted.
+   * - Migrate: The instances are migrated to another physical machine and then restarted.
    * 
-   *     If cloud disks are attached to the dedicated host, the default value is Migrate.
+   *   If cloud disks are attached to the dedicated host, the default value is Migrate.
    * 
-   * *   Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical machine and then restarted.
+   * - Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical machine and then restarted.
    * 
-   *     If local disks are attached to the dedicated host, the default value is Stop.
+   *   If local disks are attached to the dedicated host, the default value is Stop.
    * 
    * @example
    * Migrate
@@ -108,8 +108,9 @@ export class AllocateDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to add the dedicated host to the resource pool for automatic deployment. If you create an ECS instance on a dedicated host without specifying the **DedicatedHostId** parameter, Alibaba Cloud selects a dedicated host from the resource pool to host the instance. For more information, see [Automatic deployment](https://help.aliyun.com/document_detail/118938.html). Valid values:
    * 
-   * *   on: adds the dedicated host to the resource pool for automatic deployment.
-   * *   off: does not add the dedicated host to the resource pool for automatic deployment.
+   * - on: adds the dedicated host to the resource pool for automatic deployment.
+   * 
+   * - off: does not add the dedicated host to the resource pool for automatic deployment.
    * 
    * Default value: on.
    * 
@@ -123,13 +124,13 @@ export class AllocateDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The time when to automatically release the dedicated host. Specify the time in the `ISO 8601` standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * > 
+   * >
    * 
-   * *   It must be at least half an hour later than the current time.
+   * - It must be at least half an hour later than the current time.
    * 
-   * *   It must be at most three years later than the current time.
+   * - It must be at most three years later than the current time.
    * 
-   * *   If the value of seconds (ss) is not 00, it is automatically set to 00.
+   * - If the value of seconds (ss) is not 00, it is automatically set to 00.
    * 
    * @example
    * 2019-08-21T12:30:24Z
@@ -161,8 +162,9 @@ export class AllocateDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The billing method of the dedicated host. Valid values:
    * 
-   * *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient account balance or credits. Otherwise, `InvalidPayMethod` is returned.
-   * *   PostPaid: pay-as-you-go.
+   * - PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient account balance or credits. Otherwise, `InvalidPayMethod` is returned.
+   * 
+   * - PostPaid: pay-as-you-go.
    * 
    * Default value: PostPaid.
    * 
@@ -238,8 +240,9 @@ export class AllocateDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The subscription duration of the dedicated host. The `Period` parameter is required and takes effect only when the `ChargeType` parameter is set to `PrePaid`. Valid values:
    * 
-   * *   Valid values when the PeriodUnit parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
-   * *   Valid values when the PeriodUnit parameter is set to Year: 1, 2, 3, 4, and 5.
+   * - Valid values when the PeriodUnit parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * 
+   * - Valid values when the PeriodUnit parameter is set to Year: 1, 2, 3, 4, and 5.
    * 
    * @example
    * 6
@@ -249,8 +252,9 @@ export class AllocateDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * The unit of the subscription duration of the dedicated host. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - Month
+   * 
+   * - Year
    * 
    * Default value: Month.
    * 

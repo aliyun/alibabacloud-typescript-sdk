@@ -317,7 +317,7 @@ export class DescribeCapacityReservationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.If NextToken is empty, no next page exists.
+   * The token to retrieve the next page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -333,7 +333,7 @@ export class DescribeCapacityReservationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of capacity reservations that match the query.
    * 
    * @example
    * 1

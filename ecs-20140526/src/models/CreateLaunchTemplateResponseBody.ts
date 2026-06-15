@@ -16,7 +16,7 @@ export class CreateLaunchTemplateResponseBody extends $dara.Model {
    * The version number of the launch template.
    * 
    * @example
-   * 2
+   * 20
    */
   launchTemplateVersionNumber?: number;
   /**

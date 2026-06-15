@@ -53,38 +53,28 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   commandId?: string;
   /**
    * @remarks
-   * <DescribeInvocationResultsResponse>
-   *     <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE*****</RequestId>
-   *     <Invocation>
-   *         <InvocationResults>
-   *             <InvocationResult>
-   *                 <Dropped>0</Dropped>
-   *                 <InvocationStatus>Success</InvocationStatus>
-   *                 <InstanceId>i-bp1i7gg30r52z2em****</InstanceId>
-   *                 <ExitCode>0</ExitCode>
-   *                 <ErrorInfo>the specified instance does not exists</ErrorInfo>
-   *                 <StartTime>2019-12-20T06:15:55Z</StartTime>
-   *                 <Repeats>0</Repeats>
-   *                 <InvokeRecordStatus>Running</InvokeRecordStatus>
-   *                 <FinishedTime>2019-12-20T06:15:56Z</FinishedTime>
-   *                 <Output>MTU6MzA6MDEK</Output>
-   *                 <CommandId>c-hz0jdfwcsr****</CommandId>
-   *                 <ErrorCode>InstanceNotExists</ErrorCode>
-   *                 <InvokeId>t-hz0jdfwd9f****</InvokeId>
-   *                 <StopTime>2020-01-19T09:15:47Z</StopTime>
-   *                 <ContainerId>ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****</ContainerId>
-   *                 <ContainerName>test-container</ContainerName>
-   *                 <Tags>
-   *                     <TagKey>owner</TagKey>
-   *                     <TagValue>zhangsan</TagValue>
-   *                 </Tags>
-   *             </InvocationResult>
-   *         </InvocationResults>
-   *         <TotalCount>1</TotalCount>
-   *         <PageSize>1</PageSize>
-   *         <PageNumber>1</PageNumber>
-   *     </Invocation>
-   * </DescribeInvocationResultsResponse>
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
+   * 0
+   * Success
+   * i-bp1i7gg30r52z2em****
+   * 0
+   * the specified instance does not exists
+   * 2019-12-20T06:15:55Z
+   * 0
+   * Running
+   * 2019-12-20T06:15:56Z
+   * MTU6MzA6MDEK
+   * c-hz0jdfwcsr****
+   * InstanceNotExists
+   * t-hz0jdfwd9f****
+   * 2020-01-19T09:15:47Z
+   * ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
+   * test-container
+   * owner
+   * zhangsan
+   * 1
+   * 1
+   * 1
    * 
    * @example
    * PlainText
@@ -93,38 +83,38 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   /**
    * @remarks
    * {
-   *   "RequestId" : "473469C7-AA6F-4DC5-B3DB-A3DC0DE*****",
-   *   "Invocation" : {
-   *     "InvocationResults" : {
-   *       "InvocationResult" : [ {
-   *         "Dropped" : 0,
-   *         "InvocationStatus" : "Success",
-   *         "InstanceId" : "i-bp1i7gg30r52z2em****",
-   *         "ExitCode" : 0,
-   *         "ErrorInfo" : "the specified instance does not exists",
-   *         "StartTime" : "2019-12-20T06:15:55Z",
-   *         "Repeats" : 0,
-   *         "InvokeRecordStatus" : "Running",
-   *         "FinishedTime" : "2019-12-20T06:15:56Z",
-   *         "Output" : "MTU6MzA6MDEK",
-   *         "CommandId" : "c-hz0jdfwcsr****",
-   *         "ErrorCode" : "InstanceNotExists",
-   *         "InvokeId" : "t-hz0jdfwd9f****",
-   *         "StopTime" : "2020-01-19T09:15:47Z",
-   *         "ContainerId":"ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****",
-   *         "ContainerName":"test-container",      
-   *         "Tags": [
-   *                     {
-   *                         "TagKey": "owner",
-   *                         "TagValue": "zhangsan"
-   *                     }
-   *                 ]
-   *       } ]
-   *     },
-   *     "TotalCount" : 1,
-   *     "PageSize" : 1,
-   *     "PageNumber" : 1
-   *   }
+   * "RequestId" : "473469C7-AA6F-4DC5-B3DB-A3DC0DE\\*\\*\\*\\*\\*",
+   * "Invocation" : {
+   * "InvocationResults" : {
+   * "InvocationResult" : [ {
+   * "Dropped" : 0,
+   * "InvocationStatus" : "Success",
+   * "InstanceId" : "i-bp1i7gg30r52z2em\\*\\*\\*\\*",
+   * "ExitCode" : 0,
+   * "ErrorInfo" : "the specified instance does not exists",
+   * "StartTime" : "2019-12-20T06:15:55Z",
+   * "Repeats" : 0,
+   * "InvokeRecordStatus" : "Running",
+   * "FinishedTime" : "2019-12-20T06:15:56Z",
+   * "Output" : "MTU6MzA6MDEK",
+   * "CommandId" : "c-hz0jdfwcsr\\*\\*\\*\\*",
+   * "ErrorCode" : "InstanceNotExists",
+   * "InvokeId" : "t-hz0jdfwd9f\\*\\*\\*\\*",
+   * "StopTime" : "2020-01-19T09:15:47Z",
+   * "ContainerId":"ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea\\*\\*\\*\\*",
+   * "ContainerName":"test-container",<br>
+   * "Tags": [
+   * {
+   * "TagKey": "owner",
+   * "TagValue": "zhangsan"
+   * }
+   * ]
+   * } ]
+   * },
+   * "TotalCount" : 1,
+   * "PageSize" : 1,
+   * "PageNumber" : 1
+   * }
    * }
    * 
    * @example
@@ -175,7 +165,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * acs:ecs:{#regionId}:{#accountId}:command/*
+   * acs:ecs:{#regionId}:{#accountId}:command/\\*
    * 
    * @example
    * 1
@@ -183,7 +173,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * acs:ecs:{#regionId}:{#accountId}:instance/*
+   * acs:ecs:{#regionId}:{#accountId}:instance/\\*
    * 
    * @example
    * 1

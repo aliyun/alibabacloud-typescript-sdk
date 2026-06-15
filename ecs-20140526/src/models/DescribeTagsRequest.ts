@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the resource. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with acs: or aliyun. It cannot contain [http:// or https://.](http://https://。)
+   * The tag key of the resource.
+   * 
+   * > We recommend that you use the `Tag.N.Key` parameter to ensure compatibility.
    * 
    * @example
    * TestKey
@@ -13,7 +15,7 @@ export class DescribeTagsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain [http:// or https://.](http://https://。)
+   * The tag value. The value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -45,7 +47,7 @@ export class DescribeTagsRequestTag extends $dara.Model {
 export class DescribeTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter will be deprecated in the future. We recommend that you use other parameters to ensure future compatibility.
+   * > This parameter is deprecated. We recommend that you use other parameters to ensure compatibility.
    * 
    * @example
    * null
@@ -54,9 +56,9 @@ export class DescribeTagsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the tag list.
    * 
-   * Page starts from page 1.
+   * Starts from 1.
    * 
    * Default value: 1.
    * 
@@ -66,9 +68,9 @@ export class DescribeTagsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return per page.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100.
    * 
    * Default value: 50.
    * 
@@ -78,7 +80,7 @@ export class DescribeTagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to obtain the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -88,7 +90,7 @@ export class DescribeTagsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource to which the tags are added. If the resource is an instance, the value of this parameter is the ID of the instance.
+   * The ID of the resource. For example, if the `ResourceType` is `instance`, this parameter specifies the instance ID.
    * 
    * @example
    * s-946ntx4wr****
@@ -98,22 +100,33 @@ export class DescribeTagsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource to which the tags are added. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   instance: Elastic Compute Service (ECS) instance.
-   * *   disk: disk.
-   * *   snapshot: snapshot.
-   * *   image: image.
-   * *   securitygroup: security group.
-   * *   volume: storage volume.
-   * *   eni: elastic network interface (ENI).
-   * *   ddh: dedicated host.
-   * *   keypair: SSH key pair.
-   * *   launchtemplate: launch template.
-   * *   reservedinstance: reserved instance.
-   * *   snapshotpolicy: automatic snapshot policy.
+   * - `instance`: an ECS instance.
    * 
-   * All values must be in lowercase letters.
+   * - `disk`: a disk.
+   * 
+   * - `snapshot`: a snapshot.
+   * 
+   * - `image`: an image.
+   * 
+   * - `securitygroup`: a security group.
+   * 
+   * - `volume`: a volume.
+   * 
+   * - `eni`: an elastic network interface.
+   * 
+   * - `ddh`: a dedicated host.
+   * 
+   * - `keypair`: an SSH key pair.
+   * 
+   * - `launchtemplate`: a launch template.
+   * 
+   * - `reservedinstance`: a reserved instance.
+   * 
+   * - `snapshotpolicy`: a snapshot policy.
+   * 
+   * All values must be in lowercase.
    * 
    * @example
    * snapshot
@@ -121,7 +134,7 @@ export class DescribeTagsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags of the resource.
+   * A list of tags.
    */
   tag?: DescribeTagsRequestTag[];
   static names(): { [key: string]: string } {

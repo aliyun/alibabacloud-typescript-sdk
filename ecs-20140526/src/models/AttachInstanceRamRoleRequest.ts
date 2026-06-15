@@ -10,7 +10,7 @@ export class AttachInstanceRamRoleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * [“i-bp14ss25xca5ex1u****”, “i-bp154z5o1qjalfse****”, “i-bp10ws62o04ubhvi****”…]
+   * ["i-bp14ss25xca5ex1u****","i-bp154z5o1qjalfse****", "i-bp10ws62o04ubhvi****"]
    */
   instanceIds?: string;
   ownerId?: number;

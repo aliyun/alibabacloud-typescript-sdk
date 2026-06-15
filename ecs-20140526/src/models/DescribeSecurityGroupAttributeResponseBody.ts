@@ -165,8 +165,9 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
    * @remarks
    * The access control policy of the security group. Valid values:
    * 
-   * *   Accept: All instances in the security group can communicate with each other.
-   * *   Drop: All instances in the security group are isolated from each other.
+   * - Accept: All instances in the security group can communicate with each other.
+   * 
+   * - Drop: All instances in the security group are isolated from each other.
    * 
    * @example
    * Accept

@@ -564,10 +564,14 @@ export class DescribeInstanceTypesResponseBodyInstanceTypes extends $dara.Model 
 }
 
 export class DescribeInstanceTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of instance types.
+   */
   instanceTypes?: DescribeInstanceTypesResponseBodyInstanceTypes;
   /**
    * @remarks
-   * The query token returned in this call.
+   * The token used to retrieve the next page of results.
    * 
    * @example
    * e71d8a535bd9cc11
@@ -575,7 +579,7 @@ export class DescribeInstanceTypesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 00827261-20B7-4562-83F2-4DF39876A45A

@@ -140,10 +140,30 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
 }
 
 export class DescribeHaVipsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the HaVips.
+   */
   haVips?: DescribeHaVipsResponseBodyHaVips;
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

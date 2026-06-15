@@ -6,6 +6,8 @@ export class ConnectRouterInterfaceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region where the router interface is located.
+   * 
    * This parameter is required.
    */
   regionId?: string;
@@ -13,6 +15,8 @@ export class ConnectRouterInterfaceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The ID of the initiator router interface.
+   * 
    * This parameter is required.
    */
   routerInterfaceId?: string;

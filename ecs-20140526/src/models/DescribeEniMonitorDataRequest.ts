@@ -37,9 +37,11 @@ export class DescribeEniMonitorDataRequest extends $dara.Model {
    * @remarks
    * The interval at which to retrieve the monitoring data. Unit: seconds. Default value: Month. Valid values:
    * 
-   * *   60
-   * *   600
-   * *   3600
+   * - 60
+   * 
+   * - 600
+   * 
+   * - 3600
    * 
    * Default: 60.
    * 

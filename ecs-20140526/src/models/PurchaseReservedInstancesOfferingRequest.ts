@@ -47,8 +47,9 @@ export class PurchaseReservedInstancesOfferingRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the reserved instance. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * true
@@ -76,7 +77,7 @@ export class PurchaseReservedInstancesOfferingRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the reserved instance. The description can be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
+   * The description of the reserved instance. The description can be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://%E3%80%82).
    * 
    * This parameter is left empty by default.
    * 
@@ -98,7 +99,7 @@ export class PurchaseReservedInstancesOfferingRequest extends $dara.Model {
    * @remarks
    * The instance type that the reserved instance can match.
    * 
-   * >  The instance types that support reserved instances are subject to updates. For more information, see [Reserved instance overview](~~100370#3c1b682051vt4~~).
+   * > The instance types that support reserved instances are subject to updates. For more information, see [Reserved instance overview](~~100370#3c1b682051vt4~~).
    * 
    * This parameter is required.
    * 
@@ -110,9 +111,11 @@ export class PurchaseReservedInstancesOfferingRequest extends $dara.Model {
    * @remarks
    * The payment option of the reserved instance. Valid values:
    * 
-   * *   No Upfront
-   * *   Partial Upfront
-   * *   All Upfront
+   * - No Upfront
+   * 
+   * - Partial Upfront
+   * 
+   * - All Upfront
    * 
    * Default value: All Upfront.
    * 
@@ -150,8 +153,9 @@ export class PurchaseReservedInstancesOfferingRequest extends $dara.Model {
    * @remarks
    * The operating system of the image used by the instance. Valid values:
    * 
-   * *   Windows: Windows Server operating system
-   * *   Linux: Linux and UNIX-like operating system
+   * - Windows: Windows Server operating system
+   * 
+   * - Linux: Linux and UNIX-like operating system
    * 
    * Default value: Linux.
    * 
@@ -171,7 +175,7 @@ export class PurchaseReservedInstancesOfferingRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the reserved instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the reserved instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http\\:// or https\\://. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testReservedInstanceName
@@ -191,8 +195,9 @@ export class PurchaseReservedInstancesOfferingRequest extends $dara.Model {
    * @remarks
    * The scope of reserved instance N. Valid values:
    * 
-   * *   Region: regional
-   * *   Zone: zonal
+   * - Region: regional
+   * 
+   * - Zone: zonal
    * 
    * Default value: Region.
    * 
@@ -204,7 +209,7 @@ export class PurchaseReservedInstancesOfferingRequest extends $dara.Model {
    * @remarks
    * The time when you want the reserved instance to take effect. Specify the time in the [ISO 8601 standard](https://help.aliyun.com/document_detail/25696.html) in the `yyyy-MM-ddTHHZ` format. The time must be in UTC.
    * 
-   * >  If you do not specify this parameter, the reserved instance takes effect starting on the hour when the reserved instance is purchased. For example, if you purchase a reserved instance at 13:45:35 on November 1, 2024, the reserved instance takes effect starting 13:00:00 on November 1, 2024.
+   * > If you do not specify this parameter, the reserved instance takes effect starting on the hour when the reserved instance is purchased. For example, if you purchase a reserved instance at 13:45:35 on November 1, 2024, the reserved instance takes effect starting 13:00:00 on November 1, 2024.
    * 
    * @example
    * 2024-07-04T15Z

@@ -15,7 +15,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   autoProvisioningGroupId?: string;
   /**
    * @remarks
-   * The end of the time range of the queried data. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The end of the time range to query the scheduling history. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
    * 
    * @example
    * 2019-06-20T15:10:20Z
@@ -25,9 +25,9 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the returned page. Pages start from page 1.
+   * The page number. Pages start from page 1.
    * 
-   * Default value: 1
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -35,9 +35,9 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The number of entries per page. Maximum value: 100.
    * 
-   * and the default value is 10.
+   * Default value: 10.
    * 
    * @example
    * 5
@@ -45,7 +45,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the auto provisioning group.
+   * The ID of the region where the Auto Provisioning Group is located.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range of the queried data. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The beginning of the time range to query the scheduling history. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
    * 
    * @example
    * 2019-04-01T15:10:20Z

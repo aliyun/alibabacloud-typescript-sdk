@@ -124,10 +124,30 @@ export class DescribeRouterInterfacesResponseBodyRouterInterfaceSet extends $dar
 }
 
 export class DescribeRouterInterfacesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Details of the router interfaces.
+   */
   routerInterfaceSet?: DescribeRouterInterfacesResponseBodyRouterInterfaceSet;
+  /**
+   * @remarks
+   * The total number of entries.
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

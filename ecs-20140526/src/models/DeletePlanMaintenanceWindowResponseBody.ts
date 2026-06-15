@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeletePlanMaintenanceWindowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F3CD6886-D8D0-4FEE-B93E-1B732396****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

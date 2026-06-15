@@ -7,22 +7,25 @@ export class ReplaceSystemDiskRequestSystemDisk extends $dara.Model {
    * @remarks
    * The capacity of the new system disk. Unit: GiB. Valid values:
    * 
-   * *   Basic disk: Max{20, Size of the image specified by ImageId} to 500.
+   * - Basic disk: Max{20, Size of the image specified by ImageId} to 500.
    * 
-   * *   Enterprise SSD (ESSD):
+   * - Enterprise SSD (ESSD):
    * 
-   *     *   PL0 ESSD: Max{1, Size of the image specified by ImageId} to 2048.
-   *     *   PL1 ESSD: Max{20, Size of the image specified by ImageId} to 2048.
-   *     *   PL2 ESSD: Max{461, Size of the image specified by ImageId} to 2048.
-   *     *   PL3 ESSD: Max{1261, Size of the image specified by ImageId} to 2048.
+   *   - PL0 ESSD: Max{1, Size of the image specified by ImageId} to 2048.
    * 
-   * *   ESSD AutoPL disk: Max{1, Size of the image specified by ImageId} to 2048.
+   *   - PL1 ESSD: Max{20, Size of the image specified by ImageId} to 2048.
    * 
-   * *   Other disk categories: Max{20, Size of the image specified by ImageId} to 2048.
+   *   - PL2 ESSD: Max{461, Size of the image specified by ImageId} to 2048.
+   * 
+   *   - PL3 ESSD: Max{1261, Size of the image specified by ImageId} to 2048.
+   * 
+   * - ESSD AutoPL disk: Max{1, Size of the image specified by ImageId} to 2048.
+   * 
+   * - Other disk categories: Max{20, Size of the image specified by ImageId} to 2048.
    * 
    * Default value: Max{40, Size of the image specified by ImageId}.
    * 
-   * >  If the capacity of the new system disk exceeds `Max{20, Capacity of the original system disk}`, you are charged for the excess capacity.
+   * > If the capacity of the new system disk exceeds `Max{20, Capacity of the original system disk}`, you are charged for the excess capacity.
    * 
    * @example
    * 80
@@ -103,7 +106,7 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
   systemDisk?: ReplaceSystemDiskRequestSystemDisk;
   /**
    * @remarks
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @example
    * i386
@@ -124,7 +127,7 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * >  This parameter is deprecated. To improve compatibility, we recommend that you use `ImageId`.
+   * > This parameter is deprecated. To improve compatibility, we recommend that you use `ImageId`.
    * 
    * @example
    * d-bp67acfmxazb4ph****
@@ -142,12 +145,13 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to encrypt the disk. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
-   * >  When you use a shared encrypted image to create the disk based on an encrypted snapshot, you must set Encrypted to true to ensure that the disk uses an encryption key of your own.
+   * > When you use a shared encrypted image to create the disk based on an encrypted snapshot, you must set Encrypted to true to ensure that the disk uses an encryption key of your own.
    * 
    * @example
    * false
@@ -165,7 +169,7 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
    * @remarks
    * The ID of the instance whose operating system you want to replace.
    * 
-   * >  Make sure that the instance is in the `Stopped` (`Stopped`) state.
+   * > Make sure that the instance is in the `Stopped` (`Stopped`) state.
    * 
    * This parameter is required.
    * 
@@ -197,7 +201,9 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to reset the password for the instance. The password must be 8 to 30 characters in length and contain at least three of the following items: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
    * 
-   *     ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+   * ```
+   * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+   * ```
    * 
    * The passwords of Windows instances cannot start with a forward slash (/).
    * 
@@ -223,7 +229,7 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
   passwordInherit?: boolean;
   /**
    * @remarks
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @example
    * CentOS
@@ -235,8 +241,9 @@ export class ReplaceSystemDiskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to use Security Center Basic after the system disk is replaced. Valid values:
    * 
-   * *   Active: uses Security Center Basic after the system disk is re-initialized. This value is applicable only to public images.
-   * *   Deactive: does not use Security Center Basic after the system disk is re-initialized. This value is applicable to all images.
+   * - Active: uses Security Center Basic after the system disk is re-initialized. This value is applicable only to public images.
+   * 
+   * - Deactive: does not use Security Center Basic after the system disk is re-initialized. This value is applicable to all images.
    * 
    * Default value: Deactive.
    * 

@@ -26,7 +26,7 @@ export class CreateLaunchTemplateVersionResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DExxxxx
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DEX****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

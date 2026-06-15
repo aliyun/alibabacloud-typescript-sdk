@@ -7,8 +7,9 @@ export class DescribeDiskEncryptionByDefaultStatusResponseBody extends $dara.Mod
    * @remarks
    * Indicates whether account-level default encryption of EBS resources is enabled in the region. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 

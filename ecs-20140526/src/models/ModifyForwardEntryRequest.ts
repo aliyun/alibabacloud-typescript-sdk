@@ -3,25 +3,51 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyForwardEntryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The public IP address for the forward entry.
+   */
   externalIp?: string;
+  /**
+   * @remarks
+   * The external port for the forward entry.
+   */
   externalPort?: string;
   /**
    * @remarks
+   * The ID of the forward entry that you want to modify.
+   * 
    * This parameter is required.
    */
   forwardEntryId?: string;
   /**
    * @remarks
+   * The ID of the forward table.
+   * 
    * This parameter is required.
    */
   forwardTableId?: string;
+  /**
+   * @remarks
+   * The internal IP address for the forward entry.
+   */
   internalIp?: string;
+  /**
+   * @remarks
+   * The internal port for the forward entry.
+   */
   internalPort?: string;
+  /**
+   * @remarks
+   * The IP protocol. Valid values are tcp, udp, and any.
+   */
   ipProtocol?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region where the forward table is located.
+   * 
    * This parameter is required.
    */
   regionId?: string;

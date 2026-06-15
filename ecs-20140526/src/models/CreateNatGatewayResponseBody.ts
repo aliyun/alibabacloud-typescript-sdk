@@ -55,9 +55,25 @@ export class CreateNatGatewayResponseBodyForwardTableIds extends $dara.Model {
 }
 
 export class CreateNatGatewayResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the EIP bandwidth plans.
+   */
   bandwidthPackageIds?: CreateNatGatewayResponseBodyBandwidthPackageIds;
+  /**
+   * @remarks
+   * The IDs of the forwarding tables.
+   */
   forwardTableIds?: CreateNatGatewayResponseBodyForwardTableIds;
+  /**
+   * @remarks
+   * The ID of the NAT gateway.
+   */
   natGatewayId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

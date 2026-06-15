@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoProvisioningGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N that is added to the auto provisioning group.
-   * 
-   * Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * The key of the tag. The key can be up to 128 characters in length and cannot be an empty string. It cannot start with `aliyun` or `acs:` or contain http\\:// or https\\://.
    * 
    * @example
    * TestKey
@@ -15,9 +13,7 @@ export class DescribeAutoProvisioningGroupsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N that is added to the auto provisioning group.
-   * 
-   * Valid values of N: 1 to 20. The tag value can be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://.
+   * The value of the tag. The value can be up to 128 characters in length and can be an empty string. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -49,7 +45,7 @@ export class DescribeAutoProvisioningGroupsRequestTag extends $dara.Model {
 export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the auto provisioning group. You can specify up to 20 IDs.
+   * The IDs of the auto provisioning groups. You can specify up to 20 IDs.
    * 
    * @example
    * apg-sn54avj8htgvtyh8****
@@ -65,7 +61,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
   autoProvisioningGroupName?: string;
   /**
    * @remarks
-   * The status of the auto provisioning group.
+   * The statuses of the auto provisioning groups.
    * 
    * @example
    * active
@@ -76,9 +72,9 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number to return.
    * 
-   * Pages start from page 1.
+   * Start value: 1.
    * 
    * Default value: 1.
    * 
@@ -88,9 +84,9 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return per page.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -100,7 +96,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the auto provisioning group.
+   * The ID of the region where the auto provisioning group is located.
    * 
    * This parameter is required.
    * 
@@ -120,7 +116,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags that are added to the auto provisioning group.
+   * The tags used to filter auto provisioning groups. You can specify up to 20 tags.
    */
   tag?: DescribeAutoProvisioningGroupsRequestTag[];
   static names(): { [key: string]: string } {

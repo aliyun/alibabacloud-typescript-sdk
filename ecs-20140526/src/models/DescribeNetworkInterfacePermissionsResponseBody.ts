@@ -67,6 +67,10 @@ export class DescribeNetworkInterfacePermissionsResponseBodyNetworkInterfacePerm
 }
 
 export class DescribeNetworkInterfacePermissionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The elastic network interface permissions.
+   */
   networkInterfacePermissions?: DescribeNetworkInterfacePermissionsResponseBodyNetworkInterfacePermissions;
   /**
    * @remarks
@@ -94,7 +98,7 @@ export class DescribeNetworkInterfacePermissionsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of matching entries.
    * 
    * @example
    * 1

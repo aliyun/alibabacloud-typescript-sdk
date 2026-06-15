@@ -66,8 +66,9 @@ export class ModifyCapacityReservationRequest extends $dara.Model {
    * @remarks
    * The release mode of the capacity reservation. Valid values:
    * 
-   * *   Limited: The capacity reservation is automatically released at the specified point in time. If you configure this parameter, you must also configure `EndTime`.
-   * *   Unlimited: The capacity reservation must be manually released. You can release it anytime.
+   * - Limited: The capacity reservation is automatically released at the specified point in time. If you configure this parameter, you must also configure `EndTime`.
+   * 
+   * - Unlimited: The capacity reservation must be manually released. You can release it anytime.
    * 
    * @example
    * Unlimited
@@ -89,8 +90,9 @@ export class ModifyCapacityReservationRequest extends $dara.Model {
    * @remarks
    * The operating system of the image used by the instance. Valid values:
    * 
-   * *   Windows
-   * *   Linux
+   * - Windows
+   * 
+   * - Linux
    * 
    * > This parameter is unavailable.
    * 

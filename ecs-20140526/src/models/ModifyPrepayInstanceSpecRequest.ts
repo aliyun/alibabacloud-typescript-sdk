@@ -7,10 +7,11 @@ export class ModifyPrepayInstanceSpecRequestSystemDisk extends $dara.Model {
    * @remarks
    * The new category of the system disk. Valid values:
    * 
-   * *   cloud_efficiency: utra disk
-   * *   cloud_ssd: standard SSD
+   * - cloud_efficiency: utra disk
    * 
-   * >  This parameter takes effect on an instance only when you change from a [retired instance type](https://help.aliyun.com/document_detail/55263.html) to an instance type in an [instance family available for purchase](https://help.aliyun.com/document_detail/25378.html) and upgrade the instance from a non-I/O optimized instance type to an I/O optimized instance type.
+   * - cloud_ssd: standard SSD
+   * 
+   * > This parameter takes effect on an instance only when you change from a [retired instance type](https://help.aliyun.com/document_detail/55263.html) to an instance type in an [instance family available for purchase](https://help.aliyun.com/document_detail/25378.html) and upgrade the instance from a non-I/O optimized instance type to an I/O optimized instance type.
    * 
    * @example
    * cloud_efficiency
@@ -40,7 +41,7 @@ export class ModifyPrepayInstanceSpecRequestSystemDisk extends $dara.Model {
 export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -48,7 +49,7 @@ export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -56,7 +57,7 @@ export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -93,18 +94,19 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment when you upgrade the instance type. Valid values:
    * 
-   * *   true: The payment is automatically completed.
-   * *   false: An order is generated but no payment is made.
+   * - true: The payment is automatically completed.
+   * 
+   * - false: An order is generated but no payment is made.
    * 
    * Default value: true.
    * 
-   * > 
+   * >
    * 
-   * *   Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and must be canceled.
+   * - Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and must be canceled.
    * 
-   * *   If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
+   * - If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
    * 
-   * *   If you set `OperatorType` to `downgrade`, `AutoPay` is ignored.
+   * - If you set `OperatorType` to `downgrade`, `AutoPay` is ignored.
    * 
    * @example
    * true
@@ -120,7 +122,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    */
   disk?: ModifyPrepayInstanceSpecRequestDisk[];
   /**
@@ -155,8 +157,9 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
    * @remarks
    * Specifies whether to allow cross-cluster instance type upgrade. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -164,8 +167,9 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
    * 
    * Instance that resides in the classic network:
    * 
-   * *   For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the private IP address, disk device names, and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
-   * *   For [instance families available for purchase](https://help.aliyun.com/document_detail/25378.html), when the instance type of an instance is changed, the private IP address of the instance changes.
+   * - For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the private IP address, disk device names, and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
+   * 
+   * - For [instance families available for purchase](https://help.aliyun.com/document_detail/25378.html), when the instance type of an instance is changed, the private IP address of the instance changes.
    * 
    * Instance that resides in a virtual private cloud (VPC): For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the disk device names and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
    * 
@@ -175,7 +179,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   migrateAcrossZone?: boolean;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -185,12 +189,13 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
    * @remarks
    * The type of the change to the instance. Valid values:
    * 
-   * >  This parameter is optional. The system can automatically determine whether the instance change is an upgrade or a downgrade. If you want to specify this parameter, refer to the following valid values of the parameter.
+   * > This parameter is optional. The system can automatically determine whether the instance change is an upgrade or a downgrade. If you want to specify this parameter, refer to the following valid values of the parameter.
    * 
-   * *   upgrade: upgrades the instance type. Make sure that the balance in your account is sufficient.
-   * *   downgrade: downgrades the instance type. When the new instance type specified by the `InstanceType` parameter has lower specifications than the current instance type, set `OperatorType` to downgrade.
+   * - upgrade: upgrades the instance type. Make sure that the balance in your account is sufficient.
    * 
-   * >  You can refer to the preceding usage notes on how to upgrade or downgrade the instance type.
+   * - downgrade: downgrades the instance type. When the new instance type specified by the `InstanceType` parameter has lower specifications than the current instance type, set `OperatorType` to downgrade.
+   * 
+   * > You can refer to the preceding usage notes on how to upgrade or downgrade the instance type.
    * 
    * @example
    * upgrade
@@ -210,12 +215,13 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
    * @remarks
    * Specifies whether to restart the instance immediately after the instance type is changed. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
-   * >  If the instance is in the **Stopped** state, the instance remains in the Stopped state and no operations are performed, regardless of whether `RebootWhenFinished` is set to true.
+   * > If the instance is in the **Stopped** state, the instance remains in the Stopped state and no operations are performed, regardless of whether `RebootWhenFinished` is set to true.
    * 
    * @example
    * false

@@ -119,7 +119,7 @@ export class ResetDisksResponseBody extends $dara.Model {
   operationProgressSet?: ResetDisksResponseBodyOperationProgressSet;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3D66C85C-AA97-4A00-B0ED-2D9A80FE782C

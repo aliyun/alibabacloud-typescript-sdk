@@ -11,11 +11,15 @@ export class ModifyInstanceNetworkOptionsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Vpc-L1: Vpc-L1.
-   * *   Vpc-L2: Vpc-L2.
-   * *   Ebs-L1: Ebs-L1.
-   * *   Ebs-L2: Ebs-L2.
-   * *   Default: the Default.
+   * - Vpc-L1: Vpc-L1.
+   * 
+   * - Vpc-L2: Vpc-L2.
+   * 
+   * - Ebs-L1: Ebs-L1.
+   * 
+   * - Ebs-L2: Ebs-L2.
+   * 
+   * - Default: the Default.
    * 
    * @example
    * Vpc-L1

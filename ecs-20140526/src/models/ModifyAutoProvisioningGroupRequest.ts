@@ -41,8 +41,9 @@ export class ModifyAutoProvisioningGroupRequestLaunchTemplateConfig extends $dar
    * 
    * The weight is calculated based on the computing power of the instance type and the minimum computing power of a single instance in the cluster that can created by the auto-provisioning group. For example, assume that the minimum computing power of a single instance is 8 vCPUs and 60 GiB of memory.
    * 
-   * *   For an instance type with 8 vCPUs and 60 GiB of memory, you can set the weight to 1.
-   * *   For an instance type with 16 vCPUs and 120 GiB of memory, you can set the weight to 2.
+   * - For an instance type with 8 vCPUs and 60 GiB of memory, you can set the weight to 1.
+   * 
+   * - For an instance type with 16 vCPUs and 120 GiB of memory, you can set the weight to 2.
    * 
    * @example
    * 2
@@ -88,7 +89,7 @@ export class ModifyAutoProvisioningGroupRequest extends $dara.Model {
   autoProvisioningGroupId?: string;
   /**
    * @remarks
-   * The name of the auto-provisioning group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://.[ It can contain letters, digits, colons (:), underscores (_), and hyphens (-).](http://https://。、（:）、（_）（-）。)
+   * The name of the auto-provisioning group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\:// or https\\://.[ It can contain letters, digits, colons (:), underscores (_), and hyphens (-).](http://https://%E3%80%82%E3%80%81%EF%BC%88:%EF%BC%89%E3%80%81%EF%BC%88_%EF%BC%89%EF%BC%88-%EF%BC%89%E3%80%82)
    * 
    * @example
    * apg-test
@@ -98,8 +99,9 @@ export class ModifyAutoProvisioningGroupRequest extends $dara.Model {
    * @remarks
    * The type of supplemental instances. When the sum of the PayAsYouGoTargetCapacity and SpotTargetCapacity values is smaller than the TotalTargetCapacity value, the auto-provisioning group creates instances of the specified type to meet the target capacity. Valid values:
    * 
-   * *   PayAsYouGo: pay-as-you-go instances
-   * *   Spot: spot instances
+   * - PayAsYouGo: pay-as-you-go instances
+   * 
+   * - Spot: spot instances
    * 
    * @example
    * Spot
@@ -109,8 +111,9 @@ export class ModifyAutoProvisioningGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to release the removed instances when the real-time capacity of the auto-provisioning group exceeds the target capacity and a scale-in event is triggered. Valid values:
    * 
-   * *   termination: releases the removed instances.
-   * *   no-termination: removes the instances from the auto-provisioning group but does not release them.
+   * - termination: releases the removed instances.
+   * 
+   * - no-termination: removes the instances from the auto-provisioning group but does not release them.
    * 
    * @example
    * no-termination
@@ -165,8 +168,9 @@ export class ModifyAutoProvisioningGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to release instances that are located in the auto-provisioning group after the group expires. Valid values:
    * 
-   * *   true: releases instances that are located in the auto-provisioning group.
-   * *   false: removes instances from the auto-provisioning group but does not release them.
+   * - true: releases instances that are located in the auto-provisioning group.
+   * 
+   * - false: removes instances from the auto-provisioning group but does not release them.
    * 
    * @example
    * false

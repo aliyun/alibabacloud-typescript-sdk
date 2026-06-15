@@ -49,8 +49,9 @@ export class DescribePortRangeListsRequest extends $dara.Model {
    * @remarks
    * The maximum number of entries per page.
    * 
-   * *   Maximum value: 100
-   * *   Default value: 10.
+   * - Maximum value: 100
+   * 
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -73,7 +74,7 @@ export class DescribePortRangeListsRequest extends $dara.Model {
   portRangeListId?: string[];
   /**
    * @remarks
-   * The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http://, https://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\://, https\\://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * PortRangeListNameSample
@@ -93,7 +94,7 @@ export class DescribePortRangeListsRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned in the response. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) operation to query the most recent resource group list.
    * 
-   * >  A default resource group is not supported.
+   * > A default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****

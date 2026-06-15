@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceAttributeRequestCpuOptions extends $dara.Model {
   /**
    * @remarks
-   * The number of CPU cores. This parameter cannot be specified but only uses its default value.
+   * The number of CPU cores. This parameter is not customizable and uses a default value.
+   * 
+   * <props="china">
+   * 
+   * For information about the default value, see [Custom CPU options](https://help.aliyun.com/document_detail/145895.html).
    * 
    * @example
    * 2
@@ -13,10 +17,15 @@ export class ModifyInstanceAttributeRequestCpuOptions extends $dara.Model {
   core?: number;
   /**
    * @remarks
-   * The number of threads per CPU core. The following formula is used to calculate the number of vCPUs of the instance: `CpuOptions.Core` value × `CpuOptions.ThreadsPerCore` value.
+   * The number of threads per core. The total number of vCPUs for an ECS instance is the value of `CpuOptions.Core` multiplied by the value of `CpuOptions.ThreadsPerCore`.
    * 
-   * *   If `CpuOptionsThreadPerCore` is set to 1, Hyper-Threading (HT) is disabled.
-   * *   This parameter is applicable only to specific instance types.
+   * - Setting `CpuOptions.ThreadsPerCore` to 1 disables hyper-threading.
+   * 
+   * - Only some instance types support specifying the number of threads per core.
+   * 
+   * <props="china">
+   * 
+   * For information about the valid values and default value, see [Custom CPU options](https://help.aliyun.com/document_detail/145895.html).
    * 
    * @example
    * 2
@@ -26,22 +35,26 @@ export class ModifyInstanceAttributeRequestCpuOptions extends $dara.Model {
    * @remarks
    * The CPU topology type of the instance. Valid values:
    * 
-   * *   ContinuousCoreToHTMapping: The Hyper-Threading (HT) technology allows continuous threads to run on the same core in the CPU topology of the instance.
-   * *   DiscreteCoreToHTMapping: The HT technology allows discrete threads to run on the same core.
+   * - ContinuousCoreToHTMapping: The hyper-threads of the same core are contiguous.
    * 
-   * This parameter is left empty by default.
+   * - DiscreteCoreToHTMapping: The hyper-threads of the same core are discrete.
    * 
-   * Take note of the following items:
+   * Default value: None.
    * 
-   * *   The instance must be in the Stopped (`Stopped`) state.
+   * Note the following when you use this parameter:
    * 
-   * >  This parameter is supported only for specific instance families. For information about the supported instance families, see [View and modify CPU topologies](https://help.aliyun.com/document_detail/2636059.html).
+   * - The instance must be in the `Stopped` state.
+   * 
+   * > This parameter is supported by only some instance families. See [View and modify the CPU topology](https://help.aliyun.com/document_detail/2636059.html) for a list of supported families.
    * 
    * @example
    * DiscreteCoreToHTMapping
    */
   topologyType?: string;
   /**
+   * @remarks
+   * > This parameter is in invitation-only preview and is not publicly available.
+   * 
    * @example
    * enabled
    */
@@ -76,10 +89,11 @@ export class ModifyInstanceAttributeRequestCpuOptions extends $dara.Model {
 export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv6 Address (AAAA Record) is enabled. Valid values:
+   * Specifies whether to enable resolution of the instance ID-based domain name to an IPv6 address. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -89,10 +103,11 @@ export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $dara.M
   enableInstanceIdDnsAAAARecord?: boolean;
   /**
    * @remarks
-   * Specifies whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
+   * Specifies whether to enable resolution of the instance ID-based domain name to an IPv4 address. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -102,10 +117,11 @@ export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $dara.M
   enableInstanceIdDnsARecord?: boolean;
   /**
    * @remarks
-   * Specifies whether DNS Resolution from the IP Address-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
+   * Specifies whether to enable resolution of the IP address-based domain name to an IPv4 address. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -115,10 +131,11 @@ export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $dara.M
   enableIpDnsARecord?: boolean;
   /**
    * @remarks
-   * Specifies whether Reverse DNS Resolution from the Instance Primary Private IPv4 Address to the IP Address-based Hostname (PTR Record) is enabled. Valid values:
+   * Specifies whether to enable reverse DNS resolution of an IPv4 address to an IP address-based domain name. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -128,11 +145,13 @@ export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $dara.M
   enableIpDnsPtrRecord?: boolean;
   /**
    * @remarks
-   * The type of the hostname. Valid values:
+   * The hostname type. Valid values:
    * 
-   * *   Custom: custom hostname.
-   * *   IpBased: IP address-based hostname.
-   * *   InstanceIdBased: instance ID-based hostname.
+   * - Custom: a custom hostname.
+   * 
+   * - IpBased: an IP address-based hostname.
+   * 
+   * - InstanceIdBased: an instance ID-based hostname.
    * 
    * Default value: Custom.
    * 
@@ -172,7 +191,7 @@ export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $dara.M
 export class ModifyInstanceAttributeRequestRemoteConnectionOptions extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in invitation-only preview and is not publicly available.
    * 
    * @example
    * hide
@@ -180,7 +199,7 @@ export class ModifyInstanceAttributeRequestRemoteConnectionOptions extends $dara
   password?: string;
   /**
    * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in invitation-only preview and is not publicly available.
    * 
    * @example
    * hide
@@ -213,12 +232,13 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   cpuOptions?: ModifyInstanceAttributeRequestCpuOptions;
   /**
    * @remarks
-   * The performance mode of the burstable instance. Valid values:
+   * The performance mode of the burstable performance instance. Valid values:
    * 
-   * *   Standard
-   * *   Unlimited
+   * - Standard: standard mode.
    * 
-   * For more information about the performance modes of burstable instances, see [Overview](https://help.aliyun.com/document_detail/59977.html).
+   * - Unlimited: unlimited mode.
+   * 
+   * For more information about the performance modes of burstable performance instances, see [Overview of burstable performance instances](https://help.aliyun.com/document_detail/59977.html).
    * 
    * @example
    * Standard
@@ -226,9 +246,9 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   creditSpecification?: string;
   /**
    * @remarks
-   * The release protection attribute of the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance.
+   * Specifies whether to enable deletion protection for the instance. This setting prevents the instance from being released from the console or by calling the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation.
    * 
-   * >  This parameter is applicable only to pay-as-you-go instances. The release protection attribute can protect instances against manual releases, but not against automatic releases.
+   * > This feature applies only to pay-as-you-go instances and protects instances only from manual release operations. It does not affect system-initiated release operations.
    * 
    * @example
    * false
@@ -236,7 +256,7 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The instance description. The description must be 2 to 256 characters long and cannot start with `http://` or `https://`.
    * 
    * @example
    * testInstanceDescription
@@ -244,33 +264,51 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
+   * Specifies whether to enable jumbo frames. When jumbo frames are enabled, the MTU of the instance is 8500. When jumbo frames are disabled, the MTU of the instance is 1500. Valid values:
    * 
-   * *   true: The Jumbo Frame feature is enabled for the instance.
-   * *   false: The Jumbo Frame feature is disabled for the instance.
+   * - true
    * 
-   * Take note of the following items:
+   * - false
    * 
-   * *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
-   * *   The instance must reside in a VPC.
-   * *   After the Jumbo Frames feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frames feature is disabled, the MTU value of the instance is set to 1500. You can enable the Jumbo Frames feature only for specific instance types. For more information, see [Jumbo Frames](https://help.aliyun.com/document_detail/200512.html).
+   * Note the following when you use this parameter:
+   * 
+   * - The instance must be in the `Running` or `Stopped` state.
+   * 
+   * - The instance must be in a VPC.
+   * 
+   * - Only some instance types support jumbo frames. For more information, see [ECS instance MTU](https://help.aliyun.com/document_detail/200512.html).
    * 
    * @example
    * false
    */
   enableJumboFrame?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable VPC network traffic encryption. Valid values:
+   * 
+   * - true
+   * 
+   * - false
+   * 
+   * > This parameter is in invitation-only preview and is not publicly available.
+   * 
+   * @example
+   * true
+   */
   enableNetworkEncryption?: boolean;
   /**
    * @remarks
-   * The hostname of the instance. Take note of the following items:
+   * The hostname of the operating system. Note the following when you use this parameter:
    * 
-   * *   The instance cannot be in the Creating (`Pending`) or Starting (`Starting`) state. Otherwise, the new hostname and the configurations in the `/etc/hosts` file may not take effect. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the status of the instance.
-   * *   The parameter takes effect after the instance is restarted. You can restart an instance in the ECS console. For more information, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). You can also call the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation to restart the instance. The parameter cannot take effect if you restart an instance within the operating system.
+   * - The instance cannot be in the `Pending` or `Starting` state. Otherwise, the specified hostname and the `/etc/hosts` configuration may not take effect. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the current state of the instance.
    * 
-   * The following limits apply to the hostnames of instances that run different operating systems:
+   * - The new hostname takes effect after you restart the instance from the ECS console (see [Restart an instance](https://help.aliyun.com/document_detail/25440.html)) or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation. Restarting the instance from within its operating system does not apply the change.
    * 
-   * *   For Windows Server, the hostname must be 2 to 15 characters in length and can contain letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
-   * *   For other operating systems such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate a hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-). The hostname cannot contain consecutive periods (.) or hyphens (-). The hostname cannot start or end with a period (.) or a hyphen (-).
+   * The hostname must meet the following requirements for different operating systems:
+   * 
+   * - For Windows Server instances: The hostname must be 2 to 15 characters long and contain letters, digits, and hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
+   * 
+   * - For other types of instances (such as Linux): The hostname must be 2 to 64 characters long. You can use periods (.) to separate the hostname into segments. Each segment can contain letters, digits, and hyphens (-). The hostname cannot start or end with a period or hyphen, and cannot contain consecutive periods or hyphens.
    * 
    * @example
    * testHostName
@@ -278,7 +316,7 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -288,7 +326,7 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The instance name. The name must be 2 to 128 characters long. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testInstanceName
@@ -296,11 +334,13 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The number of queues supported by the primary elastic network interface (ENI) of the instance. Take note of the following items:
+   * The number of queues for the primary network interface. Note the following when you use this parameter:
    * 
-   * *   The instance must be in the Stopped (`Stopped`) state.
-   * *   The number of queues supported by an ENI cannot exceed the maximum number of queues that the instance type allows for each ENI. The total number of queues on all ENIs on the instance cannot exceed the queue quota that the instance type supports. To query the maximum number of queues that an instance type allows for each ENI and the queue quota for the instance type, call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation.
-   * *   If you set this parameter to -1, the value is reset to the default value for the instance type. To query the default number of queues of an ENI of each instance type, call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation.
+   * - The instance must be in the `Stopped` state.
+   * 
+   * - The value cannot exceed the maximum number of queues that the instance type supports for a single network interface. The total number of queues across all network interfaces of the instance cannot exceed the total queue quota that the instance type supports. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the maximum number of queues per network interface and the total queue quota for an instance type.
+   * 
+   * - If you set this parameter to -1, the number of queues for the primary network interface is reset to the default value for the instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the default number of queues for an elastic network interface of an instance type.
    * 
    * @example
    * 8
@@ -310,50 +350,56 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include **( ) \\` ~ ! @ # $ % ^ & \\* - _ + = | { } [ ] : ; \\" < > , . ? /** The password of a Windows instance cannot start with a forward slash (/). Take note of the following items:
+   * The password of the instance. The password must be 8 to 30 characters long and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The supported special characters are **()\\~!@#$%^&\\*-_+=|{}[]:;\\"<>,.?/**. For a Windows instance, the password cannot start with a forward slash (/). Note the following when you use this parameter:
    * 
-   * *   The instance cannot be in the Starting (`Starting`) state.
-   * *   The parameter takes effect after the instance is restarted. You can restart an instance in the ECS console. For more information, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). You can also call the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation to restart the instance. The parameter cannot take effect if you restart an instance within the operating system.
+   * - The instance cannot be in the `Starting` state.
    * 
-   * >  For security reasons, we recommend that you use HTTPS to send requests if `Password` is specified.
+   * - The new password takes effect after you restart the instance from the ECS console (see [Restart an instance](https://help.aliyun.com/document_detail/25440.html)) or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation. Restarting the instance from within its operating system does not apply the change.
+   * 
+   * > To prevent password exposure, send requests that include the `Password` parameter over HTTPS.
    * 
    * @example
-   * Test123456
+   * Test123456&$
    */
   password?: string;
   /**
    * @remarks
-   * The private domain name options of the ECS instance.
+   * The private DNS name settings for the instance.
    * 
-   * For information about private domain name resolution, see [ECS private DNS resolution](https://help.aliyun.com/document_detail/2844797.html).
+   * For more information about private DNS name resolution, see [ECS private DNS resolution
+   * ](https://help.aliyun.com/document_detail/2844797.html).
    */
   privateDnsNameOptions?: ModifyInstanceAttributeRequestPrivateDnsNameOptions;
   /**
    * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in invitation-only preview and is not publicly available.
    * 
    * @example
-   * hide
+   * true
    */
   recyclable?: boolean;
   /**
    * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in invitation-only preview and is not publicly available.
    */
   remoteConnectionOptions?: ModifyInstanceAttributeRequestRemoteConnectionOptions;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IDs of the new security groups to which to assign the instance. Take note of the following items:
+   * The IDs of security groups to assign to the instance. Note the following when you use this parameter:
    * 
-   * *   The security group IDs in the array cannot be duplicate. The length of the array is related to the quota of security groups to which the instance can be assigned. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits and quotas" topic.
-   * *   The instance is moved from the current security groups to the replacement security groups. If you want the instance to remain in the current security groups, add the IDs of the current security groups to the array.
-   * *   You can move the instance to security groups of a different type. However, the array cannot contain the IDs of both basic and advanced security groups.
-   * *   The security groups and the instance must belong to the same VPC.
-   * *   Security groups of instances in the classic network cannot be changed.
+   * - The security group IDs in the array must be unique. The number of security groups that an instance can join is limited. For more information, see [Limits](~~25412#SecurityGroupQuota1~~).
    * 
-   * >  New security groups become valid for the instance after a short delay.
+   * - Specifying this parameter removes the instance from its current security groups. To retain existing security group associations, you must include their IDs in this array.
+   * 
+   * - You can switch the security group type. However, the specified security groups cannot include both basic and enterprise security groups.
+   * 
+   * - The security groups must belong to the same VPC as the instance.
+   * 
+   * - This parameter is not supported for instances in the classic network.
+   * 
+   * > The change takes effect on the instance after a short delay.
    * 
    * @example
    * sg-bp15ed6xe1yxeycg7o****
@@ -361,12 +407,13 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The user data of the instance. We recommend that you encode the data in Base64. Take note of the following items:
+   * The user data of the instance. User data should be Base64-encoded before it is passed. Note the following when you use this parameter:
    * 
-   * *   The instance must meet the limits for user data. For more information, see [Initialize an instance by using instance user data](https://help.aliyun.com/document_detail/49121.html).
-   * *   After you restart the instance, the new user data is displayed but not run as scripts.
+   * - The user data must comply with the limits described in [Generate user data](https://help.aliyun.com/document_detail/49121.html).
    * 
-   * >  The maximum size of the raw data before encoding is 32 KB. We recommend that you do not pass in confidential information such as passwords and private keys in plaintext. If you must pass in confidential information, we recommend that you encrypt and Base64-encode the information before you pass it in. Then, you can decode and decrypt the information in the same way within the instance.
+   * - After you restart the instance, the new user data is available on the instance but is not executed.
+   * 
+   * > The raw data cannot exceed 32 KB before being encoded. Do not pass confidential information, such as passwords and private keys, in plaintext. If you must pass confidential information, encrypt and then Base64-encode it. On the instance, decrypt the information by using the corresponding decryption method.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh

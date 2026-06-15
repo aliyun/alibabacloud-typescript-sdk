@@ -49,6 +49,13 @@ export class CreateActivationRequestTag extends $dara.Model {
 }
 
 export class CreateActivationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Ensures the idempotence of the request. Generate a unique value for this parameter from your client to guarantee that the value differs across requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   /**
    * @remarks

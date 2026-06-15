@@ -59,8 +59,9 @@ export class DescribePrefixListAttributesResponseBody extends $dara.Model {
    * @remarks
    * The IP address family of the prefix list. Valid values:
    * 
-   * *   IPv4
-   * *   IPv6
+   * - IPv4
+   * 
+   * - IPv6
    * 
    * @example
    * IPv4

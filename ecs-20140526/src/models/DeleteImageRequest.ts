@@ -8,10 +8,11 @@ export class DeleteImageRequest extends $dara.Model {
    * @remarks
    * Specifies whether to forcefully delete the custom image. Valid values:
    * 
-   * *   true: forcefully deletes the custom image, regardless of whether the image is being used by instances.
-   * *   false: verifies that the custom image is not being used by instances and then deletes the image.
+   * - true: Forcefully deletes the custom image, regardless of whether it is used by any instances.
    * 
-   * Default value: false
+   * - false: Performs a standard deletion. Before the deletion, the system checks whether the image is used by any instances.
+   * 
+   * Default value: false.
    * 
    * @example
    * false
@@ -19,7 +20,7 @@ export class DeleteImageRequest extends $dara.Model {
   force?: boolean;
   /**
    * @remarks
-   * The ID of the image. If the specified custom image does not exist, the request is ignored.
+   * The ID of the custom image to delete. If the image does not exist, the request is ignored.
    * 
    * This parameter is required.
    * 
@@ -31,7 +32,7 @@ export class DeleteImageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to get the latest list of regions.
    * 
    * This parameter is required.
    * 

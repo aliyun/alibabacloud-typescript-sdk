@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkInterfaceAttributeRequestTag extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is unavailable.
+   * > This parameter is not publicly available.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeNetworkInterfaceAttributeRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * >  This parameter is unavailable.
+   * > This parameter is not publicly available.
    * 
    * @example
    * TestValue
@@ -45,13 +45,11 @@ export class DescribeNetworkInterfaceAttributeRequestTag extends $dara.Model {
 export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The attribute of the ENI. Valid values:
+   * The attribute to query. Valid values:
    * 
-   * attachment: member ENI attachment information of the trunk ENI. This value is in invitational preview and is not publicly available.
+   * `attachment`: The attachment details for member network interfaces associated with a trunk network interface. This is an invitation-only parameter.
    * 
-   * connectionTrackingConfiguration: connection tracking configuration.
-   * 
-   * Default value:
+   * `connectionTrackingConfiguration`: The connection tracking configuration.
    * 
    * @example
    * attachment
@@ -59,7 +57,7 @@ export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   attribute?: string;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the elastic network interface.
    * 
    * This parameter is required.
    * 
@@ -71,7 +69,7 @@ export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the region where the elastic network interface resides. Call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to get the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -83,7 +81,7 @@ export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * >  This parameter is unavailable.
+   * > This parameter is not publicly available.
    */
   tag?: DescribeNetworkInterfaceAttributeRequestTag[];
   static names(): { [key: string]: string } {

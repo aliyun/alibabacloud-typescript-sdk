@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteNetworkInterfacePermissionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to forcibly delete the permission. Set this parameter to `true` to force the deletion.
+   */
   force?: boolean;
   /**
    * @remarks
+   * The ID of the permission for the elastic network interface.
+   * 
    * This parameter is required.
    */
   networkInterfacePermissionId?: string;
@@ -13,6 +19,8 @@ export class DeleteNetworkInterfacePermissionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region where the elastic network interface is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest region list.
+   * 
    * This parameter is required.
    */
   regionId?: string;

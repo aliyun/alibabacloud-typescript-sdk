@@ -7,9 +7,11 @@ export class DescribeSnapshotMonitorDataRequest extends $dara.Model {
    * @remarks
    * The type of the snapshot. Valid values:
    * 
-   * *   Standard: standard snapshot
-   * *   Flash: local snapshot
-   * *   Archive: archive snapshot
+   * - Standard: standard snapshot
+   * 
+   * - Flash: local snapshot
+   * 
+   * - Archive: archive snapshot
    * 
    * Default value: Standard.
    * 
@@ -33,9 +35,11 @@ export class DescribeSnapshotMonitorDataRequest extends $dara.Model {
    * @remarks
    * The interval at which to query the monitoring data of snapshot sizes. Unit: seconds. Valid values:
    * 
-   * *   60
-   * *   600
-   * *   3600
+   * - 60
+   * 
+   * - 600
+   * 
+   * - 3600
    * 
    * Default value: 60.
    * 

@@ -121,10 +121,11 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailIn
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency unit. Valid values:
+   * The currency. Valid values:
    * 
-   * *   Alibaba Cloud China site (aliyun.com): CNY
-   * *   Alibaba Cloud International site (alibabacloud.com): USD
+   * - `CNY`: For the China site.
+   * 
+   * - `USD`: For the international site.
    * 
    * @example
    * CNY
@@ -133,7 +134,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
   detailInfos?: DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
-   * The discount.
+   * The discount amount.
    * 
    * @example
    * 61.320
@@ -149,7 +150,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
   originalPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is equal to the original price minus the discount.
+   * The final price (original price - discount).
    * 
    * @example
    * 113.880
@@ -316,7 +317,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoRules extends
 export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The price.
+   * The price details.
    */
   price?: DescribeInstanceModificationPriceResponseBodyPriceInfoPrice;
   relatedPrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice;
@@ -358,7 +359,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
 export class DescribeInstanceModificationPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the prices and promotion rules.
+   * Price information, including price details and promotional rules.
    */
   priceInfo?: DescribeInstanceModificationPriceResponseBodyPriceInfo;
   /**

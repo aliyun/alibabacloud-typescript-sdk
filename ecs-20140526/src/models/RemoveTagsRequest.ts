@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveTagsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot contain [http:// or https://](http://https://。). The tag key cannot start with acs: or aliyun.
+   * The key of the tag.
+   * 
+   * > For compatibility, we recommend that you use the Tag.N.Key parameter.
    * 
    * @example
    * TestKey
@@ -13,7 +15,7 @@ export class RemoveTagsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain [http:// or https://](http://https://。). The tag value cannot start with acs: or aliyun.
+   * The value of the tag. The value can be an empty string and up to 128 characters long. It cannot start with aliyun or acs:, and cannot contain http\\:// or https\\://.
    * 
    * @example
    * TestValue
@@ -46,7 +48,7 @@ export class RemoveTagsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the region where the resource is located. Call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to get the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -56,7 +58,7 @@ export class RemoveTagsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource. For example, if you set ResourceType to instance, you must set this parameter to the ID of the related instance.
+   * The ID of the resource from which to remove tags. For example, if ResourceType is set to instance, this parameter is the instance ID.
    * 
    * This parameter is required.
    * 
@@ -68,20 +70,31 @@ export class RemoveTagsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   instance
-   * *   disk
-   * *   snapshot
-   * *   image
-   * *   securitygroup
-   * *   volume
-   * *   eni
-   * *   ddh
-   * *   keypair
-   * *   launchtemplate
-   * *   reservedinstance
-   * *   snapshotpolicy
+   * - instance: an ECS instance.
+   * 
+   * - disk: a disk.
+   * 
+   * - snapshot: a snapshot.
+   * 
+   * - image: an image.
+   * 
+   * - securitygroup: a security group.
+   * 
+   * - volume: a volume.
+   * 
+   * - eni: an elastic network interface.
+   * 
+   * - ddh: a dedicated host.
+   * 
+   * - keypair: an SSH key pair.
+   * 
+   * - launchtemplate: a launch template.
+   * 
+   * - reservedinstance: a reserved instance.
+   * 
+   * - snapshotpolicy: an automatic snapshot policy.
    * 
    * All values must be in lowercase.
    * 
@@ -93,7 +106,7 @@ export class RemoveTagsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * A list of tags.
    */
   tag?: RemoveTagsRequestTag[];
   static names(): { [key: string]: string } {

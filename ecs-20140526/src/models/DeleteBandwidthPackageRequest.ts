@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBandwidthPackageRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the bandwidth package to delete.
+   * 
    * This parameter is required.
    */
   bandwidthPackageId?: string;
@@ -12,6 +14,8 @@ export class DeleteBandwidthPackageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region where the bandwidth package is located.
+   * 
    * This parameter is required.
    */
   regionId?: string;

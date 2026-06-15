@@ -7,7 +7,7 @@ export class DescribeAutoSnapshotPolicyAssociationsRequest extends $dara.Model {
    * @remarks
    * The ID of the automatic snapshot policy.
    * 
-   * *   You can specify only one of AutoSnapshotPolicyId and DiskId.
+   * - You can specify only one of AutoSnapshotPolicyId and DiskId.
    * 
    * @example
    * sp-bp12quk7gqhhuu1f****
@@ -17,7 +17,7 @@ export class DescribeAutoSnapshotPolicyAssociationsRequest extends $dara.Model {
    * @remarks
    * The ID of the disk.
    * 
-   * *   You can specify only one of AutoSnapshotPolicyId and DiskId.
+   * - You can specify only one of AutoSnapshotPolicyId and DiskId.
    * 
    * @example
    * d-bp67acfmxazb4p****
@@ -29,8 +29,9 @@ export class DescribeAutoSnapshotPolicyAssociationsRequest extends $dara.Model {
    * 
    * Default value:
    * 
-   * *   If you do not specify this parameter or if you set this parameter to a value that is smaller than 10, the default value is 10.
-   * *   If you set a value greater than 100, the default value is 100.
+   * - If you do not specify this parameter or if you set this parameter to a value that is smaller than 10, the default value is 10.
+   * 
+   * - If you set a value greater than 100, the default value is 100.
    * 
    * @example
    * 10

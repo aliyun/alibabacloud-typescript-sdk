@@ -281,10 +281,14 @@ export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGro
 }
 
 export class DescribeAutoProvisioningGroupHistoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of scheduled task history records.
+   */
   autoProvisioningGroupHistories?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistories;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -292,7 +296,7 @@ export class DescribeAutoProvisioningGroupHistoryResponseBody extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -300,7 +304,7 @@ export class DescribeAutoProvisioningGroupHistoryResponseBody extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B48A12CD-1295-4A38-A8F0-0E92C937****
@@ -308,7 +312,7 @@ export class DescribeAutoProvisioningGroupHistoryResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The number of queried scheduling tasks in the auto provisioning group.
+   * The total number of scheduled tasks.
    * 
    * @example
    * 10

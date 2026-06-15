@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskDeploymentRequest extends $dara.Model {
   /**
    * @remarks
-   * The new disk category. The parameter can be used only when you migrate a disk between dedicated block storage clusters. Only ESSDs can be created in dedicated block storage clusters. Set this parameter to cloud_essd.
+   * The new category of the disk. This parameter is valid only when you migrate a disk between different dedicated block storage clusters. The only valid value is `cloud_essd` (ESSD disk).
    * 
-   * This parameter is empty by default, which indicates that the disk category is not changed.
+   * Default value: An empty string. If you leave this parameter empty, the category of the disk remains unchanged.
    * 
    * @example
    * cloud_essd
@@ -25,12 +25,13 @@ export class ModifyDiskDeploymentRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and unavailable ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-   * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - `true`: Performs a dry run. The system checks the request for required parameters, format, service limits, and inventory. The system returns an error if the check fails, or the `DryRunOperation` error code if the check succeeds.
    * 
-   * Default value: false.
+   * - `false`: Sends the request. If the request passes the check, the system returns a 2xx HTTP status code and migrates the disk.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * false
@@ -40,12 +41,13 @@ export class ModifyDiskDeploymentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The new performance level of the ESSD. The parameter can be used only when you migrate data between dedicated block storage clusters. Valid values:
+   * The new performance level of the ESSD disk. This parameter is valid only when you migrate a disk between different dedicated block storage clusters. Valid values:
    * 
-   * *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
-   * *   PL1: A single ESSD can deliver up to 50000 random read/write IOPS.
+   * - `PL0`: A maximum of 10,000 random read/write IOPS per disk.
    * 
-   * This parameter is empty by default, which indicates that the performance level is not modified.
+   * - `PL1`: A maximum of 50,000 random read/write IOPS per disk.
+   * 
+   * Default value: An empty string. If you leave this parameter empty, the performance level of the disk remains unchanged.
    * 
    * @example
    * PL1
@@ -55,12 +57,13 @@ export class ModifyDiskDeploymentRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the dedicated block storage cluster to which data disk N belongs.
+   * The ID of the dedicated block storage cluster.
    * 
-   * *   When you migrate a disk to a dedicated block storage cluster, the`  StorageClusterId ` parameter must be specified.
-   * *   When you migrate a disk to a public block storage cluster, the `StorageClusterId` parameter must be left empty.
+   * - To migrate the disk to a dedicated block storage cluster, specify `StorageClusterId`.
    * 
-   * This parameter is empty by default, which indicates that the disk is migrated to a public block storage cluster.
+   * - To migrate the disk to a public cloud block storage cluster, leave `StorageClusterId` empty.
+   * 
+   * Default value: An empty string. If you leave this parameter empty, the disk is migrated to a public cloud block storage cluster.
    * 
    * @example
    * dbsc-cn-c4d2uea****

@@ -7,6 +7,8 @@ export class DescribeClustersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    */
   regionId?: string;

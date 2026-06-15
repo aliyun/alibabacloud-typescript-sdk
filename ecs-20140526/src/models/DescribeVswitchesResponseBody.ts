@@ -82,10 +82,30 @@ export class DescribeVSwitchesResponseBodyVSwitches extends $dara.Model {
 }
 
 export class DescribeVSwitchesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The page size.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * A collection of VSwitches.
+   */
   vSwitches?: DescribeVSwitchesResponseBodyVSwitches;
   static names(): { [key: string]: string } {
     return {

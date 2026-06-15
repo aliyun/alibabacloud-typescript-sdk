@@ -6,10 +6,23 @@ export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the auto snapshot policy to cancel.
+   * 
+   * - If you omit this parameter, the following rules apply:
+   * 
+   *   - If only one auto snapshot policy is applied to a disk, that policy is canceled.
+   * 
+   *   - If a disk has more than one auto snapshot policy, the request fails and returns the `OperationDenied.TooManyAutoSnapshotPolicies` error code. In this case, you must specify `autoSnapshotPolicyId` to identify the policy to cancel.
+   * 
+   * @example
+   * sp-bp14yziiuvu3s6jn****
+   */
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The IDs of the disks for which you want to disable the automatic snapshot policy. To disable the automatic snapshot policy for multiple disks, you can set this parameter to a JSON array that consists of multiple disk IDs, such as ["dxxxxxxxxx", "dyyyyyyyyy", … "dzzzzzzzzz"]. Separate the disk IDs with commas (,).
+   * The IDs of the target disks. The value is a JSON array of disk IDs.
    * 
    * This parameter is required.
    * 
@@ -19,7 +32,7 @@ export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
   diskIds?: string;
   /**
    * @remarks
-   * The region ID of the automatic snapshot policy and the disks. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the auto snapshot policy and disks. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 

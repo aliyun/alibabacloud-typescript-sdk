@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserBusinessBehaviorRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region. Call the `DescribeRegions` operation to query the latest list of regions.
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The key of the business attribute to query.
+   * 
    * This parameter is required.
    */
   statusKey?: string;

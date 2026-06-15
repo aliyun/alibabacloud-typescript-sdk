@@ -73,10 +73,30 @@ export class DescribeAccessPointsResponseBodyAccessPointSet extends $dara.Model 
 }
 
 export class DescribeAccessPointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Contains details about the access points.
+   */
   accessPointSet?: DescribeAccessPointsResponseBodyAccessPointSet;
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of access points.
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

@@ -61,7 +61,7 @@ export class DescribeHpcClustersResponseBody extends $dara.Model {
   hpcClusters?: DescribeHpcClustersResponseBodyHpcClusters;
   /**
    * @remarks
-   * Details about the HPC clusters. The value is an array that consists of the information of each HPC cluster.
+   * The page number of the HPC cluster list.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class DescribeHpcClustersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page number.
+   * The number of entries per page that was set when the request was made.
    * 
    * @example
    * 10
@@ -77,7 +77,7 @@ export class DescribeHpcClustersResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of HPC clusters.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -85,7 +85,7 @@ export class DescribeHpcClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the HPC cluster.
+   * The total number of HPC clusters.
    * 
    * @example
    * 2

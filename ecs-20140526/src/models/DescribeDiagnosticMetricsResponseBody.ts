@@ -8,7 +8,7 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $dara.Model {
    * The description of the diagnostic metric.
    * 
    * @example
-   * CPU diagnostic
+   * CPU诊断
    */
   description?: string;
   /**
@@ -40,7 +40,7 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $dara.Model {
    * The name of the diagnostic metric.
    * 
    * @example
-   * CPU diagnostic
+   * CPU诊断
    */
   metricName?: string;
   /**
@@ -55,9 +55,11 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $dara.Model {
    * @remarks
    * The operating system type supported by the diagnostic metric. Valid values:
    * 
-   * *   Windows
-   * *   Linux
-   * *   All: Windows and Linux
+   * - Windows
+   * 
+   * - Linux
+   * 
+   * - All: Windows and Linux
    * 
    * @example
    * ALL

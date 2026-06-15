@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelImagePipelineExecutionRequestTemplateTag extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class CancelImagePipelineExecutionRequestTemplateTag extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -69,7 +69,7 @@ export class CancelImagePipelineExecutionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    */
   templateTag?: CancelImagePipelineExecutionRequestTemplateTag[];
   static names(): { [key: string]: string } {

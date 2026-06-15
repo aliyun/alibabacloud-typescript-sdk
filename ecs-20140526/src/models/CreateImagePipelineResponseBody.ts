@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImagePipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image template.
+   * The ID of the image pipeline.
    * 
    * @example
    * ip-2ze5tsl5bp6nf2b3****

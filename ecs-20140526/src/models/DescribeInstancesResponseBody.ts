@@ -1199,7 +1199,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   instances?: DescribeInstancesResponseBodyInstances;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token returned in this call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -1207,7 +1207,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the instance list.
    * 
    * @example
    * 1
@@ -1215,7 +1215,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page that you specified in the request.
    * 
    * @example
    * 10
@@ -1233,7 +1233,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
    * @remarks
    * The total number of instances queried.
    * 
-   * >  If you specify the `MaxResults` and `NextToken` request parameters to perform a paged query, the value of the `TotalCount` response parameter is invalid.
+   * > When you use the `MaxResults` and `NextToken` parameters for paged queries, the value of the `TotalCount` parameter is meaningless.
    * 
    * @example
    * 1

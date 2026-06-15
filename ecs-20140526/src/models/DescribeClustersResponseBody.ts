@@ -52,7 +52,15 @@ export class DescribeClustersResponseBodyClusters extends $dara.Model {
 }
 
 export class DescribeClustersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An object that contains the list of clusters.
+   */
   clusters?: DescribeClustersResponseBodyClusters;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

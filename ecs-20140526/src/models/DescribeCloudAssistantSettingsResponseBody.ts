@@ -30,11 +30,25 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowed
 
 export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extends $dara.Model {
   allowedUpgradeWindows?: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowedUpgradeWindows;
+  /**
+   * @remarks
+   * Indicates whether the Cloud Assistant agent checks for and applies updates upon startup.
+   * 
+   * @example
+   * true
+   */
   bootstrapUpgrade?: boolean;
+  /**
+   * @remarks
+   * Indicates whether to prevent the Cloud Assistant agent from automatically updating.
+   * 
+   * @example
+   * true
+   */
   disableUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether custom upgrade is enabled for Cloud Assistant Agent. If the value is false or empty, an upgrade attempt is performed for Cloud Assistant Agent every 30 minutes.
+   * Indicates whether custom agent upgrade settings are enabled. If this parameter is not specified or is set to `false`, the system attempts to upgrade the agent every 30 minutes by default.
    * 
    * @example
    * true
@@ -42,7 +56,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   enabled?: boolean;
   /**
    * @remarks
-   * The time zone of the time windows.
+   * The time zone of the allowed upgrade windows.
    * 
    * @example
    * Asia/Shanghai
@@ -148,11 +162,53 @@ export class DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs extend
 }
 
 export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum CPU usage limit for the main process of the Cloud Assistant agent.
+   * 
+   * @example
+   * 20
+   */
   cpuLimit?: number;
+  /**
+   * @remarks
+   * Indicates whether to retain the script file in the Cloud Assistant directory after a command invocation is complete.
+   * 
+   * @example
+   * false
+   */
   keepScriptFile?: boolean;
+  /**
+   * @remarks
+   * The maximum number of Cloud Assistant log files to retain.
+   * 
+   * @example
+   * 30
+   */
   logFileCountLimit?: number;
+  /**
+   * @remarks
+   * The maximum size for a single Cloud Assistant log file.
+   * 
+   * @example
+   * 100MB
+   */
   logSizeLimit?: string;
+  /**
+   * @remarks
+   * The maximum memory usage limit for the main process of the Cloud Assistant agent.
+   * 
+   * @example
+   * 35MB
+   */
   memoryLimit?: string;
+  /**
+   * @remarks
+   * The number of consecutive times CPU or memory usage can exceed the configured limits before the Cloud Assistant agent process is terminated.
+   * 
+   * @example
+   * 3
+   */
   overloadLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -188,14 +244,15 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
 export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig extends $dara.Model {
   /**
    * @remarks
-   * Specify whether to enable Cloud Assistant Session Manager. Valid values:
+   * Indicates whether the Session Manager feature is enabled. Valid values:
    * 
-   * *   true: Enables the feature.
-   * *   false: Disables the feature.
+   * - `true`: enabled
    * 
-   * Note:
+   * - `false`: disabled
    * 
-   * *   The feature applies to all regions.
+   * **Note**:
+   * 
+   * - This setting takes effect in all regions.
    * 
    * @example
    * true
@@ -283,7 +340,7 @@ export class DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs extend
 export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations for upgrading Cloud Assistant Agent.
+   * The upgrade settings for the Cloud Assistant agent.
    */
   agentUpgradeConfig?: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig;
   ossDeliveryConfigs?: DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs;
@@ -295,10 +352,14 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource usage settings for the Cloud Assistant agent.
+   */
   resourceUsageConfig?: DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig;
   /**
    * @remarks
-   * Cloud Assistant Session Manager configuration.
+   * Configurations for the Session Manager feature.
    */
   sessionManagerConfig?: DescribeCloudAssistantSettingsResponseBodySessionManagerConfig;
   slsDeliveryConfigs?: DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs;

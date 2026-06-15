@@ -8,7 +8,7 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * The description of the diagnostic metric set.
    * 
    * @example
-   * connection issue diagnostics
+   * 远程连接问题诊断
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * The name of the diagnostic metric set.
    * 
    * @example
-   * connection issue diagnostics
+   * 远程连接问题诊断
    */
   metricSetName?: string;
   /**
@@ -44,8 +44,9 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * @remarks
    * The type of the diagnostic metric set. Valid values:
    * 
-   * *   User: user-defined diagnostic metric set
-   * *   Common: common diagnostic metric set
+   * - User: user-defined diagnostic metric set
+   * 
+   * - Common: common diagnostic metric set
    * 
    * @example
    * User

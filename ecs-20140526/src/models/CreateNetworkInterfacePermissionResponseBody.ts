@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud partner (a certified ISV).
+   * The account ID of the Alibaba Cloud Partner (certified ISV).
    * 
    * @example
    * 1234567890
@@ -13,7 +13,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   accountId?: number;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The elastic network interface ID.
    * 
    * @example
    * eni-bp14v2sdd3v8htln****
@@ -21,7 +21,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The ID of the permission on the ENI.
+   * The network interface permission ID.
    * 
    * @example
    * eni-perm-bp1cs4lwn56lfb****
@@ -29,7 +29,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfacePermissionId?: string;
   /**
    * @remarks
-   * The permission on the ENI.
+   * The permission for the elastic network interface.
    * 
    * @example
    * InstanceAttach
@@ -37,12 +37,15 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   permission?: string;
   /**
    * @remarks
-   * The state of the permission on the ENI. Valid values:
+   * The state of the network interface permission. Possible values:
    * 
-   * *   Pending: The permission is being granted.
-   * *   Granted: The permission is granted.
-   * *   Revoking: The permission is being revoked.
-   * *   Revoked: The permission is revoked.
+   * - Pending: The permission is being granted.
+   * 
+   * - Granted: The permission is granted.
+   * 
+   * - Revoking: The permission is being revoked.
+   * 
+   * - Revoked: The permission is revoked.
    * 
    * @example
    * Granted
@@ -50,7 +53,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   permissionState?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud service.
+   * The name of the Alibaba Cloud service that is granted the permission.
    * 
    * @example
    * Elastic Compute Service
@@ -90,12 +93,12 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
 export class CreateNetworkInterfacePermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about permissions on the ENI.
+   * Details of the network interface permission.
    */
   networkInterfacePermission?: CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0FCD3DEF-63D3-4605-A818-805C8BD7DB87

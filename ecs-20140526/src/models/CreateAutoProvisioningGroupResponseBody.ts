@@ -117,7 +117,7 @@ export class CreateAutoProvisioningGroupResponseBody extends $dara.Model {
   launchResults?: CreateAutoProvisioningGroupResponseBodyLaunchResults;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 745CEC9F-0DD7-4451-9FE7-8B752F39****

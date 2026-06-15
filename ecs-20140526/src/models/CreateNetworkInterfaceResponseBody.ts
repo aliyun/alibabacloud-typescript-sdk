@@ -282,18 +282,30 @@ export class CreateNetworkInterfaceResponseBodyTags extends $dara.Model {
 export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the ENI.
+   * The description of the elastic network interface.
    * 
    * @example
    * testDescription
    */
   description?: string;
+  /**
+   * @remarks
+   * The IPv4 prefixes that are assigned to the elastic network interface.
+   */
   ipv4PrefixSets?: CreateNetworkInterfaceResponseBodyIpv4PrefixSets;
+  /**
+   * @remarks
+   * The IPv6 prefixes that are assigned to the elastic network interface.
+   */
   ipv6PrefixSets?: CreateNetworkInterfaceResponseBodyIpv6PrefixSets;
+  /**
+   * @remarks
+   * The IPv6 addresses that are assigned to the elastic network interface.
+   */
   ipv6Sets?: CreateNetworkInterfaceResponseBodyIpv6Sets;
   /**
    * @remarks
-   * The media access control (MAC) address of the ENI.
+   * The MAC address of the elastic network interface.
    * 
    * @example
    * 00:16:3e:12:**:**
@@ -301,7 +313,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   macAddress?: string;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the elastic network interface.
    * 
    * @example
    * eni-bp14v2sdd3v8htln****
@@ -309,7 +321,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the ENI.
+   * The name of the elastic network interface.
    * 
    * @example
    * my-eni-name
@@ -317,7 +329,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The ID of the account to which the ENI belongs.
+   * The ID of the account that owns the elastic network interface.
    * 
    * @example
    * 123456****
@@ -325,12 +337,16 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The private IP address of the ENI.
+   * The primary private IP address of the elastic network interface.
    * 
    * @example
    * ``172.17.**.**``
    */
   privateIpAddress?: string;
+  /**
+   * @remarks
+   * The private IP addresses that are assigned to the elastic network interface.
+   */
   privateIpSets?: CreateNetworkInterfaceResponseBodyPrivateIpSets;
   /**
    * @remarks
@@ -342,16 +358,20 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the ENI belongs.
+   * The ID of the resource group.
    * 
    * @example
    * rg-2ze88m67qx5z****
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups to which the elastic network interface belongs.
+   */
   securityGroupIds?: CreateNetworkInterfaceResponseBodySecurityGroupIds;
   /**
    * @remarks
-   * The ID of the distributor to which the ENI belongs.
+   * The ID of the distributor for the elastic network interface.
    * 
    * @example
    * 12345678910
@@ -359,7 +379,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   serviceID?: number;
   /**
    * @remarks
-   * Indicates whether the user of the ENI is an Alibaba Cloud service or a distributor.
+   * Specifies whether the elastic network interface is managed by a cloud service or a distributor.
    * 
    * @example
    * true
@@ -367,7 +387,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * false
@@ -375,16 +395,20 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   sourceDestCheck?: boolean;
   /**
    * @remarks
-   * The state of the ENI.
+   * The status of the elastic network interface.
    * 
    * @example
    * Available
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the elastic network interface.
+   */
   tags?: CreateNetworkInterfaceResponseBodyTags;
   /**
    * @remarks
-   * The type of the ENI.
+   * The type of the elastic network interface.
    * 
    * @example
    * Secondary
@@ -392,7 +416,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the ENI is connected.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp16usj2p27htro3****
@@ -400,7 +424,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the ENI belongs.
+   * The ID of the VPC to which the elastic network interface belongs.
    * 
    * @example
    * vpc-bp1j7w3gc1cexjqd****
@@ -408,7 +432,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the ENI.
+   * The ID of the zone.
    * 
    * @example
    * cn-hangzhou-e

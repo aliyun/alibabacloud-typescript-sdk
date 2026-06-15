@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dara.Model {
   /**
    * @remarks
-   * The cooling-off period of the compliance mode. Unit: hours.
+   * The cool-off period for compliance mode, in hours.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
   coolOffPeriod?: number;
   /**
    * @remarks
-   * The end time of the cooling-off period in compliance mode. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in the yyyy-MM-ddTHH:mm:ssZ format (in UTC).
+   * The time when the cool-off period ends. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard and is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-10-15T13:00:00Z
@@ -21,7 +21,7 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
   coolOffPeriodExpiredTime?: string;
   /**
    * @remarks
-   * The date and time at which the snapshot is locked. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in the yyyy-MM-ddTHH:mm:ssZ format (in UTC).
+   * The time when the snapshot was locked. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard and is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-10-15T10:00:00Z
@@ -29,7 +29,7 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
   lockCreationTime?: string;
   /**
    * @remarks
-   * The lock duration. The snapshot lock automatically expires after the lock duration ends. Unit: days.
+   * The lock duration in days. The lock automatically expires when this period ends.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
   lockDuration?: number;
   /**
    * @remarks
-   * The start time of the lock duration. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in the yyyy-MM-ddTHH:mm:ssZ format (in UTC). If you lock a snapshot that is in the Progressing state, the lock time is not calculated until the snapshot enters the Accomplished state.
+   * The time when the lock duration starts. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard and is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format. If a snapshot in the progressing state is locked, its lock duration begins after it enters the accomplished state.
    * 
    * @example
    * 2025-10-15T10:00:00Z
@@ -45,13 +45,18 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
   lockDurationStartTime?: string;
   /**
    * @remarks
-   * The time when the lock expires. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in the yyyy-MM-ddTHH:mm:ssZ format (in UTC).
+   * The time when the lock expires. The time follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard and is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-10-16T10:00:00Z
    */
   lockExpiredTime?: string;
   /**
+   * @remarks
+   * The lock mode. Valid value:
+   * 
+   * - compliance: The snapshot is locked in compliance mode. A snapshot locked in compliance mode cannot be unlocked and can only be deleted after its lock duration expires. You cannot shorten the lock duration, but users with the required RAM permissions can extend the lock duration at any time. When you lock a snapshot in compliance mode, you can optionally specify a cool-off period.
+   * 
    * @example
    * compliance
    */
@@ -60,9 +65,11 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
    * @remarks
    * The lock status. Valid values:
    * 
-   * *   compliance-cooloff: The snapshot is locked in compliance mode but is still in a cooling-off period. Snapshots cannot be deleted. However, users with the corresponding RAM permissions can unlock snapshots, extend or shorten the cooling-off period, and extend or shorten the lock duration.
-   * *   compliance: The snapshot is locked in compliance mode and the cooling-off period has ended. Snapshots cannot be unlocked or deleted. However, users with the corresponding RAM permissions can extend the lock duration.
-   * *   expired: The snapshot was once locked, but the lock duration has ended and the lock has expired. The snapshot is not locked and can be deleted.
+   * - compliance-cooloff: The snapshot is locked in compliance mode and is in the cool-off period. The snapshot cannot be deleted. However, users with the required RAM permissions can unlock the snapshot and adjust the cool-off period or lock duration.
+   * 
+   * - compliance: The snapshot is locked in compliance mode, and its cool-off period has ended. The snapshot cannot be unlocked or deleted. However, users with the required RAM permissions can extend the lock duration.
+   * 
+   * - expired: The lock has expired, and the snapshot can be deleted.
    * 
    * @example
    * compliance-cooloff
@@ -116,12 +123,12 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
 export class DescribeLockedSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the locked snapshots.
+   * Details about the locked snapshots.
    */
   lockedSnapshotsInfo?: DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo[];
   /**
    * @remarks
-   * The returned pagination token which can be used in the next request to retrieve a new page of results.
+   * A token to retrieve the next page of results. If this parameter is empty, all results have been returned.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****

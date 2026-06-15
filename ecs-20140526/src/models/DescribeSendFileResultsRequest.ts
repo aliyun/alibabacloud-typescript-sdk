@@ -61,11 +61,15 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
    * @remarks
    * The overall sending status of the file. The overall sending status of the file varies based on the sending status of the file on all destination instances. Valid values:
    * 
-   * *   Pending: The file is being verified or sent. If the sending state of the file on at least one instance is Pending, the overall sending state of the file is Pending.
-   * *   Running: The file is being sent to the instances. If the sending state of the file on at least one instance is Running, the overall sending state of the file is Running.
-   * *   Success: The file is sent. If the sending state of the file on all instances is Success, the overall sending state of the file is Success.
-   * *   Failed: The file fails to be sent. If the sending state of the file on all instances is Failed, the overall sending state of the file is Failed.
-   * *   PartialFailed: The file sending task succeeds on some instances and fails on other instances. If the sending state of the file is Success on some instances and is Failed on other instances, the overall sending state of the file is PartialFailed.
+   * - Pending: The file is being verified or sent. If the sending state of the file on at least one instance is Pending, the overall sending state of the file is Pending.
+   * 
+   * - Running: The file is being sent to the instances. If the sending state of the file on at least one instance is Running, the overall sending state of the file is Running.
+   * 
+   * - Success: The file is sent. If the sending state of the file on all instances is Success, the overall sending state of the file is Success.
+   * 
+   * - Failed: The file fails to be sent. If the sending state of the file on all instances is Failed, the overall sending state of the file is Failed.
+   * 
+   * - PartialFailed: The file sending task succeeds on some instances and fails on other instances. If the sending state of the file is Success on some instances and is Failed on other instances, the overall sending state of the file is PartialFailed.
    * 
    * @example
    * Success
@@ -111,7 +115,7 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 1
@@ -119,7 +123,7 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 10

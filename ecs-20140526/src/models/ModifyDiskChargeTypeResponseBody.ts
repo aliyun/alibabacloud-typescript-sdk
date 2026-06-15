@@ -8,7 +8,7 @@ export class ModifyDiskChargeTypeResponseBody extends $dara.Model {
    * The ID of the order.
    * 
    * @example
-   * 1234567890
+   * 123456****
    */
   orderId?: string;
   /**

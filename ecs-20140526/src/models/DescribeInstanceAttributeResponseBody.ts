@@ -63,10 +63,11 @@ export class DescribeInstanceAttributeResponseBodyEipAddress extends $dara.Model
    * @remarks
    * The billing method for network usage. Valid values:
    * 
-   * *   PayByBandwidth
-   * *   PayByTraffic
+   * - PayByBandwidth
    * 
-   * >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * - PayByTraffic
+   * 
+   * > When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
    * 
    * @example
    * PayByTraffic
@@ -142,22 +143,46 @@ export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.M
    * 
    * Valid values:
    * 
-   * *   Vpc-L1.
-   * *   Vpc-L2.
-   * *   Ebs-L1.
-   * *   Ebs-L2.
-   * *   Default.
+   * - Vpc-L1.
+   * 
+   * - Vpc-L2.
+   * 
+   * - Ebs-L1.
+   * 
+   * - Ebs-L2.
+   * 
+   * - Default.
    * 
    * @example
    * Vpc-L1
    */
   bandwidthWeighting?: string;
   /**
+   * @remarks
+   * Indicates whether the Jumbo frame attribute is enabled for the instance. Valid values:
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Not enabled.
+   * 
+   * For more information, see [ECS Instance MTU](https://help.aliyun.com/document_detail/200512.html).
+   * 
+   * > This parameter is in invitational preview and is not publicly available yet.
+   * 
    * @example
    * false
    */
   enableJumboFrame?: boolean;
   /**
+   * @remarks
+   * Indicates whether VPC network traffic encryption is enabled for the instance. Valid values:
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Not enabled.
+   * 
+   * > This parameter is in invitational preview and is not publicly available yet.
+   * 
    * @example
    * False
    */
@@ -401,8 +426,9 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The performance mode of the burstable instance. Valid values:
    * 
-   * *   Standard: the standard mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
-   * *   Unlimited: the unlimited mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
+   * - Standard: the standard mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
+   * 
+   * - Unlimited: the unlimited mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
    * 
    * @example
    * Standard
@@ -430,8 +456,9 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
    * 
@@ -440,6 +467,15 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    */
   enableJumboFrame?: boolean;
   /**
+   * @remarks
+   * Indicates whether VPC network traffic encryption is enabled for the instance. Valid values:
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Not enabled.
+   * 
+   * > This parameter is in invitational preview and is not publicly available yet.
+   * 
    * @example
    * True
    */
@@ -473,8 +509,9 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   PrePaid: subscription.
-   * *   PostPaid: pay-as-you-go
+   * - PrePaid: subscription.
+   * 
+   * - PostPaid: pay-as-you-go
    * 
    * @example
    * PrePaid
@@ -500,8 +537,9 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * *   classic: classic network
-   * *   vpc: VPC
+   * - classic: classic network
+   * 
+   * - vpc: VPC
    * 
    * @example
    * vpc
@@ -519,10 +557,11 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The billing method for network usage. Valid values:
    * 
-   * *   PayByBandwidth
-   * *   PayByTraffic
+   * - PayByBandwidth
    * 
-   * >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * - PayByTraffic
+   * 
+   * > When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
    * 
    * @example
    * PayByTraffic
@@ -548,11 +587,12 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the ECS instance is I/O optimized. Valid values:
    * 
-   * *   optimized: The ECS instance is I/O optimized.
-   * *   none: The ECS instance is not I/O optimized.
+   * - optimized: The ECS instance is I/O optimized.
+   * 
+   * - none: The ECS instance is not I/O optimized.
    * 
    * @example
-   * true
+   * optimized
    */
   ioOptimized?: string;
   /**
@@ -601,11 +641,15 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * *   Pending: The instance is being created.
-   * *   Running: The instance is running.
-   * *   Starting: The instance is being started.
-   * *   Stopping: The instance is being stopped.
-   * *   Stopped: The instance is stopped.
+   * - Pending: The instance is being created.
+   * 
+   * - Running: The instance is running.
+   * 
+   * - Starting: The instance is being started.
+   * 
+   * - Stopping: The instance is being stopped.
+   * 
+   * - Stopped: The instance is stopped.
    * 
    * @example
    * Running
@@ -615,9 +659,11 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the system implements billing after the instance is stopped. Valid values:
    * 
-   * *   KeepCharging: The instance is stopped in standard mode. The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
-   * *   StopCharging: The instance is stopped in economical mode. The billing of some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP address are released. The instance may be unable to start again if some required resources are out of stock in the current region.
-   * *   Not-applicable: The instance does not support economical mode.
+   * - KeepCharging: The instance is stopped in standard mode. The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
+   * 
+   * - StopCharging: The instance is stopped in economical mode. The billing of some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP address are released. The instance may be unable to start again if some required resources are out of stock in the current region.
+   * 
+   * - Not-applicable: The instance does not support economical mode.
    * 
    * @example
    * KeepCharging

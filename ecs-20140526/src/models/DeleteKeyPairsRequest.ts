@@ -7,12 +7,12 @@ export class DeleteKeyPairsRequest extends $dara.Model {
    * @remarks
    * The names of SSH key pairs. The value can be a JSON array that consists of up to 100 SSH key pair names. Separate the names with commas (,).
    * 
-   * >  Before you delete an SSH key pair, you can call the [DescribeKeyPairs](https://help.aliyun.com/document_detail/51773.html) operation to query existing key pairs.
+   * > Before you delete an SSH key pair, you can call the [DescribeKeyPairs](https://help.aliyun.com/document_detail/51773.html) operation to query existing key pairs.
    * 
    * This parameter is required.
    * 
    * @example
-   * ["skp-bp67acfmxazb41****", "skp-bp67acfmxazb42****", … "skp-bp67acfmxazb4p3***"]
+   * ["TestKeyPairName-1", "TestKeyPairName-2", … "TestKeyPairName-100"]
    */
   keyPairNames?: string;
   ownerId?: number;

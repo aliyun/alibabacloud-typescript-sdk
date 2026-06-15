@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.\\*\\*\\*\\* For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -33,9 +33,11 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the destination security group. You must specify at least one of `DestGroupId` and `DestCidrIp`.
    * 
-   * *   At least one of DestGroupId, DestCidrIp, Ipv6DestCidrIp, and DestPrefixListId must be specified.
-   * *   If DestGroupId is specified but DestCidrIp is not specified, the NicType parameter can be set only to intranet.
-   * *   If both DestGroupId and DestCidrIp are specified, DestCidrIp takes precedence.
+   * - At least one of DestGroupId, DestCidrIp, Ipv6DestCidrIp, and DestPrefixListId must be specified.
+   * 
+   * - If DestGroupId is specified but DestCidrIp is not specified, the NicType parameter can be set only to intranet.
+   * 
+   * - If both DestGroupId and DestCidrIp are specified, DestCidrIp takes precedence.
    * 
    * @example
    * sg-bp67acfmxa123b****
@@ -71,23 +73,33 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * Network Layer /transport layer protocol. Two types of assignments are supported:
    * 
-   * 1.  The case-insensitive protocol name. Valid values:
+   * 1. The case-insensitive protocol name. Valid values:
    * 
-   * *   ICMP
-   * *   GRE
-   * *   TCP
-   * *   UDP
-   * *   ALL: supports all protocols.
+   * - ICMP
    * 
-   * 2.  The value of the IANA-compliant protocol number, which is an integer from 0 to 255. List of regions currently available:
+   * - GRE
    * 
-   * *   Philippines (Manila)
-   * *   UK (London)
-   * *   Malaysia (Kuala Lumpur)
-   * *   China (Hohhot)
-   * *   China (Qingdao)
-   * *   US (Silicon Valley)
-   * *   Singapore
+   * - TCP
+   * 
+   * - UDP
+   * 
+   * - ALL: supports all protocols.
+   * 
+   * 2. The value of the IANA-compliant protocol number, which is an integer from 0 to 255. List of regions currently available:
+   * 
+   * - Philippines (Manila)
+   * 
+   * - UK (London)
+   * 
+   * - Malaysia (Kuala Lumpur)
+   * 
+   * - China (Hohhot)
+   * 
+   * - China (Qingdao)
+   * 
+   * - US (Silicon Valley)
+   * 
+   * - Singapore
    * 
    * @example
    * tcp
@@ -97,7 +109,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
-   * >  Only the IP addresses of instances in virtual private clouds (VPCs) are supported. You cannot specify both Ipv6DestCidrIp and `DestCidrIp`.
+   * > Only the IP addresses of instances in virtual private clouds (VPCs) are supported. You cannot specify both Ipv6DestCidrIp and `DestCidrIp`.
    * 
    * By default, this parameter is left empty.
    * 
@@ -109,7 +121,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The source IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
    * 
-   * >  Only the IP addresses of instances in VPCs are supported. You cannot specify both Ipv6SourceCidrIp and `SourceCidrIp`.
+   * > Only the IP addresses of instances in VPCs are supported. You cannot specify both Ipv6SourceCidrIp and `SourceCidrIp`.
    * 
    * By default, this parameter is left empty.
    * 
@@ -121,7 +133,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The network interface controller (NIC) type.
    * 
-   * >  You cannot modify this parameter when you modify a security group rule by specifying the ID of the rule. If you want to change the NIC type of a security group rule, you can create a security group rule of a desired NIC type and delete the existing rule.
+   * > You cannot modify this parameter when you modify a security group rule by specifying the ID of the rule. If you want to change the NIC type of a security group rule, you can create a security group rule of a desired NIC type and delete the existing rule.
    * 
    * @example
    * intranet
@@ -133,8 +145,9 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The action of the security group rule. Valid values:
    * 
-   * *   accept: allows access.
-   * *   drop: denies access and returns no responses.
+   * - accept: allows access.
+   * 
+   * - drop: denies access and returns no responses.
    * 
    * Default value: accept.
    * 
@@ -146,10 +159,13 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The range of destination ports that correspond to the transport layer protocol. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-   * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-   * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * - If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * 
+   * - If you set IpProtocol to ICMP, the port number range is -1/-1.
+   * 
+   * - If you set IpProtocol to GRE, the port number range is -1/-1.
+   * 
+   * - If you set IpProtocol to ALL, the port number range is -1/-1.
    * 
    * @example
    * 80/80
@@ -159,8 +175,9 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the port list. You can call the `DescribePortRangeLists` operation to query the IDs of available prefix lists.
    * 
-   * *   If you specify PortRange, the value of this parameter is ignored.
-   * *   If the security group is of the classic network type, you cannot reference port lists in the security group rules. For information about the limits on security groups and port lists, see the [Security groups](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas" topic.
+   * - If you specify PortRange, the value of this parameter is ignored.
+   * 
+   * - If the security group is of the classic network type, you cannot reference port lists in the security group rules. For information about the limits on security groups and port lists, see the [Security groups](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas" topic.
    * 
    * @example
    * prl-2ze9743****
@@ -220,10 +237,13 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The range of source ports that correspond to the transport layer protocol. Valid values:
    * 
-   * *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-   * *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-   * *   If you set IpProtocol to GRE, the port number range is -1/-1.
-   * *   If you set IpProtocol to ALL, the port number range is -1/-1.
+   * - If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * 
+   * - If you set IpProtocol to ICMP, the port number range is -1/-1.
+   * 
+   * - If you set IpProtocol to GRE, the port number range is -1/-1.
+   * 
+   * - If you set IpProtocol to ALL, the port number range is -1/-1.
    * 
    * @example
    * 80/80

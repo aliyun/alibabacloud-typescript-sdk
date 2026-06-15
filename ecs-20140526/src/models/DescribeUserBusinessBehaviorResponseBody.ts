@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUserBusinessBehaviorResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The value of the business attribute.
+   */
   statusValue?: string;
   static names(): { [key: string]: string } {
     return {

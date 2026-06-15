@@ -101,8 +101,9 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
    * @remarks
    * The validity period of the SCU. Valid values:
    * 
-   * *   Valid values when PeriodUnit is set to Month: 1, 2, 3, and 6.
-   * *   Valid values when PeriodUnit is set to Year: 1, 3, and 5.
+   * - Valid values when PeriodUnit is set to Month: 1, 2, 3, and 6.
+   * 
+   * - Valid values when PeriodUnit is set to Year: 1, 3, and 5.
    * 
    * Default value: 1.
    * 
@@ -114,8 +115,9 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
    * @remarks
    * The unit of the validity period of the SCU. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - Month
+   * 
+   * - Year
    * 
    * Default value: Month.
    * 
@@ -150,7 +152,7 @@ export class PurchaseStorageCapacityUnitRequest extends $dara.Model {
    * This parameter is left empty by default, which indicates that the SCU takes effect immediately after it is created.
    * 
    * @example
-   * 2020-09-09T02:00:00Z
+   * 2020-09-09T02Z
    */
   startTime?: string;
   /**

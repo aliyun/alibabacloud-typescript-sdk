@@ -17,8 +17,9 @@ export class PurchaseElasticityAssuranceRequestPrivatePoolOptions extends $dara.
    * @remarks
    * The type of the private pool with which you want to associate the elasticity assurance. Valid values:
    * 
-   * *   Open: open private pool. If you use the elasticity assurance to create Elastic Compute Service (ECS) instances, the open private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the open private pool, resources in the public pool are automatically used to create the ECS instances.
-   * *   Target: targeted private pool. If you use the elasticity assurance to create ECS instances, the specified private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the private pool, the ECS instances fail to be created.
+   * - Open: open private pool. If you use the elasticity assurance to create Elastic Compute Service (ECS) instances, the open private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the open private pool, resources in the public pool are automatically used to create the ECS instances.
+   * 
+   * - Target: targeted private pool. If you use the elasticity assurance to create ECS instances, the specified private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the private pool, the ECS instances fail to be created.
    * 
    * Default value: Open.
    * 
@@ -65,8 +66,9 @@ export class PurchaseElasticityAssuranceRequest extends $dara.Model {
    * @remarks
    * The validity period of the elasticity assurance. The unit of the validity period is determined by the PeriodUnit value. Valid values:
    * 
-   * *   When PeriodUnit is set to Month, valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
-   * *   When PeriodUnit is set to Year, valid values are 1, 2, 3, 4, and 5.
+   * - When PeriodUnit is set to Month, valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+   * 
+   * - When PeriodUnit is set to Year, valid values are 1, 2, 3, 4, and 5.
    * 
    * Default value: 1.
    * 
@@ -78,8 +80,9 @@ export class PurchaseElasticityAssuranceRequest extends $dara.Model {
    * @remarks
    * The unit of the validity period of the elasticity assurance. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - Month
+   * 
+   * - Year
    * 
    * Default value: Year.
    * 
@@ -104,7 +107,7 @@ export class PurchaseElasticityAssuranceRequest extends $dara.Model {
    * The time when the elasticity assurance takes effect. The default value is the time when the elasticity assurance is created. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
-   * 2024-06-18T00:00Z
+   * 2024-06-18T00:00:00Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {

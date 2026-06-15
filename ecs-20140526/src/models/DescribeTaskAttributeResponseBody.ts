@@ -169,8 +169,9 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the task can be canceled by calling the [CancelTask](https://help.aliyun.com/document_detail/25624.html) operation. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

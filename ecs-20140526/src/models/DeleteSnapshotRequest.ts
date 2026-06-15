@@ -7,8 +7,9 @@ export class DeleteSnapshotRequest extends $dara.Model {
    * @remarks
    * Specifies whether to force delete the snapshot that has been used to create cloud disks. Valid values:
    * 
-   * *   true: force deletes the snapshot. After the snapshot is force deleted, the cloud disks created from the snapshot cannot be re-initialized.
-   * *   false: does not force delete the snapshot.
+   * - true: force deletes the snapshot. After the snapshot is force deleted, the cloud disks created from the snapshot cannot be re-initialized.
+   * 
+   * - false: does not force delete the snapshot.
    * 
    * Default value: false.
    * 

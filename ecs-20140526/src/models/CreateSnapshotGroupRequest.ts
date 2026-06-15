@@ -65,8 +65,9 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
    * 
    * Take note of the following:
    * 
-   * *   You cannot specify both the DiskId.N and `ExcludeDiskId.N` parameters in the same request.
-   * *   If you specify `InstanceId`, you can specify the IDs of cloud disks that are attached only to the specified instance. You cannot specify the IDs of cloud disks that are attached to multiple instances.
+   * - You cannot specify both the DiskId.N and `ExcludeDiskId.N` parameters in the same request.
+   * 
+   * - If you specify `InstanceId`, you can specify the IDs of cloud disks that are attached only to the specified instance. You cannot specify the IDs of cloud disks that are attached to multiple instances.
    */
   diskId?: string[];
   /**
@@ -75,7 +76,7 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
    * 
    * This parameter is empty by default, which indicates that snapshots are created for all disks of the instance.
    * 
-   * >  This parameter cannot be set at the same time as the `DiskId.N`.
+   * > This parameter cannot be set at the same time as the `DiskId.N`.
    * 
    * @example
    * d-j6cf7l0ewidb78lq****
@@ -93,12 +94,13 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the instant access feature. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
-   * >  This parameter is no longer used. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+   * > This parameter is no longer used. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
    * 
    * @example
    * false
@@ -112,7 +114,7 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
    * 
    * This parameter is left empty by default, which indicates that the instant access feature is automatically disabled when the instant access snapshots are released.
    * 
-   * >  This parameter is no longer used. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+   * > This parameter is no longer used. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
    * 
    * @example
    * 1

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePlanMaintenanceWindowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the maintenance window.
+   * 
    * @example
    * pw-bp1a9yavgq3dgttvowun
    */
   planWindowId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7D5B1188-3F08-56D1-A6B2-91B267452633
    */

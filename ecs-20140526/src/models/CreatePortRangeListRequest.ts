@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePortRangeListRequestEntry extends $dara.Model {
   /**
    * @remarks
-   * The description of port range N. The description must be 2 to 32 characters in length and cannot start with http:// or https://. Valid values of N: 0 to 200.
+   * The description of port range N. The description must be 2 to 32 characters in length and cannot start with http\\:// or https\\://. Valid values of N: 0 to 200.
    * 
    * @example
    * Description information of Entry
@@ -15,8 +15,9 @@ export class CreatePortRangeListRequestEntry extends $dara.Model {
    * @remarks
    * Port range N. Valid values of N: 0 to 200.
    * 
-   * *   The total number of entries cannot exceed the `MaxEntries` value.
-   * *   `PortRange` in multiple entries cannot be duplicated.
+   * - The total number of entries cannot exceed the `MaxEntries` value.
+   * 
+   * - `PortRange` in multiple entries cannot be duplicated.
    * 
    * @example
    * 80/80
@@ -50,7 +51,7 @@ export class CreatePortRangeListRequestTag extends $dara.Model {
    * @remarks
    * The key of tag N to add to the port list.
    * 
-   * The tag key cannot be empty or an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * The tag key cannot be empty or an empty string. The tag key can be up to 128 characters in length and cannot contain http\\:// or https\\://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * key for PortRangeList
@@ -60,7 +61,7 @@ export class CreatePortRangeListRequestTag extends $dara.Model {
    * @remarks
    * The value of tag N to add to the port list.
    * 
-   * The tag value cannot be empty but can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+   * The tag value cannot be empty but can be an empty string. The tag value can be up to 128 characters in length and cannot contain http\\:// or https\\://.
    * 
    * @example
    * value for PortRangeList
@@ -100,7 +101,7 @@ export class CreatePortRangeListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the port list. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * The description of the port list. The description must be 2 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * @example
    * Description information of PortRangeList
@@ -115,7 +116,7 @@ export class CreatePortRangeListRequest extends $dara.Model {
    * @remarks
    * The maximum number of entries in the port list. The value cannot be changed after you create the port list. Valid values: 1 to 2000.
    * 
-   * >  When you reference a port list in a resource, such as a security group, the maximum number of entries (instead of the actual number of entries) in the port list counts against the rule quota for the resource. Set a proper value for MaxEntries.
+   * > When you reference a port list in a resource, such as a security group, the maximum number of entries (instead of the actual number of entries) in the port list counts against the rule quota for the resource. Set a proper value for MaxEntries.
    * 
    * This parameter is required.
    * 
@@ -127,7 +128,7 @@ export class CreatePortRangeListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http://, https://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\://, https\\://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * This parameter is required.
    * 

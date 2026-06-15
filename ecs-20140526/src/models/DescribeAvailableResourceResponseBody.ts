@@ -186,8 +186,15 @@ export class DescribeAvailableResourceResponseBodyAvailableZones extends $dara.M
 }
 
 export class DescribeAvailableResourceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Information about the availability zones.
+   */
   availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0041D94C-FB92-4C49-B115-259DA1C*****
    */

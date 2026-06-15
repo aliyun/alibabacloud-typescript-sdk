@@ -45,7 +45,7 @@ export class DescribePortRangeListEntriesResponseBodyEntries extends $dara.Model
 export class DescribePortRangeListEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Port list entries.
+   * The port range list entries.
    */
   entries?: DescribePortRangeListEntriesResponseBodyEntries[];
   /**

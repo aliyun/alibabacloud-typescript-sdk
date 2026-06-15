@@ -131,38 +131,10 @@ export class DescribeStorageSetsResponseBodyStorageSets extends $dara.Model {
 }
 
 export class DescribeStorageSetsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 1
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-   */
   requestId?: string;
   storageSets?: DescribeStorageSetsResponseBodyStorageSets;
-  /**
-   * @remarks
-   * The total number of storage sets.
-   * 
-   * @example
-   * 20
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

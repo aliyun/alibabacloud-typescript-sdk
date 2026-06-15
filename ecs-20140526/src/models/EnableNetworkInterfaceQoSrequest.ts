@@ -85,6 +85,8 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
 export class EnableNetworkInterfaceQoSRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Elastic Network Interface (ENI).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -100,6 +102,8 @@ export class EnableNetworkInterfaceQoSRequest extends $dara.Model {
   qoS?: EnableNetworkInterfaceQoSRequestQoS;
   /**
    * @remarks
+   * The Region ID. You can invoke DescribeRegions to view the latest Alibaba Cloud Region list.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -8,7 +8,7 @@ export class ModifyDiagnosticMetricSetRequest extends $dara.Model {
    * The description of the diagnostic metric set.
    * 
    * @example
-   * connection diagnostics
+   * 远程连接诊断
    */
   description?: string;
   /**

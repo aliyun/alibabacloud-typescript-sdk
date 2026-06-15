@@ -198,10 +198,30 @@ export class DescribeRouteTablesResponseBodyRouteTables extends $dara.Model {
 }
 
 export class DescribeRouteTablesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Details about the route tables.
+   */
   routeTables?: DescribeRouteTablesResponseBodyRouteTables;
+  /**
+   * @remarks
+   * The total number of matching entries.
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

@@ -181,10 +181,14 @@ export class DescribeDeploymentSetsResponseBodyDeploymentSets extends $dara.Mode
 }
 
 export class DescribeDeploymentSetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of deployment sets.
+   */
   deploymentSets?: DescribeDeploymentSetsResponseBodyDeploymentSets;
   /**
    * @remarks
-   * The page number.
+   * The page number of the deployment set list.
    * 
    * @example
    * 1
@@ -192,7 +196,7 @@ export class DescribeDeploymentSetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 1
@@ -216,10 +220,10 @@ export class DescribeDeploymentSetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of queried deployment sets.
+   * The total number of deployment sets.
    * 
    * @example
-   * 1
+   * 5
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

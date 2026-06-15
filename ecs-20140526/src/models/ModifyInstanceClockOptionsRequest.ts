@@ -15,8 +15,9 @@ export class ModifyInstanceClockOptionsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run. Valid values:
    * 
-   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. Otherwise, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. Otherwise, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * Default value: false.
    * 
@@ -40,8 +41,9 @@ export class ModifyInstanceClockOptionsRequest extends $dara.Model {
    * @remarks
    * PTP status value. Valid values:
    * 
-   * *   enabled
-   * *   disabled
+   * - enabled
+   * 
+   * - disabled
    * 
    * Default value: disabled.
    * 

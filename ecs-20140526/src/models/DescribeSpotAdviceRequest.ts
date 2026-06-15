@@ -23,10 +23,13 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
    * @remarks
    * The GPU type. Valid values:
    * 
-   * *   NVIDIA P4
-   * *   NVIDIA T4
-   * *   NVIDIA P100
-   * *   NVIDIA V100
+   * - NVIDIA P4
+   * 
+   * - NVIDIA T4
+   * 
+   * - NVIDIA P100
+   * 
+   * - NVIDIA V100
    * 
    * This parameter is left empty by default, which indicates that all GPU types are queried. For more information, see [GPU-accelerated compute-optimized and vGPU-accelerated instance families](https://help.aliyun.com/document_detail/108496.html).
    * 
@@ -38,9 +41,11 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
    * @remarks
    * The level of the instance family. Valid values:
    * 
-   * *   EntryLevel.
-   * *   EnterpriseLevel.
-   * *   CreditEntryLevel. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * - EntryLevel.
+   * 
+   * - EnterpriseLevel.
+   * 
+   * - CreditEntryLevel. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * 
    * This parameter is left empty by default, which indicates that instance families at all levels are queried.
    * 

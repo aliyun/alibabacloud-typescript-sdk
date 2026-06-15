@@ -42,8 +42,9 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: true.
    * 
@@ -55,8 +56,9 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the elasticity assurance. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -68,10 +70,11 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
    * @remarks
    * The auto-renewal period. Unit: month. Valid values: 1, 2, 3, 6, 12, 24, and 36.
    * 
-   * *   If you set `PeriodUnit` to Month, the default value is 1.
-   * *   If you set `PeriodUnit` to Year, the default value is 12.
+   * - If you set `PeriodUnit` to Month, the default value is 1.
    * 
-   * >  This parameter is required if you set `AutoRenew` to `true`.
+   * - If you set `PeriodUnit` to Year, the default value is 12.
+   * 
+   * > This parameter is required if you set `AutoRenew` to `true`.
    * 
    * @example
    * 1
@@ -93,8 +96,9 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
    * @remarks
    * The renewal duration. The unit of the renewal duration is determined by the `PeriodUnit` value. Valid values:
    * 
-   * *   Valid values if you set `PeriodUnit` to `Month`: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
-   * *   Valid values if you set `PeriodUnit` to `Year`: 1, 2, and 3.
+   * - Valid values if you set `PeriodUnit` to `Month`: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+   * 
+   * - Valid values if you set `PeriodUnit` to `Year`: 1, 2, and 3.
    * 
    * Default value: 1.
    * 
@@ -106,8 +110,9 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
    * @remarks
    * The unit of the renewal duration. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - Month
+   * 
+   * - Year
    * 
    * Default value: Year.
    * 

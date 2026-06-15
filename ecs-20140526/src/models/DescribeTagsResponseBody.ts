@@ -119,7 +119,7 @@ export class DescribeTagsResponseBodyTags extends $dara.Model {
 export class DescribeTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class DescribeTagsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B04B8CF3-4489-432D-83BA-6F128E4F2295

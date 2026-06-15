@@ -7,8 +7,9 @@ export class RenewReservedInstancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the reserved instance. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 

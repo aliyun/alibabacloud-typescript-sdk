@@ -121,9 +121,11 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
    * @remarks
    * The state of snapshot-consistent group N. Valid values of the second N: 1, 2, and 3. Valid values:
    * 
-   * *   progressing: The snapshot-consistent group is being created.
-   * *   accomplished: The snapshot-consistent group is created.
-   * *   failed: The snapshot-consistent group fails to be created.
+   * - progressing: The snapshot-consistent group is being created.
+   * 
+   * - accomplished: The snapshot-consistent group is created.
+   * 
+   * - failed: The snapshot-consistent group fails to be created.
    * 
    * @example
    * accomplished

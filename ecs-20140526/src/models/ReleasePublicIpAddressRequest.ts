@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReleasePublicIpAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is unavailable.
+   * > This parameter is not yet available.
    * 
    * @example
    * hide
@@ -13,7 +13,7 @@ export class ReleasePublicIpAddressRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-bp67acfmxazb4p****
@@ -31,7 +31,7 @@ export class ReleasePublicIpAddressRequest extends $dara.Model {
   publicIpAddress?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance is located.
    * 
    * @example
    * cn-hangzhou

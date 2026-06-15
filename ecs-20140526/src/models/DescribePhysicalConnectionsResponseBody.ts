@@ -103,10 +103,30 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSet extend
 }
 
 export class DescribePhysicalConnectionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The physical connection set.
+   */
   physicalConnectionSet?: DescribePhysicalConnectionsResponseBodyPhysicalConnectionSet;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

@@ -49,8 +49,9 @@ export class DescribePrefixListsRequest extends $dara.Model {
    * @remarks
    * The IP address family. Valid values:
    * 
-   * *   IPv4
-   * *   IPv6
+   * - IPv4
+   * 
+   * - IPv6
    * 
    * This parameter is empty by default, which indicates that all prefix lists are queried.
    * 

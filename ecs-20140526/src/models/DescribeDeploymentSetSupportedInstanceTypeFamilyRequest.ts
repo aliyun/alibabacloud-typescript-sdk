@@ -21,9 +21,11 @@ export class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends $da
    * @remarks
    * The deployment strategy. Valid values:
    * 
-   * *   Availability: high availability strategy
-   * *   AvailabilityGroup: high availability group strategy
-   * *   LowLatency: low latency strategy
+   * - Availability: high availability strategy
+   * 
+   * - AvailabilityGroup: high availability group strategy
+   * 
+   * - LowLatency: low latency strategy
    * 
    * Default value: Availability.
    * 

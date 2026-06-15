@@ -19,7 +19,7 @@ export class DescribeCloudAssistantSettingsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The Cloud Assistant configurations.
+   * The service settings to query.
    * 
    * This parameter is required.
    */

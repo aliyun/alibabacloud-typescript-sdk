@@ -7,8 +7,9 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to remove all tags from the resource. This parameter takes effect only if you do not specify TagKey.N. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -44,23 +45,39 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   instance: ECS instance
-   * *   disk: disk
-   * *   snapshot: snapshot
-   * *   image: image
-   * *   securitygroup: security group
-   * *   volume: storage volume
-   * *   eni: elastic network interface (ENI)
-   * *   ddh: dedicated host
-   * *   ddhcluster: dedicated host cluster
-   * *   keypair: SSH key pair
-   * *   launchtemplate: launch template
-   * *   reservedinstance: reserved instance
-   * *   snapshotpolicy: automatic snapshot policy
-   * *   elasticityassurance: elasticity assurance
-   * *   capacityreservation: capacity reservation
-   * *   command: Cloud Assistant command
-   * *   invocation: Cloud Assistant command execution result
+   * - instance: ECS instance
+   * 
+   * - disk: disk
+   * 
+   * - snapshot: snapshot
+   * 
+   * - image: image
+   * 
+   * - securitygroup: security group
+   * 
+   * - volume: storage volume
+   * 
+   * - eni: elastic network interface (ENI)
+   * 
+   * - ddh: dedicated host
+   * 
+   * - ddhcluster: dedicated host cluster
+   * 
+   * - keypair: SSH key pair
+   * 
+   * - launchtemplate: launch template
+   * 
+   * - reservedinstance: reserved instance
+   * 
+   * - snapshotpolicy: automatic snapshot policy
+   * 
+   * - elasticityassurance: elasticity assurance
+   * 
+   * - capacityreservation: capacity reservation
+   * 
+   * - command: Cloud Assistant command
+   * 
+   * - invocation: Cloud Assistant command execution result
    * 
    * This parameter is required.
    * 

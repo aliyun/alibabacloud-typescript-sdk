@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeregisterManagedInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Ensures the idempotence of the request. Generate a unique value for this parameter from your client to guarantee that the value is unique across different requests. **ClientToken** supports only ASCII characters and must not exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   /**
    * @remarks

@@ -55,7 +55,7 @@ export class CopySnapshotRequestArn extends $dara.Model {
 export class CopySnapshotRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the new snapshot. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The key of tag N to add to the new snapshot. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http\\:// or https\\://.
    * 
    * @example
    * TestKey
@@ -63,7 +63,7 @@ export class CopySnapshotRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the new snapshot. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The value of tag N to add to the new snapshot. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http\\:// or https\\://.
    * 
    * @example
    * TestValue
@@ -95,7 +95,7 @@ export class CopySnapshotRequestTag extends $dara.Model {
 export class CopySnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * >This parameter is currently in invitational preview and unavailable for public use.
+   * > This parameter is currently in invitational preview and unavailable for public use.
    */
   arn?: CopySnapshotRequestArn[];
   /**
@@ -118,7 +118,7 @@ export class CopySnapshotRequest extends $dara.Model {
   destinationRegionId?: string;
   /**
    * @remarks
-   * The description of the new snapshot. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * The description of the new snapshot. The description must be 2 to 256 characters in length and cannot start with http\\:// or https\\://.
    * 
    * This parameter is empty by default.
    * 
@@ -130,7 +130,7 @@ export class CopySnapshotRequest extends $dara.Model {
   destinationSnapshotDescription?: string;
   /**
    * @remarks
-   * The name of the new snapshot. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the new snapshot. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http\\:// or https\\://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * This parameter is left empty by default.
    * 
@@ -142,7 +142,7 @@ export class CopySnapshotRequest extends $dara.Model {
   destinationSnapshotName?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -152,8 +152,9 @@ export class CopySnapshotRequest extends $dara.Model {
    * @remarks
    * Specifies whether to encrypt the new snapshot. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 

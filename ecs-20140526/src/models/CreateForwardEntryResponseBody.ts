@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateForwardEntryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the forwarding entry.
+   */
   forwardEntryId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

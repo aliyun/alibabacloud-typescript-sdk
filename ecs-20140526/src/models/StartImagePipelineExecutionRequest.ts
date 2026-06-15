@@ -45,7 +45,7 @@ export class StartImagePipelineExecutionRequestTag extends $dara.Model {
 export class StartImagePipelineExecutionRequestTemplateTag extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @example
    * null
@@ -53,7 +53,7 @@ export class StartImagePipelineExecutionRequestTemplateTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @example
    * null
@@ -122,7 +122,7 @@ export class StartImagePipelineExecutionRequest extends $dara.Model {
   tag?: StartImagePipelineExecutionRequestTag[];
   /**
    * @remarks
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @deprecated
    */

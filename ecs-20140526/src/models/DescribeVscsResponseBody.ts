@@ -59,9 +59,6 @@ export class DescribeVscsResponseBodyVscs extends $dara.Model {
   status?: string;
   tags?: DescribeVscsResponseBodyVscsTags[];
   /**
-   * @remarks
-   * VSC ID。
-   * 
    * @example
    * vsc-hp34ue**g0wmycb27bwal
    */
@@ -121,17 +118,10 @@ export class DescribeVscsResponseBody extends $dara.Model {
    */
   nextToken?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 473469C7-AA6F-**-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * VSC
-   */
   vscs?: DescribeVscsResponseBodyVscs[];
   static names(): { [key: string]: string } {
     return {

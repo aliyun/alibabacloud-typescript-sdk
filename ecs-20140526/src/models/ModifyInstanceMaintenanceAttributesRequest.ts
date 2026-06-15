@@ -47,9 +47,11 @@ export class ModifyInstanceMaintenanceAttributesRequest extends $dara.Model {
    * @remarks
    * The maintenance action. Valid values:
    * 
-   * *   Stop: stops the instance.
-   * *   AutoRecover: automatically recovers the instance.
-   * *   AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
+   * - Stop: stops the instance.
+   * 
+   * - AutoRecover: automatically recovers the instance.
+   * 
+   * - AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
    * 
    * @example
    * AutoRecover
@@ -72,8 +74,9 @@ export class ModifyInstanceMaintenanceAttributesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to send an event notification before maintenance. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 

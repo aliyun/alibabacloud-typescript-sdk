@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyPhysicalConnectionAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

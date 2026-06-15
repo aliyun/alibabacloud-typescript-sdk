@@ -35,9 +35,11 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
    * @remarks
    * The operating system type of the instance. Valid values:
    * 
-   * *   Windows
-   * *   Linux
-   * *   FreeBSD
+   * - Windows
+   * 
+   * - Linux
+   * 
+   * - FreeBSD
    * 
    * @example
    * Windows
@@ -47,7 +49,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 1
@@ -55,7 +57,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiagnosticReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the diagnostic report.
+   * The diagnostic report ID.
    * 
    * @example
    * dr-uf6i0tv2refv8wz*****

@@ -31,8 +31,9 @@ export class ReleaseDedicatedHostRequest extends $dara.Model {
    * @remarks
    * The expiration time of the subscription dedicated host.
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
