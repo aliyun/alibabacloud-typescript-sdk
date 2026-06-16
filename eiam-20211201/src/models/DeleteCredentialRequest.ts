@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * 凭据ID。
+   * Credential ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteCredentialRequest extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * Instance ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckInstanceModuleStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * 二级模块标识
+   * The identifier for the secondary module.
    * 
    * @example
    * urn:alibaba:idaas:license:module:ud:customField
@@ -13,7 +13,7 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
   featureKey?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 一级模块标识，必填
+   * The identifier for the primary module.
    * 
    * This parameter is required.
    * 
@@ -32,6 +32,9 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
    */
   moduleKey?: string;
   /**
+   * @remarks
+   * The identifier for the tertiary module.
+   * 
    * @example
    * urn:alibaba:idaas:license:module:idp:alibaba:dingtalk:pull:advanced_configuration
    */

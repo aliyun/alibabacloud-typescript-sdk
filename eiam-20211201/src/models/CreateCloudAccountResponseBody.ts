@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCloudAccountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cloud account.
+   * 
    * @example
    * ca_01kmegjc11qa1txxxxx
    */
   cloudAccountId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

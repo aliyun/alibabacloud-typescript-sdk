@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIdentityProviderRequestDingtalkAppConfig extends $dara.Model {
   /**
    * @remarks
-   * 钉钉一方应用的AppKey
+   * The AppKey of the DingTalk application.
    * 
    * @example
    * 49nyeaqumk7f
@@ -13,18 +13,35 @@ export class UpdateIdentityProviderRequestDingtalkAppConfig extends $dara.Model 
   appKey?: string;
   /**
    * @remarks
-   * 钉钉一方应用的AppSecret
+   * The AppSecret of the DingTalk application.
    * 
    * @example
    * 86nozWFL2CxgwnhKiXaG8dN4keLPkUNc5xxxx
    */
   appSecret?: string;
   /**
+   * @remarks
+   * The version of the DingTalk QR code login.
+   * 
    * @example
-   * dingtalk
+   * new_version
    */
   dingtalkLoginVersion?: string;
+  /**
+   * @remarks
+   * The EncryptKey of the DingTalk application.
+   * 
+   * @example
+   * VkdWw91mdkrjVFr3ObNwefap21dfxxxx
+   */
   encryptKey?: string;
+  /**
+   * @remarks
+   * The verification token of the DingTalk application.
+   * 
+   * @example
+   * myDingApp_VerifyTokenxxxxx
+   */
   verificationToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,16 +74,36 @@ export class UpdateIdentityProviderRequestDingtalkAppConfig extends $dara.Model 
 
 export class UpdateIdentityProviderRequestLarkConfig extends $dara.Model {
   /**
+   * @remarks
+   * The application ID of the custom application in Lark.
+   * 
    * @example
    * cli_xxxx
    */
   appId?: string;
   /**
+   * @remarks
+   * The application secret of the custom application in Lark.
+   * 
    * @example
    * KiiLzh5Dueh4wbLxxxx
    */
   appSecret?: string;
+  /**
+   * @remarks
+   * The EncryptKey of the custom application in Lark.
+   * 
+   * @example
+   * VkdWw91mdkrjVFr3ObNwefap21dfbZbKxxxx
+   */
   encryptKey?: string;
+  /**
+   * @remarks
+   * The verification token of the custom application in Lark.
+   * 
+   * @example
+   * feishuVerifyTokenxxxxx
+   */
   verificationToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -98,7 +135,7 @@ export class UpdateIdentityProviderRequestLarkConfig extends $dara.Model {
 export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
   /**
    * @remarks
-   * 管理员密码
+   * The password for the administrator account.
    * 
    * @example
    * xxxxxx
@@ -106,7 +143,7 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
   administratorPassword?: string;
   /**
    * @remarks
-   * 管理员账号
+   * The administrator account.
    * 
    * @example
    * DC=example,DC=com
@@ -114,7 +151,11 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
   administratorUsername?: string;
   /**
    * @remarks
-   * 是否验证指纹证书
+   * Specifies whether to enable certificate fingerprint verification. Valid values:
+   * 
+   * - `disabled`: Verification is disabled.
+   * 
+   * - `enabled`: Verification is enabled.
    * 
    * @example
    * enabled
@@ -122,12 +163,12 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
   certificateFingerprintStatus?: string;
   /**
    * @remarks
-   * 证书指纹列表
+   * The list of certificate fingerprints.
    */
   certificateFingerprints?: string[];
   /**
    * @remarks
-   * 通信协议
+   * The communication protocol.
    * 
    * @example
    * ldap
@@ -135,7 +176,7 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
   ldapProtocol?: string;
   /**
    * @remarks
-   * ad/ldap 服务器地址
+   * The server address.
    * 
    * @example
    * 123.xx.xx.89
@@ -143,7 +184,7 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
   ldapServerHost?: string;
   /**
    * @remarks
-   * 端口号
+   * The port number.
    * 
    * @example
    * 636
@@ -151,7 +192,11 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
   ldapServerPort?: number;
   /**
    * @remarks
-   * startTls是否开启
+   * Specifies whether to enable StartTLS. Valid values:
+   * 
+   * - `disabled`: StartTLS is disabled.
+   * 
+   * - `enabled`: StartTLS is enabled.
    * 
    * @example
    * enabled
@@ -198,7 +243,11 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
 export class UpdateIdentityProviderRequestOidcConfigAuthnParam extends $dara.Model {
   /**
    * @remarks
-   * OIDC/oAuth2 认证方法。
+   * The OIDC client authentication method. Valid values:
+   * 
+   * - `client_secret_basic`
+   * 
+   * - `client_secret_post`
    * 
    * @example
    * client_secret_post
@@ -206,7 +255,7 @@ export class UpdateIdentityProviderRequestOidcConfigAuthnParam extends $dara.Mod
   authnMethod?: string;
   /**
    * @remarks
-   * OIDC/oAuth2 客户端密钥。
+   * The OIDC client secret.
    * 
    * @example
    * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
@@ -238,7 +287,7 @@ export class UpdateIdentityProviderRequestOidcConfigAuthnParam extends $dara.Mod
 export class UpdateIdentityProviderRequestOidcConfigEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * oAuth2 授权端点。
+   * The OIDC authorization endpoint.
    * 
    * @example
    * https://example.com/oauth/authorize
@@ -246,7 +295,7 @@ export class UpdateIdentityProviderRequestOidcConfigEndpointConfig extends $dara
   authorizationEndpoint?: string;
   /**
    * @remarks
-   * OIDC issuer信息。
+   * The OIDC issuer.
    * 
    * @example
    * https://example.com/oauth
@@ -254,7 +303,7 @@ export class UpdateIdentityProviderRequestOidcConfigEndpointConfig extends $dara
   issuer?: string;
   /**
    * @remarks
-   * OIDC jwks地址。
+   * The JSON Web Key Set (JWKS) URI.
    * 
    * @example
    * https://example.com/oauth/jwks
@@ -262,7 +311,7 @@ export class UpdateIdentityProviderRequestOidcConfigEndpointConfig extends $dara
   jwksUri?: string;
   /**
    * @remarks
-   * oAuth2 Token端点。
+   * The OIDC token endpoint.
    * 
    * @example
    * https://example.com/oauth/token
@@ -270,7 +319,7 @@ export class UpdateIdentityProviderRequestOidcConfigEndpointConfig extends $dara
   tokenEndpoint?: string;
   /**
    * @remarks
-   * OIDC 用户信息端点。
+   * The OIDC userinfo endpoint.
    * 
    * @example
    * https://example.com/oauth/userinfo
@@ -308,17 +357,17 @@ export class UpdateIdentityProviderRequestOidcConfigEndpointConfig extends $dara
 export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
   /**
    * @remarks
-   * OIDC客户端认证配置。
+   * The OIDC client authentication configuration.
    */
   authnParam?: UpdateIdentityProviderRequestOidcConfigAuthnParam;
   /**
    * @remarks
-   * OIDC 端点配置。
+   * The OIDC endpoint configuration.
    */
   endpointConfig?: UpdateIdentityProviderRequestOidcConfigEndpointConfig;
   /**
    * @remarks
-   * OIDC标准参数，如profile、email等
+   * The OIDC authorization scopes.
    * 
    * @example
    * openid
@@ -326,7 +375,7 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
   grantScopes?: string[];
   /**
    * @remarks
-   * OIDC授权类型。
+   * The OIDC grant type.
    * 
    * @example
    * authorization_code
@@ -334,7 +383,11 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
   grantType?: string;
   /**
    * @remarks
-   * 支持的PKCE算法类型。
+   * The Proof Key for Code Exchange (PKCE) method. Valid values:
+   * 
+   * - `S256`: The SHA-256 algorithm.
+   * 
+   * - `plain`: The plaintext format.
    * 
    * @example
    * S256
@@ -342,7 +395,7 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
   pkceChallengeMethod?: string;
   /**
    * @remarks
-   * AuthorizationCode授权模式下是否使用PKCE。
+   * Specifies whether PKCE is required for the authorization code grant type.
    * 
    * @example
    * true
@@ -390,6 +443,9 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
 
 export class UpdateIdentityProviderRequestSamlConfigCertificates extends $dara.Model {
   /**
+   * @remarks
+   * The content of the signing certificate.
+   * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX-----END CERTIFICATE-----
    */
@@ -417,32 +473,59 @@ export class UpdateIdentityProviderRequestSamlConfigCertificates extends $dara.M
 
 export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   /**
+   * @remarks
+   * The SAML binding method for the SSO request. Valid values are `HTTP-POST` and `HTTP-REDIRECT`.
+   * 
    * @example
    * HTTP-REDIRECT
    */
   bindingMethod?: string;
+  /**
+   * @remarks
+   * The signing certificates from the SAML identity provider.
+   */
   certificates?: UpdateIdentityProviderRequestSamlConfigCertificates[];
   /**
+   * @remarks
+   * The entity ID of the SAML identity provider.
+   * 
    * @example
    * http://dc.test.com/adfs/services/trust
    */
   idPEntityId?: string;
   /**
+   * @remarks
+   * The single sign-on (SSO) URL of the SAML identity provider.
+   * 
    * @example
    * https://dc.test.com/adfs/ls/
    */
   idPSsoUrl?: string;
   /**
+   * @remarks
+   * The maximum allowed clock skew, in seconds.
+   * 
    * @example
    * 180
    */
   maxClockSkew?: number;
   /**
+   * @remarks
+   * Specifies whether the SAML authentication request must be signed.
+   * 
    * @example
    * true
    */
   requireRequestSigned?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the assertions in the SAML response must be signed.
+   */
   wantAssertionsSigned?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the SAML response must be signed.
+   */
   wantResponseSigned?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -485,7 +568,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
 export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   /**
    * @remarks
-   * 企业微信自建应用的Id
+   * The agent ID of the custom application in WeCom.
    * 
    * @example
    * 1237403
@@ -493,7 +576,7 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * 授权回调域
+   * The authorized callback domain.
    * 
    * @example
    * https://xxx.aliyunidaas.com/xxxxx
@@ -501,7 +584,7 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   authorizeCallbackDomain?: string;
   /**
    * @remarks
-   * 企业微信自建应用的corpSecret
+   * The CorpSecret of the custom application in WeCom.
    * 
    * @example
    * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
@@ -509,7 +592,7 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   corpSecret?: string;
   /**
    * @remarks
-   * 可信域名
+   * The trusted domain.
    * 
    * @example
    * https://xxx.aliyunidaas.com
@@ -543,15 +626,22 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
 }
 
 export class UpdateIdentityProviderRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A client-generated token to ensure request idempotence. This value must be unique across requests.
+   * 
+   * @example
+   * client-examplexxx
+   */
   clientToken?: string;
   /**
    * @remarks
-   * 钉钉出基本信息
+   * The configuration for the DingTalk identity provider.
    */
   dingtalkAppConfig?: UpdateIdentityProviderRequestDingtalkAppConfig;
   /**
    * @remarks
-   * IDaaS的身份提供方主键id
+   * The ID of the identity provider.
    * 
    * This parameter is required.
    * 
@@ -561,7 +651,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * 身份提供方名称
+   * The name of the identity provider.
    * 
    * @example
    * test
@@ -569,7 +659,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   identityProviderName?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -579,18 +669,25 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 飞书配置
+   * The configuration for the Lark identity provider.
    */
   larkConfig?: UpdateIdentityProviderRequestLarkConfig;
   /**
    * @remarks
-   * AD/LDAP基本信息
+   * The configuration for the Active Directory (AD) or Lightweight Directory Access Protocol (LDAP) identity provider.
    */
   ldapConfig?: UpdateIdentityProviderRequestLdapConfig;
+  /**
+   * @remarks
+   * The URL of the application logo.
+   * 
+   * @example
+   * idaas-image://idaas_23aqr2ye554csg33dqpch5exxxx/tmp/d17d9adc-a943-45e7-ba0c-2838dddea678xxxx
+   */
   logoUrl?: string;
   /**
    * @remarks
-   * 网络端点ID
+   * The ID of the network access endpoint.
    * 
    * @example
    * nae_examplexxxx
@@ -598,13 +695,17 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * OIDC IdP配置。
+   * The OpenID Connect (OIDC) configuration.
    */
   oidcConfig?: UpdateIdentityProviderRequestOidcConfig;
+  /**
+   * @remarks
+   * The configuration for the SAML identity provider.
+   */
   samlConfig?: UpdateIdentityProviderRequestSamlConfig;
   /**
    * @remarks
-   * 企业微信基本信息
+   * The configuration for the WeCom identity provider.
    */
   weComConfig?: UpdateIdentityProviderRequestWeComConfig;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceResponseBodyInstanceDefaultEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the instance.
+   * The endpoint address of the instance.
    * 
    * @example
    * example-xxx.aliyunidaas.com
@@ -13,10 +13,9 @@ export class GetInstanceResponseBodyInstanceDefaultEndpoint extends $dara.Model 
   endpoint?: string;
   /**
    * @remarks
-   * The status of the endpoint. Valid values:
-   * 
-   * *   resolved
-   * *   unresolved
+   * The status of the instance endpoint. Valid values:
+   * - resolved: Resolved.
+   * - unresolved: Not resolved.
    * 
    * @example
    * resolved
@@ -51,26 +50,26 @@ export class GetInstanceResponseBodyInstanceDomainConfig extends $dara.Model {
    * The default domain of the instance.
    * 
    * @example
-   * example-xxx.example.com
+   * login.example.com
    */
   defaultDomain?: string;
   /**
    * @remarks
-   * The init domain of the instance.
+   * The initialization domain of the instance.
    * 
    * @example
-   * example-xxx.aliyunidaas.com
+   * rx72nxxx.example.com
    */
   initDomain?: string;
   /**
    * @remarks
-   * Valid values:
+   * The auto-redirect status of the initialization domain. Valid values:
+   * - enabled: Enabled.
    * 
-   * *   true
-   * *   false
+   * - disabled: Disabled.
    * 
    * @example
-   * true
+   * disabled
    */
   initDomainAutoRedirectStatus?: string;
   static names(): { [key: string]: string } {
@@ -98,18 +97,83 @@ export class GetInstanceResponseBodyInstanceDomainConfig extends $dara.Model {
   }
 }
 
+export class GetInstanceResponseBodyInstanceReplicationConfiguration extends $dara.Model {
+  /**
+   * @example
+   * idaas_xxxx
+   */
+  backupInstanceId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  backupInstanceRegionId?: string;
+  /**
+   * @example
+   * idaas_xxxx
+   */
+  primaryInstanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  primaryInstanceRegionId?: string;
+  /**
+   * @example
+   * 1778499337000
+   */
+  replicationCreateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupInstanceId: 'BackupInstanceId',
+      backupInstanceRegionId: 'BackupInstanceRegionId',
+      primaryInstanceId: 'PrimaryInstanceId',
+      primaryInstanceRegionId: 'PrimaryInstanceRegionId',
+      replicationCreateTime: 'ReplicationCreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupInstanceId: 'string',
+      backupInstanceRegionId: 'string',
+      primaryInstanceId: 'string',
+      primaryInstanceRegionId: 'string',
+      replicationCreateTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the instance was created, in Unix timestamp format, measured in milliseconds.
    * 
    * @example
    * 1550115455000
    */
   createTime?: number;
   /**
+   * @example
+   * enabled
+   */
+  crossRegionReplication?: string;
+  /**
+   * @example
+   * primary
+   */
+  crossRegionReplicationRole?: string;
+  /**
    * @remarks
-   * The default endpoint of the instance.
+   * The default endpoint of the instance. This field is no longer maintained. Use the DomainConfig related fields or refer to the domain list query API instead.
    */
   defaultEndpoint?: GetInstanceResponseBodyInstanceDefaultEndpoint;
   /**
@@ -117,19 +181,24 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * test_description
+   * instance_for_test
    */
   description?: string;
   /**
    * @remarks
-   * The default domain of the instance.
+   * The domain-related configuration of the instance.
    */
   domainConfig?: GetInstanceResponseBodyInstanceDomainConfig;
   /**
    * @remarks
-   * The outbound public CIDR blocks of the instance. For example, when you synchronize Active Directory (AD) accounts, the IDaaS EIAM instance accesses your AD service by using the outbound public CIDR blocks.
+   * The egress public IP address ranges of the instance. For example, during AD account synchronization, the EIAM instance accesses your AD service through these public IP address ranges.
    */
   egressAddresses?: string[];
+  /**
+   * @example
+   * inactive
+   */
+  instanceFailoverStatus?: string;
   /**
    * @remarks
    * The instance ID.
@@ -139,6 +208,9 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The service code of the cloud service that manages the instance.
+   * 
    * @example
    * sase
    * 
@@ -146,17 +218,23 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * false
    */
   managedServiceCode?: string;
+  replicationConfiguration?: GetInstanceResponseBodyInstanceReplicationConfiguration;
   /**
+   * @remarks
+   * Indicates whether the instance is managed by a cloud service.
+   * 
+   * @example
+   * false
+   * 
    * **if can be null:**
    * false
    */
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * *   creating
-   * *   running
+   * The instance status. Valid values:
+   * - creating: Being created.
+   * - running: Running.
    * 
    * @example
    * running
@@ -165,12 +243,16 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      crossRegionReplication: 'CrossRegionReplication',
+      crossRegionReplicationRole: 'CrossRegionReplicationRole',
       defaultEndpoint: 'DefaultEndpoint',
       description: 'Description',
       domainConfig: 'DomainConfig',
       egressAddresses: 'EgressAddresses',
+      instanceFailoverStatus: 'InstanceFailoverStatus',
       instanceId: 'InstanceId',
       managedServiceCode: 'ManagedServiceCode',
+      replicationConfiguration: 'ReplicationConfiguration',
       serviceManaged: 'ServiceManaged',
       status: 'Status',
     };
@@ -179,12 +261,16 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
+      crossRegionReplication: 'string',
+      crossRegionReplicationRole: 'string',
       defaultEndpoint: GetInstanceResponseBodyInstanceDefaultEndpoint,
       description: 'string',
       domainConfig: GetInstanceResponseBodyInstanceDomainConfig,
       egressAddresses: { 'type': 'array', 'itemType': 'string' },
+      instanceFailoverStatus: 'string',
       instanceId: 'string',
       managedServiceCode: 'string',
+      replicationConfiguration: GetInstanceResponseBodyInstanceReplicationConfiguration,
       serviceManaged: 'boolean',
       status: 'string',
     };
@@ -200,6 +286,9 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
     if(Array.isArray(this.egressAddresses)) {
       $dara.Model.validateArray(this.egressAddresses);
     }
+    if(this.replicationConfiguration && typeof (this.replicationConfiguration as any).validate === 'function') {
+      (this.replicationConfiguration as any).validate();
+    }
     super.validate();
   }
 
@@ -211,7 +300,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
 export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the instance.
+   * The instance information.
    */
   instance?: GetInstanceResponseBodyInstance;
   /**

@@ -13,7 +13,7 @@ export class GetApplicationProvisioningScopeResponseBodyApplicationProvisioningS
    * Instance Indicates the maximum quota number of authorized agents.
    * 
    * @example
-   * 20
+   * 1000
    */
   maxQuota?: number;
   /**

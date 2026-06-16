@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyInstancesDefaultEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the instance.
+   * The endpoint address of the instance.
    * 
    * @example
    * example-xxx.aliyunidaas.com
@@ -13,10 +13,9 @@ export class ListInstancesResponseBodyInstancesDefaultEndpoint extends $dara.Mod
   endpoint?: string;
   /**
    * @remarks
-   * The status of the endpoint. Valid values:
-   * 
-   * *   resolved
-   * *   unresolved
+   * The status of the instance endpoint. Valid values:
+   * - resolved: Resolved.
+   * - unresolved: Unresolved.
    * 
    * @example
    * resolved
@@ -45,15 +44,80 @@ export class ListInstancesResponseBodyInstancesDefaultEndpoint extends $dara.Mod
   }
 }
 
+export class ListInstancesResponseBodyInstancesReplicationConfiguration extends $dara.Model {
+  /**
+   * @example
+   * idaas_xxxxxx
+   */
+  backupInstanceId?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  backupInstanceRegionId?: string;
+  /**
+   * @example
+   * idaas_xxxxxx
+   */
+  primaryInstanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  primaryInstanceRegionId?: string;
+  /**
+   * @example
+   * 1778499337000
+   */
+  replicationCreateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupInstanceId: 'BackupInstanceId',
+      backupInstanceRegionId: 'BackupInstanceRegionId',
+      primaryInstanceId: 'PrimaryInstanceId',
+      primaryInstanceRegionId: 'PrimaryInstanceRegionId',
+      replicationCreateTime: 'ReplicationCreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupInstanceId: 'string',
+      backupInstanceRegionId: 'string',
+      primaryInstanceId: 'string',
+      primaryInstanceRegionId: 'string',
+      replicationCreateTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The creation time of the instance, in Unix timestamp format, in milliseconds.
    * 
    * @example
    * 1550115455000
    */
   createTime?: number;
+  /**
+   * @example
+   * enabled
+   */
+  crossRegionReplication?: string;
+  /**
+   * @example
+   * primary
+   */
+  crossRegionReplicationRole?: string;
   /**
    * @remarks
    * The default endpoint of the instance.
@@ -62,28 +126,46 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
    * The description of the instance.
+   * 
+   * @example
+   * instance_for_test
    */
   description?: string;
   /**
+   * @example
+   * inactive
+   */
+  instanceFailoverStatus?: string;
+  /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * @example
    * idaas_eypq6ljgyeuwmlw672sulxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The service code of the cloud service that manages the instance.
+   * 
    * @example
    * sase
    */
   managedServiceCode?: string;
+  replicationConfiguration?: ListInstancesResponseBodyInstancesReplicationConfiguration;
+  /**
+   * @remarks
+   * Indicates whether the instance is managed by a cloud service.
+   * 
+   * @example
+   * true
+   */
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * *   creating
-   * *   running
+   * Instance status. Valid values:
+   * - creating: Being created.
+   * - running: Running.
    * 
    * @example
    * running
@@ -92,10 +174,14 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      crossRegionReplication: 'CrossRegionReplication',
+      crossRegionReplicationRole: 'CrossRegionReplicationRole',
       defaultEndpoint: 'DefaultEndpoint',
       description: 'Description',
+      instanceFailoverStatus: 'InstanceFailoverStatus',
       instanceId: 'InstanceId',
       managedServiceCode: 'ManagedServiceCode',
+      replicationConfiguration: 'ReplicationConfiguration',
       serviceManaged: 'ServiceManaged',
       status: 'Status',
     };
@@ -104,10 +190,14 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
+      crossRegionReplication: 'string',
+      crossRegionReplicationRole: 'string',
       defaultEndpoint: ListInstancesResponseBodyInstancesDefaultEndpoint,
       description: 'string',
+      instanceFailoverStatus: 'string',
       instanceId: 'string',
       managedServiceCode: 'string',
+      replicationConfiguration: ListInstancesResponseBodyInstancesReplicationConfiguration,
       serviceManaged: 'boolean',
       status: 'string',
     };
@@ -116,6 +206,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   validate() {
     if(this.defaultEndpoint && typeof (this.defaultEndpoint as any).validate === 'function') {
       (this.defaultEndpoint as any).validate();
+    }
+    if(this.replicationConfiguration && typeof (this.replicationConfiguration as any).validate === 'function') {
+      (this.replicationConfiguration as any).validate();
     }
     super.validate();
   }
@@ -128,12 +221,12 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of instances.
+   * The list of instance information.
    */
   instances?: ListInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -141,7 +234,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * Total number of entries.
    * 
    * @example
    * 100

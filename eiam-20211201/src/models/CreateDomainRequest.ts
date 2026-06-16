@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDomainRequestFiling extends $dara.Model {
   /**
    * @remarks
-   * Record number associated with the domain name.
+   * The ICP filing number associated with the domain name.
    * 
    * @example
-   * 浙xx-xxxxxx
+   * xICPxxxxxx-xx
    */
   icpNumber?: string;
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class CreateDomainRequestFiling extends $dara.Model {
 export class CreateDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name of the website.
+   * The domain name.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateDomainRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Registration information parameters.
+   * The parameters for ICP filing information.
    */
   filing?: CreateDomainRequestFiling;
   /**

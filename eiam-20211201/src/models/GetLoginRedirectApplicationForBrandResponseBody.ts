@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectApplication extends $dara.Model {
   /**
    * @remarks
-   * 应用ID
+   * The application ID.
    * 
    * @example
    * app_xxxx
@@ -13,7 +13,7 @@ export class GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectAp
   applicationId?: string;
   /**
    * @remarks
-   * 品牌ID
+   * The brand ID.
    * 
    * @example
    * brand_xxxx
@@ -21,7 +21,7 @@ export class GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectAp
   brandId?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -53,8 +53,15 @@ export class GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectAp
 }
 
 export class GetLoginRedirectApplicationForBrandResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the post-logon redirect application for the brand.
+   */
   brandLoginRedirectApplication?: GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectApplication;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

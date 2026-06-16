@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationTokensRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListApplicationTokensRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * ApplicationToken的类型
+   * The type of the application token.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListApplicationTokensRequest extends $dara.Model {
   applicationTokenType?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

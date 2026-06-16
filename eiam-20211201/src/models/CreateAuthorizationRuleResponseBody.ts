@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAuthorizationRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The authorization rule ID.
+   * 
    * @example
    * arrule_01kf143ug06fg7m9f43u7vahxxxx
    */
   authorizationRuleId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientContent extends $dara.Model {
   /**
    * @remarks
-   * OAuth协议的client_id
+   * The client ID of the OAuth client.
    * 
    * @example
    * dmvncmxersdxxxxxx
@@ -35,7 +35,7 @@ export class ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientC
 export class ListCredentialsResponseBodyCredentialsCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * OAuth客户端认证凭证类型的凭据内容。
+   * The content of an OAuth client credential.
    */
   OAuthClientContent?: ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class ListCredentialsResponseBodyCredentialsCredentialContent extends $da
 export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   /**
    * @remarks
-   * 云角色创建时间
+   * The time the credential was created, provided as a Unix timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -73,12 +73,16 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * 凭据的内容。
+   * The content of the credential.
    */
   credentialContent?: ListCredentialsResponseBodyCredentialsCredentialContent;
   /**
    * @remarks
-   * 凭据的创建类型。
+   * The creation type of the credential. Valid values:
+   * 
+   * - `system_init`: Created by the system.
+   * 
+   * - `user_custom`: Created by a user.
    * 
    * @example
    * user_custom
@@ -87,7 +91,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialExternalId?: string;
   /**
    * @remarks
-   * 凭据ID。
+   * The ID of the credential.
    * 
    * @example
    * cred_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -95,7 +99,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * 凭据标识
+   * The identifier of the credential.
    * 
    * @example
    * credential_identifier_test
@@ -103,7 +107,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialIdentifier?: string;
   /**
    * @remarks
-   * 凭据名称
+   * The name of the credential.
    * 
    * @example
    * credential_name
@@ -111,7 +115,11 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * 凭据的使用场景标签。
+   * The use case label for the credential. Valid values:
+   * 
+   * - `llm`: A large language model.
+   * 
+   * - `saas`: A third-party SaaS service.
    * 
    * @example
    * llm
@@ -120,7 +128,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialSharingScope?: string;
   /**
    * @remarks
-   * 凭据所属的主体ID。
+   * The ID of the credential\\"s subject.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -128,7 +136,9 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * 凭据所属的主体类型。
+   * The type of the credential\\"s subject. Valid value:
+   * 
+   * - `authentication_token_provider`: An authentication token provider.
    * 
    * @example
    * authentication_token_provider
@@ -136,7 +146,11 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialSubjectType?: string;
   /**
    * @remarks
-   * 凭据类型。
+   * The type of the credential. Valid values:
+   * 
+   * - `api_key`: An API key.
+   * 
+   * - `oauth_client`: An OAuth client.
    * 
    * @example
    * api_key
@@ -144,7 +158,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * 描述
+   * The description of the credential.
    * 
    * @example
    * credential_description
@@ -153,7 +167,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   exclusiveUserId?: string;
   /**
    * @remarks
-   * EIAM实例ID。
+   * The ID of the EIAM instance.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -161,7 +175,11 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 凭据状态
+   * The status of the credential. Valid values:
+   * 
+   * - `enabled`: The credential is enabled.
+   * 
+   * - `disabled`: The credential is disabled.
    * 
    * @example
    * enabled
@@ -169,7 +187,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 云角色更新时间
+   * The time the credential was last updated, provided as a Unix timestamp in milliseconds.
    * 
    * @example
    * 1649830227000
@@ -232,10 +250,14 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
 }
 
 export class ListCredentialsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of credentials.
+   */
   credentials?: ListCredentialsResponseBodyCredentials[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The maximum number of entries to return per page.
    * 
    * @example
    * 20
@@ -243,18 +265,24 @@ export class ListCredentialsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token used to retrieve the next page of results. If this parameter is not returned, it indicates all results have been returned.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

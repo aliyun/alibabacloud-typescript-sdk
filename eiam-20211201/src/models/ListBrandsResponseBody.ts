@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBrandsResponseBodyBrands extends $dara.Model {
   /**
    * @remarks
-   * 品牌ID
+   * The brand ID.
    * 
    * @example
    * brand_xxxx
@@ -13,7 +13,7 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * 品牌名称
+   * The brand name.
    * 
    * @example
    * Custom Brand
@@ -21,7 +21,7 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
   brandName?: string;
   /**
    * @remarks
-   * 品牌类型
+   * The brand type.
    * 
    * @example
    * user_custom
@@ -29,7 +29,7 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
   brandType?: string;
   /**
    * @remarks
-   * 实例ID。
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -37,7 +37,7 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 品牌状态
+   * The brand status.
    * 
    * @example
    * enabled
@@ -73,10 +73,14 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
 }
 
 export class ListBrandsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of brands.
+   */
   brands?: ListBrandsResponseBodyBrands[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -84,7 +88,7 @@ export class ListBrandsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * NTxxxexample
@@ -92,18 +96,24 @@ export class ListBrandsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+   * The token that is used to retrieve the previous page of results.
    * 
    * @example
    * PTxxxexample
    */
   previousToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

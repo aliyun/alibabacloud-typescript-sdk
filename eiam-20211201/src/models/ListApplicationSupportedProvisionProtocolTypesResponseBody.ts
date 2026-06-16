@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationSupportedProvisionProtocolTypesResponseBodyApplicationSupportedProvisionProtocolType extends $dara.Model {
   /**
    * @remarks
-   * 账户同步支持类型
+   * The account synchronization protocols that the application supports. Valid values:
+   * 
+   * - idaas_callback: event callback.
+   * 
+   * - scim2: System for Cross-domain Identity Management (SCIM) protocol.
    */
   provisionProtocolType?: string[];
   static names(): { [key: string]: string } {
@@ -33,8 +37,15 @@ export class ListApplicationSupportedProvisionProtocolTypesResponseBodyApplicati
 }
 
 export class ListApplicationSupportedProvisionProtocolTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The supported synchronization protocols for the application.
+   */
   applicationSupportedProvisionProtocolType?: ListApplicationSupportedProvisionProtocolTypesResponseBodyApplicationSupportedProvisionProtocolType;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig extends $dara.Model {
   /**
    * @remarks
-   * Group member attribute name
+   * The group member identifier.
    * 
    * @example
-   * memberxxx
+   * member
    */
   groupMemberAttributeName?: string;
   /**
    * @remarks
-   * GroupObjectClass
+   * The group objectClass.
    * 
    * @example
-   * groupxxx
+   * group
    */
   groupObjectClass?: string;
   /**
    * @remarks
-   * GroupObjectClass custom filter
+   * The custom group filter.
    * 
    * @example
    * (|(cn=test)(group=test@test.com))
@@ -29,23 +29,23 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
   groupObjectClassCustomFilter?: string;
   /**
    * @remarks
-   * OrganizationUnitObjectClass
+   * The organizational unit objectClass.
    * 
    * @example
-   * organizationUnitxxx,top
+   * organizationUnit,top
    */
   organizationUnitObjectClass?: string;
   /**
    * @remarks
-   * UserObjectClass
+   * The user objectClass.
    * 
    * @example
-   * userPrincipalNamexxx, mail
+   * userPrincipalName, mail
    */
   userObjectClass?: string;
   /**
    * @remarks
-   * UserObjectClass custom filter
+   * The custom user filter.
    * 
    * @example
    * (|(cn=test)(mail=test@test.com))
@@ -85,7 +85,7 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
 export class SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig extends $dara.Model {
   /**
    * @remarks
-   * Periodic synchronize cron
+   * The cron expression. This parameter is required when periodicSyncType is set to cron.
    * 
    * @example
    * 0 45 1 * * ?
@@ -93,12 +93,12 @@ export class SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig ext
   periodicSyncCron?: string;
   /**
    * @remarks
-   * Periodic synchronize times
+   * The time points for synchronization. This parameter is required when periodicSyncType is set to time. For example, if you set this parameter to [3, 5], the synchronization is performed from 03:00 to 04:00 and from 05:00 to 06:00.
    */
   periodicSyncTimes?: number[];
   /**
    * @remarks
-   * Periodic synchronize type
+   * The type.
    * 
    * @example
    * cron
@@ -135,7 +135,7 @@ export class SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig ext
 export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule extends $dara.Model {
   /**
    * @remarks
-   * Group deleted threshold
+   * The threshold for the number of groups to be deleted. If the number of groups to be deleted exceeds this value, the synchronization task is stopped.
    * 
    * @example
    * 10
@@ -143,7 +143,7 @@ export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule exte
   groupDeletedThreshold?: number;
   /**
    * @remarks
-   * OrganizationalUnit deleted threshold
+   * The threshold for the number of organizational units to be deleted. If the number of organizational units to be deleted exceeds this value, the synchronization task is stopped.
    * 
    * @example
    * 10
@@ -151,7 +151,7 @@ export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule exte
   organizationalUnitDeletedThreshold?: number;
   /**
    * @remarks
-   * User deleted threshold
+   * The threshold for the number of users to be deleted. If the number of users to be deleted exceeds this value, the synchronization task is stopped.
    * 
    * @example
    * 30
@@ -185,12 +185,12 @@ export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule exte
 export class SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig extends $dara.Model {
   /**
    * @remarks
-   * Synchronize source scopes
+   * The list of source nodes for synchronization.
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * Synchronize target scope
+   * The target node for synchronization.
    * 
    * @example
    * ou_asdaq1addsxzdq1XXX
@@ -225,7 +225,11 @@ export class SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig exte
 export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * Group synchronization status.
+   * The group synchronization status. Valid values:
+   * 
+   * - disabled: The feature is disabled.
+   * 
+   * - enabled: The feature is enabled.
    * 
    * @example
    * disabled
@@ -233,7 +237,7 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   groupSyncStatus?: string;
   /**
    * @remarks
-   * Identity provider ID
+   * The identity provider ID.
    * 
    * This parameter is required.
    * 
@@ -243,7 +247,11 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * Incremental callback status, whether to process incremental callback data from IdP.
+   * The status of incremental callback. This parameter specifies whether to process incremental callback data from the IdP. Valid values:
+   * 
+   * - disabled: The feature is disabled.
+   * 
+   * - enabled: The feature is enabled.
    * 
    * This parameter is required.
    * 
@@ -263,17 +271,21 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Ldap ud pull config
+   * The configurations of LDAP synchronization.
    */
   ldapUdPullConfig?: SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig;
   /**
    * @remarks
-   * Periodic synchronize config
+   * The scheduled synchronization configuration.
    */
   periodicSyncConfig?: SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig;
   /**
    * @remarks
-   * Periodic synchronize status
+   * The status of scheduled check. This parameter specifies whether to periodically check for data inconsistencies between IDaaS and the IdP. Valid values:
+   * 
+   * - disabled: The feature is disabled.
+   * 
+   * - enabled: The feature is enabled.
    * 
    * @example
    * disabled
@@ -281,12 +293,12 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   periodicSyncStatus?: string;
   /**
    * @remarks
-   * Synchronize protected rule
+   * The inbound synchronization protection rule.
    */
   pullProtectedRule?: SetIdentityProviderUdPullConfigurationRequestPullProtectedRule;
   /**
    * @remarks
-   * Synchronize configuration information.
+   * The inbound synchronization configuration.
    */
   udSyncScopeConfig?: SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig;
   static names(): { [key: string]: string } {

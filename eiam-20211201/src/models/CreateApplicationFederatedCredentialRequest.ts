@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationFederatedCredentialRequestAttributeMappings extends $dara.Model {
   /**
    * @remarks
-   * 源值表达式
+   * The source value expression.
    * 
    * @example
    * Append(client.applicationFederatedCredentialId, ":", cert.subject.CN, ":", cert.serialNumber)
@@ -13,7 +13,7 @@ export class CreateApplicationFederatedCredentialRequestAttributeMappings extend
   sourceValueExpression?: string;
   /**
    * @remarks
-   * 目标字段
+   * The target field.
    * 
    * @example
    * client.activeSubjectUrn
@@ -45,7 +45,7 @@ export class CreateApplicationFederatedCredentialRequestAttributeMappings extend
 export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用联邦凭证名称
+   * The name of the application federated credential.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   applicationFederatedCredentialName?: string;
   /**
    * @remarks
-   * 应用联邦凭证类型
+   * The type of the application federated credential.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   applicationFederatedCredentialType?: string;
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -75,20 +75,20 @@ export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 属性映射
+   * The attribute mappings.
    */
   attributeMappings?: CreateApplicationFederatedCredentialRequestAttributeMappings[];
   /**
    * @remarks
-   * 描述
+   * The description.
    * 
    * @example
-   * 描述
+   * description_text
    */
   description?: string;
   /**
    * @remarks
-   * 联邦凭证提供方ID
+   * The ID of the federated credential provider.
    * 
    * This parameter is required.
    * 
@@ -98,7 +98,7 @@ export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   federatedCredentialProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -108,7 +108,7 @@ export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 校验条件
+   * The verification condition.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")

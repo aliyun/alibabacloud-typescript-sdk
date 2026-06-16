@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符，且不能超过64个字符。
+   * The idempotence token.
    * 
    * @example
    * client-token-example
@@ -13,15 +13,15 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 网络区域描述
+   * The description of the network zone.
    * 
    * @example
-   * 测试描述
+   * Test description
    */
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 网络区域ipv4Cidr
+   * The IPv4 CIDR blocks of the network zone.
    * 
    * @example
    * 0.0.0.0/0
@@ -39,7 +39,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   ipv4Cidrs?: string[];
   /**
    * @remarks
-   * 网络区域ipv6Cidr
+   * The IPv6 CIDR blocks of the network zone.
    * 
    * @example
    * ::/0
@@ -47,7 +47,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   ipv6Cidrs?: string[];
   /**
    * @remarks
-   * 网络区域名称
+   * The name of the network zone.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   networkZoneName?: string;
   /**
    * @remarks
-   * 网络区域类型
+   * The type of the network zone.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class CreateNetworkZoneRequest extends $dara.Model {
   networkZoneType?: string;
   /**
    * @remarks
-   * 专有网络VpcId
+   * The ID of the VPC.
    * 
    * @example
    * vpc_xxxxx

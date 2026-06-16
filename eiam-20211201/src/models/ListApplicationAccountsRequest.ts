@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用主键id
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListApplicationAccountsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListApplicationAccountsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 当前查询的列表页码，默认为1
+   * The page number.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListApplicationAccountsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 当前查询的列表页码，默认为20
+   * The number of entries per page.
    * 
    * @example
    * 20

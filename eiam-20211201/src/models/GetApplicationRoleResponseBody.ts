@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   /**
    * @remarks
-   * 应用唯一标识
+   * The ID of the application.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -13,7 +13,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色的唯一标识
+   * The ID of the application role.
    * 
    * @example
    * approle_01kh2vuo8v9splv8maak1d22rxxxx
@@ -21,7 +21,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   applicationRoleId?: string;
   /**
    * @remarks
-   * 应用角色名称
+   * The name of the application role.
    * 
    * @example
    * Admin Role
@@ -29,7 +29,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   applicationRoleName?: string;
   /**
    * @remarks
-   * 应用角色值
+   * The value of the application role.
    * 
    * @example
    * admin_role
@@ -37,7 +37,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   applicationRoleValue?: string;
   /**
    * @remarks
-   * 应用角色描述
+   * The description of the application role.
    * 
    * @example
    * Admin Role Description
@@ -45,7 +45,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * EIAM 实例唯一标识
+   * The ID of the instance.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxx
@@ -83,8 +83,15 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
 }
 
 export class GetApplicationRoleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the application role.
+   */
   applicationRole?: GetApplicationRoleResponseBodyApplicationRole;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

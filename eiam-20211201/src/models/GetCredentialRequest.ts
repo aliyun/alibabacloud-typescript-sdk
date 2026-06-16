@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCredentialRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the credential.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class GetCredentialRequest extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

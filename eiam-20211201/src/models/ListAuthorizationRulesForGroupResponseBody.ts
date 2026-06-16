@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * 授权生效结束时间。
+   * The end time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidit
   endTime?: number;
   /**
    * @remarks
-   * 授权生效开始时间。
+   * The start time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -45,7 +45,7 @@ export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidit
 export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRules extends $dara.Model {
   /**
    * @remarks
-   * 授权规则标识。
+   * The authorization rule ID.
    * 
    * @example
    * arrule_01kf143ug06fg7m9f43u7vahxxxx
@@ -53,7 +53,7 @@ export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRules extend
   authorizationRuleId?: string;
   /**
    * @remarks
-   * 实例ID。
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -61,12 +61,16 @@ export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRules extend
   instanceId?: string;
   /**
    * @remarks
-   * 有效周期。
+   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
    */
   validityPeriod?: ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidityPeriod;
   /**
    * @remarks
-   * 有效期类型，枚举值：permanent（永久），time_bound（自定义时间范围）。
+   * The type of the validity period. Valid values:
+   * 
+   * - permanent: The authorization is permanent.
+   * 
+   * - time_bound: The authorization is valid within a custom time range.
    * 
    * @example
    * permanent
@@ -103,10 +107,14 @@ export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRules extend
 }
 
 export class ListAuthorizationRulesForGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of authorization rules.
+   */
   authorizationRules?: ListAuthorizationRulesForGroupResponseBodyAuthorizationRules[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -114,18 +122,24 @@ export class ListAuthorizationRulesForGroupResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token used to start the next paged query. This token is returned in the response.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */

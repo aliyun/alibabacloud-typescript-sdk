@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems extends $dara.Model {
   /**
+   * @remarks
+   * The name of the custom privacy policy item.
+   * 
    * @example
    * Item Name
    */
   customPrivacyPolicyItemName?: string;
   /**
+   * @remarks
+   * The endpoint of the custom privacy policy item. The value must start with https\\://.
+   * 
    * @example
    * https://example.com
    */
@@ -37,13 +43,23 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPr
 }
 
 export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends $dara.Model {
+  /**
+   * @remarks
+   * The items of the custom privacy policy.
+   */
   customPrivacyPolicyItems?: UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems[];
   /**
+   * @remarks
+   * The prompt for the custom privacy policy content.
+   * 
    * @example
    * Please read and agree：
    */
   customPrivacyPolicyTip?: string;
   /**
+   * @remarks
+   * The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
+   * 
    * @example
    * zh-Hans-CN
    */
@@ -77,9 +93,15 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends
 }
 
 export class UpdateCustomPrivacyPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the custom privacy policy content.
+   */
   customPrivacyPolicyContents?: UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents[];
   /**
    * @remarks
+   * The ID of the custom privacy policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -87,18 +109,24 @@ export class UpdateCustomPrivacyPolicyRequest extends $dara.Model {
    */
   customPrivacyPolicyId?: string;
   /**
+   * @remarks
+   * The name of the custom privacy policy.
+   * 
    * @example
    * Custom Privacy Policy Name
    */
   customPrivacyPolicyName?: string;
   /**
+   * @remarks
+   * The default language of the policy. The value is the LanguageCode returned by the ListLanguages operation.
+   * 
    * @example
    * zh-Hans-CN
    */
   defaultLanguageCode?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -107,6 +135,9 @@ export class UpdateCustomPrivacyPolicyRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The consent type for the custom privacy policy.
+   * 
    * @example
    * implied_consent
    */

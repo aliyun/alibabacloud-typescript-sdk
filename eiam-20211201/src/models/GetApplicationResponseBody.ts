@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetApplicationResponseBodyApplicationApplicationOwner extends $dara.Model {
+  /**
+   * @remarks
+   * The group IDs of the application owners.
+   */
   groupIds?: string[];
+  /**
+   * @remarks
+   * The user IDs of the application owners.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +43,15 @@ export class GetApplicationResponseBodyApplicationApplicationOwner extends $dara
 }
 
 export class GetApplicationResponseBodyApplicationCustomFields extends $dara.Model {
+  /**
+   * @remarks
+   * The custom field name.
+   */
   fieldName?: string;
+  /**
+   * @remarks
+   * The custom field value.
+   */
   fieldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,44 +79,64 @@ export class GetApplicationResponseBodyApplicationCustomFields extends $dara.Mod
 export class GetApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
-   * The status of the Developer API feature. Valid values:
+   * The status of the Developer API feature for the application. Valid values:
    * 
-   * *   Enabled: The Developer API feature is enabled.
-   * *   Disabled: The Developer API feature is disabled.
+   * - enabled
+   * 
+   * - disabled
    * 
    * @example
    * disabled
    */
   apiInvokeStatus?: string;
   /**
+   * @remarks
+   * The application creation type.
+   * 
    * @example
    * user_custom
    */
   applicationCreationType?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The identity type of the application. Valid values:
+   * 
+   * - application: application.
+   * 
+   * - agent: agent.
+   * 
+   * @example
+   * application
+   */
   applicationIdentityType?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
-   * SAML Application
+   * SAML application
    */
   applicationName?: string;
+  /**
+   * @remarks
+   * The application owners.
+   */
   applicationOwner?: GetApplicationResponseBodyApplicationApplicationOwner;
   /**
    * @remarks
-   * The origin of the application. Valid values:
+   * The source from which the application was created. Valid values:
    * 
-   * *   urn:alibaba:idaas:app:source:template: The application is created based on a template.
-   * *   urn:alibaba:idaas: The application is created based on the standard protocol.
+   * - urn:alibaba:idaas:app:source:template: The application was created from a template.
+   * 
+   * - urn:alibaba:idaas:app:source:standard: The application was created based on a standard protocol.
    * 
    * @example
    * urn:alibaba:idaas:app:source:template
@@ -108,7 +144,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   applicationSourceType?: string;
   /**
    * @remarks
-   * The ID of the template based on which the application is created. This parameter is returned only if the application is created based on a template.
+   * The ID of the application template that is associated with the application. This parameter is returned only if the application was created from a template.
    * 
    * @example
    * apt_rpa_tdsxxx
@@ -116,15 +152,16 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   applicationTemplateId?: string;
   /**
    * @remarks
-   * Application visibility
+   * The visibility of the application.
    */
   applicationVisibility?: string[];
   /**
    * @remarks
-   * The authorization type of the EIAM application. Valid values:
+   * The authorization type for application access. Valid values:
    * 
-   * *   authorize_required: Only the user with explicit authorization can access the application.
-   * *   default_all: By default, all users can access the application.
+   * - authorize_required: Explicit authorization is required for access.
+   * 
+   * - default_all: All members have access by default.
    * 
    * @example
    * authorize_required
@@ -140,29 +177,42 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The time when the application was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the application was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The custom fields of the application.
+   */
   customFields?: GetApplicationResponseBodyApplicationCustomFields[];
+  /**
+   * @remarks
+   * Indicates whether to customize the Subject field in the token. If this feature is enabled, the issued access token changes from \\<clientId> to \\<clientId>:\\<client.activeSubjectUrn>. The client.activeSubjectUrn is set in the attribute mapping of the application\\"s federated identity provider.
+   * 
+   * @example
+   * enabled
+   */
   customSubjectStatus?: string;
   /**
    * @remarks
    * The description of the application.
    * 
    * @example
-   * The application is applicable to the test environment.
+   * An application for test environment
    */
   description?: string;
   /**
    * @remarks
-   * The features that are supported by the application. The value is a JSON array. Valid values:
+   * The features that the application supports. This parameter is returned as a JSON array string. Valid values:
    * 
-   * *   sso: The application supports SSO.
-   * *   provision: The application supports account synchronization.
-   * *   api_invoke: The application supports custom APIs.
+   * - sso: single sign-on (SSO).
+   * 
+   * - provision: account synchronization.
+   * 
+   * - api_invoke: API calling.
    * 
    * @example
    * ["sso", "provision"]
@@ -170,7 +220,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   features?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -186,7 +236,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   logoUrl?: string;
   /**
    * @remarks
-   * M2M client status.
+   * The status of the M2M client.
    * 
    * @example
    * enabled
@@ -194,7 +244,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   m2MClientStatus?: string;
   /**
    * @remarks
-   * The service code of the cloud service that manages the application template.
+   * The service code of the cloud product that hosts the application template.
    * 
    * @example
    * rpa
@@ -202,28 +252,31 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   managedServiceCode?: string;
   /**
    * @remarks
-   * Unique identifier of the resource server
+   * The unique identifier of the resource server. This corresponds to the audience of the resource server.
    * 
    * @example
    * https://www.example.com
    */
   resourceServerIdentifier?: string;
   /**
+   * @remarks
+   * The source type of the resource server.
+   * 
    * @example
    * urn:cloud:idaas:resourceserver:source:custom
    */
   resourceServerSourceType?: string;
   /**
    * @remarks
-   * Resource server status.
+   * The status of the resource server.
    * 
    * @example
-   * disabled	enabled
+   * enabled
    */
   resourceServerStatus?: string;
   /**
    * @remarks
-   * Indicates whether the application template is managed by a cloud service.
+   * Indicates whether the application template is hosted by a cloud service.
    * 
    * @example
    * true
@@ -232,10 +285,15 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   smartConfigCapabilities?: string[];
   /**
    * @remarks
-   * The type of the single sign-on (SSO) protocol. Valid values:
+   * The single sign-on (SSO) protocol. Valid values:
    * 
-   * *   saml2: the Security Assertion Markup Language (SAML) 2.0 protocol.
-   * *   oidc: the OpenID Connect (OIDC) protocol.
+   * - saml2: SAML 2.0.
+   * 
+   * - oidc: OpenID Connect.
+   * 
+   * - oauth2/m2m: OAuth 2.0.
+   * 
+   * - oidc+oauth2/m2m: OpenID Connect and OAuth 2.0.
    * 
    * @example
    * saml2
@@ -243,10 +301,11 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   ssoType?: string;
   /**
    * @remarks
-   * The status of the application. Valid values:
+   * The application status. Valid values:
    * 
-   * *   Enabled: The application is enabled.
-   * *   Disabled: The application is disabled.
+   * - enabled
+   * 
+   * - disabled
    * 
    * @example
    * enabled
@@ -254,7 +313,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the application was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the application was last updated. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -350,12 +409,12 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
 export class GetApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the application.
+   * The information about the application.
    */
   application?: GetApplicationResponseBodyApplication;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

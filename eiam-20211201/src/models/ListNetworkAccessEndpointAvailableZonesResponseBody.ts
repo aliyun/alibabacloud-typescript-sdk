@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkAccessEndpointAvailableZonesResponseBodyZones extends $dara.Model {
   /**
    * @remarks
-   * 可用区名称。
+   * The name of the zone.
    * 
    * @example
-   * 华东1（杭州）可用区J
+   * China (Hangzhou) Zone J
    */
   localName?: string;
   /**
    * @remarks
-   * 可用区ID。
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-j
@@ -44,10 +44,17 @@ export class ListNetworkAccessEndpointAvailableZonesResponseBodyZones extends $d
 
 export class ListNetworkAccessEndpointAvailableZonesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of zones that support network endpoints in the current region.
+   */
   zones?: ListNetworkAccessEndpointAvailableZonesResponseBodyZones[];
   static names(): { [key: string]: string } {
     return {

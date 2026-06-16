@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIdentityProvidersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The data synchronization direction of the identity provider.
+   * 
    * @example
    * pull
    */
@@ -20,7 +23,7 @@ export class ListIdentityProvidersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1

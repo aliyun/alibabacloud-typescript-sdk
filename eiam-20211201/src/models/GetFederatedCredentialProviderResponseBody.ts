@@ -28,12 +28,12 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderOidcProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * oidc凭证的受众列表
+   * A list of audiences for the OIDC credential.
    */
   audiences?: string[];
   /**
    * @remarks
-   * 动态获取的jwks
+   * The dynamically obtained JWKS.
    * 
    * @example
    * https://example.com
@@ -41,20 +41,23 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   dynamicJwks?: string;
   /**
    * @remarks
-   * Issuer
+   * The issuer of the OIDC credential.
    * 
    * @example
    * http://test.idaas.com/v2/oauth
    */
   issuer?: string;
   /**
+   * @remarks
+   * The time of the last JWKS retrieval.
+   * 
    * @example
    * 1729061324000
    */
   jwksLastObtainedTime?: number;
   /**
    * @remarks
-   * Jwks来源
+   * The source of the JSON Web Key Set (JWKS).
    * 
    * @example
    * static
@@ -62,7 +65,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   jwksSource?: string;
   /**
    * @remarks
-   * JWKS 端点
+   * The JWKS endpoint.
    * 
    * @example
    * https://example.com
@@ -70,7 +73,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   jwksUri?: string;
   /**
    * @remarks
-   * 静态获取的jwks
+   * The static JWKS content.
    * 
    * @example
    * {
@@ -88,7 +91,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   staticJwks?: string;
   /**
    * @remarks
-   * 默认条件
+   * The trust condition for the OIDC provider.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -135,7 +138,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificatesCertificateMetadata extends $dara.Model {
   /**
    * @remarks
-   * 证书过期时间
+   * The time when the certificate expires.
    * 
    * @example
    * 1729061324000
@@ -143,7 +146,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   notAfter?: number;
   /**
    * @remarks
-   * 证书生效时间
+   * The time when the certificate becomes valid.
    * 
    * @example
    * 1729061324000
@@ -175,12 +178,12 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * 证书元数据
+   * The certificate metadata.
    */
   certificateMetadata?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * Root证书内容
+   * The content of the certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -190,7 +193,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   content?: string;
   /**
    * @remarks
-   * Root证书指纹
+   * The fingerprint of the certificate.
    * 
    * @example
    * 2b18947a6a9fc7764fd8b5fb18a863b0c6daxxx
@@ -227,12 +230,12 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * pkcs7证书列表
+   * A list of PKCS#7 certificates.
    */
   certificates?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificates[];
   /**
    * @remarks
-   * CMS验证模式
+   * The Cryptographic Message Syntax (CMS) verification mode.
    * 
    * @example
    * cert
@@ -240,7 +243,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * 签名有效时间
+   * The validity period of the signature, in seconds.
    * 
    * @example
    * 3600
@@ -248,7 +251,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   signatureEffectiveTime?: number;
   /**
    * @remarks
-   * 签名时间
+   * An expression that specifies the signing time.
    * 
    * @example
    * pkcs7.payload.jsonData.audience.signingTime
@@ -256,7 +259,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   signingTimeValueExpression?: string;
   /**
    * @remarks
-   * 证书信任锚点来源
+   * The source of the certificate trust anchor.
    * 
    * @example
    * alibaba_cloud
@@ -264,7 +267,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   trustAnchorSource?: string;
   /**
    * @remarks
-   * 信任条件
+   * The trust condition for the PKCS#7 provider.
    * 
    * @example
    * IsNullOrEmpty("certNo")
@@ -307,7 +310,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfigCertificatesCertificateMetadata extends $dara.Model {
   /**
    * @remarks
-   * 证书过期时间
+   * The time when the certificate expires.
    * 
    * @example
    * 1729061324000
@@ -315,7 +318,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   notAfter?: number;
   /**
    * @remarks
-   * 证书生效时间
+   * The time when the certificate becomes valid.
    * 
    * @example
    * 1729061324000
@@ -347,12 +350,12 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * 证书元数据
+   * The certificate metadata.
    */
   certificateMetadata?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * Root证书内容
+   * The content of the root certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -362,7 +365,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   content?: string;
   /**
    * @remarks
-   * Root证书指纹
+   * The fingerprint of the root certificate.
    * 
    * @example
    * 2b18947a6a9fc7764fd8b5fb18a863b0c6daxxx
@@ -399,12 +402,12 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * Root证书
+   * A list of root certificates.
    */
   certificates?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * Root证书获取方式
+   * The method for obtaining the root certificate.
    * 
    * @example
    * custom
@@ -412,7 +415,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   trustAnchorSource?: string;
   /**
    * @remarks
-   * Root证书的默认条件
+   * The trust condition for the root certificate.
    * 
    * @example
    * IsNullOrEmpty("certNo")
@@ -450,7 +453,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   cloudIdPProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderCloudIdPProviderConfig;
   /**
    * @remarks
-   * 创建时间
+   * The time when the provider was created.
    * 
    * @example
    * 1729061324000
@@ -458,7 +461,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   createTime?: number;
   /**
    * @remarks
-   * 描述
+   * The description.
    * 
    * @example
    * test
@@ -466,7 +469,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   description?: string;
   /**
    * @remarks
-   * Federated Credential Provider ID
+   * The ID of the federated credential provider.
    * 
    * @example
    * fcp_asd123XXX
@@ -474,7 +477,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   federatedCredentialProviderId?: string;
   /**
    * @remarks
-   * 联邦凭证提供方名称
+   * The name of the federated credential provider.
    * 
    * @example
    * test
@@ -482,7 +485,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   federatedCredentialProviderName?: string;
   /**
    * @remarks
-   * 联邦凭证提供方类型
+   * The type of the federated credential provider.
    * 
    * @example
    * pkcs7
@@ -490,7 +493,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   federatedCredentialProviderType?: string;
   /**
    * @remarks
-   * EIAM 实例ID
+   * The ID of the EIAM instance.
    * 
    * @example
    * idaas_qlbbighyxbu42xl7eninojXXX
@@ -498,7 +501,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   instanceId?: string;
   /**
    * @remarks
-   * 网络访问端点ID
+   * The ID of the network access endpoint.
    * 
    * @example
    * inae_public
@@ -506,22 +509,22 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * OIDC配置
+   * The OpenID Connect (OIDC) configuration.
    */
   oidcProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderOidcProviderConfig;
   /**
    * @remarks
-   * PKCS7配置
+   * The PKCS#7 configuration.
    */
   pkcs7ProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfig;
   /**
    * @remarks
-   * 私有CA配置
+   * The private certificate authority (CA) configuration.
    */
   privateCaProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfig;
   /**
    * @remarks
-   * 状态
+   * The status of the federated credential provider.
    * 
    * @example
    * enabled
@@ -529,7 +532,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   status?: string;
   /**
    * @remarks
-   * 更新时间
+   * The time when the provider was last updated.
    * 
    * @example
    * 1729061324000
@@ -593,8 +596,15 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 }
 
 export class GetFederatedCredentialProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The federated credential provider.
+   */
   federatedCredentialProvider?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProvider;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

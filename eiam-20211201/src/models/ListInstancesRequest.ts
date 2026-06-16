@@ -3,15 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * disabled
+   */
+  crossRegionReplication?: string;
+  /**
+   * @remarks
+   * The edition of the license. Valid values:
+   * - free: Free edition.
+   * - trial: Trial edition.
+   * - scalability: Scalability edition.
+   * - standard: Standard edition.
+   * - enterprise: Enterprise edition.
+   * 
+   * @example
+   * free
+   */
   edition?: string;
   /**
    * @remarks
-   * The list of instance IDs.
+   * Instance ID list.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The number of the page to return.
+   * Page number.
    * 
    * @example
    * 1
@@ -19,7 +36,7 @@ export class ListInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Page size.
    * 
    * @example
    * 20
@@ -27,10 +44,9 @@ export class ListInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * *   creating
-   * *   running
+   * Instance status. Valid values:
+   * - creating: Being created.
+   * - running: Running.
    * 
    * @example
    * running
@@ -38,6 +54,7 @@ export class ListInstancesRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      crossRegionReplication: 'CrossRegionReplication',
       edition: 'Edition',
       instanceIds: 'InstanceIds',
       pageNumber: 'PageNumber',
@@ -48,6 +65,7 @@ export class ListInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      crossRegionReplication: 'string',
       edition: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 网络区域描述
+   * The description of the network zone.
    * 
    * @example
    * test_description
@@ -13,17 +13,25 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 实例ID。
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IPv4 CIDR blocks.
+   */
   ipv4Cidrs?: string[];
+  /**
+   * @remarks
+   * The IPv6 CIDR blocks.
+   */
   ipv6Cidrs?: string[];
   /**
    * @remarks
-   * IDaaS EIAM 网络区域Id
+   * The network zone ID.
    * 
    * @example
    * network_m6fbr2bcbcadu3bcdpgzcxxxxx
@@ -31,7 +39,7 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   networkZoneId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 网络区域名称
+   * The name of the network zone.
    * 
    * @example
    * test4_name
@@ -39,7 +47,7 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   networkZoneName?: string;
   /**
    * @remarks
-   * IDaaS EIAM 网络区域类型
+   * The type of the network zone.
    * 
    * @example
    * arn:alibaba:idaas:network:zone:classic
@@ -47,7 +55,7 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   networkZoneType?: string;
   /**
    * @remarks
-   * IDaaS EIAM 专有网络VpcId
+   * The VPC ID.
    * 
    * @example
    * vpc-25w8wxxxx
@@ -95,8 +103,15 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
 }
 
 export class GetNetworkZoneResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The network zone object.
+   */
   networkZone?: GetNetworkZoneResponseBodyNetworkZone;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

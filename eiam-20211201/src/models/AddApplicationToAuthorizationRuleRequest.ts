@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddApplicationToAuthorizationRuleRequestValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * 授权规则生效结束时间，采用unix纪元精确到毫秒。
+   * The end time of the validity period. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704062061000
@@ -15,7 +15,7 @@ export class AddApplicationToAuthorizationRuleRequestValidityPeriod extends $dar
   endTime?: number;
   /**
    * @remarks
-   * 授权规则生效开始时间，采用unix纪元精确到毫秒。
+   * The start time of the validity period. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -47,7 +47,7 @@ export class AddApplicationToAuthorizationRuleRequestValidityPeriod extends $dar
 export class AddApplicationToAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用 ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class AddApplicationToAuthorizationRuleRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 授权规则标识。
+   * The authorization rule ID.
    * 
    * This parameter is required.
    * 
@@ -67,6 +67,8 @@ export class AddApplicationToAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
+   * A client token used to ensure the idempotence of the request. Generate a value from your client to make sure that the value is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,7 +77,7 @@ export class AddApplicationToAuthorizationRuleRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -85,12 +87,16 @@ export class AddApplicationToAuthorizationRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 有效周期，当validityPeriodType为custom有效。
+   * The time range of the validity period. This parameter is valid only when you set **ValidityType** to **time_bound**.
    */
   validityPeriod?: AddApplicationToAuthorizationRuleRequestValidityPeriod;
   /**
    * @remarks
-   * 有效期类型，枚举值：permanent（永久），time_bound（自定义时间范围）。
+   * The validity period type. Valid values:
+   * 
+   * - permanent: The authorization is permanent.
+   * 
+   * - time_bound: The authorization is valid for a custom time range.
    * 
    * This parameter is required.
    * 

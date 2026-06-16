@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings extends $dara.Model {
   /**
    * @remarks
-   * 来源Idp类型
+   * The authentication source type.
    * 
    * @example
    * urn:alibaba:idaas:authntype:oidc
@@ -13,16 +13,23 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   authnSourceType?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the binding was created.
    * 
    * @example
    * 1762309642177
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Information about the associated third-party account.
+   * 
+   * @example
+   * {\\"userId\\":\\"xxxx\\",\\"name\\":\\"xxx\\",\\"bindTime\\":\\"1766050298872\\",\\"description\\":\\"bind request id: reqpre_xxx\\"}
+   */
   externalData?: string;
   /**
    * @remarks
-   * 来源Idp Id
+   * The source IdP ID.
    * 
    * @example
    * idp_my664lwkhpicbyzirog3xxxxx
@@ -30,7 +37,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   identityProviderId?: string;
   /**
    * @remarks
-   * 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -38,7 +45,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   instanceId?: string;
   /**
    * @remarks
-   * 最近一次更新时间
+   * The time when the binding was last updated.
    * 
    * @example
    * 1762309642177
@@ -46,7 +53,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   updateTime?: number;
   /**
    * @remarks
-   * 外部ID
+   * The external ID.
    * 
    * @example
    * xxxxxx
@@ -54,7 +61,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   userExternalId?: string;
   /**
    * @remarks
-   * 用户ID
+   * The user ID.
    * 
    * @example
    * user_ue2jvisn35exxxxx
@@ -98,7 +105,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
 export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The maximum number of entries returned on each page.
    * 
    * @example
    * 20
@@ -106,7 +113,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token to retrieve the next page of results.
    * 
    * @example
    * NTxxxexample
@@ -114,22 +121,32 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+   * The token to retrieve the previous page of results.
    * 
    * @example
    * PTxxxexample
    */
   previousToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * A list of bindings for third-party account logons.
+   */
   userAuthnSourceMappings?: ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings[];
   static names(): { [key: string]: string } {
     return {

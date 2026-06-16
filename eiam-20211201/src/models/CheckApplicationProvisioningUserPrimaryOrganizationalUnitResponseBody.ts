@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponseBodyCheckApplicationProvisioningUserPrimaryOuResult extends $dara.Model {
   /**
    * @remarks
-   * 是否授权
+   * Indicates if the authorization is granted.
    */
   allowAuthorization?: boolean;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -18,7 +18,7 @@ export class CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponseBo
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -50,8 +50,15 @@ export class CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponseBo
 }
 
 export class CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The authorization information.
+   */
   checkApplicationProvisioningUserPrimaryOuResult?: CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponseBodyCheckApplicationProvisioningUserPrimaryOuResult;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

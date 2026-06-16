@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceQuotaRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetInstanceQuotaRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 配额类型，QuotaEnum
+   * The quota type.
    * 
    * This parameter is required.
    * 

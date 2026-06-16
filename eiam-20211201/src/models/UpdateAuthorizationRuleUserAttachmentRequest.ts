@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuthorizationRuleUserAttachmentRequestValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * 授权规则生效结束时间，采用unix纪元精确到毫秒。
+   * The end time of the validity period. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1704062061000
@@ -13,7 +13,7 @@ export class UpdateAuthorizationRuleUserAttachmentRequestValidityPeriod extends 
   endTime?: number;
   /**
    * @remarks
-   * 授权规则生效开始时间，采用unix纪元精确到毫秒。
+   * The start time of the validity period. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1704042061000
@@ -45,7 +45,7 @@ export class UpdateAuthorizationRuleUserAttachmentRequestValidityPeriod extends 
 export class UpdateAuthorizationRuleUserAttachmentRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权规则标识。
+   * The authorization rule ID.
    * 
    * This parameter is required.
    * 
@@ -55,6 +55,8 @@ export class UpdateAuthorizationRuleUserAttachmentRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
+   * A client token used to ensure the idempotence of the request. Generate a unique value from your client for this parameter. ClientToken supports only ASCII characters and must be no more than 64 characters long. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,7 +65,7 @@ export class UpdateAuthorizationRuleUserAttachmentRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -73,7 +75,7 @@ export class UpdateAuthorizationRuleUserAttachmentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 账户ID。
+   * The user ID.
    * 
    * This parameter is required.
    * 
@@ -83,12 +85,16 @@ export class UpdateAuthorizationRuleUserAttachmentRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * 有效周期，当validityPeriodType为custom有效。
+   * The time range of the validity period. This parameter takes effect when ValidityType is set to time_bound.
    */
   validityPeriod?: UpdateAuthorizationRuleUserAttachmentRequestValidityPeriod;
   /**
    * @remarks
-   * 有效期类型，枚举值：permanent（永久），time_bound（自定义时间范围）。
+   * The validity period type of the association. Valid values:
+   * 
+   * - permanent: The association is permanent.
+   * 
+   * - time_bound: The association is valid for a custom time range.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 应用公私钥对算法类型 rsa2048、ecc256
+   * The algorithm type.
    * 
    * @example
    * RSA-2048
@@ -13,7 +13,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   algorithmType?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用Id
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -21,7 +21,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用公私钥对Id
+   * The ID of the application\\"s ClientPublicKey.
    * 
    * @example
    * KEYEqDnDJhztiEAwSin7MZoxGcihzCAuxxxx
@@ -29,7 +29,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   clientPublicKeyId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用公私钥对创建时间
+   * The time when the public key was created.
    * 
    * @example
    * 1731305755000
@@ -37,20 +37,23 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The time when the key was last used.
+   * 
    * @example
    * 1771305755000
    */
   lastUsedTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 应用当前是否为首要使用的公私钥对
+   * Indicates whether this is the primary key.
    * 
    * @example
    * true
@@ -58,7 +61,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   primary?: boolean;
   /**
    * @remarks
-   * IDaaS EIAM 应用公钥
+   * The public key.
    * 
    * @example
    * -----BEGIN PUBLIC KEY-----
@@ -74,7 +77,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   publicKey?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用公私钥对状态
+   * The status.
    * 
    * @example
    * enabled
@@ -118,8 +121,15 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
 }
 
 export class GetClientPublicKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Information about the application\\"s ClientPublicKey.
+   */
   clientPublicKey?: GetClientPublicKeyResponseBodyClientPublicKey;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeResourceServerScopesFromOrganizationalUnitRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The ID of the ResourceServer application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RevokeResourceServerScopesFromOrganizationalUnitRequest extends $da
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RevokeResourceServerScopesFromOrganizationalUnitRequest extends $da
   instanceId?: string;
   /**
    * @remarks
-   * 组织ID。
+   * The organization ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RevokeResourceServerScopesFromOrganizationalUnitRequest extends $da
   organizationalUnitId?: string;
   /**
    * @remarks
-   * ResourceServer权限ID。
+   * A list of scope permission IDs for the resource server.
    * 
    * This parameter is required.
    * 

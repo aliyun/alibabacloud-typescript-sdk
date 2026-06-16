@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Model {
   /**
    * @remarks
-   * aliUid。
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1973166921975xxxx
@@ -13,7 +13,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   aliUid?: number;
   /**
    * @remarks
-   * 应用ID
+   * The application ID.
    * 
    * @example
    * app_m7ar5tms4dwtggavalk3j3mxxxx
@@ -21,7 +21,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   applicationId?: string;
   /**
    * @remarks
-   * 应用token
+   * The application token.
    * 
    * @example
    * SATFwqX8zxGf83pJcJw78KFGjmrft4erWeZYBGS8oE7NN6qoE217yaJpUdMb1UuuGqhDiF43sCA4CF91CTL5iGntqwyLuaAcS9FJ9HfGadE5a7TjiwVafwrBYktxxxx
@@ -29,7 +29,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   applicationToken?: string;
   /**
    * @remarks
-   * 应用token ID
+   * The ID of the application token.
    * 
    * @example
    * token_ndfxxigahelfne2y2hodehrxxxx
@@ -37,20 +37,23 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   applicationTokenId?: string;
   /**
    * @remarks
-   * 应用token类型
+   * The type of the application token.
    * 
    * @example
    * bearer_token
    */
   applicationTokenType?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1747796654000
    */
   createTime?: number;
   /**
    * @remarks
-   * 应用token描述
+   * The description of the application token.
    * 
    * @example
    * jwqtts-0430
@@ -58,7 +61,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * 到期时间
+   * The expiration time.
    * 
    * @example
    * 1747796654000
@@ -66,7 +69,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   expirationTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The ID of the IDaaS EIAM instance.
    * 
    * @example
    * idaas_ki6hd7ihir4ybawogqk6kqxxxx
@@ -74,7 +77,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * 最后使用时间
+   * The last used time.
    * 
    * @example
    * 1747796654000
@@ -82,7 +85,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   lastUsedTime?: number;
   /**
    * @remarks
-   * 应用状态
+   * The status.
    * 
    * @example
    * enabled
@@ -130,8 +133,15 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
 }
 
 export class ListApplicationTokensResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The application tokens.
+   */
   applicationTokens?: ListApplicationTokensResponseBodyApplicationTokens[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

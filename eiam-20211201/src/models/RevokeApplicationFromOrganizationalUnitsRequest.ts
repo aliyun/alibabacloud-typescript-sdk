@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeApplicationFromOrganizationalUnitsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class RevokeApplicationFromOrganizationalUnitsRequest extends $dara.Model
   applicationRoleId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RevokeApplicationFromOrganizationalUnitsRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The IDs of the organizations. You can revoke the access permissions from a maximum of 100 organizations at a time.
+   * A list of organizational unit IDs. A single operation supports up to 100 organizational unit IDs.
    * 
    * This parameter is required.
    * 

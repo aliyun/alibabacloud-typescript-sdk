@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindUserAuthnSourceMappingRequest extends $dara.Model {
   /**
    * @remarks
-   * 来源Idp Id
+   * The source IdP ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BindUserAuthnSourceMappingRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class BindUserAuthnSourceMappingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 外部关联ID
+   * The external mapping ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class BindUserAuthnSourceMappingRequest extends $dara.Model {
   userExternalId?: string;
   /**
    * @remarks
-   * 用户ID
+   * The user ID.
    * 
    * This parameter is required.
    * 

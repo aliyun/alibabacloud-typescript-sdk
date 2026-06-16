@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveApplicationAccountFromUserRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用账号Id
+   * The ID of the application account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemoveApplicationAccountFromUserRequest extends $dara.Model {
   applicationAccountId?: string;
   /**
    * @remarks
-   * IDaaS的应用主键id
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RemoveApplicationAccountFromUserRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RemoveApplicationAccountFromUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 用户Id
+   * The ID of the user.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveApplicationFromAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用 ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemoveApplicationFromAuthorizationRuleRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 授权规则标识。
+   * The authorization rule ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RemoveApplicationFromAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class CreateApplicationClientSecretResponseBodyApplicationClientSecret ex
   clientId?: string;
   /**
    * @remarks
-   * The client key secret of the application.
+   * The value of the client secret.
    * 
    * @example
    * CSEHDcHcrUKHw1CuxkJEHPveWRXBGqVqRsxxxx
@@ -21,7 +21,7 @@ export class CreateApplicationClientSecretResponseBodyApplicationClientSecret ex
   clientSecret?: string;
   /**
    * @remarks
-   * The client key ID of the application.
+   * The ID of the client secret.
    * 
    * @example
    * sci_k52x2ru63rlkflina5utgkxxxx
@@ -55,12 +55,12 @@ export class CreateApplicationClientSecretResponseBodyApplicationClientSecret ex
 export class CreateApplicationClientSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the client key.
+   * The information about the client secret.
    */
   applicationClientSecret?: CreateApplicationClientSecretResponseBodyApplicationClientSecret;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

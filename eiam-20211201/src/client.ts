@@ -11,7 +11,15 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'eu-central-1': "eiam.eu-central-1.aliyuncs.com",
+      'cn-hongkong': "eiam.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou': "eiam.cn-hangzhou.aliyuncs.com",
+      'ap-southeast-5': "eiam.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-1': "eiam.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "eiam.ap-northeast-2.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eiam", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +38,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在当前应用下给指定员工添加一个应用账号。
+   * Adds an application account to a specified user in the current application.
    * 
    * @param request - AddApplicationAccountToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +81,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在当前应用下给指定员工添加一个应用账号。
+   * Adds an application account to a specified user in the current application.
    * 
    * @param request - AddApplicationAccountToUserRequest
    * @returns AddApplicationAccountToUserResponse
@@ -84,7 +92,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将应用添加到授权规则
+   * Adds an application to an authorization rule.
    * 
    * @param request - AddApplicationToAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -137,7 +145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将应用添加到授权规则
+   * Adds an application to an authorization rule.
    * 
    * @param request - AddApplicationToAuthorizationRuleRequest
    * @returns AddApplicationToAuthorizationRuleResponse
@@ -148,7 +156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加条款到品牌
+   * Assign terms to a brand
    * 
    * @param request - AddCustomPrivacyPoliciesToBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -187,7 +195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加条款到品牌
+   * Assign terms to a brand
    * 
    * @param request - AddCustomPrivacyPoliciesToBrandRequest
    * @returns AddCustomPrivacyPoliciesToBrandResponse
@@ -198,7 +206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将组添加到授权规则
+   * Adds a group to an authorization rule.
    * 
    * @param request - AddGroupToAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -251,7 +259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将组添加到授权规则
+   * Adds a group to an authorization rule.
    * 
    * @param request - AddGroupToAuthorizationRuleRequest
    * @returns AddGroupToAuthorizationRuleResponse
@@ -262,7 +270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将账户添加到授权规则
+   * Adds a user to an authorization rule.
    * 
    * @param request - AddUserToAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -315,7 +323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将账户添加到授权规则
+   * Adds a user to an authorization rule.
    * 
    * @param request - AddUserToAuthorizationRuleRequest
    * @returns AddUserToAuthorizationRuleResponse
@@ -326,7 +334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+   * Adds a specified EIAM account to one or more EIAM organizations. If the account already exists in one of the specified organizations, the request succeeds.
    * 
    * @param request - AddUserToOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -365,7 +373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+   * Adds a specified EIAM account to one or more EIAM organizations. If the account already exists in one of the specified organizations, the request succeeds.
    * 
    * @param request - AddUserToOrganizationalUnitsRequest
    * @returns AddUserToOrganizationalUnitsResponse
@@ -426,7 +434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Grants multiple EIAM groups access to an application.
    * 
    * @param request - AuthorizeApplicationToGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -469,7 +477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Grants multiple EIAM groups access to an application.
    * 
    * @param request - AuthorizeApplicationToGroupsRequest
    * @returns AuthorizeApplicationToGroupsResponse
@@ -480,7 +488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+   * Grants access to an application for multiple EIAM organizations in a batch operation.
    * 
    * @param request - AuthorizeApplicationToOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -523,7 +531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+   * Grants access to an application for multiple EIAM organizations in a batch operation.
    * 
    * @param request - AuthorizeApplicationToOrganizationalUnitsRequest
    * @returns AuthorizeApplicationToOrganizationalUnitsResponse
@@ -534,7 +542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+   * Grants permissions to multiple EIAM accounts to access an application.
    * 
    * @param request - AuthorizeApplicationToUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -577,7 +585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+   * Grants permissions to multiple EIAM accounts to access an application.
    * 
    * @param request - AuthorizeApplicationToUsersRequest
    * @returns AuthorizeApplicationToUsersResponse
@@ -588,7 +596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权指定ResourceServer下的Scope给Client
+   * Grants a client application permissions for specific scopes on a specified resource server.
    * 
    * @param request - AuthorizeResourceServerScopesToClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -631,7 +639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权指定ResourceServer下的Scope给Client
+   * Grants a client application permissions for specific scopes on a specified resource server.
    * 
    * @param request - AuthorizeResourceServerScopesToClientRequest
    * @returns AuthorizeResourceServerScopesToClientResponse
@@ -642,7 +650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予组ResourceServerScope权限
+   * Grants a group permissions for specified scopes on a resource server.
    * 
    * @param request - AuthorizeResourceServerScopesToGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -689,7 +697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予组ResourceServerScope权限
+   * Grants a group permissions for specified scopes on a resource server.
    * 
    * @param request - AuthorizeResourceServerScopesToGroupRequest
    * @returns AuthorizeResourceServerScopesToGroupResponse
@@ -700,7 +708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予组织ResourceServerScope权限
+   * Grants scope permissions for a specified resource server to an organization.
    * 
    * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -747,7 +755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予组织ResourceServerScope权限
+   * Grants scope permissions for a specified resource server to an organization.
    * 
    * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
    * @returns AuthorizeResourceServerScopesToOrganizationalUnitResponse
@@ -758,7 +766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予用户ResourceServerScope权限
+   * Grants scope permissions for a specified resource server to a user account.
    * 
    * @param request - AuthorizeResourceServerScopesToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -805,7 +813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予用户ResourceServerScope权限
+   * Grants scope permissions for a specified resource server to a user account.
    * 
    * @param request - AuthorizeResourceServerScopesToUserRequest
    * @returns AuthorizeResourceServerScopesToUserResponse
@@ -816,7 +824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权指定ResourceServer给Client
+   * Authorizes a resource server for a client application.
    * 
    * @param request - AuthorizeResourceServerToClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -855,7 +863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权指定ResourceServer给Client
+   * Authorizes a resource server for a client application.
    * 
    * @param request - AuthorizeResourceServerToClientRequest
    * @returns AuthorizeResourceServerToClientResponse
@@ -866,7 +874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定三方登录账户
+   * Binds a user to a third-party logon account.
    * 
    * @param request - BindUserAuthnSourceMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -909,7 +917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定三方登录账户
+   * Binds a user to a third-party logon account.
    * 
    * @param request - BindUserAuthnSourceMappingRequest
    * @returns BindUserAuthnSourceMappingResponse
@@ -920,7 +928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查应用同步主组织是否在应用同步范围
+   * Checks whether the primary organizational unit for an application is within the synchronization scope.
    * 
    * @param request - CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -959,7 +967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查应用同步主组织是否在应用同步范围
+   * Checks whether the primary organizational unit for an application is within the synchronization scope.
    * 
    * @param request - CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @returns CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -970,7 +978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例删除检查。
+   * Checks if an instance can be deleted.
+   * 
+   * @remarks
+   * Verify that the instance is no longer in use. Deleting an EIAM instance permanently removes all its associated data.
    * 
    * @param request - CheckInstanceForDeleteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1001,7 +1012,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例删除检查。
+   * Checks if an instance can be deleted.
+   * 
+   * @remarks
+   * Verify that the instance is no longer in use. Deleting an EIAM instance permanently removes all its associated data.
    * 
    * @param request - CheckInstanceForDeleteRequest
    * @returns CheckInstanceForDeleteResponse
@@ -1012,7 +1026,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 判断实例是否具有某个模块的功能
+   * Determines whether an instance has a specific module feature.
+   * 
+   * @remarks
+   * Ensure that your current instance is no longer in use. When you delete an EIAM instance, all related data is deleted.
    * 
    * @param request - CheckInstanceModuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1055,7 +1072,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 判断实例是否具有某个模块的功能
+   * Determines whether an instance has a specific module feature.
+   * 
+   * @remarks
+   * Ensure that your current instance is no longer in use. When you delete an EIAM instance, all related data is deleted.
    * 
    * @param request - CheckInstanceModuleStatusRequest
    * @returns CheckInstanceModuleStatusResponse
@@ -1066,10 +1086,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Creates an application in the specified EIAM instance.
    * 
    * @remarks
-   * IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+   * You must select the required SSO protocol when you create the application. This selection cannot be changed after creation.
    * 
    * @param request - CreateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1136,10 +1156,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Creates an application in the specified EIAM instance.
    * 
    * @remarks
-   * IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+   * You must select the required SSO protocol when you create the application. This selection cannot be changed after creation.
    * 
    * @param request - CreateApplicationRequest
    * @returns CreateApplicationResponse
@@ -1150,7 +1170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+   * Creates a client secret for an EIAM application. You can create up to two client secrets for each application.
    * 
    * @param request - CreateApplicationClientSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1189,7 +1209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+   * Creates a client secret for an EIAM application. You can create up to two client secrets for each application.
    * 
    * @param request - CreateApplicationClientSecretRequest
    * @returns CreateApplicationClientSecretResponse
@@ -1200,7 +1220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用联邦凭证
+   * Creates an application federated credential.
    * 
    * @param request - CreateApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1259,7 +1279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用联邦凭证
+   * Creates an application federated credential.
    * 
    * @param request - CreateApplicationFederatedCredentialRequest
    * @returns CreateApplicationFederatedCredentialResponse
@@ -1270,7 +1290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用角色
+   * Creates an application role.
    * 
    * @param request - CreateApplicationRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1317,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用角色
+   * Creates an application role.
    * 
    * @param request - CreateApplicationRoleRequest
    * @returns CreateApplicationRoleResponse
@@ -1328,7 +1348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用Token
+   * Creates an application token.
    * 
    * @param request - CreateApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1371,7 +1391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用Token
+   * Creates an application token.
    * 
    * @param request - CreateApplicationTokenRequest
    * @returns CreateApplicationTokenResponse
@@ -1382,7 +1402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建授权资源
+   * Creates an authorization resource.
    * 
    * @param request - CreateAuthorizationResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1431,7 +1451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建授权资源
+   * Creates an authorization resource.
    * 
    * @param request - CreateAuthorizationResourceRequest
    * @returns CreateAuthorizationResourceResponse
@@ -1442,7 +1462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建授权规则
+   * Creates an authorization rule.
    * 
    * @param request - CreateAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1495,7 +1515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建授权规则
+   * Creates an authorization rule.
    * 
    * @param request - CreateAuthorizationRuleRequest
    * @returns CreateAuthorizationRuleResponse
@@ -1506,7 +1526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建品牌
+   * Creates a brand.
    * 
    * @param request - CreateBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1541,7 +1561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建品牌
+   * Creates a brand.
    * 
    * @param request - CreateBrandRequest
    * @returns CreateBrandResponse
@@ -1552,7 +1572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用ClientPublicKey
+   * Creates a client public key for an application. The machine-to-machine (M2M) authorization server uses this public key to verify the assertion included in a token request from an M2M client using the PRIVATE_KEY_JWT method.
    * 
    * @param request - CreateClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1599,7 +1619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用ClientPublicKey
+   * Creates a client public key for an application. The machine-to-machine (M2M) authorization server uses this public key to verify the assertion included in a token request from an M2M client using the PRIVATE_KEY_JWT method.
    * 
    * @param request - CreateClientPublicKeyRequest
    * @returns CreateClientPublicKeyResponse
@@ -1610,7 +1630,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云账号
+   * Creates a cloud account in the specified IDaaS EIAM instance.
+   * 
+   * @remarks
+   * *Before you call this operation, ensure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
    * 
    * @param request - CreateCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1669,7 +1692,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云账号
+   * Creates a cloud account in the specified IDaaS EIAM instance.
+   * 
+   * @remarks
+   * *Before you call this operation, ensure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
    * 
    * @param request - CreateCloudAccountRequest
    * @returns CreateCloudAccountResponse
@@ -1680,7 +1706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云角色
+   * Creates a cloud role for a specified Alibaba Cloud account.
    * 
    * @param request - CreateCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1731,7 +1757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云角色
+   * Creates a cloud role for a specified Alibaba Cloud account.
    * 
    * @param request - CreateCloudAccountRoleRequest
    * @returns CreateCloudAccountRoleResponse
@@ -1826,7 +1852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建凭据
+   * Creates a credential in a specified EIAM instance.
    * 
    * @param request - CreateCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1905,7 +1931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建凭据
+   * Creates a credential in a specified EIAM instance.
    * 
    * @param request - CreateCredentialRequest
    * @returns CreateCredentialResponse
@@ -1916,7 +1942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建凭据提供商
+   * Creates a credential provider.
    * 
    * @param request - CreateCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1971,7 +1997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建凭据提供商
+   * Creates a credential provider.
    * 
    * @param request - CreateCredentialProviderRequest
    * @returns CreateCredentialProviderResponse
@@ -1982,7 +2008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建扩展字段
+   * Creates an extension field.
    * 
    * @param request - CreateCustomFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2061,7 +2087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建扩展字段
+   * Creates an extension field.
    * 
    * @param request - CreateCustomFieldRequest
    * @returns CreateCustomFieldResponse
@@ -2072,7 +2098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义条款
+   * You can create custom terms.
    * 
    * @param request - CreateCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2127,7 +2153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义条款
+   * You can create custom terms.
    * 
    * @param request - CreateCustomPrivacyPolicyRequest
    * @returns CreateCustomPrivacyPolicyResponse
@@ -2138,7 +2164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
+   * Creates a custom domain name for an EIAM (Entity and Identity Access Management) instance.
    * 
    * @param request - CreateDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2177,7 +2203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
+   * Creates a custom domain name for an EIAM (Entity and Identity Access Management) instance.
    * 
    * @param request - CreateDomainRequest
    * @returns CreateDomainResponse
@@ -2234,7 +2260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建联邦凭证提供方
+   * Create an identity provider.
    * 
    * @param request - CreateFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2297,7 +2323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建联邦凭证提供方
+   * Create an identity provider.
    * 
    * @param request - CreateFederatedCredentialProviderRequest
    * @returns CreateFederatedCredentialProviderResponse
@@ -2362,7 +2388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Identity Provider
+   * Creates an identity provider.
    * 
    * @param request - CreateIdentityProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2461,7 +2487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Identity Provider
+   * Creates an identity provider.
    * 
    * @param request - CreateIdentityProviderRequest
    * @returns CreateIdentityProviderResponse
@@ -2472,7 +2498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建IdP状态检查任务
+   * Creates a status check job for an identity provider.
    * 
    * @param request - CreateIdentityProviderStatusCheckJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2507,7 +2533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建IdP状态检查任务
+   * Creates a status check job for an identity provider.
    * 
    * @param request - CreateIdentityProviderStatusCheckJobRequest
    * @returns CreateIdentityProviderStatusCheckJobResponse
@@ -2560,7 +2586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为实例创建试用版 License
+   * Creates a trial license for an instance.
    * 
    * @param request - CreateInstanceTrialLicenseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2591,7 +2617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为实例创建试用版 License
+   * Creates a trial license for an instance.
    * 
    * @param request - CreateInstanceTrialLicenseRequest
    * @returns CreateInstanceTrialLicenseResponse
@@ -2664,7 +2690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网络区域对象
+   * Creates a network zone object.
    * 
    * @param request - CreateNetworkZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2723,7 +2749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网络区域对象
+   * Creates a network zone object.
    * 
    * @param request - CreateNetworkZoneRequest
    * @returns CreateNetworkZoneResponse
@@ -2792,7 +2818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建指定ResourceServer下的Scope
+   * Creates a scope permission for a specified resource server.
    * 
    * @param request - CreateResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2843,7 +2869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建指定ResourceServer下的Scope
+   * Creates a scope permission for a specified resource server.
    * 
    * @param request - CreateResourceServerScopeRequest
    * @returns CreateResourceServerScopeResponse
@@ -2854,7 +2880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+   * Create an EIAM account in a specific EIAM instance.
    * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2945,7 +2971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+   * Create an EIAM account in a specific EIAM instance.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -3058,7 +3084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用联邦凭证
+   * Deletes a federated credential for an application.
    * 
    * @param request - DeleteApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3097,7 +3123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用联邦凭证
+   * Deletes a federated credential for an application.
    * 
    * @param request - DeleteApplicationFederatedCredentialRequest
    * @returns DeleteApplicationFederatedCredentialResponse
@@ -3108,7 +3134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用角色
+   * Deletes an application role.
    * 
    * @param request - DeleteApplicationRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3147,7 +3173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用角色
+   * Deletes an application role.
    * 
    * @param request - DeleteApplicationRoleRequest
    * @returns DeleteApplicationRoleResponse
@@ -3158,7 +3184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ApplicationToken
+   * Deletes an application token.
    * 
    * @param request - DeleteApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3197,7 +3223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ApplicationToken
+   * Deletes an application token.
    * 
    * @param request - DeleteApplicationTokenRequest
    * @returns DeleteApplicationTokenResponse
@@ -3208,7 +3234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除授权资源
+   * Deletes an authorization resource.
    * 
    * @param request - DeleteAuthorizationResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3247,7 +3273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除授权资源
+   * Deletes an authorization resource.
    * 
    * @param request - DeleteAuthorizationResourceRequest
    * @returns DeleteAuthorizationResourceResponse
@@ -3258,7 +3284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除授权规则
+   * Deletes an authorization rule. An authorization rule must be disabled before it can be deleted.
    * 
    * @param request - DeleteAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3293,7 +3319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除授权规则
+   * Deletes an authorization rule. An authorization rule must be disabled before it can be deleted.
    * 
    * @param request - DeleteAuthorizationRuleRequest
    * @returns DeleteAuthorizationRuleResponse
@@ -3304,7 +3330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除品牌
+   * Deletes a brand.
    * 
    * @param request - DeleteBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3339,7 +3365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除品牌
+   * Deletes a brand.
    * 
    * @param request - DeleteBrandRequest
    * @returns DeleteBrandResponse
@@ -3350,7 +3376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的应用ClientPublicKey
+   * Deletes the ClientPublicKey for a specified application.
    * 
    * @param request - DeleteClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3389,7 +3415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的应用ClientPublicKey
+   * Deletes the ClientPublicKey for a specified application.
    * 
    * @param request - DeleteClientPublicKeyRequest
    * @returns DeleteClientPublicKeyResponse
@@ -3400,7 +3426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云账号
+   * Deletes an Alibaba Cloud account resource.
    * 
    * @param request - DeleteCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3435,7 +3461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云账号
+   * Deletes an Alibaba Cloud account resource.
    * 
    * @param request - DeleteCloudAccountRequest
    * @returns DeleteCloudAccountResponse
@@ -3446,7 +3472,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云角色
+   * Deletes a cloud role from a specified Alibaba Cloud account.
+   * 
+   * @remarks
+   * You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
    * 
    * @param request - DeleteCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3485,7 +3514,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云角色
+   * Deletes a cloud role from a specified Alibaba Cloud account.
+   * 
+   * @remarks
+   * You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
    * 
    * @param request - DeleteCloudAccountRoleRequest
    * @returns DeleteCloudAccountRoleResponse
@@ -3496,10 +3528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Conditional Access Policy
+   * Deletes a conditional access policy.
    * 
    * @remarks
-   * When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
+   * Before you delete a conditional access policy, ensure that it is no longer in use. This action permanently deletes all of its configuration data, which cannot be recovered.
    * 
    * @param request - DeleteConditionalAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3534,10 +3566,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Conditional Access Policy
+   * Deletes a conditional access policy.
    * 
    * @remarks
-   * When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
+   * Before you delete a conditional access policy, ensure that it is no longer in use. This action permanently deletes all of its configuration data, which cannot be recovered.
    * 
    * @param request - DeleteConditionalAccessPolicyRequest
    * @returns DeleteConditionalAccessPolicyResponse
@@ -3548,7 +3580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除凭据
+   * Deletes a credential resource.
    * 
    * @param request - DeleteCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3583,7 +3615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除凭据
+   * Deletes a credential resource.
    * 
    * @param request - DeleteCredentialRequest
    * @returns DeleteCredentialResponse
@@ -3594,7 +3626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用凭据提供商
+   * Deletes a credential provider.
    * 
    * @param request - DeleteCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3629,7 +3661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用凭据提供商
+   * Deletes a credential provider.
    * 
    * @param request - DeleteCredentialProviderRequest
    * @returns DeleteCredentialProviderResponse
@@ -3640,7 +3672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除扩展字段
+   * Deletes an extension field.
    * 
    * @param request - DeleteCustomFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3675,7 +3707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除扩展字段
+   * Deletes an extension field.
    * 
    * @param request - DeleteCustomFieldRequest
    * @returns DeleteCustomFieldResponse
@@ -3686,7 +3718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义条款
+   * Deleting custom clauses
    * 
    * @param request - DeleteCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3721,7 +3753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义条款
+   * Deleting custom clauses
    * 
    * @param request - DeleteCustomPrivacyPolicyRequest
    * @returns DeleteCustomPrivacyPolicyResponse
@@ -3828,7 +3860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除联邦凭证提供方
+   * Deletes a federated credential provider.
    * 
    * @param request - DeleteFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3863,7 +3895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除联邦凭证提供方
+   * Deletes a federated credential provider.
    * 
    * @param request - DeleteFederatedCredentialProviderRequest
    * @returns DeleteFederatedCredentialProviderResponse
@@ -4060,7 +4092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网络区域对象
+   * Deletes a network zone object.
    * 
    * @param request - DeleteNetworkZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4095,7 +4127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网络区域对象
+   * Deletes a network zone object.
    * 
    * @param request - DeleteNetworkZoneRequest
    * @returns DeleteNetworkZoneResponse
@@ -4198,7 +4230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定ResourceServer下的Scope
+   * Deletes a scope permission from a specified resource server.
    * 
    * @param request - DeleteResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4237,7 +4269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定ResourceServer下的Scope
+   * Deletes a scope permission from a specified resource server.
    * 
    * @param request - DeleteResourceServerScopeRequest
    * @returns DeleteResourceServerScopeResponse
@@ -4248,7 +4280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+   * Deletes a specified EIAM user and purges all related information.
    * 
    * @param request - DeleteUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4283,7 +4315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+   * Deletes a specified EIAM user and purges all related information.
    * 
    * @param request - DeleteUserRequest
    * @returns DeleteUserResponse
@@ -4294,7 +4326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除账号
+   * Deletes multiple accounts in a batch.
    * 
    * @param request - DeleteUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4329,7 +4361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除账号
+   * Deletes multiple accounts in a batch.
    * 
    * @param request - DeleteUsersRequest
    * @returns DeleteUsersResponse
@@ -4340,7 +4372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定WebAuthn认证器名称
+   * Deletes the specified WebAuthn authenticator.
    * 
    * @param request - DeleteWebAuthnAuthenticatorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4379,7 +4411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定WebAuthn认证器名称
+   * Deletes the specified WebAuthn authenticator.
    * 
    * @param request - DeleteWebAuthnAuthenticatorRequest
    * @returns DeleteWebAuthnAuthenticatorResponse
@@ -4538,7 +4570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用应用联邦凭证
+   * Disables a federated credential for an application.
    * 
    * @param request - DisableApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4577,7 +4609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用应用联邦凭证
+   * Disables a federated credential for an application.
    * 
    * @param request - DisableApplicationFederatedCredentialRequest
    * @returns DisableApplicationFederatedCredentialResponse
@@ -4588,7 +4620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用M2M Client 能力
+   * Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
    * 
    * @param request - DisableApplicationM2MClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4623,7 +4655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用M2M Client 能力
+   * Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
    * 
    * @param request - DisableApplicationM2MClientRequest
    * @returns DisableApplicationM2MClientResponse
@@ -4680,7 +4712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用ResourceServer能力
+   * Disables the resource server functionality for a specified application.
    * 
    * @param request - DisableApplicationResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4715,7 +4747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用ResourceServer能力
+   * Disables the resource server functionality for a specified application.
    * 
    * @param request - DisableApplicationResourceServerRequest
    * @returns DisableApplicationResourceServerResponse
@@ -4772,7 +4804,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用应用Token
+   * Disables an application token.
+   * 
+   * @remarks
+   * When you change the status of an application from enabled to disabled, all application features, such as single sign-on (SSO) and account synchronization, become unavailable. Be aware of the potential threats associated with this operation.
    * 
    * @param request - DisableApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4811,7 +4846,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用应用Token
+   * Disables an application token.
+   * 
+   * @remarks
+   * When you change the status of an application from enabled to disabled, all application features, such as single sign-on (SSO) and account synchronization, become unavailable. Be aware of the potential threats associated with this operation.
    * 
    * @param request - DisableApplicationTokenRequest
    * @returns DisableApplicationTokenResponse
@@ -4822,7 +4860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用授权规则
+   * Disables an authorization rule.
    * 
    * @param request - DisableAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4863,7 +4901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用授权规则
+   * Disables an authorization rule.
    * 
    * @param request - DisableAuthorizationRuleRequest
    * @returns DisableAuthorizationRuleResponse
@@ -4874,7 +4912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用品牌
+   * Disables a brand.
    * 
    * @param request - DisableBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4909,7 +4947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用品牌
+   * Disables a brand.
    * 
    * @param request - DisableBrandRequest
    * @returns DisableBrandResponse
@@ -4920,7 +4958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用指定的应用ClientPublicKey
+   * Disables the ClientPublicKey for a specified application.
    * 
    * @param request - DisableClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4963,7 +5001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用指定的应用ClientPublicKey
+   * Disables the ClientPublicKey for a specified application.
    * 
    * @param request - DisableClientPublicKeyRequest
    * @returns DisableClientPublicKeyResponse
@@ -4974,7 +5012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用云角色
+   * Disables a cloud role for a specified Alibaba Cloud account.
    * 
    * @param request - DisableCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5017,7 +5055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用云角色
+   * Disables a cloud role for a specified Alibaba Cloud account.
    * 
    * @param request - DisableCloudAccountRoleRequest
    * @returns DisableCloudAccountRoleResponse
@@ -5028,10 +5066,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disable Conditional Access Policy
+   * Disables a conditional access policy.
    * 
    * @remarks
-   * When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+   * When you disable a conditional access policy, the policy no longer blocks access. Make sure that you are aware of the potential threats that may arise from this operation.
    * 
    * @param request - DisableConditionalAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5066,10 +5104,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disable Conditional Access Policy
+   * Disables a conditional access policy.
    * 
    * @remarks
-   * When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+   * When you disable a conditional access policy, the policy no longer blocks access. Make sure that you are aware of the potential threats that may arise from this operation.
    * 
    * @param request - DisableConditionalAccessPolicyRequest
    * @returns DisableConditionalAccessPolicyResponse
@@ -5080,7 +5118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用凭据
+   * Disables a credential resource.
    * 
    * @param request - DisableCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5119,7 +5157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用凭据
+   * Disables a credential resource.
    * 
    * @param request - DisableCredentialRequest
    * @returns DisableCredentialResponse
@@ -5130,7 +5168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用凭据提供商
+   * Disables a credential provider.
    * 
    * @param request - DisableCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5165,7 +5203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用凭据提供商
+   * Disables a credential provider.
    * 
    * @param request - DisableCredentialProviderRequest
    * @returns DisableCredentialProviderResponse
@@ -5176,7 +5214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用字段
+   * Disables a custom field.
    * 
    * @param request - DisableCustomFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5211,7 +5249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用字段
+   * Disables a custom field.
    * 
    * @param request - DisableCustomFieldRequest
    * @returns DisableCustomFieldResponse
@@ -5222,7 +5260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用自定义条款
+   * Disables a custom privacy policy.
    * 
    * @param request - DisableCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5257,7 +5295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用自定义条款
+   * Disables a custom privacy policy.
    * 
    * @param request - DisableCustomPrivacyPolicyRequest
    * @returns DisableCustomPrivacyPolicyResponse
@@ -5318,7 +5356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用联邦凭证提供方
+   * Disables a federated credential provider.
    * 
    * @param request - DisableFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5353,7 +5391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用联邦凭证提供方
+   * Disables a federated credential provider.
    * 
    * @param request - DisableFederatedCredentialProviderRequest
    * @returns DisableFederatedCredentialProviderResponse
@@ -5364,7 +5402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用高级配置
+   * Disables the advanced configuration.
    * 
    * @param request - DisableIdentityProviderAdvancedAbilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5399,7 +5437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用高级配置
+   * Disables the advanced configuration.
    * 
    * @param request - DisableIdentityProviderAdvancedAbilityRequest
    * @returns DisableIdentityProviderAdvancedAbilityResponse
@@ -5410,7 +5448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用认证
+   * Disables authentication.
+   * 
+   * @remarks
+   * When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Before you perform this operation, make sure that you understand the associated risks.
    * 
    * @param request - DisableIdentityProviderAuthnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5445,7 +5486,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用认证
+   * Disables authentication.
+   * 
+   * @remarks
+   * When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Before you perform this operation, make sure that you understand the associated risks.
    * 
    * @param request - DisableIdentityProviderAuthnRequest
    * @returns DisableIdentityProviderAuthnResponse
@@ -5544,7 +5588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用内部认证源
+   * Disables an internal authentication source.
    * 
    * @param request - DisableInternalAuthenticationSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5579,7 +5623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用内部认证源
+   * Disables an internal authentication source.
    * 
    * @param request - DisableInternalAuthenticationSourceRequest
    * @returns DisableInternalAuthenticationSourceResponse
@@ -5590,7 +5634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用资源服务器自定义主体
+   * Disables the custom subject feature for a specified resource server.
    * 
    * @param request - DisableResourceServerCustomSubjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5625,7 +5669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用资源服务器自定义主体
+   * Disables the custom subject feature for a specified resource server.
    * 
    * @param request - DisableResourceServerCustomSubjectRequest
    * @returns DisableResourceServerCustomSubjectResponse
@@ -5728,7 +5772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   * You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
    * 
    * @param request - EnableApplicationApiInvokeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5763,7 +5807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   * You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
    * 
    * @param request - EnableApplicationApiInvokeRequest
    * @returns EnableApplicationApiInvokeResponse
@@ -5824,7 +5868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用应用联邦凭证
+   * Enables an application federated credential.
    * 
    * @param request - EnableApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5863,7 +5907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用应用联邦凭证
+   * Enables an application federated credential.
    * 
    * @param request - EnableApplicationFederatedCredentialRequest
    * @returns EnableApplicationFederatedCredentialResponse
@@ -5874,7 +5918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用M2M Client 能力
+   * Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
    * 
    * @param request - EnableApplicationM2MClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5909,7 +5953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用M2M Client 能力
+   * Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
    * 
    * @param request - EnableApplicationM2MClientRequest
    * @returns EnableApplicationM2MClientResponse
@@ -5966,7 +6010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用ResourceServer能力
+   * Enables the ResourceServer feature for a specified application.
    * 
    * @param request - EnableApplicationResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6001,7 +6045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用ResourceServer能力
+   * Enables the ResourceServer feature for a specified application.
    * 
    * @param request - EnableApplicationResourceServerRequest
    * @returns EnableApplicationResourceServerResponse
@@ -6012,7 +6056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application.
+   * Enables single sign-on (SSO) for an EIAM application.
    * 
    * @param request - EnableApplicationSsoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6047,7 +6091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application.
+   * Enables single sign-on (SSO) for an EIAM application.
    * 
    * @param request - EnableApplicationSsoRequest
    * @returns EnableApplicationSsoResponse
@@ -6058,7 +6102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用应用Token
+   * Enables an application token.
    * 
    * @param request - EnableApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6097,7 +6141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用应用Token
+   * Enables an application token.
    * 
    * @param request - EnableApplicationTokenRequest
    * @returns EnableApplicationTokenResponse
@@ -6108,7 +6152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用授权规则
+   * Enables an authorization rule.
    * 
    * @param request - EnableAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6149,7 +6193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用授权规则
+   * Enables an authorization rule.
    * 
    * @param request - EnableAuthorizationRuleRequest
    * @returns EnableAuthorizationRuleResponse
@@ -6160,7 +6204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用品牌
+   * Enables a brand.
    * 
    * @param request - EnableBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6195,7 +6239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用品牌
+   * Enables a brand.
    * 
    * @param request - EnableBrandRequest
    * @returns EnableBrandResponse
@@ -6206,7 +6250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用指定的应用ClientPublicKey
+   * Enables the specified ClientPublicKey for an application.
    * 
    * @param request - EnableClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6249,7 +6293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用指定的应用ClientPublicKey
+   * Enables the specified ClientPublicKey for an application.
    * 
    * @param request - EnableClientPublicKeyRequest
    * @returns EnableClientPublicKeyResponse
@@ -6260,7 +6304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用云角色
+   * Enables a cloud role for a specified Alibaba Cloud account.
    * 
    * @param request - EnableCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6303,7 +6347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用云角色
+   * Enables a cloud role for a specified Alibaba Cloud account.
    * 
    * @param request - EnableCloudAccountRoleRequest
    * @returns EnableCloudAccountRoleResponse
@@ -6314,10 +6358,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable Conditional Access Policy
+   * Enables a conditional access policy.
    * 
    * @remarks
-   * When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+   * When you disable a conditional access policy, it no longer blocks access. Be aware of the potential threats before you perform this operation.
    * 
    * @param request - EnableConditionalAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6352,10 +6396,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable Conditional Access Policy
+   * Enables a conditional access policy.
    * 
    * @remarks
-   * When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+   * When you disable a conditional access policy, it no longer blocks access. Be aware of the potential threats before you perform this operation.
    * 
    * @param request - EnableConditionalAccessPolicyRequest
    * @returns EnableConditionalAccessPolicyResponse
@@ -6366,7 +6410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用凭据
+   * Enables a credential resource.
    * 
    * @param request - EnableCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6405,7 +6449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用凭据
+   * Enables a credential resource.
    * 
    * @param request - EnableCredentialRequest
    * @returns EnableCredentialResponse
@@ -6416,7 +6460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用凭据提供商
+   * Enables a credential provider.
    * 
    * @param request - EnableCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6451,7 +6495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用凭据提供商
+   * Enables a credential provider.
    * 
    * @param request - EnableCredentialProviderRequest
    * @returns EnableCredentialProviderResponse
@@ -6462,7 +6506,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用字段
+   * Enables a custom field.
+   * 
+   * @remarks
+   * *Before you use this API, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) for IDaaS EIAM.**
    * 
    * @param request - EnableCustomFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6497,7 +6544,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用字段
+   * Enables a custom field.
+   * 
+   * @remarks
+   * *Before you use this API, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) for IDaaS EIAM.**
    * 
    * @param request - EnableCustomFieldRequest
    * @returns EnableCustomFieldResponse
@@ -6508,7 +6558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用自定义条款
+   * Enabling custom terms
    * 
    * @param request - EnableCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6543,7 +6593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用自定义条款
+   * Enabling custom terms
    * 
    * @param request - EnableCustomPrivacyPolicyRequest
    * @returns EnableCustomPrivacyPolicyResponse
@@ -6604,7 +6654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用联邦凭证提供方
+   * Enables a federated credential provider.
    * 
    * @param request - EnableFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6639,7 +6689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用联邦凭证提供方
+   * Enables a federated credential provider.
    * 
    * @param request - EnableFederatedCredentialProviderRequest
    * @returns EnableFederatedCredentialProviderResponse
@@ -6650,7 +6700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用高级配置
+   * Enables advanced configuration.
    * 
    * @param request - EnableIdentityProviderAdvancedAbilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6685,7 +6735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用高级配置
+   * Enables advanced configuration.
    * 
    * @param request - EnableIdentityProviderAdvancedAbilityRequest
    * @returns EnableIdentityProviderAdvancedAbilityResponse
@@ -6696,7 +6746,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用认证
+   * Enables authentication.
+   * 
+   * @remarks
+   * When a conditional access policy is disabled, it no longer blocks access. Ensure that you understand the potential security threats before you perform this operation.
    * 
    * @param request - EnableIdentityProviderAuthnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6731,7 +6784,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用认证
+   * Enables authentication.
+   * 
+   * @remarks
+   * When a conditional access policy is disabled, it no longer blocks access. Ensure that you understand the potential security threats before you perform this operation.
    * 
    * @param request - EnableIdentityProviderAuthnRequest
    * @returns EnableIdentityProviderAuthnResponse
@@ -6788,7 +6844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance.
+   * Enables automatic redirection from the initialization domain name to the default domain name for an EIAM instance. After this feature is enabled, portal access via the initialization domain name is redirected to the default domain name.
    * 
    * @param request - EnableInitDomainAutoRedirectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6819,7 +6875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance.
+   * Enables automatic redirection from the initialization domain name to the default domain name for an EIAM instance. After this feature is enabled, portal access via the initialization domain name is redirected to the default domain name.
    * 
    * @param request - EnableInitDomainAutoRedirectRequest
    * @returns EnableInitDomainAutoRedirectResponse
@@ -6830,7 +6886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用内部认证源
+   * Enables an internal authentication source.
    * 
    * @param request - EnableInternalAuthenticationSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6865,7 +6921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用内部认证源
+   * Enables an internal authentication source.
    * 
    * @param request - EnableInternalAuthenticationSourceRequest
    * @returns EnableInternalAuthenticationSourceResponse
@@ -6876,7 +6932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用资源服务器自定义主体
+   * Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
    * 
    * @param request - EnableResourceServerCustomSubjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6911,7 +6967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用资源服务器自定义主体
+   * Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
    * 
    * @param request - EnableResourceServerCustomSubjectRequest
    * @returns EnableResourceServerCustomSubjectResponse
@@ -6968,7 +7024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解析IdP Metadata信息。
+   * Resolves the metadata for an identity provider.
    * 
    * @param request - ExecIdentityProviderMetadataUrlResolutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7015,7 +7071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解析IdP Metadata信息。
+   * Resolves the metadata for an identity provider.
    * 
    * @param request - ExecIdentityProviderMetadataUrlResolutionRequest
    * @returns ExecIdentityProviderMetadataUrlResolutionResponse
@@ -7026,7 +7082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成文件导入结果下载地址
+   * Generates a download URL for the result of a file import.
    * 
    * @param request - GenerateDownloadUrlForSynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7061,7 +7117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成文件导入结果下载地址
+   * Generates a download URL for the result of a file import.
    * 
    * @param request - GenerateDownloadUrlForSynchronizationJobRequest
    * @returns GenerateDownloadUrlForSynchronizationJobResponse
@@ -7072,7 +7128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成文件导入模板
+   * Generates a file import template.
    * 
    * @param request - GenerateFileImportTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7107,7 +7163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成文件导入模板
+   * Generates a file import template.
    * 
    * @param request - GenerateFileImportTemplateRequest
    * @returns GenerateFileImportTemplateResponse
@@ -7118,7 +7174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成 Oauth Token
+   * Obtain an access token to call a resource server using a specified application as the client.
    * 
    * @param request - GenerateOauthTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7161,7 +7217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成 Oauth Token
+   * Obtain an access token to call a resource server using a specified application as the client.
    * 
    * @param request - GenerateOauthTokenRequest
    * @returns GenerateOauthTokenResponse
@@ -7172,7 +7228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上传认证
+   * Generates an upload credential.
    * 
    * @param request - GenerateUploadAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7211,7 +7267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上传认证
+   * Generates an upload credential.
    * 
    * @param request - GenerateUploadAuthRequest
    * @returns GenerateUploadAuthResponse
@@ -7222,7 +7278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成WebAuthn认证器注册URL
+   * Generates a WebAuthn authenticator registration URL.
    * 
    * @param request - GenerateWebAuthnAuthenticatorRegistrationUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7261,7 +7317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成WebAuthn认证器注册URL
+   * Generates a WebAuthn authenticator registration URL.
    * 
    * @param request - GenerateWebAuthnAuthenticatorRegistrationUrlRequest
    * @returns GenerateWebAuthnAuthenticatorRegistrationUrlResponse
@@ -7272,7 +7328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Employee Identity and Access Management (EIAM) application.
+   * Retrieves the details of a specified EIAM application.
    * 
    * @param request - GetApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7307,7 +7363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Employee Identity and Access Management (EIAM) application.
+   * Retrieves the details of a specified EIAM application.
    * 
    * @param request - GetApplicationRequest
    * @returns GetApplicationResponse
@@ -7318,7 +7374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用高阶配置
+   * Retrieves the advanced configuration of an application.
    * 
    * @param request - GetApplicationAdvancedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7353,7 +7409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用高阶配置
+   * Retrieves the advanced configuration of an application.
    * 
    * @param request - GetApplicationAdvancedConfigRequest
    * @returns GetApplicationAdvancedConfigResponse
@@ -7364,7 +7420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用联邦凭证
+   * Retrieves the federated credential for an application.
    * 
    * @param request - GetApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7403,7 +7459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用联邦凭证
+   * Retrieves the federated credential for an application.
    * 
    * @param request - GetApplicationFederatedCredentialRequest
    * @returns GetApplicationFederatedCredentialResponse
@@ -7460,7 +7516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
    * 
    * @param request - GetApplicationProvisioningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7495,7 +7551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
    * 
    * @param request - GetApplicationProvisioningConfigRequest
    * @returns GetApplicationProvisioningConfigResponse
@@ -7552,7 +7608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用同步配置
+   * Queries the synchronization configuration of a specified application.
    * 
    * @param request - GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7587,7 +7643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用同步配置
+   * Queries the synchronization configuration of a specified application.
    * 
    * @param request - GetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @returns GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -7598,7 +7654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取角色信息
+   * Retrieves the details of an application role.
    * 
    * @param request - GetApplicationRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7637,7 +7693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取角色信息
+   * Retrieves the details of an application role.
    * 
    * @param request - GetApplicationRoleRequest
    * @returns GetApplicationRoleResponse
@@ -7648,7 +7704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Retrieves the single sign-on (SSO) configuration for an application in EIAM.
    * 
    * @param request - GetApplicationSsoConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7683,7 +7739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Retrieves the single sign-on (SSO) configuration for an application in EIAM.
    * 
    * @param request - GetApplicationSsoConfigRequest
    * @returns GetApplicationSsoConfigResponse
@@ -7694,7 +7750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用模板信息
+   * Retrieves the details of an application template.
    * 
    * @param request - GetApplicationTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7725,7 +7781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用模板信息
+   * Retrieves the details of an application template.
    * 
    * @param request - GetApplicationTemplateRequest
    * @returns GetApplicationTemplateResponse
@@ -7736,7 +7792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取授权资源信息
+   * Queries the information about an authorized resource.
    * 
    * @param request - GetAuthorizationResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7775,7 +7831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取授权资源信息
+   * Queries the information about an authorized resource.
    * 
    * @param request - GetAuthorizationResourceRequest
    * @returns GetAuthorizationResourceResponse
@@ -7786,7 +7842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取授权规则信息
+   * Query information about an authorization rule.
    * 
    * @param request - GetAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7821,7 +7877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取授权规则信息
+   * Query information about an authorization rule.
    * 
    * @param request - GetAuthorizationRuleRequest
    * @returns GetAuthorizationRuleResponse
@@ -7832,7 +7888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取品牌详情
+   * Retrieves the details of a brand.
    * 
    * @param request - GetBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7867,7 +7923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取品牌详情
+   * Retrieves the details of a brand.
    * 
    * @param request - GetBrandRequest
    * @returns GetBrandResponse
@@ -7878,7 +7934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用ClientPublicKey
+   * Retrieves the ClientPublicKey for a specified application.
    * 
    * @param request - GetClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7917,7 +7973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用ClientPublicKey
+   * Retrieves the ClientPublicKey for a specified application.
    * 
    * @param request - GetClientPublicKeyRequest
    * @returns GetClientPublicKeyResponse
@@ -7928,7 +7984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取云账号
+   * Retrieves information about resources in an Alibaba Cloud account.
    * 
    * @param request - GetCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7963,7 +8019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取云账号
+   * Retrieves information about resources in an Alibaba Cloud account.
    * 
    * @param request - GetCloudAccountRequest
    * @returns GetCloudAccountResponse
@@ -7974,7 +8030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取云角色
+   * Retrieves information about a cloud role.
    * 
    * @param request - GetCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8013,7 +8069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取云角色
+   * Retrieves information about a cloud role.
    * 
    * @param request - GetCloudAccountRoleRequest
    * @returns GetCloudAccountRoleResponse
@@ -8024,10 +8080,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Conditional Access Policy
+   * Retrieves a conditional access policy.
    * 
    * @remarks
-   * Query Conditional Access Policy
+   * This operation retrieves a conditional access policy.
    * 
    * @param request - GetConditionalAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8062,10 +8118,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Conditional Access Policy
+   * Retrieves a conditional access policy.
    * 
    * @remarks
-   * Query Conditional Access Policy
+   * This operation retrieves a conditional access policy.
    * 
    * @param request - GetConditionalAccessPolicyRequest
    * @returns GetConditionalAccessPolicyResponse
@@ -8076,7 +8132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取凭据
+   * Retrieves the details of a specific credential.
    * 
    * @param request - GetCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8111,7 +8167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取凭据
+   * Retrieves the details of a specific credential.
    * 
    * @param request - GetCredentialRequest
    * @returns GetCredentialResponse
@@ -8122,7 +8178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询凭据提供商详情
+   * Retrieves the details of a credential provider.
    * 
    * @param request - GetCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8157,7 +8213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询凭据提供商详情
+   * Retrieves the details of a credential provider.
    * 
    * @param request - GetCredentialProviderRequest
    * @returns GetCredentialProviderResponse
@@ -8168,7 +8224,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取扩展字段信息
+   * Retrieves custom field information.
+   * 
+   * @remarks
+   * *Before using this operation, review the IDaaS pricing model and [pricing details](https://www.aliyun.com/price/product#/ecs/detail).**
    * 
    * @param request - GetCustomFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8203,7 +8262,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取扩展字段信息
+   * Retrieves custom field information.
+   * 
+   * @remarks
+   * *Before using this operation, review the IDaaS pricing model and [pricing details](https://www.aliyun.com/price/product#/ecs/detail).**
    * 
    * @param request - GetCustomFieldRequest
    * @returns GetCustomFieldResponse
@@ -8214,7 +8276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义条款
+   * Obtaining custom terms
    * 
    * @param request - GetCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8249,7 +8311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义条款
+   * Obtaining custom terms
    * 
    * @param request - GetCustomPrivacyPolicyRequest
    * @returns GetCustomPrivacyPolicyResponse
@@ -8260,7 +8322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
+   * Retrieves information about a domain name for an EIAM instance.
    * 
    * @param request - GetDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8295,7 +8357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
+   * Retrieves information about a domain name for an EIAM instance.
    * 
    * @param request - GetDomainRequest
    * @returns GetDomainResponse
@@ -8306,7 +8368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain name system (DNS) challenge records of a domain name of an Employee Identity and Access Management (EIAM) instance. The generated records are used to verify the ownership of the domain name.
+   * Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
    * 
    * @param request - GetDomainDnsChallengeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8341,7 +8403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain name system (DNS) challenge records of a domain name of an Employee Identity and Access Management (EIAM) instance. The generated records are used to verify the ownership of the domain name.
+   * Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
    * 
    * @param request - GetDomainDnsChallengeRequest
    * @returns GetDomainDnsChallengeResponse
@@ -8352,7 +8414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取联邦凭证提供方
+   * Retrieve a federated credential provider.
    * 
    * @param request - GetFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8387,7 +8449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取联邦凭证提供方
+   * Retrieve a federated credential provider.
    * 
    * @param request - GetFederatedCredentialProviderRequest
    * @returns GetFederatedCredentialProviderResponse
@@ -8398,7 +8460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Queries the forgot-password configuration for a specified EIAM instance.
    * 
    * @param request - GetForgetPasswordConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8429,7 +8491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Queries the forgot-password configuration for a specified EIAM instance.
    * 
    * @param request - GetForgetPasswordConfigurationRequest
    * @returns GetForgetPasswordConfigurationResponse
@@ -8440,7 +8502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Retrieves the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - GetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8475,7 +8537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Retrieves the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - GetGroupRequest
    * @returns GetGroupResponse
@@ -8486,7 +8548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an identity provider (IdP).
+   * Get an identity provider.
    * 
    * @param request - GetIdentityProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8521,7 +8583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an identity provider (IdP).
+   * Get an identity provider.
    * 
    * @param request - GetIdentityProviderRequest
    * @returns GetIdentityProviderResponse
@@ -8532,7 +8594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取高级配置信息
+   * Retrieves advanced configuration information.
    * 
    * @param request - GetIdentityProviderAdvancedConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8567,7 +8629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取高级配置信息
+   * Retrieves advanced configuration information.
    * 
    * @param request - GetIdentityProviderAdvancedConfigurationRequest
    * @returns GetIdentityProviderAdvancedConfigurationResponse
@@ -8578,7 +8640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取IdP检查任务
+   * Retrieves an IdP check task.
    * 
    * @param request - GetIdentityProviderStatusCheckJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8617,7 +8679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取IdP检查任务
+   * Retrieves an IdP check task.
    * 
    * @param request - GetIdentityProviderStatusCheckJobRequest
    * @returns GetIdentityProviderStatusCheckJobResponse
@@ -8674,7 +8736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取IdP同步出配置
+   * Retrieve the IdP outbound synchronization configuration.
    * 
    * @param request - GetIdentityProviderUdPushConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8709,7 +8771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取IdP同步出配置
+   * Retrieve the IdP outbound synchronization configuration.
    * 
    * @param request - GetIdentityProviderUdPushConfigurationRequest
    * @returns GetIdentityProviderUdPushConfigurationResponse
@@ -8720,7 +8782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Queries the detailed information of an EIAM instance.
    * 
    * @param request - GetInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8751,7 +8813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Queries the detailed information of an EIAM instance.
    * 
    * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
@@ -8762,7 +8824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例控制项
+   * Queries the control configuration for an instance.
    * 
    * @param request - GetInstanceControlConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8797,7 +8859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例控制项
+   * Queries the control configuration for an instance.
    * 
    * @param request - GetInstanceControlConfigurationRequest
    * @returns GetInstanceControlConfigurationResponse
@@ -8808,7 +8870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例语言、时区信息
+   * Retrieves the language and time zone information for an instance.
+   * 
+   * @remarks
+   * When you disable a conditional access policy, it no longer intercepts access requests. Confirm that you understand the security risks associated with this action.
    * 
    * @param request - GetInstanceGlobalizationConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8839,7 +8904,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例语言、时区信息
+   * Retrieves the language and time zone information for an instance.
+   * 
+   * @remarks
+   * When you disable a conditional access policy, it no longer intercepts access requests. Confirm that you understand the security risks associated with this action.
    * 
    * @param request - GetInstanceGlobalizationConfigRequest
    * @returns GetInstanceGlobalizationConfigResponse
@@ -8850,10 +8918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the currently effective License information of the instance
+   * Queries the active license information for an instance.
    * 
    * @remarks
-   * Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
+   * Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
    * 
    * @param request - GetInstanceLicenseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8884,10 +8952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the currently effective License information of the instance
+   * Queries the active license information for an instance.
    * 
    * @remarks
-   * Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
+   * Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
    * 
    * @param request - GetInstanceLicenseRequest
    * @returns GetInstanceLicenseResponse
@@ -8898,7 +8966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一级模块下，所有模块信息
+   * Retrieves information about all modules within a primary module.
    * 
    * @param request - GetInstanceModuleInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8933,7 +9001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一级模块下，所有模块信息
+   * Retrieves information about all modules within a primary module.
    * 
    * @param request - GetInstanceModuleInfoRequest
    * @returns GetInstanceModuleInfoResponse
@@ -8944,7 +9012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例单一类型的Quota
+   * Retrieves the quota of a specific type for an instance.
    * 
    * @param request - GetInstanceQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8979,7 +9047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例单一类型的Quota
+   * Retrieves the quota of a specific type for an instance.
    * 
    * @param request - GetInstanceQuotaRequest
    * @returns GetInstanceQuotaResponse
@@ -8990,7 +9058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例的试用状态
+   * Retrieves the trial status of an instance.
    * 
    * @param request - GetInstanceTrialStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9021,7 +9089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例的试用状态
+   * Retrieves the trial status of an instance.
    * 
    * @param request - GetInstanceTrialStatusRequest
    * @returns GetInstanceTrialStatusResponse
@@ -9032,7 +9100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取品牌登录后跳转应用
+   * Configure the post-logon redirect application for a brand
    * 
    * @param request - GetLoginRedirectApplicationForBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9067,7 +9135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取品牌登录后跳转应用
+   * Configure the post-logon redirect application for a brand
    * 
    * @param request - GetLoginRedirectApplicationForBrandRequest
    * @returns GetLoginRedirectApplicationForBrandResponse
@@ -9124,7 +9192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网络区域对象
+   * Retrieves a network zone object.
    * 
    * @param request - GetNetworkZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9159,7 +9227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网络区域对象
+   * Retrieves a network zone object.
    * 
    * @param request - GetNetworkZoneRequest
    * @returns GetNetworkZoneResponse
@@ -9216,7 +9284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Retrieves the password complexity policy for a specified EIAM instance.
    * 
    * @param request - GetPasswordComplexityConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9247,7 +9315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Retrieves the password complexity policy for a specified EIAM instance.
    * 
    * @param request - GetPasswordComplexityConfigurationRequest
    * @returns GetPasswordComplexityConfigurationResponse
@@ -9384,7 +9452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定ResourceServer下的Scope
+   * Retrieves the permission scopes for a specified resource server.
    * 
    * @param request - GetResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9423,7 +9491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定ResourceServer下的Scope
+   * Retrieves the permission scopes for a specified resource server.
    * 
    * @param request - GetResourceServerScopeRequest
    * @returns GetResourceServerScopeResponse
@@ -9476,7 +9544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务Quota
+   * Queries a service quota
    * 
    * @param request - GetServiceQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9507,7 +9575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务Quota
+   * Queries a service quota
    * 
    * @param request - GetServiceQuotaRequest
    * @returns GetServiceQuotaResponse
@@ -9564,7 +9632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Retrieves the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
    * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9599,7 +9667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Retrieves the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -9610,7 +9678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看调用事件列表
+   * View the list of invocation events.
    * 
    * @param request - ListActionTrackEventTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9653,7 +9721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看调用事件列表
+   * View the list of invocation events.
    * 
    * @param request - ListActionTrackEventTypesRequest
    * @returns ListActionTrackEventTypesResponse
@@ -9664,7 +9732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询应用下的应用账户列表
+   * Returns a paginated list of application accounts.
    * 
    * @param request - ListApplicationAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9707,7 +9775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询应用下的应用账户列表
+   * Returns a paginated list of application accounts.
    * 
    * @param request - ListApplicationAccountsRequest
    * @returns ListApplicationAccountsResponse
@@ -9718,7 +9786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询当前应用下指定用户的所有账号
+   * Queries all accounts that belong to a specified user in an application.
+   * 
+   * @remarks
+   * This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
    * 
    * @param request - ListApplicationAccountsForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9757,7 +9828,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询当前应用下指定用户的所有账号
+   * Queries all accounts that belong to a specified user in an application.
+   * 
+   * @remarks
+   * This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
    * 
    * @param request - ListApplicationAccountsForUserRequest
    * @returns ListApplicationAccountsForUserResponse
@@ -9768,7 +9842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+   * Queries all client secrets for an EIAM application. The key data in the response is masked. To obtain an unmasked key, call the ObtainApplicationClientSecret operation.
    * 
    * @param request - ListApplicationClientSecretsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9803,7 +9877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+   * Queries all client secrets for an EIAM application. The key data in the response is masked. To obtain an unmasked key, call the ObtainApplicationClientSecret operation.
    * 
    * @param request - ListApplicationClientSecretsRequest
    * @returns ListApplicationClientSecretsResponse
@@ -9814,7 +9888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用联邦凭证列表
+   * Lists the federated credentials for an application.
    * 
    * @param request - ListApplicationFederatedCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9865,7 +9939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用联邦凭证列表
+   * Lists the federated credentials for an application.
    * 
    * @param request - ListApplicationFederatedCredentialsRequest
    * @returns ListApplicationFederatedCredentialsResponse
@@ -9876,7 +9950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据联邦凭证提供方查询应用联邦凭证列表
+   * Lists the application federated credentials for a specified federated credential provider.
    * 
    * @param request - ListApplicationFederatedCredentialsForProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9923,7 +9997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据联邦凭证提供方查询应用联邦凭证列表
+   * Lists the application federated credentials for a specified federated credential provider.
    * 
    * @param request - ListApplicationFederatedCredentialsForProviderRequest
    * @returns ListApplicationFederatedCredentialsForProviderResponse
@@ -9934,7 +10008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 游标分页查询应用角色
+   * Retrieves a list of application roles using a cursor.
    * 
    * @param request - ListApplicationRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9981,7 +10055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 游标分页查询应用角色
+   * Retrieves a list of application roles using a cursor.
    * 
    * @param request - ListApplicationRolesRequest
    * @returns ListApplicationRolesResponse
@@ -9992,7 +10066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the synchronization protocol types that are supported by an application.
+   * Call the ListApplicationSupportedProvisionProtocolTypes operation to query the account synchronization protocols supported by an application.
    * 
    * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10027,7 +10101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the synchronization protocol types that are supported by an application.
+   * Call the ListApplicationSupportedProvisionProtocolTypes operation to query the account synchronization protocols supported by an application.
    * 
    * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
    * @returns ListApplicationSupportedProvisionProtocolTypesResponse
@@ -10038,7 +10112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用Token
+   * Retrieves a list of application tokens.
    * 
    * @param request - ListApplicationTokensRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10077,7 +10151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用Token
+   * Retrieves a list of application tokens.
    * 
    * @param request - ListApplicationTokensRequest
    * @returns ListApplicationTokensResponse
@@ -10088,7 +10162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+   * Retrieves a paginated list of EIAM applications.
    * 
    * @param request - ListApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10167,7 +10241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+   * Retrieves a paginated list of EIAM applications.
    * 
    * @param request - ListApplicationsRequest
    * @returns ListApplicationsResponse
@@ -10178,7 +10252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权规则关联的应用列表
+   * Queries the applications that are associated with an authorization rule.
    * 
    * @param request - ListApplicationsForAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10225,7 +10299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权规则关联的应用列表
+   * Queries the applications that are associated with an authorization rule.
    * 
    * @param request - ListApplicationsForAuthorizationRuleRequest
    * @returns ListApplicationsForAuthorizationRuleResponse
@@ -10236,7 +10310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一个EIAM组可访问的应用列表
+   * Retrieves a list of applications that an EIAM group can access.
    * 
    * @param request - ListApplicationsForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10283,7 +10357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一个EIAM组可访问的应用列表
+   * Retrieves a list of applications that an EIAM group can access.
    * 
    * @param request - ListApplicationsForGroupRequest
    * @returns ListApplicationsForGroupResponse
@@ -10294,7 +10368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网络访问端点下的App信息。
+   * Lists the applications for a network access endpoint.
    * 
    * @param request - ListApplicationsForNetworkAccessEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10337,7 +10411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网络访问端点下的App信息。
+   * Lists the applications for a network access endpoint.
    * 
    * @param request - ListApplicationsForNetworkAccessEndpointRequest
    * @returns ListApplicationsForNetworkAccessEndpointResponse
@@ -10348,7 +10422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取NetworkZone关联的应用列表
+   * Retrieves a list of applications associated with a network domain.
    * 
    * @param request - ListApplicationsForNetworkZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10395,7 +10469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取NetworkZone关联的应用列表
+   * Retrieves a list of applications associated with a network domain.
    * 
    * @param request - ListApplicationsForNetworkZoneRequest
    * @returns ListApplicationsForNetworkZoneResponse
@@ -10406,10 +10480,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+   * This operation queries a paginated list of applications that an EIAM organization can access. The response includes application IDs. To retrieve detailed information about an application, call the GetApplication operation.
    * 
    * @remarks
-   * You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+   * This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
    * 
    * @param request - ListApplicationsForOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10456,10 +10530,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+   * This operation queries a paginated list of applications that an EIAM organization can access. The response includes application IDs. To retrieve detailed information about an application, call the GetApplication operation.
    * 
    * @remarks
-   * You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+   * This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
    * 
    * @param request - ListApplicationsForOrganizationalUnitRequest
    * @returns ListApplicationsForOrganizationalUnitResponse
@@ -10470,7 +10544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+   * Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
    * 
    * @param request - ListApplicationsForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10521,7 +10595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+   * Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
    * 
    * @param request - ListApplicationsForUserRequest
    * @returns ListApplicationsForUserResponse
@@ -10532,7 +10606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权资源信息列表
+   * Queries a list of authorized resources.
    * 
    * @param request - ListAuthorizationResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10579,7 +10653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权资源信息列表
+   * Queries a list of authorized resources.
    * 
    * @param request - ListAuthorizationResourcesRequest
    * @returns ListAuthorizationResourcesResponse
@@ -10590,7 +10664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权规则信息列表
+   * Lists authorization rules.
    * 
    * @param request - ListAuthorizationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10633,7 +10707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权规则信息列表
+   * Lists authorization rules.
    * 
    * @param request - ListAuthorizationRulesRequest
    * @returns ListAuthorizationRulesResponse
@@ -10644,7 +10718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用关联的授权规则信息列表
+   * Lists the authorization rules associated with an application.
    * 
    * @param request - ListAuthorizationRulesForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10687,7 +10761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用关联的授权规则信息列表
+   * Lists the authorization rules associated with an application.
    * 
    * @param request - ListAuthorizationRulesForApplicationRequest
    * @returns ListAuthorizationRulesForApplicationResponse
@@ -10698,7 +10772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询组关联的授权规则信息列表
+   * Lists the authorization rules associated with a group.
    * 
    * @param request - ListAuthorizationRulesForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10741,7 +10815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询组关联的授权规则信息列表
+   * Lists the authorization rules associated with a group.
    * 
    * @param request - ListAuthorizationRulesForGroupRequest
    * @returns ListAuthorizationRulesForGroupResponse
@@ -10752,7 +10826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户关联的授权规则信息列表
+   * Queries the authorization rules associated with a user.
    * 
    * @param request - ListAuthorizationRulesForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10795,7 +10869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户关联的授权规则信息列表
+   * Queries the authorization rules associated with a user.
    * 
    * @param request - ListAuthorizationRulesForUserRequest
    * @returns ListAuthorizationRulesForUserResponse
@@ -10806,7 +10880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取品牌列表
+   * Retrieves a list of brands.
    * 
    * @param request - ListBrandsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10849,7 +10923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取品牌列表
+   * Retrieves a list of brands.
    * 
    * @param request - ListBrandsRequest
    * @returns ListBrandsResponse
@@ -10860,7 +10934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用所属的全部ClientPublicKey
+   * Lists the client public keys for a specified application using a cursor.
    * 
    * @param request - ListClientPublicKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10903,7 +10977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用所属的全部ClientPublicKey
+   * Lists the client public keys for a specified application using a cursor.
    * 
    * @param request - ListClientPublicKeysRequest
    * @returns ListClientPublicKeysResponse
@@ -10914,7 +10988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云角色列表
+   * Queries a paginated list of cloud roles.
    * 
    * @param request - ListCloudAccountRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10961,7 +11035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云角色列表
+   * Queries a paginated list of cloud roles.
    * 
    * @param request - ListCloudAccountRolesRequest
    * @returns ListCloudAccountRolesResponse
@@ -10972,7 +11046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云账号列表
+   * Returns a paginated list of information about one or more Alibaba Cloud accounts.
    * 
    * @param request - ListCloudAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11015,7 +11089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云账号列表
+   * Returns a paginated list of information about one or more Alibaba Cloud accounts.
    * 
    * @param request - ListCloudAccountsRequest
    * @returns ListCloudAccountsResponse
@@ -11086,7 +11160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用关联的条件访问策略列表
+   * Lists the conditional access policies associated with an application.
    * 
    * @param request - ListConditionalAccessPoliciesForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11121,7 +11195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用关联的条件访问策略列表
+   * Lists the conditional access policies associated with an application.
    * 
    * @param request - ListConditionalAccessPoliciesForApplicationRequest
    * @returns ListConditionalAccessPoliciesForApplicationResponse
@@ -11184,7 +11258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户关联的条件访问策略列表
+   * Retrieves a list of conditional access policies that are associated with a user.
    * 
    * @param request - ListConditionalAccessPoliciesForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11219,7 +11293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户关联的条件访问策略列表
+   * Retrieves a list of conditional access policies that are associated with a user.
    * 
    * @param request - ListConditionalAccessPoliciesForUserRequest
    * @returns ListConditionalAccessPoliciesForUserResponse
@@ -11230,7 +11304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举凭据提供商
+   * Lists the credential providers.
    * 
    * @param request - ListCredentialProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11285,7 +11359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举凭据提供商
+   * Lists the credential providers.
    * 
    * @param request - ListCredentialProvidersRequest
    * @returns ListCredentialProvidersResponse
@@ -11296,7 +11370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询凭据列表
+   * Retrieves a paginated list of credentials.
    * 
    * @param request - ListCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11359,7 +11433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询凭据列表
+   * Retrieves a paginated list of credentials.
    * 
    * @param request - ListCredentialsRequest
    * @returns ListCredentialsResponse
@@ -11370,7 +11444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 自定义条款列表查询。
+   * Retrieves a list of custom privacy policies.
    * 
    * @param request - ListCustomPrivacyPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11417,7 +11491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 自定义条款列表查询。
+   * Retrieves a list of custom privacy policies.
    * 
    * @param request - ListCustomPrivacyPoliciesRequest
    * @returns ListCustomPrivacyPoliciesResponse
@@ -11428,7 +11502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取品牌关联资源的资源
+   * Retrieves the resources of brand-linked instances.
    * 
    * @param request - ListCustomPrivacyPoliciesForBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11475,7 +11549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取品牌关联资源的资源
+   * Retrieves the resources of brand-linked instances.
    * 
    * @param request - ListCustomPrivacyPoliciesForBrandRequest
    * @returns ListCustomPrivacyPoliciesForBrandResponse
@@ -11486,7 +11560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
+   * Retrieves a list of proxy tokens for a domain name in an EIAM instance.
    * 
    * @param request - ListDomainProxyTokensRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11521,7 +11595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
+   * Retrieves a list of proxy tokens for a domain name in an EIAM instance.
    * 
    * @param request - ListDomainProxyTokensRequest
    * @returns ListDomainProxyTokensResponse
@@ -11532,7 +11606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain names of an Employee Identity and Access Management (EIAM) instance. The list contains the initial domain name and custom domain names.
+   * Queries the domain names of an EIAM instance, including the default domain name and custom domain names.
    * 
    * @param request - ListDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11567,7 +11641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain names of an Employee Identity and Access Management (EIAM) instance. The list contains the initial domain name and custom domain names.
+   * Queries the domain names of an EIAM instance, including the default domain name and custom domain names.
    * 
    * @param request - ListDomainsRequest
    * @returns ListDomainsResponse
@@ -11624,7 +11698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
+   * Lists the regions available for EIAM 1.0 and EIAM 2.0.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEiamRegionsResponse
@@ -11646,7 +11720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
+   * Lists the regions available for EIAM 1.0 and EIAM 2.0.
    * @returns ListEiamRegionsResponse
    */
   async listEiamRegions(): Promise<$_model.ListEiamRegionsResponse> {
@@ -11655,7 +11729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看事件列表
+   * View the event list.
    * 
    * @param request - ListEventTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11690,7 +11764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看事件列表
+   * View the event list.
    * 
    * @param request - ListEventTypesRequest
    * @returns ListEventTypesResponse
@@ -11701,7 +11775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联邦凭证提供方列表
+   * Lists federated identity providers.
    * 
    * @param request - ListFederatedCredentialProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11752,7 +11826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联邦凭证提供方列表
+   * Lists federated identity providers.
    * 
    * @param request - ListFederatedCredentialProvidersRequest
    * @returns ListFederatedCredentialProvidersResponse
@@ -11829,7 +11903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
+   * Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
    * 
    * @param request - ListGroupsForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11880,7 +11954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
+   * Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
    * 
    * @param request - ListGroupsForApplicationRequest
    * @returns ListGroupsForApplicationResponse
@@ -11891,7 +11965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权规则关联的组列表
+   * Lists the groups associated with an authorization rule.
    * 
    * @param request - ListGroupsForAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11938,7 +12012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权规则关联的组列表
+   * Lists the groups associated with an authorization rule.
    * 
    * @param request - ListGroupsForAuthorizationRuleRequest
    * @returns ListGroupsForAuthorizationRuleResponse
@@ -11949,7 +12023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ResourceServer授权的组和Scope权限
+   * Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
    * 
    * @param request - ListGroupsForResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12000,7 +12074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ResourceServer授权的组和Scope权限
+   * Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
    * 
    * @param request - ListGroupsForResourceServerRequest
    * @returns ListGroupsForResourceServerResponse
@@ -12065,7 +12139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of identity providers.
+   * Retrieves a list of identity providers.
    * 
    * @param request - ListIdentityProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12108,7 +12182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of identity providers.
+   * Retrieves a list of identity providers.
    * 
    * @param request - ListIdentityProvidersRequest
    * @returns ListIdentityProvidersResponse
@@ -12119,7 +12193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网络端点下的IdP信息。
+   * Retrieves information about Identity Providers (IdPs) for a network endpoint.
    * 
    * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12162,7 +12236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网络端点下的IdP信息。
+   * Retrieves information about Identity Providers (IdPs) for a network endpoint.
    * 
    * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
    * @returns ListIdentityProvidersForNetworkAccessEndpointResponse
@@ -12173,7 +12247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+   * Queries information about one or more EIAM instances.
    * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12182,6 +12256,10 @@ export default class Client extends OpenApi {
   async listInstancesWithOptions(request: $_model.ListInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstancesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.crossRegionReplication)) {
+      query["CrossRegionReplication"] = request.crossRegionReplication;
+    }
+
     if (!$dara.isNull(request.edition)) {
       query["Edition"] = request.edition;
     }
@@ -12220,7 +12298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+   * Queries information about one or more EIAM instances.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -12231,7 +12309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a list of regions that support network access endpoints.
+   * Lists the available regions for creating network access endpoints in IDaaS EIAM.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNetworkAccessEndpointAvailableRegionsResponse
@@ -12253,7 +12331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a list of regions that support network access endpoints.
+   * Lists the available regions for creating network access endpoints in IDaaS EIAM.
    * @returns ListNetworkAccessEndpointAvailableRegionsResponse
    */
   async listNetworkAccessEndpointAvailableRegions(): Promise<$_model.ListNetworkAccessEndpointAvailableRegionsResponse> {
@@ -12262,7 +12340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Queries the zones that support creating network endpoints for IDaaS in a specified region.
    * 
    * @param request - ListNetworkAccessEndpointAvailableZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12293,7 +12371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Queries the zones that support creating network endpoints for IDaaS in a specified region.
    * 
    * @param request - ListNetworkAccessEndpointAvailableZonesRequest
    * @returns ListNetworkAccessEndpointAvailableZonesResponse
@@ -12304,7 +12382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List query dedicated network endpoint
+   * Lists the network endpoints for an IDaaS EIAM instance.
    * 
    * @param request - ListNetworkAccessEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12359,7 +12437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List query dedicated network endpoint
+   * Lists the network endpoints for an IDaaS EIAM instance.
    * 
    * @param request - ListNetworkAccessEndpointsRequest
    * @returns ListNetworkAccessEndpointsResponse
@@ -12370,7 +12448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List the access paths under a certain network access endpoint.
+   * Lists the access paths for a specified network endpoint.
    * 
    * @param request - ListNetworkAccessPathsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12405,7 +12483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List the access paths under a certain network access endpoint.
+   * Lists the access paths for a specified network endpoint.
    * 
    * @param request - ListNetworkAccessPathsRequest
    * @returns ListNetworkAccessPathsResponse
@@ -12416,7 +12494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网络区域对象列表
+   * Lists network zone objects.
    * 
    * @param request - ListNetworkZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12463,7 +12541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网络区域对象列表
+   * Lists network zone objects.
    * 
    * @param request - ListNetworkZonesRequest
    * @returns ListNetworkZonesResponse
@@ -12474,7 +12552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all parent organizations of an Employee Identity and Access Management (EIAM) organization.
+   * Queries all parent organizational units of a specified EIAM organizational unit. The returned organizational units are sorted in hierarchical order from the highest level to the lowest level.
    * 
    * @param request - ListOrganizationalUnitParentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12509,7 +12587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all parent organizations of an Employee Identity and Access Management (EIAM) organization.
+   * Queries all parent organizational units of a specified EIAM organizational unit. The returned organizational units are sorted in hierarchical order from the highest level to the lowest level.
    * 
    * @param request - ListOrganizationalUnitParentsRequest
    * @returns ListOrganizationalUnitParentsResponse
@@ -12520,7 +12598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+   * Performs a paged query for EIAM organizational units.
    * 
    * @param request - ListOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12575,7 +12653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+   * Performs a paged query for EIAM organizational units.
    * 
    * @param request - ListOrganizationalUnitsRequest
    * @returns ListOrganizationalUnitsResponse
@@ -12586,7 +12664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+   * Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
    * 
    * @param request - ListOrganizationalUnitsForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12637,7 +12715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+   * Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
    * 
    * @param request - ListOrganizationalUnitsForApplicationRequest
    * @returns ListOrganizationalUnitsForApplicationResponse
@@ -12648,7 +12726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询被授权到组织的ResourceServers和Scopes权限
+   * Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
    * 
    * @param request - ListOrganizationalUnitsForResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12699,7 +12777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询被授权到组织的ResourceServers和Scopes权限
+   * Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
    * 
    * @param request - ListOrganizationalUnitsForResourceServerRequest
    * @returns ListOrganizationalUnitsForResourceServerResponse
@@ -12741,7 +12819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定ResourceServer下Scope列表。
+   * Query the list of Scope permissions under a specified ResourceServer using cursor-based pagination.
    * 
    * @param request - ListResourceServerScopesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12808,7 +12886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定ResourceServer下Scope列表。
+   * Query the list of Scope permissions under a specified ResourceServer using cursor-based pagination.
    * 
    * @param request - ListResourceServerScopesRequest
    * @returns ListResourceServerScopesResponse
@@ -12819,7 +12897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户的被授予ResourceServers和Scopes的权限
+   * Performs a paged query to retrieve the ResourceServer and Scope permissions that are granted to the current user.
    * 
    * @param request - ListResourceServersForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12866,7 +12944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户的被授予ResourceServers和Scopes的权限
+   * Performs a paged query to retrieve the ResourceServer and Scope permissions that are granted to the current user.
    * 
    * @param request - ListResourceServersForUserRequest
    * @returns ListResourceServersForUserResponse
@@ -12877,7 +12955,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of synchronization jobs.
+   * Lists the details of synchronization tasks.
+   * 
+   * @remarks
+   * You can view the returned data in one of the following two ways:
+   * - Method 1: To query the first page, set MaxResults to limit the number of entries to return. The NextToken value in the response is the token for the next page. To query subsequent pages, set NextToken to the value from the previous response and set MaxResults. If no more data is available, NextToken is not returned. The maximum value for MaxResults is 100.
+   * - Method 2: Set PageSize to specify the number of entries per page and PageNumber to specify the page number.
+   * You can use only one of these methods. Method 1 is recommended when many entries are returned. If you set MaxResults or NextToken, the PageSize and PageNumber parameters are ignored.
    * 
    * @param request - ListSynchronizationJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12952,7 +13036,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of synchronization jobs.
+   * Lists the details of synchronization tasks.
+   * 
+   * @remarks
+   * You can view the returned data in one of the following two ways:
+   * - Method 1: To query the first page, set MaxResults to limit the number of entries to return. The NextToken value in the response is the token for the next page. To query subsequent pages, set NextToken to the value from the previous response and set MaxResults. If no more data is available, NextToken is not returned. The maximum value for MaxResults is 100.
+   * - Method 2: Set PageSize to specify the number of entries per page and PageNumber to specify the page number.
+   * You can use only one of these methods. Method 1 is recommended when many entries are returned. If you set MaxResults or NextToken, the PageSize and PageNumber parameters are ignored.
    * 
    * @param request - ListSynchronizationJobsRequest
    * @returns ListSynchronizationJobsResponse
@@ -12963,7 +13053,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询三方登录账户绑定关系
+   * Lists the mappings for third-party logon accounts.
+   * 
+   * @remarks
+   * This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
    * 
    * @param request - ListUserAuthnSourceMappingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13018,7 +13111,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询三方登录账户绑定关系
+   * Lists the mappings for third-party logon accounts.
+   * 
+   * @remarks
+   * This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
    * 
    * @param request - ListUserAuthnSourceMappingsRequest
    * @returns ListUserAuthnSourceMappingsResponse
@@ -13029,7 +13125,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+   * Retrieves a paginated list of EIAM accounts.
+   * 
+   * @remarks
+   * This API retrieves only applications directly assigned to an organization. Use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13120,7 +13219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+   * Retrieves a paginated list of EIAM accounts.
+   * 
+   * @remarks
+   * This API retrieves only applications directly assigned to an organization. Use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -13131,7 +13233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+   * Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
    * 
    * @param request - ListUsersForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13182,7 +13284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+   * Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
    * 
    * @param request - ListUsersForApplicationRequest
    * @returns ListUsersForApplicationResponse
@@ -13193,7 +13295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权规则关联的账户列表
+   * Lists the accounts associated with an authorization rule.
    * 
    * @param request - ListUsersForAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13240,7 +13342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权规则关联的账户列表
+   * Lists the accounts associated with an authorization rule.
    * 
    * @param request - ListUsersForAuthorizationRuleRequest
    * @returns ListUsersForAuthorizationRuleResponse
@@ -13251,7 +13353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+   * Lists the users in a specified EIAM account group.
    * 
    * @param request - ListUsersForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13298,7 +13400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+   * Lists the users in a specified EIAM account group.
    * 
    * @param request - ListUsersForGroupRequest
    * @returns ListUsersForGroupResponse
@@ -13309,7 +13411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ResourceServer授权的用户和Scope权限
+   * List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
    * 
    * @param request - ListUsersForResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13360,7 +13462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ResourceServer授权的用户和Scope权限
+   * List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
    * 
    * @param request - ListUsersForResourceServerRequest
    * @returns ListUsersForResourceServerResponse
@@ -13371,7 +13473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+   * Obtains the client secret for an EIAM application. The secret is returned without desensitization. To obtain a desensitized secret, call the ListApplicationClientSecrets operation.
    * 
    * @param request - ObtainApplicationClientSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13410,7 +13512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+   * Obtains the client secret for an EIAM application. The secret is returned without desensitization. To obtain a desensitized secret, call the ListApplicationClientSecrets operation.
    * 
    * @param request - ObtainApplicationClientSecretRequest
    * @returns ObtainApplicationClientSecretResponse
@@ -13421,7 +13523,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用Token
+   * Queries the token of a specified application.
+   * 
+   * @remarks
+   * When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Ensure that you understand the potential threats of this operation.
    * 
    * @param request - ObtainApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13460,7 +13565,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用Token
+   * Queries the token of a specified application.
+   * 
+   * @remarks
+   * When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Ensure that you understand the potential threats of this operation.
    * 
    * @param request - ObtainApplicationTokenRequest
    * @returns ObtainApplicationTokenResponse
@@ -13471,7 +13579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取凭据
+   * Retrieves a credential containing sensitive information.
    * 
    * @param request - ObtainCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13506,7 +13614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取凭据
+   * Retrieves a credential containing sensitive information.
    * 
    * @param request - ObtainCredentialRequest
    * @returns ObtainCredentialResponse
@@ -13517,7 +13625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
+   * Obtains the proxy token for a domain name in an EIAM instance.
    * 
    * @param request - ObtainDomainProxyTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13556,7 +13664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
+   * Obtains the proxy token for a domain name in an EIAM instance.
    * 
    * @param request - ObtainDomainProxyTokenRequest
    * @returns ObtainDomainProxyTokenResponse
@@ -13567,7 +13675,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个当前应用下的指定员工的应用账号
+   * Deletes the application account of a specified user from an application.
+   * 
+   * @remarks
+   * This operation queries only applications that are directly assigned to an organization. When you call this operation, you can use the **ApplicationIds** parameter to filter the applications.
    * 
    * @param request - RemoveApplicationAccountFromUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13610,7 +13721,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个当前应用下的指定员工的应用账号
+   * Deletes the application account of a specified user from an application.
+   * 
+   * @remarks
+   * This operation queries only applications that are directly assigned to an organization. When you call this operation, you can use the **ApplicationIds** parameter to filter the applications.
    * 
    * @param request - RemoveApplicationAccountFromUserRequest
    * @returns RemoveApplicationAccountFromUserResponse
@@ -13621,7 +13735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将应用从授权规则中解除
+   * Removes an application from an authorization rule.
    * 
    * @param request - RemoveApplicationFromAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13660,7 +13774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将应用从授权规则中解除
+   * Removes an application from an authorization rule.
    * 
    * @param request - RemoveApplicationFromAuthorizationRuleRequest
    * @returns RemoveApplicationFromAuthorizationRuleResponse
@@ -13671,7 +13785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除品牌关联条款
+   * Removing a brand association
    * 
    * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13710,7 +13824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除品牌关联条款
+   * Removing a brand association
    * 
    * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
    * @returns RemoveCustomPrivacyPoliciesFromBrandResponse
@@ -13721,7 +13835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将组从授权规则中解除
+   * Removes an application from an authorization rule.
    * 
    * @param request - RemoveGroupFromAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13760,7 +13874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将组从授权规则中解除
+   * Removes an application from an authorization rule.
    * 
    * @param request - RemoveGroupFromAuthorizationRuleRequest
    * @returns RemoveGroupFromAuthorizationRuleResponse
@@ -13771,7 +13885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将账户从授权规则中解除
+   * Removes an account from an authorization rule.
    * 
    * @param request - RemoveUserFromAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13810,7 +13924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将账户从授权规则中解除
+   * Removes an account from an authorization rule.
    * 
    * @param request - RemoveUserFromAuthorizationRuleRequest
    * @returns RemoveUserFromAuthorizationRuleResponse
@@ -13921,7 +14035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 免费版续期
+   * Renewing the Free Edition
    * 
    * @param request - RenewFreeLicenseEndTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13952,7 +14066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 免费版续期
+   * Renewing the Free Edition
    * 
    * @param request - RenewFreeLicenseEndTimeRequest
    * @returns RenewFreeLicenseEndTimeResponse
@@ -13963,7 +14077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Revokes application access from multiple EIAM groups in a batch.
    * 
    * @param request - RevokeApplicationFromGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14006,7 +14120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Revokes application access from multiple EIAM groups in a batch.
    * 
    * @param request - RevokeApplicationFromGroupsRequest
    * @returns RevokeApplicationFromGroupsResponse
@@ -14017,7 +14131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+   * Revokes application access from multiple EIAM organizations in a batch operation.
    * 
    * @param request - RevokeApplicationFromOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14060,7 +14174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+   * Revokes application access from multiple EIAM organizations in a batch operation.
    * 
    * @param request - RevokeApplicationFromOrganizationalUnitsRequest
    * @returns RevokeApplicationFromOrganizationalUnitsResponse
@@ -14071,7 +14185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+   * Revokes access to an application from multiple EIAM accounts.
    * 
    * @param request - RevokeApplicationFromUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14114,7 +14228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+   * Revokes access to an application from multiple EIAM accounts.
    * 
    * @param request - RevokeApplicationFromUsersRequest
    * @returns RevokeApplicationFromUsersResponse
@@ -14125,7 +14239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除指定ResourceServer到Client的授权
+   * Revokes the authorization for a resource server from a client application.
    * 
    * @param request - RevokeResourceServerFromClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14164,7 +14278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除指定ResourceServer到Client的授权
+   * Revokes the authorization for a resource server from a client application.
    * 
    * @param request - RevokeResourceServerFromClientRequest
    * @returns RevokeResourceServerFromClientResponse
@@ -14175,7 +14289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除指定ResourceServer下的Scope给Client
+   * Revokes specified scope permissions of a resource server from a client application.
    * 
    * @param request - RevokeResourceServerScopesFromClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14218,7 +14332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除指定ResourceServer下的Scope给Client
+   * Revokes specified scope permissions of a resource server from a client application.
    * 
    * @param request - RevokeResourceServerScopesFromClientRequest
    * @returns RevokeResourceServerScopesFromClientResponse
@@ -14229,7 +14343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消被授予到组的ResourceServerScope权限
+   * Revokes a resource server\\"s scope permissions from a group.
    * 
    * @param request - RevokeResourceServerScopesFromGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14272,7 +14386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消被授予到组的ResourceServerScope权限
+   * Revokes a resource server\\"s scope permissions from a group.
    * 
    * @param request - RevokeResourceServerScopesFromGroupRequest
    * @returns RevokeResourceServerScopesFromGroupResponse
@@ -14283,7 +14397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消被授予到组织的ResourceServerScope权限
+   * Revokes scope permissions for a resource server from an organization.
    * 
    * @param request - RevokeResourceServerScopesFromOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14326,7 +14440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消被授予到组织的ResourceServerScope权限
+   * Revokes scope permissions for a resource server from an organization.
    * 
    * @param request - RevokeResourceServerScopesFromOrganizationalUnitRequest
    * @returns RevokeResourceServerScopesFromOrganizationalUnitResponse
@@ -14337,7 +14451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消被授予用户的ResourceServerScope权限
+   * Revokes scope permissions for a specified resource server from an account.
    * 
    * @param request - RevokeResourceServerScopesFromUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14380,7 +14494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消被授予用户的ResourceServerScope权限
+   * Revokes scope permissions for a specified resource server from an account.
    * 
    * @param request - RevokeResourceServerScopesFromUserRequest
    * @returns RevokeResourceServerScopesFromUserResponse
@@ -14391,7 +14505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a synchronization job and immediately runs the job.
+   * Creates and immediately runs a new synchronization task.
    * 
    * @param request - RunSynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14446,7 +14560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a synchronization job and immediately runs the job.
+   * Creates and immediately runs a new synchronization task.
    * 
    * @param request - RunSynchronizationJobRequest
    * @returns RunSynchronizationJobResponse
@@ -14507,7 +14621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Sets the account synchronization configuration for an EIAM application.
    * 
    * @param request - SetApplicationProvisioningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14562,7 +14676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Sets the account synchronization configuration for an EIAM application.
    * 
    * @param request - SetApplicationProvisioningConfigRequest
    * @returns SetApplicationProvisioningConfigResponse
@@ -14627,7 +14741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置应用同步用户主组织
+   * Sets the primary organizational unit for an application\\"s user provisioning.
    * 
    * @param request - SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14666,7 +14780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置应用同步用户主组织
+   * Sets the primary organizational unit for an application\\"s user provisioning.
    * 
    * @param request - SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @returns SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -14677,7 +14791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置ResourceServer的Identifier
+   * Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
    * 
    * @param request - SetApplicationResourceServerIdentifierRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14720,7 +14834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置ResourceServer的Identifier
+   * Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
    * 
    * @param request - SetApplicationResourceServerIdentifierRequest
    * @returns SetApplicationResourceServerIdentifierResponse
@@ -14731,10 +14845,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Sets the single sign-on (SSO) properties for an IDaaS application.
    * 
    * @remarks
-   * In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+   * In IDaaS, the Application Management feature lets you add applications that use various SSO protocols, such as SAML 2.0 and OpenID Connect (OIDC). However, each application can support only one SSO protocol. The protocol is specified during application creation and cannot be changed afterward. You must configure the SSO parameters according to the protocol that your application uses.
    * 
    * @param request - SetApplicationSsoConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14789,10 +14903,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+   * Sets the single sign-on (SSO) properties for an IDaaS application.
    * 
    * @remarks
-   * In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+   * In IDaaS, the Application Management feature lets you add applications that use various SSO protocols, such as SAML 2.0 and OpenID Connect (OIDC). However, each application can support only one SSO protocol. The protocol is specified during application creation and cannot be changed afterward. You must configure the SSO parameters according to the protocol that your application uses.
    * 
    * @param request - SetApplicationSsoConfigRequest
    * @returns SetApplicationSsoConfigResponse
@@ -14803,7 +14917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a domain name of an Employee Identity and Access Management (EIAM) instance as the default domain name.
+   * Sets the default domain name for a specified EIAM instance.
    * 
    * @param request - SetDefaultDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14838,7 +14952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a domain name of an Employee Identity and Access Management (EIAM) instance as the default domain name.
+   * Sets the default domain name for a specified EIAM instance.
    * 
    * @param request - SetDefaultDomainRequest
    * @returns SetDefaultDomainResponse
@@ -14899,7 +15013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改认证信息
+   * Update authentication information
    * 
    * @param request - SetIdentityProviderAuthnConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14950,7 +15064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改认证信息
+   * Update authentication information
    * 
    * @param request - SetIdentityProviderAuthnConfigurationRequest
    * @returns SetIdentityProviderAuthnConfigurationResponse
@@ -14961,7 +15075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update IdP synchronization configuration.
+   * Sets the inbound synchronization configuration for an IdP.
    * 
    * @param request - SetIdentityProviderUdPullConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15024,7 +15138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update IdP synchronization configuration.
+   * Sets the inbound synchronization configuration for an IdP.
    * 
    * @param request - SetIdentityProviderUdPullConfigurationRequest
    * @returns SetIdentityProviderUdPullConfigurationResponse
@@ -15035,7 +15149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改IdP同步出配置
+   * Modifies the push configuration for an identity provider (IdP).
    * 
    * @param request - SetIdentityProviderUdPushConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15090,7 +15204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改IdP同步出配置
+   * Modifies the push configuration for an identity provider (IdP).
    * 
    * @param request - SetIdentityProviderUdPushConfigurationRequest
    * @returns SetIdentityProviderUdPushConfigurationResponse
@@ -15101,7 +15215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置实例控制项
+   * Configures the control settings for an instance.
    * 
    * @param request - SetInstanceControlConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15136,7 +15250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置实例控制项
+   * Configures the control settings for an instance.
    * 
    * @param request - SetInstanceControlConfigurationRequest
    * @returns SetInstanceControlConfigurationResponse
@@ -15147,7 +15261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置实例语言、时区信息
+   * Sets the language and time zone for an instance.
    * 
    * @param request - SetInstanceGlobalizationConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15186,7 +15300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置实例语言、时区信息
+   * Sets the language and time zone for an instance.
    * 
    * @param request - SetInstanceGlobalizationConfigRequest
    * @returns SetInstanceGlobalizationConfigResponse
@@ -15197,7 +15311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为品牌设置登录后跳转应用
+   * Sets the post-logon redirect application for a brand.
    * 
    * @param request - SetLoginRedirectApplicationForBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15236,7 +15350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为品牌设置登录后跳转应用
+   * Sets the post-logon redirect application for a brand.
    * 
    * @param request - SetLoginRedirectApplicationForBrandRequest
    * @returns SetLoginRedirectApplicationForBrandResponse
@@ -15247,7 +15361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Sets the password complexity policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordComplexityConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15290,7 +15404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Sets the password complexity policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordComplexityConfigurationRequest
    * @returns SetPasswordComplexityConfigurationResponse
@@ -15301,7 +15415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Sets the password expiration policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordExpirationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15364,7 +15478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+   * Sets the password expiration policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordExpirationConfigurationRequest
    * @returns SetPasswordExpirationConfigurationResponse
@@ -15483,7 +15597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置指定的应用ClientPublicKey优先启用状态
+   * Sets the specified client public key as the primary key for an application.
    * 
    * @param request - SetPrimaryClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15526,7 +15640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置指定的应用ClientPublicKey优先启用状态
+   * Sets the specified client public key as the primary key for an application.
    * 
    * @param request - SetPrimaryClientPublicKeyRequest
    * @returns SetPrimaryClientPublicKeyResponse
@@ -15587,7 +15701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置WebAuthn配置
+   * Sets the WebAuthn configuration.
    * 
    * @param request - SetWebAuthnConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15634,7 +15748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置WebAuthn配置
+   * Sets the WebAuthn configuration.
    * 
    * @param request - SetWebAuthnConfigurationRequest
    * @returns SetWebAuthnConfigurationResponse
@@ -15645,7 +15759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑指定用户TOTP
+   * Detaches the TOTP authenticator for a specified user.
    * 
    * @param request - UnbindTotpAuthenticatorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15680,7 +15794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑指定用户TOTP
+   * Detaches the TOTP authenticator for a specified user.
    * 
    * @param request - UnbindTotpAuthenticatorRequest
    * @returns UnbindTotpAuthenticatorResponse
@@ -15691,7 +15805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑三方登录账户
+   * Unbinds a third-party logon account from a user.
    * 
    * @param request - UnbindUserAuthnSourceMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15734,7 +15848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑三方登录账户
+   * Unbinds a third-party logon account from a user.
    * 
    * @param request - UnbindUserAuthnSourceMappingRequest
    * @returns UnbindUserAuthnSourceMappingResponse
@@ -15791,7 +15905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用高阶配置
+   * Updates the advanced configuration of an application.
    * 
    * @param request - UpdateApplicationAdvancedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15830,7 +15944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用高阶配置
+   * Updates the advanced configuration of an application.
    * 
    * @param request - UpdateApplicationAdvancedConfigRequest
    * @returns UpdateApplicationAdvancedConfigResponse
@@ -15891,7 +16005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用的指定ClientSecret的到期时间
+   * Updates the expiration time of a specified client secret for an application.
    * 
    * @param request - UpdateApplicationClientSecretExpirationTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15934,7 +16048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用的指定ClientSecret的到期时间
+   * Updates the expiration time of a specified client secret for an application.
    * 
    * @param request - UpdateApplicationClientSecretExpirationTimeRequest
    * @returns UpdateApplicationClientSecretExpirationTimeResponse
@@ -15995,7 +16109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用联邦凭证
+   * Updates an application\\"s federated credential.
    * 
    * @param request - UpdateApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16042,7 +16156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用联邦凭证
+   * Updates an application\\"s federated credential.
    * 
    * @param request - UpdateApplicationFederatedCredentialRequest
    * @returns UpdateApplicationFederatedCredentialResponse
@@ -16053,7 +16167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用联邦凭证描述
+   * Updates the description of a federated credential for an application.
    * 
    * @param request - UpdateApplicationFederatedCredentialDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16096,7 +16210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用联邦凭证描述
+   * Updates the description of a federated credential for an application.
    * 
    * @param request - UpdateApplicationFederatedCredentialDescriptionRequest
    * @returns UpdateApplicationFederatedCredentialDescriptionResponse
@@ -16107,7 +16221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用基本信息
+   * Updates the basic information for an application.
    * 
    * @param request - UpdateApplicationInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16166,7 +16280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用基本信息
+   * Updates the basic information for an application.
    * 
    * @param request - UpdateApplicationInfoRequest
    * @returns UpdateApplicationInfoResponse
@@ -16177,7 +16291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用角色
+   * Updates an application role.
    * 
    * @param request - UpdateApplicationRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16224,7 +16338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用角色
+   * Updates an application role.
    * 
    * @param request - UpdateApplicationRoleRequest
    * @returns UpdateApplicationRoleResponse
@@ -16235,7 +16349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用角色描述
+   * Updates the description of an application role.
    * 
    * @param request - UpdateApplicationRoleDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16278,7 +16392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用角色描述
+   * Updates the description of an application role.
    * 
    * @param request - UpdateApplicationRoleDescriptionRequest
    * @returns UpdateApplicationRoleDescriptionResponse
@@ -16289,7 +16403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模板应用的SSO参数
+   * Updates the SSO parameters for an application template.
+   * 
+   * @remarks
+   * Updates the single sign-on (SSO) parameters for an application template from the marketplace.
    * 
    * @param request - UpdateApplicationSsoFormParamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16328,7 +16445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模板应用的SSO参数
+   * Updates the SSO parameters for an application template.
+   * 
+   * @remarks
+   * Updates the single sign-on (SSO) parameters for an application template from the marketplace.
    * 
    * @param request - UpdateApplicationSsoFormParamsRequest
    * @returns UpdateApplicationSsoFormParamsResponse
@@ -16339,7 +16459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新ApplicationToken过期时间
+   * Updates the expiration time of an application token.
    * 
    * @param request - UpdateApplicationTokenExpirationTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16382,7 +16502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新ApplicationToken过期时间
+   * Updates the expiration time of an application token.
    * 
    * @param request - UpdateApplicationTokenExpirationTimeRequest
    * @returns UpdateApplicationTokenExpirationTimeResponse
@@ -16393,7 +16513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则信息
+   * Updates the basic properties of an authorization rule.
    * 
    * @param request - UpdateAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16442,7 +16562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则信息
+   * Updates the basic properties of an authorization rule.
    * 
    * @param request - UpdateAuthorizationRuleRequest
    * @returns UpdateAuthorizationRuleResponse
@@ -16453,7 +16573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则应用关联关系属性
+   * Updates the properties of the relationship between an authorization rule and an application.
    * 
    * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16506,7 +16626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则应用关联关系属性
+   * Updates the properties of the relationship between an authorization rule and an application.
    * 
    * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
    * @returns UpdateAuthorizationRuleApplicationAttachmentResponse
@@ -16517,7 +16637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则描述信息
+   * Updates the description of an authorization rule.
    * 
    * @param request - UpdateAuthorizationRuleDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16562,7 +16682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则描述信息
+   * Updates the description of an authorization rule.
    * 
    * @param request - UpdateAuthorizationRuleDescriptionRequest
    * @returns UpdateAuthorizationRuleDescriptionResponse
@@ -16573,7 +16693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则组关联关系属性
+   * Updates the properties of the association between an authorization rule and a group.
    * 
    * @param request - UpdateAuthorizationRuleGroupAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16626,7 +16746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则组关联关系属性
+   * Updates the properties of the association between an authorization rule and a group.
    * 
    * @param request - UpdateAuthorizationRuleGroupAttachmentRequest
    * @returns UpdateAuthorizationRuleGroupAttachmentResponse
@@ -16637,7 +16757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则账户关联关系属性
+   * Updates the properties of an association between an authorization rule and a user.
    * 
    * @param request - UpdateAuthorizationRuleUserAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16690,7 +16810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新授权规则账户关联关系属性
+   * Updates the properties of an association between an authorization rule and a user.
    * 
    * @param request - UpdateAuthorizationRuleUserAttachmentRequest
    * @returns UpdateAuthorizationRuleUserAttachmentResponse
@@ -16701,7 +16821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改品牌
+   * Updates a brand.
    * 
    * @param request - UpdateBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16740,7 +16860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改品牌
+   * Updates a brand.
    * 
    * @param request - UpdateBrandRequest
    * @returns UpdateBrandResponse
@@ -16751,7 +16871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新云账号
+   * Updates the basic information of an Alibaba Cloud account.
    * 
    * @param request - UpdateCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16794,7 +16914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新云账号
+   * Updates the basic information of an Alibaba Cloud account.
    * 
    * @param request - UpdateCloudAccountRequest
    * @returns UpdateCloudAccountResponse
@@ -16805,7 +16925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新云账号描述
+   * Updates the description of an Alibaba Cloud account.
    * 
    * @param request - UpdateCloudAccountDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16848,7 +16968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新云账号描述
+   * Updates the description of an Alibaba Cloud account.
    * 
    * @param request - UpdateCloudAccountDescriptionRequest
    * @returns UpdateCloudAccountDescriptionResponse
@@ -16859,7 +16979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新云角色描述
+   * Updates the description of a cloud role.
    * 
    * @param request - UpdateCloudAccountRoleDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16906,7 +17026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新云角色描述
+   * Updates the description of a cloud role.
    * 
    * @param request - UpdateCloudAccountRoleDescriptionRequest
    * @returns UpdateCloudAccountRoleDescriptionResponse
@@ -16917,10 +17037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Conditional Access Policy
+   * Updates a conditional access policy.
    * 
    * @remarks
-   * Update Conditional Access Policy
+   * Updates a conditional access policy.
    * 
    * @param request - UpdateConditionalAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16979,10 +17099,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Conditional Access Policy
+   * Updates a conditional access policy.
    * 
    * @remarks
-   * Update Conditional Access Policy
+   * Updates a conditional access policy.
    * 
    * @param request - UpdateConditionalAccessPolicyRequest
    * @returns UpdateConditionalAccessPolicyResponse
@@ -16993,10 +17113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Conditional Access Policy Description
+   * Updates the description of a conditional access policy.
    * 
    * @remarks
-   * Update Conditional Access Policy Description
+   * Updates the description of a conditional access policy.
    * 
    * @param request - UpdateConditionalAccessPolicyDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17039,10 +17159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Conditional Access Policy Description
+   * Updates the description of a conditional access policy.
    * 
    * @remarks
-   * Update Conditional Access Policy Description
+   * Updates the description of a conditional access policy.
    * 
    * @param request - UpdateConditionalAccessPolicyDescriptionRequest
    * @returns UpdateConditionalAccessPolicyDescriptionResponse
@@ -17053,7 +17173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭据
+   * Update basic information for a credential.
    * 
    * @param request - UpdateCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17100,7 +17220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭据
+   * Update basic information for a credential.
    * 
    * @param request - UpdateCredentialRequest
    * @returns UpdateCredentialResponse
@@ -17111,7 +17231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭据描述
+   * Update the description of a credential.
    * 
    * @param request - UpdateCredentialDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17154,7 +17274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭据描述
+   * Update the description of a credential.
    * 
    * @param request - UpdateCredentialDescriptionRequest
    * @returns UpdateCredentialDescriptionResponse
@@ -17165,7 +17285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭据提供商
+   * Updates a credential provider.
    * 
    * @param request - UpdateCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17212,7 +17332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭据提供商
+   * Updates a credential provider.
    * 
    * @param request - UpdateCredentialProviderRequest
    * @returns UpdateCredentialProviderResponse
@@ -17223,7 +17343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭据提供商描述
+   * Update the description of a credential provider.
    * 
    * @param request - UpdateCredentialProviderDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17262,7 +17382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭据提供商描述
+   * Update the description of a credential provider.
    * 
    * @param request - UpdateCredentialProviderDescriptionRequest
    * @returns UpdateCredentialProviderDescriptionResponse
@@ -17273,7 +17393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义条款
+   * Updates a custom privacy policy.
    * 
    * @param request - UpdateCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17324,7 +17444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义条款
+   * Updates a custom privacy policy.
    * 
    * @param request - UpdateCustomPrivacyPolicyRequest
    * @returns UpdateCustomPrivacyPolicyResponse
@@ -17335,7 +17455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改域名关联的品牌。
+   * Updates the brand associated with a domain name.
    * 
    * @param request - UpdateDomainBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17374,7 +17494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改域名关联的品牌。
+   * Updates the brand associated with a domain name.
    * 
    * @param request - UpdateDomainBrandRequest
    * @returns UpdateDomainBrandResponse
@@ -17385,7 +17505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新域名备案号。
+   * Updates the ICP filing number for a domain name.
    * 
    * @param request - UpdateDomainIcpNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17424,7 +17544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新域名备案号。
+   * Updates the ICP filing number for a domain name.
    * 
    * @param request - UpdateDomainIcpNumberRequest
    * @returns UpdateDomainIcpNumberResponse
@@ -17435,7 +17555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新联邦凭证提供方
+   * Updates a federated credential provider.
    * 
    * @param request - UpdateFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17490,7 +17610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新联邦凭证提供方
+   * Updates a federated credential provider.
    * 
    * @param request - UpdateFederatedCredentialProviderRequest
    * @returns UpdateFederatedCredentialProviderResponse
@@ -17501,7 +17621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新联邦凭证提供方描述
+   * Updates the description of a federated credential provider.
    * 
    * @param request - UpdateFederatedCredentialProviderDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17540,7 +17660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新联邦凭证提供方描述
+   * Updates the description of a federated credential provider.
    * 
    * @param request - UpdateFederatedCredentialProviderDescriptionRequest
    * @returns UpdateFederatedCredentialProviderDescriptionResponse
@@ -17655,7 +17775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新idp基础配置
+   * Updates the basic configuration of an identity provider.
    * 
    * @param request - UpdateIdentityProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17730,7 +17850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新idp基础配置
+   * Updates the basic configuration of an identity provider.
    * 
    * @param request - UpdateIdentityProviderRequest
    * @returns UpdateIdentityProviderResponse
@@ -17787,7 +17907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新一个专属网络端点的名称。
+   * Modifies the name of a private network access endpoint.
    * 
    * @param request - UpdateNetworkAccessEndpointNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17826,7 +17946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新一个专属网络端点的名称。
+   * Modifies the name of a private network access endpoint.
    * 
    * @param request - UpdateNetworkAccessEndpointNameRequest
    * @returns UpdateNetworkAccessEndpointNameResponse
@@ -17837,7 +17957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网络区域对象
+   * Updates a network zone object.
    * 
    * @param request - UpdateNetworkZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17892,7 +18012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网络区域对象
+   * Updates a network zone object.
    * 
    * @param request - UpdateNetworkZoneRequest
    * @returns UpdateNetworkZoneResponse
@@ -17903,7 +18023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网络区域对象描述
+   * Updates the description of a network zone.
    * 
    * @param request - UpdateNetworkZoneDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17946,7 +18066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网络区域对象描述
+   * Updates the description of a network zone.
    * 
    * @param request - UpdateNetworkZoneDescriptionRequest
    * @returns UpdateNetworkZoneDescriptionResponse
@@ -18107,7 +18227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新指定ResourceServer下的Scope
+   * Updates a scope permission for a specified resource server.
    * 
    * @param request - UpdateResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18150,7 +18270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新指定ResourceServer下的Scope
+   * Updates a scope permission for a specified resource server.
    * 
    * @param request - UpdateResourceServerScopeRequest
    * @returns UpdateResourceServerScopeResponse
@@ -18161,7 +18281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+   * Updates the basic information of an EIAM account.
    * 
    * @param request - UpdateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18228,7 +18348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+   * Updates the basic information of an EIAM account.
    * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse
@@ -18239,7 +18359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+   * Updates a user\\"s description.
    * 
    * @param request - UpdateUserDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18278,7 +18398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+   * Updates a user\\"s description.
    * 
    * @param request - UpdateUserDescriptionRequest
    * @returns UpdateUserDescriptionResponse

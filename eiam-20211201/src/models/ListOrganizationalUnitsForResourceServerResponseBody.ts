@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnitsResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * ResourceServerScope唯一标识
+   * The scope ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -13,10 +13,10 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * ResourceServerScope名称
+   * The scope name.
    * 
    * @example
-   * 获取资源信息
+   * Read User Info
    */
   resourceServerScopeName?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
 export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnits extends $dara.Model {
   /**
    * @remarks
-   * 实例唯一标识
+   * The instance ID.
    * 
    * @example
    * idaas_qsw77zl5vrllwzyrrfwbmpxxxx
@@ -53,7 +53,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
   instanceId?: string;
   /**
    * @remarks
-   * 组织的唯一标识
+   * The organizational unit ID.
    * 
    * @example
    * ou_nbsomva32b6utec3hgi7scxxxx
@@ -61,7 +61,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
   organizationalUnitId?: string;
   /**
    * @remarks
-   * 资源服务Scope权限集合
+   * A list of scopes.
    */
   resourceServerScopes?: ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnitsResourceServerScopes[];
   static names(): { [key: string]: string } {
@@ -94,25 +94,38 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
 
 export class ListOrganizationalUnitsForResourceServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of results per page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * A token to retrieve the next page of results.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * A list of organizational units.
+   */
   organizationalUnits?: ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnits[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of results.
+   * 
    * @example
    * 100
    */

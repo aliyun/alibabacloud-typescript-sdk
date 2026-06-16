@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecIdentityProviderMetadataUrlResolutionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the identity provider in IDaaS.
+   * 
    * @example
    * idp_mwpcwnhrimlr2horxXXXX
    */
   identityProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -19,13 +22,16 @@ export class ExecIdentityProviderMetadataUrlResolutionRequest extends $dara.Mode
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The network access endpoint ID.
+   * 
    * @example
    * inae_public
    */
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * OIDC Issuer地址。
+   * The OIDC issuer URL.
    * 
    * @example
    * https://login.example.com/.well-known/openid-configuration

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNetworkAccessEndpointNameRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateNetworkAccessEndpointNameRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 专属网络端点ID。
+   * The ID of the private network access endpoint.
    * 
    * This parameter is required.
    * 
@@ -25,12 +25,12 @@ export class UpdateNetworkAccessEndpointNameRequest extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * 专属网络端点名称。
+   * The name of the private network access endpoint. The endpoint type must be private.
    * 
    * This parameter is required.
    * 
    * @example
-   * xx业务VPC访问端点
+   * VPC access endpoint for xx service
    */
   networkAccessEndpointName?: string;
   static names(): { [key: string]: string } {

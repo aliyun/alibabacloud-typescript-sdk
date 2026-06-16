@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceServerScopesResponseBodyResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 应用Id
+   * Application ID.
    * 
    * @example
    * app_xxxxxxxxxxx
    */
   applicationId?: string;
   /**
+   * @remarks
+   * Authorization type.
+   * 
    * @example
    * authorize_required
    */
   authorizationType?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * Instance ID.
    * 
    * @example
    * idaas_xxxxxxxxxxx
@@ -26,7 +29,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   instanceId?: string;
   /**
    * @remarks
-   * IDaaS EIAM ResourceServer下权限Id
+   * Scope permission ID.
    * 
    * @example
    * rss_xxxxxxxxxxx
@@ -34,7 +37,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * IDaaS EIAM ResourceServer下权限名称
+   * Scope permission name.
    * 
    * @example
    * 读取全部用户
@@ -42,7 +45,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   resourceServerScopeName?: string;
   /**
    * @remarks
-   * IDaaS EIAM ResourceServer下权限类型
+   * Scope permission type.
    * 
    * @example
    * urn:alibaba:idaas:resourceserver:scope:delegated
@@ -50,7 +53,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   resourceServerScopeType?: string;
   /**
    * @remarks
-   * IDaaS EIAM ResourceServer下权限值
+   * Scope permission value.
    * 
    * @example
    * User:Write:ALL
@@ -91,30 +94,46 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
 
 export class ListResourceServerScopesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Number of rows per page in paginated queries.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * Token for the next page query.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Token for the previous page query.
+   * 
    * @example
    * PTxxxexample
    */
   previousToken?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of Scope permissions under the ResourceServer.
+   */
   resourceServerScopes?: ListResourceServerScopesResponseBodyResourceServerScopes[];
   /**
+   * @remarks
+   * Total number of items in the list.
+   * 
    * @example
    * 100
    */

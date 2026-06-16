@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateWebAuthnAuthenticatorRegistrationUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * The domain ID.
+   * 
    * @example
    * dm_nfplcagj5cguo2267bkjxxxx
    */
   domainId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -20,7 +23,7 @@ export class GenerateWebAuthnAuthenticatorRegistrationUrlRequest extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * UserID
+   * The user ID.
    * 
    * This parameter is required.
    * 

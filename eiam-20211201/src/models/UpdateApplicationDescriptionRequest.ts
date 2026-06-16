@@ -18,7 +18,7 @@ export class UpdateApplicationDescriptionRequest extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * A demo application that is used for test.
+   * Demo application for testing
    */
   description?: string;
   /**

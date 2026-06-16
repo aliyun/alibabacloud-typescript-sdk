@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权规则标识。
+   * Authorization rule ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * Instance ID.
    * 
    * This parameter is required.
    * 

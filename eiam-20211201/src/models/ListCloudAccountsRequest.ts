@@ -4,10 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCloudAccountsRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The name of the filter field. Valid values:
+   * 
+   * - CloudAccountId: The ID of the Alibaba Cloud account.
+   * 
+   * - CloudAccountExternalId: The external unique ID of the Alibaba Cloud account.
+   * 
+   * - CloudAccountVendorType: The type of the Alibaba Cloud account.
+   * 
    * @example
    * CloudAccountId
    */
   name?: string;
+  /**
+   * @remarks
+   * A list of values for the filter field.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,10 +49,14 @@ export class ListCloudAccountsRequestFilter extends $dara.Model {
 }
 
 export class ListCloudAccountsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   filter?: ListCloudAccountsRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +66,11 @@ export class ListCloudAccountsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The maximum number of records to return on each page.
+   * 
+   * - The default value is 20.
+   * 
+   * - The maximum value is 100.
    * 
    * @example
    * 20
@@ -57,7 +78,9 @@ export class ListCloudAccountsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token that specifies the start of the next page.
+   * 
+   * - If you leave this parameter empty, the query starts from the first page.
    * 
    * @example
    * NTxxxxxexample

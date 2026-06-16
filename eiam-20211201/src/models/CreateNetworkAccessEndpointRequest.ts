@@ -28,7 +28,7 @@ export class CreateNetworkAccessEndpointRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * eiam-vpc-access-endpoint
+   * Xx-business VPC access endpoint
    */
   networkAccessEndpointName?: string;
   /**

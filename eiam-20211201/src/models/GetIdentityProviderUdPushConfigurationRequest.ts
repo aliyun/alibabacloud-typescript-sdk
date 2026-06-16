@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的身份提供方主键id
+   * Identity provider ID
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * Instance ID
    * 
    * This parameter is required.
    * 

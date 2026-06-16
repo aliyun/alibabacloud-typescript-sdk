@@ -8,7 +8,7 @@ export class UpdateInstanceDescriptionRequest extends $dara.Model {
    * The new description of the instance.
    * 
    * @example
-   * 测试实例
+   * For production use.
    */
   description?: string;
   /**

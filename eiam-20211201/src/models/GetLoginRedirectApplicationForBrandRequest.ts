@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLoginRedirectApplicationForBrandRequest extends $dara.Model {
   /**
    * @remarks
-   * 品牌化Id
+   * The brand ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetLoginRedirectApplicationForBrandRequest extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

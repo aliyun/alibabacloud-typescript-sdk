@@ -226,6 +226,7 @@ export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
    * Decision action for the conditional access policy, with the following options:
    * 
    * - allow: Allow.
+   * 
    * - deny: Deny.
    * 
    * @example
@@ -237,6 +238,7 @@ export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
    * Re-authentication interval (in seconds) for the conditional access policy
    * 
    * - Maximum MFA re-authentication interval: 86400
+   * 
    * - Minimum MFA re-authentication interval: 300
    * 
    * @example
@@ -246,9 +248,13 @@ export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
   /**
    * @remarks
    * Allowed MFA types for the conditional access policy, with the following options:
+   * 
    * - ia_otp_sms: SMS verification code
+   * 
    * - ia_otp_email: Email verification code
+   * 
    * - ia_totp: OTP dynamic password
+   * 
    * - ia_webauthn: WebAuthn
    */
   mfaAuthenticationMethods?: string[];
@@ -257,6 +263,7 @@ export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
    * MFA type for the conditional access policy, with the following options:
    * 
    * - directly_access: Direct access
+   * 
    * - mfa_required: MFA required
    * 
    * @example
@@ -311,7 +318,7 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * My Conditional Access Policy
+   * My conditional access policy
    */
   conditionalAccessPolicyName?: string;
   /**
@@ -353,7 +360,7 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
    * Description of the conditional access policy
    * 
    * @example
-   * Test Description
+   * Test description
    */
   description?: string;
   /**
@@ -380,9 +387,7 @@ export class CreateConditionalAccessPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Priority of the conditional access policy, lower values indicate higher priority
-   * Minimum value: 1
-   * Maximum value: 100
+   * Priority of the conditional access policy, lower values indicate higher priority Minimum value: 1 Maximum value: 100
    * 
    * @example
    * 1

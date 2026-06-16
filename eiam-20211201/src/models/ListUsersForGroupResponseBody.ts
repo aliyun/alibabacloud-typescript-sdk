@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersForGroupResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * Account membership source id
+   * The source ID of the group member relationship.
+   * 
+   * If the group is created in EIAM, the value of this parameter is the instance ID. For other types of groups, the value is the enterprise ID from the source. For example, if the group is imported from DingTalk, the value is the corpId of the DingTalk enterprise.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -13,7 +15,17 @@ export class ListUsersForGroupResponseBodyUsers extends $dara.Model {
   groupMemberRelationSourceId?: string;
   /**
    * @remarks
-   * Account membership source type
+   * The source type of the group member relationship. Valid values:
+   * 
+   * build_in: The group is created in EIAM.
+   * 
+   * ding_talk: The group is imported from DingTalk.
+   * 
+   * ad: The group is imported from Active Directory (AD).
+   * 
+   * ldap: The group is imported from LDAP.
+   * 
+   * we_com: The group is imported from WeCom.
    * 
    * @example
    * build_in
@@ -63,7 +75,7 @@ export class ListUsersForGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned. The maximum number of entries that can be returned per page is specified by PageSize.
+   * The total number of entries that match the query.
    * 
    * @example
    * 1000
@@ -71,7 +83,7 @@ export class ListUsersForGroupResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about accounts.
+   * The list of account objects.
    */
   users?: ListUsersForGroupResponseBodyUsers[];
   static names(): { [key: string]: string } {

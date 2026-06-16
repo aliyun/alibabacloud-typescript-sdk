@@ -15,7 +15,7 @@ export class AddUserToOrganizationalUnitsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The organization IDs. You can add an account to a maximum of 100 organizations.
+   * The list of organization IDs. The list can contain up to 100 IDs.
    * 
    * This parameter is required.
    */

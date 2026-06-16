@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitParentsResponseBodyParents extends $dara.Model {
   /**
    * @remarks
-   * The organization ID.
+   * The organizational unit ID.
    * 
    * @example
-   * ou_4lag76zc2km5ssg5vsmm2xxxx
+   * ou_4lag76zc2km5ssg5vsmm2lznvu
    */
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The parent organization ID.
+   * The parent organizational unit ID.
    * 
    * @example
-   * ou_x3beoyepv2ls5iwuge3xhjxxxx
+   * ou_x3beoyepv2ls5iwuge3xhjkwbm
    */
   parentId?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListOrganizationalUnitParentsResponseBodyParents extends $dara.Mode
 export class ListOrganizationalUnitParentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The parent organizations.
+   * The list of parent organizational units.
    */
   parents?: ListOrganizationalUnitParentsResponseBodyParents[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application that you want to query.
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -21,16 +21,23 @@ export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets ex
   clientId?: string;
   /**
    * @remarks
-   * The client key secret of the application. The value is not masked.
+   * The client secret of the application. The returned ClientSecret is masked.
    * 
    * @example
    * eyJh*****************************************************************************************************OQ
    */
   clientSecret?: string;
+  /**
+   * @remarks
+   * The expiration time of the client secret. This is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1749830226000
+   */
   expirationTime?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_wdziy4vnjt33ehhf7z2o2nxxxx
@@ -38,7 +45,7 @@ export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets ex
   instanceId?: string;
   /**
    * @remarks
-   * The time when the client key was last used. The value is a UNIX timestamp. Unit: milliseconds.
+   * The last time the client secret was used. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -46,7 +53,7 @@ export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets ex
   lastUsedTime?: number;
   /**
    * @remarks
-   * The client key ID of the application.
+   * The client secret ID of the application.
    * 
    * @example
    * sci_k52x2ru63rlkflina5utgkxxxx
@@ -54,10 +61,11 @@ export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets ex
   secretId?: string;
   /**
    * @remarks
-   * The status of the client key. Valid values:
+   * The status of the client secret. Valid values:
    * 
-   * *   Enabled: The client key is enabled.
-   * *   Disabled: The client key is disabled.
+   * - enabled: The client secret is enabled.
+   * 
+   * - disabled: The client secret is disabled.
    * 
    * @example
    * enabled
@@ -101,12 +109,12 @@ export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets ex
 export class ListApplicationClientSecretsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the client keys.
+   * The information about the client secrets.
    */
   applicationClientSecrets?: ListApplicationClientSecretsResponseBodyApplicationClientSecrets[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -114,7 +122,7 @@ export class ListApplicationClientSecretsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 100

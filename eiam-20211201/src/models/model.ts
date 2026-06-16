@@ -163,6 +163,7 @@ export { GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationUd
 export { GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfiguration } from './GetIdentityProviderUdPushConfigurationResponseBody';
 export { GetInstanceResponseBodyInstanceDefaultEndpoint } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyInstanceDomainConfig } from './GetInstanceResponseBody';
+export { GetInstanceResponseBodyInstanceReplicationConfiguration } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyInstance } from './GetInstanceResponseBody';
 export { GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElementsHumanVerificationConfig } from './GetInstanceControlConfigurationResponseBody';
 export { GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElements } from './GetInstanceControlConfigurationResponseBody';
@@ -325,6 +326,7 @@ export { ListGroupsForUserResponseBodyGroups } from './ListGroupsForUserResponse
 export { ListIdentityProvidersResponseBodyIdentityProviders } from './ListIdentityProvidersResponseBody';
 export { ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityProvidersForNetworkAccessEndpoint } from './ListIdentityProvidersForNetworkAccessEndpointResponseBody';
 export { ListInstancesResponseBodyInstancesDefaultEndpoint } from './ListInstancesResponseBody';
+export { ListInstancesResponseBodyInstancesReplicationConfiguration } from './ListInstancesResponseBody';
 export { ListInstancesResponseBodyInstances } from './ListInstancesResponseBody';
 export { ListNetworkAccessEndpointAvailableRegionsResponseBodyRegions } from './ListNetworkAccessEndpointAvailableRegionsResponseBody';
 export { ListNetworkAccessEndpointAvailableZonesResponseBodyZones } from './ListNetworkAccessEndpointAvailableZonesResponseBody';

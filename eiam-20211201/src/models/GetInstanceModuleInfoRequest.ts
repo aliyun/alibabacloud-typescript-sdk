@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceModuleInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetInstanceModuleInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 一级模块标识，必填
+   * The identifier of the primary module.
    * 
    * This parameter is required.
    * 

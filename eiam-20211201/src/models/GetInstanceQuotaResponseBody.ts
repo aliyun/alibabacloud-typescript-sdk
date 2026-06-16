@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceQuotaResponseBodyQuota extends $dara.Model {
   /**
    * @remarks
-   * Quota 配额的Key，同请求参数
+   * The key of the quota.
    * 
    * @example
    * userMaxNumber
@@ -13,7 +13,7 @@ export class GetInstanceQuotaResponseBodyQuota extends $dara.Model {
   quotaKey?: string;
   /**
    * @remarks
-   * Quota 配额的值。
+   * The value of the quota.
    * 
    * @example
    * 5
@@ -43,8 +43,15 @@ export class GetInstanceQuotaResponseBodyQuota extends $dara.Model {
 }
 
 export class GetInstanceQuotaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The quota information.
+   */
   quota?: GetInstanceQuotaResponseBodyQuota;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceServersForUserResponseBodyResourceServersResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * 直接分配给当前用户的权限，视为直接授权。
+   * Indicates whether a direct authorization exists.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * 通过用户隶属的组织、组获取的权限，视为继承权限。
+   * Indicates whether an inherited permission exists.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
   hasInheritAuthorization?: boolean;
   /**
    * @remarks
-   * ResourceServerScope唯一标识
+   * The ID of the Scope permission.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -29,7 +29,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * ResourceServerScope名称
+   * The name of the Scope permission.
    * 
    * @example
    * Read All User
@@ -65,7 +65,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
 export class ListResourceServersForUserResponseBodyResourceServers extends $dara.Model {
   /**
    * @remarks
-   * 资源服务应用的唯一标识
+   * The ID of the ResourceServer application.
    * 
    * @example
    * app_nbsomva32b6utec3hgi7scxxxx
@@ -73,20 +73,23 @@ export class ListResourceServersForUserResponseBodyResourceServers extends $dara
   applicationId?: string;
   /**
    * @remarks
-   * 实例唯一标识
+   * The instance ID.
    * 
    * @example
    * idaas_qsw77zl5vrllwzyrrfwbmpxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The unique identifier of the ResourceServer.
+   * 
    * @example
    * urn:idaas:test
    */
   resourceServerIdentifier?: string;
   /**
    * @remarks
-   * 资源服务Scope权限集合
+   * The list of granted Scope permissions.
    */
   resourceServerScopes?: ListResourceServersForUserResponseBodyResourceServersResourceServerScopes[];
   static names(): { [key: string]: string } {
@@ -121,25 +124,38 @@ export class ListResourceServersForUserResponseBodyResourceServers extends $dara
 
 export class ListResourceServersForUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token for the next page of results.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of ResourceServer applications.
+   */
   resourceServers?: ListResourceServersForUserResponseBodyResourceServers[];
   /**
+   * @remarks
+   * The total number of entries in the list.
+   * 
    * @example
    * 100
    */

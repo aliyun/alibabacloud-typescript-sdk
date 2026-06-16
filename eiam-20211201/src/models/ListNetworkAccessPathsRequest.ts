@@ -15,7 +15,7 @@ export class ListNetworkAccessPathsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Network access endpoint ID.
+   * The ID of the dedicated network endpoint.
    * 
    * This parameter is required.
    * 

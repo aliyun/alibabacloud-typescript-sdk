@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomPrivacyPoliciesForBrandResponseBodyBrandCustomPrivacyPolicies extends $dara.Model {
   /**
    * @remarks
-   * 条款ID
+   * The privacy policy ID.
    * 
    * @example
    * pp_xxxx
@@ -33,10 +33,14 @@ export class ListCustomPrivacyPoliciesForBrandResponseBodyBrandCustomPrivacyPoli
 }
 
 export class ListCustomPrivacyPoliciesForBrandResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of custom privacy policies associated with the brand.
+   */
   brandCustomPrivacyPolicies?: ListCustomPrivacyPoliciesForBrandResponseBodyBrandCustomPrivacyPolicies[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries returned on each page.
    * 
    * @example
    * 20
@@ -44,7 +48,7 @@ export class ListCustomPrivacyPoliciesForBrandResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token to retrieve the next page of results.
    * 
    * @example
    * NTxxxexample
@@ -52,18 +56,24 @@ export class ListCustomPrivacyPoliciesForBrandResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+   * The token to retrieve the previous page of results.
    * 
    * @example
    * PTxxxexample
    */
   previousToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

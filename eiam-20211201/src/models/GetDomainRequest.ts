@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * Domain ID.
+   * The ID of the domain name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetDomainRequest extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

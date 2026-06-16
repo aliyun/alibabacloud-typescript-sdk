@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationFederatedCredentialRequestAttributeMappings extends $dara.Model {
   /**
    * @remarks
-   * 源值表达式
+   * The source value expression.
    * 
    * @example
    * Append(client.applicationFederatedCredentialId, ":", cert.subject.CN, ":", cert.serialNumber)
@@ -13,7 +13,7 @@ export class UpdateApplicationFederatedCredentialRequestAttributeMappings extend
   sourceValueExpression?: string;
   /**
    * @remarks
-   * 目标字段
+   * The target field.
    * 
    * @example
    * client.activeSubjectUrn
@@ -45,7 +45,7 @@ export class UpdateApplicationFederatedCredentialRequestAttributeMappings extend
 export class UpdateApplicationFederatedCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用联邦凭证Id
+   * The ID of the application\\"s federated credential.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class UpdateApplicationFederatedCredentialRequest extends $dara.Model {
   applicationFederatedCredentialId?: string;
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -65,12 +65,12 @@ export class UpdateApplicationFederatedCredentialRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 属性映射
+   * The attribute mappings.
    */
   attributeMappings?: UpdateApplicationFederatedCredentialRequestAttributeMappings[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -80,7 +80,7 @@ export class UpdateApplicationFederatedCredentialRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 校验条件
+   * The verification condition.
    * 
    * @example
    * IsNullOrEmpty("")

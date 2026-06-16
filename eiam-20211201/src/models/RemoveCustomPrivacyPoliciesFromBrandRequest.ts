@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveCustomPrivacyPoliciesFromBrandRequest extends $dara.Model {
   /**
    * @remarks
-   * 品牌化Id
+   * The branding ID.
    * 
    * This parameter is required.
    * 
@@ -15,14 +15,14 @@ export class RemoveCustomPrivacyPoliciesFromBrandRequest extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * 条款ID列表
+   * A list of policy IDs.
    * 
    * This parameter is required.
    */
   customPrivacyPolicyIds?: string[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

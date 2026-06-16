@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkAccessEndpointAvailableZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * 专属网络端点支持的地域
+   * The ID of the region that supports exclusive network endpoints.
    * 
    * This parameter is required.
    * 

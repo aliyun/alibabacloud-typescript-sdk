@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceTrialStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

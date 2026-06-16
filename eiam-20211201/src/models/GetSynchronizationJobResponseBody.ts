@@ -1768,7 +1768,7 @@ export class GetSynchronizationJobResponseBodySynchronizationJobResult extends $
    * The error code corresponding to the error message.
    * 
    * @example
-   * ResourceNotFound. SynchronizationJob
+   * ErrorCodeNotFound
    */
   errorCode?: string;
   /**
@@ -1776,7 +1776,7 @@ export class GetSynchronizationJobResponseBodySynchronizationJobResult extends $
    * The error message returned in the case of an error.
    * 
    * @example
-   * The specified SynchronizationJob resource: %s not found.
+   * Internal error
    */
   errorMessage?: string;
   /**
@@ -1847,8 +1847,9 @@ export class GetSynchronizationJobResponseBodySynchronizationJob extends $dara.M
    * @remarks
    * The direction of the synchronization job. Valid values:
    * 
-   * *   ingress
-   * *   egress
+   * - ingress
+   * 
+   * - egress
    * 
    * @example
    * ingress
@@ -1879,11 +1880,15 @@ export class GetSynchronizationJobResponseBodySynchronizationJob extends $dara.M
    * @remarks
    * The status of the synchronization job. Valid values:
    * 
-   * *   pending
-   * *   running
-   * *   failed
-   * *   partial_success
-   * *   success
+   * - pending
+   * 
+   * - running
+   * 
+   * - failed
+   * 
+   * - partial_success
+   * 
+   * - success
    * 
    * @example
    * running
@@ -1909,8 +1914,9 @@ export class GetSynchronizationJobResponseBodySynchronizationJob extends $dara.M
    * @remarks
    * The type of the synchronization destination. Valid values:
    * 
-   * *   identity_provider
-   * *   application
+   * - identity_provider
+   * 
+   * - application
    * 
    * @example
    * identity_provider
@@ -1920,8 +1926,9 @@ export class GetSynchronizationJobResponseBodySynchronizationJob extends $dara.M
    * @remarks
    * The trigger type of the synchronization. Valid values:
    * 
-   * *   auto
-   * *   manual
+   * - auto
+   * 
+   * - manual
    * 
    * @example
    * auto

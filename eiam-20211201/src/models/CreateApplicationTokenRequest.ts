@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateApplicationTokenRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用token类型
+   * The application token type.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateApplicationTokenRequest extends $dara.Model {
   applicationTokenType?: string;
   /**
    * @remarks
-   * 不填，默认1年后到期
+   * The expiration time.
    * 
    * @example
    * 1735530123762
@@ -33,7 +33,7 @@ export class CreateApplicationTokenRequest extends $dara.Model {
   expirationTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

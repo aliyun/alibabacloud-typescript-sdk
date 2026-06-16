@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCredentialProviderRequestCredentialProviderConfigJwtProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * 签发出的JWT中的issuer字段的允许列表。
+   * A list of allowed JWT issuers.
+   * 
+   * > The list must contain no more than 200 items.
+   * 
+   * >Notice: 
+   * 
+   * To clear the issuer list, pass an empty array or an empty string.
    */
   allowedTokenIssuers?: string[];
   /**
    * @remarks
-   * 是否开启JWT派生短令牌能力。
+   * Whether to enable derived short tokens for JWTs.
    * 
    * @example
    * false
@@ -18,7 +24,7 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigJwtProviderC
   derivedShortTokenEnabled?: boolean;
   /**
    * @remarks
-   * JWT的有效时长，单位秒。
+   * The validity period of the JWT, in seconds.
    * 
    * @example
    * 900
@@ -26,7 +32,7 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigJwtProviderC
   expiration?: number;
   /**
    * @remarks
-   * 是否开启JWT过期清理。
+   * Whether to enable JWT expiration cleanup.
    * 
    * @example
    * true
@@ -65,7 +71,9 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigJwtProviderC
 export class UpdateCredentialProviderRequestCredentialProviderConfigOAuthProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * OAuth协议中的client_secret，客户端密钥。
+   * The client secret defined in the OAuth protocol.
+   * 
+   * > The value must be no longer than 1024 characters.
    * 
    * @example
    * client_secret_example_xxx
@@ -73,7 +81,25 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   clientSecret?: string;
   /**
    * @remarks
-   * OAuth协议中的scope，权限范围。
+   * The scope defined in the OAuth protocol.
+   * 
+   * > If you do not specify the scope parameter when calling the DeveloperAPI to get an OAuth access token, the scope configured for the credential provider is used as the default.
+   * 
+   * >Notice: 
+   * 
+   * Separate multiple scope values with spaces. To clear the scope configuration, pass an empty string.
+   * 
+   * 
+   * 
+   * Rules for a single scope value:
+   * 
+   * 1. Allowed characters: lowercase letters, digits, and special characters `|/:_-.`
+   * 
+   * 2. Must contain at least one lowercase letter or digit.
+   * 
+   * 3. Must start with a special character `.`, a lowercase letter, or a digit.
+   * 
+   * 4. Must be no longer than 1024 characters.
    * 
    * @example
    * example:test_01 example:test_02
@@ -81,7 +107,9 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   scope?: string;
   /**
    * @remarks
-   * OAuth协议的Token端点。
+   * The token endpoint defined in the OAuth protocol.
+   * 
+   * > The value must start with `http://` or `https://`. It must be no longer than 1024 characters.
    * 
    * @example
    * https://example.com/token
@@ -115,12 +143,12 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigOAuthProvide
 export class UpdateCredentialProviderRequestCredentialProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * JWT身份提供商配置。
+   * The configuration for a JWT credential provider.
    */
   jwtProviderConfig?: UpdateCredentialProviderRequestCredentialProviderConfigJwtProviderConfig;
   /**
    * @remarks
-   * OAuth 2LO机用类型的提供商的配置。
+   * The configuration for an OAuth credential provider.
    */
   OAuthProviderConfig?: UpdateCredentialProviderRequestCredentialProviderConfigOAuthProviderConfig;
   static names(): { [key: string]: string } {
@@ -155,7 +183,9 @@ export class UpdateCredentialProviderRequestCredentialProviderConfig extends $da
 export class UpdateCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符，且不能超过64个字符。
+   * An idempotency token that ensures request idempotence.
+   * 
+   * Generate a unique value on your client for each request. ClientToken supports only ASCII characters and must be no longer than 64 characters. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -165,12 +195,12 @@ export class UpdateCredentialProviderRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 认证令牌提供商的配置。
+   * The configuration of the credential provider.
    */
   credentialProviderConfig?: UpdateCredentialProviderRequestCredentialProviderConfig;
   /**
    * @remarks
-   * 认证令牌提供商ID。
+   * The ID of the credential provider.
    * 
    * This parameter is required.
    * 
@@ -180,7 +210,9 @@ export class UpdateCredentialProviderRequest extends $dara.Model {
   credentialProviderId?: string;
   /**
    * @remarks
-   * 认证令牌提供商名称。
+   * The name of the credential provider.
+   * 
+   * > The name must be no longer than 64 characters.
    * 
    * @example
    * test_example_name
@@ -188,7 +220,7 @@ export class UpdateCredentialProviderRequest extends $dara.Model {
   credentialProviderName?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

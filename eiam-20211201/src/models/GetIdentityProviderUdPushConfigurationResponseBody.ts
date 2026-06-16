@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationLdapUdPushConfig extends $dara.Model {
   /**
+   * @remarks
+   * Organization ObjectClass
+   * 
    * @example
    * ou,top
    */
   organizationUnitObjectClass?: string;
   /**
+   * @remarks
+   * Organization RDN
+   * 
    * @example
    * ou
    */
   organizationalUnitRdn?: string;
   /**
+   * @remarks
+   * Password synchronization status
+   * 
    * @example
    * enabled
    */
   passwordSyncStatus?: string;
   /**
+   * @remarks
+   * User ObjectClass
+   * 
    * @example
    * user,top
    */
   userObjectClass?: string;
   /**
+   * @remarks
+   * User RDN
+   * 
    * @example
    * cn
    */
@@ -59,12 +74,22 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
 
 export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationPeriodicSyncConfig extends $dara.Model {
   /**
+   * @remarks
+   * Cron expression
+   * 
    * @example
    * 0 45 1 * * ?
    */
   periodicSyncCron?: string;
+  /**
+   * @remarks
+   * Collection of time points
+   */
   periodicSyncTimes?: string[];
   /**
+   * @remarks
+   * Type
+   * 
    * @example
    * cron
    */
@@ -100,12 +125,12 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
 export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationUdSyncScopeConfigs extends $dara.Model {
   /**
    * @remarks
-   * 同步来源节点
+   * Source nodes for synchronization
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * 同步目标节点
+   * Target node for synchronization
    * 
    * @example
    * 604352338
@@ -140,7 +165,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
 export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfiguration extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 身份提供方ID
+   * Identity provider ID
    * 
    * @example
    * idp_na2rzpyc67zr7ixdfy35zgrxxx
@@ -148,7 +173,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   identityProviderId?: string;
   /**
    * @remarks
-   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * Incremental callback status. Indicates whether incremental callback data from the IdP is processed.
    * 
    * @example
    * enabled
@@ -156,22 +181,33 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   incrementalCallbackStatus?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * Instance ID
    * 
    * @example
    * idaas_7vdv3olzk36gymwtlaq6fixxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * LDAP synchronization-side configuration
+   */
   ldapUdPushConfig?: GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationLdapUdPushConfig;
+  /**
+   * @remarks
+   * Periodic verification configuration
+   */
   periodicSyncConfig?: GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationPeriodicSyncConfig;
   /**
+   * @remarks
+   * Periodic verification status
+   * 
    * @example
    * disabled
    */
   periodicSyncStatus?: string;
   /**
    * @remarks
-   * 同步出配置信息
+   * Outbound synchronization configuration details
    */
   udSyncScopeConfigs?: GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationUdSyncScopeConfigs[];
   static names(): { [key: string]: string } {
@@ -218,10 +254,17 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
 
 export class GetIdentityProviderUdPushConfigurationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Outbound synchronization configuration
+   */
   udPushConfiguration?: GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfiguration;
   static names(): { [key: string]: string } {
     return {

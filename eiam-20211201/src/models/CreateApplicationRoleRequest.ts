@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,16 +15,18 @@ export class CreateApplicationRoleRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色名称
+   * The name of the application role.
    * 
    * This parameter is required.
    * 
    * @example
-   * 管理员角色
+   * Admin Role
    */
   applicationRoleName?: string;
   /**
    * @remarks
+   * The value of the application role.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +35,8 @@ export class CreateApplicationRoleRequest extends $dara.Model {
   applicationRoleValue?: string;
   /**
    * @remarks
+   * A client token used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,7 +45,7 @@ export class CreateApplicationRoleRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

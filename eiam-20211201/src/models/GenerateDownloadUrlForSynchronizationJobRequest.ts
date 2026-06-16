@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateDownloadUrlForSynchronizationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GenerateDownloadUrlForSynchronizationJobRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * 同步任务ID
+   * The ID of the sync task.
    * 
    * This parameter is required.
    * 

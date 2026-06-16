@@ -13,8 +13,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   createTime?: number;
   /**
    * @remarks
-   * Public egress ip address range of the dedicated network endpoint
-   * This field is returned only when NetworkEndpointType is set to private.
+   * Public egress ip address range of the dedicated network endpoint This field is returned only when NetworkEndpointType is set to private.
    * 
    * @example
    * 172.168.x.x
@@ -22,11 +21,10 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   egressPrivateIpAddresses?: string[];
   /**
    * @remarks
-   * Public egress ip address range of the shared network endpoint
-   * This field is returned only when networkEndpointType is set to shared.
+   * Public egress ip address range of the shared network endpoint This field is returned only when networkEndpointType is set to shared.
    * 
    * @example
-   * 8.xx.xx.xxx/27
+   * 203.0.XX.XX/27
    */
   egressPublicIpAddresses?: string[];
   /**
@@ -50,13 +48,12 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
    * Private network endpoint name.
    * 
    * @example
-   * xx business VPC access endpoint
+   * Xx-business VPC access endpoint
    */
   networkAccessEndpointName?: string;
   /**
    * @remarks
-   * Type of the Network Endpoint
-   * Possible values:
+   * Type of the Network Endpoint Possible values:
    * 
    * shared: Shared network endpoint
    * 
@@ -76,8 +73,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   securityGroupId?: string;
   /**
    * @remarks
-   * Status of the Network Endpoint
-   * Possible values:
+   * Status of the Network Endpoint Possible values:
    * 
    * pending: Pending initialization
    * 

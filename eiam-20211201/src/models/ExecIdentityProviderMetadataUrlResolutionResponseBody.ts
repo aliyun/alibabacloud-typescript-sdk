@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataOidcOpenIdConfiguration extends $dara.Model {
   /**
    * @remarks
-   * oAuth2 授权端点。
+   * The OAuth 2.0 authorization endpoint.
    * 
    * @example
    * https://demo.com/oauth2/default/v1/authorize
@@ -13,7 +13,7 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
   authorizationEndpoint?: string;
   /**
    * @remarks
-   * OIDC issuer信息。
+   * The OIDC issuer.
    * 
    * @example
    * https://demo.com/fe974231-3454-4b70-9326-70fb71e41bce/v2.0/
@@ -21,7 +21,7 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
   issuer?: string;
   /**
    * @remarks
-   * OIDC jwks地址。
+   * The OIDC JSON Web Key Set (JWKS) URI.
    * 
    * @example
    * https://demo.com/oauth2/v1/keys
@@ -29,7 +29,7 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
   jwksUri?: string;
   /**
    * @remarks
-   * oAuth2 Token端点。
+   * The OAuth 2.0 token endpoint.
    * 
    * @example
    * https://demo.com/api/bff/v1.2/developer/oidc/token
@@ -37,7 +37,7 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
   tokenEndpoint?: string;
   /**
    * @remarks
-   * OIDC 用户信息端点。
+   * The OIDC userinfo endpoint.
    * 
    * @example
    * https://demo.com/api/bff/v1.2/developer/oidc/userinfo
@@ -74,6 +74,9 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
 
 export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfigurationCertificates extends $dara.Model {
   /**
+   * @remarks
+   * The content of the certificate.
+   * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIE+zCCA0egAwIBAgIJAJZY0ZY0ZY0Z -----END CERTIFICATE-----
    */
@@ -100,13 +103,23 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
 }
 
 export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The certificates.
+   */
   certificates?: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfigurationCertificates[];
   /**
+   * @remarks
+   * The entity ID of the SAML identity provider.
+   * 
    * @example
    * http://dc.test.com/adfs/services/trust
    */
   idPEntityId?: string;
   /**
+   * @remarks
+   * The SSO URL of the SAML identity provider.
+   * 
    * @example
    * https://dc.test.com/adfs/ls/
    */
@@ -142,9 +155,13 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
 export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadata extends $dara.Model {
   /**
    * @remarks
-   * OIDC IdP的Meta信息。
+   * The OIDC identity provider metadata.
    */
   oidcOpenIdConfiguration?: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataOidcOpenIdConfiguration;
+  /**
+   * @remarks
+   * The SAML identity provider metadata.
+   */
   samlMetadataConfiguration?: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfiguration;
   static names(): { [key: string]: string } {
     return {
@@ -176,8 +193,15 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
 }
 
 export class ExecIdentityProviderMetadataUrlResolutionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The identity provider metadata.
+   */
   identityProviderMetadata?: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadata;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

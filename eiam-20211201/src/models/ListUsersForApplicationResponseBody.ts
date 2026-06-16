@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersForApplicationResponseBodyUsersApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * 应用角色标识。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -35,12 +35,12 @@ export class ListUsersForApplicationResponseBodyUsersApplicationRoles extends $d
 export class ListUsersForApplicationResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * 应用角色列表。
+   * The list of application roles.
    */
   applicationRoles?: ListUsersForApplicationResponseBodyUsersApplicationRoles[];
   /**
    * @remarks
-   * The ID of the account.
+   * The account ID.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -75,7 +75,7 @@ export class ListUsersForApplicationResponseBodyUsers extends $dara.Model {
 export class ListUsersForApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -83,7 +83,7 @@ export class ListUsersForApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -91,7 +91,7 @@ export class ListUsersForApplicationResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The IDs of the accounts.
+   * The list of accounts.
    */
   users?: ListUsersForApplicationResponseBodyUsers[];
   static names(): { [key: string]: string } {

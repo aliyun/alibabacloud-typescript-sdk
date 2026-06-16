@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApplicationRolesResponseBodyApplicationRoles extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色的唯一标识
+   * The application role ID.
    * 
    * @example
    * approle_01kh2vuo8v9splv8maak1d22rxxxx
@@ -18,23 +21,32 @@ export class ListApplicationRolesResponseBodyApplicationRoles extends $dara.Mode
   applicationRoleId?: string;
   /**
    * @remarks
-   * 应用角色名称
+   * The name of the application role.
    * 
    * @example
    * Admin Role
    */
   applicationRoleName?: string;
   /**
+   * @remarks
+   * The value of the application role.
+   * 
    * @example
    * admin_role
    */
   applicationRoleValue?: string;
   /**
+   * @remarks
+   * The description of the application role.
+   * 
    * @example
    * Admin Role Description
    */
   description?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
@@ -71,26 +83,39 @@ export class ListApplicationRolesResponseBodyApplicationRoles extends $dara.Mode
 }
 
 export class ListApplicationRolesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of application roles.
+   */
   applicationRoles?: ListApplicationRolesResponseBodyApplicationRoles[];
   /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token used to start the next query.
    * 
    * @example
    * NTxxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */

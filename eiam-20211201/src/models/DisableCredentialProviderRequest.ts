@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * 认证令牌提供商ID。
+   * The credential provider ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DisableCredentialProviderRequest extends $dara.Model {
   credentialProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

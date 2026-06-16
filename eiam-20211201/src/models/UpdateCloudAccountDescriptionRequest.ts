@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudAccountDescriptionRequest extends $dara.Model {
   /**
    * @remarks
+   * A client token to ensure the idempotence of the request. Generate a unique value for this parameter from your client for each request. The ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class UpdateCloudAccountDescriptionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 云账号ID。
+   * The ID of the Alibaba Cloud account.
    * 
    * This parameter is required.
    * 
@@ -22,13 +24,16 @@ export class UpdateCloudAccountDescriptionRequest extends $dara.Model {
    */
   cloudAccountId?: string;
   /**
+   * @remarks
+   * The description of the Alibaba Cloud account.
+   * 
    * @example
    * cloud_account_description
    */
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

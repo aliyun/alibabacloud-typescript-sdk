@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationAccountsForUserRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用主键id
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListApplicationAccountsForUserRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListApplicationAccountsForUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 用户Id
+   * The user ID.
    * 
    * This parameter is required.
    * 

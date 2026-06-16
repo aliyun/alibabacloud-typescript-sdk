@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkAccessEndpointAvailableRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * China (Hangzhou)
@@ -45,7 +45,7 @@ export class ListNetworkAccessEndpointAvailableRegionsResponseBodyRegions extend
 export class ListNetworkAccessEndpointAvailableRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of region.
+   * The collection of available regions.
    */
   regions?: ListNetworkAccessEndpointAvailableRegionsResponseBodyRegions[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 应用ClientPublicKey的算法类型 rsa2048、ecc256
+   * The algorithm type.
    * 
    * @example
    * RSA-2048
@@ -13,7 +13,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   algorithmType?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用Id
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -21,7 +21,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用ClientPublicKey的Id
+   * The ID of the client public key.
    * 
    * @example
    * KEYEqDnDJhztiEAwSin7MZoxGcihzCAuxxxx
@@ -29,7 +29,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   clientPublicKeyId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用ClientPublicKey的创建时间
+   * The time when the key was created.
    * 
    * @example
    * 1722006052000
@@ -37,20 +37,23 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   createTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The time when the key was last used.
+   * 
    * @example
    * 1762006052000
    */
   lastUsedTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 应用当前是否为首要使用的应用ClientPublicKey的
+   * Indicates whether the key is used with priority.
    * 
    * @example
    * true
@@ -58,7 +61,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   primary?: boolean;
   /**
    * @remarks
-   * IDaaS EIAM 应用ClientPublicKey的公钥
+   * The public key.
    * 
    * @example
    * -----BEGIN PUBLIC KEY-----
@@ -74,7 +77,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   publicKey?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用ClientPublicKey的状态
+   * The status.
    * 
    * @example
    * enabled
@@ -118,26 +121,39 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
 }
 
 export class ListClientPublicKeysResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of client public keys for the application.
+   */
   clientPublicKeys?: ListClientPublicKeysResponseBodyClientPublicKeys[];
   /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token for the next page of results.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends $dara.Model {
   /**
    * @remarks
-   * 自定义条款Id
+   * The ID of the custom privacy policy.
    * 
    * @example
    * pp_xxxxx
@@ -13,7 +13,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   customPrivacyPolicyId?: string;
   /**
    * @remarks
-   * 自定义条款名称
+   * The name of the custom privacy policy.
    * 
    * @example
    * Custom Privacy Policy Name
@@ -21,7 +21,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   customPrivacyPolicyName?: string;
   /**
    * @remarks
-   * 若显示语言未配置时，门户侧展示默认语言展示条款。
+   * The default language of the policy. The value is the LanguageCode returned by the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -29,7 +29,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   defaultLanguageCode?: string;
   /**
    * @remarks
-   * 实例id
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -37,7 +37,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   instanceId?: string;
   /**
    * @remarks
-   * 自定义条款状态
+   * The status of the custom privacy policy.
    * 
    * @example
    * enabled
@@ -45,7 +45,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   status?: string;
   /**
    * @remarks
-   * 自定义条款同意类型，是默认同意，还是用户勾选同意
+   * The user consent type for the policy.
    * 
    * @example
    * implied_consent
@@ -83,10 +83,14 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
 }
 
 export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of custom privacy policies.
+   */
   customPrivacyPolicies?: ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -94,7 +98,7 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * NTxxxexample
@@ -102,18 +106,24 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+   * The token that is used to retrieve the previous page of results.
    * 
    * @example
    * PTxxxexample
    */
   previousToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

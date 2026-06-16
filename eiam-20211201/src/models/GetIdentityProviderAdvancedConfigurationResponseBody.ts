@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigurationDingtalkAdvancedConfig extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 钉钉一方应用的AppKey
+   * AppKey of the DingTalk first-party application
    * 
    * @example
    * ding5xo9rg0csw3f6xxx
@@ -13,7 +13,7 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
   appKey?: string;
   /**
    * @remarks
-   * IDaaS EIAM 钉钉一方应用的AppSecret
+   * App secret of the DingTalk first-party application
    * 
    * @example
    * ***
@@ -45,12 +45,12 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
 export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfiguration extends $dara.Model {
   /**
    * @remarks
-   * 钉钉高阶配置
+   * DingTalk advanced configuration
    */
   dingtalkAdvancedConfig?: GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigurationDingtalkAdvancedConfig;
   /**
    * @remarks
-   * IDaaS EIAM 身份提供方ID
+   * Identity provider ID
    * 
    * @example
    * idp_na2rzpyc67zr7ixdfy35zgrxxx
@@ -58,7 +58,7 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
   identityProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * Instance ID
    * 
    * @example
    * idaas_kpvmhktvun6u66dgpjh3l4wxxx
@@ -93,8 +93,15 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
 }
 
 export class GetIdentityProviderAdvancedConfigurationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Advanced configuration information
+   */
   advancedConfiguration?: GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfiguration;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

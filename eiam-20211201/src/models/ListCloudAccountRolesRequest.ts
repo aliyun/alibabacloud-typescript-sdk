@@ -4,10 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCloudAccountRolesRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The name of the filter field. Valid values:
+   * 
+   * - CloudAccountRoleId: The ID of the cloud role.
+   * 
+   * - CloudAccountRoleName: The name of the cloud role.
+   * 
+   * - CloudAccountRoleExternalId: The external ID of the cloud role.
+   * 
+   * - CloudAccountRoleUsageType: The usage type of the cloud role.
+   * 
    * @example
    * CloudAccountRoleId
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of values for the filter field.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,15 +53,23 @@ export class ListCloudAccountRolesRequestFilter extends $dara.Model {
 export class ListCloudAccountRolesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * This parameter is required.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
    */
   cloudAccountId?: string;
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   filter?: ListCloudAccountRolesRequestFilter[];
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,7 +78,11 @@ export class ListCloudAccountRolesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The maximum number of records to return on each page.
+   * 
+   * - The default value is 20.
+   * 
+   * - The maximum value is 100.
    * 
    * @example
    * 20
@@ -63,7 +90,9 @@ export class ListCloudAccountRolesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token that specifies the start of the next page of results.
+   * 
+   * - If this parameter is not specified, the query starts from the first page.
    * 
    * @example
    * NTxxxxxexample

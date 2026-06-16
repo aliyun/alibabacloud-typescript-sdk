@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetInstanceGlobalizationConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SetInstanceGlobalizationConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 语言类型
+   * The language.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SetInstanceGlobalizationConfigRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * 时区
+   * The time zone.
    * 
    * This parameter is required.
    * 

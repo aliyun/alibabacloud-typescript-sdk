@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWebAuthnAuthenticatorRequest extends $dara.Model {
   /**
    * @remarks
-   * 认证器ID
+   * The authenticator ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteWebAuthnAuthenticatorRequest extends $dara.Model {
   authenticatorId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteWebAuthnAuthenticatorRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * UserID
+   * The user ID.
    * 
    * This parameter is required.
    * 

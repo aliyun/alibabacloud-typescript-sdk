@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -13,7 +13,7 @@ export class CreateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The user ID.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx

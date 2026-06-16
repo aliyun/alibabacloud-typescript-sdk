@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityProvidersForNetworkAccessEndpoint extends $dara.Model {
   /**
    * @remarks
-   * IdP的ID。
+   * The ID of the IdP.
    * 
    * @example
    * idp_nbq7i4ylodmm64iy6t5muxxxxx
@@ -13,7 +13,7 @@ export class ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityPr
   identityProviderId?: string;
   /**
    * @remarks
-   * IdP名称。
+   * The name of the IdP.
    * 
    * @example
    * OIDC Provider
@@ -21,7 +21,7 @@ export class ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityPr
   identityProviderName?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例ID
+   * The instance ID.
    * 
    * @example
    * idaas_elk5evwagodqlmwpfehasxxxxx
@@ -53,21 +53,31 @@ export class ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityPr
 }
 
 export class ListIdentityProvidersForNetworkAccessEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of IdPs for the network endpoint.
+   */
   identityProvidersForNetworkAccessEndpoint?: ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityProvidersForNetworkAccessEndpoint[];
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token that is returned from the call.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

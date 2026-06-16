@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeResourceServerScopesToUserRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The ID of the resource server application.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class AuthorizeResourceServerScopesToUserRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * Ensures the idempotence of the request. Generate a parameter value from your client to make sure that the value is unique among different requests. ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,7 +25,7 @@ export class AuthorizeResourceServerScopesToUserRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +35,7 @@ export class AuthorizeResourceServerScopesToUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * ResourceServer权限ID。
+   * A list of scope permission IDs under the resource server.
    * 
    * This parameter is required.
    * 
@@ -43,7 +45,7 @@ export class AuthorizeResourceServerScopesToUserRequest extends $dara.Model {
   resourceServerScopeIds?: string[];
   /**
    * @remarks
-   * 用户ID。
+   * The ID of the account.
    * 
    * This parameter is required.
    * 

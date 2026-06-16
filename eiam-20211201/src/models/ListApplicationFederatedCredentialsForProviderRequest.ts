@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationFederatedCredentialsForProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * 联邦凭证提供方ID
+   * The federated credential provider ID.
    * 
    * @example
    * fcp_adasd12dxxxxx
@@ -13,7 +13,7 @@ export class ListApplicationFederatedCredentialsForProviderRequest extends $dara
   federatedCredentialProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListApplicationFederatedCredentialsForProviderRequest extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -31,7 +31,7 @@ export class ListApplicationFederatedCredentialsForProviderRequest extends $dara
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token for the query.
    * 
    * @example
    * NTxxxxxexample
@@ -39,7 +39,7 @@ export class ListApplicationFederatedCredentialsForProviderRequest extends $dara
   nextToken?: string;
   /**
    * @remarks
-   * 查询上一页凭证（Token），取值为上一次API调用返回的previousToken参数值。
+   * The token for the previous page of results.
    * 
    * @example
    * PTxxxxxexample

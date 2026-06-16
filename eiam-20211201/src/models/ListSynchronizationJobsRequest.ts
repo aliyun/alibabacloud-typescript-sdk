@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSynchronizationJobsRequestFilters extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the dynamic parameter.
+   * 
+   * @example
+   * qps
+   */
   key?: string;
+  /**
+   * @remarks
+   * The values of the dynamic parameter.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +45,11 @@ export class ListSynchronizationJobsRequestFilters extends $dara.Model {
 export class ListSynchronizationJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * 同步方向[ingress,egress]
+   * The direction of the sync task. Valid values:
+   * 
+   * - ingress: Inbound.
+   * 
+   * - egress: Outbound.
    * 
    * @example
    * ingress
@@ -42,16 +57,20 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * 同步结束时间
+   * The synchronization end time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The filter parameters.
+   */
   filters?: ListSynchronizationJobsRequestFilters[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -61,7 +80,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The number of entries to return on each page. The maximum value is 100.
    * 
    * @example
    * 20
@@ -69,7 +88,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token to retrieve the next page of results. If no more pages exist, this parameter is not returned.
    * 
    * @example
    * NTxxxxxexample
@@ -77,7 +96,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 当前查询的列表页码，默认为1。
+   * The page number. The value starts from 1.
    * 
    * @example
    * 1
@@ -85,7 +104,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 当前查询的列表页码，默认为20。
+   * The number of entries per page. The maximum value is 100.
    * 
    * @example
    * 10
@@ -93,7 +112,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 同步开始时间
+   * The synchronization start time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -101,7 +120,17 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * 同步状态[pending,running,suspending,failed,partial_success,success]
+   * The status of the sync task. Valid values:
+   * 
+   * - pending: The task is pending.
+   * 
+   * - running: The task is running.
+   * 
+   * - failed: The task failed.
+   * 
+   * - partial_success: The task is partially successful.
+   * 
+   * - success: The task is successful.
    * 
    * @example
    * running
@@ -109,7 +138,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 同步目标ID
+   * A list of synchronization target IDs. For example, \\`[idp_111XXXX,idp_222XXXX]\\`.
    * 
    * @example
    * target_001
@@ -117,7 +146,11 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   targetIds?: string[];
   /**
    * @remarks
-   * 同步目标类型[identity_provider,organizational_unit,application,user]
+   * The type of the synchronization target. Valid values:
+   * 
+   * - identity_provider: Identity provider.
+   * 
+   * - application: Application.
    * 
    * @example
    * identity_provider

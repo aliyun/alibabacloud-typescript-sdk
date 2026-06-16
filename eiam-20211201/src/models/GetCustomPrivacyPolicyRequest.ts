@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomPrivacyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * 自定义条款ID
+   * The ID of the custom privacy policy.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCustomPrivacyPolicyRequest extends $dara.Model {
   customPrivacyPolicyId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUploadAuthRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GenerateUploadAuthRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 文件用途
+   * The purpose of the file.
    * 
    * @example
    * user_import
@@ -23,7 +23,7 @@ export class GenerateUploadAuthRequest extends $dara.Model {
   purpose?: string;
   /**
    * @remarks
-   * 文件类型，目前只支持image,最大1M
+   * The file type.
    * 
    * @example
    * image

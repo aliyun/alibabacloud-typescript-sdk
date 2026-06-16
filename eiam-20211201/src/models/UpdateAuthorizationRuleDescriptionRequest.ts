@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuthorizationRuleDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权规则标识。
+   * The authorization rule ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class UpdateAuthorizationRuleDescriptionRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
+   * A client token used to ensure the idempotence of the request. Generate a unique value from your client for this parameter. The token can contain only ASCII characters and must be 64 characters or less in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,7 +25,7 @@ export class UpdateAuthorizationRuleDescriptionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 授权规则备注描述，长度限制最大128个字符。
+   * The description of the authorization rule. The description can be up to 128 characters long.
    * 
    * @example
    * this is a test rule
@@ -31,7 +33,7 @@ export class UpdateAuthorizationRuleDescriptionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

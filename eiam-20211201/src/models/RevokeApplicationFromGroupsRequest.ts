@@ -23,7 +23,7 @@ export class RevokeApplicationFromGroupsRequest extends $dara.Model {
   applicationRoleId?: string;
   /**
    * @remarks
-   * The group IDs. You can specify up to 100 group IDs at a time.
+   * A list of group IDs. A single operation supports up to 100 group IDs.
    * 
    * This parameter is required.
    * 

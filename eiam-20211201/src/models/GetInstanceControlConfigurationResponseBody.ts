@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElementsHumanVerificationConfig extends $dara.Model {
   /**
+   * @remarks
+   * The human verification type.
+   * 
    * @example
    * urn:alibaba:idaas:humanverification:alibaba-cloud-jigsaw-verification
    */
@@ -32,16 +35,20 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
 export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElements extends $dara.Model {
   /**
    * @remarks
-   * 实例控制项名称，如human_verification。
+   * The element name.
    * 
    * @example
    * human_verification
    */
   elementName?: string;
+  /**
+   * @remarks
+   * The human verification configuration.
+   */
   humanVerificationConfig?: GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElementsHumanVerificationConfig;
   /**
    * @remarks
-   * 实例控制项状态，enabled或者disabled。
+   * The status of the control element.
    * 
    * @example
    * enabled
@@ -78,7 +85,7 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
 export class GetInstanceControlConfigurationResponseBodyInstanceControlConfiguration extends $dara.Model {
   /**
    * @remarks
-   * 实例控制配置项
+   * The list of control elements.
    */
   controlElements?: GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElements[];
   static names(): { [key: string]: string } {
@@ -106,8 +113,15 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
 }
 
 export class GetInstanceControlConfigurationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance control configuration.
+   */
   instanceControlConfiguration?: GetInstanceControlConfigurationResponseBodyInstanceControlConfiguration;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

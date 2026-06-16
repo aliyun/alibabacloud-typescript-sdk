@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class SetIdentityProviderAuthnConfigurationRequestAutoCreateUserConfig extends $dara.Model {
   /**
    * @remarks
-   * 自动创建账户是否开启
+   * Automatic account creation status.
    * 
    * @example
    * disabled
    */
   autoCreateUserStatus?: string;
+  /**
+   * @remarks
+   * Organization ID
+   */
   targetOrganizationalUnitIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -40,6 +44,9 @@ export class SetIdentityProviderAuthnConfigurationRequestAutoCreateUserConfig ex
 
 export class SetIdentityProviderAuthnConfigurationRequestAutoUpdateUserConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable automatic account updates.
+   * 
    * @example
    * disabled
    */
@@ -68,17 +75,17 @@ export class SetIdentityProviderAuthnConfigurationRequestAutoUpdateUserConfig ex
 export class SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchUserProfileExpressions extends $dara.Model {
   /**
    * @remarks
-   * 表达式的类型
+   * Type of expression.
    * 
    * This parameter is required.
    * 
    * @example
-   * filed
+   * field
    */
   expressionMappingType?: string;
   /**
    * @remarks
-   * 映射属性取值表达式
+   * Expression for mapping attribute value.
    * 
    * This parameter is required.
    * 
@@ -88,7 +95,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchU
   sourceValueExpression?: string;
   /**
    * @remarks
-   * 映射目标属性名称
+   * Target attribute name for mapping.
    * 
    * This parameter is required.
    * 
@@ -98,7 +105,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchU
   targetField?: string;
   /**
    * @remarks
-   * 映射目标属性名称
+   * Target attribute name for mapping.
    * 
    * @example
    * username
@@ -134,12 +141,12 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchU
 export class SetIdentityProviderAuthnConfigurationRequestBindingConfig extends $dara.Model {
   /**
    * @remarks
-   * 自动匹配账户的规则
+   * Rules for automatic account matching.
    */
   autoMatchUserProfileExpressions?: SetIdentityProviderAuthnConfigurationRequestBindingConfigAutoMatchUserProfileExpressions[];
   /**
    * @remarks
-   * 自动匹配账户是否开启
+   * Automatic account matching status.
    * 
    * @example
    * disabled
@@ -147,7 +154,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfig extends $
   autoMatchUserStatus?: string;
   /**
    * @remarks
-   * 用户手动绑定账户功能是否开启
+   * Specifies whether the manual account binding feature is enabled.
    * 
    * @example
    * enabled
@@ -184,7 +191,7 @@ export class SetIdentityProviderAuthnConfigurationRequestBindingConfig extends $
 export class SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig extends $dara.Model {
   /**
    * @remarks
-   * 是否支持自动更新密码
+   * Specifies whether to automatically update passwords.
    * 
    * @example
    * enabled
@@ -192,7 +199,7 @@ export class SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig extends
   autoUpdatePasswordStatus?: string;
   /**
    * @remarks
-   * 用户登录标识
+   * User Login Identifier
    * 
    * @example
    * email
@@ -200,7 +207,7 @@ export class SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig extends
   userLoginIdentifier?: string;
   /**
    * @remarks
-   * 用户ObjectClass
+   * User ObjectClass
    * 
    * @example
    * posixAccount
@@ -234,18 +241,22 @@ export class SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig extends
 export class SetIdentityProviderAuthnConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * 自动创建账户账户规则配置。
+   * Automatic Account Creation Rule Configuration.
    */
   autoCreateUserConfig?: SetIdentityProviderAuthnConfigurationRequestAutoCreateUserConfig;
+  /**
+   * @remarks
+   * Automatic Account Update Configuration
+   */
   autoUpdateUserConfig?: SetIdentityProviderAuthnConfigurationRequestAutoUpdateUserConfig;
   /**
    * @remarks
-   * 账户绑定规则配置
+   * Account Binding Rule Configuration
    */
   bindingConfig?: SetIdentityProviderAuthnConfigurationRequestBindingConfig;
   /**
    * @remarks
-   * IDaaS的身份提供方主键id
+   * Identity Provider ID
    * 
    * This parameter is required.
    * 
@@ -255,7 +266,7 @@ export class SetIdentityProviderAuthnConfigurationRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * Instance ID
    * 
    * This parameter is required.
    * 
@@ -265,7 +276,7 @@ export class SetIdentityProviderAuthnConfigurationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * AD/LDAP配置
+   * AD/LDAP Authentication Configuration
    */
   ldapAuthnConfig?: SetIdentityProviderAuthnConfigurationRequestLdapAuthnConfig;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeApplicationToUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application on which you want to grant permissions.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class AuthorizeApplicationToUsersRequest extends $dara.Model {
   applicationRoleId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class AuthorizeApplicationToUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IDs of the accounts to which you want to grant permissions. You can grant permissions to a maximum of 100 accounts at a time.
+   * The IDs of the users. A single request can contain up to 100 user IDs.
    * 
    * This parameter is required.
    * 

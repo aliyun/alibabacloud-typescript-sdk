@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Model {
   /**
    * @remarks
-   * 授权资源范围，枚举值：global（项目下所有资源）、custom（指定资源）。
+   * Authorization resource scope. Valid values:
+   * 
+   * - global: Global resources under the project
+   * 
+   * - custom: Resources within the specified project scope
    * 
    * @example
    * global
@@ -13,7 +17,11 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationResourceScope?: string;
   /**
    * @remarks
-   * 授权规则的创建类型，枚举类型：user_created（用户创建)，approval_created（审批创建)。
+   * Authorization rule creation type. Valid values:
+   * 
+   * - system_init: System created
+   * 
+   * - user_custom: User created
    * 
    * @example
    * user_custom
@@ -21,7 +29,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleCreationType?: string;
   /**
    * @remarks
-   * 授权规则标识。
+   * Authorization rule ID.
    * 
    * @example
    * arrule_01kf143ug06fg7m9f43u7vahxxxx
@@ -29,7 +37,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleId?: string;
   /**
    * @remarks
-   * 授权规则名称。
+   * Authorization rule name.
    * 
    * @example
    * test-name
@@ -37,22 +45,39 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleName?: string;
   /**
    * @remarks
-   * 授权规则主体ID，主体类型对应的主体ID。
+   * Subject ID associated with the authorization rule.
+   * 
+   * @example
+   * user_d6sbsuumeta4h66ec3il7yxxxx
    */
   authorizationRuleSubjectId?: string;
   /**
    * @remarks
-   * 授权规则主体范围，枚举类型：shared（共享型，即支持所有主体，包括账户、应用），exclusive（专属类型）
+   * Authorization rule subject scope. Valid values:
+   * 
+   * - shared: Shared type, supports all subjects, including accounts and applications
+   * 
+   * - exclusive: Exclusive type
+   * 
+   * @example
+   * shared
    */
   authorizationRuleSubjectScope?: string;
   /**
    * @remarks
-   * 授权规则主体类型，枚举类型：application（应用)，user（账户)。
+   * Subject type associated with the authorization rule. Valid when the authorization rule subject scope is exclusive. Valid values:
+   * 
+   * - application: Application
+   * 
+   * - user: Account
+   * 
+   * @example
+   * user
    */
   authorizationRuleSubjectType?: string;
   /**
    * @remarks
-   * 创建时间，Unix时间戳格式，单位为毫秒。
+   * Creation time, in UNIX timestamp format, in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -60,7 +85,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   createTime?: number;
   /**
    * @remarks
-   * 授权规则描述，长度限制为128字符。
+   * Authorization rule description.
    * 
    * @example
    * this is a test
@@ -68,7 +93,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * 实例ID。
+   * Instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -76,7 +101,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * 授权规则关联的项目标识。
+   * Project ID associated with the authorization rule.
    * 
    * @example
    * iprj_system_default
@@ -84,7 +109,11 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   projectId?: string;
   /**
    * @remarks
-   * 授权规则状态，枚举值：enabled（启用）、disabled（禁用）。
+   * Authorization rule status. Valid values:
+   * 
+   * - enabled: Enabled
+   * 
+   * - disabled: Disabled
    * 
    * @example
    * enabled
@@ -92,7 +121,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * 最近一次更新时间，Unix时间戳格式，单位为毫秒。
+   * Last update time, in UNIX timestamp format, in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -144,8 +173,15 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
 }
 
 export class GetAuthorizationRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Authorization rule object.
+   */
   authorizationRule?: GetAuthorizationRuleResponseBodyAuthorizationRule;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

@@ -8,7 +8,7 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
    * The instance description.
    * 
    * @example
-   * instance test
+   * Production environment
    */
   description?: string;
   /**
@@ -49,8 +49,9 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   EIAM 2.0
-   * *   EIAM 1.0
+   * - EIAM 2.0
+   * 
+   * - EIAM 1.0
    * 
    * @example
    * EIAM 2.0
@@ -74,7 +75,7 @@ export class ListEiamInstancesResponseBodyInstances extends $dara.Model {
   openAPIPublicDomain?: string;
   /**
    * @remarks
-   * The single sign-on (SSO) domain  of the instance.
+   * The single sign-on (SSO) domain of the instance.
    * 
    * @example
    * xxxx.aliyunidaas.com

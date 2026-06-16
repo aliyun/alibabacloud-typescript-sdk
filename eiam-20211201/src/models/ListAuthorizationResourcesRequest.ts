@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationResourcesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * 过滤条件名称。
+   * The filter field name. Valid values:
+   * 
+   * - AuthorizationResourceEntityType: The type of the associated resource entity.
+   * 
+   * - AuthorizationResourceEntityId: The ID of the associated resource entity.
    * 
    * @example
    * AuthorizationResourceEntityId
@@ -13,7 +17,7 @@ export class ListAuthorizationResourcesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 过滤条件值。
+   * A list of filter field values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +49,7 @@ export class ListAuthorizationResourcesRequestFilter extends $dara.Model {
 export class ListAuthorizationResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权规则标识。
+   * The authorization rule ID.
    * 
    * This parameter is required.
    * 
@@ -55,12 +59,12 @@ export class ListAuthorizationResourcesRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * 过滤条件
+   * The filter conditions.
    */
   filter?: ListAuthorizationResourcesRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -70,7 +74,11 @@ export class ListAuthorizationResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The maximum number of entries to return on each page.
+   * 
+   * - The default value is 20.
+   * 
+   * - The maximum value is 100.
    * 
    * @example
    * 20
@@ -78,7 +86,9 @@ export class ListAuthorizationResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token to start the next page of results.
+   * 
+   * - If you do not specify this parameter, the query starts from the first page.
    * 
    * @example
    * NTxxxxxexample

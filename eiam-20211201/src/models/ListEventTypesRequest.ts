@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * 查询分页页码（从1开始计数）
+   * Page number for paging
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListEventTypesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 分页大小（从1开始计数）
+   * Number of items per page
    * 
    * @example
    * 10

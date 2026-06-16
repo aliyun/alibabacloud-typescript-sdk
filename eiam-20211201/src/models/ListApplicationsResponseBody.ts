@@ -4,18 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApplicationsResponseBodyApplications extends $dara.Model {
   /**
+   * @remarks
+   * Indicates how the application was created.
+   * 
    * @example
-   * user_created
+   * user_custom
    */
   applicationCreationType?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The identity type of the application.
+   * 
+   * @example
+   * application
+   */
   applicationIdentityType?: string;
   /**
    * @remarks
@@ -27,10 +37,11 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The origin of the application. Valid values:
+   * The source used to create the application. Valid values:
    * 
-   * *   urn:alibaba:idaas:app:source:template: The application is created based on a template.
-   * *   urn:alibaba:idaas: The application is created based on the standard protocol.
+   * - `urn:alibaba:idaas:app:source:template`: Application template.
+   * 
+   * - `urn:alibaba:idaas:app:source:standard`: Standard protocol.
    * 
    * @example
    * urn:alibaba:idaas:app:source:standard
@@ -38,7 +49,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   applicationSourceType?: string;
   /**
    * @remarks
-   * The application template ID.
+   * The ID of the application template.
    * 
    * @example
    * apt_xxx_xxx
@@ -54,7 +65,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The time when the application was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time the application was created, as a Unix timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -65,28 +76,34 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * A single application. The code is pkces.
+   * A test application
    */
   description?: string;
   /**
    * @remarks
-   * The features that are supported by the application. The value is a JSON array. Valid values:
+   * A string containing a JSON array of features supported by the application. Valid values:
    * 
-   * *   sso: The application supports SSO.
-   * *   slo: The application supports SLO.
-   * *   provision: The application supports account synchronization.
-   * *   api_invoke: The application supports custom APIs.
-   * *   m2m_client: The application supports M2M Client.
-   * *   resource_server: The application supports Resource Server.
-   * *   other: undertake.
+   * - `sso`: SSO.
+   * 
+   * - `slo`: SLO.
+   * 
+   * - `provision`: Provisioning.
+   * 
+   * - `api_invoke`: API invocation.
+   * 
+   * - `m2m_client`: M2M client.
+   * 
+   * - `resource_server`: Resource server.
+   * 
+   * - `other`: Other.
    * 
    * @example
-   * ["sso","slo", "provision","api_invoke", "m2m_client","resource_server","other"]
+   * ["sso", "provision"]
    */
   features?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -94,7 +111,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The URL of the application icon.
+   * The URL of the application logo.
    * 
    * @example
    * https://img.alicdn.com/imgextra/i4/O1CN01lvYwpv1aGowQXDML9_!!6000000003303-0-tps-580-580.jpg
@@ -109,16 +126,25 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
    */
   managedServiceCode?: string;
   /**
+   * @remarks
+   * The unique identifier of the resource server.
+   * 
    * @example
-   * test
+   * https://example.com
    */
   resourceServerIdentifier?: string;
   /**
+   * @remarks
+   * The source type of the resource server.
+   * 
    * @example
    * urn:cloud:idaas:resourceserver:source:custom
    */
   resourceServerSourceType?: string;
   /**
+   * @remarks
+   * The status of the resource server.
+   * 
    * @example
    * enabled
    */
@@ -133,11 +159,15 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The type of the single sign-on (SSO) protocol. Valid values:
+   * The SSO protocol. Valid values:
    * 
-   * *   saml2: the Security Assertion Markup Language (SAML) 2.0 protocol.
-   * *   oidc: the OpenID Connect (OIDC) protocol.
-   * *   oauth2/m2m: the OAuth2.0  protocol M2M.
+   * - `saml2`: SAML 2.0
+   * 
+   * - `oidc`: OpenID Connect (OIDC)
+   * 
+   * - `oauth2/m2m`: OAuth 2.0
+   * 
+   * - `oidc+oauth2/m2m`: OIDC and OAuth 2.0
    * 
    * @example
    * saml2
@@ -147,9 +177,11 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
    * @remarks
    * The status of the application. Valid values:
    * 
-   * *   enabled: The application is enabled.
-   * *   disabled: The application is disabled.
-   * *   deleted: The application is deleted.
+   * - `enabled`: The application is enabled.
+   * 
+   * - `disabled`: The application is disabled.
+   * 
+   * - `deleted`: The application is soft-deleted.
    * 
    * @example
    * enabled
@@ -157,7 +189,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the application was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time the application was last updated, as a Unix timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -225,12 +257,12 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
 export class ListApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the applications.
+   * The list of applications.
    */
   applications?: ListApplicationsResponseBodyApplications[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -238,7 +270,7 @@ export class ListApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the returned entries.
+   * The total number of entries returned.
    * 
    * @example
    * 100

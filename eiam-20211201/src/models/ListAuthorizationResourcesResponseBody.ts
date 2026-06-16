@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationResourcesResponseBodyAuthorizationResources extends $dara.Model {
   /**
    * @remarks
-   * 资源实体标识
+   * The ID of the associated resource entity.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -13,7 +13,9 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * 资源实体类型，枚举类型：asset（资产）、credential（凭据）、cloud_identity_role（云账号角色）
+   * The type of the associated resource entity. Valid values:
+   * 
+   * - cloud_account_role: A cloud role.
    * 
    * @example
    * cloud_account_role
@@ -21,7 +23,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationResourceEntityType?: string;
   /**
    * @remarks
-   * 授权资源标识
+   * The authorized resource ID.
    * 
    * @example
    * arres_01kgh3jvt7pk093rv6giu0c0qxxxx
@@ -29,7 +31,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationResourceId?: string;
   /**
    * @remarks
-   * 授权规则标识
+   * The authorization rule ID.
    * 
    * @example
    * arrule_01kf143ug06fg7m9f43u7vahxxxx
@@ -37,7 +39,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationRuleId?: string;
   /**
    * @remarks
-   * 云账号ID。
+   * The ID of the Alibaba Cloud account that owns the associated resource entity.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -45,7 +47,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   cloudAccountId?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -83,10 +85,14 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
 }
 
 export class ListAuthorizationResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of authorized resources.
+   */
   authorizationResources?: ListAuthorizationResourcesResponseBodyAuthorizationResources[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -94,18 +100,24 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token to retrieve the next page of results. This parameter is returned when the results are paged.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

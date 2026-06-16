@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForAuthorizationRuleRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * 过滤条件名称。
+   * The name of the filter field. Valid values:
+   * 
+   * - GroupId: The group ID.
    * 
    * @example
    * GroupId
@@ -13,7 +15,7 @@ export class ListGroupsForAuthorizationRuleRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 过滤条件值。
+   * The values of the filter field.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +47,7 @@ export class ListGroupsForAuthorizationRuleRequestFilter extends $dara.Model {
 export class ListGroupsForAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权规则标识。
+   * The authorization rule ID.
    * 
    * This parameter is required.
    * 
@@ -55,12 +57,12 @@ export class ListGroupsForAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * 过滤条件
+   * The filter conditions.
    */
   filter?: ListGroupsForAuthorizationRuleRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -70,7 +72,11 @@ export class ListGroupsForAuthorizationRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The maximum number of entries to return on each page.
+   * 
+   * - Default value: 20.
+   * 
+   * - The value cannot exceed 100.
    * 
    * @example
    * 20
@@ -78,7 +84,9 @@ export class ListGroupsForAuthorizationRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token that is used to start the next paged query.
+   * 
+   * - If you do not specify this parameter, the query starts from the first page.
    * 
    * @example
    * NTxxxxxexample

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResultErrorReason extends $dara.Model {
   /**
    * @remarks
-   * 错误码
+   * The error code.
    * 
    * @example
    * AuthenticationFail.NoPermission
@@ -13,7 +13,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
   errorCode?: string;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * There is no permission.
@@ -45,12 +45,12 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
 export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResult extends $dara.Model {
   /**
    * @remarks
-   * 错误原因
+   * The reason for the error. This parameter is returned only if the value of CloudAccountRoleHealth is unhealthy.
    */
   errorReason?: GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResultErrorReason;
   /**
    * @remarks
-   * 检测时间
+   * The time of the last check. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -58,7 +58,11 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
   lastCheckTime?: number;
   /**
    * @remarks
-   * 结果
+   * The result of the health check. Valid values:
+   * 
+   * - success: The health check is successful.
+   * 
+   * - failed: The health check failed.
    * 
    * @example
    * success
@@ -95,7 +99,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
 export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model {
   /**
    * @remarks
-   * 云账号ID
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -103,7 +107,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountId?: string;
   /**
    * @remarks
-   * 云账号角色外部唯一ID
+   * The external ID of the cloud account role.
    * 
    * @example
    * acs:ram::xxx:role/role-test
@@ -111,7 +115,13 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleExternalId?: string;
   /**
    * @remarks
-   * 云账号角色可用性
+   * The health check status of the cloud role. Valid values:
+   * 
+   * - healthy: The role is healthy.
+   * 
+   * - unhealthy: The role is unhealthy.
+   * 
+   * - unknown: The health status is unknown.
    * 
    * @example
    * healthy
@@ -119,12 +129,12 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleHealth?: string;
   /**
    * @remarks
-   * 云账号角色验证结果
+   * The result of the health check for the cloud role.
    */
   cloudAccountRoleHealthCheckResult?: GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResult;
   /**
    * @remarks
-   * 云账号角色ID
+   * The ID of the cloud role.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -132,7 +142,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleId?: string;
   /**
    * @remarks
-   * 云账号名称
+   * The name of the cloud role.
    * 
    * @example
    * role-test
@@ -140,7 +150,9 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleName?: string;
   /**
    * @remarks
-   * 云账号角色用途
+   * The type of the cloud role. The format of this parameter varies based on the cloud account type. The following value is supported:
+   * 
+   * - role: for an Alibaba Cloud account.
    * 
    * @example
    * role
@@ -148,25 +160,35 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleType?: string;
   /**
    * @remarks
-   * 云账号角色类型
+   * The usage type of the cloud role. Valid values:
+   * 
+   * - system: The role is used by the system.
+   * 
+   * - user: The role is used by a user.
    * 
    * @example
    * system
    */
   cloudAccountRoleUsageType?: string;
   /**
+   * @remarks
+   * The time when the cloud role was created. This value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1719320115000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The description of the cloud role.
+   * 
    * @example
    * cloud_account_role_description
    */
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -174,13 +196,20 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * 云账号角色状态
+   * The status of the cloud role. Valid values:
+   * 
+   * - enabled: The role is enabled.
+   * 
+   * - disable: The role is disabled.
    * 
    * @example
    * enabled
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the cloud role was last updated. This value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1649830227000
    */
@@ -234,8 +263,15 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
 }
 
 export class GetCloudAccountRoleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the cloud role.
+   */
   cloudAccountRole?: GetCloudAccountRoleResponseBodyCloudAccountRole;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

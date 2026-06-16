@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationAccountsForUserResponseBodyApplicationAccounts extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 应用账号Id
+   * The application account ID.
    * 
    * @example
    * aac_m6e3ukegwvbcb2fne7j32xxxxxx
@@ -13,7 +13,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   applicationAccountId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用Id
+   * The application ID.
    * 
    * @example
    * app_na2r76irswrwfgpkz7xvcj7xxxxx
@@ -21,7 +21,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用账号名称
+   * The name of the application account.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   applicationUsername?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the account was created.
    * 
    * @example
    * 1754359439000
@@ -37,7 +37,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   createTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The ID of the IDaaS EIAM instance.
    * 
    * @example
    * idaas_ki6hd7ihir4ybawogqk6xxxxx
@@ -45,7 +45,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   instanceId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 用户Id
+   * The user ID.
    * 
    * @example
    * user_tkmboufpnvpbitdpzrlng6mxxxxx
@@ -83,13 +83,23 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
 }
 
 export class ListApplicationAccountsForUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the member accounts.
+   */
   applicationAccounts?: ListApplicationAccountsForUserResponseBodyApplicationAccounts[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

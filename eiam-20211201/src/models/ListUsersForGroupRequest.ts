@@ -25,7 +25,7 @@ export class ListUsersForGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListUsersForGroupRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. Maximum value: 100.
+   * The number of entries per page. The default value is 20. The maximum value is 100.
    * 
    * @example
    * 20
@@ -41,7 +41,7 @@ export class ListUsersForGroupRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The account IDs. A maximum of 100 accounts can be queried.
+   * A list of account IDs. The list can contain a maximum of 100 IDs.
    * 
    * @example
    * [ou_001]

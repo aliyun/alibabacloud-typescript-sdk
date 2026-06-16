@@ -4,23 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateNetworkZoneDescriptionRequest extends $dara.Model {
   /**
+   * @remarks
+   * A client token. It is used to ensure the idempotence of the request.
+   * 
    * @example
    * client-token-examplexxxx
    */
   clientToken?: string;
   /**
    * @remarks
-   * 网络区域描述
+   * The description of the network zone.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试描述
+   * Test description
    */
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -30,12 +33,12 @@ export class UpdateNetworkZoneDescriptionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * IDaaS的网络区域主键id
+   * The network zone ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * network_11111
+   * network_m5wsaclfvfrf5623xnirgxxxxx
    */
   networkZoneId?: string;
   static names(): { [key: string]: string } {

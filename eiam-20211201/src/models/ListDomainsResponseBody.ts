@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListDomainsResponseBodyDomainsFiling extends $dara.Model {
   /**
    * @remarks
-   * The ICP number associated with the domain name. Both the entity ICP number and website ICP number are supported.
+   * The ICP filing number associated with the domain name. Both entity and website ICP filing numbers are supported.
    * 
    * @example
-   * Zhexx-xxxxxx
+   * xICPxxxxxx-xx
    */
   icpNumber?: string;
   static names(): { [key: string]: string } {
@@ -33,10 +33,17 @@ export class ListDomainsResponseBodyDomainsFiling extends $dara.Model {
 }
 
 export class ListDomainsResponseBodyDomains extends $dara.Model {
+  /**
+   * @remarks
+   * The brand ID.
+   * 
+   * @example
+   * brand_xxxx
+   */
   brandId?: string;
   /**
    * @remarks
-   * The time when the domain name was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the domain name was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -44,7 +51,7 @@ export class ListDomainsResponseBodyDomains extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether the domain name is the default domain.
+   * Indicates whether the domain name is the default one.
    * 
    * @example
    * false
@@ -52,7 +59,7 @@ export class ListDomainsResponseBodyDomains extends $dara.Model {
   defaultDomain?: boolean;
   /**
    * @remarks
-   * The domain.
+   * The domain name.
    * 
    * @example
    * www.example.com
@@ -60,7 +67,7 @@ export class ListDomainsResponseBodyDomains extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * dm_examplexxxxx
@@ -70,8 +77,9 @@ export class ListDomainsResponseBodyDomains extends $dara.Model {
    * @remarks
    * The type of the domain name. Valid values:
    * 
-   * *   system_init: an initial domain name.
-   * *   user_custom: a custom domain name.
+   * - system_init: The default domain name that is generated during initialization.
+   * 
+   * - user_custom: A custom domain name.
    * 
    * @example
    * system_init
@@ -79,7 +87,7 @@ export class ListDomainsResponseBodyDomains extends $dara.Model {
   domainType?: string;
   /**
    * @remarks
-   * The information about the Internet content provider (ICP) filing of the domain name.
+   * The ICP filing information about the domain name.
    */
   filing?: ListDomainsResponseBodyDomainsFiling;
   /**
@@ -92,10 +100,11 @@ export class ListDomainsResponseBodyDomains extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the domain name is locked. Valid values:
+   * The lock status of the domain name. Valid values:
    * 
-   * *   unlock
-   * *   lockByLicense
+   * - unlock: Normal.
+   * 
+   * - lockByLicense: The domain name is unavailable due to license limitations.
    * 
    * @example
    * unlock
@@ -103,7 +112,7 @@ export class ListDomainsResponseBodyDomains extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The time when the domain name was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the domain name was last updated. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -154,7 +163,7 @@ export class ListDomainsResponseBodyDomains extends $dara.Model {
 export class ListDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the domain names.
+   * The list of domain names.
    */
   domains?: ListDomainsResponseBodyDomains[];
   /**

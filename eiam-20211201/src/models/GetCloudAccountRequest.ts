@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCloudAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * 云账号ID。
+   * The ID of the Alibaba Cloud account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCloudAccountRequest extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

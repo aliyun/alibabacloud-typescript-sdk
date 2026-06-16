@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateFileImportTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GenerateFileImportTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 同步目标类型
+   * The synchronization target type.
    * 
    * This parameter is required.
    * 

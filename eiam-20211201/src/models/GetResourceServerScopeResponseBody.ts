@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 应用Id
+   * The application ID.
    * 
    * @example
    * app_xxxxxxxxxxx
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The authorization type.
+   * 
    * @example
    * authorize_required
    */
   authorizationType?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_xxxxxxxxxxx
@@ -26,7 +29,7 @@ export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * IDaaS EIAM ResourceServer下权限Id
+   * The ID of the scope permission.
    * 
    * @example
    * rss_xxxxxxxxxxx
@@ -34,15 +37,15 @@ export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * IDaaS EIAM ResourceServer下权限名称
+   * The name of the scope permission.
    * 
    * @example
-   * 读取全部用户
+   * Read User Info
    */
   resourceServerScopeName?: string;
   /**
    * @remarks
-   * IDaaS EIAM ResourceServer下权限类型
+   * The type of the scope permission.
    * 
    * @example
    * urn:alibaba:idaas:resourceserver:scope:delegated
@@ -50,7 +53,7 @@ export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara
   resourceServerScopeType?: string;
   /**
    * @remarks
-   * IDaaS EIAM ResourceServer下权限值
+   * The value of the scope permission.
    * 
    * @example
    * User:Read:ALL
@@ -91,10 +94,17 @@ export class GetResourceServerScopeResponseBodyResourceServerScope extends $dara
 
 export class GetResourceServerScopeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the scope permission of the resource server.
+   */
   resourceServerScope?: GetResourceServerScopeResponseBodyResourceServerScope;
   static names(): { [key: string]: string } {
     return {

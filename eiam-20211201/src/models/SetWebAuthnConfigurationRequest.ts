@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetWebAuthnConfigurationRequestAaguids extends $dara.Model {
   /**
    * @remarks
-   * AAGUID
+   * AAGUID.
    * 
    * @example
    * adce0002-35bc-c60a-648b-0b25f1f05503
@@ -13,7 +13,7 @@ export class SetWebAuthnConfigurationRequestAaguids extends $dara.Model {
   aaguid?: string;
   /**
    * @remarks
-   * AAGUID名称
+   * AAGUID name.
    * 
    * @example
    * Touch ID
@@ -45,12 +45,12 @@ export class SetWebAuthnConfigurationRequestAaguids extends $dara.Model {
 export class SetWebAuthnConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * AAGUID及其名称列表
+   * List of AAGUIDs and their names.
    */
   aaguids?: SetWebAuthnConfigurationRequestAaguids[];
   /**
    * @remarks
-   * 是否开启AAGUID校验
+   * Enable AAGUID verification.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class SetWebAuthnConfigurationRequest extends $dara.Model {
   enableAaguidVerification?: boolean;
   /**
    * @remarks
-   * 是否开启WebAuthn认证器MDS校验
+   * Enable WebAuthn authenticator MDS verification.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class SetWebAuthnConfigurationRequest extends $dara.Model {
   enableMetadataServiceVerification?: boolean;
   /**
    * @remarks
-   * 是否允许用户自注册WebAuthn认证器
+   * Allow user self-registration of WebAuthn authenticators.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class SetWebAuthnConfigurationRequest extends $dara.Model {
   enableUserSelfRegistration?: boolean;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * Instance ID.
    * 
    * This parameter is required.
    * 

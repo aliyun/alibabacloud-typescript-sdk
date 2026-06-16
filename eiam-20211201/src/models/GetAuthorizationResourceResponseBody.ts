@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $dara.Model {
   /**
    * @remarks
-   * 资源实体标识
+   * The ID of the resource entity that is associated with the authorized resource.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -13,7 +13,9 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * 资源实体类型，枚举类型：asset（资产）、credential（凭据）、cloud_identity_role（云账号角色）
+   * The type of the resource entity that is associated with the authorized resource. Valid value:
+   * 
+   * - cloud_account_role: a cloud role
    * 
    * @example
    * cloud_account_role
@@ -21,7 +23,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationResourceEntityType?: string;
   /**
    * @remarks
-   * 授权资源标识
+   * The authorization resource ID.
    * 
    * @example
    * arres_01kgh3jvt7pk093rv6giu0c0qxxxx
@@ -29,7 +31,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationResourceId?: string;
   /**
    * @remarks
-   * 授权规则标识
+   * The authorization rule ID.
    * 
    * @example
    * arrule_01kf143ug06fg7m9f43u7vahxxxx
@@ -37,7 +39,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationRuleId?: string;
   /**
    * @remarks
-   * 云账号ID。
+   * The ID of the Alibaba Cloud account to which the resource entity that is associated with the authorized resource belongs.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -45,7 +47,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   cloudAccountId?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -83,8 +85,15 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
 }
 
 export class GetAuthorizationResourceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The authorized resource.
+   */
   authorizationResource?: GetAuthorizationResourceResponseBodyAuthorizationResource;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

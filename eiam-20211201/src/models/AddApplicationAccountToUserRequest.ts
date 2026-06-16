@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddApplicationAccountToUserRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用主键id
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddApplicationAccountToUserRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用账号名称
+   * The name of the application account.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class AddApplicationAccountToUserRequest extends $dara.Model {
   applicationUsername?: string;
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class AddApplicationAccountToUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 用户Id
+   * The user ID.
    * 
    * This parameter is required.
    * 

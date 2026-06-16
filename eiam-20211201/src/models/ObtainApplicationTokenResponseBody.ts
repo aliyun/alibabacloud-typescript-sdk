@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 应用Id
+   * The application ID.
    * 
    * @example
    * app_na2r73a65s7o4zbs7nj5gxxxx
@@ -13,7 +13,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   applicationId?: string;
   /**
    * @remarks
-   * 客户端密钥
+   * The application token.
    * 
    * @example
    * SATFwqX8zxGf83pJcJw78KFGjmrft4erWeZYBGS8oE7NN6qoE217yaJpUdMb1UuuGqhDiF43sCA4CF91CTL5iGntqwyLuaAcS9FJ9HfGadE5a7TjiwVafwrBxxxxx
@@ -21,7 +21,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   applicationToken?: string;
   /**
    * @remarks
-   * IDaaS EIAM 客户端ID
+   * The application token ID.
    * 
    * @example
    * token_m7aso6v4efvu2otfq3jdzxxxx
@@ -29,25 +29,31 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   applicationTokenId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 客户端密钥Id
+   * The type of the application token.
    * 
    * @example
    * bearer_token
    */
   applicationTokenType?: string;
   /**
+   * @remarks
+   * The time when the application token was created.
+   * 
    * @example
    * 1735610930000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 1735610950000
    */
   expirationTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The ID of the IDaaS EIAM instance.
    * 
    * @example
    * idaas_ki6hd7ihir4ybawogqk6kqxxxx
@@ -55,7 +61,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 客户端密钥最近使用时间
+   * The time when the token was last used.
    * 
    * @example
    * 1735610930000
@@ -63,7 +69,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   lastUsedTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 客户端密钥状态
+   * The status.
    * 
    * @example
    * enabled
@@ -107,8 +113,15 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
 }
 
 export class ObtainApplicationTokenResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The application token.
+   */
   applicationToken?: ObtainApplicationTokenResponseBodyApplicationToken;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

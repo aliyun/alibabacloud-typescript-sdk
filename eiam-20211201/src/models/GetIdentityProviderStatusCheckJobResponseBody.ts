@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItemsErrorReason extends $dara.Model {
   /**
    * @remarks
-   * 错误码
+   * The error code.
    * 
    * @example
    * NetworkAccessPointWarning.SingleNetworkAccessPath
@@ -13,7 +13,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   errorCode?: string;
   /**
    * @remarks
-   * 错误级别
+   * The error level.
    * 
    * @example
    * high
@@ -21,7 +21,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   errorLevel?: string;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * There is only one path in the current network access endpoint.
@@ -55,12 +55,12 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItems extends $dara.Model {
   /**
    * @remarks
-   * 错误原因
+   * The reason for the error.
    */
   errorReason?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItemsErrorReason;
   /**
    * @remarks
-   * 主要检查项
+   * The major check item.
    * 
    * @example
    * network_check
@@ -68,7 +68,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   majorCheckItem?: string;
   /**
    * @remarks
-   * 次要检查项
+   * The minor check item.
    * 
    * @example
    * network_access_status
@@ -76,7 +76,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   minorCheckItem?: string;
   /**
    * @remarks
-   * 结果
+   * The result.
    * 
    * @example
    * success
@@ -115,7 +115,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJob extends $dara.Model {
   /**
    * @remarks
-   * 任务检查结果
+   * The result of the check task.
    * 
    * @example
    * success
@@ -123,7 +123,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   checkResult?: string;
   /**
    * @remarks
-   * 结束时间
+   * The end time.
    * 
    * @example
    * 1763776265757
@@ -131,7 +131,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   endTime?: number;
   /**
    * @remarks
-   * IdP身份提供方
+   * The ID of the IdP.
    * 
    * @example
    * idp_ncehkms65fiefobrvwy2blrxxx
@@ -139,7 +139,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   identityProviderId?: string;
   /**
    * @remarks
-   * IdP状态检查任务Id
+   * The ID of the IdP status check job.
    * 
    * @example
    * async_000036tfu8cgngmakngrr2rk75qgf87pf3rxxx
@@ -147,7 +147,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   identityProviderStatusCheckJobId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_ki6hd7ihir4ybawogqk6kqsfxxx
@@ -155,12 +155,12 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   instanceId?: string;
   /**
    * @remarks
-   * 状态检查子项任务结果信息
+   * The results of the status check subtasks.
    */
   jobCheckItems?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItems[];
   /**
    * @remarks
-   * 开始时间
+   * The start time.
    * 
    * @example
    * 1763776265757
@@ -168,7 +168,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   startTime?: number;
   /**
    * @remarks
-   * 任务检查状态
+   * The status of the check task.
    * 
    * @example
    * success
@@ -213,8 +213,15 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 }
 
 export class GetIdentityProviderStatusCheckJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the IdP status check job.
+   */
   identityProviderStatusCheckJob?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

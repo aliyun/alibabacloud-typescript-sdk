@@ -16,7 +16,7 @@ export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $da
    * The description of the organizational unit.
    * 
    * @example
-   * Test organizational unit
+   * Test organization
    */
   description?: string;
   /**

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetInstanceControlConfigurationRequestControlElementsHumanVerificationConfig extends $dara.Model {
   /**
+   * @remarks
+   * The CAPTCHA type.
+   * 
    * @example
    * urn:alibaba:idaas:humanverification:alibaba-cloud-slider-verification
    */
@@ -32,16 +35,20 @@ export class SetInstanceControlConfigurationRequestControlElementsHumanVerificat
 export class SetInstanceControlConfigurationRequestControlElements extends $dara.Model {
   /**
    * @remarks
-   * 实例控制项名称，如human_verification。
+   * The name of the control item.
    * 
    * @example
    * human_verification
    */
   elementName?: string;
+  /**
+   * @remarks
+   * The CAPTCHA configuration.
+   */
   humanVerificationConfig?: SetInstanceControlConfigurationRequestControlElementsHumanVerificationConfig;
   /**
    * @remarks
-   * 实例控制项状态。
+   * The status of the control item.
    * 
    * @example
    * enabled
@@ -78,12 +85,12 @@ export class SetInstanceControlConfigurationRequestControlElements extends $dara
 export class SetInstanceControlConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * 实例控制项。
+   * The control items for the instance.
    */
   controlElements?: SetInstanceControlConfigurationRequestControlElements[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

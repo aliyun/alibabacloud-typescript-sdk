@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersForResourceServerResponseBodyUsersResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * ResourceServerScope唯一标识
+   * The ID of the scope permission.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -13,7 +13,7 @@ export class ListUsersForResourceServerResponseBodyUsersResourceServerScopes ext
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * ResourceServerScope名称
+   * The name of the scope permission.
    * 
    * @example
    * Read All User
@@ -45,7 +45,7 @@ export class ListUsersForResourceServerResponseBodyUsersResourceServerScopes ext
 export class ListUsersForResourceServerResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * 实例唯一标识
+   * The ID of the instance.
    * 
    * @example
    * idaas_qsw77zl5vrllwzyrrfwbmpxxxx
@@ -53,12 +53,12 @@ export class ListUsersForResourceServerResponseBodyUsers extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 资源服务Scope权限集合
+   * A list of granted scope permissions.
    */
   resourceServerScopes?: ListUsersForResourceServerResponseBodyUsersResourceServerScopes[];
   /**
    * @remarks
-   * 用户的唯一标识
+   * The ID of the user account.
    * 
    * @example
    * user_nbsomva32b6utec3hgi7scxxxx
@@ -94,28 +94,41 @@ export class ListUsersForResourceServerResponseBodyUsers extends $dara.Model {
 
 export class ListUsersForResourceServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries per page for paged queries.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token for the next page.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries in the list.
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * A list of user accounts.
+   */
   users?: ListUsersForResourceServerResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {

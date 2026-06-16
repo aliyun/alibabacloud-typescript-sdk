@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainApplicationClientSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application whose client key you want to query.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ObtainApplicationClientSecretRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ObtainApplicationClientSecretRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The client key ID of the application.
+   * The client secret ID of the application.
    * 
    * This parameter is required.
    * 

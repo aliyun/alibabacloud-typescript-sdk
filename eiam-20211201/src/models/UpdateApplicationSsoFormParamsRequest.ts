@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationSsoFormParamsRequestApplicationTemplateParams extends $dara.Model {
   /**
    * @remarks
-   * 应用模板创建参数具体名称
+   * The name of a parameter for creating the application template.
    * 
    * @example
    * aliyunUid
@@ -13,7 +13,7 @@ export class UpdateApplicationSsoFormParamsRequestApplicationTemplateParams exte
   templateParamName?: string;
   /**
    * @remarks
-   * 应用模板创建参数真实的取值
+   * The value of the parameter for creating the application template.
    * 
    * @example
    * 123456789
@@ -45,7 +45,7 @@ export class UpdateApplicationSsoFormParamsRequestApplicationTemplateParams exte
 export class UpdateApplicationSsoFormParamsRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用主键id
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -55,14 +55,14 @@ export class UpdateApplicationSsoFormParamsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用模板创建参数，应用创建来源为模板时才可以指定
+   * The parameters for creating the application template.
    * 
    * This parameter is required.
    */
   applicationTemplateParams?: UpdateApplicationSsoFormParamsRequestApplicationTemplateParams[];
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

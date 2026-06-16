@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveGroupFromAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权规则标识。
+   * The ID of the authorization rule.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemoveGroupFromAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * 组ID。
+   * The group ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RemoveGroupFromAuthorizationRuleRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

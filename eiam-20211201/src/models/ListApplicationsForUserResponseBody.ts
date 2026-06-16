@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForUserResponseBodyApplicationsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * 应用角色标识。
+   * The ID of the application role.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -13,7 +13,7 @@ export class ListApplicationsForUserResponseBodyApplicationsApplicationRoles ext
   applicationRoleId?: string;
   /**
    * @remarks
-   * 直接分配给当前用户的权限，视为直接授权。
+   * Indicates whether the role is directly assigned to the user.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListApplicationsForUserResponseBodyApplicationsApplicationRoles ext
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * 通过用户隶属的组织、组获取的权限，视为继承权限。
+   * Indicates whether the role is inherited from an organization or a group to which the user belongs.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class ListApplicationsForUserResponseBodyApplicationsApplicationRoles ext
 export class ListApplicationsForUserResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application that the EIAM account can access.
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -63,15 +63,16 @@ export class ListApplicationsForUserResponseBodyApplications extends $dara.Model
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色列表。
+   * The list of application roles.
    */
   applicationRoles?: ListApplicationsForUserResponseBodyApplicationsApplicationRoles[];
   /**
    * @remarks
-   * Indicates whether the EIAM account has direct permissions on the application. Valid values:
+   * Indicates whether a direct authorization exists. Valid values:
    * 
-   * *   true: The EIAM account has direct permissions on the application.
-   * *   false: The EIAM account does not have direct permissions on the application.
+   * - true: A direct authorization record exists between the application and the account.
+   * 
+   * - false: No direct authorization record exists between the application and the account.
    * 
    * @example
    * true
@@ -79,10 +80,11 @@ export class ListApplicationsForUserResponseBodyApplications extends $dara.Model
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * Indicates whether the EIAM account has inherited permissions on the application. Valid values:
+   * Indicates whether an inherited authorization exists. Valid values:
    * 
-   * *   true: A parent organization or an organization to which the EIAM account belongs has direct permissions on the application.
-   * *   false: A parent organization or an organization to which the EIAM account belongs does not have direct permissions on the application.
+   * - true: A direct authorization record exists between the application and a parent organization or a group to which the account belongs.
+   * 
+   * - false: No direct authorization record exists between the application and any of the parent organizations or groups to which the account belongs.
    * 
    * @example
    * false
@@ -121,12 +123,12 @@ export class ListApplicationsForUserResponseBodyApplications extends $dara.Model
 export class ListApplicationsForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The applications that the EIAM account can access.
+   * The list of applications that the account is authorized to access.
    */
   applications?: ListApplicationsForUserResponseBodyApplications[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -134,7 +136,7 @@ export class ListApplicationsForUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the returned entries.
+   * The total number of entries.
    * 
    * @example
    * 100

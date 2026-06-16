@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomFieldResponseBodyCustomFieldFieldDataConfigItems extends $dara.Model {
   /**
    * @remarks
-   * 配置项展示名
+   * The display name of the configuration item.
    * 
    * @example
    * hobby
@@ -13,7 +13,7 @@ export class GetCustomFieldResponseBodyCustomFieldFieldDataConfigItems extends $
   displayName?: string;
   /**
    * @remarks
-   * 配置项状态, 枚举值，enabled、disabled
+   * The status of the configuration item.
    * 
    * @example
    * enabled
@@ -21,7 +21,7 @@ export class GetCustomFieldResponseBodyCustomFieldFieldDataConfigItems extends $
   status?: string;
   /**
    * @remarks
-   * 配置项值
+   * The value of the configuration item.
    * 
    * @example
    * game
@@ -55,7 +55,7 @@ export class GetCustomFieldResponseBodyCustomFieldFieldDataConfigItems extends $
 export class GetCustomFieldResponseBodyCustomFieldFieldDataConfig extends $dara.Model {
   /**
    * @remarks
-   * 字段配置项列表，displayName、value、status
+   * A list of field configuration items.
    */
   items?: GetCustomFieldResponseBodyCustomFieldFieldDataConfigItems[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class GetCustomFieldResponseBodyCustomFieldFieldDataConfig extends $dara.
 export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   /**
    * @remarks
-   * 扩展字段创建时间，Unix时间戳格式，单位为毫秒
+   * The creation time of the custom field, in UNIX timestamp format in milliseconds.
    * 
    * @example
    * 17642960730
@@ -93,7 +93,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * 字段默认值
+   * The default value of the field.
    * 
    * @example
    * test
@@ -101,7 +101,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * 扩展字段描述
+   * The description of the custom field.
    * 
    * @example
    * test
@@ -109,7 +109,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 是否加密，默认false
+   * Indicates whether the field is encrypted.
    * 
    * @example
    * false
@@ -117,7 +117,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * 字段所属实体类型
+   * The entity type to which the field belongs.
    * 
    * @example
    * user
@@ -125,12 +125,12 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * 字段值配置项
+   * Field value configuration items.
    */
   fieldDataConfig?: GetCustomFieldResponseBodyCustomFieldFieldDataConfig;
   /**
    * @remarks
-   * 数据类型，枚举值：string、number、boolean
+   * The data type.
    * 
    * @example
    * string
@@ -138,7 +138,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   fieldDataType?: string;
   /**
    * @remarks
-   * 字段展示名
+   * The display name of the field.
    * 
    * @example
    * userId
@@ -146,7 +146,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   fieldDisplayName?: string;
   /**
    * @remarks
-   * 字段展示类型，枚举值，select、checkbox、input、number
+   * The display type of the field.
    * 
    * @example
    * input
@@ -154,7 +154,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   fieldDisplayType?: string;
   /**
    * @remarks
-   * 字段ID
+   * The field ID.
    * 
    * @example
    * ufd_ncvy5trszg3zajaal5iofauy2q
@@ -162,7 +162,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   fieldId?: string;
   /**
    * @remarks
-   * 字段标识
+   * The field identifier.
    * 
    * @example
    * userId
@@ -170,7 +170,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * idaas_z4pwq7v5ankdimdelzo2zbmzo4
@@ -178,7 +178,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 是否必填，默认false
+   * Indicates whether the field is required.
    * 
    * @example
    * false
@@ -186,7 +186,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   required?: boolean;
   /**
    * @remarks
-   * 扩展字段状态, 枚举类型：enabled，disabled
+   * The status of the custom field.
    * 
    * @example
    * enabled
@@ -194,7 +194,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 是否唯一，默认false
+   * Indicates whether the field is unique.
    * 
    * @example
    * false
@@ -202,7 +202,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   unique?: boolean;
   /**
    * @remarks
-   * 扩展字段最近一次更新时间, Unix时间戳格式，单位为毫秒
+   * The last update time of the custom field, in UNIX timestamp format in milliseconds.
    * 
    * @example
    * 17642960730
@@ -210,7 +210,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * 用户端(portal侧)权限，hide、read_only、read_write，默认read_only
+   * User-side (portal) permissions.
    * 
    * @example
    * read_only
@@ -273,8 +273,15 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
 }
 
 export class GetCustomFieldResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Custom field information.
+   */
   customField?: GetCustomFieldResponseBodyCustomField;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

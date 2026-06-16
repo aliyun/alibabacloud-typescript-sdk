@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListGroupsForResourceServerRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The name of the filter condition. The only valid value is GroupIds.
+   * 
    * @example
    * GroupIds
    */
   name?: string;
+  /**
+   * @remarks
+   * The values for the filter condition.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,16 +45,22 @@ export class ListGroupsForResourceServerRequestFilter extends $dara.Model {
 export class ListGroupsForResourceServerRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the resource server application.
+   * 
    * This parameter is required.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   filter?: ListGroupsForResourceServerRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -56,13 +69,16 @@ export class ListGroupsForResourceServerRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token for the next page of results. You do not need to provide this parameter for the first request. For subsequent requests, set this to the `NextToken` value from the previous response.
    * 
    * @example
    * NTxxxxxexample
@@ -70,7 +86,7 @@ export class ListGroupsForResourceServerRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 权限唯一标识。
+   * The ID of the scope.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx

@@ -30,10 +30,14 @@ export class CreateFederatedCredentialProviderRequestCloudIdPProviderConfig exte
 }
 
 export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends $dara.Model {
+  /**
+   * @remarks
+   * A list of audiences. The `aud` claim in the OIDC token must match a value from this list.
+   */
   audiences?: string[];
   /**
    * @remarks
-   * Issuer
+   * The issuer identifier for the OIDC provider. This value must match the `iss` claim in the token.
    * 
    * @example
    * https://example.com
@@ -41,7 +45,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   issuer?: string;
   /**
    * @remarks
-   * Jwks来源
+   * The source of the JSON Web Key Set (JWKS).
    * 
    * @example
    * static
@@ -49,7 +53,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   jwksSource?: string;
   /**
    * @remarks
-   * JWKS 端点
+   * The URI of the JWKS endpoint.
    * 
    * @example
    * https://example.com/jwks
@@ -57,7 +61,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   jwksUri?: string;
   /**
    * @remarks
-   * 静态获取的jwks
+   * The static JWKS content in JSON format.
    * 
    * @example
    * {
@@ -75,7 +79,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   staticJwks?: string;
   /**
    * @remarks
-   * 信任条件
+   * The condition the OIDC token must meet to be trusted.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -118,7 +122,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
 export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * Root证书内容
+   * The content of the PEM-encoded certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -150,12 +154,12 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfigCertific
 export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * pkcs7证书列表
+   * The certificates for verifying the PKCS7 signature.
    */
   certificates?: CreateFederatedCredentialProviderRequestPkcs7ProviderConfigCertificates[];
   /**
    * @remarks
-   * CMS验证模式
+   * The Cryptographic Message Syntax (CMS) verification mode.
    * 
    * @example
    * cert_chain
@@ -163,7 +167,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * 签名有效期, 单位秒，1200
+   * The validity period of the signature, in seconds.
    * 
    * @example
    * 1200
@@ -171,7 +175,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   signatureEffectiveTime?: number;
   /**
    * @remarks
-   * 获取签名时间的表达式
+   * The expression to extract the signing time from the signature.
    * 
    * @example
    * pkcs7.signingTime
@@ -179,7 +183,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   signingTimeValueExpression?: string;
   /**
    * @remarks
-   * 证书信任锚点来源
+   * The source of the trust anchor.
    * 
    * @example
    * custom
@@ -187,7 +191,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   trustAnchorSource?: string;
   /**
    * @remarks
-   * 信任条件
+   * The condition that the signature data must meet to be trusted.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -230,7 +234,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
 export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * Root证书内容
+   * The content of the PEM-encoded certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -262,12 +266,12 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfigCert
 export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * Root证书列表
+   * The root certificates that form the trust anchor.
    */
   certificates?: CreateFederatedCredentialProviderRequestPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * Root证书获取方式
+   * The source of the trust anchor.
    * 
    * @example
    * custom
@@ -275,7 +279,7 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
   trustAnchorSource?: string;
   /**
    * @remarks
-   * Root证书的信任条件
+   * The condition for trusting the root certificate.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -313,7 +317,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   cloudIdPProviderConfig?: CreateFederatedCredentialProviderRequestCloudIdPProviderConfig;
   /**
    * @remarks
-   * 联邦凭证提供方描述
+   * The description of the federated credential provider.
    * 
    * @example
    * test
@@ -321,7 +325,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 联邦凭证提供方名称
+   * The name of the federated credential provider.
    * 
    * This parameter is required.
    * 
@@ -331,7 +335,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   federatedCredentialProviderName?: string;
   /**
    * @remarks
-   * 联邦凭证提供方类型
+   * The type of the federated credential provider.
    * 
    * This parameter is required.
    * 
@@ -341,7 +345,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   federatedCredentialProviderType?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -351,7 +355,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 网络端点ID
+   * The network access endpoint ID.
    * 
    * @example
    * nae_example_id
@@ -359,17 +363,17 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * OIDC配置
+   * The configuration for an OIDC-based provider.
    */
   oidcProviderConfig?: CreateFederatedCredentialProviderRequestOidcProviderConfig;
   /**
    * @remarks
-   * PKCS7配置
+   * The configuration for a PKCS7-based provider.
    */
   pkcs7ProviderConfig?: CreateFederatedCredentialProviderRequestPkcs7ProviderConfig;
   /**
    * @remarks
-   * 私有CA配置
+   * The configuration for a private CA-based provider.
    */
   privateCaProviderConfig?: CreateFederatedCredentialProviderRequestPrivateCaProviderConfig;
   static names(): { [key: string]: string } {

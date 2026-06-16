@@ -4,10 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCredentialsRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The field to filter on. Valid value:
+   * 
+   * - `CredentialIdentifier`: the credential identifier.
+   * 
    * @example
    * CredentialIdentifier
    */
   name?: string;
+  /**
+   * @remarks
+   * The values for the specified filter field.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37,13 +46,21 @@ export class ListCredentialsRequestFilter extends $dara.Model {
 
 export class ListCredentialsRequest extends $dara.Model {
   credentialExternalIds?: string[];
+  /**
+   * @remarks
+   * The credential IDs.
+   */
   credentialIds?: string[];
   credentialSharingScopes?: string[];
   credentialTypes?: string[];
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   filter?: ListCredentialsRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +70,11 @@ export class ListCredentialsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The number of entries per page.
+   * 
+   * - Default value: 20.
+   * 
+   * - Maximum value: 100.
    * 
    * @example
    * 20
@@ -61,12 +82,16 @@ export class ListCredentialsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * NTxxxxxexample
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The credential statuses.
+   */
   statuses?: string[];
   static names(): { [key: string]: string } {
     return {

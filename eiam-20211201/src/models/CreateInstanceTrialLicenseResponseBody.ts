@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceTrialLicenseResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the license.
+   * 
    * @example
    * license_463hfmewi2njxxxx
    */
   licenseId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

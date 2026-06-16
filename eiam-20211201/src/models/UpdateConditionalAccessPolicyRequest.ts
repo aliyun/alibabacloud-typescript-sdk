@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConditionalAccessPolicyRequestConditionsConfigApplications extends $dara.Model {
   /**
    * @remarks
-   * Excluded Applications
+   * The excluded applications.
    */
   excludeApplications?: string[];
   /**
    * @remarks
-   * Included Applications
+   * The selected applications.
    */
   includeApplications?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class UpdateConditionalAccessPolicyRequestConditionsConfigApplications ex
 export class UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones extends $dara.Model {
   /**
    * @remarks
-   * Excluded network zones
+   * The excluded network zones.
    */
   excludeNetworkZones?: string[];
   /**
    * @remarks
-   * Included network zones
+   * The selected network zones.
    */
   includeNetworkZones?: string[];
   static names(): { [key: string]: string } {
@@ -85,32 +85,32 @@ export class UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones ex
 export class UpdateConditionalAccessPolicyRequestConditionsConfigUsers extends $dara.Model {
   /**
    * @remarks
-   * Excluded user groups
+   * The excluded user groups.
    */
   excludeGroups?: string[];
   /**
    * @remarks
-   * Excluded organizations
+   * The excluded organizations.
    */
   excludeOrganizationalUnits?: string[];
   /**
    * @remarks
-   * Excluded Users
+   * The excluded users.
    */
   excludeUsers?: string[];
   /**
    * @remarks
-   * Included User Groups
+   * The selected user groups.
    */
   includeGroups?: string[];
   /**
    * @remarks
-   * Included organizations
+   * The selected organizations.
    */
   includeOrganizationalUnits?: string[];
   /**
    * @remarks
-   * Included Users
+   * The selected users.
    */
   includeUsers?: string[];
   static names(): { [key: string]: string } {
@@ -165,17 +165,17 @@ export class UpdateConditionalAccessPolicyRequestConditionsConfigUsers extends $
 export class UpdateConditionalAccessPolicyRequestConditionsConfig extends $dara.Model {
   /**
    * @remarks
-   * Target Applications for the Conditional Access Policy
+   * The target applications of the conditional access policy.
    */
   applications?: UpdateConditionalAccessPolicyRequestConditionsConfigApplications;
   /**
    * @remarks
-   * Network zones for conditional access policy
+   * The network zones of the conditional access policy.
    */
   networkZones?: UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones;
   /**
    * @remarks
-   * Target Users for the Conditional Access Policy
+   * The target users of the conditional access policy.
    */
   users?: UpdateConditionalAccessPolicyRequestConditionsConfigUsers;
   static names(): { [key: string]: string } {
@@ -215,7 +215,7 @@ export class UpdateConditionalAccessPolicyRequestConditionsConfig extends $dara.
 export class UpdateConditionalAccessPolicyRequestDecisionConfig extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable session reuse
+   * Indicates whether to enable session reuse.
    * 
    * @example
    * enabled
@@ -223,7 +223,7 @@ export class UpdateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
   activeSessionReuseStatus?: string;
   /**
    * @remarks
-   * Conditional Access Policy Decision Action
+   * The action of the conditional access policy.
    * 
    * @example
    * allow
@@ -231,7 +231,7 @@ export class UpdateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
   effect?: string;
   /**
    * @remarks
-   * Conditional Access Policy Re-authentication Interval (seconds)
+   * The interval at which the conditional access policy is repeatedly authenticated. Unit: seconds.
    * 
    * @example
    * 300
@@ -239,12 +239,12 @@ export class UpdateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
   mfaAuthenticationIntervalSeconds?: number;
   /**
    * @remarks
-   * Allowed MFA types for the Conditional Access Policy
+   * The MFA methods allowed by the conditional access policy.
    */
   mfaAuthenticationMethods?: string[];
   /**
    * @remarks
-   * Conditional Access Policy MFA Type
+   * The multi-factor authentication (MFA) type of the conditional access policy.
    * 
    * @example
    * directly_access
@@ -285,7 +285,7 @@ export class UpdateConditionalAccessPolicyRequestDecisionConfig extends $dara.Mo
 export class UpdateConditionalAccessPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token that is used to ensure the idempotence of the request. The client generates the value of this parameter to ensure that the value is unique among different requests.
    * 
    * @example
    * client-examplexxx
@@ -293,7 +293,7 @@ export class UpdateConditionalAccessPolicyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Conditional Access Policy ID
+   * The ID of the conditional access policy.
    * 
    * This parameter is required.
    * 
@@ -303,37 +303,37 @@ export class UpdateConditionalAccessPolicyRequest extends $dara.Model {
   conditionalAccessPolicyId?: string;
   /**
    * @remarks
-   * Conditional Access Policy Name
+   * The name of the conditional access policy.
    * 
    * This parameter is required.
    * 
    * @example
-   * My Policy
+   * My conditional access policy
    */
   conditionalAccessPolicyName?: string;
   /**
    * @remarks
-   * Conditional Access Policy Condition Content Configuration
+   * The condition configuration of the conditional access policy.
    */
   conditionsConfig?: UpdateConditionalAccessPolicyRequestConditionsConfig;
   /**
    * @remarks
-   * Conditional Access Policy Action Configuration
+   * The action configuration of the conditional access policy.
    */
   decisionConfig?: UpdateConditionalAccessPolicyRequestDecisionConfig;
   /**
    * @remarks
-   * Conditional Access Policy Execution Type
+   * The action that is performed by the conditional access policy.
    * 
    * This parameter is required.
    * 
    * @example
-   * enforcement
+   * reportOnly
    */
   decisionType?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -343,7 +343,7 @@ export class UpdateConditionalAccessPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Priority of the conditional access policy
+   * The priority of the conditional access policy.
    * 
    * @example
    * 1

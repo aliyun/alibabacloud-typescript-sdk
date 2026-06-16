@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAuthorizationResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The authorization resource ID.
+   * 
    * @example
    * arres_01kgh3jvt7pk093rv6giu0c0qxxxx
    */
   authorizationResourceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

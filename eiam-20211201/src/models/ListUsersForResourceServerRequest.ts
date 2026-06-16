@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUsersForResourceServerRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The name of the filter condition.
+   * 
    * @example
    * UserIds
    */
   name?: string;
+  /**
+   * @remarks
+   * A list of values for the filter condition.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,7 +45,7 @@ export class ListUsersForResourceServerRequestFilter extends $dara.Model {
 export class ListUsersForResourceServerRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The ID of the Resource Server application.
    * 
    * This parameter is required.
    * 
@@ -46,10 +53,14 @@ export class ListUsersForResourceServerRequest extends $dara.Model {
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * A list of filter conditions.
+   */
   filter?: ListUsersForResourceServerRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -58,13 +69,16 @@ export class ListUsersForResourceServerRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The number of entries per page for paged queries.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token for the next page. Set this parameter to the value of NextToken returned by the previous API call.
    * 
    * @example
    * NTxxxxxexample

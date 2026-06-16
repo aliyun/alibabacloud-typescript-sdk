@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCredentialRequestCredentialContentApiKeyContent extends $dara.Model {
   /**
    * @remarks
-   * API Key 凭证类型的凭据内容。
+   * The API key.
    * 
    * @example
    * nsklnertyt5ddwizncxxxx
@@ -35,7 +35,7 @@ export class CreateCredentialRequestCredentialContentApiKeyContent extends $dara
 export class CreateCredentialRequestCredentialContentOAuthClientContent extends $dara.Model {
   /**
    * @remarks
-   * OAuth协议的client_id。
+   * The `client_id` of the OAuth protocol.
    * 
    * @example
    * dmvncmxersdxxxxxx
@@ -43,7 +43,7 @@ export class CreateCredentialRequestCredentialContentOAuthClientContent extends 
   clientId?: string;
   /**
    * @remarks
-   * OAuth协议的client_secret。
+   * The `client_secret` of the OAuth protocol.
    * 
    * @example
    * nsklncmwizncxxxx
@@ -75,12 +75,12 @@ export class CreateCredentialRequestCredentialContentOAuthClientContent extends 
 export class CreateCredentialRequestCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * Api Key的内容。
+   * The credential content of the API key type.
    */
   apiKeyContent?: CreateCredentialRequestCredentialContentApiKeyContent;
   /**
    * @remarks
-   * OAuth客户端认证凭证类型的凭据内容。
+   * The credential content of the OAuth client type.
    */
   OAuthClientContent?: CreateCredentialRequestCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class CreateCredentialRequestCredentialContent extends $dara.Model {
 export class CreateCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符，且不能超过64个字符。
+   * A client-generated token that ensures the idempotence of the request. This token must be a unique value that contains only ASCII characters and is no more than 64 characters long. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -125,7 +125,7 @@ export class CreateCredentialRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 凭据的内容。
+   * The credential content.
    * 
    * This parameter is required.
    */
@@ -133,7 +133,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialExternalId?: string;
   /**
    * @remarks
-   * 凭据标识。
+   * The credential identifier.
    * 
    * This parameter is required.
    * 
@@ -143,7 +143,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialIdentifier?: string;
   /**
    * @remarks
-   * 凭据名称。
+   * The credential name.
    * 
    * This parameter is required.
    * 
@@ -153,7 +153,11 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * 凭据的使用场景标签。
+   * The use case label of the credential. Valid values:
+   * 
+   * - `llm`: large language model.
+   * 
+   * - `saas`: third-party SaaS.
    * 
    * @example
    * llm
@@ -162,7 +166,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialSharingScope?: string;
   /**
    * @remarks
-   * 凭据所属的主体ID。
+   * The ID of the credential\\"s subject.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -170,7 +174,9 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * 凭据所属的主体类型。
+   * The subject type of the credential. Valid value:
+   * 
+   * - `authentication_token_provider`: an authentication token provider.
    * 
    * @example
    * authentication_token_provider
@@ -178,7 +184,11 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialSubjectType?: string;
   /**
    * @remarks
-   * 凭据类型。
+   * The credential type. Valid values:
+   * 
+   * - `api_key`: an API key.
+   * 
+   * - `oauth_client`: an OAuth client.
    * 
    * This parameter is required.
    * 
@@ -188,7 +198,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * 描述
+   * The credential description.
    * 
    * @example
    * credential_description
@@ -197,7 +207,7 @@ export class CreateCredentialRequest extends $dara.Model {
   exclusiveUserId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

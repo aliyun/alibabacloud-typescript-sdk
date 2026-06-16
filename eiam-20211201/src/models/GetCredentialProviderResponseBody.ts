@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigJwtProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * 签发出的JWT中的issuer字段的允许列表。
+   * List of allowed JWT issuers.
    */
   allowedTokenIssuers?: string[];
   /**
    * @remarks
-   * 是否开启JWT派生短令牌能力。
+   * Enable JWT derived short token.
    * 
    * @example
    * false
@@ -18,7 +18,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   derivedShortTokenEnabled?: boolean;
   /**
    * @remarks
-   * JWT的有效时长，单位秒。
+   * Validity period of the JWT. Unit: seconds.
    * 
    * @example
    * 900
@@ -26,7 +26,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   expiration?: number;
   /**
    * @remarks
-   * 是否开启JWT过期清理。
+   * Enable JWT expiration cleanup.
    * 
    * @example
    * true
@@ -34,7 +34,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   expirationCleanupEnabled?: boolean;
   /**
    * @remarks
-   * JWT issuer。
+   * JWT issuer.
    * 
    * @example
    * https://test.issuer.com
@@ -42,7 +42,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   issuer?: string;
   /**
    * @remarks
-   * JWKs端点地址。
+   * JWKs endpoint URL.
    * 
    * @example
    * https://example123456.aliyunidaas.com/api/v2/auths_ngz2wj35ixxxdyat55nexxxxxx/oauth2/jwks
@@ -85,7 +85,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
 export class GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigOAuthProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * OAuth协议中的client_id，客户端ID。
+   * Client ID, corresponding to client_id in the OAuth protocol.
    * 
    * @example
    * client_id_example_xxx
@@ -93,7 +93,13 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   clientId?: string;
   /**
    * @remarks
-   * OAuth协议中的scope，权限范围。
+   * Scope, corresponding to scope in the OAuth protocol.
+   * 
+   * > The Scope value configured for the OAuth credential provider serves as the default. If you do not specify the scope parameter when calling the Developer API to obtain an OAuth access token, the system uses this default Scope value.
+   * 
+   * >Notice: 
+   * 
+   * Separate multiple Scope values with spaces.
    * 
    * @example
    * example:test_01 example:test_02
@@ -101,7 +107,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   scope?: string;
   /**
    * @remarks
-   * OAuth协议的Token端点。
+   * Token endpoint, corresponding to the OAuth protocol.
    * 
    * @example
    * https://example.com/token
@@ -135,17 +141,19 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
 export class GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * JWT身份提供商配置。
+   * Configuration for a JWT credential provider.
    */
   jwtProviderConfig?: GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigJwtProviderConfig;
   /**
    * @remarks
-   * OAuth 2LO机用类型的提供商的配置。
+   * Configuration for an OAuth credential provider.
    */
   OAuthProviderConfig?: GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigOAuthProviderConfig;
   /**
    * @remarks
-   * 认证令牌提供商的敏感配置对应的凭据ID列表。
+   * List of credential IDs for sensitive configurations of the credential provider.
+   * 
+   * > The system securely stores sensitive configuration information as credentials.
    */
   providerCredentialIds?: string[];
   static names(): { [key: string]: string } {
@@ -185,7 +193,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
 export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.Model {
   /**
    * @remarks
-   * 认证令牌提供商的创建时间，Unix时间戳。
+   * Creation time of the credential provider, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830225000
@@ -193,12 +201,16 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * 认证令牌提供商的配置。
+   * Credential provider configuration.
    */
   credentialProviderConfig?: GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfig;
   /**
    * @remarks
-   * 认证令牌提供商的创建类型。
+   * Credential provider creation type. Valid values:
+   * 
+   * - system_init: Created by the system
+   * 
+   * - user_custom: Created by a user
    * 
    * @example
    * user_custom
@@ -206,7 +218,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderCreationType?: string;
   /**
    * @remarks
-   * 认证令牌提供商ID。
+   * Credential provider ID.
    * 
    * @example
    * atp_01kr2cmj5gxxx4fvmls2e93dxxxxx
@@ -214,7 +226,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderId?: string;
   /**
    * @remarks
-   * 认证令牌提供商的业务标识。
+   * Credential provider identifier.
    * 
    * @example
    * test_example_identifier
@@ -222,7 +234,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderIdentifier?: string;
   /**
    * @remarks
-   * 认证令牌提供商名称。
+   * Credential provider name.
    * 
    * @example
    * test_example_name
@@ -230,7 +242,11 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderName?: string;
   /**
    * @remarks
-   * 认证令牌提供商的类型。
+   * Credential provider type. Valid values:
+   * 
+   * - oauth: OAuth credential provider
+   * 
+   * - jwt: JWT credential provider
    * 
    * @example
    * oauth
@@ -238,7 +254,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderType?: string;
   /**
    * @remarks
-   * 描述。
+   * Description.
    * 
    * @example
    * This is an example description
@@ -246,7 +262,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   description?: string;
   /**
    * @remarks
-   * EIAM实例ID。
+   * Instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -254,7 +270,11 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * 认证令牌提供商的状态。
+   * Credential provider status. Valid values:
+   * 
+   * - enabled: Enabled
+   * 
+   * - disabled: Disabled
    * 
    * @example
    * enabled
@@ -262,7 +282,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   status?: string;
   /**
    * @remarks
-   * 认证令牌提供商的更新时间，Unix时间戳。
+   * Update time of the credential provider, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830225000
@@ -313,8 +333,15 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
 }
 
 export class GetCredentialProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Credential provider.
+   */
   credentialProvider?: GetCredentialProviderResponseBodyCredentialProvider;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

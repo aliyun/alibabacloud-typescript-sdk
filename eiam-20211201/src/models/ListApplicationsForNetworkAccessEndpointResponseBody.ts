@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForNetworkAccessEndpointResponseBodyApplicationsForNetworkAccessEndpoint extends $dara.Model {
   /**
    * @remarks
-   * 应用ID。
+   * The application ID.
    * 
    * @example
    * app_m5nzr3kk4njkco2nnc4wjxxxxx
@@ -13,12 +13,15 @@ export class ListApplicationsForNetworkAccessEndpointResponseBodyApplicationsFor
   applicationId?: string;
   /**
    * @remarks
-   * 应用名称。
+   * The application name.
+   * 
+   * @example
+   * cloudSSO
    */
   applicationName?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例ID
+   * The instance ID.
    * 
    * @example
    * idaas_6ed5syotlwdrgmbzn7qn5xxxxx
@@ -50,21 +53,31 @@ export class ListApplicationsForNetworkAccessEndpointResponseBodyApplicationsFor
 }
 
 export class ListApplicationsForNetworkAccessEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of applications for the network access endpoint.
+   */
   applicationsForNetworkAccessEndpoint?: ListApplicationsForNetworkAccessEndpointResponseBodyApplicationsForNetworkAccessEndpoint[];
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token for the next page of results.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

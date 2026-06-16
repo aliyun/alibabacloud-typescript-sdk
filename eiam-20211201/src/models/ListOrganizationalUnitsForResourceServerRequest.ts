@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListOrganizationalUnitsForResourceServerRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The filter key.
+   * 
    * @example
    * OrganizationalUnitIds
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of filter values.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,7 +45,7 @@ export class ListOrganizationalUnitsForResourceServerRequestFilter extends $dara
 export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The resource server application ID.
    * 
    * This parameter is required.
    * 
@@ -46,10 +53,14 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The list of filter conditions.
+   */
   filter?: ListOrganizationalUnitsForResourceServerRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -58,13 +69,16 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The pagination token. To retrieve the next page of results, set this parameter to the NextToken value from the previous response.
    * 
    * @example
    * NTxxxxxexample
@@ -72,7 +86,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
   nextToken?: string;
   /**
    * @remarks
-   * 权限唯一标识。
+   * The ID of the resource server scope.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx

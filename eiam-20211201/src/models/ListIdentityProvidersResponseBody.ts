@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Model {
   /**
    * @remarks
-   * Advanced configuration capabilities
+   * Indicates whether advanced configuration is enabled. Valid values:
+   * 
+   * - disabled: The feature is disabled.
+   * 
+   * - enabled: The feature is enabled.
    * 
    * @example
    * disabled
@@ -13,16 +17,24 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   advancedStatus?: string;
   /**
    * @remarks
-   * Authentication source product.
-   * - urn:alibaba:idaas:idp:okta:okta
-   * - urn:alibaba:idaas:idp:google:account
-   * - urn:alibaba:idaas:idp:microsoft:aad
-   * - urn:alibaba:idaas:idp:microsoft:ad
-   * - urn:alibaba:idaas:idp:bytedance:lark
-   * - urn:alibaba:idaas:idp:unknown:ldap
-   * - urn:alibaba:idaas:idp:alibaba:idaas
-   * - urn:alibaba:idaas:idp:tencent:wecom
-   * - urn:alibaba:idaas:idp:alibaba:aliyunram
+   * The authentication source product, such as Okta, Google, or Azure AD.
+   * Valid values:
+   * 
+   * - DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk
+   * 
+   * - LDAP: urn:alibaba:idaas:idp:unknown:ldap
+   * 
+   * - Alibaba Cloud IDaaS: urn:alibaba:idaas:idp:alibaba:idaas
+   * 
+   * - WeCom: urn:alibaba:idaas:idp:tencent:wecom
+   * 
+   * - Lark: urn:alibaba:idaas:idp:bytedance:lark
+   * 
+   * - Active Directory: urn:alibaba:idaas:idp:microsoft:ad
+   * 
+   * - Azure Active Directory: urn:alibaba:idaas:idp:microsoft:aad
+   * 
+   * - Alibaba Cloud SASE: urn:alibaba:idaas:idp:alibaba:sase
    * 
    * @example
    * urn:alibaba:idaas:idp:bytedance:lark
@@ -30,9 +42,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   authnSourceSupplier?: string;
   /**
    * @remarks
-   * Authentication method type.
-   * - urn:alibaba:idaas:authntype:oidc
-   * - urn:alibaba:idaas:authntype:saml2
+   * The authentication method type. Valid values:
+   * 
+   * - OIDC: urn:alibaba:idaas:authntype:oidc
+   * 
+   * - SAML: urn:alibaba:idaas:authntype:saml2
    * 
    * @example
    * urn:alibaba:idaas:authntype:oidc
@@ -40,7 +54,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   authnSourceType?: string;
   /**
    * @remarks
-   * Does the corresponding IdP support authentication.
+   * Indicates whether the identity provider supports authentication. Valid values:
+   * 
+   * - disabled: Authentication is disabled.
+   * 
+   * - enabled: Authentication is enabled.
    * 
    * @example
    * disabled
@@ -48,7 +66,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   authnStatus?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the identity provider was created. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1712561597000
@@ -56,23 +74,23 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The description of the Identity provider.
+   * The description of the identity provider.
    * 
    * @example
-   * test
+   * None
    */
   description?: string;
   /**
    * @remarks
-   * Identity provider external ID.
+   * The external ID of the identity provider.
    * 
    * @example
-   * test_123xxx
+   * test_123
    */
   identityProviderExternalId?: string;
   /**
    * @remarks
-   * Identity provider ID.
+   * The identity provider ID.
    * 
    * @example
    * idp_m5b5wd5s2hpq4t6iaehhXXX
@@ -80,31 +98,31 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   identityProviderId?: string;
   /**
    * @remarks
-   * Identity provider name.
+   * The name of the identity provider.
    * 
    * @example
-   * ceshi
+   * xxxx
    */
   identityProviderName?: string;
   /**
    * @remarks
-   * Identity provider synchronization type.
+   * The synchronization type of the identity provider.
    * 
-   * - Inbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
+   * - Inbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
    * 
-   * - Outbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
+   * - Outbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
    * 
-   * - Inbound to WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
+   * - Inbound WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
    * 
-   * - Inbound to Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
+   * - Inbound Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
    * 
-   * - Inbound to AD: urn:alibaba:idaas:idp:microsoft:ad:pull
+   * - Inbound AD: urn:alibaba:idaas:idp:microsoft:ad:pull
    * 
-   * - Inbound to LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
+   * - Inbound LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
    * 
    * - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
    * 
-   * - SASE Custom OIDC: urn:alibaba:idaas:idp:alibaba:sase
+   * - Custom OIDC for SASE: urn:alibaba:idaas:idp:alibaba:sase
    * 
    * @example
    * urn:alibaba:idaas:idp:bytedance:lark:pull
@@ -112,7 +130,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   identityProviderType?: string;
   /**
    * @remarks
-   * Incremental callback status, whether to process the incremental callback data from IdP.
+   * The incremental callback status. This indicates whether to process incremental callback data from the identity provider. Valid values:
+   * 
+   * - disabled: The feature is disabled.
+   * 
+   * - enabled: The feature is enabled.
    * 
    * @example
    * enabled
@@ -128,7 +150,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * Last status check result.
+   * The result of the last status check. A sync task can be triggered only when the status check of the identity provider returns \\`success\\`.
    * 
    * @example
    * success
@@ -136,15 +158,15 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   lastStatusCheckJobResult?: string;
   /**
    * @remarks
-   * The reason why write operations are locked.
+   * The reason why the identity provider is locked.
    * 
    * @example
-   * ConfigNotReady.UuidIsNul
+   * financial
    */
   lockReason?: string;
   /**
    * @remarks
-   * IdP logo url.
+   * The URL of the custom logo for the identity provider.
    * 
    * @example
    * https://cdn-cn-hangzhou.aliyunidaas.com/xx/logos/xx
@@ -152,7 +174,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   logoUrl?: string;
   /**
    * @remarks
-   * Regular verification status.
+   * The periodic check status. This indicates whether to periodically check for data inconsistencies between IDaaS and the identity provider.
    * 
    * @example
    * disabled
@@ -160,9 +182,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   periodicSyncStatus?: string;
   /**
    * @remarks
-   * Whether support UD synchronization.Values:
-   * - enabled
-   * - disabled
+   * Indicates whether inbound synchronization is enabled. Valid values:
+   * 
+   * - disabled: The feature is disabled.
+   * 
+   * - enabled: The feature is enabled.
    * 
    * @example
    * disabled
@@ -170,7 +194,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   udPullStatus?: string;
   /**
    * @remarks
-   * When supporting the range in the UD of ud_pullIDaaS side.
+   * The target node for synchronization.
    * 
    * @example
    * ou_2buqmxsa3ltyqkjgpwfijurXXX
@@ -178,7 +202,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   udPullTargetScope?: string;
   /**
    * @remarks
-   * Synchronize capabilities
+   * Indicates whether outbound synchronization is enabled. Valid values:
+   * 
+   * - disabled: The feature is disabled.
+   * 
+   * - enabled: The feature is enabled.
    * 
    * @example
    * disabled
@@ -186,7 +214,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   udPushStatus?: string;
   /**
    * @remarks
-   * The time when the service was updated.
+   * The time when the identity provider was last updated. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1712561597000
@@ -254,7 +282,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
 export class ListIdentityProvidersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Identity provider information array.
+   * The list of identity providers.
    */
   identityProviders?: ListIdentityProvidersResponseBodyIdentityProviders[];
   /**
@@ -267,7 +295,7 @@ export class ListIdentityProvidersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

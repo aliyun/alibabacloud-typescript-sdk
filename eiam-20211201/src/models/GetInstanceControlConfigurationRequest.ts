@@ -6,7 +6,7 @@ export class GetInstanceControlConfigurationRequest extends $dara.Model {
   elementName?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListEventTypesResponseBodyEventTypes extends $dara.Model {
   /**
+   * @remarks
+   * Event type
+   * 
    * @example
    * urn:alibaba:idaas:event:user:create
    */
@@ -30,13 +33,23 @@ export class ListEventTypesResponseBodyEventTypes extends $dara.Model {
 }
 
 export class ListEventTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of event types
+   */
   eventTypes?: ListEventTypesResponseBodyEventTypes[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of items in the list
+   * 
    * @example
    * 100
    */

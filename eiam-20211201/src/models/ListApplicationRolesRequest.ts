@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApplicationRolesRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The name of the filter condition.
+   * 
    * @example
    * ApplicationRoleNameStartsWith
    */
   name?: string;
+  /**
+   * @remarks
+   * The values of the filter condition.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,7 +45,7 @@ export class ListApplicationRolesRequestFilter extends $dara.Model {
 export class ListApplicationRolesRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用ID
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -46,10 +53,14 @@ export class ListApplicationRolesRequest extends $dara.Model {
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   filter?: ListApplicationRolesRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -58,13 +69,16 @@ export class ListApplicationRolesRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token used to start the next query. Set this parameter to the value of NextToken that is returned in the last API call. Leave this parameter empty for the first query.
    * 
    * @example
    * NTxxxxexample

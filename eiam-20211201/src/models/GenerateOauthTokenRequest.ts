@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateOauthTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GenerateOauthTokenRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The audience identifier of the resource server.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GenerateOauthTokenRequest extends $dara.Model {
   audience?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GenerateOauthTokenRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The scope of permissions.
+   * 
    * This parameter is required.
    */
   scopeValues?: string[];

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBrandsRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListBrandsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListBrandsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * NTxxxxxexample
@@ -31,7 +31,7 @@ export class ListBrandsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 查询上一页凭证（Token），取值为上一次API调用返回的previousToken参数值。
+   * The token that is used to retrieve the previous page of results.
    * 
    * @example
    * PTxxxxxexample

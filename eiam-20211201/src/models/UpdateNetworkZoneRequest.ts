@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateNetworkZoneRequest extends $dara.Model {
   /**
+   * @remarks
+   * The idempotence token.
+   * 
    * @example
    * client-token-examplexxxx
    */
   clientToken?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -20,17 +23,17 @@ export class UpdateNetworkZoneRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 包含的CIDR
+   * The IPv4 CIDR blocks of the network zone.
    */
   ipv4Cidrs?: string[];
   /**
    * @remarks
-   * 网络区域ipv6Cidr
+   * The IPv6 CIDR blocks of the network zone.
    */
   ipv6Cidrs?: string[];
   /**
    * @remarks
-   * IDaaS的网络区域主键id
+   * The network zone ID.
    * 
    * This parameter is required.
    * 
@@ -40,7 +43,7 @@ export class UpdateNetworkZoneRequest extends $dara.Model {
   networkZoneId?: string;
   /**
    * @remarks
-   * 网络区域名称
+   * The name of the network zone.
    * 
    * This parameter is required.
    * 
@@ -50,7 +53,7 @@ export class UpdateNetworkZoneRequest extends $dara.Model {
   networkZoneName?: string;
   /**
    * @remarks
-   * 专有网络VpcId
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc_xxxxx

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetIdentityProviderUdPushConfigurationRequestLdapUdPushConfig extends $dara.Model {
   /**
+   * @remarks
+   * The object class for organizations.
+   * 
    * @example
    * ou,top
    */
   organizationUnitObjectClass?: string;
   /**
+   * @remarks
+   * The RDN for organizations.
+   * 
    * @example
    * ou
    */
   organizationalUnitRdn?: string;
   /**
+   * @remarks
+   * Specifies whether to synchronize passwords.
+   * 
    * @example
    * enabled
    */
   passwordSyncStatus?: string;
   /**
+   * @remarks
+   * The object class for users.
+   * 
    * @example
    * user,top
    */
   userObjectClass?: string;
   /**
+   * @remarks
+   * The Relative Distinguished Name (RDN) for users.
+   * 
    * @example
    * cn
    */
@@ -59,12 +74,22 @@ export class SetIdentityProviderUdPushConfigurationRequestLdapUdPushConfig exten
 
 export class SetIdentityProviderUdPushConfigurationRequestPeriodicSyncConfig extends $dara.Model {
   /**
+   * @remarks
+   * The cron expression.
+   * 
    * @example
    * 0 45 1 * * ?
    */
   periodicSyncCron?: string;
+  /**
+   * @remarks
+   * A collection of time points.
+   */
   periodicSyncTimes?: number[];
   /**
+   * @remarks
+   * The type of periodic synchronization.
+   * 
    * @example
    * cron
    */
@@ -100,12 +125,12 @@ export class SetIdentityProviderUdPushConfigurationRequestPeriodicSyncConfig ext
 export class SetIdentityProviderUdPushConfigurationRequestUdSyncScopeConfigs extends $dara.Model {
   /**
    * @remarks
-   * 同步来源节点
+   * The source nodes for synchronization.
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * 同步目标节点
+   * The target node for synchronization.
    * 
    * @example
    * 6537211
@@ -140,7 +165,7 @@ export class SetIdentityProviderUdPushConfigurationRequestUdSyncScopeConfigs ext
 export class SetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的身份提供方主键id
+   * The ID of the identity provider.
    * 
    * This parameter is required.
    * 
@@ -150,7 +175,7 @@ export class SetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * Specifies whether to process incremental callback data from the IdP.
    * 
    * This parameter is required.
    * 
@@ -160,7 +185,7 @@ export class SetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
   incrementalCallbackStatus?: string;
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -168,16 +193,27 @@ export class SetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
    * eiam-111ccc1111
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The configurations for LDAP push synchronization.
+   */
   ldapUdPushConfig?: SetIdentityProviderUdPushConfigurationRequestLdapUdPushConfig;
+  /**
+   * @remarks
+   * The configuration for periodic synchronization.
+   */
   periodicSyncConfig?: SetIdentityProviderUdPushConfigurationRequestPeriodicSyncConfig;
   /**
+   * @remarks
+   * The status of periodic synchronization.
+   * 
    * @example
    * disabled
    */
   periodicSyncStatus?: string;
   /**
    * @remarks
-   * 同步出配置信息
+   * The push synchronization configurations.
    */
   udSyncScopeConfigs?: SetIdentityProviderUdPushConfigurationRequestUdSyncScopeConfigs[];
   static names(): { [key: string]: string } {

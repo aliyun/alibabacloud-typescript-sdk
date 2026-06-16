@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the dedicated network endpoint access path was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -21,7 +21,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   instanceId?: string;
   /**
    * @remarks
-   * Network access endpoint ID.
+   * The ID of the dedicated network endpoint.
    * 
    * @example
    * nae_examplexxx
@@ -29,7 +29,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * Network access path ID
+   * The ID of the dedicated network endpoint access path.
    * 
    * @example
    * nap_examplexxx
@@ -37,7 +37,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   networkAccessPathId?: string;
   /**
    * @remarks
-   * Network interface ID
+   * The ID of the ENI that is used by the dedicated network endpoint access path.
    * 
    * @example
    * eni-examplexxx
@@ -45,7 +45,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The private IP address.
+   * The private IP address of the ENI that is used by the dedicated network endpoint access path.
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +53,15 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   privateIpAddress?: string;
   /**
    * @remarks
-   * Network access path status
+   * The status of the dedicated network endpoint access path. Valid values:
+   * 
+   * - pending: The path is being initialized.
+   * 
+   * - creating: The path is being created.
+   * 
+   * - running: The path is running.
+   * 
+   * - deleting: The path is being deleted.
    * 
    * @example
    * running
@@ -61,7 +69,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the dedicated network endpoint access path was last updated. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -69,7 +77,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   updateTime?: number;
   /**
    * @remarks
-   * The ID of a vSwitch.
+   * The ID of the vSwitch to which the ENI of the dedicated network endpoint access path belongs.
    * 
    * @example
    * vsw-examplexxx
@@ -115,7 +123,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
 export class ListNetworkAccessPathsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Network access paths
+   * The list of network endpoint access paths.
    */
   networkAccessPaths?: ListNetworkAccessPathsResponseBodyNetworkAccessPaths[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentials extends $dara.Model {
   /**
    * @remarks
-   * 应用联邦凭证ID
+   * The ID of the application federated credential.
    * 
    * @example
    * afc_adsa1sdaxxxxx
@@ -13,7 +13,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationFederatedCredentialId?: string;
   /**
    * @remarks
-   * 应用联邦凭证名称
+   * The name of the application federated credential.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationFederatedCredentialName?: string;
   /**
    * @remarks
-   * 应用联邦凭证类型
+   * The type of the application federated credential.
    * 
    * @example
    * oidc
@@ -29,7 +29,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationFederatedCredentialType?: string;
   /**
    * @remarks
-   * 应用ID
+   * The application ID.
    * 
    * @example
    * app_xxxasda1
@@ -37,7 +37,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationId?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the credential was created.
    * 
    * @example
    * 1758785994982
@@ -45,7 +45,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   createTime?: number;
   /**
    * @remarks
-   * 应用联邦凭证描述
+   * The description of the application federated credential.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   description?: string;
   /**
    * @remarks
-   * 应用联邦凭证提供者ID
+   * The ID of the federated credential provider.
    * 
    * @example
    * fcp_das1asda1xxxx
@@ -61,7 +61,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   federatedCredentialProviderId?: string;
   /**
    * @remarks
-   * EAIM 实例ID
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -69,7 +69,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   instanceId?: string;
   /**
    * @remarks
-   * 最近使用时间
+   * The time when the credential was last used.
    * 
    * @example
    * 1758785994982
@@ -77,7 +77,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   lastUsedTime?: number;
   /**
    * @remarks
-   * 应用联邦凭证状态
+   * The status of the application federated credential.
    * 
    * @example
    * enabled
@@ -85,7 +85,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   status?: string;
   /**
    * @remarks
-   * 更新时间
+   * The time when the credential was last updated.
    * 
    * @example
    * 1758785994982
@@ -133,10 +133,14 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
 }
 
 export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of application federated credentials.
+   */
   applicationFederatedCredentials?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentials[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -144,7 +148,7 @@ export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * NTxxxexample
@@ -152,18 +156,24 @@ export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model
   nextToken?: string;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+   * The query token returned by this call.
    * 
    * @example
    * PTxxxexample
    */
   previousToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderStatusCheckJobRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的身份提供方主键id
+   * The identity provider (IdP) ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetIdentityProviderStatusCheckJobRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * 任务ID
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetIdentityProviderStatusCheckJobRequest extends $dara.Model {
   identityProviderStatusCheckJobId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

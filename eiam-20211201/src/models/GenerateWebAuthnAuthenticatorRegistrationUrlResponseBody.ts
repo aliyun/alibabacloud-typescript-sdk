@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAuthenticatorRegistrationUrl extends $dara.Model {
   /**
    * @remarks
-   * 注册WebAuthn认证器URL
+   * The WebAuthn authenticator registration URL.
    * 
    * @example
    * https://012cnaliyunidaas..com./login/webauthn/registration
@@ -13,7 +13,7 @@ export class GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAut
   registrationUrl?: string;
   /**
    * @remarks
-   * 注册WebAuthn认证器URL参数
+   * The parameters for the WebAuthn authenticator registration URL.
    * 
    * @example
    * eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwia2lkIjoia2V5X29ueWNzbXNib3Y1bmV2anlncHgyZnlsbjdhIn0
@@ -44,10 +44,17 @@ export class GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAut
 
 export class GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Information about the WebAuthn authenticator registration URL.
+   */
   webAuthnAuthenticatorRegistrationUrl?: GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAuthenticatorRegistrationUrl;
   static names(): { [key: string]: string } {
     return {

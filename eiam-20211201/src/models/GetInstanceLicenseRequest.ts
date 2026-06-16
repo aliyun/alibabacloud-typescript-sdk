@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceLicenseRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 

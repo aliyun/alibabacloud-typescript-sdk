@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * A client token that ensures the idempotence of the request. The client must generate a unique token for each request. The token must consist of only ASCII characters and be no more than 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 云账号唯一标识
+   * The external unique identifier of the cloud account.
    * 
    * This parameter is required.
    * 
@@ -23,7 +25,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
   cloudAccountExternalId?: string;
   /**
    * @remarks
-   * 云账号名称
+   * The name of the cloud account.
    * 
    * @example
    * cloud_accout_xxxx
@@ -31,23 +33,39 @@ export class CreateCloudAccountRequest extends $dara.Model {
   cloudAccountName?: string;
   /**
    * @remarks
-   * 云账号提供商名称
+   * The name of the identity provider.
    * 
    * @example
    * idaas-eiam-oidc-provider
    */
   cloudAccountProviderName?: string;
+  /**
+   * @remarks
+   * The site of the cloud account. Valid values:
+   * 
+   * - global: international site
+   * 
+   * - china_mainland: China mainland site
+   * 
+   * @example
+   * china_mainland
+   */
   cloudAccountSite?: string;
   /**
    * @remarks
-   * 云账号类型
+   * The type of the cloud account. Valid value:
+   * 
+   * - alibaba_cloud: Alibaba Cloud
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Alibaba_cloud(Alibaba Cloud)
    */
   cloudAccountVendorType?: string;
   /**
    * @remarks
-   * 云账号描述
+   * The description of the cloud account.
    * 
    * @example
    * cloud_accout_description
@@ -55,7 +73,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

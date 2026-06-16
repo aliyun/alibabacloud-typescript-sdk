@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCredentialRequestCredentialContentApiKeyContent extends $dara.Model {
   /**
    * @remarks
-   * API Key 凭证类型的凭据内容。
+   * The API key value.
    * 
    * @example
    * nsklnertyt5ddwizncxxxx
@@ -35,7 +35,7 @@ export class UpdateCredentialRequestCredentialContentApiKeyContent extends $dara
 export class UpdateCredentialRequestCredentialContentOAuthClientContent extends $dara.Model {
   /**
    * @remarks
-   * OAuth协议的client_id。
+   * The client_id in the OAuth protocol.
    * 
    * @example
    * dmvncmxersdxxxxxx
@@ -43,7 +43,7 @@ export class UpdateCredentialRequestCredentialContentOAuthClientContent extends 
   clientId?: string;
   /**
    * @remarks
-   * OAuth协议的client_secret。
+   * The client_secret in the OAuth protocol.
    * 
    * @example
    * nsklncmwizncxxxx
@@ -75,12 +75,12 @@ export class UpdateCredentialRequestCredentialContentOAuthClientContent extends 
 export class UpdateCredentialRequestCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * Api Key的内容。
+   * The credential content for an API key credential type.
    */
   apiKeyContent?: UpdateCredentialRequestCredentialContentApiKeyContent;
   /**
    * @remarks
-   * OAuth客户端认证凭证类型的凭据内容。
+   * The credential content for an OAuth client authentication credential type.
    */
   OAuthClientContent?: UpdateCredentialRequestCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class UpdateCredentialRequestCredentialContent extends $dara.Model {
 export class UpdateCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。ClientToken只支持ASCII字符，且不能超过64个字符。
+   * Ensures idempotence. Generate a unique value on your client for each request. The ClientToken value must contain only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -125,12 +125,12 @@ export class UpdateCredentialRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 凭据的内容。
+   * The credential content.
    */
   credentialContent?: UpdateCredentialRequestCredentialContent;
   /**
    * @remarks
-   * 凭据ID。
+   * The credential ID.
    * 
    * This parameter is required.
    * 
@@ -140,7 +140,7 @@ export class UpdateCredentialRequest extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * 凭据名称。
+   * The credential name.
    * 
    * @example
    * credential_name
@@ -148,7 +148,7 @@ export class UpdateCredentialRequest extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

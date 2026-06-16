@@ -4,10 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCredentialProvidersRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * Filter condition name. Valid values:
+   * 
+   * - CredentialProviderName: Credential provider name.
+   * 
+   * - CredentialProviderIdentifier: Credential provider identifier.
+   * 
    * @example
    * CredentialProviderName
    */
   name?: string;
+  /**
+   * @remarks
+   * List of filter condition values.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,18 +49,22 @@ export class ListCredentialProvidersRequestFilter extends $dara.Model {
 export class ListCredentialProvidersRequest extends $dara.Model {
   /**
    * @remarks
-   * 认证令牌提供商ID列表。
+   * List of credential provider IDs.
    */
   credentialProviderIds?: string[];
   /**
    * @remarks
-   * 认证令牌提供商类型列表。
+   * List of credential provider types.
    */
   credentialProviderTypes?: string[];
+  /**
+   * @remarks
+   * List of filter conditions.
+   */
   filter?: ListCredentialProvidersRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -59,7 +74,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * Page size for paged queries.
    * 
    * @example
    * 20
@@ -67,7 +82,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * Query token.
    * 
    * @example
    * NTxxxxxexample
@@ -75,7 +90,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 认证令牌提供商状态列表。
+   * List of credential provider statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

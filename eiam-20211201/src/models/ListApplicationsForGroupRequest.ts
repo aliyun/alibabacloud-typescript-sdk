@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * 非必填，如果填写则可以基于应用ID进行过滤，列表中最多包含100个元素。
+   * The list of application IDs. A maximum of 100 application IDs are supported.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -13,7 +13,7 @@ export class ListApplicationsForGroupRequest extends $dara.Model {
   applicationIds?: string[];
   /**
    * @remarks
-   * 组的唯一标识。
+   * The group ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListApplicationsForGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListApplicationsForGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 当前查询的列表页码，默认为1。
+   * The page number.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class ListApplicationsForGroupRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 当前查询的列表页码，默认为20。
+   * The number of entries per page.
    * 
    * @example
    * 20

@@ -223,9 +223,7 @@ export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesD
   activeSessionReuseStatus?: string;
   /**
    * @remarks
-   * Decision action of the conditional access policy:
-   * deny  Deny
-   * allow Allow
+   * Decision action of the conditional access policy: deny Deny allow Allow
    * 
    * @example
    * deny
@@ -298,7 +296,7 @@ export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies 
    * Conditional access policy name
    * 
    * @example
-   * My Policy
+   * My policy
    */
   conditionalAccessPolicyName?: string;
   /**
@@ -340,7 +338,7 @@ export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies 
    * Description of the conditional access policy
    * 
    * @example
-   * My Policy Description
+   * My policy description
    */
   description?: string;
   /**

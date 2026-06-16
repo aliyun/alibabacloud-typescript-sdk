@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListActionTrackEventTypesResponseBodyEventTypes extends $dara.Model {
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * urn:alibaba:idaas:event:user:create
    */
@@ -30,18 +33,22 @@ export class ListActionTrackEventTypesResponseBodyEventTypes extends $dara.Model
 }
 
 export class ListActionTrackEventTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of event types.
+   */
   eventTypes?: ListActionTrackEventTypesResponseBodyEventTypes[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries per page.
    * 
    * @example
-   * 20
+   * 100
    */
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token to retrieve the next page of results.
    * 
    * @example
    * NTxxxexample
@@ -49,18 +56,24 @@ export class ListActionTrackEventTypesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于上一次翻页查询。
+   * The token to retrieve the previous page of results.
    * 
    * @example
    * PTxxxexample
    */
   previousToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

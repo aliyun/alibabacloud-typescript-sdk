@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   /**
    * @remarks
-   * 来源Idp Id
+   * The ID of the source identity provider (IdP).
    * 
    * @example
    * idp_11111
@@ -13,7 +13,7 @@ export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 20
@@ -31,7 +31,7 @@ export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The query token.
    * 
    * @example
    * NTxxxxxexample
@@ -39,7 +39,7 @@ export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 查询上一页凭证（Token），取值为上一次API调用返回的previousToken参数值。
+   * The token for the previous page of results.
    * 
    * @example
    * PTxxxxxexample
@@ -47,7 +47,7 @@ export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   previousToken?: string;
   /**
    * @remarks
-   * 外部关联ID
+   * The external ID.
    * 
    * @example
    * xxxxxx
@@ -55,7 +55,7 @@ export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   userExternalId?: string;
   /**
    * @remarks
-   * 用户ID
+   * The user ID.
    * 
    * This parameter is required.
    * 

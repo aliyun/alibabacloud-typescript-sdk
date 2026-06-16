@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIdentityProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Identity provider ID.
+   * The ID of the identity provider.
    * 
    * @example
    * idp_mwpcwnhrimlr2horxXXXX

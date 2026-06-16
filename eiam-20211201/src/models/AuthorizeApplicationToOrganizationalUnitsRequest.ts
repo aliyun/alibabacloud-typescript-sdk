@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeApplicationToOrganizationalUnitsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application on which you want to grant permissions.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class AuthorizeApplicationToOrganizationalUnitsRequest extends $dara.Mode
   applicationRoleId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class AuthorizeApplicationToOrganizationalUnitsRequest extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The IDs of the organizations to which you want to grant permissions. You can grant permissions to a maximum of 100 organizations at a time.
+   * The list of organization IDs. You can specify a maximum of 100 organization IDs per operation.
    * 
    * This parameter is required.
    * 

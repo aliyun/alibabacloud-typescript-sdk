@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationFederatedCredentialDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用联邦凭证Id
+   * The ID of the application\\"s federated credential.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateApplicationFederatedCredentialDescriptionRequest extends $dar
   applicationFederatedCredentialId?: string;
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateApplicationFederatedCredentialDescriptionRequest extends $dar
   applicationId?: string;
   /**
    * @remarks
-   * 联邦凭证描述
+   * The description of the federated credential.
    * 
    * @example
    * test
@@ -33,7 +33,7 @@ export class UpdateApplicationFederatedCredentialDescriptionRequest extends $dar
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

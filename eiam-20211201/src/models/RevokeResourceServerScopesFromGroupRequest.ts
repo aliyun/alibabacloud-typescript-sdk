@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeResourceServerScopesFromGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The ID of the resource server application.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class RevokeResourceServerScopesFromGroupRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,7 +25,7 @@ export class RevokeResourceServerScopesFromGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +35,7 @@ export class RevokeResourceServerScopesFromGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * ResourceServer权限ID。
+   * A list of scope permission IDs for the resource server.
    * 
    * This parameter is required.
    * 

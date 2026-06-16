@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewFreeLicenseEndTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

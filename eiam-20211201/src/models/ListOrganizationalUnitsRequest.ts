@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListOrganizationalUnitsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IDs of organizational units.
+   * The list of organizational unit IDs. The number of IDs in the list cannot exceed 100.
    * 
    * @example
    * [ou_wovwffm62xifdziem7an7xxxxx]
@@ -23,7 +23,7 @@ export class ListOrganizationalUnitsRequest extends $dara.Model {
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * The name of the organizational unit.
+   * The name of the organizational unit. An exact match is used for the query.
    * 
    * @example
    * name_001
@@ -31,7 +31,7 @@ export class ListOrganizationalUnitsRequest extends $dara.Model {
   organizationalUnitName?: string;
   /**
    * @remarks
-   * Organization name, matching left
+   * The prefix of the name of the organizational unit. A left-side match is used for the query.
    * 
    * @example
    * name
@@ -39,7 +39,7 @@ export class ListOrganizationalUnitsRequest extends $dara.Model {
   organizationalUnitNameStartsWith?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class ListOrganizationalUnitsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of entries to return on each page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20

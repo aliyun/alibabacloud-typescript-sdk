@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableClientPublicKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class EnableClientPublicKeyRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用ClientPublicKey的ID
+   * The ID of the ClientPublicKey for the application.
    * 
    * This parameter is required.
    * 
@@ -25,6 +25,8 @@ export class EnableClientPublicKeyRequest extends $dara.Model {
   clientPublicKeyId?: string;
   /**
    * @remarks
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client for this parameter. The value can contain only ASCII characters and must be no more than 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,7 +35,7 @@ export class EnableClientPublicKeyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

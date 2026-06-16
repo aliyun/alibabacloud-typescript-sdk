@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationTokenResponseBodyApplicationTokens extends $dara.Model {
   /**
    * @remarks
-   * 应用token
+   * The application token.
    * 
    * @example
    * SATFwqX8zxGf83pJcJw78KFGjmrft4erWeZYBGS8oE7NN6qoE217yaJpUdMb1UuuGqhDiF43sCA4CF91CTL5iGntqwyLuaAcS9FJ9HfGadE5a7TjiwVafwrBYkt3XXX
@@ -13,7 +13,7 @@ export class CreateApplicationTokenResponseBodyApplicationTokens extends $dara.M
   applicationToken?: string;
   /**
    * @remarks
-   * 应用token ID
+   * The application token ID.
    * 
    * @example
    * token_ndfxxigahelfne2y2hodehrxxxx
@@ -21,7 +21,7 @@ export class CreateApplicationTokenResponseBodyApplicationTokens extends $dara.M
   applicationTokenId?: string;
   /**
    * @remarks
-   * 应用token类型
+   * The application token type.
    * 
    * @example
    * bearer_token
@@ -53,8 +53,15 @@ export class CreateApplicationTokenResponseBodyApplicationTokens extends $dara.M
 }
 
 export class CreateApplicationTokenResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The application token.
+   */
   applicationTokens?: CreateApplicationTokenResponseBodyApplicationTokens;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

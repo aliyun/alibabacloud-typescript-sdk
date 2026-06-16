@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForGroupResponseBodyApplicationsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * 应用角色标识。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -35,7 +35,7 @@ export class ListApplicationsForGroupResponseBodyApplicationsApplicationRoles ex
 export class ListApplicationsForGroupResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * 应用的唯一标识。
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -43,12 +43,16 @@ export class ListApplicationsForGroupResponseBodyApplications extends $dara.Mode
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色列表。
+   * The list of application roles.
    */
   applicationRoles?: ListApplicationsForGroupResponseBodyApplicationsApplicationRoles[];
   /**
    * @remarks
-   * 直接分配给当前用户的权限，视为直接授权。
+   * Indicates whether a direct authorization exists. Valid values:
+   * 
+   * - true: A direct authorization record exists between the application and the group.
+   * 
+   * - false: No direct authorization record exists between the application and the group.
    * 
    * @example
    * true
@@ -56,7 +60,7 @@ export class ListApplicationsForGroupResponseBodyApplications extends $dara.Mode
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * 通过用户隶属的组织、组获取的权限，视为继承权限。
+   * Indicates whether an inherited authorization exists.
    * 
    * @example
    * false
@@ -93,13 +97,23 @@ export class ListApplicationsForGroupResponseBodyApplications extends $dara.Mode
 }
 
 export class ListApplicationsForGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of applications that are granted access.
+   */
   applications?: ListApplicationsForGroupResponseBodyApplications[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClientPublicKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListClientPublicKeysRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -24,13 +24,16 @@ export class ListClientPublicKeysRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page of a paged query.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token for the next page of results. Set this to the NextToken value from the previous API call. For the first query, leave this parameter empty.
    * 
    * @example
    * NTxxxxxexample

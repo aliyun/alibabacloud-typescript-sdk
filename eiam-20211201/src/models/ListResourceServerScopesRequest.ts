@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceServerScopesRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * Application ID.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class ListResourceServerScopesRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * Authorization type.
+   * 
    * @example
    * authorize_required
    */
   authorizationType?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -30,7 +33,7 @@ export class ListResourceServerScopesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * Number of rows per page in paginated queries.
    * 
    * @example
    * 20
@@ -38,34 +41,44 @@ export class ListResourceServerScopesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * Token for the next page query. Set this to the NextToken value returned by the previous API call. Leave empty for the first query.
    * 
    * @example
    * NTxxxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Token for the previous page query. Set this to the PreviousToken value returned by the previous API call.
+   * 
    * @example
    * PTxxxxxexample
    */
   previousToken?: string;
+  /**
+   * @remarks
+   * List of Scope permission IDs.
+   */
   resourceServerScopeIds?: string[];
   /**
    * @remarks
-   * 权限名称
+   * Scope permission name.
    * 
    * @example
    * 读取全部用户
    */
   resourceServerScopeName?: string;
   /**
+   * @remarks
+   * Scope permission type.
+   * 
    * @example
    * urn:alibaba:idaas:resourceserver:scope:delegated
    */
   resourceServerScopeType?: string;
   /**
    * @remarks
-   * 权限值，大小写不敏感，格式(${ResourceType}:${ResourceOption}:${ResourceRestrict})
+   * Scope permission value.
    * 
    * @example
    * User:Write:ALL

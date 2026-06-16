@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * Displayname
+   * The prefix of the display name. The query is performed based on the prefix.
    * 
    * @example
-   * name_001
+   * name
    */
   displayNameStartsWith?: string;
   /**
    * @remarks
-   * The email address of the user who owns the account.
+   * The email address of the user.
    * 
    * @example
    * user@example.com
@@ -21,7 +21,7 @@ export class ListUsersRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,21 @@ export class ListUsersRequest extends $dara.Model {
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * NTxxxxexample
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -41,7 +55,7 @@ export class ListUsersRequest extends $dara.Model {
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -49,7 +63,7 @@ export class ListUsersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of entries per page. The default value is 20. The maximum value is 100.
    * 
    * @example
    * 20
@@ -57,7 +71,7 @@ export class ListUsersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The mobile number of the user who owns the account.
+   * The mobile number of the user.
    * 
    * @example
    * 156xxxxxxx
@@ -65,7 +79,7 @@ export class ListUsersRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The country code of the mobile number. For example, the country code of China is 86 without 00 or +.
+   * The country calling code. For example, the country calling code of China is `86`. Do not add `00` or `+` to the country calling code.
    * 
    * @example
    * 86
@@ -73,10 +87,11 @@ export class ListUsersRequest extends $dara.Model {
   phoneRegion?: string;
   /**
    * @remarks
-   * The status of the account. Valid values:
+   * The status of the user. Valid values:
    * 
-   * *   enabled: The account is enabled.
-   * *   disabled: The account is disabled.
+   * - `enabled`: The user is enabled.
+   * 
+   * - `disabled`: The user is disabled.
    * 
    * @example
    * enable
@@ -84,9 +99,9 @@ export class ListUsersRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The external ID of the account. The external ID can be used by external data to map the data of the account in IDaaS EIAM.
+   * The external ID of the user. The external ID can be used to associate the user with a user in an external system.
    * 
-   * For accounts with the same source type and source ID, each account has a unique external ID.
+   * > The external ID must be unique within the same source type and source ID.
    * 
    * @example
    * id_wovwffm62xifdziem7an7xxxxx
@@ -94,14 +109,17 @@ export class ListUsersRequest extends $dara.Model {
   userExternalId?: string;
   /**
    * @remarks
-   * User ID set
+   * The list of user IDs.
+   * 
+   * @example
+   * 20
    */
   userIds?: string[];
   /**
    * @remarks
-   * The source ID of the account.
+   * The source ID of the user.
    * 
-   * If the account was created in IDaaS, its source ID is the ID of the IDaaS instance. If the account was imported, its source ID is the enterprise ID in the source. For example, if the account was imported from DingTalk, its source ID is the corpId value of the enterprise in DingTalk.
+   * If the user is created in EIAM, the value of this parameter is the ID of the EIAM instance. If the user is imported from an external system, the value of this parameter is the enterprise ID of the user in the external system. For example, if the user is imported from DingTalk, the value of this parameter is the `corpId` of the enterprise in DingTalk.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -109,12 +127,17 @@ export class ListUsersRequest extends $dara.Model {
   userSourceId?: string;
   /**
    * @remarks
-   * The source type of the account. Valid values:
+   * The source type of the user. Valid values:
    * 
-   * *   build_in: The account was created in IDaaS.
-   * *   ding_talk: The account was imported from DingTalk.
-   * *   ad: The account was imported from Microsoft Active Directory (AD).
-   * *   ldap: The account was imported from a Lightweight Directory Access Protocol (LDAP) service.
+   * - `build_in`: The user is created in EIAM.
+   * 
+   * - `ding_talk`: The user is imported from DingTalk.
+   * 
+   * - `ad`: The user is imported from Active Directory (AD).
+   * 
+   * - `ldap`: The user is imported from a Lightweight Directory Access Protocol (LDAP) directory.
+   * 
+   * - `we_com`: The user is imported from WeCom.
    * 
    * @example
    * build_in
@@ -122,7 +145,7 @@ export class ListUsersRequest extends $dara.Model {
   userSourceType?: string;
   /**
    * @remarks
-   * Username
+   * The prefix of the username. The query is performed based on the prefix.
    * 
    * @example
    * name_001

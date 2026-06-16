@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extends $dara.Model {
   /**
    * @remarks
-   * 专属网络端点创建时间，Unix时间戳格式，单位为毫秒。
+   * The time when the network endpoint was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -13,7 +13,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   createTime?: number;
   /**
    * @remarks
-   * 实例ID。
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -21,7 +21,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   instanceId?: string;
   /**
    * @remarks
-   * 专属网络端点ID。
+   * The network endpoint ID.
    * 
    * @example
    * nae_examplexxx
@@ -29,15 +29,19 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * 专属网络端点名称。
+   * The name of the network endpoint.
    * 
    * @example
-   * xx业务VPC访问端点
+   * VPC access endpoint for xx service
    */
   networkAccessEndpointName?: string;
   /**
    * @remarks
-   * 专属网络端点连接的类型。
+   * The type of the network endpoint. Valid values:
+   * 
+   * - shared: a shared network endpoint.
+   * 
+   * - private: a private network endpoint.
    * 
    * @example
    * private
@@ -45,7 +49,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointType?: string;
   /**
    * @remarks
-   * 专属网络端点使用的安全组ID。
+   * The ID of the security group used by the private network endpoint.
    * 
    * @example
    * sg-examplexxx
@@ -53,7 +57,15 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   securityGroupId?: string;
   /**
    * @remarks
-   * 专属网络端点状态。
+   * The status of the network endpoint. Valid values:
+   * 
+   * - pending: The endpoint is pending initialization.
+   * 
+   * - creating: The endpoint is being created.
+   * 
+   * - running: The endpoint is running.
+   * 
+   * - deleting: The endpoint is being deleted.
    * 
    * @example
    * running
@@ -61,7 +73,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   status?: string;
   /**
    * @remarks
-   * 专属网络端点最近更新时间，Unix时间戳格式，单位为毫秒。
+   * The time when the network endpoint was last updated. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -69,7 +81,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   updateTime?: number;
   /**
    * @remarks
-   * 专属网络端点连接的指定vSwitch列表。
+   * A list of vSwitches to which the private network endpoint is connected.
    * 
    * @example
    * vsw-examplexxx
@@ -77,7 +89,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   vSwitchIds?: string[];
   /**
    * @remarks
-   * 专属网络端点连接的VpcID。
+   * The ID of the VPC to which the private network endpoint is connected.
    * 
    * @example
    * vpc-examplexxx
@@ -85,7 +97,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   vpcId?: string;
   /**
    * @remarks
-   * 专属网络端点连接的Vpc所属地域。
+   * The region ID of the VPC to which the private network endpoint is connected.
    * 
    * @example
    * cn-hangzhou
@@ -136,21 +148,31 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
 }
 
 export class ListNetworkAccessEndpointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of network endpoints.
+   */
   networkAccessEndpoints?: ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints[];
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token returned for the next query.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

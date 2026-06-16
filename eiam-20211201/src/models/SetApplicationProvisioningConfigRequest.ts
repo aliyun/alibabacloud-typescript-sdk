@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetApplicationProvisioningConfigRequestCallbackProvisioningConfig extends $dara.Model {
   /**
    * @remarks
-   * The URL that the application uses to receive IDaaS event callbacks.
+   * The destination address where the application accepts IDaaS event callbacks.
    * 
    * @example
    * https://example.com/event/callback
@@ -13,7 +13,7 @@ export class SetApplicationProvisioningConfigRequestCallbackProvisioningConfig e
   callbackUrl?: string;
   /**
    * @remarks
-   * The symmetric key for IDaaS event callbacks. The key is an AES-256 encryption key in the HEX format.
+   * The symmetric key for encrypting and decrypting IDaaS event callbacks. The key uses the AES-256 algorithm and is in hexadecimal format.
    * 
    * @example
    * ad3b248**************************b3561a73d7
@@ -21,10 +21,11 @@ export class SetApplicationProvisioningConfigRequestCallbackProvisioningConfig e
   encryptKey?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt IDaaS event callback messages. Valid values:
+   * Indicates whether to encrypt IDaaS event callback messages. Valid values:
    * 
-   * *   true: encrypt the messages.
-   * *   false: transmit the messages in plaintext.
+   * - true: Encrypt the messages.
+   * 
+   * - false: Do not encrypt the messages. The messages are transmitted in plaintext.
    * 
    * @example
    * true
@@ -32,7 +33,7 @@ export class SetApplicationProvisioningConfigRequestCallbackProvisioningConfig e
   encryptRequired?: boolean;
   /**
    * @remarks
-   * The list of types of IDaaS event callback messages that are supported by the listener.
+   * The list of message types for the IDaaS event callback listener.
    */
   listenEventScopes?: string[];
   static names(): { [key: string]: string } {
@@ -68,7 +69,7 @@ export class SetApplicationProvisioningConfigRequestCallbackProvisioningConfig e
 export class SetApplicationProvisioningConfigRequestScimProvisioningConfigAuthnConfigurationAuthnParam extends $dara.Model {
   /**
    * @remarks
-   * The access token. If the GrantType parameter is set to bearer_token, you can set this parameter.
+   * The access token. You can update this field when the grant type is bearer_token.
    * 
    * @example
    * k52x2ru63rlkflina5utgkxxxx
@@ -76,10 +77,11 @@ export class SetApplicationProvisioningConfigRequestScimProvisioningConfigAuthnC
   accessToken?: string;
   /**
    * @remarks
-   * The authentication mode of the SCIM protocol. Valid values:
+   * The authentication method for the SCIM protocol. Valid values:
    * 
-   * *   client_secret_basic: The client secret is passed in the request header.
-   * *   client_secret_post: The client secret is passed in the request body.
+   * - client_secret_basic: The key is passed in the request header.
+   * 
+   * - client_secret_post: The key is passed in the request body.
    * 
    * @example
    * client_secret_basic
@@ -141,9 +143,9 @@ export class SetApplicationProvisioningConfigRequestScimProvisioningConfigAuthnC
 export class SetApplicationProvisioningConfigRequestScimProvisioningConfigAuthnConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The authentication mode of the SCIM protocol. Valid value:
+   * The authorization mode for the SCIM protocol interface. Valid values:
    * 
-   * *   oauth2: OAuth2.0 mode.
+   * - oauth2: OAuth2 mode.
    * 
    * @example
    * oauth2
@@ -151,18 +153,20 @@ export class SetApplicationProvisioningConfigRequestScimProvisioningConfigAuthnC
   authnMode?: string;
   /**
    * @remarks
-   * The configuration parameters related to authorization.
+   * The authorization configuration parameters. The usage is as follows:
    * 
-   * *   If the GrantType parameter is set to client_credentials, you can set the configuration parameters ClientId, ClientSecret, and AuthnMethod.
-   * *   If the GrantType parameter is set to bearer_token, you can set the configuration parameter AccessToken.
+   * - If GrantType is set to client_credentials, you can update ClientId, ClientSecret, and AuthnMethod.
+   * 
+   * - If GrantType is set to bearer_token, you can update AccessToken.
    */
   authnParam?: SetApplicationProvisioningConfigRequestScimProvisioningConfigAuthnConfigurationAuthnParam;
   /**
    * @remarks
-   * The grant type of the SCIM protocol. Valid values:
+   * The authorization grant type for the SCIM protocol. Valid values:
    * 
-   * *   client_credentials: client mode.
-   * *   bearer_token: key mode.
+   * - client_credentials: Client credentials mode.
+   * 
+   * - bearer_token: Bearer token mode.
    * 
    * @example
    * bearer_token
@@ -199,28 +203,30 @@ export class SetApplicationProvisioningConfigRequestScimProvisioningConfigAuthnC
 export class SetApplicationProvisioningConfigRequestScimProvisioningConfig extends $dara.Model {
   /**
    * @remarks
-   * The configuration parameters related to SCIM-based synchronization.
+   * The configuration parameters for SCIM protocol synchronization.
    */
   authnConfiguration?: SetApplicationProvisioningConfigRequestScimProvisioningConfigAuthnConfiguration;
   /**
    * @remarks
-   * The full synchronization scope of the SCIM protocol. Valid value:
+   * The scope of a full push for the SCIM protocol. Valid values:
    * 
-   * *   urn:alibaba:idaas:app:scim:User:PUSH: full account data synchronization.
+   * - urn:alibaba:idaas:app:scim:User:PUSH: Full synchronization of users.
    */
   fullPushScopes?: string[];
   /**
    * @remarks
-   * The resource operations of the SCIM protocol. Valid values:
+   * The operations on the target resource for the SCIM protocol. Valid values:
    * 
-   * *   urn:alibaba:idaas:app:scim:User:CREATE: account creation.
-   * *   urn:alibaba:idaas:app:scim:User:UPDATE: account update.
-   * *   urn:alibaba:idaas:app:scim:User:DELETE: account deletion.
+   * - urn:alibaba:idaas:app:scim:User:CREATE: Create an account.
+   * 
+   * - urn:alibaba:idaas:app:scim:User:UPDATE: Update an account.
+   * 
+   * - urn:alibaba:idaas:app:scim:User:DELETE: Delete an account.
    */
   provisioningActions?: string[];
   /**
    * @remarks
-   * The base URL that the application uses to receive the SCIM protocol for IDaaS synchronization.
+   * The base URL where the application accepts IDaaS SCIM protocol synchronization.
    * 
    * @example
    * https://example.com/scim
@@ -265,7 +271,7 @@ export class SetApplicationProvisioningConfigRequestScimProvisioningConfig exten
 export class SetApplicationProvisioningConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -275,12 +281,12 @@ export class SetApplicationProvisioningConfigRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The configuration of event callback synchronization. This parameter is required when the ProvisionProtocolType parameter is set to idaas_callback.
+   * The application event callback synchronization configuration. This parameter is required when ProvisionProtocolType is set to idaas_callback.
    */
   callbackProvisioningConfig?: SetApplicationProvisioningConfigRequestCallbackProvisioningConfig;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -288,13 +294,21 @@ export class SetApplicationProvisioningConfigRequest extends $dara.Model {
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The network endpoint ID.
+   * 
+   * @example
+   * nae_examplexxxx
+   */
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * Specifies whether to synchronize the password in IDaaS user event callbacks. Valid values:
+   * Indicates whether to synchronize passwords for IDaaS user event callbacks. Valid values:
    * 
-   * *   true: synchronize the password.
-   * *   false: do not synchronize the password.
+   * - true: Synchronize passwords.
+   * 
+   * - false: Do not synchronize passwords.
    * 
    * @example
    * true
@@ -302,10 +316,11 @@ export class SetApplicationProvisioningConfigRequest extends $dara.Model {
   provisionPassword?: boolean;
   /**
    * @remarks
-   * The synchronization protocol type of the application. Valid values:
+   * The account synchronization protocol. Valid values:
    * 
-   * *   idaas_callback: custom event callback protocol of IDaaS.
-   * *   scim2: System for Cross-domain Identity Management (SCIM) protocol.
+   * - idaas_callback: IDaaS custom event callback for account synchronization.
+   * 
+   * - scim2: System for Cross-domain Identity Management (SCIM) protocol for synchronization.
    * 
    * This parameter is required.
    * 
@@ -315,7 +330,7 @@ export class SetApplicationProvisioningConfigRequest extends $dara.Model {
   provisionProtocolType?: string;
   /**
    * @remarks
-   * The configuration of SCIM-based IDaaS synchronization. This parameter is required when the ProvisionProtocolType parameter is set to scim2.
+   * The IDaaS SCIM protocol synchronization configuration parameters. This parameter is required when ProvisionProtocolType is set to scim2.
    */
   scimProvisioningConfig?: SetApplicationProvisioningConfigRequestScimProvisioningConfig;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainDomainProxyTokenResponseBodyDomainProxyToken extends $dara.Model {
   /**
    * @remarks
-   * The time when the proxy token of the domain name was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the domain name proxy token was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -13,7 +13,7 @@ export class ObtainDomainProxyTokenResponseBodyDomainProxyToken extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The ID of the domain name.
+   * The domain ID.
    * 
    * @example
    * dm_examplexxxx
@@ -21,7 +21,7 @@ export class ObtainDomainProxyTokenResponseBodyDomainProxyToken extends $dara.Mo
   domainId?: string;
   /**
    * @remarks
-   * The proxy token of the domain name.
+   * The domain name proxy token.
    * 
    * @example
    * PTxxxxxxxx
@@ -29,7 +29,7 @@ export class ObtainDomainProxyTokenResponseBodyDomainProxyToken extends $dara.Mo
   domainProxyToken?: string;
   /**
    * @remarks
-   * The ID of the proxy token of the domain name.
+   * The ID of the domain name proxy token.
    * 
    * @example
    * pt_examplexxxx
@@ -45,7 +45,7 @@ export class ObtainDomainProxyTokenResponseBodyDomainProxyToken extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The time when the proxy token of the domain name was last used. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the domain name proxy token was last used. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -53,10 +53,11 @@ export class ObtainDomainProxyTokenResponseBodyDomainProxyToken extends $dara.Mo
   lastUsedTime?: number;
   /**
    * @remarks
-   * The state of the proxy token. Valid values:
+   * The status of the token. Valid values:
    * 
-   * *   enabled
-   * *   disabled
+   * - enabled: The token is enabled.
+   * 
+   * - disabled: The token is disabled.
    * 
    * @example
    * enabled
@@ -64,7 +65,7 @@ export class ObtainDomainProxyTokenResponseBodyDomainProxyToken extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The time when the proxy token of the domain name was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the domain name proxy token was last updated. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000

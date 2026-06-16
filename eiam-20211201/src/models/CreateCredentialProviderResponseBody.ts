@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCredentialProviderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the credential provider.
+   * 
    * @example
    * atp_01kr2cmj5gxxx4fvmls2e93dxxxxx
    */
   credentialProviderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

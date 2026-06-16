@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteApplicationRoleRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色ID
+   * The application role ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteApplicationRoleRequest extends $dara.Model {
   applicationRoleId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

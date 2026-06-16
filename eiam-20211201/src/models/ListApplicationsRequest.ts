@@ -3,7 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApplicationsRequestCustomFields extends $dara.Model {
+  /**
+   * @remarks
+   * The custom field identifier. Valid values:
+   * 
+   * - `agent_type`: The agent type.
+   * 
+   * @example
+   * agent_type
+   */
   fieldName?: string;
+  /**
+   * @remarks
+   * The custom field value.
+   * 
+   * @example
+   * x-claw
+   */
   fieldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,18 +46,24 @@ export class ListApplicationsRequestCustomFields extends $dara.Model {
 
 export class ListApplicationsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application creation type. If unspecified, only user-created (`user_custom`) applications are returned. To query applications of all types, set this parameter to `all`.
+   * 
    * @example
    * system_init
    */
   applicationCreationType?: string;
   /**
+   * @remarks
+   * The application identity type. If unspecified, only applications of the `application` type are returned. To query all identity types, set this parameter to `all`.
+   * 
    * @example
    * application
    */
   applicationIdentityType?: string;
   /**
    * @remarks
-   * The IDs of the applications.
+   * A list of application IDs.
    * 
    * @example
    * Ram Account SSO
@@ -49,7 +71,7 @@ export class ListApplicationsRequest extends $dara.Model {
   applicationIds?: string[];
   /**
    * @remarks
-   * The name of the application. Only fuzzy match from the leftmost character is supported.
+   * The application name. Only prefix matching is supported.
    * 
    * @example
    * Ram Account SSO
@@ -57,19 +79,24 @@ export class ListApplicationsRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The authorization of the application. Valid values:
+   * The authorization type for application access. Valid values:
    * 
-   * *   authorize_required: Only the user with explicit authorization can access the application.
-   * *   default_all: By default, all users can access the application.
+   * - `authorize_required`: Access requires explicit authorization.
+   * 
+   * - `default_all`: All members have access by default.
    * 
    * @example
    * authorize_required
    */
   authorizationType?: string;
+  /**
+   * @remarks
+   * A list of custom fields.
+   */
   customFields?: ListApplicationsRequestCustomFields[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -79,9 +106,7 @@ export class ListApplicationsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Used to determine whether M2M client identity is enabled.
-   * - enabled
-   * - disabled
+   * The status of the M2M client identity.
    * 
    * @example
    * enabled
@@ -89,7 +114,7 @@ export class ListApplicationsRequest extends $dara.Model {
   m2MClientStatus?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -97,7 +122,7 @@ export class ListApplicationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 20
@@ -105,9 +130,7 @@ export class ListApplicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Used to determine whether the ResourceServer capability is enabled.
-   * - enabled
-   * - disabled
+   * The status of the resource server capability.
    * 
    * @example
    * enabled
@@ -115,10 +138,7 @@ export class ListApplicationsRequest extends $dara.Model {
   resourceServerStatus?: string;
   /**
    * @remarks
-   * SSO type.
-   * - oidc
-   * - saml2
-   * - oauth2/m2m
+   * A filter for the Single Sign-On (SSO) type. You can specify multiple types, separated by a comma. Example: `oauth2/m2m,oidc+oauth2/m2m`.
    * 
    * @example
    * oauth2/m2m
@@ -126,10 +146,11 @@ export class ListApplicationsRequest extends $dara.Model {
   ssoType?: string;
   /**
    * @remarks
-   * The status of the application. Valid values:
+   * The application status. Valid values:
    * 
-   * *   Enabled: The application is enabled.
-   * *   Disabled: The application is disabled.
+   * - `enabled`: Enabled.
+   * 
+   * - `disabled`: Disabled.
    * 
    * @example
    * enabled

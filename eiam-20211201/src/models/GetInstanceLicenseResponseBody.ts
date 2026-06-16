@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the license for the Conditional Access feature.
+   * 
+   * @example
+   * enabled
+   */
   conditionalAccessPolicyLicenseStatus?: string;
+  /**
+   * @remarks
+   * The status of the license for machine-to-machine (M2M) applications.
+   * 
+   * @example
+   * enabled
+   */
   m2mApplicationLicenseStatus?: string;
+  /**
+   * @remarks
+   * The quota for machine-to-machine (M2M) applications.
+   * 
+   * @example
+   * 2
+   */
   m2mApplicationQuota?: number;
+  /**
+   * @remarks
+   * The machine identity status.
+   * 
+   * @example
+   * enabled
+   */
   mimApplicationLicenseStatus?: string;
+  /**
+   * @remarks
+   * The quota for network access endpoints.
+   * 
+   * @example
+   * 1
+   */
   networkAccessEndpointQuota?: number;
+  /**
+   * @remarks
+   * The number of active subscription accounts.
+   * 
+   * @example
+   * 100
+   */
   prepaidActiveUserNumber?: number;
+  /**
+   * @remarks
+   * The user quota included with the license.
+   * 
+   * @example
+   * 100
+   */
   userQuota?: number;
   static names(): { [key: string]: string } {
     return {
@@ -46,7 +95,7 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
 export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   /**
    * @remarks
-   * Edition of the License
+   * The license edition.
    * 
    * @example
    * free
@@ -54,16 +103,20 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   edition?: string;
   /**
    * @remarks
-   * End date of the validity period of the License, timestamp
+   * The UNIX timestamp indicating the end of the license validity period.
    * 
    * @example
    * 1723996800000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The details of the instance license.
+   */
   instanceLicenseDetail?: GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail;
   /**
    * @remarks
-   * Payment type of the License
+   * The billing method for the license.
    * 
    * @example
    * prepay
@@ -71,7 +124,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseChargeType?: string;
   /**
    * @remarks
-   * Detailed configuration JSON string of the License
+   * The detailed configurations of the license, formatted as a JSON string.
    * 
    * @example
    * {"modules":[{"features":[{"name":"urn:alibaba:idaas:license:module:ud:customField","status":"enabled"}]……{"name":"urn:alibaba:idaas:license:tag:enterprise","status":"enabled"}],"version":"1.0"}
@@ -79,7 +132,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseConfigJson?: string;
   /**
    * @remarks
-   * Creation time of the License, timestamp
+   * The UNIX timestamp indicating when the license was created.
    * 
    * @example
    * 1720509699000
@@ -87,7 +140,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseCreateTime?: number;
   /**
    * @remarks
-   * Unique identifier of the License
+   * The unique identifier for the license.
    * 
    * @example
    * license_1234xxxx
@@ -95,7 +148,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseId?: string;
   /**
    * @remarks
-   * Status of the License
+   * The license status.
    * 
    * @example
    * valid
@@ -103,7 +156,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseStatus?: string;
   /**
    * @remarks
-   * Purchase channel of the License
+   * The channel used to purchase the license.
    * 
    * @example
    * alibaba_cloud
@@ -111,7 +164,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   purchaseChannel?: string;
   /**
    * @remarks
-   * Unique external product identifier corresponding to the License
+   * The unique identifier of the external service associated with the license.
    * 
    * @example
    * eiam-cn-xxxxx
@@ -119,7 +172,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   purchaseInstanceId?: string;
   /**
    * @remarks
-   * Start date of the validity period of the License, timestamp
+   * The UNIX timestamp indicating the start of the license validity period.
    * 
    * @example
    * 1720509699000
@@ -127,7 +180,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * User quota of the License
+   * The user quota included with the license.
    * 
    * @example
    * 100
@@ -182,12 +235,12 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
 export class GetInstanceLicenseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned result.
+   * The license details.
    */
   license?: GetInstanceLicenseResponseBodyLicense;
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

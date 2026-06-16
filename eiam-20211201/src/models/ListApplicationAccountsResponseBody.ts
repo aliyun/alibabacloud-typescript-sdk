@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationAccountsResponseBodyApplicationAccounts extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 应用账号Id
+   * The application account ID.
    * 
    * @example
    * aac_m66smhbq5krept7nza54hxxxx
@@ -13,7 +13,7 @@ export class ListApplicationAccountsResponseBodyApplicationAccounts extends $dar
   applicationAccountId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用Id
+   * The application ID.
    * 
    * @example
    * app_m43o4h5adeo5klvbbxgxxxxx
@@ -21,7 +21,7 @@ export class ListApplicationAccountsResponseBodyApplicationAccounts extends $dar
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 应用账号名称
+   * The name of the application account.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListApplicationAccountsResponseBodyApplicationAccounts extends $dar
   applicationUsername?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the account was created.
    * 
    * @example
    * 1737510353000
@@ -37,7 +37,7 @@ export class ListApplicationAccountsResponseBodyApplicationAccounts extends $dar
   createTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The ID of the IDaaS EIAM instance.
    * 
    * @example
    * idaas_eznwtkkaucljizh6qqu7ptxxxx
@@ -45,7 +45,7 @@ export class ListApplicationAccountsResponseBodyApplicationAccounts extends $dar
   instanceId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 用户Id
+   * The user ID.
    * 
    * @example
    * user_tkmboufpnvpbitdpzrlngxzxxxx
@@ -83,13 +83,23 @@ export class ListApplicationAccountsResponseBodyApplicationAccounts extends $dar
 }
 
 export class ListApplicationAccountsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of account information.
+   */
   applicationAccounts?: ListApplicationAccountsResponseBodyApplicationAccounts[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

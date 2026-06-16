@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeResourceServerFromClientRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The ID of the client application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RevokeResourceServerFromClientRequest extends $dara.Model {
   clientApplicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RevokeResourceServerFromClientRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The ID of the resource server application.
    * 
    * This parameter is required.
    * 

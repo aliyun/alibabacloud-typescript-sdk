@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationClientSecretExpirationTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateApplicationClientSecretExpirationTimeRequest extends $dara.Mo
   applicationId?: string;
   /**
    * @remarks
-   * client secret的有效期时间，Unix时间戳格式，单位为毫秒
+   * The expiration time of the client secret. This is a UNIX timestamp in milliseconds. The minimum validity period is 1 day, and the maximum validity period is 3 years.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateApplicationClientSecretExpirationTimeRequest extends $dara.Mo
   expirationTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UpdateApplicationClientSecretExpirationTimeRequest extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * OIDC 场景下用于客户端身份验证的客户端密钥
+   * The ID of the client secret.
    * 
    * This parameter is required.
    * 

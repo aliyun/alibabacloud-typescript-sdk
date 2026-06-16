@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDomainsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The brand ID.
+   * 
+   * @example
+   * brand_xxxx
+   */
   brandId?: string;
   /**
    * @remarks

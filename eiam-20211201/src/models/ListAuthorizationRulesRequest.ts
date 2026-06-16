@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationRulesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * 过滤条件名称。
+   * The name of the field to filter. Valid values:
+   * 
+   * - AuthorizationRuleId: the ID of the authorization rule.
+   * 
+   * - AuthorizationRuleNameStartWith: the leftmost characters of the authorization rule name.
    * 
    * @example
    * AuthorizationRuleId
@@ -13,7 +17,7 @@ export class ListAuthorizationRulesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 过滤条件值。
+   * The list of values for the field to filter.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +49,12 @@ export class ListAuthorizationRulesRequestFilter extends $dara.Model {
 export class ListAuthorizationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * 过滤条件
+   * The filter conditions.
    */
   filter?: ListAuthorizationRulesRequestFilter[];
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -60,7 +64,11 @@ export class ListAuthorizationRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 分页查询时每页行数。默认值为20，最大值为100。
+   * The maximum number of entries to return on each page.
+   * 
+   * - If you do not specify this parameter, the default value is 20.
+   * 
+   * - The maximum value is 100.
    * 
    * @example
    * 20
@@ -68,7 +76,9 @@ export class ListAuthorizationRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
+   * The token that identifies the start of the next page of results.
+   * 
+   * - If you do not specify this parameter, the system returns the first page of results.
    * 
    * @example
    * NTxxxxxexample

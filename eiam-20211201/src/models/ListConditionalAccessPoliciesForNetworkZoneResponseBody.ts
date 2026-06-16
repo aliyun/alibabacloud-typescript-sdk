@@ -296,7 +296,7 @@ export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalA
    * Conditional access policy name
    * 
    * @example
-   * My Policy
+   * My policy
    */
   conditionalAccessPolicyName?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceQuotaResponseBodyServiceQuota extends $dara.Model {
   /**
    * @remarks
-   * Quota 配额的唯一标识。
+   * The unique identifier of the quota.
    * 
    * @example
    * instanceTrialNumber
@@ -13,7 +13,7 @@ export class GetServiceQuotaResponseBodyServiceQuota extends $dara.Model {
   quotaType?: string;
   /**
    * @remarks
-   * Quota 配额的值。
+   * The value of the quota.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class GetServiceQuotaResponseBodyServiceQuota extends $dara.Model {
   quotaValue?: number;
   /**
    * @remarks
-   * Quota 配额的当前用量。
+   * The current usage of the quota.
    * 
    * @example
    * 1
@@ -54,10 +54,17 @@ export class GetServiceQuotaResponseBodyServiceQuota extends $dara.Model {
 
 export class GetServiceQuotaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The service quota.
+   */
   serviceQuota?: GetServiceQuotaResponseBodyServiceQuota;
   static names(): { [key: string]: string } {
     return {

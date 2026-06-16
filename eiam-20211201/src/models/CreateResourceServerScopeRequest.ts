@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceServerScopeRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class CreateResourceServerScopeRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The authorization type. This parameter is required for user permissions.
+   * 
    * @example
    * authorize_required
    */
   authorizationType?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -30,17 +33,17 @@ export class CreateResourceServerScopeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 权限名称
+   * The name of the scope permission.
    * 
    * This parameter is required.
    * 
    * @example
-   * 读取全部用户
+   * Read User Info
    */
   resourceServerScopeName?: string;
   /**
    * @remarks
-   * 权限类型
+   * The type of the scope permission.
    * 
    * This parameter is required.
    * 
@@ -50,7 +53,7 @@ export class CreateResourceServerScopeRequest extends $dara.Model {
   resourceServerScopeType?: string;
   /**
    * @remarks
-   * 权限值，大小写不敏感，格式(${ResourceType}:${ResourceOption}:${ResourceRestrict})
+   * The value of the scope permission.
    * 
    * This parameter is required.
    * 

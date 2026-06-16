@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 网络区域描述
+   * The description of the network zone.
    * 
    * @example
    * test
@@ -13,17 +13,25 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 实例ID。
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IPv4 CIDR blocks.
+   */
   ipv4Cidrs?: string[];
+  /**
+   * @remarks
+   * The IPv6 CIDR blocks.
+   */
   ipv6Cidrs?: string[];
   /**
    * @remarks
-   * IDaaS EIAM 网络区域Id
+   * The network zone ID.
    * 
    * @example
    * network_m223wbvc3sn3uakfnxvhbxxxxx
@@ -31,7 +39,7 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   networkZoneId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 网络区域名称
+   * The network zone name.
    * 
    * @example
    * test_name
@@ -39,7 +47,7 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   networkZoneName?: string;
   /**
    * @remarks
-   * IDaaS EIAM 网络区域类型
+   * The type of the network zone.
    * 
    * @example
    * arn:alibaba:idaas:network:zone:classic
@@ -47,7 +55,7 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   networkZoneType?: string;
   /**
    * @remarks
-   * IDaaS EIAM 专有网络VpcId
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1usdmfqcgoy5ebxxxxx
@@ -95,26 +103,39 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
 }
 
 export class ListNetworkZonesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of network zones.
+   */
   networkZones?: ListNetworkZonesResponseBodyNetworkZones[];
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The token that is used to retrieve the previous page of results.
+   * 
    * @example
    * PTxxxxxexample
    */
   previousToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

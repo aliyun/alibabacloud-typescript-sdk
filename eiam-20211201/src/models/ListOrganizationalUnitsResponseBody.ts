@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dara.Model {
   /**
    * @remarks
-   * The time when the organizational unit was created. This value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the organizational unit was created. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1652085686179
@@ -16,12 +16,12 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
    * The description of the organizational unit.
    * 
    * @example
-   * Test organizational unit
+   * Test organization
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -29,7 +29,7 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the node is a leaf node.
+   * Indicates whether the organizational unit is a leaf node. A value of true indicates that the organizational unit has no child nodes. A value of false indicates that the organizational unit has child nodes.
    * 
    * @example
    * false
@@ -37,9 +37,9 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
   leaf?: boolean;
   /**
    * @remarks
-   * The external ID of the organizational unit. The external ID can be used by external data to map the data of the organizational unit in IDaaS EIAM. By default, the external ID is the organizational unit ID.
+   * The external ID of the organizational unit. This ID is used to map the data of the organizational unit to the data of an external system. By default, the value of this parameter is the organizational unit ID.
    * 
-   * For organizational units with the same source type and source ID, each organizational unit has a unique external ID.
+   * Note: The external ID must be unique within the same source type and source ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -47,7 +47,7 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
   organizationalUnitExternalId?: string;
   /**
    * @remarks
-   * The ID of the organizational unit.
+   * The organizational unit ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -55,7 +55,7 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
   organizationalUnitId?: string;
   /**
    * @remarks
-   * 组织名称。
+   * The name of the organizational unit.
    * 
    * @example
    * test_organizationalUnit_name
@@ -73,10 +73,11 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
    * @remarks
    * The source type of the organizational unit. Valid values:
    * 
-   * *   build_in: The organizational unit was created in IDaaS.
-   * *   ding_talk: The organizational unit was imported from DingTalk.
-   * *   ad: The organizational unit was imported from Microsoft Active Directory (AD).
-   * *   ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
+   * - build_in: The organizational unit is created in IDaaS.
+   * - ding_talk: The organizational unit is imported from DingTalk.
+   * - ad: The organizational unit is imported from Active Directory (AD).
+   * - ldap: The organizational unit is imported from a Lightweight Directory Access Protocol (LDAP) directory.
+   * - we_com: The organizational unit is imported from WeCom.
    * 
    * @example
    * build_in
@@ -142,12 +143,12 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
 export class ListOrganizationalUnitsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of data objects of organizational units.
+   * The list of organizational units.
    */
   organizationalUnits?: ListOrganizationalUnitsResponseBodyOrganizationalUnits[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -155,10 +156,10 @@ export class ListOrganizationalUnitsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries in the list.
+   * The total number of entries that are returned. This value is the total number of matched entries. The maximum number of entries that can be returned in a single request is specified by PageSize.
    * 
    * @example
-   * 100
+   * 1000
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 账号ID列表
+   * A list of account IDs.
    * 
    * This parameter is required.
    * 

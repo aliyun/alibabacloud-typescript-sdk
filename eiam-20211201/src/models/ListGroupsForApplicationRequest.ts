@@ -15,7 +15,7 @@ export class ListGroupsForApplicationRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色ID。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -23,7 +23,7 @@ export class ListGroupsForApplicationRequest extends $dara.Model {
   applicationRoleId?: string;
   /**
    * @remarks
-   * The group IDs. You can specify up to 100 group IDs at a time.
+   * A list of group IDs. You can specify up to 100 group IDs in a single operation.
    * 
    * @example
    * group_miu8e4t4d7i4u7uwezgr54xxxx
@@ -41,7 +41,7 @@ export class ListGroupsForApplicationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableIdentityProviderAdvancedAbilityRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的身份提供方主键id
+   * The identity provider ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DisableIdentityProviderAdvancedAbilityRequest extends $dara.Model {
   identityProviderId?: string;
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 

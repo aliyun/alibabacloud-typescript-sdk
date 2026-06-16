@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationClientSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application for which you want to create a client key.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class CreateApplicationClientSecretRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The expiration time. This parameter is a UNIX timestamp. Unit: milliseconds. If you leave this parameter empty, the client secret does not expire. The minimum validity period is 1 day and the maximum validity period is 3 years.
+   * 
    * @example
    * 1735530123762
    */
   expirationTime?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

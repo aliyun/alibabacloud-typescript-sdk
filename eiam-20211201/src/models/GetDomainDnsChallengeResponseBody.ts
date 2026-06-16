@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetDomainDnsChallengeResponseBodyDomainDnsChallenge extends $dara.Model {
   /**
    * @remarks
-   * The name of the DNS challenge record.
+   * The name of the DNS Challenge.
    * 
    * @example
-   * _idaas-challenge.${domain}
+   * _idaas-challenge.login.example.com
    */
   dnsChallengeName?: string;
   /**
    * @remarks
-   * The value of the DNS challenge record.
+   * The value of the DNS Challenge.
    * 
    * @example
-   * exmple123xxx
+   * yriov8FD/rIGjQTU3/JjqkwxRbo5dyGftHWOtP5xfCI=
    */
   dnsChallengeValue?: string;
   /**
    * @remarks
-   * The type of the DNS challenge record.
+   * The type of the DNS record.
    * 
    * @example
    * txt
@@ -55,7 +55,7 @@ export class GetDomainDnsChallengeResponseBodyDomainDnsChallenge extends $dara.M
 export class GetDomainDnsChallengeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The DNS challenge records.
+   * The DNS Challenge record.
    */
   domainDnsChallenge?: GetDomainDnsChallengeResponseBodyDomainDnsChallenge;
   /**

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateBrandResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The brand ID.
+   * 
    * @example
    * brand_xxxx
    */
   brandId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

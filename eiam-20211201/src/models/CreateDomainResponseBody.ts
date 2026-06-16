@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Domain ID.
+   * The domain ID.
    * 
    * @example
    * dm_mtohn6mltdz3ibtly2rxvnvxxx

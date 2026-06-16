@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConditionalAccessPoliciesForUserRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListConditionalAccessPoliciesForUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 条件访问策略关联的用户ID
+   * The ID of the user associated with the conditional access policy.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceGlobalizationConfigResponseBodyGlobalizationConfig extends $dara.Model {
   /**
    * @remarks
-   * 语言
+   * The language.
    * 
    * @example
    * zh-Hans-CN
@@ -13,7 +13,7 @@ export class GetInstanceGlobalizationConfigResponseBodyGlobalizationConfig exten
   language?: string;
   /**
    * @remarks
-   * 时区
+   * The time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -43,8 +43,15 @@ export class GetInstanceGlobalizationConfigResponseBodyGlobalizationConfig exten
 }
 
 export class GetInstanceGlobalizationConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The language and time zone configuration for the instance.
+   */
   globalizationConfig?: GetInstanceGlobalizationConfigResponseBodyGlobalizationConfig;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

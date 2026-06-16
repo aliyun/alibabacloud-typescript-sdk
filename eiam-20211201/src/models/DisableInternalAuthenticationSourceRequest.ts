@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableInternalAuthenticationSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * 内部认证源ID，比如 ia_password, ia_otp_sms 等
+   * The ID of the internal authentication source.
    * 
    * @example
    * ia_password
@@ -13,7 +13,7 @@ export class DisableInternalAuthenticationSourceRequest extends $dara.Model {
   authenticationSourceId?: string;
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 

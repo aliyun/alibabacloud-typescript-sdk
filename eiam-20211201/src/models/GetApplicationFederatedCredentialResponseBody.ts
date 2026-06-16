@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialAttributeMappings extends $dara.Model {
   /**
    * @remarks
-   * 源值表达式
+   * The source value expression.
    * 
    * @example
    * Append(client.applicationFederatedCredentialId, ":", cert.subject.CN, ":", cert.serialNumber)
@@ -13,7 +13,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   sourceValueExpression?: string;
   /**
    * @remarks
-   * 目标字段
+   * The target field.
    * 
    * @example
    * client.activeSubjectUrn
@@ -45,7 +45,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredential extends $dara.Model {
   /**
    * @remarks
-   * 应用联邦凭证ID
+   * The ID of the application\\"s federated credential.
    * 
    * @example
    * afc_aaaaa1111
@@ -53,7 +53,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   applicationFederatedCredentialId?: string;
   /**
    * @remarks
-   * 应用联邦凭证名称
+   * The name of the application\\"s federated credential.
    * 
    * @example
    * test
@@ -61,7 +61,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   applicationFederatedCredentialName?: string;
   /**
    * @remarks
-   * 应用联邦凭证类型
+   * The type of the application\\"s federated credential.
    * 
    * @example
    * oidc
@@ -69,7 +69,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   applicationFederatedCredentialType?: string;
   /**
    * @remarks
-   * 应用ID
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -77,12 +77,12 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   applicationId?: string;
   /**
    * @remarks
-   * 属性映射
+   * The attribute mappings.
    */
   attributeMappings?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialAttributeMappings[];
   /**
    * @remarks
-   * 创建时间
+   * The time when the credential was created.
    * 
    * @example
    * 1758785994982
@@ -90,7 +90,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   createTime?: number;
   /**
    * @remarks
-   * 应用联邦凭证描述
+   * The description of the application\\"s federated credential.
    * 
    * @example
    * test
@@ -98,7 +98,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   description?: string;
   /**
    * @remarks
-   * 应用联邦凭证提供者ID
+   * The ID of the federated credential provider.
    * 
    * @example
    * fcp_asda1dasdxxxx
@@ -106,7 +106,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   federatedCredentialProviderId?: string;
   /**
    * @remarks
-   * EAIM 实例ID
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -114,7 +114,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   instanceId?: string;
   /**
    * @remarks
-   * 最近使用时间
+   * The time when the credential was last used.
    * 
    * @example
    * 1758785994982
@@ -122,7 +122,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   lastUsedTime?: number;
   /**
    * @remarks
-   * 应用联邦凭证状态
+   * The status of the application\\"s federated credential.
    * 
    * @example
    * enabled
@@ -130,7 +130,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   status?: string;
   /**
    * @remarks
-   * 更新时间
+   * The time when the credential was last updated.
    * 
    * @example
    * 1758785994982
@@ -138,7 +138,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   updateTime?: number;
   /**
    * @remarks
-   * 验证条件
+   * The verification condition.
    * 
    * @example
    * Equals(cert.subject.CN, "test")
@@ -193,8 +193,15 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 }
 
 export class GetApplicationFederatedCredentialResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The application federated credential object.
+   */
   applicationFederatedCredential?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredential;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

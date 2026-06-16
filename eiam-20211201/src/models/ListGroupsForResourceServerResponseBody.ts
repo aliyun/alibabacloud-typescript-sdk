@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForResourceServerResponseBodyGroupsResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * ResourceServerScope唯一标识
+   * The ID of the scope.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -13,10 +13,10 @@ export class ListGroupsForResourceServerResponseBodyGroupsResourceServerScopes e
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * ResourceServerScope名称
+   * The name of the scope.
    * 
    * @example
-   * 获取资源信息
+   * Read User Info
    */
   resourceServerScopeName?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListGroupsForResourceServerResponseBodyGroupsResourceServerScopes e
 export class ListGroupsForResourceServerResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * 用户组的唯一标识
+   * The ID of the group.
    * 
    * @example
    * group_nbsomva32b6utec3hgi7scxxxx
@@ -53,7 +53,7 @@ export class ListGroupsForResourceServerResponseBodyGroups extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * 实例唯一标识
+   * The ID of the instance.
    * 
    * @example
    * idaas_qsw77zl5vrllwzyrrfwbmpxxxx
@@ -61,7 +61,7 @@ export class ListGroupsForResourceServerResponseBodyGroups extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 资源服务Scope权限集合
+   * The list of authorized scopes.
    */
   resourceServerScopes?: ListGroupsForResourceServerResponseBodyGroupsResourceServerScopes[];
   static names(): { [key: string]: string } {
@@ -93,26 +93,39 @@ export class ListGroupsForResourceServerResponseBodyGroups extends $dara.Model {
 }
 
 export class ListGroupsForResourceServerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of groups.
+   */
   groups?: ListGroupsForResourceServerResponseBodyGroups[];
   /**
+   * @remarks
+   * The number of entries returned on the current page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token to retrieve the next page of results. A null or empty value indicates that all results have been returned.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries that meet the filter criteria.
+   * 
    * @example
    * 100
    */

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems extends $dara.Model {
   /**
    * @remarks
-   * 自定义条款名称
+   * The name of the custom privacy policy item.
    * 
    * @example
-   * xxxx隐私政策条款
+   * Custom Privacy Policy Name
    */
   customPrivacyPolicyItemName?: string;
   /**
    * @remarks
-   * 自定义条款访问地址
+   * The endpoint of the custom privacy policy item.
    * 
    * @example
    * http://www.xxxx.com
@@ -45,20 +45,20 @@ export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPr
 export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends $dara.Model {
   /**
    * @remarks
-   * 自定义条款项
+   * The items of the custom privacy policy.
    */
   customPrivacyPolicyItems?: CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems[];
   /**
    * @remarks
-   * 自定义条款提示
+   * The prompt for the custom privacy policy.
    * 
    * @example
-   * 登录视为同意此条款
+   * Please read and agree：
    */
   customPrivacyPolicyTip?: string;
   /**
    * @remarks
-   * 自定义条款所属语言
+   * The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -94,18 +94,21 @@ export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends
 
 export class CreateCustomPrivacyPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * A client token used to ensure the idempotence of the request. The client generates this value to make sure that it is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
+   * 
    * @example
    * client-token-example
    */
   clientToken?: string;
   /**
    * @remarks
-   * 自定义条款内容详情
+   * The details of the custom privacy policy content.
    */
   customPrivacyPolicyContents?: CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents[];
   /**
    * @remarks
-   * 自定义条款名称
+   * The name of the custom privacy policy.
    * 
    * This parameter is required.
    * 
@@ -115,7 +118,7 @@ export class CreateCustomPrivacyPolicyRequest extends $dara.Model {
   customPrivacyPolicyName?: string;
   /**
    * @remarks
-   * 默认条款语言，若其他语言未配置条款，则使用默认的
+   * The default language of the privacy policy.
    * 
    * @example
    * zh-Hans-CN
@@ -123,7 +126,7 @@ export class CreateCustomPrivacyPolicyRequest extends $dara.Model {
   defaultLanguageCode?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -133,7 +136,7 @@ export class CreateCustomPrivacyPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 自定义条款状态
+   * The status of the custom privacy policy.
    * 
    * @example
    * enabled
@@ -141,7 +144,7 @@ export class CreateCustomPrivacyPolicyRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 手动勾选同意，还是默认同意
+   * The consent type for the privacy policy.
    * 
    * @example
    * implied_consent

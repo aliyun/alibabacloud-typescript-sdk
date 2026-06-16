@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesConditionsConfigApplications extends $dara.Model {
   /**
    * @remarks
-   * 排除的应用
+   * The excluded applications.
    */
   excludeApplications?: string[];
   /**
    * @remarks
-   * 选择的应用
+   * The selected applications.
    */
   includeApplications?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
 export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones extends $dara.Model {
   /**
    * @remarks
-   * 排除的网络区域
+   * The excluded network zones.
    */
   excludeNetworkZones?: string[];
   /**
    * @remarks
-   * 选择的网络区域
+   * The selected network zones.
    */
   includeNetworkZones?: string[];
   static names(): { [key: string]: string } {
@@ -85,32 +85,32 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
 export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesConditionsConfigUsers extends $dara.Model {
   /**
    * @remarks
-   * 排除的用户组
+   * The excluded user groups.
    */
   excludeGroups?: string[];
   /**
    * @remarks
-   * 排除的组织
+   * The excluded organizations.
    */
   excludeOrganizationalUnits?: string[];
   /**
    * @remarks
-   * 排除的用户
+   * The excluded users.
    */
   excludeUsers?: string[];
   /**
    * @remarks
-   * 选择的用户组
+   * The selected user groups.
    */
   includeGroups?: string[];
   /**
    * @remarks
-   * 选择的组织
+   * The selected organizations.
    */
   includeOrganizationalUnits?: string[];
   /**
    * @remarks
-   * 选择的用户
+   * The selected users.
    */
   includeUsers?: string[];
   static names(): { [key: string]: string } {
@@ -165,17 +165,17 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
 export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesConditionsConfig extends $dara.Model {
   /**
    * @remarks
-   * 条件访问策略目标应用
+   * The target applications of the conditional access policy.
    */
   applications?: ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesConditionsConfigApplications;
   /**
    * @remarks
-   * 条件访问策略网络区域
+   * The network zones of the conditional access policy.
    */
   networkZones?: ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones;
   /**
    * @remarks
-   * 条件访问策略目标用户
+   * The target users of the conditional access policy.
    */
   users?: ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesConditionsConfigUsers;
   static names(): { [key: string]: string } {
@@ -214,13 +214,16 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
 
 export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesDecisionConfig extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether session reuse is enabled.
+   * 
    * @example
    * disabled
    */
   activeSessionReuseStatus?: string;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略决策Action
+   * The effect of the policy.
    * 
    * @example
    * allow
@@ -228,7 +231,7 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   effect?: string;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略重复认证时间间隔(秒)
+   * The re-authentication interval of the conditional access policy, in seconds.
    * 
    * @example
    * 300
@@ -236,12 +239,12 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   mfaAuthenticationIntervalSeconds?: number;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略允许使用的mfa类型
+   * The collection of MFA methods allowed by the conditional access policy.
    */
   mfaAuthenticationMethods?: string[];
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略Mfa类型
+   * The multi-factor authentication (MFA) type of the conditional access policy.
    * 
    * @example
    * directly_access
@@ -282,7 +285,7 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
 export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPolicies extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略Id
+   * The conditional access policy ID.
    * 
    * @example
    * cap_m5etun43kejxphsbke6mjxxxxx
@@ -290,12 +293,15 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   conditionalAccessPolicyId?: string;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略名称
+   * The name of the conditional access policy.
+   * 
+   * @example
+   * myPolicy
    */
   conditionalAccessPolicyName?: string;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略类型
+   * The type of the conditional access policy.
    * 
    * @example
    * arn:alibaba:idaas:authn:access:policy:system
@@ -303,12 +309,12 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   conditionalAccessPolicyType?: string;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略内容
+   * The content of the conditional access policy.
    */
   conditionsConfig?: ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesConditionsConfig;
   /**
    * @remarks
-   * 创建时间
+   * The creation time.
    * 
    * @example
    * 1741857554000
@@ -316,12 +322,12 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   createTime?: number;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略执行Action
+   * The execution configuration of the conditional access policy.
    */
   decisionConfig?: ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPoliciesDecisionConfig;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略执行类型
+   * The execution type of the conditional access policy.
    * 
    * @example
    * enforcement
@@ -329,12 +335,15 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   decisionType?: string;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略描述
+   * The description of the conditional access policy.
+   * 
+   * @example
+   * policyTest
    */
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略执行点
+   * The policy enforcement point.
    * 
    * @example
    * arn:alibaba:idaas:authn:access:rule:eval_at:after_step1
@@ -342,7 +351,7 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   evaluateAt?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_oynbcyaaejuik6b37eldzxxxxx
@@ -350,7 +359,7 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   instanceId?: string;
   /**
    * @remarks
-   * 更新时间
+   * The update time.
    * 
    * @example
    * 1741857554000
@@ -358,7 +367,7 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   lastUpdatedTime?: number;
   /**
    * @remarks
-   * 优先级
+   * The priority.
    * 
    * @example
    * 100
@@ -366,7 +375,7 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
   priority?: number;
   /**
    * @remarks
-   * IDaaS EIAM 条件访问策略启用禁用状态
+   * The status of the conditional access policy.
    * 
    * @example
    * disabled
@@ -424,8 +433,15 @@ export class ListConditionalAccessPoliciesForApplicationResponseBodyConditionalA
 }
 
 export class ListConditionalAccessPoliciesForApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of conditional access policies.
+   */
   conditionalAccessPolicies?: ListConditionalAccessPoliciesForApplicationResponseBodyConditionalAccessPolicies[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

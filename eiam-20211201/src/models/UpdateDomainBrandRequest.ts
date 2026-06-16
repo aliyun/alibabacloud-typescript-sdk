@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDomainBrandRequest extends $dara.Model {
   /**
    * @remarks
+   * The brand ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class UpdateDomainBrandRequest extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * 域名ID。
+   * The domain name ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +25,7 @@ export class UpdateDomainBrandRequest extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

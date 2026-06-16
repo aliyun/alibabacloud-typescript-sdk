@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenarios extends $dara.Model {
   /**
    * @remarks
-   * 有帮助的控制台地址，可以管理对应的资源，从而解除实例删除限制。可能返回为空，不一定所有的资源ID都有管理地址返回。
+   * The URL of a helpful console page.
    * 
    * @example
    * https://console-rpa.aliyun.com/
@@ -13,7 +13,7 @@ export class CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenar
   helpfulConsoleUrl?: string;
   /**
    * @remarks
-   * 导致实例删除受限的资源ID。
+   * The resource ID.
    * 
    * @example
    * eas-r-nguosqgr75ndg784k8
@@ -21,7 +21,7 @@ export class CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenar
   resourceId?: string;
   /**
    * @remarks
-   * 针对实例删除受限的原因文字描述。
+   * The reason for the restriction.
    * 
    * @example
    * cloud_product_dependency
@@ -55,7 +55,7 @@ export class CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenar
 export class CheckInstanceForDeleteResponseBodyCheckInstanceResult extends $dara.Model {
   /**
    * @remarks
-   * true表示实例可以被删除；false表示实例不可被删除，具体查看RestrictScenarios属性。
+   * Indicates whether the instance can be deleted.
    * 
    * @example
    * True
@@ -63,7 +63,7 @@ export class CheckInstanceForDeleteResponseBodyCheckInstanceResult extends $dara
   deletable?: boolean;
   /**
    * @remarks
-   * true表示实例可以被删除；false表示实例不可被删除，具体查看RestrictScenarios属性。
+   * The restriction information that prevents deletion.
    */
   restrictScenarios?: CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenarios[];
   static names(): { [key: string]: string } {
@@ -93,8 +93,15 @@ export class CheckInstanceForDeleteResponseBodyCheckInstanceResult extends $dara
 }
 
 export class CheckInstanceForDeleteResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   checkInstanceResult?: CheckInstanceForDeleteResponseBodyCheckInstanceResult;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

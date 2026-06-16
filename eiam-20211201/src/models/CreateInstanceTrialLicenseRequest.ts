@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceTrialLicenseRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 

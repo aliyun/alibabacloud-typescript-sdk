@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * 授权生效结束时间。
+   * The end time of the validity period. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod extend
   endTime?: number;
   /**
    * @remarks
-   * 授权生效开始时间。
+   * The start time of the validity period. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -45,7 +45,7 @@ export class ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod extend
 export class ListUsersForAuthorizationRuleResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * 实例ID。
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -53,7 +53,7 @@ export class ListUsersForAuthorizationRuleResponseBodyUsers extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * 账户标识。
+   * The account ID.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -61,12 +61,16 @@ export class ListUsersForAuthorizationRuleResponseBodyUsers extends $dara.Model 
   userId?: string;
   /**
    * @remarks
-   * 有效周期。
+   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
    */
   validityPeriod?: ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod;
   /**
    * @remarks
-   * 有效期类型，枚举值：permanent（永久），time_bound（自定义时间范围）。
+   * The type of the validity period for the relationship. Valid values:
+   * 
+   * - permanent: permanent
+   * 
+   * - time_bound: custom time range
    * 
    * @example
    * permanent
@@ -105,7 +109,7 @@ export class ListUsersForAuthorizationRuleResponseBodyUsers extends $dara.Model 
 export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -113,22 +117,32 @@ export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token returned from the current call. Use this token to start the next paged query.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of accounts.
+   */
   users?: ListUsersForAuthorizationRuleResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class RunSynchronizationJobRequestSynchronizationScopeConfig extends $dara.Model {
   /**
    * @remarks
-   * The group IDs.
+   * The list of group IDs.
    */
   groupIds?: string[];
   /**
    * @remarks
-   * The IDs of organizational units.
+   * The list of organizational unit IDs.
    */
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * UserIds
+   * The list of user IDs.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -55,10 +55,10 @@ export class RunSynchronizationJobRequestSynchronizationScopeConfig extends $dar
 export class RunSynchronizationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * Synchronization task description
+   * The description of the synchronization task.
    * 
    * @example
-   * 描述
+   * description_text
    */
   description?: string;
   /**
@@ -73,7 +73,7 @@ export class RunSynchronizationJobRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Whether initialize password
+   * Specifies whether to initialize the password.
    * 
    * @example
    * true
@@ -81,12 +81,12 @@ export class RunSynchronizationJobRequest extends $dara.Model {
   passwordInitialization?: boolean;
   /**
    * @remarks
-   * Synchronization scope
+   * The configuration of the synchronization scope.
    */
   synchronizationScopeConfig?: RunSynchronizationJobRequestSynchronizationScopeConfig;
   /**
    * @remarks
-   * The ID of the synchronization destination.
+   * The ID of the synchronization target.
    * 
    * This parameter is required.
    * 
@@ -96,10 +96,11 @@ export class RunSynchronizationJobRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The type of the synchronization destination. Valid values:
+   * The type of the synchronization target. Valid values:
    * 
-   * *   identity_provider
-   * *   application
+   * - identity_provider: The identity provider.
+   * 
+   * - application: The application.
    * 
    * This parameter is required.
    * 
@@ -109,7 +110,7 @@ export class RunSynchronizationJobRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * User identity types
+   * The list of unique user identifiers.
    */
   userIdentityTypes?: string[];
   static names(): { [key: string]: string } {

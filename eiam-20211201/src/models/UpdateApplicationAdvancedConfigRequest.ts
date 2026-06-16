@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig extends $dara.Model {
   /**
    * @remarks
-   * 支持的用户自定义字段ID列表。
+   * A list of IDs of supported custom user fields.
    */
   supportedUserCustomFieldIds?: string[];
   /**
    * @remarks
-   * 用户扩展字段的命名空间。
+   * The namespace of the user extension fields.
    * 
    * @example
    * urn:ietf:params:scim:schemas:extension:customfield:2.0:User
@@ -45,7 +45,7 @@ export class UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig exte
 export class UpdateApplicationAdvancedConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class UpdateApplicationAdvancedConfigRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class UpdateApplicationAdvancedConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Scim Server 高阶配置
+   * The advanced configuration of the SCIM server.
    */
   scimServerAdvancedConfig?: UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig;
   static names(): { [key: string]: string } {

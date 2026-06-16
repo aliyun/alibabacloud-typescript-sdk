@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResultErrorReason extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * AuthenticationFail.NoPermission
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * There is no permission.
    */
@@ -37,13 +43,27 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
 }
 
 export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResult extends $dara.Model {
+  /**
+   * @remarks
+   * The reason for the error. This field is returned when the health check status is unhealthy.
+   */
   errorReason?: ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResultErrorReason;
   /**
+   * @remarks
+   * The time of the last health check. This is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1649830226000
    */
   lastCheckTime?: number;
   /**
+   * @remarks
+   * The result of the health check. Valid values:
+   * 
+   * - success: The check was successful.
+   * 
+   * - failed: The check failed.
+   * 
    * @example
    * success
    */
@@ -79,7 +99,7 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
 export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   /**
    * @remarks
-   * 云账号外部唯一ID
+   * The external unique ID of the Alibaba Cloud account.
    * 
    * @example
    * 1234567
@@ -87,16 +107,26 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountExternalId?: string;
   /**
    * @remarks
-   * 云账号可用性
+   * The health check status of the Alibaba Cloud account. Valid values:
+   * 
+   * - healthy: The account is healthy.
+   * 
+   * - unhealthy: The account is unhealthy.
+   * 
+   * - unknown: The status is unknown.
    * 
    * @example
    * healthy
    */
   cloudAccountHealth?: string;
+  /**
+   * @remarks
+   * The result of the health check for the Alibaba Cloud account.
+   */
   cloudAccountHealthCheckResult?: ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResult;
   /**
    * @remarks
-   * 云账号ID
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -104,7 +134,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * 云账号名称
+   * The name of the Alibaba Cloud account.
    * 
    * @example
    * cloud_accout_xxxx
@@ -112,7 +142,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountName?: string;
   /**
    * @remarks
-   * 云账号提供商名称
+   * The name of the identity provider.
    * 
    * @example
    * idaas-eiam-oidc-provider
@@ -120,20 +150,25 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountProviderName?: string;
   /**
    * @remarks
-   * 云账号类别
+   * The type of the Alibaba Cloud account. Valid values:
+   * 
+   * - alibaba_cloud: Alibaba Cloud
    * 
    * @example
    * alibaba_cloud
    */
   cloudAccountVendorType?: string;
   /**
+   * @remarks
+   * The time when the account was created. This is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1649830225000
    */
   createTime?: number;
   /**
    * @remarks
-   * 云账号描述
+   * The description of the Alibaba Cloud account.
    * 
    * @example
    * cloud_accout_description
@@ -141,13 +176,16 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * IDaaS EIAM 实例Id
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The time when the account was last updated. This is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1649830227000
    */
@@ -197,10 +235,14 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
 }
 
 export class ListCloudAccountsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Alibaba Cloud accounts.
+   */
   cloudAccounts?: ListCloudAccountsResponseBodyCloudAccounts[];
   /**
    * @remarks
-   * 分页查询时每页行数。
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -208,18 +250,24 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 本次调用返回的查询凭证（Token）值，用于下一次翻页查询。
+   * The token returned from this call.
    * 
    * @example
    * NTxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

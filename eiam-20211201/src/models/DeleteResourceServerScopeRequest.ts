@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceServerScopeRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteResourceServerScopeRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteResourceServerScopeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * ResourceServer下Scope唯一标识。
+   * The ID of the scope permission.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * 应用角色标识。
+   * The ID of the application role.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -35,7 +35,7 @@ export class ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplic
 export class ListApplicationsForOrganizationalUnitResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application that the EIAM organization can access.
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -43,7 +43,7 @@ export class ListApplicationsForOrganizationalUnitResponseBodyApplications exten
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色列表。
+   * A list of application roles.
    */
   applicationRoles?: ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplicationRoles[];
   static names(): { [key: string]: string } {
@@ -75,12 +75,12 @@ export class ListApplicationsForOrganizationalUnitResponseBodyApplications exten
 export class ListApplicationsForOrganizationalUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The applications that the EIAM organization can access.
+   * A list of applications that are granted access.
    */
   applications?: ListApplicationsForOrganizationalUnitResponseBodyApplications[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -88,7 +88,7 @@ export class ListApplicationsForOrganizationalUnitResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of the returned entries.
+   * The total number of entries.
    * 
    * @example
    * 100

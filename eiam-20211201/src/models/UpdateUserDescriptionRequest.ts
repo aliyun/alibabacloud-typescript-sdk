@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the account. The value can be up to 256 characters in length.
+   * The description. The maximum length is 256 characters.
    * 
    * @example
    * this is a test.
@@ -23,7 +23,7 @@ export class UpdateUserDescriptionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the account.
+   * The ID of the user.
    * 
    * This parameter is required.
    * 

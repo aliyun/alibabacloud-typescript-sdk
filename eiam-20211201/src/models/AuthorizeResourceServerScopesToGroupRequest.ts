@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeResourceServerScopesToGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用资源ID。
+   * The ID of the ResourceServer application.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class AuthorizeResourceServerScopesToGroupRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * A client-generated token that you must make unique among different requests to ensure idempotence. ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,7 +25,7 @@ export class AuthorizeResourceServerScopesToGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 组ID。
+   * The group ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +35,7 @@ export class AuthorizeResourceServerScopesToGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +45,7 @@ export class AuthorizeResourceServerScopesToGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * ResourceServer权限ID。
+   * A list of Scope permission IDs under the ResourceServer.
    * 
    * This parameter is required.
    * 

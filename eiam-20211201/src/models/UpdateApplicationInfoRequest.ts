@@ -66,7 +66,7 @@ export class UpdateApplicationInfoRequestCustomFields extends $dara.Model {
 export class UpdateApplicationInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * IDaaS的应用主键id
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -76,15 +76,22 @@ export class UpdateApplicationInfoRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用的表示名称
+   * The application name.
    * 
    * @example
    * Ram Account SSO
    */
   applicationName?: string;
   applicationOwner?: UpdateApplicationInfoRequestApplicationOwner;
+  /**
+   * @remarks
+   * The collection of application visibility settings.
+   */
   applicationVisibility?: string[];
   /**
+   * @remarks
+   * The idempotent token.
+   * 
    * @example
    * client-token-example
    */
@@ -92,7 +99,7 @@ export class UpdateApplicationInfoRequest extends $dara.Model {
   customFields?: UpdateApplicationInfoRequestCustomFields[];
   /**
    * @remarks
-   * IDaaS EIAM的实例id
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -102,7 +109,7 @@ export class UpdateApplicationInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 应用Logo地址
+   * The URL of the application logo.
    * 
    * @example
    * https://example.aliyuncs.com/logo.png

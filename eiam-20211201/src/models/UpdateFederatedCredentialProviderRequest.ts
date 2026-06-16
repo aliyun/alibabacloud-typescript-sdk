@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateFederatedCredentialProviderRequestOidcProviderConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of audiences.
+   */
   audiences?: string[];
   /**
    * @remarks
-   * Jwks来源
+   * The source of the JSON Web Key Set (JWKS).
    * 
    * This parameter is required.
    * 
@@ -16,7 +20,7 @@ export class UpdateFederatedCredentialProviderRequestOidcProviderConfig extends 
   jwksSource?: string;
   /**
    * @remarks
-   * JWKS 端点
+   * JWKS endpoint
    * 
    * @example
    * https://example.com/jwks
@@ -24,7 +28,7 @@ export class UpdateFederatedCredentialProviderRequestOidcProviderConfig extends 
   jwksUri?: string;
   /**
    * @remarks
-   * 静态获取的jwks
+   * The statically obtained JWKS.
    * 
    * @example
    * {
@@ -42,7 +46,7 @@ export class UpdateFederatedCredentialProviderRequestOidcProviderConfig extends 
   staticJwks?: string;
   /**
    * @remarks
-   * 信任条件
+   * The trust condition.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -83,7 +87,7 @@ export class UpdateFederatedCredentialProviderRequestOidcProviderConfig extends 
 export class UpdateFederatedCredentialProviderRequestPkcs7ProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * Root证书内容
+   * The content of the root certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -115,12 +119,12 @@ export class UpdateFederatedCredentialProviderRequestPkcs7ProviderConfigCertific
 export class UpdateFederatedCredentialProviderRequestPkcs7ProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * pkcs7证书列表
+   * The list of PKCS7 certificates.
    */
   certificates?: UpdateFederatedCredentialProviderRequestPkcs7ProviderConfigCertificates[];
   /**
    * @remarks
-   * CMS验证模式
+   * The Cryptographic Message Syntax (CMS) verification mode.
    * 
    * @example
    * cert
@@ -128,20 +132,23 @@ export class UpdateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * 签名有效期, 单位秒，1200
+   * The validity period of the signature.
    * 
    * @example
    * 1200
    */
   signatureEffectiveTime?: number;
   /**
+   * @remarks
+   * The expression to obtain the signing time.
+   * 
    * @example
    * pkcs7.signingTime
    */
   signingTimeValueExpression?: string;
   /**
    * @remarks
-   * 证书信任锚点来源
+   * The source of the certificate trust anchor.
    * 
    * This parameter is required.
    * 
@@ -151,7 +158,7 @@ export class UpdateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   trustAnchorSource?: string;
   /**
    * @remarks
-   * 信任条件
+   * The trust condition.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -194,7 +201,7 @@ export class UpdateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
 export class UpdateFederatedCredentialProviderRequestPrivateCaProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * Root证书内容
+   * The content of the root certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -226,12 +233,12 @@ export class UpdateFederatedCredentialProviderRequestPrivateCaProviderConfigCert
 export class UpdateFederatedCredentialProviderRequestPrivateCaProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * Root证书列表
+   * The list of root certificates.
    */
   certificates?: UpdateFederatedCredentialProviderRequestPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * Root证书获取方式
+   * The method to obtain the root certificate.
    * 
    * This parameter is required.
    * 
@@ -241,7 +248,7 @@ export class UpdateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
   trustAnchorSource?: string;
   /**
    * @remarks
-   * Root证书的信任条件
+   * The trust condition for the root certificate.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -278,7 +285,7 @@ export class UpdateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
 export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * 联邦凭证提供方ID
+   * The ID of the federated credential provider.
    * 
    * This parameter is required.
    * 
@@ -288,7 +295,7 @@ export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   federatedCredentialProviderId?: string;
   /**
    * @remarks
-   * 联邦凭证提供方名称
+   * The name of the federated credential provider.
    * 
    * This parameter is required.
    * 
@@ -298,7 +305,7 @@ export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   federatedCredentialProviderName?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -308,7 +315,7 @@ export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 网络端点ID
+   * The ID of the network access endpoint.
    * 
    * @example
    * nae_public
@@ -316,17 +323,17 @@ export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * OIDC配置
+   * The OpenID Connect (OIDC) configuration.
    */
   oidcProviderConfig?: UpdateFederatedCredentialProviderRequestOidcProviderConfig;
   /**
    * @remarks
-   * PKCS7配置
+   * The PKCS7 configuration.
    */
   pkcs7ProviderConfig?: UpdateFederatedCredentialProviderRequestPkcs7ProviderConfig;
   /**
    * @remarks
-   * 私有CA配置
+   * The configuration of the private certificate authority (CA).
    */
   privateCaProviderConfig?: UpdateFederatedCredentialProviderRequestPrivateCaProviderConfig;
   static names(): { [key: string]: string } {

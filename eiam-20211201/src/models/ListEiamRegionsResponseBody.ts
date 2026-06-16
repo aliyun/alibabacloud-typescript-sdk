@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListEiamRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The region name.
+   * The name of the region.
    * 
    * @example
-   * China (Hangzhou)
+   * 华东1（杭州）
    */
   localName?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +45,7 @@ export class ListEiamRegionsResponseBodyRegions extends $dara.Model {
 export class ListEiamRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The region list.
+   * The list of regions.
    */
   regions?: ListEiamRegionsResponseBodyRegions[];
   /**

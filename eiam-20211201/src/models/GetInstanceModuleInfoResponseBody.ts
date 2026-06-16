@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceModuleInfoResponseBodyModuleFeatures extends $dara.Model {
   /**
    * @remarks
-   * 二级模块标识
+   * The identifier of the secondary module.
    * 
    * @example
    * urn:alibaba:idaas:license:module:application:standard:oidc
@@ -13,7 +13,7 @@ export class GetInstanceModuleInfoResponseBodyModuleFeatures extends $dara.Model
   featureKey?: string;
   /**
    * @remarks
-   * 二级模块状态
+   * The status of the secondary module.
    * 
    * @example
    * enabled
@@ -45,12 +45,12 @@ export class GetInstanceModuleInfoResponseBodyModuleFeatures extends $dara.Model
 export class GetInstanceModuleInfoResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * 二级模块信息
+   * The information about the secondary modules.
    */
   features?: GetInstanceModuleInfoResponseBodyModuleFeatures[];
   /**
    * @remarks
-   * 模块状态
+   * The identifier of the primary module.
    * 
    * @example
    * urn:alibaba:idaas:license:module:application
@@ -58,7 +58,7 @@ export class GetInstanceModuleInfoResponseBodyModule extends $dara.Model {
   moduleKey?: string;
   /**
    * @remarks
-   * 一级模块状态
+   * The status of the primary module.
    * 
    * @example
    * enabled
@@ -93,8 +93,15 @@ export class GetInstanceModuleInfoResponseBodyModule extends $dara.Model {
 }
 
 export class GetInstanceModuleInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance information.
+   */
   module?: GetInstanceModuleInfoResponseBodyModule;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */

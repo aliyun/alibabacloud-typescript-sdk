@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBrandRequest extends $dara.Model {
   /**
    * @remarks
-   * 品牌化名称
+   * The brand name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateBrandRequest extends $dara.Model {
   brandName?: string;
   /**
    * @remarks
-   * IDaaS EIAM实例的ID。
+   * The instance ID.
    * 
    * This parameter is required.
    * 

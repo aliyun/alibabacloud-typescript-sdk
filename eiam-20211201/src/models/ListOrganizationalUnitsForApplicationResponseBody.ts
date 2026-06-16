@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * 应用角色标识。
+   * The ID of the application role.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -35,12 +35,12 @@ export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnit
 export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnits extends $dara.Model {
   /**
    * @remarks
-   * 应用角色列表。
+   * The list of application roles.
    */
   applicationRoles?: ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles[];
   /**
    * @remarks
-   * The ID of the organization that is allowed to access the application.
+   * The organization ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -75,12 +75,12 @@ export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnit
 export class ListOrganizationalUnitsForApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the organizations that are allowed to access the application.
+   * The list of organizations.
    */
   organizationalUnits?: ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnits[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -88,7 +88,7 @@ export class ListOrganizationalUnitsForApplicationResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of the returned entries.
+   * The total number of entries.
    * 
    * @example
    * 100

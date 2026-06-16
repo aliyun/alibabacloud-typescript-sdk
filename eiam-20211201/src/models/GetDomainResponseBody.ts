@@ -5,8 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetDomainResponseBodyDomainFiling extends $dara.Model {
   /**
    * @remarks
-   * <notice>The ICP filing number is only applicable for services in the China region.  For non-China regions, no validation or display of this record number will be performed.</notice>
-   * The ICP filing number associated with the domain name, with a maximum length of 64 characters.
+   * The ICP filing number that is associated with the domain name. The ICP filing number can be for an entity or a website.
+   * 
+   * @example
+   * xICPxxxxxx-xx
    */
   icpNumber?: string;
   static names(): { [key: string]: string } {
@@ -31,10 +33,17 @@ export class GetDomainResponseBodyDomainFiling extends $dara.Model {
 }
 
 export class GetDomainResponseBodyDomain extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the brand.
+   * 
+   * @example
+   * brand_xxxxx
+   */
   brandId?: string;
   /**
    * @remarks
-   * The start time when the change order was created.
+   * The time when the domain name was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -42,7 +51,7 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Whether it is the default domain.
+   * Specifies whether the domain name is the default domain name.
    * 
    * @example
    * false
@@ -50,7 +59,7 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
   defaultDomain?: boolean;
   /**
    * @remarks
-   * The domain.
+   * The domain name.
    * 
    * @example
    * login.example.com
@@ -58,7 +67,7 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Domain ID.
+   * The ID of the domain name.
    * 
    * @example
    * dm_examplexxxxx
@@ -68,8 +77,9 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
    * @remarks
    * The type of the domain name. Valid values:
    * 
-   * *   **system_init**: Initialize domain
-   * *   **user_custom**: user custom domain
+   * - system_init: The initial domain name.
+   * 
+   * - user_custom: A custom domain name.
    * 
    * @example
    * system_init
@@ -77,12 +87,12 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
   domainType?: string;
   /**
    * @remarks
-   * Domain registration information.
+   * The ICP filing information about the domain name.
    */
   filing?: GetDomainResponseBodyDomainFiling;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -90,10 +100,11 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The lock status of the instance. Valid values:
+   * The lock status of the domain name. Valid values:
    * 
-   * *   **Unlock**: The instance is normal.
-   * *   **lockByLicense**: Not available due to license restrictions.
+   * - unlock: Normal.
+   * 
+   * - lockByLicense: The domain name is unavailable due to license restrictions.
    * 
    * @example
    * unlock
@@ -101,7 +112,7 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The time when the service was updated.
+   * The time when the domain name was last updated. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -152,7 +163,7 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
 export class GetDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The domain name.
+   * The domain name object.
    */
   domain?: GetDomainResponseBodyDomain;
   /**

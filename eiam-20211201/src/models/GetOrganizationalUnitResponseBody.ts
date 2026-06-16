@@ -16,7 +16,7 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
    * The description of the organizational unit.
    * 
    * @example
-   * Test organizational unit
+   * Test organization
    */
   description?: string;
   /**
@@ -75,10 +75,13 @@ export class GetOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.M
    * @remarks
    * The source type of the organizational unit. Valid values:
    * 
-   * *   build_in: The organizational unit was created in IDaaS.
-   * *   ding_talk: The organizational unit was imported from DingTalk.
-   * *   ad: The organizational unit was imported from Microsoft Active Directory (AD).
-   * *   ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
+   * - build_in: The organizational unit was created in IDaaS.
+   * 
+   * - ding_talk: The organizational unit was imported from DingTalk.
+   * 
+   * - ad: The organizational unit was imported from Microsoft Active Directory (AD).
+   * 
+   * - ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
    * 
    * @example
    * build_in

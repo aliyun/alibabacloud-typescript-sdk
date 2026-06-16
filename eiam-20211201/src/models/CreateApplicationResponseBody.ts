@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
-   * app_mkv7rgt4d7i4u7zqtzev2mnkom
+   * app_mkv7rgt4d7i4u7zqtzev2xxxx
    */
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
