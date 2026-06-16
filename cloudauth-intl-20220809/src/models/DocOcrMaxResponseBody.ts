@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DocOcrMaxResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Card and document recognition result	Only returned when the interface response is successful
+   * The card and certificate recognition result. This parameter is returned only when the API response is successful.
    * 
    * @example
    * {
@@ -27,10 +27,10 @@ export class DocOcrMaxResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * Whether the authentication passed.
+   * Indicates whether the authentication is passed. Valid values:
    * 
-   * - Y: Passed.
-   * - N: Not passed.
+   * - Y: passed.
+   * - N: not passed.
    * 
    * @example
    * Y
@@ -38,7 +38,7 @@ export class DocOcrMaxResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Sub-result code.
+   * The sub-result code.
    * 
    * @example
    * 200
@@ -46,7 +46,7 @@ export class DocOcrMaxResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * Authentication ID
+   * The authentication ID.
    * 
    * @example
    * hk573be80f944d95ac812e0*******a8
@@ -82,7 +82,7 @@ export class DocOcrMaxResponseBodyResult extends $dara.Model {
 export class DocOcrMaxResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The response code.
    * 
    * @example
    * Success
@@ -90,7 +90,7 @@ export class DocOcrMaxResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message
+   * The response message.
    * 
    * @example
    * success
@@ -98,7 +98,7 @@ export class DocOcrMaxResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 4EB35****87EBA1
@@ -106,7 +106,7 @@ export class DocOcrMaxResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result
+   * The returned result.
    */
   result?: DocOcrMaxResponseBodyResult;
   static names(): { [key: string]: string } {

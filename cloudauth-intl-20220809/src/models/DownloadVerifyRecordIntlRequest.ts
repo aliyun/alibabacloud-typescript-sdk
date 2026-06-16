@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadVerifyRecordIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Business type:
+   * The business type. Valid values:
    * - INVOKE_STATISTICS
-   * - INVOKE_RECORD
+   * - INVOKE_RECORD.
    * 
    * @example
    * INVOKE_RECORD
@@ -15,7 +15,7 @@ export class DownloadVerifyRecordIntlRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Query code.
+   * The query code.
    * 
    * @example
    * vrf_intl_verify_record_real_id_idv_invoke_statistics_query
@@ -23,10 +23,10 @@ export class DownloadVerifyRecordIntlRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Download mode:
+   * The download mode. Valid values:
    * 
-   * - **async**: Asynchronous
-   * - **sync**: Synchronous
+   * - **async**: asynchronous
+   * - **sync**: synchronous.
    * 
    * @example
    * async
@@ -34,7 +34,7 @@ export class DownloadVerifyRecordIntlRequest extends $dara.Model {
   downloadMode?: string;
   /**
    * @remarks
-   * Parameters related to the export and download query task.
+   * The parameters for the export and download query task.
    * 
    * @example
    * {\\"productCode\\":\\"FACE_LIVENESS\\",\\"startDs\\":\\"20251121\\",\\"endDs\\":\\"20251128\\",\\"language\\":\\"en\\"}
@@ -42,7 +42,7 @@ export class DownloadVerifyRecordIntlRequest extends $dara.Model {
   param?: string;
   /**
    * @remarks
-   * Product Code.
+   * The product code.
    * 
    * @example
    * KYC

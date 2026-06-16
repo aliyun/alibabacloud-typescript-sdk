@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   /**
+   * @remarks
+   * The overall quality score.
+   * 
    * @example
    * 39.04
    */
   faceQualityScore?: number;
   /**
+   * @remarks
+   * The illumination score.
+   * 
    * @example
    * 0.02
    */
   illuminationScore?: number;
   /**
+   * @remarks
+   * The key area occlusion score.
+   * 
    * @example
    * 20
    */
   kaOcclusionScore?: number;
   /**
+   * @remarks
+   * The occlusion score.
+   * 
    * @example
    * 50.26
    */
   occlusionScore?: number;
   /**
+   * @remarks
+   * The sharpness score.
+   * 
    * @example
    * 86.47
    */
@@ -58,10 +73,14 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
 }
 
 export class FaceCompareResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The additional result information.
+   */
   extFaceInfo?: FaceCompareResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The face comparison score. The value ranges from 0 to 100.
+   * The comparison score between the submitted face image and the reference face image during verification. Value range: **0** to **100**.
    * 
    * @example
    * 98
@@ -69,11 +88,10 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
   faceComparisonScore?: number;
   /**
    * @remarks
-   * The final authentication result. Valid values:
+   * Indicates whether the verification passed.
    * 
-   * - **Y**: The authentication is passed.
-   * 
-   * - **N**: The authentication failed.
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * Y
@@ -81,7 +99,7 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * The transaction ID.
+   * The unique ID of the verification request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -120,7 +138,10 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
 export class FaceCompareResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The [response code](https://www.alibabacloud.com/help/en/ekyc/latest/facecompare?spm=a3c0i.23458820.2359477120.28.21167d3fzUmXQC#c43fd16d07mae).
+   * The response code.
+   * 
+   * 200: The request was successful.
+   * Other values: An error occurred. For more information, see error codes.
    * 
    * @example
    * 200
@@ -128,7 +149,7 @@ export class FaceCompareResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The detailed description of the response code.
+   * The response message.
    * 
    * @example
    * success
@@ -144,7 +165,7 @@ export class FaceCompareResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result object
+   * The returned result.
    */
   result?: FaceCompareResponseBodyResult;
   static names(): { [key: string]: string } {

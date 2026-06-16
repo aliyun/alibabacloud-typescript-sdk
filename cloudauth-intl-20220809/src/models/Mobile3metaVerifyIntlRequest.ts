@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile3MetaVerifyIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * ID number
+   * The ID card number.
    * 
-   * - When paramType is set to normal, enter the plaintext
-   * - When paramType is set to md5, enter a 32-character lowercase md5 string
+   * - If ParamType is set to normal, enter the plaintext value.
+   * - If ParamType is set to md5, enter a 32-character lowercase MD5 string.
    * 
    * @example
    * 429001********8211
@@ -16,10 +16,10 @@ export class Mobile3MetaVerifyIntlRequest extends $dara.Model {
   identifyNum?: string;
   /**
    * @remarks
-   * Mobile phone number.
+   * The phone number.
    * 
-   * - When paramType is set to normal, enter the plaintext
-   * - When paramType is set to md5, enter a 32-character lowercase md5 string
+   * - If ParamType is set to normal, enter the plaintext value.
+   * - If ParamType is set to md5, enter a 32-character lowercase MD5 string.
    * 
    * @example
    * 186****1234
@@ -27,10 +27,10 @@ export class Mobile3MetaVerifyIntlRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Parameter type:
+   * The parameter type. Valid values:
    * 
-   * - normal: unencrypted
-   * - md5: md5 encrypted
+   * - normal: not encrypted
+   * - md5: MD5-encrypted.
    * 
    * @example
    * normal
@@ -38,7 +38,7 @@ export class Mobile3MetaVerifyIntlRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * The product solution to be integrated, with a fixed value: MOBILE_3META
+   * The product solution code. Fixed value: MOBILE_3META.
    * 
    * @example
    * MOBILE_3META
@@ -46,10 +46,10 @@ export class Mobile3MetaVerifyIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Name
+   * The name.
    * 
-   * - When paramType is set to normal, enter the plaintext
-   * - When paramType is set to md5, enter a 32-character lowercase md5 string
+   * - If ParamType is set to normal, enter the plaintext value.
+   * - If ParamType is set to md5, enter a 32-character lowercase MD5 string.
    * 
    * @example
    * 张*

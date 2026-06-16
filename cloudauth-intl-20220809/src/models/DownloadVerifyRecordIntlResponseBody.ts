@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadVerifyRecordIntlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Task ID, returned in asynchronous mode, used later with QueryDownloadTaskIntl to download the exported file.
+   * The task ID. This parameter is returned in asynchronous mode. Use QueryDownloadTaskIntl to download the exported file.
    * 
    * @example
    * 202511284106866
@@ -13,7 +13,7 @@ export class DownloadVerifyRecordIntlResponseBodyData extends $dara.Model {
   downloadTaskId?: string;
   /**
    * @remarks
-   * Exported file download link.
+   * The download URL of the exported file.
    * 
    * @example
    * https://cn-shanghai-aliyun-cloudauth.oss-cn-shanghai.aliyuncs.com/console/xxxxxx/KYC_INVOKE_STATISTICS.xlxs
@@ -45,7 +45,7 @@ export class DownloadVerifyRecordIntlResponseBodyData extends $dara.Model {
 export class DownloadVerifyRecordIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class DownloadVerifyRecordIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: DownloadVerifyRecordIntlResponseBodyData;
   /**
    * @remarks
-   * Return message.
+   * The return message.
    * 
    * @example
    * success
@@ -66,7 +66,7 @@ export class DownloadVerifyRecordIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 86C40EC3-5940-5F47-995C-BFE90B70E540

@@ -5,28 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class AddressCompareIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Country name
-   * - China
+   * The country name. Valid values:
+   * - China.
    * 
    * This parameter is required.
    * 
    * @example
-   * fixed value：中国
+   * 固定值：中国
    */
   defaultCountry?: string;
   /**
    * @remarks
-   * ADD_VERIFY
+   * ADD_VERIFY.
    * 
    * This parameter is required.
    * 
    * @example
-   * fixed value：ADD_VERIFY
+   * 固定值：ADD_VERIFY
    */
   productCode?: string;
   /**
    * @remarks
-   * Address 1
+   * Address 1.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class AddressCompareIntlRequest extends $dara.Model {
   text1?: string;
   /**
    * @remarks
-   * Address 2
+   * Address 2.
    * 
    * This parameter is required.
    * 

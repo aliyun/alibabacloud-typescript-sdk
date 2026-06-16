@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFaceRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * Primary Key ID
+   * The primary key ID.
    * 
    * @example
    * 344537

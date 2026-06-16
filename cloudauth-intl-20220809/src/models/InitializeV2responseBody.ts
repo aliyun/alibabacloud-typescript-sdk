@@ -2,37 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeResponseBodyResult extends $dara.Model {
+export class InitializeV2ResponseBodyResult extends $dara.Model {
   /**
-   * @remarks
-   * The client configuration.
-   * 
    * @example
    * ***
    */
   clientCfg?: string;
   /**
-   * @remarks
-   * The authentication standard encryption protocol.
-   * 
-   * > This field is required when you use iframe embedding for H5 web page integration.
-   * 
    * @example
    * hksb7ba1b28130d24e015d*********
    */
   protocol?: string;
   /**
-   * @remarks
-   * The authentication ID.
-   * 
    * @example
-   * 08573be80f944d95ac812e019e3655a8
+   * 4ab0b***cbde97
    */
   transactionId?: string;
   /**
-   * @remarks
-   * The web authentication URL.
-   * 
    * @example
    * http****
    */
@@ -64,36 +50,23 @@ export class InitializeResponseBodyResult extends $dara.Model {
   }
 }
 
-export class InitializeResponseBody extends $dara.Model {
+export class InitializeV2ResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The response code.
-   * 
    * @example
    * Success
    */
   code?: string;
   /**
-   * @remarks
-   * The response message.
-   * 
    * @example
    * success
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
-   * 4EB35****87EBA1
+   * 86C40EC3-5940-5F47-995C-BFE90B70E540
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The response result.
-   */
-  result?: InitializeResponseBodyResult;
+  result?: InitializeV2ResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -108,7 +81,7 @@ export class InitializeResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: InitializeResponseBodyResult,
+      result: InitializeV2ResponseBodyResult,
     };
   }
 

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile3MetaVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Verification result code.
-   * - 1: Verification consistent
-   * - 2: Verification inconsistent
-   * - 3: No record found
+   * The verification result code. Valid values:
+   * - 1: Consistent.
+   * - 2: Inconsistent.
+   * - 3: No record found.
    * 
    * @example
    * 1
@@ -16,11 +16,11 @@ export class Mobile3MetaVerifyIntlResponseBodyResult extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * ISP name
+   * The carrier name. Valid values:
    * 
    * - CMCC: China Mobile
    * - CUCC: China Unicom
-   * - CTCC: China Telecom
+   * - CTCC: China Telecom.
    * 
    * @example
    * CMCC
@@ -28,14 +28,14 @@ export class Mobile3MetaVerifyIntlResponseBodyResult extends $dara.Model {
   ispName?: string;
   /**
    * @remarks
-   * Detailed verification results
+   * The detailed verification result. Valid values:
    * 
-   * - 101: Verification passed 
-   * - 201: Mobile number and name do not match, mobile number and ID number do not match 
-   * - 202: Mobile number and name match, but mobile number and ID number do not match 
-   * - 203: Mobile number and ID number match, but mobile number and name do not match 
-   * - 204: Other inconsistencies
-   * - 301: No record found
+   * - 101: Verification passed. 
+   * - 201: The phone number is inconsistent with the name, and the phone number is inconsistent with the ID card number. 
+   * - 202: The phone number is consistent with the name, but the phone number is inconsistent with the ID card number. 
+   * - 203: The phone number is consistent with the ID card number, but the phone number is inconsistent with the name. 
+   * - 204: Other inconsistency.
+   * - 301: No record found.
    * 
    * @example
    * 101
@@ -69,7 +69,7 @@ export class Mobile3MetaVerifyIntlResponseBodyResult extends $dara.Model {
 export class Mobile3MetaVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * Success
@@ -77,7 +77,7 @@ export class Mobile3MetaVerifyIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message
+   * The return message.
    * 
    * @example
    * success
@@ -85,7 +85,7 @@ export class Mobile3MetaVerifyIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * D241532C-4EE9-5A2A-A5A5-C1FD98CE2EDD
@@ -93,7 +93,7 @@ export class Mobile3MetaVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result
+   * The verification result.
    */
   result?: Mobile3MetaVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {

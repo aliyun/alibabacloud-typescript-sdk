@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Address verification details.
+   * The address verification details.
    * 
    * @example
    * 0-3000
@@ -13,10 +13,10 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   addressInfo?: string;
   /**
    * @remarks
-   * Operator name:
+   * The telecommunications service provider name. Valid values:
    * - CMCC: China Mobile
    * - CTCC: China Telecom
-   * - CUCC: China Unicom
+   * - CUCC: China Unicom.
    * 
    * @example
    * CMCC
@@ -24,9 +24,9 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   ispName?: string;
   /**
    * @remarks
-   * Verification result, values:
-   * - Y: Yes, the verified address distance is less than or equal to 10KM.
-   * - N: No, the verified address distance is greater than 10KM.
+   * The verification result. Valid values:
+   * - Y: The verified address is within 10 km of the residential address.
+   * - N: The verified address is more than 10 km from the residential address.
    * 
    * @example
    * Y
@@ -34,7 +34,7 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Authentication result description.
+   * The description of the verification result.
    * 
    * @example
    * 200
@@ -42,7 +42,7 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * Unique identifier for the authentication request.
+   * The unique identifier of the verification request.
    * 
    * @example
    * hksb7ba1b28130d24e015d69********
@@ -80,7 +80,7 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
 export class AddressVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * 200
@@ -88,7 +88,7 @@ export class AddressVerifyIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The return message.
    * 
    * @example
    * success
@@ -96,7 +96,7 @@ export class AddressVerifyIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 86C40EC3-5940-5F47-995C-BFE90B70E540
@@ -104,7 +104,7 @@ export class AddressVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The result information.
    */
   resultObject?: AddressVerifyIntlResponseBodyResultObject;
   static names(): { [key: string]: string } {

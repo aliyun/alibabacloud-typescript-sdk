@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Other information in JSON format.
+   * The additional information in JSON format.
    * 
    * @example
    * {
@@ -20,11 +20,11 @@ export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
   materialInfo?: string;
   /**
    * @remarks
-   * Risk result:
+   * The risk result. Valid values:
    * 
-   * - **0**: Low risk
-   * - **1**: High risk
-   * - **2**: Suspicious
+   * - **0**: Low risk.
+   * - **1**: High risk.
+   * - **2**: Suspicious.
    * 
    * @example
    * 1
@@ -32,17 +32,17 @@ export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * Risk score map
+   * The risk score map.
    */
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * Risk tags, separated by commas (,). Includes:
+   * The risk tags, separated by commas (,). Valid values:
    * 
-   * - PS: Image manipulation (Photoshop)
-   * - SCREEN_PHOTO: Screen recapture
-   * - SCREENSHOT: Screenshot
-   * - ORIGINAL_PHOTO: Not original image
+   * - PS: Image has been edited with photo editing software.
+   * - SCREEN_PHOTO: Photo taken from a screen.
+   * - SCREENSHOT: Screenshot.
+   * - ORIGINAL_PHOTO: Non-original image.
    * 
    * @example
    * PS
@@ -81,7 +81,7 @@ export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
 export class CredentialVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -89,7 +89,7 @@ export class CredentialVerifyIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The return message.
    * 
    * @example
    * success
@@ -97,7 +97,7 @@ export class CredentialVerifyIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF039795
@@ -105,7 +105,7 @@ export class CredentialVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The result information.
    */
   resultObject?: CredentialVerifyIntlResponseBodyResultObject;
   static names(): { [key: string]: string } {

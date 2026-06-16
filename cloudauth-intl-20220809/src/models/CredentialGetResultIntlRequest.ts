@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialGetResultIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier for the authentication request
+   * The unique identifier of the authentication request.
    * 
    * This parameter is required.
    * 

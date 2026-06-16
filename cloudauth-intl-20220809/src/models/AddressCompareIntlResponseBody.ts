@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class AddressCompareIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The values of sameLevel include:
-   * - all: Exactly the same
-   * - prov: Provincial level
-   * - city: City level
-   * - district: District level
-   * - town: Town level
-   * - road: Road level
-   * - roadno: Road number
-   * - poi: Point of interest (e.g., residential area)
-   * - roomno: Room number
+   * The sameLevel parameter has the following valid values:
+   * - all: completely identical
+   * - prov: province level 
+   * - city: city level
+   * - district: district level
+   * - town: street level
+   * - road: road level
+   * - roadno: road number level
+   * - poi: community/neighborhood level
+   * - roomno: room number level.
    * 
    * @example
    * {
@@ -52,7 +52,7 @@ export class AddressCompareIntlResponseBodyResult extends $dara.Model {
 export class AddressCompareIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * Success
@@ -60,7 +60,7 @@ export class AddressCompareIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The return message.
    * 
    * @example
    * success
@@ -68,7 +68,7 @@ export class AddressCompareIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 86C40EC3-5940-5F47-995C-BFE90B70E540
@@ -76,7 +76,7 @@ export class AddressCompareIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    */
   result?: AddressCompareIntlResponseBodyResult;
   static names(): { [key: string]: string } {

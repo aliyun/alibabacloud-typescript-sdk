@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile2MetaVerifyIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * The mobile number.
+   * The phone number.
    * 
-   * >
-   * > - If **paramType** is set to **normal**, enter the plaintext value.
-   * > - If **paramType** is set to **md5**, enter the 32-bit lowercase MD5 string.
+   * - If ParamType is set to normal, pass in the phone number in plaintext.
+   * - If ParamType is set to md5, pass in the phone number in ciphertext as a 32-character lowercase MD5 string.
    * 
    * This parameter is required.
    * 
@@ -19,11 +18,10 @@ export class Mobile2MetaVerifyIntlRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * The parameter type:
+   * The parameter type. Valid values:
    * 
-   * - **normal**: plaintext
-   * 
-   * - **md5**: MD5-encrypted
+   * - normal: not encrypted
+   * - md5: MD5-encrypted.
    * 
    * This parameter is required.
    * 
@@ -33,7 +31,7 @@ export class Mobile2MetaVerifyIntlRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * The product to use. Set this parameter to the static value **MOBILE_2META**.
+   * The product code. Set this parameter to MOBILE_2META.
    * 
    * This parameter is required.
    * 
@@ -43,16 +41,15 @@ export class Mobile2MetaVerifyIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The name.
+   * The name. Valid values:
    * 
-   * > 
-   * > - If **paramType** is set to **normal**, enter the plaintext value.
-   * > - If **paramType** is set to **md5**, enter the 32-bit lowercase MD5 string.
+   * - If ParamType is set to normal, pass in the name in plaintext.
+   * - If ParamType is set to md5, pass in the name in ciphertext as a 32-character lowercase MD5 string.
    * 
    * This parameter is required.
    * 
    * @example
-   * Zhang*
+   * 张*
    */
   userName?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FraudResultCallBackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class FraudResultCallBackResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message
+   * The return message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class FraudResultCallBackResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 4EB35****87EBA1
@@ -29,9 +29,9 @@ export class FraudResultCallBackResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the call was successful.
-   * - **true**: Call succeeded.
-   * - **false**: Call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

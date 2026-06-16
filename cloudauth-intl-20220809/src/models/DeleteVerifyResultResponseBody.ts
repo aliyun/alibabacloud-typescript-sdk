@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Deletion result. Y indicates successful deletion, N indicates failed deletion
+   * The deletion result. Valid values:
+   * - Y: The deletion was successful.
+   * - N: The deletion failed.
    * 
    * @example
    * Y/N
@@ -13,7 +15,7 @@ export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
   deleteResult?: string;
   /**
    * @remarks
-   * Unique identifier of the authentication request
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 4ab0b***cbde97
@@ -45,7 +47,7 @@ export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
 export class DeleteVerifyResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * 200
@@ -53,7 +55,7 @@ export class DeleteVerifyResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message
+   * The return message.
    * 
    * @example
    * success
@@ -61,7 +63,7 @@ export class DeleteVerifyResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of this request
+   * The request ID.
    * 
    * @example
    * 4EB35****87EBA1
@@ -69,7 +71,7 @@ export class DeleteVerifyResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result
+   * The returned result.
    */
   result?: DeleteVerifyResultResponseBodyResult;
   static names(): { [key: string]: string } {

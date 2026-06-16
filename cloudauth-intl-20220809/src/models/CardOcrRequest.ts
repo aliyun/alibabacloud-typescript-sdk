@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CardOcrRequest extends $dara.Model {
   /**
    * @remarks
-   * Document type.
+   * The document type.
    * 
    * @example
    * 00000006
@@ -13,9 +13,9 @@ export class CardOcrRequest extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * Whether to perform face quality detection on the document
-   * - T: Indicates that detection is needed
-   * - F: Indicates that detection is not needed (default F)
+   * Specifies whether to perform face quality detection on the ID document. Valid values:
+   * - T: Perform face quality detection.
+   * - F: Do not perform face quality detection. This is the default value.
    * 
    * @example
    * F
@@ -23,7 +23,7 @@ export class CardOcrRequest extends $dara.Model {
   idFaceQuality?: string;
   /**
    * @remarks
-   * Base64 on the front of the document image
+   * The Base64-encoded image of the front side of the ID document. The value is a Base64 encoding of the image.
    * 
    * @example
    * base64
@@ -31,7 +31,7 @@ export class CardOcrRequest extends $dara.Model {
   idOcrPictureBase64?: string;
   /**
    * @remarks
-   * URL of the front side of the document image
+   * The URL of the front-side image of the ID document.
    * 
    * @example
    * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
@@ -39,7 +39,7 @@ export class CardOcrRequest extends $dara.Model {
   idOcrPictureUrl?: string;
   /**
    * @remarks
-   * A unique business identifier defined by the merchant, used for subsequent troubleshooting. It supports a combination of letters and numbers, with a maximum length of 32 characters. Please ensure uniqueness.
+   * The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
    * 
    * @example
    * dso9322***dsjsd22
@@ -47,7 +47,7 @@ export class CardOcrRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * Merchant user ID or other identifiers that can be used to identify specific users, such as phone numbers, email addresses, etc. It is strongly recommended to pre-desensitize the value of the userId field, for example, by hashing the value.
+   * The merchant user ID or another identifier that can be used to identify a specific user, such as a phone number or email address. We strongly recommend that you pre-desensitize the value of the userId field, for example, by hashing the value.
    * 
    * @example
    * 123456789
@@ -55,9 +55,9 @@ export class CardOcrRequest extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * Whether to perform document OCR
-   * - T: Indicates that document OCR is required (default T)
-   * - F: Indicates that it is not required
+   * Specifies whether to perform OCR on the ID document. Valid values:
+   * - T: Perform OCR on the ID document. This is the default value.
+   * - F: Do not perform OCR.
    * 
    * @example
    * T
@@ -65,7 +65,7 @@ export class CardOcrRequest extends $dara.Model {
   ocr?: string;
   /**
    * @remarks
-   * Product code
+   * The product code.
    * 
    * @example
    * ID_OCR_MIN
@@ -73,9 +73,9 @@ export class CardOcrRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Whether to enable anti-counterfeiting detection
-   * - T: Indicates to enable anti-counterfeiting
-   * - F: Indicates to disable (default F)
+   * Specifies whether to enable anti-spoofing detection. Valid values:
+   * - T: Enable anti-spoofing detection.
+   * - F: Disable anti-spoofing detection. This is the default value.
    * 
    * @example
    * F

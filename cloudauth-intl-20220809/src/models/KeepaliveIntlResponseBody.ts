@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class KeepaliveIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The result of the call.
+   * The returned result.
    * 
    * @example
    * SUCCESS
@@ -35,7 +35,7 @@ export class KeepaliveIntlResponseBodyResult extends $dara.Model {
 export class KeepaliveIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The [return code.](https://www.alibabacloud.com/help/en/ekyc/latest/client-connection-hold?spm=a3c0i.23458820.2359477120.1.48207d3ftEYld2#74d291dfaaxci)
+   * The return code.
    * 
    * @example
    * Success
@@ -43,7 +43,7 @@ export class KeepaliveIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A detailed description of the Code.
+   * The return message.
    * 
    * @example
    * success
@@ -59,7 +59,7 @@ export class KeepaliveIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result
+   * The returned result.
    */
   result?: KeepaliveIntlResponseBodyResult;
   static names(): { [key: string]: string } {

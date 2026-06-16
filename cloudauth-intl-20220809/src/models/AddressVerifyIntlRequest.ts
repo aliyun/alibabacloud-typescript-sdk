@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddressVerifyIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Verification address type:
-   * - “0”: Text address
-   * - “1”: Latitude and longitude
+   * The type of the address to verify. Valid values:
+   * - "0": text address
+   * - "1": coordinates (longitude and latitude).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * Default city
+   * The default city.
    * 
    * @example
    * 杭州市
@@ -25,7 +25,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   defaultCity?: string;
   /**
    * @remarks
-   * Country name, currently only supports: China
+   * The country name. Currently, only China is supported.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   defaultCountry?: string;
   /**
    * @remarks
-   * Default district
+   * The default district.
    * 
    * @example
    * 余杭区
@@ -43,7 +43,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   defaultDistrict?: string;
   /**
    * @remarks
-   * Default province
+   * The default province.
    * 
    * @example
    * 浙江省
@@ -51,7 +51,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   defaultProvince?: string;
   /**
    * @remarks
-   * Latitude.
+   * The latitude.
    * 
    * @example
    * “31.2304”
@@ -59,7 +59,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   latitude?: string;
   /**
    * @remarks
-   * Longitude.
+   * The longitude.
    * 
    * @example
    * “121.4737”
@@ -67,7 +67,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   longitude?: string;
   /**
    * @remarks
-   * Supports Chinese mobile phone numbers.
+   * Chinese mainland phone numbers are supported.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Fixed value: ADD_VERIFY_PRO
+   * Fixed value: ADD_VERIFY_PRO.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Detailed address text content
+   * The detailed address in text format.
    * 
    * @example
    * 阿里巴巴西溪园区
@@ -95,9 +95,9 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   text?: string;
   /**
    * @remarks
-   * Address verification method:
-   * - HOME: Home address verification
-   * - WORK: Work address verification
+   * The address verification method. Valid values:
+   * - HOME: home address verification
+   * - WORK: work address verification.
    * 
    * This parameter is required.
    * 

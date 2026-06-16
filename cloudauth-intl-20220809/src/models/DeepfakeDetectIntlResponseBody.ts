@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeepfakeDetectIntlResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Risk result:
+   * The risk result. Valid values:
    * 
-   * - **0**: Low risk
-   * - **1**: High risk
-   * - **2**: Suspicious
+   * - **0**: Low risk.
+   * - **1**: High risk.
+   * - **2**: Suspicious.
    * 
    * @example
    * 1
@@ -17,19 +17,19 @@ export class DeepfakeDetectIntlResponseBodyResultObject extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * Risk score map.
+   * The risk score map.
    */
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * Risk tags. Multiple tags are separated by commas (,). Includes:
+   * The risk labels. Multiple labels are separated by commas (,). Valid values:
    * 
-   * - **SuspectDeepForgery** Suspected deep forgery  
-   * - **SuspectPSFace** Suspected synthetic attack  
-   * - **SuspectWarterMark** Suspected watermark presence  
-   * - **SuspectTemple** Suspected template attack  
-   * - **SuspectAIGCFace**  Suspected generated face  
-   * - **SuspectRemake**  Suspected rephotographed face
+   * - **SuspectDeepForgery**: suspected depth forgery  
+   * - **SuspectPSFace**: suspected synthetic attack  
+   * - **SuspectWarterMark**: suspected watermark  
+   * - **SuspectTemple**: suspected template attack  
+   * - **SuspectAIGCFace**: suspected AIGC-generated face  
+   * - **SuspectRemake**: suspected recaptured face.
    * 
    * @example
    * SuspectDeepForgery,SuspectWarterMark
@@ -69,7 +69,7 @@ export class DeepfakeDetectIntlResponseBodyResultObject extends $dara.Model {
 export class DeepfakeDetectIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 indicates a successful request, any other value indicates failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -77,7 +77,7 @@ export class DeepfakeDetectIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -85,7 +85,7 @@ export class DeepfakeDetectIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 8FC3D6AC-9FED-4311-8DA7-C4BF47D9F260
@@ -93,7 +93,7 @@ export class DeepfakeDetectIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The result information.
    */
   resultObject?: DeepfakeDetectIntlResponseBodyResultObject;
   static names(): { [key: string]: string } {

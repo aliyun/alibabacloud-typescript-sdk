@@ -5,30 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to automatically register the face to the specified face library if no duplicate face is found.
-   * - 0- Auto-register (default)
-   * - 1- Do not register
+   * Specifies whether to automatically register the face in the specified face database when no duplicate face is found during the search. Valid values:
+   * - 0: automatic registration
+   * - 1: no registration (default).
    * 
    * @example
-   * 0
+   * 1
    */
   autoRegistration?: string;
   /**
    * @remarks
-   * The face library code created through the console, supporting up to 10 face libraries simultaneously. When multiple face library codes are passed, they should be separated by commas.
+   * The face database codes created in the console. A maximum of 10 face databases can be queried at a time. Separate multiple face database codes with commas (,).
    * 
    * @example
    * 1232344，23444
    */
   faceGroupCodes?: string;
   /**
+   * @remarks
+   * Specifies whether to enable face quality check.
+   * 
    * @example
    * Y
    */
   faceQualityCheck?: string;
   /**
    * @remarks
-   * Face registration library.
+   * The face database for registration.
    * 
    * @example
    * 0e0c34a77f
@@ -36,7 +39,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   faceRegisterGroupCode?: string;
   /**
    * @remarks
-   * Face matching threshold.
+   * The face matching threshold. >Warning: This is a reserved field and is not currently enabled.</warning>.
    * 
    * @example
    * 0.5
@@ -44,9 +47,9 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   faceVerifyThreshold?: string;
   /**
    * @remarks
-   * Whether to enable silent liveness detection
-   * - 0- Disabled
-   * - 1- Enabled
+   * Specifies whether to enable passive liveness detection. Valid values:
+   * - 0: disabled
+   * - 1: enabled.
    * 
    * @example
    * 0
@@ -54,7 +57,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   liveness?: string;
   /**
    * @remarks
-   * A unique business identifier for troubleshooting purposes. It supports a combination of 32 alphanumeric characters, please ensure its uniqueness.
+   * The custom unique business identifier, which is used for subsequent troubleshooting. The value is a combination of letters and digits up to 32 characters in length. Ensure that the value is unique.
    * 
    * This parameter is required.
    * 
@@ -64,7 +67,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * Your custom user ID or other identifiers that can uniquely identify a specific user, such as a phone number or email address. It is strongly recommended to pre-desensitize the value of this field, for example, by hashing it.
+   * The custom user ID or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
    * 
    * This parameter is required.
    * 
@@ -74,7 +77,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * Product code
+   * The product code.
    * 
    * This parameter is required.
    * 
@@ -84,9 +87,9 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * When there are multiple faces above the matching threshold, you can use this parameter to customize the number of returned faces
-   * - Default returns 1
-   * - Maximum support 5
+   * The number of faces to return when multiple faces above the matching threshold are found.
+   * - Default value: 1.
+   * - Maximum value: 5.
    * 
    * @example
    * 1
@@ -94,9 +97,10 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   returnFaces?: string;
   /**
    * @remarks
-   * Distinguishes between saving the face image and features
-   * - 0- Face (default)
-   * - 1- Features
+   * Specifies the type of face data to save. Valid values:
+   * - 0: face image (default)
+   * - 1: feature
+   * >Warning: This is a reserved field and is not currently enabled.</warning>.
    * 
    * @example
    * 0
@@ -104,7 +108,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   saveFacePicture?: string;
   /**
    * @remarks
-   * Your custom authentication scenario ID.
+   * The custom verification scenario ID.
    * 
    * @example
    * 1234567890
@@ -112,7 +116,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   sceneCode?: string;
   /**
    * @remarks
-   * Base64 encoded portrait photo.
+   * The Base64-encoded facial image.
    * 
    * @example
    * base64
@@ -120,7 +124,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   sourceFacePicture?: string;
   /**
    * @remarks
-   * Portrait image URL, accessible via public HTTP or HTTPS link.
+   * The URL of the facial image. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://***face1.jpeg
@@ -128,7 +132,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   sourceFacePictureUrl?: string;
   /**
    * @remarks
-   * Base64 encoded portrait photo.
+   * The Base64-encoded facial image.
    * 
    * @example
    * base64
@@ -136,7 +140,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   targetFacePicture?: string;
   /**
    * @remarks
-   * Portrait image URL, accessible via public HTTP or HTTPS link.
+   * The URL of the facial image. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://***face2.jpeg
@@ -144,15 +148,23 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
   targetFacePictureUrl?: string;
   /**
    * @remarks
-   * Verification type
-   * - 0- 1:N (default)
-   * - 1- 1:1
-   * - 2- 1:N + 1:1
+   * The verification type. Valid values:
+   * - 0: retrieve pattern
+   * > - Feature: Submits a face database and a user facial image (sourceFacePicture). The system automatically retrieves the face database to check whether the specified facial image (sourceFacePicture) already exists. Passive liveness detection can be enabled for the facial image (sourceFacePicture).
+   * > - Recommended scenario: Real-person create an account where duplicate registration is not allowed.
+   * 
+   * - 1 (default): authenticate pattern
+   * > - Feature: Submits a specified facial image (sourceFacePicture) and a stored facial image (TargetFacePicture). The system automatically authenticates whether the two faces match. Passive liveness detection can be enabled for the specified facial image (sourceFacePicture).
+   * > - Recommended scenario: Authenticating whether the operation is performed by the account owner when logon credentials or account information is modified.
+   * 
+   * - 2: comprehensive pattern
+   * > - Feature: Submits a face database, a specified facial image (sourceFacePicture), and a stored facial image (TargetFacePicture). The system automatically retrieves the face database to check whether the specified facial image (sourceFacePicture) exists and whether it matches the stored face. Passive liveness detection can be enabled for the specified facial image (sourceFacePicture).
+   * > - Recommended scenario: Authenticating that the user is new and the operation is performed by the user.
    * 
    * This parameter is required.
    * 
    * @example
-   * 0
+   * 1
    */
   verifyModel?: string;
   static names(): { [key: string]: string } {

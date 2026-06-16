@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Identified key information, in JSON format.
+   * The key information identified, in JSON format.
    * 
    * @example
    * {
@@ -16,10 +16,10 @@ export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * Task status:
-   * - PROCESSING: In progress (please continue polling)
-   * - SUCCESS: Execution succeeded
-   * - FAILED: Execution failed
+   * The task status. Valid values:
+   * - PROCESSING: Processing. Continue polling.
+   * - SUCCESS: Succeeded.
+   * - FAILED: Failed.
    * 
    * @example
    * SUCCESS
@@ -27,7 +27,7 @@ export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Authentication result description. For more information, see ResultObject.SubCode error codes.
+   * The description of the authentication result. For more information, refer to the ResultObject.SubCode error code description.
    * 
    * @example
    * 200
@@ -61,7 +61,7 @@ export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
 export class CredentialGetResultIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * Success
@@ -69,7 +69,7 @@ export class CredentialGetResultIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The return message.
    * 
    * @example
    * success
@@ -77,7 +77,7 @@ export class CredentialGetResultIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 5E63B760-0ECB-5C07-8503-A65C27876968
@@ -85,7 +85,7 @@ export class CredentialGetResultIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    */
   result?: CredentialGetResultIntlResponseBodyResult;
   static names(): { [key: string]: string } {

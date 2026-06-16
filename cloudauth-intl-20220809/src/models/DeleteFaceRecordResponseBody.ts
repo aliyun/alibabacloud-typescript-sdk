@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFaceRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class DeleteFaceRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return result.
+   * The response data.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DeleteFaceRecordResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class DeleteFaceRecordResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 4EB35****87EBA1

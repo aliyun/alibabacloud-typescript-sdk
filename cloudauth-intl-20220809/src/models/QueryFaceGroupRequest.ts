@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryFaceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The current page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,27 +14,41 @@ export class QueryFaceGroupRequest extends $dara.Model {
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The code of the face library.
+   * 
    * @example
    * groupCode001
    */
   groupCode?: string;
   /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The name of the face library.
+   * 
    * @example
    * test008
    */
   name?: string;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * WpY9RBGa5Vrzxi3+mp2Cdw==
    */
   nextToken?: string;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example

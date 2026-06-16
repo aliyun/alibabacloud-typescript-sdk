@@ -178,9 +178,6 @@ export class FaceVerifyIntlResponseBody extends $dara.Model {
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 5E63B760-0ECB-5C07-8503-A65C27876968
    */

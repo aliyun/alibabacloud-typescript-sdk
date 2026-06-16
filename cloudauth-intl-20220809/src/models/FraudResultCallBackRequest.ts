@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FraudResultCallBackRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier for real-person authentication, corresponding to Ant\\"s verifyId.
+   * The unique identifier for identity verification, which corresponds to the verifyId of Ant.
    * 
    * @example
    * shs2b27333914876c01de4cb22f5841f
@@ -13,7 +13,7 @@ export class FraudResultCallBackRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Extended parameters, in JSON string format.
+   * The extended parameters, in JSON string format.
    * 
    * @example
    * {}
@@ -21,9 +21,9 @@ export class FraudResultCallBackRequest extends $dara.Model {
   extParams?: string;
   /**
    * @remarks
-   * Whether the anti-fraud check passed
-   * - PASS (Passed)
-   * - REJECT (Rejected)
+   * Indicates whether the anti-spoofing check is passed. Valid values:
+   * - PASS: Passed.
+   * - REJECT: Not passed.
    * 
    * @example
    * PASS
@@ -31,9 +31,9 @@ export class FraudResultCallBackRequest extends $dara.Model {
   resultCode?: string;
   /**
    * @remarks
-   * Environment routing parameter
-   * - staging (Staging environment)
-   * - production (Production environment)
+   * The environment routing parameter. Valid values:
+   * - staging: staging environment
+   * - production: production environment.
    * 
    * @example
    * production

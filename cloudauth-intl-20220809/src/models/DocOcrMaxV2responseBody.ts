@@ -2,56 +2,57 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeResponseBodyResult extends $dara.Model {
+export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
   /**
-   * @remarks
-   * The client configuration.
-   * 
    * @example
-   * ***
+   * {
+   *   "ocrIdInfo": {
+   *     "id_number": "*****719******",
+   *     "address": "xxxxxx,
+   *     "ethnicity": "汉",
+   *     "date_of_birth": "1990年06月02日",
+   *     "sex": "女",
+   *     "name": "何**"
+   *   },
+   *   "ocrStandardData": {
+   *     "given_name_s": "**",
+   *     "surname_s": "HE",
+   *     "date_of_birth_s": "1990-06-02",
+   *     "sex_s": "F"
+   *   }
+   * }
    */
-  clientCfg?: string;
+  extIdInfo?: string;
   /**
-   * @remarks
-   * The authentication standard encryption protocol.
-   * 
-   * > This field is required when you use iframe embedding for H5 web page integration.
-   * 
    * @example
-   * hksb7ba1b28130d24e015d*********
+   * Y
    */
-  protocol?: string;
+  passed?: string;
   /**
-   * @remarks
-   * The authentication ID.
-   * 
+   * @example
+   * 200
+   */
+  subCode?: string;
+  /**
    * @example
    * 08573be80f944d95ac812e019e3655a8
    */
   transactionId?: string;
-  /**
-   * @remarks
-   * The web authentication URL.
-   * 
-   * @example
-   * http****
-   */
-  transactionUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      clientCfg: 'ClientCfg',
-      protocol: 'Protocol',
+      extIdInfo: 'ExtIdInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
       transactionId: 'TransactionId',
-      transactionUrl: 'TransactionUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientCfg: 'string',
-      protocol: 'string',
+      extIdInfo: 'string',
+      passed: 'string',
+      subCode: 'string',
       transactionId: 'string',
-      transactionUrl: 'string',
     };
   }
 
@@ -64,36 +65,23 @@ export class InitializeResponseBodyResult extends $dara.Model {
   }
 }
 
-export class InitializeResponseBody extends $dara.Model {
+export class DocOcrMaxV2ResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The response code.
-   * 
    * @example
    * Success
    */
   code?: string;
   /**
-   * @remarks
-   * The response message.
-   * 
    * @example
    * success
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
-   * 4EB35****87EBA1
+   * 5E63B760-0ECB-5C07-8503-A65C27876968
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The response result.
-   */
-  result?: InitializeResponseBodyResult;
+  result?: DocOcrMaxV2ResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -108,7 +96,7 @@ export class InitializeResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: InitializeResponseBodyResult,
+      result: DocOcrMaxV2ResponseBodyResult,
     };
   }
 

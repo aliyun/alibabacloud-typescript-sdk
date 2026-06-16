@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResultResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Authentication result.
+   * The verification result.
    * 
    * @example
    * **
@@ -13,7 +13,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   ekycResult?: string;
   /**
    * @remarks
-   * Extended basic information.
+   * The extended basic information.
    * 
    * @example
    * **
@@ -21,7 +21,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   extBasicInfo?: string;
   /**
    * @remarks
-   * Face information.
+   * The face information.
    * 
    * @example
    * **
@@ -29,7 +29,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   extFaceInfo?: string;
   /**
    * @remarks
-   * ID information.
+   * The ID information.
    * 
    * @example
    * **
@@ -37,7 +37,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * Extended information, in JSON string format.
+   * The extended information, in JSON string format.
    * 
    * @example
    * {}
@@ -45,7 +45,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   extInfo?: string;
   /**
    * @remarks
-   * Risk information.
+   * The risk information.
    * 
    * @example
    * **
@@ -53,11 +53,11 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   extRiskInfo?: string;
   /**
    * @remarks
-   * Detailed verification results from the data source (example using Indonesian data sources):
-   * - **govId, fullName, dob**: A comparison score of 1.0 indicates complete consistency with the official data source; less than 1.0 indicates inconsistency. 
-   * - **selfiePhoto**: A comparison score greater than 0.8 indicates consistency with the official data source; less than or equal to 0.8 indicates inconsistency. 
-   * - **liveness**: A score higher than 0.95 indicates a risk of liveness detection. 
-   * - **imgManipulationScore**: A score higher than 0.95 indicates a risk of image manipulation.
+   * The data source verification details are described as follows (using the Indonesian data source as an example):
+   * - **govId, fullName, dob**: A comparison score equal to 1.0 indicates a complete match with the official data source. A score lower than 1.0 indicates a mismatch. 
+   * - **selfiePhoto**: A comparison score greater than 0.8 indicates a match with the official data source. A score equal to or lower than 0.8 indicates a mismatch. 
+   * - **liveness**: A score higher than 0.95 indicates a liveness detection risk. 
+   * - **imgManipulationScore**: A score higher than 0.95 indicates an image tampering risk.
    * 
    * @example
    * {
@@ -72,10 +72,10 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   extSourceInfo?: string;
   /**
    * @remarks
-   * Whether the authentication is passed.
+   * Indicates whether the verification is passed. Valid values:
    * 
-   * - Y: Passed
-   * - N: Not passed
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * Y
@@ -83,7 +83,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Sub-result code.
+   * The sub-result code.
    * 
    * @example
    * ***
@@ -129,7 +129,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
 export class CheckResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * Success
@@ -137,7 +137,7 @@ export class CheckResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The return message.
    * 
    * @example
    * success
@@ -145,7 +145,7 @@ export class CheckResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 4EB35****87EBA1
@@ -153,7 +153,7 @@ export class CheckResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    */
   result?: CheckResultResponseBodyResult;
   static names(): { [key: string]: string } {

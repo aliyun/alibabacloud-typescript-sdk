@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EkycVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable identity verification against the official database:
-   * 
-   * - **T**: Enable.
-   * 
-   * - **F**: Disable. (Default)
-   * 
-   * > This feature is currently available only for second-generation resident ID cards of the Chinese mainland.
+   * Specifies whether to enable authoritative identity verification. This parameter is currently applicable only to second-generation ID cards in the Chinese mainland.
    * 
    * @example
    * T
@@ -19,11 +13,10 @@ export class EkycVerifyRequest extends $dara.Model {
   authorize?: string;
   /**
    * @remarks
-   * Specifies whether to crop the face image:
+   * Specifies whether cropping is allowed. By default, cropping is not allowed. Valid values:
    * 
-   * - **T**: Allows cropping.
-   * 
-   * - **F**: Disallows cropping. (Default)
+   * - T: Detection is required.
+   * - F: Detection is required (default value: F).
    * 
    * @example
    * F
@@ -31,24 +24,17 @@ export class EkycVerifyRequest extends $dara.Model {
   crop?: string;
   /**
    * @remarks
-   * The user\\"s real name.
-   * 
-   * > If Authorize is set to T and the certificate type is Chinese mainland resident ID card, you must enter at least one of the following groups of information:
-   * > - DocName and DocNo.
-   * > - IdOcrPictureBase64 or IdOcrPictureUrl.
+   * The real name of the user. If Authorize is set to T and the document type is a Chinese mainland ID card, you must provide at least one of the following: document key information (DocName and DocNo) or document images (IdOcrPictureBase64 or IdOcrPictureUrl).
+   * Note: The value must contain at least one Chinese character and no special characters, except for the middle dot (·) used in ethnic minority names.
    * 
    * @example
-   * Zhang San
+   * 张**
    */
   docName?: string;
   /**
    * @remarks
-   * The user\\"s certificate number.
-   * 
-   * 
-   * > If Authorize is set to **T** and the certificate type is Chinese mainland resident ID card, you must enter at least one of the following groups of information:
-   * > - DocName and DocNo.
-   * > - IdOcrPictureBase64 or IdOcrPictureUrl.
+   * The document number of the user. If Authorize is set to T and the document type is a Chinese mainland ID card, you must provide at least one of the following: document key information (DocName and DocNo) or document images (IdOcrPictureBase64 or IdOcrPictureUrl).
+   * Note: The value is a combination of letters and digits up to 18 characters in length.
    * 
    * @example
    * 410***************
@@ -56,7 +42,7 @@ export class EkycVerifyRequest extends $dara.Model {
   docNo?: string;
   /**
    * @remarks
-   * The certificate type, which is uniquely identified by an 8-digit number. For more information, see [Certificate types](https://www.alibabacloud.com/help/en/ekyc/latest/im1u641gyesiqmbg?spm=a2c63.p38356.0.i18#Hu5TG).
+   * The document type.
    * 
    * @example
    * 00000001
@@ -64,17 +50,19 @@ export class EkycVerifyRequest extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * The Base64 encoding of the portrait image.
+   * The Base64-encoded face image.
    * 
-   * > If you use this method to pass the certificate image, check the image size. Do not pass an oversized image.
+   * Note:
+   * - If you use this method to submit the face image, check the image size and do not submit an excessively large image.
+   * - Specify either FacePictureBase64 or FacePictureUrl.
    * 
    * @example
-   * dsjisaj***oekwodsm
+   * Base64
    */
   facePictureBase64?: string;
   /**
    * @remarks
-   * The URL of the portrait image. The URL must be an HTTP or HTTPS link accessible over the Internet.
+   * The URL of the face photo.
    * 
    * @example
    * https://digital-face-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
@@ -82,17 +70,18 @@ export class EkycVerifyRequest extends $dara.Model {
   facePictureUrl?: string;
   /**
    * @remarks
-   * The Base64 encoding of the certificate image.
-   * 
-   * > If you use this method to pass the certificate image, check the image size. Do not pass an oversized image.
+   * The Base64-encoded document image.
+   * Note:
+   * - If you use this method to submit the document image, check the image size and do not submit an excessively large image.
+   * - Specify either IdOcrPictureBase64 or IdOcrPictureUrl.
    * 
    * @example
-   * dsjisaj***oekwodsm
+   * base64
    */
   idOcrPictureBase64?: string;
   /**
    * @remarks
-   * The URL of the certificate image. The URL must be an HTTP or HTTPS link accessible over the Internet.
+   * The URL of the front side of the document image.
    * 
    * @example
    * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
@@ -100,15 +89,12 @@ export class EkycVerifyRequest extends $dara.Model {
   idOcrPictureUrl?: string;
   /**
    * @remarks
-   * The custom OCR quality detection threshold mode:
+   * The custom OCR quality detection threshold mode. Valid values:
    * 
-   * - **0**: Standard mode
-   * 
-   * - **1**: Strict mode
-   * 
-   * - **2**: Loose mode
-   * 
-   * - **3** (default): Disables quality detection
+   * - 0: system default
+   * - 1: strict mode
+   * - 2: loose mode
+   * - 3 (default): quality detection disabled.
    * 
    * @example
    * 0
@@ -116,7 +102,7 @@ export class EkycVerifyRequest extends $dara.Model {
   idThreshold?: string;
   /**
    * @remarks
-   * A unique business identifier that you customize. It is used to locate and troubleshoot issues. The identifier can be up to 32 characters in length and can contain letters and digits. Make sure that the identifier is unique.
+   * The merchant-defined unique business identifier, used for subsequent troubleshooting. The value is a combination of letters and digits up to 32 characters in length. Ensure that the value is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -124,7 +110,7 @@ export class EkycVerifyRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * A custom user ID or another identifier that can identify a specific user, such as a mobile number or an email address. Desensitize the value of this field in advance, for example, by hashing the value.
+   * Your custom user ID, or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you mask this field value in advance, for example, by hashing the value.
    * 
    * @example
    * 123456
@@ -132,7 +118,7 @@ export class EkycVerifyRequest extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * The product solution to integrate. Set the value to **eKYC_MIN**.
+   * The product code.
    * 
    * @example
    * eKYC_MIN

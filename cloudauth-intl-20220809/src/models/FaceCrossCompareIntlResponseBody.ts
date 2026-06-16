@@ -5,33 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * A to B comparison score, range 0～100.
+   * The comparison score between A and B. Value range: 0 to 1.
    * 
    * @example
-   * 99
+   * 0.9999999999999999
    */
   faceComparisonScoreA2B?: number;
   /**
    * @remarks
-   * B to C comparison score, range 0～100.
+   * The comparison score between B and C. Value range: 0 to 1.
    * 
    * @example
-   * 99
+   * 0.9999999999999999
    */
   faceComparisonScoreB2C?: number;
   /**
    * @remarks
-   * C to A comparison score, range 0～100.
+   * The comparison score between C and A. Value range: 0 to 1.
    * 
    * @example
-   * 99
+   * 0.9999999999999999
    */
   faceComparisonScoreC2A?: number;
   /**
    * @remarks
-   * Final verification result, values:
-   * - Y: Pass
-   * - N: Fail
+   * The final verification result. Valid values:
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * Y
@@ -39,7 +39,7 @@ export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
   facePassed?: string;
   /**
    * @remarks
-   * Unique identifier for the authentication request.
+   * The unique identifier of the verification request.
    * 
    * @example
    * 4ab0b***cbde97
@@ -77,7 +77,7 @@ export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
 export class FaceCrossCompareIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * Success
@@ -85,7 +85,7 @@ export class FaceCrossCompareIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The return message.
    * 
    * @example
    * success
@@ -93,7 +93,7 @@ export class FaceCrossCompareIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF039795
@@ -101,7 +101,7 @@ export class FaceCrossCompareIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    */
   result?: FaceCrossCompareIntlResponseBodyResult;
   static names(): { [key: string]: string } {

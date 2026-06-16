@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryFaceGroupResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The code of the face library.
+   * 
    * @example
    * faceGroup001
    */
   code?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * desc
    */
   description?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 162261
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the face library.
+   * 
    * @example
    * test-888
    */
@@ -52,32 +64,54 @@ export class QueryFaceGroupResponseBodyItems extends $dara.Model {
 
 export class QueryFaceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The list of returned entries.
+   */
   items?: QueryFaceGroupResponseBodyItems[];
   /**
+   * @remarks
+   * The number of entries per page in a paged query.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * N/zmQeG/x9TDWmaB/pbfBQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
@@ -91,11 +125,17 @@ export class QueryFaceGroupResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 0
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */

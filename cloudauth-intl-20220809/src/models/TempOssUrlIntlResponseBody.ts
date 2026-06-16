@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TempOssUrlIntlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * File URL
+   * The file URL.
    * 
    * @example
    * http://bzxh.cdn.weijin365.com/assets/index-55338127.png
@@ -35,7 +35,7 @@ export class TempOssUrlIntlResponseBodyData extends $dara.Model {
 export class TempOssUrlIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * Success
@@ -43,12 +43,12 @@ export class TempOssUrlIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Result.
+   * The result.
    */
   data?: TempOssUrlIntlResponseBodyData;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -56,7 +56,7 @@ export class TempOssUrlIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * EFA11401-C961-5E89-A2D3-BF9883E5CC3D

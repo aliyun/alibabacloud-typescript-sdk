@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class FaceCrossCompareIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Comparison mode
-   * - 0-Chain comparison (default): A:B and B:C
-   * - 1-Circular comparison: A:B and B:C and C:A
+   * The comparison mode. Valid values:
+   * - 0: chain comparison (default). A:B and B:C.
+   * - 1: circular comparison. A:B, B:C, and C:A.
    * 
    * @example
    * 0
@@ -15,15 +15,15 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   compareModel?: string;
   /**
    * @remarks
-   * Face matching threshold.
+   * The face matching threshold. This parameter is reserved by the system and does not support custom values.
    * 
    * @example
-   * 0.5
+   * -
    */
   faceVerifyThreshold?: string;
   /**
    * @remarks
-   * A unique business identifier for subsequent troubleshooting. It supports a combination of 32 alphanumeric characters, please ensure its uniqueness.
+   * The custom unique business identifier, used for subsequent troubleshooting. The value is a combination of letters and digits with a length of 32 characters. Ensure that the value is unique.
    * 
    * This parameter is required.
    * 
@@ -33,8 +33,8 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * Product solution to be integrated. Value: 
-   * FACE_CROSS_COMPARE
+   * The product solution to use. Valid values:
+   * FACE_CROSS_COMPARE.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Custom business scenario ID
+   * The custom business scenario ID.
    * 
    * @example
    * 1234567890
@@ -52,7 +52,7 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   sceneCode?: string;
   /**
    * @remarks
-   * Base64 encoded portrait photo.
+   * The Base64-encoded face photo.
    * 
    * @example
    * base64
@@ -60,7 +60,7 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   sourceAFacePicture?: string;
   /**
    * @remarks
-   * Portrait image URL, accessible via HTTP or HTTPS on the public network.
+   * The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://www.xxx.com/1.jpg
@@ -68,7 +68,7 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   sourceAFacePictureUrl?: string;
   /**
    * @remarks
-   * Base64 encoded portrait photo.
+   * The Base64-encoded face photo.
    * 
    * @example
    * base64
@@ -76,7 +76,7 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   sourceBFacePicture?: string;
   /**
    * @remarks
-   * Portrait image URL, accessible via HTTP or HTTPS on the public network.
+   * The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://www.xxx.com/1.jpg
@@ -84,7 +84,7 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   sourceBFacePictureUrl?: string;
   /**
    * @remarks
-   * Base64 encoded portrait photo.
+   * The Base64-encoded face photo.
    * 
    * @example
    * base64
@@ -92,7 +92,7 @@ export class FaceCrossCompareIntlRequest extends $dara.Model {
   sourceCFacePicture?: string;
   /**
    * @remarks
-   * Portrait image URL, accessible via HTTP or HTTPS on the public network.
+   * The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://www.xxx.com/1.jpg

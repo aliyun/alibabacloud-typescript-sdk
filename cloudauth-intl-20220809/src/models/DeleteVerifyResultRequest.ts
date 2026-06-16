@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVerifyResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to depend on the query interface when deleting data
+   * Specifies whether the deletion depends on the query operation.
    * 
    * @example
    * Y / N
@@ -13,7 +13,7 @@ export class DeleteVerifyResultRequest extends $dara.Model {
   deleteAfterQuery?: string;
   /**
    * @remarks
-   * Type of data to be deleted
+   * The type of data to delete.
    * 
    * @example
    * Img / Text / All
@@ -21,7 +21,7 @@ export class DeleteVerifyResultRequest extends $dara.Model {
   deleteType?: string;
   /**
    * @remarks
-   * Unique identifier of the authentication request
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 4ab0b***cbde97

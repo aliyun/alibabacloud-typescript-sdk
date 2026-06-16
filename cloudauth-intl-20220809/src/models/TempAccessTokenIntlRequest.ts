@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TempAccessTokenIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Type.
+   * The type.
    * 
    * @example
    * none

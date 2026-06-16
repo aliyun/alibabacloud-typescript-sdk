@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyFaceRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The result.
+   * 
    * @example
    * 1
    */
   data?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */

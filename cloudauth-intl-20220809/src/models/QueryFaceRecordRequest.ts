@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryFaceRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * Current Page.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Face Group Code.
+   * The face library code.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   faceGroupCode?: string;
   /**
    * @remarks
-   * Face ID.
+   * The face ID.
    * 
    * @example
    * 5006538
@@ -33,7 +33,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   faceId?: string;
   /**
    * @remarks
-   * Number of rows per page for paginated queries.
+   * The maximum number of entries per page for a paginated query.
    * 
    * @example
    * 100
@@ -41,7 +41,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Merchant User ID.
+   * The merchant user ID.
    * 
    * @example
    * CuN6hiD08qr
@@ -49,7 +49,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * Used to request the next page of search results.
+   * The token used to retrieve the next page of results.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh0OP1yH8z+7FV4KKGUw4X32
@@ -57,7 +57,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Registration Type.
+   * The registration type.
    * 
    * @example
    * MANUAL

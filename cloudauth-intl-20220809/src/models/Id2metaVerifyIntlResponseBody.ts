@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Id2MetaVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The verification result:
-   * 
-   * - 1: The information is consistent. This result is billable.
-   * 
-   * - 2: The information is inconsistent. This result is billable.
-   * 
-   * - 3: No record is found. This result is not billable.
+   * The verification result code. Valid values:
+   * - 1: Consistent.
+   * - 2: Inconsistent.
+   * - 3: No record found.
    * 
    * @example
    * 1
@@ -41,7 +38,7 @@ export class Id2MetaVerifyIntlResponseBodyResult extends $dara.Model {
 export class Id2MetaVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * [Status codes](https://www.alibabacloud.com/help/en/ekyc/latest/ok4bwxwmu1n94o76?spm=a2c63.p38356.0.i54#942707fca218x).
+   * The return code.
    * 
    * @example
    * Success
@@ -49,7 +46,7 @@ export class Id2MetaVerifyIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The detailed description of the response code.
+   * The return message.
    * 
    * @example
    * success
@@ -65,7 +62,7 @@ export class Id2MetaVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result
+   * The verification result.
    */
   result?: Id2MetaVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {

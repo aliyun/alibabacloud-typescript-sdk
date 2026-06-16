@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   /**
    * @remarks
-   * The predicted age of the person in the image. The prediction may fail, resulting in an empty value.
+   * The predicted reference age based on the face. The prediction may fail and return no value.
    * 
    * @example
    * 18
@@ -13,7 +13,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   faceAge?: number;
   /**
    * @remarks
-   * Indicates whether a presentation attack was detected on the captured face. Y means an attack was detected. N means no attack was detected.
+   * The liveness detection result. Valid values: Y (attack detected) and N (normal).
    * 
    * @example
    * Y
@@ -21,11 +21,10 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   faceAttack?: string;
   /**
    * @remarks
-   * The predicted gender of the person in the image. The prediction may fail, resulting in an empty value.
+   * The predicted gender based on the face photo. The prediction may fail and return no value. Valid values:
    * 
-   * - **M**: Male
-   * 
-   * - **F**: Female
+   * - M: male.
+   * - F: female.
    * 
    * @example
    * M
@@ -33,36 +32,48 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   faceGender?: string;
   /**
    * @remarks
-   * Optional. The quality score of the live face. The value ranges from 0 to 100.
+   * The face quality score (0 to 100). This value is returned only when the face quality score switch is enabled in the request parameters.
    * 
    * @example
    * 87.19
    */
   faceQualityScore?: number;
   /**
+   * @remarks
+   * The illumination score.
+   * 
    * @example
    * 0.02
    */
   illuminationScore?: number;
   /**
+   * @remarks
+   * The key area occlusion score.
+   * 
    * @example
    * 20
    */
   kaOcclusionScore?: number;
   /**
    * @remarks
-   * Optional. Indicates whether the face is occluded. Y means the face is occluded. N means the face is not occluded.
+   * The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This value is returned only when the occlusion detection switch is enabled.
    * 
    * @example
    * Y
    */
   occlusionResult?: string;
   /**
+   * @remarks
+   * The occlusion score.
+   * 
    * @example
    * 50.26
    */
   occlusionScore?: number;
   /**
+   * @remarks
+   * The sharpness score.
+   * 
    * @example
    * 86.47
    */
@@ -107,16 +118,15 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
 export class FaceLivenessResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The results of the passive liveness detection. The value is in the JSON format. For more information, see [ExtFaceInfo](https://www.alibabacloud.com/help/en/ekyc/latest/cadqvlft48igbpdc?spm=a2c63.p38356.0.i54#5ff42f7274agz).
+   * The face result information.
    */
   extFaceInfo?: FaceLivenessResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The authentication result. Valid values:
+   * Indicates whether the authentication passed. Valid values:
    * 
-   * - Y: The authentication is passed.
-   * 
-   * - N: The authentication is not passed.
+   * - Y: passed.
+   * - N: not passed.
    * 
    * @example
    * N
@@ -124,7 +134,7 @@ export class FaceLivenessResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * The code that corresponds to the verification result. For more information, see [ResultObject.SubCode error codes](https://www.alibabacloud.com/help/en/ekyc/latest/cadqvlft48igbpdc?spm=a2c63.p38356.0.i54#5ff3e16174tl2).
+   * The sub-result code.
    * 
    * @example
    * 205
@@ -132,7 +142,7 @@ export class FaceLivenessResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The transaction ID.
+   * The unique ID of the authentication request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -171,7 +181,7 @@ export class FaceLivenessResponseBodyResult extends $dara.Model {
 export class FaceLivenessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * [The response code.](https://www.alibabacloud.com/help/en/ekyc/latest/cadqvlft48igbpdc?spm=a2c63.p38356.0.i54#3d0ed52f967g6)
+   * The return code.
    * 
    * @example
    * Success
@@ -179,7 +189,7 @@ export class FaceLivenessResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A detailed description of the response code.
+   * The message returned with the result.
    * 
    * @example
    * success
@@ -187,7 +197,7 @@ export class FaceLivenessResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID that Alibaba Cloud generates for the request.
    * 
    * @example
    * 42EA58CA-5DF4-55D5-82C4-5E7A40DA62BA
@@ -195,7 +205,7 @@ export class FaceLivenessResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result object
+   * The returned result.
    */
   result?: FaceLivenessResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryFaceRecordResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Face ID.
+   * The face ID.
    * 
    * @example
    * 230642938
@@ -13,7 +13,7 @@ export class QueryFaceRecordResponseBodyItems extends $dara.Model {
   faceId?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2025-01-15T02:20:28Z
@@ -21,7 +21,7 @@ export class QueryFaceRecordResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 16112
@@ -29,7 +29,7 @@ export class QueryFaceRecordResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Face image URL.
+   * The URL of the face image.
    * 
    * @example
    * http://www.xxxx.com/1.jpg
@@ -37,7 +37,7 @@ export class QueryFaceRecordResponseBodyItems extends $dara.Model {
   imgOssUrl?: string;
   /**
    * @remarks
-   * Merchant User ID.
+   * The merchant user ID.
    * 
    * @example
    * CuN6hiD08qr
@@ -45,7 +45,7 @@ export class QueryFaceRecordResponseBodyItems extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * Registration type.
+   * The registration type.
    * 
    * @example
    * MANUAL
@@ -85,7 +85,7 @@ export class QueryFaceRecordResponseBodyItems extends $dara.Model {
 export class QueryFaceRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The response code.
    * 
    * @example
    * Success
@@ -93,7 +93,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Current query page number.
+   * The current page number.
    * 
    * @example
    * 2
@@ -101,12 +101,12 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of returned information.
+   * The list of returned records.
    */
   items?: QueryFaceRecordResponseBodyItems[];
   /**
    * @remarks
-   * Maximum number of data entries per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 100
@@ -114,7 +114,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -122,7 +122,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Token for the next query start.
+   * The token for the next query.
    * 
    * @example
    * AAAAARfZmVDe9NvRXloR5+8CK9nwqHyx44CQz3pa71+mmu0e
@@ -130,7 +130,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -138,7 +138,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 7F971622-38C0-5F56-B2EC-315367979B4F
@@ -146,7 +146,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 6
@@ -154,7 +154,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

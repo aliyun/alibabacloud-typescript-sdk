@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceGuardRiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the current business authentication. It is used with FACE_GUARD for verification during queries.
+   * The customer business ID.
    * 
    * @example
    * LMALL20******001
@@ -13,7 +13,7 @@ export class FaceGuardRiskRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The deviceToken obtained from the client SDK.
+   * The device token obtained from the Face Guard SDK.
    * 
    * @example
    * Tk9SSUQuMS*****************ZDNmNWY5NzQxOW1o
@@ -21,7 +21,7 @@ export class FaceGuardRiskRequest extends $dara.Model {
   deviceToken?: string;
   /**
    * @remarks
-   * A custom unique business identifier. It is used to locate and troubleshoot issues. The identifier can be a combination of letters and digits up to 32 characters long. Ensure that it is unique.
+   * The merchant-defined unique business identifier, used for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Make sure the value is unique.
    * 
    * @example
    * 0c83ce0101d34eff886b1f7d1cdef67f
@@ -29,7 +29,7 @@ export class FaceGuardRiskRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The product code. Set this to the static field **FACE_GUARD**.
+   * The product code. Set the value to FACE_GUARD.
    * 
    * @example
    * FACE_GUARD

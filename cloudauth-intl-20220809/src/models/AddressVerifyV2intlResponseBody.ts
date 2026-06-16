@@ -6,10 +6,9 @@ export class AddressVerifyV2IntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The verification result. Valid values:
-   * 
-   * - **1**: Passed (billed)
-   * - **2**: Failed (The device is in a prohibited region) (billed)
-   * - **3**: Unknown (billed)
+   * - 1: Passed.
+   * - 2: Failed (the device is in a prohibited region). 
+   * - 3: Unable to determine.
    * 
    * @example
    * 1
@@ -17,22 +16,11 @@ export class AddressVerifyV2IntlResponseBodyResult extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Verification details, including：
+   * The verification details, which include:
    * 
-   * - **DistanceRange**：Position rang：[DistanceRange description](https://www.alibabacloud.com/help/zh/ekyc/latest/add-verify-pro-api?spm=a2c63.p38356.0.i27#ee274c08976er)。
-   * > If the input phone number or address is empty, or if no carrier information is found, this field will not be returned.
-   * 
-   * - **IspName**: The carrier name:
-   *    - **CMCC**: China Mobile
-   *    - **CTCC**: China Telecom
-   *    - **CUCC**: China Unicom
-   * > This parameter is not returned if the mobile phone number or address is empty in the request, or if carrier information is not found.
-   * 
-   * - **PhoneStatus**: The status of the mobile phone:
-   *   - **0**: Abnormal
-   *   - **1**: Normal
-   * 
-   * > This parameter is not returned if the mobile phone number is empty in the request.
+   * - distanceRange: the location range.   
+   * - ispName: the ISP name.     
+   * - phoneStatus: the phone status. A value of 0 indicates abnormal. A value of 1 indicates Normal. Otherwise, the status is unknown.
    * 
    * @example
    * {
@@ -44,7 +32,7 @@ export class AddressVerifyV2IntlResponseBodyResult extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The transaction ID
+   * The authentication ID.
    * 
    * @example
    * hksb7ba1b28130d24e015d69********
@@ -78,7 +66,7 @@ export class AddressVerifyV2IntlResponseBodyResult extends $dara.Model {
 export class AddressVerifyV2IntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * [Return Code](https://www.alibabacloud.com/help/zh/ekyc/latest/add-verify-pro-api?spm=a2c63.p38356.0.i4#ae60001a3804w)
+   * The response code.
    * 
    * @example
    * Success
@@ -86,7 +74,7 @@ export class AddressVerifyV2IntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Detailed description of the return code
+   * The response message.
    * 
    * @example
    * success
@@ -102,7 +90,7 @@ export class AddressVerifyV2IntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result object
+   * The verification result.
    */
   result?: AddressVerifyV2IntlResponseBodyResult;
   static names(): { [key: string]: string } {

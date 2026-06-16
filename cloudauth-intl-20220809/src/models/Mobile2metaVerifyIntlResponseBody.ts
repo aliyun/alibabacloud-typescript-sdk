@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile2MetaVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The verification result:
-   * 
-   * - 1: The information is consistent. (Billed)
-   * 
-   * - 2: The information is inconsistent. (Billed)
-   * 
-   * - 3: No record is found. (Not billed)
+   * The verification result code. Valid values:
+   * - 1: Consistent.
+   * - 2: Inconsistent.
+   * - 3: No record found.
    * 
    * @example
    * 1
@@ -19,13 +16,11 @@ export class Mobile2MetaVerifyIntlResponseBodyResult extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The carrier name:
+   * The name of the telecommunications service provider. Valid values:
    * 
    * - CMCC: China Mobile
-   * 
    * - CUCC: China Unicom
-   * 
-   * - CTCC: China Telecom
+   * - CTCC: China Telecom.
    * 
    * @example
    * CMCC
@@ -57,7 +52,7 @@ export class Mobile2MetaVerifyIntlResponseBodyResult extends $dara.Model {
 export class Mobile2MetaVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * [Status codes](https://www.alibabacloud.com/help/en/ekyc/latest/mobile-2meta?spm=a2c63.p38356.0.i13#cbf2539971xzr).
+   * The return code.
    * 
    * @example
    * Success
@@ -65,7 +60,7 @@ export class Mobile2MetaVerifyIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A detailed description of the response code.
+   * The return message.
    * 
    * @example
    * success
@@ -81,7 +76,7 @@ export class Mobile2MetaVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result
+   * The returned result.
    */
   result?: Mobile2MetaVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {

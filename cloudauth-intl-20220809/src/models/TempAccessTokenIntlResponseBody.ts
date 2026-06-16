@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AccessKeyId for temporary file upload credentials.
+   * The AccessKeyId of the temporary credential for file upload.
    * 
    * @example
    * ***
@@ -13,7 +13,7 @@ export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
   accessKeyId?: string;
   /**
    * @remarks
-   * Temporary authorization secret.
+   * The temporary authorization secret.
    * 
    * @example
    * 3hxuRpEJ3Jv2Rtzyg4HooFCYqps762XcNtzhn19wQymk
@@ -21,7 +21,7 @@ export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
   accessKeySecret?: string;
   /**
    * @remarks
-   * Bucket name.
+   * The bucket name.
    * 
    * @example
    * liyi
@@ -29,7 +29,7 @@ export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * File prefix.
+   * The file name prefix.
    * 
    * @example
    * test001
@@ -37,7 +37,7 @@ export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
   fileNamePrefix?: string;
   /**
    * @remarks
-   * OSS endpoint.
+   * OssEndPoint。
    * 
    * @example
    * ossEndPoint
@@ -45,7 +45,7 @@ export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
   ossEndPoint?: string;
   /**
    * @remarks
-   * Security token for temporary file upload credentials.
+   * The security token of the temporary credential for file upload.
    * 
    * @example
    * ***
@@ -85,7 +85,7 @@ export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
 export class TempAccessTokenIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * Success
@@ -93,12 +93,12 @@ export class TempAccessTokenIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return result.
+   * The response data.
    */
   data?: TempAccessTokenIntlResponseBodyData;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -106,7 +106,7 @@ export class TempAccessTokenIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 86C40EC3-5940-5F47-995C-BFE90B70E540

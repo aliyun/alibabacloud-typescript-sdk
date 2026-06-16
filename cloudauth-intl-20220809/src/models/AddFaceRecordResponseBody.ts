@@ -6,6 +6,9 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddFaceRecordResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The face result information.
+   * 
    * @example
    * {
    * "faceQuality": "HIGH"
@@ -13,6 +16,12 @@ export class AddFaceRecordResponseBodyResult extends $dara.Model {
    */
   extFaceInfo?: string;
   /**
+   * @remarks
+   * Indicates whether the verification is passed. Valid values:
+   * 
+   * - Y: Passed.
+   * - N: Not passed.
+   * 
    * @example
    * Y
    */
@@ -42,11 +51,17 @@ export class AddFaceRecordResponseBodyResult extends $dara.Model {
 
 export class AddFaceRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The return message.
+   * 
    * @example
    * success
    */
@@ -59,6 +74,10 @@ export class AddFaceRecordResponseBody extends $dara.Model {
    * 7A0D192A-CC0C-5DE5-A3B6-A14CF45508F2
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: AddFaceRecordResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

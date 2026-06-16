@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddressVerifyV2IntlRequest extends $dara.Model {
   /**
    * @remarks
-   * DeviceToken obtained via the client SDK
+   * The device token, which is used for risk identification.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddressVerifyV2IntlRequest extends $dara.Model {
   deviceToken?: string;
   /**
    * @remarks
-   * Supported: Chinese mobile phone numbers
+   * The China mobile phone number.
    * 
    * @example
    * 1872334****
@@ -23,7 +23,7 @@ export class AddressVerifyV2IntlRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Fixed value: ADD_VERIFY_PRO
+   * The product code. Set this parameter to ADD_VERIFY_PRO.
    * 
    * This parameter is required.
    * 
@@ -33,29 +33,28 @@ export class AddressVerifyV2IntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * List of prohibited countries or regions
+   * The list of prohibited countries.
    * 
    * This parameter is required.
    * 
    * @example
-   * Currently supported: USA
+   * 目前仅支持：USA
    */
   regCountry?: string;
   /**
    * @remarks
-   * Detailed address text content
+   * The detailed address text.
    * 
    * @example
-   * 浙江省杭州市西湖区灯彩街云谷园区
+   * 江苏省常州市*******小区
    */
   text?: string;
   /**
    * @remarks
-   * Address verification method:
+   * The address verification method. Valid values:
    * 
-   * - **HOME**: Home address verification
-   * 
-   * - **WORK**: Work address verification
+   * - HOME: home address verification.
+   * - WORK: work address verification.
    * 
    * @example
    * HOME

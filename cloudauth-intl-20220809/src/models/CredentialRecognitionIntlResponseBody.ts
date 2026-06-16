@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Identified key information in JSON format.
+   * The key information extracted from the credential, in JSON format.
    * 
    * @example
    * {
@@ -16,7 +16,7 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * Authentication result description
+   * The description of the authentication result.
    * 
    * @example
    * 200
@@ -24,9 +24,9 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * Extraction result. Values:
-   * - S: Success.
-   * - F: Failure.
+   * The extraction result. Valid values:
+   * - S: Succeeded.
+   * - F: Failed.
    * 
    * @example
    * S
@@ -60,7 +60,7 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
 export class CredentialRecognitionIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * Success
@@ -68,7 +68,7 @@ export class CredentialRecognitionIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message for the returned information.
+   * The response message.
    * 
    * @example
    * success
@@ -76,7 +76,7 @@ export class CredentialRecognitionIntlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 4EB35****87EBA1
@@ -84,7 +84,7 @@ export class CredentialRecognitionIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result.
+   * The returned result.
    */
   result?: CredentialRecognitionIntlResponseBodyResult;
   static names(): { [key: string]: string } {

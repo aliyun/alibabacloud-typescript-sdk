@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyFaceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * description
    */
   description?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 65c030cd54b23283ceb27b4ade5da49d
    */
   id?: string;
   /**
    * @remarks
+   * The name of the face library.
+   * 
    * This parameter is required.
    * 
    * @example

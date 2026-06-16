@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Return additional information.
+   * The additional information to return.
    * 
    * @example
    * ***
@@ -13,9 +13,9 @@ export class CheckResultRequest extends $dara.Model {
   extraImageControlList?: string;
   /**
    * @remarks
-   * Whether to return images.
-   * - Y: Return
-   * - N: Do not return
+   * Specifies whether to return images. Valid values:
+   * - Y: Return images.
+   * - N: Do not return images.
    * 
    * @example
    * N
@@ -23,7 +23,7 @@ export class CheckResultRequest extends $dara.Model {
   isReturnImage?: string;
   /**
    * @remarks
-   * A unique business identifier defined by the merchant, used for subsequent troubleshooting. It supports a combination of letters and numbers, with a maximum length of 32 characters. Please ensure its uniqueness.
+   * The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
    * 
    * @example
    * djs20d***9-dsskc
@@ -31,7 +31,7 @@ export class CheckResultRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * Whether to return anti-fraud detection results.
+   * Specifies whether to return the anti-spoofing detection result.
    * 
    * @example
    * Y
@@ -39,7 +39,7 @@ export class CheckResultRequest extends $dara.Model {
   returnFiveCategorySpoofResult?: string;
   /**
    * @remarks
-   * Authentication ID.
+   * The verification ID.
    * 
    * @example
    * 4ab0b***cbde97

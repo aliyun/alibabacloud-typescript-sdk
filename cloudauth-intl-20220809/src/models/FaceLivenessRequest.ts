@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class FaceLivenessRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to crop the facial image. The default value is F.
+   * Specifies whether to allow cropping. Default value: F. Valid values:
    * 
-   * - **T**: allows cropping.
-   * 
-   * - **F**: Forbidden
+   * - T: enabled.
+   * - F: disabled. (Default).
    * 
    * @example
    * T
@@ -17,15 +16,18 @@ export class FaceLivenessRequest extends $dara.Model {
   crop?: string;
   /**
    * @remarks
-   * The Base64-encoded image. If you use this parameter to pass the facial image, check the image size. Do not pass an oversized image.
+   * The Base64-encoded face photo.
+   * 
+   * Note:
+   * - If you use FacePictureBase64 to pass in the face photo, check the photo size and do not pass in an excessively large photo.
    * 
    * @example
-   * dsjisaj***oekwodsm
+   * Base64
    */
   facePictureBase64?: string;
   /**
    * @remarks
-   * The URL of the portrait image. The URL must be an HTTP or HTTPS link accessible over the Internet.
+   * The URL of the face photo.
    * 
    * @example
    * https://digital-face-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
@@ -33,26 +35,25 @@ export class FaceLivenessRequest extends $dara.Model {
   facePictureUrl?: string;
   /**
    * @remarks
-   * Specifies whether to return the facial image quality score. The default value is F.
-   * 
-   * - **T**: returns the score.
-   * 
-   * - **F**: does not return the score.
+   * Specifies whether to return the face quality score. Default value: F. Valid values:
+   * - T: enabled.
+   * - F: disabled. (Default).
    * 
    * @example
    * T
    */
   faceQuality?: string;
   /**
+   * @remarks
+   * The face quality check.
+   * 
    * @example
    * Y
    */
   faceQualityCheck?: string;
   /**
    * @remarks
-   * A custom unique business identifier. You can use this identifier to track and troubleshoot issues. The identifier can be up to 32 characters in length and can contain letters and digits. Make sure the identifier is unique.
-   * 
-   * > Alibaba Cloud servers do not check the uniqueness of this value. For better tracking, ensure this value is unique.
+   * The merchant-defined unique business ID for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -60,7 +61,7 @@ export class FaceLivenessRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * A  custom user ID or another identifier for a specific user, such as a mobile number or email address. For security, desensitize this value in advance, for example, by hashing it.
+   * The merchant user ID or another identifier that can be used to identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of the userId field before passing it in, for example, by hashing the value.
    * 
    * @example
    * 123456789
@@ -68,11 +69,10 @@ export class FaceLivenessRequest extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * Specifies whether to enable occlusion detection. The default value is F.
+   * Specifies whether to perform occlusion detection. Default value: F. Valid values:
    * 
-   * - **T**: enables the feature.
-   * 
-   * - **F**: disables the feature.
+   * - T: enabled.
+   * - F: disabled. (Default).
    * 
    * @example
    * T
@@ -80,7 +80,7 @@ export class FaceLivenessRequest extends $dara.Model {
   occlusion?: string;
   /**
    * @remarks
-   * The product solution to use. Set the value to **FACE_LIVENESS_MIN** to use the passive liveness detection API.
+   * The product code.
    * 
    * @example
    * FACE_LIVENESS_MIN

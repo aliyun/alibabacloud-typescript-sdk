@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CardOcrResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Document recognition result
+   * The ID card and certificate recognition result.
    * 
    * @example
    * {
@@ -32,7 +32,7 @@ export class CardOcrResponseBodyResult extends $dara.Model {
   extCardInfo?: string;
   /**
    * @remarks
-   * Additional result information
+   * The additional result information.
    * 
    * @example
    * **
@@ -40,7 +40,7 @@ export class CardOcrResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * Whether the authentication passed.
+   * Indicates whether the authentication is passed. Valid values:
    * 
    * - Y: Passed.
    * - N: Not passed.
@@ -51,7 +51,7 @@ export class CardOcrResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Sub-result code.
+   * The sub-result code.
    * 
    * @example
    * 200
@@ -59,7 +59,7 @@ export class CardOcrResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * Unique identifier for the authentication request
+   * The unique ID of the authentication request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -97,7 +97,7 @@ export class CardOcrResponseBodyResult extends $dara.Model {
 export class CardOcrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The response code.
    * 
    * @example
    * Success
@@ -105,7 +105,7 @@ export class CardOcrResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message
+   * The response message.
    * 
    * @example
    * success
@@ -113,7 +113,7 @@ export class CardOcrResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
@@ -121,7 +121,7 @@ export class CardOcrResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result
+   * The returned result.
    */
   result?: CardOcrResponseBodyResult;
   static names(): { [key: string]: string } {

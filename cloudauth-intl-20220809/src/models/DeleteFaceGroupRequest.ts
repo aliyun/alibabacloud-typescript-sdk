@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFaceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * This parameter is required.
    * 

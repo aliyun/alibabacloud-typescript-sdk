@@ -11,7 +11,13 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-hongkong': "cloudauth-intl.cn-hongkong.aliyuncs.com",
+      'ap-southeast-5': "cloudauth-intl.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "cloudauth-intl.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-1': "cloudauth-intl.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloudauth-intl", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -114,7 +120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸图片入库
+   * Adds a face image to a specified face library.
    * 
    * @param request - AddFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -169,7 +175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸图片入库
+   * Adds a face image to a specified face library.
    * 
    * @param request - AddFaceRecordRequest
    * @returns AddFaceRecordResponse
@@ -266,10 +272,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Address Similarity Comparison
+   * Compares the similarity of two addresses.
    * 
    * @remarks
-   * API for comparing two addresses, standardizing and checking address consistency.
+   * Compares two addresses for consistency by using address standardization.
    * 
    * @param request - AddressCompareIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -312,10 +318,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Address Similarity Comparison
+   * Compares the similarity of two addresses.
    * 
    * @remarks
-   * API for comparing two addresses, standardizing and checking address consistency.
+   * Compares two addresses for consistency by using address standardization.
    * 
    * @param request - AddressCompareIntlRequest
    * @returns AddressCompareIntlResponse
@@ -326,10 +332,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Address Verification
+   * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
    * 
    * @remarks
-   * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+   * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
    * 
    * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
    * 
@@ -402,10 +408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Address Verification
+   * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
    * 
    * @remarks
-   * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+   * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
    * 
    * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
    * 
@@ -419,7 +425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
+   * Verifies an address.
    * 
    * @param request - AddressVerifyV2IntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -470,7 +476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
+   * Verifies an address.
    * 
    * @param request - AddressVerifyV2IntlRequest
    * @returns AddressVerifyV2IntlResponse
@@ -481,10 +487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Bank Card Verification
+   * Provides bank card element verification (two-element, three-element, and four-element) API operations.
    * 
    * @remarks
-   * Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
+   * Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
    * 
    * @param request - BankMetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -547,10 +553,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Bank Card Verification
+   * Provides bank card element verification (two-element, three-element, and four-element) API operations.
    * 
    * @remarks
-   * Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
+   * Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
    * 
    * @param request - BankMetaVerifyIntlRequest
    * @returns BankMetaVerifyIntlResponse
@@ -561,7 +567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pure server-side interface for document OCR recognition
+   * Provides server-side ID card and certificate OCR capabilities.
    * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
    * 
@@ -628,7 +634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pure server-side interface for document OCR recognition
+   * Provides server-side ID card and certificate OCR capabilities.
    * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
    * 
@@ -642,7 +648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Result Query
+   * Queries the verification result.
    * 
    * @param request - CheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -689,7 +695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Result Query
+   * Queries the verification result.
    * 
    * @param request - CheckResultRequest
    * @returns CheckResultResponse
@@ -700,7 +706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authentication Log Query Interface
+   * Authentication log query.
    * 
    * @param request - CheckVerifyLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -735,7 +741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authentication Log Query Interface
+   * Authentication log query.
    * 
    * @param request - CheckVerifyLogRequest
    * @returns CheckVerifyLogResponse
@@ -746,10 +752,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Credential Recognition Query
+   * Queries the credential recognition result.
    * 
    * @remarks
-   * After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
+   * After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
    * 
    * @param request - CredentialGetResultIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -780,10 +786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Credential Recognition Query
+   * Queries the credential recognition result.
    * 
    * @remarks
-   * After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
+   * After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
    * 
    * @param request - CredentialGetResultIntlRequest
    * @returns CredentialGetResultIntlResponse
@@ -794,10 +800,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Credential Recognition
+   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
    * 
    * @remarks
-   * Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
+   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -850,10 +856,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Credential Recognition
+   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
    * 
    * @remarks
-   * Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
+   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @returns CredentialRecognitionIntlResponse
@@ -864,10 +870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Credential Recognition Submission
+   * Submits credential recognition information.
    * 
    * @remarks
-   * Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
+   * Initializes the credential recognition OCR operation and retrieves a transactionId.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -928,10 +934,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Credential Recognition Submission
+   * Submits credential recognition information.
    * 
    * @remarks
-   * Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
+   * Initializes the credential recognition OCR operation and retrieves a transactionId.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @returns CredentialSubmitIntlResponse
@@ -942,10 +948,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Credential Verification
+   * Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
    * 
    * @remarks
-   * Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
+   * Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
    * 
    * @param request - CredentialVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -994,10 +1000,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Credential Verification
+   * Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
    * 
    * @remarks
-   * Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
+   * Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
    * 
    * @param request - CredentialVerifyIntlRequest
    * @returns CredentialVerifyIntlResponse
@@ -1094,10 +1100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Face Credential Verification
+   * Detects deepfake risks in facial images.
    * 
    * @remarks
-   * Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
+   * Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
    * 
    * @param request - DeepfakeDetectIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1150,10 +1156,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Face Credential Verification
+   * Detects deepfake risks in facial images.
    * 
    * @remarks
-   * Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
+   * Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
    * 
    * @param request - DeepfakeDetectIntlRequest
    * @returns DeepfakeDetectIntlResponse
@@ -1164,10 +1170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * deepfake file stream API
+   * ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
    * 
    * @remarks
-   * Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
+   * Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
    * 
    * @param request - DeepfakeDetectIntlStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1222,10 +1228,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * deepfake file stream API
+   * ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
    * 
    * @remarks
-   * Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
+   * Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
    * 
    * @param request - DeepfakeDetectIntlStreamRequest
    * @returns DeepfakeDetectIntlStreamResponse
@@ -1322,7 +1328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Face Group
+   * Deletes a face library.
    * 
    * @param request - DeleteFaceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1353,7 +1359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Face Group
+   * Deletes a face library.
    * 
    * @param request - DeleteFaceGroupRequest
    * @returns DeleteFaceGroupResponse
@@ -1364,7 +1370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Face
+   * Deletes a face record.
    * 
    * @param request - DeleteFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1395,7 +1401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Face
+   * Deletes a face record.
    * 
    * @param request - DeleteFaceRecordRequest
    * @returns DeleteFaceRecordResponse
@@ -1406,7 +1412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete user authentication record results
+   * Deletes data related to a user authentication record.
    * 
    * @param request - DeleteVerifyResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1445,7 +1451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete user authentication record results
+   * Deletes data related to a user authentication record.
    * 
    * @param request - DeleteVerifyResultRequest
    * @returns DeleteVerifyResultResponse
@@ -1456,7 +1462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Card and document OCR pure server-side
+   * Provides server-side card and certificate OCR capabilities.
    * 
    * @param request - DocOcrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1529,7 +1535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Card and document OCR pure server-side
+   * Provides server-side card and certificate OCR capabilities.
    * 
    * @param request - DocOcrRequest
    * @returns DocOcrResponse
@@ -1540,7 +1546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Global Document OCR Recognition Interface
+   * Recognizes global identity documents through OCR.
    * 
    * @param request - DocOcrMaxRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1629,7 +1635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Global Document OCR Recognition Interface
+   * Recognizes global identity documents through OCR.
    * 
    * @param request - DocOcrMaxRequest
    * @returns DocOcrMaxResponse
@@ -1640,7 +1646,189 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 卡证ocr纯服务端V2
+   * 全球证件ocr识别接口
+   * 
+   * @param request - DocOcrMaxV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DocOcrMaxV2Response
+   */
+  async docOcrMaxV2WithOptions(request: $_model.DocOcrMaxV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.DocOcrMaxV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ocrValueStandard)) {
+      query["OcrValueStandard"] = request.ocrValueStandard;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorize)) {
+      body["Authorize"] = request.authorize;
+    }
+
+    if (!$dara.isNull(request.docPage)) {
+      body["DocPage"] = request.docPage;
+    }
+
+    if (!$dara.isNull(request.docType)) {
+      body["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureBase64)) {
+      body["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureFile)) {
+      body["IdOcrPictureFile"] = request.idOcrPictureFile;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureUrl)) {
+      body["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!$dara.isNull(request.idSpoof)) {
+      body["IdSpoof"] = request.idSpoof;
+    }
+
+    if (!$dara.isNull(request.idThreshold)) {
+      body["IdThreshold"] = request.idThreshold;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      body["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      body["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.ocrModel)) {
+      body["OcrModel"] = request.ocrModel;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      body["SceneCode"] = request.sceneCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DocOcrMaxV2",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DocOcrMaxV2Response>(await this.callApi(params, req, runtime), new $_model.DocOcrMaxV2Response({}));
+  }
+
+  /**
+   * 全球证件ocr识别接口
+   * 
+   * @param request - DocOcrMaxV2Request
+   * @returns DocOcrMaxV2Response
+   */
+  async docOcrMaxV2(request: $_model.DocOcrMaxV2Request): Promise<$_model.DocOcrMaxV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.docOcrMaxV2WithOptions(request, runtime);
+  }
+
+  async docOcrMaxV2Advance(request: $_model.DocOcrMaxV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DocOcrMaxV2Response> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let docOcrMaxV2Req = new $_model.DocOcrMaxV2Request({ });
+    OpenApiUtil.convert(request, docOcrMaxV2Req);
+    if (!$dara.isNull(request.idOcrPictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.idOcrPictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      docOcrMaxV2Req.idOcrPictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let docOcrMaxV2Resp = await this.docOcrMaxV2WithOptions(docOcrMaxV2Req, runtime);
+    return docOcrMaxV2Resp;
+  }
+
+  /**
+   * Provides server-side card and certificate OCR capabilities.
    * 
    * @param request - DocOcrV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1717,7 +1905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 卡证ocr纯服务端V2
+   * Provides server-side card and certificate OCR capabilities.
    * 
    * @param request - DocOcrV2Request
    * @returns DocOcrV2Response
@@ -1814,7 +2002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Console Export Records
+   * Downloads verification task records.
    * 
    * @param request - DownloadVerifyRecordIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1861,7 +2049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Console Export Records
+   * Downloads verification task records.
    * 
    * @param request - DownloadVerifyRecordIntlRequest
    * @returns DownloadVerifyRecordIntlResponse
@@ -1872,7 +2060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to integrate with ID Verification using only the server-side API.
+   * Provides a server-side-only API for the eKYC solution.
    * 
    * @param request - EkycVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1953,7 +2141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to integrate with ID Verification using only the server-side API.
+   * Provides a server-side-only API for the eKYC solution.
    * 
    * @param request - EkycVerifyRequest
    * @returns EkycVerifyResponse
@@ -1964,7 +2152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ekyc纯服务端接口V2
+   * Server-side-only eKYC API
    * 
    * @param request - EkycVerifyV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2053,7 +2241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ekyc纯服务端接口V2
+   * Server-side-only eKYC API
    * 
    * @param request - EkycVerifyV2Request
    * @returns EkycVerifyV2Response
@@ -2173,7 +2361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to integrate FaceCompare using only the server-side API.
+   * Compares two face images by using face recognition technology and returns the comparison result and similarity score.
    * 
    * @param request - FaceCompareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2230,7 +2418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to integrate FaceCompare using only the server-side API.
+   * Compares two face images by using face recognition technology and returns the comparison result and similarity score.
    * 
    * @param request - FaceCompareRequest
    * @returns FaceCompareResponse
@@ -2241,7 +2429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸比对V2
+   * Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
    * 
    * @param request - FaceCompareV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2306,7 +2494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸比对V2
+   * Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
    * 
    * @param request - FaceCompareV2Request
    * @returns FaceCompareV2Response
@@ -2426,7 +2614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Face Cross Comparison
+   * Performs cross-comparison of faces.
    * 
    * @param request - FaceCrossCompareIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2499,7 +2687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Face Cross Comparison
+   * Performs cross-comparison of faces.
    * 
    * @param request - FaceCrossCompareIntlRequest
    * @returns FaceCrossCompareIntlResponse
@@ -2510,7 +2698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Face Duplication Detection API
+   * FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2607,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Face Duplication Detection API
+   * FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @returns FaceDuplicationCheckIntlResponse
@@ -2618,7 +2806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to set up the server for FACE_GUARD.
+   * Server-side API for the international Face Guard service.
    * 
    * @param request - FaceGuardRiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2665,7 +2853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to set up the server for FACE_GUARD.
+   * Server-side API for the international Face Guard service.
    * 
    * @param request - FaceGuardRiskRequest
    * @returns FaceGuardRiskResponse
@@ -2676,7 +2864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
+   * Calls the server-side API for passive liveness detection.
    * 
    * @param request - FaceLivenessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2741,7 +2929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
+   * Calls the server-side API for passive liveness detection.
    * 
    * @param request - FaceLivenessRequest
    * @returns FaceLivenessResponse
@@ -2753,6 +2941,9 @@ export default class Client extends OpenApi {
 
   /**
    * 人脸活体验证
+   * 
+   * @remarks
+   * 调用FaceLivenessV2接口对人脸图片进行活体检测。
    * 
    * @param request - FaceLivenessV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2810,6 +3001,9 @@ export default class Client extends OpenApi {
 
   /**
    * 人脸活体验证
+   * 
+   * @remarks
+   * 调用FaceLivenessV2接口对人脸图片进行活体检测。
    * 
    * @param request - FaceLivenessV2Request
    * @returns FaceLivenessV2Response
@@ -2908,6 +3102,9 @@ export default class Client extends OpenApi {
   /**
    * 人脸活体验证
    * 
+   * @remarks
+   * 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+   * 
    * @param request - FaceVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FaceVerifyIntlResponse
@@ -2996,6 +3193,9 @@ export default class Client extends OpenApi {
 
   /**
    * 人脸活体验证
+   * 
+   * @remarks
+   * 调用FaceVerifyIntl接口对人脸图片进行活体检测。
    * 
    * @param request - FaceVerifyIntlRequest
    * @returns FaceVerifyIntlResponse
@@ -3115,7 +3315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Anti-Fraud Callback Interface
+   * Calls the eKYC global anti-spoofing callback operation.
    * 
    * @deprecated OpenAPI FraudResultCallBack is deprecated
    * 
@@ -3160,7 +3360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Anti-Fraud Callback Interface
+   * Calls the eKYC global anti-spoofing callback operation.
    * 
    * @deprecated OpenAPI FraudResultCallBack is deprecated
    * 
@@ -3174,7 +3374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
+   * Verifies the validity period of an identity document as a two-factor authentication element.
    * 
    * @param request - Id2MetaPeriodVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3237,7 +3437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
+   * Verifies the validity period of an identity document as a two-factor authentication element.
    * 
    * @param request - Id2MetaPeriodVerifyIntlRequest
    * @returns Id2MetaPeriodVerifyIntlResponse
@@ -3248,7 +3448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies that a name and an ID card number are consistent.
+   * Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
    * 
    * @param request - Id2MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3291,7 +3491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies that a name and an ID card number are consistent.
+   * Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
    * 
    * @param request - Id2MetaVerifyIntlRequest
    * @returns Id2MetaVerifyIntlResponse
@@ -3302,7 +3502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authentication Initialization
+   * Initializes an authentication session.
    * 
    * @param tmpReq - InitializeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3561,7 +3761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authentication Initialization
+   * Initializes an authentication session.
    * 
    * @param request - InitializeRequest
    * @returns InitializeResponse
@@ -3572,7 +3772,397 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
+   * 认证初始化
+   * 
+   * @param tmpReq - InitializeV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitializeV2Response
+   */
+  async initializeV2WithOptions(tmpReq: $_model.InitializeV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.InitializeV2Response> {
+    tmpReq.validate();
+    let request = new $_model.InitializeV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.docPageConfig)) {
+      request.docPageConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docPageConfig, "DocPageConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appQualityCheck)) {
+      query["AppQualityCheck"] = request.appQualityCheck;
+    }
+
+    if (!$dara.isNull(request.authorize)) {
+      query["Authorize"] = request.authorize;
+    }
+
+    if (!$dara.isNull(request.autoRegistration)) {
+      query["AutoRegistration"] = request.autoRegistration;
+    }
+
+    if (!$dara.isNull(request.callbackToken)) {
+      query["CallbackToken"] = request.callbackToken;
+    }
+
+    if (!$dara.isNull(request.callbackUrl)) {
+      query["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!$dara.isNull(request.chameleonFrameEnable)) {
+      query["ChameleonFrameEnable"] = request.chameleonFrameEnable;
+    }
+
+    if (!$dara.isNull(request.crop)) {
+      query["Crop"] = request.crop;
+    }
+
+    if (!$dara.isNull(request.dateOfBirth)) {
+      query["DateOfBirth"] = request.dateOfBirth;
+    }
+
+    if (!$dara.isNull(request.dateOfExpiry)) {
+      query["DateOfExpiry"] = request.dateOfExpiry;
+    }
+
+    if (!$dara.isNull(request.docName)) {
+      query["DocName"] = request.docName;
+    }
+
+    if (!$dara.isNull(request.docNo)) {
+      query["DocNo"] = request.docNo;
+    }
+
+    if (!$dara.isNull(request.docPageConfigShrink)) {
+      query["DocPageConfig"] = request.docPageConfigShrink;
+    }
+
+    if (!$dara.isNull(request.docScanMode)) {
+      query["DocScanMode"] = request.docScanMode;
+    }
+
+    if (!$dara.isNull(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.docVideo)) {
+      query["DocVideo"] = request.docVideo;
+    }
+
+    if (!$dara.isNull(request.documentNumber)) {
+      query["DocumentNumber"] = request.documentNumber;
+    }
+
+    if (!$dara.isNull(request.editOcrResult)) {
+      query["EditOcrResult"] = request.editOcrResult;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.experienceCode)) {
+      query["ExperienceCode"] = request.experienceCode;
+    }
+
+    if (!$dara.isNull(request.faceGroupCodes)) {
+      query["FaceGroupCodes"] = request.faceGroupCodes;
+    }
+
+    if (!$dara.isNull(request.facePictureFile)) {
+      query["FacePictureFile"] = request.facePictureFile;
+    }
+
+    if (!$dara.isNull(request.facePictureUrl)) {
+      query["FacePictureUrl"] = request.facePictureUrl;
+    }
+
+    if (!$dara.isNull(request.faceRegisterGroupCode)) {
+      query["FaceRegisterGroupCode"] = request.faceRegisterGroupCode;
+    }
+
+    if (!$dara.isNull(request.faceVerifyThreshold)) {
+      query["FaceVerifyThreshold"] = request.faceVerifyThreshold;
+    }
+
+    if (!$dara.isNull(request.idFaceQuality)) {
+      query["IdFaceQuality"] = request.idFaceQuality;
+    }
+
+    if (!$dara.isNull(request.idSpoof)) {
+      query["IdSpoof"] = request.idSpoof;
+    }
+
+    if (!$dara.isNull(request.idThreshold)) {
+      query["IdThreshold"] = request.idThreshold;
+    }
+
+    if (!$dara.isNull(request.languageConfig)) {
+      query["LanguageConfig"] = request.languageConfig;
+    }
+
+    if (!$dara.isNull(request.MRTDInput)) {
+      query["MRTDInput"] = request.MRTDInput;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.metaInfo)) {
+      query["MetaInfo"] = request.metaInfo;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.ocr)) {
+      query["Ocr"] = request.ocr;
+    }
+
+    if (!$dara.isNull(request.ocrValueStandard)) {
+      query["OcrValueStandard"] = request.ocrValueStandard;
+    }
+
+    if (!$dara.isNull(request.pages)) {
+      query["Pages"] = request.pages;
+    }
+
+    if (!$dara.isNull(request.procedurePriority)) {
+      query["ProcedurePriority"] = request.procedurePriority;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.productFlow)) {
+      query["ProductFlow"] = request.productFlow;
+    }
+
+    if (!$dara.isNull(request.returnFaces)) {
+      query["ReturnFaces"] = request.returnFaces;
+    }
+
+    if (!$dara.isNull(request.returnUrl)) {
+      query["ReturnUrl"] = request.returnUrl;
+    }
+
+    if (!$dara.isNull(request.saveFacePicture)) {
+      query["SaveFacePicture"] = request.saveFacePicture;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    if (!$dara.isNull(request.securityLevel)) {
+      query["SecurityLevel"] = request.securityLevel;
+    }
+
+    if (!$dara.isNull(request.showAlbumIcon)) {
+      query["ShowAlbumIcon"] = request.showAlbumIcon;
+    }
+
+    if (!$dara.isNull(request.showGuidePage)) {
+      query["ShowGuidePage"] = request.showGuidePage;
+    }
+
+    if (!$dara.isNull(request.showOcrResult)) {
+      query["ShowOcrResult"] = request.showOcrResult;
+    }
+
+    if (!$dara.isNull(request.styleConfig)) {
+      query["StyleConfig"] = request.styleConfig;
+    }
+
+    if (!$dara.isNull(request.targetFacePictureFile)) {
+      query["TargetFacePictureFile"] = request.targetFacePictureFile;
+    }
+
+    if (!$dara.isNull(request.targetFacePictureUrl)) {
+      query["TargetFacePictureUrl"] = request.targetFacePictureUrl;
+    }
+
+    if (!$dara.isNull(request.templateConfig)) {
+      query["TemplateConfig"] = request.templateConfig;
+    }
+
+    if (!$dara.isNull(request.templateRanCount)) {
+      query["TemplateRanCount"] = request.templateRanCount;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    if (!$dara.isNull(request.useNFC)) {
+      query["UseNFC"] = request.useNFC;
+    }
+
+    if (!$dara.isNull(request.verifyModel)) {
+      query["VerifyModel"] = request.verifyModel;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.facePictureBase64)) {
+      body["FacePictureBase64"] = request.facePictureBase64;
+    }
+
+    if (!$dara.isNull(request.targetFacePicture)) {
+      body["TargetFacePicture"] = request.targetFacePicture;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitializeV2",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitializeV2Response>(await this.callApi(params, req, runtime), new $_model.InitializeV2Response({}));
+  }
+
+  /**
+   * 认证初始化
+   * 
+   * @param request - InitializeV2Request
+   * @returns InitializeV2Response
+   */
+  async initializeV2(request: $_model.InitializeV2Request): Promise<$_model.InitializeV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initializeV2WithOptions(request, runtime);
+  }
+
+  async initializeV2Advance(request: $_model.InitializeV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitializeV2Response> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let initializeV2Req = new $_model.InitializeV2Request({ });
+    OpenApiUtil.convert(request, initializeV2Req);
+    if (!$dara.isNull(request.facePictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.facePictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      initializeV2Req.facePictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    if (!$dara.isNull(request.targetFacePictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.targetFacePictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      initializeV2Req.targetFacePictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let initializeV2Resp = await this.initializeV2WithOptions(initializeV2Req, runtime);
+    return initializeV2Resp;
+  }
+
+  /**
+   * Configures client connection keep-alive settings.
+   * 
+   * @remarks
+   * Configures client connection keep-alive settings.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns KeepaliveIntlResponse
@@ -3594,7 +4184,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
+   * Configures client connection keep-alive settings.
+   * 
+   * @remarks
+   * Configures client connection keep-alive settings.
    * @returns KeepaliveIntlResponse
    */
   async keepaliveIntl(): Promise<$_model.KeepaliveIntlResponse> {
@@ -3603,7 +4196,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
+   * Verifies the identity of a phone number owner by using two-factor authentication.
+   * 
+   * @remarks
+   * Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
    * 
    * @param request - Mobile2MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3646,7 +4242,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
+   * Verifies the identity of a phone number owner by using two-factor authentication.
+   * 
+   * @remarks
+   * Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
    * 
    * @param request - Mobile2MetaVerifyIntlRequest
    * @returns Mobile2MetaVerifyIntlResponse
@@ -3657,7 +4256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * International Version of Mobile Three Elements API
+   * Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
    * 
    * @param request - Mobile3MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3704,7 +4303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * International Version of Mobile Three Elements API
+   * Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
    * 
    * @param request - Mobile3MetaVerifyIntlRequest
    * @returns Mobile3MetaVerifyIntlResponse
@@ -3715,7 +4314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Face Group
+   * Modifies a face library.
    * 
    * @param request - ModifyFaceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3754,7 +4353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Face Group
+   * Modifies a face library.
    * 
    * @param request - ModifyFaceGroupRequest
    * @returns ModifyFaceGroupResponse
@@ -3765,7 +4364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add New Face
+   * Edits a face record.
    * 
    * @param request - ModifyFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3800,7 +4399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add New Face
+   * Edits a face record.
    * 
    * @param request - ModifyFaceRecordRequest
    * @returns ModifyFaceRecordResponse
@@ -3811,7 +4410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Face Group
+   * Queries face libraries.
    * 
    * @param request - QueryFaceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3862,7 +4461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Face Group
+   * Queries face libraries.
    * 
    * @param request - QueryFaceGroupRequest
    * @returns QueryFaceGroupResponse
@@ -3873,7 +4472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Face Records
+   * Queries face records.
    * 
    * @param request - QueryFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3932,7 +4531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Face Records
+   * Queries face records.
    * 
    * @param request - QueryFaceRecordRequest
    * @returns QueryFaceRecordResponse
@@ -3943,7 +4542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Temporary Token
+   * Retrieves a temporary token.
    * 
    * @param request - TempAccessTokenIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3974,7 +4573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Temporary Token
+   * Retrieves a temporary token.
    * 
    * @param request - TempAccessTokenIntlRequest
    * @returns TempAccessTokenIntlResponse
@@ -3985,7 +4584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Temporary File URL
+   * Retrieves a temporary URL for a file.
    * 
    * @param request - TempOssUrlIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4016,7 +4615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Temporary File URL
+   * Retrieves a temporary URL for a file.
    * 
    * @param request - TempOssUrlIntlRequest
    * @returns TempOssUrlIntlResponse
