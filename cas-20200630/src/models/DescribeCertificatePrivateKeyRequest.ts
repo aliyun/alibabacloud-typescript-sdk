@@ -5,21 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCertificatePrivateKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The password that is used to encrypt the private key. The password can contain letters, digits, and special characters, such as `, + - _ #`. The password can be up to 32 bytes in length.
+   * The password to encrypt the private key. The password can contain uppercase letters, lowercase letters, digits, and special characters, such as `,.+-_#`. The maximum length is 32 bytes.
    * 
-   * **Warning** You must remember the password that you specify. The password is required to decrypt the encrypted private key. If you forget the password, the encrypted private key that is returned cannot be decrypted. You must call this operation again.
+   * >Warning: 
+   * 
+   * Remember the password you set. You need this password to decrypt the encrypted private key. If you forget the password, you cannot decrypt the private key that you get from this API call. You must call this API again to get a new encrypted key.
    * 
    * This parameter is required.
    * 
    * @example
-   * !QA@WS3ed
+   * !Demo@WS3ed
    */
   encryptedCode?: string;
   /**
    * @remarks
-   * The unique identifier of the client certificate or server certificate that you want to query.
+   * The unique identifier of the client or server-side certificate for which you want to get the private key.
    * 
-   * >  You can call the [ListClientCertificate](https://help.aliyun.com/document_detail/330884.html) operation to query the unique identifiers of all client certificates and server certificates.
+   * > Call [ListClientCertificate](https://help.aliyun.com/document_detail/465990.html) to query the unique identifiers of all client and server-side certificates.
    * 
    * This parameter is required.
    * 
@@ -27,6 +29,13 @@ export class DescribeCertificatePrivateKeyRequest extends $dara.Model {
    * bc37133bb7ed68c7938d928fd26d****
    */
   identifier?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the certificate belongs.
+   * 
+   * @example
+   * test
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {

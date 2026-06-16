@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCACertificateResponseBodyCertificateTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * 使用状态
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * BMS
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,7 @@ export class DescribeCACertificateResponseBodyCertificateTags extends $dara.Mode
 export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   /**
    * @remarks
-   * The expiration date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+   * The date when the CA certificate expires. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1665819958000
@@ -39,11 +53,13 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   afterDate?: number;
   /**
    * @remarks
-   * The encryption algorithm of the CA certificate. Valid values:
+   * The type of the encryption algorithm of the CA certificate. Valid values:
    * 
-   * *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
-   * *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
-   * *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+   * - **RSA**: The RSA algorithm.
+   * 
+   * - **ECC**: The ECC algorithm.
+   * 
+   * - **SM2**: The SM2 algorithm.
    * 
    * @example
    * RSA
@@ -51,7 +67,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The issuance date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+   * The date when the CA certificate was issued. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1634283958000
@@ -59,33 +75,31 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   beforeDate?: number;
   /**
    * @remarks
-   * CA certificate chain.
+   * The complete certificate chain.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
-   * 用户证书
    * -----END CERTIFICATE-----
    * 
    * -----BEGIN CERTIFICATE-----
-   * 中间证书
    * -----END CERTIFICATE-----
    * 
    * -----BEGIN CERTIFICATE-----
-   * 根证书
    * -----END CERTIFICATE-----
    */
   caCertChain?: string;
   /**
    * @remarks
-   * The number of certificates issued by private CA instances.
+   * The number of certificates that the private CA instance has issued.
    * 
    * @example
    * 10
    */
   certIssuedCount?: number;
+  certMaxTime?: number;
   /**
    * @remarks
-   * The remaining number of assignable certificate quotas.
+   * The number of remaining certificates that can be issued.
    * 
    * @example
    * 30
@@ -93,7 +107,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   certRemainingCount?: number;
   /**
    * @remarks
-   * The total number of purchased certificate quotas.
+   * The total certificate quota you purchased.
    * 
    * @example
    * 40
@@ -103,13 +117,21 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * @remarks
    * The type of the CA certificate. Valid values:
    * 
-   * *   **ROOT**: root CA certificate
-   * *   **SUB_ROOT**: intermediate CA certificate
+   * - **ROOT**: A root CA certificate.
+   * 
+   * - **SUB_ROOT**: A subordinate CA certificate.
    * 
    * @example
    * SUB_ROOT
    */
   certificateType?: string;
+  /**
+   * @remarks
+   * The ID of the hardware security module (HSM) cluster. This parameter is available when the CA is enabled using an HSM.
+   * 
+   * @example
+   * XXX-id
+   */
   clusterId?: string;
   /**
    * @remarks
@@ -121,9 +143,9 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The code of the country in which the organization is located.
+   * The country code of the organization that is associated with the CA certificate.
    * 
-   * For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+   * For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
    * 
    * @example
    * CN
@@ -131,7 +153,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   countryCode?: string;
   /**
    * @remarks
-   * CRL validity period: 1-365 days.
+   * The validity period of the CRL. Valid values: 1 to 365. Unit: days.
    * 
    * @example
    * 90
@@ -139,7 +161,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   crlDay?: number;
   /**
    * @remarks
-   * The status of the certificate revocation list (CRL) feature.
+   * The status of the Certificate Revocation List (CRL).
    * 
    * @example
    * ACTIVE
@@ -147,12 +169,19 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   crlStatus?: string;
   /**
    * @remarks
-   * The address of the CRL.
+   * The CRL URL.
    * 
    * @example
    * https://crl-cn-publish.oss-cn-hangzhou.aliyuncs.com/pca/crl/1925647866611395/1ed40789-483f-6023-b6b8-29ddd3bb0a9a.crl
    */
   crlUrl?: string;
+  /**
+   * @remarks
+   * The algorithm and its key length.
+   * 
+   * @example
+   * RSA_2048
+   */
   fullAlgorithm?: string;
   /**
    * @remarks
@@ -162,7 +191,27 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * 160ae6bb538d538c70c01f81dcf2****
    */
   identifier?: string;
+  /**
+   * @remarks
+   * The issuer of the CA. Valid values:
+   * 
+   * - local: A private certificate.
+   * 
+   * - iTrusChina: A compliance CA.
+   * 
+   * - external: An imported certificate.
+   * 
+   * @example
+   * local
+   */
   issuerType?: string;
+  /**
+   * @remarks
+   * The index of the key in the HSM. This parameter is available when the CA is enabled using an HSM.
+   * 
+   * @example
+   * 8
+   */
   keyIndex?: number;
   /**
    * @remarks
@@ -174,7 +223,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   keySize?: number;
   /**
    * @remarks
-   * The name of the city in which the organization is located.
+   * The name of the city where the organization associated with the CA certificate is located.
    * 
    * @example
    * Hangzhou
@@ -193,12 +242,12 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * The name of the organization that is associated with the CA certificate.
    * 
    * @example
-   * Alibaba Cloud Computing Co., Ltd.
+   * aliyun
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department or branch in the organization that is associated with the CA certificate.
+   * The name of the department in the organization that is associated with the CA certificate.
    * 
    * @example
    * Security
@@ -206,14 +255,21 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   organizationUnit?: string;
   /**
    * @remarks
-   * The unique identifier of the root CA certificate from which the CA certificate is issued.
+   * The unique identifier of the root CA certificate that issued the CA certificate.
    * 
-   * >  This parameter is returned only if the value of the **CertificateType** parameter is **SUB_ROOT**. The value SUB_ROOT indicates an intermediate CA certificate.
+   * > This parameter is returned only when **CertificateType** is **SUB_ROOT**, which indicates a subordinate CA certificate.
    * 
    * @example
    * 1a83bcbb89e562885e40aa0108f5****
    */
   parentIdentifier?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the certificate belongs.
+   * 
+   * @example
+   * rg-aek2pxd7ekpoo2y
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -249,7 +305,8 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   signAlgorithm?: string;
   /**
    * @remarks
-   * The name of the province, municipality, or autonomous region in which the organization is located.
+   * <props="china">The name of the province, municipality, or autonomous region where the organization associated with the CA certificate is located.
+   * <props="intl">The name of the province or state where the organization associated with the CA certificate is located.
    * 
    * @example
    * Zhejiang
@@ -259,8 +316,9 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * @remarks
    * The status of the CA certificate. Valid values:
    * 
-   * *   **ISSUE**: The CA certificate is issued.
-   * *   **REVOKE**: The CA certificate is revoked.
+   * - **ISSUE**: The certificate is issued.
+   * 
+   * - **REVOKE**: The certificate is revoked.
    * 
    * @example
    * ISSUE
@@ -268,19 +326,40 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The user attribute of the CA certificate, which contains the following information:
+   * The subject of the CA certificate. It contains the following information:
    * 
-   * *   **C**: the country code in which the organization is located
-   * *   **O**: the name of the organization
-   * *   **OU**: the name of the department or branch in the organization
-   * *   **L**: the name of the city in which the organization is located
-   * *   **ST**: the name of the province, municipality, or autonomous region in which the organization is located
-   * *   **CN**: the common name or abbreviation of the organization
+   * - **C**: The country code of the organization.
+   * 
+   * - **O**: The name of the organization.
+   * 
+   * - **OU**: The department of the organization.
+   * 
+   * - **L**: The city where the organization is located.
+   * 
+   * <props="china">
+   * 
+   * - **ST**: The province, municipality, or autonomous region where the organization is located.
+   * 
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * - **ST**: The province or state where the organization is located.
+   * 
+   * 
+   * 
+   * 
+   * - **CN**: The common name or abbreviation of the organization.
    * 
    * @example
-   * C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
+   * C=CN,O=aliyun,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
    */
   subjectDN?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: DescribeCACertificateResponseBodyCertificateTags[];
   /**
    * @remarks
@@ -290,6 +369,13 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * -----BEGIN CERTIFICATE----- …… -----END CERTIFICATE-----
    */
   x509Certificate?: string;
+  /**
+   * @remarks
+   * The validity period of the CA certificate. Unit: years.
+   * 
+   * @example
+   * 1
+   */
   years?: number;
   static names(): { [key: string]: string } {
     return {
@@ -298,6 +384,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       beforeDate: 'BeforeDate',
       caCertChain: 'CaCertChain',
       certIssuedCount: 'CertIssuedCount',
+      certMaxTime: 'CertMaxTime',
       certRemainingCount: 'CertRemainingCount',
       certTotalCount: 'CertTotalCount',
       certificateType: 'CertificateType',
@@ -338,6 +425,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       beforeDate: 'number',
       caCertChain: 'string',
       certIssuedCount: 'number',
+      certMaxTime: 'number',
       certRemainingCount: 'number',
       certTotalCount: 'number',
       certificateType: 'string',
@@ -386,7 +474,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
 export class DescribeCACertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the CA certificate.
+   * The details of the CA certificate.
    */
   certificate?: DescribeCACertificateResponseBodyCertificate;
   /**

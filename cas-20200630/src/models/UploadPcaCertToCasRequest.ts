@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UploadPcaCertToCasRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of primary key identifiers to synchronize to Certificate Service. Separate multiple IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example

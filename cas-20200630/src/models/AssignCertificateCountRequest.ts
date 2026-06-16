@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AssignCertificateCountRequest extends $dara.Model {
   /**
+   * @remarks
+   * The total number of certificate records.
+   * 
    * @example
    * 5
    */
   certTotalCount?: number;
   /**
+   * @remarks
+   * The ID of the data source.
+   * 
    * @example
    * 33285
    */

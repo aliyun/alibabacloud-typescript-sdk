@@ -101,6 +101,9 @@ export { DescribePcaAndExternalCACertificateListResponse } from './DescribePcaAn
 export { GetCAInstanceStatusRequest } from './GetCainstanceStatusRequest';
 export { GetCAInstanceStatusResponseBody } from './GetCainstanceStatusResponseBody';
 export { GetCAInstanceStatusResponse } from './GetCainstanceStatusResponse';
+export { GetCaInstanceCrlAddressRequest } from './GetCaInstanceCrlAddressRequest';
+export { GetCaInstanceCrlAddressResponseBody } from './GetCaInstanceCrlAddressResponseBody';
+export { GetCaInstanceCrlAddressResponse } from './GetCaInstanceCrlAddressResponse';
 export { ListAllEndEntityInstanceRequest } from './ListAllEndEntityInstanceRequest';
 export { ListAllEndEntityInstanceResponseBody } from './ListAllEndEntityInstanceResponseBody';
 export { ListAllEndEntityInstanceResponse } from './ListAllEndEntityInstanceResponse';

@@ -62,15 +62,25 @@ export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
 
 export class ListTagResourcesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned for this call.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to start the next query. If this parameter is empty, no more results exist.
+   * 
    * @example
    * 24262
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The tag resources.
+   */
   tagResources?: ListTagResourcesResponseBodyDataTagResources;
   static names(): { [key: string]: string } {
     return {
@@ -101,8 +111,15 @@ export class ListTagResourcesResponseBodyData extends $dara.Model {
 }
 
 export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListTagResourcesResponseBodyData;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF5189484043
    */

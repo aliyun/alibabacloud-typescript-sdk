@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRootCACertificateRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * runtime
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,26 +45,43 @@ export class CreateRootCACertificateRequestTags extends $dara.Model {
 export class CreateRootCACertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The key algorithm of the root CA certificate. The key algorithm is in the `<Encryption algorithm>_<Key length>` format. Valid values:
+   * The key algorithm of the root CA certificate. The key algorithm is in the `<encryption algorithm>_<key length>` format. Valid values:
    * 
-   * *   **RSA_1024**: The signature algorithm is Sha256WithRSA.
-   * *   **RSA_2048**: The signature algorithm is Sha256WithRSA.
-   * *   **RSA_4096**: The signature algorithm is Sha256WithRSA.
-   * *   **ECC_256**: The signature algorithm is Sha256WithECDSA.
-   * *   **ECC_384**: The signature algorithm is Sha256WithECDSA.
-   * *   **ECC_512**: The signature algorithm is Sha256WithECDSA.
-   * *   **SM2_256**: The signature algorithm is SM3WithSM2.
+   * - **RSA_1024**: The corresponding signature algorithm is Sha256WithRSA.
    * 
-   * The encryption algorithm of the root CA certificate must be consistent with the **encryption algorithm** of the private root CA instance that you purchase. For example, if the **encryption algorithm** of the private root CA instance that you purchase is **RSA**, the key algorithm of the root CA certificate must be **RSA_1024**, **RSA_2048**, or **RSA_4096**.
+   * - **RSA_2048**: The corresponding signature algorithm is Sha256WithRSA.
+   * 
+   * - **RSA_4096**: The corresponding signature algorithm is Sha256WithRSA.
+   * 
+   * - **ECC_256**: The corresponding signature algorithm is Sha256WithECDSA.
+   * 
+   * - **ECC_384**: The corresponding signature algorithm is Sha256WithECDSA.
+   * 
+   * - **ECC_512**: The corresponding signature algorithm is Sha256WithECDSA.
+   * 
+   * - **SM2_256**: The corresponding signature algorithm is SM3WithSM2.
+   * 
+   * The encryption algorithm of the root CA certificate must be the same as the **Certificate Algorithm** of the private root CA that you purchased. For example, if you set **Certificate Algorithm** to **RSA** when you purchase a private root CA, the key algorithm of the root CA certificate must be **RSA_1024**, **RSA_2048**, or **RSA_4096**.
    * 
    * @example
    * RSA_2048
    */
   algorithm?: string;
+  /**
+   * @remarks
+   * A client token to ensure the idempotence of the request.
+   * 
+   * Generate a unique value for this parameter from your client. The token supports only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
+   * 
+   * @example
+   * 3838B684-3075-582B-9A45-8C99104029DF
+   */
   clientToken?: string;
   /**
    * @remarks
-   * The common name or abbreviation of the organization. The value can contain letters.
+   * The common name or abbreviation of the organization. Supports Chinese characters and letters.
    * 
    * This parameter is required.
    * 
@@ -60,9 +91,9 @@ export class CreateRootCACertificateRequest extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The code of the country or region in which the organization is located. You can enter an alpha-2 code. For example, you can use **CN** to indicate China and use **US** to indicate the United States.
+   * The two-letter uppercase code of the country or region where the organization is located. For example, **CN** indicates China and **US** indicates the United States.
    * 
-   * For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+   * For more information about country codes, see the **Country codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
    * 
    * @example
    * CN
@@ -70,7 +101,7 @@ export class CreateRootCACertificateRequest extends $dara.Model {
   countryCode?: string;
   /**
    * @remarks
-   * The name of the city in which the organization is located. The value can contain letters.
+   * The name of the city where the organization is located. Supports Chinese characters and letters.
    * 
    * This parameter is required.
    * 
@@ -80,17 +111,17 @@ export class CreateRootCACertificateRequest extends $dara.Model {
   locality?: string;
   /**
    * @remarks
-   * The name of the organization that is associated with the root CA certificate. You can enter the name of your enterprise or company. The value can contain letters.
+   * The name of the organization for the root CA certificate. This is typically your company or enterprise name. Supports Chinese characters and letters.
    * 
    * This parameter is required.
    * 
    * @example
-   * Alibaba
+   * Aliyun
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department or branch in the organization. The value can contain letters.
+   * The name of the department or branch in the organization. Supports Chinese characters and letters.
    * 
    * This parameter is required.
    * 
@@ -98,10 +129,17 @@ export class CreateRootCACertificateRequest extends $dara.Model {
    * Security
    */
   organizationUnit?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aek****wia
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the province, municipality, or autonomous region in which the organization is located. The value can contain letters.
+   * <props="intl">The name of the province or state where the organization is located. Supports Chinese characters and letters.
    * 
    * This parameter is required.
    * 
@@ -109,12 +147,16 @@ export class CreateRootCACertificateRequest extends $dara.Model {
    * Zhejiang
    */
   state?: string;
+  /**
+   * @remarks
+   * A list of tags.
+   */
   tags?: CreateRootCACertificateRequestTags[];
   /**
    * @remarks
    * The validity period of the root CA certificate. Unit: years.
    * 
-   * >  We recommend that you set this parameter to a value from 5 to 10.
+   * > Set the validity period to 5 to 10 years.
    * 
    * This parameter is required.
    * 

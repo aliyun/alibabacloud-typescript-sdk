@@ -15,14 +15,23 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
    * @remarks
    * The type of the encryption algorithm of the certificate. Valid values:
    * 
-   * *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
-   * *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
-   * *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+   * - **RSA**: RSA algorithm.
+   * 
+   * - **ECC**: ECC algorithm.
+   * 
+   * - **SM2**: SM2 algorithm.
    * 
    * @example
    * RSA
    */
   algorithm?: string;
+  /**
+   * @remarks
+   * The name of the issued certificate.
+   * 
+   * @example
+   * 生产培训10.153.13.177
+   */
   aliasName?: string;
   /**
    * @remarks
@@ -36,8 +45,9 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
    * @remarks
    * The type of the certificate. Valid values:
    * 
-   * *   **CLIENT**: client certificate
-   * *   **SERVER**: server certificate
+   * - **CLIENT**: a client certificate.
+   * 
+   * - **SERVER**: a server-side certificate.
    * 
    * @example
    * SERVER
@@ -53,14 +63,21 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
   commonName?: string;
   /**
    * @remarks
-   * The code of the country in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The country code of the country where the organization associated with the issuing subordinate CA certificate is located.
    * 
-   * For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+   * For more information about country codes, see the **Country codes** section of [Manage company information](https://help.aliyun.com/document_detail/198289.html).
    * 
    * @example
    * CN
    */
   countryCode?: string;
+  /**
+   * @remarks
+   * The custom identifier, which is a unique key.
+   * 
+   * @example
+   * ****48d8d3ecc9976d9ecd2b2f25****
+   */
   customIdentifier?: string;
   /**
    * @remarks
@@ -70,6 +87,13 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
    * 365
    */
   days?: number;
+  /**
+   * @remarks
+   * The primary key ID of the certificate.
+   * 
+   * @example
+   * 12321
+   */
   id?: number;
   /**
    * @remarks
@@ -89,7 +113,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
   keySize?: number;
   /**
    * @remarks
-   * The name of the city in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The city where the organization associated with the issuing subordinate CA certificate is located.
    * 
    * @example
    * Hangzhou
@@ -105,15 +129,15 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
   md5?: string;
   /**
    * @remarks
-   * The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The name of the organization that is associated with the issuing subordinate CA certificate.
    * 
    * @example
-   * Alibaba Cloud Computing Co., Ltd.
+   * 阿里云计算有限公司
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department in the organization. The organization is associated with the intermediate certificate authority (CA) certificate from which the certificate is issued.
+   * The name of the department of the organization that is associated with the issuing subordinate certificate authority (CA) certificate.
    * 
    * @example
    * Security
@@ -121,27 +145,37 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
   organizationUnit?: string;
   /**
    * @remarks
-   * The unique identifier of the intermediate certificate from which the client certificate is issued.
+   * The unique identifier of the subordinate CA certificate that issued this certificate.
    * 
    * @example
    * 160ae6bb538d538c70c01f81dcf2****
    */
   parentIdentifier?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the certificate belongs.
+   * 
+   * @example
+   * rg-acfmyxa2uv6cu5a
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The subject alternative name (SAN) extension of the certificate. The value indicates additional information, including the additional domain names or IP addresses that are associated with the certificate.
+   * The Subject Alternative Name (SAN) extension of the certificate. This extension indicates other domain names, IP addresses, and so on that are associated with the certificate.
    * 
-   * The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that corresponds to a SAN extension. A SAN extension struct contains the following parameters:
+   * This parameter is a string that is converted from a JSON array. Each element in the JSON array is a struct that corresponds to a SAN extension. Each SAN extension struct contains the following parameters:
    * 
-   * *   **Type**: the type of the extension. Data type: integer. Valid values:
+   * - **Type**: The type of the extension. This parameter is of the Integer type. Valid values:
    * 
-   *     *   **1**: an email address
-   *     *   **2**: a domain name
-   *     *   **6**: a Uniform Resource Identifier (URI)
-   *     *   **7**: an IP address
+   *   - **1**: an email address.
    * 
-   * *   **Value**: the value of the extension. Data type: string.
+   *   - **2**: a domain name.
+   * 
+   *   - **6**: a Uniform Resource Identifier (URI).
+   * 
+   *   - **7**: an IP address.
+   * 
+   * - **Value**: The content of the extension. This parameter is of the String type.
    * 
    * @example
    * [ {"Type": 7, "Value": "192.0.XX.XX"}, {"Type": 2, "Value": "www.aliyundoc.com"}, ]
@@ -173,7 +207,8 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
   signAlgorithm?: string;
   /**
    * @remarks
-   * The name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * <props="china">The name of the province, municipality, or autonomous region where the organization associated with the issuing subordinate CA certificate is located.
+   * <props="intl">The name of the province or state where the organization associated with the issuing subordinate CA certificate is located.
    * 
    * @example
    * Zhejiang
@@ -183,8 +218,9 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
    * @remarks
    * The status of the certificate. Valid values:
    * 
-   * *   **ISSUE**: issued
-   * *   **REVOKE**: revoked
+   * - **ISSUE**: The certificate is issued.
+   * 
+   * - **REVOKE**: The certificate is revoked.
    * 
    * @example
    * ISSUE
@@ -192,17 +228,34 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The distinguished name (DN) extension of the certificate, which indicates the user of the certificate. The DN extension includes the following information:
+   * The Distinguished Name (DN) of the certificate. The DN indicates the user of the certificate and contains the following information:
    * 
-   * *   **C**: the country
-   * *   **O**: the organization
-   * *   **OU**: the department
-   * *   **L**: the city
-   * *   **ST**: the province, municipality, or autonomous region
-   * *   **CN**: the common name
+   * - **C**: The country.
+   * 
+   * - **O**: The organization.
+   * 
+   * - **OU**: The department.
+   * 
+   * - **L**: The city.
+   * 
+   * <props="china">
+   * 
+   * - **ST**: The province, municipality, or autonomous region.
+   * 
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * - **ST**: The province or state.
+   * 
+   * 
+   * 
+   * 
+   * - **CN**: The common name.
    * 
    * @example
-   * C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
+   * C=CN,O=阿里云计算有限公司,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
    */
   subjectDN?: string;
   /**
@@ -287,21 +340,28 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
 export class ListClientCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the details about all client certificates and server certificates.
+   * A list of details about the client or server-side certificates.
    */
   certificateList?: ListClientCertificateResponseBodyCertificateList[];
   /**
    * @remarks
-   * The page number of the current page.
+   * The page number of the returned page.
    * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Paging parameter: the maximum number of entries in the result set.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -317,7 +377,7 @@ export class ListClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of certificates that are returned per page.
+   * The number of certificates returned per page.
    * 
    * @example
    * 20
@@ -325,7 +385,7 @@ export class ListClientCertificateResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The number of client certificates and server certificates that are returned.
+   * The total number of client and server-side certificates that are queried.
    * 
    * @example
    * 1

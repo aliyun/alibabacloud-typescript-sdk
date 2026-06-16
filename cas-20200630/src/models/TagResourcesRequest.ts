@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class TagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * testKey1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * testValue1
    */
@@ -39,6 +45,8 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,17 +55,25 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The IDs of the resources.
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * The type of the resource. Set the value to **instance**.
+   * 
    * This parameter is required.
    * 
    * @example
    * instance
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags to add to the resources. You can specify up to 20 tags.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {

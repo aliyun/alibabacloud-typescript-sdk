@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateExternalCACertificateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The content of the certificate.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----
    * MIIEkjCCA3qgAwIBAgIQCgFBQgAAAVOFc2oLheynCDANBgkqhkiG9w0BAQsFADA/
@@ -15,6 +18,9 @@ export class CreateExternalCACertificateResponseBody extends $dara.Model {
    */
   certificate?: string;
   /**
+   * @remarks
+   * The CA certificate chain.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----
    * ...
@@ -27,11 +33,17 @@ export class CreateExternalCACertificateResponseBody extends $dara.Model {
    */
   certificateChain?: string;
   /**
+   * @remarks
+   * The unique identifier for the certificate.
+   * 
    * @example
    * 1ed4068c-6f1b-6deb-8e32-3f8439a851cb
    */
   identifier?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 12345678-1234-1234-1234-123456789ABC
    */

@@ -13,7 +13,7 @@ export class DescribeCACertificateCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
+   * The total number of your CA certificates, including root and subordinate CA certificates.
    * 
    * @example
    * 2

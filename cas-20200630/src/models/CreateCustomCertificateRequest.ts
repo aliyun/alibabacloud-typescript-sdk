@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage extends $dara.Model {
   /**
    * @remarks
-   * The original name of the parameter is NonRepudiation.
+   * Content commitment. Formerly known as NonRepudiation. Allows the certificate key to be used for content commitment.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage exte
   contentCommitment?: boolean;
   /**
    * @remarks
-   * Specifies whether the key can be used for data encryption.
+   * Data encipherment.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage exte
   dataEncipherment?: boolean;
   /**
    * @remarks
-   * Specifies whether the key can be used only for data decryption.
+   * When KeyAgreement is true, this marks that the certificate key can only be used for decryption.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage exte
   decipherOnly?: boolean;
   /**
    * @remarks
-   * Specifies whether the key can be used for digital signing. If you set this parameter to true, the private key of the certificate can be used to generate digital signatures, and the public key of the certificate can be used to verify digital signatures.
+   * Digital signature. Allows the private key of the certificate to be used for digital signatures and the public key to be used to verify digital signatures.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage exte
   digitalSignature?: boolean;
   /**
    * @remarks
-   * Specifies whether the key can be used only for data encryption.
+   * When KeyAgreement is true, this marks that the certificate key can only be used for encryption.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage exte
   encipherOnly?: boolean;
   /**
    * @remarks
-   * Specifies whether the key can be used for key agreement.
+   * Key agreement.
    * 
    * @example
    * false
@@ -53,7 +53,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage exte
   keyAgreement?: boolean;
   /**
    * @remarks
-   * Specifies whether the key can be used for data encipherment.
+   * Key encipherment. Allows the certificate key to be used to encrypt other keys.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage exte
   keyEncipherment?: boolean;
   /**
    * @remarks
-   * Specifies whether the key can be used for non-repudiation. This parameter is renamed ContentCommitment in the X.509 standard.
+   * Non-repudiation. This has been renamed to ContentCommitment in the X.509 standard.
    * 
    * @example
    * false
@@ -105,12 +105,15 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage exte
 export class CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames extends $dara.Model {
   /**
    * @remarks
-   * The type of the alias. Valid values:
+   * The following values are allowed:
    * 
-   * *   rfc822Name: email address
-   * *   dNSName: domain name
-   * *   uniformResourceIdentifier: URI
-   * *   iPAddress: IP address
+   * - rfc822Name - Email address
+   * 
+   * - dNSName - Domain name
+   * 
+   * - uniformResourceIdentifier - Uniform Resource Identifier (URI)
+   * 
+   * - iPAddress - IP address
    * 
    * This parameter is required.
    * 
@@ -120,14 +123,14 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAltern
   type?: string;
   /**
    * @remarks
-   * The alias that meets the requirement of a specified type.
+   * A value that matches the specified Type.
    * 
    * @example
    * rfc822Name:
-   * exmaple@certqa.cn
+   * example.aliyundoc.com
    * 
    * dNSName:
-   * www.certqa.cn
+   * learn.aliyundoc.com
    * 
    * uniformResourceIdentifier:
    * acs:ecs:regionid:15619224785*****:instance/i-bp1bzvz55uz27hf*****
@@ -162,12 +165,12 @@ export class CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAltern
 export class CreateCustomCertificateRequestApiPassthroughExtensions extends $dara.Model {
   /**
    * @remarks
-   * If it is a necessary parameter, the critical list contains the parameter name.
+   * If an extension is critical, its name is included in the criticals list.
    */
   criticals?: string[];
   /**
    * @remarks
-   * The extended key usage.
+   * The extended key usages.
    */
   extendedKeyUsages?: string[];
   /**
@@ -177,7 +180,7 @@ export class CreateCustomCertificateRequestApiPassthroughExtensions extends $dar
   keyUsage?: CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage;
   /**
    * @remarks
-   * The aliases of the entities.
+   * The subject alternative names (SANs) of the certificate.
    */
   subjectAlternativeNames?: CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames[];
   static names(): { [key: string]: string } {
@@ -222,21 +225,33 @@ export class CreateCustomCertificateRequestApiPassthroughExtensions extends $dar
 export class CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes extends $dara.Model {
   /**
    * @remarks
-   * Custom attribute type as:
+   * The key of the custom property. It must comply with industry standards. Examples:
    * 
-   * - 2.5.4.6 : country
-   * - 2.5.4.10 : organization
-   * - 2.5.4.11 : organizational unit
-   * - 2.5.4.12 : title
-   * - 2.5.4.3 : common name
-   * - 2.5.4.9 : street
-   * - 2.5.4.5 : serial number
-   * - 2.5.4.7 : locality
-   * - 2.5.4.8 : state
-   * - 1.3.6.1.4.1.37244.1.1 : Matter Operational Certificate - Node ID
-   * - 1.3.6.1.4.1.37244.1.5 : Matter Operational Certificate - Fabric ID
-   * - 1.3.6.1.4.1.37244.2.1 : Matter Device Attestation Certificate Vender ID (VID)
-   * - 1.3.6.1.4.1.37244.2.2 : Matter Device Attestation Certificate Product ID (PID).
+   * - 2.5.4.6: Country code
+   * 
+   * - 2.5.4.10: Organization
+   * 
+   * - 2.5.4.11: Organizational unit name
+   * 
+   * - 2.5.4.12: Title
+   * 
+   * - 2.5.4.3: Common name
+   * 
+   * - 2.5.4.9: Street
+   * 
+   * - 2.5.4.5: Serial number
+   * 
+   * - 2.5.4.7: Locality
+   * 
+   * - 2.5.4.8: State or province
+   * 
+   * - 1.3.6.1.4.1.37244.1.1: Matter certificate - Node ID
+   * 
+   * - 1.3.6.1.4.1.37244.1.5: Matter certificate - Fabric ID
+   * 
+   * - 1.3.6.1.4.1.37244.2.1: Matter certificate Vendor ID (VID)
+   * 
+   * - 1.3.6.1.4.1.37244.2.2: Matter certificate Product ID (PID)
    * 
    * @example
    * 2.5.4.3
@@ -244,7 +259,7 @@ export class CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes
   objectIdentifier?: string;
   /**
    * @remarks
-   * Custom attribute value.
+   * The value of the custom property.
    * 
    * @example
    * Aliyun
@@ -279,12 +294,12 @@ export class CreateCustomCertificateRequestApiPassthroughSubject extends $dara.M
    * The common name of the certificate user.
    * 
    * @example
-   * Bob
+   * 张三
    */
   commonName?: string;
   /**
    * @remarks
-   * The code of the country. The value is an alpha-2 country code that complies with the ISO 3166-1 standard. For more information about country codes, visit <https://www.iso.org/obp/ui/#search/code/>.
+   * The country code. Use the two-letter country code from ISO 3166-1. For more information, see [ISO](https://www.iso.org/obp/ui/#search/code/).
    * 
    * @example
    * CN
@@ -292,15 +307,15 @@ export class CreateCustomCertificateRequestApiPassthroughSubject extends $dara.M
   country?: string;
   /**
    * @remarks
-   * Customize the Subject attributes of the certificate.
+   * The custom subject properties of the certificate.
    */
   customAttributes?: CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes[];
   /**
    * @remarks
-   * The name of the city in which the organization is located. The value can contain letters.
+   * The name of the city where the organization is located. Chinese characters and letters are supported.
    * 
    * @example
-   * Hangzhou
+   * 杭州市
    */
   locality?: string;
   /**
@@ -308,23 +323,23 @@ export class CreateCustomCertificateRequestApiPassthroughSubject extends $dara.M
    * The name of the organization.
    * 
    * @example
-   * XXX company
+   * XXX公司
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department or branch in the organization.
+   * The name of the department or branch within the organization.
    * 
    * @example
-   * XXX department
+   * XXX部门
    */
   organizationUnit?: string;
   /**
    * @remarks
-   * The name of the province or state in which the organization associated with the certificate is located.
+   * The province or state where the organization is located.
    * 
    * @example
-   * Zhejiang
+   * 浙江省
    */
   state?: string;
   static names(): { [key: string]: string } {
@@ -366,12 +381,12 @@ export class CreateCustomCertificateRequestApiPassthroughSubject extends $dara.M
 export class CreateCustomCertificateRequestApiPassthrough extends $dara.Model {
   /**
    * @remarks
-   * The extensions of the certificate.
+   * The certificate extensions.
    */
   extensions?: CreateCustomCertificateRequestApiPassthroughExtensions;
   /**
    * @remarks
-   * The serial number MUST be a positive integer assigned by the CA to each certificate.
+   * The custom serial number of the certificate. Must be a long integer.
    * 
    * @example
    * 16889526086333
@@ -379,7 +394,7 @@ export class CreateCustomCertificateRequestApiPassthrough extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The name of the entity that uses the certificate.
+   * The certificate subject.
    */
   subject?: CreateCustomCertificateRequestApiPassthroughSubject;
   static names(): { [key: string]: string } {
@@ -414,7 +429,21 @@ export class CreateCustomCertificateRequestApiPassthrough extends $dara.Model {
 }
 
 export class CreateCustomCertificateRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * testKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -442,12 +471,12 @@ export class CreateCustomCertificateRequestTags extends $dara.Model {
 export class CreateCustomCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The passthrough parameters.
+   * Pass-through parameters.
    */
   apiPassthrough?: CreateCustomCertificateRequestApiPassthrough;
   /**
    * @remarks
-   * The content of the CSR. You can generate a CSR by using the OpenSSL tool or the Keytool tool. For more information, see [How do I create a CSR file?](https://help.aliyun.com/document_detail/42218.html)
+   * The content of the CSR. You can generate a CSR using tools such as OpenSSL or Keytool. For more information, see [Create a CSR file](https://help.aliyun.com/document_detail/42218.html).
    * 
    * This parameter is required.
    * 
@@ -463,10 +492,11 @@ export class CreateCustomCertificateRequest extends $dara.Model {
   csr?: string;
   /**
    * @remarks
-   * include the CRL address.
+   * Specifies whether to include a CRL address.
    * 
-   * - 0- No
-   * - 1- Yes
+   * - 0 - No
+   * 
+   * - 1 - Yes
    * 
    * @example
    * 1
@@ -474,11 +504,13 @@ export class CreateCustomCertificateRequest extends $dara.Model {
   enableCrl?: number;
   /**
    * @remarks
-   * Specifies whether to immediately issue the certificate. Valid values:
+   * Obtain the certificate immediately.
    * 
-   * *   0: asynchronously issues the certificate.
-   * *   1: immediately issues the certificate.
-   * *   2: immediately issues the certificate and returns the certificate chain.
+   * - 0 - Issue the certificate asynchronously.
+   * 
+   * - 1 - Issue the certificate immediately.
+   * 
+   * - 2 - Issue the certificate immediately and return the CA certificate chain.
    * 
    * @example
    * 0
@@ -486,7 +518,7 @@ export class CreateCustomCertificateRequest extends $dara.Model {
   immediately?: number;
   /**
    * @remarks
-   * The identifier of the certificate.
+   * The identifier of the CA certificate.
    * 
    * This parameter is required.
    * 
@@ -494,35 +526,57 @@ export class CreateCustomCertificateRequest extends $dara.Model {
    * 1ed4068c-6f1b-6deb-8e32-3f8439a851cb
    */
   parentIdentifier?: string;
+  /**
+   * @remarks
+   * The ID of the resource group. You can obtain this ID by calling the [ListResources](https://help.aliyun.com/document_detail/2716559.html) operation.
+   * 
+   * @example
+   * rg-aek****wia
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: CreateCustomCertificateRequestTags[];
   /**
    * @remarks
-   * The validity period of the certificate. The value cannot exceed the validity period of the certificate instance. Relative time and absolute time are supported.
+   * The validity period of the certificate. This period cannot exceed the validity period of the instance. You can use relative time or absolute time.
    * 
-   * Units of relative time: year, month, and day.
+   * Relative time: Supports years, months, and days.
    * 
-   * *   Use y to specify years.
-   * *   Use m to specify months.
-   * *   Use d to specify days.
+   * - Year - y
    * 
-   * Absolute time: Use Greenwich Mean Time (GMT). Format: `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`
+   * - Month - m
    * 
-   * *   Format of the end time: $NotAfter
-   * *   Format of the start time and end time: $NotBefore/$NotAfter
+   * - Day - d
+   * 
+   * Absolute time: Uses GMT. Format: `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`
+   * 
+   * - Specify the end time - $NotAfter
+   * 
+   * - Specify the start and end times - $NotBefore/$NotAfter
    * 
    * This parameter is required.
    * 
    * @example
-   * Relative time:
-   *  ● 1y
-   *  ● 3m
-   *  ● 7d
-   * Absolute time: 
-   * ● 2006-01-02T15:04:05Z 
+   * 相对时间：
+   * ● 1y
+   * ● 3m
+   * ● 7d
+   * 
+   * 绝对时间：
+   * ● 2006-01-02T15:04:05Z
    * ● 2006-01-02T15:04:05Z/2023-03-09T17:48:13Z
    */
   validity?: string;
+  /**
+   * @remarks
+   * A custom identifier.
+   * 
+   * @example
+   * XXX068c-6f1b-6deb-8e32-3f8439a8XXX
+   */
   customIdentifier?: string;
   static names(): { [key: string]: string } {
     return {

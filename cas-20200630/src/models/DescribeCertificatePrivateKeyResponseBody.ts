@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCertificatePrivateKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content of the encrypted private key.
+   * The encrypted content of the private key.
    * 
    * @example
    * -----BEGIN ENCRYPTED PRIVATE KEY----- …… -----END ENCRYPTED PRIVATE KEY-----

@@ -2,34 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListRevokeCertificateRequest extends $dara.Model {
+export class GetCaInstanceCrlAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The identifier of the CA certificate.
    * 
    * @example
-   * 1
+   * 1f0167b4-ee84-XXX-49bc4d39fa68
    */
-  currentPage?: number;
+  caIdentifier?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The ID of the zone where the CAS instance resides.
    * 
    * @example
-   * 20
+   * 1f047318-0815-XXX-f7ceb76b5c0a
    */
-  showSize?: number;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
-      currentPage: 'CurrentPage',
-      showSize: 'ShowSize',
+      caIdentifier: 'CaIdentifier',
+      uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      currentPage: 'number',
-      showSize: 'number',
+      caIdentifier: 'string',
+      uuid: 'string',
     };
   }
 

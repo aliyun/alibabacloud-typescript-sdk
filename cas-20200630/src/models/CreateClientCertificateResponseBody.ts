@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClientCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The certificate chain of the client certificate.
+   * The CA certificate chain.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----\\n......\\n-----END CERTIFICATE-----\\n-----BEGIN CERTIFICATE-----\\n......\\n-----END CERTIFICATE-----\\n
@@ -21,7 +21,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * 8C467B38-3910-447D-87BC-AC049166F216
@@ -29,10 +29,10 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
-   * 0f29522da2dae7a1c4b6ab7132ad3c06
+   * 084bde9cd233f0ddae33adc438cfbbbd****
    */
   serialNumber?: string;
   /**

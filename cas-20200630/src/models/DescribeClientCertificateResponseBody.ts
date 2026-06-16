@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClientCertificateResponseBodyCertificateTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * testKey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * [{\\"tag\\":\\"PROPERTY_TYPE\\",\\"values\\":[]}]
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,16 +53,25 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
   afterDate?: number;
   /**
    * @remarks
-   * The type of the encryption algorithm of the certificate. Valid values:
+   * The type of the encryption algorithm. Valid values:
    * 
-   * *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
-   * *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
-   * *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+   * - **RSA**: the RSA algorithm.
+   * 
+   * - **ECC**: the ECC algorithm.
+   * 
+   * - **SM2**: the SM2 algorithm.
    * 
    * @example
    * RSA
    */
   algorithm?: string;
+  /**
+   * @remarks
+   * The alias of the issued certificate.
+   * 
+   * @example
+   * rsa_root_2048
+   */
   aliasName?: string;
   /**
    * @remarks
@@ -58,13 +81,29 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * 1634283958000
    */
   beforeDate?: number;
+  /**
+   * @remarks
+   * The complete certificate chain.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   * cert
+   * -----END CERTIFICATE-----
+   * -----BEGIN CERTIFICATE-----
+   * subCA
+   * -----END CERTIFICATE-----
+   * -----BEGIN CERTIFICATE-----
+   * rootCA
+   * -----END CERTIFICATE-----
+   */
   certChain?: string;
   /**
    * @remarks
    * The type of the certificate. Valid values:
    * 
-   * *   **CLIENT**: client certificate
-   * *   **SERVER**: server certificate
+   * - **CLIENT**: a client certificate.
+   * 
+   * - **SERVER**: a server-side certificate.
    * 
    * @example
    * SERVER
@@ -80,14 +119,21 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
   commonName?: string;
   /**
    * @remarks
-   * The code of the country in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The country code of the subject organization.
    * 
-   * For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+   * For more information about country codes, see the **International codes** section in [Manage company profiles](https://help.aliyun.com/document_detail/198289.html).
    * 
    * @example
    * CN
    */
   countryCode?: string;
+  /**
+   * @remarks
+   * The custom identifier, which is a unique key.
+   * 
+   * @example
+   * ***3a32d96883a6650e672ea0276****
+   */
   customIdentifier?: string;
   /**
    * @remarks
@@ -97,7 +143,21 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * 365
    */
   days?: number;
+  /**
+   * @remarks
+   * The algorithm and its length.
+   * 
+   * @example
+   * RSA_2048
+   */
   fullAlgorithm?: string;
+  /**
+   * @remarks
+   * The ID of the data source to which the certificate order belongs.
+   * 
+   * @example
+   * 1137354
+   */
   id?: number;
   /**
    * @remarks
@@ -117,7 +177,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
   keySize?: number;
   /**
    * @remarks
-   * The name of the city in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The city where the subject organization is located.
    * 
    * @example
    * Hangzhou
@@ -133,15 +193,15 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
   md5?: string;
   /**
    * @remarks
-   * The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The organization associated with the certificate of the issuing subordinate CA.
    * 
    * @example
-   * Alibaba Cloud Computing Co., Ltd.
+   * Aliyun
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department in the organization. The organization is associated with the intermediate certificate authority (CA) certificate from which the certificate is issued.
+   * The organizational unit of the certificate subject.
    * 
    * @example
    * Security
@@ -149,27 +209,37 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
   organizationUnit?: string;
   /**
    * @remarks
-   * The unique identifier of the intermediate certificate from which the client certificate is issued.
+   * The unique identifier of the subordinate CA certificate that issued the certificate.
    * 
    * @example
    * 160ae6bb538d538c70c01f81dcf2****
    */
   parentIdentifier?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the certificate belongs.
+   * 
+   * @example
+   * rg-acfmxllajdpw3fi
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The subject alternative name (SAN) extension of the certificate. The value indicates additional information, including the additional domain names or IP addresses that are associated with the certificate.
+   * The Subject Alternative Name (SAN) extension of the certificate. The SAN extension indicates other domain names or IP addresses that are associated with the certificate.
    * 
-   * The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that corresponds to a SAN extension. A SAN extension struct contains the following parameters:
+   * This parameter is a string that is converted from a JSON array. Each element in the JSON array is a struct that corresponds to a SAN extension. Each SAN extension struct contains the following parameters:
    * 
-   * *   **Type**: the type of the extension. Data type: integer. Valid values:
+   * - **Type**: The type of the extension. This parameter is of the Integer type. Valid values:
    * 
-   *     *   **1**: an email address
-   *     *   **2**: a domain name
-   *     *   **6**: a Uniform Resource Identifier (URI)
-   *     *   **7**: an IP address
+   *   - **1**: an email address.
    * 
-   * *   **Value**: the value of the extension. Data type: string.
+   *   - **2**: a domain name.
+   * 
+   *   - **6**: a Uniform Resource Identifier (URI).
+   * 
+   *   - **7**: an IP address.
+   * 
+   * - **Value**: The content of the extension. This parameter is of the String type.
    * 
    * @example
    * [ {"Type": 7, "Value": "192.0.XX.XX"}, {"Type": 2, "Value": "www.aliyundoc.com"}, ]
@@ -201,7 +271,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
   signAlgorithm?: string;
   /**
    * @remarks
-   * The name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The state or province where the subject organization is located.
    * 
    * @example
    * Zhejiang
@@ -211,8 +281,9 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * @remarks
    * The status of the certificate. Valid values:
    * 
-   * *   **ISSUE**: issued
-   * *   **REVOKE**: revoked
+   * - **ISSUE**: The certificate is issued.
+   * 
+   * - **REVOKE**: The certificate is revoked.
    * 
    * @example
    * ISSUE
@@ -220,20 +291,51 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The distinguished name (DN) extension of the certificate, which indicates the user of the certificate. The DN extension includes the following information:
+   * The subject Distinguished Name (DN) of the certificate. This value is composed of the following fields:
    * 
-   * *   **C**: the country
-   * *   **O**: the organization
-   * *   **OU**: the department
-   * *   **L**: the city
-   * *   **ST**: the province, municipality, or autonomous region
-   * *   **CN**: the common name
+   * - **C**: Country.
+   * 
+   * - **O**: Organization.
+   * 
+   * - **OU**: Organizational unit.
+   * 
+   * - **CN**: Common name.
+   * 
+   * <props="china">
+   * 
+   * - **ST**: The province, municipality, or autonomous region.
+   * 
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * - **ST**: Province or state.
+   * 
+   * 
+   * 
+   * 
+   * - **CN**: Common name.
    * 
    * @example
-   * C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
+   * C=CN,O=Aliyun,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
    */
   subjectDN?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   * 
+   * @example
+   * mtls
+   */
   tags?: DescribeClientCertificateResponseBodyCertificateTags[];
+  /**
+   * @remarks
+   * Indicates whether the certificate is synchronized to Digital Certificate Management Service.
+   * 
+   * @example
+   * 1
+   */
   uploadFlag?: number;
   /**
    * @remarks
@@ -328,7 +430,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
 export class DescribeClientCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the client certificate or the server certificate.
+   * The details of the client certificate or server-side certificate.
    */
   certificate?: DescribeClientCertificateResponseBodyCertificate;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Model {
   /**
    * @remarks
-   * The expiration date of the certificate. The date is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-12-31T00:00Z` indicates December 31, 2021.
+   * The expiration date of the certificate. The format is `yyyy-MM-ddT00:00Z`. For example, `2021-12-31T00:00Z` indicates December 31, 2021.
    * 
    * @example
    * 2021-12-31T00:00Z
@@ -15,9 +15,11 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
    * @remarks
    * The type of the encryption algorithm of the certificate. Valid values:
    * 
-   * *   **RSA**: the Rivest-Shamir-Adleman (RSA) algorithm.
-   * *   **ECC**: the elliptic curve cryptography (ECC) algorithm.
-   * *   **SM2**: the SM2 algorithm, which is developed and approved by the State Cryptography Administration of China.
+   * - **RSA**: the RSA algorithm.
+   * 
+   * - **ECC**: the ECC algorithm.
+   * 
+   * - **SM2**: the SM2 algorithm.
    * 
    * @example
    * RSA
@@ -25,7 +27,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   algorithm?: string;
   /**
    * @remarks
-   * The issuance date of the certificate. The date is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-01-01T00:00Z` indicates January 1, 2021.
+   * The date when the certificate was issued. The format is `yyyy-MM-ddT00:00Z`. For example, `2021-01-01T00:00Z` indicates January 1, 2021.
    * 
    * @example
    * 2021-01-01T00:00Z
@@ -49,14 +51,21 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   commonName?: string;
   /**
    * @remarks
-   * The code of the country in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The country code of the organization that is associated with the subordinate CA certificate that issued the certificate.
    * 
-   * For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
+   * For more information about country codes, see the "Country codes" section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
    * 
    * @example
    * CN
    */
   countryCode?: string;
+  /**
+   * @remarks
+   * The custom identifier. This is a unique key.
+   * 
+   * @example
+   * ****48d8d3ecc9976d9ecd2b2f25****
+   */
   customIdentifier?: string;
   /**
    * @remarks
@@ -76,7 +85,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   keySize?: number;
   /**
    * @remarks
-   * The name of the city in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The name of the city where the organization of the subordinate CA certificate that issued the certificate is located.
    * 
    * @example
    * Hangzhou
@@ -92,15 +101,15 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   md5?: string;
   /**
    * @remarks
-   * The name of the organization. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The name of the organization that is associated with the subordinate CA certificate that issued the certificate.
    * 
    * @example
-   * Alibaba Cloud Computing Co., Ltd.
+   * 阿里云计算有限公司
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department in the organization. The organization is associated with the intermediate certificate authority (CA) certificate from which the certificate is issued.
+   * The name of the department of the organization that is associated with the subordinate CA certificate that issued the certificate.
    * 
    * @example
    * Security
@@ -108,7 +117,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   organizationUnit?: string;
   /**
    * @remarks
-   * The identifier of the root certificate.
+   * The identifier of the parent certificate.
    * 
    * @example
    * 160ae6bb538d538c70c01f81dcf2****
@@ -116,7 +125,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   parentIdentifier?: string;
   /**
    * @remarks
-   * The date on which the certificate was revoked. The value is in the `yyyy-MM-ddT00:00Z` format. For example, the value `2021-09-01T00:00Z` indicates September 1, 2021.
+   * The date when the certificate was revoked. The format is `yyyy-MM-ddT00:00Z`. For example, `2021-09-01T00:00Z` indicates September 1, 2021.
    * 
    * @example
    * 2021-09-01T00:00Z
@@ -124,18 +133,21 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   revokeDate?: string;
   /**
    * @remarks
-   * The subject alternative name (SAN) extension of the certificate.
+   * The Subject Alternative Name (SAN) extension of the certificate.
    * 
-   * The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that corresponds to a SAN extension. A SAN extension struct contains the following parameters:
+   * This parameter is a string that is converted from a JSON array. Each element in the JSON array is a struct that corresponds to a SAN extension. Each SAN extension struct contains the following parameters:
    * 
-   * *   **Type**: the type of the extension. Data type: integer. Valid values:
+   * - **Type**: The type of the extension. This parameter is of the integer type. Valid values:
    * 
-   *     *   **1**: an email address
-   *     *   **2**: a domain name
-   *     *   **6**: a Uniform Resource Identifier (URI)
-   *     *   **7**: an IP address
+   *   - **1**: an email address.
    * 
-   * *   **Value**: the value of the extension. Data type: string.
+   *   - **2**: a domain name.
+   * 
+   *   - **6**: a Uniform Resource Identifier (URI).
+   * 
+   *   - **7**: an IP address.
+   * 
+   * - **Value**: The content of the extension. This parameter is of the string type.
    * 
    * @example
    * [ {"Type": 7, "Value": "192.0.XX.XX"}, {"Type": 2, "Value": "www.aliyundoc.com"}, ]
@@ -167,7 +179,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   signAlgorithm?: string;
   /**
    * @remarks
-   * The name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate certificate from which the certificate is issued.
+   * The name of the province or state of the organization that is associated with the subordinate CA certificate that issued the certificate.
    * 
    * @example
    * Zhejiang
@@ -175,7 +187,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   state?: string;
   /**
    * @remarks
-   * The status.
+   * The status of the certificate.
    * 
    * @example
    * ISSUE
@@ -183,17 +195,34 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The distinguished name (DN) extension of the certificate, which indicates the user of the certificate. The DN extension includes the following information:
+   * The Distinguished Name (DN) of the certificate. The DN indicates the user of the certificate and contains the following information:
    * 
-   * *   **C**: the country
-   * *   **O**: the organization
-   * *   **OU**: the department
-   * *   **L**: the city
-   * *   **ST**: the province, municipality, or autonomous region
-   * *   **CN**: the common name
+   * - **C**: The country.
+   * 
+   * - **O**: The organization.
+   * 
+   * - **OU**: The department.
+   * 
+   * - **CN**: The common name.
+   * 
+   * <props="china">
+   * 
+   * - **ST**: The province, municipality, or autonomous region.
+   * 
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * - **ST**: The province or state.
+   * 
+   * 
+   * 
+   * 
+   * - **CN**: The common name.
    * 
    * @example
-   * C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=ZheJiang,ST=HangZhou,CN=aliyundoc.com
+   * C=CN,O=阿里云计算有限公司,OU=Security,L=ZheJiang,ST=HangZhou,CN=aliyundoc.com
    */
   subjectDN?: string;
   static names(): { [key: string]: string } {
@@ -262,7 +291,7 @@ export class ListRevokeCertificateResponseBodyCertificateList extends $dara.Mode
 export class ListRevokeCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the details about the revoked client certificates or server certificates.
+   * The details of the revoked client or server-side certificates.
    */
   certificateList?: ListRevokeCertificateResponseBodyCertificateList[];
   /**
@@ -291,7 +320,7 @@ export class ListRevokeCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of revoked certificates that are returned per page.
+   * The number of revoked certificates on each page.
    * 
    * @example
    * 20
@@ -299,7 +328,7 @@ export class ListRevokeCertificateResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of revoked client certificates and server certificates that are returned.
+   * The total number of revoked client and server-side certificates.
    * 
    * @example
    * 1

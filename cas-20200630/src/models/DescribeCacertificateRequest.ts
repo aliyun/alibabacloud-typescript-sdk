@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCACertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the CA certificate that you want to query.
+   * The unique identifier of the CA certificate to query.
    * 
-   * >  You can call the [DescribeCACertificateList](https://help.aliyun.com/document_detail/328095.html) operation to query the unique identifiers of all CA certificates.
+   * > Call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifiers of all CA certificates.
    * 
    * @example
    * 160ae6bb538d538c70c01f81dcf2****

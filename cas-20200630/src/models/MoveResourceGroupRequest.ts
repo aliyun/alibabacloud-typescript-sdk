@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MoveResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The ID of the destination resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class MoveResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * The ID of the resource to move.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class MoveResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
+   * The type of the resource. Set the value to **instance**.
+   * 
    * This parameter is required.
    * 
    * @example

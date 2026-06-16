@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateClientCertificateWithCsrRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * database
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * 1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,9 +45,9 @@ export class CreateClientCertificateWithCsrRequestTags extends $dara.Model {
 export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the client certificate. This value is a UNIX timestamp. Unit: seconds.
+   * The expiration time of the client certificate. This is a UNIX timestamp in seconds.
    * 
-   * >  The **BeforeTime** and **AfterTime** parameters must be both empty or both specified.
+   * > Specify the **BeforeTime** and **AfterTime** parameters together, or omit both.
    * 
    * @example
    * 1665819958
@@ -43,17 +57,23 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
    * @remarks
    * The key algorithm of the client certificate. The key algorithm is in the `<Encryption algorithm>_<Key length>` format. Valid values:
    * 
-   * *   **RSA_1024**: The signature algorithm is Sha256WithRSA.
-   * *   **RSA_2048**: The signature algorithm is Sha256WithRSA.
-   * *   **RSA_4096**: The signature algorithm is Sha256WithRSA.
-   * *   **ECC_256**: The signature algorithm is Sha256WithECDSA.
-   * *   **ECC_384**: The signature algorithm is Sha256WithECDSA.
-   * *   **ECC_512**: The signature algorithm is Sha256WithECDSA.
-   * *   **SM2_256**: The signature algorithm is SM3WithSM2.
+   * - **RSA_1024**: The corresponding signature algorithm is Sha256WithRSA.
    * 
-   * The encryption algorithm of the client certificate must be the same with the encryption algorithm of the intermediate CA certificate. The key length can be different. For example, if the key algorithm of the intermediate CA certificate is RSA_2048, the key algorithm of the client certificate must be RSA_1024, RSA_2048, or RSA_4096.
+   * - **RSA_2048**: The corresponding signature algorithm is Sha256WithRSA.
    * 
-   * >  You can call the [DescribeCACertificate](https://help.aliyun.com/document_detail/328096.html) operation to query the key algorithm of an intermediate CA certificate.
+   * - **RSA_4096**: The corresponding signature algorithm is Sha256WithRSA.
+   * 
+   * - **ECC_256**: The corresponding signature algorithm is Sha256WithECDSA.
+   * 
+   * - **ECC_384**: The corresponding signature algorithm is Sha256WithECDSA.
+   * 
+   * - **ECC_512**: The corresponding signature algorithm is Sha256WithECDSA.
+   * 
+   * - **SM2_256**: The corresponding signature algorithm is SM3WithSM2.
+   * 
+   * The encryption algorithm of the client certificate must be the same as that of the subordinate CA certificate, but the key length can be different. For example, if the key algorithm of the subordinate CA certificate is RSA_2048, the key algorithm of the client certificate must be one of RSA_1024, RSA_2048, and RSA_4096.
+   * 
+   * > Call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the key algorithm of the subordinate CA certificate.
    * 
    * @example
    * RSA_2048
@@ -61,9 +81,9 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The issuance time of the client certificate. This value is a UNIX timestamp. The default value is the time when you call this operation. Unit: seconds.
+   * The issuance time of the client certificate. This is a UNIX timestamp in seconds. The default value is the time of the API call.
    * 
-   * >  The **BeforeTime** and **AfterTime** parameters must be both empty or both specified.
+   * > The **BeforeTime** and **AfterTime** parameters must be specified together or left empty.
    * 
    * @example
    * 1634283958
@@ -71,9 +91,9 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   beforeTime?: number;
   /**
    * @remarks
-   * The common name of the certificate. The value can contain letters.
+   * The common name of the certificate. Chinese and English characters are supported.
    * 
-   * >  If you specify the **CsrPemString** parameter, the value of the **CommonName** parameter is determined by the **CsrPemString** parameter.
+   * > If you specify the **Csr** parameter, the value of this parameter is determined by the information in the **Csr** parameter.
    * 
    * @example
    * aliyundoc.com
@@ -81,7 +101,7 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The code of the country in which the organization is located, such as **CN** and **US**.
+   * The country code, for example, **CN** or **US**.
    * 
    * @example
    * CN
@@ -89,25 +109,31 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   country?: string;
   /**
    * @remarks
-   * The content of the CSR file. You can generate a CSR file by using the OpenSSL tool or Keytool. For more information, see [How do I create a CSR file?](https://help.aliyun.com/document_detail/42218.html) You can also create a CSR file in the Certificate Management Service console. For more information, see [Create a CSR](https://help.aliyun.com/document_detail/313297.html).
+   * The content of the CSR. Use OpenSSL or Keytool to generate a CSR. For more information, see [Create a CSR file](https://help.aliyun.com/document_detail/42218.html).
    * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST-----   ...... -----END CERTIFICATE REQUEST-----
    */
   csr?: string;
+  /**
+   * @remarks
+   * A custom identifier. This is a unique key.
+   * 
+   * @example
+   * ***e6bb538d538c70c01f81fg3****
+   */
   customIdentifier?: string;
   /**
    * @remarks
-   * The validity period of the client certificate. Unit: days. You must specify at least one of the **Days**, **BeforeTime**, and **AfterTime** parameters. The **BeforeTime** and **AfterTime** parameters must be both empty or both specified. The following list describes how to specify these parameters:
+   * The validity period of the client certificate, in days. You must specify the validity period using one of the following methods:
    * 
-   * *   If you specify the **Days** parameter, you can specify both the **BeforeTime** and **AfterTime** parameters or leave them both empty.********
-   * *   If you do not specify the **Days** parameter, you must specify both the **BeforeTime** and **AfterTime** parameters.
+   * - Specify the **Days** parameter.
    * 
-   * > 
+   * - Specify both the **BeforeTime** and **AfterTime** parameters.
    * 
-   * *   If you specify the **Days**, **BeforeTime**, and **AfterTime** parameters together, the validity period of the client certificate is determined by the value of the **Days** parameter.
+   * > * If you specify **Days**, **BeforeTime**, and **AfterTime** at the same time, the value of **Days** is used.
    * 
-   * *   The validity period of the client certificate cannot exceed the validity period of the intermediate CA certificate. You can call the [DescribeCACertificate](https://help.aliyun.com/document_detail/328096.html) operation to query the validity period of an intermediate CA certificate.
+   * - The validity period of the client certificate cannot exceed that of the subordinate CA certificate. Call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to view the validity period of the subordinate CA certificate.
    * 
    * @example
    * 365
@@ -115,10 +141,11 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   days?: number;
   /**
    * @remarks
-   * include the CRL address.
+   * Specifies whether to include the Certificate Revocation List (CRL) address.
    * 
-   * - 0- No
-   * - 1- Yes
+   * 0: No
+   * 
+   * 1: Yes
    * 
    * @example
    * 1
@@ -126,11 +153,13 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   enableCrl?: number;
   /**
    * @remarks
-   * Specifies whether to return the certificate. Valid values:
+   * Specifies whether to return the digital certificate.
    * 
-   * *   **0**: does not return the certificate. This is the default value.
-   * *   **1**: returns the certificate.
-   * *   **2**: returns the certificate and the certificate chain of the certificate.
+   * - **0**: Do not return the certificate. This is the default value.
+   * 
+   * - **1**: Return the certificate.
+   * 
+   * - **2**: Return the certificate and its certificate chain.
    * 
    * @example
    * 1
@@ -138,7 +167,7 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   immediately?: number;
   /**
    * @remarks
-   * The name of the city in which the organization is located. The value can contain letters. The default value is the name of the city in which the organization is located. The organization is associated with the intermediate CA certificate from which the certificate is issued.
+   * The name of the city where the organization is located. Chinese and English characters are supported. By default, this parameter uses the city name of the organization that is associated with the issuing subordinate CA certificate.
    * 
    * @example
    * Hangzhou
@@ -146,7 +175,7 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   locality?: string;
   /**
    * @remarks
-   * The validity period of the client certificate. Unit: months.
+   * The validity period of the certificate, in months.
    * 
    * @example
    * 12
@@ -157,12 +186,12 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
    * The name of the organization. Default value: Alibaba Inc.
    * 
    * @example
-   * Alibaba Cloud Computing Co., Ltd.
+   * Alibaba Inc
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department. Default value: Aliyun CDN.
+   * The name of the department. Default value: Alibaba Cloud CDN.
    * 
    * @example
    * Security
@@ -170,29 +199,37 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   organizationUnit?: string;
   /**
    * @remarks
-   * The unique identifier of the intermediate CA certificate from which the client certificate is issued.
+   * The unique identifier of the subordinate CA certificate that issues the client certificate.
    * 
-   * >  You can call the [DescribeCACertificateList](https://help.aliyun.com/document_detail/328095.html) operation to query the unique identifier of an intermediate CA certificate.
+   * > Call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifiers of subordinate CA certificates.
    * 
    * @example
    * 270ae6bb538d538c70c01f81fg3****
    */
   parentIdentifier?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the certificate belongs.
+   * 
+   * @example
+   * rg-ae******4wia
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of the Subject Alternative Name (SAN) extension that is supported by the client certificate. Valid values:
+   * The type of the Subject Alternative Name (SAN) extension for the client certificate. Valid values:
    * 
-   * *   **1**: an email address
-   * *   **6**: a Uniform Resource Identifier (URI)
+   * - **1**: Email address.
+   * 
+   * - **6**: Uniform Resource Identifier (URI).
    * 
    * @example
-   * 1
+   * 2
    */
   sanType?: number;
   /**
    * @remarks
-   * The content of the extension. You can specify multiple SAN extensions. If you want to specify multiple SAN extensions, separate them with commas (,).
+   * The extension for the client certificate. To specify multiple extensions, separate them with a comma.
    * 
    * @example
    * somebody@example.com
@@ -200,16 +237,20 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   sanValue?: string;
   /**
    * @remarks
-   * The province, municipality, or autonomous region in which the organization is located. The value can contain letters. The default value is the name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate CA certificate from which the certificate is issued.
+   * Specify the name of the province or state where the certificate organization is located. The value can contain letters. The default value is the name of the province or state of the intermediate CA\\"s organization.
    * 
    * @example
    * Zhejiang
    */
   state?: string;
+  /**
+   * @remarks
+   * A list of tags.
+   */
   tags?: CreateClientCertificateWithCsrRequestTags[];
   /**
    * @remarks
-   * The validity period of the client certificate. Unit: years.
+   * The validity period of the certificate, in years.
    * 
    * @example
    * 1
