@@ -40,6 +40,7 @@ export class ListKeywordsShrinkRequest extends $dara.Model {
    * Sort field.
    */
   sortShrink?: string;
+  tenantCode?: string;
   /**
    * @remarks
    * Keyword.
@@ -55,6 +56,7 @@ export class ListKeywordsShrinkRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       sortShrink: 'Sort',
+      tenantCode: 'TenantCode',
       word: 'Word',
     };
   }
@@ -66,6 +68,7 @@ export class ListKeywordsShrinkRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       sortShrink: 'string',
+      tenantCode: 'string',
       word: 'string',
     };
   }

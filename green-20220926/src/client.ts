@@ -217,8 +217,16 @@ export default class Client extends OpenApi {
   async addKeywordLibWithOptions(request: $_model.AddKeywordLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddKeywordLibResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.properties)) {
+      query["Properties"] = request.properties;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
     }
 
     let body : {[key: string ]: any} = { };
@@ -277,6 +285,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.keywords)) {
       body["Keywords"] = request.keywords;
@@ -329,8 +341,16 @@ export default class Client extends OpenApi {
   async addKeywordsToLibWithOptions(request: $_model.AddKeywordsToLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddKeywordsToLibResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.properties)) {
+      query["Properties"] = request.properties;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1233,6 +1253,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.keywordIdList)) {
       body["KeywordIdList"] = request.keywordIdList;
@@ -1287,6 +1311,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1625,6 +1653,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2559,6 +2591,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
     }
 
     let body : {[key: string ]: any} = { };
@@ -3681,8 +3717,14 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "ListImageLib",
@@ -3801,6 +3843,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3847,6 +3893,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4903,6 +4953,10 @@ export default class Client extends OpenApi {
       body["Config"] = request.configShrink;
     }
 
+    if (!$dara.isNull(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
@@ -4944,6 +4998,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      query["TenantCode"] = request.tenantCode;
     }
 
     let body : {[key: string ]: any} = { };

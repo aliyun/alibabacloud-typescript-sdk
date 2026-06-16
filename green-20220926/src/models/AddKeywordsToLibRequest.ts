@@ -27,6 +27,7 @@ export class AddKeywordsToLibRequest extends $dara.Model {
    * customxx_xxxx
    */
   libId?: string;
+  properties?: string;
   /**
    * @remarks
    * Region ID
@@ -35,12 +36,15 @@ export class AddKeywordsToLibRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  tenantCode?: string;
   static names(): { [key: string]: string } {
     return {
       keywords: 'Keywords',
       keywordsObject: 'KeywordsObject',
       libId: 'LibId',
+      properties: 'Properties',
       regionId: 'RegionId',
+      tenantCode: 'TenantCode',
     };
   }
 
@@ -49,7 +53,9 @@ export class AddKeywordsToLibRequest extends $dara.Model {
       keywords: 'string',
       keywordsObject: 'string',
       libId: 'string',
+      properties: 'string',
       regionId: 'string',
+      tenantCode: 'string',
     };
   }
 

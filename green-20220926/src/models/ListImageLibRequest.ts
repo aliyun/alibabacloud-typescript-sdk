@@ -11,15 +11,18 @@ export class ListImageLibRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  serviceCode?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      serviceCode: 'ServiceCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      serviceCode: 'string',
     };
   }
 

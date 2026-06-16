@@ -16,10 +16,12 @@ export class UpdateImageLibFreeInspectionShrinkRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  serviceCode?: string;
   static names(): { [key: string]: string } {
     return {
       configShrink: 'Config',
       regionId: 'RegionId',
+      serviceCode: 'ServiceCode',
     };
   }
 
@@ -27,6 +29,7 @@ export class UpdateImageLibFreeInspectionShrinkRequest extends $dara.Model {
     return {
       configShrink: 'string',
       regionId: 'string',
+      serviceCode: 'string',
     };
   }
 

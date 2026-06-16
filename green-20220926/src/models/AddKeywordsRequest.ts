@@ -35,12 +35,14 @@ export class AddKeywordsRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  tenantCode?: string;
   static names(): { [key: string]: string } {
     return {
       keywords: 'Keywords',
       keywordsObject: 'KeywordsObject',
       libId: 'LibId',
       regionId: 'RegionId',
+      tenantCode: 'TenantCode',
     };
   }
 
@@ -50,6 +52,7 @@ export class AddKeywordsRequest extends $dara.Model {
       keywordsObject: 'string',
       libId: 'string',
       regionId: 'string',
+      tenantCode: 'string',
     };
   }
 

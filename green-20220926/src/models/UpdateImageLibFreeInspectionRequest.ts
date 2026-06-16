@@ -16,10 +16,12 @@ export class UpdateImageLibFreeInspectionRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  serviceCode?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
       regionId: 'RegionId',
+      serviceCode: 'ServiceCode',
     };
   }
 
@@ -27,6 +29,7 @@ export class UpdateImageLibFreeInspectionRequest extends $dara.Model {
     return {
       config: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       regionId: 'string',
+      serviceCode: 'string',
     };
   }
 

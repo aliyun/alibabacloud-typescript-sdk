@@ -27,11 +27,13 @@ export class UpdateKeywordLibRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  tenantCode?: string;
   static names(): { [key: string]: string } {
     return {
       libId: 'LibId',
       libName: 'LibName',
       regionId: 'RegionId',
+      tenantCode: 'TenantCode',
     };
   }
 
@@ -40,6 +42,7 @@ export class UpdateKeywordLibRequest extends $dara.Model {
       libId: 'string',
       libName: 'string',
       regionId: 'string',
+      tenantCode: 'string',
     };
   }
 

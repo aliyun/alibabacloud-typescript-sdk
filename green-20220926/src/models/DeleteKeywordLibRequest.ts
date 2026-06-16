@@ -19,10 +19,12 @@ export class DeleteKeywordLibRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  tenantCode?: string;
   static names(): { [key: string]: string } {
     return {
       libId: 'LibId',
       regionId: 'RegionId',
+      tenantCode: 'TenantCode',
     };
   }
 
@@ -30,6 +32,7 @@ export class DeleteKeywordLibRequest extends $dara.Model {
     return {
       libId: 'string',
       regionId: 'string',
+      tenantCode: 'string',
     };
   }
 

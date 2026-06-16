@@ -114,6 +114,7 @@ export class ListImageLibResponseBody extends $dara.Model {
    * List of image library information.
    */
   libList?: ListImageLibResponseBodyLibList[];
+  maxLibCount?: number;
   /**
    * @remarks
    * Further description of the error code.
@@ -143,6 +144,7 @@ export class ListImageLibResponseBody extends $dara.Model {
       code: 'Code',
       httpStatusCode: 'HttpStatusCode',
       libList: 'LibList',
+      maxLibCount: 'MaxLibCount',
       msg: 'Msg',
       requestId: 'RequestId',
       success: 'Success',
@@ -154,6 +156,7 @@ export class ListImageLibResponseBody extends $dara.Model {
       code: 'number',
       httpStatusCode: 'number',
       libList: { 'type': 'array', 'itemType': ListImageLibResponseBodyLibList },
+      maxLibCount: 'number',
       msg: 'string',
       requestId: 'string',
       success: 'boolean',

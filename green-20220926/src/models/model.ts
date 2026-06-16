@@ -61,6 +61,7 @@ export { ListCallbackResponseBodyData } from './ListCallbackResponseBody';
 export { ListImageLibResponseBodyLibList } from './ListImageLibResponseBody';
 export { ListImagesFromLibResponseBodyItems } from './ListImagesFromLibResponseBody';
 export { ListKeywordLibsResponseBodyData } from './ListKeywordLibsResponseBody';
+export { ListKeywordsResponseBodyDataItemsProperties } from './ListKeywordsResponseBody';
 export { ListKeywordsResponseBodyDataItems } from './ListKeywordsResponseBody';
 export { ListKeywordsResponseBodyData } from './ListKeywordsResponseBody';
 export { ListOssCheckResultResponseBodyItems } from './ListOssCheckResultResponseBody';

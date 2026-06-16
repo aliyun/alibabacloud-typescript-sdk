@@ -11,15 +11,18 @@ export class ListKeywordLibsRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  tenantCode?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      tenantCode: 'TenantCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      tenantCode: 'string',
     };
   }
 

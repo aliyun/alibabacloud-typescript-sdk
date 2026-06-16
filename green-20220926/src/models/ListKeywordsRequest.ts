@@ -40,6 +40,7 @@ export class ListKeywordsRequest extends $dara.Model {
    * Sort field.
    */
   sort?: { [key: string]: string };
+  tenantCode?: string;
   /**
    * @remarks
    * Keyword.
@@ -55,6 +56,7 @@ export class ListKeywordsRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       sort: 'Sort',
+      tenantCode: 'TenantCode',
       word: 'Word',
     };
   }
@@ -66,6 +68,7 @@ export class ListKeywordsRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       sort: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      tenantCode: 'string',
       word: 'string',
     };
   }

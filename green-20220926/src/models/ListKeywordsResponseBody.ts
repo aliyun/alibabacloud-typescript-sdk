@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListKeywordsResponseBodyDataItemsProperties extends $dara.Model {
+  attribute?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
@@ -43,6 +66,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
    * 4205334
    */
   keywordMd5Id?: number;
+  properties?: ListKeywordsResponseBodyDataItemsProperties;
   /**
    * @remarks
    * Keyword.
@@ -58,6 +82,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
       id: 'Id',
       keywordLibId: 'KeywordLibId',
       keywordMd5Id: 'KeywordMd5Id',
+      properties: 'Properties',
       word: 'Word',
     };
   }
@@ -69,11 +94,15 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
       id: 'number',
       keywordLibId: 'string',
       keywordMd5Id: 'number',
+      properties: ListKeywordsResponseBodyDataItemsProperties,
       word: 'string',
     };
   }
 
   validate() {
+    if(this.properties && typeof (this.properties as any).validate === 'function') {
+      (this.properties as any).validate();
+    }
     super.validate();
   }
 
