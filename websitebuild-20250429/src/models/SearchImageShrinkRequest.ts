@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Color
+   * The color.
    * 
    * @example
    * #B0B0B0
@@ -13,7 +13,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   colorHex?: string;
   /**
    * @remarks
-   * Indicates whether the image contains a person.
+   * Specifies whether the image contains a person.
    * 
    * @example
    * false
@@ -21,10 +21,10 @@ export class SearchImageShrinkRequest extends $dara.Model {
   hasPerson?: boolean;
   /**
    * @remarks
-   * Image category. Valid values:
-   * - normal: Illustrations or article images.
-   * - banner: Background images or image carousels.
-   * - goods: Product or service images.
+   * The image category. Valid values:
+   * - normal: illustrations or article images.
+   * - banner: background images or carousel images.
+   * - goods: product or service images.
    * 
    * @example
    * WindowsWithMssqlStdLicense
@@ -32,13 +32,13 @@ export class SearchImageShrinkRequest extends $dara.Model {
   imageCategory?: string;
   /**
    * @remarks
-   * Image aspect ratio, including:
+   * The aspect ratio of the image. Valid values:
    * "16:9"
    * "4:3"
    * "2:1"
    * "1:1"
    * "3:4"
-   * "9:16"
+   * "9:16".
    * 
    * @example
    * 16:9
@@ -46,7 +46,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   imageRatio?: string;
   /**
    * @remarks
-   * Maximum image height.
+   * The maximum height of the image.
    * 
    * @example
    * 4000
@@ -54,7 +54,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   maxHeight?: number;
   /**
    * @remarks
-   * Number of items per page in a paged query. Maximum value is 100. Default value is 20.
+   * The number of entries per page for paging queries. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 500
@@ -62,7 +62,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Maximum image width (inclusive).
+   * The maximum width of the image, inclusive.
    * 
    * @example
    * 4000
@@ -70,7 +70,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   maxWidth?: number;
   /**
    * @remarks
-   * Minimum image height
+   * The minimum height of the image.
    * 
    * @example
    * 500
@@ -78,7 +78,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   minHeight?: number;
   /**
    * @remarks
-   * Minimum image width (inclusive).
+   * The minimum width of the image, inclusive.
    * 
    * @example
    * 500
@@ -86,7 +86,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   minWidth?: number;
   /**
    * @remarks
-   * Query credential (Token). Set this parameter to the NextToken value returned in the previous API call. You do not need to set this parameter for the initial API call. If NextToken is specified, the request parameters PageSize and PageNumber become invalid, and the TotalCount in the returned data is also invalid.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request. If NextToken is specified, the PageSize and PageNumber request parameters do not take effect, and the TotalCount value in the response is invalid.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=
@@ -94,7 +94,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Osskey。
+   * The OSS key.
    * 
    * @example
    * backend/detection/objects/r-0008ujvfksltf5j45n81/task-000hckiuwyau0gwn17vq.jpg
@@ -102,7 +102,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
-   * Number of results to return. Default value is 10.
+   * The number of returned results. Default value: 10.
    * 
    * @example
    * 10
@@ -110,7 +110,7 @@ export class SearchImageShrinkRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Starting position of the return result. Valid values: 0 to 499. Default value is 0.
+   * The start position of the returned results. Valid values: 0 to 499. Default value: 0.
    * 
    * @example
    * 0
@@ -118,14 +118,14 @@ export class SearchImageShrinkRequest extends $dara.Model {
   start?: number;
   /**
    * @remarks
-   * Tags.
+   * The tags.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * Description text for searching images.
+   * The description text used to search for images.
    * 
-   * > Supports up to 512 characters.
+   * >Maximum length: 512 characters.
    * 
    * @example
    * 卫浴五金产品，表面采用拉丝不锈钢材质，整体色调为现代银灰色，呈现简约且富有质感的风格。产品包括淋浴花洒、水龙头及毛巾架等配件，均具备防锈、耐腐蚀性能，适用于潮湿环境。各部件连接处设计精密，配有隐藏式螺丝结构，提升整体美观度。水龙头和花洒喷头支持多模式出水，把手操作顺滑，符合人体工学设计。所有五金件通过国家节水认证，支持冷热水接入，安装方式为壁挂式。

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppInstanceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * tag key
+   * The tag key.
    * 
    * @example
    * Group
@@ -13,7 +13,7 @@ export class CreateAppInstanceRequestTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * value of tag 0
+   * The value of tag 0.
    * 
    * @example
    * ufo
@@ -45,7 +45,7 @@ export class CreateAppInstanceRequestTags extends $dara.Model {
 export class CreateAppInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Application type
+   * The application type.
    * 
    * @example
    * PC_WebSite
@@ -53,7 +53,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * Whether to enable auto-renewal upon expiration
+   * Specifies whether to enable auto-renewal upon expiration.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * Ensures idempotence of the request. Generate a unique value from your client to ensure that it is unique across different requests. ClientToken only supports ASCII characters and cannot exceed 64 characters
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 210713a117660695309606626a
@@ -74,7 +74,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   createAction?: string;
   /**
    * @remarks
-   * Deployment area
+   * The deployment region.
    * 
    * @example
    * ChineseMainland
@@ -87,7 +87,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Required. The number of subscription periods
+   * Required. The number of subscription periods.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Extended information
+   * The extended information.
    * 
    * @example
    * {}
@@ -108,7 +108,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Payment type
+   * The payment type.
    * 
    * @example
    * AUTO_PAY
@@ -116,7 +116,11 @@ export class CreateAppInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Required. The unit of the subscription period, Year: Year, Month: Month, Day: Day, Hour: Hour
+   * Required. The unit of the subscription period. Valid values:
+   * - Year: year
+   * - Month: month
+   * - Day: day
+   * - Hour: hour.
    * 
    * @example
    * Year
@@ -124,7 +128,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * Required. The quantity of instances to be ordered.
+   * Required. The number of instances to subscribe to.
    * 
    * @example
    * 1
@@ -132,7 +136,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * Resource group ID
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek2smovqqpvuly
@@ -140,7 +144,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Site version
+   * The website version.
    * 
    * @example
    * Basic_Edition
@@ -148,7 +152,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   siteVersion?: string;
   /**
    * @remarks
-   * List of tags
+   * The list of tags.
    */
   tags?: CreateAppInstanceRequestTags[];
   /**

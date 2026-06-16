@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReconnectAppChatRequest extends $dara.Model {
   /**
    * @remarks
-   * Chat record ID
+   * The chat record ID.
    * 
    * @example
    * 20833ba4-d189-4c50-9a44-a6bcbda2c93b
@@ -13,7 +13,7 @@ export class ReconnectAppChatRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * 5b7105a2-2999-430b-ba23-ba09149d5434
@@ -21,7 +21,7 @@ export class ReconnectAppChatRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Last management event ID
+   * The ID of the last event.
    * 
    * @example
    * event-71ece53b7d474e01b755a9b5fa5305e6

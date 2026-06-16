@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateSupabaseForAdminRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * SQL statement
+   * The SQL statement.
    * 
    * @example
    * select * from profiles
@@ -24,7 +24,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   executeSql?: string;
   /**
    * @remarks
-   * Operation Type
+   * The operation type.
    * 
    * @example
    * vul_fix
@@ -32,7 +32,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   operateType?: string;
   /**
    * @remarks
-   * ORDER BY clause
+   * The ORDER BY clause.
    * 
    * @example
    * null
@@ -40,7 +40,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   orderByClause?: string;
   /**
    * @remarks
-   * Sorting field
+   * The field by which to sort the results.
    * 
    * @example
    * CreationTime
@@ -48,7 +48,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type: ASC|DESC
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -56,7 +56,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -64,7 +64,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -72,7 +72,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Table name
+   * The table name.
    * 
    * @example
    * default.ai_advertising_material_rec_train_v1103
@@ -80,7 +80,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 111
@@ -88,7 +88,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * WHERE clause
+   * The WHERE clause.
    * 
    * @example
    * null

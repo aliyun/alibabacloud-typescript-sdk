@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Bot ID
+   * The chatbot ID.
    * 
    * @example
    * Zero2
@@ -13,7 +13,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   botId?: string;
   /**
    * @remarks
-   * ID of the chat.
+   * The chat ID.
    * 
    * @example
    * 53467af9-8c4e-4498-9032-1f26978007f8
@@ -21,7 +21,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * 8642d886-0322-43a9-b12f-6629b067978c
@@ -29,7 +29,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Section ID of the check item.
+   * The section ID of the check item.
    * 
    * @example
    * 11
@@ -37,7 +37,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * @example
    * 865181640657408
@@ -45,7 +45,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * Current point, equivalent to a news title
+   * The current viewpoint, equivalent to the news title.
    * 
    * @example
    * Feel Like Makin\\" Love
@@ -85,7 +85,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
 export class CreateAIStaffConversationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -93,7 +93,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -101,7 +101,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * spring-cloud-b
@@ -109,7 +109,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -117,7 +117,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -125,12 +125,12 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: CreateAIStaffConversationResponseBodyModule;
   /**
@@ -143,7 +143,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -151,7 +151,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -159,7 +159,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Backup parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

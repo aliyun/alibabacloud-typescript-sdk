@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Business instance ID
+   * The business instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Folder ID
+   * The ID of the directory.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * File name
+   * The file name.
    * 
    * @example
    * 文件名
@@ -33,7 +33,7 @@ export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Sorting field
+   * The field by which to sort the results.
    * 
    * @example
    * CreationTime
@@ -41,7 +41,7 @@ export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type: ASC or DESC
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY
@@ -49,7 +49,7 @@ export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number. Default is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size. Default is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -65,12 +65,12 @@ export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * File status
+   * The file status.
    */
   statusList?: string[];
   /**
    * @remarks
-   * File type
+   * The file type.
    */
   typeList?: string[];
   static names(): { [key: string]: string } {

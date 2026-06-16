@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySupabaseConfigsForAdminResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Scope. Currently supports subUser and owner.
+   * The scope. Valid values: subUser and owner.
    */
   configs?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class QuerySupabaseConfigsForAdminResponseBodyModule extends $dara.Model 
 export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -61,7 +61,7 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -69,7 +69,7 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -77,12 +77,12 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Task object
+   * The task object.
    */
   module?: QuerySupabaseConfigsForAdminResponseBodyModule;
   /**
@@ -95,7 +95,7 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -103,7 +103,7 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -111,7 +111,7 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the processing is synchronous.
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

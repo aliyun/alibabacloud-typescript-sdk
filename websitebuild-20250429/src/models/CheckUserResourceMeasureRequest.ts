@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckUserResourceMeasureRequest extends $dara.Model {
   /**
    * @remarks
-   * Belonging ID (site ID or Alibaba Cloud User ID)
+   * The owner ID, which can be a website ID or an Alibaba Cloud account ID.
    * 
    * @example
    * 123456
@@ -13,7 +13,9 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   belongId?: string;
   /**
    * @remarks
-   * Belonging ID Type (siteId, uid)
+   * The type of the owner ID. Valid values:
+   * - siteId
+   * - uid.
    * 
    * @example
    * USER
@@ -21,7 +23,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   belongIdType?: string;
   /**
    * @remarks
-   * ESP business type
+   * The ESP business type.
    * 
    * @example
    * 1
@@ -29,7 +31,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * ESP business ID
+   * The ESP business ID.
    * 
    * @example
    * p20202933455
@@ -37,7 +39,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   espBizId?: string;
   /**
    * @remarks
-   * Order module information (espBizId and bizType cannot be empty when this is empty)
+   * The order module information. If this parameter is empty, espBizId and bizType cannot be empty.
    * 
    * @example
    * {"siteversion":"test"}
@@ -45,7 +47,7 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   orderComponentParams?: string;
   /**
    * @remarks
-   * Resource identity
+   * The resource identifier.
    * 
    * @example
    * InspirationTokens
@@ -53,7 +55,9 @@ export class CheckUserResourceMeasureRequest extends $dara.Model {
   resourceCode?: string;
   /**
    * @remarks
-   * Resource value. Default is empty. Required only for feature-type resources. 0 means not supported, and 1 means supported.
+   * The resource value. This parameter is empty by default and is required only for feature-type resources. Valid values:
+   * - 0: Not supported.
+   * - 1: Supported.
    * 
    * @example
    * 1

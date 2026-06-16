@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIStaffChatRequestMessages extends $dara.Model {
   /**
    * @remarks
-   * Message content
+   * The message content.
    * 
    * @example
    * {\\"CodeRevision\\": \\"1750040991876284109\\"}
@@ -13,7 +13,7 @@ export class CreateAIStaffChatRequestMessages extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Content type
+   * The content type.
    * 
    * @example
    * application/octet-stream
@@ -21,12 +21,12 @@ export class CreateAIStaffChatRequestMessages extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Business extension metadata (in Map format, must be a JSON string)
+   * The business extension metadata in Map format. The value must be a JSON string.
    */
   metaData?: { [key: string]: string };
   /**
    * @remarks
-   * Role in the conversation
+   * The conversation role.
    * 
    * @example
    * polarx_dn
@@ -34,7 +34,7 @@ export class CreateAIStaffChatRequestMessages extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * File type
+   * The file type.
    * 
    * @example
    * risk
@@ -75,7 +75,7 @@ export class CreateAIStaffChatRequestMessages extends $dara.Model {
 export class CreateAIStaffChatRequest extends $dara.Model {
   /**
    * @remarks
-   * Site ID
+   * The site ID.
    * 
    * @example
    * WS20250801154628000001
@@ -83,7 +83,7 @@ export class CreateAIStaffChatRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Conversation ID (provided when recovering from a break)
+   * The chat ID. Pass in this parameter to resume a conversation after an interruption.
    * 
    * @example
    * 3b465fe1-6f06-4899-af9f-d43d9338df25
@@ -91,7 +91,7 @@ export class CreateAIStaffChatRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * session ID
+   * The conversation ID.
    * 
    * @example
    * 5b7105a2-2999-430b-ba23-ba09149d5434
@@ -99,12 +99,12 @@ export class CreateAIStaffChatRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * List of conversation messages
+   * The list of conversation messages.
    */
   messages?: CreateAIStaffChatRequestMessages[];
   /**
    * @remarks
-   * Additional conversation information
+   * The additional information for the conversation.
    */
   metaData?: { [key: string]: string };
   static names(): { [key: string]: string } {

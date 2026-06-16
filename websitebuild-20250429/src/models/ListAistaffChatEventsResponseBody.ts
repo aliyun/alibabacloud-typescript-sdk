@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIStaffChatEventsResponseBodyModuleEvents extends $dara.Model {
   /**
    * @remarks
-   * error message.
+   * The fault information.
    * 
    * @example
    * {\\"Recorded\\": False}
@@ -13,7 +13,7 @@ export class ListAIStaffChatEventsResponseBodyModuleEvents extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * primary key
+   * The primary key.
    * 
    * @example
    * 10426
@@ -21,7 +21,7 @@ export class ListAIStaffChatEventsResponseBodyModuleEvents extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Website Name
+   * The event name.
    * 
    * @example
    * 文章素材2026050704
@@ -55,7 +55,7 @@ export class ListAIStaffChatEventsResponseBodyModuleEvents extends $dara.Model {
 export class ListAIStaffChatEventsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Unique ID of the sentence
+   * The unique ID of a single utterance.
    * 
    * @example
    * chat-xrz3etcl2bsygwlx8g
@@ -63,7 +63,7 @@ export class ListAIStaffChatEventsResponseBodyModule extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * session ID
+   * The conversation ID.
    * 
    * @example
    * 872be9bc-3097-433d-b462-596202455102
@@ -71,12 +71,12 @@ export class ListAIStaffChatEventsResponseBodyModule extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * object ID
+   * The event list.
    */
   events?: ListAIStaffChatEventsResponseBodyModuleEvents[];
   /**
    * @remarks
-   * ID of the last SSE event
+   * The ID of the last SSE event.
    * 
    * @example
    * event-21dd6124760a4a259ae33bbd878f6e20
@@ -115,7 +115,7 @@ export class ListAIStaffChatEventsResponseBodyModule extends $dara.Model {
 export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -123,7 +123,7 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -131,7 +131,7 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -139,7 +139,7 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -147,8 +147,8 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message, used to replace `%s` in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the ErrMessage response element.
+   * > For example, if ErrMessage returns **The Value of Input Parameter %s is not valid** and DynamicMessage returns **DtsJobId**, the DtsJobId request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -156,12 +156,12 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * faulty parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * returned object.
+   * The response object.
    */
   module?: ListAIStaffChatEventsResponseBodyModule;
   /**
@@ -174,7 +174,7 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -182,7 +182,7 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -190,7 +190,7 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

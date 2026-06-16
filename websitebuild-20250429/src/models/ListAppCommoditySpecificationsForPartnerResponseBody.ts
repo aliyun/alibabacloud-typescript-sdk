@@ -6,7 +6,7 @@ import { ModuleVersionsValue } from "./ModuleVersionsValue";
 export class ListAppCommoditySpecificationsForPartnerResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * domain name for container health check.
+   * The domain name for container health checks.
    */
   versions?: { [key: string]: ModuleVersionsValue };
   static names(): { [key: string]: string } {
@@ -36,7 +36,7 @@ export class ListAppCommoditySpecificationsForPartnerResponseBodyModule extends 
 export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -44,7 +44,7 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -52,7 +52,7 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -60,7 +60,7 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
   appName?: string;
   /**
    * @remarks
-   * dynamic error Code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -68,8 +68,8 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -77,12 +77,12 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * returned object.
+   * The returned object.
    */
   module?: ListAppCommoditySpecificationsForPartnerResponseBodyModule;
   /**
@@ -95,7 +95,7 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -103,7 +103,7 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -111,7 +111,7 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
   rootErrorMsg?: string;
   /**
    * @remarks
-   * is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

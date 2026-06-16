@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Model {
   /**
    * @remarks
-   * Bot ID.
+   * The bot ID.
    * 
    * @example
    * Zero2
@@ -13,7 +13,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   botId?: string;
   /**
    * @remarks
-   * Current conversation round ID
+   * The ID of the current conversation turn.
    * 
    * @example
    * 54a0bfa0-41bd-4e96-acd9-fb13c0474452
@@ -21,7 +21,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   chatId?: string;
   /**
    * @remarks
-   * Current session status
+   * The current conversation status.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   chatStatus?: string;
   /**
    * @remarks
-   * ID of the invoked data class API.
+   * The ID of the data API operation that is called.
    * 
    * @example
    * domain cnamenwww.buyhao8.com www.buyhao8.com.a1.initrr.comn
@@ -37,7 +37,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   content?: string;
   /**
    * @remarks
-   * Content type
+   * The content type.
    * 
    * @example
    * application/octet-stream
@@ -45,7 +45,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   contentType?: string;
   /**
    * @remarks
-   * Session ID
+   * The conversation ID.
    * 
    * @example
    * job-675163021891846144
@@ -53,7 +53,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   conversationId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1723532098
@@ -61,7 +61,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * 1591339051000
@@ -69,7 +69,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   gmtModified?: string;
   /**
    * @remarks
-   * Message ID
+   * The message ID.
    * 
    * @example
    * 1dafa033-e72b-44c2-99b7-bc202c5b6198
@@ -77,23 +77,23 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   messageId?: string;
   /**
    * @remarks
-   * Business extension metadata (in Map format, must be a JSON string)
+   * The business extension metadata in Map format. The value must be a JSON string.
    */
   metaData?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates the role of the participant in the conversation. Valid values include:
+   * The role of the conversation participant. Valid values:
    * 
-   * - user: User
+   * - user: User.
    * 
-   * - assistant: Assistant
+   * - assistant: Assistant.
    * 
-   * - system: System
-   * - function: Function
+   * - system: System.
+   * - function: Function.
    * 
-   * - plugin: Plugin
+   * - plugin: Plugin.
    * 
-   * - tool: Tool
+   * - tool: Tool.
    * 
    * @example
    * user
@@ -101,7 +101,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   role?: string;
   /**
    * @remarks
-   * Section ID of the inspection item.
+   * The section ID of the check item.
    * 
    * @example
    * 324
@@ -109,7 +109,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   sectionId?: string;
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * @example
    * 928636774795776
@@ -117,7 +117,7 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
   siteId?: string;
   /**
    * @remarks
-   * File type
+   * The file type.
    * 
    * @example
    * SINGLE
@@ -176,12 +176,12 @@ export class ListAIStaffChatMessagesResponseBodyModuleMessages extends $dara.Mod
 export class ListAIStaffChatMessagesResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Sender type.  
+   * The sender type.
    * 
-   * Enumeration values:  
-   * - **ADMIN**: System  
-   * - **CUSTOMER**: Visitor  
-   * - **AGENT**: Agent
+   * Valid values:
+   * - **ADMIN**: System.
+   * - **CUSTOMER**: Visitor.
+   * - **AGENT**: Agent.
    */
   messages?: ListAIStaffChatMessagesResponseBodyModuleMessages[];
   static names(): { [key: string]: string } {
@@ -211,7 +211,7 @@ export class ListAIStaffChatMessagesResponseBodyModule extends $dara.Model {
 export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission denied information
+   * The access denied details.
    * 
    * @example
    * {}
@@ -219,7 +219,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -227,7 +227,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * or
@@ -235,7 +235,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -243,7 +243,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message. Not currently used. Please ignore.
+   * The dynamic message. This parameter is not in use. Ignore it.
    * 
    * @example
    * SYSTEM_ERROR
@@ -251,12 +251,12 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: ListAIStaffChatMessagesResponseBodyModule;
   /**
@@ -269,7 +269,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -277,7 +277,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -285,7 +285,7 @@ export class ListAIStaffChatMessagesResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

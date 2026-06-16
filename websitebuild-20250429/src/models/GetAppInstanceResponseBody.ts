@@ -6,7 +6,7 @@ import { AppInstanceAggregate } from "./AppInstanceAggregate";
 export class GetAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * No permission information
+   * The access denied details.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -22,7 +22,7 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * or
@@ -30,7 +30,7 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -38,8 +38,8 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace `%s` in the **ErrMessage** error message.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the incoming request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -47,12 +47,12 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    * 
    * @example
    * {\\"Success\\": True}
@@ -60,7 +60,7 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   module?: AppInstanceAggregate;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -68,7 +68,7 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -76,7 +76,7 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -84,7 +84,7 @@ export class GetAppInstanceResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

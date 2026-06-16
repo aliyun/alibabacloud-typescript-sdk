@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIStaffChatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class CreateAIStaffChatResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class CreateAIStaffChatResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -29,7 +29,7 @@ export class CreateAIStaffChatResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -37,7 +37,7 @@ export class CreateAIStaffChatResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * abc
@@ -45,12 +45,12 @@ export class CreateAIStaffChatResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response Data
+   * The response data.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class CreateAIStaffChatResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -74,7 +74,7 @@ export class CreateAIStaffChatResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -82,7 +82,7 @@ export class CreateAIStaffChatResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Fallback parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

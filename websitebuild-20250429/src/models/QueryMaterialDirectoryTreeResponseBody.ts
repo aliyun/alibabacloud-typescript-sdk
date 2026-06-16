@@ -6,7 +6,7 @@ import { AppMaterialDirectory } from "./AppMaterialDirectory";
 export class QueryMaterialDirectoryTreeResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Top-level folder
+   * The first-level folders.
    */
   directoryList?: AppMaterialDirectory[];
   static names(): { [key: string]: string } {
@@ -36,7 +36,7 @@ export class QueryMaterialDirectoryTreeResponseBodyModule extends $dara.Model {
 export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -52,7 +52,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * dewuApp
@@ -60,7 +60,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -68,7 +68,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -76,12 +76,12 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * parameters that caused the error
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Error code. The ErrorCode field is not returned if the request succeeds. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -89,7 +89,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error message.
+   * The error message.
    * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
@@ -97,7 +97,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: QueryMaterialDirectoryTreeResponseBodyModule;
   /**
@@ -110,7 +110,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -118,7 +118,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -126,7 +126,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -134,7 +134,7 @@ export class QueryMaterialDirectoryTreeResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Indicates whether the processing is synchronous.
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $dara.Model {
   /**
    * @remarks
-   * Commodity code (used for both resource plans and Marketing Products)
+   * The commodity code. This code applies to both resource plans and promotional commodities.
    * 
    * @example
    * rds
@@ -13,12 +13,14 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   commodityCode?: string;
   /**
    * @remarks
-   * Extension fields (such as unsupportedReason)
+   * The extension field, such as unsupportedReason.
    */
   extend?: { [key: string]: string };
   /**
    * @remarks
-   * Order Type: BUY - Purchase, UPGRADE - upgrade
+   * The order type. Valid values:
+   * - BUY: purchase.
+   * - UPGRADE: upgrade.
    * 
    * @example
    * DESC
@@ -26,7 +28,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   orderType?: string;
   /**
    * @remarks
-   * Sorting Priority (the smaller the number, the higher the priority)
+   * The sorting priority. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -34,7 +36,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   priority?: number;
   /**
    * @remarks
-   * Marketing Product ID (returned only for new purchases)
+   * The promotional commodity ID. This parameter is returned only for new purchases.
    * 
    * @example
    * 12345
@@ -42,7 +44,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   promotionCommodityId?: string;
   /**
    * @remarks
-   * Hyperlink URL (returned when a redirect is required, such as during an upgrade)
+   * The redirect URL. This parameter is returned when a redirect is required, such as during an upgrade.
    * 
    * @example
    * https://ecs-workbench-disposable.aliyun.com/account/disposable/login/sst/1291612921555690/edvo2gevfh
@@ -50,7 +52,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   redirectUrl?: string;
   /**
    * @remarks
-   * Product Status
+   * The commodity status.
    * 
    * @example
    * Normal
@@ -95,7 +97,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
 export class GetAppRecommendedCommoditiesResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Marketing product list
+   * The list of promotional commodities.
    */
   commodities?: GetAppRecommendedCommoditiesResponseBodyModuleCommodities[];
   static names(): { [key: string]: string } {
@@ -125,7 +127,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModule extends $dara.Model 
 export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -133,7 +135,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -141,7 +143,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -149,7 +151,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -157,8 +159,8 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it means the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -166,18 +168,18 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Data table module.  
+   * The data table module. Valid values:
    * 
-   * - ABTest: Experiment Data Table  
+   * - ABTest: the experiment data table.
    * 
-   * - ExperimentTool: Experiment Tool Table  
+   * - ExperimentTool: the experiment tool table.
    * 
-   * - DataDiagnosis: Data Diagnosis
+   * - DataDiagnosis: data modeling diagnostics.
    */
   module?: GetAppRecommendedCommoditiesResponseBodyModule;
   /**
@@ -190,7 +192,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -198,7 +200,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -206,7 +208,7 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether processing is synchronous
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

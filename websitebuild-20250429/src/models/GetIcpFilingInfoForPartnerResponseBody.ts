@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIcpFilingInfoForPartnerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ICP filing number associated with the domain name. Supports entity ICP filing numbers and website ICP filing numbers.
+   * The ICP filing number associated with the domain name. Both entity ICP filing numbers and website ICP filing numbers are supported.
    * 
    * @example
    * 京ICP备15023563号-3
@@ -13,12 +13,12 @@ export class GetIcpFilingInfoForPartnerResponseBodyData extends $dara.Model {
   icpNumber?: string;
   /**
    * @remarks
-   * Whether the domain is filed for ICP
+   * Indicates whether the domain name has an ICP filing.
    */
   recorded?: boolean;
   /**
    * @remarks
-   * The website ICP filing number corresponding to the domain name
+   * The website ICP filing number associated with the domain name.
    * 
    * @example
    * 湘ICP备14011526号-3A
@@ -52,7 +52,7 @@ export class GetIcpFilingInfoForPartnerResponseBodyData extends $dara.Model {
 export class GetIcpFilingInfoForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request result.
+   * The request result.
    */
   data?: GetIcpFilingInfoForPartnerResponseBodyData;
   /**

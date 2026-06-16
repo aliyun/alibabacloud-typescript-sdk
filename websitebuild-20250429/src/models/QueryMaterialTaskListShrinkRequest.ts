@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Number of results per query.
+   * The number of entries per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -15,7 +15,7 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. This field is empty if there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=
@@ -23,7 +23,7 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Sorting field.
+   * Sort field
    * 
    * @example
    * gmtCreated
@@ -31,7 +31,7 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type: ASC or DESC
+   * Sort type ASC|DESC
    * 
    * @example
    * DESC
@@ -39,7 +39,7 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number. Default value is 1.
+   * Page number. Default value: 1
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size. Default value: 10.
+   * Page size. Default value: 10
    * 
    * @example
    * 10
@@ -55,12 +55,12 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of task statuses.
+   * Task status list
    */
   statusListShrink?: string;
   /**
    * @remarks
-   * List of task types.
+   * Task type list
    */
   taskTypeListShrink?: string;
   static names(): { [key: string]: string } {

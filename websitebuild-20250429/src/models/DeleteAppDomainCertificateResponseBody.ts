@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppDomainCertificateResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Whether it was successful
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class DeleteAppDomainCertificateResponseBodyModule extends $dara.Model {
 export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of permission check failure
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -43,9 +43,9 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed. Values:
-   * - false: Not allowed to retry.
-   * - true: Allowed to retry.
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
+   * - true: Retry is allowed.
    * 
    * @example
    * False
@@ -53,7 +53,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Allows a combination of numbers, letters, and hyphens (-). Must start with a letter, cannot end with a hyphen (-), and must not exceed 36 characters.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -61,7 +61,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic code, not in use, please ignore
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -69,7 +69,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -77,17 +77,17 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: DeleteAppDomainCertificateResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -95,7 +95,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -103,7 +103,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -111,7 +111,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Whether it is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

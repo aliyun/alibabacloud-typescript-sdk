@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInspirationBalanceResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Remaining (totalQuota - totalUsed)
+   * Remaining (totalQuota - totalUsed).
    * 
    * @example
    * 8
@@ -14,7 +14,7 @@ export class QueryInspirationBalanceResponseBodyModule extends $dara.Model {
   remainingStr?: string;
   /**
    * @remarks
-   * Total quota (sum of initQuota from all valid accounts)
+   * Total quota (sum of initQuota for all active accounts).
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class QueryInspirationBalanceResponseBodyModule extends $dara.Model {
   totalQuotaStr?: string;
   /**
    * @remarks
-   * Consumed amount (sum of used from all valid accounts)
+   * Total used (sum of used for all active accounts).
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class QueryInspirationBalanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -80,7 +80,7 @@ export class QueryInspirationBalanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name; query the application with this name
+   * Application name. Query the application with this name.
    * 
    * @example
    * dewuApp
@@ -96,7 +96,7 @@ export class QueryInspirationBalanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace `%s` in the **ErrMessage** error message.  
+   * Dynamic error message, used to replace `%s` in the **ErrMessage** error message of the response parameters.
    * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
@@ -105,12 +105,12 @@ export class QueryInspirationBalanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Fault parameters.
+   * Error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * Response data.
    */
   module?: QueryInspirationBalanceResponseBodyModule;
   /**
@@ -123,7 +123,7 @@ export class QueryInspirationBalanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * Error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -131,7 +131,7 @@ export class QueryInspirationBalanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * Exception message.
    * 
    * @example
    * 系统异常
@@ -139,7 +139,7 @@ export class QueryInspirationBalanceResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Whether processing is synchronous
+   * Indicates whether to process synchronously.
    * 
    * @example
    * True

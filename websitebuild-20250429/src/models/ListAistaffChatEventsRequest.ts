@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIStaffChatEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250731233102000001
@@ -13,7 +13,7 @@ export class ListAIStaffChatEventsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Chat ID (optional; if not provided, the latest chatId is used)
+   * The chat ID. This parameter is optional. If not specified, the latest chat ID is used.
    * 
    * @example
    * 20833ba4-d189-4c50-9a44-a6bcbda2c93b
@@ -21,7 +21,7 @@ export class ListAIStaffChatEventsRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * session ID
+   * The conversation ID.
    * 
    * @example
    * 593fe1a2-d0b4-4fde-a2b0-78ad6a438d41
@@ -29,7 +29,7 @@ export class ListAIStaffChatEventsRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Last event ID, used for incremental retrieval
+   * The ID of the last event, used for incremental retrieval.
    * 
    * @example
    * event-71ece53b7d474e01b755a9b5fa5305e6

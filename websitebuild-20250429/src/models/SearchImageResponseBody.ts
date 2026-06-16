@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   /**
    * @remarks
-   * Descriptive hues detected in the Image
+   * The descriptive tones identified from the image.
    * 
    * @example
    * 冷色调 蓝色
@@ -13,7 +13,7 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   descriptiveTones?: string;
   /**
    * @remarks
-   * Image height
+   * The height of the image.
    * 
    * @example
    * 1000
@@ -21,10 +21,10 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * Image categorization. Valid values:  
-   * - normal: Illustrations or article images.  
-   * - banner: Background images or image carousels.  
-   * - goods: Product or service images.
+   * The image category. Valid values:
+   * - normal: illustrations or article images.
+   * - banner: background images or carousel images.
+   * - goods: product or service images.
    * 
    * @example
    * normal
@@ -32,7 +32,7 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   imageCategory?: string;
   /**
    * @remarks
-   * Aspect ratio
+   * The aspect ratio.
    * 
    * @example
    * 16:9
@@ -40,7 +40,7 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   imageRatio?: string;
   /**
    * @remarks
-   * Image UUID
+   * The unique identifier of the image.
    * 
    * @example
    * 70687446-821c-4ebd-9be6-b57dc0a3500a
@@ -56,7 +56,7 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
-   * Quantized color palette (HEX, LAB) extracted by the algorithm
+   * The quantitative palette extracted by the algorithm (HEX, LAB).
    * 
    * @example
    * [{"hex": "#3a3f58", "rgb": {"r": 58, "g": 63, "b": 88 }, "lab": {"l": 27.81, "a": 2.95, "b": -16.52 }, "percentage": 0.4521 }, {"hex": "#c8a16a", "rgb": {"r": 200, "g": 161, "b": 106 }, "lab": {"l": 69.35, "a": 11.23, "b": 35.18 }, "percentage": 0.2355 }, {"hex": "#f1e8da", "rgb": {"r": 241, "g": 232, "b": 218 }, "lab": {"l": 93.17, "a": 1.76, "b": 7.91 }, "percentage": 0.1873 } ]
@@ -64,7 +64,7 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   quantitativePalette?: string;
   /**
    * @remarks
-   * Image tags
+   * The image tags.
    * 
    * @example
    * 日出、奔跑
@@ -72,7 +72,7 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   tagsFromImage?: string;
   /**
    * @remarks
-   * Temporary access URL of the image
+   * The temporary access URL of the image.
    * 
    * @example
    * https://other-general-huadong1.oss-cn-hangzhou.aliyuncs.com/uploadWidget/RollTicket_01.jpeg
@@ -80,7 +80,7 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * Image width
+   * The width of the image.
    * 
    * @example
    * 154
@@ -128,14 +128,14 @@ export class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
 export class SearchImageResponseBodyImageResponse extends $dara.Model {
   /**
    * @remarks
-   * Image List
+   * The image list.
    */
   imageList?: SearchImageResponseBodyImageResponseImageList[];
   /**
    * @remarks
-   * Number of results per query.
+   * The number of entries returned per query.
    * 
-   * Value range: 10–100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 3
@@ -143,7 +143,7 @@ export class SearchImageResponseBodyImageResponse extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. It is empty when there is no next query.
+   * The token for the next query. This value is empty if there are no more results.
    * 
    * @example
    * 2c6b65b6f9d625d4e2514a628bde8eb2e0b5e8707e68181f
@@ -180,7 +180,7 @@ export class SearchImageResponseBodyImageResponse extends $dara.Model {
 export class SearchImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. The ErrorCode field is not returned if the request succeeded. If the request failed, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -188,7 +188,7 @@ export class SearchImageResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error message.
+   * The error message.
    * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
@@ -196,7 +196,7 @@ export class SearchImageResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Image search Result
+   * The image search results.
    */
   imageResponse?: SearchImageResponseBodyImageResponse;
   /**
@@ -209,7 +209,7 @@ export class SearchImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

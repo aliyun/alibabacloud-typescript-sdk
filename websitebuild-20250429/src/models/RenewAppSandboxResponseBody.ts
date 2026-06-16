@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewAppSandboxResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Preview URLs
+   * The preview URLs.
    */
   previewUrls?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class RenewAppSandboxResponseBodyModule extends $dara.Model {
 export class RenewAppSandboxResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * watermark
@@ -59,7 +59,7 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,7 +67,7 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message; currently unused, please ignore
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,12 +75,12 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Whether the shift succeeded
+   * Indicates whether the move was successful.
    */
   module?: RenewAppSandboxResponseBodyModule;
   /**
@@ -93,7 +93,7 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -101,7 +101,7 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -109,7 +109,7 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

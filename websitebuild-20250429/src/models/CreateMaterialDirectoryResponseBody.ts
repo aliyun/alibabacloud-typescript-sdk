@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMaterialDirectoryResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Folder ID.
+   * The folder ID.
    * 
    * @example
    * 68157a0a-769a-4364-bbdc-a0e2cf3d5ad
@@ -51,7 +51,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -59,7 +59,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,7 +67,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,12 +75,12 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Error code. The value is described as follows: If the request succeeded, the ErrorCode field is not returned. If the request failed, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -88,7 +88,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   module?: CreateMaterialDirectoryResponseBodyModule;
   /**
@@ -101,7 +101,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -109,7 +109,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -117,7 +117,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -125,7 +125,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Indicates whether the processing is synchronous.
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

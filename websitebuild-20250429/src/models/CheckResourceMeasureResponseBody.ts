@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Error code when failed; null when passed
+   * The error code when the check fails. This value is null when the check passes.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message when failed; null when passed
+   * The error message when the check fails. This value is null when the check passes.
    * 
    * @example
    * stream push failed
@@ -21,7 +21,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Is the check passed
+   * Indicates whether the check is passed.
    * 
    * @example
    * False
@@ -29,7 +29,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   passed?: boolean;
   /**
    * @remarks
-   * Resource identity
+   * The resource identifier.
    * 
    * @example
    * TransitRouterVpcAttachment
@@ -65,7 +65,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
 export class CheckResourceMeasureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -81,7 +81,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -89,7 +89,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -97,8 +97,8 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace `%s` in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response element.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -106,12 +106,12 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Application module
+   * The application module.
    */
   module?: CheckResourceMeasureResponseBodyModule;
   /**
@@ -124,7 +124,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -132,7 +132,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -140,7 +140,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

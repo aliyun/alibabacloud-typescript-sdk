@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModuleResultsValue extends $dara.Model {
   /**
    * @remarks
-   * Whether the check is passed
+   * 是否通过检查
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ModuleResultsValue extends $dara.Model {
   passed?: boolean;
   /**
    * @remarks
-   * Resource identity
+   * 资源标识
    * 
    * @example
    * InspirationTokens
@@ -21,7 +21,7 @@ export class ModuleResultsValue extends $dara.Model {
   resourceCode?: string;
   /**
    * @remarks
-   * Error code when failed; null when passed
+   * 失败时的错误码，通过时为null
    * 
    * @example
    * Resource.Control.No.Usage
@@ -29,7 +29,7 @@ export class ModuleResultsValue extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message when failed; null when passed
+   * 失败时的错误信息，通过时为null
    * 
    * @example
    * 用量耗尽

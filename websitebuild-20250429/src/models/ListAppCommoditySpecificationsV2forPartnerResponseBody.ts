@@ -9,7 +9,7 @@ import { ModuleDataPropertiesValue } from "./ModuleDataPropertiesValue";
 export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * API status or POP error code.
+   * The API status or POP error code.
    * 
    * @example
    * 200
@@ -17,12 +17,12 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData ex
   code?: string;
   /**
    * @remarks
-   * Default Value
+   * The default values.
    */
   components?: { [key: string]: ModuleDataComponentsValue };
   /**
    * @remarks
-   * File name.
+   * The file name.
    * 
    * @example
    * 文件名
@@ -30,7 +30,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData ex
   name?: string;
   /**
    * @remarks
-   * Duration.
+   * The duration.
    */
   properties?: { [key: string]: ModuleDataPropertiesValue };
   static names(): { [key: string]: string } {
@@ -69,7 +69,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData ex
 export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * API status or POP error code
+   * The API status or POP error code.
    * 
    * @example
    * OK
@@ -77,12 +77,12 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext ex
   code?: string;
   /**
    * @remarks
-   * Default Value
+   * The default values.
    */
   components?: { [key: string]: ModuleNextComponentsValue };
   /**
    * @remarks
-   * Website Name
+   * The website name.
    * 
    * @example
    * docs
@@ -90,7 +90,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext ex
   name?: string;
   /**
    * @remarks
-   * Frame rate.
+   * The frame rate.
    */
   properties?: { [key: string]: ModuleNextPropertiesValue };
   static names(): { [key: string]: string } {
@@ -129,7 +129,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext ex
 export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 12
@@ -137,12 +137,12 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   currentPageNum?: number;
   /**
    * @remarks
-   * Request result.
+   * The request result.
    */
   data?: ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData[];
   /**
    * @remarks
-   * Next feature ID
+   * The next feature ID.
    */
   next?: ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext;
   /**
@@ -155,7 +155,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   nextPage?: boolean;
   /**
    * @remarks
-   * Paging size.
+   * The page size.
    * 
    * @example
    * 50
@@ -171,12 +171,12 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   prePage?: boolean;
   /**
    * @remarks
-   * For the current query, aside from pagination limits, the server-side processes at most the latest 1 000 records. If the result exceeds 1 000 records, **ResultLimit** is **true**. You can narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to pagination limits, the server processes a maximum of the most recent 1000 records per query. If the results exceed 1000, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of items.
    * 
    * @example
    * 1
@@ -184,7 +184,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   totalItemNum?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -236,7 +236,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
 export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * permission denied information
+   * The access denied detail.
    * 
    * @example
    * {}
@@ -244,7 +244,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -252,7 +252,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The app name.
    * 
    * @example
    * or
@@ -260,7 +260,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -268,8 +268,8 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** error message of the response parameters.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -277,14 +277,14 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   dynamicMessage?: string;
   /**
    * @remarks
-   * faulty parameters.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Number of results per query.
+   * The number of results per query.
    * 
-   * Value range: 10–100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -292,12 +292,12 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   maxResults?: number;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule;
   /**
    * @remarks
-   * Token for the start of the next query. It is empty if there is no next query.
+   * The token for the next query. This parameter is empty when there is no next query.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -313,7 +313,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -321,7 +321,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -329,7 +329,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   rootErrorMsg?: string;
   /**
    * @remarks
-   * is synchronous processing enabled
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PushResourceMeasureRequest extends $dara.Model {
   /**
    * @remarks
-   * Resource usage amount
+   * The resource usage amount.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Belonging ID
+   * The owner ID.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   belongId?: string;
   /**
    * @remarks
-   * Belonging ID Type (siteId, uid)
+   * The type of the owner ID (siteId or uid).
    * 
    * @example
    * USER
@@ -29,7 +29,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   belongIdType?: string;
   /**
    * @remarks
-   * Business ID associated with this push, such as session ID, Job ID, or file ID
+   * The business ID associated with this push, such as a session ID, task ID, or file ID.
    * 
    * @example
    * WS20250801154628000001
@@ -37,7 +37,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Metering data, used to flexibly push multiple data points such as model invocation count and token usage (JSON string)
+   * The metering data used to flexibly push multiple data points such as the number of model calls and token usage. The value must be a JSON string.
    * 
    * @example
    * {\\"MD5\\":\\"8ba46100bd898461f0f589704f2fad25\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"769\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":false,\\"uefi_preferred\\":false}
@@ -45,7 +45,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   measureData?: string;
   /**
    * @remarks
-   * Business extension metadata (in Map format, must be a JSON string)
+   * The business extension metadata in Map format. The value must be a JSON string.
    * 
    * @example
    * {\\"MD5\\":\\"8ba46100bd898461f0f589704f2fad25\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"769\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":false,\\"uefi_preferred\\":false}
@@ -53,7 +53,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   metaData?: string;
   /**
    * @remarks
-   * Resource identity
+   * The resource identifier.
    * 
    * @example
    * InspirationTokens
@@ -61,7 +61,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   resourceCode?: string;
   /**
    * @remarks
-   * Usage time, format: yyyy-MM-dd HH:mm:ss
+   * The usage time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * yyyy-MM-dd HH:mm:ss
@@ -69,7 +69,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   useTime?: string;
   /**
    * @remarks
-   * Usage type
+   * The usage type.
    * 
    * @example
    * MANUAL_BIZ

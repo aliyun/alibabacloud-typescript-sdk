@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIStaffChatMessagesRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class ListAIStaffChatMessagesRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Session ID
+   * The conversation ID.
    * 
    * @example
    * 81bc5a34-1d8d-4ef7-a208-7401c51b054b
@@ -21,7 +21,7 @@ export class ListAIStaffChatMessagesRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Number of data entries per page (10–100)
+   * The number of records per page. Valid values: 10 to 100.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListAIStaffChatMessagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * gmtCreate of the last entry on the previous page; omit for the first page
+   * The gmtCreate value of the last record on the previous page. Leave this parameter empty for the first page.
    * 
    * @example
    * null

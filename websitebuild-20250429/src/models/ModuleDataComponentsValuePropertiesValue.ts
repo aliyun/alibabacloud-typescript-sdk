@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModuleDataComponentsValuePropertiesValueValues extends $dara.Model {
   /**
    * @remarks
-   * Attribute code (internal system identifier)
+   * Property code (internal system identifier)
    * 
    * @example
    * placeholder
@@ -13,7 +13,7 @@ export class ModuleDataComponentsValuePropertiesValueValues extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * Attribute value code (internal system value)
+   * Property value code (internal system value)
    * 
    * @example
    * placeholder
@@ -21,7 +21,7 @@ export class ModuleDataComponentsValuePropertiesValueValues extends $dara.Model 
   value?: string;
   /**
    * @remarks
-   * Attribute display name (user-visible name)
+   * Property display name (user-visible name)
    * 
    * @example
    * placeholder
@@ -55,7 +55,7 @@ export class ModuleDataComponentsValuePropertiesValueValues extends $dara.Model 
 export class ModuleDataComponentsValuePropertiesValue extends $dara.Model {
   /**
    * @remarks
-   * Property encoding (system internal identity)
+   * Property code (internal system identifier)
    * 
    * @example
    * placeholder
@@ -63,7 +63,7 @@ export class ModuleDataComponentsValuePropertiesValue extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Property display name (User-visible name)
+   * Property display name (user-visible name)
    * 
    * @example
    * placeholder
@@ -71,7 +71,7 @@ export class ModuleDataComponentsValuePropertiesValue extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Attribute value code (internal system value)
+   * Property value code (internal system value)
    * 
    * @example
    * placeholder
@@ -79,7 +79,7 @@ export class ModuleDataComponentsValuePropertiesValue extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * List of module attribute values
+   * Module property value list
    */
   values?: ModuleDataComponentsValuePropertiesValueValues[];
   static names(): { [key: string]: string } {

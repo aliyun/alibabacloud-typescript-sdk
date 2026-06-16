@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Application type
+   * The application type.
    * 
    * @example
    * Application
@@ -13,7 +13,7 @@ export class ModifyAppInstanceSpecRequest extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -21,7 +21,7 @@ export class ModifyAppInstanceSpecRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Ensures idempotence of requests. Generate a unique value from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 2108341e17661121129745384e79f9
@@ -29,7 +29,7 @@ export class ModifyAppInstanceSpecRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Deployment area
+   * The deployment region.
    * 
    * @example
    * HongKong
@@ -37,7 +37,7 @@ export class ModifyAppInstanceSpecRequest extends $dara.Model {
   deployArea?: string;
   /**
    * @remarks
-   * Extended information
+   * The extended information.
    * 
    * @example
    * {\\"deliveryNodeName\\":\\"网站验收\\",\\"deliveryNodeStatus\\":\\"Reject\\",\\"deliveryOperatorRole\\":\\"Customer\\"}
@@ -45,7 +45,7 @@ export class ModifyAppInstanceSpecRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * Payment type
+   * The payment type.
    * 
    * @example
    * PayAsYouGo
@@ -53,7 +53,7 @@ export class ModifyAppInstanceSpecRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Site version
+   * The website version.
    * 
    * @example
    * 0

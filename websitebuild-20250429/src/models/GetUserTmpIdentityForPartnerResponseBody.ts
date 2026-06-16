@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserTmpIdentityForPartnerResponseBodyDataCredentials extends $dara.Model {
   /**
    * @remarks
-   * Encrypted temporary AccessKey ID
+   * The encrypted temporary AccessKey ID.
    * 
    * @example
    * 7t2Rzt37ND7-xxx
@@ -13,7 +13,7 @@ export class GetUserTmpIdentityForPartnerResponseBodyDataCredentials extends $da
   encryptedAccessKeyId?: string;
   /**
    * @remarks
-   * Encrypted temporary AccessKey secret
+   * The encrypted temporary AccessKey secret.
    * 
    * @example
    * 7t2Rzt37ND7-xxx
@@ -21,7 +21,7 @@ export class GetUserTmpIdentityForPartnerResponseBodyDataCredentials extends $da
   encryptedAccessKeySecret?: string;
   /**
    * @remarks
-   * Encrypted Security Token Service token
+   * The encrypted STS token.
    * 
    * @example
    * 7t2Rzt37ND7-xxx
@@ -29,7 +29,7 @@ export class GetUserTmpIdentityForPartnerResponseBodyDataCredentials extends $da
   encryptedSecurityToken?: string;
   /**
    * @remarks
-   * Expected expiration time of the certificate
+   * The estimated expiration time of the credential.
    * 
    * @example
    * 2025-04-29T14:00:00Z
@@ -65,12 +65,12 @@ export class GetUserTmpIdentityForPartnerResponseBodyDataCredentials extends $da
 export class GetUserTmpIdentityForPartnerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Credential
+   * The security token.
    */
   credentials?: GetUserTmpIdentityForPartnerResponseBodyDataCredentials;
   /**
    * @remarks
-   * Indicates whether authorization from the Customer has been obtained.
+   * Indicates whether the customer authorization has been obtained.
    */
   hasCustomRoleAuth?: boolean;
   static names(): { [key: string]: string } {
@@ -102,12 +102,12 @@ export class GetUserTmpIdentityForPartnerResponseBodyData extends $dara.Model {
 export class GetUserTmpIdentityForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Result of the request.
+   * The request result.
    */
   data?: GetUserTmpIdentityForPartnerResponseBodyData;
   /**
    * @remarks
-   * error code. The value is interpreted as follows: If the request succeeded, the ErrorCode field is not returned. If the request failed, the ErrorCode field is returned. For more information, see the error code List in this topic.
+   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
    * 
    * @example
    * 0
@@ -115,7 +115,7 @@ export class GetUserTmpIdentityForPartnerResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error message.
+   * The error message.
    * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
@@ -131,7 +131,7 @@ export class GetUserTmpIdentityForPartnerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

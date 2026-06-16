@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Error code when failed; null when passed
+   * The error code when the check fails. This value is null when the check passes.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message when failed; null when passed
+   * The error message when the check fails. This value is null when the check passes.
    * 
    * @example
    * stream push failed
@@ -21,7 +21,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the check passed
+   * Indicates whether the check is passed.
    * 
    * @example
    * False
@@ -29,7 +29,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   passed?: boolean;
   /**
    * @remarks
-   * Resource identity
+   * The resource identifier.
    * 
    * @example
    * TransitRouterVpcAttachment
@@ -65,7 +65,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
 export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -73,9 +73,9 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:  
-   * - false: Retry is not allowed.  
-   * - true: Retry is allowed.
+   * Indicates whether a retry is allowed. Valid values:
+   * - false: A retry is not allowed.
+   * - true: A retry is allowed.
    * 
    * @example
    * False
@@ -83,7 +83,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * spring-cloud-b
@@ -91,7 +91,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -99,8 +99,8 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace `%s` in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response element.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -108,12 +108,12 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Returned object.
+   * The response object.
    */
   module?: CheckUserResourceMeasureResponseBodyModule;
   /**
@@ -126,7 +126,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -134,7 +134,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -142,7 +142,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

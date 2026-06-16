@@ -6,7 +6,7 @@ import { AppMaterialFile } from "./AppMaterialFile";
 export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * access denied details
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -22,7 +22,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * application Name. Query the application with this Name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * or
@@ -30,7 +30,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -38,7 +38,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -46,12 +46,12 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * error code. The ErrorCode field is not returned if the request succeeded. The ErrorCode field is returned if the request failed. For more information, see the error code List in this topic.
+   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -59,7 +59,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error message.
+   * The error message.
    * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
@@ -67,7 +67,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * response Data
+   * The response data.
    * 
    * @example
    * {\\"TotalPageNum\\": 1, \\"ResultLimit\\": False, \\"CurrentPageNum\\": 0, \\"PageSize\\": 0, \\"TotalItemNum\\": 0}
@@ -83,7 +83,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -91,7 +91,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -99,7 +99,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * identity indicating whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -107,7 +107,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * backup parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

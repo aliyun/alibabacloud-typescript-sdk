@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * Query end time
+   * The end time of the query.
    * 
    * @example
    * 1762999521
@@ -13,7 +13,7 @@ export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Sorting field
+   * The field used for sorting.
    * 
    * @example
    * CreationTime
@@ -21,7 +21,7 @@ export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type: ASC or DESC
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -29,7 +29,7 @@ export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number, default is 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size, default is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Scenario Name.
+   * The scenario name.
    * 
    * @example
    * 百灵鸟-人员认证
@@ -53,7 +53,7 @@ export class QueryInspirationConsumeRecordsRequest extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Start Time
+   * The start time of the query.
    * 
    * @example
    * 2025-10-19T16:00:00Z

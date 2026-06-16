@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppInstanceResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250915163734000001
@@ -13,7 +13,7 @@ export class CreateAppInstanceResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * idaas-cn-7mz2uc8v902
@@ -21,7 +21,7 @@ export class CreateAppInstanceResponseBodyModule extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 250822465990301
@@ -65,7 +65,7 @@ export class CreateAppInstanceResponseBodyModule extends $dara.Model {
 export class CreateAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -81,7 +81,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name, query this application by name
+   * The application name. The application with this name is queried.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -89,7 +89,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -97,8 +97,8 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
+   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -106,17 +106,17 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: CreateAppInstanceResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -124,7 +124,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -132,7 +132,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -140,7 +140,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

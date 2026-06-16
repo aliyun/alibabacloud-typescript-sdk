@@ -5,14 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySupabaseAuthConfigsForAdminResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Configuration values. Valid values:  
-   * - cc_rule: CC rule.  
-   * - ddos_dispatch: DDoS filter interaction scheduling.  
-   * - edge_safe: Edge application security.  
-   * - blocked_regions: Geo-blocking.  
-   * - http_acl_policy: Precise ACL rule.  
-   * - bot_manager: Bot traffic Management.  
-   * - ip_reputation: IP reputation investigation.
+   * The configuration value. Valid values:
+   * - cc_rule: HTTP flood mitigation rule.
+   * 
+   * - ddos_dispatch: DDoS interaction scheduling.
+   * 
+   * - edge_safe: edge application security.
+   * 
+   * - blocked_regions: Location Blacklist.
+   * 
+   * - http_acl_policy: Accurate Access Control.
+   * 
+   * - bot_manager: bot traffic management.
+   * 
+   * - ip_reputation: IP reputation library.
    */
   configs?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -42,7 +48,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBodyModule extends $dara.Mo
 export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of access denied
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -50,7 +56,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -58,7 +64,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * or
@@ -66,7 +72,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -74,7 +80,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message. Not currently used. Ignore it.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -82,12 +88,12 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Task object
+   * The task object.
    */
   module?: QuerySupabaseAuthConfigsForAdminResponseBodyModule;
   /**
@@ -100,7 +106,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -108,7 +114,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Fault message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -116,7 +122,7 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

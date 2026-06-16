@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMaterialTaskResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * 01baf7bcdd5c3a4c8d481cdd57c15837
@@ -35,7 +35,7 @@ export class SubmitMaterialTaskResponseBodyModule extends $dara.Model {
 export class SubmitMaterialTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * details of access denied
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -43,8 +43,8 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:  
-   * - false: Retry is not allowed.  
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
    * - true: Retry is allowed.
    * 
    * @example
@@ -53,7 +53,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * application name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * dewuApp
@@ -61,7 +61,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -69,7 +69,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERRROR
@@ -77,12 +77,12 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * error code. The ErrorCode field is returned only when the request fails. If the request succeeds, this field is not returned. For more information, see the error code list in this topic.
+   * The error code. The ErrorCode field is not returned if the request is successful. The ErrorCode field is returned if the request fails. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -90,7 +90,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error message.
+   * The error message.
    * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
@@ -98,7 +98,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * response Data
+   * The response data.
    */
   module?: SubmitMaterialTaskResponseBodyModule;
   /**
@@ -111,7 +111,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The root error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -119,7 +119,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -127,7 +127,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -135,7 +135,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Indicates whether the processing is synchronous.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

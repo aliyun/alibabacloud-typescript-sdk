@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AppMaterialDirectory extends $dara.Model {
   /**
    * @remarks
-   * Application instance business ID
+   * The business ID of the application instance.
    * 
    * @example
    * WD20250814102215000001
@@ -13,12 +13,12 @@ export class AppMaterialDirectory extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * List of subfolders
+   * The list of subfolders.
    */
   children?: AppMaterialDirectory[];
   /**
    * @remarks
-   * Folder ID.
+   * The folder ID.
    * 
    * @example
    * WS20260206134746000001-system
@@ -26,7 +26,7 @@ export class AppMaterialDirectory extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * Name
+   * The name.
    * 
    * @example
    * 图片管理
@@ -34,7 +34,7 @@ export class AppMaterialDirectory extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Sorting number
+   * The sort number.
    * 
    * @example
    * 1
@@ -42,7 +42,7 @@ export class AppMaterialDirectory extends $dara.Model {
   sortNum?: string;
   /**
    * @remarks
-   * Folder type
+   * The folder type.
    * 
    * @example
    * CUSTOM

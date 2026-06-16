@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppInstanceForPartnerResponseBodyModuleAiStaffList extends $dara.Model {
   /**
    * @remarks
-   * Staff ID
+   * The staff ID.
    * 
    * @example
    * 370196
@@ -13,7 +13,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAiStaffList extends $dara
   staffId?: string;
   /**
    * @remarks
-   * Staff Name
+   * The staff name.
    * 
    * @example
    * StaffName
@@ -21,7 +21,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAiStaffList extends $dara
   staffName?: string;
   /**
    * @remarks
-   * Staff Type
+   * The staff type.
    * 
    * @example
    * StaffType
@@ -29,7 +29,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAiStaffList extends $dara
   staffType?: string;
   /**
    * @remarks
-   * Staff Status
+   * The staff status.
    * 
    * @example
    * 200
@@ -73,7 +73,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
   bilingual?: boolean;
   /**
    * @remarks
-   * Customer Business ID
+   * The customer business ID.
    * 
    * @example
    * WS20250801151731000007
@@ -89,7 +89,11 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
   businessScope?: string;
   /**
    * @remarks
-   * Specifies the color. Valid values: - **black**: black - **white**: white - **red**: red - **blue**: blue
+   * The specified color. Valid values:
+   * - **black**: Black.
+   * - **white**: White.
+   * - **red**: Red.
+   * - **blue**: Blue.
    * 
    * @example
    * style
@@ -97,7 +101,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
   colorStyle?: string;
   /**
    * @remarks
-   * Company Name
+   * The company name.
    * 
    * @example
    * bvt_test
@@ -105,7 +109,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
   companyName?: string;
   /**
    * @remarks
-   * deployment region
+   * The deployment region.
    * 
    * @example
    * HongKong
@@ -113,7 +117,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
   deployArea?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2022-12-21T08:27:03Z
@@ -121,7 +125,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * Wed Sep 10 09:53:35 CST 2025
@@ -129,7 +133,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
   gmtModified?: string;
   /**
    * @remarks
-   * primary key
+   * The primary key.
    * 
    * @example
    * m1zumwgy6u
@@ -201,7 +205,11 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
   siteTitle?: string;
   /**
    * @remarks
-   * Application Type. Web & H5: web, miniapp: miniapp, iOS: ios, Android: android.
+   * The application type. Valid values:
+   * - web: Web & H5.
+   * - miniapp: mini program.
+   * - ios: iOS.
+   * - android: Android.
    * 
    * @example
    * web
@@ -275,7 +283,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec extends $da
 export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressActions extends $dara.Model {
   /**
    * @remarks
-   * Operation key value, used as a UUID for an operation behavior.
+   * The action key that uniquely identifies an operation.
    * 
    * @example
    * BeginDialogue
@@ -283,7 +291,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressAction
   actionKey?: string;
   /**
    * @remarks
-   * Action display text, used to show the action name in the interface
+   * The display text of the action, which is shown as the action name in the interface.
    * 
    * @example
    * placeHolder
@@ -291,7 +299,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressAction
   actionText?: string;
   /**
    * @remarks
-   * Enable status, indicating whether the operation is active.
+   * Indicates whether the action is enabled.
    * 
    * @example
    * false
@@ -299,7 +307,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressAction
   enable?: boolean;
   /**
    * @remarks
-   * Link address, the URL to which the user is redirected when clicking the action
+   * The URL to which the user is redirected when the action is clicked.
    * 
    * @example
    * placeHolder
@@ -335,7 +343,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressAction
 export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashboardActions extends $dara.Model {
   /**
    * @remarks
-   * Operation key used to uniquely identify an operation behavior.
+   * The action key that uniquely identifies an operation.
    * 
    * @example
    * CollectedNumber
@@ -343,7 +351,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashbo
   actionKey?: string;
   /**
    * @remarks
-   * Action display text used to show the action name in the interface
+   * The display text of the action, which is shown as the action name in the interface.
    * 
    * @example
    * placeHolder
@@ -351,7 +359,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashbo
   actionText?: string;
   /**
    * @remarks
-   * Enable status indicating whether the action is active
+   * Indicates whether the action is enabled.
    * 
    * @example
    * true
@@ -359,7 +367,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashbo
   enable?: boolean;
   /**
    * @remarks
-   * Link URL to which the user is redirected when clicking the action
+   * The URL to which the user is redirected when the action is clicked.
    * 
    * @example
    * placeHolder
@@ -395,12 +403,12 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashbo
 export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress extends $dara.Model {
   /**
    * @remarks
-   * List of console operation buttons
+   * The list of console action buttons.
    */
   actions?: GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressActions[];
   /**
    * @remarks
-   * Customer service design URL
+   * The URL for customer service design.
    * 
    * @example
    * placeHolder
@@ -408,7 +416,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   aiCustomerConfigUrl?: string;
   /**
    * @remarks
-   * AI Design URL
+   * The URL for AI design.
    * 
    * @example
    * placeHolder
@@ -416,7 +424,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   aiDesignUrl?: string;
   /**
    * @remarks
-   * Application publish URL
+   * The URL for application publishing.
    * 
    * @example
    * placeHolder
@@ -424,12 +432,12 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   appPublishUrl?: string;
   /**
    * @remarks
-   * List of action buttons on the overview page
+   * The list of overview page action buttons.
    */
   dashboardActions?: GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressDashboardActions[];
   /**
    * @remarks
-   * Professional design URL
+   * The URL for professional design.
    * 
    * @example
    * placeHolder
@@ -437,7 +445,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   designUrl?: string;
   /**
    * @remarks
-   * Application instance logon URL
+   * The logon URL of the application instance.
    * 
    * @example
    * placeHolder
@@ -445,7 +453,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   instanceLoginUrl?: string;
   /**
    * @remarks
-   * Renewal and purchase URL
+   * The URL for renewal purchase.
    * 
    * @example
    * placeHolder
@@ -453,7 +461,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   renewBuyUrl?: string;
   /**
    * @remarks
-   * Service delivery URL
+   * The URL for service delivery.
    * 
    * @example
    * placeHolder
@@ -461,7 +469,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
   serverDeliveryUrl?: string;
   /**
    * @remarks
-   * Upgrade purchase URL
+   * The URL for upgrade purchase.
    * 
    * @example
    * placeHolder
@@ -515,7 +523,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress exten
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListGroup extends $dara.Model {
   /**
    * @remarks
-   * primary key
+   * The primary key.
    * 
    * @example
    * d75fvq3ctk
@@ -523,7 +531,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListGroup exten
   id?: string;
   /**
    * @remarks
-   * Website Name
+   * The website name.
    * 
    * @example
    * mda-sb037wmidshg3w9v.mp4
@@ -547,7 +555,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListGroup exten
   type?: string;
   /**
    * @remarks
-   * Temporary access URL for image
+   * The temporary access URL of the image.
    * 
    * @example
    * https://static.yipigai.cn/timuocr/tmp_57bc9cb3be1075f4e5cdae87f5cbb86abc54a694aaf10965.jpg
@@ -585,12 +593,12 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListGroup exten
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList extends $dara.Model {
   /**
    * @remarks
-   * Child folder object
+   * The child folder object.
    */
   children?: any[];
   /**
    * @remarks
-   * The ordinal number of the last node.
+   * The sequence number of the last node.
    * 
    * @example
    * FinalStepNo
@@ -598,7 +606,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
   finalStepNo?: number;
   /**
    * @remarks
-   * When FinishStatus (baseline instance completion status) is FINISH (completed), the UNIX timestamp of the baseline instance completion time is returned.
+   * The completion timestamp of the baseline instance. This value is returned when FinishStatus is FINISH (completed).
    * 
    * @example
    * 2023-01-13T07:58:12Z
@@ -614,7 +622,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
   isContainerNode?: boolean;
   /**
    * @remarks
-   * The ID of the OBServer edge zone where the resource node resides.
+   * The ID of the OBServer node where the resource node resides.
    * 
    * @example
    * 2927b500-c4e2-4241-bacf-0a2991c4be12
@@ -623,7 +631,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
   /**
    * @remarks
    * <props="china">The name of the matrix.
-   * <props="intl">This parameter is not publicly available.
+   * <props="intl">This parameter is not available for public use..
    * 
    * @example
    * 单路输出
@@ -631,10 +639,10 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
   nodeName?: string;
   /**
    * @remarks
-   * Node running status. Valid values:
+   * The running status of the node. Valid values:
    * 
    * - **UP**: The node is running.
-   * - **DOWN**: The node is faulty.
+   * - **DOWN**: The node has failed.
    * 
    * @example
    * NodeStatus
@@ -650,7 +658,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
   operatorRole?: string;
   /**
    * @remarks
-   * Parent node ID
+   * The ID of the parent node.
    * 
    * @example
    * dpYLaezmVNRMGX56Cg4gLjrrVrMqPxX6
@@ -658,7 +666,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
   parentNodeId?: string;
   /**
    * @remarks
-   * Ordinal number of the flow node
+   * The sequence number of the process node.
    * 
    * @example
    * StepNo
@@ -709,7 +717,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList ex
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddressActions extends $dara.Model {
   /**
    * @remarks
-   * Action key, used as a UUID for an action behavior.
+   * The action key that uniquely identifies an operation.
    * 
    * @example
    * CollectedNumber
@@ -717,7 +725,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   actionKey?: string;
   /**
    * @remarks
-   * Display text for the action, used to show the action name in the interface.
+   * The display text of the action, which is shown as the action name in the interface.
    * 
    * @example
    * ActionText
@@ -725,7 +733,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   actionText?: string;
   /**
    * @remarks
-   * Enable status, indicating whether the action is active.
+   * Indicates whether the action is enabled.
    * 
    * @example
    * false
@@ -733,7 +741,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   enable?: boolean;
   /**
    * @remarks
-   * Link address, the URL to which the user is redirected when clicking the action.
+   * The URL to which the user is redirected when the action is clicked.
    * 
    * @example
    * Href
@@ -769,7 +777,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddressDashboardActions extends $dara.Model {
   /**
    * @remarks
-   * Operation key used as a UUID for an operation behavior
+   * The action key that uniquely identifies an operation.
    * 
    * @example
    * AbortDialogue
@@ -777,7 +785,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   actionKey?: string;
   /**
    * @remarks
-   * The display text of the action, used to show the action name in the interface.
+   * The display text of the action, which is shown as the action name in the interface.
    * 
    * @example
    * ActionText
@@ -785,7 +793,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   actionText?: string;
   /**
    * @remarks
-   * The enable status, indicating whether the action is active.
+   * Indicates whether the action is enabled.
    * 
    * @example
    * true
@@ -793,7 +801,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   enable?: boolean;
   /**
    * @remarks
-   * The URL address to which the hyperlink redirects when the action is clicked.
+   * The URL to which the user is redirected when the action is clicked.
    * 
    * @example
    * Href
@@ -829,12 +837,12 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddress extends $dara.Model {
   /**
    * @remarks
-   * List of console operation buttons
+   * The list of console action buttons.
    */
   actions?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddressActions[];
   /**
    * @remarks
-   * AI customer service design URL
+   * The URL for customer service design.
    * 
    * @example
    * AiCustomerConfigUrl
@@ -842,7 +850,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   aiCustomerConfigUrl?: string;
   /**
    * @remarks
-   * AI design URL
+   * The URL for AI design.
    * 
    * @example
    * AiDesignUrl
@@ -850,7 +858,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   aiDesignUrl?: string;
   /**
    * @remarks
-   * Application publish URL
+   * The URL for application publishing.
    * 
    * @example
    * AppPublishUrl
@@ -858,12 +866,12 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   appPublishUrl?: string;
   /**
    * @remarks
-   * List of overview page operation buttons
+   * The list of overview page action buttons.
    */
   dashboardActions?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddressDashboardActions[];
   /**
    * @remarks
-   * Professional design URL
+   * The URL for professional design.
    * 
    * @example
    * DesignUrl
@@ -871,7 +879,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   designUrl?: string;
   /**
    * @remarks
-   * Application instance logon URL
+   * The logon URL of the application instance.
    * 
    * @example
    * InstanceLoginUrl
@@ -879,7 +887,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   instanceLoginUrl?: string;
   /**
    * @remarks
-   * Renewal and purchase URL
+   * The URL for renewal purchase.
    * 
    * @example
    * renewBuyUrl
@@ -887,7 +895,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   renewBuyUrl?: string;
   /**
    * @remarks
-   * Service delivery URL
+   * The URL for service delivery.
    * 
    * @example
    * ServerDeliveryUrl
@@ -895,7 +903,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
   serverDeliveryUrl?: string;
   /**
    * @remarks
-   * Upgrade purchase URL
+   * The URL for upgrade purchase.
    * 
    * @example
    * UpgradeBuyUrl
@@ -949,7 +957,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAd
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250801003834000003
@@ -957,7 +965,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   bizId?: string;
   /**
    * @remarks
-   * Design Type
+   * The design type.
    * 
    * @example
    * DesignType
@@ -965,7 +973,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   designType?: string;
   /**
    * @remarks
-   * Design type description
+   * The description of the design type.
    * 
    * @example
    * DesignTypeText
@@ -973,7 +981,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   designTypeText?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1620711265000
@@ -981,7 +989,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * Mon Sep 25 14:48:49 CST 2023
@@ -989,7 +997,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   gmtModified?: string;
   /**
    * @remarks
-   * primary key
+   * The primary key.
    * 
    * @example
    * 108232
@@ -997,7 +1005,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   id?: string;
   /**
    * @remarks
-   * Lingxiao instance ID
+   * The Lingxiao instance ID.
    * 
    * @example
    * LxInstanceId
@@ -1005,7 +1013,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   lxInstanceId?: string;
   /**
    * @remarks
-   * order ID
+   * The order ID.
    * 
    * @example
    * 256146659280026
@@ -1013,7 +1021,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   orderId?: string;
   /**
    * @remarks
-   * Service Specification
+   * The service specification.
    * 
    * @example
    * 8
@@ -1021,7 +1029,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
   serviceSpec?: string;
   /**
    * @remarks
-   * Service specification description
+   * The description of the service specification.
    * 
    * @example
    * ServiceSpecText
@@ -1072,7 +1080,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
 export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $dara.Model {
   /**
    * @remarks
-   * Application instance business ID
+   * The business ID of the application instance.
    * 
    * @example
    * WS20251211153330000001
@@ -1080,7 +1088,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   bizId?: string;
   /**
    * @remarks
-   * Deletion flag
+   * The deletion flag.
    * 
    * @example
    * fase
@@ -1088,7 +1096,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   deleted?: number;
   /**
    * @remarks
-   * End time
+   * The end time.
    * 
    * @example
    * 2025-07-18T02:23:00Z
@@ -1104,7 +1112,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   espBizId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2025-07-30T02:08:40Z
@@ -1112,7 +1120,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * Tue Sep 09 10:27:49 CST 2025
@@ -1120,12 +1128,12 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   gmtModified?: string;
   /**
    * @remarks
-   * Application operation address
+   * The application operation address.
    */
   group?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListGroup;
   /**
    * @remarks
-   * Associated business ID
+   * The associated business ID.
    * 
    * @example
    * InstanceBizId
@@ -1133,7 +1141,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   instanceBizId?: string;
   /**
    * @remarks
-   * Service name
+   * The service name.
    * 
    * @example
    * 19609820.png
@@ -1141,17 +1149,17 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   name?: string;
   /**
    * @remarks
-   * Delivery flow
+   * The delivery process.
    */
   nodeList?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListNodeList[];
   /**
    * @remarks
-   * Used to uniquely identify an operation behavior
+   * The unique identifier of an operation.
    */
   operationAddress?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListOperationAddress;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 253790948890026
@@ -1159,12 +1167,12 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   orderId?: string;
   /**
    * @remarks
-   * Instance service configuration
+   * The instance service configuration.
    */
   profile?: GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile;
   /**
    * @remarks
-   * Service Type
+   * The service type.
    * 
    * @example
    * WEBSITE_DESIGN
@@ -1172,7 +1180,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   serviceType?: string;
   /**
    * @remarks
-   * Service Type Description
+   * The description of the service type.
    * 
    * @example
    * ServiceTypeText
@@ -1180,7 +1188,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   serviceTypeText?: string;
   /**
    * @remarks
-   * Application identity
+   * The application identifier.
    * 
    * @example
    * Slug
@@ -1188,7 +1196,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   slug?: string;
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * @example
    * 1754447102000
@@ -1196,7 +1204,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   startTime?: string;
   /**
    * @remarks
-   * Status
+   * The status.
    * 
    * @example
    * success
@@ -1204,7 +1212,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceList extends $d
   status?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * UserId
@@ -1290,7 +1298,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   aliyunPk?: string;
   /**
    * @remarks
-   * External bizId
+   * The external business ID.
    * 
    * @example
    * WS20250801153127000002
@@ -1298,7 +1306,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   bizId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1672123722000
@@ -1306,7 +1314,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * Wed Nov 26 10:15:28 CST 2025
@@ -1314,7 +1322,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   gmtModified?: string;
   /**
    * @remarks
-   * User who owns the ICP filing service code
+   * The user to whom the ICP filing service code belongs.
    * 
    * @example
    * grantAliyunPk
@@ -1322,7 +1330,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   grantAliyunPk?: string;
   /**
    * @remarks
-   * Phone number
+   * The mobile phone number.
    * 
    * @example
    * ***********
@@ -1338,7 +1346,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   parentPk?: string;
   /**
    * @remarks
-   * Externally associated partnerId
+   * The external association partner ID.
    * 
    * @example
    * 10001
@@ -1346,7 +1354,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData ext
   partnerId?: string;
   /**
    * @remarks
-   * Display name of the attached user
+   * The display name of the bound user.
    * 
    * @example
    * diaplayName
@@ -1397,7 +1405,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetail extends $da
   bindData?: GetAppInstanceForPartnerResponseBodyModulePartnerDetailBindData;
   /**
    * @remarks
-   * Partner ID, extension parameter
+   * The ID of the partner. This is an extended parameter.
    * 
    * @example
    * 10001
@@ -1405,7 +1413,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetail extends $da
   partnerId?: string;
   /**
    * @remarks
-   * Possible values: unknown, init, testing, online
+   * Valid values: unknown, init, testing, online.
    * 
    * @example
    * 200
@@ -1442,7 +1450,7 @@ export class GetAppInstanceForPartnerResponseBodyModulePartnerDetail extends $da
 export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Model {
   /**
    * @remarks
-   * Management console URL
+   * The admin console URL.
    * 
    * @example
    * placeHolder
@@ -1450,7 +1458,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   adminUrl?: string;
   /**
    * @remarks
-   * Application type code
+   * The application type code.
    * 
    * @example
    * PC_WebSite
@@ -1458,7 +1466,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   applicationType?: string;
   /**
    * @remarks
-   * Application type text description
+   * The text description of the application type.
    * 
    * @example
    * placeHolder
@@ -1466,7 +1474,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   applicationTypeText?: string;
   /**
    * @remarks
-   * Attached CNAME record
+   * The bound CNAME record.
    * 
    * @example
    * placeHolder
@@ -1474,7 +1482,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   bindCname?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250801152128000005
@@ -1482,7 +1490,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   bizId?: string;
   /**
    * @remarks
-   * Product encoding
+   * The commodity code.
    * 
    * @example
    * rds
@@ -1490,7 +1498,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   commodityCode?: string;
   /**
    * @remarks
-   * Customer Service Information
+   * The customer service information.
    * 
    * @example
    * placeHolder
@@ -1498,7 +1506,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   customerService?: string;
   /**
    * @remarks
-   * Deployment area
+   * The deployment region.
    * 
    * @example
    * ChineseMainland
@@ -1506,7 +1514,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   deployArea?: string;
   /**
    * @remarks
-   * Domain name list
+   * The domain name list.
    * 
    * @example
    * [white:],*.eduresource.cn,*.dingtalk.com,*.aliyun.com,*.aliyuncs.com,euser.edu-aliyun.com,s-gm.mmstat.com
@@ -1514,7 +1522,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   domainList?: string;
   /**
    * @remarks
-   * Editor URL
+   * The editor URL.
    * 
    * @example
    * placeHolder
@@ -1522,7 +1530,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   editorUrl?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 1605280632000
@@ -1530,7 +1538,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * 2024-05-06T03:07:45Z
@@ -1538,7 +1546,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   gmtModified?: string;
   /**
    * @remarks
-   * ICP number
+   * The ICP filing number.
    * 
    * @example
    * placeHolder
@@ -1546,7 +1554,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   icpbaNo?: string;
   /**
    * @remarks
-   * Image list
+   * The image list.
    * 
    * @example
    * {\\"Image\\": []}
@@ -1554,7 +1562,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   imageList?: string;
   /**
    * @remarks
-   * Lenovo instance ID
+   * The Lingxiao instance ID.
    * 
    * @example
    * placeHolder
@@ -1562,7 +1570,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   lxInstanceId?: string;
   /**
    * @remarks
-   * Order time
+   * The order placement time.
    * 
    * @example
    * placeHolder
@@ -1570,7 +1578,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   ordTime?: string;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 256146659280026
@@ -1578,7 +1586,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   orderId?: string;
   /**
    * @remarks
-   * Order quantity
+   * The number of orders.
    * 
    * @example
    * 1
@@ -1586,7 +1594,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   orderNum?: number;
   /**
    * @remarks
-   * Channel partner business ID
+   * The channel partner business ID.
    * 
    * @example
    * 100086
@@ -1594,7 +1602,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   partnerId?: string;
   /**
    * @remarks
-   * Payment time
+   * The payment time.
    * 
    * @example
    * placeHolder
@@ -1602,7 +1610,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   payTime?: string;
   /**
    * @remarks
-   * Preview URL
+   * The preview URL.
    * 
    * @example
    * https://preview-lyj.aliyuncs.com/preview/1daacb3ebbb8435d9091fb950c528d0f?subSceneIds=682185
@@ -1610,7 +1618,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   previewUrl?: string;
   /**
    * @remarks
-   * SEO site information
+   * The SEO site information.
    * 
    * @example
    * placeHolder
@@ -1618,7 +1626,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   seoSite?: string;
   /**
    * @remarks
-   * Site logo
+   * The site logo.
    * 
    * @example
    * placeHolder
@@ -1626,7 +1634,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   siteLogo?: string;
   /**
    * @remarks
-   * Site version encoding
+   * The site version code.
    * 
    * @example
    * Basic_Edition
@@ -1634,7 +1642,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   siteVersion?: string;
   /**
    * @remarks
-   * Site version text description
+   * The text description of the site version.
    * 
    * @example
    * placeHolder
@@ -1642,7 +1650,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   siteVersionText?: string;
   /**
    * @remarks
-   * Source information
+   * The source information.
    * 
    * @example
    * edasmsc
@@ -1650,7 +1658,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   source?: string;
   /**
    * @remarks
-   * Template ETag identity
+   * The template ETag identifier.
    * 
    * @example
    * placeHolder
@@ -1658,7 +1666,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   templateEtag?: string;
   /**
    * @remarks
-   * Template ID
+   * The template ID.
    * 
    * @example
    * 4644
@@ -1666,7 +1674,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   templateId?: string;
   /**
    * @remarks
-   * Text list
+   * The text list.
    * 
    * @example
    * placeHolder
@@ -1674,7 +1682,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
   textList?: string;
   /**
    * @remarks
-   * Thumbnail
+   * The thumbnail.
    * 
    * @example
    * https://aloss-recruit-aiinterview.oss-cn-beijing.aliyuncs.com/thumbnail-1753495551714-10000.png
@@ -1765,7 +1773,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
 export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfile extends $dara.Model {
   /**
    * @remarks
-   * Management Console URL
+   * The admin console URL.
    * 
    * @example
    * placeHolder
@@ -1773,7 +1781,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   adminUrl?: string;
   /**
    * @remarks
-   * Application Type Code
+   * The application type code.
    * 
    * @example
    * PC_WebSite
@@ -1781,7 +1789,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   applicationType?: string;
   /**
    * @remarks
-   * Application type text description
+   * The text description of the application type.
    * 
    * @example
    * placeHolder
@@ -1789,7 +1797,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   applicationTypeText?: string;
   /**
    * @remarks
-   * Attached CNAME record
+   * The bound CNAME record.
    * 
    * @example
    * placeHolder
@@ -1797,7 +1805,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   bindCname?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250801153127000002
@@ -1805,7 +1813,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   bizId?: string;
   /**
    * @remarks
-   * Product encoding
+   * The commodity code.
    * 
    * @example
    * sas
@@ -1813,7 +1821,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   commodityCode?: string;
   /**
    * @remarks
-   * [responses_200_schema_properties_Module_properties_RelatedInstanceList_items_properties_CustomerService_description]Customer service information
+   * The customer service information.
    * 
    * @example
    * placeHolder
@@ -1821,7 +1829,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   customerService?: string;
   /**
    * @remarks
-   * Deployment area
+   * The deployment region.
    * 
    * @example
    * ChineseMainland
@@ -1829,7 +1837,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   deployArea?: string;
   /**
    * @remarks
-   * Domain Name List
+   * The domain name list.
    * 
    * @example
    * [\\"activity.syruijia.top\\", \\"admin.syruijia.top\\", \\"api.syruijia.top\\", \\"game-admin.syruijia.top\\", \\"h5game.syruijia.top\\", \\"home.syruijia.top\\", \\"invite.syruijia.top\\"]
@@ -1837,7 +1845,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   domainList?: string;
   /**
    * @remarks
-   * Editor URL
+   * The editor URL.
    * 
    * @example
    * placeHolder
@@ -1845,7 +1853,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   editorUrl?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1621734214000
@@ -1853,7 +1861,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * Thu Oct 24 09:12:31 CST 2024
@@ -1861,7 +1869,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   gmtModified?: string;
   /**
    * @remarks
-   * ICP number
+   * The ICP filing number.
    * 
    * @example
    * placeHolder
@@ -1869,7 +1877,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   icpbaNo?: string;
   /**
    * @remarks
-   * Image list
+   * The image list.
    * 
    * @example
    * {\\"Image\\": []}
@@ -1877,7 +1885,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   imageList?: string;
   /**
    * @remarks
-   * Lenovo instance ID
+   * The Lingxiao instance ID.
    * 
    * @example
    * placeHolder
@@ -1885,7 +1893,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   lxInstanceId?: string;
   /**
    * @remarks
-   * Order Time
+   * The order placement time.
    * 
    * @example
    * placeHolder
@@ -1893,7 +1901,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   ordTime?: string;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 248808934190692
@@ -1901,7 +1909,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   orderId?: string;
   /**
    * @remarks
-   * Order Quantity
+   * The number of orders.
    * 
    * @example
    * 1
@@ -1909,7 +1917,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   orderNum?: number;
   /**
    * @remarks
-   * Channel Partner Business ID
+   * The channel partner business ID.
    * 
    * @example
    * 100086
@@ -1917,7 +1925,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   partnerId?: string;
   /**
    * @remarks
-   * Payment time
+   * The payment time.
    * 
    * @example
    * placeHolder
@@ -1925,7 +1933,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   payTime?: string;
   /**
    * @remarks
-   * Preview URL
+   * The preview URL.
    * 
    * @example
    * https://preview-lyj.aliyuncs.com/preview/temp/9fb36fc05d0a48cdb92d7397336c214f?subSceneIds=734285&type=interim
@@ -1933,7 +1941,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   previewUrl?: string;
   /**
    * @remarks
-   * SEO site information
+   * The SEO site information.
    * 
    * @example
    * placeHolder
@@ -1941,7 +1949,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   seoSite?: string;
   /**
    * @remarks
-   * Site logo
+   * The site logo.
    * 
    * @example
    * placeHolder
@@ -1949,7 +1957,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   siteLogo?: string;
   /**
    * @remarks
-   * Site version encoding
+   * The site version code.
    * 
    * @example
    * Trial_Edition
@@ -1957,7 +1965,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   siteVersion?: string;
   /**
    * @remarks
-   * Site Version Text Description
+   * The text description of the site version.
    * 
    * @example
    * placeHolder
@@ -1965,7 +1973,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   siteVersionText?: string;
   /**
    * @remarks
-   * Source Information
+   * The source information.
    * 
    * @example
    * 10.71.130.205
@@ -1973,7 +1981,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   source?: string;
   /**
    * @remarks
-   * Template ETag identity
+   * The template ETag identifier.
    * 
    * @example
    * placeHolder
@@ -1981,7 +1989,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   templateEtag?: string;
   /**
    * @remarks
-   * Template ID
+   * The template ID.
    * 
    * @example
    * 4644
@@ -1989,7 +1997,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   templateId?: string;
   /**
    * @remarks
-   * Text List
+   * The text list.
    * 
    * @example
    * placeHolder
@@ -1997,7 +2005,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
   textList?: string;
   /**
    * @remarks
-   * Thumbnail
+   * The thumbnail.
    * 
    * @example
    * https://aloss-recruit-aiinterview.oss-cn-beijing.aliyuncs.com/thumbnail-1766456326256-0.png
@@ -2088,7 +2096,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
 export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList extends $dara.Model {
   /**
    * @remarks
-   * application sub-type
+   * The application subtype.
    * 
    * @example
    * placeHolder
@@ -2096,7 +2104,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   appSubType?: string;
   /**
    * @remarks
-   * application Type
+   * The application type.
    * 
    * @example
    * 1
@@ -2104,7 +2112,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   appType?: string;
   /**
    * @remarks
-   * application instance business ID
+   * The business ID of the application instance.
    * 
    * @example
    * WS20250929173805000001
@@ -2112,7 +2120,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   bizId?: string;
   /**
    * @remarks
-   * Build Type
+   * The build type.
    * 
    * @example
    * placeHolder
@@ -2120,7 +2128,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   buildType?: string;
   /**
    * @remarks
-   * Is Deleted
+   * Indicates whether the instance is deleted.
    * 
    * @example
    * fase
@@ -2128,7 +2136,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   deleted?: number;
   /**
    * @remarks
-   * Application description
+   * The application description.
    * 
    * @example
    * base
@@ -2144,7 +2152,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   designSpecBizId?: string;
   /**
    * @remarks
-   * Design configuration ID
+   * The ID of the design specification.
    * 
    * @example
    * placeHolder
@@ -2152,7 +2160,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   designSpecId?: string;
   /**
    * @remarks
-   * primary domain name
+   * The primary domain name.
    * 
    * @example
    * shikuntech.com
@@ -2160,7 +2168,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   domain?: string;
   /**
    * @remarks
-   * End time
+   * The end time.
    * 
    * @example
    * 2025-05-23T15:01:25.891Z
@@ -2168,7 +2176,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   endTime?: string;
   /**
    * @remarks
-   * Environment
+   * The environment.
    * 
    * @example
    * pre
@@ -2176,7 +2184,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   env?: string;
   /**
    * @remarks
-   * Associated Delivery Order ID
+   * The associated delivery order ID.
    * 
    * @example
    * placeHolder
@@ -2184,7 +2192,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   espBizId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2025-06-19T07:39:55Z
@@ -2192,7 +2200,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   gmtCreate?: string;
   /**
    * @remarks
-   * Deletion time
+   * The deletion time.
    * 
    * @example
    * placeHolder
@@ -2200,7 +2208,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   gmtDelete?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * 2025-01-14T09:09:57Z
@@ -2208,7 +2216,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   gmtModified?: string;
   /**
    * @remarks
-   * Published At
+   * The publish time.
    * 
    * @example
    * placeHolder
@@ -2216,7 +2224,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   gmtPublish?: string;
   /**
    * @remarks
-   * application icon
+   * The application icon URL.
    * 
    * @example
    * https://app-center-icon-prod-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/1617863868712071/1749090558651_%E9%AB%98%E5%BE%B7.png
@@ -2224,7 +2232,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   iconUrl?: string;
   /**
    * @remarks
-   * Application Name
+   * The application name.
    * 
    * @example
    * 19609820.png
@@ -2232,7 +2240,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   name?: string;
   /**
    * @remarks
-   * order ID
+   * The order ID.
    * 
    * @example
    * 264987642530867,264988827010867,264982589530867,264985058640867,264982290930867,264982387520867,264987147460867,264985752990867,264988432850867
@@ -2240,12 +2248,12 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   orderId?: string;
   /**
    * @remarks
-   * Instance configuration
+   * The instance configuration.
    */
   profile?: GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfile;
   /**
    * @remarks
-   * domain name
+   * The website domain name.
    * 
    * @example
    * placeHolder
@@ -2253,7 +2261,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   siteHost?: string;
   /**
    * @remarks
-   * application identity
+   * The application identifier.
    * 
    * @example
    * placeHolder
@@ -2261,7 +2269,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   slug?: string;
   /**
    * @remarks
-   * Source MARKET_CLOUD_DREAM
+   * The source. Example: MARKET_CLOUD_DREAM.
    * 
    * @example
    * MARKET_CLOUD_DREAM
@@ -2269,7 +2277,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   sourceType?: string;
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * @example
    * 2025-07-22T02:23:00Z
@@ -2277,7 +2285,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   startTime?: string;
   /**
    * @remarks
-   * Status
+   * The status.
    * 
    * @example
    * success
@@ -2285,7 +2293,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   status?: string;
   /**
    * @remarks
-   * Task Status text.
+   * The task status text.
    * 
    * @example
    * SUCCESS
@@ -2293,7 +2301,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   statusText?: string;
   /**
    * @remarks
-   * Application thumbnail
+   * The application thumbnail URL.
    * 
    * @example
    * placeHolder
@@ -2301,7 +2309,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   thumbnailUrl?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * placeHolder
@@ -2309,7 +2317,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
   userId?: string;
   /**
    * @remarks
-   * Application instance Version
+   * The application instance version.
    * 
    * @example
    * 2019-04-02
@@ -2398,27 +2406,27 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList exten
 export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * List of AI staff associated with the application
+   * The list of AI staff members associated with the application.
    */
   aiStaffList?: GetAppInstanceForPartnerResponseBodyModuleAiStaffList[];
   /**
    * @remarks
-   * Design order associated with the application
+   * The design specification associated with the application.
    */
   appDesignSpec?: GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec;
   /**
    * @remarks
-   * Application operation address
+   * The application operation address.
    */
   appOperationAddress?: GetAppInstanceForPartnerResponseBodyModuleAppOperationAddress;
   /**
    * @remarks
-   * List of service instances associated with the application
+   * The list of service instances associated with the application.
    */
   appServiceList?: GetAppInstanceForPartnerResponseBodyModuleAppServiceList[];
   /**
    * @remarks
-   * Application subtype
+   * The application subtype.
    * 
    * @example
    * placeHolder
@@ -2426,7 +2434,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   appSubType?: string;
   /**
    * @remarks
-   * Application Type
+   * The application type.
    * 
    * @example
    * TRACE
@@ -2434,7 +2442,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * Application instance business ID
+   * The business ID of the application instance.
    * 
    * @example
    * WS20250915163734000001
@@ -2442,7 +2450,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Build Type
+   * The build type.
    * 
    * @example
    * placeHolder
@@ -2450,7 +2458,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   buildType?: string;
   /**
    * @remarks
-   * Is deleted
+   * Indicates whether the instance is deleted.
    * 
    * @example
    * fase
@@ -2458,7 +2466,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   deleted?: number;
   /**
    * @remarks
-   * Application Description
+   * The application description.
    * 
    * @example
    * /bak->serverless.handler(2020091300200279)
@@ -2474,7 +2482,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   designSpecBizId?: string;
   /**
    * @remarks
-   * Design Configuration ID
+   * The ID of the design specification.
    * 
    * @example
    * placeHolder
@@ -2482,7 +2490,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   designSpecId?: string;
   /**
    * @remarks
-   * Primary domain name
+   * The primary domain name.
    * 
    * @example
    * stxycw.com
@@ -2490,7 +2498,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * End time
+   * The end time.
    * 
    * @example
    * 2026-01-05T15:59:00Z
@@ -2498,7 +2506,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Environment
+   * The environment.
    * 
    * @example
    * pre
@@ -2506,7 +2514,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Associated delivery order ID
+   * The associated delivery order ID.
    * 
    * @example
    * placeHolder
@@ -2514,7 +2522,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   espBizId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1740479834
@@ -2522,7 +2530,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Deletion time
+   * The deletion time.
    * 
    * @example
    * placeHolder
@@ -2530,7 +2538,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   gmtDelete?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * 2025-08-28T02:25:41Z
@@ -2538,7 +2546,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Published At
+   * The publish time.
    * 
    * @example
    * placeHolder
@@ -2546,7 +2554,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   gmtPublish?: string;
   /**
    * @remarks
-   * Application icon
+   * The application icon URL.
    * 
    * @example
    * https://yzm.zshud.com:34901/cloud-phone/养生_1763631730804.png
@@ -2554,7 +2562,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   iconUrl?: string;
   /**
    * @remarks
-   * Application Name
+   * The application name.
    * 
    * @example
    * 文件名
@@ -2562,7 +2570,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 250822465990301
@@ -2570,22 +2578,22 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Details
+   * The partner details.
    */
   partnerDetail?: GetAppInstanceForPartnerResponseBodyModulePartnerDetail;
   /**
    * @remarks
-   * Instance Configuration
+   * The instance configuration.
    */
   profile?: GetAppInstanceForPartnerResponseBodyModuleProfile;
   /**
    * @remarks
-   * List of instances associated with the application
+   * The list of instances associated with the application.
    */
   relatedInstanceList?: GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceList[];
   /**
    * @remarks
-   * Domain name
+   * The website domain name.
    * 
    * @example
    * abcd.scd.wanwang.xin
@@ -2593,7 +2601,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   siteHost?: string;
   /**
    * @remarks
-   * Application identifier
+   * The application identifier.
    * 
    * @example
    * placeHolder
@@ -2601,7 +2609,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * Source MARKET_CLOUD_DREAM
+   * The source. Example: MARKET_CLOUD_DREAM.
    * 
    * @example
    * MARKET_CLOUD_DREAM
@@ -2609,7 +2617,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * @example
    * 2023-03-24T10:10Z
@@ -2617,7 +2625,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Status
+   * The status.
    * 
    * @example
    * NORMAL
@@ -2625,7 +2633,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Task Status text.
+   * The task status text.
    * 
    * @example
    * FILE_DOWNLOAD_FAILED
@@ -2633,7 +2641,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   statusText?: string;
   /**
    * @remarks
-   * Application Thumbnail
+   * The application thumbnail URL.
    * 
    * @example
    * placeHolder
@@ -2641,7 +2649,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   thumbnailUrl?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * placeHolder
@@ -2649,7 +2657,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Application instance Version
+   * The application instance version.
    * 
    * @example
    * 2019-04-02
@@ -2768,7 +2776,7 @@ export class GetAppInstanceForPartnerResponseBodyModule extends $dara.Model {
 export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason why access was denied.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -2776,7 +2784,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -2784,7 +2792,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * AppName.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -2792,7 +2800,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -2800,8 +2808,8 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/gl3d6l3817id8p1/gl3d6l3817id8p1.diff.zip?Expires=1750392068&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=Bcj3eohy8nmlSQ7AAGdq7JZoLjM%3D
@@ -2809,12 +2817,12 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: GetAppInstanceForPartnerResponseBodyModule;
   /**
@@ -2827,7 +2835,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -2835,7 +2843,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -2843,7 +2851,7 @@ export class GetAppInstanceForPartnerResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

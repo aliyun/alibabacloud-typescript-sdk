@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppWorkspaceDirectoryResponseBodyModuleDirectoryList extends $dara.Model {
   /**
    * @remarks
-   * Child content
+   * The child content.
    */
   children?: any[];
   /**
    * @remarks
-   * Full path (relative to workspace)
+   * The full path relative to the workspace.
    * 
    * @example
    * PolarDBInnoDBRedoLogWrites
@@ -18,7 +18,7 @@ export class GetAppWorkspaceDirectoryResponseBodyModuleDirectoryList extends $da
   key?: string;
   /**
    * @remarks
-   * Name
+   * The name.
    * 
    * @example
    * Evaluable=true
@@ -55,7 +55,7 @@ export class GetAppWorkspaceDirectoryResponseBodyModuleDirectoryList extends $da
 export class GetAppWorkspaceDirectoryResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Current time
+   * The current time.
    * 
    * @example
    * 2026
@@ -63,7 +63,7 @@ export class GetAppWorkspaceDirectoryResponseBodyModule extends $dara.Model {
   currentTime?: string;
   /**
    * @remarks
-   * Directory structure
+   * The directory structure.
    */
   directoryList?: GetAppWorkspaceDirectoryResponseBodyModuleDirectoryList[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class GetAppWorkspaceDirectoryResponseBodyModule extends $dara.Model {
 export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -103,7 +103,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -111,7 +111,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -119,7 +119,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -127,7 +127,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message. Not currently used. Ignore it.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -135,12 +135,12 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Returned object.
+   * The response object.
    */
   module?: GetAppWorkspaceDirectoryResponseBodyModule;
   /**
@@ -153,7 +153,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -161,7 +161,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -169,7 +169,7 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Spare parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

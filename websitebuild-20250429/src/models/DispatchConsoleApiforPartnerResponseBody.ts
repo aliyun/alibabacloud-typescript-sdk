@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DispatchConsoleAPIForPartnerResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Request result.
+   * The request result.
    * 
    * @example
    * {\\"HasCustomRoleAuth\\": False}
@@ -35,7 +35,7 @@ export class DispatchConsoleAPIForPartnerResponseBodyModule extends $dara.Model 
 export class DispatchConsoleAPIForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. The value is as follows: If the request succeeds, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -43,7 +43,7 @@ export class DispatchConsoleAPIForPartnerResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: DispatchConsoleAPIForPartnerResponseBodyModule;
   /**
@@ -56,7 +56,7 @@ export class DispatchConsoleAPIForPartnerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

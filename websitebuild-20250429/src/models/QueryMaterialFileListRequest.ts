@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMaterialFileListRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID of the application instance
+   * The business ID of the application instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Folder ID
+   * The folder ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * Maximum file size
+   * The maximum file size.
    * 
    * @example
    * 1024
@@ -33,7 +33,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   maxFileSize?: number;
   /**
    * @remarks
-   * Number of results per query.
+   * The maximum number of entries to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -43,7 +43,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Minimum file size
+   * The minimum file size.
    * 
    * @example
    * 0
@@ -51,7 +51,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   minFileSize?: number;
   /**
    * @remarks
-   * Website name
+   * The website name.
    * 
    * @example
    * 测试
@@ -59,7 +59,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Token indicating the start of the next query. It is empty when there is no subsequent query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -67,7 +67,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Sorting field
+   * The field by which to sort the results.
    * 
    * @example
    * gmtCreated
@@ -75,7 +75,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type: ASC or DESC
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY
@@ -83,7 +83,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number. Default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 0
@@ -91,7 +91,7 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -99,17 +99,17 @@ export class QueryMaterialFileListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Status range
+   * The list of statuses.
    */
   statusList?: string[];
   /**
    * @remarks
-   * File suffix list
+   * The list of file suffixes.
    */
   suffixList?: string[];
   /**
    * @remarks
-   * List of file types
+   * The list of file types.
    */
   typeList?: string[];
   static names(): { [key: string]: string } {

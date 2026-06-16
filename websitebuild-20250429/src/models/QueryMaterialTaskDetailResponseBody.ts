@@ -6,7 +6,7 @@ import { AppMaterialTask } from "./AppMaterialTask";
 export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * access denied details
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -14,8 +14,8 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:  
-   * - false: Retry is not allowed.  
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
    * - true: Retry is allowed.
    * 
    * @example
@@ -24,7 +24,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * AppName. It can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
    * 
    * @example
    * or
@@ -32,7 +32,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -40,7 +40,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic message
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -48,12 +48,12 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * error code. The ErrorCode field is returned only when the Request fails. If the Request succeeds, the ErrorCode field is not returned. For more information, see the error code List in this topic.
+   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error message
+   * The error message.
    * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
@@ -69,7 +69,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    * 
    * @example
    * {\\"Success\\": True}
@@ -85,7 +85,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -93,7 +93,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -101,7 +101,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the Request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -109,7 +109,7 @@ export class QueryMaterialTaskDetailResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

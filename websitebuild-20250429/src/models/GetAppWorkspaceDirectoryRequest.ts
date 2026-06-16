@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppWorkspaceDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * 5b7105a2-2999-430b-ba23-ba09149d5434
@@ -13,7 +13,7 @@ export class GetAppWorkspaceDirectoryRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Directory depth (optional; null or 0 returns all levels)
+   * The directory depth. This parameter is optional. If set to null or 0, all levels are returned.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetAppWorkspaceDirectoryRequest extends $dara.Model {
   deep?: number;
   /**
    * @remarks
-   * Directory path (optional)
+   * The directory path. This parameter is optional.
    * 
    * @example
    * 1

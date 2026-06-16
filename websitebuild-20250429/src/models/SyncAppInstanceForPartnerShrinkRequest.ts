@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SyncAppInstanceForPartnerShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Application instance object data
+   * The website instance object data.
    */
   appInstanceShrink?: string;
   /**
    * @remarks
-   * Type of system event. CREATE, UPDATE, COMPLETE
+   * The type of the system event. Valid values: CREATE, UPDATE, and COMPLETE.
    * 
    * @example
    * CREATE
@@ -18,7 +18,7 @@ export class SyncAppInstanceForPartnerShrinkRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * Operator ID
+   * The employee ID of the operator.
    * 
    * @example
    * system
@@ -26,7 +26,7 @@ export class SyncAppInstanceForPartnerShrinkRequest extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * Source business ID.
+   * The source business ID.
    * 
    * @example
    * 31104757
@@ -34,7 +34,7 @@ export class SyncAppInstanceForPartnerShrinkRequest extends $dara.Model {
   sourceBizId?: string;
   /**
    * @remarks
-   * Source: MARKET_CLOUD_DREAM
+   * The source. Set this parameter to MARKET_CLOUD_DREAM.
    * 
    * @example
    * MARKET_CLOUD_DREAM

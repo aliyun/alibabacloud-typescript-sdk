@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMaterialTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of access denied
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * dewuApp
@@ -29,7 +29,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic code. Not currently used. Ignore this field.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -37,7 +37,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -45,12 +45,12 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the deletion succeeded
+   * Indicates whether the deletion was successful.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -74,7 +74,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -82,7 +82,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

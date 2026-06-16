@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250731233102000001
@@ -13,7 +13,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * End time start
+   * The start of the expiration time range.
    * 
    * @example
    * 2025-12-18T14:30:00Z
@@ -21,7 +21,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   endTimeBegin?: string;
   /**
    * @remarks
-   * End time end
+   * The end of the expiration time range.
    * 
    * @example
    * 2025-12-31T14:30:00Z
@@ -29,7 +29,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   endTimeEnd?: string;
   /**
    * @remarks
-   * Extended information
+   * The extended information.
    * 
    * @example
    * {}
@@ -37,9 +37,9 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * Number of results per query.
+   * The number of entries per query.
    * 
-   * Range: 10~100. Default value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next query. It will be empty if there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -55,7 +55,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Order column
+   * The field by which to sort the results.
    * 
    * @example
    * gmtCreated
@@ -63,7 +63,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Order type ASC|DESC
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * DOWNGRADE
@@ -71,7 +71,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number, default is 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 0
@@ -79,7 +79,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size, default is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -87,7 +87,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Query parameter
+   * The query parameter.
    * 
    * @example
    * {\\"RequestId\\":\\"\\"}
@@ -95,7 +95,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Status range
+   * The status range.
    */
   statusListShrink?: string;
   static names(): { [key: string]: string } {

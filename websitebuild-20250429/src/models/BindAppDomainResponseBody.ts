@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAppDomainResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Indicator of whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class BindAppDomainResponseBodyModule extends $dara.Model {
 export class BindAppDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * or
@@ -59,7 +59,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Error Code
+   * The error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,8 +67,8 @@ export class BindAppDomainResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the **%s** in the error message of the returned parameter **ErrMessage**.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response element.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -76,23 +76,23 @@ export class BindAppDomainResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Data table module.
+   * The data table module.
    * 
-   * - ABTest: Experiment data table
+   * - ABTest: experiment data table
    * 
-   * - ExperimentTool: Experiment tool table
+   * - ExperimentTool: experiment tool table
    * 
-   * - DataDiagnosis: Data diagnosis
+   * - DataDiagnosis: data modeling diagnostics.
    */
   module?: BindAppDomainResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -100,7 +100,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error Code
+   * The error code.
    * 
    * @example
    * SYSTEM.EROR
@@ -108,7 +108,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception Message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -116,7 +116,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Whether to process synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

@@ -6,12 +6,12 @@ import { ModuleResultsValue } from "./ModuleResultsValue";
 export class BatchCheckResourceMeasureResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Are all passed
+   * Indicates whether all checks passed.
    */
   allPassed?: boolean;
   /**
    * @remarks
-   * Check results for each resource, key=resourceCode
+   * The check result for each resource, where the key is resourceCode.
    */
   results?: { [key: string]: ModuleResultsValue };
   static names(): { [key: string]: string } {
@@ -43,7 +43,7 @@ export class BatchCheckResourceMeasureResponseBodyModule extends $dara.Model {
 export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -51,7 +51,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -59,7 +59,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * watermark
@@ -67,7 +67,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -75,7 +75,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -83,12 +83,12 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Returned object.
+   * The response object.
    */
   module?: BatchCheckResourceMeasureResponseBodyModule;
   /**
@@ -101,7 +101,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -109,7 +109,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -117,7 +117,7 @@ export class BatchCheckResourceMeasureResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

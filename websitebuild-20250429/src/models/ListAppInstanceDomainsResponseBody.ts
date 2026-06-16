@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $dara.Model {
   /**
    * @remarks
-   * Certificate name.
+   * The certificate name.
    * 
    * @example
    * 2024
@@ -13,7 +13,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateName?: string;
   /**
    * @remarks
-   * Certificate status
+   * The certificate status.
    * 
    * @example
    * ACTIVE
@@ -21,7 +21,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateStatus?: string;
   /**
    * @remarks
-   * Certificate type
+   * The certificate type.
    * 
    * @example
    * self-signed
@@ -29,7 +29,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateType?: string;
   /**
    * @remarks
-   * Certificate expiration date
+   * The expiration date of the certificate.
    * 
    * @example
    * 4885718400000
@@ -65,7 +65,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
 export class ListAppInstanceDomainsResponseBodyModuleDataOwnership extends $dara.Model {
   /**
    * @remarks
-   * Account owner type: CURRENT OTHER
+   * The account owner type. Valid values: CURRENT and OTHER.
    * 
    * @example
    * 1813244684017878
@@ -73,7 +73,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataOwnership extends $dara
   account?: string;
   /**
    * @remarks
-   * Registrar type: ALIYUN OTHER
+   * The registrar type. Valid values: ALIYUN and OTHER.
    * 
    * @example
    * ROS
@@ -81,7 +81,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataOwnership extends $dara
   provider?: string;
   /**
    * @remarks
-   * The root domain name of the domain.
+   * The root domain name corresponding to the domain name.
    * 
    * @example
    * tjouya.cn
@@ -115,17 +115,17 @@ export class ListAppInstanceDomainsResponseBodyModuleDataOwnership extends $dara
 export class ListAppInstanceDomainsResponseBodyModuleDataQualification extends $dara.Model {
   /**
    * @remarks
-   * ICP entity filing number
+   * The ICP entity filing number.
    */
   icpRecordNumber?: string;
   /**
    * @remarks
-   * ICP website filing number
+   * The ICP website filing number.
    */
   icpSiteRecordNumber?: string;
   /**
    * @remarks
-   * Public security filing number
+   * The public security filing number.
    */
   policeRecordNumber?: string;
   static names(): { [key: string]: string } {
@@ -156,7 +156,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataQualification extends $
 export class ListAppInstanceDomainsResponseBodyModuleDataResolutionDnsRecord extends $dara.Model {
   /**
    * @remarks
-   * Host record
+   * The host record.
    * 
    * @example
    * portal-dev.bambulab.net
@@ -164,7 +164,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataResolutionDnsRecord ext
   host?: string;
   /**
    * @remarks
-   * Record type
+   * The record type.
    * 
    * @example
    * 1
@@ -172,7 +172,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataResolutionDnsRecord ext
   recordType?: string;
   /**
    * @remarks
-   * Record value
+   * The record value.
    * 
    * @example
    * Maintenance
@@ -206,12 +206,12 @@ export class ListAppInstanceDomainsResponseBodyModuleDataResolutionDnsRecord ext
 export class ListAppInstanceDomainsResponseBodyModuleDataResolution extends $dara.Model {
   /**
    * @remarks
-   * DNS record information
+   * The DNS record information.
    */
   dnsRecord?: ListAppInstanceDomainsResponseBodyModuleDataResolutionDnsRecord;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * code: 400, invalid unionId request id: 09CC0F8B-49C2-7EFB-81E8-9AEF49068D02
@@ -219,7 +219,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataResolution extends $dar
   errorMsg?: string;
   /**
    * @remarks
-   * Domain resolution status
+   * The domain name resolution status.
    * 
    * @example
    * SUCCESSFUL
@@ -256,7 +256,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataResolution extends $dar
 export class ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord extends $dara.Model {
   /**
    * @remarks
-   * Host record
+   * The host record.
    * 
    * @example
    * ${host}
@@ -264,7 +264,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord e
   host?: string;
   /**
    * @remarks
-   * Record type
+   * The record type.
    * 
    * @example
    * 1
@@ -272,7 +272,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord e
   recordType?: string;
   /**
    * @remarks
-   * Record value
+   * The record value.
    * 
    * @example
    * 159.138.94.138
@@ -306,12 +306,12 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord e
 export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $dara.Model {
   /**
    * @remarks
-   * DNS record guide that the user needs to configure.
+   * The DNS record that the user needs to configure.
    */
   dnsRecord?: ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * code: 400, invalid unionId request id: 2270AB0B-6FD0-7F72-9DC5-7A02B67CBB3B
@@ -319,7 +319,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $d
   errorMsg?: string;
   /**
    * @remarks
-   * Ownership verification status.
+   * The ownership verification status.
    * 
    * @example
    * SUCCESSFUL
@@ -327,7 +327,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $d
   verificationStatus?: string;
   /**
    * @remarks
-   * Ownership verification status
+   * The ownership verification status code.
    * 
    * @example
    * NoAliyunServiceRoleForWebsiteBuildPublishAuth
@@ -366,12 +366,12 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $d
 export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * Domain SSL certificate information
+   * The SSL certificate information of the domain name.
    */
   certificate?: ListAppInstanceDomainsResponseBodyModuleDataCertificate;
   /**
    * @remarks
-   * Instance creation time (required, format: yyyy-MM-dd HH:mm:ss)
+   * The time when the instance was created. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 1683256054000
@@ -379,7 +379,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Domain name
+   * The domain name.
    * 
    * @example
    * kaibaidu.com
@@ -387,7 +387,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Binding overall status
+   * The overall binding status.
    * 
    * @example
    * ACTIVE
@@ -395,22 +395,22 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   overallStatus?: string;
   /**
    * @remarks
-   * Domain ownership information
+   * The domain name ownership information.
    */
   ownership?: ListAppInstanceDomainsResponseBodyModuleDataOwnership;
   /**
    * @remarks
-   * Domain name qualification information
+   * The domain name qualification information.
    */
   qualification?: ListAppInstanceDomainsResponseBodyModuleDataQualification;
   /**
    * @remarks
-   * Domain resolution information
+   * The domain name resolution information.
    */
   resolution?: ListAppInstanceDomainsResponseBodyModuleDataResolution;
   /**
    * @remarks
-   * Domain verification information
+   * The domain name verification information.
    */
   verification?: ListAppInstanceDomainsResponseBodyModuleDataVerification;
   static names(): { [key: string]: string } {
@@ -466,7 +466,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
 export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $dara.Model {
   /**
    * @remarks
-   * Certificate name.
+   * The certificate name.
    * 
    * @example
    * jfztkg202502
@@ -474,7 +474,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateName?: string;
   /**
    * @remarks
-   * Certificate status
+   * The certificate status.
    * 
    * @example
    * ACTIVE
@@ -482,7 +482,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateStatus?: string;
   /**
    * @remarks
-   * Certificate type
+   * The certificate type.
    * 
    * @example
    * Server
@@ -490,7 +490,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateType?: string;
   /**
    * @remarks
-   * 证书的到期日期
+   * The expiration date of the certificate.
    * 
    * @example
    * 2025-01-15T02:04:00Z
@@ -526,7 +526,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
 export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara.Model {
   /**
    * @remarks
-   * Account owner type: CURRENT OTHER
+   * The account owner type. Valid values: CURRENT and OTHER.
    * 
    * @example
    * 拾肆gavin
@@ -534,7 +534,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara
   account?: string;
   /**
    * @remarks
-   * Registrar type: ALIYUN OTHER
+   * The registrar type. Valid values: ALIYUN and OTHER.
    * 
    * @example
    * pai
@@ -566,17 +566,17 @@ export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara
 export class ListAppInstanceDomainsResponseBodyModuleNextQualification extends $dara.Model {
   /**
    * @remarks
-   * ICP filing number of the entity
+   * The ICP entity filing number.
    */
   icpRecordNumber?: string;
   /**
    * @remarks
-   * ICP filing number for the website
+   * The ICP website filing number.
    */
   icpSiteRecordNumber?: string;
   /**
    * @remarks
-   * Public security filing number
+   * The public security filing number.
    */
   policeRecordNumber?: string;
   static names(): { [key: string]: string } {
@@ -607,7 +607,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextQualification extends $
 export class ListAppInstanceDomainsResponseBodyModuleNextResolutionDnsRecord extends $dara.Model {
   /**
    * @remarks
-   * Host record
+   * The host record.
    * 
    * @example
    * 172.16.6.1
@@ -615,7 +615,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextResolutionDnsRecord ext
   host?: string;
   /**
    * @remarks
-   * Record type
+   * The record type.
    * 
    * @example
    * A
@@ -623,7 +623,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextResolutionDnsRecord ext
   recordType?: string;
   /**
    * @remarks
-   * Record value
+   * The record value.
    * 
    * @example
    * 2025032000000054nuba0r0b0a79y70c1c983tsz09xw9hg3p04kqxmbt4g2p65h
@@ -657,12 +657,12 @@ export class ListAppInstanceDomainsResponseBodyModuleNextResolutionDnsRecord ext
 export class ListAppInstanceDomainsResponseBodyModuleNextResolution extends $dara.Model {
   /**
    * @remarks
-   * DNS record information
+   * The DNS record information.
    */
   dnsRecord?: ListAppInstanceDomainsResponseBodyModuleNextResolutionDnsRecord;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * aliuid:1133664521498319 assumeOssRole not exist,serviceName:aliyunesarealtimelogpushossrole
@@ -670,7 +670,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextResolution extends $dar
   errorMsg?: string;
   /**
    * @remarks
-   * Domain resolution status
+   * The domain name resolution status.
    * 
    * @example
    * SUCCESSFUL
@@ -707,7 +707,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextResolution extends $dar
 export class ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord extends $dara.Model {
   /**
    * @remarks
-   * Host record
+   * The host record.
    * 
    * @example
    * www.abc.com
@@ -715,7 +715,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord e
   host?: string;
   /**
    * @remarks
-   * Record type
+   * The record type.
    * 
    * @example
    * 5
@@ -723,7 +723,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord e
   recordType?: string;
   /**
    * @remarks
-   * Record value
+   * The record value.
    * 
    * @example
    * faHuBlyPcodSjBvBJYpm3-9W_cCSowLLQ4zAUyguEGM
@@ -757,12 +757,12 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord e
 export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $dara.Model {
   /**
    * @remarks
-   * Guide for DNS records that the user needs to configure.
+   * The DNS record that the user needs to configure.
    */
   dnsRecord?: ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * aliuid:1133664521498319 assumeOssRole not exist,serviceName:aliyunesarealtimelogpushossrole
@@ -770,7 +770,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $d
   errorMsg?: string;
   /**
    * @remarks
-   * Ownership verification status.
+   * The ownership verification status.
    * 
    * @example
    * SUCCESSFUL
@@ -807,12 +807,12 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $d
 export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * Domain SSL certificate information
+   * The SSL certificate information of the domain name.
    */
   certificate?: ListAppInstanceDomainsResponseBodyModuleNextCertificate;
   /**
    * @remarks
-   * Instance creation time (required, format: yyyy-MM-dd HH:mm:ss)
+   * The time when the instance was created. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 1741572465000
@@ -820,7 +820,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Domain name
+   * The domain name.
    * 
    * @example
    * usdcoin.xin
@@ -828,7 +828,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Binding overall status
+   * The overall binding status.
    * 
    * @example
    * ACTIVE
@@ -836,22 +836,22 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   overallStatus?: string;
   /**
    * @remarks
-   * Domain ownership information
+   * The domain name ownership information.
    */
   ownership?: ListAppInstanceDomainsResponseBodyModuleNextOwnership;
   /**
    * @remarks
-   * Domain name qualification information
+   * The domain name qualification information.
    */
   qualification?: ListAppInstanceDomainsResponseBodyModuleNextQualification;
   /**
    * @remarks
-   * Domain resolution information
+   * The domain name resolution information.
    */
   resolution?: ListAppInstanceDomainsResponseBodyModuleNextResolution;
   /**
    * @remarks
-   * Domain verification information
+   * The domain name verification information.
    */
   verification?: ListAppInstanceDomainsResponseBodyModuleNextVerification;
   static names(): { [key: string]: string } {
@@ -907,7 +907,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
 export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -915,22 +915,22 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * Query result.
+   * The query results.
    */
   data?: ListAppInstanceDomainsResponseBodyModuleData[];
   /**
    * @remarks
-   * Decision weight
+   * The decision weight.
    */
   next?: ListAppInstanceDomainsResponseBodyModuleNext;
   /**
    * @remarks
-   * Whether there is a next page.
+   * Indicates whether a next page exists.
    */
   nextPage?: boolean;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -938,17 +938,17 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Whether there is a previous page
+   * Indicates whether a previous page exists.
    */
   prePage?: boolean;
   /**
    * @remarks
-   * Apart from pagination limits, the server can process up to the most recent 1000 records. If the result exceeds 1000 records, **ResultLimit** will be **true**, please narrow down the time range and search again; otherwise, **ResultLimit** will be **false**.
+   * In addition to pagination limits, the server processes up to 1,000 recent records per query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 0
@@ -956,7 +956,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   totalItemNum?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -1008,7 +1008,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
 export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -1016,7 +1016,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -1024,7 +1024,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -1032,7 +1032,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -1040,8 +1040,8 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace `%s` in the error message of the returned parameter **ErrMessage**.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -1049,14 +1049,14 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Number of results per query.
+   * The maximum number of entries to return per query.
    * 
-   * Range: 10~100. Default value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -1064,12 +1064,12 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: ListAppInstanceDomainsResponseBodyModule;
   /**
    * @remarks
-   * 下一个查询开始的Token。没有下一个查询时为空。
+   * The token for the next query. This parameter is empty if there are no more results.
    * 
    * @example
    * dw+qdTi1EjVSWX/INJdYNw==
@@ -1077,7 +1077,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -1085,7 +1085,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -1093,7 +1093,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -1101,7 +1101,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

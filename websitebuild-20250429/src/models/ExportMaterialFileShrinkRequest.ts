@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportMaterialFileShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Business instance ID
+   * The business instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ExportMaterialFileShrinkRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * List of file IDs
+   * The list of file IDs.
    * 
    * This parameter is required.
    */

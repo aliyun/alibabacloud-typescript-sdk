@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshAppInstanceTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID of the application instance
+   * The business ID of the application instance.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class RefreshAppInstanceTicketRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Updated token information
+   * The updated token information.
    * 
    * @example
    * ***

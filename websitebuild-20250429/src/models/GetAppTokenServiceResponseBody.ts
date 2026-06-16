@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppTokenServiceResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Extension information
+   * The extended information.
    * 
    * @example
    * {\\"deliveryNodeName\\":\\"绑定域名及发布\\",\\"deliveryNodeStatus\\":\\"Finish\\",\\"deliveryOperatorRole\\":\\"Provider\\"}
@@ -45,7 +45,7 @@ export class GetAppTokenServiceResponseBodyModule extends $dara.Model {
 export class GetAppTokenServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission denied information
+   * The access denied detail.
    * 
    * @example
    * {}
@@ -53,8 +53,8 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:  
-   * - false: Retry is not allowed.  
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
    * - true: Retry is allowed.
    * 
    * @example
@@ -63,7 +63,7 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -71,7 +71,7 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -79,7 +79,7 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message. This field is not currently used. Ignore it.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -87,12 +87,12 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Application module
+   * The application module.
    */
   module?: GetAppTokenServiceResponseBodyModule;
   /**
@@ -105,7 +105,7 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -113,7 +113,7 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -121,7 +121,7 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

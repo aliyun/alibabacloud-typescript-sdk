@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of permission verification failure
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * or
@@ -29,7 +29,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic code. Not currently used. Ignore it.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -37,7 +37,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -45,12 +45,12 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the modification succeeded
+   * Indicates whether the modification is successful.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -74,7 +74,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Fault message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -82,7 +82,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the operation is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

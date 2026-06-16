@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppConversationLockStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * session ID
+   * The session ID.
    * 
    * @example
    * 5b7105a2-2999-430b-ba23-ba09149d5434

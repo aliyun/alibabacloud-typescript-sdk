@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppInstanceSpecResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 247748990880615
@@ -35,7 +35,7 @@ export class ModifyAppInstanceSpecResponseBodyModule extends $dara.Model {
 export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -59,7 +59,7 @@ export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,7 +67,7 @@ export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message, currently not in use, please ignore.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,17 +75,17 @@ export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: ModifyAppInstanceSpecResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -93,7 +93,7 @@ export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -101,7 +101,7 @@ export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -109,7 +109,7 @@ export class ModifyAppInstanceSpecResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

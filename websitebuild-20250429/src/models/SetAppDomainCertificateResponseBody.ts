@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetAppDomainCertificateResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Whether it is successful
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True
@@ -35,7 +35,7 @@ export class SetAppDomainCertificateResponseBodyModule extends $dara.Model {
 export class SetAppDomainCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * No permission information
+   * The access denied details.
    * 
    * @example
    * {}
@@ -43,9 +43,9 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether to allow retry. Values:
-   * - false: Do not allow retry.
-   * - true: Allow retry.
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
+   * - true: Retry is allowed.
    * 
    * @example
    * False
@@ -53,7 +53,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * 应用名称
+   * The application name.
    * 
    * @example
    * mar
@@ -61,7 +61,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -69,7 +69,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/uoa11auyf2565k6/uoa11auyf2565k6.sql.zip?Expires=1730520371&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=WIutxAQYbbwxX0aeKmdObduLnDg%3D
@@ -77,17 +77,17 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Return error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: SetAppDomainCertificateResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -95,7 +95,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -103,7 +103,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -111,7 +111,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Whether it is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

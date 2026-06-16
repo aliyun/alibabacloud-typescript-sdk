@@ -6,7 +6,7 @@ import { AppInstanceAggregate } from "./AppInstanceAggregate";
 export class ListAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -22,7 +22,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -30,7 +30,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -38,12 +38,12 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * Query result.
+   * The request result.
    */
   data?: AppInstanceAggregate[];
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -51,7 +51,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message, not in use, please ignore
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/u6qw3gxzu3b7sbj/u6qw3gxzu3b7sbj.diff.zip?Expires=1740975709&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=FP7dDnkrLlOZHmRRORVqbLOtv9c%3D
@@ -59,14 +59,14 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * 返回错误参数
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of results per query.
+   * The number of entries per query.
    * 
-   * Value range: 10~100. Default value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -74,7 +74,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Whether there is a next page.
+   * Indicates whether a next page exists.
    * 
    * @example
    * False
@@ -82,7 +82,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   nextPage?: boolean;
   /**
    * @remarks
-   * The token for the next query. It is empty when there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * dw+qdTi1EjVSWX/INJdYNw==
@@ -90,7 +90,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -98,7 +98,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Whether there is a previous page
+   * Indicates whether a previous page exists.
    * 
    * @example
    * False
@@ -106,7 +106,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -114,7 +114,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * For the current query, apart from pagination limits, the server processes up to the most recent 1000 records. If the result exceeds 1000 records, **ResultLimit** is **true**, please narrow down the time range and search again; otherwise, **ResultLimit** is **false**.
+   * Indicates whether the result limit is reached. The server processes up to 1000 recent records excluding pagination limits. If the results exceed 1000 records, **ResultLimit** is **true** and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -122,7 +122,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   resultLimit?: boolean;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -130,7 +130,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -143,7 +143,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   startPosition?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True
@@ -151,7 +151,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   synchro?: boolean;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 4

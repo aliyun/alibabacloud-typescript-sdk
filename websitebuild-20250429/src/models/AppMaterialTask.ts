@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AppMaterialTask extends $dara.Model {
   /**
    * @remarks
-   * Job completion time
+   * The task completion time.
    * 
    * @example
    * 2025-12-26 11:30:05
@@ -13,7 +13,7 @@ export class AppMaterialTask extends $dara.Model {
   completeTime?: string;
   /**
    * @remarks
-   * Completion time display format
+   * The display format of the completion time.
    * 
    * @example
    * 1分钟前
@@ -21,7 +21,7 @@ export class AppMaterialTask extends $dara.Model {
   completeTimeFormat?: string;
   /**
    * @remarks
-   * Reason for failure
+   * The failure reason.
    * 
    * @example
    * 参数不合规
@@ -29,12 +29,12 @@ export class AppMaterialTask extends $dara.Model {
   failReason?: string;
   /**
    * @remarks
-   * List of final files
+   * The list of final files.
    */
   finalFileUrls?: string[];
   /**
    * @remarks
-   * Task Status
+   * The task status.
    * 
    * @example
    * RUNNING
@@ -42,7 +42,7 @@ export class AppMaterialTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Job substatus
+   * The task substatus.
    * 
    * @example
    * PENDING
@@ -50,7 +50,7 @@ export class AppMaterialTask extends $dara.Model {
   subStatus?: string;
   /**
    * @remarks
-   * Submitted At.
+   * The submit time.
    * 
    * @example
    * 2025-12-26 11:30:05
@@ -58,7 +58,7 @@ export class AppMaterialTask extends $dara.Model {
   submitTime?: string;
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * 81d04d62c3483b32bacf1d306d2622b2
@@ -66,7 +66,7 @@ export class AppMaterialTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Job parameter
+   * The task parameter.
    * 
    * @example
    * {
@@ -78,7 +78,7 @@ export class AppMaterialTask extends $dara.Model {
   taskParam?: string;
   /**
    * @remarks
-   * Task Type.
+   * The task type.
    * 
    * @example
    * IMAGE_LOGO

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Anonymity key
+   * The anonymous key.
    * 
    * @example
    * 1111
@@ -13,7 +13,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   anonKey?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -21,7 +21,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   bizId?: string;
   /**
    * @remarks
-   * Database instance creation time
+   * The time when the database instance was created.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   dbInstanceCreateTime?: string;
   /**
    * @remarks
-   * Database instance ID
+   * The database instance ID.
    * 
    * @example
    * selectdb-cn-2bl4djolb02
@@ -37,7 +37,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   dbInstanceId?: string;
   /**
    * @remarks
-   * Database public URL
+   * The public URL of the database.
    * 
    * @example
    * 111
@@ -45,7 +45,9 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   dbPublicUrl?: string;
   /**
    * @remarks
-   * Database type (rds/polardb)
+   * The database type. Valid values:
+   * - rds
+   * - polardb.
    * 
    * @example
    * ORACLE
@@ -53,7 +55,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   dbType?: string;
   /**
    * @remarks
-   * Additional information
+   * The additional information.
    * 
    * @example
    * {\\"appId\\":\\"APP_NTJAK8P11SNZDJ3M6BWC\\"}
@@ -61,7 +63,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   extra?: string;
   /**
    * @remarks
-   * Instance creation completion time
+   * The time when the instance creation was completed.
    * 
    * @example
    * 111
@@ -69,7 +71,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   instanceCreateFinishedTime?: string;
   /**
    * @remarks
-   * Instance creation status
+   * The creation status of the instance.
    * 
    * @example
    * 1111
@@ -77,7 +79,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   instanceCreateStatus?: string;
   /**
    * @remarks
-   * Deletion flag
+   * The deletion flag.
    * 
    * @example
    * false
@@ -85,7 +87,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   isDeleted?: number;
   /**
    * @remarks
-   * RDS database access password
+   * The password for accessing the ApsaraDB RDS database.
    * 
    * @example
    * 111
@@ -93,7 +95,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   rdsDatabasePassword?: string;
   /**
    * @remarks
-   * Service key
+   * The service key.
    * 
    * @example
    * e80f5a7a08514709a2fb
@@ -101,7 +103,9 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   serviceKey?: string;
   /**
    * @remarks
-   * Status. 0: paused; 1: running
+   * The instance status. Valid values:
+   * - 0: Paused.
+   * - 1: Running.
    * 
    * @example
    * RUNNING
@@ -109,7 +113,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   status?: number;
   /**
    * @remarks
-   * Supabase Dashboard password
+   * The password for the Supabase Dashboard.
    * 
    * @example
    * 1111
@@ -117,7 +121,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseDashboardPassword?: string;
   /**
    * @remarks
-   * Supabase Dashboard username
+   * The username for the Supabase Dashboard.
    * 
    * @example
    * 1111
@@ -125,7 +129,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseDashboardUserName?: string;
   /**
    * @remarks
-   * Supabase instance creation time
+   * The time when the Supabase instance was created.
    * 
    * @example
    * 111
@@ -133,7 +137,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseInstanceCreateTime?: string;
   /**
    * @remarks
-   * Supabase instance ID
+   * The Supabase instance ID.
    * 
    * @example
    * 1111
@@ -149,7 +153,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseKongUrl?: string;
   /**
    * @remarks
-   * Supabase instance PrivateLink address
+   * The private endpoint of the Supabase instance.
    * 
    * @example
    * 1111
@@ -157,7 +161,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabasePrivateIp?: string;
   /**
    * @remarks
-   * Supabase instance public endpoint
+   * The public endpoint of the Supabase instance.
    * 
    * @example
    * 111
@@ -165,7 +169,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabasePublicIp?: string;
   /**
    * @remarks
-   * Supabase public URL
+   * The public URL of the Supabase instance.
    * 
    * @example
    * 111
@@ -173,7 +177,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabasePublicUrl?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * @example
    * GFCBAMJH-zh_CN
@@ -181,7 +185,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   tenantId?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 111
@@ -255,7 +259,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
 export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -263,7 +267,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -271,7 +275,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -279,7 +283,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -287,8 +291,8 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which replaces the `%s` placeholder in the **ErrMessage** response element.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -296,12 +300,12 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: QuerySupabaseInstanceInfoForAdminResponseBodyModule;
   /**
@@ -314,7 +318,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -322,7 +326,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -330,7 +334,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

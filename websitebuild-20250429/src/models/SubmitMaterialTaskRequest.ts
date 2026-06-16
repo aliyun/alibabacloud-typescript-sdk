@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMaterialTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Job parameters
+   * The parameters of the task.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class SubmitMaterialTaskRequest extends $dara.Model {
   taskParam?: string;
   /**
    * @remarks
-   * Task Type
+   * The type of the task.
    * 
    * This parameter is required.
    * 

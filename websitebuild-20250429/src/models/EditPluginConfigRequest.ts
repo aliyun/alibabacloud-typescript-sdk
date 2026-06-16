@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EditPluginConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class EditPluginConfigRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Plugin configuration
+   * The plug-in configuration.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class EditPluginConfigRequest extends $dara.Model {
   pluginConfig?: string;
   /**
    * @remarks
-   * Plugin description
+   * The plug-in description.
    * 
    * @example
    * 根据关键字查询相关的Github Repositories
@@ -29,7 +29,7 @@ export class EditPluginConfigRequest extends $dara.Model {
   pluginDesc?: string;
   /**
    * @remarks
-   * Plugin ID
+   * The plug-in ID.
    * 
    * @example
    * aliplayer-react
@@ -37,7 +37,7 @@ export class EditPluginConfigRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Plugin name
+   * The plug-in name.
    * 
    * @example
    * alisecguard

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Access token time-to-live (TTL)
+   * The time when the access token expires.
    * 
    * @example
    * 2025-12-18T22:30:00+08:00
@@ -13,7 +13,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   accessTokenExpiresAt?: string;
   /**
    * @remarks
-   * Access token issue Time
+   * The time when the access token was issued.
    * 
    * @example
    * 2025-12-18T22:30:00+08:00
@@ -21,7 +21,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   accessTokenIssuedAt?: string;
   /**
    * @remarks
-   * Access token value
+   * The access token value.
    * 
    * @example
    * 2108341e17661121129745384e79f9
@@ -37,7 +37,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   aliyunPk?: string;
   /**
    * @remarks
-   * Extension property
+   * The extension properties.
    * 
    * @example
    * {}
@@ -45,7 +45,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   attributes?: string;
   /**
    * @remarks
-   * Authorization code Type
+   * The authorization code type.
    * 
    * @example
    * authorization_code
@@ -61,7 +61,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   bid?: string;
   /**
    * @remarks
-   * Parent Alibaba Cloud PK
+   * The parent Alibaba Cloud account ID.
    * 
    * @example
    * 12343131221311
@@ -69,7 +69,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   parentPk?: string;
   /**
    * @remarks
-   * Time-to-live (TTL) of the refresh token
+   * The time when the refresh token expires.
    * 
    * @example
    * 1768619049924
@@ -77,7 +77,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   refreshTokenExpiresAt?: string;
   /**
    * @remarks
-   * Refresh token issue Time
+   * The time when the refresh token was issued.
    * 
    * @example
    * 1768619049924
@@ -85,7 +85,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   refreshTokenIssuedAt?: string;
   /**
    * @remarks
-   * Refresh token value
+   * The refresh token value.
    * 
    * @example
    * be9750d595b6cd7c93a80b46
@@ -93,7 +93,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
   refreshTokenValue?: string;
   /**
    * @remarks
-   * Externally Unique
+   * The external unique identifier.
    * 
    * @example
    * hdm_33be9750d595b6cd7c93a80b46734b22
@@ -145,7 +145,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $da
 export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details about the access deny.
    * 
    * @example
    * {}
@@ -161,7 +161,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Mod
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * or
@@ -169,7 +169,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Mod
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic fault code.
    * 
    * @example
    * ERROR-oo1
@@ -177,8 +177,8 @@ export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Mod
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic fault message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -186,12 +186,12 @@ export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Mod
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The fault parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Returned object.
+   * The response object.
    */
   module?: IntrospectAppInstanceTicketForPreviewResponseBodyModule;
   /**
@@ -204,7 +204,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The fault code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -212,7 +212,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Mod
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The root fault message.
    * 
    * @example
    * 系统异常
@@ -220,7 +220,7 @@ export class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Mod
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

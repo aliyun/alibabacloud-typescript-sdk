@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateSupabaseForAdminRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Sorting field
+   * The field by which to sort the results.
    * 
    * @example
    * gmtCreated
@@ -24,7 +24,7 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type: ASC or DESC
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY
@@ -32,7 +32,7 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number, default is 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -40,7 +40,7 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size, default is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -48,7 +48,7 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 111

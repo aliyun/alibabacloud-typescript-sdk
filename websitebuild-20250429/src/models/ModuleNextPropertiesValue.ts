@@ -43,7 +43,7 @@ export class ModuleNextPropertiesValue extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of attribute values
+   * Property value list
    */
   values?: ModuleNextPropertiesValueValues[];
   static names(): { [key: string]: string } {

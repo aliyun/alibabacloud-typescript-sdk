@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstanceDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250718165839000001
@@ -14,9 +14,9 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   domainKeyword?: string;
   /**
    * @remarks
-   * Number of results per query.
+   * The maximum number of entries to return per query.
    * 
-   * Range: 10~100. Default value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 50
@@ -24,7 +24,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next query. It will be empty if there is no next query.
+   * The token for the next query. This parameter is empty if there are no more results.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -32,7 +32,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Sorting field
+   * The field by which to sort the results.
    * 
    * @example
    * CreationTime
@@ -40,7 +40,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type ASC|DESC
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY
@@ -48,7 +48,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number, default is 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -56,7 +56,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size, default is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 0

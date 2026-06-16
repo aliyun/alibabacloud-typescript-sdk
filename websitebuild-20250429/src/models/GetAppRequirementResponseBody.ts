@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppRequirementResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Requirement document description
+   * The requirement document description.
    * 
    * @example
    * content
@@ -35,7 +35,7 @@ export class GetAppRequirementResponseBodyModule extends $dara.Model {
 export class GetAppRequirementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission denied information
+   * The access denied details.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class GetAppRequirementResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class GetAppRequirementResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * or
@@ -59,7 +59,7 @@ export class GetAppRequirementResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,8 +67,8 @@ export class GetAppRequirementResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace `%s` in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -76,12 +76,12 @@ export class GetAppRequirementResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether deletion succeeded
+   * Indicates whether the deletion was successful.
    */
   module?: GetAppRequirementResponseBodyModule;
   /**
@@ -94,7 +94,7 @@ export class GetAppRequirementResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -102,7 +102,7 @@ export class GetAppRequirementResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -110,7 +110,7 @@ export class GetAppRequirementResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

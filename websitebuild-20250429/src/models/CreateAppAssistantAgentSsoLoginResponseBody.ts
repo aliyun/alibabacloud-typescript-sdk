@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Expiration UNIX timestamp
+   * The expiration timestamp.
    * 
    * @example
    * 2025-07-30T16:00Z
@@ -13,12 +13,12 @@ export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Mod
   expireTime?: number;
   /**
    * @remarks
-   * Platform-specific extension fields
+   * The platform-specific extension field.
    */
   extra?: { [key: string]: string };
   /**
    * @remarks
-   * Platform type identifier
+   * The platform type identifier.
    * 
    * @example
    * VMWARE
@@ -26,7 +26,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Mod
   platformType?: string;
   /**
    * @remarks
-   * SSO免登URL
+   * The SSO logon-free URL.
    * 
    * @example
    * https://sso.agent
@@ -65,7 +65,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Mod
 export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -81,7 +81,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -89,7 +89,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -97,8 +97,8 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** field of the response.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** that you specify is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -106,12 +106,12 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * faulty parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response data
+   * The response data.
    */
   module?: CreateAppAssistantAgentSsoLoginResponseBodyModule;
   /**
@@ -124,7 +124,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -132,7 +132,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -140,7 +140,7 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

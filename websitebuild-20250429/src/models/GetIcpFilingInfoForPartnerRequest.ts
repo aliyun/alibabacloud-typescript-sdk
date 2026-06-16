@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIcpFilingInfoForPartnerRequest extends $dara.Model {
   /**
    * @remarks
-   * Customer business ID
+   * The customer business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class GetIcpFilingInfoForPartnerRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Domain name.
+   * The domain name.
    * 
    * @example
    * yjdw.bpu.edu.cn-waf

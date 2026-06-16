@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppAssistantAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent name
+   * The name of the agent.
    * 
    * @example
    * 测试业务空间
@@ -13,7 +13,7 @@ export class CreateAppAssistantAgentRequest extends $dara.Model {
   agentName?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250731233102000001
@@ -21,7 +21,7 @@ export class CreateAppAssistantAgentRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Platform type
+   * The platform type.
    * 
    * @example
    * LINUX64

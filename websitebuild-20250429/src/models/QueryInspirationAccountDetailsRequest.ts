@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * Query End Time
+   * The end time of the query.
    * 
    * @example
    * 2025-07-23T16:00:00Z
@@ -13,7 +13,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Sorting field
+   * The field by which to sort the results.
    * 
    * @example
    * gmtCreated
@@ -21,7 +21,9 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type: ASC|DESC
+   * The sort order. Valid values:
+   * - ASC: ascending order.
+   * - DESC: descending order.
    * 
    * @example
    * BUY
@@ -29,7 +31,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Page number, default is 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 0
@@ -37,7 +39,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size, default is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -45,7 +47,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Source type filter (such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, PURCHASED)
+   * The source type used to filter results. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
    * 
    * @example
    * MARKET_CLOUD_DREAM
@@ -53,7 +55,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Query Start Time
+   * The start time of the query.
    * 
    * @example
    * 2025-06-21T16:00:00Z

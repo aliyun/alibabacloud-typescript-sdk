@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMaterialDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * Application instance ID
+   * The application instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateMaterialDirectoryRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Folder name
+   * The folder name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateMaterialDirectoryRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Parent folder ID
+   * The parent folder ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AppMaterialFile extends $dara.Model {
   /**
    * @remarks
-   * Application instance ID
+   * The application instance ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class AppMaterialFile extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Content Type
+   * The content type.
    * 
    * @example
    * image/png
@@ -21,7 +21,7 @@ export class AppMaterialFile extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 2025-11-03 02:05:01
@@ -29,7 +29,7 @@ export class AppMaterialFile extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Deletion Time
+   * The deletion time.
    * 
    * @example
    * 2025-11-03 02:05:01
@@ -37,7 +37,7 @@ export class AppMaterialFile extends $dara.Model {
   deletedTime?: string;
   /**
    * @remarks
-   * Folder ID
+   * The folder ID.
    * 
    * @example
    * ddddwww
@@ -45,7 +45,7 @@ export class AppMaterialFile extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * File ID
+   * The file ID.
    * 
    * @example
    * d75e1e9693cc460da218419d67735567
@@ -53,7 +53,7 @@ export class AppMaterialFile extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * File URL
+   * The file URL.
    * 
    * @example
    * https://demo-moshicloud-test.oss-cn-hangzhou-internal.aliyuncs.com/document/testcase/aliyun/api_case/pdf_angle90_page1.pdf
@@ -61,7 +61,7 @@ export class AppMaterialFile extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * Image height
+   * The image height.
    * 
    * @example
    * 1280
@@ -69,7 +69,7 @@ export class AppMaterialFile extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * File name
+   * The file name.
    * 
    * @example
    * 文件名
@@ -77,7 +77,7 @@ export class AppMaterialFile extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * File Status
+   * The file status.
    * 
    * @example
    * NORMAL
@@ -85,7 +85,7 @@ export class AppMaterialFile extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Bucket size.
+   * The storage size.
    * 
    * @example
    * 23M
@@ -93,7 +93,7 @@ export class AppMaterialFile extends $dara.Model {
   storageSize?: string;
   /**
    * @remarks
-   * File suffix
+   * The file name extension.
    * 
    * @example
    * png
@@ -101,7 +101,7 @@ export class AppMaterialFile extends $dara.Model {
   suffix?: string;
   /**
    * @remarks
-   * File Type
+   * The file type.
    * 
    * @example
    * IMAGE
@@ -109,7 +109,7 @@ export class AppMaterialFile extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Image width
+   * The image width.
    * 
    * @example
    * 1920

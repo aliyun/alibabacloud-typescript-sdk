@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * Redirect record ID
+   * The redirect record ID.
    * 
    * @example
    * f0379419-433d-410e-98d9-bf5c72f47227
@@ -13,7 +13,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Mo
   recordId?: string;
   /**
    * @remarks
-   * Source domain
+   * The source domain name.
    * 
    * @example
    * abc.wanwang.xin
@@ -21,7 +21,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Mo
   sourceDomain?: string;
   /**
    * @remarks
-   * 目标域名
+   * The destination domain name.
    * 
    * @example
    * aliyuncs.com
@@ -55,7 +55,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Mo
 export class ListAppDomainRedirectRecordsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * Redirect record ID
+   * The redirect record ID.
    * 
    * @example
    * 936956504373539840
@@ -63,7 +63,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleNext extends $dara.Mo
   recordId?: string;
   /**
    * @remarks
-   * Source domain
+   * The source domain name.
    * 
    * @example
    * abc.wanwang.xin
@@ -71,7 +71,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleNext extends $dara.Mo
   sourceDomain?: string;
   /**
    * @remarks
-   * Target domain
+   * The destination domain name.
    * 
    * @example
    * aliyuncs.com
@@ -105,7 +105,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleNext extends $dara.Mo
 export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 12
@@ -113,22 +113,22 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
   currentPageNum?: number;
   /**
    * @remarks
-   * Member name.
+   * The member name.
    */
   data?: ListAppDomainRedirectRecordsResponseBodyModuleData[];
   /**
    * @remarks
-   * Next feature ID
+   * The next feature ID.
    */
   next?: ListAppDomainRedirectRecordsResponseBodyModuleNext;
   /**
    * @remarks
-   * Whether there is a next page
+   * Indicates whether a next page exists.
    */
   nextPage?: boolean;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 50
@@ -136,17 +136,17 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * Whether there is a previous page.
+   * Indicates whether a previous page exists.
    */
   prePage?: boolean;
   /**
    * @remarks
-   * Apart from pagination limits, the server processes up to the most recent 1000 records. If the result exceeds 1000, **ResultLimit** is **true**, please narrow down the time range and search again; otherwise, **ResultLimit** is **false**.
+   * Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
   totalItemNum?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -206,7 +206,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
 export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -214,7 +214,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -222,7 +222,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Frontend application name.
+   * The frontend application name.
    * 
    * @example
    * spring-cloud-b
@@ -230,7 +230,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -238,7 +238,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message, currently unused, please ignore
+   * The dynamic message. Currently not used. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -246,14 +246,14 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Number of results per query.
+   * The number of entries per query.
    * 
-   * Range: 10~100. Default value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -261,12 +261,12 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   module?: ListAppDomainRedirectRecordsResponseBodyModule;
   /**
    * @remarks
-   * 下一个查询开始的Token。没有下一个查询时为空。
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -274,7 +274,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -282,7 +282,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -290,7 +290,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -298,7 +298,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Whether it is processed synchronously
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

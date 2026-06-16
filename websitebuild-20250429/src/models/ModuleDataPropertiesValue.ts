@@ -35,7 +35,7 @@ export class ModuleDataPropertiesValueValues extends $dara.Model {
 export class ModuleDataPropertiesValue extends $dara.Model {
   /**
    * @remarks
-   * Property code, such as "aliyun_commodity_agreement".
+   * Property code, such as "aliyun_commodity_agreement"
    * 
    * @example
    * placeholder
@@ -43,7 +43,7 @@ export class ModuleDataPropertiesValue extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of attribute values
+   * Property value list
    */
   values?: ModuleDataPropertiesValueValues[];
   static names(): { [key: string]: string } {

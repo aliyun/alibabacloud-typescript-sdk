@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncAppInstanceForPartnerResponseBodyDataAppInstance extends $dara.Model {
   /**
    * @remarks
-   * Customer business ID
+   * The customer business ID.
    * 
    * @example
    * WD20250626114752000001
@@ -35,7 +35,7 @@ export class SyncAppInstanceForPartnerResponseBodyDataAppInstance extends $dara.
 export class SyncAppInstanceForPartnerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Application instance information
+   * The website instance information.
    */
   appInstance?: SyncAppInstanceForPartnerResponseBodyDataAppInstance;
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class SyncAppInstanceForPartnerResponseBodyData extends $dara.Model {
 export class SyncAppInstanceForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request result.
+   * The request result.
    */
   data?: SyncAppInstanceForPartnerResponseBodyData;
   /**

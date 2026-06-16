@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewAppInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250718165839000001
@@ -13,7 +13,7 @@ export class RenewAppInstanceRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Ensures idempotence of requests. Generate a unique value from your client to ensure it is unique across different requests. ClientToken only supports ASCII characters and cannot exceed 64 characters.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * fdfjafdfadfenjeora
@@ -29,7 +29,7 @@ export class RenewAppInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Extended information
+   * The extended information.
    * 
    * @example
    * {\\"deliveryNodeName\\":\\"交付质检\\",\\"deliveryNodeStatus\\":\\"Finish\\",\\"deliveryOperatorRole\\":\\"Provider\\"}
@@ -37,7 +37,7 @@ export class RenewAppInstanceRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * Payment type
+   * The payment type.
    * 
    * @example
    * PayAsYouGo
@@ -45,7 +45,11 @@ export class RenewAppInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Required. The unit of the subscription period, Year: Year, Month: Month, Day: Day, Hour: Hour.
+   * Required. The unit of the subscription period. Valid values:
+   * - Year: year
+   * - Month: month
+   * - Day: day
+   * - Hour: hour.
    * 
    * @example
    * Month

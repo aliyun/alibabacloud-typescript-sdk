@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppDomainRedirectResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Whether the operation was successful
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True
@@ -35,7 +35,7 @@ export class DeleteAppDomainRedirectResponseBodyModule extends $dara.Model {
 export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name, to query this named application
+   * The application name.
    * 
    * @example
    * watermark
@@ -75,17 +75,17 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: DeleteAppDomainRedirectResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -93,7 +93,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -101,7 +101,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -109,7 +109,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Whether it is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDomainInfoForPartnerResponseBodyDataOwnership extends $dara.Model {
   /**
    * @remarks
-   * Member name.
+   * The member name.
    * 
    * @example
    * 1189245564569485
@@ -13,7 +13,7 @@ export class GetDomainInfoForPartnerResponseBodyDataOwnership extends $dara.Mode
   account?: string;
   /**
    * @remarks
-   * Provider
+   * The provider.
    * 
    * @example
    * pai
@@ -45,7 +45,7 @@ export class GetDomainInfoForPartnerResponseBodyDataOwnership extends $dara.Mode
 export class GetDomainInfoForPartnerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Domain name.
+   * The domain name.
    * 
    * @example
    * playnew-alilive.daotantan.com
@@ -53,7 +53,7 @@ export class GetDomainInfoForPartnerResponseBodyData extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * List of DNS server IP addresses.
+   * The list of DNS server IP addresses.
    * 
    * @example
    * NS3.ALIYUN.COM,NS4.ALIYUN.COM
@@ -61,12 +61,12 @@ export class GetDomainInfoForPartnerResponseBodyData extends $dara.Model {
   nameServers?: string;
   /**
    * @remarks
-   * IP ownership.
+   * The IP ownership.
    */
   ownership?: GetDomainInfoForPartnerResponseBodyDataOwnership;
   /**
    * @remarks
-   * Domain name registrar
+   * The domain name registrar.
    * 
    * @example
    * aliyun
@@ -105,7 +105,7 @@ export class GetDomainInfoForPartnerResponseBodyData extends $dara.Model {
 export class GetDomainInfoForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request result.
+   * The request result.
    */
   data?: GetDomainInfoForPartnerResponseBodyData;
   /**

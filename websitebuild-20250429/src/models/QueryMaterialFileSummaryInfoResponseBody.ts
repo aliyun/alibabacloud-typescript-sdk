@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMaterialFileSummaryInfoResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Total file quantity
+   * The total number of files.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class QueryMaterialFileSummaryInfoResponseBodyModule extends $dara.Model 
   fileNum?: number;
   /**
    * @remarks
-   * Occupied bucket space
+   * The occupied storage space.
    * 
    * @example
    * 23M
@@ -45,7 +45,7 @@ export class QueryMaterialFileSummaryInfoResponseBodyModule extends $dara.Model 
 export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -61,7 +61,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. It can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name must not exceed 36 characters.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -69,7 +69,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -77,7 +77,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -85,12 +85,12 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: QueryMaterialFileSummaryInfoResponseBodyModule;
   /**
@@ -103,7 +103,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.EROR
@@ -111,7 +111,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -119,7 +119,7 @@ export class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

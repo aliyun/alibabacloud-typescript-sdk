@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Model {
   /**
    * @remarks
-   * Deployment region
+   * The deployment region.
    * 
    * @example
    * ChineseMainland
@@ -13,7 +13,7 @@ export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Mo
   deployArea?: string;
   /**
    * @remarks
-   * Lingxiao instance ID
+   * The LingXiao instance ID.
    * 
    * @example
    * 12313213
@@ -21,7 +21,7 @@ export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Mo
   lxInstanceId?: string;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 222217928591
@@ -29,7 +29,7 @@ export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Mo
   orderId?: string;
   /**
    * @remarks
-   * Version
+   * The version.
    * 
    * @example
    * Basic_Edition
@@ -37,7 +37,7 @@ export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Mo
   siteVersion?: string;
   /**
    * @remarks
-   * Template ID
+   * The template identifier.
    * 
    * @example
    * DC4D30B7BADDAFE9928A6C36416A2A4C
@@ -45,7 +45,7 @@ export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Mo
   templateEtag?: string;
   /**
    * @remarks
-   * Model template ID
+   * The model template ID.
    * 
    * @example
    * ST20211231160247sYG4
@@ -85,7 +85,7 @@ export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Mo
 export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   /**
    * @remarks
-   * Application Type: WEBSITE
+   * The application type. Set this parameter to WEBSITE.
    * 
    * @example
    * WEBSITE
@@ -93,7 +93,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * Website business ID
+   * The website business ID.
    * 
    * @example
    * WD20250711094503000001
@@ -101,7 +101,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Logical deletion
+   * Specifies whether the instance is logically deleted.
    * 
    * @example
    * fase
@@ -109,7 +109,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   deleted?: string;
   /**
    * @remarks
-   * Domain name
+   * The domain name.
    * 
    * @example
    * alliveout.xntv.tv
@@ -117,7 +117,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Event end time (UNIX timestamp).
+   * The end time of the event, in UNIX timestamp format.
    * 
    * @example
    * 2024-08-23T02:14:00Z
@@ -125,7 +125,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Deletion time
+   * The deletion time.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -133,7 +133,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   gmtDelete?: string;
   /**
    * @remarks
-   * Vulnerability published UNIX timestamp, in milliseconds.
+   * The timestamp when the vulnerability was published, in milliseconds.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -141,7 +141,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   gmtPublish?: string;
   /**
    * @remarks
-   * Application icon URL.
+   * The URL of the application icon.
    * 
    * @example
    * icon/WS20250626112715000001/thumbnail.jpg
@@ -149,7 +149,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   iconUrl?: string;
   /**
    * @remarks
-   * Website name
+   * The website name.
    * 
    * @example
    * AI建站
@@ -157,7 +157,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Website configuration information
+   * The website configuration information.
    * 
    * @example
    * 网站配置信息
@@ -173,7 +173,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   siteHost?: string;
   /**
    * @remarks
-   * Website SiteID
+   * The website SiteID.
    * 
    * @example
    * 31104757
@@ -181,7 +181,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * Query start time. If no start and end times are provided, all historical deployment records of the instance are queried.
+   * The start time of the query. If you do not specify the start time or end time, all historical deployment records of the instance are queried.
    * 
    * @example
    * 2025-07-15T16:00:00Z
@@ -189,15 +189,15 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Instance running status.  
-   * - NotRun: Not running  
-   * - Running: Running  
-   * - WaitTime: Waiting for TriggerTime  
-   * - CheckingCondition: Checking branch conditions  
-   * - WaitResource: Waiting for resources  
-   * - Failure: Execution failed  
-   * - Success: Execution succeeded  
-   * - Checking: Sent to Data Quality check
+   * The running status of the instance. Valid values:
+   * - NotRun: not running.
+   * - Running: running.
+   * - WaitTime: waiting for TriggerTime.
+   * - CheckingCondition: checking branch conditions.
+   * - WaitResource: waiting for resources.
+   * - Failure: execution failed.
+   * - Success: execution succeeded.
+   * - Checking: submitted for data quality check.
    * 
    * @example
    * {\\"Phase\\": \\"Running\\", \\"SlotNum\\": 1, \\"UsedCapacity\\": \\"500.0Gi\\"}
@@ -205,7 +205,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Thumbnail URL.
+   * The URL of the thumbnail.
    * 
    * @example
    * thumbnails/WS20250626112715000001/thumbnail.jpg
@@ -276,12 +276,12 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
 export class SyncAppInstanceForPartnerRequest extends $dara.Model {
   /**
    * @remarks
-   * Application instance object data
+   * The website instance object data.
    */
   appInstance?: SyncAppInstanceForPartnerRequestAppInstance;
   /**
    * @remarks
-   * Type of system event. CREATE, UPDATE, COMPLETE
+   * The type of the system event. Valid values: CREATE, UPDATE, and COMPLETE.
    * 
    * @example
    * CREATE
@@ -289,7 +289,7 @@ export class SyncAppInstanceForPartnerRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * Operator ID
+   * The employee ID of the operator.
    * 
    * @example
    * system
@@ -297,7 +297,7 @@ export class SyncAppInstanceForPartnerRequest extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * Source business ID.
+   * The source business ID.
    * 
    * @example
    * 31104757
@@ -305,7 +305,7 @@ export class SyncAppInstanceForPartnerRequest extends $dara.Model {
   sourceBizId?: string;
   /**
    * @remarks
-   * Source: MARKET_CLOUD_DREAM
+   * The source. Set this parameter to MARKET_CLOUD_DREAM.
    * 
    * @example
    * MARKET_CLOUD_DREAM

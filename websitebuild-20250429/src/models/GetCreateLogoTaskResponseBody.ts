@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * 604860995
@@ -13,13 +13,13 @@ export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The current status of the job:
+   * The current status of the task. Valid values:
    * 
-   * - pending: Pending execution  
-   * - configuring: Configuring  
-   * - success: Succeeded  
-   * - failed: Failed  
-   * - partialFailed: Partially failed
+   * - pending: pending execution
+   * - configuring: being configured
+   * - success: succeeded
+   * - failed: failed
+   * - partialFailed: partially failed.
    * 
    * @example
    * SUCCESS
@@ -27,7 +27,7 @@ export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The URLs of the prefetched resources.
+   * The URL of the prefetched resource.
    */
   urls?: string[];
   static names(): { [key: string]: string } {
@@ -61,7 +61,7 @@ export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
 export class GetCreateLogoTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. The ErrorCode field is not returned if the request succeeds. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error code list in this topic.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class GetCreateLogoTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -93,7 +93,7 @@ export class GetCreateLogoTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Job information
+   * The task information.
    */
   task?: GetCreateLogoTaskResponseBodyTask;
   static names(): { [key: string]: string } {

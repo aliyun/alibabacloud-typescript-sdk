@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadMaterialFileRequest extends $dara.Model {
   /**
    * @remarks
-   * Application Instance Business ID
+   * The business ID of the application instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UploadMaterialFileRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Parent Folder ID
+   * The ID of the parent folder.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UploadMaterialFileRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * File Path
+   * The path of the file.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UploadMaterialFileRequest extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * File Name
+   * The name of the file.
    * 
    * @example
    * 测试文件

@@ -6,7 +6,7 @@ import { AppInstanceAggregate } from "./AppInstanceAggregate";
 export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -22,7 +22,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application. The name must be 4 to 26 characters in length. The name can contain letters, digits, and underscores (_), and must start with a letter.
+   * The application name that was queried.
    * 
    * @example
    * or
@@ -30,7 +30,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -38,8 +38,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace `%s` in the error message of the returned parameter **ErrMessage**.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input request parameter **DtsJobId** is invalid.
+   * The dynamic error message.
    * 
    * @example
    * abc
@@ -47,18 +46,12 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The parameter whose value is invalid.
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Data table module.
-   * 
-   * - ABTest: Experiment data table
-   * 
-   * - ExperimentTool: Experiment tool table
-   * 
-   * - DataDiagnosis: Data diagnosis
+   * The response data.
    * 
    * @example
    * true
@@ -74,7 +67,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error Code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -82,7 +75,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Error message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -90,7 +83,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

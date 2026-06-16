@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   /**
    * @remarks
-   * Business instance ID
+   * The business instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Environment identity
+   * The environment identifier.
    * 
    * This parameter is required.
    * 
@@ -25,27 +25,29 @@ export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Sorting field
+   * The field by which to sort the results.
    */
   orderColumn?: string;
   /**
    * @remarks
-   * Sorting type: ASC or DESC
+   * The sort order. Valid values:
+   * - ASC: ascending order.
+   * - DESC: descending order.
    */
   orderType?: string;
   /**
    * @remarks
-   * Page number, default is 1
+   * The page number. Default value: 1.
    */
   pageNum?: number;
   /**
    * @remarks
-   * Page size, default is 10
+   * The number of entries per page. Default value: 10.
    */
   pageSize?: number;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 123

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMaterialFileDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Application instance ID
+   * The application instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryMaterialFileDetailRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * File ID
+   * The file ID.
    * 
    * This parameter is required.
    * 

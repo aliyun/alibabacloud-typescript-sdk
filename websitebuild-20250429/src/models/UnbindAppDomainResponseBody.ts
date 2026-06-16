@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindAppDomainResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Whether it was successful
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True
@@ -35,7 +35,7 @@ export class UnbindAppDomainResponseBodyModule extends $dara.Model {
 export class UnbindAppDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -59,7 +59,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,7 +67,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace %s in the ErrMessage of the response parameters.
+   * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,17 +75,17 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: UnbindAppDomainResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -93,7 +93,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -101,7 +101,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -109,7 +109,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Whether it is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

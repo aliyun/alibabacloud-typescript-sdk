@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EditPluginConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class EditPluginConfigResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class EditPluginConfigResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-). It supports up to 36 characters.
+   * The application name. The name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -29,7 +29,7 @@ export class EditPluginConfigResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic code, currently unused. Please ignore.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -37,7 +37,7 @@ export class EditPluginConfigResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -45,12 +45,12 @@ export class EditPluginConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Faulty parameters.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class EditPluginConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -74,7 +74,7 @@ export class EditPluginConfigResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -82,7 +82,7 @@ export class EditPluginConfigResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Whether processing is synchronous
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

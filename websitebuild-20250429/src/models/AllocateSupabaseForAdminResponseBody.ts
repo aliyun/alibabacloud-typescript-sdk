@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Anonymity key
+   * The anonymous key.
    * 
    * @example
    * 1111
@@ -13,7 +13,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   anonKey?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250915163734000001
@@ -21,7 +21,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Creation Time of the database instance
+   * The time when the database instance was created.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   dbInstanceCreateTime?: string;
   /**
    * @remarks
-   * database instance ID
+   * The database instance ID.
    * 
    * @example
    * selectdb-cn-2bl4djolb02
@@ -37,7 +37,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * Database public URL
+   * The public URL of the database.
    * 
    * @example
    * 111
@@ -45,7 +45,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   dbPublicUrl?: string;
   /**
    * @remarks
-   * Database type
+   * The database type.
    * 
    * @example
    * ORACLE
@@ -53,7 +53,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * Additional information
+   * The additional information.
    * 
    * @example
    * {\\"appId\\":\\"APP_NTJAK8P11SNZDJ3M6BWC\\"}
@@ -61,7 +61,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   extra?: string;
   /**
    * @remarks
-   * Instance creation completion time
+   * The time when the instance creation was completed.
    * 
    * @example
    * 111
@@ -69,7 +69,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   instanceCreateFinishedTime?: string;
   /**
    * @remarks
-   * Instance creation status
+   * The instance creation status.
    * 
    * @example
    * 1111
@@ -77,7 +77,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   instanceCreateStatus?: string;
   /**
    * @remarks
-   * Deletion flag
+   * The deletion flag.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   isDeleted?: number;
   /**
    * @remarks
-   * RDS database access password.
+   * The password for accessing the ApsaraDB RDS database.
    * 
    * @example
    * 111
@@ -93,7 +93,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   rdsDatabasePassword?: string;
   /**
    * @remarks
-   * Service key
+   * The service key.
    * 
    * @example
    * e80f5a7a08514709a2fb
@@ -101,7 +101,9 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   serviceKey?: string;
   /**
    * @remarks
-   * 0: paused; 1: running
+   * The instance status. Valid values:
+   * - 0: paused
+   * - 1: running.
    * 
    * @example
    * NORMAL
@@ -109,7 +111,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Supabase Dashboard password.
+   * The password for the Supabase Dashboard.
    * 
    * @example
    * 1111
@@ -117,7 +119,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabaseDashboardPassword?: string;
   /**
    * @remarks
-   * Supabase Dashboard username.
+   * The username for the Supabase Dashboard.
    * 
    * @example
    * 111
@@ -125,7 +127,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabaseDashboardUserName?: string;
   /**
    * @remarks
-   * Creation Time of the Supabase instance
+   * The time when the Supabase instance was created.
    * 
    * @example
    * 111
@@ -133,7 +135,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabaseInstanceCreateTime?: string;
   /**
    * @remarks
-   * Supabase instance ID
+   * The Supabase instance ID.
    * 
    * @example
    * 1111
@@ -149,7 +151,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabaseKongUrl?: string;
   /**
    * @remarks
-   * PrivateLink connection address of the Supabase instance.
+   * The private endpoint of the Supabase instance.
    * 
    * @example
    * 1111
@@ -157,7 +159,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabasePrivateIp?: string;
   /**
    * @remarks
-   * Public endpoint of the Supabase instance.
+   * The public endpoint of the Supabase instance.
    * 
    * @example
    * 111
@@ -165,7 +167,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabasePublicIp?: string;
   /**
    * @remarks
-   * Supabase public URL
+   * The public URL of the Supabase instance.
    * 
    * @example
    * 111
@@ -173,7 +175,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabasePublicUrl?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * @example
    * GFCBAMJH-zh_CN
@@ -181,7 +183,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 1111
@@ -255,7 +257,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
 export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access denied details
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -263,7 +265,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -271,7 +273,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * or
@@ -279,7 +281,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -287,7 +289,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -295,12 +297,12 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: AllocateSupabaseForAdminResponseBodyModule;
   /**
@@ -313,7 +315,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -321,7 +323,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -329,7 +331,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

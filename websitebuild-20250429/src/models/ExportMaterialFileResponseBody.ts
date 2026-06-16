@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportMaterialFileResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * File download URL
+   * The file download URL.
    * 
    * @example
    * https://xxx.xxx.cn/original-data/pdf/mndj_report/cd649b2cc2102c0df57bfa1ae62931d6.zip
@@ -35,7 +35,7 @@ export class ExportMaterialFileResponseBodyModule extends $dara.Model {
 export class ExportMaterialFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of access denied
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. It can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and must be no longer than 36 characters.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -59,7 +59,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,7 +67,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,12 +75,12 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Error code. The ErrorCode field is not returned if the request succeeds. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -88,7 +88,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
@@ -96,7 +96,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: ExportMaterialFileResponseBodyModule;
   /**
@@ -109,7 +109,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -117,7 +117,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -125,7 +125,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -133,7 +133,7 @@ export class ExportMaterialFileResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Reserved parameter
+   * The reserved parameter.
    * 
    * @example
    * True

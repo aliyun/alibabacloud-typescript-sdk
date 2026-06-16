@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -13,9 +13,9 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:  
-   * - false: Retry is not allowed.  
-   * - true: Retry is allowed.
+   * Indicates whether a retry is allowed. Valid values:
+   * - false: A retry is not allowed.
+   * - true: A retry is allowed.
    * 
    * @example
    * False
@@ -23,7 +23,7 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -31,7 +31,7 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -39,7 +39,7 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -47,12 +47,12 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Fault parameters.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Returned object.
+   * The response object.
    * 
    * @example
    * true
@@ -68,7 +68,7 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -76,7 +76,7 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -84,7 +84,7 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

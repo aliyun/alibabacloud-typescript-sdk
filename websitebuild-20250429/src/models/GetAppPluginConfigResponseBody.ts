@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1740479834
@@ -21,7 +21,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * 2025-08-28T02:25:41Z
@@ -29,7 +29,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Primary key
+   * The primary key.
    * 
    * @example
    * 16257
@@ -37,7 +37,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Specific widget configuration, formatted as a JSON string. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig and the toJsonString method of its child classes. Developers should inherit this widget configuration class and implement the corresponding widget configuration. The structure of each widget configuration is identical to the MPS queue configuration structure created on the Dataphin Page.
+   * The specific component configuration in JSON string format. Refer to the toJsonString method of the subclasses related to com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig. Developers should inherit this component configuration class and implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin console.
    * 
    * @example
    * {}
@@ -45,7 +45,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   pluginConfig?: string;
   /**
    * @remarks
-   * View Description
+   * The description of the plugin.
    * 
    * @example
    * a simple test plugin
@@ -53,7 +53,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   pluginDesc?: string;
   /**
    * @remarks
-   * ID of the attached API Gateway plugin
+   * The ID of the bound API gateway plugin.
    * 
    * @example
    * 1bae9ceaceea432d91c7069fab0dfc02
@@ -61,7 +61,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Plugin Name. It can contain uppercase and lowercase English letters, Chinese characters, digits, and underscores (_). The length must be between 4 and 50 characters, and it cannot start with an underscore.
+   * The plugin name. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
    * 
    * @example
    * tf_testaccapigatewayplugin29311
@@ -69,7 +69,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   pluginName?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 123
@@ -115,7 +115,7 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
 export class GetAppPluginConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status or POP error code
+   * The API status code or POP error code.
    * 
    * @example
    * OK
@@ -123,7 +123,7 @@ export class GetAppPluginConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Additional information
+   * The additional information.
    * 
    * @example
    * Instance `wget h33E1En5.popscan.xaliyun.com` does not exist.
@@ -131,7 +131,7 @@ export class GetAppPluginConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: GetAppPluginConfigResponseBodyModule;
   /**
@@ -144,7 +144,7 @@ export class GetAppPluginConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

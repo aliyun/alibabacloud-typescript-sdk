@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppDomainDnsRecordResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Host record
+   * The host record.
    * 
    * @example
    * *.com
@@ -13,7 +13,7 @@ export class DescribeAppDomainDnsRecordResponseBodyModule extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * Record type
+   * The record type.
    * 
    * @example
    * A
@@ -21,7 +21,7 @@ export class DescribeAppDomainDnsRecordResponseBodyModule extends $dara.Model {
   recordType?: string;
   /**
    * @remarks
-   * Record value
+   * The record value.
    * 
    * @example
    * Maintenance
@@ -55,7 +55,7 @@ export class DescribeAppDomainDnsRecordResponseBodyModule extends $dara.Model {
 export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of access denial; this field is returned only when RAM verification fails.
+   * The access denied details. This field is returned only when RAM authentication fails.
    * 
    * @example
    * {}
@@ -63,7 +63,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -71,7 +71,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * 应用名称，查询此名称的应用
+   * The application name. Queries the application with this name.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -79,7 +79,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -87,7 +87,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -95,17 +95,17 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * 返回错误参数
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Application module
+   * The application module.
    */
   module?: DescribeAppDomainDnsRecordResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * The ID of the request.
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -113,7 +113,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -121,7 +121,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -129,7 +129,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Backup parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

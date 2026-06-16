@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppAssistantAgentSsoLoginRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250821161210000001
@@ -13,7 +13,7 @@ export class CreateAppAssistantAgentSsoLoginRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Platform Type
+   * The platform type.
    * 
    * @example
    * all
@@ -21,7 +21,7 @@ export class CreateAppAssistantAgentSsoLoginRequest extends $dara.Model {
   platformType?: string;
   /**
    * @remarks
-   * Target URL
+   * The target URL.
    * 
    * @example
    * http://172.16.70.16:9410/metrics

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppAssistantAgentResponseBodyModuleCredential extends $dara.Model {
   /**
    * @remarks
-   * Extension field
+   * The extended field.
    */
   extra?: { [key: string]: string };
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
    * Test
@@ -45,12 +45,12 @@ export class CreateAppAssistantAgentResponseBodyModuleCredential extends $dara.M
 export class CreateAppAssistantAgentResponseBodyModuleEmbedConfig extends $dara.Model {
   /**
    * @remarks
-   * Extension Fields
+   * The extended field.
    */
   extra?: { [key: string]: string };
   /**
    * @remarks
-   * Raw embed script
+   * The raw embedding script.
    */
   rawScript?: string;
   static names(): { [key: string]: string } {
@@ -82,7 +82,7 @@ export class CreateAppAssistantAgentResponseBodyModuleEmbedConfig extends $dara.
 export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Agent ID (returned by platform)
+   * The agent ID returned by the platform.
    * 
    * @example
    * duanwei@qianrutest
@@ -90,7 +90,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Agent Name
+   * The name of the agent.
    * 
    * @example
    * 测试业务空间
@@ -98,7 +98,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   agentName?: string;
   /**
    * @remarks
-   * Associated application instance bizId
+   * The business ID of the associated application instance.
    * 
    * @example
    * WD20250703155602000001
@@ -106,22 +106,22 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Credential
+   * The authentication credential.
    */
   credential?: CreateAppAssistantAgentResponseBodyModuleCredential;
   /**
    * @remarks
-   * Embed Configuration
+   * The embedding configuration.
    */
   embedConfig?: CreateAppAssistantAgentResponseBodyModuleEmbedConfig;
   /**
    * @remarks
-   * Extension parameters
+   * The extended parameters.
    */
   extraParams?: { [key: string]: string };
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 1740479834
@@ -129,7 +129,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Updated At
+   * The modification time.
    * 
    * @example
    * 2025-08-28T02:25:41Z
@@ -137,7 +137,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Agent platform appId
+   * The application ID of the agent on the platform.
    * 
    * @example
    * WA12313131313
@@ -145,7 +145,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   platformAppId?: string;
   /**
    * @remarks
-   * Platform Type
+   * The platform type.
    * 
    * @example
    * VMWARE
@@ -153,7 +153,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   platformType?: string;
   /**
    * @remarks
-   * Status
+   * The status.
    * 
    * @example
    * NORMAL
@@ -161,7 +161,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 1231313131
@@ -222,7 +222,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
 export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission denied information
+   * The access denied details.
    * 
    * @example
    * {}
@@ -230,7 +230,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -238,7 +238,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -246,7 +246,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -254,8 +254,8 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -263,12 +263,12 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: CreateAppAssistantAgentResponseBodyModule;
   /**
@@ -281,7 +281,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -289,7 +289,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -297,7 +297,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

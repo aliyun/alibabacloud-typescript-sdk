@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetAppDomainCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID of the application instance
+   * The business ID of the application instance.
    * 
    * @example
    * WD20250821161210000001
@@ -13,7 +13,7 @@ export class SetAppDomainCertificateRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * SSL certificate name
+   * The SSL certificate name.
    * 
    * @example
    * 2024
@@ -21,7 +21,7 @@ export class SetAppDomainCertificateRequest extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * Certificate type: Default free certificate or customer\\"s own certificate
+   * The certificate type: default free certificate or customer-owned certificate.
    * 
    * @example
    * Server
@@ -29,7 +29,7 @@ export class SetAppDomainCertificateRequest extends $dara.Model {
   certificateType?: string;
   /**
    * @remarks
-   * Domain name
+   * The domain name.
    * 
    * @example
    * kaibaidu.com
@@ -37,7 +37,7 @@ export class SetAppDomainCertificateRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Private key
+   * The private key.
    * 
    * @example
    * ***
@@ -45,7 +45,7 @@ export class SetAppDomainCertificateRequest extends $dara.Model {
   privateKey?: string;
   /**
    * @remarks
-   * Public key
+   * The public key.
    * 
    * @example
    * c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUxGQnQxUUpyT3IxK2hTTGRkbERMZUx4WGRIZ3hBalBxWHJIbWNFNWxqSk8gbm93Y29kZXJAbm93Y29kZXJkZU1hY0Jvb2stUHJvLmxvY2Fs

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLogoTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. The values are as follows: If the request succeeds, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class CreateLogoTaskResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
@@ -29,7 +29,7 @@ export class CreateLogoTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class CreateLogoTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The job ID returned when the invocation succeeds. Note: Keep this ID securely. You need this ID to query the logo creation status.
+   * The task ID returned when the call is successful. Keep this ID safe. This ID is required when you query the creation status.
    * 
    * @example
    * c3r127e325at9yd

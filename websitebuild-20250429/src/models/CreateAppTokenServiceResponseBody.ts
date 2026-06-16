@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppTokenServiceResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Migration extension information (optional)
+   * The migration extension information (optional).
    * 
    * @example
    * {\\"serviceApi\\":\\"sendUserMsg\\",\\"bizId\\":\\"sp\\"}
@@ -35,7 +35,7 @@ export class CreateAppTokenServiceResponseBodyModule extends $dara.Model {
 export class CreateAppTokenServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class CreateAppTokenServiceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class CreateAppTokenServiceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -59,7 +59,7 @@ export class CreateAppTokenServiceResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic code. Not currently used. Ignore it.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -67,7 +67,7 @@ export class CreateAppTokenServiceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -75,12 +75,12 @@ export class CreateAppTokenServiceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Whether the shift succeeded
+   * Indicates whether the operation is successful.
    */
   module?: CreateAppTokenServiceResponseBodyModule;
   /**
@@ -93,7 +93,7 @@ export class CreateAppTokenServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -101,7 +101,7 @@ export class CreateAppTokenServiceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -109,7 +109,7 @@ export class CreateAppTokenServiceResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Is processing synchronous
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

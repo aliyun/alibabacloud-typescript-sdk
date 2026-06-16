@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMaterialFileRequest extends $dara.Model {
   /**
    * @remarks
-   * Application instance business ID
+   * The business ID of the application instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyMaterialFileRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * File ID
+   * The file ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyMaterialFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * Modified file Name
+   * The new name of the file after modification.
    * 
    * This parameter is required.
    * 

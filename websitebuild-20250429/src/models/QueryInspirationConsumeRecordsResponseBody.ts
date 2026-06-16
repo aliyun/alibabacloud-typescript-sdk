@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * Quantity of inspiration value consumed
+   * The number of inspiration points consumed.
    * 
    * @example
    * 120
@@ -14,7 +14,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
   amountStr?: string;
   /**
    * @remarks
-   * Consumption time
+   * The consumption time.
    * 
    * @example
    * 2026-06-01 12:00:00
@@ -23,7 +23,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
   consumeType?: string;
   /**
    * @remarks
-   * Extension information (in JSON string format)
+   * The extended information in JSON string format.
    * 
    * @example
    * {\\"MD5\\":\\"296f6c01e7fea2697ffe1cf41082b774\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
@@ -32,7 +32,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
   recordKey?: string;
   /**
    * @remarks
-   * Consumption scenario Name (such as AI application development, AI creative image generation, AI Video creation, AI Content creation)
+   * The name of the consumption scenario, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
    * 
    * @example
    * 家装
@@ -74,7 +74,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
 export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * Quantity of inspiration value consumed
+   * The number of inspiration points consumed.
    * 
    * @example
    * 2
@@ -83,7 +83,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.
   amountStr?: string;
   /**
    * @remarks
-   * Consumption Time
+   * The consumption time.
    * 
    * @example
    * 2026-06-01 12:00:00
@@ -92,7 +92,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.
   consumeType?: string;
   /**
    * @remarks
-   * Extension information (in JSON string format)
+   * The extended information in JSON string format.
    * 
    * @example
    * {\\"MD5\\":\\"1042e65a2b7cdd3059b6a873ee1a3260\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
@@ -100,7 +100,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.
   metaData?: string;
   /**
    * @remarks
-   * Consumption scenario Name (such as AI application development, AI creative image generation, AI Video creation, AI Content creation)
+   * The name of the consumption scenario, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
    * 
    * @example
    * 家装
@@ -140,7 +140,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.
 export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -148,17 +148,17 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
   currentPageNum?: number;
   /**
    * @remarks
-   * Request Result.
+   * The request result.
    */
   data?: QueryInspirationConsumeRecordsResponseBodyModuleData[];
   /**
    * @remarks
-   * Next feature ID
+   * The ID of the next feature.
    */
   next?: QueryInspirationConsumeRecordsResponseBodyModuleNext;
   /**
    * @remarks
-   * Indicates whether there is a next page.
+   * Indicates whether a next page exists.
    * 
    * @example
    * False
@@ -166,7 +166,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
   nextPage?: boolean;
   /**
    * @remarks
-   * Paging size.
+   * The page size.
    * 
    * @example
    * 10
@@ -174,7 +174,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * Whether there is a previous page.
+   * Indicates whether a previous page exists.
    * 
    * @example
    * False
@@ -182,12 +182,12 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to paging limits, the server-side processes at most the latest 1 000 records for the current query. If the result exceeds 1 000 records, **ResultLimit** is **true**; you should narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
+   * Apart from pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -195,7 +195,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
   totalItemNum?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -247,7 +247,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
 export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -255,7 +255,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -263,7 +263,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application Name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -271,7 +271,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -279,7 +279,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message. Not currently used. Please ignore.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -287,12 +287,12 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Whether the deletion succeeded
+   * Indicates whether the deletion is successful.
    */
   module?: QueryInspirationConsumeRecordsResponseBodyModule;
   /**
@@ -305,7 +305,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -313,7 +313,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -321,7 +321,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

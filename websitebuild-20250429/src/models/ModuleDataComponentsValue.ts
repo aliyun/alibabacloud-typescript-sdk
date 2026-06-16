@@ -6,7 +6,7 @@ import { ModuleDataComponentsValuePropertiesValue } from "./ModuleDataComponents
 export class ModuleDataComponentsValueInstancePropertyValues extends $dara.Model {
   /**
    * @remarks
-   * Property encoding (system internal identity)
+   * Property code (internal system identifier)
    * 
    * @example
    * placeholder
@@ -14,7 +14,7 @@ export class ModuleDataComponentsValueInstancePropertyValues extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * Attribute Value encoding (internal system value)
+   * Property value code (internal system value)
    * 
    * @example
    * placeholder
@@ -22,7 +22,7 @@ export class ModuleDataComponentsValueInstancePropertyValues extends $dara.Model
   value?: string;
   /**
    * @remarks
-   * Property display name (User-visible Name)
+   * Property display name (user-visible name)
    * 
    * @example
    * placeholder
@@ -56,7 +56,7 @@ export class ModuleDataComponentsValueInstancePropertyValues extends $dara.Model
 export class ModuleDataComponentsValueInstanceProperty extends $dara.Model {
   /**
    * @remarks
-   * Property encoding (system internal identity)
+   * Property code (internal system identifier)
    * 
    * @example
    * placeholder
@@ -64,7 +64,7 @@ export class ModuleDataComponentsValueInstanceProperty extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Property display name (User-visible Name)
+   * Property display name (user-visible name)
    * 
    * @example
    * placeholder
@@ -72,7 +72,7 @@ export class ModuleDataComponentsValueInstanceProperty extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Attribute Value encoding (internal system value)
+   * Property value code (internal system value)
    * 
    * @example
    * placeholder
@@ -80,7 +80,7 @@ export class ModuleDataComponentsValueInstanceProperty extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * List of module Attribute Values
+   * Module property value list
    */
   values?: ModuleDataComponentsValueInstancePropertyValues[];
   static names(): { [key: string]: string } {
@@ -116,7 +116,7 @@ export class ModuleDataComponentsValueInstanceProperty extends $dara.Model {
 export class ModuleDataComponentsValue extends $dara.Model {
   /**
    * @remarks
-   * Unique widget encoding (system internal identity)
+   * Component unique code (internal system identifier)
    * 
    * @example
    * placeholder
@@ -124,7 +124,7 @@ export class ModuleDataComponentsValue extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The display name of the widget (user-visible name)
+   * Component display name (user-visible name)
    * 
    * @example
    * placeholder
@@ -132,17 +132,17 @@ export class ModuleDataComponentsValue extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Widget instance attribute configuration
+   * Component instance property configuration
    */
   instanceProperty?: ModuleDataComponentsValueInstanceProperty[];
   /**
    * @remarks
-   * Widget instance attribute configuration
+   * Component instance property configuration
    */
   properties?: { [key: string]: ModuleDataComponentsValuePropertiesValue };
   /**
    * @remarks
-   * Module attribute status
+   * Module property status
    * 
    * @example
    * placeholder

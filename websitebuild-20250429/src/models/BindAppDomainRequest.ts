@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAppDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250820143531000001
@@ -13,7 +13,7 @@ export class BindAppDomainRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Domain Name
+   * The domain name.
    * 
    * @example
    * xiaoniu.link
@@ -21,7 +21,7 @@ export class BindAppDomainRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Extended Information (OverwriteExistingRecord)
+   * The extended information (OverwriteExistingRecord).
    * 
    * @example
    * {\\"deliveryNodeName\\":\\"网站验收\\",\\"deliveryNodeStatus\\":\\"Reject\\",\\"deliveryOperatorRole\\":\\"Customer\\"}
@@ -29,7 +29,7 @@ export class BindAppDomainRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * Domain Binding - Operation Type
+   * The operation type for domain name binding.
    * 
    * @example
    * vul_fix
