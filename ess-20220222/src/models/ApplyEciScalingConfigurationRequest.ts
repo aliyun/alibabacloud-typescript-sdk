@@ -36,6 +36,13 @@ export class ApplyEciScalingConfigurationRequest extends $dara.Model {
    *             - containerPort: 80
    */
   content?: string;
+  /**
+   * @remarks
+   * Optional. Set the value to YAML.
+   * 
+   * @example
+   * YAML
+   */
   format?: string;
   /**
    * @remarks

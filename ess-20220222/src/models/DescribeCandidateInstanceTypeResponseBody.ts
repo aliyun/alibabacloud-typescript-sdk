@@ -3,11 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCandidateInstanceTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of candidate ECS instance types.
+   */
   candidateInstanceTypes?: string[];
+  /**
+   * @remarks
+   * A list of candidate availability zones.
+   */
   candidateZoneIds?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

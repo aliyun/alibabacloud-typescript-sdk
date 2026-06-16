@@ -8,12 +8,7 @@ export class DeactivateScalingConfigurationRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The ID of the scaling configuration.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * asc-bp1ahp2ud7qkzt2a****
    */
   scalingConfigurationId?: string;
   static names(): { [key: string]: string } {

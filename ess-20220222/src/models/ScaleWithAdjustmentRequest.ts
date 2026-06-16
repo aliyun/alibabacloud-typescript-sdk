@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ScaleWithAdjustmentRequestLifecycleHookContext extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to disable the lifecycle hook. Valid values:
+   * Specifies whether to disable all lifecycle hooks for the scaling activity. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: Disables all lifecycle hooks.
+   * 
+   * - `false`: Does not disable lifecycle hooks.
    * 
    * @example
    * false
@@ -16,7 +17,7 @@ export class ScaleWithAdjustmentRequestLifecycleHookContext extends $dara.Model 
   disableLifecycleHook?: boolean;
   /**
    * @remarks
-   * The IDs of the lifecycle hooks that you want to disable.
+   * A list of lifecycle hook IDs to ignore during the scaling activity.
    */
   ignoredLifecycleHookIds?: string[];
   lifecycleHookResult?: string;
@@ -51,7 +52,7 @@ export class ScaleWithAdjustmentRequestLifecycleHookContext extends $dara.Model 
 export class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars extends $dara.Model {
   /**
    * @remarks
-   * The name of the environment variable. The name must be 1 to 128 characters in length. Format requirement: `[0-9a-zA-Z]` and underscores (_). It cannot start with a digit.
+   * The name of the environment variable. It must be 1 to 128 characters long, cannot start with a digit, and can contain only letters (a-z, A-Z), digits (0-9), and underscores (_).
    * 
    * @example
    * PATH
@@ -59,7 +60,7 @@ export class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVar
   key?: string;
   /**
    * @remarks
-   * The value of the environment variable. The value can be up to 256 characters in length.
+   * The value of the environment variable, up to 256 characters long.
    * 
    * @example
    * /usr/local/tomcat
@@ -91,17 +92,17 @@ export class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVar
 export class ScaleWithAdjustmentRequestOverridesContainerOverrides extends $dara.Model {
   /**
    * @remarks
-   * The argument that corresponds to the startup command of the container. You can specify up to 10 arguments.
+   * The arguments for the container\\"s startup command. You can specify up to 10 arguments.
    */
   args?: string[];
   /**
    * @remarks
-   * The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
+   * The container\\"s startup command, specified as an array of strings. You can specify up to 20 strings, and each can be up to 256 characters long.
    */
   commands?: string[];
   /**
    * @remarks
-   * The number of vCPUs that you want to allocate to the container. Unit: vCPUs.
+   * The number of vCPUs for the container. Unit: cores.
    * 
    * @example
    * 2
@@ -109,12 +110,12 @@ export class ScaleWithAdjustmentRequestOverridesContainerOverrides extends $dara
   cpu?: number;
   /**
    * @remarks
-   * The information about the environment variables.
+   * Environment variables to set in the container.
    */
   environmentVars?: ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars[];
   /**
    * @remarks
-   * The memory size that you want to allocate to the container. Unit: GiB.
+   * The memory size for the container. Unit: GiB.
    * 
    * @example
    * 4
@@ -122,7 +123,7 @@ export class ScaleWithAdjustmentRequestOverridesContainerOverrides extends $dara
   memory?: number;
   /**
    * @remarks
-   * The name of the container. If you specify ContainerOverrides, you must also specify Name. ContainerOverrides takes effect only when the container name specified by Name matches that specified in the scaling configuration.
+   * The name of the container to override. The override takes effect only if this name matches a container name in the scaling configuration.
    * 
    * @example
    * container-1
@@ -171,12 +172,12 @@ export class ScaleWithAdjustmentRequestOverridesContainerOverrides extends $dara
 export class ScaleWithAdjustmentRequestOverrides extends $dara.Model {
   /**
    * @remarks
-   * The list of parameters that you want to use to override specific configurations for containers.
+   * A list of container-specific overrides.
    */
   containerOverrides?: ScaleWithAdjustmentRequestOverridesContainerOverrides[];
   /**
    * @remarks
-   * The number of vCPUs that you want to allocate to the instance. Unit: vCPUs.
+   * The number of vCPUs for the instance. Unit: cores.
    * 
    * @example
    * 2
@@ -184,7 +185,7 @@ export class ScaleWithAdjustmentRequestOverrides extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The memory size that you want to allocate to the instance. Unit: GiB.
+   * The memory size for the instance. Unit: GiB.
    * 
    * @example
    * 4
@@ -192,7 +193,7 @@ export class ScaleWithAdjustmentRequestOverrides extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The user data of the Elastic Compute Service (ECS) instance. The user data must be encoded in Base64 format. The size of raw data before Base64 encoding cannot exceed 32 KB.
+   * The user data for the ECS instance. It must be Base64-encoded, and the raw data cannot exceed 32 KB.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
@@ -231,7 +232,7 @@ export class ScaleWithAdjustmentRequestOverrides extends $dara.Model {
 export class ScaleWithAdjustmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The metadata of the scaling activity.
+   * The metadata for the scaling activity.
    * 
    * @example
    * {"key":"value"}
@@ -239,11 +240,13 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
   activityMetadata?: string;
   /**
    * @remarks
-   * The type of the scaling policy. Valid values:
+   * The method used to adjust the number of instances in a scaling activity. Valid values:
    * 
-   * *   QuantityChangeInCapacity: adds the specified number of ECS instances to or removes the specified number of ECS instances from the scaling group.
-   * *   PercentChangeInCapacity: adds the specified percentage of ECS instances to or removes the specified percentage of ECS instances from the scaling group.
-   * *   TotalCapacity: adjusts the number of ECS instances in the scaling group to a specified number.
+   * - `QuantityChangeInCapacity`: Adds or removes a specified number of ECS instances.
+   * 
+   * - `PercentChangeInCapacity`: Adds or removes a specified percentage of ECS instances.
+   * 
+   * - `TotalCapacity`: Adjusts the number of ECS instances in the scaling group to a specified number.
    * 
    * This parameter is required.
    * 
@@ -253,11 +256,13 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
   adjustmentType?: string;
   /**
    * @remarks
-   * The number of instances in each adjustment. The number of ECS instances in each adjustment cannot exceed 1,000.
+   * The adjustment value for the scaling activity. A single adjustment cannot add or remove more than 1,000 ECS instances. The valid range depends on `AdjustmentType`:
    * 
-   * *   Valid values if you set the AdjustmentType parameter to QuantityChangeInCapacity: -1000 to 1000.
-   * *   Valid values if you set the AdjustmentType parameter to PercentChangeInCapacity: -100 to 10000.
-   * *   Valid values if you set the AdjustmentType parameter to TotalCapacity: 0 to 2000.
+   * - `QuantityChangeInCapacity`: -1000 to 1000.
+   * 
+   * - `PercentChangeInCapacity`: -100 to 10000.
+   * 
+   * - `TotalCapacity`: 0 to 2000.
    * 
    * This parameter is required.
    * 
@@ -267,7 +272,7 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
   adjustmentValue?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token to ensure the idempotence of the request. This token must be a unique string of up to 64 ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -277,8 +282,9 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
    * @remarks
    * The execution mode. Valid values:
    * 
-   * *   None: If this is not specified, auto scaling is performed.
-   * *   PlanOnly: Scaling is not triggered. Only elastic planning is performed. The planning result is returned in PlanResult, including the instance type, zone ID, billing type, and number of created instances.
+   * - `None`: Executes a standard scaling activity.
+   * 
+   * - `PlanOnly`: Only performs elastic planning and returns the results in `PlanResult` without triggering the scaling activity. The results include details such as instance types, availability zones, billing methods, and the number of new instances.
    * 
    * Default value: None.
    * 
@@ -288,12 +294,12 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
   executionMode?: string;
   /**
    * @remarks
-   * The context of the lifecycle hook.
+   * The lifecycle hook context.
    */
   lifecycleHookContext?: ScaleWithAdjustmentRequestLifecycleHookContext;
   /**
    * @remarks
-   * The minimum number of instances allowed in each adjustment. This parameter takes effect only if you set the `AdjustmentType` parameter to `PercentChangeInCapacity`.
+   * The minimum number of instances to adjust in a scaling activity. This parameter takes effect only when `AdjustmentType` is set to `PercentChangeInCapacity`.
    * 
    * @example
    * 1
@@ -301,13 +307,13 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
   minAdjustmentMagnitude?: number;
   /**
    * @remarks
-   * The overrides that allow you to adjust the scaling group of the Elastic Container Instance (ECI) type during a scale-out event.
+   * The parameters to override when scaling out an ECI scaling group.
    */
   overrides?: ScaleWithAdjustmentRequestOverrides;
   ownerId?: number;
   /**
    * @remarks
-   * Whether the current scale-out task supports concurrency.
+   * Specifies whether the current scaling activity supports concurrency.
    * 
    * @example
    * false
@@ -326,12 +332,13 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to trigger the scaling task in a synchronous manner. This parameter takes effect only on scaling groups for which you specified an expected number of instances. Valid Values:
+   * Specifies whether to execute the scaling activity synchronously. This parameter applies only to scaling groups that are configured with an expected number of instances. Valid values:
    * 
-   * *   true: triggers the scaling task in a synchronous manner. A scaling activity is triggered at the time when the scaling rule is executed.
-   * *   false: does not trigger the scaling task in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number and determines whether to trigger the scaling activity based on the check result.
+   * - `true`: Synchronous execution. The scaling activity is triggered immediately.
    * 
-   * >  For more information, see [Expected number of instances](https://help.aliyun.com/document_detail/146231.html).
+   * - `false`: Asynchronous execution. The call updates the expected number of instances without immediately triggering the scaling activity. The activity occurs when the system detects a discrepancy between the new expected number and the current number of instances.
+   * 
+   * > For more information about the expected number of instances, see [Expected number of instances](https://help.aliyun.com/document_detail/146231.html).
    * 
    * Default value: false.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the ECS instances were added to the scaling group. The value is accurate to the second.
+   * The time when the ECS instance was added to the scaling group. The value is accurate to the second.
    * 
    * @example
    * 2020-05-18T03:11:39Z
@@ -13,7 +13,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   createdTime?: string;
   /**
    * @remarks
-   * The time when the ECS instances were added to the scaling group. The value is accurate to the minute.
+   * The time when the ECS instance was added to the scaling group. The value is accurate to the minute.
    * 
    * @example
    * 2020-05-18T03:11Z
@@ -21,10 +21,10 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   creationTime?: string;
   /**
    * @remarks
-   * The instance creation method. Valid values:
+   * The method used to create the ECS instance. Valid values: 
    * 
-   * *   AutoCreated: The ECS instances are created by Auto Scaling based on the instance configuration source.
-   * *   Attached: The ECS instances are manually added to the scaling group.
+   * - AutoCreated: The ECS instance is created by automatic creation based on the instance configuration source in Auto Scaling. 
+   * - Attached: The ECS instance is not created by Auto Scaling but manually added to the scaling group.
    * 
    * @example
    * AutoCreated
@@ -32,10 +32,9 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   creationType?: string;
   /**
    * @remarks
-   * Indicates whether the scaling group is allowed to manage the instance lifecycles when ECS instances are manually added. If the scaling group is allowed to manage the instance lifecycles, Auto Scaling can release the ECS instances when the instances are automatically removed from the scaling group. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the manually added instance is managed by the scaling group. A managed manually added instance is released when it is removed from the scaling group (excluding manual removal). Valid values:
+   * - true: The instance is managed by the scaling group.
+   * - false: The instance is not managed by the scaling group.
    * 
    * @example
    * true
@@ -43,16 +42,16 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   entrusted?: boolean;
   /**
    * @remarks
-   * The health status of the ECS instance in the scaling group. If an ECS instance is not in the Running state, the instance is considered unhealthy. Valid values:
+   * The health check status of the ECS instance in the scaling group. ECS instances that are not in the Running state are considered unhealthy. Valid values: 
    * 
-   * *   Healthy
-   * *   Unhealthy
+   * - Healthy: The ECS instance is healthy. 
+   * - Unhealthy: The ECS instance is unhealthy. 
    * 
-   * Auto Scaling automatically removes unhealthy ECS instances from the scaling group and then releases the automatically created instances among the unhealthy instances.
+   * Auto Scaling automatically removes unhealthy ECS instances from the scaling group and releases the ECS instances created by automatic creation.
    * 
-   * Unhealthy ECS instances that are manually added to the scaling group are released based on the management mode of the lifecycles of the instances. If the lifecycles of the ECS instances are not managed by the scaling group, Auto Scaling removes the instances from the scaling group but does not release the instances. If the lifecycles of the ECS instances are managed by the scaling group, Auto Scaling removes the instances from the scaling group and releases the instances.
+   * Whether a manually added ECS instance is released depends on its managed state. If the instance lifecycle is not managed by the scaling group, the instance is only removed but not released. If the instance lifecycle is managed by the scaling group, the instance is removed and released.
    * 
-   * >  Make sure that you have sufficient balance within your Alibaba Cloud account. If your Alibaba Cloud account has an overdue payment, all pay-as-you-go ECS instances, including preemptible instances, may be stopped or even released. For information about how the status of ECS instances changes when you have an overdue payment in your Alibaba Cloud account, see [Overdue payments](https://help.aliyun.com/document_detail/170589.html).
+   * > Make sure that your account has a sufficient available quota. If your account has an overdue payment, all pay-as-you-go ECS instances (including pay-as-you-go instances and spot instances) are stopped or even released. For information about how the status of ECS instances in a scaling group changes after an overdue payment occurs, see [Overdue payments](https://help.aliyun.com/document_detail/170589.html).
    * 
    * @example
    * Healthy
@@ -76,7 +75,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   launchTemplateId?: string;
   /**
    * @remarks
-   * The version number of the launch template.
+   * The version of the launch template.
    * 
    * @example
    * 1
@@ -84,16 +83,16 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   launchTemplateVersion?: string;
   /**
    * @remarks
-   * The lifecycle status of the ECS instance in the scaling group. Valid values:
-   * 
-   * *   InService: The ECS instance is added to the scaling group and provides services as expected.
-   * *   Pending: The ECS instance is being added to the scaling group. When an ECS instance is being added to the scaling group, Auto Scaling also adds the instance to the backend server groups of the attached load balancers and adds the private IP address of the instance to the IP address whitelists of the attached ApsaraDB RDS instances.
-   * *   Pending:Wait: The ECS instance is waiting to be added to the scaling group. If a scale-out lifecycle hook is in effect, the ECS instance remains in the Pending:Wait state until the timeout period for the lifecycle hook expires.
-   * *   Protected: The ECS instance is protected. Protected ECS instances can continue to provide services as expected, but Auto Scaling does not manage the lifecycles of the ECS instances. You must manually manage the lifecycles of the ECS instances.
-   * *   Standby: The ECS instance is on standby. Standby ECS instances do not provide services as expected, and the weights of the ECS instances as backend servers are reset to zero. Auto Scaling does not manage the lifecycles of the ECS instances. Therefore, you must manually manage the lifecycles of the ECS instances.
-   * *   Stopped: The ECS instance is stopped. Stopped ECS instances no longer provide services.
-   * *   Removing: The ECS instance is being removed from the scaling group. When an ECS instance is being removed from the scaling group, Auto Scaling also removes the instance from the backend server groups of the attached load balancers and removes the private IP address of the instance from the IP address whitelists of the attached ApsaraDB RDS instances.
-   * *   Removing:Wait: The ECS instance is waiting to be removed from the scaling group. If a scale-in lifecycle hook is in effect, the ECS instance remains in the Removing:Wait state until the timeout period for the lifecycle hook expires.
+   * The lifecycle state of the ECS instance in the scaling group. Valid values:
+   *  
+   * - InService: The ECS instance is added to the scaling group and provides services in the Normal state. 
+   * - Pending: The ECS instance is being added to the scaling group. During this procedure, the ECS instance is added to the backend server group of the associated load balancing instance and to the access whitelist of the associated ApsaraDB RDS instance.
+   * - Pending:Wait: The ECS instance is waiting to be added to the scaling group. If a lifecycle hook that applies to scale-out activities is created for the scaling group, the ECS instance is suspended and waits for the lifecycle hook timeout to end.
+   * - Protected: The ECS instance is protected. The ECS instance provides services as expected, but Auto Scaling does not manage the lifecycle of the ECS instance. You must manually manage the lifecycle.
+   * - Standby: The ECS instance is in the standby state. The ECS instance does not provide services, the weight of SLB backend server is set to zero, and Auto Scaling does not manage the lifecycle of the ECS instance. You must manually manage the lifecycle.
+   * - Stopped: The ECS instance is stopped and does not provide services.
+   * - Removing: The ECS instance is being removed from the scaling group. During this procedure, the ECS instance is removed from the backend server group of the associated load balancing instance and from the access whitelist of the associated ApsaraDB RDS instance. 
+   * - Removing:Wait: The ECS instance is waiting to be removed from the scaling group. If a lifecycle hook that applies to scale-down activities is created for the scaling group, the ECS instance is suspended and waits for the lifecycle hook timeout to end.
    * 
    * @example
    * InService
@@ -101,9 +100,8 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   lifecycleState?: string;
   /**
    * @remarks
-   * The weight of each ECS instance as a backend server.
-   * 
-   * >  This parameter is deprecated and is not recommended.
+   * The weight of the load balancing instance.
+   * > This parameter is deprecated and is not recommended.
    * 
    * @example
    * 50
@@ -111,15 +109,16 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   loadBalancerWeight?: number;
   /**
    * @remarks
-   * The private IP address of the ECS instance.
+   * The private IP address of the instance in the scaling group.
    * 
    * @example
    * 1**.2*.1**.2**
    */
   privateIpAddress?: string;
+  replaceStatus?: string;
   /**
    * @remarks
-   * The ID of the scaling activity during which the ECS instances were added to the scaling group.
+   * The ID of the scaling activity during which the ECS instance was added to the scaling group.
    * 
    * @example
    * asa-bp1c9djwrgxjyk31****
@@ -127,7 +126,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   scalingActivityId?: string;
   /**
    * @remarks
-   * The ID of the scaling configuration.
+   * The ID of the associated scaling configuration.
    * 
    * @example
    * asc-bp1i65jd06v04vdh****
@@ -135,7 +134,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   scalingConfigurationId?: string;
   /**
    * @remarks
-   * The ID of the scaling group.
+   * The ID of the scaling group to which the instance belongs.
    * 
    * @example
    * asg-bp1igpak5ft1flyp****
@@ -143,7 +142,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   scalingGroupId?: string;
   /**
    * @remarks
-   * The ID of the ECS instance or elastic container instance.
+   * The instance identity in the scaling group, which has a one-to-one mapping with the ECS instance ID or Elastic Container Instance (ECI) instance identity.
    * 
    * @example
    * asi-j6cj1gcte640ekhb****
@@ -151,10 +150,10 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   scalingInstanceId?: string;
   /**
    * @remarks
-   * The bidding policy for the preemptible instances. Valid values:
+   * The preemption policy of the spot instance. Valid values:
    * 
-   * *   SpotWithPriceLimit: The instances are preemptible instances that have a user-defined maximum hourly price.
-   * *   SpotAsPriceGo: The instances are preemptible instances for which the market price at the time of purchase is automatically used as the bidding price.
+   * - SpotWithPriceLimit: The spot instance has a maximum price limit.
+   * - SpotAsPriceGo: The system automatically bids at the current market price.
    * 
    * @example
    * SpotWithPriceLimit
@@ -162,11 +161,11 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   spotStrategy?: string;
   /**
    * @remarks
-   * The warm-up status of the ECS instances. Valid values:
-   * 
-   * *   NoNeedWarmup: The ECS instances do not need to undergo a warm-up process.
-   * *   WaitingForInstanceWarmup: The ECS instances are undergoing the warm-up process.
-   * *   InstanceWarmupFinish: The warm-up process for the ECS instances is complete.
+   * The warmup state of the ECS instance. Valid values: 
+   *          
+   * - NoNeedWarmup: No warmup is required.
+   * - WaitingForInstanceWarmup: The instance is waiting for warmup to complete.
+   * - InstanceWarmupFinish: Warmup is complete.
    * 
    * @example
    * NoNeedWarmup
@@ -174,7 +173,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   warmupState?: string;
   /**
    * @remarks
-   * The weight of the instance type. The weight indicates the capacity of a single instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the instance type are required to meet the expected capacity requirement.
+   * The weight of the instance type. The weight indicates the capacity that a single instance of this instance type represents in the scaling group. A higher weight means that fewer instances of this type are required to meet the expected capacity.
    * 
    * @example
    * 4
@@ -182,7 +181,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
   weightedCapacity?: number;
   /**
    * @remarks
-   * The zone ID of the ECS instances.
+   * The zone ID of the ECS instance.
    * 
    * @example
    * cn-hangzhou-g
@@ -201,6 +200,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
       lifecycleState: 'LifecycleState',
       loadBalancerWeight: 'LoadBalancerWeight',
       privateIpAddress: 'PrivateIpAddress',
+      replaceStatus: 'ReplaceStatus',
       scalingActivityId: 'ScalingActivityId',
       scalingConfigurationId: 'ScalingConfigurationId',
       scalingGroupId: 'ScalingGroupId',
@@ -225,6 +225,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
       lifecycleState: 'string',
       loadBalancerWeight: 'number',
       privateIpAddress: 'string',
+      replaceStatus: 'string',
       scalingActivityId: 'string',
       scalingConfigurationId: 'string',
       scalingGroupId: 'string',
@@ -248,7 +249,7 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $dara.
 export class DescribeScalingInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -267,17 +268,17 @@ export class DescribeScalingInstancesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * B13527BF-1FBD-4334-A512-20F5E9D3FB4D
+   * B13527BF-1FBD-4334-A512-20F5E9D3****
    */
   requestId?: string;
   /**
    * @remarks
-   * The ECS instances.
+   * The collection of ECS instance information.
    */
   scalingInstances?: DescribeScalingInstancesResponseBodyScalingInstances[];
   /**
    * @remarks
-   * The total number of ECS instances in the scaling group.
+   * The total number of ECS instances.
    * 
    * @example
    * 1
@@ -285,7 +286,7 @@ export class DescribeScalingInstancesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of preemptible instances that run as expected in the scaling group.
+   * The total number of running spot instances in the current scaling group.
    * 
    * @example
    * 4

@@ -8,7 +8,7 @@ export class DescribeScalingGroupDetailRequest extends $dara.Model {
    * The output format. Set the value to yaml.
    * 
    * @example
-   * yaml
+   * YAML
    */
   outputFormat?: string;
   ownerId?: number;

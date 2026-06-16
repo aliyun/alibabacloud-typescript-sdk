@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RemoveInstancesResponseBodyIgnoredInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The error code that indicates the reason why the instance was not removed.
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the instance that was not removed.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The error message that indicates the reason why the instance was not removed.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,13 +44,17 @@ export class RemoveInstancesResponseBodyIgnoredInstances extends $dara.Model {
 }
 
 export class RemoveInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instances that were not removed and the reasons why they were not removed.
+   */
   ignoredInstances?: RemoveInstancesResponseBodyIgnoredInstances[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
   /**

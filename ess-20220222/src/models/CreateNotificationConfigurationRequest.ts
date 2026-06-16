@@ -4,6 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNotificationConfigurationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The codec for the content of message notifications. Valid values:
+   * 
+   * - PlainText: No encoding; messages are transmitted in plaintext.
+   * - Base64: Messages are encoded in Base64.
+   * 
+   * Default value: Base64.
+   * > This parameter applies only to MNS notification objects.
+   * 
    * @example
    * PlainText
    */

@@ -44,6 +44,17 @@ export class CreateScalingRuleRequestAlarmDimensions extends $dara.Model {
 
 export class CreateScalingRuleRequestAlarmOptions extends $dara.Model {
   /**
+   * @remarks
+   * The period for aggregating monitoring metric data in a target tracking rule, in seconds. Valid values:
+   * 
+   * - 15
+   * - 60
+   * - 120
+   * - 300
+   * - 900
+   * 
+   * > Default Value: 60.
+   * 
    * @example
    * 60
    */
@@ -265,6 +276,10 @@ export class CreateScalingRuleRequest extends $dara.Model {
    * The metric dimensions. This parameter is applicable to target tracking scaling rules. If your predefined metric requires extra dimensions, you must specify this parameter. For example, if you use LoadBalancerRealServerAverageQps as your predefined metric, you must use this parameter to specify the rulePool dimension.
    */
   alarmDimensions?: CreateScalingRuleRequestAlarmDimensions[];
+  /**
+   * @remarks
+   * Definition of alerting properties.
+   */
   alarmOptions?: CreateScalingRuleRequestAlarmOptions;
   /**
    * @remarks

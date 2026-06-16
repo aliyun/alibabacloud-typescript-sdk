@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNotificationConfigurationsResponseBodyNotificationConfigurationModels extends $dara.Model {
   /**
+   * @remarks
+   * The codec of the notification message content.
+   * 
    * @example
    * PlainText
    */

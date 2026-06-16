@@ -1930,7 +1930,7 @@ export class ModifyEciScalingConfigurationRequestVolumesNFSVolume extends $dara.
    * The endpoint of the NFS server.
    * 
    * @example
-   * 3f9cd4a596-naw76.cn-shanghai.nas.aliyuncs.com
+   * 3f9cd4a596-n****.cn-shanghai.nas.aliyuncs.com
    */
   server?: string;
   static names(): { [key: string]: string } {

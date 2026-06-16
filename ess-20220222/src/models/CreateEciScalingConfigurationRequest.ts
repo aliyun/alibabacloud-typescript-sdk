@@ -1155,7 +1155,7 @@ export class CreateEciScalingConfigurationRequestImageRegistryCredentials extend
    * The password of the image repository.
    * 
    * @example
-   * yourpaasword
+   * yourpassword
    */
   password?: string;
   /**
@@ -2095,7 +2095,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
    * If you want to use an ordered instance name, specify the value for this parameter in the following format: name_prefix[begin_number,bits]name_suffix.
    * 
    * @example
-   * nginx-test
+   * nginx-test-(AUTO_INCREMENT)[0,3]
    */
   containerGroupName?: string;
   /**
@@ -2442,7 +2442,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
    * Default value: NoSpot.
    * 
    * @example
-   * SpotPriceLimit
+   * SpotWithPriceLimit
    */
   spotStrategy?: string;
   /**
