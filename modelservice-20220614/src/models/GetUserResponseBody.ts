@@ -35,6 +35,7 @@ export class GetUserResponseBody extends $dara.Model {
   apiKeys?: GetUserResponseBodyApiKeys[];
   appId?: string;
   code?: string;
+  dashscopeHost?: string;
   host?: string;
   innerToken?: string;
   message?: string;
@@ -46,6 +47,7 @@ export class GetUserResponseBody extends $dara.Model {
       apiKeys: 'ApiKeys',
       appId: 'AppId',
       code: 'Code',
+      dashscopeHost: 'DashscopeHost',
       host: 'Host',
       innerToken: 'InnerToken',
       message: 'Message',
@@ -60,6 +62,7 @@ export class GetUserResponseBody extends $dara.Model {
       apiKeys: { 'type': 'array', 'itemType': GetUserResponseBodyApiKeys },
       appId: 'string',
       code: 'string',
+      dashscopeHost: 'string',
       host: 'string',
       innerToken: 'string',
       message: 'string',
