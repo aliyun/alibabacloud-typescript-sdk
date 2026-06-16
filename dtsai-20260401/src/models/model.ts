@@ -1,0 +1,17 @@
+export { WebSearchResponseBodySearchResult } from './WebSearchResponseBody';
+export { CreateDocParserJobRequest } from './CreateDocParserJobRequest';
+export { CreateDocParserJobAdvanceRequest } from './CreateDocParserJobAdvanceRequest';
+export { CreateDocParserJobResponseBody } from './CreateDocParserJobResponseBody';
+export { CreateDocParserJobResponse } from './CreateDocParserJobResponse';
+export { DescribeDocParserJobResultRequest } from './DescribeDocParserJobResultRequest';
+export { DescribeDocParserJobResultResponseBody } from './DescribeDocParserJobResultResponseBody';
+export { DescribeDocParserJobResultResponse } from './DescribeDocParserJobResultResponse';
+export { DescribeDocParserJobStatusRequest } from './DescribeDocParserJobStatusRequest';
+export { DescribeDocParserJobStatusResponseBody } from './DescribeDocParserJobStatusResponseBody';
+export { DescribeDocParserJobStatusResponse } from './DescribeDocParserJobStatusResponse';
+export { WebFetchRequest } from './WebFetchRequest';
+export { WebFetchResponseBody } from './WebFetchResponseBody';
+export { WebFetchResponse } from './WebFetchResponse';
+export { WebSearchRequest } from './WebSearchRequest';
+export { WebSearchResponseBody } from './WebSearchResponseBody';
+export { WebSearchResponse } from './WebSearchResponse';
