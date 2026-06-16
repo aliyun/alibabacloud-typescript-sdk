@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDatasetResourceUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID. You can view this in the dataset list on the console.
+   * 
    * @example
    * 730
    */
   datasetId?: string;
   /**
    * @remarks
+   * The primary key value of the data record in the dataset.
+   * 
    * This parameter is required.
    * 
    * @example

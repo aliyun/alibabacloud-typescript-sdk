@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportDatasetDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The business status code. A value of 200 indicates a successful request. Other values indicate exceptions. For more information, see error codes.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response data body, which uses an empty placeholder.
+   * 
    * @example
    * []
    */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The status description.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique request ID, used for troubleshooting.
+   * 
    * @example
    * 1a0f40dd17774641794394269ec0e9
    */

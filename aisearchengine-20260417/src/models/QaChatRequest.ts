@@ -4,30 +4,56 @@ import * as $dara from '@darabonba/typescript';
 
 export class QaChatRequestMessageParts extends $dara.Model {
   /**
+   * @remarks
+   * Required when type = "data". The data object structure is as follows:
+   * 
+   * - type: String type, required, indicates the data subtype. Currently supported value is "template", indicating a video template.
+   * - videoId: String type, conditionally required. Only required when type = "template", indicating the video template ID; can be ignored or set to null for other types.
+   * 
    * @example
    * {
-   *   "templateId": "456789"
+   *   "type": "template",
+   *   "videoId": "xxxx"
    * }
    */
   data?: any;
   /**
+   * @remarks
+   * Required when `type="file"`.
+   * 
+   * * Media type, currently only supports image formats JPG/PNG/WEBP/JPEG, maximum 5
+   * 
    * @example
    * image/png
    */
   mediaType?: string;
   /**
+   * @remarks
+   * Required when `type="text"`.
+   * 
+   * * Text content, maximum 1024 characters
+   * 
    * @example
-   * 帮我搜索下今天的天气
+   * 请问这个视频讲了什么？
    */
   text?: string;
   /**
+   * @remarks
+   * Fixed content block type, only supports `"text"` / `"file"` / `"data"`
+   * 
    * @example
    * text
    */
   type?: string;
   /**
+   * @remarks
+   * Required when `type="file"`. Supports the following two types, with format support for JPG/PNG/WEBP/JPEG:
+   * 
+   * • Media resource CDN URL, currently supports images, maximum 5;
+   * • Image encoding, upload image files using base64 encoded strings (supports bitmap formats), maximum 5
+   * 
    * @example
-   * https://meeting.dingtalk.com/j/4sSPAxWaPbM
+   * https://example.com/img.jpg
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -60,8 +86,15 @@ export class QaChatRequestMessageParts extends $dara.Model {
 }
 
 export class QaChatRequestMessage extends $dara.Model {
+  /**
+   * @remarks
+   * Individual content block, differentiated by `type`
+   */
   parts?: QaChatRequestMessageParts[];
   /**
+   * @remarks
+   * Message role, currently only supports the `"user"` role
+   * 
    * @example
    * user
    */
@@ -95,18 +128,25 @@ export class QaChatRequestMessage extends $dara.Model {
 export class QaChatRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID
+   * 
    * This parameter is required.
    * 
    * @example
-   * 2047140750220754946
+   * 2052929167853146113
    */
   appId?: string;
   /**
    * @remarks
+   * User message object containing role and multimodal content.
+   * 
    * This parameter is required.
    */
   message?: QaChatRequestMessage;
   /**
+   * @remarks
+   * No input required
+   * 
    * @example
    * {
    *   "debug": true
@@ -114,8 +154,11 @@ export class QaChatRequest extends $dara.Model {
    */
   options?: { [key: string]: any };
   /**
+   * @remarks
+   * Q&A session ID, used to track multiple Q&A interactions from the same user.
+   * 
    * @example
-   * b2a979e79799489fbde56119bf8c4dc7
+   * req_123456789
    */
   sessionId?: string;
   static names(): { [key: string]: string } {

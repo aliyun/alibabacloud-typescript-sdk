@@ -6,26 +6,41 @@ import * as $dara from '@darabonba/typescript';
  */
 export class EngineSearchRequestQuery extends $dara.Model {
   /**
+   * @remarks
+   * The list of primary key IDs to exclude.<br>• Purpose: filters out previously viewed history records.
+   * 
    * @example
    * ["24234111","12423525"]
    */
   excludeIds?: string[];
   /**
+   * @remarks
+   * The image query list.<br>• Only one image URL is supported. The maximum size of a single image is 10 MB. Supported formats: JPG, PNG, WEBP, and JPEG.
+   * 
    * @example
    * ["https://paperreview.oss-cn-hangzhou.aliyuncs.com/59dd424f-97ed-4855-942e-c961f1f5b67e.jpeg"]
    */
   imageUrls?: string[];
   /**
+   * @remarks
+   * The page number, starting from 1.<br>• Default value: `1`.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of results returned per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The text query list.<br>• Only one text string is supported. The maximum length is 256 characters.
+   * 
    * @example
    * ["梅花图片"]
    */
@@ -68,44 +83,13 @@ export class EngineSearchRequestQuery extends $dara.Model {
   }
 }
 
-export class EngineSearchRequestRecall extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
-  closeRecallAsr?: boolean;
-  /**
-   * @example
-   * true
-   */
-  needMergeSegments?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      closeRecallAsr: 'closeRecallAsr',
-      needMergeSegments: 'needMergeSegments',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      closeRecallAsr: 'boolean',
-      needMergeSegments: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EngineSearchRequestUser extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the user.
+   * 
    * @example
-   * "123456"
+   * asdfgnoevnor
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -132,49 +116,49 @@ export class EngineSearchRequestUser extends $dara.Model {
 export class EngineSearchRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the application.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 507218
+   * 2048962366415007746
    */
   appId?: string;
   /**
+   * @remarks
+   * Specifies whether to access the draft version.
+   * 
    * @example
    * false
    */
   grey?: boolean;
   /**
    * @remarks
+   * The query condition object.
+   * 
    * This parameter is required.
    */
   query?: EngineSearchRequestQuery;
-  recall?: EngineSearchRequestRecall;
   /**
+   * @remarks
+   * This parameter does not need to be specified.
+   * 
    * @example
    * 2e95ef4fbc28437db5008a910bd392a4
    */
   sessionId?: string;
   /**
-   * @example
-   * 507218
+   * @remarks
+   * The user information object, used for subsequent user-perspective analysis.
    */
-  strategyId?: string;
   user?: EngineSearchRequestUser;
-  /**
-   * @example
-   * 默认1.0
-   */
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'appId',
       grey: 'grey',
       query: 'query',
-      recall: 'recall',
       sessionId: 'sessionId',
-      strategyId: 'strategyId',
       user: 'user',
-      version: 'version',
     };
   }
 
@@ -183,20 +167,14 @@ export class EngineSearchRequest extends $dara.Model {
       appId: 'string',
       grey: 'boolean',
       query: EngineSearchRequestQuery,
-      recall: EngineSearchRequestRecall,
       sessionId: 'string',
-      strategyId: 'string',
       user: EngineSearchRequestUser,
-      version: 'string',
     };
   }
 
   validate() {
     if(this.query && typeof (this.query as any).validate === 'function') {
       (this.query as any).validate();
-    }
-    if(this.recall && typeof (this.recall as any).validate === 'function') {
-      (this.recall as any).validate();
     }
     if(this.user && typeof (this.user as any).validate === 'function') {
       (this.user as any).validate();
