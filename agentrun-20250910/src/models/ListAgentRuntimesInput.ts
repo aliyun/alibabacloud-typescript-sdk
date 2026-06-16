@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentRuntimesInput extends $dara.Model {
   /**
    * @remarks
-   * 按名称过滤
+   * Filters the results by agent runtime name.
    * 
    * @example
    * my-agent-runtime
@@ -13,7 +13,7 @@ export class ListAgentRuntimesInput extends $dara.Model {
   agentRuntimeName?: string;
   /**
    * @remarks
-   * 页码
+   * The page number for pagination.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAgentRuntimesInput extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The maximum number of results to return per page.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ListAgentRuntimesInput extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 按状态过滤
+   * Filters the results by status.
    * 
    * @example
    * READY,CREATING

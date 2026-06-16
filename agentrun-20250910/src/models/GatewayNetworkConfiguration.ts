@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GatewayNetworkConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * Network mode
+   */
   networkMode?: string;
+  /**
+   * @remarks
+   * Virtual private cloud (VPC) ID
+   */
   vpcId?: string;
   vswitchIds?: string[];
   static names(): { [key: string]: string } {

@@ -13,6 +13,9 @@ import { ProtocolConfiguration } from "./ProtocolConfiguration";
 
 export class UpdateAgentRuntimeInput extends $dara.Model {
   /**
+   * @remarks
+   * The name of the agent runtime.
+   * 
    * @example
    * my-agent-runtime
    */
@@ -26,13 +29,16 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
    */
   armsConfiguration?: ArmsConfiguration;
   /**
+   * @remarks
+   * The artifact type.
+   * 
    * @example
    * Code
    */
   artifactType?: string;
   /**
    * @remarks
-   * 当artifactType为Code时的代码配置信息，包括代码源、入口文件等
+   * The code configuration.
    * 
    * @example
    * {}
@@ -40,7 +46,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   codeConfiguration?: CodeConfiguration;
   /**
    * @remarks
-   * 当artifactType为Container时的容器配置信息，包括镜像地址、启动命令等
+   * The container configuration.
    * 
    * @example
    * {}
@@ -48,6 +54,8 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   containerConfiguration?: ContainerConfiguration;
   /**
    * @remarks
+   * The number of CPU cores.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,30 +64,45 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
+   * The name of the credential that the agent runtime uses to authenticate requests.
    * 
    * @example
    * my-credential
    */
   credentialName?: string;
   /**
+   * @remarks
+   * The description of the agent runtime.
+   * 
    * @example
    * 更新后的智能体运行时描述
    */
   description?: string;
   /**
    * @remarks
-   * 是否禁用会话亲和性。默认为 false（即默认启用会话亲和），设置为 true 时关闭会话亲和
+   * Specifies whether to disable on-demand elasticity. Set to true to disable. Default: false.
+   * 
+   * @example
+   * false
+   */
+  disableOndemand?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to disable session affinity. Set to true to disable. Default: false.
    * 
    * @example
    * false
    */
   disableSessionAffinity?: boolean;
+  /**
+   * @remarks
+   * The disk size in gigabytes (GB).
+   */
   diskSize?: number;
   edition?: string;
   /**
    * @remarks
-   * 是否启用会话隔离，启用后每个会话将在独立的环境中运行
+   * Specifies whether to enable session isolation. If enabled, each session runs in an isolated environment.
    * 
    * @example
    * false
@@ -87,7 +110,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   enableSessionIsolation?: boolean;
   /**
    * @remarks
-   * 智能体运行时的环境变量配置，用于在运行时传递配置参数
+   * Environment variables for the agent runtime.
    * 
    * @example
    * ENV_VAR1=value1,ENV_VAR2=value2
@@ -95,7 +118,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * 为智能体运行时提供访问云服务权限的执行角色ARN
+   * The execution role ARN that grants the agent runtime permissions to access cloud services.
    * 
    * @example
    * acs:ram::1760720386195983:role/AgentRunExecutionRole
@@ -103,7 +126,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   executionRoleArn?: string;
   /**
    * @remarks
-   * 外部注册类型的智能体访问端点地址，用于连接已部署在外部的智能体服务
+   * The endpoint URL for an externally registered agent. The platform uses this URL to connect to an agent service deployed outside the platform.
    * 
    * @example
    * https://external-agent.example.com/api
@@ -111,7 +134,23 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   externalAgentEndpointUrl?: string;
   /**
    * @remarks
-   * 智能体运行时的健康检查配置，用于监控运行时实例的健康状态
+   * Specifies whether to perform a best-effort eviction of active Function Compute (FC) sessions when the configuration is updated. This helps the new settings take effect faster.
+   * 
+   * @example
+   * true
+   */
+  forceEvictInstances?: boolean;
+  /**
+   * @remarks
+   * The name of the request header used for session affinity when sessionAffinityType is set to "HEADER_FIELD".
+   * 
+   * @example
+   * x-agentrun-session-id
+   */
+  headerFieldName?: string;
+  /**
+   * @remarks
+   * The health check configuration for monitoring the health of agent runtime instances.
    * 
    * @example
    * {}
@@ -119,20 +158,23 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   healthCheckConfiguration?: HealthCheckConfiguration;
   /**
    * @remarks
-   * SLS（简单日志服务）配置
+   * The configuration for Simple Log Service (SLS).
    * 
    * @example
    * {}
    */
   logConfiguration?: LogConfiguration;
   /**
+   * @remarks
+   * The amount of memory in megabytes (MB).
+   * 
    * @example
    * 1024
    */
   memory?: number;
   /**
    * @remarks
-   * 文件存储NAS的配置信息，用于挂载NAS文件系统到智能体运行时
+   * Configuration for mounting a NAS file system to the agent runtime.
    * 
    * @example
    * {}
@@ -140,7 +182,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   nasConfig?: NASConfig;
   /**
    * @remarks
-   * 智能体运行时的网络配置，包括VPC、安全组等网络访问设置
+   * The network configuration.
    * 
    * @example
    * {}
@@ -148,20 +190,23 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   networkConfiguration?: NetworkConfiguration;
   /**
    * @remarks
-   * 对象存储OSS的挂载配置信息，用于挂载OSS存储桶到智能体运行时
+   * Configuration for mounting an OSS bucket to the agent runtime.
    * 
    * @example
    * {}
    */
   ossMountConfig?: OSSMountConfig;
   /**
+   * @remarks
+   * The port on which the agent service listens.
+   * 
    * @example
    * 8080
    */
   port?: number;
   /**
    * @remarks
-   * 智能体运行时的通信协议配置，定义运行时如何与外部系统交互
+   * The protocol configuration.
    * 
    * @example
    * {}
@@ -169,7 +214,15 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   protocolConfiguration?: ProtocolConfiguration;
   /**
    * @remarks
-   * 每个运行时实例允许的最大并发会话数
+   * The session affinity mode. Valid values: NONE (disables session affinity), HEADER_FIELD (routes requests based on a request header), and GENERATED_COOKIE (routes requests using a cookie generated by Function Compute (FC)). The value COOKIE is an alias for GENERATED_COOKIE.
+   * 
+   * @example
+   * GENERATED_COOKIE
+   */
+  sessionAffinityType?: string;
+  /**
+   * @remarks
+   * The maximum number of concurrent sessions allowed per runtime instance.
    * 
    * @example
    * 100
@@ -177,7 +230,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   sessionConcurrencyLimitPerInstance?: number;
   /**
    * @remarks
-   * 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+   * The idle timeout for a session, in seconds. If an instance remains idle longer than this timeout after receiving no requests, the session expires.
    * 
    * @example
    * 3600
@@ -185,12 +238,16 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   sessionIdleTimeoutSeconds?: number;
   /**
    * @remarks
-   * 智能体运行时的系统标签信息，用于系统级别的资源分类和管理
+   * The system tags for the agent runtime, used for resource classification and management.
    * 
    * @example
    * system-tag-1,system-tag-2
    */
   systemTags?: string[];
+  /**
+   * @remarks
+   * The ID of the workspace.
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -202,6 +259,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       cpu: 'cpu',
       credentialName: 'credentialName',
       description: 'description',
+      disableOndemand: 'disableOndemand',
       disableSessionAffinity: 'disableSessionAffinity',
       diskSize: 'diskSize',
       edition: 'edition',
@@ -209,6 +267,8 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       externalAgentEndpointUrl: 'externalAgentEndpointUrl',
+      forceEvictInstances: 'forceEvictInstances',
+      headerFieldName: 'headerFieldName',
       healthCheckConfiguration: 'healthCheckConfiguration',
       logConfiguration: 'logConfiguration',
       memory: 'memory',
@@ -217,6 +277,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       ossMountConfig: 'ossMountConfig',
       port: 'port',
       protocolConfiguration: 'protocolConfiguration',
+      sessionAffinityType: 'sessionAffinityType',
       sessionConcurrencyLimitPerInstance: 'sessionConcurrencyLimitPerInstance',
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
       systemTags: 'systemTags',
@@ -234,6 +295,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       cpu: 'number',
       credentialName: 'string',
       description: 'string',
+      disableOndemand: 'boolean',
       disableSessionAffinity: 'boolean',
       diskSize: 'number',
       edition: 'string',
@@ -241,6 +303,8 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       externalAgentEndpointUrl: 'string',
+      forceEvictInstances: 'boolean',
+      headerFieldName: 'string',
       healthCheckConfiguration: HealthCheckConfiguration,
       logConfiguration: LogConfiguration,
       memory: 'number',
@@ -249,6 +313,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       ossMountConfig: OSSMountConfig,
       port: 'number',
       protocolConfiguration: ProtocolConfiguration,
+      sessionAffinityType: 'string',
       sessionConcurrencyLimitPerInstance: 'number',
       sessionIdleTimeoutSeconds: 'number',
       systemTags: { 'type': 'array', 'itemType': 'string' },

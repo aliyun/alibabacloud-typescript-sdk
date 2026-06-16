@@ -6,7 +6,7 @@ import { AgentRuntime } from "./AgentRuntime";
 export class AgentRuntimeResult extends $dara.Model {
   /**
    * @remarks
-   * SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+   * Returns `SUCCESS` if the operation is successful; otherwise, returns an error code such as `ERR_BAD_REQUEST`, `ERR_VALIDATION_FAILED`, or `ERR_INTERNAL_SERVER_ERROR`.
    * 
    * @example
    * SUCCESS
@@ -14,7 +14,7 @@ export class AgentRuntimeResult extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 智能体运行时的详细信息
+   * Detailed information about the agent runtime.
    * 
    * @example
    * {}
@@ -22,7 +22,7 @@ export class AgentRuntimeResult extends $dara.Model {
   data?: AgentRuntime;
   /**
    * @remarks
-   * 唯一的请求标识符，用于问题追踪
+   * A unique request ID for issue tracking.
    * 
    * @example
    * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E

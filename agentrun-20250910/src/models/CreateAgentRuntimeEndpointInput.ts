@@ -6,23 +6,29 @@ import { ScalingConfig } from "./ScalingConfig";
 
 export class CreateAgentRuntimeEndpointInput extends $dara.Model {
   /**
+   * @remarks
+   * The name of the agent runtime endpoint.
+   * 
    * @example
    * production-endpoint
    */
   agentRuntimeEndpointName?: string;
   /**
+   * @remarks
+   * The description of the agent runtime endpoint.
+   * 
    * @example
    * Production endpoint for customer service agent
    */
   description?: string;
   /**
    * @remarks
-   * 是否禁用该端点的公网访问
+   * Specifies whether to disable public network access for the endpoint.
    */
   disablePublicNetworkAccess?: boolean;
   /**
    * @remarks
-   * 智能体运行时端点的路由配置，支持多版本权重分配
+   * The routing configuration for the agent runtime endpoint. This configuration distributes traffic to multiple versions based on weights.
    * 
    * @example
    * {}
@@ -35,7 +41,7 @@ export class CreateAgentRuntimeEndpointInput extends $dara.Model {
   scalingConfig?: ScalingConfig;
   /**
    * @remarks
-   * 智能体运行时的目标版本
+   * The target version of the agent runtime.
    * 
    * @example
    * LATEST

@@ -13,7 +13,7 @@ import { ProtocolConfiguration } from "./ProtocolConfiguration";
 export class AgentRuntime extends $dara.Model {
   /**
    * @remarks
-   * 智能体运行时的全局唯一资源名称
+   * The Alibaba Cloud Resource Name (ARN) of the agent runtime.
    * 
    * @example
    * acs:agentrun:cn-hangzhou:1760720386195983:runtimes/7a1b6d39-9f8f-4ce2-b9c9-6db1b0b9e169
@@ -21,7 +21,7 @@ export class AgentRuntime extends $dara.Model {
   agentRuntimeArn?: string;
   /**
    * @remarks
-   * 智能体运行时的唯一标识符
+   * The unique identifier of the agent runtime.
    * 
    * @example
    * ar-1234567890abcdef
@@ -29,7 +29,7 @@ export class AgentRuntime extends $dara.Model {
   agentRuntimeId?: string;
   /**
    * @remarks
-   * 智能体运行时的名称，用于标识和区分不同的运行时实例
+   * The name of the agent runtime.
    * 
    * @example
    * my-agent-runtime
@@ -37,7 +37,7 @@ export class AgentRuntime extends $dara.Model {
   agentRuntimeName?: string;
   /**
    * @remarks
-   * 智能体运行时的版本号，用于版本管理和回滚
+   * The version number of the agent runtime.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class AgentRuntime extends $dara.Model {
   agentRuntimeVersion?: string;
   /**
    * @remarks
-   * 智能体运行时的部署类型，支持Code（代码模式）和Container（容器模式）
+   * The deployment type of the agent runtime. Valid values: `Code` and `Container`.
    * 
    * @example
    * Code
@@ -53,7 +53,7 @@ export class AgentRuntime extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * 当artifactType为Code时的代码配置信息
+   * The code configuration details. This parameter is applicable when `artifactType` is set to `Code`.
    * 
    * @example
    * {}
@@ -61,7 +61,7 @@ export class AgentRuntime extends $dara.Model {
   codeConfiguration?: CodeConfiguration;
   /**
    * @remarks
-   * 当artifactType为Container时的容器配置信息
+   * The container configuration details. This parameter is applicable when `artifactType` is set to `Container`.
    * 
    * @example
    * {}
@@ -69,7 +69,7 @@ export class AgentRuntime extends $dara.Model {
   containerConfiguration?: ContainerConfiguration;
   /**
    * @remarks
-   * 智能体运行时分配的CPU资源，单位为核数
+   * The amount of CPU allocated to the agent runtime, in vCPUs.
    * 
    * @example
    * 2.0
@@ -77,7 +77,7 @@ export class AgentRuntime extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * 智能体运行时的创建时间，采用ISO 8601格式
+   * The creation time of the agent runtime, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T10:30:00Z
@@ -85,7 +85,7 @@ export class AgentRuntime extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
+   * The name of the credential used to authenticate requests to the agent runtime.
    * 
    * @example
    * my-credential
@@ -93,7 +93,7 @@ export class AgentRuntime extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * 智能体运行时的描述信息，说明该运行时的用途和功能
+   * The description of the agent runtime.
    * 
    * @example
    * AI agent runtime for customer service automation
@@ -101,17 +101,33 @@ export class AgentRuntime extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 是否禁用会话亲和性。默认为 false（即默认启用会话亲和），设置为 true 时关闭会话亲和
+   * Specifies whether to disable on-demand elasticity. Default: `false`.
+   * 
+   * @example
+   * false
+   */
+  disableOndemand?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to disable session affinity. Default: `false`.
    * 
    * @example
    * false
    */
   disableSessionAffinity?: boolean;
+  /**
+   * @remarks
+   * The disk size.
+   */
   diskSize?: number;
+  /**
+   * @remarks
+   * The edition of the agent runtime.
+   */
   edition?: string;
   /**
    * @remarks
-   * 是否启用会话隔离，启用后每个会话将在独立的环境中运行
+   * Specifies whether to enable session isolation. If enabled, each session runs in an isolated environment.
    * 
    * @example
    * false
@@ -119,7 +135,7 @@ export class AgentRuntime extends $dara.Model {
   enableSessionIsolation?: boolean;
   /**
    * @remarks
-   * 智能体运行时的环境变量配置
+   * The environment variables for the agent runtime.
    * 
    * @example
    * ENV_VAR1=value1,ENV_VAR2=value2
@@ -127,7 +143,7 @@ export class AgentRuntime extends $dara.Model {
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * 为智能体运行时提供访问云服务权限的执行角色ARN
+   * The ARN of the execution role that grants the agent runtime permission to access cloud services.
    * 
    * @example
    * acs:ram::1760720386195983:role/AgentRunExecutionRole
@@ -135,7 +151,7 @@ export class AgentRuntime extends $dara.Model {
   executionRoleArn?: string;
   /**
    * @remarks
-   * 外部注册类型的智能体访问端点地址，用于连接已部署在外部的智能体服务
+   * The endpoint URL of an externally deployed agent service.
    * 
    * @example
    * https://external-agent.example.com/api
@@ -143,7 +159,15 @@ export class AgentRuntime extends $dara.Model {
   externalAgentEndpointUrl?: string;
   /**
    * @remarks
-   * 智能体运行时的健康检查配置，用于监控运行时实例的健康状态
+   * The name of the request header used for session affinity when `sessionAffinityType` is `HEADER_FIELD`.
+   * 
+   * @example
+   * x-agentrun-session-id
+   */
+  headerFieldName?: string;
+  /**
+   * @remarks
+   * The health check configuration.
    * 
    * @example
    * {}
@@ -151,7 +175,7 @@ export class AgentRuntime extends $dara.Model {
   healthCheckConfiguration?: HealthCheckConfiguration;
   /**
    * @remarks
-   * 智能体运行时最后一次更新的时间，采用ISO 8601格式
+   * The last update time of the agent runtime, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T11:45:00Z
@@ -159,7 +183,7 @@ export class AgentRuntime extends $dara.Model {
   lastUpdatedAt?: string;
   /**
    * @remarks
-   * SLS（简单日志服务）配置
+   * The Log Service configuration.
    * 
    * @example
    * {}
@@ -167,7 +191,7 @@ export class AgentRuntime extends $dara.Model {
   logConfiguration?: LogConfiguration;
   /**
    * @remarks
-   * 智能体运行时分配的内存资源，单位为MB
+   * The amount of memory allocated to the agent runtime, in MB.
    * 
    * @example
    * 2048
@@ -175,7 +199,7 @@ export class AgentRuntime extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * 文件存储NAS的配置信息，用于挂载NAS文件系统到智能体运行时
+   * The NAS file system configuration.
    * 
    * @example
    * {}
@@ -183,7 +207,7 @@ export class AgentRuntime extends $dara.Model {
   nasConfig?: NASConfig;
   /**
    * @remarks
-   * 智能体运行时的网络配置信息
+   * The network configuration of the agent runtime.
    * 
    * @example
    * {}
@@ -191,7 +215,7 @@ export class AgentRuntime extends $dara.Model {
   networkConfiguration?: NetworkConfiguration;
   /**
    * @remarks
-   * 对象存储OSS的挂载配置信息，用于挂载OSS存储桶到智能体运行时
+   * The OSS bucket mount configuration.
    * 
    * @example
    * {}
@@ -199,7 +223,7 @@ export class AgentRuntime extends $dara.Model {
   ossMountConfig?: OSSMountConfig;
   /**
    * @remarks
-   * 智能体运行时监听的端口号
+   * The port on which the agent runtime listens.
    * 
    * @example
    * 8080
@@ -207,19 +231,30 @@ export class AgentRuntime extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * 智能体运行时的通信协议配置
+   * The communication protocol configuration for the agent runtime.
    * 
    * @example
    * {}
    */
   protocolConfiguration?: ProtocolConfiguration;
   /**
+   * @remarks
+   * The ID of the resource group to which the agent runtime belongs.
+   * 
    * @deprecated
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * 每个运行时实例允许的最大并发会话数
+   * The session affinity mode. Valid values: `NONE`, `HEADER_FIELD`, and `GENERATED_COOKIE`. `COOKIE` is a compatibility alias for `GENERATED_COOKIE`.
+   * 
+   * @example
+   * GENERATED_COOKIE
+   */
+  sessionAffinityType?: string;
+  /**
+   * @remarks
+   * The maximum number of concurrent sessions allowed per runtime instance.
    * 
    * @example
    * 100
@@ -227,7 +262,7 @@ export class AgentRuntime extends $dara.Model {
   sessionConcurrencyLimitPerInstance?: number;
   /**
    * @remarks
-   * 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+   * The idle timeout period for a session, in seconds. After this period of inactivity, the session expires and can no longer be used.
    * 
    * @example
    * 3600
@@ -235,7 +270,7 @@ export class AgentRuntime extends $dara.Model {
   sessionIdleTimeoutSeconds?: number;
   /**
    * @remarks
-   * 智能体运行时的当前状态，如READY（就绪）、CREATING（创建中）、FAILED（失败）等
+   * The current status of the agent runtime. Possible values: `READY`, `CREATING`, and `FAILED`.
    * 
    * @example
    * READY
@@ -243,7 +278,7 @@ export class AgentRuntime extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 当前状态的原因说明（如适用）
+   * The reason for the current status.
    * 
    * @example
    * Runtime is ready for use
@@ -251,7 +286,7 @@ export class AgentRuntime extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * 智能体运行时的系统标签信息，用于系统级别的资源分类和管理
+   * The system tags for the agent runtime.
    * 
    * @example
    * system-tag-1,system-tag-2
@@ -259,7 +294,7 @@ export class AgentRuntime extends $dara.Model {
   systemTags?: string[];
   /**
    * @remarks
-   * 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
+   * The ID of the workspace for the agent runtime.
    * 
    * @example
    * ws-1234567890abcdef
@@ -278,6 +313,7 @@ export class AgentRuntime extends $dara.Model {
       createdAt: 'createdAt',
       credentialName: 'credentialName',
       description: 'description',
+      disableOndemand: 'disableOndemand',
       disableSessionAffinity: 'disableSessionAffinity',
       diskSize: 'diskSize',
       edition: 'edition',
@@ -285,6 +321,7 @@ export class AgentRuntime extends $dara.Model {
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       externalAgentEndpointUrl: 'externalAgentEndpointUrl',
+      headerFieldName: 'headerFieldName',
       healthCheckConfiguration: 'healthCheckConfiguration',
       lastUpdatedAt: 'lastUpdatedAt',
       logConfiguration: 'logConfiguration',
@@ -295,6 +332,7 @@ export class AgentRuntime extends $dara.Model {
       port: 'port',
       protocolConfiguration: 'protocolConfiguration',
       resourceGroupId: 'resourceGroupId',
+      sessionAffinityType: 'sessionAffinityType',
       sessionConcurrencyLimitPerInstance: 'sessionConcurrencyLimitPerInstance',
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
       status: 'status',
@@ -317,6 +355,7 @@ export class AgentRuntime extends $dara.Model {
       createdAt: 'string',
       credentialName: 'string',
       description: 'string',
+      disableOndemand: 'boolean',
       disableSessionAffinity: 'boolean',
       diskSize: 'number',
       edition: 'string',
@@ -324,6 +363,7 @@ export class AgentRuntime extends $dara.Model {
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       externalAgentEndpointUrl: 'string',
+      headerFieldName: 'string',
       healthCheckConfiguration: HealthCheckConfiguration,
       lastUpdatedAt: 'string',
       logConfiguration: LogConfiguration,
@@ -334,6 +374,7 @@ export class AgentRuntime extends $dara.Model {
       port: 'number',
       protocolConfiguration: ProtocolConfiguration,
       resourceGroupId: 'string',
+      sessionAffinityType: 'string',
       sessionConcurrencyLimitPerInstance: 'number',
       sessionIdleTimeoutSeconds: 'number',
       status: 'string',

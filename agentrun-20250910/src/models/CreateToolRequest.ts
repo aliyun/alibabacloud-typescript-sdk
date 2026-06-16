@@ -6,7 +6,7 @@ import { CreateToolInputV2 } from "./CreateToolInputV2";
 export class CreateToolRequest extends $dara.Model {
   /**
    * @remarks
-   * 创建工具的请求参数，包含工具的所有配置信息
+   * The request body.
    */
   body?: CreateToolInputV2;
   static names(): { [key: string]: string } {

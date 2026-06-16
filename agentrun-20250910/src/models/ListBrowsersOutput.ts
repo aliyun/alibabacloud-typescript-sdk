@@ -4,9 +4,25 @@ import { Browser } from "./Browser";
 
 
 export class ListBrowsersOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Browser list
+   */
   items?: Browser[];
+  /**
+   * @remarks
+   * Page number
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Total count
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

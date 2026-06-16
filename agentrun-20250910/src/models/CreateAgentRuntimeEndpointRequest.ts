@@ -6,7 +6,7 @@ import { CreateAgentRuntimeEndpointInput } from "./CreateAgentRuntimeEndpointInp
 export class CreateAgentRuntimeEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * 包含要创建的智能体运行时端点配置信息的请求体
+   * Create agent runtime endpoint input
    * 
    * This parameter is required.
    */

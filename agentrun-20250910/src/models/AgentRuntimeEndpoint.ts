@@ -6,38 +6,53 @@ import { ScalingStatus } from "./ScalingStatus";
 
 export class AgentRuntimeEndpoint extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the agent runtime endpoint.
+   * 
    * @example
    * acs:agentrun:cn-hangzhou:1760720386195983:runtime-endpoints/e56d483c-db80-4116-9ec4-25f16f5facfd
    */
   agentRuntimeEndpointArn?: string;
   /**
+   * @remarks
+   * The unique identifier of the agent runtime endpoint.
+   * 
    * @example
    * are-1234567890abcdef
    */
   agentRuntimeEndpointId?: string;
   /**
+   * @remarks
+   * The name of the agent runtime endpoint.
+   * 
    * @example
    * production-endpoint
    */
   agentRuntimeEndpointName?: string;
   /**
+   * @remarks
+   * The unique identifier of the agent runtime.
+   * 
    * @example
    * ar-1234567890abcdef
    */
   agentRuntimeId?: string;
   /**
+   * @remarks
+   * The description of the agent runtime endpoint.
+   * 
    * @example
    * Production endpoint for customer service agent
    */
   description?: string;
   /**
    * @remarks
-   * 是否禁用该端点的公网访问
+   * If `true`, public access for this endpoint is disabled.
    */
   disablePublicNetworkAccess?: boolean;
   /**
    * @remarks
-   * 智能体运行时端点的公网访问地址
+   * The public access address for the agent runtime endpoint.
    * 
    * @example
    * https://ar-1234567890abcdef.cn-hangzhou.agentrun.aliyuncs.com
@@ -45,7 +60,7 @@ export class AgentRuntimeEndpoint extends $dara.Model {
   endpointPublicUrl?: string;
   /**
    * @remarks
-   * 智能体运行时端点的路由配置，支持多版本权重分配
+   * The configuration for weight-based routing across multiple agent versions.
    */
   routingConfiguration?: RoutingConfiguration;
   /**
@@ -54,16 +69,25 @@ export class AgentRuntimeEndpoint extends $dara.Model {
    */
   scalingStatus?: ScalingStatus;
   /**
+   * @remarks
+   * The current status of the agent runtime endpoint.
+   * 
    * @example
    * ACTIVE
    */
   status?: string;
   /**
+   * @remarks
+   * The reason for the current status of the endpoint.
+   * 
    * @example
    * Endpoint is active and ready
    */
   statusReason?: string;
   /**
+   * @remarks
+   * The agent version that the endpoint targets.
+   * 
    * @example
    * LATEST
    */

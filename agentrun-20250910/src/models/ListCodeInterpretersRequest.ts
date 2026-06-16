@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCodeInterpretersRequest extends $dara.Model {
   /**
    * @remarks
-   * 根据代码解释器实例名称进行模糊匹配过滤
+   * Filter by code interpreter name
    * 
    * @example
    * code
@@ -13,7 +13,7 @@ export class ListCodeInterpretersRequest extends $dara.Model {
   codeInterpreterName?: string;
   /**
    * @remarks
-   * 当前页码，从1开始计数
+   * Page number
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListCodeInterpretersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页返回的记录数量
+   * Page size
    * 
    * @example
    * 10

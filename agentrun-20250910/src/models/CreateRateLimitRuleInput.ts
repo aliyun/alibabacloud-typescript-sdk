@@ -6,7 +6,7 @@ import { WindowLimit } from "./WindowLimit";
 export class CreateRateLimitRuleInput extends $dara.Model {
   /**
    * @remarks
-   * 限流规则的描述符标识；非model维时必填，model维由服务端拼接
+   * The descriptor ID for the rate limit rule. This parameter is required if the descriptor type is not `model`. For `model` types, the server assembles the ID.
    * 
    * @example
    * model:gpt-4
@@ -14,7 +14,7 @@ export class CreateRateLimitRuleInput extends $dara.Model {
   descriptorId?: string;
   /**
    * @remarks
-   * 限流规则的描述符类型，如model、user等
+   * The descriptor type for the rate limit rule, such as `model` or `user`.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class CreateRateLimitRuleInput extends $dara.Model {
   descriptorType?: string;
   /**
    * @remarks
-   * 是否启用该限流规则
+   * Whether to enable the rate limit rule.
    * 
    * @example
    * true
@@ -32,7 +32,7 @@ export class CreateRateLimitRuleInput extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 限流时间窗口配置列表，至少需要一个窗口
+   * A list of time window configurations. At least one window is required.
    * 
    * This parameter is required.
    */

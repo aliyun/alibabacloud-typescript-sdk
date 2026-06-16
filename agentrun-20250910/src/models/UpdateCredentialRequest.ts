@@ -4,6 +4,10 @@ import { UpdateCredentialInput } from "./UpdateCredentialInput";
 
 
 export class UpdateCredentialRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The new configuration for the credential.
+   */
   body?: UpdateCredentialInput;
   static names(): { [key: string]: string } {
     return {

@@ -6,6 +6,8 @@ import { UpdateIMBotInput } from "./UpdateImbotInput";
 export class UpdateIMBotRequest extends $dara.Model {
   /**
    * @remarks
+   * Contains the configuration details to update for the IM bot.
+   * 
    * This parameter is required.
    */
   body?: UpdateIMBotInput;

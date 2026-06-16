@@ -4,6 +4,10 @@ import { CreateWorkspaceInput } from "./CreateWorkspaceInput";
 
 
 export class CreateWorkspaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: CreateWorkspaceInput;
   static names(): { [key: string]: string } {
     return {

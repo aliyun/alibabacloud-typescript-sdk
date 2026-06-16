@@ -72,7 +72,7 @@ export class ConvertFlowDSLDataConversionPlanIssues extends $dara.Model {
    * 解决建议
    * 
    * @example
-   * Install Toolset \"google\" before using this flow
+   * Install Toolset \\"google\\" before using this flow
    */
   suggestion?: string;
   static names(): { [key: string]: string } {

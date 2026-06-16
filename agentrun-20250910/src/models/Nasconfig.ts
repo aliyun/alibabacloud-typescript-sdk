@@ -5,12 +5,22 @@ import { NASMountConfig } from "./NasmountConfig";
 
 export class NASConfig extends $dara.Model {
   /**
+   * @remarks
+   * The group ID for file system access.
+   * 
    * @example
    * 100
    */
   groupId?: number;
+  /**
+   * @remarks
+   * A list of mount point configurations.
+   */
   mountPoints?: NASMountConfig[];
   /**
+   * @remarks
+   * The user ID for file system access.
+   * 
    * @example
    * 100
    */

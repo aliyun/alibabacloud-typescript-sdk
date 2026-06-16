@@ -6,7 +6,7 @@ import { ModelConnection } from "./ModelConnection";
 export class ModelConnectionResult extends $dara.Model {
   /**
    * @remarks
-   * SUCCESS 为成功，失败情况返回对应错误类型
+   * `SUCCESS` indicates a successful request. On failure, this field returns the error type.
    * 
    * @example
    * SUCCESS
@@ -14,7 +14,7 @@ export class ModelConnectionResult extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 模型连接的详细信息
+   * The resulting model connection object.
    * 
    * @example
    * {}
@@ -22,7 +22,7 @@ export class ModelConnectionResult extends $dara.Model {
   data?: ModelConnection;
   /**
    * @remarks
-   * 唯一的请求标识符，用于问题追踪
+   * The unique request ID used for troubleshooting.
    * 
    * @example
    * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E

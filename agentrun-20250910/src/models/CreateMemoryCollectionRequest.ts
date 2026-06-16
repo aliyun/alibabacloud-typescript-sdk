@@ -4,6 +4,10 @@ import { CreateMemoryCollectionInput } from "./CreateMemoryCollectionInput";
 
 
 export class CreateMemoryCollectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration settings to create a memory collection.
+   */
   body?: CreateMemoryCollectionInput;
   static names(): { [key: string]: string } {
     return {

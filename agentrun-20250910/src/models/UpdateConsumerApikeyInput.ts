@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConsumerAPIKeyInput extends $dara.Model {
   /**
    * @remarks
-   * 是否启用该密钥
+   * Indicates if the key is active.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class UpdateConsumerAPIKeyInput extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * 更新后的描述信息
+   * A new description for the key.
    * 
    * @example
    * 更新后的密钥描述

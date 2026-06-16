@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowsRequest extends $dara.Model {
   /**
    * @remarks
-   * 根据工作流名称进行模糊匹配过滤
+   * Filter by flow name
    * 
    * @example
    * my-flow
@@ -13,7 +13,7 @@ export class ListFlowsRequest extends $dara.Model {
   flowName?: string;
   /**
    * @remarks
-   * 当前页码，从1开始计数
+   * Page number
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListFlowsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页返回的记录数量
+   * Page size
    * 
    * @example
    * 10
@@ -29,13 +29,16 @@ export class ListFlowsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 根据工作空间ID进行过滤，用于资源隔离和权限管理
+   * Workspace ID
    * 
    * @example
    * ws-1234567890abcdef
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * List of workspace IDs
+   * 
    * @example
    * ws-1234567890abcdef,ws-1234567890bcdefg
    */

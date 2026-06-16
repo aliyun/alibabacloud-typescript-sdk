@@ -4,6 +4,10 @@ import { CreateCustomDomainInput } from "./CreateCustomDomainInput";
 
 
 export class CreateCustomDomainRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body used to create a custom domain.
+   */
   body?: CreateCustomDomainInput;
   static names(): { [key: string]: string } {
     return {

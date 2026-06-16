@@ -6,10 +6,13 @@ import { ProtocolSettings } from "./ProtocolSettings";
 export class ProtocolConfiguration extends $dara.Model {
   /**
    * @remarks
-   * 详细的协议配置信息
+   * Detailed protocol configuration information
    */
   protocolSettings?: ProtocolSettings[];
   /**
+   * @remarks
+   * Protocol Type
+   * 
    * @example
    * HTTP
    * 

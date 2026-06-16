@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ActivateTemplateMCPRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of tools to enable.
+   */
   enabledTools?: string[];
   /**
+   * @remarks
+   * The transport protocol.
+   * 
    * @example
    * streamable-http
    */

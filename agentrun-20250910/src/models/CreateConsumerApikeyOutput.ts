@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerAPIKeyOutput extends $dara.Model {
   /**
    * @remarks
-   * 密钥是否启用
+   * Indicates whether the consumer API key is active.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CreateConsumerAPIKeyOutput extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * 完整的API密钥明文，仅在创建时返回一次，请妥善保存
+   * The complete plaintext API key. This key is returned only upon creation and cannot be retrieved again. Store it securely.
    * 
    * @example
    * sk-xxxxxxxxxxxxxxxxxxxx
@@ -21,7 +21,7 @@ export class CreateConsumerAPIKeyOutput extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * 消费者API密钥的唯一标识符
+   * The unique identifier of the consumer API key.
    * 
    * @example
    * 12345678-1234-1234-1234-123456789abc
@@ -29,7 +29,7 @@ export class CreateConsumerAPIKeyOutput extends $dara.Model {
   consumerApiKeyId?: string;
   /**
    * @remarks
-   * 创建时间，采用ISO 8601格式
+   * The creation time, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T10:30:00Z
@@ -37,7 +37,7 @@ export class CreateConsumerAPIKeyOutput extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 消费者API密钥的描述信息
+   * A description of the consumer API key.
    * 
    * @example
    * 用于生产环境的API密钥
@@ -45,7 +45,7 @@ export class CreateConsumerAPIKeyOutput extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 更新时间，采用ISO 8601格式
+   * The last update time, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T10:30:00Z
@@ -53,7 +53,7 @@ export class CreateConsumerAPIKeyOutput extends $dara.Model {
   lastUpdatedAt?: string;
   /**
    * @remarks
-   * API密钥的掩码展示形式
+   * A masked version of the API key for display purposes.
    * 
    * @example
    * sk-****1234
@@ -61,7 +61,7 @@ export class CreateConsumerAPIKeyOutput extends $dara.Model {
   maskedKey?: string;
   /**
    * @remarks
-   * 关联的模型连接标识符
+   * The associated model connection identifier.
    * 
    * @example
    * mc-1234567890abcdef

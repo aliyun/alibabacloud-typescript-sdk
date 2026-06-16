@@ -6,6 +6,8 @@ import { NetworkConfiguration } from "./NetworkConfiguration";
 export class CreateBrowserInput extends $dara.Model {
   /**
    * @remarks
+   * The name of the browser.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,7 +16,7 @@ export class CreateBrowserInput extends $dara.Model {
   browserName?: string;
   /**
    * @remarks
-   * CPU资源配置（单位：核）
+   * The CPU cores to allocate to the browser instance.
    * 
    * This parameter is required.
    * 
@@ -23,23 +25,32 @@ export class CreateBrowserInput extends $dara.Model {
    */
   cpu?: number;
   /**
+   * @remarks
+   * The credential ID used for authentication.
+   * 
    * @example
    * cred-1234567890abcdef
    */
   credentialId?: string;
   /**
+   * @remarks
+   * A description of the browser instance.
+   * 
    * @example
    * Web automation browser for testing
    */
   description?: string;
   /**
+   * @remarks
+   * The ARN of the execution role.
+   * 
    * @example
    * acs:ram::1760720386195983:role/BrowserExecutionRole
    */
   executionRoleArn?: string;
   /**
    * @remarks
-   * 内存资源配置（单位：MB）
+   * The memory (in MB) to allocate to the browser instance.
    * 
    * This parameter is required.
    * 
@@ -49,12 +60,14 @@ export class CreateBrowserInput extends $dara.Model {
   memory?: number;
   /**
    * @remarks
+   * The network configuration for the browser instance.
+   * 
    * This parameter is required.
    */
   networkConfiguration?: NetworkConfiguration;
   /**
    * @remarks
-   * 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+   * The idle time in seconds before a session expires. When a session is idle, the instance enters an idle billing mode.
    * 
    * @example
    * 3600

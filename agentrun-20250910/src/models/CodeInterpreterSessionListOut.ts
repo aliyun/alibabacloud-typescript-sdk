@@ -5,21 +5,33 @@ import { CodeInterpreterSessionOut } from "./CodeInterpreterSessionOut";
 
 export class CodeInterpreterSessionListOut extends $dara.Model {
   /**
+   * @remarks
+   * A list of Code Interpreter session objects.
+   * 
    * @example
    * []
    */
   items?: CodeInterpreterSessionOut[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of sessions per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of sessions.
+   * 
    * @example
    * 100
    */

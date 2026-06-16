@@ -6,7 +6,7 @@ import { ConsumerAPIKey } from "./ConsumerApikey";
 export class ConsumerAPIKeyResult extends $dara.Model {
   /**
    * @remarks
-   * SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+   * `SUCCESS` indicates that the request was successful. If the request fails, this field returns an error type, such as `ERR_BAD_REQUEST`, `ERR_VALIDATION_FAILED`, or `ERR_INTERNAL_SERVER_ERROR`.
    * 
    * @example
    * SUCCESS
@@ -14,7 +14,7 @@ export class ConsumerAPIKeyResult extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 消费者API密钥的详细信息
+   * Details of the consumer API key.
    * 
    * @example
    * {}
@@ -22,7 +22,7 @@ export class ConsumerAPIKeyResult extends $dara.Model {
   data?: ConsumerAPIKey;
   /**
    * @remarks
-   * 唯一的请求标识符，用于问题追踪
+   * A unique request ID for troubleshooting.
    * 
    * @example
    * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E

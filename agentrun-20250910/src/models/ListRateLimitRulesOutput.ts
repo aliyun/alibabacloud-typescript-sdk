@@ -6,12 +6,12 @@ import { RateLimitRule } from "./RateLimitRule";
 export class ListRateLimitRulesOutput extends $dara.Model {
   /**
    * @remarks
-   * 限流规则列表
+   * The list of rate-limiting rules.
    */
   items?: RateLimitRule[];
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListRateLimitRulesOutput extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -27,7 +27,7 @@ export class ListRateLimitRulesOutput extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 符合条件的限流规则总数
+   * The total number of matching rate-limiting rules.
    * 
    * @example
    * 10

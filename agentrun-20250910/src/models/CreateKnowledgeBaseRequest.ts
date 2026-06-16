@@ -4,6 +4,10 @@ import { CreateKnowledgeBaseInput } from "./CreateKnowledgeBaseInput";
 
 
 export class CreateKnowledgeBaseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The data structure to create a knowledge base.
+   */
   body?: CreateKnowledgeBaseInput;
   static names(): { [key: string]: string } {
     return {

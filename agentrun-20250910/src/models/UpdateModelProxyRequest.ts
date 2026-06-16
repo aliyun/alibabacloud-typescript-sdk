@@ -4,6 +4,10 @@ import { UpdateModelProxyInput } from "./UpdateModelProxyInput";
 
 
 export class UpdateModelProxyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The new configuration for the model proxy.
+   */
   body?: UpdateModelProxyInput;
   static names(): { [key: string]: string } {
     return {

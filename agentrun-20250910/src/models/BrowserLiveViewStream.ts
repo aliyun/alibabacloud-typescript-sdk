@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class BrowserLiveViewStream extends $dara.Model {
   /**
+   * @remarks
+   * The WebSocket (WSS) stream endpoint.
+   * 
    * @example
    * wss://browser-liveview.cn-hangzhou.agentrun.aliyuncs.com/stream/bs-1234567890abcdef
    */

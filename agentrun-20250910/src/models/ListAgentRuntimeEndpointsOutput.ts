@@ -4,9 +4,25 @@ import { AgentRuntimeEndpoint } from "./AgentRuntimeEndpoint";
 
 
 export class ListAgentRuntimeEndpointsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * List of projects
+   */
   items?: AgentRuntimeEndpoint[];
+  /**
+   * @remarks
+   * Page number
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Total number
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

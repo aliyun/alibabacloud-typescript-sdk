@@ -4,6 +4,10 @@ import { UpdateDiscoveryEndpointsInput } from "./UpdateDiscoveryEndpointsInput";
 
 
 export class UpdateWorkspaceDiscoveryEndpointsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The discovery endpoint configuration to apply.
+   */
   body?: UpdateDiscoveryEndpointsInput;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,10 @@ import { OSSMountPoint } from "./OssmountPoint";
 
 
 export class OSSMountConfig extends $dara.Model {
+  /**
+   * @remarks
+   * An array of OSS mount points.
+   */
   mountPoints?: OSSMountPoint[];
   static names(): { [key: string]: string } {
     return {

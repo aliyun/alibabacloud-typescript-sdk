@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class PublishRuntimeVersionInput extends $dara.Model {
   /**
    * @remarks
-   * 此版本的描述
+   * Description of this version
    */
   description?: string;
   /**
    * @remarks
-   * 发布此版本的用户或系统标识
+   * Identity of the user or system that publishes this version
    * 
    * @example
    * user123

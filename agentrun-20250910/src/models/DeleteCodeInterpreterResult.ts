@@ -6,7 +6,7 @@ import { CodeInterpreter } from "./CodeInterpreter";
 export class DeleteCodeInterpreterResult extends $dara.Model {
   /**
    * @remarks
-   * SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+   * Returns `SUCCESS` if the operation is successful. On failure, returns an error code, such as `ERR_BAD_REQUEST`, `ERR_VALIDATION_FAILED`, or `ERR_INTERNAL_SERVER_ERROR`.
    * 
    * @example
    * SUCCESS
@@ -14,7 +14,7 @@ export class DeleteCodeInterpreterResult extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 被删除的代码解释器详细信息
+   * Details of the deleted code interpreter.
    * 
    * @example
    * {}
@@ -22,7 +22,7 @@ export class DeleteCodeInterpreterResult extends $dara.Model {
   data?: CodeInterpreter;
   /**
    * @remarks
-   * 唯一的请求标识符，用于问题追踪
+   * A unique request ID for troubleshooting.
    * 
    * @example
    * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E

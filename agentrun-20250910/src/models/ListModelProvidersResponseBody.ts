@@ -6,7 +6,7 @@ import { ModelInfoConfig } from "./ModelInfoConfig";
 export class ListModelProvidersResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * baseUrl
+   * The base URL of the model provider.
    * 
    * @example
    * baseUrl
@@ -18,12 +18,30 @@ export class ListModelProvidersResponseBodyDataItems extends $dara.Model {
    */
   modelInfoConfig?: ModelInfoConfig;
   /**
+   * @remarks
+   * The model type. Valid values:
+   * 
+   * - `text_embedding`: text embedding
+   * 
+   * - `text_sparse_embedding`: text sparse embedding
+   * 
+   * - `image_embedding`: image embedding
+   * 
+   * - `image_analyze`: image analysis
+   * 
    * @example
    * native
    */
   modelType?: string;
+  /**
+   * @remarks
+   * An array of model names.
+   */
   models?: string[];
   /**
+   * @remarks
+   * The name of the model provider.
+   * 
    * @example
    * providerName
    */
@@ -64,18 +82,31 @@ export class ListModelProvidersResponseBodyDataItems extends $dara.Model {
 }
 
 export class ListModelProvidersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * An array of model provider objects.
+   */
   items?: ListModelProvidersResponseBodyDataItems[];
   /**
+   * @remarks
+   * 页码
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * 页面大小
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * 总数
+   * 
    * @example
    * 211
    */
@@ -112,12 +143,22 @@ export class ListModelProvidersResponseBodyData extends $dara.Model {
 
 export class ListModelProvidersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListModelProvidersResponseBodyData;
   /**
+   * @remarks
+   * The unique request identifier. Include this ID when reporting issues.
+   * 
    * @example
    * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E
    */

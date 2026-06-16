@@ -4,6 +4,10 @@ import { UpdateKnowledgeBaseInput } from "./UpdateKnowledgeBaseInput";
 
 
 export class UpdateKnowledgeBaseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for updating a knowledge base.
+   */
   body?: UpdateKnowledgeBaseInput;
   static names(): { [key: string]: string } {
     return {

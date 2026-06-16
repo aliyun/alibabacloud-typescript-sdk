@@ -6,7 +6,7 @@ import { VersionWeight } from "./VersionWeight";
 export class RoutingConfiguration extends $dara.Model {
   /**
    * @remarks
-   * 不同版本的流量权重配置
+   * Traffic weight configuration for different versions
    */
   versionWeights?: VersionWeight[];
   static names(): { [key: string]: string } {

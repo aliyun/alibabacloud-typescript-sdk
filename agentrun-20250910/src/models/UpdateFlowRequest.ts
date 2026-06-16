@@ -6,7 +6,7 @@ import { UpdateFlowInput } from "./UpdateFlowInput";
 export class UpdateFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * 包含要更新的工作流配置信息的请求体
+   * The input parameters for updating the workflow.
    * 
    * This parameter is required.
    */

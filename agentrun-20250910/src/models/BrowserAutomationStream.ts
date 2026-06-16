@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BrowserAutomationStream extends $dara.Model {
   /**
+   * @remarks
+   * The WebSocket URL for the stream endpoint.
+   * 
    * @example
    * wss://browser-automation.cn-hangzhou.agentrun.aliyuncs.com/stream/bs-1234567890abcdef
    */
   streamEndpoint?: string;
   /**
+   * @remarks
+   * The status of the stream.
+   * 
    * @example
    * ACTIVE
    */

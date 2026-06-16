@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelServicesRequest extends $dara.Model {
   /**
    * @remarks
+   * The model type. Valid values:
+   * 
+   * - `system`: A built-in model.
+   * 
+   * - `deployment`: A model from a custom deployment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,21 +18,33 @@ export class ListModelServicesRequest extends $dara.Model {
    */
   modelType?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 10
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The cloud provider. Currently, only Alibaba Cloud is supported.
+   * 
    * @example
    * Aliyun
    */
   provider?: string;
   /**
+   * @remarks
+   * The provider type.
+   * 
    * @example
    * providerType
    */

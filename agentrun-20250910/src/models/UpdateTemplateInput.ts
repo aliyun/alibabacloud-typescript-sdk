@@ -12,6 +12,9 @@ import { ScalingConfig } from "./ScalingConfig";
 
 export class UpdateTemplateInput extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the data link is allowed to invoke APIs to create, stop, or delete sandboxes
+   * 
    * @example
    * true
    * 
@@ -19,54 +22,91 @@ export class UpdateTemplateInput extends $dara.Model {
    * true
    */
   allowAnonymousManage?: boolean;
+  /**
+   * @remarks
+   * Configuration information for Application Real-Time Monitoring Service (ARMS)
+   */
   armsConfiguration?: ArmsConfiguration;
   /**
    * @remarks
-   * 容器配置（内置的不可改）
+   * Container configuration (built-in and immutable)
    */
   containerConfiguration?: ContainerConfiguration;
   /**
    * @remarks
-   * CPU资源配置（单位：核心）
+   * CPU resource configuration (unit: core)
    * 
    * @example
    * 2
    */
   cpu?: number;
+  /**
+   * @remarks
+   * Credential configuration
+   */
   credentialConfiguration?: CredentialConfiguration;
   /**
+   * @remarks
+   * Template description
+   * 
    * @example
    * demo description
    */
   description?: string;
   /**
+   * @remarks
+   * Sandbox Agent toggle
+   * 
    * @example
    * true
    */
   enableAgent?: boolean;
   enablePreStop?: boolean;
+  /**
+   * @remarks
+   * Environment variables
+   */
   environmentVariables?: { [key: string]: string };
   /**
+   * @remarks
+   * Execution role ARN
+   * 
    * @example
    * arn:acs:agentrun:cn-hangzhou:123456789:xxx/test
    */
   executionRoleArn?: string;
+  /**
+   * @remarks
+   * Log configuration
+   */
   logConfiguration?: LogConfiguration;
   /**
    * @remarks
-   * 内存资源配置（单位：MB）
+   * Memory resource configuration (unit: MB)
    * 
    * @example
    * 4
    */
   memory?: number;
+  /**
+   * @remarks
+   * NAS mount configuration item
+   */
   nasConfig?: NASConfig;
+  /**
+   * @remarks
+   * Network configuration
+   */
   networkConfiguration?: NetworkConfiguration;
+  /**
+   * @remarks
+   * OSS mount configuration
+   */
   ossConfiguration?: OssConfiguration[];
   preStopTimeoutInSeconds?: number;
   /**
    * @remarks
-   * 沙箱空闲超时时间（秒）
+   * Sandbox idle timeout (seconds)
    * 
    * @example
    * 21600
@@ -74,19 +114,26 @@ export class UpdateTemplateInput extends $dara.Model {
   sandboxIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * 沙箱存活时间（秒）
+   * Sandbox time to live (seconds)
    * 
    * @example
    * 86400
    */
   sandboxTTLInSeconds?: number;
+  /**
+   * @remarks
+   * Elasticity configuration
+   */
   scalingConfig?: ScalingConfig;
   /**
    * @remarks
-   * 模板配置（灵活的对象结构，根据 templateType 不同而不同）
+   * Template configuration (a flexible object structure that varies based on templateType)
    */
   templateConfiguration?: { [key: string]: any };
   /**
+   * @remarks
+   * Associated Space ID
+   * 
    * @example
    * ws-1234567890abcdef
    */

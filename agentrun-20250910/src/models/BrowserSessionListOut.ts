@@ -5,21 +5,33 @@ import { BrowserSessionOut } from "./BrowserSessionOut";
 
 export class BrowserSessionListOut extends $dara.Model {
   /**
+   * @remarks
+   * An array of browser session objects.
+   * 
    * @example
    * []
    */
   items?: BrowserSessionOut[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of sessions per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of sessions.
+   * 
    * @example
    * 2
    */

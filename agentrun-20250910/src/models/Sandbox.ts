@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Sandbox extends $dara.Model {
   /**
    * @remarks
-   * 沙箱创建时间
+   * Sandbox Creation Time
    * 
    * This parameter is required.
    * 
@@ -14,40 +14,58 @@ export class Sandbox extends $dara.Model {
    */
   createdAt?: string;
   /**
+   * @remarks
+   * Sandbox stop time
+   * 
    * @example
    * 2025-11-26T10:54:17.770719+08:00
    */
   endedAt?: string;
   /**
    * @remarks
-   * 最后更新时间
+   * Last Update Time
    * 
    * @example
    * 2025-11-26T10:54:17.770719+08:00
    */
   lastUpdatedAt?: string;
   /**
+   * @remarks
+   * Sandbox metadata
+   * 
    * @example
    * {}
    */
   metadata?: { [key: string]: any };
   /**
+   * @remarks
+   * Sandbox resource ARN
+   * 
    * @example
    * acs:ram::1760720386195983:role/aliyunfcdefaultrole
    */
   sandboxArn?: string;
   /**
    * @remarks
+   * Sandbox ID
+   * 
    * This parameter is required.
    * 
    * @example
    * 01KAWBP6JQD0J3Z34BP4WMX1KG
    */
   sandboxId?: string;
+  /**
+   * @remarks
+   * Sandbox lifecycle duration (deprecated)
+   * 
+   * @example
+   * 已弃用
+   */
   sandboxIdleTTLInSeconds?: number;
   /**
    * @remarks
-   * 沙箱空闲超时时间（秒）
+   * Sandbox idle timeout (seconds)
    * 
    * @example
    * 1800
@@ -55,6 +73,8 @@ export class Sandbox extends $dara.Model {
   sandboxIdleTimeoutSeconds?: number;
   /**
    * @remarks
+   * Status
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +83,8 @@ export class Sandbox extends $dara.Model {
   status?: string;
   /**
    * @remarks
+   * Template ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +92,9 @@ export class Sandbox extends $dara.Model {
    */
   templateId?: string;
   /**
+   * @remarks
+   * Template Name
+   * 
    * @example
    * my-template
    */

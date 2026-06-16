@@ -6,69 +6,107 @@ import { BrowserRecordingConfiguration } from "./BrowserRecordingConfiguration";
 
 export class Browser extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the browser.
+   * 
    * @example
    * browser-1234567890abcdef
    */
   browserId?: string;
   /**
+   * @remarks
+   * The name of the browser.
+   * 
    * @example
    * my-browser
    */
   browserName?: string;
   /**
+   * @remarks
+   * The number of CPU cores allocated to the browser.
+   * 
    * @example
    * 2.0
    */
   cpu?: number;
   /**
+   * @remarks
+   * The time the browser was created, in ISO 8601 format.
+   * 
    * @example
    * 2025-01-10T10:30:00Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * The unique identifier for the credential associated with the browser.
+   * 
    * @example
    * cred-1234567890abcdef
    */
   credentialId?: string;
   /**
+   * @remarks
+   * A user-defined description for the browser.
+   * 
    * @example
    * Web automation browser for testing
    */
   description?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the execution role used by the browser.
+   * 
    * @example
    * acs:ram::1760720386195983:role/BrowserExecutionRole
    */
   executionRoleArn?: string;
   /**
+   * @remarks
+   * The time the browser was last updated, in ISO 8601 format.
+   * 
    * @example
    * 2025-01-10T11:45:00Z
    */
   lastUpdatedAt?: string;
   /**
    * @remarks
-   * 内存资源配置（单位：MB）
+   * The memory allocated to the browser, in megabytes (MB).
    * 
    * @example
    * 2048
    */
   memory?: number;
+  /**
+   * @remarks
+   * The network configuration for the browser.
+   */
   networkConfiguration?: NetworkConfiguration;
+  /**
+   * @remarks
+   * The recording configuration for the browser.
+   */
   recording?: BrowserRecordingConfiguration;
   /**
+   * @remarks
+   * The current status of the browser.
+   * 
    * @example
    * READY
    */
   status?: string;
   /**
    * @remarks
-   * 当前状态的原因说明（如适用）
+   * The reason for the current status, if any.
    * 
    * @example
    * Browser is ready for use
    */
   statusReason?: string;
   /**
+   * @remarks
+   * The unique identifier of the tenant that owns the browser.
+   * 
    * @example
    * tenant-1234567890abcdef
    */

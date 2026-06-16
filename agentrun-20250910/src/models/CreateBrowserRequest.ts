@@ -6,6 +6,8 @@ import { CreateBrowserInput } from "./CreateBrowserInput";
 export class CreateBrowserRequest extends $dara.Model {
   /**
    * @remarks
+   * Request body for creation parameters
+   * 
    * This parameter is required.
    */
   body?: CreateBrowserInput;

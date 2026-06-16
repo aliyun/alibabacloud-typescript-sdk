@@ -6,7 +6,7 @@ import { ListSandboxesOutput } from "./ListSandboxesOutput";
 export class ListSandboxesResult extends $dara.Model {
   /**
    * @remarks
-   * SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+   * The status of the request. A value of \\"SUCCESS\\" indicates that the request was successful. If the request fails, an error code is returned, such as \\"ERR_BAD_REQUEST\\", \\"ERR_VALIDATION_FAILED\\", or \\"ERR_INTERNAL_SERVER_ERROR\\".
    * 
    * @example
    * SUCCESS
@@ -14,12 +14,12 @@ export class ListSandboxesResult extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 沙箱列表的详细信息
+   * Contains the list of sandboxes.
    */
   data?: ListSandboxesOutput;
   /**
    * @remarks
-   * 唯一的请求标识符，用于问题追踪
+   * The unique request ID used for issue tracking.
    * 
    * @example
    * 55D4BE40-2811-5CFB-8482-E0E98D575B1E

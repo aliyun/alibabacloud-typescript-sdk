@@ -6,11 +6,15 @@ import { Template } from "./Template";
 export class ListTemplatesOutput extends $dara.Model {
   /**
    * @remarks
+   * An array of template objects.
+   * 
    * This parameter is required.
    */
   items?: Template[];
   /**
    * @remarks
+   * The page number of the returned results.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,6 +23,8 @@ export class ListTemplatesOutput extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The maximum number of items to return per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +33,8 @@ export class ListTemplatesOutput extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The total number of templates available.
+   * 
    * This parameter is required.
    * 
    * @example

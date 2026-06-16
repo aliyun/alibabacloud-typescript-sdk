@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomDomainsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The custom domain name.
+   * 
    * @example
    * mydomain.com
    */
   domainName?: string;
+  /**
+   * @remarks
+   * The domain type used for filtering. Valid values: STANDARD and SANDBOX.
+   */
   domainType?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The name of the resource associated with the custom domain.
+   * 
    * @example
    * agent-1
    */
   resourceName?: string;
   /**
+   * @remarks
+   * The type of the resource associated with the custom domain.
+   * 
    * @example
    * runtime
    */

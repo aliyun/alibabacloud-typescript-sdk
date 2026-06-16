@@ -4,9 +4,25 @@ import { AgentRuntimeVersion } from "./AgentRuntimeVersion";
 
 
 export class ListAgentRuntimeVersionsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * List of projects
+   */
   items?: AgentRuntimeVersion[];
+  /**
+   * @remarks
+   * Page number
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Total count
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

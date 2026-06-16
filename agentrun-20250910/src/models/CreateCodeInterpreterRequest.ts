@@ -6,6 +6,8 @@ import { CreateCodeInterpreterInput } from "./CreateCodeInterpreterInput";
 export class CreateCodeInterpreterRequest extends $dara.Model {
   /**
    * @remarks
+   * Request body for creating a code interpreter.
+   * 
    * This parameter is required.
    */
   body?: CreateCodeInterpreterInput;

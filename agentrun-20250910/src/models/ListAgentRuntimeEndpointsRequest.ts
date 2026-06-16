@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentRuntimeEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * 根据端点名称进行模糊匹配过滤
+   * Filter by endpoint name.
    * 
    * @example
    * my-endpoint
@@ -13,7 +13,7 @@ export class ListAgentRuntimeEndpointsRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * 当前页码，从1开始计数
+   * Page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAgentRuntimeEndpointsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页返回的记录数量
+   * Page size.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListAgentRuntimeEndpointsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 查询模式，支持精确查询和模糊查询
+   * Search mode.
    * 
    * @example
    * fuzzy

@@ -8,7 +8,7 @@ import { TracingConfiguration } from "./TracingConfiguration";
 export class CreateFlowInput extends $dara.Model {
   /**
    * @remarks
-   * 工作流的定义内容，采用JSON或YAML格式
+   * The definition of the workflow in JSON or YAML format.
    * 
    * @example
    * {}
@@ -16,7 +16,7 @@ export class CreateFlowInput extends $dara.Model {
   definition?: string;
   /**
    * @remarks
-   * 工作流的描述信息，用于说明该工作流的用途和功能
+   * The description of the workflow, which explains the purpose and functionality of the workflow.
    * 
    * @example
    * Customer service automation flow
@@ -24,25 +24,25 @@ export class CreateFlowInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 是否禁用该工作流的公网访问，作为工作流级别的默认策略。当 FlowEndpoint 未指定时，将继承此值
+   * Specifies whether to disable public network access for the workflow. This value serves as the default policy at the workflow level. If FlowEndpoint is not specified, this value is inherited.
    */
   disablePublicNetworkAccess?: boolean;
   /**
    * @remarks
-   * 工作流的环境变量配置，包含一组命名变量列表
+   * The environment variable configuration of the workflow, which contains a list of named variables.
    */
   environmentConfiguration?: EnvironmentConfiguration;
   /**
    * @remarks
-   * 为工作流提供访问云服务权限的执行角色ARN
+   * The Alibaba Cloud Resource Name (ARN) of the execution role that grants the workflow permissions to access cloud services.
    * 
    * @example
-   * acs:ram::1760720386195983:role/FlowExecutionRole
+   * acs:ram::123456789012:role/FlowExecutionRole
    */
   executionRoleArn?: string;
   /**
    * @remarks
-   * 工作流的外部存储位置，如OSS路径
+   * The external storage location of the workflow, such as an OSS path.
    * 
    * @example
    * oss://bucket/path
@@ -50,7 +50,7 @@ export class CreateFlowInput extends $dara.Model {
   externalStorageLocation?: string;
   /**
    * @remarks
-   * 工作流的唯一标识名称，用于区分不同的工作流实例
+   * The unique name of the workflow, which is used to distinguish different workflow instances.
    * 
    * This parameter is required.
    * 
@@ -60,12 +60,12 @@ export class CreateFlowInput extends $dara.Model {
   flowName?: string;
   /**
    * @remarks
-   * 工作流的日志配置
+   * The logging configuration of the workflow.
    */
   loggingConfiguration?: LoggingConfiguration;
   /**
    * @remarks
-   * 工作流所属的资源组标识符
+   * The ID of the resource group to which the workflow belongs.
    * 
    * @example
    * rg-acfmxsn4m4a4b4a
@@ -73,12 +73,12 @@ export class CreateFlowInput extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 工作流的链路追踪配置
+   * The Tracing Analysis configuration of the workflow.
    */
   tracingConfiguration?: TracingConfiguration;
   /**
    * @remarks
-   * 工作流所属的工作空间标识符，用于资源隔离和权限管理
+   * The ID of the workspace to which the workflow belongs. This parameter is used for resource isolation and permission management.
    * 
    * @example
    * ws-1234567890abcdef

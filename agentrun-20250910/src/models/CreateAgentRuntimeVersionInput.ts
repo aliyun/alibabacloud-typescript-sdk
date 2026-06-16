@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentRuntimeVersionInput extends $dara.Model {
   /**
    * @remarks
-   * 版本描述
+   * A description of the agent runtime version.
    * 
    * @example
    * Version 1.0.0 release with new features

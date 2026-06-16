@@ -4,6 +4,10 @@ import { UpdateCustomDomainInput } from "./UpdateCustomDomainInput";
 
 
 export class UpdateCustomDomainRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The updated configuration for the custom domain.
+   */
   body?: UpdateCustomDomainInput;
   static names(): { [key: string]: string } {
     return {

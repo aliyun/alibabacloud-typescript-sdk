@@ -4,6 +4,10 @@ import { CreateModelProxyInput } from "./CreateModelProxyInput";
 
 
 export class CreateModelProxyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration for the Model Proxy.
+   */
   body?: CreateModelProxyInput;
   static names(): { [key: string]: string } {
     return {

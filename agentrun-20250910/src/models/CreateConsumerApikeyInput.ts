@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerAPIKeyInput extends $dara.Model {
   /**
    * @remarks
-   * 用户自定义的完整API密钥；为空时由服务自动生成
+   * A custom API key. If omitted, the service generates one automatically.
    * 
    * @example
    * sk-xxxxxxxxxxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class CreateConsumerAPIKeyInput extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * 消费者API密钥的描述信息，用于说明该密钥的用途
+   * A description for the consumer API key.
    * 
    * @example
    * 用于生产环境的API密钥
@@ -21,7 +21,7 @@ export class CreateConsumerAPIKeyInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 关联的模型连接标识符
+   * The identifier for the model connection.
    * 
    * This parameter is required.
    * 

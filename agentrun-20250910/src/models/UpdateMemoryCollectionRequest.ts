@@ -4,6 +4,10 @@ import { UpdateMemoryCollectionInput } from "./UpdateMemoryCollectionInput";
 
 
 export class UpdateMemoryCollectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body to update the memory collection.
+   */
   body?: UpdateMemoryCollectionInput;
   static names(): { [key: string]: string } {
     return {

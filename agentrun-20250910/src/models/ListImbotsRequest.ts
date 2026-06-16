@@ -3,19 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIMBotsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the agent runtime.
+   */
   agentRuntimeId?: string;
+  /**
+   * @remarks
+   * The business type of the bot.
+   */
   botBizType?: string;
+  /**
+   * @remarks
+   * The name of the IM bot. The system performs a case-insensitive substring search.
+   */
   botName?: string;
   /**
    * @remarks
-   * 默认 1；传入时须 ≥ 1
+   * The page number. Must be greater than or equal to 1. Default: 1.
    */
   pageNumber?: number;
   /**
    * @remarks
-   * 默认 20；传入时须 1–100
+   * The number of entries per page. Valid values: 1–100. Default: 20.
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The status of the bot.
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

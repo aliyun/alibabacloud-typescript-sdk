@@ -8,7 +8,7 @@ import { TracingConfiguration } from "./TracingConfiguration";
 export class Flow extends $dara.Model {
   /**
    * @remarks
-   * 工作流的创建时间，采用ISO 8601格式
+   * The time when the workflow was created, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T10:30:00Z
@@ -16,7 +16,7 @@ export class Flow extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 工作流的定义内容
+   * The definition of the workflow.
    * 
    * @example
    * {}
@@ -24,7 +24,7 @@ export class Flow extends $dara.Model {
   definition?: string;
   /**
    * @remarks
-   * 工作流的描述信息，说明该工作流的用途和功能
+   * The description of the workflow, which explains the purpose and functionality of the workflow.
    * 
    * @example
    * Customer service automation flow
@@ -32,25 +32,25 @@ export class Flow extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 是否禁用该工作流的公网访问，作为工作流级别的默认策略
+   * Specifies whether to disable public network access for the workflow. This setting serves as the default policy at the workflow level.
    */
   disablePublicNetworkAccess?: boolean;
   /**
    * @remarks
-   * 工作流的环境变量配置，包含一组命名变量列表
+   * The environment variable configuration of the workflow, which contains a list of named variables.
    */
   environmentConfiguration?: EnvironmentConfiguration;
   /**
    * @remarks
-   * 为工作流提供访问云服务权限的执行角色ARN
+   * The ARN of the execution role that grants the workflow permissions to access cloud services.
    * 
    * @example
-   * acs:ram::1760720386195983:role/FlowExecutionRole
+   * acs:ram::123456789012:role/FlowExecutionRole
    */
   executionRoleArn?: string;
   /**
    * @remarks
-   * 工作流的外部存储位置
+   * The external storage location of the workflow.
    * 
    * @example
    * oss://bucket/path
@@ -58,15 +58,15 @@ export class Flow extends $dara.Model {
   externalStorageLocation?: string;
   /**
    * @remarks
-   * 工作流的全局唯一资源名称
+   * The globally unique Alibaba Cloud Resource Name (ARN) of the workflow.
    * 
    * @example
-   * acs:agentrun:cn-hangzhou:1760720386195983:workspaces/ws-xxx/flows/flow-xxx
+   * acs:agentrun:cn-hangzhou:123456789012:workspaces/ws-xxx/flows/flow-xxx
    */
   flowArn?: string;
   /**
    * @remarks
-   * 工作流的唯一标识符
+   * The unique identifier of the workflow.
    * 
    * @example
    * flow-1234567890abcdef
@@ -74,7 +74,7 @@ export class Flow extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * 工作流的名称，用于标识和区分不同的工作流实例
+   * The name of the workflow, which is used to identify and distinguish different workflow instances.
    * 
    * @example
    * my-flow
@@ -82,7 +82,7 @@ export class Flow extends $dara.Model {
   flowName?: string;
   /**
    * @remarks
-   * 工作流最后一次更新的时间，采用ISO 8601格式
+   * The time when the workflow was last updated, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T11:45:00Z
@@ -90,12 +90,12 @@ export class Flow extends $dara.Model {
   lastUpdatedAt?: string;
   /**
    * @remarks
-   * 工作流的日志配置
+   * The logging configuration of the workflow.
    */
   loggingConfiguration?: LoggingConfiguration;
   /**
    * @remarks
-   * 工作流所属的资源组标识符
+   * The ID of the resource group to which the workflow belongs.
    * 
    * @example
    * rg-acfmxsn4m4a4b4a
@@ -103,12 +103,12 @@ export class Flow extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 工作流的链路追踪配置
+   * The Tracing Analysis configuration of the workflow.
    */
   tracingConfiguration?: TracingConfiguration;
   /**
    * @remarks
-   * 工作流所属的工作空间标识符
+   * The ID of the workspace to which the workflow belongs.
    * 
    * @example
    * ws-1234567890abcdef

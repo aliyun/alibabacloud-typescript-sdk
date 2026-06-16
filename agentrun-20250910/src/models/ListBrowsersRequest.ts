@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBrowsersRequest extends $dara.Model {
   /**
    * @remarks
-   * 根据浏览器实例名称进行模糊匹配过滤
+   * Filter by browser name
    * 
    * @example
    * browser
@@ -13,7 +13,7 @@ export class ListBrowsersRequest extends $dara.Model {
   browserName?: string;
   /**
    * @remarks
-   * 当前页码，从1开始计数
+   * Page number
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListBrowsersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页返回的记录数量
+   * Page size
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListBrowsersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 根据浏览器实例的运行状态进行过滤，可选值：CREATING、READY、DELETING等
+   * Filter by status
    * 
    * @example
    * CREATING

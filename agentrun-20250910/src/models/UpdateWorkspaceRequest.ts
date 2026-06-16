@@ -4,6 +4,10 @@ import { UpdateWorkspaceInput } from "./UpdateWorkspaceInput";
 
 
 export class UpdateWorkspaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters used to update the workspace.
+   */
   body?: UpdateWorkspaceInput;
   static names(): { [key: string]: string } {
     return {

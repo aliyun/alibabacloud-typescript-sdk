@@ -11,7 +11,14 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-shenzhen': "agentrun.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "agentrun.cn-shanghai.aliyuncs.com",
+      'cn-hangzhou': "agentrun.cn-hangzhou.aliyuncs.com",
+      'cn-beijing': "agentrun.cn-beijing.aliyuncs.com",
+      'ap-southeast-1': "agentrun.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("agentrun", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +37,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable the TemplateMCP service.
+   * Activates the `MCP service` for a `sandbox` `template`. This enables a client to access the `sandbox` using the MCP protocol.
+   * 
+   * @remarks
+   * After activation, the platform automatically deploys the `MCP service` `function` for the specified `sandbox` `template`. The `MCP service` ensures a unique mapping between an `mcp-session-id` and a `SandboxID`. When an MCP `client` invokes a `tool`, the `MCP service` automatically creates a `sandbox`.
    * 
    * @param request - ActivateTemplateMCPRequest
    * @param headers - map
@@ -67,7 +77,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable the TemplateMCP service.
+   * Activates the `MCP service` for a `sandbox` `template`. This enables a client to access the `sandbox` using the MCP protocol.
+   * 
+   * @remarks
+   * After activation, the platform automatically deploys the `MCP service` `function` for the specified `sandbox` `template`. The `MCP service` ensures a unique mapping between an `mcp-session-id` and a `SandboxID`. When an MCP `client` invokes a `tool`, the `MCP service` automatically creates a `sandbox`.
    * 
    * @param request - ActivateTemplateMCPRequest
    * @returns ActivateTemplateMCPResponse
@@ -79,10 +92,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 转换Flow DSL
+   * Converts a Flow DSL.
    * 
    * @remarks
-   * 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+   * This operation converts a third-party workflow DSL, such as Dify or n8n, into an AgentRun Flow definition. It performs compatibility checks, identifies plugins, and extracts metadata. The operation runs in dry-run mode, returning the converted Flow configuration, a compatibility analysis report, and the required Toolset installation configuration without creating a Flow resource.
    * 
    * @param request - ConvertFlowDSLRequest
    * @param headers - map
@@ -110,10 +123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 转换Flow DSL
+   * Converts a Flow DSL.
    * 
    * @remarks
-   * 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+   * This operation converts a third-party workflow DSL, such as Dify or n8n, into an AgentRun Flow definition. It performs compatibility checks, identifies plugins, and extracts metadata. The operation runs in dry-run mode, returning the converted Flow configuration, a compatibility analysis report, and the required Toolset installation configuration without creating a Flow resource.
    * 
    * @param request - ConvertFlowDSLRequest
    * @returns ConvertFlowDSLResponse
@@ -125,7 +138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateAgentRuntime
+   * Creates an agent runtime.
    * 
    * @remarks
    * 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -156,7 +169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateAgentRuntime
+   * Creates an agent runtime.
    * 
    * @remarks
    * 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -171,10 +184,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建智能体运行时端点
+   * Create an access endpoint for an agent runtime
    * 
    * @remarks
-   * 为指定的智能体运行时创建新的端点，用于外部访问和调用。端点是智能体运行时对外提供服务的入口。
+   * Creates a new endpoint for the specified agent runtime, used for external access and invocation. An endpoint serves as the entry point through which an agent runtime provides services externally.
    * 
    * @param request - CreateAgentRuntimeEndpointRequest
    * @param headers - map
@@ -202,10 +215,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建智能体运行时端点
+   * Create an access endpoint for an agent runtime
    * 
    * @remarks
-   * 为指定的智能体运行时创建新的端点，用于外部访问和调用。端点是智能体运行时对外提供服务的入口。
+   * Creates a new endpoint for the specified agent runtime, used for external access and invocation. An endpoint serves as the entry point through which an agent runtime provides services externally.
    * 
    * @param request - CreateAgentRuntimeEndpointRequest
    * @returns CreateAgentRuntimeEndpointResponse
@@ -217,10 +230,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建浏览器实例
+   * Create Browser Sandbox
    * 
    * @remarks
-   * 创建一个新的浏览器实例，用于执行网页自动化任务。浏览器实例提供网页浏览、元素操作、截图录制等功能。
+   * Create a new browser instance for executing web automation tasks. The browser instance provides features such as web browsing, element manipulation, and screenshot recording.
    * 
    * @param request - CreateBrowserRequest
    * @param headers - map
@@ -248,10 +261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建浏览器实例
+   * Create Browser Sandbox
    * 
    * @remarks
-   * 创建一个新的浏览器实例，用于执行网页自动化任务。浏览器实例提供网页浏览、元素操作、截图录制等功能。
+   * Create a new browser instance for executing web automation tasks. The browser instance provides features such as web browsing, element manipulation, and screenshot recording.
    * 
    * @param request - CreateBrowserRequest
    * @returns CreateBrowserResponse
@@ -263,7 +276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建代码解释器
+   * Creates a code interpreter.
    * 
    * @remarks
    * 创建一个新的代码解释器实例，用于执行代码解释和运行任务。代码解释器提供Python代码执行、数据处理、机器学习等功能。
@@ -294,7 +307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建代码解释器
+   * Creates a code interpreter.
    * 
    * @remarks
    * 创建一个新的代码解释器实例，用于执行代码解释和运行任务。代码解释器提供Python代码执行、数据处理、机器学习等功能。
@@ -309,7 +322,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a credential
+   * Creates a new credential.
+   * 
+   * @remarks
+   * This operation creates a credential for an agent.
    * 
    * @param request - CreateCredentialRequest
    * @param headers - map
@@ -337,7 +353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a credential
+   * Creates a new credential.
+   * 
+   * @remarks
+   * This operation creates a credential for an agent.
    * 
    * @param request - CreateCredentialRequest
    * @returns CreateCredentialResponse
@@ -349,7 +368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义域名
+   * Creates a custom domain.
    * 
    * @param request - CreateCustomDomainRequest
    * @param headers - map
@@ -377,7 +396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义域名
+   * Creates a custom domain.
    * 
    * @param request - CreateCustomDomainRequest
    * @returns CreateCustomDomainResponse
@@ -389,10 +408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作流
+   * Creates a workflow.
    * 
    * @remarks
-   * 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+   * Creates a flow orchestration agent. Flow orchestration is a core component of the AgentRun service that supports visual orchestration and version management.
    * 
    * @param request - CreateFlowRequest
    * @param headers - map
@@ -420,10 +439,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作流
+   * Creates a workflow.
    * 
    * @remarks
-   * 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+   * Creates a flow orchestration agent. Flow orchestration is a core component of the AgentRun service that supports visual orchestration and version management.
    * 
    * @param request - CreateFlowRequest
    * @returns CreateFlowResponse
@@ -435,7 +454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作流端点
+   * Creates a flow endpoint.
    * 
    * @remarks
    * 为指定工作流创建一个新的端点，用于对外提供服务访问。
@@ -466,7 +485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作流端点
+   * Creates a flow endpoint.
    * 
    * @remarks
    * 为指定工作流创建一个新的端点，用于对外提供服务访问。
@@ -481,10 +500,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 IM Bot
+   * Creates an IM Bot.
    * 
    * @remarks
-   * POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+   * A successful request returns an HTTP 201 status code. Once created, an IM Bot\\"s status is always `running`. The response is in a standard format, and its `data` field contains an `IMBotInfo` object.
    * 
    * @param request - CreateIMBotRequest
    * @param headers - map
@@ -512,10 +531,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 IM Bot
+   * Creates an IM Bot.
    * 
    * @remarks
-   * POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+   * A successful request returns an HTTP 201 status code. Once created, an IM Bot\\"s status is always `running`. The response is in a standard format, and its `data` field contains an `IMBotInfo` object.
    * 
    * @param request - CreateIMBotRequest
    * @returns CreateIMBotResponse
@@ -527,7 +546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建知识库
+   * Creates a knowledge base.
    * 
    * @param request - CreateKnowledgeBaseRequest
    * @param headers - map
@@ -555,7 +574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建知识库
+   * Creates a knowledge base.
    * 
    * @param request - CreateKnowledgeBaseRequest
    * @returns CreateKnowledgeBaseResponse
@@ -567,7 +586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加记忆存储
+   * Creates a memory collection.
    * 
    * @param request - CreateMemoryCollectionRequest
    * @param headers - map
@@ -595,7 +614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加记忆存储
+   * Creates a memory collection.
    * 
    * @param request - CreateMemoryCollectionRequest
    * @returns CreateMemoryCollectionResponse
@@ -607,7 +626,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增模型
+   * Creates a Model Proxy.
+   * 
+   * @remarks
+   * This operation creates a Model Proxy based on the specified configuration.
    * 
    * @param request - CreateModelProxyRequest
    * @param headers - map
@@ -635,7 +657,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增模型
+   * Creates a Model Proxy.
+   * 
+   * @remarks
+   * This operation creates a Model Proxy based on the specified configuration.
    * 
    * @param request - CreateModelProxyRequest
    * @returns CreateModelProxyResponse
@@ -647,7 +672,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增模型
+   * Creates a model service.
+   * 
+   * @remarks
+   * This operation creates a model service, such as a code interpreter, based on the specified configuration.
    * 
    * @param request - CreateModelServiceRequest
    * @param headers - map
@@ -675,7 +703,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增模型
+   * Creates a model service.
+   * 
+   * @remarks
+   * This operation creates a model service, such as a code interpreter, based on the specified configuration.
    * 
    * @param request - CreateModelServiceRequest
    * @returns CreateModelServiceResponse
@@ -687,10 +718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建沙箱
+   * Creates a sandbox.
    * 
    * @remarks
-   * 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+   * Creates a new sandbox instance from a specified template. A sandbox provides an isolated execution environment to run code or launch a browser.
    * 
    * @param request - CreateSandboxRequest
    * @param headers - map
@@ -718,10 +749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建沙箱
+   * Creates a sandbox.
    * 
    * @remarks
-   * 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+   * Creates a new sandbox instance from a specified template. A sandbox provides an isolated execution environment to run code or launch a browser.
    * 
    * @param request - CreateSandboxRequest
    * @returns CreateSandboxResponse
@@ -733,10 +764,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a template.
+   * Creates a template.
    * 
    * @remarks
-   * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+   * Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
    * 
    * @param request - CreateTemplateRequest
    * @param headers - map
@@ -764,10 +795,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a template.
+   * Creates a template.
    * 
    * @remarks
-   * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+   * Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -779,10 +810,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工具
+   * Creates a tool.
    * 
    * @remarks
-   * 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+   * This operation creates various types of tools, such as MCP, function call, and skill. An Agent can then call a tool to extend its capabilities.
    * 
    * @param request - CreateToolRequest
    * @param headers - map
@@ -810,10 +841,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工具
+   * Creates a tool.
    * 
    * @remarks
-   * 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+   * This operation creates various types of tools, such as MCP, function call, and skill. An Agent can then call a tool to extend its capabilities.
    * 
    * @param request - CreateToolRequest
    * @returns CreateToolResponse
@@ -825,10 +856,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Creates a workspace.
    * 
    * @remarks
-   * 创建工作空间
+   * Creates a workspace.
    * 
    * @param request - CreateWorkspaceRequest
    * @param headers - map
@@ -856,10 +887,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Creates a workspace.
    * 
    * @remarks
-   * 创建工作空间
+   * Creates a workspace.
    * 
    * @param request - CreateWorkspaceRequest
    * @returns CreateWorkspaceResponse
@@ -871,10 +902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除智能体运行时
+   * Delete Agent Runtime
    * 
    * @remarks
-   * 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * Deletes a specified agent runtime instance, including all associated resources and data. This operation is irreversible. Proceed with caution.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -899,10 +930,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除智能体运行时
+   * Delete Agent Runtime
    * 
    * @remarks
-   * 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * Deletes a specified agent runtime instance, including all associated resources and data. This operation is irreversible. Proceed with caution.
    * @returns DeleteAgentRuntimeResponse
    */
   async deleteAgentRuntime(agentRuntimeId: string): Promise<$_model.DeleteAgentRuntimeResponse> {
@@ -912,7 +943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete an agent runtime endpoint
+   * Delete Agent Runtime Endpoint
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -937,7 +968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete an agent runtime endpoint
+   * Delete Agent Runtime Endpoint
    * @returns DeleteAgentRuntimeEndpointResponse
    */
   async deleteAgentRuntimeEndpoint(agentRuntimeId: string, agentRuntimeEndpointId: string): Promise<$_model.DeleteAgentRuntimeEndpointResponse> {
@@ -947,10 +978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除浏览器实例
+   * Delete Browser Sandbox
    * 
    * @remarks
-   * 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * Delete the specified browser instance, including all its associated resources and data. The deletion is irreversible. Please proceed with caution.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -975,10 +1006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除浏览器实例
+   * Delete Browser Sandbox
    * 
    * @remarks
-   * 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * Delete the specified browser instance, including all its associated resources and data. The deletion is irreversible. Please proceed with caution.
    * @returns DeleteBrowserResponse
    */
   async deleteBrowser(browserId: string): Promise<$_model.DeleteBrowserResponse> {
@@ -988,10 +1019,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除代码解释器
+   * Delete Code Interpreter
    * 
    * @remarks
-   * 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * Delete a specified code interpreter instance, including all its associated resources and data. This operation is irreversible. Please proceed with caution.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1016,10 +1047,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除代码解释器
+   * Delete Code Interpreter
    * 
    * @remarks
-   * 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * Delete a specified code interpreter instance, including all its associated resources and data. This operation is irreversible. Please proceed with caution.
    * @returns DeleteCodeInterpreterResponse
    */
   async deleteCodeInterpreter(codeInterpreterId: string): Promise<$_model.DeleteCodeInterpreterResponse> {
@@ -1029,7 +1060,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a credential
+   * Deletes the specified credential.
+   * 
+   * @remarks
+   * This operation deletes the specified credential. This action cannot be undone.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1054,7 +1088,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a credential
+   * Deletes the specified credential.
+   * 
+   * @remarks
+   * This operation deletes the specified credential. This action cannot be undone.
    * @returns DeleteCredentialResponse
    */
   async deleteCredential(credentialName: string): Promise<$_model.DeleteCredentialResponse> {
@@ -1064,7 +1101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a custom domain
+   * Deletes a custom domain.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1089,7 +1126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a custom domain
+   * Deletes a custom domain.
    * @returns DeleteCustomDomainResponse
    */
   async deleteCustomDomain(domainName: string): Promise<$_model.DeleteCustomDomainResponse> {
@@ -1099,10 +1136,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流
+   * Deletes a flow.
    * 
    * @remarks
-   * 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * Deletes a specified flow instance, along with all its related resources and data. This operation is irreversible and cannot be undone. Use with caution.
    * 
    * @param request - DeleteFlowRequest
    * @param headers - map
@@ -1129,10 +1166,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流
+   * Deletes a flow.
    * 
    * @remarks
-   * 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * Deletes a specified flow instance, along with all its related resources and data. This operation is irreversible and cannot be undone. Use with caution.
    * 
    * @param request - DeleteFlowRequest
    * @returns DeleteFlowResponse
@@ -1144,10 +1181,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流端点
+   * Deletes a flow endpoint.
    * 
    * @remarks
-   * 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+   * Deletes the specified flow endpoint. This operation is irreversible. Proceed with caution.
    * 
    * @param request - DeleteFlowEndpointRequest
    * @param headers - map
@@ -1174,10 +1211,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流端点
+   * Deletes a flow endpoint.
    * 
    * @remarks
-   * 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+   * Deletes the specified flow endpoint. This operation is irreversible. Proceed with caution.
    * 
    * @param request - DeleteFlowEndpointRequest
    * @returns DeleteFlowEndpointResponse
@@ -1189,10 +1226,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流版本
+   * Deletes a workflow version.
    * 
    * @remarks
-   * 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+   * Deletes a specified version of a workflow. This operation is irreversible. Proceed with caution.
    * 
    * @param request - DeleteFlowVersionRequest
    * @param headers - map
@@ -1219,10 +1256,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作流版本
+   * Deletes a workflow version.
    * 
    * @remarks
-   * 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+   * Deletes a specified version of a workflow. This operation is irreversible. Proceed with caution.
    * 
    * @param request - DeleteFlowVersionRequest
    * @returns DeleteFlowVersionResponse
@@ -1234,10 +1271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 IM Bot
+   * Deletes an IM bot.
    * 
    * @remarks
-   * DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+   * This operation deletes an IM bot via a `DELETE` request to the `/2025-09-10/agents/im-bots/{imBotId}` endpoint. A successful request returns an HTTP `204 No Content` status code and an empty response body.
    * 
    * @param request - DeleteIMBotRequest
    * @param headers - map
@@ -1264,10 +1301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 IM Bot
+   * Deletes an IM bot.
    * 
    * @remarks
-   * DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+   * This operation deletes an IM bot via a `DELETE` request to the `/2025-09-10/agents/im-bots/{imBotId}` endpoint. A successful request returns an HTTP `204 No Content` status code and an empty response body.
    * 
    * @param request - DeleteIMBotRequest
    * @returns DeleteIMBotResponse
@@ -1279,7 +1316,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除知识库
+   * Deletes a knowledge base.
+   * > This operation is permanent and cannot be undone.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1304,7 +1342,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除知识库
+   * Deletes a knowledge base.
+   * > This operation is permanent and cannot be undone.
    * @returns DeleteKnowledgeBaseResponse
    */
   async deleteKnowledgeBase(knowledgeBaseName: string): Promise<$_model.DeleteKnowledgeBaseResponse> {
@@ -1314,7 +1353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除记忆存储
+   * Deletes a memory collection.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1339,7 +1378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除记忆存储
+   * Deletes a memory collection.
    * @returns DeleteMemoryCollectionResponse
    */
   async deleteMemoryCollection(memoryCollectionName: string): Promise<$_model.DeleteMemoryCollectionResponse> {
@@ -1349,7 +1388,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型
+   * Deletes a model proxy.
+   * 
+   * @remarks
+   * This operation deletes the specified model proxy configuration without deleting the underlying models or related resources.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1374,7 +1416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型
+   * Deletes a model proxy.
+   * 
+   * @remarks
+   * This operation deletes the specified model proxy configuration without deleting the underlying models or related resources.
    * @returns DeleteModelProxyResponse
    */
   async deleteModelProxy(modelProxyName: string): Promise<$_model.DeleteModelProxyResponse> {
@@ -1384,7 +1429,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型
+   * Deletes a model service.
+   * 
+   * @remarks
+   * This operation deletes a model service. You must specify the name of the service to delete.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1409,7 +1457,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型
+   * Deletes a model service.
+   * 
+   * @remarks
+   * This operation deletes a model service. You must specify the name of the service to delete.
    * @returns DeleteModelServiceResponse
    */
   async deleteModelService(modelServiceName: string): Promise<$_model.DeleteModelServiceResponse> {
@@ -1419,7 +1470,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Sandbox
+   * Deletes a sandbox instance.
+   * 
+   * @remarks
+   * Deletes a sandbox instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1444,7 +1498,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Sandbox
+   * Deletes a sandbox instance.
+   * 
+   * @remarks
+   * Deletes a sandbox instance.
    * @returns DeleteSandboxResponse
    */
   async deleteSandbox(sandboxId: string): Promise<$_model.DeleteSandboxResponse> {
@@ -1454,10 +1511,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模板
+   * Deletes a template.
    * 
    * @remarks
-   * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+   * Deletes the specified template. After you delete a template, you can no longer use it to create new sandboxes.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1482,10 +1539,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模板
+   * Deletes a template.
    * 
    * @remarks
-   * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+   * Deletes the specified template. After you delete a template, you can no longer use it to create new sandboxes.
    * @returns DeleteTemplateResponse
    */
   async deleteTemplate(templateName: string): Promise<$_model.DeleteTemplateResponse> {
@@ -1495,10 +1552,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工具
+   * Delete a tool
    * 
    * @remarks
-   * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+   * Delete the specified tool. The delete operation is irreversible. Proceed with caution. After the tool is deleted, all Agents that reference this tool will no longer be able to use it.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1523,10 +1580,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工具
+   * Delete a tool
    * 
    * @remarks
-   * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+   * Delete the specified tool. The delete operation is irreversible. Proceed with caution. After the tool is deleted, all Agents that reference this tool will no longer be able to use it.
    * @returns DeleteToolResponse
    */
   async deleteTool(toolName: string): Promise<$_model.DeleteToolResponse> {
@@ -1536,10 +1593,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Deletes a workspace.
    * 
    * @remarks
-   * 删除工作空间
+   * Deletes the specified workspace.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1564,10 +1621,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Deletes a workspace.
    * 
    * @remarks
-   * 删除工作空间
+   * Deletes the specified workspace.
    * @returns DeleteWorkspaceResponse
    */
   async deleteWorkspace(workspaceId: string): Promise<$_model.DeleteWorkspaceResponse> {
@@ -1577,7 +1634,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get access token for a resource
+   * Obtains an access token.
+   * 
+   * @remarks
+   * Obtains a temporary accessToken that is used to authenticate subsequent API requests.
    * 
    * @param request - GetAccessTokenRequest
    * @param headers - map
@@ -1618,7 +1678,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get access token for a resource
+   * Obtains an access token.
+   * 
+   * @remarks
+   * Obtains a temporary accessToken that is used to authenticate subsequent API requests.
    * 
    * @param request - GetAccessTokenRequest
    * @returns GetAccessTokenResponse
@@ -1630,10 +1693,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取智能体运行时详情
+   * Get Agent Runtime
    * 
    * @remarks
-   * 根据智能体运行时ID获取指定智能体运行时的详细信息，包括配置、状态、资源使用情况等。
+   * Retrieves detailed information about a specified agent runtime by its agent runtime ID, including configuration, status, resource usage, and more.
    * 
    * @param request - GetAgentRuntimeRequest
    * @param headers - map
@@ -1666,10 +1729,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取智能体运行时详情
+   * Get Agent Runtime
    * 
    * @remarks
-   * 根据智能体运行时ID获取指定智能体运行时的详细信息，包括配置、状态、资源使用情况等。
+   * Retrieves detailed information about a specified agent runtime by its agent runtime ID, including configuration, status, resource usage, and more.
    * 
    * @param request - GetAgentRuntimeRequest
    * @returns GetAgentRuntimeResponse
@@ -1681,7 +1744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get an agent runtime endpoint
+   * Get Agent Runtime Access Endpoint
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1706,7 +1769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get an agent runtime endpoint
+   * Get Agent Runtime Access Endpoint
    * @returns GetAgentRuntimeEndpointResponse
    */
   async getAgentRuntimeEndpoint(agentRuntimeId: string, agentRuntimeEndpointId: string): Promise<$_model.GetAgentRuntimeEndpointResponse> {
@@ -1716,10 +1779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取浏览器实例详情
+   * GetBrowserSandbox
    * 
    * @remarks
-   * 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
+   * Retrieves detailed information about a specified browser instance by browser ID, including configuration, status, resource usage, and more.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1744,10 +1807,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取浏览器实例详情
+   * GetBrowserSandbox
    * 
    * @remarks
-   * 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
+   * Retrieves detailed information about a specified browser instance by browser ID, including configuration, status, resource usage, and more.
    * @returns GetBrowserResponse
    */
   async getBrowser(browserId: string): Promise<$_model.GetBrowserResponse> {
@@ -1757,7 +1820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取代码解释器详情
+   * Retrieves an interpreter.
    * 
    * @remarks
    * 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
@@ -1785,7 +1848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取代码解释器详情
+   * Retrieves an interpreter.
    * 
    * @remarks
    * 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
@@ -1798,7 +1861,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a credential
+   * Retrieves information about a specific credential.
+   * 
+   * @remarks
+   * Retrieves detailed information about a specified credential, including its configuration, metadata, and related resources.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1823,7 +1889,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a credential
+   * Retrieves information about a specific credential.
+   * 
+   * @remarks
+   * Retrieves detailed information about a specified credential, including its configuration, metadata, and related resources.
    * @returns GetCredentialResponse
    */
   async getCredential(credentialName: string): Promise<$_model.GetCredentialResponse> {
@@ -1833,7 +1902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义域名详情
+   * Retrieves the configuration of a custom domain.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1858,7 +1927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义域名详情
+   * Retrieves the configuration of a custom domain.
    * @returns GetCustomDomainResponse
    */
   async getCustomDomain(domainName: string): Promise<$_model.GetCustomDomainResponse> {
@@ -1868,7 +1937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流详情
+   * Get flow details
    * 
    * @remarks
    * 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
@@ -1898,7 +1967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流详情
+   * Get flow details
    * 
    * @remarks
    * 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
@@ -1913,7 +1982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流草稿
+   * Get the workflow draft.
    * 
    * @remarks
    * 获取指定工作流的草稿版本，返回草稿中的配置信息。
@@ -1943,7 +2012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流草稿
+   * Get the workflow draft.
    * 
    * @remarks
    * 获取指定工作流的草稿版本，返回草稿中的配置信息。
@@ -1958,7 +2027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流端点详情
+   * Retrieves the details of a workflow endpoint.
    * 
    * @remarks
    * 根据工作流ID和端点ID获取指定工作流端点的详细信息。
@@ -1988,7 +2057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流端点详情
+   * Retrieves the details of a workflow endpoint.
    * 
    * @remarks
    * 根据工作流ID和端点ID获取指定工作流端点的详细信息。
@@ -2003,10 +2072,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流版本详情
+   * Retrieves the details of a workflow version.
    * 
    * @remarks
-   * 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+   * Retrieves the details of a specific workflow version, including a complete configuration snapshot of its definition, environment variables, tracing configuration, and logging configuration.
    * 
    * @param request - GetFlowVersionRequest
    * @param headers - map
@@ -2033,10 +2102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流版本详情
+   * Retrieves the details of a workflow version.
    * 
    * @remarks
-   * 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+   * Retrieves the details of a specific workflow version, including a complete configuration snapshot of its definition, environment variables, tracing configuration, and logging configuration.
    * 
    * @param request - GetFlowVersionRequest
    * @returns GetFlowVersionResponse
@@ -2048,7 +2117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 IM Bot
+   * Gets the details of a specific IM Bot.
    * 
    * @remarks
    * GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
@@ -2078,7 +2147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 IM Bot
+   * Gets the details of a specific IM Bot.
    * 
    * @remarks
    * GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
@@ -2093,7 +2162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取知识库
+   * Gets information about a knowledge base.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2118,7 +2187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取知识库
+   * Gets information about a knowledge base.
    * @returns GetKnowledgeBaseResponse
    */
   async getKnowledgeBase(knowledgeBaseName: string): Promise<$_model.GetKnowledgeBaseResponse> {
@@ -2128,7 +2197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询记忆存储详情
+   * Retrieves details for a specific memory collection.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2153,7 +2222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询记忆存储详情
+   * Retrieves details for a specific memory collection.
    * @returns GetMemoryCollectionResponse
    */
   async getMemoryCollection(memoryCollectionName: string): Promise<$_model.GetMemoryCollectionResponse> {
@@ -2163,7 +2232,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看model
+   * Retrieves model governance information.
+   * 
+   * @remarks
+   * This operation retrieves the configuration details of a specific model proxy.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2188,7 +2260,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看model
+   * Retrieves model governance information.
+   * 
+   * @remarks
+   * This operation retrieves the configuration details of a specific model proxy.
    * @returns GetModelProxyResponse
    */
   async getModelProxy(modelProxyName: string): Promise<$_model.GetModelProxyResponse> {
@@ -2198,7 +2273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看model
+   * Retrieves the details of a specified model service.
+   * 
+   * @remarks
+   * Retrieves the details of a specified model service.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2223,7 +2301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看model
+   * Retrieves the details of a specified model service.
+   * 
+   * @remarks
+   * Retrieves the details of a specified model service.
    * @returns GetModelServiceResponse
    */
   async getModelService(modelServiceName: string): Promise<$_model.GetModelServiceResponse> {
@@ -2233,10 +2314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取沙箱
+   * Retrieves the details of a specific sandbox.
    * 
    * @remarks
-   * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+   * Retrieves the details of a specific sandbox by its `sandboxId`, including its status and configuration.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2261,10 +2342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取沙箱
+   * Retrieves the details of a specific sandbox.
    * 
    * @remarks
-   * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+   * Retrieves the details of a specific sandbox by its `sandboxId`, including its status and configuration.
    * @returns GetSandboxResponse
    */
   async getSandbox(sandboxId: string): Promise<$_model.GetSandboxResponse> {
@@ -2274,10 +2355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板
+   * Retrieves a template.
    * 
    * @remarks
-   * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+   * Retrieves the details of a template by its name. The response includes the template\\"s configuration and status.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2302,10 +2383,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板
+   * Retrieves a template.
    * 
    * @remarks
-   * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+   * Retrieves the details of a template by its name. The response includes the template\\"s configuration and status.
    * @returns GetTemplateResponse
    */
   async getTemplate(templateName: string): Promise<$_model.GetTemplateResponse> {
@@ -2315,10 +2396,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工具详情
+   * Get a tool
    * 
    * @remarks
-   * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+   * Obtain the complete configuration information of a tool by its name, including basic information, resource configuration, network configuration, running status, and all other detailed information.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2343,10 +2424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工具详情
+   * Get a tool
    * 
    * @remarks
-   * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+   * Obtain the complete configuration information of a tool by its name, including basic information, resource configuration, network configuration, running status, and all other detailed information.
    * @returns GetToolResponse
    */
   async getTool(toolName: string): Promise<$_model.GetToolResponse> {
@@ -2356,10 +2437,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作空间
+   * Retrieves the details of a specific workspace.
    * 
    * @remarks
-   * 查看工作空间
+   * Retrieves the details of a specific workspace.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2384,10 +2465,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作空间
+   * Retrieves the details of a specific workspace.
    * 
    * @remarks
-   * 查看工作空间
+   * Retrieves the details of a specific workspace.
    * @returns GetWorkspaceResponse
    */
   async getWorkspace(workspaceId: string): Promise<$_model.GetWorkspaceResponse> {
@@ -2397,7 +2478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间下的发现端点
+   * Gets the discovery endpoints for a workspace.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2422,7 +2503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间下的发现端点
+   * Gets the discovery endpoints for a workspace.
    * @returns GetWorkspaceDiscoveryEndpointsResponse
    */
   async getWorkspaceDiscoveryEndpoints(workspaceId: string): Promise<$_model.GetWorkspaceDiscoveryEndpointsResponse> {
@@ -2432,7 +2513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of access endpoints for an agent runtime
+   * List Agent Runtime Endpoints
    * 
    * @remarks
    * 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
@@ -2480,7 +2561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of access endpoints for an agent runtime
+   * List Agent Runtime Endpoints
    * 
    * @remarks
    * 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
@@ -2495,7 +2576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List agent runtime versions
+   * Retrieves agent runtime versions.
    * 
    * @param request - ListAgentRuntimeVersionsRequest
    * @param headers - map
@@ -2532,7 +2613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List agent runtime versions
+   * Retrieves agent runtime versions.
    * 
    * @param request - ListAgentRuntimeVersionsRequest
    * @returns ListAgentRuntimeVersionsResponse
@@ -2544,10 +2625,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出智能体运行时
+   * Retrieves a list of agent runtimes.
    * 
    * @remarks
-   * 获取当前用户的所有智能体运行时列表，支持按名称、标签等条件过滤，支持分页查询。
+   * Retrieves a list of agent runtimes for the current user. You can filter the results based on criteria such as name and tags. This operation supports pagination.
    * 
    * @param request - ListAgentRuntimesRequest
    * @param headers - map
@@ -2616,10 +2697,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出智能体运行时
+   * Retrieves a list of agent runtimes.
    * 
    * @remarks
-   * 获取当前用户的所有智能体运行时列表，支持按名称、标签等条件过滤，支持分页查询。
+   * Retrieves a list of agent runtimes for the current user. You can filter the results based on criteria such as name and tags. This operation supports pagination.
    * 
    * @param request - ListAgentRuntimesRequest
    * @returns ListAgentRuntimesResponse
@@ -2631,10 +2712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出浏览器实例
+   * List Browser Sandboxes
    * 
    * @remarks
-   * 获取当前用户的所有浏览器实例列表，支持按名称、状态等条件过滤，支持分页查询。
+   * Retrieves a list of all browser instances for the current user. Supports filtering by conditions such as name and status, and supports paginated queries.
    * 
    * @param request - ListBrowsersRequest
    * @param headers - map
@@ -2679,10 +2760,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出浏览器实例
+   * List Browser Sandboxes
    * 
    * @remarks
-   * 获取当前用户的所有浏览器实例列表，支持按名称、状态等条件过滤，支持分页查询。
+   * Retrieves a list of all browser instances for the current user. Supports filtering by conditions such as name and status, and supports paginated queries.
    * 
    * @param request - ListBrowsersRequest
    * @returns ListBrowsersResponse
@@ -2694,10 +2775,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出代码解释器
+   * List Code Interpreters
    * 
    * @remarks
-   * 获取当前用户的所有代码解释器实例列表，支持按名称等条件过滤，支持分页查询。
+   * Retrieve a list of all code interpreter instances for the current user, with support for filtering by name and pagination.
    * 
    * @param request - ListCodeInterpretersRequest
    * @param headers - map
@@ -2738,10 +2819,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出代码解释器
+   * List Code Interpreters
    * 
    * @remarks
-   * 获取当前用户的所有代码解释器实例列表，支持按名称等条件过滤，支持分页查询。
+   * Retrieve a list of all code interpreter instances for the current user, with support for filtering by name and pagination.
    * 
    * @param request - ListCodeInterpretersRequest
    * @returns ListCodeInterpretersResponse
@@ -2753,7 +2834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List credentials
+   * Lists all credentials.
+   * 
+   * @remarks
+   * Lists the credentials in your account. This operation supports filtering and pagination.
    * 
    * @param request - ListCredentialsRequest
    * @param headers - map
@@ -2818,7 +2902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List credentials
+   * Lists all credentials.
+   * 
+   * @remarks
+   * Lists the credentials in your account. This operation supports filtering and pagination.
    * 
    * @param request - ListCredentialsRequest
    * @returns ListCredentialsResponse
@@ -2830,7 +2917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 自定义域名列表
+   * Lists custom domains.
    * 
    * @param request - ListCustomDomainsRequest
    * @param headers - map
@@ -2883,7 +2970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 自定义域名列表
+   * Lists custom domains.
    * 
    * @param request - ListCustomDomainsRequest
    * @returns ListCustomDomainsResponse
@@ -2895,10 +2982,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作流端点
+   * List workflow endpoints.
    * 
    * @remarks
-   * 获取指定工作流的所有端点列表，支持分页查询。
+   * Retrieve all endpoints for a specified workflow, with pagination support.
    * 
    * @param request - ListFlowEndpointsRequest
    * @param headers - map
@@ -2935,10 +3022,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作流端点
+   * List workflow endpoints.
    * 
    * @remarks
-   * 获取指定工作流的所有端点列表，支持分页查询。
+   * Retrieve all endpoints for a specified workflow, with pagination support.
    * 
    * @param request - ListFlowEndpointsRequest
    * @returns ListFlowEndpointsResponse
@@ -2950,10 +3037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作流版本
+   * Lists the versions of a flow.
    * 
    * @remarks
-   * 获取指定工作流的所有版本列表，支持分页查询。
+   * Returns a paginated list of all versions for a specified flow.
    * 
    * @param request - ListFlowVersionsRequest
    * @param headers - map
@@ -2990,10 +3077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作流版本
+   * Lists the versions of a flow.
    * 
    * @remarks
-   * 获取指定工作流的所有版本列表，支持分页查询。
+   * Returns a paginated list of all versions for a specified flow.
    * 
    * @param request - ListFlowVersionsRequest
    * @returns ListFlowVersionsResponse
@@ -3005,7 +3092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作流
+   * List flows
    * 
    * @remarks
    * 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
@@ -3057,7 +3144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作流
+   * List flows
    * 
    * @remarks
    * 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
@@ -3072,10 +3159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页列举 IM Bots
+   * Retrieves a paginated list of IM bots.
    * 
    * @remarks
-   * GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+   * Send a GET request to the `/2025-09-10/agents/im-bots` endpoint to retrieve a paginated list of IM bots. Use the `botName`, `agentRuntimeId`, `botBizType`, and `status` query parameters to filter the results. For pagination, the `pageNumber` defaults to 1 and the `pageSize` defaults to 20, with a maximum of 100.
    * 
    * @param request - ListIMBotsRequest
    * @param headers - map
@@ -3128,10 +3215,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页列举 IM Bots
+   * Retrieves a paginated list of IM bots.
    * 
    * @remarks
-   * GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+   * Send a GET request to the `/2025-09-10/agents/im-bots` endpoint to retrieve a paginated list of IM bots. Use the `botName`, `agentRuntimeId`, `botBizType`, and `status` query parameters to filter the results. For pagination, the `pageNumber` defaults to 1 and the `pageSize` defaults to 20, with a maximum of 100.
    * 
    * @param request - ListIMBotsRequest
    * @returns ListIMBotsResponse
@@ -3143,7 +3230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出知识库
+   * Lists the knowledge bases in your account.
    * 
    * @param request - ListKnowledgeBasesRequest
    * @param headers - map
@@ -3192,7 +3279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出知识库
+   * Lists the knowledge bases in your account.
    * 
    * @param request - ListKnowledgeBasesRequest
    * @returns ListKnowledgeBasesResponse
@@ -3204,7 +3291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询记忆存储列表
+   * Returns a paginated list of memory collections.
    * 
    * @param request - ListMemoryCollectionsRequest
    * @param headers - map
@@ -3261,7 +3348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询记忆存储列表
+   * Returns a paginated list of memory collections.
    * 
    * @param request - ListMemoryCollectionsRequest
    * @returns ListMemoryCollectionsResponse
@@ -3273,7 +3360,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询支持的模型提供商及其模型
+   * Lists all model providers.
+   * 
+   * @remarks
+   * Lists the available model providers. This operation supports filtering and pagination.
    * 
    * @param request - ListModelProvidersRequest
    * @param headers - map
@@ -3322,7 +3412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询支持的模型提供商及其模型
+   * Lists all model providers.
+   * 
+   * @remarks
+   * Lists the available model providers. This operation supports filtering and pagination.
    * 
    * @param request - ListModelProvidersRequest
    * @returns ListModelProvidersResponse
@@ -3334,7 +3427,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * model列表
+   * Lists all Model Proxies.
+   * 
+   * @remarks
+   * Retrieves a paginated list of all Model Proxies for the current user. You can filter the list by status.
    * 
    * @param request - ListModelProxiesRequest
    * @param headers - map
@@ -3387,7 +3483,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * model列表
+   * Lists all Model Proxies.
+   * 
+   * @remarks
+   * Retrieves a paginated list of all Model Proxies for the current user. You can filter the list by status.
    * 
    * @param request - ListModelProxiesRequest
    * @returns ListModelProxiesResponse
@@ -3399,7 +3498,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * model列表
+   * Lists all models.
+   * 
+   * @remarks
+   * Retrieves a list of all models for the current user. You can filter the models by type and paginate the results.
    * 
    * @param request - ListModelServicesRequest
    * @param headers - map
@@ -3456,7 +3558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * model列表
+   * Lists all models.
+   * 
+   * @remarks
+   * Retrieves a list of all models for the current user. You can filter the models by type and paginate the results.
    * 
    * @param request - ListModelServicesRequest
    * @returns ListModelServicesResponse
@@ -3468,10 +3573,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出沙箱
+   * Returns a list of sandboxes.
    * 
    * @remarks
-   * 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+   * Retrieves a list of sandboxes for the current user. You can filter the results by template name, template type, or status. This operation supports pagination.
    * 
    * @param request - ListSandboxesRequest
    * @param headers - map
@@ -3524,10 +3629,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出沙箱
+   * Returns a list of sandboxes.
    * 
    * @remarks
-   * 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+   * Retrieves a list of sandboxes for the current user. You can filter the results by template name, template type, or status. This operation supports pagination.
    * 
    * @param request - ListSandboxesRequest
    * @returns ListSandboxesResponse
@@ -3539,10 +3644,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出模板
+   * Lists templates.
    * 
    * @remarks
-   * 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+   * Lists all templates for the current user. You can filter the results by template type and use pagination.
    * 
    * @param request - ListTemplatesRequest
    * @param headers - map
@@ -3599,10 +3704,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出模板
+   * Lists templates.
    * 
    * @remarks
-   * 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+   * Lists all templates for the current user. You can filter the results by template type and use pagination.
    * 
    * @param request - ListTemplatesRequest
    * @returns ListTemplatesResponse
@@ -3614,10 +3719,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工具列表
+   * List tools
    * 
    * @remarks
-   * 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+   * Query the tool list. Support paged query and conditional filtering by tool type, workspace, and other criteria. Return the list of tools that meet the conditions and paging information.
    * 
    * @param request - ListToolsRequest
    * @param headers - map
@@ -3670,10 +3775,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工具列表
+   * List tools
    * 
    * @remarks
-   * 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+   * Query the tool list. Support paged query and conditional filtering by tool type, workspace, and other criteria. Return the list of tools that meet the conditions and paging information.
    * 
    * @param request - ListToolsRequest
    * @returns ListToolsResponse
@@ -3685,10 +3790,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间列表
+   * Lists all workspaces in your account.
    * 
    * @remarks
-   * 获取工作空间列表
+   * Lists all workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @param headers - map
@@ -3733,10 +3838,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间列表
+   * Lists all workspaces in your account.
    * 
    * @remarks
-   * 获取工作空间列表
+   * Lists all workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -3748,10 +3853,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停沙箱
+   * Pause the sandbox and retain snapshots of its memory and file system. The sandbox enters the PAUSED state so that it can be recovered later.
    * 
    * @remarks
-   * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+   * This API is used to pause a sandbox. When invoked, the system takes a snapshot of the sandbox, capturing and persisting the memory and disk states. The user can recover the sandbox at a later time.  
+   * Note that sandbox snapshots are retained for only 30 days. After 30 days, recovery becomes unavailable.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3776,10 +3882,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停沙箱
+   * Pause the sandbox and retain snapshots of its memory and file system. The sandbox enters the PAUSED state so that it can be recovered later.
    * 
    * @remarks
-   * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+   * This API is used to pause a sandbox. When invoked, the system takes a snapshot of the sandbox, capturing and persisting the memory and disk states. The user can recover the sandbox at a later time.  
+   * Note that sandbox snapshots are retained for only 30 days. After 30 days, recovery becomes unavailable.
    * @returns PauseSandboxResponse
    */
   async pauseSandbox(sandboxId: string): Promise<$_model.PauseSandboxResponse> {
@@ -3789,10 +3896,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布工作流版本
+   * Publishes a workflow version.
    * 
    * @remarks
-   * 为指定工作流发布新版本，用于版本管理和回滚。
+   * Publishes a new version of a specified workflow. This operation supports version management and rollbacks.
    * 
    * @param request - PublishFlowVersionRequest
    * @param headers - map
@@ -3820,10 +3927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布工作流版本
+   * Publishes a workflow version.
    * 
    * @remarks
-   * 为指定工作流发布新版本，用于版本管理和回滚。
+   * Publishes a new version of a specified workflow. This operation supports version management and rollbacks.
    * 
    * @param request - PublishFlowVersionRequest
    * @returns PublishFlowVersionResponse
@@ -3835,10 +3942,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布运行时版本
+   * Publishes a new version of an agent runtime.
    * 
    * @remarks
-   * 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
+   * Publishes a new version for a specified agent runtime for version management and deployment. The new version can include code updates, configuration changes, and other content.
    * 
    * @param request - PublishRuntimeVersionRequest
    * @param headers - map
@@ -3866,10 +3973,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布运行时版本
+   * Publishes a new version of an agent runtime.
    * 
    * @remarks
-   * 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
+   * Publishes a new version for a specified agent runtime for version management and deployment. The new version can include code updates, configuration changes, and other content.
    * 
    * @param request - PublishRuntimeVersionRequest
    * @returns PublishRuntimeVersionResponse
@@ -3881,7 +3988,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复沙箱
+   * Resume a paused sandbox instance to restore it from the PAUSED state to the READY (running) state.
+   * 
+   * @remarks
+   * This API resumes a sandbox instance from the paused state to the ready state, allowing the user to invoke it and restore it to the state it was in before being paused.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3906,7 +4016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复沙箱
+   * Resume a paused sandbox instance to restore it from the PAUSED state to the READY (running) state.
+   * 
+   * @remarks
+   * This API resumes a sandbox instance from the paused state to the ready state, allowing the user to invoke it and restore it to the state it was in before being paused.
    * @returns ResumeSandboxResponse
    */
   async resumeSandbox(sandboxId: string): Promise<$_model.ResumeSandboxResponse> {
@@ -3916,10 +4029,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止沙箱
+   * Stops a sandbox.
    * 
    * @remarks
-   * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+   * Stops the specified sandbox instance. After the operation, the sandbox enters the TERMINATED state.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3944,10 +4057,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止沙箱
+   * Stops a sandbox.
    * 
    * @remarks
-   * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+   * Stops the specified sandbox instance. After the operation, the sandbox enters the TERMINATED state.
    * @returns StopSandboxResponse
    */
   async stopSandbox(sandboxId: string): Promise<$_model.StopSandboxResponse> {
@@ -3957,7 +4070,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stop the TemplateMCP service.
+   * Stops the TemplateMCP service.
+   * 
+   * @remarks
+   * Stopping the MCP service deletes the associated MCP resources and makes the endpoint inaccessible.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3982,7 +4098,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stop the TemplateMCP service.
+   * Stops the TemplateMCP service.
+   * 
+   * @remarks
+   * Stopping the MCP service deletes the associated MCP resources and makes the endpoint inaccessible.
    * @returns StopTemplateMCPResponse
    */
   async stopTemplateMCP(templateName: string): Promise<$_model.StopTemplateMCPResponse> {
@@ -3992,10 +4111,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新智能体运行时
+   * UpdateAgentRuntime
    * 
    * @remarks
-   * 更新指定智能体运行时的配置信息，包括资源分配、网络配置、环境变量等。更新操作会触发运行时重启。
+   * Updates the configuration of a specified agent runtime, including resource allocation, network configuration, and environment variables. The update operation triggers a runtime restart.
    * 
    * @param request - UpdateAgentRuntimeRequest
    * @param headers - map
@@ -4023,10 +4142,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新智能体运行时
+   * UpdateAgentRuntime
    * 
    * @remarks
-   * 更新指定智能体运行时的配置信息，包括资源分配、网络配置、环境变量等。更新操作会触发运行时重启。
+   * Updates the configuration of a specified agent runtime, including resource allocation, network configuration, and environment variables. The update operation triggers a runtime restart.
    * 
    * @param request - UpdateAgentRuntimeRequest
    * @returns UpdateAgentRuntimeResponse
@@ -4038,7 +4157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update an agent runtime endpoint
+   * Update Agent Runtime Endpoint
    * 
    * @param request - UpdateAgentRuntimeEndpointRequest
    * @param headers - map
@@ -4066,7 +4185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update an agent runtime endpoint
+   * Update Agent Runtime Endpoint
    * 
    * @param request - UpdateAgentRuntimeEndpointRequest
    * @returns UpdateAgentRuntimeEndpointResponse
@@ -4078,7 +4197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a credential
+   * Updates a credential.
+   * 
+   * @remarks
+   * Updates the configuration of a specified credential.
    * 
    * @param request - UpdateCredentialRequest
    * @param headers - map
@@ -4106,7 +4228,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a credential
+   * Updates a credential.
+   * 
+   * @remarks
+   * Updates the configuration of a specified credential.
    * 
    * @param request - UpdateCredentialRequest
    * @returns UpdateCredentialResponse
@@ -4118,7 +4243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义域名
+   * Updates a custom domain.
    * 
    * @param request - UpdateCustomDomainRequest
    * @param headers - map
@@ -4146,7 +4271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义域名
+   * Updates a custom domain.
    * 
    * @param request - UpdateCustomDomainRequest
    * @returns UpdateCustomDomainResponse
@@ -4158,10 +4283,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流
+   * Updates a workflow.
    * 
    * @remarks
-   * 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+   * Updates the configuration of a specified workflow, including the definition, execution mode, and environment variables.
    * 
    * @param request - UpdateFlowRequest
    * @param headers - map
@@ -4189,10 +4314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流
+   * Updates a workflow.
    * 
    * @remarks
-   * 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+   * Updates the configuration of a specified workflow, including the definition, execution mode, and environment variables.
    * 
    * @param request - UpdateFlowRequest
    * @returns UpdateFlowResponse
@@ -4204,7 +4329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流草稿
+   * Update a flow draft.
    * 
    * @remarks
    * 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
@@ -4235,7 +4360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流草稿
+   * Update a flow draft.
    * 
    * @remarks
    * 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
@@ -4250,7 +4375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流端点
+   * Update Flow Endpoint
    * 
    * @remarks
    * 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
@@ -4281,7 +4406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作流端点
+   * Update Flow Endpoint
    * 
    * @remarks
    * 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
@@ -4296,7 +4421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 IM Bot
+   * Updates an IM bot.
    * 
    * @remarks
    * PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
@@ -4327,7 +4452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 IM Bot
+   * Updates an IM bot.
    * 
    * @remarks
    * PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
@@ -4342,7 +4467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新知识库
+   * Updates the configuration of a knowledge base.
    * 
    * @param request - UpdateKnowledgeBaseRequest
    * @param headers - map
@@ -4370,7 +4495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新知识库
+   * Updates the configuration of a knowledge base.
    * 
    * @param request - UpdateKnowledgeBaseRequest
    * @returns UpdateKnowledgeBaseResponse
@@ -4382,7 +4507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改记忆存储信息
+   * Modifies a memory collection.
    * 
    * @param request - UpdateMemoryCollectionRequest
    * @param headers - map
@@ -4410,7 +4535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改记忆存储信息
+   * Modifies a memory collection.
    * 
    * @param request - UpdateMemoryCollectionRequest
    * @returns UpdateMemoryCollectionResponse
@@ -4422,7 +4547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型
+   * Updates the configuration of a model proxy.
+   * 
+   * @remarks
+   * Use this operation to update the configuration of a specific model proxy.
    * 
    * @param request - UpdateModelProxyRequest
    * @param headers - map
@@ -4450,7 +4578,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型
+   * Updates the configuration of a model proxy.
+   * 
+   * @remarks
+   * Use this operation to update the configuration of a specific model proxy.
    * 
    * @param request - UpdateModelProxyRequest
    * @returns UpdateModelProxyResponse
@@ -4462,7 +4593,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型
+   * Updates a model service.
+   * 
+   * @remarks
+   * This operation modifies the configuration of an existing model service.
    * 
    * @param request - UpdateModelServiceRequest
    * @param headers - map
@@ -4490,7 +4624,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型
+   * Updates a model service.
+   * 
+   * @remarks
+   * This operation modifies the configuration of an existing model service.
    * 
    * @param request - UpdateModelServiceRequest
    * @returns UpdateModelServiceResponse
@@ -4502,10 +4639,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模板
+   * Updates a template.
    * 
    * @remarks
-   * 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+   * Updates a template\\"s configuration, including its resource configuration, network configuration, and environment variables.
    * 
    * @param request - UpdateTemplateRequest
    * @param headers - map
@@ -4539,10 +4676,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模板
+   * Updates a template.
    * 
    * @remarks
-   * 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+   * Updates a template\\"s configuration, including its resource configuration, network configuration, and environment variables.
    * 
    * @param request - UpdateTemplateRequest
    * @returns UpdateTemplateResponse
@@ -4554,10 +4691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工具
+   * Updates a tool.
    * 
    * @remarks
-   * 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+   * Updates the configuration of an existing tool. You can modify its description, resource configuration, network configuration, and more. This operation supports partial updates. You only need to specify the fields that you want to modify.
    * 
    * @param request - UpdateToolRequest
    * @param headers - map
@@ -4585,10 +4722,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工具
+   * Updates a tool.
    * 
    * @remarks
-   * 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+   * Updates the configuration of an existing tool. You can modify its description, resource configuration, network configuration, and more. This operation supports partial updates. You only need to specify the fields that you want to modify.
    * 
    * @param request - UpdateToolRequest
    * @returns UpdateToolResponse
@@ -4600,10 +4737,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作空间
+   * Updates a workspace.
    * 
    * @remarks
-   * 更新工作空间
+   * Updates the properties of a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @param headers - map
@@ -4631,10 +4768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作空间
+   * Updates a workspace.
    * 
    * @remarks
-   * 更新工作空间
+   * Updates the properties of a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @returns UpdateWorkspaceResponse
@@ -4646,7 +4783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间下的发现端点
+   * Updates the discovery endpoint configuration for a specified workspace.
    * 
    * @param request - UpdateWorkspaceDiscoveryEndpointsRequest
    * @param headers - map
@@ -4674,7 +4811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间下的发现端点
+   * Updates the discovery endpoint configuration for a specified workspace.
    * 
    * @param request - UpdateWorkspaceDiscoveryEndpointsRequest
    * @returns UpdateWorkspaceDiscoveryEndpointsResponse

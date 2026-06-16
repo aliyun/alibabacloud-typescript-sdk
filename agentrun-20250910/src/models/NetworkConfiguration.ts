@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class NetworkConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * The network mode.
+   * 
    * @example
    * PRIVATE
    */
   networkMode?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-1234567890abcdef0
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-1234567890abcdef0
    */
   vpcId?: string;
   /**
+   * @remarks
+   * An array of VSwitch IDs.
+   * 
    * @example
    * vsw-1234567890abcdef0,vsw-abcdef1234567890
    */

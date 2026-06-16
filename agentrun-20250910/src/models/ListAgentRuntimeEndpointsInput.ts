@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentRuntimeEndpointsInput extends $dara.Model {
   /**
    * @remarks
-   * 按端点名称过滤
+   * Filter by endpoint name
    */
   endpointName?: string;
   /**
    * @remarks
-   * 页码
+   * Page number
    */
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * Number of records per page
    */
   pageSize?: number;
   /**
    * @remarks
-   * 按状态过滤
+   * Filter by status
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class TLSConfig extends $dara.Model {
    * TLS 加密套件列表。
    * 
    * @example
-   * [\"TLS_RSA_WITH_RC4_128_SHA\"]
+   * [\\"TLS_RSA_WITH_RC4_128_SHA\\"]
    */
   cipherSuites?: string[];
   /**

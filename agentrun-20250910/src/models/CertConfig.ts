@@ -16,7 +16,7 @@ export class CertConfig extends $dara.Model {
    * 证书，如果是证书链，则需要依次填写多个证书。
    * 
    * @example
-   * -----BEGIN CERTIFICATE-----\nxxxxx\n-----END CERTIFICATE-----
+   * -----BEGIN CERTIFICATE-----\\nxxxxx\\n-----END CERTIFICATE-----
    */
   certificate?: string;
   /**
@@ -24,7 +24,7 @@ export class CertConfig extends $dara.Model {
    * 私钥。
    * 
    * @example
-   * -----BEGIN RSA PRIVATE KEY-----\nxxxxx\n-----END RSA PRIVATE KEY-----
+   * -----BEGIN RSA PRIVATE KEY-----\\nxxxxx\\n-----END RSA PRIVATE KEY-----
    */
   privateKey?: string;
   static names(): { [key: string]: string } {

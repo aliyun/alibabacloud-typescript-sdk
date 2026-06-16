@@ -4,7 +4,15 @@ import { BrowserOssLocation } from "./BrowserOssLocation";
 
 
 export class BrowserRecordingConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * Is recording enabled
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * OSS storage location
+   */
   ossLocation?: BrowserOssLocation;
   static names(): { [key: string]: string } {
     return {

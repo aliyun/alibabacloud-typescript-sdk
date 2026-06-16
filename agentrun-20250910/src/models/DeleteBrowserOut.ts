@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteBrowserOut extends $dara.Model {
+  /**
+   * @remarks
+   * The browser ID.
+   */
   browserId?: string;
+  /**
+   * @remarks
+   * The browser name.
+   */
   browserName?: string;
+  /**
+   * @remarks
+   * The operation status.
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

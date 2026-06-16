@@ -6,7 +6,7 @@ import { ListTemplatesOutput } from "./ListTemplatesOutput";
 export class ListTemplatesResult extends $dara.Model {
   /**
    * @remarks
-   * SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+   * A value of `SUCCESS` indicates the request was successful. On failure, this parameter returns an error type, such as `ERR_BAD_REQUEST`, `ERR_VALIDATION_FAILED`, or `ERR_INTERNAL_SERVER_ERROR`.
    * 
    * @example
    * SUCCESS
@@ -14,12 +14,12 @@ export class ListTemplatesResult extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 模板列表的详细信息
+   * Details about the template list.
    */
   data?: ListTemplatesOutput;
   /**
    * @remarks
-   * 唯一的请求标识符，用于问题追踪
+   * A unique request ID for troubleshooting and tracking.
    * 
    * @example
    * C0595DB0-D1EE-55C3-8DDD-790872C7EC2F

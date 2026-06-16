@@ -6,7 +6,7 @@ import { NetworkConfiguration } from "./NetworkConfiguration";
 export class CreateCodeInterpreterInput extends $dara.Model {
   /**
    * @remarks
-   * 代码解释器的名称，用于标识和区分不同的代码解释器实例
+   * The name of the code interpreter. Use this to identify and distinguish code interpreter instances.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class CreateCodeInterpreterInput extends $dara.Model {
   codeInterpreterName?: string;
   /**
    * @remarks
-   * CPU资源配置（单位：核数）
+   * The amount of CPU to allocate, in cores.
    * 
    * This parameter is required.
    * 
@@ -25,13 +25,16 @@ export class CreateCodeInterpreterInput extends $dara.Model {
    */
   cpu?: number;
   /**
+   * @remarks
+   * The credential ID used for authentication.
+   * 
    * @example
    * cred-1234567890abcdef
    */
   credentialId?: string;
   /**
    * @remarks
-   * 代码解释器的描述信息，说明该解释器的用途和功能
+   * A description of the code interpreter.
    * 
    * @example
    * Python code interpreter for data analysis
@@ -39,7 +42,7 @@ export class CreateCodeInterpreterInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 此代码解释器的执行角色
+   * The Alibaba Cloud Resource Name (ARN) of the execution role for the code interpreter.
    * 
    * @example
    * acs:ram::1760720386195983:role/CodeInterpreterExecutionRole
@@ -47,7 +50,7 @@ export class CreateCodeInterpreterInput extends $dara.Model {
   executionRoleArn?: string;
   /**
    * @remarks
-   * 内存资源配置（单位：MB）
+   * The amount of memory to allocate, in megabytes (MB).
    * 
    * This parameter is required.
    * 
@@ -57,7 +60,7 @@ export class CreateCodeInterpreterInput extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * 代码解释器的网络配置，包括VPC、安全组等网络访问设置
+   * Specifies the network configuration for the code interpreter, including VPC and security group settings.
    * 
    * This parameter is required.
    * 
@@ -67,7 +70,7 @@ export class CreateCodeInterpreterInput extends $dara.Model {
   networkConfiguration?: NetworkConfiguration;
   /**
    * @remarks
-   * 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+   * The idle timeout for a session, in seconds. If an instance has no new requests for this duration, its session expires and cannot be reused.
    * 
    * @example
    * 3600

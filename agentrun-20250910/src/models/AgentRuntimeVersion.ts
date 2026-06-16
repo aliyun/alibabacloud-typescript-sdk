@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AgentRuntimeVersion extends $dara.Model {
   /**
    * @remarks
-   * 智能体运行时的ARN
+   * The ARN of the agent runtime.
    * 
    * @example
    * acs:agentrun:cn-hangzhou:1760720386195983:runtimes/7a1b6d39-9f8f-4ce2-b9c9-6db1b0b9e169
@@ -13,7 +13,7 @@ export class AgentRuntimeVersion extends $dara.Model {
   agentRuntimeArn?: string;
   /**
    * @remarks
-   * 智能体运行时的ID
+   * The ID of the agent runtime.
    * 
    * @example
    * ar-1234567890abcdef
@@ -21,7 +21,7 @@ export class AgentRuntimeVersion extends $dara.Model {
   agentRuntimeId?: string;
   /**
    * @remarks
-   * 智能体运行时的名称
+   * The name of the agent runtime.
    * 
    * @example
    * my-agent-runtime
@@ -29,7 +29,7 @@ export class AgentRuntimeVersion extends $dara.Model {
   agentRuntimeName?: string;
   /**
    * @remarks
-   * 已发布版本的版本号
+   * The version of the agent runtime.
    * 
    * @example
    * LATEST
@@ -37,7 +37,7 @@ export class AgentRuntimeVersion extends $dara.Model {
   agentRuntimeVersion?: string;
   /**
    * @remarks
-   * 此版本的描述
+   * The description of the agent runtime version.
    * 
    * @example
    * Initial release with basic functionality
@@ -45,7 +45,7 @@ export class AgentRuntimeVersion extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 最后更新的时间戳
+   * The timestamp of the agent runtime version\\"s last update.
    * 
    * @example
    * 2025-01-10T10:30:00Z

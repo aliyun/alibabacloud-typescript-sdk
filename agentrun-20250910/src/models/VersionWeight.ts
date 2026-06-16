@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class VersionWeight extends $dara.Model {
   /**
    * @remarks
-   * 智能体运行时版本号
+   * Agent runtime version number
    */
   version?: string;
   /**
    * @remarks
-   * 流量权重比例（0.0-1.0）
+   * Traffic weight ratio (0.0–1.0)
    */
   weight?: number;
   static names(): { [key: string]: string } {

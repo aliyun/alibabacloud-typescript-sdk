@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BrowserOssLocation extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The storage prefix within the bucket.
+   */
   prefix?: string;
   static names(): { [key: string]: string } {
     return {

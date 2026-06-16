@@ -4,6 +4,10 @@ import { PublishRuntimeVersionInput } from "./PublishRuntimeVersionInput";
 
 
 export class PublishRuntimeVersionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for publishing a version.
+   */
   body?: PublishRuntimeVersionInput;
   static names(): { [key: string]: string } {
     return {

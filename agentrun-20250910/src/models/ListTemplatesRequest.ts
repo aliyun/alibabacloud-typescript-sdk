@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * 当前页码，从1开始计数
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -13,35 +13,48 @@ export class ListTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页返回的记录数量
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The status of the template. Use this parameter to filter templates.
+   * 
    * @example
    * READY
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the template. Use this parameter to filter templates.
+   * 
    * @example
    * temp-abc
    */
   templateName?: string;
   /**
    * @remarks
-   * 按模板类型过滤
+   * The type of the template. Use this parameter to filter templates.
    * 
    * @example
    * Browser
    */
   templateType?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the template belongs.
+   * 
    * @example
    * aaa
    */
   workspaceId?: string;
+  /**
+   * @remarks
+   * The IDs of the workspaces. You can use this parameter to query templates from multiple workspaces.
+   */
   workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {

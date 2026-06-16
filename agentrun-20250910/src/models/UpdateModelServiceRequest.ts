@@ -4,6 +4,10 @@ import { UpdateModelServiceInput } from "./UpdateModelServiceInput";
 
 
 export class UpdateModelServiceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: UpdateModelServiceInput;
   static names(): { [key: string]: string } {
     return {

@@ -6,18 +6,37 @@ import { PolarFsConfig } from "./PolarFsConfig";
 
 
 export class CreateSandboxInput extends $dara.Model {
+  /**
+   * @remarks
+   * The NAS configuration.
+   */
   nasConfig?: NASConfig;
+  /**
+   * @remarks
+   * The OSS mount configuration.
+   */
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @remarks
+   * The PolarFS configuration.
+   */
   polarFsConfig?: PolarFsConfig;
   /**
+   * @remarks
+   * The unique identifier of the sandbox instance.
+   * 
    * @example
    * 01KE8DAJ35JC8SKP9CNFRZ8CW7
    */
   sandboxId?: string;
+  /**
+   * @remarks
+   * The idle timeout for the sandbox, in seconds.
+   */
   sandboxIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * 沙箱空闲超时时间（秒）
+   * The idle timeout for the sandbox, in seconds.
    * 
    * @example
    * 1800
@@ -27,7 +46,7 @@ export class CreateSandboxInput extends $dara.Model {
   sandboxIdleTimeoutSeconds?: number;
   /**
    * @remarks
-   * 模板名称（系统内部通过 templateName 查询 template_id）
+   * The template name.
    * 
    * This parameter is required.
    * 

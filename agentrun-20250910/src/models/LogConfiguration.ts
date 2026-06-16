@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LogConfiguration extends $dara.Model {
   /**
    * @remarks
-   * SLS日志库名称
+   * The name of the SLS logstore.
    * 
    * @example
    * agent-runtime-logs
@@ -13,7 +13,7 @@ export class LogConfiguration extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * SLS项目名称
+   * The name of the SLS project.
    * 
    * @example
    * agent-runtime-logs

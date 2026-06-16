@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListToolsRequest extends $dara.Model {
   /**
    * @remarks
-   * 当前页码，从 1 开始
+   * Page number
    * 
    * @example
    * 1
@@ -13,20 +13,23 @@ export class ListToolsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页返回的工具数量，用于分页查询
+   * Page size
    * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Tool Name, supports fuzzy search
+   * 
    * @example
    * tool-1
    */
   toolName?: string;
   /**
    * @remarks
-   * 按工具类型过滤，可选值：MCP、FUNCTIONCALL、SKILL
+   * Tool type
    * 
    * @example
    * MCP
@@ -34,13 +37,16 @@ export class ListToolsRequest extends $dara.Model {
   toolType?: string;
   /**
    * @remarks
-   * 按工作空间ID过滤，查询指定工作空间下的工具
+   * Workspace ID
    * 
    * @example
    * workspace-xyz789
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * List of workspace IDs, separated by commas
+   * 
    * @example
    * ws1,ws2
    */

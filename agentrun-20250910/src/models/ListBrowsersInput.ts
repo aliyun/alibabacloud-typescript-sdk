@@ -5,18 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ListBrowsersInput extends $dara.Model {
   /**
    * @remarks
-   * 按浏览器名称过滤
+   * Filters the results by browser name.
    * 
    * @example
    * my-browser
    */
   browserName?: string;
   /**
+   * @remarks
+   * The page number of the results to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The maximum number of results to return per page.
+   * 
    * @example
    * 20
    */

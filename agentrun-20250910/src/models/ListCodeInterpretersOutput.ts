@@ -4,9 +4,25 @@ import { CodeInterpreter } from "./CodeInterpreter";
 
 
 export class ListCodeInterpretersOutput extends $dara.Model {
+  /**
+   * @remarks
+   * List of code interpreters
+   */
   items?: CodeInterpreter[];
+  /**
+   * @remarks
+   * Page number
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Total count
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

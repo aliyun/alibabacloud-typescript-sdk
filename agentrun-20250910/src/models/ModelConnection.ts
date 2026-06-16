@@ -8,12 +8,12 @@ import { ModelConnectionProviderSettings } from "./ModelConnectionProviderSettin
 export class ModelConnection extends $dara.Model {
   /**
    * @remarks
-   * 绑定的消费者API密钥列表
+   * A list of consumer API keys bound to this model connection.
    */
   consumerApiKeys?: ModelConnectionConsumerAPIKey[];
   /**
    * @remarks
-   * 模型连接的创建时间，采用ISO 8601格式
+   * The time the model connection was created, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T10:30:00Z
@@ -21,7 +21,7 @@ export class ModelConnection extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 模型连接的描述信息
+   * A description of the model connection.
    * 
    * @example
    * OpenAI GPT-4 connection for production
@@ -29,7 +29,7 @@ export class ModelConnection extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 模型连接最后一次更新的时间，采用ISO 8601格式
+   * The time the model connection was last updated, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T11:45:00Z
@@ -37,7 +37,7 @@ export class ModelConnection extends $dara.Model {
   lastUpdatedAt?: string;
   /**
    * @remarks
-   * 模型连接的唯一标识符
+   * The model connection\\"s unique identifier.
    * 
    * @example
    * mc-1234567890abcdef
@@ -45,7 +45,7 @@ export class ModelConnection extends $dara.Model {
   modelConnectionId?: string;
   /**
    * @remarks
-   * 模型连接的唯一名称标识
+   * A unique name identifying the model connection.
    * 
    * @example
    * my-openai-connection
@@ -53,12 +53,12 @@ export class ModelConnection extends $dara.Model {
   modelConnectionName?: string;
   /**
    * @remarks
-   * 模型元数据配置列表，包含各个模型的功能特性和参数规则
+   * A list of model metadata configurations. Each configuration includes the features and parameter rules for a specific model.
    */
   modelInfoConfigs?: ModelInfoConfig[];
   /**
    * @remarks
-   * 模型提供商名称
+   * The model provider\\"s name.
    * 
    * @example
    * openai
@@ -66,7 +66,7 @@ export class ModelConnection extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * 模型提供商的配置信息
+   * The settings for the model provider.
    * 
    * @example
    * {}
@@ -74,7 +74,7 @@ export class ModelConnection extends $dara.Model {
   providerSettings?: ModelConnectionProviderSettings;
   /**
    * @remarks
-   * 模型连接所属的工作空间标识符
+   * The identifier of the workspace containing the model connection.
    * 
    * @example
    * ws-1234567890abcdef

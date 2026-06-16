@@ -5,12 +5,22 @@ import { Sandbox } from "./Sandbox";
 
 export class StopSandboxResult extends $dara.Model {
   /**
+   * @remarks
+   * Result code
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * Details of the code interpreter, including all configuration and status information of the interpreter
+   */
   data?: Sandbox;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E
    */

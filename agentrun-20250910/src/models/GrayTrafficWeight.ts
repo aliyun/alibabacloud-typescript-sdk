@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GrayTrafficWeight extends $dara.Model {
   /**
    * @remarks
-   * 灰度版本号
+   * The identifier of the gray version.
    */
   version?: string;
   /**
    * @remarks
-   * 流量权重比例（0.0-1.0）
+   * The traffic weight, a value from 0.0 to 1.0.
    */
   weight?: number;
   static names(): { [key: string]: string } {

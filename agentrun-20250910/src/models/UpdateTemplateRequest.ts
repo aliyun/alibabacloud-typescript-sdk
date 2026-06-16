@@ -6,14 +6,14 @@ import { UpdateTemplateInput } from "./UpdateTemplateInput";
 export class UpdateTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * 更新模板所需的配置信息
+   * The request body for the template update.
    * 
    * This parameter is required.
    */
   body?: UpdateTemplateInput;
   /**
    * @remarks
-   * 用于确保请求幂等性的唯一标识符
+   * A unique client token to ensure request idempotency.
    * 
    * @example
    * clientToken

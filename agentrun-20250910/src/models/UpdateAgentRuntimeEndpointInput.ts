@@ -6,6 +6,9 @@ import { ScalingConfig } from "./ScalingConfig";
 
 export class UpdateAgentRuntimeEndpointInput extends $dara.Model {
   /**
+   * @remarks
+   * Agent runtime endpoint Name
+   * 
    * @example
    * production-endpoint
    */
@@ -16,18 +19,21 @@ export class UpdateAgentRuntimeEndpointInput extends $dara.Model {
    */
   deleteScalingConfig?: boolean;
   /**
+   * @remarks
+   * Description
+   * 
    * @example
    * Updated endpoint configuration
    */
   description?: string;
   /**
    * @remarks
-   * 是否禁用该端点的公网访问
+   * Whether to disable public network access for this endpoint
    */
   disablePublicNetworkAccess?: boolean;
   /**
    * @remarks
-   * 智能体运行时端点的路由配置，支持多版本权重分配
+   * The Ingress configuration of the agent runtime endpoint, which supports weight assignment across multiple versions
    * 
    * @example
    * {}
@@ -40,7 +46,7 @@ export class UpdateAgentRuntimeEndpointInput extends $dara.Model {
   scalingConfig?: ScalingConfig;
   /**
    * @remarks
-   * 智能体运行时的目标版本
+   * Target Version of the agent runtime
    * 
    * @example
    * LATEST

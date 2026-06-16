@@ -10,8 +10,15 @@ import { ScalingStatus } from "./ScalingStatus";
 
 
 export class TemplateMcpOptions extends $dara.Model {
+  /**
+   * @remarks
+   * List of enabled tools
+   */
   enabledTools?: string[];
   /**
+   * @remarks
+   * Transport type
+   * 
    * @example
    * streamable-http
    */
@@ -43,8 +50,29 @@ export class TemplateMcpOptions extends $dara.Model {
 }
 
 export class TemplateMcpState extends $dara.Model {
+  /**
+   * @remarks
+   * Access Endpoint
+   * 
+   * @example
+   * /mcp
+   */
   accessEndpoint?: string;
+  /**
+   * @remarks
+   * MCP Status
+   * 
+   * @example
+   * CREATING
+   */
   status?: string;
+  /**
+   * @remarks
+   * Status reason
+   * 
+   * @example
+   * SDK Error
+   */
   statusReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,54 +100,224 @@ export class TemplateMcpState extends $dara.Model {
 }
 
 export class Template extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the data link can invoke APIs to create, stop, or delete sandbox instances
+   * 
+   * @example
+   * true
+   */
   allowAnonymousManage?: boolean;
+  /**
+   * @remarks
+   * Custom image configuration
+   */
   containerConfiguration?: ContainerConfiguration;
   /**
    * @remarks
+   * Number of CPU cores
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 4
    */
   cpu?: number;
+  /**
+   * @remarks
+   * Creation Time
+   * 
+   * @example
+   * 2026-01-15T17:12:59.375168+08:00
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * Authentication configuration
+   */
   credentialConfiguration?: CredentialConfiguration;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * template描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * Disk size
+   * 
+   * @example
+   * 10240
+   */
   diskSize?: number;
+  /**
+   * @remarks
+   * Sandbox Agent Toggle
+   */
   enableAgent?: boolean;
   enablePreStop?: boolean;
+  /**
+   * @remarks
+   * Environment variable configuration for the agent runtime
+   */
   environmentVariables?: { [key: string]: string };
+  /**
+   * @remarks
+   * Execution role
+   * 
+   * @example
+   * acs:agentrun:cn-hangzhou:12345678:templates/efb6de2f-1814-42a2-b7f3-474a0e0b3a48
+   */
   executionRoleArn?: string;
+  /**
+   * @remarks
+   * Update Time
+   * 
+   * @example
+   * 2026-01-15T17:12:59.375168+08:00
+   */
   lastUpdatedAt?: string;
+  /**
+   * @remarks
+   * Log configuration
+   */
   logConfiguration?: LogConfiguration;
+  /**
+   * @remarks
+   * MCP options
+   */
   mcpOptions?: TemplateMcpOptions;
+  /**
+   * @remarks
+   * MCP server status
+   */
   mcpState?: TemplateMcpState;
   /**
    * @remarks
+   * Memory specification
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 4096
    */
   memory?: number;
+  /**
+   * @remarks
+   * NAS mount configuration item
+   */
   nasConfig?: NASConfig;
+  /**
+   * @remarks
+   * Network configuration
+   */
   networkConfiguration?: NetworkConfiguration;
+  /**
+   * @remarks
+   * OSS configuration
+   */
   ossConfiguration?: OssConfiguration[];
   preStopTimeoutInSeconds?: number;
+  /**
+   * @remarks
+   * Resource Name
+   * 
+   * @example
+   * agentrun-f2570dd4-c8a2-452c-8bd5-4ef74b0a69b5
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * Sandbox idle timeout
+   * 
+   * @example
+   * 1800
+   */
   sandboxIdleTimeoutInSeconds?: string;
+  /**
+   * @remarks
+   * Sandbox lifecycle time to live (deprecated)
+   * 
+   * @example
+   * 已弃用
+   */
   sandboxTTLInSeconds?: string;
+  /**
+   * @remarks
+   * Elasticity Status
+   */
   scalingStatus?: ScalingStatus;
+  /**
+   * @remarks
+   * Status
+   * 
+   * @example
+   * READY
+   */
   status?: string;
+  /**
+   * @remarks
+   * Status reason
+   * 
+   * @example
+   * SDK Error
+   */
   statusReason?: string;
+  /**
+   * @remarks
+   * Template ARN
+   * 
+   * @example
+   * acs:agentrun:cn-hangzhou:12345678:templates/efb6de2f-1814-42a2-b7f3-474a0e0b3a48
+   */
   templateArn?: string;
+  /**
+   * @remarks
+   * Template Configuration (flexible object structure that varies based on templateType)
+   */
   templateConfiguration?: { [key: string]: any };
   /**
    * @remarks
+   * Template ID
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 996ffd5e-003f-4700-9f24-9e2a1c19019b.schema
    */
   templateId?: string;
   /**
    * @remarks
+   * Template Name
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * browser-1767874121726
    */
   templateName?: string;
+  /**
+   * @remarks
+   * templatetype
+   * 
+   * @example
+   * Browser
+   */
   templateType?: string;
+  /**
+   * @remarks
+   * Template Version
+   * 
+   * @example
+   * 预留
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * Associated Space ID
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

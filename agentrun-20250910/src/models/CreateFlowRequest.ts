@@ -6,7 +6,7 @@ import { CreateFlowInput } from "./CreateFlowInput";
 export class CreateFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * 创建工作流所需的完整配置信息，包括工作流名称、定义、执行模式等
+   * Complete configuration information required to create a workflow, including the workflow name, definition, and execution role.
    * 
    * This parameter is required.
    */

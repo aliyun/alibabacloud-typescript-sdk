@@ -6,12 +6,12 @@ import { ConsumerAPIKey } from "./ConsumerApikey";
 export class ListConsumerAPIKeysOutput extends $dara.Model {
   /**
    * @remarks
-   * 消费者API密钥列表
+   * A list of consumer API keys.
    */
   items?: ConsumerAPIKey[];
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListConsumerAPIKeysOutput extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -27,7 +27,7 @@ export class ListConsumerAPIKeysOutput extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 符合条件的消费者API密钥总数
+   * The total number of matching consumer API keys.
    * 
    * @example
    * 10

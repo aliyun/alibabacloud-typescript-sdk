@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * 当前页码，从1开始计数
+   * The page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListFlowVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页返回的记录数量
+   * The page size.
    * 
    * @example
    * 10

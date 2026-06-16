@@ -6,7 +6,7 @@ import { WindowLimit } from "./WindowLimit";
 export class RateLimitRule extends $dara.Model {
   /**
    * @remarks
-   * 限流规则的创建时间，采用ISO 8601格式
+   * The creation time of the rate limit rule, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T10:30:00Z
@@ -14,7 +14,7 @@ export class RateLimitRule extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 限流规则的描述符标识，用于关联具体的限流对象
+   * The descriptor ID for the rate limit rule, which associates the rule with a specific throttling target.
    * 
    * @example
    * model:gpt-4
@@ -22,7 +22,7 @@ export class RateLimitRule extends $dara.Model {
   descriptorId?: string;
   /**
    * @remarks
-   * 限流规则的描述符类型，如model、user等
+   * The descriptor type for the rate limit rule, such as \\"model\\" or \\"user\\".
    * 
    * @example
    * model
@@ -30,7 +30,7 @@ export class RateLimitRule extends $dara.Model {
   descriptorType?: string;
   /**
    * @remarks
-   * 限流规则是否启用，true表示启用，false表示禁用
+   * Indicates whether the rate limit rule is enabled.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class RateLimitRule extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 限流规则最后一次更新的时间，采用ISO 8601格式
+   * The last update time of the rate limit rule, in ISO 8601 format.
    * 
    * @example
    * 2025-01-10T11:45:00Z
@@ -46,7 +46,7 @@ export class RateLimitRule extends $dara.Model {
   lastUpdatedAt?: string;
   /**
    * @remarks
-   * 限流规则的唯一标识符
+   * The unique identifier for the rate limit rule.
    * 
    * @example
    * 12345678-1234-1234-1234-123456789abc
@@ -54,7 +54,7 @@ export class RateLimitRule extends $dara.Model {
   rateLimitRuleId?: string;
   /**
    * @remarks
-   * 限流时间窗口配置列表，支持多个窗口叠加限流
+   * A list of time window configurations. Multiple windows can be used to enforce layered rate limiting.
    */
   windows?: WindowLimit[];
   static names(): { [key: string]: string } {

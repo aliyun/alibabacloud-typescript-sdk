@@ -6,11 +6,17 @@ import { BrowserLiveViewStream } from "./BrowserLiveViewStream";
 
 export class BrowserStreams extends $dara.Model {
   /**
+   * @remarks
+   * automation stream
+   * 
    * @example
    * {}
    */
   automationStream?: BrowserAutomationStream;
   /**
+   * @remarks
+   * real-time view stream
+   * 
    * @example
    * {}
    */

@@ -5,14 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class OssConfiguration extends $dara.Model {
   /**
    * @remarks
+   * The name of the OSS bucket.
+   * 
    * This parameter is required.
    * 
    * @example
    * a-test-oss
    */
   bucketName?: string;
+  endpoint?: string;
   /**
    * @remarks
+   * The mount point for the OSS bucket.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +25,17 @@ export class OssConfiguration extends $dara.Model {
    */
   mountPoint?: string;
   /**
+   * @remarks
+   * The access permission for the mount point.
+   * 
    * @example
    * READ_WRITE
    */
   permission?: string;
   /**
    * @remarks
+   * The object prefix or path within the OSS bucket.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +43,9 @@ export class OssConfiguration extends $dara.Model {
    */
   prefix?: string;
   /**
+   * @remarks
+   * The region where the OSS bucket is located.
+   * 
    * @example
    * ch-hangzhou
    */
@@ -40,6 +53,7 @@ export class OssConfiguration extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bucketName: 'bucketName',
+      endpoint: 'endpoint',
       mountPoint: 'mountPoint',
       permission: 'permission',
       prefix: 'prefix',
@@ -50,6 +64,7 @@ export class OssConfiguration extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bucketName: 'string',
+      endpoint: 'string',
       mountPoint: 'string',
       permission: 'string',
       prefix: 'string',

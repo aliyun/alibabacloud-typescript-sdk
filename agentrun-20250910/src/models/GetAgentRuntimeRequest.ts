@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentRuntimeRequest extends $dara.Model {
   /**
    * @remarks
-   * 指定要获取的智能体运行时版本，如果不指定则返回最新版本
+   * Agent Runtime Version
    * 
    * @example
    * v1.0.0

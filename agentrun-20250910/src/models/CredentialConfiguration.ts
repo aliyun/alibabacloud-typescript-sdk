@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialConfiguration extends $dara.Model {
   /**
    * @remarks
-   * 凭证的唯一标识符
+   * The unique identifier for the credential.
    * 
    * @example
    * deepagent-key

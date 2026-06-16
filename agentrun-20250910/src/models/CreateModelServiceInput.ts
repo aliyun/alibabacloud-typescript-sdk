@@ -7,23 +7,29 @@ import { ProviderSettings } from "./ProviderSettings";
 
 export class CreateModelServiceInput extends $dara.Model {
   /**
+   * @remarks
+   * The credential name for authenticating with the cloud provider.
+   * 
    * @example
    * credentialName
    */
   credentialName?: string;
   /**
+   * @remarks
+   * An optional description of the model service.
+   * 
    * @example
    * Auto generate task: Pipeline[pipeline-run-1742178254775] pipelineTemplate[data-export-service-online-iVnQB5] taskTemplate[serverless-runner-task], time[2025-03-17T02:24:36Z]
    */
   description?: string;
   /**
    * @remarks
-   * modelInfoConfigs
+   * A list of configurations for models in the service.
    */
   modelInfoConfigs?: ModelInfoConfig[];
   /**
    * @remarks
-   * modelServiceName
+   * The name of the model service.
    * 
    * This parameter is required.
    * 
@@ -33,15 +39,27 @@ export class CreateModelServiceInput extends $dara.Model {
   modelServiceName?: string;
   /**
    * @remarks
+   * The model type. Valid values include:
+   * 
+   * - `system`: A built-in model that the service provides.
+   * 
+   * - `deployment`: A custom model that a user deploys.
+   * 
    * This parameter is required.
    * 
    * @example
    * system
    */
   modelType?: string;
+  /**
+   * @remarks
+   * The network configuration for the model service. See `NetworkConfiguration` for details.
+   */
   networkConfiguration?: NetworkConfiguration;
   /**
    * @remarks
+   * The cloud provider for the model service. Currently, only Alibaba Cloud is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,11 +68,15 @@ export class CreateModelServiceInput extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * providerSettings
+   * Provider-specific configuration settings. See `ProviderSettings` for details.
    * 
    * This parameter is required.
    */
   providerSettings?: ProviderSettings;
+  /**
+   * @remarks
+   * The ID of the workspace in which to create the model service.
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

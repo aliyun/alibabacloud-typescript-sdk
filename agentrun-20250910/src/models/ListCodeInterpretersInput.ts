@@ -5,10 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListCodeInterpretersInput extends $dara.Model {
   /**
    * @remarks
-   * 按代码解释器名称过滤
+   * Filters results by code interpreter name.
    */
   codeInterpreterName?: string;
+  /**
+   * @remarks
+   * The page number of the results to return. Default: 1.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Maximum number of results to return per page. Valid values: 1 to 100. Default: 20.
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {

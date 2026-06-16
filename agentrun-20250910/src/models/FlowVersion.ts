@@ -19,7 +19,7 @@ export class FlowVersion extends $dara.Model {
    * 工作流版本的定义内容（完整快照，仅在 GetFlowVersion 时返回）
    * 
    * @example
-   * Type: StateMachine\nName: my-flow\n...
+   * Type: StateMachine\\nName: my-flow\\n...
    */
   definition?: string;
   /**

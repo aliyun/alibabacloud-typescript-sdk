@@ -4,9 +4,25 @@ import { AgentRuntime } from "./AgentRuntime";
 
 
 export class ListAgentRuntimesOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Project List
+   */
   items?: AgentRuntime[];
+  /**
+   * @remarks
+   * Page number
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Total count
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

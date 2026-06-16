@@ -6,7 +6,7 @@ import { CreateSandboxInput } from "./CreateSandboxInput";
 export class CreateSandboxRequest extends $dara.Model {
   /**
    * @remarks
-   * 创建沙箱所需的配置信息，包括模板名称、沙箱名称等
+   * The configuration for the sandbox.
    * 
    * This parameter is required.
    */

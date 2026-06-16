@@ -33,12 +33,12 @@ export class UpdateModelConnectionInputConsumerApiKeys extends $dara.Model {
 export class UpdateModelConnectionInput extends $dara.Model {
   /**
    * @remarks
-   * 更新绑定的消费者API密钥列表
+   * A list of consumer API keys to associate with the model connection.
    */
   consumerApiKeys?: UpdateModelConnectionInputConsumerApiKeys[];
   /**
    * @remarks
-   * 更新后的描述信息
+   * A new description for the model connection.
    * 
    * @example
    * Updated connection description
@@ -46,12 +46,12 @@ export class UpdateModelConnectionInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 更新后的模型元数据配置列表
+   * A new list of model metadata configurations.
    */
   modelInfoConfigs?: ModelInfoConfig[];
   /**
    * @remarks
-   * 更新后的模型提供商配置信息
+   * A new configuration for the model provider.
    * 
    * @example
    * {}

@@ -6,6 +6,8 @@ import { CreateIMBotInput } from "./CreateImbotInput";
 export class CreateIMBotRequest extends $dara.Model {
   /**
    * @remarks
+   * The request body.
+   * 
    * This parameter is required.
    */
   body?: CreateIMBotInput;

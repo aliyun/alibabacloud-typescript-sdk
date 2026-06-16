@@ -4,6 +4,10 @@ import { CreateCredentialInput } from "./CreateCredentialInput";
 
 
 export class CreateCredentialRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters for creating a credential.
+   */
   body?: CreateCredentialInput;
   static names(): { [key: string]: string } {
     return {

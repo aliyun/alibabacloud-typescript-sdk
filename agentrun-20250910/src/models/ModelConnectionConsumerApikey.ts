@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ModelConnectionConsumerAPIKey extends $dara.Model {
   /**
    * @remarks
-   * 消费者API密钥记录的唯一标识
+   * The unique identifier for the consumer API key.
    * 
    * @example
    * 12345678-1234-1234-1234-123456789abc
    */
   apiKeyId?: string;
+  /**
+   * @remarks
+   * The value of the consumer API key.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

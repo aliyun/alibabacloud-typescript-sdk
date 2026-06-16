@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListKnowledgeBasesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number to return. The value must be 1 or greater. The default value is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results to return per page. The default value is 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The knowledge base provider.
+   * 
    * @example
    * bailian
    */

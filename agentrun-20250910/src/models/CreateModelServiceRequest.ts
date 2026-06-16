@@ -4,6 +4,10 @@ import { CreateModelServiceInput } from "./CreateModelServiceInput";
 
 
 export class CreateModelServiceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Parameters for creating the model service.
+   */
   body?: CreateModelServiceInput;
   static names(): { [key: string]: string } {
     return {

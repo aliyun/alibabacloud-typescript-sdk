@@ -5,12 +5,22 @@ import { PolarFsMountConfig } from "./PolarFsMountConfig";
 
 export class PolarFsConfig extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the group.
+   * 
    * @example
    * 1000
    */
   groupId?: number;
+  /**
+   * @remarks
+   * The mount points for PFS.
+   */
   mountPoints?: PolarFsMountConfig[];
   /**
+   * @remarks
+   * The ID of the user.
+   * 
    * @example
    * 1000
    */

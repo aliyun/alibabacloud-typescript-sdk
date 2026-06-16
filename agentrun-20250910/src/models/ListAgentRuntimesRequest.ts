@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentRuntimesRequest extends $dara.Model {
   /**
    * @remarks
-   * 根据智能体运行时名称进行模糊匹配过滤
+   * Filters the results by agent runtime name.
    * 
    * @example
    * my-runtime
@@ -13,7 +13,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   agentRuntimeName?: string;
   /**
    * @remarks
-   * 用于服务发现的资源组标识符
+   * The service discovery resource group ID.
    * 
    * @example
    * rg-123456
@@ -23,7 +23,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   discoveryResourceGroupId?: string;
   /**
    * @remarks
-   * 当前页码，从1开始计数
+   * The page number to return.
    * 
    * @example
    * 1
@@ -31,19 +31,22 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页返回的记录数量
+   * The number of entries to return per page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the resource group. This parameter is deprecated.
+   * 
    * @deprecated
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * 查询模式，支持精确查询和模糊查询
+   * The search mode.
    * 
    * @example
    * fuzzy
@@ -51,7 +54,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   searchMode?: string;
   /**
    * @remarks
-   * 根据状态进行过滤，多个状态用逗号分隔，支持精确匹配
+   * Filters the results by status.
    * 
    * @example
    * READY,CREATING
@@ -59,7 +62,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 根据系统标签进行过滤，多个标签用逗号分隔，支持精确匹配
+   * Filters the results by system tags. Separate multiple tags with commas. This parameter supports only exact matches.
    * 
    * @example
    * acs:ecs:tag1,acs:ecs:tag2
@@ -67,12 +70,16 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   systemTags?: string;
   /**
    * @remarks
-   * 根据工作空间ID进行过滤，用于资源隔离和权限管理
+   * The workspace ID.
    * 
    * @example
    * ws-1234567890abcdef
    */
   workspaceId?: string;
+  /**
+   * @remarks
+   * A comma-separated string of workspace IDs.
+   */
   workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {

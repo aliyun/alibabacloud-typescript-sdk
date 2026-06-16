@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BrowserViewPort extends $dara.Model {
   /**
+   * @remarks
+   * The height of the browser viewport in pixels.
+   * 
    * @example
    * 1080
    */
   height?: number;
   /**
+   * @remarks
+   * The width of the browser viewport in pixels.
+   * 
    * @example
    * 1920
    */

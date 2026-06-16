@@ -6,12 +6,12 @@ import { ModelConnection } from "./ModelConnection";
 export class ListModelConnectionsOutput extends $dara.Model {
   /**
    * @remarks
-   * 模型连接列表
+   * A list of ModelConnection objects.
    */
   items?: ModelConnection[];
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListModelConnectionsOutput extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -27,7 +27,7 @@ export class ListModelConnectionsOutput extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 符合条件的模型连接总数
+   * The total number of matching ModelConnection objects.
    * 
    * @example
    * 10

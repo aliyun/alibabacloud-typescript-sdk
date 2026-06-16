@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAccessTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * mod-kw1750tjqs94n9k37o5hjk
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource name of the agent runtime.
+   * 
    * @example
    * COUPON_OPERATION_CALLBACK
    */
   resourceName?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * SceneTestingTask
    */

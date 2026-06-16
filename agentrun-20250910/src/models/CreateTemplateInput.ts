@@ -12,6 +12,9 @@ import { ScalingConfig } from "./ScalingConfig";
 
 export class CreateTemplateInput extends $dara.Model {
   /**
+   * @remarks
+   * Controls whether data plane calls can create, stop, or delete the sandbox.
+   * 
    * @example
    * true
    * 
@@ -19,15 +22,19 @@ export class CreateTemplateInput extends $dara.Model {
    * true
    */
   allowAnonymousManage?: boolean;
+  /**
+   * @remarks
+   * The Application Real-Time Monitoring Service (ARMS) configuration.
+   */
   armsConfiguration?: ArmsConfiguration;
   /**
    * @remarks
-   * 容器配置，只允许基于 Browser/Code Interpreter 基础镜像的 image
+   * The container configuration. You can only use images based on the Browser or Code Interpreter base images.
    */
   containerConfiguration?: ContainerConfiguration;
   /**
    * @remarks
-   * CPU资源配置（单位：核心）
+   * The number of CPU cores.
    * 
    * This parameter is required.
    * 
@@ -35,25 +42,58 @@ export class CreateTemplateInput extends $dara.Model {
    * 2
    */
   cpu?: number;
+  /**
+   * @remarks
+   * The credential configuration.
+   */
   credentialConfiguration?: CredentialConfiguration;
+  /**
+   * @remarks
+   * The template description.
+   * 
+   * @example
+   * 模板描述
+   */
   description?: string;
   /**
+   * @remarks
+   * The disk size in MB.
+   * 
    * @example
    * 10240
    */
   diskSize?: number;
+  /**
+   * @remarks
+   * Controls whether to enable the Sandbox Agent.
+   */
   enableAgent?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the pre-stop hook.
+   */
   enablePreStop?: boolean;
+  /**
+   * @remarks
+   * The environment variables for the sandbox.
+   */
   environmentVariables?: { [key: string]: string };
   /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the execution role.
+   * 
    * @example
    * acs:ram::123456789:role/aliyunfcdefaultrole
    */
   executionRoleArn?: string;
+  /**
+   * @remarks
+   * The log configuration.
+   */
   logConfiguration?: LogConfiguration;
   /**
    * @remarks
-   * 内存资源配置（单位：MB）
+   * The memory size in MB.
    * 
    * This parameter is required.
    * 
@@ -61,17 +101,31 @@ export class CreateTemplateInput extends $dara.Model {
    * 2048
    */
   memory?: number;
+  /**
+   * @remarks
+   * The Network Attached Storage (NAS) mount configuration.
+   */
   nasConfig?: NASConfig;
   /**
    * @remarks
+   * The network configuration.
+   * 
    * This parameter is required.
    */
   networkConfiguration?: NetworkConfiguration;
+  /**
+   * @remarks
+   * A list of Object Storage Service (OSS) configurations.
+   */
   ossConfiguration?: OssConfiguration[];
+  /**
+   * @remarks
+   * The timeout for the pre-stop hook, in seconds. This parameter applies only when `enablePreStop` is set to `true`.
+   */
   preStopTimeoutInSeconds?: number;
   /**
    * @remarks
-   * 沙箱空闲超时时间（秒）
+   * The duration in seconds that a sandbox can be idle before it is automatically stopped.
    * 
    * @example
    * 1800
@@ -79,21 +133,25 @@ export class CreateTemplateInput extends $dara.Model {
   sandboxIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * 沙箱存活时间（秒）
+   * The maximum time-to-live (TTL) in seconds for the sandbox. The sandbox is terminated after this duration, regardless of activity.
    * 
    * @example
    * 26000
    */
   sandboxTTLInSeconds?: number;
+  /**
+   * @remarks
+   * The scaling configuration.
+   */
   scalingConfig?: ScalingConfig;
   /**
    * @remarks
-   * 模板配置（灵活的对象结构，根据 templateType 不同而不同）
+   * The template configuration. This is a flexible object whose structure varies depending on the `templateType`.
    */
   templateConfiguration?: { [key: string]: any };
   /**
    * @remarks
-   * 模板名称（要求账号唯一的）
+   * A unique name for the template within your account.
    * 
    * This parameter is required.
    * 
@@ -103,12 +161,18 @@ export class CreateTemplateInput extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
+   * The template type.
+   * 
    * This parameter is required.
    * 
    * @example
    * Browser
    */
   templateType?: string;
+  /**
+   * @remarks
+   * The ID of the workspace.
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

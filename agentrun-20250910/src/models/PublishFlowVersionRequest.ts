@@ -6,7 +6,7 @@ import { PublishFlowVersionInput } from "./PublishFlowVersionInput";
 export class PublishFlowVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * 包含版本描述等信息的请求体
+   * The input parameters for publishing a workflow version.
    */
   body?: PublishFlowVersionInput;
   static names(): { [key: string]: string } {

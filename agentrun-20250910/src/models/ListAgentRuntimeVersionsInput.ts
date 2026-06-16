@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentRuntimeVersionsInput extends $dara.Model {
   /**
    * @remarks
-   * 页码
+   * The page number to retrieve.
    */
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The maximum number of results to return per page.
    */
   pageSize?: number;
   static names(): { [key: string]: string } {

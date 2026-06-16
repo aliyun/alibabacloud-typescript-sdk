@@ -7,9 +7,15 @@ import { ProxyConfig } from "./ProxyConfig";
 
 
 export class CreateModelProxyInput extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the configuration for Application Real-Time Monitoring Service (ARMS).
+   */
   armsConfiguration?: ArmsConfiguration;
   /**
    * @remarks
+   * The number of CPU cores for the proxy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,33 +24,45 @@ export class CreateModelProxyInput extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * credentialName
+   * The name of the credential for accessing the model service.
    * 
    * @example
    * credentialName
    */
   credentialName?: string;
   /**
+   * @remarks
+   * Optional. A custom description for the model proxy.
+   * 
    * @example
    * 1
    */
   description?: string;
   /**
+   * @remarks
+   * The ARN of the execution role the service assumes to act on your behalf.
+   * 
    * @example
    * executionRoleArn
    */
   executionRoleArn?: string;
   /**
    * @remarks
-   * litellmVersion
+   * The version of LiteLLM for the proxy.
    * 
    * @example
    * litellmVersion
    */
   litellmVersion?: string;
+  /**
+   * @remarks
+   * The Log Service (SLS) configuration for the Agent runtime.
+   */
   logConfiguration?: LogConfiguration;
   /**
    * @remarks
+   * The memory size for the proxy, in GiB.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,7 +71,7 @@ export class CreateModelProxyInput extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * modelProxyName
+   * The unique name for the model proxy.
    * 
    * This parameter is required.
    * 
@@ -62,21 +80,32 @@ export class CreateModelProxyInput extends $dara.Model {
    */
   modelProxyName?: string;
   /**
+   * @remarks
+   * The model type. Valid values:
+   * 
+   * - `system`: Specifies a system model.
+   * 
+   * - `deployment`: Specifies a custom deployment model.
+   * 
    * @example
    * system
    */
   modelType?: string;
+  /**
+   * @remarks
+   * Specifies the network configuration for the proxy.
+   */
   networkConfiguration?: NetworkConfiguration;
   /**
    * @remarks
-   * ProxyConfig
+   * The configuration settings for the proxy.
    * 
    * This parameter is required.
    */
   proxyConfig?: ProxyConfig;
   /**
    * @remarks
-   * proxyMode
+   * Specifies the operational mode of the proxy.
    * 
    * This parameter is required.
    * 
@@ -86,12 +115,16 @@ export class CreateModelProxyInput extends $dara.Model {
   proxyMode?: string;
   /**
    * @remarks
-   * serviceRegionId
+   * The ID of the region for the model service.
    * 
    * @example
    * serviceRegionId
    */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the workspace that contains the model proxy.
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
