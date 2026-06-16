@@ -13,7 +13,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * The maximum number of entries per page.
    * 
    * @example
    * no use
@@ -21,7 +21,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * The token information.
    * 
    * @example
    * no use
@@ -37,7 +37,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field to sort by.
+   * The name of the field by which to sort.
    * 
    * @example
    * CreateTime
@@ -45,7 +45,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number to start from.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of records per page.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The workspace type.
+   * The type of workspace to query.
    * 
    * This parameter is required.
    * 

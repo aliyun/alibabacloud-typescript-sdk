@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatMessageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * AgentId
    * 
    * @example
    * 3jqqdiuxun******
@@ -13,15 +13,16 @@ export class SendChatMessageResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Describes the result of the request.
+   * Message
    * 
    * @example
    * success
    */
   message?: string;
+  messageId?: string;
   /**
    * @remarks
-   * The session ID.
+   * SessionId
    * 
    * @example
    * 6zbqbho********
@@ -31,6 +32,7 @@ export class SendChatMessageResponseBodyData extends $dara.Model {
     return {
       agentId: 'AgentId',
       message: 'Message',
+      messageId: 'MessageId',
       sessionId: 'SessionId',
     };
   }
@@ -39,6 +41,7 @@ export class SendChatMessageResponseBodyData extends $dara.Model {
     return {
       agentId: 'string',
       message: 'string',
+      messageId: 'string',
       sessionId: 'string',
     };
   }
@@ -60,7 +63,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
   data?: SendChatMessageResponseBodyData;
   /**
    * @remarks
-   * The error code. A value of `Success` indicates that the request was successful.
+   * The error code.
    * 
    * @example
    * Success
@@ -68,7 +71,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message. This field is empty if the request is successful.
+   * The error message.
    * 
    * @example
    * ""
@@ -84,7 +87,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Success
    * 
    * @example
    * true

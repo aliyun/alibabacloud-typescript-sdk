@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataAgentSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class DescribeDataAgentSessionRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The ID of the agent session.
+   * The agent session ID.
    * 
    * @example
    * c61n7gm******rj
@@ -21,7 +21,7 @@ export class DescribeDataAgentSessionRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 12****

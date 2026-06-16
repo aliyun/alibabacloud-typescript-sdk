@@ -11,7 +11,17 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "dms.us-west-1.aliyuncs.com",
+      'us-east-1': "dms.us-east-1.aliyuncs.com",
+      'cn-shenzhen': "dms.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "dms.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "dms.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou': "dms.cn-hangzhou.aliyuncs.com",
+      'cn-beijing': "dms.cn-beijing.aliyuncs.com",
+      'ap-southeast-1': "dms.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dms", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -766,7 +776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DataAgent workspace.
+   * Creates a DataAgent collaborative workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -809,7 +819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DataAgent workspace.
+   * Creates a DataAgent collaborative workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
    * @returns CreateDataAgentWorkspaceResponse
@@ -1794,7 +1804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a DataAgent session.
+   * Retrieves the description of a DataAgent session.
    * 
    * @param request - DescribeDataAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1833,7 +1843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a DataAgent session.
+   * Retrieves the description of a DataAgent session.
    * 
    * @param request - DescribeDataAgentSessionRequest
    * @returns DescribeDataAgentSessionResponse
@@ -2300,7 +2310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves workspace details.
+   * Retrieves the details of a collaborative workspace.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2335,7 +2345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves workspace details.
+   * Retrieves the details of a collaborative workspace.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
    * @returns GetDataAgentWorkspaceInfoResponse
@@ -3142,7 +3152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
+   * Retrieves the collaborative workspaces under the primary account with pagination.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3205,7 +3215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
+   * Retrieves the collaborative workspaces under the primary account with pagination.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @returns ListDataAgentWorkspaceResponse
@@ -4848,16 +4858,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a user message to a specified session or ends the session.
+   * Sends a user message to a specified session or cancels a session.
    * 
    * @remarks
-   * ## Request
-   * - The `agent_id` and `session_id` fields are required.
-   * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
-   * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+   * ## Request description
+   * - `agent_id` and `session_id` are required fields.
+   * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
+   * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - Use the `quoted_message` field to reference a previous user message.
-   * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
+   * - `quoted_message` can be used to quote the content of a previous user message.
+   * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4877,6 +4887,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(tmpReq.sessionConfig)) {
       request.sessionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sessionConfig, "SessionConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.taskConfig)) {
+      request.taskConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskConfig, "TaskConfig", "json");
     }
 
     let query = { };
@@ -4928,6 +4942,10 @@ export default class Client extends OpenApi {
       query["SessionId"] = request.sessionId;
     }
 
+    if (!$dara.isNull(request.taskConfigShrink)) {
+      query["TaskConfig"] = request.taskConfigShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4946,16 +4964,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a user message to a specified session or ends the session.
+   * Sends a user message to a specified session or cancels a session.
    * 
    * @remarks
-   * ## Request
-   * - The `agent_id` and `session_id` fields are required.
-   * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
-   * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+   * ## Request description
+   * - `agent_id` and `session_id` are required fields.
+   * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
+   * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - Use the `quoted_message` field to reference a previous user message.
-   * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
+   * - `quoted_message` can be used to quote the content of a previous user message.
+   * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse

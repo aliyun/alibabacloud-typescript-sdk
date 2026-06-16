@@ -27,7 +27,10 @@ export { DescribeCustomAgentResponseBodyDataExecutionConfig } from './DescribeCu
 export { DescribeCustomAgentResponseBodyDataKnowledgeConfigList } from './DescribeCustomAgentResponseBody';
 export { DescribeCustomAgentResponseBodyDataScheduleTaskConfig } from './DescribeCustomAgentResponseBody';
 export { DescribeCustomAgentResponseBodyData } from './DescribeCustomAgentResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataArtifacts } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyDataChatHistoryLocations } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataDataSources } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataRecallResults } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyDataSessionConfig } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyData } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDocumentResponseBodyData } from './DescribeDocumentResponseBody';
@@ -78,6 +81,8 @@ export { RetrieveKnowledgeBaseResponseBodyData } from './RetrieveKnowledgeBaseRe
 export { SendChatMessageRequestDataSource } from './SendChatMessageRequest';
 export { SendChatMessageRequestDataSources } from './SendChatMessageRequest';
 export { SendChatMessageRequestSessionConfig } from './SendChatMessageRequest';
+export { SendChatMessageRequestTaskConfigReportConfig } from './SendChatMessageRequest';
+export { SendChatMessageRequestTaskConfig } from './SendChatMessageRequest';
 export { SendChatMessageResponseBodyData } from './SendChatMessageResponseBody';
 export { SetWorkspaceQuotaResponseBodyData } from './SetWorkspaceQuotaResponseBody';
 export { UpdateAirflowResponseBodyRoot } from './UpdateAirflowResponseBody';
@@ -112,6 +117,7 @@ export { DLTable } from './Dltable';
 export { DLTableInput } from './DltableInput';
 export { DLTablebaseInfo } from './DltablebaseInfo';
 export { DataMountInfo } from './DataMountInfo';
+export { DmsGatewayOrder } from './DmsGatewayOrder';
 export { DmsKnowledgeSearchOrderInfoDO } from './DmsKnowledgeSearchOrderInfoDo';
 export { ForeignInstance } from './ForeignInstance';
 export { ForeignInstanceCredInfo } from './ForeignInstanceCredInfo';

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the workspace was created. This value is a UNIX timestamp in seconds.
+   * The creation time of the session. Unit: seconds. The value is a UNIX timestamp.
    * 
    * @example
    * 1765960516
@@ -13,20 +13,16 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The user ID (UID) of the workspace creator.
+   * The UID of the workspace creator.
    * 
    * @example
    * 20282*****7591
    */
   creator?: string;
-  /**
-   * @remarks
-   * Indicates whether session sharing is enabled.
-   */
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The time when the workspace was last modified. This value is a UNIX timestamp in seconds.
+   * The most recent modification time of the workspace. Unit: seconds. The value is a UNIX timestamp.
    * 
    * @example
    * 1765961516
@@ -34,7 +30,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The user\\"s role in the workspace.
+   * The role name of the user in the workspace.
    * 
    * @example
    * admin
@@ -48,9 +44,10 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
    * 11
    */
   totalMember?: string;
+  type?: string;
   /**
    * @remarks
-   * The description of the workspace.
+   * The description of the collaborative workspace.
    * 
    * @example
    * space for test
@@ -58,7 +55,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   workspaceDesc?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the collaborative workspace.
    * 
    * @example
    * 20923*****7291
@@ -88,6 +85,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
       modifyTime: 'ModifyTime',
       roleName: 'RoleName',
       totalMember: 'TotalMember',
+      type: 'Type',
       workspaceDesc: 'WorkspaceDesc',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
@@ -103,6 +101,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
       modifyTime: 'string',
       roleName: 'string',
       totalMember: 'string',
+      type: 'string',
       workspaceDesc: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
@@ -122,7 +121,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
 export class GetDataAgentWorkspaceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response struct.
    */
   data?: GetDataAgentWorkspaceInfoResponseBodyData;
   /**
@@ -151,7 +150,7 @@ export class GetDataAgentWorkspaceInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

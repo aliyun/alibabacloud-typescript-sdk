@@ -2,10 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDataAgentSessionResponseBodyDataArtifacts extends $dara.Model {
+  description?: string;
+  finishTime?: string;
+  id?: string;
+  name?: string;
+  receiveTime?: string;
+  startTime?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      finishTime: 'FinishTime',
+      id: 'Id',
+      name: 'Name',
+      receiveTime: 'ReceiveTime',
+      startTime: 'StartTime',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      finishTime: 'string',
+      id: 'string',
+      name: 'string',
+      receiveTime: 'string',
+      startTime: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDataAgentSessionResponseBodyDataChatHistoryLocations extends $dara.Model {
   /**
    * @remarks
-   * The key of the session replay history item.
+   * The key of the chat replay history.
    * 
    * @example
    * testKey1
@@ -13,7 +57,7 @@ export class DescribeDataAgentSessionResponseBodyDataChatHistoryLocations extend
   key?: string;
   /**
    * @remarks
-   * The OSS download URL for the session replay history item.
+   * The OSS download URL of the chat replay history.
    * 
    * @example
    * ****
@@ -42,10 +86,65 @@ export class DescribeDataAgentSessionResponseBodyDataChatHistoryLocations extend
   }
 }
 
+export class DescribeDataAgentSessionResponseBodyDataDataSources extends $dara.Model {
+  category?: string;
+  detail?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      detail: 'Detail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      detail: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataAgentSessionResponseBodyDataRecallResults extends $dara.Model {
+  content?: string;
+  score?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      score: 'Score',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      score: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom agent.
+   * The custom agent ID.
    * 
    * @example
    * ca-e*******ckd
@@ -54,10 +153,8 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The stage of the custom agent. Valid values:
-   * 
-   * - **debug**: The test stage.
-   * 
-   * - **prod**: The production stage.
+   * - **debug**: Debug stage.
+   * - **prod**: Production stage.
    * 
    * @example
    * debug
@@ -65,7 +162,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   customAgentStage?: string;
   /**
    * @remarks
-   * Indicates whether web search is enabled.
+   * Specifies whether to enable web search.
    * 
    * @example
    * True
@@ -77,10 +174,8 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The language. Valid values:
-   * 
-   * - **CHINESE**: Chinese
-   * 
-   * - **ENGLISH**: English
+   * - **CHINESE**: Chinese.
+   * - **ENGLISH**: English.
    * 
    * @example
    * CHINESE
@@ -88,18 +183,15 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   language?: string;
   /**
    * @remarks
-   * A list of MCP server IDs.
+   * The list of MCP server IDs in the session configuration.
    */
   mcpServerIds?: string[];
   /**
    * @remarks
    * The mode. Valid values:
-   * 
-   * - **ASK_DATA**: quick inquiry mode
-   * 
-   * - **ANALYSIS**: analysis mode
-   * 
-   * - **INSIGHT**: insight mode
+   * - **ASK_DATA**: Ask data mode.
+   * - **ANALYSIS**: Analysis mode.
+   * - **INSIGHT**: Insight mode.
    * 
    * @example
    * ANALYSIS
@@ -109,9 +201,8 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   reportWaterMark?: string;
   /**
    * @remarks
-   * The name of the user\\"s OSS bucket.
-   * 
-   * - The service can upload analysis files and reports to this bucket.
+   * The name of the user OSS bucket.
+   * - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -169,7 +260,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
 export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent.
+   * The current agent ID.
    * 
    * @example
    * cu0cs*******mf
@@ -177,28 +268,30 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The status of the agent.
+   * The current agent status.
    * 
    * @example
    * RUNNING
    */
   agentStatus?: string;
+  artifacts?: DescribeDataAgentSessionResponseBodyDataArtifacts[];
   /**
    * @remarks
-   * The session replay history.
+   * The chat replay history.
    */
   chatHistoryLocations?: DescribeDataAgentSessionResponseBodyDataChatHistoryLocations[];
   /**
    * @remarks
-   * The timestamp indicating when the session was created.
+   * The session creation time.
    * 
    * @example
    * 1731645908000
    */
   createTime?: number;
+  dataSources?: DescribeDataAgentSessionResponseBodyDataDataSources[];
   /**
    * @remarks
-   * Indicates whether the current user has favorited the session in the workspace.
+   * Indicates whether the session is saved as a favorite in the workspace by the current logged-in user.
    * 
    * @example
    * true
@@ -206,15 +299,16 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   favoriteInWorkspace?: string;
   /**
    * @remarks
-   * The ID of the file.
+   * The file ID.
    * 
    * @example
    * f-8*******01m
    */
   file?: string;
+  recallResults?: DescribeDataAgentSessionResponseBodyDataRecallResults[];
   /**
    * @remarks
-   * Indicates whether the current user has favorited the session.
+   * Indicates whether the session is saved as a favorite by the current logged-in user.
    * 
    * @example
    * true
@@ -222,12 +316,12 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   saved?: boolean;
   /**
    * @remarks
-   * The configuration of the session.
+   * The session configuration item.
    */
   sessionConfig?: DescribeDataAgentSessionResponseBodyDataSessionConfig;
   /**
    * @remarks
-   * The ID of the agent session.
+   * The agent session ID.
    * 
    * @example
    * 976*********p
@@ -235,7 +329,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The status of the session.
+   * The session status.
    * 
    * @example
    * RUNNING
@@ -243,7 +337,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The title of the session.
+   * The title.
    * 
    * @example
    * 分析一下这份文件，给出报告。
@@ -261,10 +355,13 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
     return {
       agentId: 'AgentId',
       agentStatus: 'AgentStatus',
+      artifacts: 'Artifacts',
       chatHistoryLocations: 'ChatHistoryLocations',
       createTime: 'CreateTime',
+      dataSources: 'DataSources',
       favoriteInWorkspace: 'FavoriteInWorkspace',
       file: 'File',
+      recallResults: 'RecallResults',
       saved: 'Saved',
       sessionConfig: 'SessionConfig',
       sessionId: 'SessionId',
@@ -278,10 +375,13 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
     return {
       agentId: 'string',
       agentStatus: 'string',
+      artifacts: { 'type': 'array', 'itemType': DescribeDataAgentSessionResponseBodyDataArtifacts },
       chatHistoryLocations: { 'type': 'array', 'itemType': DescribeDataAgentSessionResponseBodyDataChatHistoryLocations },
       createTime: 'number',
+      dataSources: { 'type': 'array', 'itemType': DescribeDataAgentSessionResponseBodyDataDataSources },
       favoriteInWorkspace: 'string',
       file: 'string',
+      recallResults: { 'type': 'array', 'itemType': DescribeDataAgentSessionResponseBodyDataRecallResults },
       saved: 'boolean',
       sessionConfig: DescribeDataAgentSessionResponseBodyDataSessionConfig,
       sessionId: 'string',
@@ -292,8 +392,17 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.artifacts)) {
+      $dara.Model.validateArray(this.artifacts);
+    }
     if(Array.isArray(this.chatHistoryLocations)) {
       $dara.Model.validateArray(this.chatHistoryLocations);
+    }
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
+    }
+    if(Array.isArray(this.recallResults)) {
+      $dara.Model.validateArray(this.recallResults);
     }
     if(this.sessionConfig && typeof (this.sessionConfig as any).validate === 'function') {
       (this.sessionConfig as any).validate();
@@ -309,7 +418,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
 export class DescribeDataAgentSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The response struct.
    */
   data?: DescribeDataAgentSessionResponseBodyData;
   /**
@@ -322,7 +431,7 @@ export class DescribeDataAgentSessionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the request fails.
+   * The error message returned if the call failed.
    * 
    * @example
    * UnknownError
@@ -330,7 +439,7 @@ export class DescribeDataAgentSessionResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 18****-*****-*******7A3122F
@@ -338,11 +447,10 @@ export class DescribeDataAgentSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The return value. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: Succeeded.
+   * - **false**: Failed.
    * 
    * @example
    * true

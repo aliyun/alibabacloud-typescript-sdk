@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID. This parameter is required. You can obtain this ID from the response of the `CreateAgentSession` operation. An agent has a lifecycle, so its ID may change with each request.
+   * The agent ID. This parameter is required. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The DMS unit where your DMS instance is located. This information is used to connect to your DMS instance for database analysis. You can find this value in the DMS console. For users on the Alibaba Cloud China site, you can enter `cn-hangzhou`.
+   * The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can go to the Data Management console to view your current Data Management unit. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to ap-southeast-1.
    * 
    * @example
    * cn-hangzhou
@@ -23,17 +23,17 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The data source information. Optional.
+   * The data source information. This parameter is optional.
    */
   dataSourceShrink?: string;
   /**
    * @remarks
-   * A list of data sources. Optional.
+   * The detailed data source information. This parameter is optional.
    */
   dataSourcesShrink?: string;
   /**
    * @remarks
-   * The content of the message to send to the agent.
+   * The message content to send to the Agent in this request.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The message type. The default value is `primary`. Set this parameter to `additional` when responding to a human-in-the-loop question from the agent. Set it to `cancel` to cancel the current session.
+   * The message type. Default value: `[primary]`. When the message is a response to the Agent\\"s human-in-the-loop question, set this parameter to `[additional]`. When the message is intended to cancel the current session, set this parameter to `[cancel]`.
    * 
    * @example
    * primary
@@ -59,7 +59,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   parentSessionId?: string;
   /**
    * @remarks
-   * This parameter is required if the `MessageType` is `additional`. It contains the specific question asked by the agent during the human-in-the-loop process.
+   * The specific question that the Agent asks the user through human-in-the-loop. This parameter is required when the message type is `additional`.
    * 
    * @example
    * 请提供计算GMV的口径。
@@ -67,7 +67,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   question?: string;
   /**
    * @remarks
-   * The quoted content. This parameter is typically used when interacting with the agent.
+   * The quoted content, typically used during interaction with the Agent.
    * 
    * @example
    * {"version":"v0"}
@@ -75,7 +75,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   quotedMessage?: string;
   /**
    * @remarks
-   * This parameter specifies the agent message to which this message is a response, enabling message deduplication. Set this to the highest checkpoint sequence number you have received. For the first message, use 0.
+   * Indicates which Agent message this message responds to. Set this parameter to the largest Checkpoint sequence number currently received. Set it to 0 for the first message. This field is used for message deduplication in case of occasional network issues or duplicate message delivery.
    * 
    * @example
    * 0
@@ -83,7 +83,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   replyTo?: string;
   /**
    * @remarks
-   * Session-specific configurations. These apply only if provided in the first `SendMessage` request of the session.
+   * The special configuration for this session. For the same session, only the configuration included in the first SendMessage call takes effect.
    * 
    * **if can be null:**
    * true
@@ -91,7 +91,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   sessionConfigShrink?: string;
   /**
    * @remarks
-   * The session ID. This parameter is required. You can obtain the session ID by calling the `CreateAgentSession` operation.
+   * The session ID. This parameter is required. You can obtain the SessionId by calling the CreateAgentSession operation.
    * 
    * This parameter is required.
    * 
@@ -99,6 +99,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
    * sess_***
    */
   sessionId?: string;
+  taskConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
@@ -113,6 +114,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
       replyTo: 'ReplyTo',
       sessionConfigShrink: 'SessionConfig',
       sessionId: 'SessionId',
+      taskConfigShrink: 'TaskConfig',
     };
   }
 
@@ -130,6 +132,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
       replyTo: 'string',
       sessionConfigShrink: 'string',
       sessionId: 'string',
+      taskConfigShrink: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workspace, provided as a UNIX timestamp in seconds.
+   * The creation time of the workspace. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765960516
@@ -13,7 +13,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The creator\\"s user ID (UID).
+   * The UID of the workspace creator.
    * 
    * @example
    * 20282*****7591
@@ -30,7 +30,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The last modification time of the workspace, provided as a UNIX timestamp in seconds.
+   * The most recent modification time of the workspace. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765961516
@@ -38,7 +38,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The name of the user\\"s role in the workspace.
+   * The role name of the user in the workspace.
    * 
    * @example
    * admin
@@ -52,9 +52,10 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
    * 11
    */
   totalMember?: number;
+  type?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 20923*****7291
@@ -85,6 +86,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
       modifyTime: 'ModifyTime',
       roleName: 'RoleName',
       totalMember: 'TotalMember',
+      type: 'Type',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
       workspaceStatus: 'WorkspaceStatus',
@@ -100,6 +102,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
       modifyTime: 'number',
       roleName: 'string',
       totalMember: 'number',
+      type: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
       workspaceStatus: 'string',
@@ -118,12 +121,12 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
 export class ListDataAgentWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the workspaces.
+   * The configuration content.
    */
   content?: ListDataAgentWorkspaceResponseBodyDataContent[];
   /**
    * @remarks
-   * The page number.
+   * The total number of pages.
    * 
    * @example
    * 12
@@ -131,7 +134,7 @@ export class ListDataAgentWorkspaceResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of workspaces on each page.
+   * The number of workspaces per page.
    * 
    * @example
    * 50
@@ -188,7 +191,7 @@ export class ListDataAgentWorkspaceResponseBodyData extends $dara.Model {
 export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response struct.
    */
   data?: ListDataAgentWorkspaceResponseBodyData;
   /**
@@ -201,7 +204,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned if the call failed.
    * 
    * @example
    * Specified parameter is not valid.
@@ -209,7 +212,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * This parameter is not used.
+   * The maximum number of entries per page.
    * 
    * @example
    * nu use
@@ -217,7 +220,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * This parameter is not used.
+   * The token information.
    * 
    * @example
    * no use

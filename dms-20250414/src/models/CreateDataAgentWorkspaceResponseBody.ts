@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time the workspace was created, as a UNIX timestamp in seconds.
+   * The time when the workspace was created. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765960516
@@ -13,20 +13,16 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The user ID of the workspace creator.
+   * The UID of the workspace creator.
    * 
    * @example
    * 20282*****7591
    */
   creator?: string;
-  /**
-   * @remarks
-   * Indicates whether session sharing is enabled for the workspace.
-   */
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The time the workspace was last modified, as a UNIX timestamp in seconds.
+   * The time when the workspace was last modified. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765961516
@@ -34,7 +30,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The name of the user\\"s role in the workspace.
+   * The role name of the user in the workspace.
    * 
    * @example
    * owner
@@ -48,6 +44,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
    * 11
    */
   totalMember?: number;
+  type?: string;
   /**
    * @remarks
    * The description of the workspace.
@@ -88,6 +85,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
       modifyTime: 'ModifyTime',
       roleName: 'RoleName',
       totalMember: 'TotalMember',
+      type: 'Type',
       workspaceDesc: 'WorkspaceDesc',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
@@ -103,6 +101,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
       modifyTime: 'number',
       roleName: 'string',
       totalMember: 'number',
+      type: 'string',
       workspaceDesc: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
@@ -122,7 +121,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
 export class CreateDataAgentWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data structure.
+   * The response struct.
    */
   data?: CreateDataAgentWorkspaceResponseBodyData;
   /**

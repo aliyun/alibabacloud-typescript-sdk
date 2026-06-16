@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatMessageRequestDataSource extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Do not use it.
+   * Deprecated. You do not need to specify this parameter.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source type. Valid values are `remote_data_center` for file analysis and `database` for database analysis.
+   * The data source type. Valid values: `[remote_data_center, database]`, indicating that the analysis is performed on a file or a database respectively.
    * 
    * @example
    * remote_data_center
@@ -21,7 +21,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Do not use it.
+   * Deprecated. You do not need to specify this parameter.
    * 
    * @example
    * test_db
@@ -37,7 +37,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The ID of the database in DMS.
+   * The ID of the database in Data Management.
    * 
    * @example
    * 23******
@@ -45,7 +45,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   dmsDatabaseId?: string;
   /**
    * @remarks
-   * The ID of the instance in DMS.
+   * The ID of the instance in Data Management.
    * 
    * @example
    * 12******
@@ -69,7 +69,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Do not use it.
+   * Deprecated. You do not need to specify this parameter.
    * 
    * @example
    * localhost
@@ -85,7 +85,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A list of table names to analyze.
+   * The list of table names to analyze.
    */
   tables?: string[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
 export class SendChatMessageRequestDataSources extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Do not use it.
+   * Deprecated. You do not need to specify this parameter.
    * 
    * @example
    * 123
@@ -143,7 +143,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source type. Valid values are `remote_data_center` for file analysis and `database` for database analysis.
+   * The data source type. Valid values: [remote_data_center, database], indicating that the analysis is performed on a file or a database respectively.
    * 
    * @example
    * remote_data_center
@@ -151,7 +151,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Do not use it.
+   * Deprecated. You do not need to specify this parameter.
    * 
    * @example
    * test_db
@@ -167,7 +167,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The ID of the database in DMS.
+   * The ID of the database in Data Management.
    * 
    * @example
    * 123****
@@ -175,7 +175,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   dmsDatabaseId?: string;
   /**
    * @remarks
-   * The ID of the instance in DMS.
+   * The ID of the instance in Data Management.
    * 
    * @example
    * 248*****
@@ -199,7 +199,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Do not use it.
+   * Deprecated. You do not need to specify this parameter.
    * 
    * @example
    * localhost
@@ -215,7 +215,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A list of table names to analyze.
+   * The list of table names to analyze.
    */
   tables?: string[];
   static names(): { [key: string]: string } {
@@ -265,7 +265,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
 export class SendChatMessageRequestSessionConfig extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Use the `CustomAgentId` request parameter from the `CreateAgentSession` operation instead.
+   * Deprecated. Use the input parameters of CreateAgentSession instead.
    * 
    * @example
    * null
@@ -273,7 +273,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use the `CustomAgentStage` request parameter from the `CreateAgentSession` operation instead.
+   * Deprecated. Use the input parameters of CreateAgentSession instead.
    * 
    * @example
    * null
@@ -281,7 +281,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   customAgentStage?: string;
   /**
    * @remarks
-   * The language of the session. Only Chinese and English are supported. The default value is Chinese. The value must be in uppercase.
+   * Only Chinese and English are supported. The default value is Chinese. Only uppercase values are supported.
    * 
    * @example
    * ENGLISH
@@ -290,12 +290,16 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * A text watermark of up to 64 characters that will be added to generated PDF reports.
+   * The text of up to 64 characters that is used as a watermark in the generated PDF report.
    * 
    * @example
    * 示例水印
    */
   reportWaterMark?: string;
+  skipAskHuman?: boolean;
+  skipPlan?: boolean;
+  skipSqlConfirm?: boolean;
+  skipWebReportConfirm?: boolean;
   static names(): { [key: string]: string } {
     return {
       customAgentId: 'CustomAgentId',
@@ -303,6 +307,10 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
       language: 'Language',
       mode: 'Mode',
       reportWaterMark: 'ReportWaterMark',
+      skipAskHuman: 'SkipAskHuman',
+      skipPlan: 'SkipPlan',
+      skipSqlConfirm: 'SkipSqlConfirm',
+      skipWebReportConfirm: 'SkipWebReportConfirm',
     };
   }
 
@@ -313,6 +321,10 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
       language: 'string',
       mode: 'string',
       reportWaterMark: 'string',
+      skipAskHuman: 'boolean',
+      skipPlan: 'boolean',
+      skipSqlConfirm: 'boolean',
+      skipWebReportConfirm: 'boolean',
     };
   }
 
@@ -325,10 +337,65 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   }
 }
 
+export class SendChatMessageRequestTaskConfigReportConfig extends $dara.Model {
+  reportPrompt?: string;
+  reportTheme?: string;
+  reportType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reportPrompt: 'ReportPrompt',
+      reportTheme: 'ReportTheme',
+      reportType: 'ReportType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportPrompt: 'string',
+      reportTheme: 'string',
+      reportType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatMessageRequestTaskConfig extends $dara.Model {
+  reportConfig?: SendChatMessageRequestTaskConfigReportConfig;
+  static names(): { [key: string]: string } {
+    return {
+      reportConfig: 'ReportConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportConfig: SendChatMessageRequestTaskConfigReportConfig,
+    };
+  }
+
+  validate() {
+    if(this.reportConfig && typeof (this.reportConfig as any).validate === 'function') {
+      (this.reportConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID. This parameter is required. You can obtain this ID from the response of the `CreateAgentSession` operation. An agent has a lifecycle, so its ID may change with each request.
+   * The agent ID. This parameter is required. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
    * 
    * This parameter is required.
    * 
@@ -338,7 +405,7 @@ export class SendChatMessageRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The DMS unit where your DMS instance is located. This information is used to connect to your DMS instance for database analysis. You can find this value in the DMS console. For users on the Alibaba Cloud China site, you can enter `cn-hangzhou`.
+   * The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can go to the Data Management console to view your current Data Management unit. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to ap-southeast-1.
    * 
    * @example
    * cn-hangzhou
@@ -346,17 +413,17 @@ export class SendChatMessageRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The data source information. Optional.
+   * The data source information. This parameter is optional.
    */
   dataSource?: SendChatMessageRequestDataSource;
   /**
    * @remarks
-   * A list of data sources. Optional.
+   * The detailed data source information. This parameter is optional.
    */
   dataSources?: SendChatMessageRequestDataSources[];
   /**
    * @remarks
-   * The content of the message to send to the agent.
+   * The message content to send to the Agent in this request.
    * 
    * This parameter is required.
    * 
@@ -366,7 +433,7 @@ export class SendChatMessageRequest extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The message type. The default value is `primary`. Set this parameter to `additional` when responding to a human-in-the-loop question from the agent. Set it to `cancel` to cancel the current session.
+   * The message type. Default value: `[primary]`. When the message is a response to the Agent\\"s human-in-the-loop question, set this parameter to `[additional]`. When the message is intended to cancel the current session, set this parameter to `[cancel]`.
    * 
    * @example
    * primary
@@ -382,7 +449,7 @@ export class SendChatMessageRequest extends $dara.Model {
   parentSessionId?: string;
   /**
    * @remarks
-   * This parameter is required if the `MessageType` is `additional`. It contains the specific question asked by the agent during the human-in-the-loop process.
+   * The specific question that the Agent asks the user through human-in-the-loop. This parameter is required when the message type is `additional`.
    * 
    * @example
    * 请提供计算GMV的口径。
@@ -390,7 +457,7 @@ export class SendChatMessageRequest extends $dara.Model {
   question?: string;
   /**
    * @remarks
-   * The quoted content. This parameter is typically used when interacting with the agent.
+   * The quoted content, typically used during interaction with the Agent.
    * 
    * @example
    * {"version":"v0"}
@@ -398,7 +465,7 @@ export class SendChatMessageRequest extends $dara.Model {
   quotedMessage?: string;
   /**
    * @remarks
-   * This parameter specifies the agent message to which this message is a response, enabling message deduplication. Set this to the highest checkpoint sequence number you have received. For the first message, use 0.
+   * Indicates which Agent message this message responds to. Set this parameter to the largest Checkpoint sequence number currently received. Set it to 0 for the first message. This field is used for message deduplication in case of occasional network issues or duplicate message delivery.
    * 
    * @example
    * 0
@@ -406,7 +473,7 @@ export class SendChatMessageRequest extends $dara.Model {
   replyTo?: string;
   /**
    * @remarks
-   * Session-specific configurations. These apply only if provided in the first `SendMessage` request of the session.
+   * The special configuration for this session. For the same session, only the configuration included in the first SendMessage call takes effect.
    * 
    * **if can be null:**
    * true
@@ -414,7 +481,7 @@ export class SendChatMessageRequest extends $dara.Model {
   sessionConfig?: SendChatMessageRequestSessionConfig;
   /**
    * @remarks
-   * The session ID. This parameter is required. You can obtain the session ID by calling the `CreateAgentSession` operation.
+   * The session ID. This parameter is required. You can obtain the SessionId by calling the CreateAgentSession operation.
    * 
    * This parameter is required.
    * 
@@ -422,6 +489,7 @@ export class SendChatMessageRequest extends $dara.Model {
    * sess_***
    */
   sessionId?: string;
+  taskConfig?: SendChatMessageRequestTaskConfig;
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
@@ -436,6 +504,7 @@ export class SendChatMessageRequest extends $dara.Model {
       replyTo: 'ReplyTo',
       sessionConfig: 'SessionConfig',
       sessionId: 'SessionId',
+      taskConfig: 'TaskConfig',
     };
   }
 
@@ -453,6 +522,7 @@ export class SendChatMessageRequest extends $dara.Model {
       replyTo: 'string',
       sessionConfig: SendChatMessageRequestSessionConfig,
       sessionId: 'string',
+      taskConfig: SendChatMessageRequestTaskConfig,
     };
   }
 
@@ -465,6 +535,9 @@ export class SendChatMessageRequest extends $dara.Model {
     }
     if(this.sessionConfig && typeof (this.sessionConfig as any).validate === 'function') {
       (this.sessionConfig as any).validate();
+    }
+    if(this.taskConfig && typeof (this.taskConfig as any).validate === 'function') {
+      (this.taskConfig as any).validate();
     }
     super.validate();
   }

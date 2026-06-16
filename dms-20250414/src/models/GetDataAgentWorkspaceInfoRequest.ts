@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentWorkspaceInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The DMS unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class GetDataAgentWorkspaceInfoRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the collaborative workspace.
    * 
    * @example
    * 20923*****7291
