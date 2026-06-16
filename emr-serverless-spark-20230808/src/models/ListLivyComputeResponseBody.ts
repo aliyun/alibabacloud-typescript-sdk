@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Livy Gateway.
+   * 
    * @example
    * lc-xxxxxxxxxxxx
    */
   computeId?: string;
   /**
+   * @remarks
+   * The name of the creator.
+   * 
    * @example
    * alice
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The public endpoint.
+   * 
    * @example
    * emr-spark-livy-gateway-cn-hangzhou.data.aliyun.com/api/v1/workspace/w-xxxxxxxxx/livycompute/lc-xxxxxxxxxxx
    */
   endpoint?: string;
   /**
+   * @remarks
+   * The internal endpoint.
+   * 
    * @example
    * emr-spark-livy-gateway-cn-hangzhou-internal.aliyun.com/api/v1/workspace/w-xxxxxxxxx/livycompute/lc-xxxxxxxxxxx
    */
   endpointInner?: string;
   /**
+   * @remarks
+   * The time when the resource was created.
+   * 
    * @example
    * 1749456094000
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The queue name.
+   * 
    * @example
    * root_queue
    */
   queueName?: string;
   /**
+   * @remarks
+   * The time when the resource was started.
+   * 
    * @example
    * 1749456094000
    */
   startTime?: number;
   /**
+   * @remarks
+   * The running status.
+   * 
    * @example
    * RUNNING
    */
@@ -86,6 +113,10 @@ export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
 }
 
 export class ListLivyComputeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Livy Gateways.
+   */
   livyComputes?: ListLivyComputeResponseBodyDataLivyComputes[];
   static names(): { [key: string]: string } {
     return {
@@ -113,17 +144,30 @@ export class ListLivyComputeResponseBodyData extends $dara.Model {
 
 export class ListLivyComputeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 1000000 indicates that the request is successful. For other values, see the message parameter for error details.
+   * 
    * @example
    * 1000000
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListLivyComputeResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

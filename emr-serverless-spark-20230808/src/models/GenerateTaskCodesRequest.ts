@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateTaskCodesRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of codes to generate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GenerateTaskCodesRequest extends $dara.Model {
   genNum?: number;
   /**
    * @remarks
+   * The product namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class GenerateTaskCodesRequest extends $dara.Model {
    */
   productNamespace?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

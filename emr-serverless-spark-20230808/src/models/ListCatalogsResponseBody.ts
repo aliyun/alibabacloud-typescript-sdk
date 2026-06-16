@@ -10,42 +10,65 @@ export class ListCatalogsResponseBodyCatalogs extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * regionId。
+   * The ID of the data catalog.
    * 
    * @example
    * 15097**********
    */
   catalogId?: string;
   /**
+   * @remarks
+   * The provider of the data catalog.
+   * 
    * @example
    * HMS
    */
   catalogProvider?: string;
   /**
+   * @remarks
+   * Indicates whether this is the default data catalog.
+   * 
    * @example
    * default_catalog
    */
   catalogType?: string;
+  /**
+   * @remarks
+   * The environment types.
+   */
   environments?: string[];
+  /**
+   * @remarks
+   * Extra information.
+   */
   extras?: { [key: string]: string };
   /**
+   * @remarks
+   * The time when the resource was created.
+   * 
    * @example
    * 1760604889
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The time when the resource was last updated.
+   * 
    * @example
    * 1760604889
    */
   gmtModified?: number;
   /**
+   * @remarks
+   * The ID of the resource owner.
+   * 
    * @example
    * 15097**********
    */
   resourceOwnerId?: string;
   /**
    * @remarks
-   * 工作空间id。
+   * The workspace ID.
    * 
    * @example
    * w-d2d82aa09155****
@@ -97,10 +120,14 @@ export class ListCatalogsResponseBodyCatalogs extends $dara.Model {
 }
 
 export class ListCatalogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data catalogs.
+   */
   catalogs?: ListCatalogsResponseBodyCatalogs[];
   /**
    * @remarks
-   * 一次获取的最大记录数。
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 20
@@ -108,7 +135,7 @@ export class ListCatalogsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 下一页TOKEN。
+   * The token to retrieve the next page of results.
    * 
    * @example
    * 1
@@ -116,7 +143,7 @@ export class ListCatalogsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -124,7 +151,7 @@ export class ListCatalogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 记录总数。
+   * The total number of entries.
    * 
    * @example
    * 200

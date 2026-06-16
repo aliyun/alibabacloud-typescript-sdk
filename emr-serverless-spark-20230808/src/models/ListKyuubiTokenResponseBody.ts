@@ -3,45 +3,71 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
+  /**
+   * @remarks
+   * The names of authorized RAM users.
+   */
   accountNames?: string[];
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
-   * 2025-02-11T02:23:02Z
+   * 1755496031000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The creator\\"s name.
+   * 
    * @example
-   * test_user
+   * admin
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
-   * 1740366769165
+   * 1787033891000
    */
   expireTime?: number;
   /**
+   * @remarks
+   * The last used time.
+   * 
    * @example
-   * 1740366232121
+   * 1760366232121
    */
   lastUsedTime?: number;
+  /**
+   * @remarks
+   * The ARNs of authorized users.
+   */
   memberArns?: string[];
   /**
+   * @remarks
+   * The token name.
+   * 
    * @example
-   * dev_serveless_spark
+   * dev_serverless_spark
    */
   name?: string;
   sparkRole?: string[];
   /**
+   * @remarks
+   * The masked token.
+   * 
    * @example
-   * f14c1347-dcfd-4082-b101-77aa96b5de36
+   * dxj**********wfg
    */
   token?: string;
   /**
    * @remarks
-   * Token ID。
+   * The token ID.
    * 
    * @example
-   * f14c1347-dcfd-4082-b101-77aa96b5de36
+   * tk-zpi0*****hdv4y
    */
   tokenId?: string;
   static names(): { [key: string]: string } {
@@ -93,6 +119,10 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
 }
 
 export class ListKyuubiTokenResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of tokens.
+   */
   tokens?: ListKyuubiTokenResponseBodyDataTokens[];
   static names(): { [key: string]: string } {
     return {
@@ -119,8 +149,15 @@ export class ListKyuubiTokenResponseBodyData extends $dara.Model {
 }
 
 export class ListKyuubiTokenResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListKyuubiTokenResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

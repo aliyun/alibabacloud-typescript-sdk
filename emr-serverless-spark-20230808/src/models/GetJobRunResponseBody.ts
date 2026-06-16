@@ -81,9 +81,11 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
    * @remarks
    * The code type of the job. Valid values:
    * 
-   * *   SQL
-   * *   JAR
-   * *   PYTHON
+   * - SQL
+   * 
+   * - JAR
+   * 
+   * - PYTHON
    * 
    * @example
    * SQL
@@ -91,12 +93,12 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The configurations of the Spark jobs.
+   * The Spark configurations of the job.
    */
   configurationOverrides?: GetJobRunResponseBodyJobRunConfigurationOverrides;
   /**
    * @remarks
-   * The version of the Spark engine.
+   * The version that is displayed in the console.
    * 
    * @example
    * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
@@ -104,10 +106,10 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The end time of the job.
+   * The time when the job ended.
    * 
    * @example
-   * 1684119314000
+   * 1684122914000
    */
   endTime?: number;
   /**
@@ -120,7 +122,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The timeout period of the job.
+   * The timeout period for the job execution.
    * 
    * @example
    * 3600
@@ -128,7 +130,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   executionTimeoutSeconds?: number;
   /**
    * @remarks
-   * Indicates whether the Fusion engine is used for acceleration.
+   * Indicates whether to enable the Fusion engine to accelerate the job execution.
    * 
    * @example
    * false
@@ -136,43 +138,49 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   fusion?: boolean;
   /**
    * @remarks
-   * The information about Spark Driver.
+   * The Spark driver information.
    */
   jobDriver?: JobDriver;
   /**
    * @remarks
-   * The job ID.
+   * The job run ID.
    * 
    * @example
-   * jr-231231
+   * jr-93d98d2f7061****
    */
   jobRunId?: string;
   /**
    * @remarks
-   * The path where the operational logs are stored.
+   * The path of the run log.
    */
   log?: RunLog;
   /**
    * @remarks
-   * The job name.
+   * The name of the job.
    * 
    * @example
    * jobName
    */
   name?: string;
   /**
+   * @remarks
+   * The access URL for the notebook of the job run.
+   * 
    * @example
    * http://workflow-ide-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/spark-notebook-output/w-xxxxxxxxx/xxxxxxx
    */
   notebookAccessUrl?: string;
   /**
+   * @remarks
+   * The priority of the job run.
+   * 
    * @example
    * 5
    */
   priority?: string;
   /**
    * @remarks
-   * The version of the Spark engine on which the job runs.
+   * The Spark engine version.
    * 
    * @example
    * esr-3.3.1
@@ -180,10 +188,10 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The ID of the user who created the job.
+   * The UID of the user who creates the job.
    * 
    * @example
-   * 1509789347011222
+   * 150978934701****
    */
   resourceOwnerId?: string;
   /**
@@ -196,7 +204,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   resourceQueueId?: string;
   /**
    * @remarks
-   * The job state.
+   * The state of the job.
    * 
    * @example
    * Running
@@ -204,7 +212,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The reason of the job status change.
+   * The reason for the state change.
    */
   stateChangeReason?: GetJobRunResponseBodyJobRunStateChangeReason;
   /**
@@ -217,7 +225,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
   submitTime?: number;
   /**
    * @remarks
-   * The tags of the job.
+   * The tags.
    */
   tags?: Tag[];
   /**
@@ -233,7 +241,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
    * The workspace ID.
    * 
    * @example
-   * w-1234abcd
+   * w-d2d82aa09155****
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

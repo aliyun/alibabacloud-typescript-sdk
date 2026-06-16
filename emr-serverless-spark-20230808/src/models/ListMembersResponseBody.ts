@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMembersResponseBodyMembersActions extends $dara.Model {
   /**
    * @remarks
-   * 行为 arn。
+   * The ARN of the action.
    * 
    * @example
    * acs:emr::w-1234****abcd:action/add_MEMBER
@@ -13,7 +13,7 @@ export class ListMembersResponseBodyMembersActions extends $dara.Model {
   actionArn?: string;
   /**
    * @remarks
-   * 权限名称。
+   * The name of the permission.
    * 
    * @example
    * add
@@ -21,7 +21,7 @@ export class ListMembersResponseBodyMembersActions extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
-   * action 依赖列表。
+   * The list of action dependencies.
    * 
    * @example
    * ["view"]
@@ -29,7 +29,7 @@ export class ListMembersResponseBodyMembersActions extends $dara.Model {
   dependencies?: string[];
   /**
    * @remarks
-   * action 描述。
+   * The description of the action.
    * 
    * @example
    * add members
@@ -37,7 +37,7 @@ export class ListMembersResponseBodyMembersActions extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 权限展示名称。
+   * The display name of the permission.
    * 
    * @example
    * add members
@@ -78,7 +78,7 @@ export class ListMembersResponseBodyMembersActions extends $dara.Model {
 export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
   /**
    * @remarks
-   * 行为 arn。
+   * The ARN of the action.
    * 
    * @example
    * acs:emr::w-1234****abcd:action/add_MEMBER
@@ -86,7 +86,7 @@ export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
   actionArn?: string;
   /**
    * @remarks
-   * 权限名称。
+   * The name of the permission.
    * 
    * @example
    * add
@@ -94,7 +94,7 @@ export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
-   * action 依赖列表。
+   * The list of action dependencies.
    * 
    * @example
    * ["view"]
@@ -102,7 +102,7 @@ export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
   dependencies?: string[];
   /**
    * @remarks
-   * action 描述。
+   * The description of the action.
    * 
    * @example
    * add members
@@ -110,7 +110,7 @@ export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 权限展示名称。
+   * The display name of the permission.
    * 
    * @example
    * add members
@@ -151,12 +151,12 @@ export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
 export class ListMembersResponseBodyMembersRoles extends $dara.Model {
   /**
    * @remarks
-   * 权限列表。
+   * The list of permissions.
    */
   actions?: ListMembersResponseBodyMembersRolesActions[];
   /**
    * @remarks
-   * 创建时间。
+   * The time when the role was created.
    * 
    * @example
    * 1753412502000
@@ -164,7 +164,7 @@ export class ListMembersResponseBodyMembersRoles extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * 描述。
+   * The description.
    * 
    * @example
    * DataScience
@@ -172,7 +172,7 @@ export class ListMembersResponseBodyMembersRoles extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 角色 arn。
+   * The ARN of the role.
    * 
    * @example
    * acs:emr::w-1234****abcd:role/DataScience
@@ -180,7 +180,7 @@ export class ListMembersResponseBodyMembersRoles extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * 角色名称。
+   * The name of the role.
    * 
    * @example
    * DataScience
@@ -221,17 +221,20 @@ export class ListMembersResponseBodyMembersRoles extends $dara.Model {
 export class ListMembersResponseBodyMembers extends $dara.Model {
   /**
    * @remarks
-   * 针对此用户允许的操作列表。
+   * The list of operations allowed for this user.
    */
   actions?: ListMembersResponseBodyMembersActions[];
   /**
+   * @remarks
+   * The time when the member was created.
+   * 
    * @example
    * 1753412502000
    */
   createTime?: string;
   /**
    * @remarks
-   * 用户展示名称。
+   * The display name of the user.
    * 
    * @example
    * jia***test
@@ -239,7 +242,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 用户 arn。
+   * The Alibaba Cloud Resource Name (ARN) of the user.
    * 
    * @example
    * acs:emr::w-1234****abcd:member/202265*****276
@@ -247,12 +250,12 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   memberArn?: string;
   /**
    * @remarks
-   * 用户角色列表。
+   * The list of roles in the workspace.
    */
   roles?: ListMembersResponseBodyMembersRoles[];
   /**
    * @remarks
-   * 用户名称。
+   * The username.
    * 
    * @example
    * jia***test@195*****7311.onaliyun.com
@@ -260,13 +263,16 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * 用户类型。
+   * The type of the user.
    * 
    * @example
    * MEMBER
    */
   userType?: string;
   /**
+   * @remarks
+   * Indicates whether the member is visible.
+   * 
    * @example
    * true
    */
@@ -315,16 +321,20 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
 export class ListMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 一次获取的最大记录数。
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 20
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The list of members.
+   */
   members?: ListMembersResponseBodyMembers[];
   /**
    * @remarks
-   * 下一页TOKEN。
+   * The token for the next page of results.
    * 
    * @example
    * 1
@@ -332,7 +342,7 @@ export class ListMembersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -340,7 +350,7 @@ export class ListMembersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 记录总数。
+   * The total number of entries.
    * 
    * @example
    * 200

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The maximum resource capacity of the Workspace Queue.
+   * 
    * @example
    * 1000
    */
@@ -44,20 +47,37 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
 }
 
 export class EditWorkspaceQueueRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The environment types.
+   */
   environments?: string[];
   gpuSpec?: string[];
+  /**
+   * @remarks
+   * The resource specifications.
+   */
   resourceSpec?: EditWorkspaceQueueRequestResourceSpec;
   /**
+   * @remarks
+   * The Workspace ID.
+   * 
    * @example
    * w-975bcfda9625****
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The name of the Workspace Queue.
+   * 
    * @example
    * dev_queue
    */
   workspaceQueueName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

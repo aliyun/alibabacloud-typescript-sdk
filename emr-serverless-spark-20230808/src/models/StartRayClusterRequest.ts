@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartRayClusterRequest extends $dara.Model {
   /**
+   * @remarks
+   * The token used to ensure idempotence.
+   * 
    * @example
    * c533e141-bf99-4236-8b6b-30e133db113c
    */

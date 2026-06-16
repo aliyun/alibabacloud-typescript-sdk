@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs extends $dara.Model {
   /**
    * @remarks
-   * 应用配置文件名。 应用配置文件名。 ```spark-defaults.conf```
+   * The name of the application configuration file.
    * 
    * @example
    * spark-defaults.conf
@@ -14,7 +14,7 @@ export class GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs e
   configFileName?: string;
   /**
    * @remarks
-   * 配置项键。 配置项键。 ```dfs.namenode.checkpoint.period```
+   * The key of the configuration item.
    * 
    * @example
    * spark.driver.cores
@@ -22,7 +22,7 @@ export class GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs e
   configItemKey?: string;
   /**
    * @remarks
-   * 配置项值。 配置项值。 ```3600s```
+   * The value of the configuration item.
    * 
    * @example
    * 2
@@ -55,11 +55,17 @@ export class GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs e
 
 export class GetRunConfigurationResponseBodyRunConfigurationLogConfig extends $dara.Model {
   /**
+   * @remarks
+   * The log level.
+   * 
    * @example
    * INFO
    */
   logLevel?: string;
   /**
+   * @remarks
+   * The log path.
+   * 
    * @example
    * oss://test
    */
@@ -90,13 +96,17 @@ export class GetRunConfigurationResponseBodyRunConfigurationLogConfig extends $d
 export class GetRunConfigurationResponseBodyRunConfiguration extends $dara.Model {
   /**
    * @remarks
-   * 应用配置项
+   * The list of Spark configuration parameters.
    */
   applicationConfigs?: GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs[];
+  /**
+   * @remarks
+   * The log configuration.
+   */
   logConfig?: GetRunConfigurationResponseBodyRunConfigurationLogConfig;
   /**
    * @remarks
-   * 运行配置。
+   * The list of runtime parameters.
    */
   runtimeConfigs?: Tag[];
   static names(): { [key: string]: string } {
@@ -136,12 +146,16 @@ export class GetRunConfigurationResponseBodyRunConfiguration extends $dara.Model
 export class GetRunConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The run configuration.
+   */
   runConfiguration?: GetRunConfigurationResponseBodyRunConfiguration;
   static names(): { [key: string]: string } {
     return {

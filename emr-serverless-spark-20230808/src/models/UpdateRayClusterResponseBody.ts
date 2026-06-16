@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRayClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * ray-xxxxxxxxxxx
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944
    */

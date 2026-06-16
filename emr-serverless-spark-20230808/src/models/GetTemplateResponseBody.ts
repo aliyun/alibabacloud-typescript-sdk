@@ -11,8 +11,9 @@ export class GetTemplateResponseBody extends $dara.Model {
   data?: Template;
   /**
    * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - If success is false, a business error code is returned.
+   * 
+   * - If success is true, an empty value is returned.
    * 
    * @example
    * 040003
@@ -20,8 +21,9 @@ export class GetTemplateResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
+   * - Returns an error message if success is false.
+   * 
+   * - Returns an empty value if success is true.
    * 
    * @example
    * InvalidUser.NotFound

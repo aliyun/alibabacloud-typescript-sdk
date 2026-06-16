@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the token automatically expires.
+   * 
+   * - true: Yes.
+   * 
+   * - false: No.
+   * 
    * @example
    * false
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The expiration period, in days.
+   * 
    * @example
    * 7
    */
@@ -37,40 +47,62 @@ export class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration extends 
 }
 
 export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The information about token expiration.
+   */
   autoExpireConfiguration?: GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration;
   /**
+   * @remarks
+   * The time when the token was created.
+   * 
    * @example
    * 1749456094000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The name of the user who created the token.
+   * 
    * @example
    * alice
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The time when the token expires.
+   * 
    * @example
    * 1749457994000
    */
   expireTime?: number;
   /**
+   * @remarks
+   * The time when the token was last used.
+   * 
    * @example
    * 1749456098000
    */
   lastUsedTime?: number;
   /**
+   * @remarks
+   * The name of the token.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The content of the token.
+   * 
    * @example
    * d25561157a635bb
    */
   token?: string;
   /**
    * @remarks
-   * Token ID。
+   * The ID of the token.
    * 
    * @example
    * lctk-xxxxxxxxxx
@@ -116,17 +148,30 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
 
 export class GetLivyComputeTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For more information about the error, see the message parameter.
+   * 
    * @example
    * 1000000
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetLivyComputeTokenResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 484D9DDA-300D-525E-AF7A-0CCCA5C64A7A
    */

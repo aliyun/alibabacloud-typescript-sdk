@@ -7,11 +7,6 @@ export class ListWorkspaceQueuesRequest extends $dara.Model {
    * @remarks
    * The environment type.
    * 
-   * Valid values:
-   * 
-   * *   dev
-   * *   production
-   * 
    * @example
    * production
    */

@@ -4,38 +4,56 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   /**
+   * @remarks
+   * The time when the token was created.
+   * 
    * @example
    * 1749456094000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The user who created the token.
+   * 
    * @example
    * alice
    */
   createdby?: string;
   /**
+   * @remarks
+   * The time when the token expires.
+   * 
    * @example
    * 1749456994000
    */
   expireTime?: number;
   /**
+   * @remarks
+   * The time when the token was last used.
+   * 
    * @example
    * 1749456098000
    */
   lastUsedTime?: number;
   /**
+   * @remarks
+   * The token name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The token content.
+   * 
    * @example
    * 5d37843fb6f1e8
    */
   token?: string;
   /**
    * @remarks
-   * Token ID。
+   * The token ID.
    * 
    * @example
    * lctk-xxxxxxxxxxx
@@ -75,6 +93,10 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
 }
 
 export class ListLivyComputeTokenResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of tokens.
+   */
   tokens?: ListLivyComputeTokenResponseBodyDataTokens[];
   static names(): { [key: string]: string } {
     return {
@@ -102,17 +124,30 @@ export class ListLivyComputeTokenResponseBodyData extends $dara.Model {
 
 export class ListLivyComputeTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. See the message parameter for failure details.
+   * 
    * @example
    * 1000000
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListLivyComputeTokenResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

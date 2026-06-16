@@ -13,7 +13,7 @@ export class CreateSessionClusterRequestApplicationConfigs extends $dara.Model {
   configFileName?: string;
   /**
    * @remarks
-   * The key of SparkConf.
+   * The key of a Spark configuration item.
    * 
    * @example
    * spark.app.name
@@ -21,7 +21,7 @@ export class CreateSessionClusterRequestApplicationConfigs extends $dara.Model {
   configItemKey?: string;
   /**
    * @remarks
-   * The value of SparkConf.
+   * The value of a Spark configuration item.
    * 
    * @example
    * test
@@ -57,8 +57,9 @@ export class CreateSessionClusterRequestAutoStartConfiguration extends $dara.Mod
    * @remarks
    * Specifies whether to enable automatic startup.
    * 
-   * *   true
-   * *   false
+   * - true: Enables automatic startup.
+   * 
+   * - false: Disables automatic startup.
    * 
    * @example
    * false
@@ -88,10 +89,11 @@ export class CreateSessionClusterRequestAutoStartConfiguration extends $dara.Mod
 export class CreateSessionClusterRequestAutoStopConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic termination.
+   * Specifies whether to enable automatic stop.
    * 
-   * *   true
-   * *   false
+   * - true: Enables automatic stop.
+   * 
+   * - false: Disables automatic stop.
    * 
    * @example
    * false
@@ -99,7 +101,7 @@ export class CreateSessionClusterRequestAutoStopConfiguration extends $dara.Mode
   enable?: boolean;
   /**
    * @remarks
-   * The idle timeout period. The session is automatically terminated when the idle timeout period is exceeded.
+   * The idle timeout period of the session. The session is automatically stopped after it is idle for the specified period. Unit: minutes.
    * 
    * @example
    * 60
@@ -131,26 +133,27 @@ export class CreateSessionClusterRequestAutoStopConfiguration extends $dara.Mode
 export class CreateSessionClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The Spark configurations.
+   * The Spark application configurations.
    */
   applicationConfigs?: CreateSessionClusterRequestApplicationConfigs[];
   /**
    * @remarks
-   * Specifies whether to enable automatic startup.
+   * The automatic startup configuration.
    * 
-   * *   true
-   * *   false
+   * - true: Yes.
+   * 
+   * - false: No.
    */
   autoStartConfiguration?: CreateSessionClusterRequestAutoStartConfiguration;
   /**
    * @remarks
-   * The automatic termination configuration.
+   * The automatic stop configuration.
    */
   autoStopConfiguration?: CreateSessionClusterRequestAutoStopConfiguration;
   clientToken?: string;
   /**
    * @remarks
-   * The version of the Spark engine.
+   * The version that is displayed in the console.
    * 
    * @example
    * esr-3.3.1
@@ -158,7 +161,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The ID of the Python environment. This parameter takes effect only for notebook sessions.
+   * The ID of the Python environment. This parameter applies only to Notebook sessions.
    * 
    * @example
    * env-cpv569tlhtgndjl86t40
@@ -166,7 +169,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   envId?: string;
   /**
    * @remarks
-   * Specifies whether to enable Fusion engine for acceleration.
+   * Specifies whether to enable the Fusion engine for acceleration.
    * 
    * @example
    * false
@@ -174,10 +177,11 @@ export class CreateSessionClusterRequest extends $dara.Model {
   fusion?: boolean;
   /**
    * @remarks
-   * The session type.
+   * The type of the session. Valid values:
    * 
-   * *   SQL
-   * *   NOTEBOOK
+   * - SQL: an SQL session.
+   * 
+   * - NOTEBOOK: a Notebook session.
    * 
    * @example
    * SQL
@@ -185,7 +189,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The name of the task.
    * 
    * @example
    * spark_job_name
@@ -202,7 +206,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The version number of Spark.
+   * The version of the Spark engine.
    * 
    * @example
    * esr-3.3.1

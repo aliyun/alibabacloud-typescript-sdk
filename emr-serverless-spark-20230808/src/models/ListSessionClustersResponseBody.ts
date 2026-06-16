@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSessionClustersResponseBodySessionClustersApplicationConfigs extends $dara.Model {
   /**
    * @remarks
-   * The name of the configuration file.
+   * The configuration file name.
    * 
    * @example
    * spark-default.conf
@@ -13,7 +13,7 @@ export class ListSessionClustersResponseBodySessionClustersApplicationConfigs ex
   configFileName?: string;
   /**
    * @remarks
-   * The key of the configuration.
+   * The configuration key.
    * 
    * @example
    * spark.app.name
@@ -55,7 +55,7 @@ export class ListSessionClustersResponseBodySessionClustersApplicationConfigs ex
 export class ListSessionClustersResponseBodySessionClustersAutoStartConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic startup is enabled.
+   * Indicates whether auto-start is enabled.
    * 
    * @example
    * true
@@ -85,7 +85,7 @@ export class ListSessionClustersResponseBodySessionClustersAutoStartConfiguratio
 export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic termination is enabled.
+   * Indicates whether auto-stop is enabled.
    * 
    * @example
    * false
@@ -93,7 +93,7 @@ export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration
   enable?: boolean;
   /**
    * @remarks
-   * The idle timeout period. The session is automatically terminated when the idle timeout period is exceeded.
+   * The number of minutes of inactivity before the session is automatically stopped.
    * 
    * @example
    * 45
@@ -125,7 +125,7 @@ export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration
 export class ListSessionClustersResponseBodySessionClustersStateChangeReason extends $dara.Model {
   /**
    * @remarks
-   * The status change code.
+   * The state change code.
    * 
    * @example
    * 200
@@ -133,7 +133,7 @@ export class ListSessionClustersResponseBodySessionClustersStateChangeReason ext
   code?: string;
   /**
    * @remarks
-   * The status change message.
+   * The state change message.
    * 
    * @example
    * ok
@@ -165,23 +165,23 @@ export class ListSessionClustersResponseBodySessionClustersStateChangeReason ext
 export class ListSessionClustersResponseBodySessionClusters extends $dara.Model {
   /**
    * @remarks
-   * The session configurations, which are equivalent to the configurations of the Spark job.
+   * The session configurations. These are equivalent to the configurations of the underlying Spark job.
    */
   applicationConfigs?: ListSessionClustersResponseBodySessionClustersApplicationConfigs[];
   /**
    * @remarks
-   * The automatic startup configurations.
+   * The auto-start configuration.
    */
   autoStartConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStartConfiguration;
   /**
    * @remarks
-   * The configurations of automatic termination.
+   * The auto-stop configuration.
    */
   autoStopConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration;
   connectionToken?: string;
   /**
    * @remarks
-   * The version of the Spark engine.
+   * The version displayed in the console.
    * 
    * @example
    * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
@@ -197,7 +197,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   domain?: string;
   /**
    * @remarks
-   * The internal endpoint of the Thrift server.
+   * The internal same-region endpoint of the Thrift server.
    * 
    * @example
    * emr-spark-gateway-cn-hangzhou-internal.data.aliyuncs.com
@@ -205,7 +205,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   domainInner?: string;
   /**
    * @remarks
-   * The ID of the job that is associated with the session.
+   * The ID of the developer job that is attached to the session.
    * 
    * @example
    * TSK-xxxxxxxxx
@@ -213,7 +213,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   draftId?: string;
   /**
    * @remarks
-   * The additional metadata of the session.
+   * The extra metadata of the session.
    * 
    * @example
    * {"extraInfoKey":"extraInfoValue"}
@@ -221,7 +221,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   extra?: string;
   /**
    * @remarks
-   * Indicates whether the Fusion engine is used for acceleration.
+   * Indicates whether acceleration by the Fusion engine is enabled.
    * 
    * @example
    * false
@@ -229,7 +229,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   fusion?: boolean;
   /**
    * @remarks
-   * The creation time.
+   * The time when the session was created.
    * 
    * @example
    * 1732267598000
@@ -239,19 +239,13 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
    * @remarks
    * The session type.
    * 
-   * Valid values:
-   * 
-   * *   NOTEBOOK
-   * *   THRIFT
-   * *   SQL
-   * 
    * @example
    * SQL
    */
   kind?: string;
   /**
    * @remarks
-   * The name of the session.
+   * The session name.
    * 
    * @example
    * adhoc_query
@@ -260,7 +254,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   publicEndpointEnabled?: boolean;
   /**
    * @remarks
-   * The name of the queue that is used to run the session.
+   * The name of the queue in which the session runs.
    * 
    * @example
    * dev_queue
@@ -268,10 +262,10 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   queueName?: string;
   /**
    * @remarks
-   * The version of EMR Serverless Spark.
+   * The Serverless Spark version.
    * 
    * @example
-   * esr-2.1
+   * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
    */
   releaseVersion?: string;
   /**
@@ -284,7 +278,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   sessionClusterId?: string;
   /**
    * @remarks
-   * The start time.
+   * The time when the session was started.
    * 
    * @example
    * 1732267598000
@@ -292,13 +286,17 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   startTime?: number;
   /**
    * @remarks
-   * The status of the session.
+   * The session state.
    * 
-   * *   Starting
-   * *   Running
-   * *   Stopping
-   * *   Stopped
-   * *   Error
+   * - Starting: The session is starting.
+   * 
+   * - Running: The session is running.
+   * 
+   * - Stopping: The session is stopping.
+   * 
+   * - Stopped: The session is stopped.
+   * 
+   * - Error: The session has failed.
    * 
    * @example
    * Running
@@ -306,7 +304,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   state?: string;
   /**
    * @remarks
-   * The details of the most recent status change of the session.
+   * The details of the last state change of the session.
    */
   stateChangeReason?: ListSessionClustersResponseBodySessionClustersStateChangeReason;
   /**
@@ -327,7 +325,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
   userName?: string;
   /**
    * @remarks
-   * The Spark UI of the session.
+   * The URL of the Spark UI for the session.
    * 
    * @example
    * http://spark-ui-xxxx
@@ -423,7 +421,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
 export class ListSessionClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries returned for the request.
    * 
    * @example
    * 20
@@ -431,10 +429,10 @@ export class ListSessionClustersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token that marks the start of the next page of results.
    * 
    * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   * 1
    */
   nextToken?: string;
   /**
@@ -447,12 +445,12 @@ export class ListSessionClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sessions.
+   * A list of sessions.
    */
   sessionClusters?: ListSessionClustersResponseBodySessionClusters[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query criteria.
    * 
    * @example
    * 200

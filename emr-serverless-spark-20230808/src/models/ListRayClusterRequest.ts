@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRayClusterRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 20
    */

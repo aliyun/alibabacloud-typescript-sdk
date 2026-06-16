@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The email address to receive alerts.
+   * The email address for alerts.
    * 
    * @example
    * foo_bar@spark.alert.invalid.com
@@ -13,7 +13,7 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   alertEmailAddress?: string;
   /**
    * @remarks
-   * The description of the workflow.
+   * The workflow description.
    * 
    * @example
    * ods batch workflow
@@ -32,7 +32,7 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   globalParamsShrink?: string;
   /**
    * @remarks
-   * The name of the workflow.
+   * The workflow name.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The code of the service.
+   * The product code.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The status of the workflow.
+   * The release state of the workflow.
    * 
    * @example
    * ONLINE
@@ -92,7 +92,7 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   retryTimes?: number;
   /**
    * @remarks
-   * The execution user.
+   * The user to run the workflow.
    * 
    * @example
    * 113***************
@@ -100,7 +100,7 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   runAs?: string;
   /**
    * @remarks
-   * The scheduling settings.
+   * The scheduling configuration.
    */
   scheduleShrink?: string;
   /**
@@ -110,14 +110,14 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   tagsShrink?: string;
   /**
    * @remarks
-   * The descriptions of all nodes in the workflow.
+   * A JSON array of task definitions. This array contains the descriptive information for all tasks in the workflow.
    * 
    * This parameter is required.
    */
   taskDefinitionJsonShrink?: string;
   /**
    * @remarks
-   * The node parallelism.
+   * The degree of concurrent execution for workflow nodes.
    * 
    * @example
    * 1
@@ -125,14 +125,14 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   taskParallelism?: number;
   /**
    * @remarks
-   * The dependencies of all nodes in the workflow. preTaskCode specifies the ID of an upstream node, and postTaskCode specifies the ID of a downstream node. The ID of each node is unique. If a node does not have an upstream node, set preTaskCode to 0.
+   * A JSON array that defines the dependencies between tasks in the workflow. \\`preTaskCode\\` specifies the upstream task ID, and \\`postTaskCode\\` specifies the downstream task ID. Each task must have a unique ID. For a task node without an upstream task, add a dependency and set \\`preTaskCode\\` to 0.
    * 
    * This parameter is required.
    */
   taskRelationJsonShrink?: string;
   /**
    * @remarks
-   * The default timeout period of the workflow.
+   * The default timeout period for the workflow execution.
    * 
    * @example
    * 300

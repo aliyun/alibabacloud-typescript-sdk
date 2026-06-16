@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKyuubiServiceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Kyuubi Service ID。
+   * The Kyuubi service ID.
    * 
    * @example
    * kb-f99935b350fb4****7ef700b8b4197a3
@@ -33,8 +33,15 @@ export class CreateKyuubiServiceResponseBodyData extends $dara.Model {
 }
 
 export class CreateKyuubiServiceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateKyuubiServiceResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

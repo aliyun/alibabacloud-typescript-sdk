@@ -3,23 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListExecutorLogsResponseBodyLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The full path of the log file.
+   */
   fileName?: string;
   /**
+   * @remarks
+   * The size of the file, in bytes.
+   * 
    * @example
    * 6383327
    */
   fileSize?: number;
   /**
+   * @remarks
+   * The log name.
+   * 
    * @example
    * log4j.log
    */
   logName?: string;
   /**
+   * @remarks
+   * The log type.
+   * 
    * @example
    * log4j
    */
   logType?: string;
   /**
+   * @remarks
+   * The time the log file was last updated, as a Unix timestamp.
+   * 
    * @example
    * 1745390462
    */
@@ -54,26 +70,39 @@ export class ListExecutorLogsResponseBodyLogs extends $dara.Model {
 }
 
 export class ListExecutorLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The retrieved logs, sorted in contextual order. If no contextual logs are found based on the specified starting log, this parameter is empty.
+   */
   logs?: ListExecutorLogsResponseBodyLogs[];
   /**
+   * @remarks
+   * The maximum number of results returned per page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. This value is null when there are no more results to return.
+   * 
    * @example
    * 2
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count of log files.
+   * 
    * @example
    * 200
    */

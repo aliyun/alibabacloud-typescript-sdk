@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * The region ID. For example, cn-hangzhou represents the Hangzhou region.
    * 
    * @example
    * cn-hangzhou

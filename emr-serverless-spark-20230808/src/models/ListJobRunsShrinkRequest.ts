@@ -3,24 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListJobRunsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Spark configurations.
+   * 
+   * @example
+   * [{\\"key\\":\\"spark.app.name\\",\\"value\\":\\"test\\"}]
+   */
   applicationConfigs?: string;
   /**
    * @remarks
-   * The ID of the user who created the job.
+   * The UID of the user who created the job.
    * 
    * @example
-   * 1509789347011222
+   * 150976534701****
    */
   creator?: string;
   /**
    * @remarks
-   * The range of end time.
+   * The time range when the job run ended.
    */
   endTimeShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether the job is a workflow task.
+   * 
+   * @example
+   * false
+   */
   isWorkflow?: string;
   /**
    * @remarks
-   * The job run ID.
+   * The deployment ID of the streaming job.
    * 
    * @example
    * jd-b6d003f1930f****
@@ -28,7 +42,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   jobRunDeploymentId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The job run ID.
    * 
    * @example
    * j-xxx
@@ -36,7 +50,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   jobRunId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of entries to return. The maximum value is 100.
    * 
    * @example
    * 20
@@ -44,7 +58,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The minimum running duration of the job. Unit: ms.
+   * The minimum runtime of the job run, in milliseconds.
    * 
    * @example
    * 60000
@@ -60,7 +74,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results.
+   * The token that specifies the position from which to start the next read.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -76,21 +90,28 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the resource queue on which the Spark jobs run.
+   * The ID of the resource queue on which the Spark job runs.
    * 
    * @example
    * dev_queue
    */
   resourceQueueId?: string;
+  /**
+   * @remarks
+   * The runtime configurations.
+   * 
+   * @example
+   * [{\\"key\\":\\"mainClass\\",\\"value\\":\\"yourClass\\"}]
+   */
   runtimeConfigs?: string;
   /**
    * @remarks
-   * The range of start time.
+   * The time range when the job run started.
    */
   startTimeShrink?: string;
   /**
    * @remarks
-   * The job states.
+   * The job run states.
    * 
    * @example
    * ["Running","Submitted"]
@@ -98,7 +119,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   statesShrink?: string;
   /**
    * @remarks
-   * The tags of the job.
+   * The list of tags.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {

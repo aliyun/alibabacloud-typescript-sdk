@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartLivyComputeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

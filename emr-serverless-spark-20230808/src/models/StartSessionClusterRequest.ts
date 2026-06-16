@@ -13,7 +13,7 @@ export class StartSessionClusterRequest extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The session ID.
+   * The session cluster ID.
    * 
    * @example
    * sc-xxxxxxxxxxx

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSqlStatementResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The interactive query ID.
+   * The ID of the interactive query.
    * 
    * @example
    * st-1231dfafadfa***
@@ -35,7 +35,7 @@ export class CreateSqlStatementResponseBodyData extends $dara.Model {
 export class CreateSqlStatementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: CreateSqlStatementResponseBodyData;
   /**

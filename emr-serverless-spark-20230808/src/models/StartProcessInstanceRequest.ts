@@ -9,7 +9,7 @@ export class StartProcessInstanceRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * Specifies whether to run the workflow in the production environment.
+   * Specifies whether the workflow runs in a production environment.
    * 
    * @example
    * false
@@ -17,7 +17,7 @@ export class StartProcessInstanceRequest extends $dara.Model {
   isProd?: boolean;
   /**
    * @remarks
-   * The workflow ID.
+   * The workflow definition ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class StartProcessInstanceRequest extends $dara.Model {
   processDefinitionCode?: number;
   /**
    * @remarks
-   * The code of the service.
+   * The product code.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class StartProcessInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The queue on which the workflow runs.
+   * The runtime queue.
    * 
    * @example
    * root_queue
@@ -61,7 +61,7 @@ export class StartProcessInstanceRequest extends $dara.Model {
   versionHashCode?: string;
   /**
    * @remarks
-   * The version number of the workflow.
+   * The version number of the workflow definition.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results per page.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the workspace. Fuzzy match is supported.
+   * The name of the workspace. Fuzzy search is supported.
    * 
    * @example
    * test_workspace
@@ -21,7 +21,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page of results.
    * 
    * @example
    * 1
@@ -29,13 +29,16 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-aek2thxggoqhmhq
    */
@@ -48,6 +51,10 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
    * running
    */
   state?: string;
+  /**
+   * @remarks
+   * Filters the results by one or more tags.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {

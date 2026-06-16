@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopRayClusterRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Ray cluster instance.
+   * 
    * @example
    * ray-k7nm8ahl5te4tg91-ey7blpbg
    */

@@ -7,7 +7,7 @@ import { Tag } from "./Tag";
 export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application that is submitted by using a Kyuubi gateway.
+   * The ID of the Spark application submitted by Kyuubi.
    * 
    * @example
    * spark-339f844005b6404c95f9f7c7a13b****
@@ -15,7 +15,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   applicationId?: string;
   /**
    * @remarks
-   * The name of the Spark application that is submitted by using a Kyuubi gateway.
+   * The name of the Spark application submitted by Kyuubi.
    * 
    * @example
    * kyuubi-connection-spark-sql-anonymous-fa9a5e73-b4b1-474a-b****
@@ -23,7 +23,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   applicationName?: string;
   /**
    * @remarks
-   * The number of CUs consumed during a specified cycle of a task. The value is an estimated value. Refer to your Alibaba Cloud bill for the actual number of consumed CUs.
+   * The number of CUs consumed during the task lifecycle. This is an estimated value. The final amount is subject to your bill.
    * 
    * @example
    * 0.238302
@@ -38,6 +38,9 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
    */
   endTime?: string;
   /**
+   * @remarks
+   * The exit code.
+   * 
    * @example
    * Exit Code: 137, Exit Reason: OOMKilled
    */
@@ -48,13 +51,16 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
    */
   kyuubiServiceId?: string;
   /**
+   * @remarks
+   * The status of the last task execution in the session.
+   * 
    * @example
    * SUCCESS
    */
   latestSqlStatementStatus?: string;
   /**
    * @remarks
-   * The total amount of memory allocated to the job multiplied by the running duration (seconds).
+   * The total memory allocated to the task in MB, multiplied by the number of seconds the task ran.
    * 
    * @example
    * 3513900
@@ -67,7 +73,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   priority?: string;
   /**
    * @remarks
-   * The name of the resource queue on which the Spark jobs run.
+   * The name of the resource queue where the Spark task runs.
    * 
    * @example
    * dev_queue
@@ -86,9 +92,11 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
    * @remarks
    * The status of the Spark application.
    * 
-   * *   STARTING
-   * *   RUNNING
-   * *   TERMINATED
+   * - STARTING: The application is starting.
+   * 
+   * - RUNNING: The application is running.
+   * 
+   * - TERMINATED: The application is terminated.
    * 
    * @example
    * STARTING
@@ -97,7 +105,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   tags?: Tag[];
   /**
    * @remarks
-   * The total number of CPU cores allocated to the job multiplied by the running duration (seconds).
+   * The total vCores allocated to the task, multiplied by the number of seconds the task ran.
    * 
    * @example
    * 780
@@ -105,7 +113,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   vcoreSeconds?: number;
   /**
    * @remarks
-   * The URL of the web UI for the Spark application.
+   * The URL of the Spark application UI.
    */
   webUI?: string;
   static names(): { [key: string]: string } {
@@ -168,12 +176,12 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
 export class ListKyuubiSparkApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the applications.
+   * A list of application details.
    */
   applications?: ListKyuubiSparkApplicationsResponseBodyApplications[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of records returned.
    * 
    * @example
    * 20
@@ -181,7 +189,7 @@ export class ListKyuubiSparkApplicationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token to retrieve the next page of results.
    * 
    * @example
    * 1
@@ -197,7 +205,7 @@ export class ListKyuubiSparkApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 200

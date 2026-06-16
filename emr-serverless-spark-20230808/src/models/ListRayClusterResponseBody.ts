@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 2
    */
   cpu?: string;
   /**
+   * @remarks
+   * Indicates whether automatic scaling is enabled for worker nodes.
+   * 
    * @example
    * false
    */
@@ -19,21 +25,33 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
    */
   gpuSpec?: string;
   /**
+   * @remarks
+   * The idle timeout period for worker nodes.
+   * 
    * @example
    * 60
    */
   idleTimeoutSeconds?: number;
   /**
+   * @remarks
+   * The memory size. Unit: Gi.
+   * 
    * @example
    * 8Gi
    */
   memory?: string;
   /**
+   * @remarks
+   * The queue name.
+   * 
    * @example
    * root_queue
    */
   queueName?: string;
   /**
+   * @remarks
+   * The number of nodes.
+   * 
    * @example
    * 1
    */
@@ -73,6 +91,9 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
 
 export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 2
    */
@@ -83,36 +104,57 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
    */
   gpuSpec?: string;
   /**
+   * @remarks
+   * The name of the worker group.
+   * 
    * @example
    * Group1
    */
   groupName?: string;
   /**
+   * @remarks
+   * The maximum number of worker nodes after automatic scaling is enabled.
+   * 
    * @example
    * 10
    */
   maxReplica?: number;
   /**
+   * @remarks
+   * The memory size. Unit: Gi.
+   * 
    * @example
    * 8Gi
    */
   memory?: string;
   /**
+   * @remarks
+   * The minimum number of worker nodes after automatic scaling is enabled.
+   * 
    * @example
    * 1
    */
   minReplica?: number;
   /**
+   * @remarks
+   * The queue name.
+   * 
    * @example
    * root_queue
    */
   queueName?: string;
   /**
+   * @remarks
+   * The number of nodes.
+   * 
    * @example
    * 2
    */
   replica?: number;
   /**
+   * @remarks
+   * The worker type.
+   * 
    * @example
    * CPU
    */
@@ -156,101 +198,176 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
 
 export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * ray-uiulpgow9xljimm1
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The time when the cluster was created.
+   * 
    * @example
    * 1723722279800
    */
   createTime?: number;
   /**
+   * @remarks
+   * The UID of the user who created the cluster.
+   * 
    * @example
    * 202077646755123991
    */
   creator?: string;
   /**
+   * @remarks
+   * The nickname of the creator.
+   * 
    * @example
    * Alice
    */
   creatorName?: string;
   /**
+   * @remarks
+   * The URL of the Ray cluster dashboard.
+   * 
    * @example
    * https://emr-spark-ray-gateway-cn-hangzhou.aliyuncs.com?token=xxxxxxxxx
    */
   dashboardUrl?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * Ray Cluster for dev.
    */
   description?: string;
   /**
+   * @remarks
+   * The Ray engine version.
+   * 
    * @example
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
    */
   displayReleaseVersion?: string;
   /**
+   * @remarks
+   * The gRPC endpoint for the internal network. The domain name can also be used to submit Ray jobs.
+   * 
    * @example
    * ray://emr-spark-ray-gateway-cn-hanghzou-internal.emr.aliyuncs.com:80
    */
   grpcEndpoint?: string;
+  /**
+   * @remarks
+   * The information about the head node of the Ray cluster.
+   */
   headSpec?: ListRayClusterResponseBodyRayClustersHeadSpec;
   /**
+   * @remarks
+   * The ID of the Ray cluster instance.
+   * 
    * @example
    * ray-uiulpgow9xljimm1-xxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the configuration has been modified.
+   * 
    * @example
    * false
    */
   modified?: boolean;
   /**
+   * @remarks
+   * The time when the cluster was last modified.
+   * 
    * @example
    * 1723722279800
    */
   modifiedTime?: number;
   /**
+   * @remarks
+   * The UID of the user who last updated the cluster.
+   * 
    * @example
    * 202077646755123991
    */
   modifier?: string;
   /**
+   * @remarks
+   * The nickname of the modifier.
+   * 
    * @example
    * Alice
    */
   modifierName?: string;
   /**
+   * @remarks
+   * The name of the Ray cluster.
+   * 
    * @example
    * testRayCluster
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the network connectivity service.
+   * 
    * @example
    * vpc
    */
   networkServiceName?: string;
   /**
+   * @remarks
+   * The startup time.
+   * 
    * @example
    * 1723722279800
    */
   startTime?: number;
   /**
+   * @remarks
+   * The cluster state.
+   * 
+   * - Starting: The cluster is starting.
+   * 
+   * - Running: The cluster is running.
+   * 
+   * - Stopping: The cluster is stopping.
+   * 
+   * - Stopped: The cluster is stopped.
+   * 
+   * - Error: The cluster has failed.
+   * 
    * @example
    * Running
    */
   state?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 1234567890
    */
   userId?: string;
+  /**
+   * @remarks
+   * The information about the worker nodes of the Ray cluster.
+   */
   workerSpec?: ListRayClusterResponseBodyRayClustersWorkerSpec[];
   static names(): { [key: string]: string } {
     return {
@@ -320,8 +437,15 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
 }
 
 export class ListRayClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Ray clusters.
+   */
   rayClusters?: ListRayClusterResponseBodyRayClusters[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944
    */

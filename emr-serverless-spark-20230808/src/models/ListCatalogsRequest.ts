@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCatalogsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment type.
+   * 
    * @example
    * dev
    */
   environment?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

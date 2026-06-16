@@ -30,7 +30,46 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a RAM user or RAM role to a workspace as a member.
+   * Activates the AI center.
+   * 
+   * @param request - ActivateAICenterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActivateAICenterResponse
+   */
+  async activateAICenterWithOptions(workspaceId: string, request: $_model.ActivateAICenterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ActivateAICenterResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActivateAICenter",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/activateaicenter`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ActivateAICenterResponse>(await this.callApi(params, req, runtime), new $_model.ActivateAICenterResponse({}));
+  }
+
+  /**
+   * Activates the AI center.
+   * 
+   * @param request - ActivateAICenterRequest
+   * @returns ActivateAICenterResponse
+   */
+  async activateAICenter(workspaceId: string, request: $_model.ActivateAICenterRequest): Promise<$_model.ActivateAICenterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.activateAICenterWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
    * 
    * @param request - AddMembersRequest
    * @param headers - map
@@ -73,7 +112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a RAM user or RAM role to a workspace as a member.
+   * Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
    * 
    * @param request - AddMembersRequest
    * @returns AddMembersResponse
@@ -130,7 +169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CancelKyuubiSparkApplication
+   * Cancels a Kyuubi Spark application.
    * 
    * @param request - CancelKyuubiSparkApplicationRequest
    * @param headers - map
@@ -163,7 +202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CancelKyuubiSparkApplication
+   * Cancels a Kyuubi Spark application.
    * 
    * @param request - CancelKyuubiSparkApplicationRequest
    * @returns CancelKyuubiSparkApplicationResponse
@@ -175,7 +214,46 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * 停止RayJob
+   * 
+   * @param request - CancelRayJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelRayJobResponse
+   */
+  async cancelRayJobWithOptions(workspaceId: string, submissionId: string, request: $_model.CancelRayJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CancelRayJobResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelRayJob",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayJob/${$dara.URL.percentEncode(submissionId)}/cancel`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelRayJobResponse>(await this.callApi(params, req, runtime), new $_model.CancelRayJobResponse({}));
+  }
+
+  /**
+   * 停止RayJob
+   * 
+   * @param request - CancelRayJobRequest
+   * @returns CancelRayJobResponse
+   */
+  async cancelRayJob(workspaceId: string, submissionId: string, request: $_model.CancelRayJobRequest): Promise<$_model.CancelRayJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelRayJobWithOptions(workspaceId, submissionId, request, headers, runtime);
+  }
+
+  /**
+   * Moves an instance to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -220,7 +298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Moves an instance to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -232,7 +310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateKyuubiService
+   * Creates a Kyuubi gateway.
    * 
    * @param request - CreateKyuubiServiceRequest
    * @param headers - map
@@ -297,7 +375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateKyuubiService
+   * Creates a Kyuubi gateway.
    * 
    * @param request - CreateKyuubiServiceRequest
    * @returns CreateKyuubiServiceResponse
@@ -309,7 +387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建kyuubi的token
+   * Creates a Kyuubi Gateway authentication token.
    * 
    * @param request - CreateKyuubiTokenRequest
    * @param headers - map
@@ -364,7 +442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建kyuubi的token
+   * Creates a Kyuubi Gateway authentication token.
    * 
    * @param request - CreateKyuubiTokenRequest
    * @returns CreateKyuubiTokenResponse
@@ -376,7 +454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Livy compute
+   * Creates a Livy compute.
    * 
    * @param request - CreateLivyComputeRequest
    * @param headers - map
@@ -471,7 +549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Livy compute
+   * Creates a Livy compute.
    * 
    * @param request - CreateLivyComputeRequest
    * @returns CreateLivyComputeResponse
@@ -483,7 +561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Livy Compute的token
+   * Creates a token for a Livy Gateway.
    * 
    * @param request - CreateLivyComputeTokenRequest
    * @param headers - map
@@ -530,7 +608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Livy Compute的token
+   * Creates a token for a Livy Gateway.
    * 
    * @param request - CreateLivyComputeTokenRequest
    * @returns CreateLivyComputeTokenResponse
@@ -542,7 +620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网络服务
+   * Creates a network service.
    * 
    * @param request - CreateNetworkServiceRequest
    * @param headers - map
@@ -601,7 +679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网络服务
+   * Creates a network service.
    * 
    * @param request - CreateNetworkServiceRequest
    * @returns CreateNetworkServiceResponse
@@ -613,7 +691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow.
+   * Creates a workflow definition.
    * 
    * @param tmpReq - CreateProcessDefinitionWithScheduleRequest
    * @param headers - map
@@ -732,7 +810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow.
+   * Creates a workflow definition.
    * 
    * @param request - CreateProcessDefinitionWithScheduleRequest
    * @returns CreateProcessDefinitionWithScheduleResponse
@@ -744,7 +822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Ray集群
+   * Creates a Ray cluster.
    * 
    * @param request - CreateRayClusterRequest
    * @param headers - map
@@ -805,7 +883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Ray集群
+   * Creates a Ray cluster.
    * 
    * @param request - CreateRayClusterRequest
    * @returns CreateRayClusterResponse
@@ -817,7 +895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a session.
+   * Creates a session cluster.
    * 
    * @param request - CreateSessionClusterRequest
    * @param headers - map
@@ -900,7 +978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a session.
+   * Creates a session cluster.
    * 
    * @param request - CreateSessionClusterRequest
    * @returns CreateSessionClusterResponse
@@ -912,7 +990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an SQL query task.
+   * Creates an SQL statement.
    * 
    * @param request - CreateSqlStatementRequest
    * @param headers - map
@@ -971,7 +1049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an SQL query task.
+   * Creates an SQL statement.
    * 
    * @param request - CreateSqlStatementRequest
    * @returns CreateSqlStatementResponse
@@ -1102,7 +1180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteKyuubiService
+   * Deletes a Kyuubi gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1127,7 +1205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteKyuubiService
+   * Deletes a Kyuubi gateway.
    * @returns DeleteKyuubiServiceResponse
    */
   async deleteKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.DeleteKyuubiServiceResponse> {
@@ -1137,7 +1215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除compute的token
+   * Deletes a Kyuubi Gateway authentication token.
    * 
    * @param request - DeleteKyuubiTokenRequest
    * @param headers - map
@@ -1170,7 +1248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除compute的token
+   * Deletes a Kyuubi Gateway authentication token.
    * 
    * @param request - DeleteKyuubiTokenRequest
    * @returns DeleteKyuubiTokenResponse
@@ -1182,7 +1260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除livy compute
+   * Deletes a Livy gateway.
    * 
    * @param request - DeleteLivyComputeRequest
    * @param headers - map
@@ -1215,7 +1293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除livy compute
+   * Deletes a Livy gateway.
    * 
    * @param request - DeleteLivyComputeRequest
    * @returns DeleteLivyComputeResponse
@@ -1227,7 +1305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Livy Compute的token
+   * Deletes a token for a Livy Gateway.
    * 
    * @param request - DeleteLivyComputeTokenRequest
    * @param headers - map
@@ -1260,7 +1338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Livy Compute的token
+   * Deletes a token for a Livy Gateway.
    * 
    * @param request - DeleteLivyComputeTokenRequest
    * @returns DeleteLivyComputeTokenResponse
@@ -1272,7 +1350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Ray集群
+   * Deletes a Ray cluster.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1297,7 +1375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Ray集群
+   * Deletes a Ray cluster.
    * @returns DeleteRayClusterResponse
    */
   async deleteRayCluster(workspaceId: string, clusterId: string): Promise<$_model.DeleteRayClusterResponse> {
@@ -1307,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the queue of a workspace.
+   * Updates a Workspace Queue.
    * 
    * @param request - EditWorkspaceQueueRequest
    * @param headers - map
@@ -1362,7 +1440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the queue of a workspace.
+   * Updates a Workspace Queue.
    * 
    * @param request - EditWorkspaceQueueRequest
    * @returns EditWorkspaceQueueResponse
@@ -1374,7 +1452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上线工作流及其调度
+   * Publishes a workflow and its scheduling configuration.
    * 
    * @param request - GenerateTaskCodesRequest
    * @param headers - map
@@ -1415,7 +1493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上线工作流及其调度
+   * Publishes a workflow and its scheduling configuration.
    * 
    * @param request - GenerateTaskCodesRequest
    * @returns GenerateTaskCodesResponse
@@ -1424,6 +1502,90 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateTaskCodesWithOptions(bizId, request, headers, runtime);
+  }
+
+  /**
+   * Gets the state of an AI center.
+   * 
+   * @param request - GetAICenterStateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAICenterStateResponse
+   */
+  async getAICenterStateWithOptions(workspaceId: string, request: $_model.GetAICenterStateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAICenterStateResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAICenterState",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/aicenter`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAICenterStateResponse>(await this.callApi(params, req, runtime), new $_model.GetAICenterStateResponse({}));
+  }
+
+  /**
+   * Gets the state of an AI center.
+   * 
+   * @param request - GetAICenterStateRequest
+   * @returns GetAICenterStateResponse
+   */
+  async getAICenterState(workspaceId: string, request: $_model.GetAICenterStateRequest): Promise<$_model.GetAICenterStateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAICenterStateWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取CacheCluster详情
+   * 
+   * @param request - GetCacheClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCacheClusterResponse
+   */
+  async getCacheClusterWithOptions(cacheClusterId: string, request: $_model.GetCacheClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCacheClusterResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCacheCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/cache/${$dara.URL.percentEncode(cacheClusterId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCacheClusterResponse>(await this.callApi(params, req, runtime), new $_model.GetCacheClusterResponse({}));
+  }
+
+  /**
+   * 获取CacheCluster详情
+   * 
+   * @param request - GetCacheClusterRequest
+   * @returns GetCacheClusterResponse
+   */
+  async getCacheCluster(cacheClusterId: string, request: $_model.GetCacheClusterRequest): Promise<$_model.GetCacheClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCacheClusterWithOptions(cacheClusterId, request, headers, runtime);
   }
 
   /**
@@ -1529,7 +1691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the job details.
+   * Get the details of a job.
    * 
    * @param request - GetJobRunRequest
    * @param headers - map
@@ -1562,7 +1724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the job details.
+   * Get the details of a job.
    * 
    * @param request - GetJobRunRequest
    * @returns GetJobRunResponse
@@ -1574,7 +1736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetKyuubiService
+   * Retrieves the details of a Kyuubi Gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1599,7 +1761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetKyuubiService
+   * Retrieves the details of a Kyuubi Gateway.
    * @returns GetKyuubiServiceResponse
    */
   async getKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.GetKyuubiServiceResponse> {
@@ -1609,7 +1771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取compute的token
+   * Obtains an authentication token for Kyuubi Gateway.
    * 
    * @param request - GetKyuubiTokenRequest
    * @param headers - map
@@ -1642,7 +1804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取compute的token
+   * Obtains an authentication token for Kyuubi Gateway.
    * 
    * @param request - GetKyuubiTokenRequest
    * @returns GetKyuubiTokenResponse
@@ -1654,7 +1816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取livy compute
+   * Retrieves information about a Livy Gateway.
    * 
    * @param request - GetLivyComputeRequest
    * @param headers - map
@@ -1687,7 +1849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取livy compute
+   * Retrieves information about a Livy Gateway.
    * 
    * @param request - GetLivyComputeRequest
    * @returns GetLivyComputeResponse
@@ -1699,7 +1861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取livy compute token
+   * Retrieves a token for a Livy Gateway.
    * 
    * @param request - GetLivyComputeTokenRequest
    * @param headers - map
@@ -1732,7 +1894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取livy compute token
+   * Retrieves a token for a Livy Gateway.
    * 
    * @param request - GetLivyComputeTokenRequest
    * @returns GetLivyComputeTokenResponse
@@ -1744,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Ray集群
+   * Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1769,7 +1931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Ray集群
+   * Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
    * @returns GetRayClusterResponse
    */
   async getRayCluster(workspaceId: string, clusterId: string): Promise<$_model.GetRayClusterResponse> {
@@ -1779,7 +1941,46 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务配置
+   * 获取Ray集群
+   * 
+   * @param request - GetRayJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRayJobResponse
+   */
+  async getRayJobWithOptions(workspaceId: string, submissionId: string, request: $_model.GetRayJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRayJobResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRayJob",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayJob/${$dara.URL.percentEncode(submissionId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRayJobResponse>(await this.callApi(params, req, runtime), new $_model.GetRayJobResponse({}));
+  }
+
+  /**
+   * 获取Ray集群
+   * 
+   * @param request - GetRayJobRequest
+   * @returns GetRayJobResponse
+   */
+  async getRayJob(workspaceId: string, submissionId: string, request: $_model.GetRayJobRequest): Promise<$_model.GetRayJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRayJobWithOptions(workspaceId, submissionId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the configuration of a Spark job.
    * 
    * @param request - GetRunConfigurationRequest
    * @param headers - map
@@ -1812,7 +2013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务配置
+   * Retrieves the configuration of a Spark job.
    * 
    * @param request - GetRunConfigurationRequest
    * @returns GetRunConfigurationResponse
@@ -1824,7 +2025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a session.
+   * Retrieves session details.
    * 
    * @param request - GetSessionClusterRequest
    * @param headers - map
@@ -1857,7 +2058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a session.
+   * Retrieves session details.
    * 
    * @param request - GetSessionClusterRequest
    * @returns GetSessionClusterResponse
@@ -1869,7 +2070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an SQL query task.
+   * Retrieves the details of an SQL query.
    * 
    * @param request - GetSqlStatementRequest
    * @param headers - map
@@ -1902,7 +2103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an SQL query task.
+   * Retrieves the details of an SQL query.
    * 
    * @param request - GetSqlStatementRequest
    * @returns GetSqlStatementResponse
@@ -1914,7 +2115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries task templates.
+   * Retrieves a task template.
    * 
    * @param request - GetTemplateRequest
    * @param headers - map
@@ -1955,7 +2156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries task templates.
+   * Retrieves a task template.
    * 
    * @param request - GetTemplateRequest
    * @returns GetTemplateResponse
@@ -2022,7 +2223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看数据目录列表
+   * View the list of data catalogs
    * 
    * @param request - ListCatalogsRequest
    * @param headers - map
@@ -2059,7 +2260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看数据目录列表
+   * View the list of data catalogs
    * 
    * @param request - ListCatalogsRequest
    * @returns ListCatalogsResponse
@@ -2071,7 +2272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出作业executor的日志文件列表
+   * Lists the log files for a job executor.
    * 
    * @param request - ListExecutorLogsRequest
    * @param headers - map
@@ -2116,7 +2317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出作业executor的日志文件列表
+   * Lists the log files for a job executor.
    * 
    * @param request - ListExecutorLogsRequest
    * @returns ListExecutorLogsResponse
@@ -2128,7 +2329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出作业的executors
+   * Lists the executors of a job.
    * 
    * @param request - ListJobExecutorsRequest
    * @param headers - map
@@ -2177,7 +2378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出作业的executors
+   * Lists the executors of a job.
    * 
    * @param request - ListJobExecutorsRequest
    * @returns ListJobExecutorsResponse
@@ -2189,7 +2390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Spark jobs.
+   * Call the ListJobRuns operation to retrieve a list of Spark jobs.
    * 
    * @param tmpReq - ListJobRunsRequest
    * @param headers - map
@@ -2300,7 +2501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Spark jobs.
+   * Call the ListJobRuns operation to retrieve a list of Spark jobs.
    * 
    * @param request - ListJobRunsRequest
    * @returns ListJobRunsResponse
@@ -2312,7 +2513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the list of KyuubiServers
+   * Lists Kyuubi Gateways.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2337,7 +2538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the list of KyuubiServers
+   * Lists Kyuubi Gateways.
    * @returns ListKyuubiServicesResponse
    */
   async listKyuubiServices(workspaceId: string): Promise<$_model.ListKyuubiServicesResponse> {
@@ -2347,7 +2548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications that are submitted by using a Kyuubi gateway.
+   * Lists Kyuubi Spark applications.
    * 
    * @param tmpReq - ListKyuubiSparkApplicationsRequest
    * @param headers - map
@@ -2438,7 +2639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications that are submitted by using a Kyuubi gateway.
+   * Lists Kyuubi Spark applications.
    * 
    * @param request - ListKyuubiSparkApplicationsRequest
    * @returns ListKyuubiSparkApplicationsResponse
@@ -2450,7 +2651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出compute的token
+   * Lists KyuubiServer authentication tokens.
    * 
    * @param request - ListKyuubiTokenRequest
    * @param headers - map
@@ -2483,7 +2684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出compute的token
+   * Lists KyuubiServer authentication tokens.
    * 
    * @param request - ListKyuubiTokenRequest
    * @returns ListKyuubiTokenResponse
@@ -2495,7 +2696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List the Livy Gateway.
+   * Lists Livy Gateways.
    * 
    * @param request - ListLivyComputeRequest
    * @param headers - map
@@ -2532,7 +2733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List the Livy Gateway.
+   * Lists Livy Gateways.
    * 
    * @param request - ListLivyComputeRequest
    * @returns ListLivyComputeResponse
@@ -2544,7 +2745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取livy gateway历史session
+   * Lists the historical sessions for a Livy Gateway.
    * 
    * @param request - ListLivyComputeSessionsRequest
    * @param headers - map
@@ -2585,7 +2786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取livy gateway历史session
+   * Lists the historical sessions for a Livy Gateway.
    * 
    * @param request - ListLivyComputeSessionsRequest
    * @returns ListLivyComputeSessionsResponse
@@ -2597,7 +2798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出livy compute token
+   * Lists Livy Gateway tokens.
    * 
    * @param request - ListLivyComputeTokenRequest
    * @param headers - map
@@ -2630,7 +2831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出livy compute token
+   * Lists Livy Gateway tokens.
    * 
    * @param request - ListLivyComputeTokenRequest
    * @returns ListLivyComputeTokenResponse
@@ -2699,7 +2900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户列表
+   * Retrieves the list of members in the workspace.
    * 
    * @param request - ListMembersRequest
    * @param headers - map
@@ -2740,7 +2941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户列表
+   * Retrieves the list of members in the workspace.
    * 
    * @param request - ListMembersRequest
    * @returns ListMembersResponse
@@ -2752,7 +2953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看网络服务列表
+   * Lists network connections.
    * 
    * @param request - ListNetworkServicesRequest
    * @param headers - map
@@ -2785,7 +2986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看网络服务列表
+   * Lists network connections.
    * 
    * @param request - ListNetworkServicesRequest
    * @returns ListNetworkServicesResponse
@@ -2797,7 +2998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出Ray集群
+   * Lists Ray clusters.
    * 
    * @param request - ListRayClusterRequest
    * @param headers - map
@@ -2834,7 +3035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出Ray集群
+   * Lists Ray clusters.
    * 
    * @param request - ListRayClusterRequest
    * @returns ListRayClusterResponse
@@ -2846,7 +3047,78 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
+   * 列出RayJob
+   * 
+   * @param tmpReq - ListRayJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRayJobResponse
+   */
+  async listRayJobWithOptions(workspaceId: string, tmpReq: $_model.ListRayJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRayJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListRayJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.submitTime)) {
+      request.submitTimeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitTime, "submitTime", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["pageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.submissionId)) {
+      query["submissionId"] = request.submissionId;
+    }
+
+    if (!$dara.isNull(request.submitTimeShrink)) {
+      query["submitTime"] = request.submitTimeShrink;
+    }
+
+    if (!$dara.isNull(request.taskBizId)) {
+      query["taskBizId"] = request.taskBizId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRayJob",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayJob`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRayJobResponse>(await this.callApi(params, req, runtime), new $_model.ListRayJobResponse({}));
+  }
+
+  /**
+   * 列出RayJob
+   * 
+   * @param request - ListRayJobRequest
+   * @returns ListRayJobResponse
+   */
+  async listRayJob(workspaceId: string, request: $_model.ListRayJobRequest): Promise<$_model.ListRayJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRayJobWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a list of release versions.
    * 
    * @param request - ListReleaseVersionsRequest
    * @param headers - map
@@ -2899,7 +3171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
+   * Retrieves a list of release versions.
    * 
    * @param request - ListReleaseVersionsRequest
    * @returns ListReleaseVersionsResponse
@@ -2911,7 +3183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of sessions.
+   * Retrieves a list of session clusters.
    * 
    * @param request - ListSessionClustersRequest
    * @param headers - map
@@ -2964,7 +3236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of sessions.
+   * Retrieves a list of session clusters.
    * 
    * @param request - ListSessionClustersRequest
    * @returns ListSessionClustersResponse
@@ -2976,7 +3248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取sql statement内容
+   * Retrieves the execution results of an SQL statement.
    * 
    * @param request - ListSqlStatementContentsRequest
    * @param headers - map
@@ -3017,7 +3289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取sql statement内容
+   * Retrieves the execution results of an SQL statement.
    * 
    * @param request - ListSqlStatementContentsRequest
    * @returns ListSqlStatementContentsResponse
@@ -3029,7 +3301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务模板列表
+   * Lists job templates.
    * 
    * @param request - ListTemplateRequest
    * @param headers - map
@@ -3062,7 +3334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务模板列表
+   * Lists job templates.
    * 
    * @param request - ListTemplateRequest
    * @returns ListTemplateResponse
@@ -3074,7 +3346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of queues in a Spark workspace.
+   * Lists the queues in a workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest
    * @param headers - map
@@ -3111,7 +3383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of queues in a Spark workspace.
+   * Lists the queues in a workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest
    * @returns ListWorkspaceQueuesResponse
@@ -3123,7 +3395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workspaces.
+   * Call `ListWorkspaces` to get a list of workspaces.
    * 
    * @param tmpReq - ListWorkspacesRequest
    * @param headers - map
@@ -3186,7 +3458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workspaces.
+   * Call `ListWorkspaces` to get a list of workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -3198,7 +3470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Livy Compute的token
+   * Refreshes the token for a Livy Gateway.
    * 
    * @param request - RefreshLivyComputeTokenRequest
    * @param headers - map
@@ -3245,7 +3517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Livy Compute的token
+   * Refreshes the token for a Livy Gateway.
    * 
    * @param request - RefreshLivyComputeTokenRequest
    * @returns RefreshLivyComputeTokenResponse
@@ -3257,7 +3529,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a Spark job.
+   * Start CacheCluster
+   * 
+   * @param request - StartCacheClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCacheClusterResponse
+   */
+  async startCacheClusterWithOptions(cacheClusterId: string, request: $_model.StartCacheClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartCacheClusterResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartCacheCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/cache/${$dara.URL.percentEncode(cacheClusterId)}/start`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartCacheClusterResponse>(await this.callApi(params, req, runtime), new $_model.StartCacheClusterResponse({}));
+  }
+
+  /**
+   * Start CacheCluster
+   * 
+   * @param request - StartCacheClusterRequest
+   * @returns StartCacheClusterResponse
+   */
+  async startCacheCluster(cacheClusterId: string, request: $_model.StartCacheClusterRequest): Promise<$_model.StartCacheClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startCacheClusterWithOptions(cacheClusterId, request, headers, runtime);
+  }
+
+  /**
+   * Starts a Spark Job.
    * 
    * @param request - StartJobRunRequest
    * @param headers - map
@@ -3340,7 +3657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a Spark job.
+   * Starts a Spark Job.
    * 
    * @param request - StartJobRunRequest
    * @returns StartJobRunResponse
@@ -3352,7 +3669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * StartKyuubiService
+   * Starts the Kyuubi Gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3377,7 +3694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * StartKyuubiService
+   * Starts the Kyuubi Gateway.
    * @returns StartKyuubiServiceResponse
    */
   async startKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.StartKyuubiServiceResponse> {
@@ -3387,7 +3704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动livy compute
+   * Starts a Livy gateway.
    * 
    * @param request - StartLivyComputeRequest
    * @param headers - map
@@ -3420,7 +3737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动livy compute
+   * Starts a Livy gateway.
    * 
    * @param request - StartLivyComputeRequest
    * @returns StartLivyComputeResponse
@@ -3432,7 +3749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manually runs a workflow.
+   * Starts a workflow manually.
    * 
    * @param request - StartProcessInstanceRequest
    * @param headers - map
@@ -3505,7 +3822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manually runs a workflow.
+   * Starts a workflow manually.
    * 
    * @param request - StartProcessInstanceRequest
    * @returns StartProcessInstanceResponse
@@ -3517,7 +3834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动Ray集群
+   * Starts a Ray cluster.
    * 
    * @param request - StartRayClusterRequest
    * @param headers - map
@@ -3550,7 +3867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动Ray集群
+   * Starts a Ray cluster.
    * 
    * @param request - StartRayClusterRequest
    * @returns StartRayClusterResponse
@@ -3562,7 +3879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a session.
+   * Starts a session cluster.
    * 
    * @param request - StartSessionClusterRequest
    * @param headers - map
@@ -3605,7 +3922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a session.
+   * Starts a session cluster.
    * 
    * @param request - StartSessionClusterRequest
    * @returns StartSessionClusterResponse
@@ -3617,7 +3934,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * StopKyuubiService
+   * Stops a CacheCluster.
+   * 
+   * @param request - StopCacheClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopCacheClusterResponse
+   */
+  async stopCacheClusterWithOptions(cacheClusterId: string, request: $_model.StopCacheClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopCacheClusterResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopCacheCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/cache/${$dara.URL.percentEncode(cacheClusterId)}/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopCacheClusterResponse>(await this.callApi(params, req, runtime), new $_model.StopCacheClusterResponse({}));
+  }
+
+  /**
+   * Stops a CacheCluster.
+   * 
+   * @param request - StopCacheClusterRequest
+   * @returns StopCacheClusterResponse
+   */
+  async stopCacheCluster(cacheClusterId: string, request: $_model.StopCacheClusterRequest): Promise<$_model.StopCacheClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopCacheClusterWithOptions(cacheClusterId, request, headers, runtime);
+  }
+
+  /**
+   * Stops a Kyuubi Gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3642,7 +4004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * StopKyuubiService
+   * Stops a Kyuubi Gateway.
    * @returns StopKyuubiServiceResponse
    */
   async stopKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.StopKyuubiServiceResponse> {
@@ -3652,7 +4014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止livy compute
+   * Stops a Livy Gateway.
    * 
    * @param request - StopLivyComputeRequest
    * @param headers - map
@@ -3685,7 +4047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止livy compute
+   * Stops a Livy Gateway.
    * 
    * @param request - StopLivyComputeRequest
    * @returns StopLivyComputeResponse
@@ -3697,7 +4059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止Ray集群
+   * Stops a Ray cluster.
    * 
    * @param request - StopRayClusterRequest
    * @param headers - map
@@ -3730,7 +4092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止Ray集群
+   * Stops a Ray cluster.
    * 
    * @param request - StopRayClusterRequest
    * @returns StopRayClusterResponse
@@ -3797,6 +4159,127 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交Ray Job
+   * 
+   * @param request - SubmitRayJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitRayJobResponse
+   */
+  async submitRayJobWithOptions(workspaceId: string, request: $_model.SubmitRayJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitRayJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.activeDeadlineSeconds)) {
+      body["activeDeadlineSeconds"] = request.activeDeadlineSeconds;
+    }
+
+    if (!$dara.isNull(request.displayReleaseVersion)) {
+      body["displayReleaseVersion"] = request.displayReleaseVersion;
+    }
+
+    if (!$dara.isNull(request.entrypoint)) {
+      body["entrypoint"] = request.entrypoint;
+    }
+
+    if (!$dara.isNull(request.entrypointMemory)) {
+      body["entrypointMemory"] = request.entrypointMemory;
+    }
+
+    if (!$dara.isNull(request.entrypointNumCpus)) {
+      body["entrypointNumCpus"] = request.entrypointNumCpus;
+    }
+
+    if (!$dara.isNull(request.entrypointNumGpus)) {
+      body["entrypointNumGpus"] = request.entrypointNumGpus;
+    }
+
+    if (!$dara.isNull(request.entrypointResources)) {
+      body["entrypointResources"] = request.entrypointResources;
+    }
+
+    if (!$dara.isNull(request.extraParam)) {
+      body["extraParam"] = request.extraParam;
+    }
+
+    if (!$dara.isNull(request.headSpec)) {
+      body["headSpec"] = request.headSpec;
+    }
+
+    if (!$dara.isNull(request.metadataJson)) {
+      body["metadataJson"] = request.metadataJson;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.networkServiceName)) {
+      body["networkServiceName"] = request.networkServiceName;
+    }
+
+    if (!$dara.isNull(request.runtimeEnvJson)) {
+      body["runtimeEnvJson"] = request.runtimeEnvJson;
+    }
+
+    if (!$dara.isNull(request.shutdownAfterJobFinishes)) {
+      body["shutdownAfterJobFinishes"] = request.shutdownAfterJobFinishes;
+    }
+
+    if (!$dara.isNull(request.submissionMode)) {
+      body["submissionMode"] = request.submissionMode;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.ttlSecondsAfterFinished)) {
+      body["ttlSecondsAfterFinished"] = request.ttlSecondsAfterFinished;
+    }
+
+    if (!$dara.isNull(request.volumeIds)) {
+      body["volumeIds"] = request.volumeIds;
+    }
+
+    if (!$dara.isNull(request.workerSpec)) {
+      body["workerSpec"] = request.workerSpec;
+    }
+
+    if (!$dara.isNull(request.workingDir)) {
+      body["workingDir"] = request.workingDir;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitRayJob",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/rayJob`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitRayJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitRayJobResponse({}));
+  }
+
+  /**
+   * 提交Ray Job
+   * 
+   * @param request - SubmitRayJobRequest
+   * @returns SubmitRayJobResponse
+   */
+  async submitRayJob(workspaceId: string, request: $_model.SubmitRayJobRequest): Promise<$_model.SubmitRayJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitRayJobWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Terminates an SQL query task.
    * 
    * @param request - TerminateSqlStatementRequest
@@ -3842,7 +4325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateKyuubiService
+   * Updates a Kyuubi Gateway.
    * 
    * @param request - UpdateKyuubiServiceRequest
    * @param headers - map
@@ -3911,7 +4394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateKyuubiService
+   * Updates a Kyuubi Gateway.
    * 
    * @param request - UpdateKyuubiServiceRequest
    * @returns UpdateKyuubiServiceResponse
@@ -3923,7 +4406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新kyuubi的token
+   * Updates a Kyuubi Gateway authentication token.
    * 
    * @param request - UpdateKyuubiTokenRequest
    * @param headers - map
@@ -3978,7 +4461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新kyuubi的token
+   * Updates a Kyuubi Gateway authentication token.
    * 
    * @param request - UpdateKyuubiTokenRequest
    * @returns UpdateKyuubiTokenResponse
@@ -3990,7 +4473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新livy compute
+   * Updates a Livy Gateway.
    * 
    * @param request - UpdateLivyComputeRequest
    * @param headers - map
@@ -4085,7 +4568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新livy compute
+   * Updates a Livy Gateway.
    * 
    * @param request - UpdateLivyComputeRequest
    * @returns UpdateLivyComputeResponse
@@ -4097,7 +4580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the workflow and time-based scheduling configurations.
+   * Updates a workflow definition and its timed scheduling.
    * 
    * @param tmpReq - UpdateProcessDefinitionWithScheduleRequest
    * @param headers - map
@@ -4220,7 +4703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the workflow and time-based scheduling configurations.
+   * Updates a workflow definition and its timed scheduling.
    * 
    * @param request - UpdateProcessDefinitionWithScheduleRequest
    * @returns UpdateProcessDefinitionWithScheduleResponse
@@ -4232,7 +4715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Ray集群
+   * Updates a Ray cluster.
    * 
    * @param request - UpdateRayClusterRequest
    * @param headers - map
@@ -4293,7 +4776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Ray集群
+   * Updates a Ray cluster.
    * 
    * @param request - UpdateRayClusterRequest
    * @returns UpdateRayClusterResponse
@@ -4302,6 +4785,85 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateRayClusterWithOptions(workspaceId, clusterId, request, headers, runtime);
+  }
+
+  /**
+   * Update workspace properties
+   * 
+   * @param request - UpdateWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceResponse
+   */
+  async updateWorkspaceWithOptions(request: $_model.UpdateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkspaceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cu)) {
+      body["cu"] = request.cu;
+    }
+
+    if (!$dara.isNull(request.gpu)) {
+      body["gpu"] = request.gpu;
+    }
+
+    if (!$dara.isNull(request.gpuSpec)) {
+      body["gpuSpec"] = request.gpuSpec;
+    }
+
+    if (!$dara.isNull(request.ipWhiteList)) {
+      body["ipWhiteList"] = request.ipWhiteList;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.subscription)) {
+      body["subscription"] = request.subscription;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      body["workspaceName"] = request.workspaceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkspace",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkspaceResponse({}));
+  }
+
+  /**
+   * Update workspace properties
+   * 
+   * @param request - UpdateWorkspaceRequest
+   * @returns UpdateWorkspaceResponse
+   */
+  async updateWorkspace(request: $_model.UpdateWorkspaceRequest): Promise<$_model.UpdateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkspaceWithOptions(request, headers, runtime);
   }
 
 }

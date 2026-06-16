@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartLivyComputeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For details about the error, see the message parameter.
+   * 
    * @example
    * 1000000
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

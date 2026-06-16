@@ -37,7 +37,7 @@ export class UpdateProcessDefinitionWithScheduleRequestGlobalParams extends $dar
 export class UpdateProcessDefinitionWithScheduleRequestSchedule extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression that is used for scheduling.
+   * The cron expression for scheduling.
    * 
    * @example
    * 0 0 0 * * ?
@@ -45,7 +45,7 @@ export class UpdateProcessDefinitionWithScheduleRequestSchedule extends $dara.Mo
   crontab?: string;
   /**
    * @remarks
-   * The end time of the scheduling.
+   * The end time of the schedule.
    * 
    * @example
    * 2025-12-23 16:13:27
@@ -53,7 +53,7 @@ export class UpdateProcessDefinitionWithScheduleRequestSchedule extends $dara.Mo
   endTime?: string;
   /**
    * @remarks
-   * The start time of the scheduling.
+   * The start time.
    * 
    * @example
    * 2024-12-23 16:13:27
@@ -61,7 +61,7 @@ export class UpdateProcessDefinitionWithScheduleRequestSchedule extends $dara.Mo
   startTime?: string;
   /**
    * @remarks
-   * The ID of the time zone.
+   * The time zone ID.
    * 
    * @example
    * Asia/Shanghai
@@ -129,7 +129,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
 export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf extends $dara.Model {
   /**
    * @remarks
-   * The key of the SparkConf object.
+   * The key of the Spark configuration.
    * 
    * @example
    * spark.dynamicAllocation.enabled
@@ -137,7 +137,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   key?: string;
   /**
    * @remarks
-   * The value of the SparkConf object.
+   * The value of the Spark configuration.
    * 
    * @example
    * true
@@ -169,7 +169,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
 export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams extends $dara.Model {
   /**
    * @remarks
-   * The displayed version of the Spark engine.
+   * The display version of the Spark engine.
    * 
    * @example
    * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
@@ -185,7 +185,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   environmentId?: string;
   /**
    * @remarks
-   * Specifies whether to enable Fusion engine for acceleration.
+   * Specifies whether to enable the Fusion engine for acceleration.
    * 
    * @example
    * false
@@ -194,7 +194,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   localParams?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsLocalParams[];
   /**
    * @remarks
-   * The name of the queue on which the job runs.
+   * The name of the queue on which the task runs.
    * 
    * This parameter is required.
    * 
@@ -204,12 +204,12 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   resourceQueueId?: string;
   /**
    * @remarks
-   * The configurations of the Spark jobs.
+   * The Spark task configurations.
    */
   sparkConf?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf[];
   /**
    * @remarks
-   * The number of driver cores of the Spark job.
+   * The number of cores for the Spark driver.
    * 
    * @example
    * 1
@@ -217,7 +217,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkDriverCores?: number;
   /**
    * @remarks
-   * The size of driver memory of the Spark job.
+   * The memory size of the Spark driver.
    * 
    * @example
    * 4g
@@ -225,7 +225,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkDriverMemory?: number;
   /**
    * @remarks
-   * The number of executor cores of the Spark job.
+   * The number of cores for each Spark executor.
    * 
    * @example
    * 1
@@ -233,7 +233,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkExecutorCores?: number;
   /**
    * @remarks
-   * The size of executor memory of the Spark job.
+   * The memory size of each Spark executor.
    * 
    * @example
    * 4g
@@ -241,7 +241,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkExecutorMemory?: number;
   /**
    * @remarks
-   * The level of the Spark log.
+   * The Spark log level.
    * 
    * @example
    * INFO
@@ -249,12 +249,12 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkLogLevel?: string;
   /**
    * @remarks
-   * The path where the operational logs of the Spark job are stored.
+   * The path to store Spark task logs.
    */
   sparkLogPath?: string;
   /**
    * @remarks
-   * The version of the Spark engine.
+   * The Spark engine version.
    * 
    * @example
    * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
@@ -262,7 +262,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkVersion?: string;
   /**
    * @remarks
-   * The ID of the data development job.
+   * The ID of the Data Development task.
    * 
    * This parameter is required.
    * 
@@ -272,7 +272,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   taskBizId?: string;
   /**
    * @remarks
-   * The type of the Spark job.
+   * The Spark job type.
    * 
    * @example
    * SQL
@@ -348,7 +348,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
 export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extends $dara.Model {
   /**
    * @remarks
-   * The email address to receive alerts.
+   * The email address for alerts.
    * 
    * @example
    * foo_bar@spark.alert.invalid.com
@@ -356,7 +356,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   alertEmailAddress?: string;
   /**
    * @remarks
-   * The node ID.
+   * The task definition ID.
    * 
    * This parameter is required.
    * 
@@ -366,7 +366,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   code?: number;
   /**
    * @remarks
-   * The node description.
+   * The description of the task definition.
    * 
    * @example
    * ods transform task
@@ -374,7 +374,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   description?: string;
   /**
    * @remarks
-   * Specifies whether to send alerts when the node fails.
+   * Specifies whether to enable alerts when the task fails.
    * 
    * @example
    * true
@@ -382,7 +382,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   failAlertEnable?: boolean;
   /**
    * @remarks
-   * The number of retries when the node fails.
+   * The number of times to retry the task if it fails.
    * 
    * @example
    * 1
@@ -390,7 +390,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   failRetryTimes?: number;
   /**
    * @remarks
-   * The name of the job.
+   * The task name.
    * 
    * This parameter is required.
    * 
@@ -400,7 +400,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   name?: string;
   /**
    * @remarks
-   * Specifies whether to send alerts when the node is started.
+   * Specifies whether to enable alerts when the task starts.
    * 
    * @example
    * true
@@ -408,19 +408,19 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   startAlertEnable?: boolean;
   /**
    * @remarks
-   * The tags of the job.
+   * The tags.
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The job parameters.
+   * The parameters for the task definition.
    * 
    * This parameter is required.
    */
   taskParams?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams;
   /**
    * @remarks
-   * The type of the node.
+   * The type of the workflow node.
    * 
    * This parameter is required.
    * 
@@ -430,7 +430,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   taskType?: string;
   /**
    * @remarks
-   * The default timeout period of the node.
+   * The default timeout period for the task execution.
    * 
    * @example
    * 30
@@ -486,7 +486,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
 export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends $dara.Model {
   /**
    * @remarks
-   * The name of the node topology. You can enter a workflow name.
+   * The name of the task topology. You can use the workflow name.
    * 
    * This parameter is required.
    * 
@@ -496,7 +496,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
   name?: string;
   /**
    * @remarks
-   * The ID of the downstream node.
+   * The downstream task ID.
    * 
    * This parameter is required.
    * 
@@ -506,7 +506,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
   postTaskCode?: number;
   /**
    * @remarks
-   * The version of the downstream node.
+   * The downstream task version.
    * 
    * This parameter is required.
    * 
@@ -516,7 +516,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
   postTaskVersion?: number;
   /**
    * @remarks
-   * The ID of the upstream node.
+   * The upstream task ID.
    * 
    * This parameter is required.
    * 
@@ -526,7 +526,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
   preTaskCode?: number;
   /**
    * @remarks
-   * The version of the upstream node.
+   * The upstream task version.
    * 
    * This parameter is required.
    * 
@@ -566,7 +566,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
 export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   /**
    * @remarks
-   * The email address to receive alerts.
+   * The email address for alerts.
    * 
    * @example
    * foo_bar@spark.alert.invalid.com
@@ -574,7 +574,7 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   alertEmailAddress?: string;
   /**
    * @remarks
-   * The description of the workflow.
+   * The workflow description.
    * 
    * @example
    * ods batch workflow
@@ -593,7 +593,7 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   globalParams?: UpdateProcessDefinitionWithScheduleRequestGlobalParams[];
   /**
    * @remarks
-   * The name of the workflow.
+   * The workflow name.
    * 
    * This parameter is required.
    * 
@@ -603,7 +603,7 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The code of the service.
+   * The product code.
    * 
    * This parameter is required.
    * 
@@ -629,7 +629,7 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the workflow.
+   * The release state of the workflow.
    * 
    * @example
    * ONLINE
@@ -653,7 +653,7 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   retryTimes?: number;
   /**
    * @remarks
-   * The execution user.
+   * The user to run the workflow.
    * 
    * @example
    * 113***************
@@ -661,7 +661,7 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   runAs?: string;
   /**
    * @remarks
-   * The scheduling settings.
+   * The scheduling configuration.
    */
   schedule?: UpdateProcessDefinitionWithScheduleRequestSchedule;
   /**
@@ -671,14 +671,14 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The descriptions of all nodes in the workflow.
+   * A JSON array of task definitions. This array contains the descriptive information for all tasks in the workflow.
    * 
    * This parameter is required.
    */
   taskDefinitionJson?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson[];
   /**
    * @remarks
-   * The node parallelism.
+   * The degree of concurrent execution for workflow nodes.
    * 
    * @example
    * 1
@@ -686,14 +686,14 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   taskParallelism?: number;
   /**
    * @remarks
-   * The dependencies of all nodes in the workflow. preTaskCode specifies the ID of an upstream node, and postTaskCode specifies the ID of a downstream node. The ID of each node is unique. If a node does not have an upstream node, set preTaskCode to 0.
+   * A JSON array that defines the dependencies between tasks in the workflow. \\`preTaskCode\\` specifies the upstream task ID, and \\`postTaskCode\\` specifies the downstream task ID. Each task must have a unique ID. For a task node without an upstream task, add a dependency and set \\`preTaskCode\\` to 0.
    * 
    * This parameter is required.
    */
   taskRelationJson?: UpdateProcessDefinitionWithScheduleRequestTaskRelationJson[];
   /**
    * @remarks
-   * The default timeout period of the workflow.
+   * The default timeout period for the workflow execution.
    * 
    * @example
    * 300

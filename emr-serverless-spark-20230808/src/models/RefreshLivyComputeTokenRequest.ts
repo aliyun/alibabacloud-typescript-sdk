@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class RefreshLivyComputeTokenRequestAutoExpireConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the token automatically expires.
+   * 
+   * - true: The token automatically expires.
+   * 
+   * - false: The token does not automatically expire.
+   * 
    * @example
    * false
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The expiration period in days.
+   * 
    * @example
    * 7
    */
@@ -37,18 +47,31 @@ export class RefreshLivyComputeTokenRequestAutoExpireConfiguration extends $dara
 }
 
 export class RefreshLivyComputeTokenRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The information about token expiration.
+   */
   autoExpireConfiguration?: RefreshLivyComputeTokenRequestAutoExpireConfiguration;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The token must be 16 or more characters in length.
+   * 
    * @example
    * fe86812667f04v343
    */
   token?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

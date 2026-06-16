@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSqlStatementResponseBodyDataSqlOutputs extends $dara.Model {
   /**
    * @remarks
-   * The queried data, which is a string in the JSON format.
+   * The query data. The data is a JSON-serialized string.
    * 
    * @example
    * [{\\"values\\":[\\"test_db\\",\\"test_table\\",false]}
@@ -14,7 +14,7 @@ export class GetSqlStatementResponseBodyDataSqlOutputs extends $dara.Model {
   rowsFilePath?: string;
   /**
    * @remarks
-   * The information about the schema, which is a string in the JSON format.
+   * The details of the schema. The details are a JSON-serialized string.
    * 
    * @example
    * {\\"type\\":\\"struct\\",\\"fields\\":[{\\"name\\":\\"namespace\\",\\"type\\":\\"string\\",\\"nullable\\":false,\\"metadata\\":{}},{\\"name\\":\\"tableName\\",\\"type\\":\\"string\\",\\"nullable\\":false,\\"metadata\\":{}},{\\"name\\":\\"isTemporary\\",\\"type\\":\\"boolean\\",\\"nullable\\":false,\\"metadata\\":{}}]}
@@ -48,12 +48,12 @@ export class GetSqlStatementResponseBodyDataSqlOutputs extends $dara.Model {
 export class GetSqlStatementResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of time that is consumed by SQL queries.
+   * A list of execution times for the SQL query.
    */
   executionTime?: number[];
   /**
    * @remarks
-   * The error code.
+   * The error code for the SQL query.
    * 
    * @example
    * ERROR-102
@@ -61,7 +61,7 @@ export class GetSqlStatementResponseBodyData extends $dara.Model {
   sqlErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message for the SQL query.
    * 
    * @example
    * error message
@@ -69,20 +69,12 @@ export class GetSqlStatementResponseBodyData extends $dara.Model {
   sqlErrorMessage?: string;
   /**
    * @remarks
-   * The query results.
+   * A list of SQL query results.
    */
   sqlOutputs?: GetSqlStatementResponseBodyDataSqlOutputs[];
   /**
    * @remarks
-   * The query status.
-   * 
-   * Valid values:
-   * 
-   * *   running
-   * *   available
-   * *   cancelled
-   * *   error
-   * *   cancelling
+   * The state of the query.
    * 
    * @example
    * running
@@ -90,7 +82,7 @@ export class GetSqlStatementResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The query ID.
+   * The statement ID.
    * 
    * @example
    * st-1231311abadfaa
@@ -136,7 +128,7 @@ export class GetSqlStatementResponseBodyData extends $dara.Model {
 export class GetSqlStatementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: GetSqlStatementResponseBodyData;
   /**

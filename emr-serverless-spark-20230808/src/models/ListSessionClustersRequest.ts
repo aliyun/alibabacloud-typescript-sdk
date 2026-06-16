@@ -7,19 +7,13 @@ export class ListSessionClustersRequest extends $dara.Model {
    * @remarks
    * The session type.
    * 
-   * Valid values:
-   * 
-   * *   NOTEBOOK
-   * *   THRIFT
-   * *   SQL
-   * 
    * @example
    * SQL
    */
   kind?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of records to return.
    * 
    * @example
    * 20
@@ -27,15 +21,15 @@ export class ListSessionClustersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results.
+   * The token that marks the start of the next page of results.
    * 
    * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   * 1
    */
   nextToken?: string;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * root

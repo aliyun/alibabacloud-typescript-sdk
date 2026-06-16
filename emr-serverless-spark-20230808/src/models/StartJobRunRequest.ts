@@ -7,15 +7,15 @@ import { Tag } from "./Tag";
 export class StartJobRunRequestConfigurationOverridesConfigurations extends $dara.Model {
   /**
    * @remarks
-   * The configuration file of SparkConf.
+   * The configuration file to which the Spark configuration belongs.
    * 
    * @example
-   * spark-default.conf
+   * spark-defaults.conf
    */
   configFileName?: string;
   /**
    * @remarks
-   * The key of SparkConf.
+   * The key of the Spark configuration.
    * 
    * @example
    * spark.app.name
@@ -23,7 +23,7 @@ export class StartJobRunRequestConfigurationOverridesConfigurations extends $dar
   configItemKey?: string;
   /**
    * @remarks
-   * The value of SparkConf.
+   * The value of the Spark configuration.
    * 
    * @example
    * test_app
@@ -57,7 +57,7 @@ export class StartJobRunRequestConfigurationOverridesConfigurations extends $dar
 export class StartJobRunRequestConfigurationOverrides extends $dara.Model {
   /**
    * @remarks
-   * The SparkConf objects.
+   * The list of Spark configurations.
    */
   configurations?: StartJobRunRequestConfigurationOverridesConfigurations[];
   static names(): { [key: string]: string } {
@@ -87,19 +87,21 @@ export class StartJobRunRequestConfigurationOverrides extends $dara.Model {
 export class StartJobRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The idempotence token.
    * 
    * @example
-   * 8e6aae2810c8f67229ca70bb31cd6028
+   * 8e6aae2810c8f67229ca70bb31cd****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The code type of the job. Valid values:
+   * The job type. Valid values:
    * 
-   * *   SQL
-   * *   JAR
-   * *   PYTHON
+   * - SQL
+   * 
+   * - JAR
+   * 
+   * - PYTHON
    * 
    * @example
    * SQL
@@ -107,12 +109,12 @@ export class StartJobRunRequest extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The advanced configurations of Spark.
+   * The advanced Spark configurations.
    */
   configurationOverrides?: StartJobRunRequestConfigurationOverrides;
   /**
    * @remarks
-   * The version of the Spark engine.
+   * The version that is displayed in the console.
    * 
    * @example
    * esr-3.3.1
@@ -120,7 +122,7 @@ export class StartJobRunRequest extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The timeout period of the job.
+   * The timeout period for the job.
    * 
    * @example
    * 100
@@ -128,7 +130,7 @@ export class StartJobRunRequest extends $dara.Model {
   executionTimeoutSeconds?: number;
   /**
    * @remarks
-   * Specifies whether to enable Fusion engine for acceleration.
+   * Specifies whether to enable the Fusion engine for acceleration.
    * 
    * @example
    * false
@@ -136,7 +138,7 @@ export class StartJobRunRequest extends $dara.Model {
   fusion?: boolean;
   /**
    * @remarks
-   * The information about Spark Driver.
+   * The information about the Spark driver.
    */
   jobDriver?: JobDriver;
   /**
@@ -149,7 +151,7 @@ export class StartJobRunRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * spark_job_name
@@ -157,7 +159,7 @@ export class StartJobRunRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The version number of Spark.
+   * The version of the Spark engine.
    * 
    * @example
    * esr-3.3.1
@@ -165,7 +167,7 @@ export class StartJobRunRequest extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The name of the resource queue on which the Spark job runs.
+   * The resource queue on which the Spark job runs.
    * 
    * @example
    * dev_queue
@@ -173,7 +175,7 @@ export class StartJobRunRequest extends $dara.Model {
   resourceQueueId?: string;
   /**
    * @remarks
-   * The tags of the job.
+   * The list of job tags.
    */
   tags?: Tag[];
   /**

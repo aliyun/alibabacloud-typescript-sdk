@@ -8,7 +8,7 @@ export class CancelJobRunResponseBody extends $dara.Model {
    * The job ID.
    * 
    * @example
-   * jr-1a2bc3
+   * jr-f09a8fda2396****
    */
   jobRunId?: string;
   /**

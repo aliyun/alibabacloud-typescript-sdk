@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartProcessInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code that is returned by the backend server.
+   * The return code from the backend.
    * 
    * @example
    * 1400009
@@ -13,15 +13,15 @@ export class StartProcessInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
-   * {\\"sessionBizId\\": \\"sc-dc85644dba1c8c63\\", \\"bizId\\": \\"st-aeed3b0d4f87418a9a9dcbd757477658\\", \\"gmtCreated\\": \\"Thu Sep 12 02:28:45 UTC 2024\\"}
+   * null
    */
   data?: any;
   /**
    * @remarks
-   * Indicates whether the workflow fails to be run manually.
+   * Indicates whether the manual workflow run failed.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class StartProcessInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The description of the returned code.
+   * The detailed description of the return code.
    * 
    * @example
    * No permission for resource action
@@ -45,7 +45,7 @@ export class StartProcessInstanceResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****

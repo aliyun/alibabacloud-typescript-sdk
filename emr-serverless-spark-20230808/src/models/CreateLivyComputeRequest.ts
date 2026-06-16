@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateLivyComputeRequestAutoStartConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to automatically start the Livy Gateway after it is created.
+   * 
+   * - true: Yes.
+   * 
+   * - false: No.
+   * 
    * @example
    * false
    */
@@ -31,11 +38,21 @@ export class CreateLivyComputeRequestAutoStartConfiguration extends $dara.Model 
 
 export class CreateLivyComputeRequestAutoStopConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to automatically stop the Livy Gateway.
+   * 
+   * - true: Yes.
+   * 
+   * - false: No.
+   * 
    * @example
    * false
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The number of minutes after which the Livy Gateway is automatically stopped if it is idle.
+   * 
    * @example
    * 300
    */
@@ -65,38 +82,75 @@ export class CreateLivyComputeRequestAutoStopConfiguration extends $dara.Model {
 
 export class CreateLivyComputeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The authentication method.
+   * 
    * @example
    * Token
    */
   authType?: string;
+  /**
+   * @remarks
+   * The automatic startup configuration.
+   */
   autoStartConfiguration?: CreateLivyComputeRequestAutoStartConfiguration;
+  /**
+   * @remarks
+   * The automatic stop configuration.
+   */
   autoStopConfiguration?: CreateLivyComputeRequestAutoStopConfiguration;
   /**
+   * @remarks
+   * The number of CPU cores for the Livy server.
+   * 
    * @example
    * 1
    */
   cpuLimit?: string;
   /**
+   * @remarks
+   * The version number of the Spark engine.
+   * 
    * @example
    * esr-4.3.0 (Spark 3.5.2, Scala 2.12)
    */
   displayReleaseVersion?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the public endpoint.
+   * 
    * @example
    * true
    */
   enablePublic?: boolean;
   /**
+   * @remarks
+   * The ID of the runtime environment.
+   * 
    * @example
    * ev-ctfq0fem1hkhgv4hapng
    */
   environmentId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable acceleration with the Fusion engine.
+   * 
    * @example
    * false
    */
   fusion?: boolean;
   /**
+   * @remarks
+   * The configuration of the Livy Gateway. This parameter is in JSON format and supports the following files:
+   * 
+   * - sparkDefaultsConf
+   * 
+   * - sparkBlackListConf
+   * 
+   * - livyConf
+   * 
+   * - livyClientConf
+   * 
    * @example
    * {
    *   "sparkDefaultsConf": "spark.driver.cores     1\\nspark.driver.memory    4g\\nspark.executor.cores   1\\nspark.executor.memory  4g\\n",
@@ -107,36 +161,57 @@ export class CreateLivyComputeRequest extends $dara.Model {
    */
   livyServerConf?: string;
   /**
+   * @remarks
+   * The Livy version.
+   * 
    * @example
    * 0.8.0
    */
   livyVersion?: string;
   /**
+   * @remarks
+   * The memory size of the Livy server.
+   * 
    * @example
    * 4Gi
    */
   memoryLimit?: string;
   /**
+   * @remarks
+   * The name of the Livy Gateway.
+   * 
    * @example
    * testGateway
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the network connection.
+   * 
    * @example
    * test
    */
   networkName?: string;
   /**
+   * @remarks
+   * The name of the submission queue.
+   * 
    * @example
    * root_queue
    */
   queueName?: string;
   /**
+   * @remarks
+   * The version number of the Spark engine. This parameter is deprecated. Use displayReleaseVersion instead.
+   * 
    * @example
    * esr-4.3.0 (Spark 3.5.2, Scala 2.12, Java Runtime)
    */
   releaseVersion?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

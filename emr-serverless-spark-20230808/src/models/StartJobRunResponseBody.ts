@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class StartJobRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The job run ID.
    * 
    * @example
-   * jr-54321
+   * jr-f09a8fda2396****
    */
   jobRunId?: string;
   /**

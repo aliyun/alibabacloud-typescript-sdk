@@ -4,10 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelKyuubiSparkApplicationResponseBodyBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Spark application submitted by Kyuubi.
+   * 
    * @example
    * spark-339f844005b6404c95f9f7c7a13b****
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -33,8 +44,15 @@ export class CancelKyuubiSparkApplicationResponseBodyBody extends $dara.Model {
 }
 
 export class CancelKyuubiSparkApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   body?: CancelKyuubiSparkApplicationResponseBodyBody;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLivyComputeTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Token ID。
+   * The token ID.
    * 
    * @example
    * lctk-xxxxxxxx
@@ -34,17 +34,30 @@ export class CreateLivyComputeTokenResponseBodyData extends $dara.Model {
 
 export class CreateLivyComputeTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. See the message parameter for error details.
+   * 
    * @example
    * 1000000
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateLivyComputeTokenResponseBodyData;
   /**
+   * @remarks
+   * The error details.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

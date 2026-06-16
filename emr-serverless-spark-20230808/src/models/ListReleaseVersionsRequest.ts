@@ -15,18 +15,13 @@ export class ListReleaseVersionsRequest extends $dara.Model {
    * @remarks
    * The type of the version.
    * 
-   * Valid values:
-   * 
-   * *   stable
-   * *   Beta
-   * 
    * @example
    * stable
    */
   releaseType?: string;
   /**
    * @remarks
-   * The version of EMR Serverless Spark.
+   * The EMR Serverless Spark version.
    * 
    * @example
    * esr-2.1 (Spark 3.3.1, Scala 2.12, Java Runtime)
@@ -35,11 +30,6 @@ export class ListReleaseVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the version.
-   * 
-   * Valid values:
-   * 
-   * *   ONLINE
-   * *   OFFLINE
    * 
    * @example
    * ONLINE

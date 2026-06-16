@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application that is submitted by using a Kyuubi gateway.
+   * The ID of the Spark application submitted by Kyuubi, used for searching.
    * 
    * @example
    * spark-339f844005b6404c95f9f7c7a13b****
@@ -13,7 +13,7 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The name of the Spark application that is submitted by using a Kyuubi gateway.
+   * The name of the Spark application submitted by Kyuubi, used for searching.
    * 
    * @example
    * kyuubi-connection-spark-sql-anonymous-fa9a5e73-b4b1-474a-b****
@@ -27,7 +27,7 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
   latestSqlStatementStatuses?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of records to return.
    * 
    * @example
    * 20
@@ -40,7 +40,7 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
   minDuration?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token to retrieve the next page of results.
    * 
    * @example
    * 1
@@ -59,7 +59,7 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The range of start time.
+   * The time range when the task started.
    */
   startTimeShrink?: string;
   /**

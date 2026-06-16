@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * 一次获取的最大记录数。
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 20
@@ -13,13 +13,16 @@ export class ListMembersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 标记当前开始读取的位置，置空表示从头开始。
+   * The token that marks the start of the next page of results.
    * 
    * @example
    * 1
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

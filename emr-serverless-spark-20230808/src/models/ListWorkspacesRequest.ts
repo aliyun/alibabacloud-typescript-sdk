@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWorkspacesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * cn-shenzhen-finance.edas.config.server
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
-   * iphone磁盘空间剩余率
+   * iPhone disk space remaining rate
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -39,7 +45,7 @@ export class ListWorkspacesRequestTag extends $dara.Model {
 export class ListWorkspacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results per page.
    * 
    * @example
    * 20
@@ -47,7 +53,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the workspace. Fuzzy match is supported.
+   * The name of the workspace. Fuzzy search is supported.
    * 
    * @example
    * test_workspace
@@ -55,7 +61,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page of results.
    * 
    * @example
    * 1
@@ -63,13 +69,16 @@ export class ListWorkspacesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-aek2thxggoqhmhq
    */
@@ -82,6 +91,10 @@ export class ListWorkspacesRequest extends $dara.Model {
    * running
    */
   state?: string;
+  /**
+   * @remarks
+   * Filters the results by one or more tags.
+   */
   tag?: ListWorkspacesRequestTag[];
   static names(): { [key: string]: string } {
     return {

@@ -6,6 +6,9 @@ export class GetDoctorApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The diagnostics list.
+   * 
+   * @example
+   * Normal.
    */
   suggestions?: string[];
   static names(): { [key: string]: string } {

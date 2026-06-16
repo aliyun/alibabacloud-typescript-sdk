@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model {
   /**
    * @remarks
-   * The version number of open source Spark.
+   * The community version number of Spark.
    * 
    * @example
    * Spark 3.3.1
@@ -13,7 +13,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   communityVersion?: string;
   /**
    * @remarks
-   * The CPU architectures.
+   * The list of CPU architectures.
    */
   cpuArchitectures?: string[];
   /**
@@ -26,7 +26,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * Indicates whether the Fusion engine is used for acceleration.
+   * Indicates whether the Fusion engine is enabled for acceleration.
    * 
    * @example
    * true
@@ -34,7 +34,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   fusion?: boolean;
   /**
    * @remarks
-   * The creation time.
+   * The time when the version was created.
    * 
    * @example
    * 1716215854101
@@ -42,7 +42,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   gmtCreate?: number;
   /**
    * @remarks
-   * The type of the Infrastructure as a Service (IaaS) layer.
+   * The type of the IaaS layer.
    * 
    * @example
    * ASI
@@ -58,7 +58,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   releaseVersion?: string;
   /**
    * @remarks
-   * The version of Scala.
+   * The Scala version.
    * 
    * @example
    * 2.12
@@ -125,7 +125,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
 export class ListReleaseVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of records to return on a single page.
    * 
    * @example
    * 20
@@ -133,7 +133,7 @@ export class ListReleaseVersionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page of results.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class ListReleaseVersionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The versions.
+   * The list of versions.
    */
   releaseVersions?: ListReleaseVersionsResponseBodyReleaseVersions[];
   /**
@@ -154,7 +154,7 @@ export class ListReleaseVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 200

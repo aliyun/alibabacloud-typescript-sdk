@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of a behavior.
+   * The Alibaba Cloud Resource Name (ARN) of the behavior.
    * 
    * @example
    * acs:emr::workspaceId:action/create_queue
@@ -13,7 +13,7 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
   actionArn?: string;
   /**
    * @remarks
-   * The name of the permission.
+   * The permission name.
    * 
    * @example
    * view
@@ -21,7 +21,7 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
   actionName?: string;
   /**
    * @remarks
-   * The dependencies of the operation.
+   * The list of action dependencies.
    * 
    * @example
    * ["view"]
@@ -29,10 +29,10 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
   dependencies?: string[];
   /**
    * @remarks
-   * The description of the operation.
+   * The action description.
    * 
    * @example
-   * 文件目录遍历、文件浏览
+   * Directory traversal and file browsing
    */
   description?: string;
   /**
@@ -78,12 +78,12 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
 export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   /**
    * @remarks
-   * The operations allowed for the queue.
+   * The list of allowed operations for the queue.
    */
   allowActions?: ListWorkspaceQueuesResponseBodyQueuesAllowActions[];
   /**
    * @remarks
-   * The time when the workspace was created.
+   * The creation time of the workspace.
    * 
    * @example
    * 1684115879955
@@ -91,7 +91,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the user who created the queue.
+   * The UID of the user who created the queue.
    * 
    * @example
    * 237109
@@ -99,13 +99,13 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The environment types of the queue.
+   * The list of environment types for the queue.
    */
   environments?: string[];
   gpuSpec?: string[];
   /**
    * @remarks
-   * The maximum capacity of resources that can be used in the queue.
+   * The maximum resource capacity of the queue.
    * 
    * @example
    * {"cpu": "2","memory": "2Gi"}
@@ -113,7 +113,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   maxResource?: string;
   /**
    * @remarks
-   * The minimum capacity of resources that can be used in the queue.
+   * The minimum resource capacity of the queue.
    * 
    * @example
    * {"cpu": "2","memory": "2Gi"}
@@ -123,8 +123,9 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   PayAsYouGo
-   * *   Pre
+   * - PayAsYouGo: pay-as-you-go
+   * 
+   * - Pre: subscription
    * 
    * @example
    * PayAsYouGo
@@ -146,7 +147,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   queueCategory?: string;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * dev_queue
@@ -162,7 +163,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   queueScope?: string;
   /**
    * @remarks
-   * The status of the queue.
+   * The queue status.
    * 
    * @example
    * RUNNING
@@ -170,13 +171,14 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   queueStatus?: string;
   /**
    * @remarks
-   * The type of the queue. Valid values:
+   * The queue type. Valid values:
    * 
-   * *   instance
-   * *   instanceChildren
+   * - instance: A queue for a single task.
+   * 
+   * - instanceChildren: A queue for a parent task.
    * 
    * @example
-   * instance, instanceChildren
+   * instance
    */
   queueType?: string;
   /**
@@ -189,7 +191,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The capacity of resources that are used in the queue.
+   * The used resource capacity of the queue.
    * 
    * @example
    * {"cpu": "2","memory": "2Gi"}
@@ -270,7 +272,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
 export class ListWorkspaceQueuesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -278,7 +280,7 @@ export class ListWorkspaceQueuesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page of results.
    * 
    * @example
    * 1
@@ -299,7 +301,7 @@ export class ListWorkspaceQueuesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 200

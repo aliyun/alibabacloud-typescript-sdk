@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProcessDefinitionWithScheduleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The workflow ID.
+   * The ID of the workflow definition.
    * 
    * @example
    * 160************
@@ -13,7 +13,7 @@ export class CreateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   code?: number;
   /**
    * @remarks
-   * The serial number of the workflow.
+   * The serial number of the workflow definition.
    * 
    * @example
    * 12342
@@ -45,7 +45,7 @@ export class CreateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
 export class CreateProcessDefinitionWithScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code that is returned by the backend server.
+   * The API return code.
    * 
    * @example
    * 1400009
@@ -74,7 +74,7 @@ export class CreateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   httpStatusCode?: number;
   /**
    * @remarks
-   * The description of the returned code.
+   * A detailed message for the return code.
    * 
    * @example
    * No permission for resource action
@@ -82,7 +82,7 @@ export class CreateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   msg?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****

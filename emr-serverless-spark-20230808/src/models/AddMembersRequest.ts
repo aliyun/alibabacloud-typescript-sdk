@@ -6,6 +6,11 @@ export class AddMembersRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * Ram User Example value: acs:ram::113545727984****:user/20468369839086****
+   * 
+   * Ram Role Example value: acs:ram::113545727984****:role/aliyunemrsparkjobrundefaultrole
    */
   memberArns?: string[];
   /**

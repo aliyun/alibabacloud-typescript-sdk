@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartKyuubiServiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: any;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

@@ -9,7 +9,7 @@ import { Configuration } from "./Configuration";
 export class ListJobRunsResponseBodyJobRunsConfigurationOverrides extends $dara.Model {
   /**
    * @remarks
-   * The SparkConf objects.
+   * A list of Spark configurations.
    */
   configurations?: Configuration[];
   static names(): { [key: string]: string } {
@@ -50,7 +50,7 @@ export class ListJobRunsResponseBodyJobRunsStateChangeReason extends $dara.Model
    * The error message.
    * 
    * @example
-   * success
+   * connection refused
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -93,20 +93,20 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The advanced configurations of Spark.
+   * The advanced Spark configurations. This parameter is not returned by the ListJobRuns operation.
    */
   configurationOverrides?: ListJobRunsResponseBodyJobRunsConfigurationOverrides;
   /**
    * @remarks
-   * The ID of the user who created the job.
+   * The UID of the user who created the job.
    * 
    * @example
-   * 1509789347011222
+   * 150978934701****
    */
   creator?: string;
   /**
    * @remarks
-   * The number of CUs consumed during a specified cycle of a task. The value is an estimated value. Refer to your Alibaba Cloud bill for the actual number of consumed CUs.
+   * The number of CUs consumed by the job run. This is an estimated value. The actual value is reflected in your bill.
    * 
    * @example
    * 2.059
@@ -114,7 +114,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   cuHours?: number;
   /**
    * @remarks
-   * The version of Spark on which the jobs run.
+   * The display version of the Spark engine that is used to run the job.
    * 
    * @example
    * esr-3.0.0 (Spark 3.4.3, Scala 2.12)
@@ -122,7 +122,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The end time of the job.
+   * The time when the job ended.
    * 
    * @example
    * 1684119314000
@@ -130,7 +130,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The timeout period of the job.
+   * The timeout period for the job execution, in seconds.
    * 
    * @example
    * 3600
@@ -138,7 +138,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   executionTimeoutSeconds?: number;
   /**
    * @remarks
-   * Indicates whether the Fusion engine is used for acceleration.
+   * Indicates whether the Fusion engine is enabled for acceleration.
    * 
    * @example
    * true
@@ -146,12 +146,12 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   fusion?: boolean;
   /**
    * @remarks
-   * The information about Spark Driver.
+   * The information about the Spark driver. This parameter is not returned by the ListJobRuns operation.
    */
   jobDriver?: JobDriver;
   /**
    * @remarks
-   * The job ID.
+   * The job run ID.
    * 
    * @example
    * jr-231231
@@ -159,12 +159,12 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   jobRunId?: string;
   /**
    * @remarks
-   * The path where the operational logs are stored.
+   * The path of the run log.
    */
   log?: RunLog;
   /**
    * @remarks
-   * The total amount of memory allocated to the job multiplied by the running duration (seconds).
+   * The total memory in MB allocated to the job run, multiplied by the runtime in seconds.
    * 
    * @example
    * 33030784
@@ -185,10 +185,10 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The version of Spark on which the jobs run.
+   * The version of the Spark engine that is used to run the job.
    * 
    * @example
-   * esr-native-3.4.0
+   * esr-3.0.0 (Spark 3.4.3, Scala 2.12, Native Runtime)
    */
   releaseVersion?: string;
   /**
@@ -198,7 +198,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   resourceQueueId?: string;
   /**
    * @remarks
-   * The job state.
+   * The state of the job run.
    * 
    * @example
    * Running
@@ -206,7 +206,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The reason of the job status change.
+   * The reason for the state change.
    */
   stateChangeReason?: ListJobRunsResponseBodyJobRunsStateChangeReason;
   /**
@@ -219,12 +219,12 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   submitTime?: number;
   /**
    * @remarks
-   * The tags of the job.
+   * The tags.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * The total number of CPU cores allocated to the job multiplied by the running duration (seconds).
+   * The total number of vCores allocated to the job run, multiplied by the runtime in seconds.
    * 
    * @example
    * 8236
@@ -243,7 +243,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
    * The workspace ID.
    * 
    * @example
-   * w-1234abcd
+   * w-d2d82aa09155****
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
@@ -329,12 +329,12 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
 export class ListJobRunsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Spark jobs.
+   * A list of Spark jobs.
    */
   jobRuns?: ListJobRunsResponseBodyJobRuns[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries returned for the current request.
    * 
    * @example
    * 20
@@ -342,10 +342,10 @@ export class ListJobRunsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   * 1
    */
   nextToken?: string;
   /**
@@ -358,7 +358,7 @@ export class ListJobRunsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the filter criteria.
    * 
    * @example
    * 200
