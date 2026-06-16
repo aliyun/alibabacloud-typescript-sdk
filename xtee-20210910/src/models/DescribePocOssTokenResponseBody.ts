@@ -8,7 +8,7 @@ export class DescribePocOssTokenResponseBody extends $dara.Model {
    * The AccessKey ID used to upload files to OSS.
    * 
    * @example
-   * LTAI5tE7sActovY6Hvpu5oTh
+   * LTAxxxxxxxxx
    */
   accessId?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribePocOssTokenResponseBody extends $dara.Model {
    * The OSS security policy.
    * 
    * @example
-   * eyJleHBpcmF0aW9uIjoiMjAyNS0wNy0zMFQwNjowNTo0OS45NTRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJlcSIsIiRrZXkiLCJzYWZcL2RlXC9uYW1lbGlzdFwvZTkyNFwvdWZ6Z3NlZFg5Ymxxxxxxxxxxx
+   * eyJleHBpxxxcmF0aW9xxxIjoiMjAyNS0wNy0zMFQxxxxxwNjowNTo0OSxxxxx45NTRaIiwiY29uxxxZGl0a5Ymxxxxxxxxxxxxx
    */
   policy?: string;
   /**
