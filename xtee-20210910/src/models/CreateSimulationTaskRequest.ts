@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSimulationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Data source configuration
+   * The datasource config.
    * 
    * @example
    * {}
@@ -23,7 +23,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   dataSourceConfig?: string;
   /**
    * @remarks
-   * Data source type
+   * The data source type.
    * 
    * @example
    * SLS
@@ -31,7 +31,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Filters
+   * The filter.
    * 
    * @example
    * {"left":"score","operate":"bw","right":"222,333"}
@@ -59,7 +59,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   filtersStr?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -67,7 +67,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Rules list
+   * The list of policies.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   rulesStr?: string;
   /**
    * @remarks
-   * Whether to run the task directly
+   * Specifies whether to run the task immediately.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   runTask?: boolean;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -97,7 +97,7 @@ export class CreateSimulationTaskRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Task name
+   * The task name.
    * 
    * This parameter is required.
    * 

@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSafStartConfigResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * List of device types.
+   * The device type list.
    */
   deviceTypes?: string[];
   /**
    * @remarks
-   * Event codes.
+   * The event codes.
    */
   eventCodes?: string[];
   /**
    * @remarks
-   * Configuration language details.
+   * The configuration language details.
    */
   languages?: string[];
   /**
    * @remarks
-   * Server region
+   * The server regions.
    */
   serverRegions?: string[];
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class DescribeSafStartConfigResponseBodyResultObject extends $dara.Model 
 export class DescribeSafStartConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -73,7 +73,7 @@ export class DescribeSafStartConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeSafStartConfigResponseBodyResultObject;
   static names(): { [key: string]: string } {

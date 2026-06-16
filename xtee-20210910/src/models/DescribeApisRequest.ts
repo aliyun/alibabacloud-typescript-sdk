@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeApisRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * API group ID.
+   * The API group ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeApisRequest extends $dara.Model {
   apiGroupId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeApisRequest extends $dara.Model {
   apiRegionId?: string;
   /**
    * @remarks
-   * API type.
+   * The API type.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DescribeApisRequest extends $dara.Model {
   apiType?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou

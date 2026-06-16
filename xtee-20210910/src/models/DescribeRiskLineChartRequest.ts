@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRiskLineChartRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
+   * Sets the language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeRiskLineChartRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Query start time, accurate to milliseconds (ms).
+   * The beginning of the time range to query, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeRiskLineChartRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end of the time range to query, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeRiskLineChartRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Event codes, separated by commas (,).
+   * Event codes. Separate multiple event codes with commas (,).
    * 
    * @example
    * de_afghcf6411,de_awkhwh0314
@@ -43,7 +43,7 @@ export class DescribeRiskLineChartRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * Region ID.
    * 
    * @example
    * cn-hangzhou

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAuthRuleDetailByRuleIdRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class QueryAuthRuleDetailByRuleIdRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Primary key ID of the strategy
+   * The primary key ID of the policy.
    * 
    * @example
    * 6843
@@ -23,7 +23,7 @@ export class QueryAuthRuleDetailByRuleIdRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class QueryAuthRuleDetailByRuleIdRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Strategy ID
+   * The policy ID.
    * 
    * @example
    * 102224
@@ -41,7 +41,7 @@ export class QueryAuthRuleDetailByRuleIdRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * Primary key ID of the strategy version
+   * The primary key ID of the policy version.
    * 
    * @example
    * 11519

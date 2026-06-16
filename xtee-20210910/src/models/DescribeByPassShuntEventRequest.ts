@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeByPassShuntEventRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeByPassShuntEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event ID.
+   * The event ID.
    * 
    * @example
    * 25
@@ -23,7 +23,7 @@ export class DescribeByPassShuntEventRequest extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

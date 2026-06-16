@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthScenePageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Number of common rules
+   * The number of General Policy policies.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeAuthScenePageListResponseBodyResultObject extends $dara.Mod
   commonRuleCount?: number;
   /**
    * @remarks
-   * Number of custom rules
+   * The number of custom policies.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeAuthScenePageListResponseBodyResultObject extends $dara.Mod
   customRuleCount?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_avypfd8253
@@ -29,7 +29,7 @@ export class DescribeAuthScenePageListResponseBodyResultObject extends $dara.Mod
   eventCode?: string;
   /**
    * @remarks
-   * Scene name.
+   * The scenario name.
    * 
    * @example
    * 注册风险识别服务
@@ -37,7 +37,7 @@ export class DescribeAuthScenePageListResponseBodyResultObject extends $dara.Mod
   sceneName?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * account_abuse
@@ -75,7 +75,7 @@ export class DescribeAuthScenePageListResponseBodyResultObject extends $dara.Mod
 export class DescribeAuthScenePageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -83,7 +83,7 @@ export class DescribeAuthScenePageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -91,7 +91,7 @@ export class DescribeAuthScenePageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -99,12 +99,12 @@ export class DescribeAuthScenePageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeAuthScenePageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -112,7 +112,7 @@ export class DescribeAuthScenePageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 9

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParamByEventCodesResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * age
@@ -13,7 +13,7 @@ export class DescribeParamByEventCodesResponseBodyResultObject extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * Name
+   * The name.
    * 
    * @example
    * 年龄
@@ -45,7 +45,7 @@ export class DescribeParamByEventCodesResponseBodyResultObject extends $dara.Mod
 export class DescribeParamByEventCodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -53,7 +53,7 @@ export class DescribeParamByEventCodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeParamByEventCodesResponseBodyResultObject[];
   static names(): { [key: string]: string } {

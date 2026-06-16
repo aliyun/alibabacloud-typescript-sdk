@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RecallRuleAuditResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 4C7DC1C8-557F-5483-9E96-74D77A15EEB5
@@ -13,7 +13,7 @@ export class RecallRuleAuditResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    * 
    * @example
    * true

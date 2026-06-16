@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHitRuleTrendResponseBodyResultObjectSeriesData extends $dara.Model {
   /**
    * @remarks
-   * Number
+   * The quantity.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class DescribeHitRuleTrendResponseBodyResultObjectSeriesData extends $dar
   num?: number;
   /**
    * @remarks
-   * Scale
+   * The ratio.
    * 
    * @example
    * 10.00%
@@ -45,12 +45,12 @@ export class DescribeHitRuleTrendResponseBodyResultObjectSeriesData extends $dar
 export class DescribeHitRuleTrendResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Returned data object
+   * The returned data object.
    */
   data?: DescribeHitRuleTrendResponseBodyResultObjectSeriesData[];
   /**
    * @remarks
-   * Display title
+   * The display title.
    * 
    * @example
    * 策略name
@@ -85,7 +85,7 @@ export class DescribeHitRuleTrendResponseBodyResultObjectSeries extends $dara.Mo
 export class DescribeHitRuleTrendResponseBodyResultObjectXaxis extends $dara.Model {
   /**
    * @remarks
-   * Returned data object
+   * The returned data object.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -115,12 +115,12 @@ export class DescribeHitRuleTrendResponseBodyResultObjectXaxis extends $dara.Mod
 export class DescribeHitRuleTrendResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Chart data
+   * The chart data.
    */
   series?: DescribeHitRuleTrendResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * X-axis data
+   * The x-axis data.
    */
   xaxis?: DescribeHitRuleTrendResponseBodyResultObjectXaxis;
   static names(): { [key: string]: string } {
@@ -155,7 +155,7 @@ export class DescribeHitRuleTrendResponseBodyResultObject extends $dara.Model {
 export class DescribeHitRuleTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -163,7 +163,7 @@ export class DescribeHitRuleTrendResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -171,7 +171,7 @@ export class DescribeHitRuleTrendResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error details
+   * The error details.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -179,7 +179,7 @@ export class DescribeHitRuleTrendResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -187,12 +187,12 @@ export class DescribeHitRuleTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Response object
+   * The returned object.
    */
   resultObject?: DescribeHitRuleTrendResponseBodyResultObject;
   /**
    * @remarks
-   * Indicates whether the operation was successful, where true means success.
+   * Indicates whether the operation was successful. A value of true indicates success.
    * 
    * @example
    * true

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MergeDownloadResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Status.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * OSS download URL.
+   * 
    * @example
    * rtmp://push-live.gaotime.com/jiaenguang789/21645251932448?auth_key=1768357031-0-0-6e2a4815fe4e2287a86be1105d42bf53
    */
@@ -38,25 +44,41 @@ export class MergeDownloadResponseBodyResultObject extends $dara.Model {
 
 export class MergeDownloadResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result.
+   */
   resultObject?: MergeDownloadResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {

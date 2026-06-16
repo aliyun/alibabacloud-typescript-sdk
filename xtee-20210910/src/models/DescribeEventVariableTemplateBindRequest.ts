@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventVariableTemplateBindRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages. Default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeEventVariableTemplateBindRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Input parameters, separated by commas if multiple.
+   * The input parameters. Separate multiple values with commas (,).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeEventVariableTemplateBindRequest extends $dara.Model {
   inputs?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -33,7 +33,7 @@ export class DescribeEventVariableTemplateBindRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Template code.
+   * The template code.
    * 
    * @example
    * register
@@ -41,7 +41,7 @@ export class DescribeEventVariableTemplateBindRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * Type
+   * The type.
    * 
    * This parameter is required.
    * 

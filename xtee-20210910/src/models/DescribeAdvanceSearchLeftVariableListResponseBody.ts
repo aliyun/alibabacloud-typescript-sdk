@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Variable code
+   * The variable code.
    * 
    * @example
    * age
@@ -13,7 +13,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   code?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 年龄描述
@@ -21,7 +21,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   description?: string;
   /**
    * @remarks
-   * Display type and grouping label
+   * The display type and group label.
    * 
    * @example
    * NATIVE
@@ -29,7 +29,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   displayType?: string;
   /**
    * @remarks
-   * Variable return value type
+   * The return value type of the variable.
    * 
    * @example
    * STRING
@@ -37,7 +37,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   fieldRank?: number;
   /**
    * @remarks
-   * Field table sorting
+   * The field table sorting.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 2453
@@ -53,7 +53,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   id?: number;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * age
@@ -61,7 +61,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   name?: string;
   /**
    * @remarks
-   * Parent node
+   * The parent node.
    * 
    * @example
    * name
@@ -69,7 +69,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   parentName?: string;
   /**
    * @remarks
-   * Data source
+   * The data source.
    * 
    * @example
    * SAF
@@ -77,7 +77,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 年龄
@@ -85,7 +85,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
   title?: string;
   /**
    * @remarks
-   * Variable type
+   * The variable type.
    * 
    * @example
    * NATIVE
@@ -135,7 +135,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBodyResultObject exten
 export class DescribeAdvanceSearchLeftVariableListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -143,7 +143,7 @@ export class DescribeAdvanceSearchLeftVariableListResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeAdvanceSearchLeftVariableListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

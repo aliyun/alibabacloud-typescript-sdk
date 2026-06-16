@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupPageRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and responses, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeGroupPageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeGroupPageRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Order.
+   * The sort order.
    * 
    * @example
    * 0
@@ -31,7 +31,7 @@ export class DescribeGroupPageRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * Sorting condition.
+   * The sort condition.
    * 
    * @example
    * asc
@@ -39,7 +39,7 @@ export class DescribeGroupPageRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * Page size, with a default value of 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeGroupPageRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeGroupPageRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 6770764
@@ -63,7 +63,7 @@ export class DescribeGroupPageRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Time type.
+   * The time type.
    * 
    * @example
    * 1

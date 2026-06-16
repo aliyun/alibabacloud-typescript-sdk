@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecommendVariablesVelocityRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeRecommendVariablesVelocityRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region Code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class DescribeRecommendVariablesVelocityRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeRecommendVariablesVelocityRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * Variable IDs
+   * The variable IDs.
    * 
    * @example
    * [\\"232\\",\\"233\\"]

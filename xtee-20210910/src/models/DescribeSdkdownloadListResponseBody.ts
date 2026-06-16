@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 描述
@@ -13,7 +13,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * Developer
+   * The developer.
    * 
    * @example
    * 阿里云安全-风险识别
@@ -21,7 +21,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   developer?: string;
   /**
    * @remarks
-   * Device type.
+   * The device type.
    * 
    * @example
    * ANDROID
@@ -29,7 +29,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   deviceType?: string;
   /**
    * @remarks
-   * Download URL.
+   * The download URL.
    * 
    * @example
    * https://aliyun-xxxx.oss-cn-xxx.xxx.com/sdk/xxx/10056.1/Android-AliyunDeviceEnhance-10056.1-20250611.tgz
@@ -37,7 +37,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   downloadUrl?: string;
   /**
    * @remarks
-   * File MD5.
+   * The MD5 hash of the file.
    * 
    * @example
    * E582EEB6B4BC9B5CB168AA5A7DD0EE93
@@ -45,7 +45,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   md5?: string;
   /**
    * @remarks
-   * Package name
+   * The package name.
    * 
    * @example
    * net.security.device
@@ -53,7 +53,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   packageName?: string;
   /**
    * @remarks
-   * Risk recognition SDK privacy policy link
+   * The privacy policy link for the risk identification SDK.
    * 
    * @example
    * https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202111120818_92724.html
@@ -61,7 +61,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   privacyLink?: string;
   /**
    * @remarks
-   * Release time
+   * The release time.
    * 
    * @example
    * 1751212800000
@@ -69,7 +69,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   pushTime?: string;
   /**
    * @remarks
-   * SDK version.
+   * The SDK version.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
   sdkVersion?: string;
   /**
    * @remarks
-   * Size
+   * The size.
    * 
    * @example
    * 4.12 MB
@@ -125,7 +125,7 @@ export class DescribeSDKDownloadListResponseBodyResultObject extends $dara.Model
 export class DescribeSDKDownloadListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -133,7 +133,7 @@ export class DescribeSDKDownloadListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeSDKDownloadListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

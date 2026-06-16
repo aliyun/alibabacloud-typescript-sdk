@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSafDeOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSafDeOrderRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeSafDeOrderRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End date
+   * The end time.
    * 
    * @example
    * 1728008155799
@@ -31,7 +31,7 @@ export class DescribeSafDeOrderRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeSafDeOrderRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class DescribeSafDeOrderRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Start date.
+   * The start date.
    * 
    * @example
    * 1728008155799

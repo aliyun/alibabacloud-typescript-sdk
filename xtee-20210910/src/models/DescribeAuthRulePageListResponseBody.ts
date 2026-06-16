@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Console rule ID.
+   * The console rule ID.
    * 
    * @example
    * 6715
@@ -13,7 +13,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   consoleRuleId?: number;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * MORMAL
@@ -21,7 +21,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   createType?: string;
   /**
    * @remarks
-   * Modification time
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -29,7 +29,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   gmtModified?: number;
   /**
    * @remarks
-   * Policy primary key ID
+   * The primary key ID of the policy.
    * 
    * @example
    * 497
@@ -37,7 +37,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   id?: number;
   /**
    * @remarks
-   * Memo
+   * The remarks.
    * 
    * @example
    * 分析中心事件测试_策略01
@@ -45,7 +45,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   memo?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 102059
@@ -53,7 +53,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   ruleId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别
@@ -61,7 +61,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   ruleName?: string;
   /**
    * @remarks
-   * Policy version primary key ID
+   * The primary key ID of the policy version.
    * 
    * @example
    * 3823
@@ -69,7 +69,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   ruleVersionId?: number;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * RUNNING
@@ -77,7 +77,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * Version number
+   * The version number.
    * 
    * @example
    * 8
@@ -125,7 +125,7 @@ export class DescribeAuthRulePageListResponseBodyResultObject extends $dara.Mode
 export class DescribeAuthRulePageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -133,7 +133,7 @@ export class DescribeAuthRulePageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class DescribeAuthRulePageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -149,12 +149,12 @@ export class DescribeAuthRulePageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeAuthRulePageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total items
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -162,7 +162,7 @@ export class DescribeAuthRulePageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total pages
+   * The total number of pages.
    * 
    * @example
    * 9

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventResultListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -13,7 +13,7 @@ export class DescribeEventResultListResponseBodyResultObject extends $dara.Model
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -21,7 +21,7 @@ export class DescribeEventResultListResponseBodyResultObject extends $dara.Model
   eventName?: string;
   /**
    * @remarks
-   * Number of passed checks.
+   * The number of entries that passed the check.
    * 
    * @example
    * 90
@@ -29,7 +29,7 @@ export class DescribeEventResultListResponseBodyResultObject extends $dara.Model
   passNum?: number;
   /**
    * @remarks
-   * Number of pending items.
+   * The number of pending entries.
    * 
    * @example
    * 5
@@ -37,7 +37,7 @@ export class DescribeEventResultListResponseBodyResultObject extends $dara.Model
   pendingNum?: number;
   /**
    * @remarks
-   * Number of rejected approvals.
+   * The number of entries rejected during approval.
    * 
    * @example
    * 5
@@ -45,7 +45,7 @@ export class DescribeEventResultListResponseBodyResultObject extends $dara.Model
   rejectNum?: number;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -85,7 +85,7 @@ export class DescribeEventResultListResponseBodyResultObject extends $dara.Model
 export class DescribeEventResultListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -93,7 +93,7 @@ export class DescribeEventResultListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeEventResultListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -109,7 +109,7 @@ export class DescribeEventResultListResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error details
+   * The error details.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -117,7 +117,7 @@ export class DescribeEventResultListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -125,7 +125,7 @@ export class DescribeEventResultListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -133,12 +133,12 @@ export class DescribeEventResultListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeEventResultListResponseBodyResultObject[];
   /**
    * @remarks
-   * Whether the query was successful.
+   * Indicates whether the query was successful.
    * 
    * @example
    * true
@@ -146,7 +146,7 @@ export class DescribeEventResultListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 31
@@ -154,7 +154,7 @@ export class DescribeEventResultListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 9

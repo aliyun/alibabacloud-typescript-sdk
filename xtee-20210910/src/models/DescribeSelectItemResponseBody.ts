@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSelectItemResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Monitoring status list.
+   * The list of monitoring statuses.
    */
   monitorStatusList?: string[];
   /**
    * @remarks
-   * Task ID list.
+   * The list of task IDs.
    */
   taskIdList?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class DescribeSelectItemResponseBodyResultObject extends $dara.Model {
 export class DescribeSelectItemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -53,7 +53,7 @@ export class DescribeSelectItemResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeSelectItemResponseBodyResultObject;
   static names(): { [key: string]: string } {

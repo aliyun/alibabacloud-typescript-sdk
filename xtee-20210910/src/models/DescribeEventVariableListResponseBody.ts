@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventVariableListResponseBodyResultObjectActionsOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActionsOutputThres
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActionsOutputThres
 export class DescribeEventVariableListResponseBodyResultObjectActionsVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * iv value. This type of variable does not return this field.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -75,7 +75,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActionsVariableVel
 export class DescribeEventVariableListResponseBodyResultObjectActions extends $dara.Model {
   /**
    * @remarks
-   * Variable code.
+   * The variable code.
    * 
    * @example
    * deAddResult
@@ -83,7 +83,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   code?: string;
   /**
    * @remarks
-   * Data distribution display in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -91,7 +91,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   dataDisplay?: string;
   /**
    * @remarks
-   * Variable definition ID. This type of variable does not return this field.
+   * The variable definition ID. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -99,7 +99,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   defineId?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 决策结果
@@ -107,7 +107,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   description?: string;
   /**
    * @remarks
-   * Display type and group label.
+   * The display type and group label.
    * 
    * @example
    * ACTION
@@ -115,7 +115,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   displayType?: string;
   /**
    * @remarks
-   * Expression display. This type of variable does not return this field.
+   * The expression display. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -123,7 +123,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   expressionTitle?: string;
   /**
    * @remarks
-   * Favorite identifier.
+   * The favorite flag.
    * 
    * @example
    * false
@@ -131,7 +131,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Details of the field pool. This type of variable does not return this field.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -139,7 +139,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   fieldDetail?: string;
   /**
    * @remarks
-   * Field sorting.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -147,7 +147,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   fieldRank?: number;
   /**
    * @remarks
-   * Source of the field. This type of variable does not return this field.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -155,7 +155,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   fieldSource?: string;
   /**
    * @remarks
-   * Field type. This field is not returned for this type of variable.
+   * The field type. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -163,7 +163,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 3144
@@ -171,7 +171,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   id?: number;
   /**
    * @remarks
-   * Input type of the parameter.
+   * The input type of the parameter.
    * 
    * @example
    * STRING
@@ -179,7 +179,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   inputFieldType?: string;
   /**
    * @remarks
-   * Required parameter. This type of variable does not return this field.
+   * The required parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -187,7 +187,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   inputRequired?: string;
   /**
    * @remarks
-   * Input parameters. This field is not returned for this type of variable.
+   * The input parameters. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -195,7 +195,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * __addDeResult__
@@ -203,7 +203,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   name?: string;
   /**
    * @remarks
-   * Anomaly value. This field is not returned for this type of variable.
+   * The outlier value. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -211,12 +211,12 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   outlier?: string;
   /**
    * @remarks
-   * Output value threshold.
+   * The output value threshold.
    */
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectActionsOutputThreshold;
   /**
    * @remarks
-   * Parent node. This field is not returned for this type of variable.
+   * The parent node. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -224,7 +224,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   parentName?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -232,7 +232,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 决策结果
@@ -240,7 +240,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * ACTION
@@ -248,12 +248,12 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   type?: string;
   /**
    * @remarks
-   * Variable metric information. This field is not returned for this type of variable.
+   * The variable metric information. This field is not returned for this type of variable.
    */
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectActionsVariableVelocity;
   /**
    * @remarks
-   * x label. This type of variable does not return this field.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -261,7 +261,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
   xLabel?: string;
   /**
    * @remarks
-   * y label. This type of variable does not return this field.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -345,7 +345,7 @@ export class DescribeEventVariableListResponseBodyResultObjectActions extends $d
 export class DescribeEventVariableListResponseBodyResultObjectDeviceVariablesOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * The minimum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -385,7 +385,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariablesOut
 export class DescribeEventVariableListResponseBodyResultObjectDeviceVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * The IV value. This field is not returned for this type of variable.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -415,7 +415,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariablesVar
 export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables extends $dara.Model {
   /**
    * @remarks
-   * Variable code.
+   * The variable code.
    * 
    * @example
    * queryPhoneSimulatorInfo(deviceToken)?.deviceName
@@ -423,7 +423,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   code?: string;
   /**
    * @remarks
-   * Data distribution display in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -431,7 +431,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   dataDisplay?: string;
   /**
    * @remarks
-   * Variable definition ID. This type of variable does not return this field.
+   * The variable definition ID. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -439,7 +439,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   defineId?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 设备信息-设备名称
@@ -447,7 +447,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   description?: string;
   /**
    * @remarks
-   * The display type and grouping label.
+   * The display type and group label.
    * 
    * @example
    * DEVICE
@@ -471,7 +471,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * The detailed information of the field in the field pool. This field is not returned for this type of variable.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -479,7 +479,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   fieldDetail?: string;
   /**
    * @remarks
-   * The field rank.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -487,7 +487,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   fieldRank?: number;
   /**
    * @remarks
-   * The source of the field. This field is not returned for this type of variable.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -495,7 +495,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   fieldSource?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -503,7 +503,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 41
@@ -527,7 +527,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   inputRequired?: string;
   /**
    * @remarks
-   * Input for the variable. This field is not returned for this type of variable.
+   * The input of the variable. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -535,7 +535,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * __device_name__
@@ -556,7 +556,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectDeviceVariablesOutputThreshold;
   /**
    * @remarks
-   * Parent node. This field is not returned for this type of variable.
+   * The parent node. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -572,7 +572,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 设备信息-设备名称-deviceName
@@ -580,7 +580,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * DEVICE
@@ -593,7 +593,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectDeviceVariablesVariableVelocity;
   /**
    * @remarks
-   * The X label. This field is not returned for this type of variable.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -601,7 +601,7 @@ export class DescribeEventVariableListResponseBodyResultObjectDeviceVariables ex
   xLabel?: string;
   /**
    * @remarks
-   * The Y label. This field is not returned for this type of variable.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -725,7 +725,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
 export class DescribeEventVariableListResponseBodyResultObjectExpressionVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * The IV value. This field is not returned for this type of variable.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -755,7 +755,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
 export class DescribeEventVariableListResponseBodyResultObjectExpressionVariables extends $dara.Model {
   /**
    * @remarks
-   * The code of the variable.
+   * The variable code.
    * 
    * @example
    * deInvokeSelfVariable(390397)
@@ -763,7 +763,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   code?: string;
   /**
    * @remarks
-   * Data distribution display, in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -771,7 +771,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   dataDisplay?: string;
   /**
    * @remarks
-   * The definition ID of the variable. This field is not returned for this type of variable.
+   * The variable definition ID. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -779,7 +779,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   defineId?: string;
   /**
    * @remarks
-   * The description of the variable.
+   * The variable description.
    * 
    * @example
    * 获取手机号前7位
@@ -787,7 +787,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   description?: string;
   /**
    * @remarks
-   * The display type and grouping label.
+   * The display type and group label.
    * 
    * @example
    * EXPRESSION
@@ -811,7 +811,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * The detailed information of the field in the field pool. This field is not returned for this type of variable.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -819,7 +819,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   fieldDetail?: string;
   /**
    * @remarks
-   * The field rank.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -827,7 +827,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   fieldRank?: number;
   /**
    * @remarks
-   * The source of the field. This field is not returned for this type of variable.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -835,7 +835,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   fieldSource?: string;
   /**
    * @remarks
-   * The input type of the variable.
+   * The variable input type.
    * 
    * @example
    * STRING
@@ -843,7 +843,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 3148
@@ -867,7 +867,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   inputRequired?: string;
   /**
    * @remarks
-   * Multiple input parameters separated by commas. This field is not returned for this type of variable.
+   * The input parameters, separated by commas if multiple. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -875,7 +875,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   inputs?: string;
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * ex_w2yIClHCc150
@@ -912,7 +912,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 获取手机号前7位
@@ -920,7 +920,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   title?: string;
   /**
    * @remarks
-   * The type of the variable.
+   * The variable type.
    * 
    * @example
    * EXPRESSION
@@ -933,7 +933,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectExpressionVariablesVariableVelocity;
   /**
    * @remarks
-   * The X label. This field is not returned for this type of variable.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -941,7 +941,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
   xLabel?: string;
   /**
    * @remarks
-   * The Y label. This field is not returned for this type of variable.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1025,7 +1025,7 @@ export class DescribeEventVariableListResponseBodyResultObjectExpressionVariable
 export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariablesOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -1033,7 +1033,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariablesO
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 1
@@ -1065,7 +1065,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariablesO
 export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * iv value. This type of variable does not return this field.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1095,7 +1095,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariablesV
 export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables extends $dara.Model {
   /**
    * @remarks
-   * Variable code.
+   * The variable code.
    * 
    * @example
    * deFunctionProcess(ip,\\"isIp\\")
@@ -1103,7 +1103,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   code?: string;
   /**
    * @remarks
-   * Data distribution display in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1111,7 +1111,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   dataDisplay?: string;
   /**
    * @remarks
-   * Variable definition ID.
+   * The variable definition ID.
    * 
    * @example
    * 16
@@ -1119,7 +1119,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   defineId?: string;
   /**
    * @remarks
-   * Description of the variable.
+   * The variable description.
    * 
    * @example
    * 判断是否符合IPv4标准
@@ -1127,7 +1127,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   description?: string;
   /**
    * @remarks
-   * Display type and group label.
+   * The display type and group label.
    * 
    * @example
    * SYSTEM_BIND
@@ -1135,7 +1135,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   displayType?: string;
   /**
    * @remarks
-   * Expression display value. This type of variable does not return this field.
+   * The expression display value. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1143,7 +1143,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   expressionTitle?: string;
   /**
    * @remarks
-   * Favorite identifier.
+   * The favorite flag.
    * 
    * @example
    * false
@@ -1151,7 +1151,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Details of the field pool. This type of variable does not return this field.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1159,7 +1159,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   fieldDetail?: string;
   /**
    * @remarks
-   * Field sorting.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -1167,7 +1167,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   fieldRank?: number;
   /**
    * @remarks
-   * Source of the field. This type of variable does not return this field.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1175,7 +1175,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   fieldSource?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * BOOLEAN
@@ -1183,7 +1183,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 34
@@ -1191,7 +1191,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   id?: number;
   /**
    * @remarks
-   * Input type of the parameter. This field is not returned for this type of variable.
+   * The input type of the parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1199,7 +1199,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   inputFieldType?: string;
   /**
    * @remarks
-   * Required parameter. This field is not returned for this type of variable.
+   * The required parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1207,7 +1207,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   inputRequired?: string;
   /**
    * @remarks
-   * Input parameters should be separated by commas. Some variables may not have this field.
+   * The input parameters, separated by commas if multiple. Some variables do not have this field.
    * 
    * @example
    * ip
@@ -1215,7 +1215,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * __isIpAddressV4__
@@ -1223,7 +1223,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   name?: string;
   /**
    * @remarks
-   * Anomaly value. This field is not returned for this type of variable.
+   * The outlier value. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1231,12 +1231,12 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   outlier?: string;
   /**
    * @remarks
-   * Output value threshold.
+   * The output value threshold.
    */
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectFavoriteVariablesOutputThreshold;
   /**
    * @remarks
-   * Parent node. This field is not returned for this type of variable.
+   * The parent node. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1244,7 +1244,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   parentName?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -1252,7 +1252,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * IP是否符合IPV4格式
@@ -1260,7 +1260,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * SYSTEM_BIND
@@ -1268,12 +1268,12 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   type?: string;
   /**
    * @remarks
-   * Variable metric information. This field is not returned for this type of variable.
+   * The variable metric information. This field is not returned for this type of variable.
    */
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectFavoriteVariablesVariableVelocity;
   /**
    * @remarks
-   * x label. This type of variable does not return this field.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1281,7 +1281,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
   xLabel?: string;
   /**
    * @remarks
-   * y label. This type of variable does not return this field.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1365,7 +1365,7 @@ export class DescribeEventVariableListResponseBodyResultObjectFavoriteVariables 
 export class DescribeEventVariableListResponseBodyResultObjectMiddleVariablesOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -1373,7 +1373,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariablesOut
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 0
@@ -1405,7 +1405,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariablesOut
 export class DescribeEventVariableListResponseBodyResultObjectMiddleVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * id value. This type of variable does not return this field.
+   * The ID value. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1435,7 +1435,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariablesVar
 export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables extends $dara.Model {
   /**
    * @remarks
-   * Variable code.
+   * The variable code.
    * 
    * @example
    * mid
@@ -1443,7 +1443,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   code?: string;
   /**
    * @remarks
-   * Data distribution display in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1451,7 +1451,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   dataDisplay?: string;
   /**
    * @remarks
-   * Variable definition ID.
+   * The variable definition ID.
    * 
    * @example
    * register
@@ -1459,7 +1459,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   defineId?: string;
   /**
    * @remarks
-   * Variable description.
+   * The variable description.
    * 
    * @example
    * description
@@ -1467,7 +1467,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   description?: string;
   /**
    * @remarks
-   * Display type and group label.
+   * The display type and group label.
    * 
    * @example
    * MIDDLE
@@ -1475,7 +1475,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   displayType?: string;
   /**
    * @remarks
-   * Calculate the display value of the expression. This type of variable does not return this field.
+   * The display value of the calculation expression. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1483,7 +1483,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   expressionTitle?: string;
   /**
    * @remarks
-   * Favorite identifier.
+   * The favorite flag.
    * 
    * @example
    * false
@@ -1491,7 +1491,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Details of the field pool. This type of variable does not return this field.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1499,7 +1499,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   fieldDetail?: string;
   /**
    * @remarks
-   * Field sorting.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -1507,7 +1507,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   fieldRank?: number;
   /**
    * @remarks
-   * Variable source.
+   * The variable source.
    * 
    * @example
    * DEFAULT
@@ -1515,7 +1515,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   fieldSource?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -1523,7 +1523,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 49
@@ -1531,7 +1531,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   id?: number;
   /**
    * @remarks
-   * Input field type, indicating the type of input parameters, mainly used for function classification. This type of variable does not return this field.
+   * The input field type, which indicates the input parameter type and is mainly used for function classification. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1539,7 +1539,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   inputFieldType?: string;
   /**
    * @remarks
-   * Required parameter. This field is not returned for this type of variable.
+   * The required parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1547,7 +1547,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   inputRequired?: string;
   /**
    * @remarks
-   * Input of the variable.
+   * The input of the variable.
    * 
    * @example
    * This type does not have this field
@@ -1555,7 +1555,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * mid
@@ -1563,7 +1563,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   name?: string;
   /**
    * @remarks
-   * Outlier value. This field is not returned for this type of variable.
+   * The outlier value. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1571,12 +1571,12 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   outlier?: string;
   /**
    * @remarks
-   * Output value threshold.
+   * The output value threshold.
    */
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectMiddleVariablesOutputThreshold;
   /**
    * @remarks
-   * Parent node. This field is not returned for this type of variable.
+   * The parent node. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1584,7 +1584,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   parentName?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -1592,7 +1592,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * midVaribale
@@ -1600,7 +1600,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * MIDDLE
@@ -1608,12 +1608,12 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   type?: string;
   /**
    * @remarks
-   * Variable metric information. This type of variable does not return this field.
+   * The variable metric information. This field is not returned for this type of variable.
    */
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectMiddleVariablesVariableVelocity;
   /**
    * @remarks
-   * x label. This type of variable does not return this field.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1621,7 +1621,7 @@ export class DescribeEventVariableListResponseBodyResultObjectMiddleVariables ex
   xLabel?: string;
   /**
    * @remarks
-   * y label. This type of variable does not return this field.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1745,7 +1745,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariablesOutp
 export class DescribeEventVariableListResponseBodyResultObjectModelVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * The IV value. This field is not returned for this type of variable.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1775,7 +1775,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariablesVari
 export class DescribeEventVariableListResponseBodyResultObjectModelVariables extends $dara.Model {
   /**
    * @remarks
-   * The code of the model variable.
+   * The variable code.
    * 
    * @example
    * getAIData(model)
@@ -1783,7 +1783,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   code?: string;
   /**
    * @remarks
-   * Data distribution display, in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1791,7 +1791,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   dataDisplay?: string;
   /**
    * @remarks
-   * The definition ID of the model variable. This field is not returned for this type of variable.
+   * The variable definition ID. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1799,7 +1799,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   defineId?: string;
   /**
    * @remarks
-   * The description of the model variable.
+   * The variable description.
    * 
    * @example
    * BL_t_show
@@ -1807,7 +1807,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   description?: string;
   /**
    * @remarks
-   * The display type and grouping label.
+   * The display type and group label.
    * 
    * @example
    * MODEL
@@ -1831,7 +1831,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * The detailed information of the field in the field pool. This field is not returned for this type of variable.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1839,7 +1839,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   fieldDetail?: string;
   /**
    * @remarks
-   * The field rank.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -1847,7 +1847,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   fieldRank?: number;
   /**
    * @remarks
-   * The source of the field. This field is not returned for this type of variable.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1855,7 +1855,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   fieldSource?: string;
   /**
    * @remarks
-   * The type of the field.
+   * The field type.
    * 
    * @example
    * DOUBLE
@@ -1887,7 +1887,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   inputRequired?: string;
   /**
    * @remarks
-   * Multiple input parameters separated by commas. This field is not returned for this type of variable.
+   * The input parameters, separated by commas if multiple. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1895,7 +1895,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   inputs?: string;
   /**
    * @remarks
-   * The name of the model variable.
+   * The variable name.
    * 
    * @example
    * mo_qbbyf33o66f2
@@ -1932,7 +1932,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   sourceType?: string;
   /**
    * @remarks
-   * The title of the model variable.
+   * The title.
    * 
    * @example
    * BL_t_show
@@ -1940,7 +1940,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   title?: string;
   /**
    * @remarks
-   * The type of the model variable.
+   * The variable type.
    * 
    * @example
    * MODEL
@@ -1953,7 +1953,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectModelVariablesVariableVelocity;
   /**
    * @remarks
-   * The X label. This field is not returned for this type of variable.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -1961,7 +1961,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
   xLabel?: string;
   /**
    * @remarks
-   * The Y label. This field is not returned for this type of variable.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2045,7 +2045,7 @@ export class DescribeEventVariableListResponseBodyResultObjectModelVariables ext
 export class DescribeEventVariableListResponseBodyResultObjectNameListOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -2053,7 +2053,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameListOutputThre
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 1
@@ -2085,7 +2085,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameListOutputThre
 export class DescribeEventVariableListResponseBodyResultObjectNameListVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * iv value. This type of variable does not return this field.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2115,7 +2115,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameListVariableVe
 export class DescribeEventVariableListResponseBodyResultObjectNameList extends $dara.Model {
   /**
    * @remarks
-   * Variable code.
+   * The variable code.
    * 
    * @example
    * nl_UN8otElLb490
@@ -2123,7 +2123,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   code?: string;
   /**
    * @remarks
-   * Data distribution display in JSON format. This field is not currently returned.
+   * The data distribution display in JSON format. This field is not currently returned.
    * 
    * @example
    * This type does not have this field
@@ -2131,7 +2131,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   dataDisplay?: string;
   /**
    * @remarks
-   * Variable definition ID. This type of variable does not return this field.
+   * The variable definition ID. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2139,7 +2139,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   defineId?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 描述
@@ -2147,7 +2147,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   description?: string;
   /**
    * @remarks
-   * Display type and group label.
+   * The display type and group label.
    * 
    * @example
    * NAME_LIST
@@ -2155,7 +2155,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   displayType?: string;
   /**
    * @remarks
-   * Calculate the expression display value. This type of variable does not return this field.
+   * The display value of the calculation expression. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2163,7 +2163,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   expressionTitle?: string;
   /**
    * @remarks
-   * Favorite identifier.
+   * The favorite flag.
    * 
    * @example
    * false
@@ -2171,7 +2171,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Details of the field pool. This type of variable does not return this field.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2179,7 +2179,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   fieldDetail?: string;
   /**
    * @remarks
-   * Field sorting.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -2187,7 +2187,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   fieldRank?: number;
   /**
    * @remarks
-   * Source of the field. This type of variable does not return this field.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2195,7 +2195,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   fieldSource?: string;
   /**
    * @remarks
-   * Field type. This field is not returned for this type of variable.
+   * The field type. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2203,7 +2203,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 34
@@ -2211,7 +2211,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   id?: number;
   /**
    * @remarks
-   * Input type of the parameter. This field is not returned for this type of variable.
+   * The input type of the parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2219,7 +2219,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   inputFieldType?: string;
   /**
    * @remarks
-   * Required parameter. This field is not returned for this type of variable.
+   * The required parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2227,7 +2227,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   inputRequired?: string;
   /**
    * @remarks
-   * Input parameters. This field is not returned for this type of variable.
+   * The input parameters. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2235,7 +2235,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * nl_UN8otElLb490
@@ -2243,7 +2243,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   name?: string;
   /**
    * @remarks
-   * Outlier value. This field is not returned for this type of variable.
+   * The outlier value. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2251,12 +2251,12 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   outlier?: string;
   /**
    * @remarks
-   * Output value threshold.
+   * The output value threshold.
    */
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectNameListOutputThreshold;
   /**
    * @remarks
-   * Parent node. This field is not returned currently.
+   * The parent node. This field is not currently returned.
    * 
    * @example
    * This type does not have this field
@@ -2264,7 +2264,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   parentName?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -2272,7 +2272,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 白名单
@@ -2280,7 +2280,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * NAME_LIST
@@ -2288,12 +2288,12 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   type?: string;
   /**
    * @remarks
-   * Variable metric information. This field is not returned for this type of variable.
+   * The variable metric information. This field is not returned for this type of variable.
    */
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectNameListVariableVelocity;
   /**
    * @remarks
-   * x label. This type of variable does not return this field.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2301,7 +2301,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
   xLabel?: string;
   /**
    * @remarks
-   * y label. This type of variable does not return this field.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2385,7 +2385,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNameList extends $
 export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunctionsOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -2393,7 +2393,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 0
@@ -2425,7 +2425,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
 export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunctionsVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * iv value. This type of variable does not return this field.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2455,7 +2455,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
 export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunctions extends $dara.Model {
   /**
    * @remarks
-   * Variable code.
+   * The variable code.
    * 
    * @example
    * getHourOfTimestamp({data})
@@ -2463,7 +2463,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   code?: string;
   /**
    * @remarks
-   * Data distribution display in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2471,7 +2471,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   dataDisplay?: string;
   /**
    * @remarks
-   * Variable definition ID. This type of variable does not return this field.
+   * The variable definition ID. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2479,7 +2479,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   defineId?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 时间戳，可以是秒或者毫秒
@@ -2487,7 +2487,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   description?: string;
   /**
    * @remarks
-   * Display type and group label.
+   * The display type and group label.
    * 
    * @example
    * FUNC
@@ -2495,7 +2495,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   displayType?: string;
   /**
    * @remarks
-   * Calculate the expression display value. This field is not returned for this type of variable.
+   * The display value of the calculation expression. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2503,7 +2503,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   expressionTitle?: string;
   /**
    * @remarks
-   * Favorite identifier.
+   * The favorite flag.
    * 
    * @example
    * false
@@ -2511,7 +2511,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Details of the field pool. This type of variable does not return this field.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2519,7 +2519,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   fieldDetail?: string;
   /**
    * @remarks
-   * Field sorting.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -2527,7 +2527,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   fieldRank?: number;
   /**
    * @remarks
-   * Source of the field. This type of variable does not return this field.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2535,7 +2535,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   fieldSource?: string;
   /**
    * @remarks
-   * Variable return type.
+   * The variable return value type.
    * 
    * @example
    * LONG
@@ -2543,7 +2543,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 93
@@ -2559,7 +2559,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   inputFieldType?: string;
   /**
    * @remarks
-   * Required parameter. This field is not returned for this type of variable.
+   * The required parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2567,7 +2567,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   inputRequired?: string;
   /**
    * @remarks
-   * Input field. This type of variable does not return this field.
+   * The input fields. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2575,7 +2575,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * __getHourOfTimestamp__
@@ -2583,7 +2583,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   name?: string;
   /**
    * @remarks
-   * Exception value. This type of variable does not return this field.
+   * The outlier value. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2591,12 +2591,12 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   outlier?: string;
   /**
    * @remarks
-   * Output value threshold.
+   * The output value threshold.
    */
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectNativeVariableFunctionsOutputThreshold;
   /**
    * @remarks
-   * Parent node. This field is not returned for this type of variable.
+   * The parent node. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2604,7 +2604,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   parentName?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -2612,7 +2612,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   sourceType?: string;
   /**
    * @remarks
-   * Variable title.
+   * The variable title.
    * 
    * @example
    * 根据时间戳获取小时
@@ -2620,7 +2620,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * FUNC
@@ -2628,12 +2628,12 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   type?: string;
   /**
    * @remarks
-   * Variable metric information. This type of variable does not return this field.
+   * The variable metric information. This field is not returned for this type of variable.
    */
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectNativeVariableFunctionsVariableVelocity;
   /**
    * @remarks
-   * x label. This type of variable does not return this field.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2641,7 +2641,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
   xLabel?: string;
   /**
    * @remarks
-   * y label. This type of variable does not return this field.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -2725,7 +2725,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariableFunc
 export class DescribeEventVariableListResponseBodyResultObjectNativeVariablesOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -2733,7 +2733,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariablesOut
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 1
@@ -2765,7 +2765,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariablesOut
 export class DescribeEventVariableListResponseBodyResultObjectNativeVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * iv value.
+   * The information value (IV).
    * 
    * @example
    * 无
@@ -2795,7 +2795,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariablesVar
 export class DescribeEventVariableListResponseBodyResultObjectNativeVariables extends $dara.Model {
   /**
    * @remarks
-   * variable code.
+   * The variable code.
    * 
    * @example
    * age
@@ -2803,7 +2803,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   code?: string;
   /**
    * @remarks
-   * Data distribution display, in JSON format.
+   * The data distribution display in JSON format.
    * 
    * @example
    * {}
@@ -2811,7 +2811,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   dataDisplay?: string;
   /**
    * @remarks
-   * Associated variable definition ID.
+   * The associated variable definition ID.
    * 
    * @example
    * register
@@ -2819,7 +2819,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   defineId?: string;
   /**
    * @remarks
-   * Variable description.
+   * The variable description.
    * 
    * @example
    * 描述
@@ -2827,7 +2827,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   description?: string;
   /**
    * @remarks
-   * Display type and group label.
+   * The display type and group label.
    * 
    * @example
    * NATIVE
@@ -2835,7 +2835,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   displayType?: string;
   /**
    * @remarks
-   * Calculate expression display value.
+   * The display value of the calculation expression.
    * 
    * @example
    * 无
@@ -2843,7 +2843,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   expressionTitle?: string;
   /**
    * @remarks
-   * Favorite Identifier.
+   * The favorite flag.
    * 
    * @example
    * true
@@ -2851,7 +2851,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Field pool field details.
+   * The field pool field details.
    * 
    * @example
    * 无
@@ -2859,7 +2859,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   fieldDetail?: string;
   /**
    * @remarks
-   * Field Sorting.
+   * The field sort order.
    * 
    * @example
    * 1
@@ -2867,7 +2867,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   fieldRank?: number;
   /**
    * @remarks
-   * Variable source.
+   * The variable source.
    * 
    * @example
    * DEFINE
@@ -2875,7 +2875,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   fieldSource?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -2883,7 +2883,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   fieldType?: string;
   /**
    * @remarks
-   * Variable ID.
+   * The variable ID.
    * 
    * @example
    * 223
@@ -2891,7 +2891,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   id?: number;
   /**
    * @remarks
-   * Input field type, indicating the type of input parameters, mainly used for function categorization.
+   * The input field type, which indicates the input parameter type and is mainly used for function classification.
    * 
    * @example
    * STRING
@@ -2899,7 +2899,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   inputFieldType?: string;
   /**
    * @remarks
-   * Required parameters.
+   * The required parameter.
    * 
    * @example
    * 无
@@ -2907,7 +2907,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   inputRequired?: string;
   /**
    * @remarks
-   * Input of the variable. Event field is not present.
+   * The input of the variable. This field is not returned for event fields.
    * 
    * @example
    * 无
@@ -2915,7 +2915,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   inputs?: string;
   /**
    * @remarks
-   * variable name.
+   * The variable name.
    * 
    * @example
    * age
@@ -2923,7 +2923,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   name?: string;
   /**
    * @remarks
-   * outlier.
+   * The outlier value.
    * 
    * @example
    * 无
@@ -2931,12 +2931,12 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   outlier?: string;
   /**
    * @remarks
-   * Output score threshold.
+   * The output score threshold.
    */
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectNativeVariablesOutputThreshold;
   /**
    * @remarks
-   * Parent name.
+   * The parent name.
    * 
    * @example
    * parentName
@@ -2944,7 +2944,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   parentName?: string;
   /**
    * @remarks
-   * Variable source type.
+   * The variable source type.
    * 
    * @example
    * SAF
@@ -2952,7 +2952,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   sourceType?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * 年龄
@@ -2960,7 +2960,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * NATIVE
@@ -2968,12 +2968,12 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   type?: string;
   /**
    * @remarks
-   * Variable indicator information.
+   * The variable metric information.
    */
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectNativeVariablesVariableVelocity;
   /**
    * @remarks
-   * x label.
+   * The X-axis label.
    * 
    * @example
    * x
@@ -2981,7 +2981,7 @@ export class DescribeEventVariableListResponseBodyResultObjectNativeVariables ex
   xLabel?: string;
   /**
    * @remarks
-   * y label.
+   * The Y-axis label.
    * 
    * @example
    * y
@@ -3105,7 +3105,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariablesOutp
 export class DescribeEventVariableListResponseBodyResultObjectQueryVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * The IV value. This field is not returned for this type of variable.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3135,7 +3135,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariablesVari
 export class DescribeEventVariableListResponseBodyResultObjectQueryVariables extends $dara.Model {
   /**
    * @remarks
-   * The code of the query variable.
+   * The variable code.
    * 
    * @example
    * deInvokeQueryVariable(376773)
@@ -3143,7 +3143,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   code?: string;
   /**
    * @remarks
-   * Data distribution display, in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3151,7 +3151,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   dataDisplay?: string;
   /**
    * @remarks
-   * The definition ID of the query variable. This field is not returned for this type of variable.
+   * The variable definition ID. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3159,7 +3159,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   defineId?: string;
   /**
    * @remarks
-   * The description of the query variable.
+   * The description.
    * 
    * @example
    * 年龄计算
@@ -3167,7 +3167,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   description?: string;
   /**
    * @remarks
-   * The display type and grouping label.
+   * The display type and group label.
    * 
    * @example
    * QUERY_EXPRESSION
@@ -3191,7 +3191,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * The detailed information of the field in the field pool. This field is not returned for this type of variable.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3199,7 +3199,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   fieldDetail?: string;
   /**
    * @remarks
-   * The field rank.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -3207,7 +3207,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   fieldRank?: number;
   /**
    * @remarks
-   * The source of the field. This field is not returned for this type of variable.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3215,7 +3215,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   fieldSource?: string;
   /**
    * @remarks
-   * The type of the field.
+   * The field type.
    * 
    * @example
    * STRING
@@ -3247,7 +3247,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   inputRequired?: string;
   /**
    * @remarks
-   * Multiple input parameters separated by commas. This field is not returned for this type of variable.
+   * The input parameters, separated by commas if multiple. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3255,7 +3255,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   inputs?: string;
   /**
    * @remarks
-   * The name of the query variable.
+   * The variable name.
    * 
    * @example
    * ex_qWtKgCox350f
@@ -3292,7 +3292,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   sourceType?: string;
   /**
    * @remarks
-   * The title of the query variable. The title of the query variable.
+   * The title.
    * 
    * @example
    * 年龄计算
@@ -3300,7 +3300,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   title?: string;
   /**
    * @remarks
-   * The type of the query variable.
+   * The variable type.
    * 
    * @example
    * QUERY_EXPRESSION
@@ -3313,7 +3313,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectQueryVariablesVariableVelocity;
   /**
    * @remarks
-   * The X label. This field is not returned for this type of variable.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3321,7 +3321,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
   xLabel?: string;
   /**
    * @remarks
-   * The Y label. This field is not returned for this type of variable.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3405,7 +3405,7 @@ export class DescribeEventVariableListResponseBodyResultObjectQueryVariables ext
 export class DescribeEventVariableListResponseBodyResultObjectSelfVariablesOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -3413,7 +3413,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariablesOutpu
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 1
@@ -3445,7 +3445,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariablesOutpu
 export class DescribeEventVariableListResponseBodyResultObjectSelfVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * iv value. This type of variable does not return this field.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3475,7 +3475,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariablesVaria
 export class DescribeEventVariableListResponseBodyResultObjectSelfVariables extends $dara.Model {
   /**
    * @remarks
-   * Variable code.
+   * The variable code.
    * 
    * @example
    * deReadVelocity(hitRules,\\"dUd5ioJ8014\\",1,\\"MO\\",0,true,\\"SUM\\")
@@ -3483,7 +3483,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   code?: string;
   /**
    * @remarks
-   * Data distribution display, in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3491,7 +3491,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   dataDisplay?: string;
   /**
    * @remarks
-   * Variable definition ID. Only returned for custom system variables.
+   * The variable definition ID. This field is returned only for custom system variables.
    * 
    * @example
    * 49
@@ -3499,7 +3499,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   defineId?: string;
   /**
    * @remarks
-   * Description of the variable.
+   * The variable description.
    * 
    * @example
    * 变量的描述信息
@@ -3507,7 +3507,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   description?: string;
   /**
    * @remarks
-   * Display type and group label.
+   * The display type and group label.
    * 
    * @example
    * SELF_BIND
@@ -3515,7 +3515,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   displayType?: string;
   /**
    * @remarks
-   * Expression name.
+   * The expression name.
    * 
    * @example
    * @IP地址
@@ -3523,7 +3523,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   expressionTitle?: string;
   /**
    * @remarks
-   * Favorite identifier.
+   * The favorite flag.
    * 
    * @example
    * false
@@ -3531,7 +3531,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Details of the field pool. This type of variable does not return this field.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3539,7 +3539,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   fieldDetail?: string;
   /**
    * @remarks
-   * Field sorting.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -3547,7 +3547,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   fieldRank?: number;
   /**
    * @remarks
-   * Source of the field. This type of variable does not return this field.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3555,7 +3555,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   fieldSource?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -3563,7 +3563,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   fieldType?: string;
   /**
    * @remarks
-   * Variable ID.
+   * The variable ID.
    * 
    * @example
    * 3174
@@ -3579,7 +3579,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   inputFieldType?: string;
   /**
    * @remarks
-   * Required parameter. This field is not returned for this type of variable.
+   * The required parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3587,7 +3587,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   inputRequired?: string;
   /**
    * @remarks
-   * Input parameters. Only returned when custom system variables are defined.
+   * The input parameters. This field is returned only for custom system variables.
    * 
    * @example
    * ip
@@ -3595,7 +3595,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * ex_isvspbF2c7ac
@@ -3603,7 +3603,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   name?: string;
   /**
    * @remarks
-   * Anomaly value. Returned when the variable is a custom variable (type= EXPRESSION).
+   * The outlier value. This field is returned when the variable is a custom variable (type=EXPRESSION).
    * 
    * @example
    * -1
@@ -3611,12 +3611,12 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   outlier?: string;
   /**
    * @remarks
-   * Output value threshold.
+   * The output value threshold.
    */
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectSelfVariablesOutputThreshold;
   /**
    * @remarks
-   * Parent node. This field is not returned currently.
+   * The parent node. This field is not currently returned.
    * 
    * @example
    * This type does not have this field
@@ -3624,7 +3624,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   parentName?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -3632,7 +3632,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 获取手机号前七位
@@ -3640,7 +3640,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * EXPRESSION
@@ -3648,12 +3648,12 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   type?: string;
   /**
    * @remarks
-   * Variable metric information. This field is not returned for this type of variable.
+   * The variable metric information. This field is not returned for this type of variable.
    */
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectSelfVariablesVariableVelocity;
   /**
    * @remarks
-   * x label. This type of variable does not return this field.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3661,7 +3661,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
   xLabel?: string;
   /**
    * @remarks
-   * y label. This type of variable does not return this field.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3745,7 +3745,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSelfVariables exte
 export class DescribeEventVariableListResponseBodyResultObjectSysVariablesOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 10
@@ -3753,7 +3753,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariablesOutput
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 1
@@ -3785,7 +3785,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariablesOutput
 export class DescribeEventVariableListResponseBodyResultObjectSysVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * iv value. This type of variable does not return this field.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3815,7 +3815,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariablesVariab
 export class DescribeEventVariableListResponseBodyResultObjectSysVariables extends $dara.Model {
   /**
    * @remarks
-   * Variable code.
+   * The variable code.
    * 
    * @example
    * parseIpV2(ip)?.cityId
@@ -3823,7 +3823,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   code?: string;
   /**
    * @remarks
-   * Data distribution display, in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3831,7 +3831,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   dataDisplay?: string;
   /**
    * @remarks
-   * ID of the bound variable definition.
+   * The bound variable definition ID.
    * 
    * @example
    * 2488
@@ -3839,7 +3839,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   defineId?: string;
   /**
    * @remarks
-   * Description of the variable.
+   * The variable description.
    * 
    * @example
    * 通过IP地址库解析IP所在的城市Code，例如，输入“42.120.74.211”，经过该变量运算，输出“330100”。
@@ -3847,7 +3847,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   description?: string;
   /**
    * @remarks
-   * Display type and group label.
+   * The display type and group label.
    * 
    * @example
    * SYSTEM_BIND
@@ -3855,7 +3855,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   displayType?: string;
   /**
    * @remarks
-   * Calculate the expression display value. This type of variable does not return this field.
+   * The display value of the calculation expression. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3863,7 +3863,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   expressionTitle?: string;
   /**
    * @remarks
-   * Favorite identifier.
+   * The favorite flag.
    * 
    * @example
    * false
@@ -3871,7 +3871,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Details of the field pool. This type of variable does not return this field.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3879,7 +3879,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   fieldDetail?: string;
   /**
    * @remarks
-   * Field sorting.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -3887,7 +3887,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   fieldRank?: number;
   /**
    * @remarks
-   * Source of the field. This type of variable does not return this field.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3895,7 +3895,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   fieldSource?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -3903,7 +3903,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   fieldType?: string;
   /**
    * @remarks
-   * Variable ID.
+   * The variable ID.
    * 
    * @example
    * 3151
@@ -3911,7 +3911,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   id?: number;
   /**
    * @remarks
-   * Input type of the parameter. This field is not returned for this type of variable.
+   * The input type of the parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3919,7 +3919,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   inputFieldType?: string;
   /**
    * @remarks
-   * Required parameter. This field is not returned for this type of variable.
+   * The required parameter. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3927,7 +3927,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   inputRequired?: string;
   /**
    * @remarks
-   * Variable value input.
+   * The variable value input.
    * 
    * @example
    * ip
@@ -3935,7 +3935,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * __ipLocationCityCode__
@@ -3943,7 +3943,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   name?: string;
   /**
    * @remarks
-   * Outlier value. This field is not returned for this type of variable.
+   * The outlier value. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -3951,12 +3951,12 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   outlier?: string;
   /**
    * @remarks
-   * Output value threshold.
+   * The output value threshold.
    */
   outputThreshold?: DescribeEventVariableListResponseBodyResultObjectSysVariablesOutputThreshold;
   /**
    * @remarks
-   * Parent name.
+   * The parent name.
    * 
    * @example
    * 无
@@ -3964,7 +3964,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   parentName?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -3972,7 +3972,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * IP所在地_城市Code
@@ -3980,7 +3980,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * SYSTEM_BIND
@@ -3988,12 +3988,12 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   type?: string;
   /**
    * @remarks
-   * Variable metric information. This field is not returned for this type of variable.
+   * The variable metric information. This field is not returned for this type of variable.
    */
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectSysVariablesVariableVelocity;
   /**
    * @remarks
-   * x label. This type of variable does not return this field.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4001,7 +4001,7 @@ export class DescribeEventVariableListResponseBodyResultObjectSysVariables exten
   xLabel?: string;
   /**
    * @remarks
-   * y label. This type of variable does not return this field.
+   * The Y-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4125,7 +4125,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariablesO
 export class DescribeEventVariableListResponseBodyResultObjectVelocityVariablesVariableVelocity extends $dara.Model {
   /**
    * @remarks
-   * The IV value. This field is not returned for this type of variable.
+   * The information value (IV). This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4155,7 +4155,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariablesV
 export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables extends $dara.Model {
   /**
    * @remarks
-   * The code of the variable.
+   * The variable code.
    * 
    * @example
    * deReadVelocity(userId,\\"hFsEFUEe88a\\",1,\\"H\\",0,true,\\"COUNT\\")
@@ -4163,7 +4163,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   code?: string;
   /**
    * @remarks
-   * Data distribution display, in JSON format. This field is not returned for this type of variable.
+   * The data distribution display in JSON format. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4171,7 +4171,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   dataDisplay?: string;
   /**
    * @remarks
-   * The definition ID of the variable. This field is not returned for this type of variable.
+   * The variable definition ID. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4179,7 +4179,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   defineId?: string;
   /**
    * @remarks
-   * The description of the variable.
+   * The variable description.
    * 
    * @example
    * 累计用户省份次数。
@@ -4187,7 +4187,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   description?: string;
   /**
    * @remarks
-   * The display type and grouping label.
+   * The display type and group label.
    * 
    * @example
    * SELF_VELOCITY
@@ -4211,7 +4211,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * The detailed information of the field in the field pool. This field is not returned for this type of variable.
+   * The field pool field details. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4219,7 +4219,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   fieldDetail?: string;
   /**
    * @remarks
-   * The field rank.
+   * The field sort order.
    * 
    * @example
    * 0
@@ -4227,7 +4227,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   fieldRank?: number;
   /**
    * @remarks
-   * The source of the field. This field is not returned for this type of variable.
+   * The field source. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4235,7 +4235,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   fieldSource?: string;
   /**
    * @remarks
-   * The type of the field.
+   * The field type.
    * 
    * @example
    * DOUBLE
@@ -4267,7 +4267,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   inputRequired?: string;
   /**
    * @remarks
-   * Multiple input parameters separated by commas. This field is not returned for this type of variable.
+   * The input parameters, separated by commas if multiple. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4275,7 +4275,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   inputs?: string;
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * hFsEFUEe88a
@@ -4312,7 +4312,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   sourceType?: string;
   /**
    * @remarks
-   * The title of the variable.
+   * The title.
    * 
    * @example
    * 累计用户省份次数
@@ -4320,7 +4320,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   title?: string;
   /**
    * @remarks
-   * The type of the variable.
+   * The variable type.
    * 
    * @example
    * SELF_VELOCITY
@@ -4333,7 +4333,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   variableVelocity?: DescribeEventVariableListResponseBodyResultObjectVelocityVariablesVariableVelocity;
   /**
    * @remarks
-   * The X label. This field is not returned for this type of variable.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4341,7 +4341,7 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
   xLabel?: string;
   /**
    * @remarks
-   * The Y label. This field is not returned for this type of variable.
+   * The X-axis label. This field is not returned for this type of variable.
    * 
    * @example
    * This type does not have this field
@@ -4425,67 +4425,67 @@ export class DescribeEventVariableListResponseBodyResultObjectVelocityVariables 
 export class DescribeEventVariableListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Action variable.
+   * The action variables.
    */
   actions?: DescribeEventVariableListResponseBodyResultObjectActions[];
   /**
    * @remarks
-   * Device variable.
+   * The device variables.
    */
   deviceVariables?: DescribeEventVariableListResponseBodyResultObjectDeviceVariables[];
   /**
    * @remarks
-   * Custom variable.
+   * The custom variables.
    */
   expressionVariables?: DescribeEventVariableListResponseBodyResultObjectExpressionVariables[];
   /**
    * @remarks
-   * Favorite variables.
+   * The favorite variables.
    */
   favoriteVariables?: DescribeEventVariableListResponseBodyResultObjectFavoriteVariables[];
   /**
    * @remarks
-   * Intermediate variable return object.
+   * The intermediate variable response object.
    */
   middleVariables?: DescribeEventVariableListResponseBodyResultObjectMiddleVariables[];
   /**
    * @remarks
-   * An array of model variables.
+   * The model variables.
    */
   modelVariables?: DescribeEventVariableListResponseBodyResultObjectModelVariables[];
   /**
    * @remarks
-   * List of name variables.
+   * The list variables.
    */
   nameList?: DescribeEventVariableListResponseBodyResultObjectNameList[];
   /**
    * @remarks
-   * List of available functions for the original variable.
+   * The list of available functions for native variables.
    */
   nativeVariableFunctions?: DescribeEventVariableListResponseBodyResultObjectNativeVariableFunctions[];
   /**
    * @remarks
-   * List of event fields.
+   * The list of event fields.
    */
   nativeVariables?: DescribeEventVariableListResponseBodyResultObjectNativeVariables[];
   /**
    * @remarks
-   * An array of custom query variables.
+   * The custom query variables.
    */
   queryVariables?: DescribeEventVariableListResponseBodyResultObjectQueryVariables[];
   /**
    * @remarks
-   * Custom variables (custom variables, cumulative variables, custom system variables).
+   * The custom variables (custom variables, cumulative variables, and custom system variables).
    */
   selfVariables?: DescribeEventVariableListResponseBodyResultObjectSelfVariables[];
   /**
    * @remarks
-   * System variables.
+   * The system variables.
    */
   sysVariables?: DescribeEventVariableListResponseBodyResultObjectSysVariables[];
   /**
    * @remarks
-   * Other related variables.
+   * The other variables.
    * 
    * @example
    * {}
@@ -4493,7 +4493,7 @@ export class DescribeEventVariableListResponseBodyResultObject extends $dara.Mod
   thirdVariables?: { [key: string]: any };
   /**
    * @remarks
-   * An array of accumulated variables.
+   * The custom cumulative variables.
    */
   velocityVariables?: DescribeEventVariableListResponseBodyResultObjectVelocityVariables[];
   static names(): { [key: string]: string } {
@@ -4588,7 +4588,7 @@ export class DescribeEventVariableListResponseBodyResultObject extends $dara.Mod
 export class DescribeEventVariableListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -4596,7 +4596,7 @@ export class DescribeEventVariableListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object.
+   * The response object.
    */
   resultObject?: DescribeEventVariableListResponseBodyResultObject;
   static names(): { [key: string]: string } {

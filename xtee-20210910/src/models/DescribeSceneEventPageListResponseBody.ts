@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Number of common rules
+   * The number of General Policy rules.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   commonRuleCount?: string;
   /**
    * @remarks
-   * Number of custom rules
+   * The number of custom policies.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   customRuleCount?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -29,7 +29,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -37,7 +37,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   eventName?: string;
   /**
    * @remarks
-   * Modification time
+   * The time when the event was last modified.
    * 
    * @example
    * 1565701886000
@@ -45,7 +45,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   gmtModified?: string;
   /**
    * @remarks
-   * Modifier
+   * The user who last modified the event.
    * 
    * @example
    * 公有云用户uid
@@ -53,7 +53,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   modifier?: string;
   /**
    * @remarks
-   * Number of custom rules
+   * The number of user-defined policies.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   normalRuleCount?: string;
   /**
    * @remarks
-   * Service code
+   * The service code.
    * 
    * @example
    * device_risk
@@ -69,7 +69,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   service?: string;
   /**
    * @remarks
-   * Usage status
+   * The usage status.
    * 
    * @example
    * 使用/未使用
@@ -77,7 +77,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
   useStatus?: string;
   /**
    * @remarks
-   * Number of white-box rules
+   * The number of whitebox implementation policies.
    * 
    * @example
    * 10
@@ -125,7 +125,7 @@ export class DescribeSceneEventPageListResponseBodyResultObject extends $dara.Mo
 export class DescribeSceneEventPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class DescribeSceneEventPageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of items per page. Default value: 20, minimum value: 1, maximum value: 50.
+   * The number of entries per page in the response. Default value: 20. Minimum value: 1. Maximum value: 50.
    * 
    * @example
    * 20
@@ -141,7 +141,7 @@ export class DescribeSceneEventPageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID, each request has a unique value, which facilitates subsequent troubleshooting
+   * The request ID. Each request has a unique ID for troubleshooting purposes.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -149,12 +149,12 @@ export class DescribeSceneEventPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return array
+   * The returned array.
    */
   resultObject?: DescribeSceneEventPageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -162,7 +162,7 @@ export class DescribeSceneEventPageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 9

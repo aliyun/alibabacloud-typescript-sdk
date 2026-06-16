@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSafOrderResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Expiration date (timestamp).
+   * The expiration date (UNIX timestamp).
    * 
    * @example
    * 1755076800000
@@ -35,7 +35,7 @@ export class DescribeSafOrderResponseBodyResultObject extends $dara.Model {
 export class DescribeSafOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -43,7 +43,7 @@ export class DescribeSafOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object.
+   * The response object.
    */
   resultObject?: DescribeSafOrderResponseBodyResultObject;
   static names(): { [key: string]: string } {

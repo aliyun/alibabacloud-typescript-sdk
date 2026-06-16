@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvgExecuteCostReportResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Comparison with yesterday\\"s average execution time
+   * The day-over-day ratio compared to yesterday\\"s average execution duration.
    * 
    * @example
    * 0.2
@@ -13,7 +13,7 @@ export class DescribeAvgExecuteCostReportResponseBodyResultObject extends $dara.
   ratio?: string;
   /**
    * @remarks
-   * Today\\"s average execution time
+   * The average execution duration for today.
    * 
    * @example
    * 0.1 毫秒
@@ -45,7 +45,7 @@ export class DescribeAvgExecuteCostReportResponseBodyResultObject extends $dara.
 export class DescribeAvgExecuteCostReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class DescribeAvgExecuteCostReportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -61,7 +61,7 @@ export class DescribeAvgExecuteCostReportResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -69,7 +69,7 @@ export class DescribeAvgExecuteCostReportResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -77,12 +77,12 @@ export class DescribeAvgExecuteCostReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeAvgExecuteCostReportResponseBodyResultObject[];
   /**
    * @remarks
-   * Whether the call was successful
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

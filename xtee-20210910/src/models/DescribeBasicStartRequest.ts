@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBasicStartRequest extends $dara.Model {
   /**
    * @remarks
-   * Application appkey.
+   * The AppKey of the application.
    * 
    * @example
    * ***
@@ -13,7 +13,7 @@ export class DescribeBasicStartRequest extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * @example
    * 20250320
@@ -21,7 +21,7 @@ export class DescribeBasicStartRequest extends $dara.Model {
   endDs?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class DescribeBasicStartRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Service to call
+   * The service to call.
    * 
    * @example
    * service_tender_cee
@@ -37,7 +37,7 @@ export class DescribeBasicStartRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * @example
    * 20250310

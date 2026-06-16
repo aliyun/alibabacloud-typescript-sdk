@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventResultBarChartRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * Sets the language type for requests and responses. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeEventResultBarChartRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, accurate to milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeEventResultBarChartRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, accurate to milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeEventResultBarChartRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Event code.
+   * Event codes.
    * 
    * @example
    * de_ahqhsw7665,de_ahqhsw7622
@@ -43,7 +43,7 @@ export class DescribeEventResultBarChartRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * Region ID.
    * 
    * @example
    * cn-hangzhou

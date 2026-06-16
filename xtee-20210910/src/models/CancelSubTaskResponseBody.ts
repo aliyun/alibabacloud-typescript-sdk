@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelSubTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * Message returned by the API request.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
    */
   requestId?: string;
   /**
+   * @remarks
+   * Return Result.
+   * 
    * @example
    * true
    */

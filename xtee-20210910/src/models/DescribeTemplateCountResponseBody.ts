@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplateCountResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Template quantity limit.
+   * The template quantity limit.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class DescribeTemplateCountResponseBodyResultObject extends $dara.Model {
   limit?: boolean;
   /**
    * @remarks
-   * Maximum count
+   * The maximum number of items.
    * 
    * @example
    * 1000
@@ -21,7 +21,7 @@ export class DescribeTemplateCountResponseBodyResultObject extends $dara.Model {
   maxTotalItem?: number;
   /**
    * @remarks
-   * Total count.
+   * The total number of items.
    * 
    * @example
    * 13
@@ -55,7 +55,7 @@ export class DescribeTemplateCountResponseBodyResultObject extends $dara.Model {
 export class DescribeTemplateCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -63,7 +63,7 @@ export class DescribeTemplateCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeTemplateCountResponseBodyResultObject;
   static names(): { [key: string]: string } {

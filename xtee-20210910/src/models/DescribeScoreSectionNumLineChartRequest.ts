@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScoreSectionNumLineChartRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeScoreSectionNumLineChartRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Start timestamp, in milliseconds.
+   * The start timestamp, in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeScoreSectionNumLineChartRequest extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * Bypass event code
+   * The bypass event codes.
    * 
    * @example
    * de_amnhke2482
@@ -33,7 +33,7 @@ export class DescribeScoreSectionNumLineChartRequest extends $dara.Model {
   byPassEventCodes?: string;
   /**
    * @remarks
-   * End timestamp, in milliseconds.
+   * The end timestamp, in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DescribeScoreSectionNumLineChartRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Main event code
+   * The main event codes.
    * 
    * @example
    * de_avcqzc3714
@@ -51,7 +51,7 @@ export class DescribeScoreSectionNumLineChartRequest extends $dara.Model {
   mainEventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -59,7 +59,7 @@ export class DescribeScoreSectionNumLineChartRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Diversion event code
+   * The diversion event codes.
    * 
    * @example
    * de_amnhke2488

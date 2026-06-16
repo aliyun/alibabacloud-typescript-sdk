@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleCountByUserIdResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Whether the limit condition is reached. Values: -**true**: Yes-**false**: No
+   * Indicates whether the limit condition is reached. Valid values: - **true**: The limit condition is reached. - **false**: The limit condition is not reached.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class DescribeRuleCountByUserIdResponseBodyResultObject extends $dara.Mod
   limit?: boolean;
   /**
    * @remarks
-   * Maximum number of items
+   * The maximum number of entries.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeRuleCountByUserIdResponseBodyResultObject extends $dara.Mod
   maxTotalItem?: number;
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 27
@@ -55,7 +55,7 @@ export class DescribeRuleCountByUserIdResponseBodyResultObject extends $dara.Mod
 export class DescribeRuleCountByUserIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -63,7 +63,7 @@ export class DescribeRuleCountByUserIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    */
   resultObject?: DescribeRuleCountByUserIdResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara.Model {
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_aamexg3015
@@ -13,7 +13,7 @@ export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 测试
@@ -21,7 +21,7 @@ export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara
   eventName?: string;
   /**
    * @remarks
-   * Event status.
+   * The event status.
    * 
    * @example
    * ONLINE
@@ -29,7 +29,7 @@ export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara
   eventStatus?: string;
   /**
    * @remarks
-   * Event type.
+   * The event type.
    * 
    * @example
    * BYPASS
@@ -37,7 +37,7 @@ export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara
   eventType?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -45,7 +45,7 @@ export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time
+   * The modification time.
    * 
    * @example
    * 1621578648000
@@ -53,7 +53,7 @@ export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara
   gmtModified?: number;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 334
@@ -61,7 +61,7 @@ export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara
   id?: number;
   /**
    * @remarks
-   * Total number of rules.
+   * The total number of rules.
    * 
    * @example
    * 10
@@ -105,12 +105,12 @@ export class DescribeEventPageListResponseBodyResultObjectChildren extends $dara
 export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Object
+   * The object.
    */
   children?: DescribeEventPageListResponseBodyResultObjectChildren[];
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -118,7 +118,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -126,7 +126,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Event status.
+   * The event status.
    * 
    * @example
    * ONLINE
@@ -134,7 +134,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   eventStatus?: string;
   /**
    * @remarks
-   * Event type.
+   * The event type.
    * 
    * @example
    * MAIN
@@ -142,7 +142,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -150,7 +150,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -158,7 +158,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * Database ID.
+   * The database ID.
    * 
    * @example
    * 497
@@ -166,7 +166,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Total number of rules.
+   * The total number of rules.
    * 
    * @example
    * 10
@@ -174,7 +174,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   ruleCount?: number;
   /**
    * @remarks
-   * Template code
+   * The template code.
    * 
    * @example
    * register
@@ -182,7 +182,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * Template name.
+   * The template name.
    * 
    * @example
    * 注册模版
@@ -190,7 +190,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * Template type
+   * The template type.
    * 
    * @example
    * UNIVERSAL
@@ -198,7 +198,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * Number of customer authorizations
+   * The number of authorized users.
    * 
    * @example
    * 1
@@ -255,7 +255,7 @@ export class DescribeEventPageListResponseBodyResultObject extends $dara.Model {
 export class DescribeEventPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -263,7 +263,7 @@ export class DescribeEventPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -271,7 +271,7 @@ export class DescribeEventPageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -279,12 +279,12 @@ export class DescribeEventPageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeEventPageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -292,7 +292,7 @@ export class DescribeEventPageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 9

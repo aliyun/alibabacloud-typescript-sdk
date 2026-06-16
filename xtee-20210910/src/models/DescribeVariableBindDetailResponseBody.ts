@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableBindDetailResponseBodyResultObjectParams extends $dara.Model {
   /**
    * @remarks
-   * Event field name
+   * The name of the event field.
    * 
    * @example
    * ip
@@ -13,7 +13,7 @@ export class DescribeVariableBindDetailResponseBodyResultObjectParams extends $d
   eventFieldName?: string;
   /**
    * @remarks
-   * Whether it is required, default is false
+   * Indicates whether this parameter is required. Default value: false.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class DescribeVariableBindDetailResponseBodyResultObjectParams extends $d
   required?: boolean;
   /**
    * @remarks
-   * Bound variable name
+   * The name of the bound variable.
    * 
    * @example
    * ip
@@ -55,7 +55,7 @@ export class DescribeVariableBindDetailResponseBodyResultObjectParams extends $d
 export class DescribeVariableBindDetailResponseBodyResultObjectRelationRules extends $dara.Model {
   /**
    * @remarks
-   * Policy rule ID
+   * The policy ruleId.
    * 
    * @example
    * 104566
@@ -63,7 +63,7 @@ export class DescribeVariableBindDetailResponseBodyResultObjectRelationRules ext
   key?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别
@@ -95,7 +95,7 @@ export class DescribeVariableBindDetailResponseBodyResultObjectRelationRules ext
 export class DescribeVariableBindDetailResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Whether modification is allowed, default is false
+   * Indicates whether modification is allowed. Default value: false.
    * 
    * @example
    * false
@@ -103,7 +103,7 @@ export class DescribeVariableBindDetailResponseBodyResultObject extends $dara.Mo
   allowModify?: boolean;
   /**
    * @remarks
-   * Variable definition ID
+   * The variable definition ID.
    * 
    * @example
    * 10
@@ -111,7 +111,7 @@ export class DescribeVariableBindDetailResponseBodyResultObject extends $dara.Mo
   defineId?: number;
   /**
    * @remarks
-   * Variable definition title
+   * The variable definition title.
    * 
    * @example
    * IP所在地_城市Code
@@ -119,7 +119,7 @@ export class DescribeVariableBindDetailResponseBodyResultObject extends $dara.Mo
   defineTitle?: string;
   /**
    * @remarks
-   * Variable description information
+   * The variable description.
    * 
    * @example
    * 描述
@@ -127,7 +127,7 @@ export class DescribeVariableBindDetailResponseBodyResultObject extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -135,7 +135,7 @@ export class DescribeVariableBindDetailResponseBodyResultObject extends $dara.Mo
   eventCode?: string;
   /**
    * @remarks
-   * Variable ID.
+   * The variable ID.
    * 
    * @example
    * 497
@@ -143,17 +143,17 @@ export class DescribeVariableBindDetailResponseBodyResultObject extends $dara.Mo
   id?: number;
   /**
    * @remarks
-   * Bound parameters.
+   * The bound parameters.
    */
   params?: DescribeVariableBindDetailResponseBodyResultObjectParams[];
   /**
    * @remarks
-   * List of associated policies
+   * The list of associated policies.
    */
   relationRules?: DescribeVariableBindDetailResponseBodyResultObjectRelationRules[];
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 变量title
@@ -205,7 +205,7 @@ export class DescribeVariableBindDetailResponseBodyResultObject extends $dara.Mo
 export class DescribeVariableBindDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -213,7 +213,7 @@ export class DescribeVariableBindDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeVariableBindDetailResponseBodyResultObject;
   static names(): { [key: string]: string } {

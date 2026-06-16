@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllDataSourceResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -13,7 +13,7 @@ export class DescribeAllDataSourceResponseBodyResultObject extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -21,7 +21,7 @@ export class DescribeAllDataSourceResponseBodyResultObject extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Policy primary key ID
+   * The primary key ID of the policy.
    * 
    * @example
    * 497
@@ -55,7 +55,7 @@ export class DescribeAllDataSourceResponseBodyResultObject extends $dara.Model {
 export class DescribeAllDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -63,7 +63,7 @@ export class DescribeAllDataSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeAllDataSourceResponseBodyResultObject[];
   static names(): { [key: string]: string } {

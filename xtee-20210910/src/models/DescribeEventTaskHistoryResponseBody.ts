@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventTaskHistoryResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Task code.
+   * The task code.
    * 
    * @example
    * de_aoxcdy9473
@@ -13,7 +13,7 @@ export class DescribeEventTaskHistoryResponseBodyResultObject extends $dara.Mode
   taskCode?: string;
   /**
    * @remarks
-   * Task name
+   * The task name.
    * 
    * @example
    * 仿真任务
@@ -21,7 +21,7 @@ export class DescribeEventTaskHistoryResponseBodyResultObject extends $dara.Mode
   taskName?: string;
   /**
    * @remarks
-   * Task status.
+   * The task status.
    * 
    * @example
    * SUCCESSFUL
@@ -29,7 +29,7 @@ export class DescribeEventTaskHistoryResponseBodyResultObject extends $dara.Mode
   taskStatus?: string;
   /**
    * @remarks
-   * OSS download URL
+   * The OSS download URL.
    * 
    * @example
    * https://xxxxx-oss-xxxxx.xxxxxx.aliyuncs.com/xx/xx/xxx/xxxxxx.csv?Expires=1753433384&OSSAccessKeyId=xxxxxxxxx&Signature=%2F%xxxxxxxxxxxx%3D
@@ -65,7 +65,7 @@ export class DescribeEventTaskHistoryResponseBodyResultObject extends $dara.Mode
 export class DescribeEventTaskHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -73,7 +73,7 @@ export class DescribeEventTaskHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeEventTaskHistoryResponseBodyResultObject[];
   static names(): { [key: string]: string } {

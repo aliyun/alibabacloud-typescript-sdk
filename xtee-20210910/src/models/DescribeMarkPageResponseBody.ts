@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMarkPageResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Field name.
+   * The field name.
    * 
    * @example
    * mobile
@@ -13,7 +13,7 @@ export class DescribeMarkPageResponseBodyResultObject extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * Field value.
+   * The field value.
    * 
    * @example
    * 18000000000
@@ -21,7 +21,7 @@ export class DescribeMarkPageResponseBodyResultObject extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 2793
@@ -29,7 +29,9 @@ export class DescribeMarkPageResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Mark (0 No / 1 Yes).
+   * Indicates whether the entry is tagged. Valid values:
+   * - **0**: not tagged.
+   * - **1**: tagged.
    * 
    * @example
    * 1
@@ -65,7 +67,7 @@ export class DescribeMarkPageResponseBodyResultObject extends $dara.Model {
 export class DescribeMarkPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -73,7 +75,7 @@ export class DescribeMarkPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -81,7 +83,7 @@ export class DescribeMarkPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -89,12 +91,12 @@ export class DescribeMarkPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   resultObject?: DescribeMarkPageResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -102,7 +104,7 @@ export class DescribeMarkPageResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

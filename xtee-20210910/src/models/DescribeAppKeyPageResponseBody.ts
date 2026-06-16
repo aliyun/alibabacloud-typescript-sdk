@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Android SDK download URL.
+   * The download URL of the Android SDK.
    * 
    * @example
    * https://xxxxx-oss-xxxxx.xxxxxx.aliyuncs.com/xx/xx/xxx/xxxxxx.csv?Expires=1753433384&OSSAccessKeyId=xxxxxxxxx&Signature=%2F%xxxxxxxxxxxx%3D
@@ -13,7 +13,7 @@ export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
   androidSdkUrl?: string;
   /**
    * @remarks
-   * Android SDK version number.
+   * The version number of the Android SDK.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
   androidSdkVersion?: string;
   /**
    * @remarks
-   * Application appkey.
+   * The appKey of the application.
    * 
    * @example
    * sh9a71f07fhs556bd767586307e82795
@@ -29,7 +29,7 @@ export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -37,7 +37,7 @@ export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * iOS SDK download URL.
+   * The download URL of the iOS SDK.
    * 
    * @example
    * https://xxxxx-oss-xxxxx.xxxxxx.aliyuncs.com/xx/xx/xxx/xxxxxx.csv?Expires=1753433384&OSSAccessKeyId=xxxxxxxxx&Signature=%2F%xxxxxxxxxxxx%3D
@@ -45,7 +45,7 @@ export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
   iosSdkUrl?: string;
   /**
    * @remarks
-   * iOS SDK version number.
+   * The version number of the iOS SDK.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
   iosSdkVersion?: string;
   /**
    * @remarks
-   * Memo.
+   * The remarks.
    * 
    * @example
    * 备注
@@ -69,7 +69,7 @@ export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
   sdkItems?: string;
   /**
    * @remarks
-   * Whether this appKey is integrated.
+   * Indicates whether the appKey is integrated.
    * 
    * @example
    * false
@@ -115,7 +115,7 @@ export class DescribeAppKeyPageResponseBodyResultObject extends $dara.Model {
 export class DescribeAppKeyPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * E01E1B4A-6747-5329-9046-B6D6B2D91349
@@ -123,7 +123,7 @@ export class DescribeAppKeyPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -131,7 +131,7 @@ export class DescribeAppKeyPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of items per page, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -139,12 +139,12 @@ export class DescribeAppKeyPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   resultObject?: DescribeAppKeyPageResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -152,7 +152,7 @@ export class DescribeAppKeyPageResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

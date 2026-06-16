@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePocEvRequest extends $dara.Model {
   /**
    * @remarks
-   * Date format type
+   * The date format type.
    * 
    * @example
    * yyyyMMdd
@@ -13,8 +13,8 @@ export class CreatePocEvRequest extends $dara.Model {
   dateFormat?: string;
   /**
    * @remarks
-   * File name.
-   * > The file name must end with txt or sql. For example, test.txt, test.sql.
+   * The file name.
+   * > The file name must end with txt or sql. Example: test.txt or test.sql.
    * 
    * @example
    * test.csv
@@ -22,7 +22,7 @@ export class CreatePocEvRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * File type
+   * The file type.
    * 
    * @example
    * CSV
@@ -30,7 +30,7 @@ export class CreatePocEvRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * File URL.
+   * The file URL.
    * 
    * @example
    * saf/cpoc/953c883cde33b2e21d722eb661d26375/测试文件模板-通用.csv
@@ -38,9 +38,9 @@ export class CreatePocEvRequest extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -48,7 +48,7 @@ export class CreatePocEvRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -56,7 +56,7 @@ export class CreatePocEvRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * anti_fraud_v2
@@ -64,7 +64,7 @@ export class CreatePocEvRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 注册风险
@@ -72,7 +72,7 @@ export class CreatePocEvRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Scenario.
+   * The scenario.
    * 
    * @example
    * INTERNET
@@ -80,7 +80,7 @@ export class CreatePocEvRequest extends $dara.Model {
   tab?: string;
   /**
    * @remarks
-   * Task name.
+   * The task name.
    * 
    * @example
    * er-log-s3
@@ -88,7 +88,7 @@ export class CreatePocEvRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * Access type.
+   * The access type.
    * 
    * @example
    * SAF_CONSOLE

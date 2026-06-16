@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSampleListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Database ID.
+   * The database ID.
    * 
    * @example
    * 497
@@ -13,7 +13,7 @@ export class DescribeSampleListResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Sample tags.
+   * The sample tags.
    * 
    * @example
    * rm0102
@@ -21,7 +21,7 @@ export class DescribeSampleListResponseBodyResultObject extends $dara.Model {
   sampleTags?: string;
   /**
    * @remarks
-   * Sample type
+   * The sample type.
    * 
    * @example
    * PHONE
@@ -29,7 +29,7 @@ export class DescribeSampleListResponseBodyResultObject extends $dara.Model {
   sampleType?: number;
   /**
    * @remarks
-   * Sample value.
+   * The sample value.
    * 
    * @example
    * 1770000000
@@ -37,7 +37,7 @@ export class DescribeSampleListResponseBodyResultObject extends $dara.Model {
   sampleValue?: string;
   /**
    * @remarks
-   * Update time.
+   * The update time.
    * 
    * @example
    * 1699450018265
@@ -45,7 +45,7 @@ export class DescribeSampleListResponseBodyResultObject extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeSampleListResponseBodyResultObject extends $dara.Model {
 export class DescribeSampleListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -93,7 +93,7 @@ export class DescribeSampleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeSampleListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -109,12 +109,12 @@ export class DescribeSampleListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned objects.
    */
   resultObject?: DescribeSampleListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -122,7 +122,7 @@ export class DescribeSampleListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total pages
+   * The total number of pages.
    * 
    * @example
    * 1

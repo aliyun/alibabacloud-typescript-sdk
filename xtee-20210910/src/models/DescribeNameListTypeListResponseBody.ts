@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNameListTypeListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Match Key.
+   * The matching key.
    * 
    * @example
    * accountId
@@ -13,7 +13,7 @@ export class DescribeNameListTypeListResponseBodyResultObject extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * Variable value
+   * The variable value.
    * 
    * @example
    * 账号ID
@@ -45,7 +45,7 @@ export class DescribeNameListTypeListResponseBodyResultObject extends $dara.Mode
 export class DescribeNameListTypeListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -53,7 +53,7 @@ export class DescribeNameListTypeListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeNameListTypeListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

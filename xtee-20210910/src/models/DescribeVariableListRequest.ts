@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and responses, default value is **zh**. Values: 
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type.
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Associated event ID.
+   * The ID of the associated event.
    * 
    * @example
    * de_avypfd8253
@@ -47,7 +47,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   refObjId?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -63,7 +63,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Type.
+   * The type.
    * 
    * @example
    * IDENTIFY_SERVICE
@@ -71,7 +71,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * JSON array string of types.
+   * The type JSON array string.
    * 
    * @example
    * [\\"coupon_abuse_detection\\"]
@@ -79,7 +79,7 @@ export class DescribeVariableListRequest extends $dara.Model {
   typesStr?: string;
   /**
    * @remarks
-   * Value for fuzzy search.
+   * The value for fuzzy match.
    * 
    * @example
    * 注册

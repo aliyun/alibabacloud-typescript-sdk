@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNameListVariablePageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Used capacity
+   * The used capacity.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   capacity?: number;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 变量描述
@@ -21,7 +21,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   description?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -29,7 +29,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -37,7 +37,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   gmtModified?: number;
   /**
    * @remarks
-   * Name list ID
+   * The named list ID.
    * 
    * @example
    * 497
@@ -45,7 +45,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   id?: number;
   /**
    * @remarks
-   * Remaining capacity
+   * The remaining capacity.
    * 
    * @example
    * 99997
@@ -53,7 +53,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   leftCapacity?: number;
   /**
    * @remarks
-   * Parameter name.
+   * The parameter name.
    * 
    * @example
    * nl_UN8otElLb490
@@ -61,7 +61,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   name?: string;
   /**
    * @remarks
-   * Name list type
+   * The named list type.
    * 
    * @example
    * 手机号
@@ -69,7 +69,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   nameListType?: string;
   /**
    * @remarks
-   * Associated event eventCode
+   * The associated event code.
    * 
    * @example
    * -1
@@ -77,7 +77,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   refObjId?: string;
   /**
    * @remarks
-   * Association type
+   * The association type.
    * 
    * @example
    * EVENT
@@ -85,7 +85,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   refObjType?: number;
   /**
    * @remarks
-   * Data source
+   * The data source.
    * 
    * @example
    * SAF
@@ -93,7 +93,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 白名单
@@ -101,7 +101,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   title?: string;
   /**
    * @remarks
-   * Variable type
+   * The variable type.
    * 
    * @example
    * NAME_LIST
@@ -109,7 +109,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
   type?: string;
   /**
    * @remarks
-   * User UID
+   * The user UID.
    * 
    * @example
    * 180650758xxxxxxx
@@ -165,7 +165,7 @@ export class DescribeNameListVariablePageListResponseBodyResultObject extends $d
 export class DescribeNameListVariablePageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -173,7 +173,7 @@ export class DescribeNameListVariablePageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -181,7 +181,7 @@ export class DescribeNameListVariablePageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -189,12 +189,12 @@ export class DescribeNameListVariablePageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeNameListVariablePageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 101
@@ -202,7 +202,7 @@ export class DescribeNameListVariablePageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 1

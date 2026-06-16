@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * accessId, a parameter used in OSS SDK uploads, corresponding to OSSAccessKeyId
+   * The access ID. This parameter corresponds to OSSAccessKeyId when you use the OSS SDK for upload.
    * 
    * @example
-   * LTAxxxxxxxxxxxx
+   * LTAIpeYTKEbC0v10
    */
   accessId?: string;
   /**
    * @remarks
-   * OSS host ID.
+   * The host ID of OSS.
    * 
    * @example
    * testvm.biubiubiuu.com
@@ -21,7 +21,7 @@ export class DescribeOssPolicyResponseBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * Key required for file upload.
+   * The key required for file upload.
    * 
    * @example
    * saf/a/uid/ccc
@@ -29,7 +29,7 @@ export class DescribeOssPolicyResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * OSS security policy
+   * The OSS security policy.
    * 
    * @example
    * eyJleHBpxxxxxx
@@ -37,7 +37,7 @@ export class DescribeOssPolicyResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * Signature data.
+   * The signature data.
    * 
    * @example
    * tzl1wL4q8rR/xxxxxx
@@ -45,7 +45,7 @@ export class DescribeOssPolicyResponseBody extends $dara.Model {
   signature?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2

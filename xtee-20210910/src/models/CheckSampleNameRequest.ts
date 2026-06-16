@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckSampleNameRequest extends $dara.Model {
   /**
+   * @remarks
+   * Language of error messages returned by the API. Valid values: zh: Chinese; en: English. Default value: en.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * Area encoding.
+   * 
    * @example
    * cn-hangzhou
    */
   regId?: string;
   /**
+   * @remarks
+   * Sample name.
+   * 
    * @example
    * SampleTest
    */

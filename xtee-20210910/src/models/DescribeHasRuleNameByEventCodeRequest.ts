@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHasRuleNameByEventCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeHasRuleNameByEventCodeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_atvmlf7412
@@ -23,7 +23,7 @@ export class DescribeHasRuleNameByEventCodeRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Excluded policy ID
+   * The ID of the policy to exclude.
    * 
    * @example
    * 10621
@@ -31,7 +31,7 @@ export class DescribeHasRuleNameByEventCodeRequest extends $dara.Model {
   excludeRuleId?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class DescribeHasRuleNameByEventCodeRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 非常见设备

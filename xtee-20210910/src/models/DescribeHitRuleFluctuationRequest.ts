@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHitRuleFluctuationRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeHitRuleFluctuationRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event codes, separated by commas (,).
+   * The event codes. Separate multiple event codes with commas (,).
    * 
    * @example
    * de_ahqhsw7665,de_agbzfi5134
@@ -23,7 +23,7 @@ export class DescribeHitRuleFluctuationRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class DescribeHitRuleFluctuationRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy status
+   * The policy status.
    * 
    * @example
    * DRAFT

@@ -272,7 +272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Variable binding operation
+   * Performs a variable binding operation.
    * 
    * @param request - BindVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -367,7 +367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Variable binding operation
+   * Performs a variable binding operation.
    * 
    * @param request - BindVariableRequest
    * @returns BindVariableResponse
@@ -378,7 +378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务组
+   * Create a task group
    * 
    * @param request - CancelSubTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -421,7 +421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务组
+   * Create a task group
    * 
    * @param request - CancelSubTaskRequest
    * @returns CancelSubTaskResponse
@@ -494,7 +494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if the cumulative number of variables exceeds the limit
+   * Checks whether the number of cumulative variables exceeds the limit.
    * 
    * @param request - CheckCustVariableLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -533,7 +533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if the cumulative number of variables exceeds the limit
+   * Checks whether the number of cumulative variables exceeds the limit.
    * 
    * @param request - CheckCustVariableLimitRequest
    * @returns CheckCustVariableLimitResponse
@@ -544,7 +544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if Creating Variables Exceeds the Limit
+   * Checks whether creating a variable exceeds the upper limit.
    * 
    * @param request - CheckExpressionVariableLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -579,7 +579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if Creating Variables Exceeds the Limit
+   * Checks whether creating a variable exceeds the upper limit.
    * 
    * @param request - CheckExpressionVariableLimitRequest
    * @returns CheckExpressionVariableLimitResponse
@@ -590,7 +590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if the number of fields exceeds the limit
+   * Checks whether the number of fields exceeds the specified limit.
    * 
    * @param request - CheckFieldLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -629,7 +629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if the number of fields exceeds the limit
+   * Checks whether the number of fields exceeds the specified limit.
    * 
    * @param request - CheckFieldLimitRequest
    * @returns CheckFieldLimitResponse
@@ -640,7 +640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 样本名称唯一性校验
+   * Validate sample name uniqueness
    * 
    * @param request - CheckSampleNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -679,7 +679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 样本名称唯一性校验
+   * Validate sample name uniqueness
    * 
    * @param request - CheckSampleNameRequest
    * @returns CheckSampleNameResponse
@@ -690,7 +690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务组名称唯一性校验
+   * Validate the uniqueness of the task group name
    * 
    * @param request - CheckTaskGroupNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -729,7 +729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务组名称唯一性校验
+   * Validate the uniqueness of the task group name
    * 
    * @param request - CheckTaskGroupNameRequest
    * @returns CheckTaskGroupNameResponse
@@ -740,7 +740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validate Variable Reference
+   * Checks variable references.
    * 
    * @param request - CheckUsageVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -779,7 +779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validate Variable Reference
+   * Checks variable references.
    * 
    * @param request - CheckUsageVariableRequest
    * @returns CheckUsageVariableResponse
@@ -906,7 +906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Query Conditions
+   * Creates a query condition.
    * 
    * @param request - CreateAnalysisConditionFavoriteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -973,7 +973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Query Conditions
+   * Creates a query condition.
    * 
    * @param request - CreateAnalysisConditionFavoriteRequest
    * @returns CreateAnalysisConditionFavoriteResponse
@@ -984,7 +984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Export Task
+   * Creates an export task.
    * 
    * @param request - CreateAnalysisExportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1059,7 +1059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Export Task
+   * Creates an export task.
    * 
    * @param request - CreateAnalysisExportTaskRequest
    * @returns CreateAnalysisExportTaskResponse
@@ -1070,7 +1070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create AppKey
+   * Create an AppKey.
    * 
    * @param request - CreateAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1105,7 +1105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create AppKey
+   * Create an AppKey.
    * 
    * @param request - CreateAppKeyRequest
    * @returns CreateAppKeyResponse
@@ -1116,7 +1116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Accumulative Variable
+   * Creates a cumulative variable.
    * 
    * @param request - CreateCustVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1203,7 +1203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Accumulative Variable
+   * Creates a cumulative variable.
    * 
    * @param request - CreateCustVariableRequest
    * @returns CreateCustVariableResponse
@@ -1214,7 +1214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Data Source
+   * Creates a data source.
    * 
    * @param request - CreateDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1265,7 +1265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Data Source
+   * Creates a data source.
    * 
    * @param request - CreateDataSourceRequest
    * @returns CreateDataSourceResponse
@@ -1276,7 +1276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Event
+   * Creates an event.
    * 
    * @param request - CreateEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1339,7 +1339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Event
+   * Creates an event.
    * 
    * @param request - CreateEventRequest
    * @returns CreateEventResponse
@@ -1350,7 +1350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Custom Variable
+   * Creates a custom variable.
    * 
    * @param request - CreateExpressionVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1417,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Custom Variable
+   * Creates a custom variable.
    * 
    * @param request - CreateExpressionVariableRequest
    * @returns CreateExpressionVariableResponse
@@ -1428,7 +1428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add New Field
+   * Creates a field.
    * 
    * @param request - CreateFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1491,7 +1491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add New Field
+   * Creates a field.
    * 
    * @param request - CreateFieldRequest
    * @returns CreateFieldResponse
@@ -1502,7 +1502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建样本记录对客
+   * Create a sample record for the customer.
    * 
    * @param request - CreateForeignPocSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1553,7 +1553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建样本记录对客
+   * Create a sample record for the customer.
    * 
    * @param request - CreateForeignPocSampleRequest
    * @returns CreateForeignPocSampleResponse
@@ -1724,7 +1724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create POC
+   * Creates a POC.
    * 
    * @param request - CreatePocEvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1795,7 +1795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create POC
+   * Creates a POC.
    * 
    * @param request - CreatePocEvRequest
    * @returns CreatePocEvResponse
@@ -1806,7 +1806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建样本记录
+   * Create a sample record
    * 
    * @param request - CreatePocSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1865,7 +1865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建样本记录
+   * Create a sample record
    * 
    * @param request - CreatePocSampleRequest
    * @returns CreatePocSampleResponse
@@ -1876,7 +1876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add New Custom Query Variable
+   * Creates a custom query variable.
    * 
    * @param request - CreateQueryVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1947,7 +1947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add New Custom Query Variable
+   * Creates a custom query variable.
    * 
    * @param request - CreateQueryVariableRequest
    * @returns CreateQueryVariableResponse
@@ -1958,7 +1958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Recommended Event Strategy
+   * Creates a recommended event policy.
    * 
    * @param request - CreateRecommendEventRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2009,7 +2009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Recommended Event Strategy
+   * Creates a recommended event policy.
    * 
    * @param request - CreateRecommendEventRuleRequest
    * @returns CreateRecommendEventRuleResponse
@@ -2020,7 +2020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Recommendation Task
+   * Creates a recommendation task.
    * 
    * @param request - CreateRecommendTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2071,7 +2071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Recommendation Task
+   * Creates a recommendation task.
    * 
    * @param request - CreateRecommendTaskRequest
    * @returns CreateRecommendTaskResponse
@@ -2082,7 +2082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Policy & Version
+   * Creates a policy and version.
    * 
    * @param request - CreateRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2165,7 +2165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Policy & Version
+   * Creates a policy and version.
    * 
    * @param request - CreateRuleRequest
    * @returns CreateRuleResponse
@@ -2176,7 +2176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Sample
+   * Adds a data sample.
    * 
    * @param request - CreateSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2239,7 +2239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Sample
+   * Adds a data sample.
    * 
    * @param request - CreateSampleRequest
    * @returns CreateSampleResponse
@@ -2250,7 +2250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * User-level Single API to Create Sample Batches
+   * Creates a sample batch for a single API at the user level.
    * 
    * @param request - CreateSampleApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2301,7 +2301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * User-level Single API to Create Sample Batches
+   * Creates a sample batch for a single API at the user level.
    * 
    * @param request - CreateSampleApiRequest
    * @returns CreateSampleApiResponse
@@ -2386,7 +2386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Sample Data
+   * Creates sample data.
    * 
    * @param request - CreateSampleDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2449,7 +2449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Sample Data
+   * Creates sample data.
    * 
    * @param request - CreateSampleDataRequest
    * @returns CreateSampleDataResponse
@@ -2460,7 +2460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Task
+   * Creates a task.
    * 
    * @param request - CreateSimulationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2531,7 +2531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Task
+   * Creates a task.
    * 
    * @param request - CreateSimulationTaskRequest
    * @returns CreateSimulationTaskResponse
@@ -2542,7 +2542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消子任务
+   * Cancels a subtask.
    * 
    * @param request - CreateTaskGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2569,6 +2569,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceCodes)) {
       query["ServiceCodes"] = request.serviceCodes;
+    }
+
+    if (!$dara.isNull(request.serviceList)) {
+      query["ServiceList"] = request.serviceList;
     }
 
     if (!$dara.isNull(request.serviceNames)) {
@@ -2605,7 +2609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消子任务
+   * Cancels a subtask.
    * 
    * @param request - CreateTaskGroupRequest
    * @returns CreateTaskGroupResponse
@@ -2698,7 +2702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Query Condition
+   * Deletes a query condition.
    * 
    * @param request - DeleteAnalysisConditionFavoriteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2737,7 +2741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Query Condition
+   * Deletes a query condition.
    * 
    * @param request - DeleteAnalysisConditionFavoriteRequest
    * @returns DeleteAnalysisConditionFavoriteResponse
@@ -2748,7 +2752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Bypass Event
+   * Deletes a bypass event.
    * 
    * @param request - DeleteByPassShuntEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2787,7 +2791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Bypass Event
+   * Deletes a bypass event.
    * 
    * @param request - DeleteByPassShuntEventRequest
    * @returns DeleteByPassShuntEventResponse
@@ -2798,7 +2802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Accumulated Variable
+   * Deletes a cumulative variable.
    * 
    * @param request - DeleteCustVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2845,7 +2849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Accumulated Variable
+   * Deletes a cumulative variable.
    * 
    * @param request - DeleteCustVariableRequest
    * @returns DeleteCustVariableResponse
@@ -2856,7 +2860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Data Source
+   * Deletes a data source.
    * 
    * @param request - DeleteDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2895,7 +2899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Data Source
+   * Deletes a data source.
    * 
    * @param request - DeleteDataSourceRequest
    * @returns DeleteDataSourceResponse
@@ -2960,7 +2964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Custom Variable
+   * Deletes a custom variable.
    * 
    * @param request - DeleteExpressionVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3003,7 +3007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Custom Variable
+   * Deletes a custom variable.
    * 
    * @param request - DeleteExpressionVariableRequest
    * @returns DeleteExpressionVariableResponse
@@ -3014,7 +3018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Field
+   * Deletes a field.
    * 
    * @param request - DeleteFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3057,7 +3061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Field
+   * Deletes a field.
    * 
    * @param request - DeleteFieldRequest
    * @returns DeleteFieldResponse
@@ -3068,7 +3072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Name List
+   * Deletes a list.
    * 
    * @param request - DeleteNameListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3107,7 +3111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Name List
+   * Deletes a list.
    * 
    * @param request - DeleteNameListRequest
    * @returns DeleteNameListResponse
@@ -3118,7 +3122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete (pseudo) name list variable data
+   * Deletes list variable data.
    * 
    * @param request - DeleteNameListDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3157,7 +3161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete (pseudo) name list variable data
+   * Deletes list variable data.
    * 
    * @param request - DeleteNameListDataRequest
    * @returns DeleteNameListDataResponse
@@ -3168,7 +3172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Query Variable
+   * Deletes a custom query variable.
    * 
    * @param request - DeleteQueryVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3207,7 +3211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Query Variable
+   * Deletes a custom query variable.
    * 
    * @param request - DeleteQueryVariableRequest
    * @returns DeleteQueryVariableResponse
@@ -3218,7 +3222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Policy Version
+   * Deletes a policy version.
    * 
    * @param request - DeleteRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3265,7 +3269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Policy Version
+   * Deletes a policy version.
    * 
    * @param request - DeleteRuleRequest
    * @returns DeleteRuleResponse
@@ -3276,7 +3280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除样本
+   * Delete sample
    * 
    * @param request - DeleteSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3315,7 +3319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除样本
+   * Delete sample
    * 
    * @param request - DeleteSampleRequest
    * @returns DeleteSampleResponse
@@ -3326,7 +3330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Delete Samples
+   * Deletes samples in batches.
    * 
    * @param request - DeleteSampleBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3369,7 +3373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Delete Samples
+   * Deletes samples in batches.
    * 
    * @param request - DeleteSampleBatchRequest
    * @returns DeleteSampleBatchResponse
@@ -3430,7 +3434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Sample Data
+   * Deletes sample data.
    * 
    * @param request - DeleteSampleDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3469,7 +3473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Sample Data
+   * Deletes sample data.
    * 
    * @param request - DeleteSampleDataRequest
    * @returns DeleteSampleDataResponse
@@ -3530,7 +3534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Advanced Query to Get Left Variables Interface
+   * Retrieves left-hand variables for advanced queries.
    * 
    * @param request - DescribeAdvanceSearchLeftVariableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3573,7 +3577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Advanced Query to Get Left Variables Interface
+   * Retrieves left-hand variables for advanced queries.
    * 
    * @param request - DescribeAdvanceSearchLeftVariableListRequest
    * @returns DescribeAdvanceSearchLeftVariableListResponse
@@ -3584,7 +3588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Advanced Query
+   * Performs an advanced query for event analysis.
    * 
    * @param request - DescribeAdvanceSearchPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3651,7 +3655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Advanced Query
+   * Performs an advanced query for event analysis.
    * 
    * @param request - DescribeAdvanceSearchPageListRequest
    * @returns DescribeAdvanceSearchPageListResponse
@@ -3662,7 +3666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Data Source List
+   * Lists data sources.
    * 
    * @param request - DescribeAllDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3697,7 +3701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Data Source List
+   * Lists data sources.
    * 
    * @param request - DescribeAllDataSourceRequest
    * @returns DescribeAllDataSourceResponse
@@ -3708,7 +3712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Event List Query
+   * Queries the event list.
    * 
    * @param request - DescribeAllEventNameAndCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3747,7 +3751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Event List Query
+   * Queries the event list.
    * 
    * @param request - DescribeAllEventNameAndCodeRequest
    * @returns DescribeAllEventNameAndCodeResponse
@@ -3758,7 +3762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display all root variables when testing custom expressions
+   * Displays all root variables during custom expression testing.
    * 
    * @param request - DescribeAllRootVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3825,7 +3829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display all root variables when testing custom expressions
+   * Displays all root variables during custom expression testing.
    * 
    * @param request - DescribeAllRootVariableRequest
    * @returns DescribeAllRootVariableResponse
@@ -3836,7 +3840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display All Fields
+   * Displays all fields.
    * 
    * @param request - DescribeAnalysisColumnFieldListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3871,7 +3875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display All Fields
+   * Displays all fields.
    * 
    * @param request - DescribeAnalysisColumnFieldListRequest
    * @returns DescribeAnalysisColumnFieldListResponse
@@ -3882,7 +3886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Custom Columns
+   * Queries custom columns.
    * 
    * @param request - DescribeAnalysisColumnListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3917,7 +3921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Custom Columns
+   * Queries custom columns.
    * 
    * @param request - DescribeAnalysisColumnListRequest
    * @returns DescribeAnalysisColumnListResponse
@@ -3928,7 +3932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Condition List
+   * Queries the condition favorite list.
    * 
    * @param request - DescribeAnalysisConditionFavoriteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3963,7 +3967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Condition List
+   * Queries the condition favorite list.
    * 
    * @param request - DescribeAnalysisConditionFavoriteListRequest
    * @returns DescribeAnalysisConditionFavoriteListResponse
@@ -3974,7 +3978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Download Query Results
+   * Download query results.
    * 
    * @param request - DescribeAnalysisExportTaskDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4009,7 +4013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Download Query Results
+   * Download query results.
    * 
    * @param request - DescribeAnalysisExportTaskDownloadUrlRequest
    * @returns DescribeAnalysisExportTaskDownloadUrlResponse
@@ -4020,7 +4024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get API Details
+   * Retrieves the details of an API.
    * 
    * @param request - DescribeApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4067,7 +4071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get API Details
+   * Retrieves the details of an API.
    * 
    * @param request - DescribeApiRequest
    * @returns DescribeApiResponse
@@ -4078,7 +4082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get API groups including those purchased by the user and custom ones
+   * Retrieves API groups, including purchased and custom groups.
    * 
    * @param request - DescribeApiGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4117,7 +4121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get API groups including those purchased by the user and custom ones
+   * Retrieves API groups, including purchased and custom groups.
    * 
    * @param request - DescribeApiGroupsRequest
    * @returns DescribeApiGroupsResponse
@@ -4128,7 +4132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the limit information for creating API tasks
+   * Queries the limit information for creating API tasks.
    * 
    * @param request - DescribeApiLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4163,7 +4167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the limit information for creating API tasks
+   * Queries the limit information for creating API tasks.
    * 
    * @param request - DescribeApiLimitRequest
    * @returns DescribeApiLimitResponse
@@ -4174,7 +4178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get API Service Name
+   * Retrieves API service names.
    * 
    * @param request - DescribeApiNameListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4209,7 +4213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get API Service Name
+   * Retrieves API service names.
    * 
    * @param request - DescribeApiNameListRequest
    * @returns DescribeApiNameListResponse
@@ -4220,7 +4224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Details
+   * Query variable details.
    * 
    * @param request - DescribeApiVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4259,7 +4263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Details
+   * Query variable details.
    * 
    * @param request - DescribeApiVariableRequest
    * @returns DescribeApiVariableResponse
@@ -4270,7 +4274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get API list including purchased and customized APIs
+   * Retrieves the API list, including purchased and custom APIs.
    * 
    * @param request - DescribeApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4317,7 +4321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get API list including purchased and customized APIs
+   * Retrieves the API list, including purchased and custom APIs.
    * 
    * @param request - DescribeApisRequest
    * @returns DescribeApisResponse
@@ -4328,7 +4332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query appKey List
+   * Queries the list of appKeys.
    * 
    * @param request - DescribeAppKeyPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4371,7 +4375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query appKey List
+   * Queries the list of appKeys.
    * 
    * @param request - DescribeAppKeyPageRequest
    * @returns DescribeAppKeyPageResponse
@@ -4382,7 +4386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approval Switch
+   * Configures the approval switch.
    * 
    * @param request - DescribeAuditConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4421,7 +4425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approval Switch
+   * Configures the approval switch.
    * 
    * @param request - DescribeAuditConfigRequest
    * @returns DescribeAuditConfigResponse
@@ -4432,7 +4436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approval Details
+   * Retrieves approval details.
    * 
    * @param request - DescribeAuditDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4471,7 +4475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approval Details
+   * Retrieves approval details.
    * 
    * @param request - DescribeAuditDetailsRequest
    * @returns DescribeAuditDetailsResponse
@@ -4482,7 +4486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display and Query of Audit List
+   * Displays and queries the audit list.
    * 
    * @param request - DescribeAuditPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4537,7 +4541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display and Query of Audit List
+   * Displays and queries the audit list.
    * 
    * @param request - DescribeAuditPageListRequest
    * @returns DescribeAuditPageListResponse
@@ -4548,7 +4552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of event names for the current user
+   * Queries the list of event names for the current user.
    * 
    * @param request - DescribeAuthEventNameListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4583,7 +4587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of event names for the current user
+   * Queries the list of event names for the current user.
    * 
    * @param request - DescribeAuthEventNameListRequest
    * @returns DescribeAuthEventNameListResponse
@@ -4594,7 +4598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Policy List
+   * Queries a list of policies.
    * 
    * @param request - DescribeAuthRulePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4641,7 +4645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Policy List
+   * Queries a list of policies.
    * 
    * @param request - DescribeAuthRulePageListRequest
    * @returns DescribeAuthRulePageListResponse
@@ -4652,7 +4656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Scenarios
+   * Queries the list of scenarios.
    * 
    * @param request - DescribeAuthSceneListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4687,7 +4691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Scenarios
+   * Queries the list of scenarios.
    * 
    * @param request - DescribeAuthSceneListRequest
    * @returns DescribeAuthSceneListResponse
@@ -4698,7 +4702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scene List
+   * Queries the list of scenarios.
    * 
    * @param request - DescribeAuthScenePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4737,7 +4741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scene List
+   * Queries the list of scenarios.
    * 
    * @param request - DescribeAuthScenePageListRequest
    * @returns DescribeAuthScenePageListResponse
@@ -4748,7 +4752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check Authorization
+   * Checks whether authorization is granted.
    * 
    * @param request - DescribeAuthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4783,7 +4787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check Authorization
+   * Checks whether authorization is granted.
    * 
    * @param request - DescribeAuthStatusRequest
    * @returns DescribeAuthStatusResponse
@@ -4794,7 +4798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Average Execution Time
+   * Average execution duration.
    * 
    * @param request - DescribeAvgExecuteCostReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4829,7 +4833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Average Execution Time
+   * Average execution duration.
    * 
    * @param request - DescribeAvgExecuteCostReportRequest
    * @returns DescribeAvgExecuteCostReportResponse
@@ -4840,7 +4844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Basic Query
+   * Performs a basic query.
    * 
    * @param request - DescribeBasicSearchPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4903,7 +4907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Basic Query
+   * Performs a basic query.
    * 
    * @param request - DescribeBasicSearchPageListRequest
    * @returns DescribeBasicSearchPageListResponse
@@ -4914,7 +4918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Basic Statistics
+   * Queries basic statistics.
    * 
    * @param request - DescribeBasicStartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4961,7 +4965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Basic Statistics
+   * Queries basic statistics.
    * 
    * @param request - DescribeBasicStartRequest
    * @returns DescribeBasicStartResponse
@@ -4972,7 +4976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View Bypass Event
+   * Queries a bypass event.
    * 
    * @param request - DescribeByPassShuntEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5011,7 +5015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View Bypass Event
+   * Queries a bypass event.
    * 
    * @param request - DescribeByPassShuntEventRequest
    * @returns DescribeByPassShuntEventResponse
@@ -5022,7 +5026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the type configuration of custom accumulated variables
+   * Queries the type configurations of custom cumulative variables.
    * 
    * @param request - DescribeCustVariableConfigListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5065,7 +5069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the type configuration of custom accumulated variables
+   * Queries the type configurations of custom cumulative variables.
    * 
    * @param request - DescribeCustVariableConfigListRequest
    * @returns DescribeCustVariableConfigListResponse
@@ -5076,7 +5080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cumulative Variable Details
+   * Queries the details of a cumulative variable.
    * 
    * @param request - DescribeCustVariableDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5115,7 +5119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cumulative Variable Details
+   * Queries the details of a cumulative variable.
    * 
    * @param request - DescribeCustVariableDetailRequest
    * @returns DescribeCustVariableDetailResponse
@@ -5126,10 +5130,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Custom Accumulated Variable List
+   * Queries the list of custom cumulative variables.
    * 
    * @remarks
-   * List Query of Accumulated Variables
+   * Queries the list of cumulative variables.
    * 
    * @param request - DescribeCustVariablePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5188,10 +5192,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Custom Accumulated Variable List
+   * Queries the list of custom cumulative variables.
    * 
    * @remarks
-   * List Query of Accumulated Variables
+   * Queries the list of cumulative variables.
    * 
    * @param request - DescribeCustVariablePageRequest
    * @returns DescribeCustVariablePageResponse
@@ -5202,7 +5206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Data Source Data Download Link
+   * Retrieves the download URL for data source data.
    * 
    * @param request - DescribeDataSourceDataDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5241,7 +5245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Data Source Data Download Link
+   * Retrieves the download URL for data source data.
    * 
    * @param request - DescribeDataSourceDataDownloadUrlRequest
    * @returns DescribeDataSourceDataDownloadUrlResponse
@@ -5252,7 +5256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve all fields of a data source
+   * Retrieves all fields of a data source.
    * 
    * @param request - DescribeDataSourceFieldsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5291,7 +5295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve all fields of a data source
+   * Retrieves all fields of a data source.
    * 
    * @param request - DescribeDataSourceFieldsRequest
    * @returns DescribeDataSourceFieldsResponse
@@ -5302,7 +5306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Data Source List Interface
+   * Queries a list of data sources.
    * 
    * @param request - DescribeDataSourcePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5357,7 +5361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Data Source List Interface
+   * Queries a list of data sources.
    * 
    * @param request - DescribeDataSourcePageListRequest
    * @returns DescribeDataSourcePageListResponse
@@ -5368,7 +5372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decision Result Fluctuation Detection
+   * Detects fluctuations in decision results.
    * 
    * @param request - DescribeDecisionResultFluctuationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5407,7 +5411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decision Result Fluctuation Detection
+   * Detects fluctuations in decision results.
    * 
    * @param request - DescribeDecisionResultFluctuationRequest
    * @returns DescribeDecisionResultFluctuationResponse
@@ -5418,7 +5422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decision Result Fluctuation Trend
+   * Queries the fluctuation trend of decision results.
    * 
    * @param request - DescribeDecisionResultTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5465,7 +5469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decision Result Fluctuation Trend
+   * Queries the fluctuation trend of decision results.
    * 
    * @param request - DescribeDecisionResultTrendRequest
    * @returns DescribeDecisionResultTrendResponse
@@ -5476,7 +5480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detailed Statistics
+   * Retrieves detailed statistics.
    * 
    * @param request - DescribeDetailStartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5523,7 +5527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detailed Statistics
+   * Retrieves detailed statistics.
    * 
    * @param request - DescribeDetailStartRequest
    * @returns DescribeDetailStartResponse
@@ -5534,7 +5538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Download
+   * Downloads a file.
    * 
    * @param request - DescribeDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5581,7 +5585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Download
+   * Downloads a file.
    * 
    * @param request - DescribeDownloadUrlRequest
    * @returns DescribeDownloadUrlResponse
@@ -5592,7 +5596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Details
+   * Queries event details.
    * 
    * @param request - DescribeEventBaseInfoByEventCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5635,7 +5639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Details
+   * Queries event details.
    * 
    * @param request - DescribeEventBaseInfoByEventCodeRequest
    * @returns DescribeEventBaseInfoByEventCodeResponse
@@ -5646,7 +5650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Total Event Count
+   * Queries the total number of events.
    * 
    * @param request - DescribeEventCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5685,7 +5689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Total Event Count
+   * Queries the total number of events.
    * 
    * @param request - DescribeEventCountRequest
    * @returns DescribeEventCountResponse
@@ -5696,7 +5700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query event details based on the request ID
+   * Queries event details by request ID.
    * 
    * @param request - DescribeEventDetailByRequestIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5743,7 +5747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query event details based on the request ID
+   * Queries event details by request ID.
    * 
    * @param request - DescribeEventDetailByRequestIdRequest
    * @returns DescribeEventDetailByRequestIdResponse
@@ -5754,7 +5758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event History Details
+   * Queries the details of an event history.
    * 
    * @param request - DescribeEventLogDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5793,7 +5797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event History Details
+   * Queries the details of an event history.
    * 
    * @param request - DescribeEventLogDetailRequest
    * @returns DescribeEventLogDetailResponse
@@ -5804,7 +5808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event History List
+   * Queries the event history list.
    * 
    * @param request - DescribeEventLogPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5951,7 +5955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event History List
+   * Queries the event history list.
    * 
    * @param request - DescribeEventLogPageRequest
    * @returns DescribeEventLogPageResponse
@@ -5962,7 +5966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Query for Events
+   * Queries events by paging.
    * 
    * @param request - DescribeEventPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6021,7 +6025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Query for Events
+   * Queries events by paging.
    * 
    * @param request - DescribeEventPageListRequest
    * @returns DescribeEventPageListResponse
@@ -6090,7 +6094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Event Overview List
+   * Queries the event overview list.
    * 
    * @param request - DescribeEventResultListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6141,7 +6145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Event Overview List
+   * Queries the event overview list.
    * 
    * @param request - DescribeEventResultListRequest
    * @returns DescribeEventResultListResponse
@@ -6152,7 +6156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Policy Download List
+   * Queries the policy download list.
    * 
    * @param request - DescribeEventTaskHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6187,7 +6191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Policy Download List
+   * Queries the policy download list.
    * 
    * @param request - DescribeEventTaskHistoryRequest
    * @returns DescribeEventTaskHistoryResponse
@@ -6198,7 +6202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Event Invocation Count
+   * Call event count
    * 
    * @param request - DescribeEventTotalCountReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6233,7 +6237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Event Invocation Count
+   * Call event count
    * 
    * @param request - DescribeEventTotalCountReportRequest
    * @returns DescribeEventTotalCountReportResponse
@@ -6244,7 +6248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Import Policy
+   * Imports policies in batches.
    * 
    * @param request - DescribeEventUploadPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6279,7 +6283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Import Policy
+   * Imports policies in batches.
    * 
    * @param request - DescribeEventUploadPolicyRequest
    * @returns DescribeEventUploadPolicyResponse
@@ -6290,10 +6294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query event variables
+   * Queries event variables.
    * 
    * @remarks
-   * Cumulative Variable List Query
+   * Queries the list of cumulative variables.
    * 
    * @param request - DescribeEventVariableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6348,10 +6352,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query event variables
+   * Queries event variables.
    * 
    * @remarks
-   * Cumulative Variable List Query
+   * Queries the list of cumulative variables.
    * 
    * @param request - DescribeEventVariableListRequest
    * @returns DescribeEventVariableListResponse
@@ -6362,7 +6366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Template
+   * Queries an event pattern template.
    * 
    * @param request - DescribeEventVariableTemplateBindRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6409,7 +6413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Template
+   * Queries an event pattern template.
    * 
    * @param request - DescribeEventVariableTemplateBindRequest
    * @returns DescribeEventVariableTemplateBindResponse
@@ -6420,7 +6424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Template
+   * Queries an event pattern template.
    * 
    * @param request - DescribeEventVariableTemplateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6467,7 +6471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Template
+   * Queries an event pattern template.
    * 
    * @param request - DescribeEventVariableTemplateListRequest
    * @returns DescribeEventVariableTemplateListResponse
@@ -6478,7 +6482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Variables
+   * Queries event variables.
    * 
    * @param request - DescribeEventsVariableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6529,7 +6533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Variables
+   * Queries event variables.
    * 
    * @param request - DescribeEventsVariableListRequest
    * @returns DescribeEventsVariableListResponse
@@ -6540,7 +6544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Self-service call list.
+   * Self-service invocation list.
    * 
    * @param request - DescribeExcuteNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6591,7 +6595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Self-service call list.
+   * Self-service invocation list.
    * 
    * @param request - DescribeExcuteNumRequest
    * @returns DescribeExcuteNumResponse
@@ -6602,7 +6606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validate if the field name is duplicated (based on user\\"s organization)
+   * Checks whether a field name is duplicate based on the user unit.
    * 
    * @param request - DescribeExistNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6641,7 +6645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validate if the field name is duplicated (based on user\\"s organization)
+   * Checks whether a field name is duplicate based on the user unit.
    * 
    * @param request - DescribeExistNameRequest
    * @returns DescribeExistNameResponse
@@ -6652,7 +6656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if Scene Exists
+   * Checks whether a scenario exists.
    * 
    * @param request - DescribeExistSceneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6691,7 +6695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if Scene Exists
+   * Checks whether a scenario exists.
    * 
    * @param request - DescribeExistSceneRequest
    * @returns DescribeExistSceneResponse
@@ -6702,7 +6706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Custom Variable Details
+   * Queries the details of a custom variable.
    * 
    * @param request - DescribeExpressionVariableDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6741,7 +6745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Custom Variable Details
+   * Queries the details of a custom variable.
    * 
    * @param request - DescribeExpressionVariableDetailRequest
    * @returns DescribeExpressionVariableDetailResponse
@@ -6752,7 +6756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Function List
+   * Queries the function list.
    * 
    * @param request - DescribeExpressionVariableFunctionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6787,7 +6791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Function List
+   * Queries the function list.
    * 
    * @param request - DescribeExpressionVariableFunctionListRequest
    * @returns DescribeExpressionVariableFunctionListResponse
@@ -6798,7 +6802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Query for Custom Variables.
+   * Performs a paging query of custom variables.
    * 
    * @param request - DescribeExpressionVariablePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6857,7 +6861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Query for Custom Variables.
+   * Performs a paging query of custom variables.
    * 
    * @param request - DescribeExpressionVariablePageRequest
    * @returns DescribeExpressionVariablePageResponse
@@ -6930,7 +6934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Field Details
+   * Retrieves field details.
    * 
    * @param request - DescribeFieldByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6969,7 +6973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Field Details
+   * Retrieves field details.
    * 
    * @param request - DescribeFieldByIdRequest
    * @returns DescribeFieldByIdResponse
@@ -6980,7 +6984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Field List
+   * Queries the list of fields.
    * 
    * @param request - DescribeFieldListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7023,7 +7027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Field List
+   * Queries the list of fields.
    * 
    * @param request - DescribeFieldListRequest
    * @returns DescribeFieldListResponse
@@ -7034,7 +7038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query paged list of fields
+   * Queries a paginated list of fields.
    * 
    * @param request - DescribeFieldPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7105,7 +7109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query paged list of fields
+   * Queries a paginated list of fields.
    * 
    * @param request - DescribeFieldPageRequest
    * @returns DescribeFieldPageResponse
@@ -7116,7 +7120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Community Account List
+   * Queries the list of community accounts.
    * 
    * @param request - DescribeGroupAccountPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7187,7 +7191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Community Account List
+   * Queries the list of community accounts.
    * 
    * @param request - DescribeGroupAccountPageRequest
    * @returns DescribeGroupAccountPageResponse
@@ -7198,7 +7202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Community List Query Conditions
+   * Queries the filter conditions for the community list.
    * 
    * @param request - DescribeGroupConditionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7233,7 +7237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Community List Query Conditions
+   * Queries the filter conditions for the community list.
    * 
    * @param request - DescribeGroupConditionListRequest
    * @returns DescribeGroupConditionListResponse
@@ -7244,7 +7248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Community List
+   * Queries the list of communities.
    * 
    * @param request - DescribeGroupPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7303,7 +7307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Community List
+   * Queries the list of communities.
    * 
    * @param request - DescribeGroupPageRequest
    * @returns DescribeGroupPageResponse
@@ -7314,7 +7318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Risk Communities Discovered Today
+   * Queries the risk communities discovered on the current day.
    * 
    * @param request - DescribeGroupStatisticsByTodayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7349,7 +7353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Risk Communities Discovered Today
+   * Queries the risk communities discovered on the current day.
    * 
    * @param request - DescribeGroupStatisticsByTodayRequest
    * @returns DescribeGroupStatisticsByTodayResponse
@@ -7360,7 +7364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recent Trends in Risk Communities
+   * Queries recent trends of risky communities.
    * 
    * @param request - DescribeGroupTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7399,7 +7403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recent Trends in Risk Communities
+   * Queries recent trends of risky communities.
    * 
    * @param request - DescribeGroupTrendRequest
    * @returns DescribeGroupTrendResponse
@@ -7410,7 +7414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if the policy name under the event name exists
+   * Queries whether a policy name exists under a specified event name.
    * 
    * @param request - DescribeHasRuleNameByEventCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7457,7 +7461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check if the policy name under the event name exists
+   * Queries whether a policy name exists under a specified event name.
    * 
    * @param request - DescribeHasRuleNameByEventCodeRequest
    * @returns DescribeHasRuleNameByEventCodeResponse
@@ -7468,7 +7472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Risk Map Overview Chart (Pie Chart)
+   * Retrieves the risk map overview chart (pie chart).
    * 
    * @param request - DescribeHighRiskPieChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7515,7 +7519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Risk Map Overview Chart (Pie Chart)
+   * Retrieves the risk map overview chart (pie chart).
    * 
    * @param request - DescribeHighRiskPieChartRequest
    * @returns DescribeHighRiskPieChartResponse
@@ -7526,7 +7530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Policy Hit Fluctuation Detection
+   * Detects fluctuations in policy hits.
    * 
    * @param request - DescribeHitRuleFluctuationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7569,7 +7573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Policy Hit Fluctuation Detection
+   * Detects fluctuations in policy hits.
    * 
    * @param request - DescribeHitRuleFluctuationRequest
    * @returns DescribeHitRuleFluctuationResponse
@@ -7580,7 +7584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Top 20 Hits for Main Events/Bypass/Diversion Strategies
+   * Queries the top 20 policies by hits for main events, bypass, and automatic request distribution.
    * 
    * @param request - DescribeHitRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7631,7 +7635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Top 20 Hits for Main Events/Bypass/Diversion Strategies
+   * Queries the top 20 policies by hits for main events, bypass, and automatic request distribution.
    * 
    * @param request - DescribeHitRuleListRequest
    * @returns DescribeHitRuleListResponse
@@ -7642,7 +7646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Hit Rule Trend
+   * Queries the policy hit trends.
    * 
    * @param request - DescribeHitRuleTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7693,7 +7697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Hit Rule Trend
+   * Queries the policy hit trends.
    * 
    * @param request - DescribeHitRuleTrendRequest
    * @returns DescribeHitRuleTrendResponse
@@ -7760,7 +7764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Total Number of Events
+   * Queries the total number of events.
    * 
    * @param request - DescribeInputFeildCountByEventCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7803,7 +7807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Total Number of Events
+   * Queries the total number of events.
    * 
    * @param request - DescribeInputFeildCountByEventCodeRequest
    * @returns DescribeInputFeildCountByEventCodeResponse
@@ -7864,7 +7868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Task List
+   * Queries the list of tasks.
    * 
    * @param request - DescribeListPocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7919,7 +7923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Task List
+   * Queries the list of tasks.
    * 
    * @param request - DescribeListPocRequest
    * @returns DescribeListPocResponse
@@ -7930,7 +7934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Monitoring Object List
+   * Queries the list of monitoring objects.
    * 
    * @param request - DescribeLoanExecListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7985,7 +7989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Monitoring Object List
+   * Queries the list of monitoring objects.
    * 
    * @param request - DescribeLoanExecListRequest
    * @returns DescribeLoanExecListResponse
@@ -7996,7 +8000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Loan Monitoring Task List
+   * Retrieves the list of in-loan monitoring tasks.
    * 
    * @param request - DescribeLoanTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8047,7 +8051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Loan Monitoring Task List
+   * Retrieves the list of in-loan monitoring tasks.
    * 
    * @param request - DescribeLoanTaskListRequest
    * @returns DescribeLoanTaskListResponse
@@ -8058,7 +8062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Mark List
+   * Queries the tagging list.
    * 
    * @param request - DescribeMarkPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8117,7 +8121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Mark List
+   * Queries the tagging list.
    * 
    * @param request - DescribeMarkPageRequest
    * @returns DescribeMarkPageResponse
@@ -8128,7 +8132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check Permission
+   * Queries whether the current user has the specified permission.
    * 
    * @param request - DescribeMenuPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8167,7 +8171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check Permission
+   * Queries whether the current user has the specified permission.
    * 
    * @param request - DescribeMenuPermissionRequest
    * @returns DescribeMenuPermissionResponse
@@ -8270,7 +8274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Task Limit
+   * Queries the limits of tasks.
    * 
    * @param request - DescribeMonitorTaskLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8305,7 +8309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Task Limit
+   * Queries the limits of tasks.
    * 
    * @param request - DescribeMonitorTaskLimitRequest
    * @returns DescribeMonitorTaskLimitResponse
@@ -8316,7 +8320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Name List Pagination
+   * Queries a name list by page.
    * 
    * @param request - DescribeNameListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8371,7 +8375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Name List Pagination
+   * Queries a name list by page.
    * 
    * @param request - DescribeNameListRequest
    * @returns DescribeNameListResponse
@@ -8382,7 +8386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Download Name List
+   * Downloads the content of a list.
    * 
    * @param request - DescribeNameListDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8421,7 +8425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Download Name List
+   * Downloads the content of a list.
    * 
    * @param request - DescribeNameListDownloadUrlRequest
    * @returns DescribeNameListDownloadUrlResponse
@@ -8432,7 +8436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Name List Limit
+   * Queries the quota limit for lists.
    * 
    * @param request - DescribeNameListLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8471,7 +8475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Name List Limit
+   * Queries the quota limit for lists.
    * 
    * @param request - DescribeNameListLimitRequest
    * @returns DescribeNameListLimitResponse
@@ -8482,7 +8486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the content of the list
+   * Queries the content of a list.
    * 
    * @param request - DescribeNameListPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8541,7 +8545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the content of the list
+   * Queries the content of a list.
    * 
    * @param request - DescribeNameListPageListRequest
    * @returns DescribeNameListPageListResponse
@@ -8552,7 +8556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Name Types
+   * Queries the list of name list types.
    * 
    * @param request - DescribeNameListTypeListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8587,7 +8591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Name Types
+   * Queries the list of name list types.
    * 
    * @param request - DescribeNameListTypeListRequest
    * @returns DescribeNameListTypeListResponse
@@ -8598,7 +8602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Name List
+   * Queries a list of named lists.
    * 
    * @param request - DescribeNameListVariablePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8653,7 +8657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Name List
+   * Queries a list of named lists.
    * 
    * @param request - DescribeNameListVariablePageListRequest
    * @returns DescribeNameListVariablePageListResponse
@@ -8722,7 +8726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query event list by event name
+   * Queries the list of events by event name.
    * 
    * @param request - DescribeOperationLogPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8781,7 +8785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query event list by event name
+   * Queries the list of events by event name.
    * 
    * @param request - DescribeOperationLogPageListRequest
    * @returns DescribeOperationLogPageListResponse
@@ -8792,7 +8796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the operator mapping list based on customer ID
+   * Queries the operator mapping list by customer ID.
    * 
    * @param request - DescribeOperatorListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8827,7 +8831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the operator mapping list based on customer ID
+   * Queries the operator mapping list by customer ID.
    * 
    * @param request - DescribeOperatorListRequest
    * @returns DescribeOperatorListResponse
@@ -8838,7 +8842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Operator Mapping List
+   * Queries the operator mapping list.
    * 
    * @param request - DescribeOperatorListBySceneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8877,7 +8881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Operator Mapping List
+   * Queries the operator mapping list.
    * 
    * @param request - DescribeOperatorListBySceneRequest
    * @returns DescribeOperatorListBySceneResponse
@@ -8888,7 +8892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Operator Mapping List
+   * Queries the list of operator mappings.
    * 
    * @param request - DescribeOperatorListByTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8923,7 +8927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Operator Mapping List
+   * Queries the list of operator mappings.
    * 
    * @param request - DescribeOperatorListByTypeRequest
    * @returns DescribeOperatorListByTypeResponse
@@ -8934,7 +8938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check Oss Authorization
+   * Checks whether OSS is authorized.
    * 
    * @param request - DescribeOssAuthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8969,7 +8973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check Oss Authorization
+   * Checks whether OSS is authorized.
    * 
    * @param request - DescribeOssAuthStatusRequest
    * @returns DescribeOssAuthStatusResponse
@@ -8980,7 +8984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get OSS Policy
+   * Retrieves the OSS policy.
    * 
    * @param request - DescribeOssPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9019,7 +9023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get OSS Policy
+   * Retrieves the OSS policy.
    * 
    * @param request - DescribeOssPolicyRequest
    * @returns DescribeOssPolicyResponse
@@ -9030,7 +9034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get File Upload Credentials
+   * Retrieves the upload credential for a file.
    * 
    * @param request - DescribeOssTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9073,7 +9077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get File Upload Credentials
+   * Retrieves the upload credential for a file.
    * 
    * @param request - DescribeOssTokenRequest
    * @returns DescribeOssTokenResponse
@@ -9084,7 +9088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Property List
+   * Queries the list of event properties.
    * 
    * @param request - DescribeParamByEventCodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9127,7 +9131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event Property List
+   * Queries the list of event properties.
    * 
    * @param request - DescribeParamByEventCodesRequest
    * @returns DescribeParamByEventCodesResponse
@@ -9138,7 +9142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get File Upload Credentials
+   * Retrieves the file upload credential.
    * 
    * @param request - DescribePocOssTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9173,7 +9177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get File Upload Credentials
+   * Retrieves the file upload credential.
    * 
    * @param request - DescribePocOssTokenRequest
    * @returns DescribePocOssTokenResponse
@@ -9184,7 +9188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get POC Task List
+   * Retrieves the list of POC tasks.
    * 
    * @param request - DescribePocTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9231,7 +9235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get POC Task List
+   * Retrieves the list of POC tasks.
    * 
    * @param request - DescribePocTaskListRequest
    * @returns DescribePocTaskListResponse
@@ -9242,7 +9246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Determine if Stack Private Domain Mode is Enabled
+   * Checks whether the Stack private domain mode is enabled.
    * 
    * @param request - DescribePrivateStackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9273,7 +9277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Determine if Stack Private Domain Mode is Enabled
+   * Checks whether the Stack private domain mode is enabled.
    * 
    * @param request - DescribePrivateStackRequest
    * @returns DescribePrivateStackResponse
@@ -9284,7 +9288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Detail Query
+   * Queries the details of a custom query variable.
    * 
    * @param request - DescribeQueryVariableDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9323,7 +9327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Detail Query
+   * Queries the details of a custom query variable.
    * 
    * @param request - DescribeQueryVariableDetailRequest
    * @returns DescribeQueryVariableDetailResponse
@@ -9334,7 +9338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable List Query
+   * Queries a list of custom query variables.
    * 
    * @param request - DescribeQueryVariablePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9389,7 +9393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable List Query
+   * Queries a list of custom query variables.
    * 
    * @param request - DescribeQueryVariablePageListRequest
    * @returns DescribeQueryVariablePageListResponse
@@ -9400,7 +9404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable List under Sample & Scenario
+   * Queries the list of variables under a data sample and scenario.
    * 
    * @param request - DescribeRecommendSceneVariablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9439,7 +9443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable List under Sample & Scenario
+   * Queries the list of variables under a data sample and scenario.
    * 
    * @param request - DescribeRecommendSceneVariablesRequest
    * @returns DescribeRecommendSceneVariablesResponse
@@ -9450,7 +9454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Variable Recommendation Details Query Interface
+   * Queries the details of variable recommendations.
    * 
    * @param request - DescribeRecommendTaskDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9489,7 +9493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Variable Recommendation Details Query Interface
+   * Queries the details of variable recommendations.
    * 
    * @param request - DescribeRecommendTaskDetailRequest
    * @returns DescribeRecommendTaskDetailResponse
@@ -9500,7 +9504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Variable Recommendation List Query Interface
+   * Queries the variable recommendation list.
    * 
    * @param request - DescribeRecommendTaskPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9547,7 +9551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Variable Recommendation List Query Interface
+   * Queries the variable recommendation list.
    * 
    * @param request - DescribeRecommendTaskPageListRequest
    * @returns DescribeRecommendTaskPageListResponse
@@ -9558,7 +9562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Indicators Information under Variables
+   * Queries the metric information of a variable.
    * 
    * @param request - DescribeRecommendVariablesVelocityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9601,7 +9605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Indicators Information under Variables
+   * Queries the metric information of a variable.
    * 
    * @param request - DescribeRecommendVariablesVelocityRequest
    * @returns DescribeRecommendVariablesVelocityResponse
@@ -9612,7 +9616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Supported Metrics List
+   * Queries the list of supported metrics.
    * 
    * @param request - DescribeRecommendVelocitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9655,7 +9659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Supported Metrics List
+   * Queries the list of supported metrics.
    * 
    * @param request - DescribeRecommendVelocitiesRequest
    * @returns DescribeRecommendVelocitiesResponse
@@ -9666,7 +9670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of regions supported by ApiGateway
+   * Queries the list of regions supported by API Gateway.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9701,7 +9705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of regions supported by ApiGateway
+   * Queries the list of regions supported by API Gateway.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -9712,7 +9716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Request Hit Details
+   * Queries the hit details of a request.
    * 
    * @param request - DescribeRequestHitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9751,7 +9755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Request Hit Details
+   * Queries the hit details of a request.
    * 
    * @param request - DescribeRequestHitRequest
    * @returns DescribeRequestHitResponse
@@ -9762,7 +9766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Request Peak
+   * Request Rate (QPS).
    * 
    * @param request - DescribeRequestPeakReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9797,7 +9801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Request Peak
+   * Request Rate (QPS).
    * 
    * @param request - DescribeRequestPeakReportRequest
    * @returns DescribeRequestPeakReportResponse
@@ -9808,7 +9812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Drill-down Analysis
+   * Performs drill-down analysis.
    * 
    * @param request - DescribeResultCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9851,7 +9855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Drill-down Analysis
+   * Performs drill-down analysis.
    * 
    * @param request - DescribeResultCountRequest
    * @returns DescribeResultCountResponse
@@ -9862,7 +9866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Risk map overview chart (line chart)
+   * Risk Map Overview Chart (Line Chart)
    * 
    * @param request - DescribeRiskLineChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9909,7 +9913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Risk map overview chart (line chart)
+   * Risk Map Overview Chart (Line Chart)
    * 
    * @param request - DescribeRiskLineChartRequest
    * @returns DescribeRiskLineChartResponse
@@ -9978,7 +9982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Policy Overview List
+   * Queries the policy overview list.
    * 
    * @param request - DescribeRuleBarChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10025,7 +10029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Policy Overview List
+   * Queries the policy overview list.
    * 
    * @param request - DescribeRuleBarChartRequest
    * @returns DescribeRuleBarChartResponse
@@ -10036,7 +10040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Policy Count by User ID
+   * Queries the number of policies by user ID.
    * 
    * @param request - DescribeRuleCountByUserIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10075,7 +10079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Policy Count by User ID
+   * Queries the number of policies by user ID.
    * 
    * @param request - DescribeRuleCountByUserIdRequest
    * @returns DescribeRuleCountByUserIdResponse
@@ -10086,7 +10090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query policy/version details
+   * Query policy/version details.
    * 
    * @param request - DescribeRuleDetailByRuleIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10133,7 +10137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query policy/version details
+   * Query policy/version details.
    * 
    * @param request - DescribeRuleDetailByRuleIdRequest
    * @returns DescribeRuleDetailByRuleIdResponse
@@ -10144,7 +10148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query rule hit details
+   * Queries the details of policy rule hits.
    * 
    * @param request - DescribeRuleHitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10195,7 +10199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query rule hit details
+   * Queries the details of policy rule hits.
    * 
    * @param request - DescribeRuleHitRequest
    * @returns DescribeRuleHitResponse
@@ -10206,7 +10210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query policy list
+   * Queries a list of policies.
    * 
    * @param request - DescribeRuleListByEventCodesListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10245,7 +10249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query policy list
+   * Queries a list of policies.
    * 
    * @param request - DescribeRuleListByEventCodesListRequest
    * @returns DescribeRuleListByEventCodesListResponse
@@ -10256,7 +10260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of policies
+   * Queries a list of policies.
    * 
    * @param request - DescribeRulePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10323,7 +10327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of policies
+   * Queries a list of policies.
    * 
    * @param request - DescribeRulePageListRequest
    * @returns DescribeRulePageListResponse
@@ -10334,7 +10338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query historical snapshots based on ruleId and version
+   * Query historical snapshots based on ruleId and version.
    * 
    * @param request - DescribeRuleSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10377,7 +10381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query historical snapshots based on ruleId and version
+   * Query historical snapshots based on ruleId and version.
    * 
    * @param request - DescribeRuleSnapshotRequest
    * @returns DescribeRuleSnapshotResponse
@@ -10388,7 +10392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Policy Version List
+   * Queries the list of policy versions.
    * 
    * @param request - DescribeRuleVersionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10439,7 +10443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Policy Version List
+   * Queries the list of policy versions.
    * 
    * @param request - DescribeRuleVersionListRequest
    * @returns DescribeRuleVersionListResponse
@@ -10450,7 +10454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SDK Download List
+   * Queries the list of SDK downloads.
    * 
    * @param request - DescribeSDKDownloadListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10493,7 +10497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SDK Download List
+   * Queries the list of SDK downloads.
    * 
    * @param request - DescribeSDKDownloadListRequest
    * @returns DescribeSDKDownloadListResponse
@@ -10504,7 +10508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query SAF permissions.
+   * Queries SAF permissions.
    * 
    * @param request - DescribeSafConsoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10543,7 +10547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query SAF permissions.
+   * Queries SAF permissions.
    * 
    * @param request - DescribeSafConsoleRequest
    * @returns DescribeSafConsoleResponse
@@ -10554,7 +10558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query saf_de Order
+   * Queries saf_de orders.
    * 
    * @param request - DescribeSafDeOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10605,7 +10609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query saf_de Order
+   * Queries saf_de orders.
    * 
    * @param request - DescribeSafDeOrderRequest
    * @returns DescribeSafDeOrderResponse
@@ -10616,7 +10620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Order Information
+   * Queries order information.
    * 
    * @param request - DescribeSafOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10671,7 +10675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Order Information
+   * Queries order information.
    * 
    * @param request - DescribeSafOrderRequest
    * @returns DescribeSafOrderResponse
@@ -10682,7 +10686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Access Configuration
+   * Queries the access configuration.
    * 
    * @param request - DescribeSafStartConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10717,7 +10721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Access Configuration
+   * Queries the access configuration.
    * 
    * @param request - DescribeSafStartConfigRequest
    * @returns DescribeSafStartConfigResponse
@@ -10728,7 +10732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Access Configuration
+   * Queries access configurations.
    * 
    * @param request - DescribeSafStartStepsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10783,7 +10787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Access Configuration
+   * Queries access configurations.
    * 
    * @param request - DescribeSafStartStepsRequest
    * @returns DescribeSafStartStepsResponse
@@ -10794,7 +10798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Risk Tag List
+   * Retrieves the list of risk labels.
    * 
    * @param request - DescribeSafTagListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10845,7 +10849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Risk Tag List
+   * Retrieves the list of risk labels.
    * 
    * @param request - DescribeSafTagListRequest
    * @returns DescribeSafTagListResponse
@@ -10976,7 +10980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Query of Sample List
+   * Performs a paging query on the sample list.
    * 
    * @param request - DescribeSampleDataListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11039,7 +11043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Query of Sample List
+   * Performs a paging query on the sample list.
    * 
    * @param request - DescribeSampleDataListRequest
    * @returns DescribeSampleDataListResponse
@@ -11116,7 +11120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample Example Authorization
+   * Queries the authorization of a data sample.
    * 
    * @param request - DescribeSampleDemoDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11155,7 +11159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample Example Authorization
+   * Queries the authorization of a data sample.
    * 
    * @param request - DescribeSampleDemoDownloadUrlRequest
    * @returns DescribeSampleDemoDownloadUrlResponse
@@ -11166,7 +11170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample Download Authorization Information
+   * Queries the authorization information for downloading a data sample.
    * 
    * @param request - DescribeSampleDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11205,7 +11209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample Download Authorization Information
+   * Queries the authorization information for downloading a data sample.
    * 
    * @param request - DescribeSampleDownloadUrlRequest
    * @returns DescribeSampleDownloadUrlResponse
@@ -11216,7 +11220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample Details
+   * Queries the details of a data sample.
    * 
    * @param request - DescribeSampleInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11259,7 +11263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample Details
+   * Queries the details of a data sample.
    * 
    * @param request - DescribeSampleInfoRequest
    * @returns DescribeSampleInfoResponse
@@ -11270,7 +11274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample List
+   * Queries the sample list.
    * 
    * @param request - DescribeSampleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11321,7 +11325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample List
+   * Queries the sample list.
    * 
    * @param request - DescribeSampleListRequest
    * @returns DescribeSampleListResponse
@@ -11332,7 +11336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Scene List
+   * Queries the list of scenarios.
    * 
    * @param request - DescribeSampleSceneListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11367,7 +11371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Scene List
+   * Queries the list of scenarios.
    * 
    * @param request - DescribeSampleSceneListRequest
    * @returns DescribeSampleSceneListResponse
@@ -11378,7 +11382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Tag List
+   * Retrieves the list of labels.
    * 
    * @param request - DescribeSampleTagListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11413,7 +11417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Tag List
+   * Retrieves the list of labels.
    * 
    * @param request - DescribeSampleTagListRequest
    * @returns DescribeSampleTagListResponse
@@ -11424,7 +11428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample Upload Authorization Information
+   * Queries the authorization information for sample uploads.
    * 
    * @param request - DescribeSampleUploadPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11459,7 +11463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Sample Upload Authorization Information
+   * Queries the authorization information for sample uploads.
    * 
    * @param request - DescribeSampleUploadPolicyRequest
    * @returns DescribeSampleUploadPolicyResponse
@@ -11528,10 +11532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dropdown list for scenario-based service events
+   * Queries the dropdown list of scenario-based risk control events.
    * 
    * @remarks
-   * Dropdown list for scenario-based risk control events
+   * Queries the dropdown list of scenario-based risk control events.
    * 
    * @param request - DescribeSceneAllEventNameCodeListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11570,10 +11574,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dropdown list for scenario-based service events
+   * Queries the dropdown list of scenario-based risk control events.
    * 
    * @remarks
-   * Dropdown list for scenario-based risk control events
+   * Queries the dropdown list of scenario-based risk control events.
    * 
    * @param request - DescribeSceneAllEventNameCodeListRequest
    * @returns DescribeSceneAllEventNameCodeListResponse
@@ -11584,7 +11588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Scenario-based Risk Control Events
+   * Queries the list of scenario-based risk control events.
    * 
    * @param request - DescribeSceneEventPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11631,7 +11635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Scenario-based Risk Control Events
+   * Queries the list of scenario-based risk control events.
    * 
    * @param request - DescribeSceneEventPageListRequest
    * @returns DescribeSceneEventPageListResponse
@@ -11642,10 +11646,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * White-boxed strategy list for risk control services
+   * Queries the list of scenario-based risk control event policies.
    * 
    * @remarks
-   * Query the list of scenarized risk control event strategies
+   * Queries the list of scenario-based risk control event policies.
    * 
    * @param request - DescribeSceneRulePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11708,10 +11712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * White-boxed strategy list for risk control services
+   * Queries the list of scenario-based risk control event policies.
    * 
    * @remarks
-   * Query the list of scenarized risk control event strategies
+   * Queries the list of scenario-based risk control event policies.
    * 
    * @param request - DescribeSceneRulePageListRequest
    * @returns DescribeSceneRulePageListResponse
@@ -11768,7 +11772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Score Range Quantity Analysis
+   * Analyzes the quantity distribution across score ranges.
    * 
    * @param request - DescribeScoreSectionNumLineChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11823,7 +11827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Score Range Quantity Analysis
+   * Analyzes the quantity distribution across score ranges.
    * 
    * @param request - DescribeScoreSectionNumLineChartRequest
    * @returns DescribeScoreSectionNumLineChartResponse
@@ -11834,7 +11838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Proportion of Score Ranges for Main Events/Bypass Events/Diversion Events
+   * Queries the score range distribution of main events, bypass events, and diversion events.
    * 
    * @param request - DescribeScoreSectionPieChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11885,7 +11889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Proportion of Score Ranges for Main Events/Bypass Events/Diversion Events
+   * Queries the score range distribution of main events, bypass events, and diversion events.
    * 
    * @param request - DescribeScoreSectionPieChartRequest
    * @returns DescribeScoreSectionPieChartResponse
@@ -11896,7 +11900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Score Section Ratio Analysis
+   * Score Range Proportion Analysis
    * 
    * @param request - DescribeScoreSectionRatioLineChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11951,7 +11955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Score Section Ratio Analysis
+   * Score Range Proportion Analysis
    * 
    * @param request - DescribeScoreSectionRatioLineChartRequest
    * @returns DescribeScoreSectionRatioLineChartResponse
@@ -11962,7 +11966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Task ID List
+   * Queries the list of task IDs.
    * 
    * @param request - DescribeSelectItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11997,7 +12001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Task ID List
+   * Queries the list of task IDs.
    * 
    * @param request - DescribeSelectItemRequest
    * @returns DescribeSelectItemResponse
@@ -12008,7 +12012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ServiceAppkey dropdown
+   * Retrieves the dropdown values for ServiceAppkey.
    * 
    * @param request - DescribeServiceAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12039,7 +12043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ServiceAppkey dropdown
+   * Retrieves the dropdown values for ServiceAppkey.
    * 
    * @param request - DescribeServiceAppKeyRequest
    * @returns DescribeServiceAppKeyResponse
@@ -12096,7 +12100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Service List
+   * Retrieves the list of services.
    * 
    * @param request - DescribeServiceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12131,7 +12135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Service List
+   * Retrieves the list of services.
    * 
    * @param request - DescribeServiceListRequest
    * @returns DescribeServiceListResponse
@@ -12142,7 +12146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Estimate Call Information
+   * Estimates call information.
    * 
    * @param request - DescribeSimulationPreditInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12185,7 +12189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Estimate Call Information
+   * Estimates call information.
    * 
    * @param request - DescribeSimulationPreditInfoRequest
    * @returns DescribeSimulationPreditInfoResponse
@@ -12196,7 +12200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Task Record Count
+   * Queries the number of task records.
    * 
    * @param request - DescribeSimulationTaskCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12255,7 +12259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Task Record Count
+   * Queries the number of task records.
    * 
    * @param request - DescribeSimulationTaskCountRequest
    * @returns DescribeSimulationTaskCountResponse
@@ -12266,7 +12270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Task List
+   * Queries the task list.
    * 
    * @param request - DescribeSimulationTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12321,7 +12325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Task List
+   * Queries the task list.
    * 
    * @param request - DescribeSimulationTaskListRequest
    * @returns DescribeSimulationTaskListResponse
@@ -12332,7 +12336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Project Configuration
+   * Retrieves the project configuration.
    * 
    * @param request - DescribeSlsUrlConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12367,7 +12371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Project Configuration
+   * Retrieves the project configuration.
    * 
    * @param request - DescribeSlsUrlConfigRequest
    * @returns DescribeSlsUrlConfigResponse
@@ -12378,7 +12382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query List of Policies Supporting Simulation
+   * Queries the list of policies that support simulation.
    * 
    * @param request - DescribeSupportRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12417,7 +12421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query List of Policies Supporting Simulation
+   * Queries the list of policies that support simulation.
    * 
    * @param request - DescribeSupportRuleListRequest
    * @returns DescribeSupportRuleListResponse
@@ -12428,7 +12432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag List
+   * Queries the label list.
    * 
    * @param request - DescribeTagListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12467,7 +12471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag List
+   * Queries the label list.
    * 
    * @param request - DescribeTagListRequest
    * @returns DescribeTagListResponse
@@ -12478,7 +12482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Overview List
+   * Queries the tag overview list.
    * 
    * @param request - DescribeTagsBarChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12529,7 +12533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Overview List
+   * Queries the tag overview list.
    * 
    * @param request - DescribeTagsBarChartRequest
    * @returns DescribeTagsBarChartResponse
@@ -12540,7 +12544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Fluctuation Detection
+   * Detects label fluctuations.
    * 
    * @param request - DescribeTagsFluctuationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12579,7 +12583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Fluctuation Detection
+   * Detects label fluctuations.
    * 
    * @param request - DescribeTagsFluctuationRequest
    * @returns DescribeTagsFluctuationResponse
@@ -12590,7 +12594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Tag List
+   * Retrieves the list of labels.
    * 
    * @param request - DescribeTagsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12625,7 +12629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Tag List
+   * Retrieves the list of labels.
    * 
    * @param request - DescribeTagsListRequest
    * @returns DescribeTagsListResponse
@@ -12636,7 +12640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Hit Count Analysis
+   * Analyzes the number of label hits.
    * 
    * @param request - DescribeTagsNumLineChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12691,7 +12695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Hit Count Analysis
+   * Analyzes the number of label hits.
    * 
    * @param request - DescribeTagsNumLineChartRequest
    * @returns DescribeTagsNumLineChartResponse
@@ -12702,7 +12706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Hit Ratio Analysis
+   * Analyzes the tag hit ratio distribution.
    * 
    * @param request - DescribeTagsRatioLineChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12757,7 +12761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Hit Ratio Analysis
+   * Analyzes the tag hit ratio distribution.
    * 
    * @param request - DescribeTagsRatioLineChartRequest
    * @returns DescribeTagsRatioLineChartResponse
@@ -12768,7 +12772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Hit Trend
+   * Queries the trend of tag hits.
    * 
    * @param request - DescribeTagsTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12819,7 +12823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag Hit Trend
+   * Queries the trend of tag hits.
    * 
    * @param request - DescribeTagsTrendRequest
    * @returns DescribeTagsTrendResponse
@@ -12830,7 +12834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Task List
+   * Queries the task list.
    * 
    * @param request - DescribeTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12877,7 +12881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Task List
+   * Queries the task list.
    * 
    * @param request - DescribeTaskListRequest
    * @returns DescribeTaskListResponse
@@ -12888,7 +12892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Task Log List
+   * Queries the task logs.
    * 
    * @param request - DescribeTaskLogListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12943,7 +12947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Task Log List
+   * Queries the task logs.
    * 
    * @param request - DescribeTaskLogListRequest
    * @returns DescribeTaskLogListResponse
@@ -12954,7 +12958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Total Event Count
+   * Queries the total number of events.
    * 
    * @param request - DescribeTemplateCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12989,7 +12993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Total Event Count
+   * Queries the total number of events.
    * 
    * @param request - DescribeTemplateCountRequest
    * @returns DescribeTemplateCountResponse
@@ -13000,7 +13004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Template Download
+   * Downloads a template.
    * 
    * @param request - DescribeTemplateDownloadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13035,7 +13039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Template Download
+   * Downloads a template.
    * 
    * @param request - DescribeTemplateDownloadRequest
    * @returns DescribeTemplateDownloadResponse
@@ -13046,7 +13050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event List by Event Name
+   * Queries a list of events by event name.
    * 
    * @param request - DescribeTemplatePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13109,7 +13113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Event List by Event Name
+   * Queries a list of events by event name.
    * 
    * @param request - DescribeTemplatePageListRequest
    * @returns DescribeTemplatePageListResponse
@@ -13120,7 +13124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get List of Services Used by User
+   * Queries the list of services used by the user.
    * 
    * @param request - DescribeUsedServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13155,7 +13159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get List of Services Used by User
+   * Queries the list of services used by the user.
    * 
    * @param request - DescribeUsedServiceRequest
    * @returns DescribeUsedServiceResponse
@@ -13166,7 +13170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Current Logged-in User Information
+   * Retrieves the information about the current logged-on user.
    * 
    * @param request - DescribeUserInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13201,7 +13205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Current Logged-in User Information
+   * Retrieves the information about the current logged-on user.
    * 
    * @param request - DescribeUserInfoRequest
    * @returns DescribeUserInfoResponse
@@ -13212,7 +13216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Binding Information
+   * Queries variable binding information.
    * 
    * @param request - DescribeVariableBindDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13255,7 +13259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Binding Information
+   * Queries variable binding information.
    * 
    * @param request - DescribeVariableBindDetailRequest
    * @returns DescribeVariableBindDetailResponse
@@ -13266,7 +13270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query variable details
+   * Queries the details of a variable.
    * 
    * @param request - DescribeVariableDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13305,7 +13309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query variable details
+   * Queries the details of a variable.
    * 
    * @param request - DescribeVariableDetailRequest
    * @returns DescribeVariableDetailResponse
@@ -13316,7 +13320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Fee Information
+   * Queries the billing information of variables.
    * 
    * @param request - DescribeVariableFeeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13355,7 +13359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Fee Information
+   * Queries the billing information of variables.
    * 
    * @param request - DescribeVariableFeeRequest
    * @returns DescribeVariableFeeResponse
@@ -13366,7 +13370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Details
+   * Queries the details of variables.
    * 
    * @param request - DescribeVariableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13433,7 +13437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Details
+   * Queries the details of variables.
    * 
    * @param request - DescribeVariableListRequest
    * @returns DescribeVariableListResponse
@@ -13444,7 +13448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Definitions
+   * Queries variable definitions.
    * 
    * @param request - DescribeVariableMarketListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13511,7 +13515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Definitions
+   * Queries variable definitions.
    * 
    * @param request - DescribeVariableMarketListRequest
    * @returns DescribeVariableMarketListResponse
@@ -13522,7 +13526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Configuration Information
+   * Queries configuration information.
    * 
    * @param request - DescribeVariableSceneListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13577,7 +13581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Configuration Information
+   * Queries configuration information.
    * 
    * @param request - DescribeVariableSceneListRequest
    * @returns DescribeVariableSceneListResponse
@@ -13728,7 +13732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下载样本文件
+   * Download sample file
    * 
    * @param request - DownloadSampleFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13771,7 +13775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下载样本文件
+   * Download sample file
    * 
    * @param request - DownloadSampleFileRequest
    * @returns DownloadSampleFileResponse
@@ -13832,7 +13836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下载子任务结果
+   * Download subtask result
    * 
    * @param request - DownloadSubTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13871,7 +13875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下载子任务结果
+   * Download subtask result
    * 
    * @param request - DownloadSubTaskResultRequest
    * @returns DownloadSubTaskResultResponse
@@ -13882,7 +13886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Custom Variable Test
+   * Tests a custom variable.
    * 
    * @param request - ExpressionTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13937,7 +13941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Custom Variable Test
+   * Tests a custom variable.
    * 
    * @param request - ExpressionTestRequest
    * @returns ExpressionTestResponse
@@ -13948,7 +13952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * File Upload
+   * Uploads a file.
    * 
    * @param request - FileUploadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13991,7 +13995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * File Upload
+   * Uploads a file.
    * 
    * @param request - FileUploadRequest
    * @returns FileUploadResponse
@@ -14002,7 +14006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建样本记录
+   * Create a sample record
    * 
    * @param request - GetSampleDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14041,7 +14045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建样本记录
+   * Create a sample record
    * 
    * @param request - GetSampleDetailRequest
    * @returns GetSampleDetailResponse
@@ -14052,7 +14056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看子任务结果
+   * View subtask results
    * 
    * @param request - GetSubTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14091,7 +14095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看子任务结果
+   * View subtask results
    * 
    * @param request - GetSubTaskResultRequest
    * @returns GetSubTaskResultResponse
@@ -14152,7 +14156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create or Import Name List
+   * Creates or imports a list.
    * 
    * @param request - ImportNameListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14219,7 +14223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create or Import Name List
+   * Creates or imports a list.
    * 
    * @param request - ImportNameListRequest
    * @returns ImportNameListResponse
@@ -14230,7 +14234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Import Template Event
+   * Imports template events.
    * 
    * @param request - ImportTemplateEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14269,7 +14273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Import Template Event
+   * Imports template events.
    * 
    * @param request - ImportTemplateEventRequest
    * @returns ImportTemplateEventResponse
@@ -14280,7 +14284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 样本列表查询
+   * Sample List Query
    * 
    * @param request - ListSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14343,7 +14347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 样本列表查询
+   * Sample List Query
    * 
    * @param request - ListSampleRequest
    * @returns ListSampleResponse
@@ -14354,7 +14358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务组列表查询
+   * Query task group list
    * 
    * @param request - ListTaskGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14409,7 +14413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务组列表查询
+   * Query task group list
    * 
    * @param request - ListTaskGroupRequest
    * @returns ListTaskGroupResponse
@@ -14514,7 +14518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合并下载
+   * Merge Download
    * 
    * @param request - MergeDownloadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14553,7 +14557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合并下载
+   * Merge Download
    * 
    * @param request - MergeDownloadRequest
    * @returns MergeDownloadResponse
@@ -14802,7 +14806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Memo
+   * Update memo.
    * 
    * @param request - ModifyAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14845,7 +14849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Memo
+   * Update memo.
    * 
    * @param request - ModifyAppKeyRequest
    * @returns ModifyAppKeyResponse
@@ -14856,7 +14860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Accumulated Variable
+   * Edits a cumulative variable.
    * 
    * @param request - ModifyCustVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14919,7 +14923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Accumulated Variable
+   * Edits a cumulative variable.
    * 
    * @param request - ModifyCustVariableRequest
    * @returns ModifyCustVariableResponse
@@ -14930,7 +14934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Event
+   * Edits an event.
    * 
    * @param request - ModifyEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14993,7 +14997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Event
+   * Edits an event.
    * 
    * @param request - ModifyEventRequest
    * @returns ModifyEventResponse
@@ -15004,7 +15008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Event Status
+   * Modifies the status of an event.
    * 
    * @param request - ModifyEventStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15055,7 +15059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Event Status
+   * Modifies the status of an event.
    * 
    * @param request - ModifyEventStatusRequest
    * @returns ModifyEventStatusResponse
@@ -15066,7 +15070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Custom Variable
+   * Edits a custom variable.
    * 
    * @param request - ModifyExpressionVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15145,7 +15149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Custom Variable
+   * Edits a custom variable.
    * 
    * @param request - ModifyExpressionVariableRequest
    * @returns ModifyExpressionVariableResponse
@@ -15156,7 +15160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Field
+   * Modifies a field.
    * 
    * @param request - ModifyFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15215,7 +15219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Field
+   * Modifies a field.
    * 
    * @param request - ModifyFieldRequest
    * @returns ModifyFieldResponse
@@ -15226,7 +15230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Policy Priority
+   * Modifies the priority of a policy.
    * 
    * @param request - ModifyRulePriorityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15273,7 +15277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Policy Priority
+   * Modifies the priority of a policy.
    * 
    * @param request - ModifyRulePriorityRequest
    * @returns ModifyRulePriorityResponse
@@ -15284,7 +15288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change the status of a policy version application
+   * Changes the approval status of a policy version.
    * 
    * @param request - ModifyRuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15359,7 +15363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change the status of a policy version application
+   * Changes the approval status of a policy version.
    * 
    * @param request - ModifyRuleStatusRequest
    * @returns ModifyRuleStatusResponse
@@ -15370,7 +15374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activate Service
+   * Activates a service.
    * 
    * @param request - OpenConsoleSlsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15409,7 +15413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activate Service
+   * Activates a service.
    * 
    * @param request - OpenConsoleSlsRequest
    * @returns OpenConsoleSlsResponse
@@ -15420,7 +15424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Operate Favorites
+   * Manages favorites.
    * 
    * @param request - OperateFavoriteVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15463,7 +15467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Operate Favorites
+   * Manages favorites.
    * 
    * @param request - OperateFavoriteVariableRequest
    * @returns OperateFavoriteVariableResponse
@@ -15474,7 +15478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enterprise Verification
+   * Performs a precondition check.
    * 
    * @param request - PermissionCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15509,7 +15513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enterprise Verification
+   * Performs a precondition check.
    * 
    * @param request - PermissionCheckRequest
    * @returns PermissionCheckResponse
@@ -15732,7 +15736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query White-box Strategy Details
+   * Queries the details of a whitebox implementation policy.
    * 
    * @param request - QueryAuthRuleDetailByRuleIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15779,7 +15783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query White-box Strategy Details
+   * Queries the details of a whitebox implementation policy.
    * 
    * @param request - QueryAuthRuleDetailByRuleIdRequest
    * @returns QueryAuthRuleDetailByRuleIdResponse
@@ -15790,7 +15794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recall.
+   * Withdraws a review.
    * 
    * @param request - RecallRuleAuditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15825,7 +15829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recall.
+   * Withdraws a review.
    * 
    * @param request - RecallRuleAuditRequest
    * @returns RecallRuleAuditResponse
@@ -15836,7 +15840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Event
+   * Deletes an event.
    * 
    * @param request - RemoveEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15887,7 +15891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Event
+   * Deletes an event.
    * 
    * @param request - RemoveEventRequest
    * @returns RemoveEventResponse
@@ -15898,7 +15902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Template Download
+   * Download template.
    * 
    * @param request - SampleFileDownloadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15937,7 +15941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Template Download
+   * Download template.
    * 
    * @param request - SampleFileDownloadRequest
    * @returns SampleFileDownloadResponse
@@ -15948,7 +15952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save Custom Columns
+   * Saves custom columns.
    * 
    * @param request - SaveAnalysisColumnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15987,7 +15991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save Custom Columns
+   * Saves custom columns.
    * 
    * @param request - SaveAnalysisColumnRequest
    * @returns SaveAnalysisColumnResponse
@@ -15998,7 +16002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Bypass/Shunt Configuration
+   * The bypass/diversion configuration.
    * 
    * @param request - SaveByPassOrShuntEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16045,7 +16049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Bypass/Shunt Configuration
+   * The bypass/diversion configuration.
    * 
    * @param request - SaveByPassOrShuntEventRequest
    * @returns SaveByPassOrShuntEventResponse
@@ -16056,7 +16060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 样本列表查询
+   * Sample Search
    * 
    * @param request - SearchSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16111,7 +16115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 样本列表查询
+   * Sample Search
    * 
    * @param request - SearchSampleRequest
    * @returns SearchSampleResponse
@@ -16122,7 +16126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Start/Stop Bypass Event
+   * Starts or stops a bypass event.
    * 
    * @param request - StartOrStopByPassShuntEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16165,7 +16169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Start/Stop Bypass Event
+   * Starts or stops a bypass event.
    * 
    * @param request - StartOrStopByPassShuntEventRequest
    * @returns StartOrStopByPassShuntEventResponse
@@ -16176,7 +16180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Start Task Execution
+   * Starts executing a task.
    * 
    * @param request - StartSimulationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16215,7 +16219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Start Task Execution
+   * Starts executing a task.
    * 
    * @param request - StartSimulationTaskRequest
    * @returns StartSimulationTaskResponse
@@ -16226,7 +16230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stop Task
+   * Stops a task.
    * 
    * @param request - StopSimulationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16265,7 +16269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stop Task
+   * Stops a task.
    * 
    * @param request - StopSimulationTaskRequest
    * @returns StopSimulationTaskResponse
@@ -16276,7 +16280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Custom Variable Switch
+   * Enables or disables a custom variable.
    * 
    * @param request - SwitchExpressionVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16323,7 +16327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Custom Variable Switch
+   * Enables or disables a custom variable.
    * 
    * @param request - SwitchExpressionVariableRequest
    * @returns SwitchExpressionVariableResponse
@@ -16334,7 +16338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Field Switch
+   * Toggles a field on or off.
    * 
    * @param request - SwitchFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16385,7 +16389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Field Switch
+   * Toggles a field on or off.
    * 
    * @param request - SwitchFieldRequest
    * @returns SwitchFieldResponse
@@ -16396,7 +16400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Enable/Disable
+   * Queries the enabling or disabling status of a variable.
    * 
    * @param request - SwitchQueryVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16439,7 +16443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Variable Enable/Disable
+   * Queries the enabling or disabling status of a variable.
    * 
    * @param request - SwitchQueryVariableRequest
    * @returns SwitchQueryVariableResponse
@@ -16450,7 +16454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * One-click switch online
+   * Switches an event to online with one click.
    * 
    * @param request - SwitchToOnlineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16489,7 +16493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * One-click switch online
+   * Switches an event to online with one click.
    * 
    * @param request - SwitchToOnlineRequest
    * @returns SwitchToOnlineResponse
@@ -16500,7 +16504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cumulative Variable Switch
+   * Enables or disables a cumulative variable.
    * 
    * @param request - SwitchVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16551,7 +16555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cumulative Variable Switch
+   * Enables or disables a cumulative variable.
    * 
    * @param request - SwitchVariableRequest
    * @returns SwitchVariableResponse
@@ -16562,7 +16566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Determine if the task name is duplicated
+   * Checks whether a task name is duplicate.
    * 
    * @param request - TaskNameByUserIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16601,7 +16605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Determine if the task name is duplicated
+   * Checks whether a task name is duplicate.
    * 
    * @param request - TaskNameByUserIdRequest
    * @returns TaskNameByUserIdResponse
@@ -16612,7 +16616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Query Conditions
+   * Modifies a query condition.
    * 
    * @param request - UpdateAnalysisConditionFavoriteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16683,7 +16687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Query Conditions
+   * Modifies a query condition.
    * 
    * @param request - UpdateAnalysisConditionFavoriteRequest
    * @returns UpdateAnalysisConditionFavoriteResponse
@@ -16694,7 +16698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approval
+   * Processes an approval request.
    * 
    * @param request - UpdateAuditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16745,7 +16749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approval
+   * Processes an approval request.
    * 
    * @param request - UpdateAuditRequest
    * @returns UpdateAuditResponse
@@ -16756,7 +16760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Authorization Policy
+   * Modifies an authorization policy.
    * 
    * @param request - UpdateAuthRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16815,7 +16819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Authorization Policy
+   * Modifies an authorization policy.
    * 
    * @param request - UpdateAuthRuleRequest
    * @returns UpdateAuthRuleResponse
@@ -16826,7 +16830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Bypass Event
+   * Edits a bypass event.
    * 
    * @param request - UpdateByPassShuntEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16869,7 +16873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Bypass Event
+   * Edits a bypass event.
    * 
    * @param request - UpdateByPassShuntEventRequest
    * @returns UpdateByPassShuntEventResponse
@@ -16880,7 +16884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Data Source
+   * Modifies a data source.
    * 
    * @param request - UpdateDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16935,7 +16939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Data Source
+   * Modifies a data source.
    * 
    * @param request - UpdateDataSourceRequest
    * @returns UpdateDataSourceResponse
@@ -16946,7 +16950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Custom Query Variable
+   * Modifies a custom query variable.
    * 
    * @param request - UpdateQueryVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17021,7 +17025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Custom Query Variable
+   * Modifies a custom query variable.
    * 
    * @param request - UpdateQueryVariableRequest
    * @returns UpdateQueryVariableResponse
@@ -17032,7 +17036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Policy
+   * Updates a policy.
    * 
    * @param request - UpdateRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17115,7 +17119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Policy
+   * Updates a policy.
    * 
    * @param request - UpdateRuleRequest
    * @returns UpdateRuleResponse
@@ -17126,7 +17130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Basic Policy Information
+   * Updates the basic information of a policy.
    * 
    * @param request - UpdateRuleBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17181,7 +17185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Basic Policy Information
+   * Updates the basic information of a policy.
    * 
    * @param request - UpdateRuleBaseRequest
    * @returns UpdateRuleBaseResponse
@@ -17192,7 +17196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Update Samples
+   * Modifies samples in batches.
    * 
    * @param request - UpdateSampleBatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17239,7 +17243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Update Samples
+   * Modifies samples in batches.
    * 
    * @param request - UpdateSampleBatchRequest
    * @returns UpdateSampleBatchResponse
@@ -17316,7 +17320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传并校验样本文件
+   * Upload and validate the sample file for the customer.
    * 
    * @param request - UploadForeignSampleFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17359,7 +17363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传并校验样本文件
+   * Upload and validate the sample file for the customer.
    * 
    * @param request - UploadForeignSampleFileRequest
    * @returns UploadForeignSampleFileResponse
@@ -17456,7 +17460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传并校验样本文件
+   * Upload and validate the sample file
    * 
    * @param request - UploadSampleFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17507,7 +17511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传并校验样本文件
+   * Upload and validate the sample file
    * 
    * @param request - UploadSampleFileRequest
    * @returns UploadSampleFileResponse

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMarkPageRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeMarkPageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeMarkPageRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Order direction.
+   * The sort order.
    * 
    * @example
    * 0
@@ -31,7 +31,7 @@ export class DescribeMarkPageRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * Whether to paginate.
+   * Specifies whether to enable paging.
    * 
    * @example
    * true
@@ -39,7 +39,7 @@ export class DescribeMarkPageRequest extends $dara.Model {
   isPage?: boolean;
   /**
    * @remarks
-   * Sorting condition.
+   * The sort condition.
    * 
    * @example
    * asc
@@ -47,7 +47,7 @@ export class DescribeMarkPageRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribeMarkPageRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +63,7 @@ export class DescribeMarkPageRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 443

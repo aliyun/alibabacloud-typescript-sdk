@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventResultListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeEventResultListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeEventResultListRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class DescribeEventResultListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DescribeEventResultListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -51,7 +51,7 @@ export class DescribeEventResultListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

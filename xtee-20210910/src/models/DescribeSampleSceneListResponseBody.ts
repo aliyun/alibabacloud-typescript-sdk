@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Business type.
+   * The business type.
    * 
    * @example
    * variable_scene
@@ -13,7 +13,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   bizType?: string;
   /**
    * @remarks
-   * Configuration key.
+   * The configuration item key.
    * 
    * @example
    * account_abuse_detection
@@ -21,7 +21,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   configKey?: string;
   /**
    * @remarks
-   * Configuration value.
+   * The configuration item value.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   configValue?: string;
   /**
    * @remarks
-   * Creator.
+   * The creator.
    * 
    * @example
    * 1519714049632764
@@ -37,7 +37,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   creator?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 变量描述
@@ -45,7 +45,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -53,7 +53,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -61,7 +61,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   gmtModified?: number;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 3144
@@ -69,7 +69,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * Last modified by.
+   * The last modifier.
    * 
    * @example
    * 1519714049632764
@@ -77,7 +77,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
   lastModifiedOperator?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * ENABLE
@@ -125,7 +125,7 @@ export class DescribeSampleSceneListResponseBodyResultObject extends $dara.Model
 export class DescribeSampleSceneListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -133,7 +133,7 @@ export class DescribeSampleSceneListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class DescribeSampleSceneListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -149,12 +149,12 @@ export class DescribeSampleSceneListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   resultObject?: DescribeSampleSceneListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of items.
    * 
    * @example
    * 6
@@ -162,7 +162,7 @@ export class DescribeSampleSceneListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableBindDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeVariableBindDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Bound variable definition ID
+   * The ID of the bound variable definition.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class DescribeVariableBindDetailRequest extends $dara.Model {
   defineId?: number;
   /**
    * @remarks
-   * Primary key ID of the variable, which is empty if it\\"s a new addition
+   * The primary key ID of the variable. Leave this parameter empty for new entries.
    * 
    * @example
    * 3144
@@ -31,7 +31,7 @@ export class DescribeVariableBindDetailRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

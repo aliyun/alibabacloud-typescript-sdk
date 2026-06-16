@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRuleStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * UID of the applicant.
+   * The UID of the user who initiated the approval.
    * 
    * @example
    * 1519714049632764
@@ -23,7 +23,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   applyUserId?: string;
   /**
    * @remarks
-   * Name of the applicant.
+   * The name of the user who initiated the approval.
    * 
    * @example
    * root
@@ -31,7 +31,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   applyUserName?: string;
   /**
    * @remarks
-   * Approval remarks.
+   * The remarks for the approval request.
    * 
    * @example
    * 申请发布上线
@@ -39,7 +39,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   auditRemark?: string;
   /**
    * @remarks
-   * UID of the auditor.
+   * The UID of the approver.
    * 
    * @example
    * 1519714049632764
@@ -47,7 +47,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   auditUserId?: string;
   /**
    * @remarks
-   * Name of the auditor.
+   * The name of the approver.
    * 
    * @example
    * root
@@ -55,7 +55,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   auditUserName?: string;
   /**
    * @remarks
-   * Primary key ID of the policy.
+   * The primary key ID of the policy.
    * 
    * @example
    * 6843
@@ -63,7 +63,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Event type.
+   * The event type.
    * 
    * @example
    * MAIN
@@ -71,7 +71,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -79,7 +79,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Audit status.
+   * The approval status.
    * 
    * @example
    * DRAFT_TO_RUNNING
@@ -87,7 +87,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   ruleAuditType?: string;
   /**
    * @remarks
-   * Policy ID.
+   * The policy ID.
    * 
    * @example
    * 101544
@@ -95,7 +95,7 @@ export class ModifyRuleStatusRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * Primary key ID of the policy version.
+   * The primary key ID of the policy version.
    * 
    * @example
    * 11519

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Condition value.
+   * The condition value.
    * 
    * @example
    * {\\"relationship\\":\\"and\\",\\"list\\":[{\\"deepCount\\":1,\\"left\\":{\\"hasRightVariable\\":true,\\"fieldType\\":\\"INT\\",\\"functionName\\":\\"\\",\\"leftVariableType\\":\\"NATIVE\\",\\"name\\":\\"DEtest222\\",\\"operatorCode\\":\\"equals\\"},\\"right\\":{\\"rightVariableType\\":\\"constant\\",\\"name\\":\\"9007199254\\",\\"functionName\\":\\"\\"},\\"operatorCode\\":\\"equals\\"}]}
@@ -23,7 +23,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * @example
    * 1752076800000
@@ -31,7 +31,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   eventBeginTime?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_ajnoqe2016
@@ -39,7 +39,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * @example
    * 1753891199000
@@ -47,7 +47,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   eventEndTime?: number;
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -55,7 +55,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * Field value
+   * The field value.
    * 
    * @example
    * 20
@@ -63,7 +63,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Condition name
+   * The condition name.
    * 
    * @example
    * 查询条件1
@@ -81,7 +81,7 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,10 @@ export class UpdateAnalysisConditionFavoriteRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Type, BASIC: Basic query, ADVANCE: Advanced query, BATCH: Batch query
+   * The type. Valid values:
+   * - BASIC: basic query.
+   * - ADVANCE: advanced query.
+   * - BATCH: batch query.
    * 
    * @example
    * BASIC

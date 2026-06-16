@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DeleteRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Policy primary key ID
+   * The primary key ID of the policy.
    * 
    * @example
    * 7035
@@ -23,7 +23,7 @@ export class DeleteRuleRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class DeleteRuleRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 102059
@@ -39,7 +39,7 @@ export class DeleteRuleRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * Policy version primary key ID
+   * The primary key ID of the policy version number.
    * 
    * @example
    * 10203

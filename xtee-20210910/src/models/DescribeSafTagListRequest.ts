@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSafTagListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSafTagListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Tag name. Fuzzy search.
+   * The label name. Fuzzy match is supported.
    * 
    * @example
    * rn0301
@@ -23,7 +23,7 @@ export class DescribeSafTagListRequest extends $dara.Model {
   tagName?: string;
   /**
    * @remarks
-   * API service ID.
+   * The API service ID.
    * 
    * @example
    * 34
@@ -31,7 +31,7 @@ export class DescribeSafTagListRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class DescribeSafTagListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeSafTagListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou

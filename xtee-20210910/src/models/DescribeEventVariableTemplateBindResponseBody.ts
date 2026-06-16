@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVariables extends $dara.Model {
   /**
    * @remarks
-   * Variable code
+   * The variable code.
    * 
    * @example
    * ip
@@ -13,7 +13,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVari
   code?: string;
   /**
    * @remarks
-   * Description of the variable.
+   * The variable description.
    * 
    * @example
    * 描述
@@ -21,7 +21,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVari
   description?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -29,7 +29,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVari
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 456
@@ -37,7 +37,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVari
   id?: number;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * ip
@@ -45,7 +45,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVari
   name?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * ip
@@ -53,7 +53,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVari
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * NATIVE
@@ -95,7 +95,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVari
 export class DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariables extends $dara.Model {
   /**
    * @remarks
-   * Variable code
+   * The variable code.
    * 
    * @example
    * age
@@ -103,7 +103,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariab
   code?: string;
   /**
    * @remarks
-   * Variable description.
+   * The variable description.
    * 
    * @example
    * 描述
@@ -111,7 +111,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariab
   description?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -119,7 +119,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariab
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 234
@@ -127,7 +127,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariab
   id?: number;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * age
@@ -135,7 +135,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariab
   name?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 年龄
@@ -143,7 +143,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariab
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * NATIVE
@@ -185,17 +185,17 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariab
 export class DescribeEventVariableTemplateBindResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * List of chargeable variables
+   * The list of paid variables.
    */
   chargeVariables?: DescribeEventVariableTemplateBindResponseBodyResultObjectChargeVariables[];
   /**
    * @remarks
-   * List of free variables
+   * The list of free variables.
    */
   freeVariables?: DescribeEventVariableTemplateBindResponseBodyResultObjectFreeVariables[];
   /**
    * @remarks
-   * Template code
+   * The template code.
    * 
    * @example
    * register
@@ -203,7 +203,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObject extends $
   templateCode?: string;
   /**
    * @remarks
-   * Total count
+   * The total number of entries.
    * 
    * @example
    * 38
@@ -245,7 +245,7 @@ export class DescribeEventVariableTemplateBindResponseBodyResultObject extends $
 export class DescribeEventVariableTemplateBindResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -253,7 +253,7 @@ export class DescribeEventVariableTemplateBindResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeEventVariableTemplateBindResponseBodyResultObject;
   static names(): { [key: string]: string } {

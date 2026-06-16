@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Capacity.
+   * The capacity.
    * 
    * @example
    * 100000
@@ -13,7 +13,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * Variable definition ID.
+   * The variable definition ID.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   defineId?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 变量描述
@@ -29,7 +29,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Extended information.
+   * The extended information.
    * 
    * @example
    * 暂无
@@ -37,7 +37,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   extendInfo?: { [key: string]: any };
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -45,7 +45,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -53,7 +53,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * Variable ID.
+   * The variable ID.
    * 
    * @example
    * 497
@@ -61,7 +61,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Remaining capacity.
+   * The remaining capacity.
    * 
    * @example
    * 100000
@@ -69,7 +69,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   leftCapacity?: number;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * __ipLocationCityCode__
@@ -77,7 +77,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Variable output type
+   * The output type of the variable.
    * 
    * @example
    * STRING
@@ -85,7 +85,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   outputsType?: string;
   /**
    * @remarks
-   * Associated event ID.
+   * The associated event of the variable.
    * 
    * @example
    * de_agdxgz0246
@@ -93,7 +93,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   refObjId?: string;
   /**
    * @remarks
-   * Associated event name.
+   * The name of the associated event of the variable.
    * 
    * @example
    * 注册事件
@@ -101,7 +101,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   refObjName?: string;
   /**
    * @remarks
-   * Associated object type of the variable
+   * The association type of the variable.
    * 
    * @example
    * EVENT
@@ -109,7 +109,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   refObjType?: string;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * SAF
@@ -117,7 +117,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 设备风险识别_标签
@@ -125,7 +125,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * NATIVE
@@ -133,7 +133,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * User ID to which the data belongs.
+   * The UID of the user who owns the data.
    * 
    * @example
    * 100000
@@ -198,7 +198,7 @@ export class DescribeVariableListResponseBodyResultObject extends $dara.Model {
 export class DescribeVariableListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -206,7 +206,7 @@ export class DescribeVariableListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -214,7 +214,7 @@ export class DescribeVariableListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -222,12 +222,12 @@ export class DescribeVariableListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   resultObject?: DescribeVariableListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 27
@@ -235,7 +235,7 @@ export class DescribeVariableListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 3

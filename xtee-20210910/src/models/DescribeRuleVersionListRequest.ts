@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleVersionListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values: 
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeRuleVersionListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Policy primary key ID
+   * The primary key ID of the policy.
    * 
    * @example
    * 6851
@@ -23,7 +23,7 @@ export class DescribeRuleVersionListRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeRuleVersionListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeRuleVersionListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class DescribeRuleVersionListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 101804

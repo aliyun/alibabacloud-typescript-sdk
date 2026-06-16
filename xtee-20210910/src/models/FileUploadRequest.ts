@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FileUploadRequest extends $dara.Model {
   /**
    * @remarks
-   * File name.
+   * The file name.
    * 
    * @example
    * P4911_2707.csv
@@ -13,7 +13,7 @@ export class FileUploadRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * File URL
+   * The file URL.
    * 
    * @example
    * https://res-v1.cupl-fdfs.com/direct/79886bdc-9855-4ff4-aa34-eb5b21cd43a7
@@ -21,9 +21,9 @@ export class FileUploadRequest extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -31,7 +31,7 @@ export class FileUploadRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Scenario.
+   * The scenario.
    * 
    * @example
    * FNNCIEA

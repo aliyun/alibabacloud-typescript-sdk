@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Community number.
+   * The community number.
    * 
    * @example
    * 129838420210118141502RaMMIgVG
@@ -13,7 +13,7 @@ export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
   communityNo?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1699450018265
@@ -21,7 +21,7 @@ export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Group risk concentration.
+   * The risk concentration.
    * 
    * @example
    * 80
@@ -29,7 +29,7 @@ export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
   groupRisk?: string;
   /**
    * @remarks
-   * Group scale.
+   * The community scale.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
   groupScale?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 497
@@ -45,7 +45,7 @@ export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Scene name.
+   * The scenario name.
    * 
    * @example
    * 通用图计算
@@ -53,7 +53,7 @@ export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 6770764
@@ -61,7 +61,7 @@ export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * User UID.
+   * The user UID.
    * 
    * @example
    * 1519714049632764
@@ -105,7 +105,7 @@ export class DescribeGroupPageResponseBodyResultObject extends $dara.Model {
 export class DescribeGroupPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -113,7 +113,7 @@ export class DescribeGroupPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class DescribeGroupPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -129,12 +129,12 @@ export class DescribeGroupPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   resultObject?: DescribeGroupPageResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -142,7 +142,7 @@ export class DescribeGroupPageResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

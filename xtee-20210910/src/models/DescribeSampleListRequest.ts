@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSampleListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * Sets the language type for request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeSampleListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeSampleListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class DescribeSampleListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class DescribeSampleListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Sample type
+   * The sample type.
    * 
    * @example
    * PHONE
@@ -47,7 +47,7 @@ export class DescribeSampleListRequest extends $dara.Model {
   sampleType?: string;
   /**
    * @remarks
-   * Sample data value.
+   * The sample data value.
    * 
    * @example
    * 1770000000

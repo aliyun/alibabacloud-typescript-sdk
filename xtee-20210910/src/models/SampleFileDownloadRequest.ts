@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SampleFileDownloadRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class SampleFileDownloadRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class SampleFileDownloadRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Scenario.
+   * The scenario.
    * 
    * @example
    * FINANCE

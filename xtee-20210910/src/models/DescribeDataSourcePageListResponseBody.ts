@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Creator of the data source.
+   * The creator of the data source.
    * 
    * @example
    * xxxx
@@ -13,7 +13,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
   creator?: string;
   /**
    * @remarks
-   * Data source description.
+   * The description of the data source.
    * 
    * @example
    * 描述
@@ -21,7 +21,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * Time when the data source was created.
+   * The time when the data source was created.
    * 
    * @example
    * 1621578648000
@@ -29,7 +29,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
   gmtCreate?: string;
   /**
    * @remarks
-   * Time when the data source was last modified.
+   * The time when the data source was last modified.
    * 
    * @example
    * 1565701886000
@@ -37,7 +37,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
   gmtModified?: string;
   /**
    * @remarks
-   * Data source ID.
+   * The data source ID.
    * 
    * @example
    * 497
@@ -45,7 +45,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
   id?: number;
   /**
    * @remarks
-   * Last modifier.
+   * The user who last modified the data source.
    * 
    * @example
    * xxxxx
@@ -53,7 +53,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
   modifier?: string;
   /**
    * @remarks
-   * Data source name.
+   * The data source name.
    * 
    * @example
    * data_source
@@ -61,7 +61,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * Total pages.
+   * The total number of pages.
    * 
    * @example
    * 4
@@ -69,7 +69,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
   total?: number;
   /**
    * @remarks
-   * Data source type.
+   * The data source type.
    * 
    * @example
    * FILE
@@ -115,7 +115,7 @@ export class DescribeDataSourcePageListResponseBodyResultObject extends $dara.Mo
 export class DescribeDataSourcePageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -123,7 +123,7 @@ export class DescribeDataSourcePageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -131,7 +131,7 @@ export class DescribeDataSourcePageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -139,12 +139,12 @@ export class DescribeDataSourcePageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeDataSourcePageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total items
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -152,7 +152,7 @@ export class DescribeDataSourcePageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total pages
+   * The total number of pages.
    * 
    * @example
    * 9

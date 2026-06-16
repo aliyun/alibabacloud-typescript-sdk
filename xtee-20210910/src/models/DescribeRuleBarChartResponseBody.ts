@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleBarChartResponseBodyResultObjectSeriesData extends $dara.Model {
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 营销事件
@@ -13,7 +13,7 @@ export class DescribeRuleBarChartResponseBodyResultObjectSeriesData extends $dar
   eventName?: string;
   /**
    * @remarks
-   * Number.
+   * The quantity.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeRuleBarChartResponseBodyResultObjectSeriesData extends $dar
   num?: number;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别评分_高风险_拒绝
@@ -29,7 +29,7 @@ export class DescribeRuleBarChartResponseBodyResultObjectSeriesData extends $dar
   ruleName?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * RUNNING
@@ -65,12 +65,12 @@ export class DescribeRuleBarChartResponseBodyResultObjectSeriesData extends $dar
 export class DescribeRuleBarChartResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Response data.
+   * The response data.
    */
   data?: DescribeRuleBarChartResponseBodyResultObjectSeriesData[];
   /**
    * @remarks
-   * Bar chart type
+   * The bar chart type.
    * 
    * @example
    * bar
@@ -105,7 +105,7 @@ export class DescribeRuleBarChartResponseBodyResultObjectSeries extends $dara.Mo
 export class DescribeRuleBarChartResponseBodyResultObjectYaxis extends $dara.Model {
   /**
    * @remarks
-   * yaxis data items
+   * The y-axis data items.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -135,12 +135,12 @@ export class DescribeRuleBarChartResponseBodyResultObjectYaxis extends $dara.Mod
 export class DescribeRuleBarChartResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: DescribeRuleBarChartResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * yaxis related results.
+   * The y-axis results.
    */
   yaxis?: DescribeRuleBarChartResponseBodyResultObjectYaxis;
   static names(): { [key: string]: string } {
@@ -175,7 +175,7 @@ export class DescribeRuleBarChartResponseBodyResultObject extends $dara.Model {
 export class DescribeRuleBarChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -183,7 +183,7 @@ export class DescribeRuleBarChartResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -191,7 +191,7 @@ export class DescribeRuleBarChartResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -199,7 +199,7 @@ export class DescribeRuleBarChartResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -207,12 +207,12 @@ export class DescribeRuleBarChartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    */
   resultObject?: DescribeRuleBarChartResponseBodyResultObject;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

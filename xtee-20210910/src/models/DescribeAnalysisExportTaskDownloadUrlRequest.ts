@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAnalysisExportTaskDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * Sets the language type for request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeAnalysisExportTaskDownloadUrlRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code
+   * Region ID.
    * 
    * This parameter is required.
    * 

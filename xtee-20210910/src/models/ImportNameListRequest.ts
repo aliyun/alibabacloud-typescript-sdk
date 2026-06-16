@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ImportNameListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class ImportNameListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class ImportNameListRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Import name list.
+   * The list of names to import.
    * 
    * @example
    * aa\\nbb\\ncc
@@ -31,20 +31,19 @@ export class ImportNameListRequest extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
-   * 描述
+   * description
    */
   description?: string;
   /**
    * @remarks
-   * Document import type:
+   * The document import type. Valid values:
    * 
-   * 
-   * INPUT: Text input
-   * CSV: CSV upload
-   * NONE: Do not upload for now
+   * INPUT: data entry.
+   * CSV: CSV upload.
+   * NONE: no upload.
    * 
    * This parameter is required.
    * 
@@ -54,15 +53,15 @@ export class ImportNameListRequest extends $dara.Model {
   importType?: string;
   /**
    * @remarks
-   * name content memo
+   * The description.
    * 
    * @example
-   * 名单内容描述
+   * test
    */
   memo?: string;
   /**
    * @remarks
-   * nameListType
+   * The nameListType.
    * 
    * @example
    * accountId
@@ -70,7 +69,7 @@ export class ImportNameListRequest extends $dara.Model {
   nameListType?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -78,7 +77,7 @@ export class ImportNameListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * This parameter is required.
    * 
@@ -88,7 +87,7 @@ export class ImportNameListRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * @example
    * 393314

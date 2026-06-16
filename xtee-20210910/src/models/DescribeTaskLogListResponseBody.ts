@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskLogListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Completion time, in milliseconds.
+   * The completion time, in milliseconds.
    * 
    * @example
    * 1753804800000
@@ -13,7 +13,7 @@ export class DescribeTaskLogListResponseBodyResultObject extends $dara.Model {
   completionTime?: number;
   /**
    * @remarks
-   * Task creation time.
+   * The time when the task was created.
    * 
    * @example
    * 1753804800000
@@ -21,7 +21,7 @@ export class DescribeTaskLogListResponseBodyResultObject extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Log ID.
+   * The log ID.
    * 
    * @example
    * 2793
@@ -29,7 +29,7 @@ export class DescribeTaskLogListResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Remark.
+   * The remarks.
    * 
    * @example
    * 备注
@@ -37,7 +37,7 @@ export class DescribeTaskLogListResponseBodyResultObject extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Scene name
+   * The scenario name.
    * 
    * @example
    * coupon_abuse_detection
@@ -45,10 +45,10 @@ export class DescribeTaskLogListResponseBodyResultObject extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Status.
+   * The status. Valid values:
    * 
-   * 0: Deleted
-   * 1: Normal
+   * 0: deleted
+   * 1: Normal.
    * 
    * @example
    * 1
@@ -56,11 +56,11 @@ export class DescribeTaskLogListResponseBodyResultObject extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Task type
+   * The task type. Valid values:
    * 
-   * 1: Data upload
-   * 2: Supplemental upload
-   * 3: Labeling
+   * 1: data upload
+   * 2: supplementary upload
+   * 3: labeling.
    * 
    * @example
    * 1
@@ -102,7 +102,7 @@ export class DescribeTaskLogListResponseBodyResultObject extends $dara.Model {
 export class DescribeTaskLogListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -110,7 +110,7 @@ export class DescribeTaskLogListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -118,7 +118,7 @@ export class DescribeTaskLogListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of items per page, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -126,12 +126,12 @@ export class DescribeTaskLogListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeTaskLogListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -139,7 +139,7 @@ export class DescribeTaskLogListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

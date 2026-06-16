@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventCountResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Whether it exceeds the maximum number
+   * Indicates whether the maximum number is exceeded.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeEventCountResponseBodyResultObject extends $dara.Model {
   limit?: boolean;
   /**
    * @remarks
-   * Maximum creation count
+   * The maximum number of items that can be created.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeEventCountResponseBodyResultObject extends $dara.Model {
   maxTotalItem?: number;
   /**
    * @remarks
-   * Total count
+   * The total number of items.
    * 
    * @example
    * 101
@@ -55,7 +55,7 @@ export class DescribeEventCountResponseBodyResultObject extends $dara.Model {
 export class DescribeEventCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class DescribeEventCountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -71,7 +71,7 @@ export class DescribeEventCountResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error details
+   * The error details.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -79,7 +79,7 @@ export class DescribeEventCountResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -87,12 +87,12 @@ export class DescribeEventCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeEventCountResponseBodyResultObject;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressionVariablePageResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 变量描述
@@ -13,7 +13,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   description?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -21,7 +21,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   eventName?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -29,7 +29,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   gmtModified?: number;
   /**
    * @remarks
-   * Primary key of custom variable.
+   * The primary key of the custom variable.
    * 
    * @example
    * 2793
@@ -37,7 +37,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   id?: number;
   /**
    * @remarks
-   * Query variable name.
+   * The variable name.
    * 
    * @example
    * ex_OERlw0Zqfb23
@@ -45,7 +45,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   name?: string;
   /**
    * @remarks
-   * Variable return type.
+   * The variable return type.
    * 
    * @example
    * DOUBLE
@@ -53,12 +53,12 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   outputs?: string;
   /**
    * @remarks
-   * Associated Strategies.
+   * The rule ID of the associated policy.
    */
   ruleList?: string[];
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * ENABLE
@@ -66,7 +66,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   status?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 获取手机号前7位自定义变量
@@ -74,7 +74,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   title?: string;
   /**
    * @remarks
-   * Version information.
+   * The version information.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
 export class DescribeExpressionVariablePageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -133,7 +133,7 @@ export class DescribeExpressionVariablePageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class DescribeExpressionVariablePageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -149,12 +149,12 @@ export class DescribeExpressionVariablePageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   resultObject?: DescribeExpressionVariablePageResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 31
@@ -162,7 +162,7 @@ export class DescribeExpressionVariablePageResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 9

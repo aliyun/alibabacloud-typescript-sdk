@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ExpressionTestRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class ExpressionTestRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Test expression.
+   * The test expression.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ExpressionTestRequest extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * Calculation expression variable
+   * The calculation expression variable.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ExpressionTestRequest extends $dara.Model {
   expressionVariable?: string;
   /**
    * @remarks
-   * Associated variable ID
+   * The associated variable ID.
    * 
    * @example
    * [44659]
@@ -43,7 +43,7 @@ export class ExpressionTestRequest extends $dara.Model {
   expressionVariableIds?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * @example
    * 3144
@@ -51,7 +51,7 @@ export class ExpressionTestRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class ExpressionTestRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Scene
+   * The scenario.
    * 
    * This parameter is required.
    * 

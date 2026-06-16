@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsBarChartResponseBodyResultObjectSeriesData extends $dara.Model {
   /**
    * @remarks
-   * Number.
+   * The quantity.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DescribeTagsBarChartResponseBodyResultObjectSeriesData extends $dar
   num?: number;
   /**
    * @remarks
-   * Scale
+   * The ratio.
    * 
    * @example
    * 10%
@@ -45,12 +45,12 @@ export class DescribeTagsBarChartResponseBodyResultObjectSeriesData extends $dar
 export class DescribeTagsBarChartResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Chart data list
+   * The chart data list.
    */
   data?: DescribeTagsBarChartResponseBodyResultObjectSeriesData[];
   /**
    * @remarks
-   * Series name.
+   * The series name.
    * 
    * @example
    * tag
@@ -58,7 +58,7 @@ export class DescribeTagsBarChartResponseBodyResultObjectSeries extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * Chart field, same as name
+   * The chart field, which is the same as the name.
    * 
    * @example
    * tag
@@ -95,7 +95,7 @@ export class DescribeTagsBarChartResponseBodyResultObjectSeries extends $dara.Mo
 export class DescribeTagsBarChartResponseBodyResultObjectXaxis extends $dara.Model {
   /**
    * @remarks
-   * xaxis data items
+   * The x-axis data items.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -125,12 +125,12 @@ export class DescribeTagsBarChartResponseBodyResultObjectXaxis extends $dara.Mod
 export class DescribeTagsBarChartResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: DescribeTagsBarChartResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * xaxis interface configuration.
+   * The x-axis configuration.
    */
   xaxis?: DescribeTagsBarChartResponseBodyResultObjectXaxis;
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class DescribeTagsBarChartResponseBodyResultObject extends $dara.Model {
 export class DescribeTagsBarChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -173,7 +173,7 @@ export class DescribeTagsBarChartResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -181,7 +181,7 @@ export class DescribeTagsBarChartResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -189,7 +189,7 @@ export class DescribeTagsBarChartResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -197,12 +197,12 @@ export class DescribeTagsBarChartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeTagsBarChartResponseBodyResultObject;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

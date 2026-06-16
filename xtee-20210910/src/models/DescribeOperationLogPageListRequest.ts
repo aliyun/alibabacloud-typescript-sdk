@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOperationLogPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End time.
+   * The end time.
    * 
    * @example
    * 1733364850919
@@ -31,15 +31,15 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * Operation Summary.
+   * The change content to query.
    * 
    * @example
-   * Update
+   * 修改变量
    */
   operationSummary?: string;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Start time.
+   * The start time.
    * 
    * @example
    * 1733364850919
@@ -63,7 +63,7 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   startDate?: number;
   /**
    * @remarks
-   * User Name Search.
+   * The operator name to query.
    * 
    * @example
    * root

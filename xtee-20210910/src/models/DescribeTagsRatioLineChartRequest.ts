@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsRatioLineChartRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeTagsRatioLineChartRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeTagsRatioLineChartRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * Bypass event code
+   * The bypass event codes.
    * 
    * @example
    * de_amnhke2482
@@ -33,7 +33,7 @@ export class DescribeTagsRatioLineChartRequest extends $dara.Model {
   byPassEventCodes?: string;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DescribeTagsRatioLineChartRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Main event code
+   * The main event codes.
    * 
    * @example
    * de_amnhke2482
@@ -51,7 +51,7 @@ export class DescribeTagsRatioLineChartRequest extends $dara.Model {
   mainEventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class DescribeTagsRatioLineChartRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Shunt event code
+   * The diversion event codes.
    * 
    * @example
    * de_amnhke2488

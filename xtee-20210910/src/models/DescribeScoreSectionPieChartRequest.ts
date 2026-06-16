@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScoreSectionPieChartRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeScoreSectionPieChartRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * @example
    * 1751249559000
@@ -23,7 +23,7 @@ export class DescribeScoreSectionPieChartRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * @example
    * 1740535600000
@@ -31,7 +31,7 @@ export class DescribeScoreSectionPieChartRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_afghcf6411
@@ -39,7 +39,7 @@ export class DescribeScoreSectionPieChartRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Event type.
+   * The event type.
    * 
    * @example
    * MAIN
@@ -47,7 +47,7 @@ export class DescribeScoreSectionPieChartRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

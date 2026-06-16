@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCityGrid extends $dara.Model {
   /**
    * @remarks
-   * Chart flag, default false
+   * The chart identifier. Default value: false.
    * 
    * @example
    * false
@@ -35,7 +35,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCityGrid 
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCitySeriesData extends $dara.Model {
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * 杭州市
@@ -43,7 +43,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCitySerie
   name?: string;
   /**
    * @remarks
-   * Data value
+   * The data value.
    * 
    * @example
    * 100
@@ -75,12 +75,12 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCitySerie
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCitySeries extends $dara.Model {
   /**
    * @remarks
-   * Returned data object
+   * The response data object.
    */
   data?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCitySeriesData[];
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * 杭州市
@@ -88,7 +88,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCitySerie
   name?: string;
   /**
    * @remarks
-   * Chart identifier, default is false
+   * The chart identifier. Default value: false.
    * 
    * @example
    * false
@@ -125,7 +125,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCitySerie
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCity extends $dara.Model {
   /**
    * @remarks
-   * Chart flag, default true
+   * The chart identifier. Default value: true.
    * 
    * @example
    * true
@@ -133,12 +133,12 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCity exte
   animation?: boolean;
   /**
    * @remarks
-   * Belonging grid.
+   * The grid to which the chart belongs.
    */
   grid?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCityGrid;
   /**
    * @remarks
-   * Chart data
+   * The chart data.
    */
   series?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCitySeries[];
   static names(): { [key: string]: string } {
@@ -175,7 +175,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCity exte
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceGrid extends $dara.Model {
   /**
    * @remarks
-   * Chart identifier, default is false
+   * The chart identifier. Default value: false.
    * 
    * @example
    * false
@@ -205,7 +205,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceG
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceSeriesData extends $dara.Model {
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * 浙江省
@@ -213,7 +213,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceS
   name?: string;
   /**
    * @remarks
-   * Data value
+   * The data value.
    * 
    * @example
    * 100
@@ -245,12 +245,12 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceS
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceSeries extends $dara.Model {
   /**
    * @remarks
-   * Returned data object
+   * The response data object.
    */
   data?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceSeriesData[];
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * 浙江省
@@ -258,7 +258,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceS
   name?: string;
   /**
    * @remarks
-   * Chart identifier, default is false
+   * The chart identifier. Default value: false.
    * 
    * @example
    * false
@@ -295,7 +295,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceS
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvince extends $dara.Model {
   /**
    * @remarks
-   * Chart identifier, default is true
+   * The chart identifier. Default value: true.
    * 
    * @example
    * true
@@ -303,12 +303,12 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvince 
   animation?: boolean;
   /**
    * @remarks
-   * Belonging grid.
+   * The grid to which the chart belongs.
    */
   grid?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceGrid;
   /**
    * @remarks
-   * Chart data
+   * The chart data.
    */
   series?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvinceSeries[];
   static names(): { [key: string]: string } {
@@ -345,7 +345,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvince 
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCityGrid extends $dara.Model {
   /**
    * @remarks
-   * Chart flag, default is false
+   * The chart identifier. Default value: false.
    * 
    * @example
    * false
@@ -375,7 +375,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCityG
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCitySeriesData extends $dara.Model {
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * 杭州市
@@ -383,7 +383,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCityS
   name?: string;
   /**
    * @remarks
-   * Data value
+   * The data value.
    * 
    * @example
    * 100
@@ -415,12 +415,12 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCityS
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCitySeries extends $dara.Model {
   /**
    * @remarks
-   * Returned data object
+   * The response data object.
    */
   data?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCitySeriesData[];
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * 杭州市
@@ -428,7 +428,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCityS
   name?: string;
   /**
    * @remarks
-   * Chart flag, default is false
+   * The chart identifier. Default value: false.
    * 
    * @example
    * false
@@ -465,7 +465,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCityS
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCity extends $dara.Model {
   /**
    * @remarks
-   * Chart flag, default is true
+   * The chart identifier. Default value: true.
    * 
    * @example
    * true
@@ -473,12 +473,12 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCity 
   animation?: boolean;
   /**
    * @remarks
-   * Belongs to grid.
+   * The grid to which the chart belongs.
    */
   grid?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCityGrid;
   /**
    * @remarks
-   * Chart data
+   * The chart data.
    */
   series?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCitySeries[];
   static names(): { [key: string]: string } {
@@ -515,7 +515,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCity 
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvinceGrid extends $dara.Model {
   /**
    * @remarks
-   * Chart flag, default is false
+   * The chart identifier. Default value: false.
    * 
    * @example
    * false
@@ -545,7 +545,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvi
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvinceSeriesData extends $dara.Model {
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * 浙江省
@@ -553,7 +553,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvi
   name?: string;
   /**
    * @remarks
-   * Data value
+   * The data value.
    * 
    * @example
    * 100
@@ -585,12 +585,12 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvi
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvinceSeries extends $dara.Model {
   /**
    * @remarks
-   * High-risk position data.
+   * The high-risk location data.
    */
   data?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvinceSeriesData[];
   /**
    * @remarks
-   * Display title
+   * The display title.
    * 
    * @example
    * 分值区间占比
@@ -598,7 +598,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvi
   name?: string;
   /**
    * @remarks
-   * Chart identifier, default false
+   * The chart identifier. Default value: false.
    * 
    * @example
    * false
@@ -635,7 +635,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvi
 export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvince extends $dara.Model {
   /**
    * @remarks
-   * Indicator, default true
+   * The identifier. Default value: true.
    * 
    * @example
    * true
@@ -643,12 +643,12 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvi
   animation?: boolean;
   /**
    * @remarks
-   * Belongs to grid.
+   * The grid to which the chart belongs.
    */
   grid?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvinceGrid;
   /**
    * @remarks
-   * Chart data
+   * The chart data.
    */
   series?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvinceSeries[];
   static names(): { [key: string]: string } {
@@ -685,22 +685,22 @@ export class DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvi
 export class DescribeHighRiskPieChartResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * High-risk IP city
+   * The city to which the high-risk IP address belongs.
    */
   highRiskIPCity?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPCity;
   /**
    * @remarks
-   * High-risk IP归属province
+   * The province to which the high-risk IP address belongs.
    */
   highRiskIPProvince?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskIPProvince;
   /**
    * @remarks
-   * High-risk mobile phone归属city
+   * The city to which the high-risk phone number belongs.
    */
   highRiskMobileCity?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileCity;
   /**
    * @remarks
-   * High-risk mobile phone\\"s province of origin
+   * The province to which the high-risk phone number belongs.
    */
   highRiskMobileProvince?: DescribeHighRiskPieChartResponseBodyResultObjectHighRiskMobileProvince;
   static names(): { [key: string]: string } {
@@ -745,7 +745,7 @@ export class DescribeHighRiskPieChartResponseBodyResultObject extends $dara.Mode
 export class DescribeHighRiskPieChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -753,7 +753,7 @@ export class DescribeHighRiskPieChartResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -761,7 +761,7 @@ export class DescribeHighRiskPieChartResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error details
+   * The error details.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -769,7 +769,7 @@ export class DescribeHighRiskPieChartResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -777,12 +777,12 @@ export class DescribeHighRiskPieChartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    */
   resultObject?: DescribeHighRiskPieChartResponseBodyResultObject;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

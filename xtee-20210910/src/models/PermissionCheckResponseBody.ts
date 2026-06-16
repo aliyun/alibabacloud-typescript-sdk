@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PermissionCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code.
+   * The return code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class PermissionCheckResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class PermissionCheckResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class PermissionCheckResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -37,7 +37,7 @@ export class PermissionCheckResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    * 
    * @example
    * true

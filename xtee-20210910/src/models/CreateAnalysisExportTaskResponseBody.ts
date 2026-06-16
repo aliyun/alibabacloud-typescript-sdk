@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Export list.
+   * The export list.
    * 
    * @example
    * [
@@ -50,7 +50,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   columns?: string;
   /**
    * @remarks
-   * Export task conditions.
+   * The conditions of the export task.
    * 
    * @example
    * {
@@ -61,7 +61,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   conditions?: string;
   /**
    * @remarks
-   * Event start time.
+   * The event start time.
    * 
    * @example
    * 1752076800000
@@ -69,7 +69,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   eventBeginTime?: number;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_ahespg8137
@@ -77,7 +77,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   eventCodes?: string;
   /**
    * @remarks
-   * End time.
+   * The end time.
    * 
    * @example
    * 1753891199000
@@ -85,7 +85,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   eventEndTime?: number;
   /**
    * @remarks
-   * File format.
+   * The file format.
    * 
    * @example
    * CSV
@@ -93,7 +93,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   fileFormat?: string;
   /**
    * @remarks
-   * OSS-generated key.
+   * The randomly generated OSS key.
    * 
    * @example
    * xxxxx
@@ -101,7 +101,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   ossKey?: string;
   /**
    * @remarks
-   * Export task scope.
+   * The scope of the export task.
    * 
    * @example
    * ALL
@@ -109,7 +109,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   scope?: string;
   /**
    * @remarks
-   * Task status.
+   * The task status.
    * 
    * @example
    * RUNNING
@@ -117,7 +117,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * Export task type.
+   * The export task type.
    * 
    * @example
    * BASIC
@@ -125,7 +125,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * User UID
+   * The user UID.
    * 
    * @example
    * 1519714049632764
@@ -175,7 +175,7 @@ export class CreateAnalysisExportTaskResponseBodyResultObject extends $dara.Mode
 export class CreateAnalysisExportTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -183,7 +183,7 @@ export class CreateAnalysisExportTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: CreateAnalysisExportTaskResponseBodyResultObject;
   static names(): { [key: string]: string } {

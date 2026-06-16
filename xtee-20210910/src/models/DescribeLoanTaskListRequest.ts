@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoanTaskListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeLoanTaskListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Import batch number.
+   * The import batch number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeLoanTaskListRequest extends $dara.Model {
   batchNo?: string;
   /**
    * @remarks
-   * Current page number. Default is: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeLoanTaskListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Task status.
+   * The task status.
    * 
    * @example
    * WAIT
@@ -39,7 +39,7 @@ export class DescribeLoanTaskListRequest extends $dara.Model {
   monitorStatus?: string;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 20
@@ -47,7 +47,7 @@ export class DescribeLoanTaskListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou

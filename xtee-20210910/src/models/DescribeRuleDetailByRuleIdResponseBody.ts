@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Service authorization type.
+   * The service authorization type.
    * 
    * @example
    * all
@@ -13,7 +13,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   authType?: string;
   /**
    * @remarks
-   * Version.
+   * The version.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   bizVersion?: string;
   /**
    * @remarks
-   * Primary key ID of the policy.
+   * The primary key ID of the policy.
    * 
    * @example
    * 6633
@@ -29,7 +29,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   consoleRuleId?: number;
   /**
    * @remarks
-   * Creation type.
+   * The creation type.
    * 
    * @example
    * MORMAL
@@ -37,7 +37,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   createType?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_asssce8122
@@ -45,7 +45,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -53,7 +53,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   eventName?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -61,7 +61,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -69,7 +69,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   gmtModified?: number;
   /**
    * @remarks
-   * Log expression.
+   * The logical expression.
    * 
    * @example
    * 1&2
@@ -77,7 +77,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   logicExpression?: string;
   /**
    * @remarks
-   * Main event code.
+   * The main event code.
    * 
    * @example
    * de_asssce8122
@@ -85,7 +85,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   mainEventCode?: string;
   /**
    * @remarks
-   * Memo.
+   * The remarks.
    * 
    * @example
    * 备注
@@ -93,7 +93,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   memo?: string;
   /**
    * @remarks
-   * Rule action structure.
+   * The rule action structure.
    * 
    * @example
    * {
@@ -162,7 +162,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleActionMap?: { [key: string]: any };
   /**
    * @remarks
-   * Rule actions.
+   * The rule actions.
    * 
    * @example
    * [{\\"actionType\\":\\"TAG\\",\\"code\\":\\"addDeTags\\",\\"description\\":\\"打标签\\",\\"displayType\\":\\"ACTION\\",\\"fieldType\\":\\"STRING\\",\\"inputs\\":[\\"123\\"],\\"name\\":\\"__addDeTags__\\",\\"outputType\\":\\"const\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"打标签\\",\\"type\\":\\"ACTION\\"},{\\"actionType\\":\\"SCORE\\",\\"code\\":\\"deAddScore\\",\\"description\\":\\"打分\\",\\"displayType\\":\\"ACTION\\",\\"fieldType\\":\\"DOUBLE\\",\\"inputTitle\\":\\"123\\",\\"inputs\\":[\\"123\\"],\\"name\\":\\"__addDeScore__\\",\\"outputType\\":\\"const\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"打分\\",\\"type\\":\\"ACTION\\"},{\\"actionType\\":\\"MIDDLE_VARIABLE\\",\\"fieldType\\":\\"STRING\\",\\"fieldValue\\":\\"123\\",\\"inputs\\":[\\"mid1\\"]},{\\"actionType\\":\\"VARIABLE\\",\\"code\\":\\"mid1\\",\\"description\\":\\"中间变量,mid1\\",\\"displayType\\":\\"MIDDLE\\",\\"fieldType\\":\\"STRING\\",\\"inputs\\":[\\"gg\\"],\\"name\\":\\"mid1\\",\\"title\\":\\"mid1\\",\\"type\\":\\"MIDDLE\\"}]
@@ -170,7 +170,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleActions?: string;
   /**
    * @remarks
-   * Rule authorization type.
+   * The policy type.
    * 
    * @example
    * NOMAL
@@ -178,7 +178,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleAuthType?: string;
   /**
    * @remarks
-   * DSL policy expression.
+   * The DSL policy expression.
    * 
    * @example
    * {\\"elseIfStatement\\":[{\\"condition\\":{\\"currentId\\":0,\\"deepCount\\":1,\\"list\\":[{\\"currentId\\":0,\\"deepCount\\":1,\\"left\\":{\\"code\\":\\"getLbsRegion(longitude, latitude)?.prov\\",\\"description\\":\\"根据经纬度得到省份信息，比如经度：111.878062，纬度：22.585409，则经过运算，输出”广东省“\\",\\"displayType\\":\\"SELF_BIND\\",\\"fieldType\\":\\"STRING\\",\\"functionCode\\":\\"\\",\\"functionName\\":\\"\\",\\"hasRightVariable\\":true,\\"name\\":\\"sl_S02sHLFT7818\\",\\"outputThreshold\\":{},\\"sourceType\\":\\"SAF\\",\\"title\\":\\"经纬度自定义系统变量\\",\\"type\\":\\"SELF_BIND\\"},\\"operatorCode\\":\\"equals\\",\\"operatorName\\":\\"等于\\",\\"parentId\\":0,\\"right\\":{\\"name\\":\\"cc\\",\\"rightVariableType\\":\\"constant\\"},\\"sequence\\":5}],\\"parentId\\":0,\\"relationship\\":\\"and\\"},\\"then\\":[{\\"actionType\\":\\"TAG\\",\\"code\\":\\"addDeTags\\",\\"description\\":\\"打标签\\",\\"displayType\\":\\"ACTION\\",\\"fieldType\\":\\"STRING\\",\\"inputs\\":[\\"332\\"],\\"name\\":\\"__addDeTags__\\",\\"outputType\\":\\"const\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"打标签\\",\\"type\\":\\"ACTION\\"}]}],\\"elseStatement\\":{\\"then\\":[{\\"actionType\\":\\"TAG\\",\\"code\\":\\"addDeTags\\",\\"description\\":\\"打标签\\",\\"displayType\\":\\"ACTION\\",\\"fieldType\\":\\"STRING\\",\\"inputs\\":[\\"321\\"],\\"name\\":\\"__addDeTags__\\",\\"outputType\\":\\"const\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"打标签\\",\\"type\\":\\"ACTION\\"}]},\\"ifStatement\\":{\\"condition\\":{\\"currentId\\":0,\\"deepCount\\":1,\\"list\\":[{\\"currentId\\":0,\\"deepCount\\":1,\\"left\\":{\\"code\\":\\"queryPhoneSimulatorInfo(deviceToken)?.brand\\",\\"description\\":\\"设备信息-终端品牌\\",\\"displayType\\":\\"DEVICE\\",\\"fieldType\\":\\"STRING\\",\\"functionCode\\":\\"\\",\\"functionName\\":\\"\\",\\"hasRightVariable\\":true,\\"name\\":\\"__device_brand__\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"设备信息-终端品牌-brand\\",\\"type\\":\\"DEVICE\\"},\\"operatorCode\\":\\"deInNameList\\",\\"operatorName\\":\\"在名单中\\",\\"parentId\\":0,\\"right\\":{\\"code\\":\\"nl_UN8otElLb490\\",\\"description\\":\\"描述11\\",\\"displayType\\":\\"NAME_LIST\\",\\"name\\":\\"nl_UN8otElLb490\\",\\"rightVariableType\\":\\"constant\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"wtz_名单新建测试02\\",\\"type\\":\\"NAME_LIST\\"},\\"sequence\\":1},{\\"currentId\\":0,\\"deepCount\\":1,\\"left\\":{\\"code\\":\\"deFunctionProcess(ip,\\\\\\"isIp\\\\\\")\\",\\"description\\":\\"判断是否符合IPv4标准\\",\\"displayType\\":\\"SYSTEM_BIND\\",\\"fieldType\\":\\"BOOLEAN\\",\\"functionCode\\":\\"\\",\\"functionName\\":\\"\\",\\"hasRightVariable\\":false,\\"name\\":\\"__isIpAddressV4__\\",\\"outputThreshold\\":{},\\"sourceType\\":\\"SAF\\",\\"title\\":\\"IP是否符合IPV4格式\\",\\"type\\":\\"SYSTEM_BIND\\"},\\"operatorCode\\":\\"boolIsTrue\\",\\"operatorName\\":\\"为true\\",\\"parentId\\":0,\\"right\\":{\\"name\\":\\"\\",\\"rightVariableType\\":\\"constant\\"},\\"sequence\\":2},{\\"currentId\\":0,\\"deepCount\\":1,\\"list\\":[{\\"currentId\\":0,\\"deepCount\\":1,\\"left\\":{\\"code\\":\\"parseIpV2(ip)?.cityId\\",\\"description\\":\\"通过IP地址库解析IP所在的城市Code，例如，输入“42.120.74.211”，经过该变量运算，输出“330100”。\\",\\"displayType\\":\\"SYSTEM_BIND\\",\\"fieldType\\":\\"STRING\\",\\"functionCode\\":\\"\\",\\"functionName\\":\\"\\",\\"hasRightVariable\\":true,\\"name\\":\\"__ipLocationCityCode__\\",\\"outputThreshold\\":{},\\"sourceType\\":\\"SAF\\",\\"title\\":\\"IP所在地_城市Code\\",\\"type\\":\\"SYSTEM_BIND\\"},\\"operatorCode\\":\\"equals\\",\\"operatorName\\":\\"等于\\",\\"parentId\\":0,\\"right\\":{\\"code\\":\\"deFunctionProcess(ip,\\\\\\"getCountry\\\\\\")\\",\\"description\\":\\"通过IP地址库解析IP所在的城市名称，例如，输入“42.120.74.211”，经过该变量运算，输出“CN”。\\",\\"displayType\\":\\"SYSTEM_BIND\\",\\"fieldType\\":\\"STRING\\",\\"functionCode\\":\\"\\",\\"functionName\\":\\"\\",\\"name\\":\\"__ipLocationCountryId__\\",\\"outputThreshold\\":{},\\"rightVariableType\\":\\"variable\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"IP所在地_国家Code\\",\\"type\\":\\"SYSTEM_BIND\\"},\\"sequence\\":3},{\\"currentId\\":0,\\"deepCount\\":1,\\"list\\":[{\\"currentId\\":0,\\"deepCount\\":1,\\"left\\":{\\"code\\":\\"parseIpV2(ip)?.cityId\\",\\"description\\":\\"通过IP地址库解析IP所在的城市Code，例如，输入“42.120.74.211”，经过该变量运算，输出“330100”。\\",\\"displayType\\":\\"SYSTEM_BIND\\",\\"fieldType\\":\\"STRING\\",\\"functionCode\\":\\"\\",\\"functionName\\":\\"\\",\\"hasRightVariable\\":true,\\"name\\":\\"__ipLocationCityCode__\\",\\"outputThreshold\\":{\\"$ref\\":\\"$.ifStatement.condition.list[2].list[0].left.outputThreshold\\"},\\"sourceType\\":\\"SAF\\",\\"title\\":\\"IP所在地_城市Code\\",\\"type\\":\\"SYSTEM_BIND\\"},\\"operatorCode\\":\\"deInNameList\\",\\"operatorName\\":\\"在名单中\\",\\"parentId\\":0,\\"right\\":{\\"code\\":\\"nl_NsVwBD2s11e0\\",\\"displayType\\":\\"NAME_LIST\\",\\"name\\":\\"nl_NsVwBD2s11e0\\",\\"rightVariableType\\":\\"constant\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"device_block_list\\",\\"type\\":\\"NAME_LIST\\"},\\"sequence\\":4}],\\"parentId\\":0,\\"relationship\\":\\"and\\"}],\\"parentId\\":0,\\"relationship\\":\\"and\\"}],\\"parentId\\":0,\\"relationship\\":\\"and\\"},\\"then\\":[{\\"actionType\\":\\"TAG\\",\\"code\\":\\"addDeTags\\",\\"description\\":\\"打标签\\",\\"displayType\\":\\"ACTION\\",\\"fieldType\\":\\"STRING\\",\\"inputs\\":[\\"123\\"],\\"name\\":\\"__addDeTags__\\",\\"outputType\\":\\"const\\",\\"sourceType\\":\\"SAF\\",\\"title\\":\\"打标签\\",\\"type\\":\\"ACTION\\"}]}}
@@ -186,7 +186,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleBody?: string;
   /**
    * @remarks
-   * Rule expressions.
+   * The rule expressions.
    * 
    * @example
    * [{\\"expressionName\\":\\"营销风险识别评分\\",\\"itemId\\":1,\\"left\\":{\\"name\\":\\"sl_rjtsDXK124a5\\"},\\"operatorCode\\":\\"between\\",\\"operatorName\\":\\"数字在[a,b]之间\\",\\"right\\":{\\"fieldValue\\":\\"[65,100]\\"}}]
@@ -194,7 +194,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleExpressions?: string;
   /**
    * @remarks
-   * Policy ID.
+   * The policy ID.
    * 
    * @example
    * 101544
@@ -202,7 +202,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleId?: string;
   /**
    * @remarks
-   * Policy name.
+   * The policy name.
    * 
    * @example
    * 营销风险识别
@@ -210,7 +210,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleName?: string;
   /**
    * @remarks
-   * Policy status.
+   * The policy status.
    * 
    * @example
    * RUNNING
@@ -218,7 +218,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleStatus?: string;
   /**
    * @remarks
-   * Rule type.
+   * The policy type.
    * 
    * @example
    * DSL
@@ -226,7 +226,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
   ruleType?: string;
   /**
    * @remarks
-   * Primary key ID of the policy version.
+   * The primary key ID of the policy version.
    * 
    * @example
    * 3823
@@ -299,7 +299,7 @@ export class DescribeRuleDetailByRuleIdResponseBodyResultObject extends $dara.Mo
 export class DescribeRuleDetailByRuleIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -307,7 +307,7 @@ export class DescribeRuleDetailByRuleIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object.
+   * The response object.
    */
   resultObject?: DescribeRuleDetailByRuleIdResponseBodyResultObject;
   static names(): { [key: string]: string } {

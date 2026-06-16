@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class UploadForeignSampleFileResponseBodyResultObjectColumnStats extends $dara.Model {
   /**
+   * @remarks
+   * De-duplication Count.
+   * 
    * @example
    * 4
    */
   distinctNumber?: number;
   /**
+   * @remarks
+   * De-duplication rate.
+   * 
    * @example
    * 23.87%
    */
   distinctRate?: string;
   /**
+   * @remarks
+   * Field Name.
+   * 
    * @example
    * repoName
    */
   fieldName?: string;
   /**
+   * @remarks
+   * Missing count.
+   * 
    * @example
    * 3
    */
   missNumber?: number;
   /**
+   * @remarks
+   * Missing rate.
+   * 
    * @example
    * 25.32%
    */
   missRate?: string;
   /**
+   * @remarks
+   * Row number of the record.
+   * 
    * @example
    * 2
    */
@@ -65,7 +83,15 @@ export class UploadForeignSampleFileResponseBodyResultObjectColumnStats extends 
 }
 
 export class UploadForeignSampleFileResponseBodyResultObjectPreviewData extends $dara.Model {
+  /**
+   * @remarks
+   * Header information returned.
+   */
   headers?: string[];
+  /**
+   * @remarks
+   * Row data.
+   */
   rows?: string[][];
   static names(): { [key: string]: string } {
     return {
@@ -98,39 +124,69 @@ export class UploadForeignSampleFileResponseBodyResultObjectPreviewData extends 
 
 export class UploadForeignSampleFileResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Number of jobs.
+   * 
    * @example
    * 3
    */
   beyondBacktrackingPeriodNum?: number;
+  /**
+   * @remarks
+   * Column.
+   */
   columnStats?: UploadForeignSampleFileResponseBodyResultObjectColumnStats[];
   /**
+   * @remarks
+   * Time type.
+   * 
    * @example
    * yyyyMMdd
    */
   dateType?: string;
   /**
+   * @remarks
+   * File name.
+   * 
    * @example
    * Acct71b_Sample140934_md5_batch20250916.csv
    */
   fileName?: string;
   /**
+   * @remarks
+   * File Size.
+   * 
    * @example
    * 78
    */
   fileSize?: number;
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * saf/cpoc/34cd7959590ef568086035b956210495/1760580976089_XN_test_1016_100000.csv
    */
   fileUrl?: string;
+  /**
+   * @remarks
+   * Non-existent scenarios.
+   */
   notExistScenes?: string[];
   /**
    * @remarks
-   * PhoneInvalidList。
+   * PhoneInvalidList.
    */
   phoneInvalidList?: string[];
+  /**
+   * @remarks
+   * Table data.
+   */
   previewData?: UploadForeignSampleFileResponseBodyResultObjectPreviewData;
   /**
+   * @remarks
+   * Number of rows.
+   * 
    * @example
    * 284
    */
@@ -188,25 +244,41 @@ export class UploadForeignSampleFileResponseBodyResultObject extends $dara.Model
 
 export class UploadForeignSampleFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * request ID.
+   * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result.
+   */
   resultObject?: UploadForeignSampleFileResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {

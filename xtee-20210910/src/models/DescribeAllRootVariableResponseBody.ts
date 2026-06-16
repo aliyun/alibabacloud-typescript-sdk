@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllRootVariableResponseBodyResultObjectOutputThreshold extends $dara.Model {
   /**
    * @remarks
-   * Maximum value
+   * The maximum value.
    * 
    * @example
    * 1000
@@ -13,7 +13,7 @@ export class DescribeAllRootVariableResponseBodyResultObjectOutputThreshold exte
   maxValue?: number;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribeAllRootVariableResponseBodyResultObjectOutputThreshold exte
 export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Variable code
+   * The variable code.
    * 
    * @example
    * age
@@ -53,7 +53,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * Variable description.
+   * The variable description.
    * 
    * @example
    * 年龄
@@ -61,7 +61,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * Display type and group label
+   * The display type and group label.
    * 
    * @example
    * NATIVE
@@ -69,7 +69,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   displayType?: string;
   /**
    * @remarks
-   * Favorite flag
+   * The favorite flag.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   favoriteFlag?: boolean;
   /**
    * @remarks
-   * Field ranking
+   * The field sorting order.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   fieldRank?: number;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -93,7 +93,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   fieldType?: string;
   /**
    * @remarks
-   * Variable ID.
+   * The variable ID.
    * 
    * @example
    * 497
@@ -101,7 +101,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * Input field type.
+   * The input type of the parameter.
    * 
    * @example
    * STRING
@@ -109,7 +109,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   inputFieldType?: string;
   /**
    * @remarks
-   * Variable input.
+   * The inputs of the variable.
    * 
    * @example
    * age
@@ -117,7 +117,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   inputs?: string;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * age
@@ -125,12 +125,12 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * Maximum cross-sectional area of the checkbox.
+   * The maximum cross-sectional area of the check box.
    */
   outputThreshold?: DescribeAllRootVariableResponseBodyResultObjectOutputThreshold;
   /**
    * @remarks
-   * Data source
+   * The data source.
    * 
    * @example
    * SAF
@@ -138,7 +138,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   sourceType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 年龄
@@ -146,7 +146,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * NATIVE
@@ -205,7 +205,7 @@ export class DescribeAllRootVariableResponseBodyResultObject extends $dara.Model
 export class DescribeAllRootVariableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -213,7 +213,7 @@ export class DescribeAllRootVariableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeAllRootVariableResponseBodyResultObject[];
   static names(): { [key: string]: string } {

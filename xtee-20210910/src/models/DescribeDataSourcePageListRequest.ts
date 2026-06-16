@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSourcePageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeDataSourcePageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Request source IP.
+   * The source IP address of the request.
    * 
    * @example
    * 220.250.21.83
@@ -23,7 +23,7 @@ export class DescribeDataSourcePageListRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeDataSourcePageListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * data_source
@@ -39,7 +39,7 @@ export class DescribeDataSourcePageListRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeDataSourcePageListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeDataSourcePageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Type
+   * The type.
    * 
    * @example
    * FILE

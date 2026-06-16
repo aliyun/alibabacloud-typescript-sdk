@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventTotalCountReportResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Comparison with yesterday\\"s event invocation count
+   * Day-over-day comparison of call event count.
    * 
    * @example
    * 101
@@ -13,7 +13,7 @@ export class DescribeEventTotalCountReportResponseBodyResultObject extends $dara
   ratio?: string;
   /**
    * @remarks
-   * Today\\"s event invocation count
+   * Total number of call events today.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class DescribeEventTotalCountReportResponseBodyResultObject extends $dara
 export class DescribeEventTotalCountReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * Status code.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class DescribeEventTotalCountReportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * HTTP status code.
    * 
    * @example
    * 200
@@ -77,12 +77,12 @@ export class DescribeEventTotalCountReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * Response object.
    */
   resultObject?: DescribeEventTotalCountReportResponseBodyResultObject;
   /**
    * @remarks
-   * Indicates whether this operation was successful, `true` means success.
+   * Indicates whether the operation was successful. A value of true indicates success.
    * 
    * @example
    * true

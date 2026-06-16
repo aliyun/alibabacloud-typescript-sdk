@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSampleDataRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateSampleDataRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 描述
@@ -23,7 +23,10 @@ export class CreateSampleDataRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Encryption type
+   * The encryption type. Valid values:
+   * - **ALL**: all encryption
+   * - **LABEL**: label encryption
+   * - **NONE**: no encryption.
    * 
    * @example
    * LABEL
@@ -31,7 +34,7 @@ export class CreateSampleDataRequest extends $dara.Model {
   encryptType?: string;
   /**
    * @remarks
-   * Name
+   * The name.
    * 
    * @example
    * 注册样本
@@ -39,7 +42,7 @@ export class CreateSampleDataRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +50,7 @@ export class CreateSampleDataRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Specified risk value
+   * The specified risk value.
    * 
    * @example
    * black
@@ -55,7 +58,7 @@ export class CreateSampleDataRequest extends $dara.Model {
   riskValue?: string;
   /**
    * @remarks
-   * Scene
+   * The scenario.
    * 
    * @example
    * PHONE
@@ -63,7 +66,7 @@ export class CreateSampleDataRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * Storage path
+   * The storage path.
    * 
    * @example
    * saf/de/sample/3dc2spspHKq4G3YI9d08
@@ -71,7 +74,7 @@ export class CreateSampleDataRequest extends $dara.Model {
   storePath?: string;
   /**
    * @remarks
-   * Storage type
+   * The storage type.
    * 
    * @example
    * OSS

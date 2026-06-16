@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRulePriorityRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values: 
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class ModifyRulePriorityRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Primary key ID of the policy
+   * The primary key ID of the policy.
    * 
    * @example
    * 3581
@@ -23,7 +23,7 @@ export class ModifyRulePriorityRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Policy priority, the higher the number, the higher the priority.
+   * The policy priority. A larger value indicates a higher priority.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class ModifyRulePriorityRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class ModifyRulePriorityRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 101796

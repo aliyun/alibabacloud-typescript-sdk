@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecommendVelocitiesRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and responses, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeRecommendVelocitiesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Metric code
+   * The metric code.
    * 
    * @example
    * coupon_abuse_detection
@@ -23,7 +23,7 @@ export class DescribeRecommendVelocitiesRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Region ID
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class DescribeRecommendVelocitiesRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Metric type
+   * The metric type.
    * 
    * @example
    * recommend_velocity

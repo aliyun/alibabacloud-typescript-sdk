@@ -15,7 +15,7 @@ export class DescribeExcuteNumRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * This field is currently unused and has no query significance.
+   * This field is currently not in use and has no query significance.
    * 
    * @example
    * 暂时不需要传入
@@ -23,7 +23,7 @@ export class DescribeExcuteNumRequest extends $dara.Model {
   degree?: string;
   /**
    * @remarks
-   * End date, format yyyy-MM-dd, e.g., 2025-03-13.
+   * End date in the format yyyy-MM-dd, for example, 2025-03-15.
    * 
    * @example
    * 2025-03-15
@@ -31,7 +31,7 @@ export class DescribeExcuteNumRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
+   * Specifies the language type for request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -41,7 +41,7 @@ export class DescribeExcuteNumRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Request source IP address.
+   * Source IP address of the request.
    * 
    * @example
    * 220.250.21.83
@@ -49,7 +49,7 @@ export class DescribeExcuteNumRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * Start date, format yyyy-MM-dd, e.g., 2025-03-10.
+   * Start date in the format yyyy-MM-dd, for example, 2025-03-10.
    * 
    * @example
    * 2025-03-10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Business category identifier.
+   * The business category identifier.
    * 
    * @example
    * variable_scene
@@ -13,7 +13,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   bizType?: string;
   /**
    * @remarks
-   * Configuration key.
+   * The configuration item key.
    * 
    * @example
    * account_abuse_detection
@@ -21,7 +21,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   configKey?: string;
   /**
    * @remarks
-   * Configuration value.
+   * The configuration item value.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   configValue?: string;
   /**
    * @remarks
-   * Created by.
+   * The creator.
    * 
    * @example
    * 1519714049632764
@@ -37,7 +37,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   creator?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 配置描述信息
@@ -45,7 +45,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -53,7 +53,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -61,7 +61,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   gmtModified?: number;
   /**
    * @remarks
-   * Primary key ID of the configuration.
+   * The primary key ID of the configuration item.
    * 
    * @example
    * 497
@@ -69,7 +69,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * Last modified by.
+   * The last modifier.
    * 
    * @example
    * 1519714049632764
@@ -77,7 +77,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
   lastModifiedOperator?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * ENABLE
@@ -125,7 +125,7 @@ export class DescribeVariableSceneListResponseBodyResultObject extends $dara.Mod
 export class DescribeVariableSceneListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -133,7 +133,7 @@ export class DescribeVariableSceneListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class DescribeVariableSceneListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -149,12 +149,12 @@ export class DescribeVariableSceneListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   resultObject?: DescribeVariableSceneListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -162,7 +162,7 @@ export class DescribeVariableSceneListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

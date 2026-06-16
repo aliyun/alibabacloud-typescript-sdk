@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuditResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateAuditResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class UpdateAuditResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -29,7 +29,7 @@ export class UpdateAuditResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class UpdateAuditResponseBody extends $dara.Model {
   resultObject?: boolean;
   /**
    * @remarks
-   * Whether the call was successful
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

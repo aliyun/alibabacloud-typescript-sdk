@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchExpressionVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class SwitchExpressionVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Data version.
+   * The data version.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SwitchExpressionVariableRequest extends $dara.Model {
   dataVersion?: number;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class SwitchExpressionVariableRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,9 @@ export class SwitchExpressionVariableRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Status.
+   * The status. Valid values:
+   * - DISABLE
+   * - ENABLE.
    * 
    * This parameter is required.
    * 

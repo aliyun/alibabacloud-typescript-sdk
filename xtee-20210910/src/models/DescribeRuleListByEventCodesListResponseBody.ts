@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleListByEventCodesListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 4730
@@ -13,7 +13,7 @@ export class DescribeRuleListByEventCodesListResponseBodyResultObject extends $d
   ruleId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别
@@ -45,7 +45,7 @@ export class DescribeRuleListByEventCodesListResponseBodyResultObject extends $d
 export class DescribeRuleListByEventCodesListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -53,7 +53,7 @@ export class DescribeRuleListByEventCodesListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeRuleListByEventCodesListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

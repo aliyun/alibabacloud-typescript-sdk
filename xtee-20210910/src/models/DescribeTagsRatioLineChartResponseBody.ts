@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsRatioLineChartResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Result data.
+   * The result data.
    */
   data?: string[];
   /**
    * @remarks
-   * Series name.
+   * The series name.
    * 
    * @example
    * rn101
@@ -45,7 +45,7 @@ export class DescribeTagsRatioLineChartResponseBodyResultObjectSeries extends $d
 export class DescribeTagsRatioLineChartResponseBodyResultObjectXaxis extends $dara.Model {
   /**
    * @remarks
-   * X-axis data
+   * The X-axis data.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -75,12 +75,12 @@ export class DescribeTagsRatioLineChartResponseBodyResultObjectXaxis extends $da
 export class DescribeTagsRatioLineChartResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: DescribeTagsRatioLineChartResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * xaxis node.
+   * The xaxis node.
    */
   xaxis?: DescribeTagsRatioLineChartResponseBodyResultObjectXaxis;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class DescribeTagsRatioLineChartResponseBodyResultObject extends $dara.Mo
 export class DescribeTagsRatioLineChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -123,7 +123,7 @@ export class DescribeTagsRatioLineChartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeTagsRatioLineChartResponseBodyResultObject;
   static names(): { [key: string]: string } {

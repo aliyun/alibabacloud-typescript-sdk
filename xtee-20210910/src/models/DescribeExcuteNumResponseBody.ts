@@ -10,7 +10,7 @@ export class DescribeExcuteNumResponseBody extends $dara.Model {
   categories?: string[];
   /**
    * @remarks
-   * Returned data.
+   * Response data.
    */
   data?: string[];
   /**

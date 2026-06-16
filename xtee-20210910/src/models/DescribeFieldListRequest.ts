@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFieldListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
+   * The language of the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeFieldListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Query input name or title
+   * The query parameter name or title.
    * 
    * @example
    * ip
@@ -23,7 +23,7 @@ export class DescribeFieldListRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * Selected fields
+   * The selected fields.
    * 
    * @example
    * sex,ip,id
@@ -31,7 +31,7 @@ export class DescribeFieldListRequest extends $dara.Model {
   inputs?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 

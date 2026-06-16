@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHitRuleListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Number of hits.
+   * The number of hits.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class DescribeHitRuleListResponseBodyResultObject extends $dara.Model {
   hitCount?: number;
   /**
    * @remarks
-   * Strategy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别
@@ -45,7 +45,7 @@ export class DescribeHitRuleListResponseBodyResultObject extends $dara.Model {
 export class DescribeHitRuleListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -53,7 +53,7 @@ export class DescribeHitRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Response object
+   * The response object.
    */
   resultObject?: DescribeHitRuleListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

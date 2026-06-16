@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuditPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeAuditPageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of records per page, default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeAuditPageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -29,7 +29,7 @@ export class DescribeAuditPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DescribeAuditPageListResponseBody extends $dara.Model {
   resultObject?: boolean;
   /**
    * @remarks
-   * Total items
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -45,7 +45,7 @@ export class DescribeAuditPageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total pages
+   * The total number of pages.
    * 
    * @example
    * 4

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class UpdateRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Primary key ID of the policy
+   * The primary key ID of the policy.
    * 
    * @example
    * 6843
@@ -23,7 +23,7 @@ export class UpdateRuleRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_agdxgz0246
@@ -31,7 +31,7 @@ export class UpdateRuleRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Execution logic
+   * The execution logic.
    * 
    * @example
    * 1&2
@@ -39,7 +39,7 @@ export class UpdateRuleRequest extends $dara.Model {
   logicExpression?: string;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * 备注
@@ -47,7 +47,7 @@ export class UpdateRuleRequest extends $dara.Model {
   memo?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class UpdateRuleRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Output action
+   * The output actions.
    * 
    * @example
    * [{\\"inputs\\":[\\"rn0301\\"],\\"name\\":\\"__addDeTags__\\",\\"actionType\\":\\"TAG\\",\\"outputType\\":\\"const\\"}]
@@ -63,7 +63,7 @@ export class UpdateRuleRequest extends $dara.Model {
   ruleActions?: string;
   /**
    * @remarks
-   * DSL policy expression
+   * The DSL policy expression.
    * 
    * @example
    * {
@@ -212,7 +212,7 @@ export class UpdateRuleRequest extends $dara.Model {
   ruleBody?: string;
   /**
    * @remarks
-   * Policy expression
+   * The policy expressions.
    * 
    * @example
    * [{\\"expressionName\\":\\"手机号MD5命中人脸测试名单\\",\\"itemId\\":1,\\"left\\":{\\"name\\":\\"mobileMd5\\"},\\"operatorCode\\":\\"deInNameList\\",\\"operatorName\\":\\"在名单中\\",\\"right\\":{\\"fieldValue\\":\\"nl_5tolf69W138c\\"}}]
@@ -220,7 +220,7 @@ export class UpdateRuleRequest extends $dara.Model {
   ruleExpressions?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 102224
@@ -228,7 +228,7 @@ export class UpdateRuleRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 分析中心事件测试_策略01
@@ -236,7 +236,7 @@ export class UpdateRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Policy status
+   * The policy status.
    * 
    * @example
    * RUNNING
@@ -244,7 +244,7 @@ export class UpdateRuleRequest extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * Policy type
+   * The policy type.
    * 
    * @example
    * DEFAULT
@@ -252,7 +252,7 @@ export class UpdateRuleRequest extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * Primary key ID of the policy version
+   * The primary key ID of the policy version.
    * 
    * @example
    * 11519

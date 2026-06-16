@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSceneEventPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSceneEventPageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeSceneEventPageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Search name or service code
+   * The name or service code to search for.
    * 
    * @example
    * servicer_code
@@ -31,7 +31,7 @@ export class DescribeSceneEventPageListRequest extends $dara.Model {
   nameOrCode?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeSceneEventPageListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

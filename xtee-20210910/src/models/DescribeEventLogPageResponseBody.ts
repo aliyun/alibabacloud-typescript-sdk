@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Account ID.
+   * The account ID.
    * 
    * @example
    * 1631801314885832
@@ -13,7 +13,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Email.
+   * The email address.
    * 
    * @example
    * xxxx@123.com
@@ -21,7 +21,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * IP address.
+   * ip。
    * 
    * @example
    * 10.200.5.100
@@ -29,7 +29,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * Mobile phone number.
+   * The phone number.
    * 
    * @example
    * 13817606333
@@ -37,7 +37,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Nickname.
+   * The nickname.
    * 
    * @example
    * 昵称
@@ -45,7 +45,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 546F8063-0104-5271-9EB7-56FB3F375BAD
@@ -53,7 +53,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Score.
+   * The score.
    * 
    * @example
    * 10.0
@@ -61,7 +61,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   score?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册事件
@@ -69,7 +69,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * Tags.
+   * The labels.
    * 
    * @example
    * rm0102
@@ -77,7 +77,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * Transaction time.
+   * The transaction time.
    * 
    * @example
    * 1737101348000
@@ -85,7 +85,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   timestamp?: string;
   /**
    * @remarks
-   * Device ID.
+   * The device ID.
    * 
    * @example
    * 4239
@@ -135,7 +135,7 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
 export class DescribeEventLogPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -143,7 +143,7 @@ export class DescribeEventLogPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -151,7 +151,7 @@ export class DescribeEventLogPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -159,12 +159,12 @@ export class DescribeEventLogPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned objects.
    */
   resultObject?: DescribeEventLogPageResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -172,7 +172,7 @@ export class DescribeEventLogPageResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 9

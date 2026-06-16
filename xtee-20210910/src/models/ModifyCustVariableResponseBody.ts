@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustVariableResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Failure type
+   * The failure type.
    * 
    * @example
    * rule
@@ -13,7 +13,7 @@ export class ModifyCustVariableResponseBodyResultObject extends $dara.Model {
   failType?: string;
   /**
    * @remarks
-   * Detailed information.
+   * The detailed information.
    * 
    * @example
    * ok
@@ -21,7 +21,7 @@ export class ModifyCustVariableResponseBodyResultObject extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Whether the operation was successful
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class ModifyCustVariableResponseBodyResultObject extends $dara.Model {
 export class ModifyCustVariableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -63,7 +63,7 @@ export class ModifyCustVariableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: ModifyCustVariableResponseBodyResultObject[];
   static names(): { [key: string]: string } {

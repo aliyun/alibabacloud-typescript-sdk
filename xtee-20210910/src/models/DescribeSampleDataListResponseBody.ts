@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Classification type, binary or multi-class.
+   * The classification type, such as binary classification or multi-class classification.
    * 
    * @example
    * 二分类
@@ -13,7 +13,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   classificationType?: string;
   /**
    * @remarks
-   * Criterion value for sample data calculation
+   * The benchmark value used for sample data calculation.
    * 
    * @example
    * {"正样本":"1"，"负样本":"1"}
@@ -21,7 +21,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   dataDistributed?: string;
   /**
    * @remarks
-   * First row of sample data. Used to define the values of each column.
+   * The first row of the sample data. This row defines the value of each column.
    * 
    * @example
    * 17700000000
@@ -29,7 +29,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   dataTitle?: string;
   /**
    * @remarks
-   * Deletion tag.
+   * The deletion tag.
    * 
    * @example
    * DELETE
@@ -37,7 +37,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   deleteTag?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 描述
@@ -45,7 +45,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -53,7 +53,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -61,7 +61,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   gmtModified?: number;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 497
@@ -69,7 +69,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * Name
+   * The name.
    * 
    * @example
    * 注册样本
@@ -77,7 +77,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * Number of normal samples
+   * The number of normal samples.
    * 
    * @example
    * 999
@@ -85,7 +85,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   normalSize?: number;
   /**
    * @remarks
-   * Recall configuration
+   * The backtracking configuration.
    * 
    * @example
    * {"variables":"a,b,c"}
@@ -93,7 +93,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   recallConfig?: string;
   /**
    * @remarks
-   * Number of risk samples
+   * The number of risky samples.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   riskSize?: number;
   /**
    * @remarks
-   * Specified risk value
+   * The specified risk value.
    * 
    * @example
    * black
@@ -109,7 +109,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   riskValue?: string;
   /**
    * @remarks
-   * Sample label details
+   * The sample label details.
    * 
    * @example
    * [{"type":"positive","size":"2000","value":1},{"type":"negative","size":1900,"value":0}]
@@ -117,7 +117,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   sampleLabelDetail?: string;
   /**
    * @remarks
-   * Sample size
+   * The number of samples.
    * 
    * @example
    * 1000
@@ -125,7 +125,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   sampleSize?: number;
   /**
    * @remarks
-   * Scene code
+   * The scenario code.
    * 
    * @example
    * account_abuse_detection
@@ -133,7 +133,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   scene?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * CREATE
@@ -141,7 +141,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * Storage path
+   * The storage path.
    * 
    * @example
    * saf/de/sample/3dc2spspHKq4G3YI9d08
@@ -149,7 +149,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   storePath?: string;
   /**
    * @remarks
-   * Storage type
+   * The storage type.
    * 
    * @example
    * OSS
@@ -157,7 +157,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   storeType?: string;
   /**
    * @remarks
-   * Whether recall is supported
+   * Indicates whether backtracking is supported.
    * 
    * @example
    * true
@@ -165,7 +165,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   supportRecall?: string;
   /**
    * @remarks
-   * User UID
+   * The user UID.
    * 
    * @example
    * 1519714049632764
@@ -173,7 +173,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
   userId?: number;
   /**
    * @remarks
-   * Version
+   * The version.
    * 
    * @example
    * 1
@@ -245,7 +245,7 @@ export class DescribeSampleDataListResponseBodyResultObject extends $dara.Model 
 export class DescribeSampleDataListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -253,7 +253,7 @@ export class DescribeSampleDataListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -261,7 +261,7 @@ export class DescribeSampleDataListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -269,12 +269,12 @@ export class DescribeSampleDataListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeSampleDataListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -282,7 +282,7 @@ export class DescribeSampleDataListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1753804800000
@@ -13,7 +13,7 @@ export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Download URL.
+   * The download URL.
    * 
    * @example
    * https://xxxxx-oss-xxxxx.xxxxxx.aliyuncs.com/xx/xx/xxx/xxxxxx.csv?Expires=1753433384&OSSAccessKeyId=xxxxxxxxx&Signature=%2F%xxxxxxxxxxxx%3D
@@ -21,7 +21,7 @@ export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * File type.
+   * The file type.
    * 
    * @example
    * EXCEL
@@ -29,7 +29,7 @@ export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 注册风险识别
@@ -37,7 +37,7 @@ export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * WAIT_CHECK
@@ -45,7 +45,7 @@ export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 7
@@ -53,7 +53,7 @@ export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task name.
+   * The task name.
    * 
    * @example
    * 任务
@@ -61,7 +61,7 @@ export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * Last modified time.
+   * The last modification time.
    * 
    * @example
    * 1753804800000
@@ -105,7 +105,7 @@ export class DescribePocTaskListResponseBodyResultObject extends $dara.Model {
 export class DescribePocTaskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -113,7 +113,7 @@ export class DescribePocTaskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class DescribePocTaskListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -129,12 +129,12 @@ export class DescribePocTaskListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object.
+   * The returned object.
    */
   resultObject?: DescribePocTaskListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -142,7 +142,7 @@ export class DescribePocTaskListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

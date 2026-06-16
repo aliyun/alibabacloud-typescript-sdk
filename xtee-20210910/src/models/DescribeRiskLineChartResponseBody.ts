@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRiskLineChartResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Line chart data
+   * The data of the line chart.
    */
   data?: string[];
   /**
    * @remarks
-   * Title of the line segment in the line chart
+   * The title of the line segment in the line chart.
    * 
    * @example
    * rm0102
@@ -45,7 +45,7 @@ export class DescribeRiskLineChartResponseBodyResultObjectSeries extends $dara.M
 export class DescribeRiskLineChartResponseBodyResultObjectXaxis extends $dara.Model {
   /**
    * @remarks
-   * Returns x-axis data points
+   * The data of the X-axis.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -75,12 +75,12 @@ export class DescribeRiskLineChartResponseBodyResultObjectXaxis extends $dara.Mo
 export class DescribeRiskLineChartResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: DescribeRiskLineChartResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * Details of xaxis node.
+   * The details of the xaxis node.
    */
   xaxis?: DescribeRiskLineChartResponseBodyResultObjectXaxis;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class DescribeRiskLineChartResponseBodyResultObject extends $dara.Model {
 export class DescribeRiskLineChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -123,7 +123,7 @@ export class DescribeRiskLineChartResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -131,7 +131,7 @@ export class DescribeRiskLineChartResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -139,7 +139,7 @@ export class DescribeRiskLineChartResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -147,12 +147,12 @@ export class DescribeRiskLineChartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeRiskLineChartResponseBodyResultObject;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

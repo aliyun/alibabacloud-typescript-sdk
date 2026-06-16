@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBasicSearchPageListResponseBodyResultObjectHeader extends $dara.Model {
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -13,7 +13,7 @@ export class DescribeBasicSearchPageListResponseBodyResultObjectHeader extends $
   fieldName?: string;
   /**
    * @remarks
-   * Field title.
+   * The field name.
    * 
    * @example
    * 年龄
@@ -21,9 +21,9 @@ export class DescribeBasicSearchPageListResponseBodyResultObjectHeader extends $
   fieldTitle?: string;
   /**
    * @remarks
-   * Whether it is a default display field (displayed in the response, not used as a parameter)
-   * - true: Yes
-   * - false: No
+   * Indicates whether the field is displayed by default. This field is included in the response only and is not used as a request parameter. Valid values:
+   * - true: The field is displayed by default.
+   * - false: The field is not displayed by default.
    * 
    * @example
    * true
@@ -57,7 +57,7 @@ export class DescribeBasicSearchPageListResponseBodyResultObjectHeader extends $
 export class DescribeBasicSearchPageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Current page number in pagination queries.
+   * The current page number in the paged query.
    * 
    * @example
    * 1
@@ -65,17 +65,17 @@ export class DescribeBasicSearchPageListResponseBodyResultObject extends $dara.M
   currentPage?: number;
   /**
    * @remarks
-   * Returned data object
+   * The returned data object.
    */
   data?: { [key: string]: any }[];
   /**
    * @remarks
-   * Table header
+   * The table header.
    */
   header?: DescribeBasicSearchPageListResponseBodyResultObjectHeader[];
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -83,7 +83,7 @@ export class DescribeBasicSearchPageListResponseBodyResultObject extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -91,7 +91,7 @@ export class DescribeBasicSearchPageListResponseBodyResultObject extends $dara.M
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -137,7 +137,7 @@ export class DescribeBasicSearchPageListResponseBodyResultObject extends $dara.M
 export class DescribeBasicSearchPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -145,7 +145,7 @@ export class DescribeBasicSearchPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeBasicSearchPageListResponseBodyResultObject;
   static names(): { [key: string]: string } {

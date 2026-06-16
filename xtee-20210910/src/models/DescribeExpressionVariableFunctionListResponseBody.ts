@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressionVariableFunctionListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 描述
@@ -13,7 +13,7 @@ export class DescribeExpressionVariableFunctionListResponseBodyResultObject exte
   description?: string;
   /**
    * @remarks
-   * Function name
+   * The function name.
    * 
    * @example
    * concat
@@ -21,7 +21,7 @@ export class DescribeExpressionVariableFunctionListResponseBodyResultObject exte
   key?: string;
   /**
    * @remarks
-   * Maximum number of parameters
+   * The maximum number of input parameters.
    * 
    * @example
    * 4
@@ -29,7 +29,7 @@ export class DescribeExpressionVariableFunctionListResponseBodyResultObject exte
   maxParamSize?: number;
   /**
    * @remarks
-   * Minimum number of parameters
+   * The minimum number of input parameters.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeExpressionVariableFunctionListResponseBodyResultObject exte
   minParamSize?: number;
   /**
    * @remarks
-   * Parameter types
+   * The input parameter types.
    * 
    * @example
    * *STRING
@@ -45,7 +45,7 @@ export class DescribeExpressionVariableFunctionListResponseBodyResultObject exte
   paramTypes?: string;
   /**
    * @remarks
-   * Whether it is directly invoked
+   * Indicates whether the function is directly invoked.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class DescribeExpressionVariableFunctionListResponseBodyResultObject exte
   redirect?: boolean;
   /**
    * @remarks
-   * Method return types
+   * The return type of the method.
    * 
    * @example
    * STRING
@@ -61,7 +61,7 @@ export class DescribeExpressionVariableFunctionListResponseBodyResultObject exte
   returnTypes?: string;
   /**
    * @remarks
-   * Function value
+   * The function value.
    * 
    * @example
    * concat
@@ -105,7 +105,7 @@ export class DescribeExpressionVariableFunctionListResponseBodyResultObject exte
 export class DescribeExpressionVariableFunctionListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 6E8817D5-5354-5953-84B1-D98379F036DC
@@ -113,7 +113,7 @@ export class DescribeExpressionVariableFunctionListResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeExpressionVariableFunctionListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

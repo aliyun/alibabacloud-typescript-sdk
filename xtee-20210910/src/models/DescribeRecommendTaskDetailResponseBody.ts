@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTOsRecommendRules extends $dara.Model {
   /**
    * @remarks
-   * Left variable
+   * The left variable.
    * 
    * @example
    * age
@@ -13,7 +13,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   left?: string;
   /**
    * @remarks
-   * Operator
+   * The operator.
    * 
    * @example
    * equals
@@ -21,7 +21,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   operator?: string;
   /**
    * @remarks
-   * Right variable
+   * The right variable.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
 export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTOs extends $dara.Model {
   /**
    * @remarks
-   * Calculation path
+   * The computation path.
    * 
    * @example
    * 1&2
@@ -63,7 +63,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   computeExpression?: string;
   /**
    * @remarks
-   * Number of hit samples
+   * The number of samples that are hit.
    * 
    * @example
    * 99
@@ -71,7 +71,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   hitSample?: number;
   /**
    * @remarks
-   * Primary key ID of the rule
+   * The primary key ID of the policy.
    * 
    * @example
    * 30
@@ -79,7 +79,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   id?: number;
   /**
    * @remarks
-   * Number of unhit samples
+   * The number of samples that are not hit.
    * 
    * @example
    * 1
@@ -87,12 +87,12 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   notHitSample?: number;
   /**
    * @remarks
-   * List of candidate rules
+   * The list of candidate policies.
    */
   recommendRules?: DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTOsRecommendRules[];
   /**
    * @remarks
-   * Strategy ID
+   * The policy ID.
    * 
    * @example
    * 102224
@@ -100,7 +100,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   ruleId?: string;
   /**
    * @remarks
-   * Rule name
+   * The policy name.
    * 
    * @example
    * 营销风险识别评分_高风险_拒绝_副本
@@ -108,7 +108,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   ruleName?: string;
   /**
    * @remarks
-   * Status
+   * The status.
    * 
    * @example
    * NO_RULE
@@ -116,7 +116,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
   status?: string;
   /**
    * @remarks
-   * List of indicators in JSON string format
+   * The list of metrics in JSON string format.
    * 
    * @example
    * [{"key":"dxkkLw8fe18","value":"2"}]
@@ -165,7 +165,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTO
 export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendVariableDTOs extends $dara.Model {
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 234
@@ -173,7 +173,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendVariabl
   id?: number;
   /**
    * @remarks
-   * Title
+   * The title.
    * 
    * @example
    * 手机号
@@ -205,7 +205,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObjectRecommendVariabl
 export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -213,7 +213,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -221,12 +221,12 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   eventName?: string;
   /**
    * @remarks
-   * Comparison indicators
+   * The comparison metrics.
    */
   expectVelocities?: string[];
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -234,7 +234,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   gmtCreate?: number;
   /**
    * @remarks
-   * Number of normal samples
+   * The number of normal samples.
    * 
    * @example
    * 100
@@ -242,17 +242,17 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   normalSize?: number;
   /**
    * @remarks
-   * Recommended strategy list
+   * The list of recommended policies.
    */
   recommendRuleDTOs?: DescribeRecommendTaskDetailResponseBodyResultObjectRecommendRuleDTOs[];
   /**
    * @remarks
-   * Selected variable list
+   * The list of selected variables.
    */
   recommendVariableDTOs?: DescribeRecommendTaskDetailResponseBodyResultObjectRecommendVariableDTOs[];
   /**
    * @remarks
-   * Number of risk samples
+   * The number of risk samples.
    * 
    * @example
    * 10
@@ -260,7 +260,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   riskSize?: number;
   /**
    * @remarks
-   * Sample name
+   * The sample name.
    * 
    * @example
    * 白样本
@@ -268,7 +268,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   sampleName?: string;
   /**
    * @remarks
-   * Sample scenario
+   * The sample scenario.
    * 
    * @example
    * account_abuse_detection
@@ -276,7 +276,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   sampleScene?: string;
   /**
    * @remarks
-   * Sample scenario name
+   * The sample scenario name.
    * 
    * @example
    * 防虚假账号
@@ -284,7 +284,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   sampleSceneName?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * @example
    * 887
@@ -292,7 +292,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   taskId?: number;
   /**
    * @remarks
-   * Task name
+   * The task name.
    * 
    * @example
    * 策略推荐任务
@@ -300,7 +300,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
   taskName?: string;
   /**
    * @remarks
-   * Task status.
+   * The task status.
    * 
    * @example
    * CREATE
@@ -365,7 +365,7 @@ export class DescribeRecommendTaskDetailResponseBodyResultObject extends $dara.M
 export class DescribeRecommendTaskDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -373,7 +373,7 @@ export class DescribeRecommendTaskDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result
+   * The returned result.
    */
   resultObject?: DescribeRecommendTaskDetailResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeEventPageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class DescribeEventPageListRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeEventPageListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aikqxy3122
@@ -39,7 +39,7 @@ export class DescribeEventPageListRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险旁路
@@ -47,7 +47,7 @@ export class DescribeEventPageListRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Event status.
+   * The event status.
    * 
    * @example
    * ONLINE
@@ -55,7 +55,7 @@ export class DescribeEventPageListRequest extends $dara.Model {
   eventStatus?: string;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class DescribeEventPageListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

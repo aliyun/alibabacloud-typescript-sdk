@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupConditionListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Field key
+   * fieldKey
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class DescribeGroupConditionListResponseBodyResultObject extends $dara.Mo
   fieldKey?: string;
   /**
    * @remarks
-   * Field value.
+   * The field value.
    * 
    * @example
    * value
@@ -45,7 +45,7 @@ export class DescribeGroupConditionListResponseBodyResultObject extends $dara.Mo
 export class DescribeGroupConditionListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -53,7 +53,7 @@ export class DescribeGroupConditionListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeGroupConditionListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

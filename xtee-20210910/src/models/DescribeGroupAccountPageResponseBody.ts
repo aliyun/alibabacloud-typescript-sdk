@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupAccountPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -13,7 +13,7 @@ export class DescribeGroupAccountPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeGroupAccountPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Returned data object.
+   * The returned data object.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeGroupAccountPageResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeGroupAccountPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -45,7 +45,7 @@ export class DescribeGroupAccountPageResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSampleApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The API status code.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class CreateSampleApiResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Error message.
+   * The response message.
    * 
    * @example
-   * ConsolePocQueryServiceImpl.queryServiceCodeName.arg0.tab tab Type error
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094

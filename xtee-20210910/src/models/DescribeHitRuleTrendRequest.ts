@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHitRuleTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for the request and response messages. Default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeHitRuleTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * @example
    * 1737101348000
@@ -23,7 +23,7 @@ export class DescribeHitRuleTrendRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * @example
    * 1746669075000
@@ -31,7 +31,7 @@ export class DescribeHitRuleTrendRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Event codes, separated by commas (,).
+   * The event codes. Separate multiple event codes with commas (,).
    * 
    * @example
    * de_ahqhsw7665,de_agbzfi5134
@@ -39,7 +39,7 @@ export class DescribeHitRuleTrendRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class DescribeHitRuleTrendRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Rule status
+   * The policy status.
    * 
    * @example
    * DRAFT

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * @example
    * 5178
@@ -23,7 +23,7 @@ export class CreateRuleRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -31,7 +31,7 @@ export class CreateRuleRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_acytyt7036
@@ -39,7 +39,7 @@ export class CreateRuleRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 登录事件
@@ -47,7 +47,7 @@ export class CreateRuleRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Policy expression execution logic
+   * The execution logic of the policy expression.
    * 
    * @example
    * 1&2
@@ -55,7 +55,7 @@ export class CreateRuleRequest extends $dara.Model {
   logicExpression?: string;
   /**
    * @remarks
-   * Memo
+   * The remarks.
    * 
    * @example
    * 描述信息
@@ -63,7 +63,7 @@ export class CreateRuleRequest extends $dara.Model {
   memo?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -71,7 +71,7 @@ export class CreateRuleRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy execution output action
+   * The output actions of the policy execution.
    * 
    * @example
    * [{"inputs":["123"],"name":"__addDeTags__","actionType":"TAG","outputType":"const"},{"inputs":["123"],"name":"__addDeScore__","actionType":"SCORE","outputType":"const","inputTitle":"123"},{"actionType":"MIDDLE_VARIABLE","fieldValue":"123","inputs":["mid1"]},{"actionType":"VARIABLE","inputs":["gg"],"name":"mid1"}]
@@ -79,7 +79,7 @@ export class CreateRuleRequest extends $dara.Model {
   ruleActions?: string;
   /**
    * @remarks
-   * DSL policy execution logic
+   * The DSL policy execution logic.
    * 
    * @example
    * {"elseIfStatement":[],"elseStatement":{},"ifStatement":{"condition":{"currentId":0,"deepCount":1,"list":[{"currentId":0,"deepCount":1,"left":{"code":"deFunctionProcess(ip,\\"isIp\\")","description":"判断是否符合IPv4标准","displayType":"SYSTEM_BIND","fieldType":"BOOLEAN","functionCode":"","functionName":"","hasRightVariable":false,"name":"__isIpAddressV4__","outputThreshold":{},"sourceType":"SAF","title":"IP是否符合IPV4格式","type":"SYSTEM_BIND"},"operatorCode":"boolIsFalse","operatorName":"为false","parentId":0,"sequence":1}],"parentId":0,"relationship":"and"},"then":[{"inputs":["123"],"name":"__addDeTags__","actionType":"TAG","outputType":"const"}]}}
@@ -87,7 +87,7 @@ export class CreateRuleRequest extends $dara.Model {
   ruleBody?: string;
   /**
    * @remarks
-   * Policy expression
+   * The policy expressions.
    * 
    * @example
    * [{"expressionName":"cc","itemId":1,"left":{"name":"__ipLocationCityCode__"},"operatorCode":"equals","operatorName":"等于","right":{"fieldValue":"a"}}]
@@ -95,7 +95,7 @@ export class CreateRuleRequest extends $dara.Model {
   ruleExpressions?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 注册手机号是11位数字
@@ -103,7 +103,7 @@ export class CreateRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Policy status
+   * The policy status.
    * 
    * @example
    * DRAFT
@@ -111,7 +111,7 @@ export class CreateRuleRequest extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * Policy type
+   * The policy type.
    * 
    * @example
    * DRAFT

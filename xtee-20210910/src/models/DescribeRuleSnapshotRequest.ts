@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
+   * Sets the language type for sending and receiving messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeRuleSnapshotRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class DescribeRuleSnapshotRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 101544
@@ -31,7 +31,7 @@ export class DescribeRuleSnapshotRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * Snapshot version.
+   * The snapshot version.
    * 
    * @example
    * 10

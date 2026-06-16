@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DeleteCustVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class DeleteCustVariableRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Data version.
+   * The data version.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DeleteCustVariableRequest extends $dara.Model {
   dataVersion?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class DeleteCustVariableRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * @example
    * 235

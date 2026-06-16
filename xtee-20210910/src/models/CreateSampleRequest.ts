@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSampleRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateSampleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * OSS client uploaded file name
+   * The name of the file uploaded by the OSS client.
    * 
    * @example
    * 样本文件.csv
@@ -23,7 +23,7 @@ export class CreateSampleRequest extends $dara.Model {
   clientFileName?: string;
   /**
    * @remarks
-   * OSS client address
+   * The OSS client address.
    * 
    * @example
    * sample/path
@@ -31,7 +31,7 @@ export class CreateSampleRequest extends $dara.Model {
   clientPath?: string;
   /**
    * @remarks
-   * File type
+   * The file type.
    * 
    * @example
    * CSV
@@ -39,7 +39,7 @@ export class CreateSampleRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class CreateSampleRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Sample tag
+   * The label of the data sample.
    * 
    * @example
    * rm0102
@@ -55,7 +55,7 @@ export class CreateSampleRequest extends $dara.Model {
   sampleTag?: string;
   /**
    * @remarks
-   * Sample type
+   * The type of the data sample.
    * 
    * @example
    * PHONE
@@ -63,7 +63,7 @@ export class CreateSampleRequest extends $dara.Model {
   sampleType?: string;
   /**
    * @remarks
-   * Sample values
+   * The values of the data sample.
    * 
    * @example
    * 1777000000,1777000001
@@ -71,7 +71,7 @@ export class CreateSampleRequest extends $dara.Model {
   sampleValues?: string;
   /**
    * @remarks
-   * Upload type
+   * The upload type.
    * 
    * @example
    * ANNEX

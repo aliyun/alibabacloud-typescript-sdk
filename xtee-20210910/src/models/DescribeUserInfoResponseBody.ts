@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserInfoResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Client IP.
+   * The client IP address.
    * 
    * @example
    * 192.168.0.1
@@ -13,7 +13,7 @@ export class DescribeUserInfoResponseBodyResultObject extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * Sub-account ID
+   * The RAM user ID.
    * 
    * @example
    * 555666
@@ -21,7 +21,7 @@ export class DescribeUserInfoResponseBodyResultObject extends $dara.Model {
   subId?: string;
   /**
    * @remarks
-   * User UID
+   * The user UID.
    * 
    * @example
    * 15633333331111
@@ -29,7 +29,7 @@ export class DescribeUserInfoResponseBodyResultObject extends $dara.Model {
   userId?: number;
   /**
    * @remarks
-   * User name
+   * The username.
    * 
    * @example
    * root
@@ -65,7 +65,7 @@ export class DescribeUserInfoResponseBodyResultObject extends $dara.Model {
 export class DescribeUserInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -73,7 +73,7 @@ export class DescribeUserInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -81,7 +81,7 @@ export class DescribeUserInfoResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -89,7 +89,7 @@ export class DescribeUserInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeUserInfoResponseBodyResultObject;
   /**

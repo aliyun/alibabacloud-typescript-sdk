@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventUploadPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID for accessing OSS
+   * The AccessKey ID used to access OSS.
    * 
    * @example
-   * LTAxxxxxxxxxxxx
+   * LTAI5tPXz8Y9tLVh5xxnnEAC
    */
   accessId?: string;
   /**
    * @remarks
-   * OSS host.
+   * The OSS host.
    * 
    * @example
    * 172.16.0.44
@@ -21,7 +21,7 @@ export class DescribeEventUploadPolicyResponseBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The Key required for file upload.
+   * The key required for file upload.
    * 
    * @example
    * saf/de/namelist/e924/ufzgsedX9bd3a7
@@ -29,7 +29,7 @@ export class DescribeEventUploadPolicyResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * OSS security policy
+   * The OSS security policy.
    * 
    * @example
    * eyJleHBpcmF0aW9uIjoiMjAyNS0wNy0zMFQwNjowNTo0OS45NTRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJlcSIsIiRrZXkiLCJzYWZcL2RlXC9uYW1lbGlzdFwvZTkyNFwvdWZ6Z3NlZFg5Ymxxxxxxxxxxx
@@ -37,7 +37,7 @@ export class DescribeEventUploadPolicyResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -45,7 +45,7 @@ export class DescribeEventUploadPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Signature data.
+   * The signature data.
    * 
    * @example
    * 7aXmkd2Z3oksCXOS9uvKlJuOKaY=
@@ -53,7 +53,7 @@ export class DescribeEventUploadPolicyResponseBody extends $dara.Model {
   signature?: string;
   /**
    * @remarks
-   * Temporary identity credential.
+   * The temporary security token.
    * 
    * @example
    * tT44bMQxxxxxxxxxxxxxxx

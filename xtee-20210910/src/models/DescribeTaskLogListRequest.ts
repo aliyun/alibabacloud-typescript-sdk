@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskLogListRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeTaskLogListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Whether to paginate.
+   * Specifies whether to enable pagination.
    * 
    * @example
    * true
@@ -21,9 +21,9 @@ export class DescribeTaskLogListRequest extends $dara.Model {
   isPage?: boolean;
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -31,7 +31,7 @@ export class DescribeTaskLogListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeTaskLogListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 18044
@@ -47,7 +47,7 @@ export class DescribeTaskLogListRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task log ID
+   * The task log ID.
    * 
    * @example
    * 107
@@ -55,7 +55,7 @@ export class DescribeTaskLogListRequest extends $dara.Model {
   taskLogId?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

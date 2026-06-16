@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Field classification
+   * The field classification.
    * 
    * @example
    * REQUEST_PARAM
@@ -13,7 +13,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 描述
@@ -21,7 +21,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Enum data
+   * The enumeration data.
    * 
    * @example
    * STATUS
@@ -29,7 +29,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   enumData?: string;
   /**
    * @remarks
-   * Unique table ID.
+   * The unique ID of the table.
    * 
    * @example
    * 497
@@ -37,7 +37,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -45,7 +45,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * File source.
+   * The file source.
    * 
    * @example
    * DEFINE
@@ -53,7 +53,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * ENABLE
@@ -61,7 +61,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 年龄
@@ -69,7 +69,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Field type
+   * The field type.
    * 
    * @example
    * STRING
@@ -115,7 +115,7 @@ export class DescribeFieldPageResponseBodyResultObject extends $dara.Model {
 export class DescribeFieldPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -123,7 +123,7 @@ export class DescribeFieldPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -131,7 +131,7 @@ export class DescribeFieldPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of items per page, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -139,12 +139,12 @@ export class DescribeFieldPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeFieldPageResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 40
@@ -152,7 +152,7 @@ export class DescribeFieldPageResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 4

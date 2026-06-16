@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSafStartStepsRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,9 +15,7 @@ export class DescribeSafStartStepsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Whether the server is an Alibaba Cloud server
-   * 
-   * true or false
+   * Specifies whether the server is an Alibaba Cloud server. Valid values: true and false.
    * 
    * @example
    * true
@@ -25,9 +23,9 @@ export class DescribeSafStartStepsRequest extends $dara.Model {
   aliyunServer?: boolean;
   /**
    * @remarks
-   * Used to receive a collection of strings from the frontend that POP cannot accept
+   * The string of device type collection passed from the frontend that cannot be received by POP.
    *      
-   * Device type
+   * The device type.
    * 
    * @example
    * ios
@@ -35,7 +33,7 @@ export class DescribeSafStartStepsRequest extends $dara.Model {
   deviceTypesStr?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_ahqido8038
@@ -43,9 +41,9 @@ export class DescribeSafStartStepsRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Language, parameters can be passed
+   * The language. Valid values:
    * - zh-CN: Chinese (default)
-   * - en-US: English
+   * - en-US: English.
    * 
    * @example
    * zh_CN
@@ -53,7 +51,7 @@ export class DescribeSafStartStepsRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +59,7 @@ export class DescribeSafStartStepsRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Server region
+   * The region where the server resides.
    * 
    * @example
    * cn-hangzhou

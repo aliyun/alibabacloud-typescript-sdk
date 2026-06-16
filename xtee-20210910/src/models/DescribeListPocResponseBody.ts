@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeListPocResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DescribeListPocResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeListPocResponseBody extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DescribeListPocResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * successful
@@ -37,7 +37,7 @@ export class DescribeListPocResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribeListPocResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -53,7 +53,7 @@ export class DescribeListPocResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class DescribeListPocResponseBody extends $dara.Model {
   resultObject?: boolean;
   /**
    * @remarks
-   * Total number of items returned.
+   * The total number of entries returned.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class DescribeListPocResponseBody extends $dara.Model {
   totalItem?: string;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 0

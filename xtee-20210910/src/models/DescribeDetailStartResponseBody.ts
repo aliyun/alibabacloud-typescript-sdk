@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDetailStartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DescribeDetailStartResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DescribeDetailStartResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error details
+   * The error details.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -29,7 +29,7 @@ export class DescribeDetailStartResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -37,7 +37,7 @@ export class DescribeDetailStartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class DescribeDetailStartResponseBody extends $dara.Model {
   resultObject?: boolean;
   /**
    * @remarks
-   * Indicates whether the operation was successful, with true representing success.
+   * Indicates whether the operation was successful. A value of true indicates success.
    * 
    * @example
    * true

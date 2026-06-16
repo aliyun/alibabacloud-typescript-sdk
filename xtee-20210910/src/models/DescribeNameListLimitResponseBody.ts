@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNameListLimitResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Whether it exceeds the maximum quantity
+   * Indicates whether the maximum number of entries is exceeded.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeNameListLimitResponseBodyResultObject extends $dara.Model {
   limit?: boolean;
   /**
    * @remarks
-   * Maximum number of creatable items
+   * The maximum number of entries that can be created.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeNameListLimitResponseBodyResultObject extends $dara.Model {
   maxTotalItem?: number;
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 101
@@ -55,7 +55,7 @@ export class DescribeNameListLimitResponseBodyResultObject extends $dara.Model {
 export class DescribeNameListLimitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -63,7 +63,7 @@ export class DescribeNameListLimitResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeNameListLimitResponseBodyResultObject;
   static names(): { [key: string]: string } {

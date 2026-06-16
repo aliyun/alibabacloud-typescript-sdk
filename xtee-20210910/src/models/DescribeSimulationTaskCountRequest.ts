@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSimulationTaskCountRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSimulationTaskCountRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Data source configuration
+   * The datasource config.
    * 
    * @example
    * {}
@@ -23,7 +23,7 @@ export class DescribeSimulationTaskCountRequest extends $dara.Model {
   dataSourceConfig?: string;
   /**
    * @remarks
-   * Data source type
+   * The data source type.
    * 
    * @example
    * SLS
@@ -31,7 +31,7 @@ export class DescribeSimulationTaskCountRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * Task end time.
+   * The end time of the task.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class DescribeSimulationTaskCountRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class DescribeSimulationTaskCountRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Filter
+   * The filter.
    * 
    * @example
    * {"left":"score","operate":"bw","right":"222,333"}
@@ -59,7 +59,7 @@ export class DescribeSimulationTaskCountRequest extends $dara.Model {
   filtersStr?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -67,7 +67,7 @@ export class DescribeSimulationTaskCountRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task start time.
+   * The start time of the task.
    * 
    * This parameter is required.
    * 

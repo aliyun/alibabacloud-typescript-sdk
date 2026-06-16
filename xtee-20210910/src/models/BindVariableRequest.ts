@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class BindVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class BindVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * API region ID
+   * The API region ID.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class BindVariableRequest extends $dara.Model {
   apiRegionId?: string;
   /**
    * @remarks
-   * API type
+   * The API type.
    * 
    * @example
    * SELF
@@ -31,7 +31,7 @@ export class BindVariableRequest extends $dara.Model {
   apiType?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -39,7 +39,7 @@ export class BindVariableRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Associated variable definition primary key ID
+   * The primary key ID of the associated variable definition.
    * 
    * @example
    * 2438
@@ -47,7 +47,7 @@ export class BindVariableRequest extends $dara.Model {
   defineId?: string;
   /**
    * @remarks
-   * Variable definition IDs, can be multiple. If binding multiple IDs, separate them with commas
+   * The variable definition IDs. You can specify multiple IDs separated by commas.
    * 
    * @example
    * 1546, 1547
@@ -55,7 +55,7 @@ export class BindVariableRequest extends $dara.Model {
   defineIds?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 变量描述
@@ -63,7 +63,7 @@ export class BindVariableRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class BindVariableRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Exception value
+   * The exception value.
    * 
    * @example
    * SYS_ERROR
@@ -81,7 +81,7 @@ export class BindVariableRequest extends $dara.Model {
   exceptionValue?: string;
   /**
    * @remarks
-   * Variable primary key ID
+   * The primary key ID of the variable.
    * 
    * @example
    * 106875
@@ -89,7 +89,7 @@ export class BindVariableRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Output field path
+   * The output field path.
    * 
    * @example
    * BOOLEAN
@@ -97,7 +97,7 @@ export class BindVariableRequest extends $dara.Model {
   outputField?: string;
   /**
    * @remarks
-   * Output type
+   * The output type.
    * 
    * @example
    * STRING
@@ -105,7 +105,7 @@ export class BindVariableRequest extends $dara.Model {
   outputType?: string;
   /**
    * @remarks
-   * Binding input parameter information
+   * The input parameter information for the binding.
    * 
    * @example
    * {"accountId":"accountId","mobile":""}
@@ -113,7 +113,7 @@ export class BindVariableRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * Event parameter mapping 2.0, either params or paramsList must not be empty. List, JSON structure
+   * The event parameter mapping 2.0. Either params or paramsList must be non-empty. This is a List JSON structure.
    * 
    * @example
    * [{"eventFieldName":"accountId","required":false}]
@@ -121,7 +121,7 @@ export class BindVariableRequest extends $dara.Model {
   paramsList?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -129,7 +129,7 @@ export class BindVariableRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Variable source
+   * The variable source.
    * 
    * @example
    * SAF
@@ -137,7 +137,7 @@ export class BindVariableRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * Title
+   * The title.
    * 
    * This parameter is required.
    * 

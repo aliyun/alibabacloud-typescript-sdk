@@ -14,6 +14,7 @@ export { CreateAnalysisExportTaskResponseBodyResultObject } from './CreateAnalys
 export { CreateForeignPocSampleResponseBodyResultObject } from './CreateForeignPocSampleResponseBody';
 export { CreatePocSampleResponseBodyResultObject } from './CreatePocSampleResponseBody';
 export { CreateSampleResponseBodyResultObject } from './CreateSampleResponseBody';
+export { CreateTaskGroupResponseBodyResultObjectSubTaskList } from './CreateTaskGroupResponseBody';
 export { CreateTaskGroupResponseBodyResultObject } from './CreateTaskGroupResponseBody';
 export { DeepCopyRuleResponseBodyResultObject } from './DeepCopyRuleResponseBody';
 export { DescribeAdvanceSearchLeftVariableListResponseBodyResultObject } from './DescribeAdvanceSearchLeftVariableListResponseBody';

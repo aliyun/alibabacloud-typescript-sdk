@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBasicSearchPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeBasicSearchPageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeBasicSearchPageListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Query start time, accurate to milliseconds (ms).
+   * The start time of the query, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeBasicSearchPageListRequest extends $dara.Model {
   eventBeginTime?: number;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DescribeBasicSearchPageListRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time of the query, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class DescribeBasicSearchPageListRequest extends $dara.Model {
   eventEndTime?: number;
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -63,7 +63,7 @@ export class DescribeBasicSearchPageListRequest extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * Field value
+   * The field value.
    * 
    * @example
    * 20
@@ -71,7 +71,7 @@ export class DescribeBasicSearchPageListRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * The number of entries per page. Default value: 10.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class DescribeBasicSearchPageListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchFieldRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class SwitchFieldRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Primary Key ID
+   * The primary key ID.
    * 
    * @example
    * 250002
@@ -23,7 +23,7 @@ export class SwitchFieldRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Parameter Name.
+   * The parameter name.
    * 
    * @example
    * age
@@ -31,7 +31,7 @@ export class SwitchFieldRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region Code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,9 @@ export class SwitchFieldRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Field Source
+   * The field source. Valid values:
+   * - **DEFINE**: custom
+   * - **DEFAULT**: system default.
    * 
    * @example
    * DEFINE
@@ -49,7 +51,9 @@ export class SwitchFieldRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Status.
+   * The status. Valid values:
+   * - **DISABLE**: disabled
+   * - **ENABLE**: enabled.
    * 
    * @example
    * ENABLE

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSDKDownloadListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSDKDownloadListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Device type.
+   * The device type.
    * 
    * @example
    * ANDROID
@@ -23,7 +23,7 @@ export class DescribeSDKDownloadListRequest extends $dara.Model {
   deviceType?: string;
   /**
    * @remarks
-   * Download type
+   * The download type.
    * 
    * @example
    * OLD
@@ -31,7 +31,7 @@ export class DescribeSDKDownloadListRequest extends $dara.Model {
   listType?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

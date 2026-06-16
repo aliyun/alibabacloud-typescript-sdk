@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUsedServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language type for sending and receiving messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeUsedServiceRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

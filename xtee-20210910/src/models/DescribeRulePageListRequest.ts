@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRulePageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and responses, default value is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeRulePageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type.
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class DescribeRulePageListRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeRulePageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_asssce8122
@@ -39,7 +39,7 @@ export class DescribeRulePageListRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeRulePageListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeRulePageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy type.
+   * The policy type.
    * 
    * @example
    * NOMAL
@@ -63,7 +63,7 @@ export class DescribeRulePageListRequest extends $dara.Model {
   ruleAuthType?: string;
   /**
    * @remarks
-   * Policy name.
+   * The policy name.
    * 
    * @example
    * 营销风险识别评分
@@ -71,7 +71,7 @@ export class DescribeRulePageListRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Policy status.
+   * The policy status.
    * 
    * @example
    * RUNNING
@@ -79,9 +79,9 @@ export class DescribeRulePageListRequest extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * Sorting method, default value is desc.
+   * The sort order. Default value: desc.
    * - desc: descending order
-   * - asc: ascending order
+   * - asc: ascending order.
    * 
    * @example
    * asc

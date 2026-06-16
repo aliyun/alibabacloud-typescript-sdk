@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSampleApiRequest extends $dara.Model {
   /**
    * @remarks
-   * Same as input parameter
+   * Same as the request parameter.
    * 
    * @example
    * ip/accountID
@@ -13,7 +13,7 @@ export class CreateSampleApiRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * Specific data value
+   * The specific data value.
    * 
    * @example
    * 同参数
@@ -21,9 +21,9 @@ export class CreateSampleApiRequest extends $dara.Model {
   dataValue?: string;
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -31,7 +31,7 @@ export class CreateSampleApiRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * regionId
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -39,7 +39,7 @@ export class CreateSampleApiRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Sample batch type
+   * The sample batch type.
    * 
    * @example
    * 白名单/黑名单/混合
@@ -47,7 +47,7 @@ export class CreateSampleApiRequest extends $dara.Model {
   sampleBatchType?: string;
   /**
    * @remarks
-   * Service list.
+   * The list of services.
    * 
    * @example
    * 同参数

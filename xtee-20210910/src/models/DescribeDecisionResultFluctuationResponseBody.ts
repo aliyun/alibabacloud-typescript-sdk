@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDecisionResultFluctuationResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Execution status.
+   * The execution status.
    * 
    * @example
    * PASS
@@ -13,7 +13,7 @@ export class DescribeDecisionResultFluctuationResponseBodyResultObject extends $
   status?: string;
   /**
    * @remarks
-   * Today\\"s count
+   * The count for today.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeDecisionResultFluctuationResponseBodyResultObject extends $
   todayNum?: number;
   /**
    * @remarks
-   * Count within the last seven days
+   * The count for the last seven days.
    * 
    * @example
    * 600
@@ -29,7 +29,7 @@ export class DescribeDecisionResultFluctuationResponseBodyResultObject extends $
   withinSevenDayNum?: string;
   /**
    * @remarks
-   * Count within the last thirty days
+   * The count for the last thirty days.
    * 
    * @example
    * 1200
@@ -37,7 +37,7 @@ export class DescribeDecisionResultFluctuationResponseBodyResultObject extends $
   withinThirtyDayNum?: string;
   /**
    * @remarks
-   * Count within the last three days
+   * The count for the last three days.
    * 
    * @example
    * 300
@@ -45,7 +45,7 @@ export class DescribeDecisionResultFluctuationResponseBodyResultObject extends $
   withinThreeDayNum?: string;
   /**
    * @remarks
-   * Yesterday\\"s count
+   * The count for yesterday.
    * 
    * @example
    * 200
@@ -85,7 +85,7 @@ export class DescribeDecisionResultFluctuationResponseBodyResultObject extends $
 export class DescribeDecisionResultFluctuationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -93,7 +93,7 @@ export class DescribeDecisionResultFluctuationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -101,7 +101,7 @@ export class DescribeDecisionResultFluctuationResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error details
+   * The error details.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -109,7 +109,7 @@ export class DescribeDecisionResultFluctuationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -117,12 +117,12 @@ export class DescribeDecisionResultFluctuationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeDecisionResultFluctuationResponseBodyResultObject[];
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

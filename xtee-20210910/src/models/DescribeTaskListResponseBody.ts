@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Completion time, in milliseconds.
+   * The completion time. Unit: milliseconds.
    * 
    * @example
    * 1753804800000
@@ -13,7 +13,7 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   completionTime?: number;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1753804800000
@@ -21,7 +21,7 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 497
@@ -29,7 +29,7 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Total number of mark information.
+   * The total number of mark entries.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   mark?: number;
   /**
    * @remarks
-   * Remark.
+   * The remarks.
    * 
    * @example
    * 备注
@@ -45,7 +45,7 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Scene name
+   * The scenario name.
    * 
    * @example
    * 样本调度
@@ -53,12 +53,11 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Data status.
-   * 
-   * -1: Failed
-   * 0: Deleted
-   * 1: Pending
-   * 2: Success
+   * The data status. Valid values:
+   * - -1: Failed.
+   * - 0: Deleted.
+   * - 1: Pending.
+   * - 2: Succeeded.
    * 
    * @example
    * 2
@@ -66,7 +65,7 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 1102
@@ -74,10 +73,10 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
   taskLogId?: number;
   /**
    * @remarks
-   * Task type
-   * 1: Data upload
-   * 2: Supplemental upload
-   * 3: Labeling
+   * The task type. Valid values:
+   * - 1: data upload
+   * - 2: supplementary upload
+   * - 3: labeling.
    * 
    * @example
    * 1
@@ -123,7 +122,7 @@ export class DescribeTaskListResponseBodyResultObject extends $dara.Model {
 export class DescribeTaskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -131,7 +130,7 @@ export class DescribeTaskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -139,7 +138,7 @@ export class DescribeTaskListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -147,12 +146,12 @@ export class DescribeTaskListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeTaskListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -160,7 +159,7 @@ export class DescribeTaskListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 1

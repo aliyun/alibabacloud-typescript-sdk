@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScoreSectionNumLineChartResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * List of current category results.
+   * The result list for the current category.
    */
   data?: string[];
   /**
    * @remarks
-   * Category name.
+   * The category name.
    * 
    * @example
    * 旁路事件
@@ -45,7 +45,7 @@ export class DescribeScoreSectionNumLineChartResponseBodyResultObjectSeries exte
 export class DescribeScoreSectionNumLineChartResponseBodyResultObjectXaxis extends $dara.Model {
   /**
    * @remarks
-   * Data structure.
+   * The data structure.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -75,12 +75,12 @@ export class DescribeScoreSectionNumLineChartResponseBodyResultObjectXaxis exten
 export class DescribeScoreSectionNumLineChartResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: DescribeScoreSectionNumLineChartResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * Details of xaxis node.
+   * The xaxis node details.
    */
   xaxis?: DescribeScoreSectionNumLineChartResponseBodyResultObjectXaxis;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class DescribeScoreSectionNumLineChartResponseBodyResultObject extends $d
 export class DescribeScoreSectionNumLineChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -123,7 +123,7 @@ export class DescribeScoreSectionNumLineChartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    */
   resultObject?: DescribeScoreSectionNumLineChartResponseBodyResultObject;
   static names(): { [key: string]: string } {

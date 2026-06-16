@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsVariableListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeEventsVariableListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class DescribeEventsVariableListRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeEventsVariableListRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Filter object
+   * The filter object.
    * 
    * @example
    * {\\"type\\":\\"EXPRESSION\\",\\"name\\":\\"ex_NgR6nDVD821c\\"}
@@ -41,7 +41,7 @@ export class DescribeEventsVariableListRequest extends $dara.Model {
   filterDTO?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -49,7 +49,7 @@ export class DescribeEventsVariableListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Applicable scene code
+   * The applicable scenario code.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOperationLogPageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Client IP.
+   * The client IP address.
    * 
    * @example
    * 100.68.***.166
@@ -13,7 +13,7 @@ export class DescribeOperationLogPageListResponseBodyResultObject extends $dara.
   clientIp?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -21,7 +21,7 @@ export class DescribeOperationLogPageListResponseBodyResultObject extends $dara.
   gmtCreate?: number;
   /**
    * @remarks
-   * Content after operation
+   * The content after the operation.
    * 
    * @example
    * @selfvariable_02
@@ -29,7 +29,7 @@ export class DescribeOperationLogPageListResponseBodyResultObject extends $dara.
   newContent?: string;
   /**
    * @remarks
-   * Content before operation
+   * The content before the operation.
    * 
    * @example
    * @selfvariable_02 + 1001
@@ -37,7 +37,7 @@ export class DescribeOperationLogPageListResponseBodyResultObject extends $dara.
   oldContent?: string;
   /**
    * @remarks
-   * Operation summary
+   * The brief description of the operation.
    * 
    * @example
    * 更新事件:决策引擎可观测性持续建设_事件A(de_afghcf6411)
@@ -45,7 +45,7 @@ export class DescribeOperationLogPageListResponseBodyResultObject extends $dara.
   operationSummary?: string;
   /**
    * @remarks
-   * Operation type.
+   * The operation type.
    * 
    * @example
    * CREATE_EVENT
@@ -53,7 +53,7 @@ export class DescribeOperationLogPageListResponseBodyResultObject extends $dara.
   operationType?: string;
   /**
    * @remarks
-   * Operator
+   * The operator.
    * 
    * @example
    * root
@@ -95,7 +95,7 @@ export class DescribeOperationLogPageListResponseBodyResultObject extends $dara.
 export class DescribeOperationLogPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -103,7 +103,7 @@ export class DescribeOperationLogPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -111,7 +111,7 @@ export class DescribeOperationLogPageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -119,12 +119,12 @@ export class DescribeOperationLogPageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeOperationLogPageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -132,7 +132,7 @@ export class DescribeOperationLogPageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 3

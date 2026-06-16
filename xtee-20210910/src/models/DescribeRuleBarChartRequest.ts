@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleBarChartRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeRuleBarChartRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Query start time, accurate to milliseconds (ms).
+   * The start time of the query. Unit: milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeRuleBarChartRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time of the query. Unit: milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeRuleBarChartRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Event codes, separated by commas (,).
+   * The event codes. Separate multiple event codes with commas (,).
    * 
    * @example
    * account_abuse_pro,account_abuse
@@ -43,7 +43,7 @@ export class DescribeRuleBarChartRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

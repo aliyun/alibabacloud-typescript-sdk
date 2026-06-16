@@ -4,82 +4,141 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTaskGroupResponseBodyResultObjectSubTaskList extends $dara.Model {
   /**
+   * @remarks
+   * Job end time.
+   * 
    * @example
    * 2026-01-12 15:47:23
    */
   finishTime?: number;
   /**
+   * @remarks
+   * Group name.
+   * 
    * @example
    * pts-demo
    */
   groupName?: string;
   /**
+   * @remarks
+   * Indicates whether to hide.
+   * 
    * @example
    * true
    */
   hideViewResultButton?: boolean;
   /**
+   * @remarks
+   * Indicates whether the subtask is charged.
+   * 
    * @example
    * true
    */
   isCharge?: boolean;
   /**
+   * @remarks
+   * Model scenario.
+   * 
    * @example
    * rfs
    */
   modelScene?: string;
   /**
+   * @remarks
+   * Sample ID.
+   * 
    * @example
    * 4
    */
   sampleId?: number;
   /**
+   * @remarks
+   * Sample name.
+   * 
    * @example
    * fs
    */
   sampleName?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * anti_fraud_riskscreening
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * Service name.
+   * 
+   * @example
+   * 申请反欺诈V5（分值版）
+   */
   serviceName?: string;
   /**
+   * @remarks
+   * Subtask ID.
+   * 
    * @example
    * 3
    */
   subTaskId?: number;
   /**
+   * @remarks
+   * Indicates whether the job can be canceled. Valid values:  
+   * - true: The job can be canceled.  
+   * - false: The job cannot be canceled.
+   * 
    * @example
    * true
    */
   supportCancel?: boolean;
   /**
+   * @remarks
+   * Supports download.
+   * 
    * @example
    * true
    */
   supportDownload?: boolean;
   /**
+   * @remarks
+   * Indicates whether merge download is supported.
+   * 
    * @example
    * false
    */
   supportMergeSelect?: boolean;
   /**
+   * @remarks
+   * Indicates whether viewing is supported.
+   * 
    * @example
    * true
    */
   supportView?: boolean;
   /**
+   * @remarks
+   * Scenario.
+   * 
    * @example
    * FINANCE
    */
   tab?: string;
   /**
+   * @remarks
+   * Task group ID.
+   * 
    * @example
    * 4
    */
   taskGroupId?: number;
   /**
+   * @remarks
+   * The execution status of the import job:  
+   * - DOING: running  
+   * - FINISH: execution completed.
+   * 
    * @example
    * Finished
    */
@@ -139,34 +198,67 @@ export class ListTaskGroupResponseBodyResultObjectSubTaskList extends $dara.Mode
 
 export class ListTaskGroupResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 1588820785212
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Creator.
+   * 
+   * @example
+   * 324253
+   */
   creatorUserId?: number;
   /**
+   * @remarks
+   * Audience group status.
+   * 
    * @example
    * RUNNING
    */
   groupStatus?: string;
+  /**
+   * @remarks
+   * Task group name.
+   */
   sampleNames?: string[];
   /**
+   * @remarks
+   * Number of subtasks parsed and split from the task.
+   * 
    * @example
    * 4
    */
   subTaskCount?: number;
+  /**
+   * @remarks
+   * Subtask.
+   */
   subTaskList?: ListTaskGroupResponseBodyResultObjectSubTaskList[];
   /**
+   * @remarks
+   * Scenario.
+   * 
    * @example
    * FINANCE
    */
   tab?: string;
   /**
+   * @remarks
+   * Task group ID.
+   * 
    * @example
    * g-uf62fwvw2f8dx88xo2lt
    */
   taskGroupId?: number;
   /**
+   * @remarks
+   * Task group name.
+   * 
    * @example
    * GroupTest
    */
@@ -216,42 +308,70 @@ export class ListTaskGroupResponseBodyResultObject extends $dara.Model {
 
 export class ListTaskGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 2
    */
   currentPage?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Request result.
+   */
   resultObject?: ListTaskGroupResponseBodyResultObject[];
   /**
+   * @remarks
+   * Total number of returned items.
+   * 
    * @example
    * 1
    */
   totalItem?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */

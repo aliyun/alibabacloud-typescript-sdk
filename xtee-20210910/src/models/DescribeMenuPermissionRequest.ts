@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMenuPermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and responses, with a default value of **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeMenuPermissionRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Permission type
+   * The permission type.
    * 
    * @example
    * MENU
@@ -23,7 +23,7 @@ export class DescribeMenuPermissionRequest extends $dara.Model {
   permissionType?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

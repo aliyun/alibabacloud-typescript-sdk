@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeVariableDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeVariableDetailRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

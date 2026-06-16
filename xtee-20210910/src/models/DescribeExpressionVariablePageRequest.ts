@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressionVariablePageRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_aamexg3015,de_aamexg3342
@@ -33,7 +33,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Variable return type.
+   * The variable return type.
    * 
    * @example
    * STRING
@@ -41,7 +41,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   outputs?: string;
   /**
    * @remarks
-   * Page size, with a default value of 10.
+   * The number of entries per page. Default value: 10.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * ENABLE
@@ -69,7 +69,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Variable name/description.
+   * The variable name or description.
    * 
    * @example
    * 自定义变量

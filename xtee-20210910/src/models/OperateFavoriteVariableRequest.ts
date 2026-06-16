@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class OperateFavoriteVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class OperateFavoriteVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class OperateFavoriteVariableRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Favorite operation
+   * The favorite operation.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class OperateFavoriteVariableRequest extends $dara.Model {
   operate?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

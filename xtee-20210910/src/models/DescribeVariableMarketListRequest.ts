@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableMarketListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Charging mode
+   * The billing mode.
    * 
    * @example
    * FREE
@@ -23,7 +23,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   chargingMode?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Paging indicator, default is true.
+   * Specifies whether to enable paging. Default value: true.
    * 
    * @example
    * true
@@ -47,9 +47,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   paging?: string;
   /**
    * @remarks
-   * Query content, supports fuzzy search.
-   * 
-   *  Title/Description
+   * The query content. Fuzzy match is supported for the title or description.
    * 
    * @example
    * 手机号
@@ -57,7 +55,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   queryContent?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -65,7 +63,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Scenario
+   * The scenario.
    * 
    * @example
    * [\\"coupon_abuse_detection\\"]
@@ -73,7 +71,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   scenesStr?: string;
   /**
    * @remarks
-   * Source
+   * The source.
    * 
    * @example
    * SAF
@@ -81,7 +79,7 @@ export class DescribeVariableMarketListRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 设备风险识别_标签

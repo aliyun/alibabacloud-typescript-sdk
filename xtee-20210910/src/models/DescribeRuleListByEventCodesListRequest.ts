@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleListByEventCodesListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeRuleListByEventCodesListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event codes, JSON array string
+   * The event codes. The value is a JSON array string.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeRuleListByEventCodesListRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class DescribeAnalysisExportTaskDownloadUrlResponseBodyResultObject exten
   downloadFileUrl?: string;
   /**
    * @remarks
-   * Download execution time
+   * Download execution time.
    * 
    * @example
    * 1753891199000
@@ -63,7 +63,7 @@ export class DescribeAnalysisExportTaskDownloadUrlResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * Response object.
    */
   resultObject?: DescribeAnalysisExportTaskDownloadUrlResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHitRuleListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeHitRuleListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * @example
    * 1737101348000
@@ -23,7 +23,7 @@ export class DescribeHitRuleListRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * @example
    * 1752027960000
@@ -31,7 +31,7 @@ export class DescribeHitRuleListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Event codes, separated by commas if multiple.
+   * The event codes. Separate multiple event codes with commas (,).
    * 
    * @example
    * de_ahqhsw7665,de_ahqhsw7622
@@ -39,7 +39,7 @@ export class DescribeHitRuleListRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Event type
+   * The event type.
    * 
    * @example
    * MAIN
@@ -47,7 +47,7 @@ export class DescribeHitRuleListRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

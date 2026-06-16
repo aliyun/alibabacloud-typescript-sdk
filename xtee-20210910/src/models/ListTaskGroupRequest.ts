@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTaskGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The language of the error message returned by the API. Valid values: zh: Chinese; en: English. The default value is en.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The area encoding.
+   * 
    * @example
    * cn-hangzhou
    */
   regId?: string;
   /**
+   * @remarks
+   * Sample name.
+   * 
    * @example
    * TEst
    */
   sampleName?: string;
   /**
+   * @remarks
+   * Task group name.
+   * 
    * @example
    * TeskGroupTest
    */
   taskGroupName?: string;
   /**
+   * @remarks
+   * Access type.
+   * 
    * @example
    * SAF_CONSOLE
    */

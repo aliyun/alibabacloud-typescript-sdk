@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelSubTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * Set the language type for requests and received messages. The default value is **zh**. Valid values:  
+   * - **zh**: Chinese  
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * Area encoding.
+   * 
    * @example
    * cn-hangzhou
    */
   regId?: string;
   /**
+   * @remarks
+   * Subtask ID.
+   * 
    * @example
    * 2
    */
   subTaskId?: number;
   /**
+   * @remarks
+   * Scenario.
+   * 
    * @example
    * FINANCE
    */

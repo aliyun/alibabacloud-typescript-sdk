@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSampleResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Number of colored groups
+   * The number of tainted groups.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class CreateSampleResponseBodyResultObject extends $dara.Model {
   communityCount?: number;
   /**
    * @remarks
-   * Number of failed samples
+   * The number of failed data samples.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class CreateSampleResponseBodyResultObject extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * Recall probability
+   * The recall probability.
    * 
    * @example
    * 2.5%
@@ -29,7 +29,7 @@ export class CreateSampleResponseBodyResultObject extends $dara.Model {
   recallProbability?: string;
   /**
    * @remarks
-   * Risk density
+   * The risk density.
    * 
    * @example
    * 1.5%
@@ -37,7 +37,7 @@ export class CreateSampleResponseBodyResultObject extends $dara.Model {
   riskDensity?: string;
   /**
    * @remarks
-   * Number of samples
+   * The number of data samples.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class CreateSampleResponseBodyResultObject extends $dara.Model {
   sampleCount?: number;
   /**
    * @remarks
-   * Number of successful samples
+   * The number of successful data samples.
    * 
    * @example
    * 99
@@ -85,7 +85,7 @@ export class CreateSampleResponseBodyResultObject extends $dara.Model {
 export class CreateSampleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -93,7 +93,7 @@ export class CreateSampleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: CreateSampleResponseBodyResultObject;
   static names(): { [key: string]: string } {

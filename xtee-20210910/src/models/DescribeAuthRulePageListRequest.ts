@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthRulePageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeAuthRulePageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_arcehq4370
@@ -23,7 +23,7 @@ export class DescribeAuthRulePageListRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeAuthRulePageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 分析中心事件测试_策略01
@@ -41,7 +41,7 @@ export class DescribeAuthRulePageListRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * RUNNING

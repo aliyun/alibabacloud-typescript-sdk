@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data source code.
+   * The data source code.
    * 
    * @example
    * ds_vcaoii1697
@@ -13,7 +13,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   dataSourceCode?: number;
   /**
    * @remarks
-   * Data source name.
+   * The data source name.
    * 
    * @example
    * 姓名数据源
@@ -21,7 +21,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   dataSourceName?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 变量描述
@@ -29,7 +29,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   description?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -37,7 +37,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   eventName?: string;
   /**
    * @remarks
-   * Return value type
+   * The return value type.
    * 
    * @example
    * STRING
@@ -45,7 +45,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   fieldType?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -53,7 +53,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -61,7 +61,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   gmtModified?: number;
   /**
    * @remarks
-   * Query variable primary key ID
+   * The primary key ID of the custom query variable.
    * 
    * @example
    * 497
@@ -69,7 +69,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   id?: number;
   /**
    * @remarks
-   * Query variable name
+   * The name of the custom query variable.
    * 
    * @example
    * 查询变量名称
@@ -77,7 +77,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   name?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * ENABLE
@@ -85,7 +85,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   status?: string;
   /**
    * @remarks
-   * Total count
+   * The total number of entries.
    * 
    * @example
    * 24
@@ -93,7 +93,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
   total?: number;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * 1
@@ -145,7 +145,7 @@ export class DescribeQueryVariablePageListResponseBodyResultObject extends $dara
 export class DescribeQueryVariablePageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -153,7 +153,7 @@ export class DescribeQueryVariablePageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Pagination parameter, current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -161,7 +161,7 @@ export class DescribeQueryVariablePageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -169,12 +169,12 @@ export class DescribeQueryVariablePageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeQueryVariablePageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total items
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -182,7 +182,7 @@ export class DescribeQueryVariablePageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total pages
+   * The total number of pages.
    * 
    * @example
    * 1

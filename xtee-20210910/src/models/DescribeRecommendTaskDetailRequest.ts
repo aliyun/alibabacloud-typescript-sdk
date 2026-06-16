@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecommendTaskDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and responses, with a default value of **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeRecommendTaskDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class DescribeRecommendTaskDetailRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 887

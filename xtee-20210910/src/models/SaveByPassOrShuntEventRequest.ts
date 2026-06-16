@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SaveByPassOrShuntEventRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class SaveByPassOrShuntEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event ID.
+   * The event ID.
    * 
    * @example
    * 445
@@ -23,7 +23,7 @@ export class SaveByPassOrShuntEventRequest extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册事件
@@ -31,7 +31,7 @@ export class SaveByPassOrShuntEventRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Event type
+   * The event type.
    * 
    * @example
    * MAIN
@@ -39,7 +39,7 @@ export class SaveByPassOrShuntEventRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

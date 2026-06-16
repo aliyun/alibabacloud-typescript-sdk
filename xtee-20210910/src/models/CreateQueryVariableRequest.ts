@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQueryVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Data source ID.
+   * The data source ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   dataSourceCode?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 查询变量描述信息
@@ -33,7 +33,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Calculation expression
+   * The calculation expression.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * Display value of calculation expression
+   * The display value of the calculation expression.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   expressionTitle?: string;
   /**
    * @remarks
-   * Calculation expression variable
+   * The variable of the calculation expression.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   expressionVariable?: string;
   /**
    * @remarks
-   * Outlier
+   * The outlier value.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   outlier?: string;
   /**
    * @remarks
-   * Variable return type
+   * The return type of the variable.
    * 
    * This parameter is required.
    * 
@@ -97,7 +97,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   outputs?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -107,7 +107,7 @@ export class CreateQueryVariableRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * This parameter is required.
    * 

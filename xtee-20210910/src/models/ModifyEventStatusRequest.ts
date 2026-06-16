@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyEventStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class ModifyEventStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class ModifyEventStatusRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aamexg3015
@@ -31,7 +31,7 @@ export class ModifyEventStatusRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Initial event status, to avoid duplicate submissions or historical replays
+   * The original event status. This parameter is used to prevent duplicate submissions or historical replays.
    * 
    * @example
    * ONLINE
@@ -39,7 +39,7 @@ export class ModifyEventStatusRequest extends $dara.Model {
   fromEventSatus?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class ModifyEventStatusRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Updated event status
+   * The event status to update to.
    * 
    * @example
    * OFFLINE

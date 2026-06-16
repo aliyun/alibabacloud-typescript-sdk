@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustVariablePageRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type.
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Pagination parameter, current page number.
+   * The current page number for pagination.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 累计变量描述
@@ -39,7 +39,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_aheldm3876
@@ -47,7 +47,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Number of records per page, default value: 10.
+   * The number of records per page. Default value: 10.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +63,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * status.
+   * The status.
    * 
    * @example
    * ENABLE

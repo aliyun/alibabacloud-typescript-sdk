@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRuleBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class UpdateRuleBaseRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Policy primary key ID
+   * The primary key ID of the policy.
    * 
    * @example
    * 6843
@@ -23,7 +23,7 @@ export class UpdateRuleBaseRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_arcehq4370
@@ -31,7 +31,7 @@ export class UpdateRuleBaseRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * 备注
@@ -39,7 +39,7 @@ export class UpdateRuleBaseRequest extends $dara.Model {
   memo?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class UpdateRuleBaseRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 102224
@@ -55,7 +55,7 @@ export class UpdateRuleBaseRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别

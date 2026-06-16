@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyExpressionVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Data version.
+   * The data version.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   dataVersion?: number;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 描述
@@ -33,7 +33,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Expression
+   * The expression.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * Expression display
+   * The display name of the expression.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   expressionTitle?: string;
   /**
    * @remarks
-   * Calculation expression variable
+   * The calculation expression variable.
    * 
    * @example
    * ex_GX9rrlTq4b67
@@ -71,7 +71,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   expressionVariable?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * ex_NgR6nDVD821c
@@ -89,7 +89,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Outlier
+   * The outlier value.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   outlier?: string;
   /**
    * @remarks
-   * Output
+   * The output.
    * 
    * This parameter is required.
    * 
@@ -109,7 +109,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   outputs?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -119,7 +119,7 @@ export class ModifyExpressionVariableRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * This parameter is required.
    * 

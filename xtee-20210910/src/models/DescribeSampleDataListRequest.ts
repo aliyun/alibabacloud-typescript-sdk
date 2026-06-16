@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSampleDataListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSampleDataListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeSampleDataListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Deletion status
+   * The deletion status.
    * 
    * @example
    * DELETE
@@ -31,7 +31,7 @@ export class DescribeSampleDataListRequest extends $dara.Model {
   deleteTag?: string;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeSampleDataListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Query content
+   * The query content.
    * 
    * @example
    * 手机号
@@ -47,7 +47,7 @@ export class DescribeSampleDataListRequest extends $dara.Model {
   queryContent?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeSampleDataListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Sample ID.
+   * The sample ID.
    * 
    * @example
    * 5467
@@ -63,7 +63,7 @@ export class DescribeSampleDataListRequest extends $dara.Model {
   sampleId?: number;
   /**
    * @remarks
-   * Scene
+   * The scenario.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class DescribeSampleDataListRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * CREATE

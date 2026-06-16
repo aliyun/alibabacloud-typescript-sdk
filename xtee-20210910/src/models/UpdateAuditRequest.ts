@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuditRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class UpdateAuditRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Approval comments
+   * The approval comment.
    * 
    * @example
    * 同意
@@ -23,7 +23,7 @@ export class UpdateAuditRequest extends $dara.Model {
   auditMsg?: string;
   /**
    * @remarks
-   * Associated type
+   * The association type.
    * 
    * @example
    * RULE
@@ -31,7 +31,7 @@ export class UpdateAuditRequest extends $dara.Model {
   auditRelationType?: string;
   /**
    * @remarks
-   * Status
+   * The approval status.
    * 
    * @example
    * AGREE
@@ -39,7 +39,7 @@ export class UpdateAuditRequest extends $dara.Model {
   auditStatus?: string;
   /**
    * @remarks
-   * The ID of the approval to be updated.
+   * The ID of the approval to update.
    * 
    * @example
    * 376773
@@ -47,7 +47,7 @@ export class UpdateAuditRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

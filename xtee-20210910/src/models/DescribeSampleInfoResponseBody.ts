@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSampleInfoResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 3144
@@ -13,7 +13,7 @@ export class DescribeSampleInfoResponseBodyResultObject extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Sample tags.
+   * The sample tags.
    * 
    * @example
    * em0102
@@ -21,7 +21,7 @@ export class DescribeSampleInfoResponseBodyResultObject extends $dara.Model {
   sampleTags?: string;
   /**
    * @remarks
-   * Sample type
+   * The data sample type.
    * 
    * @example
    * PHONE
@@ -29,7 +29,7 @@ export class DescribeSampleInfoResponseBodyResultObject extends $dara.Model {
   sampleType?: string;
   /**
    * @remarks
-   * Sample value.
+   * The sample value.
    * 
    * @example
    * 17700000000
@@ -37,7 +37,7 @@ export class DescribeSampleInfoResponseBodyResultObject extends $dara.Model {
   sampleValue?: string;
   /**
    * @remarks
-   * Update time.
+   * The update time.
    * 
    * @example
    * 1753804800000
@@ -45,7 +45,7 @@ export class DescribeSampleInfoResponseBodyResultObject extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeSampleInfoResponseBodyResultObject extends $dara.Model {
 export class DescribeSampleInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -93,7 +93,7 @@ export class DescribeSampleInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeSampleInfoResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -4,20 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSubTaskResultResponseBodyResultObjectConfig extends $dara.Model {
   /**
+   * @remarks
+   * Backing field for service support.
+   * 
    * @example
    * repl_lag
    */
   item?: string;
   /**
+   * @remarks
+   * Product description information.
+   * 
    * @example
    * des
    */
   itemDesc?: string;
   /**
+   * @remarks
+   * Sample.
+   * 
    * @example
    * sample
    */
   sampleItem?: string;
+  /**
+   * @remarks
+   * List of fields corresponding to the sample.
+   */
   sampleItems?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -52,7 +65,7 @@ export class GetSubTaskResultResponseBodyResultObjectConfig extends $dara.Model 
 export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model {
   /**
    * @remarks
-   * A0。
+   * A0.
    * 
    * @example
    * A0
@@ -60,7 +73,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a0?: string;
   /**
    * @remarks
-   * A1。
+   * A1.
    * 
    * @example
    * A1
@@ -68,7 +81,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a1?: string;
   /**
    * @remarks
-   * A10。
+   * A10.
    * 
    * @example
    * A10
@@ -76,7 +89,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a10?: string;
   /**
    * @remarks
-   * A11。
+   * A11.
    * 
    * @example
    * A11
@@ -84,7 +97,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a11?: string;
   /**
    * @remarks
-   * A2。
+   * A2.
    * 
    * @example
    * A2
@@ -92,7 +105,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a2?: string;
   /**
    * @remarks
-   * A3。
+   * A3.
    * 
    * @example
    * A3
@@ -100,7 +113,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a3?: string;
   /**
    * @remarks
-   * A4。
+   * A4.
    * 
    * @example
    * A4
@@ -108,7 +121,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a4?: string;
   /**
    * @remarks
-   * A5。
+   * A5.
    * 
    * @example
    * A5
@@ -116,7 +129,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a5?: string;
   /**
    * @remarks
-   * A6。
+   * A6.
    * 
    * @example
    * A6
@@ -124,7 +137,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a6?: string;
   /**
    * @remarks
-   * A7。
+   * A7.
    * 
    * @example
    * A7
@@ -132,7 +145,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a7?: string;
   /**
    * @remarks
-   * A8。
+   * A8.
    * 
    * @example
    * A8
@@ -140,7 +153,7 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
   a8?: string;
   /**
    * @remarks
-   * A9。
+   * A9.
    * 
    * @example
    * A9
@@ -190,7 +203,15 @@ export class GetSubTaskResultResponseBodyResultObjectFileCol extends $dara.Model
 }
 
 export class GetSubTaskResultResponseBodyResultObjectFile extends $dara.Model {
+  /**
+   * @remarks
+   * Column names.
+   */
   col?: GetSubTaskResultResponseBodyResultObjectFileCol[];
+  /**
+   * @remarks
+   * Variable title.
+   */
   title?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -223,16 +244,25 @@ export class GetSubTaskResultResponseBodyResultObjectFile extends $dara.Model {
 
 export class GetSubTaskResultResponseBodyResultObjectLog extends $dara.Model {
   /**
+   * @remarks
+   * Processing type.
+   * 
    * @example
    * RELEASE
    */
   operateType?: string;
   /**
+   * @remarks
+   * Reason for the service status.
+   * 
    * @example
    * PasswordExpired
    */
   reason?: string;
   /**
+   * @remarks
+   * Time. Unit: ms.
+   * 
    * @example
    * 1760408725312
    */
@@ -263,63 +293,129 @@ export class GetSubTaskResultResponseBodyResultObjectLog extends $dara.Model {
 }
 
 export class GetSubTaskResultResponseBodyResultObject extends $dara.Model {
+  /**
+   * @remarks
+   * Outputs List Settings.
+   */
   config?: GetSubTaskResultResponseBodyResultObjectConfig[];
+  /**
+   * @remarks
+   * Additional extension information.
+   * 
+   * @example
+   * {\\"approveNodeInfo\\":[{\\"approver\\":[\\"325337\\",\\"270729\\",\\"290278\\",\\"371000\\",\\"175234\\",\\"237109\\"],\\"nodeName\\":\\"团队审批人\\",\\"nodeCode\\":1,\\"approveRule\\":\\"ONE\\"}]}
+   */
   extraInfo?: string;
+  /**
+   * @remarks
+   * File.
+   */
   file?: GetSubTaskResultResponseBodyResultObjectFile;
   /**
+   * @remarks
+   * File name.
+   * 
    * @example
    * enorl-20w-0926.csv
    */
   fileName?: string;
   /**
+   * @remarks
+   * File type.
+   * 
    * @example
    * CSV
    */
   fileType?: string;
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * saf/cpoc/34cd7959590ef568086035b956210495/1760580976089_XN_test_1016_100000.csv
    */
   fileUrl?: string;
+  /**
+   * @remarks
+   * Is charged.
+   * 
+   * @example
+   * 是否收费
+   */
   isCharge?: boolean;
+  /**
+   * @remarks
+   * Log content.
+   */
   log?: GetSubTaskResultResponseBodyResultObjectLog[];
   /**
+   * @remarks
+   * Reason.
+   * 
    * @example
    * managed.by.apig
    */
   reason?: string;
   /**
+   * @remarks
+   * Result URL.
+   * 
    * @example
    * http://shuanglu-prod.oss-cn-shanghai-finance-1-pub.aliyuncs.com/idrs/24/local/remoteresult?Expires=1756436489&OSSAccessKeyId=****&Signature=****
    */
   resultUrl?: string;
   /**
+   * @remarks
+   * Schedule type.
+   * 
    * @example
    * rate
    */
   scheduleType?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * anti_fraud_customed_v3
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * Service name.
+   * 
+   * @example
+   * 申请反欺诈（定制增强版）
+   */
   serviceName?: string;
   /**
+   * @remarks
+   * Status.
+   * 
    * @example
    * CLASS_CHANGING
    */
   status?: string;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * 19150
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task Name.
+   * 
    * @example
    * icekredit_model_A_2025a_508185
    */
   taskName?: string;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 5129547232
    */
@@ -388,25 +484,41 @@ export class GetSubTaskResultResponseBodyResultObject extends $dara.Model {
 
 export class GetSubTaskResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0A519CFA-0EEC-580A-A5C1-F9C653FB2354
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result.
+   */
   resultObject?: GetSubTaskResultResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {

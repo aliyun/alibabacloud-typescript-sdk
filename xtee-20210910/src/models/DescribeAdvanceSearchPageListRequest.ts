@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Condition value.
+   * The condition value.
    * 
    * @example
    * {
@@ -44,7 +44,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Query start time, accurate to milliseconds (ms).
+   * The start time of the query, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   eventBeginTime?: number;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time of the query, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -84,7 +84,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   eventEndTime?: number;
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -92,7 +92,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * Field value
+   * The field value.
    * 
    * @example
    * 20
@@ -100,7 +100,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * This parameter is required.
    * 
@@ -110,7 +110,7 @@ export class DescribeAdvanceSearchPageListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 

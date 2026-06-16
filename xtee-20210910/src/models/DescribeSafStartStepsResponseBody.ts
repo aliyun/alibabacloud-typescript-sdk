@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSafStartStepsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Step content
+   * The step content.
    * 
    * @example
    * https://help.aliyun.com/document_detail/177689.html
@@ -13,7 +13,7 @@ export class DescribeSafStartStepsResponseBodyResultObject extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Step title
+   * The step title.
    * 
    * @example
    * ios
@@ -21,7 +21,7 @@ export class DescribeSafStartStepsResponseBodyResultObject extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Type
+   * The type.
    * 
    * @example
    * URL
@@ -55,7 +55,7 @@ export class DescribeSafStartStepsResponseBodyResultObject extends $dara.Model {
 export class DescribeSafStartStepsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -63,7 +63,7 @@ export class DescribeSafStartStepsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeSafStartStepsResponseBodyResultObject[];
   static names(): { [key: string]: string } {

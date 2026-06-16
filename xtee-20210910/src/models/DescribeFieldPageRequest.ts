@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFieldPageRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response messages, default value is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Field classification
+   * The field classification.
    * 
    * @example
    * REQUEST_PARAM
@@ -23,7 +23,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * Query input parameter name or title
+   * The query parameter: name or title.
    * 
    * @example
    * age/年龄
@@ -31,7 +31,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -47,7 +47,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Number of items per page, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +63,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Field source
+   * The field source.
    * 
    * @example
    * DEFINE
@@ -71,7 +71,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * ENABLE
@@ -79,7 +79,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 年龄
@@ -87,7 +87,7 @@ export class DescribeFieldPageRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Field type
+   * The field type.
    * 
    * @example
    * STRING

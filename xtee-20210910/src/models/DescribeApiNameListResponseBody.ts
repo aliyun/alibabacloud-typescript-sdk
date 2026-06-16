@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApiNameListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * API ID.
+   * The API ID.
    * 
    * @example
    * 33
@@ -13,7 +13,7 @@ export class DescribeApiNameListResponseBodyResultObject extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * API name.
+   * The API name.
    * 
    * @example
    * ListAuditLog
@@ -45,7 +45,7 @@ export class DescribeApiNameListResponseBodyResultObject extends $dara.Model {
 export class DescribeApiNameListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -53,7 +53,7 @@ export class DescribeApiNameListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeApiNameListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

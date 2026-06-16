@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessKeyId for OSS file upload.
+   * The AccessKey ID used to upload files to OSS.
    * 
    * @example
-   * LTAxxxxxxxxxxxx
+   * LTAI5tJWSnmmTpJGN6sJCNG3
    */
   accessId?: string;
   /**
    * @remarks
-   * Host address.
+   * The host address.
    * 
    * @example
    * kf.sunwoosoft.com
@@ -21,7 +21,7 @@ export class DescribeOssTokenResponseBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The Key required for file upload.
+   * The key required for file upload.
    * 
    * @example
    * saf/de/namelist/e924/ufzgsedX9bd3a7
@@ -29,7 +29,7 @@ export class DescribeOssTokenResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Permission policy for ossbucket.
+   * The access policy of the OSS bucket.
    * 
    * @example
    * eyJleHBpcmF0aW9uIjoiMjAyNS0wNy0zMFQwNjowNTo0OS45NTRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJlcSIsIiRrZXkiLCJzYWZcL2RlXC9uYW1lbGlzdFwvZTkyNFwvdWZ6Z3NlZFg5Ymxxxxxxxxxxx
@@ -37,7 +37,7 @@ export class DescribeOssTokenResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -45,7 +45,7 @@ export class DescribeOssTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * OSS signature.
+   * The OSS signature.
    * 
    * @example
    * n29by5MWBmAjcweVoPEY/OHktog=
@@ -53,7 +53,7 @@ export class DescribeOssTokenResponseBody extends $dara.Model {
   signature?: string;
   /**
    * @remarks
-   * Temporary identity credential.
+   * The temporary security credential.
    * 
    * @example
    * tT44bMQxxxxxxxxxxxxxxx

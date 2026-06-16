@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNameListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DeleteNameListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Name list ID, multiple IDs should be separated by commas
+   * The list IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * 23,24,25
@@ -23,7 +23,7 @@ export class DeleteNameListRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

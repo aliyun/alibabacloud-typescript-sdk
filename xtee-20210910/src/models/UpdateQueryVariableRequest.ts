@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateQueryVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Data source code
+   * The data source code.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   dataSourceCode?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 描述
@@ -33,7 +33,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Expression.
+   * The expression.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * Display expression
+   * The display expression.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   expressionTitle?: string;
   /**
    * @remarks
-   * Expression associated variable
+   * The variable associated with the expression.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   expressionVariable?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Outlier
+   * The outlier value.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   outlier?: string;
   /**
    * @remarks
-   * Variable return type
+   * The return type of the variable.
    * 
    * This parameter is required.
    * 
@@ -103,7 +103,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   outputs?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -113,7 +113,7 @@ export class UpdateQueryVariableRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * This parameter is required.
    * 

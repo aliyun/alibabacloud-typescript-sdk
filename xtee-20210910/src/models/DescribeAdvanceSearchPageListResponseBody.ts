@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdvanceSearchPageListResponseBodyResultObjectHeader extends $dara.Model {
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -13,7 +13,7 @@ export class DescribeAdvanceSearchPageListResponseBodyResultObjectHeader extends
   fieldName?: string;
   /**
    * @remarks
-   * Field title.
+   * The field name.
    * 
    * @example
    * 年龄
@@ -21,9 +21,9 @@ export class DescribeAdvanceSearchPageListResponseBodyResultObjectHeader extends
   fieldTitle?: string;
   /**
    * @remarks
-   * Whether it is a default display field (displayed in the response, not used as a parameter)
-   * - true: Yes
-   * - false: No
+   * Indicates whether the field is displayed by default. This field is included in the response only and is not used as a request parameter. Valid values:
+   * - true: The field is displayed by default.
+   * - false: The field is not displayed by default.
    * 
    * @example
    * true
@@ -57,7 +57,7 @@ export class DescribeAdvanceSearchPageListResponseBodyResultObjectHeader extends
 export class DescribeAdvanceSearchPageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -65,17 +65,17 @@ export class DescribeAdvanceSearchPageListResponseBodyResultObject extends $dara
   currentPage?: number;
   /**
    * @remarks
-   * Returned data object
+   * The returned data object.
    */
   data?: { [key: string]: any }[];
   /**
    * @remarks
-   * Table header
+   * The table header.
    */
   header?: DescribeAdvanceSearchPageListResponseBodyResultObjectHeader[];
   /**
    * @remarks
-   * Number of items per page. Default value: 20, minimum value: 1, maximum value: 50.
+   * The number of entries per page in the response. Default value: 20. Minimum value: 1. Maximum value: 50.
    * 
    * @example
    * 10
@@ -83,7 +83,7 @@ export class DescribeAdvanceSearchPageListResponseBodyResultObject extends $dara
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 37
@@ -91,7 +91,7 @@ export class DescribeAdvanceSearchPageListResponseBodyResultObject extends $dara
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 4
@@ -137,7 +137,7 @@ export class DescribeAdvanceSearchPageListResponseBodyResultObject extends $dara
 export class DescribeAdvanceSearchPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -145,7 +145,7 @@ export class DescribeAdvanceSearchPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeAdvanceSearchPageListResponseBodyResultObject;
   static names(): { [key: string]: string } {

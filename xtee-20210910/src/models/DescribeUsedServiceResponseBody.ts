@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUsedServiceResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * English name
+   * The English name.
    * 
    * @example
    * account_abuse
@@ -13,7 +13,7 @@ export class DescribeUsedServiceResponseBodyRecords extends $dara.Model {
   enName?: string;
   /**
    * @remarks
-   * Service name
+   * The service name.
    * 
    * @example
    * 注册风险识别服务
@@ -21,7 +21,7 @@ export class DescribeUsedServiceResponseBodyRecords extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Service code
+   * The service code.
    * 
    * @example
    * account_abuse
@@ -55,7 +55,7 @@ export class DescribeUsedServiceResponseBodyRecords extends $dara.Model {
 export class DescribeUsedServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -63,7 +63,7 @@ export class DescribeUsedServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Record details
+   * The record details.
    */
   records?: DescribeUsedServiceResponseBodyRecords[];
   static names(): { [key: string]: string } {

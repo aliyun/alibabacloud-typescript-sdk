@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Audit ID
+   * The approval ID.
    * 
    * @example
    * 225
@@ -13,7 +13,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   auditId?: number;
   /**
    * @remarks
-   * Authorization type
+   * The authorization type.
    * 
    * @example
    * all
@@ -21,7 +21,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   authType?: string;
   /**
    * @remarks
-   * Authorized user UID
+   * The UID of the authorized user.
    * 
    * @example
    * *
@@ -29,7 +29,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   authUsers?: string;
   /**
    * @remarks
-   * Primary key ID of the strategy
+   * The primary key ID of the policy.
    * 
    * @example
    * 6843
@@ -37,7 +37,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   consoleRuleId?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -45,7 +45,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -53,7 +53,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   eventName?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -61,7 +61,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -69,7 +69,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   gmtModified?: number;
   /**
    * @remarks
-   * Execution logic
+   * The execution logic.
    * 
    * @example
    * 1&2
@@ -77,7 +77,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   logicExpression?: string;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * 描述
@@ -85,7 +85,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   memo?: string;
   /**
    * @remarks
-   * Rule priority, the higher the number, the higher the priority.
+   * The policy priority. A larger value indicates a higher priority.
    * 
    * @example
    * 10
@@ -93,12 +93,12 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   priority?: number;
   /**
    * @remarks
-   * Returned rule action structure.
+   * The returned rule action struct.
    */
   ruleActionMap?: { [key: string]: string };
   /**
    * @remarks
-   * Output actions
+   * The output actions.
    * 
    * @example
    * [{\\"inputs\\":[\\"unusualBrand\\"],\\"name\\":\\"__addDeTags__\\",\\"actionType\\":\\"TAG\\",\\"outputType\\":\\"const\\"}]
@@ -106,7 +106,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   ruleActions?: string;
   /**
    * @remarks
-   * Rule authorization type
+   * The policy type.
    * 
    * @example
    * WHITE_BOX
@@ -114,7 +114,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   ruleAuthType?: string;
   /**
    * @remarks
-   * Rule expressions.
+   * The rule expressions.
    * 
    * @example
    * [{\\"expressionName\\":\\"同一设备同一IP上的注册用户数\\",\\"itemId\\":1,\\"left\\":{\\"name\\":\\"dK7EXHr490f\\"},\\"operatorCode\\":\\"gte\\",\\"operatorName\\":\\"大于等于\\",\\"right\\":{\\"fieldValue\\":\\"2\\"}}]
@@ -122,7 +122,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   ruleExpressions?: string;
   /**
    * @remarks
-   * Strategy ID
+   * The policy ID.
    * 
    * @example
    * 102224
@@ -130,7 +130,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   ruleId?: string;
   /**
    * @remarks
-   * Strategy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别
@@ -138,7 +138,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   ruleName?: string;
   /**
    * @remarks
-   * Strategy status
+   * The policy status.
    * 
    * @example
    * RUNNING
@@ -146,7 +146,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   ruleStatus?: string;
   /**
    * @remarks
-   * Rule type
+   * The policy type.
    * 
    * @example
    * DEFAULT
@@ -154,7 +154,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   ruleType?: string;
   /**
    * @remarks
-   * Primary key ID of the strategy version
+   * The primary key ID of the policy version.
    * 
    * @example
    * 11519
@@ -162,7 +162,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   ruleVersionId?: number;
   /**
    * @remarks
-   * Template type
+   * The template type.
    * 
    * @example
    * PUB_SERVICE
@@ -170,7 +170,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
   templateType?: string;
   /**
    * @remarks
-   * Version number
+   * The version number.
    * 
    * @example
    * 1
@@ -245,7 +245,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBodyResultObject extends $dara.M
 export class QueryAuthRuleDetailByRuleIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -253,7 +253,7 @@ export class QueryAuthRuleDetailByRuleIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: QueryAuthRuleDetailByRuleIdResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustVariableConfigListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Configuration key
+   * The key of the configuration item.
    * 
    * @example
    * COUNT
@@ -13,7 +13,7 @@ export class DescribeCustVariableConfigListResponseBodyResultObject extends $dar
   configKey?: string;
   /**
    * @remarks
-   * Configuration value
+   * The value of the configuration item.
    * 
    * @example
    * 累计
@@ -45,7 +45,7 @@ export class DescribeCustVariableConfigListResponseBodyResultObject extends $dar
 export class DescribeCustVariableConfigListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -53,7 +53,7 @@ export class DescribeCustVariableConfigListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeCustVariableConfigListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSceneRulePageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages. Default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSceneRulePageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NOMAL
@@ -23,7 +23,7 @@ export class DescribeSceneRulePageListRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeSceneRulePageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_ahgctb7098
@@ -39,7 +39,7 @@ export class DescribeSceneRulePageListRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Number of items per page in the returned results. Default value: 20, minimum value: 1, maximum value: 50.
+   * The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
    * 
    * @example
    * 20
@@ -47,7 +47,7 @@ export class DescribeSceneRulePageListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeSceneRulePageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Strategy type
+   * The policy type.
    * 
    * @example
    * CUSTMER
@@ -63,7 +63,7 @@ export class DescribeSceneRulePageListRequest extends $dara.Model {
   ruleAuthType?: string;
   /**
    * @remarks
-   * Strategy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别
@@ -71,7 +71,7 @@ export class DescribeSceneRulePageListRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Strategy status
+   * The policy status.
    * 
    * @example
    * RUNNING

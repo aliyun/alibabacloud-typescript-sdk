@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthScenePageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeAuthScenePageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeAuthScenePageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Scene name.
+   * The scenario name.
    * 
    * @example
    * account_abuse

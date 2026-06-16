@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSampleInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSampleInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 3144
@@ -23,7 +23,7 @@ export class DescribeSampleInfoRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class DescribeSampleInfoRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * 1

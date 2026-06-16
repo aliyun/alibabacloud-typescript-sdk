@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends $dara.Model {
   /**
    * @remarks
-   * Initiator UID
+   * The UID of the applicant.
    * 
    * @example
    * 1519714049632764
@@ -13,7 +13,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   applyUserId?: string;
   /**
    * @remarks
-   * Initiator name
+   * The name of the applicant.
    * 
    * @example
    * root
@@ -21,7 +21,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   applyUserName?: string;
   /**
    * @remarks
-   * Approval comment
+   * The approval comment.
    * 
    * @example
    * 同意
@@ -29,7 +29,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   auditMsg?: string;
   /**
    * @remarks
-   * Final approver UID
+   * The UID of the final approver.
    * 
    * @example
    * 1519714049632764
@@ -37,7 +37,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   auditRealUserId?: string;
   /**
    * @remarks
-   * Final approver name
+   * The name of the final approver.
    * 
    * @example
    * root
@@ -45,7 +45,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   auditRealUserName?: string;
   /**
    * @remarks
-   * Approver\\"s remarks.
+   * The remark of the approver.
    * 
    * @example
    * 备注
@@ -53,7 +53,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   auditRemark?: string;
   /**
    * @remarks
-   * Approval status
+   * The approval status.
    * 
    * @example
    * AGREE
@@ -61,7 +61,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   auditStatus?: string;
   /**
    * @remarks
-   * Approval time.
+   * The approval time.
    * 
    * @example
    * 1545726028000
@@ -69,7 +69,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   auditTime?: number;
   /**
    * @remarks
-   * Designated approver UID
+   * The UID of the designated approver.
    * 
    * @example
    * 1519714049632764
@@ -77,7 +77,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   auditUserId?: string;
   /**
    * @remarks
-   * Designated auditor\\"s name
+   * The name of the designated approver.
    * 
    * @example
    * root
@@ -85,7 +85,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   auditUserName?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1545726028000
@@ -93,7 +93,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   gmtCreate?: number;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 1728
@@ -101,7 +101,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   id?: number;
   /**
    * @remarks
-   * Information of related others (in JSON format)
+   * The information about other related persons in JSON format.
    * 
    * @example
    * {}
@@ -109,7 +109,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   relationExt?: string;
   /**
    * @remarks
-   * ID of the associated transaction
+   * The transaction ID associated with the approval.
    * 
    * @example
    * 123
@@ -117,7 +117,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   relationId?: number;
   /**
    * @remarks
-   * Name of the associated item
+   * The name associated with the approval.
    * 
    * @example
    * 营销风险识别
@@ -125,7 +125,7 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
   relationName?: string;
   /**
    * @remarks
-   * Type of approval (e.g., `rule` for policy approval)
+   * The type of the approval. For example, rule indicates a policy approval.
    * 
    * @example
    * RULE
@@ -185,12 +185,12 @@ export class DescribeRuleVersionListResponseBodyResultObjectConsoleAudit extends
 export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Audit object
+   * The approval object.
    */
   consoleAudit?: DescribeRuleVersionListResponseBodyResultObjectConsoleAudit;
   /**
    * @remarks
-   * Console rule ID.
+   * The console rule ID.
    * 
    * @example
    * 6715
@@ -198,7 +198,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   consoleRuleId?: number;
   /**
    * @remarks
-   * Associated policy remarks
+   * The remark of the associated policy.
    * 
    * @example
    * 备注
@@ -206,7 +206,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   consoleRuleMemo?: string;
   /**
    * @remarks
-   * Associated policy name
+   * The Policy Name of the associated policy.
    * 
    * @example
    * 营销风险识别
@@ -214,7 +214,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   consoleRuleName?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -222,7 +222,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   eventCode?: string;
   /**
    * @remarks
-   * Event type
+   * The event type.
    * 
    * @example
    * MAIN
@@ -230,7 +230,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   eventType?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -238,7 +238,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -246,7 +246,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   gmtModified?: number;
   /**
    * @remarks
-   * Primary key ID of the policy
+   * The primary key ID of the policy.
    * 
    * @example
    * 376773
@@ -254,7 +254,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * The user who last operated.
+   * The user who last performed an operation.
    * 
    * @example
    * 1519714049632764
@@ -262,7 +262,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   lastOperator?: string;
   /**
    * @remarks
-   * Policy priority, the higher the number, the higher the priority.
+   * The policy priority. A larger value indicates a higher priority.
    * 
    * @example
    * 10
@@ -270,7 +270,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   priority?: number;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 102224
@@ -278,7 +278,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   ruleId?: string;
   /**
    * @remarks
-   * Policy status
+   * The policy status.
    * 
    * @example
    * RUNNING
@@ -286,7 +286,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   ruleStatus?: string;
   /**
    * @remarks
-   * Rule Type
+   * The policy type.
    * 
    * @example
    * DEFAULT
@@ -294,7 +294,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
   ruleType?: string;
   /**
    * @remarks
-   * Version number
+   * The version number.
    * 
    * @example
    * 2
@@ -355,7 +355,7 @@ export class DescribeRuleVersionListResponseBodyResultObject extends $dara.Model
 export class DescribeRuleVersionListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -363,7 +363,7 @@ export class DescribeRuleVersionListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -371,7 +371,7 @@ export class DescribeRuleVersionListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -379,12 +379,12 @@ export class DescribeRuleVersionListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeRuleVersionListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -392,7 +392,7 @@ export class DescribeRuleVersionListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 7

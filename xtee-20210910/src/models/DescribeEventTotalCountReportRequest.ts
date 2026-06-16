@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventTotalCountReportRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * Sets the language type for requests and responses. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeEventTotalCountReportRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code
+   * Region ID.
    * 
    * @example
    * cn-hangzhou

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsNumLineChartResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Chart data list
+   * The chart data list.
    */
   data?: string[];
   /**
    * @remarks
-   * Series name.
+   * The series name.
    * 
    * @example
    * rn101
@@ -45,7 +45,7 @@ export class DescribeTagsNumLineChartResponseBodyResultObjectSeries extends $dar
 export class DescribeTagsNumLineChartResponseBodyResultObjectXaxis extends $dara.Model {
   /**
    * @remarks
-   * Chart data list
+   * The chart data list.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -75,12 +75,12 @@ export class DescribeTagsNumLineChartResponseBodyResultObjectXaxis extends $dara
 export class DescribeTagsNumLineChartResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: DescribeTagsNumLineChartResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * xaxis node.
+   * The xaxis node.
    */
   xaxis?: DescribeTagsNumLineChartResponseBodyResultObjectXaxis;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class DescribeTagsNumLineChartResponseBodyResultObject extends $dara.Mode
 export class DescribeTagsNumLineChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -123,7 +123,7 @@ export class DescribeTagsNumLineChartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    */
   resultObject?: DescribeTagsNumLineChartResponseBodyResultObject;
   static names(): { [key: string]: string } {

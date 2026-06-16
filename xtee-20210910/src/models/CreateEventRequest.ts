@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class CreateEventRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 登录事件
@@ -31,7 +31,7 @@ export class CreateEventRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Input parameters, JSON string.
+   * The input parameters in a JSON string.
    * 
    * @example
    * [{"fieldCode":"accountId","description":"用户的账户ID，唯一标识一个账户的id","fieldRank":1,"title":"账户ID","fieldType":"STRING","fieldSource":"DEFAULT"},{"fieldCode":"hitRules","fieldRank":2,"title":"命中策略","fieldType":"STRING","fieldSource":"DEFAULT"},{"fieldCode":"age","description":"","fieldRank":3,"title":"年龄","fieldType":"INT","fieldSource":"DEFAULT"},{"fieldCode":"ip","description":"IP地址","fieldRank":4,"title":"IP地址","fieldType":"STRING","fieldSource":"DEFAULT"},{"fieldCode":"tags","fieldRank":5,"title":"风险标签","fieldType":"STRING","fieldSource":"DEFAULT"},{"fieldCode":"score","fieldRank":6,"title":"风险分值","fieldType":"DOUBLE","fieldSource":"DEFAULT"},{"fieldCode":"hitList","fieldRank":7}]
@@ -39,7 +39,7 @@ export class CreateEventRequest extends $dara.Model {
   inputFieldsStr?: string;
   /**
    * @remarks
-   * Memo information
+   * The remarks.
    * 
    * @example
    * 登录事件描述
@@ -47,7 +47,7 @@ export class CreateEventRequest extends $dara.Model {
   memo?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class CreateEventRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Input field template type
+   * The templatetype of the input field.
    * 
    * @example
    * register
@@ -63,7 +63,7 @@ export class CreateEventRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * Published template name.
+   * The name of the published template.
    * 
    * @example
    * 注册事件模版
@@ -71,7 +71,7 @@ export class CreateEventRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * Template type.
+   * The templatetype.
    * 
    * @example
    * TASK

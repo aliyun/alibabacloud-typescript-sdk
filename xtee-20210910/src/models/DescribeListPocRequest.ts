@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeListPocRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,9 +13,9 @@ export class DescribeListPocRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -23,7 +23,7 @@ export class DescribeListPocRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -31,7 +31,7 @@ export class DescribeListPocRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -39,26 +39,25 @@ export class DescribeListPocRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task name.
+   * The task name.
    * 
    * @example
-   * Task_001
+   * task1
    */
   taskName?: string;
   /**
    * @remarks
-   * The status of the import task. Valid values:
-   * 
-   * *   DOING
-   * *   FINISH
+   * The execution status of the import task. Valid values:
+   * - DOING: running
+   * - FINISH: completed.
    * 
    * @example
-   * FINISH
+   * DOING
    */
   taskStatus?: string;
   /**
    * @remarks
-   * Type
+   * The type.
    * 
    * @example
    * SAF_CONSOLE

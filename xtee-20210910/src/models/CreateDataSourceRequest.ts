@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Data source description.
+   * The description of the data source.
    * 
    * @example
    * 数据源描述
@@ -23,7 +23,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Data source name.
+   * The data source name.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * OSS file key.
+   * The OSS file key.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Data source type
+   * The data source type.
    * 
    * This parameter is required.
    * 

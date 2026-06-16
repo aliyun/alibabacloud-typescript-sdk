@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSourceDataDownloadUrlResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Download URL.
+   * The download URL.
    * 
    * @example
    * https:/xxxxx.oss-cn-xxxxxx.aliyuncs.com/xxxx/xxx/xxxxxx/xxx/xxxxxxxxxx?Expires=1753421064&OSSAccessKeyId=xxxxxxx&Signature=xxxxxxx%3D
@@ -35,7 +35,7 @@ export class DescribeDataSourceDataDownloadUrlResponseBodyResultObject extends $
 export class DescribeDataSourceDataDownloadUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -43,7 +43,7 @@ export class DescribeDataSourceDataDownloadUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeDataSourceDataDownloadUrlResponseBodyResultObject;
   static names(): { [key: string]: string } {

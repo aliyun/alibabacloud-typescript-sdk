@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNameListPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeNameListPageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 3
@@ -23,7 +23,7 @@ export class DescribeNameListPageListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class DescribeNameListPageListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class DescribeNameListPageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Update start time.
+   * The start time of the update period.
    * 
    * @example
    * 1753372800000
@@ -47,7 +47,7 @@ export class DescribeNameListPageListRequest extends $dara.Model {
   updateBeginTime?: number;
   /**
    * @remarks
-   * Update end time.
+   * The end time of the update period.
    * 
    * @example
    * 1753459199059
@@ -55,7 +55,7 @@ export class DescribeNameListPageListRequest extends $dara.Model {
   updateEndTime?: number;
   /**
    * @remarks
-   * Variable name/description
+   * The variable name or description.
    * 
    * @example
    * 白名单
@@ -63,7 +63,7 @@ export class DescribeNameListPageListRequest extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * This parameter is required.
    * 

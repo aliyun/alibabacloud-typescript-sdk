@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFieldRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateFieldRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Field classification.
+   * The field classification.
    * 
    * @example
    * REQUEST_PARAM
@@ -23,7 +23,7 @@ export class CreateFieldRequest extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 字段描述信息
@@ -31,7 +31,7 @@ export class CreateFieldRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Enum data.
+   * The enumeration data.
    * 
    * @example
    * enum
@@ -39,7 +39,7 @@ export class CreateFieldRequest extends $dara.Model {
   enumData?: string;
   /**
    * @remarks
-   * Field name.
+   * The field name.
    * 
    * @example
    * age
@@ -47,7 +47,7 @@ export class CreateFieldRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region code.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class CreateFieldRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Business source.
+   * The business source.
    * 
    * @example
    * DEFINE
@@ -65,7 +65,7 @@ export class CreateFieldRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 年龄
@@ -73,7 +73,7 @@ export class CreateFieldRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING

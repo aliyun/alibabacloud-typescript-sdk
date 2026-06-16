@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInputFeildCountByEventCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeInputFeildCountByEventCodeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class DescribeInputFeildCountByEventCodeRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_ahqido8038
@@ -31,7 +31,7 @@ export class DescribeInputFeildCountByEventCodeRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

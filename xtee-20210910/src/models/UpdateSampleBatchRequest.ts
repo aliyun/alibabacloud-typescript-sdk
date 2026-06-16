@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSampleBatchRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class UpdateSampleBatchRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Batch operation IDs.
+   * The IDs of the samples to be modified in batches.
    * 
    * @example
    * 324,343
@@ -23,7 +23,7 @@ export class UpdateSampleBatchRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class UpdateSampleBatchRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Tags (comma-separated).
+   * The tags, separated by commas.
    * 
    * @example
    * rm0102,rm0103
@@ -39,7 +39,7 @@ export class UpdateSampleBatchRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * Version number (latest).
+   * The latest version numbers.
    * 
    * @example
    * 1,1

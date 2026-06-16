@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHasRuleNameByEventCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -13,7 +13,7 @@ export class DescribeHasRuleNameByEventCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    * 
    * @example
    * true

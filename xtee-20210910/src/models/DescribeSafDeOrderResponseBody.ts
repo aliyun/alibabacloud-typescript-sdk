@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSafDeOrderResponseBodyResultObjectRegions extends $dara.Model {
   /**
    * @remarks
-   * Expiration date (timestamp).
+   * The expiration date (timestamp).
    * 
    * @example
    * 2117750400000
@@ -13,7 +13,7 @@ export class DescribeSafDeOrderResponseBodyResultObjectRegions extends $dara.Mod
   expirationDate?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -21,12 +21,12 @@ export class DescribeSafDeOrderResponseBodyResultObjectRegions extends $dara.Mod
   region?: string;
   /**
    * @remarks
-   * Specification model:
+   * The specification type:
    * 
-   * 1: Basic Edition 
-   * 2: Advanced Edition 
-   * 3: Premium Edition 
-   * 4: Flagship Edition
+   *  1: Basic Edition
+   *  2: Advanced Edition
+   *  3: Premium Edition
+   *  4: Ultimate Edition.
    * 
    * @example
    * 1
@@ -60,7 +60,7 @@ export class DescribeSafDeOrderResponseBodyResultObjectRegions extends $dara.Mod
 export class DescribeSafDeOrderResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Expiration time
+   * The expiration time.
    * 
    * @example
    * 1728008155799
@@ -68,11 +68,11 @@ export class DescribeSafDeOrderResponseBodyResultObject extends $dara.Model {
   expirationDate?: number;
   /**
    * @remarks
-   * Based on the product type subscribed by the customer, the console permissions are divided into three categories:
+   * The console permissions are classified into three categories based on the commodity type activated by the customer:
    * 
-   *      1. New Customer: Has not purchased/subscribed to any service.
-   *      2. Old Customer (Subscription): Customers who have purchased the SAF product.
-   *      3. Pay-As-You-Go: Customers who have purchased the SAF_BAG product or activated SAF_POS.
+   *      1. New customer: has not purchased or activated any service.
+   *      2. Existing customer (subscription): has purchased the saf commodity.
+   *      3. Pay-as-you-go: has purchased the saf_bag commodity or activated saf_pos.
    * 
    * @example
    * 2
@@ -80,7 +80,7 @@ export class DescribeSafDeOrderResponseBodyResultObject extends $dara.Model {
   openUserType?: number;
   /**
    * @remarks
-   * Activated region permission addresses.
+   * The activated region permission addresses.
    */
   regions?: DescribeSafDeOrderResponseBodyResultObjectRegions[];
   static names(): { [key: string]: string } {
@@ -114,7 +114,7 @@ export class DescribeSafDeOrderResponseBodyResultObject extends $dara.Model {
 export class DescribeSafDeOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -122,7 +122,7 @@ export class DescribeSafDeOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeSafDeOrderResponseBodyResultObject;
   static names(): { [key: string]: string } {

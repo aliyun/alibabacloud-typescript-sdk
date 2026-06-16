@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data source code.
+   * The data source code.
    * 
    * @example
    * ds_vcaoii1697
@@ -13,7 +13,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   dataSourceCode?: number;
   /**
    * @remarks
-   * Data source name
+   * The data source name.
    * 
    * @example
    * 名称数据源
@@ -21,7 +21,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   dataSourceName?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 变量描述
@@ -29,7 +29,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   description?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -37,7 +37,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   eventCode?: string;
   /**
    * @remarks
-   * Expression.
+   * The expression.
    * 
    * @example
    * SELECT  AVG( $source )\\nFROM ds_vcaoii1697 \\nWHERE  $age > 0
@@ -45,7 +45,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   expression?: string;
   /**
    * @remarks
-   * Expression title.
+   * The expression name.
    * 
    * @example
    * SELECT  AVG( $source )\\nFROM testCase\\nWHERE  $age > 0
@@ -53,7 +53,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   expressionTitle?: string;
   /**
    * @remarks
-   * Expression variable.
+   * The expression variable.
    * 
    * @example
    * [96426]
@@ -61,7 +61,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   expressionVariable?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * @example
    * 355
@@ -69,7 +69,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   id?: number;
   /**
    * @remarks
-   * Outlier
+   * The outlier value.
    * 
    * @example
    * -1
@@ -77,7 +77,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   outlier?: string;
   /**
    * @remarks
-   * Output results.
+   * The output result.
    * 
    * @example
    * DOUBLE
@@ -85,7 +85,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
   outputs?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 自定义查询变量标题
@@ -135,7 +135,7 @@ export class DescribeQueryVariableDetailResponseBodyResultObject extends $dara.M
 export class DescribeQueryVariableDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -143,7 +143,7 @@ export class DescribeQueryVariableDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeQueryVariableDetailResponseBodyResultObject;
   static names(): { [key: string]: string } {

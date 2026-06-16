@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplatePageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeTemplatePageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeTemplatePageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * d6_h1fe4cfa1g
@@ -31,7 +31,7 @@ export class DescribeTemplatePageListRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeTemplatePageListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class DescribeTemplatePageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Event name
+   * The event name.
    * 
    * @example
    * 注册事件
@@ -55,7 +55,7 @@ export class DescribeTemplatePageListRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * Event template search field
+   * The search field for event templates.
    * 
    * @example
    * age
@@ -63,7 +63,7 @@ export class DescribeTemplatePageListRequest extends $dara.Model {
   templateSearchItem?: string;
   /**
    * @remarks
-   * Event status
+   * The event status.
    * 
    * @example
    * ONLINE
@@ -71,7 +71,7 @@ export class DescribeTemplatePageListRequest extends $dara.Model {
   templateStatus?: string;
   /**
    * @remarks
-   * Template type
+   * The templatetype.
    * 
    * @example
    * PUB_SERVICE

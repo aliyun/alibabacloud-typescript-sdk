@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExistNameRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeExistNameRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * age
@@ -23,7 +23,7 @@ export class DescribeExistNameRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 

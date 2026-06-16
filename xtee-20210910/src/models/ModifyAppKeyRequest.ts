@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * Specifies the language type of the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class ModifyAppKeyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * appkey information.
+   * The AppKey information.
    * 
    * @example
    * ***
@@ -23,7 +23,7 @@ export class ModifyAppKeyRequest extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * Application memo information.
+   * The memo information of the application.
    * 
    * @example
    * 备注
@@ -31,7 +31,7 @@ export class ModifyAppKeyRequest extends $dara.Model {
   memo?: string;
   /**
    * @remarks
-   * Region code
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

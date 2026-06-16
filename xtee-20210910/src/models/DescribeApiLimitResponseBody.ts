@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApiLimitResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Whether the maximum number has been exceeded
+   * Indicates whether the maximum number is exceeded.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeApiLimitResponseBodyResultObject extends $dara.Model {
   limit?: boolean;
   /**
    * @remarks
-   * Maximum number of items that can be created
+   * The maximum number of items that can be created.
    * 
    * @example
    * 150
@@ -21,7 +21,7 @@ export class DescribeApiLimitResponseBodyResultObject extends $dara.Model {
   maxTotalItem?: number;
   /**
    * @remarks
-   * Total number of items
+   * The total number of items.
    * 
    * @example
    * 31
@@ -55,7 +55,7 @@ export class DescribeApiLimitResponseBodyResultObject extends $dara.Model {
 export class DescribeApiLimitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -63,7 +63,7 @@ export class DescribeApiLimitResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeApiLimitResponseBodyResultObject;
   static names(): { [key: string]: string } {

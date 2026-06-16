@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuditPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeAuditPageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Audit status
+   * The audit status.
    * 
    * @example
    * SUCCESS
@@ -23,7 +23,7 @@ export class DescribeAuditPageListRequest extends $dara.Model {
   auditStatus?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeAuditPageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_awukck7117
@@ -39,7 +39,7 @@ export class DescribeAuditPageListRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Page size, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeAuditPageListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeAuditPageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 手机号MD5命中人脸测试名单

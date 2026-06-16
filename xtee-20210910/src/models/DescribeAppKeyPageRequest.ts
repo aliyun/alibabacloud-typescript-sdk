@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppKeyPageRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeAppKeyPageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeAppKeyPageRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Number of items per page, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class DescribeAppKeyPageRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

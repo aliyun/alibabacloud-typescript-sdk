@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeOssTokenRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * File name.
+   * The file name.
    * 
    * @example
    * test.csv
@@ -23,7 +23,7 @@ export class DescribeOssTokenRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class DescribeOssTokenRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Upload type
+   * The upload type.
    * 
    * @example
    * COMMUNITY_SAMPLE

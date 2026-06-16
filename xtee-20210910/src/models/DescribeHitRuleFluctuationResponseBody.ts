@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHitRuleFluctuationResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 115019
@@ -13,7 +13,7 @@ export class DescribeHitRuleFluctuationResponseBodyResultObject extends $dara.Mo
   ruleId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 营销风险识别
@@ -21,7 +21,7 @@ export class DescribeHitRuleFluctuationResponseBodyResultObject extends $dara.Mo
   ruleName?: string;
   /**
    * @remarks
-   * Today\\"s count
+   * The number of hits today.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class DescribeHitRuleFluctuationResponseBodyResultObject extends $dara.Mo
   todayNum?: number;
   /**
    * @remarks
-   * Count within seven days
+   * The number of hits in the last seven days.
    * 
    * @example
    * 600
@@ -37,7 +37,7 @@ export class DescribeHitRuleFluctuationResponseBodyResultObject extends $dara.Mo
   withinSevenDayNum?: string;
   /**
    * @remarks
-   * Count within thirty days
+   * The number of hits in the last thirty days.
    * 
    * @example
    * 1200
@@ -45,7 +45,7 @@ export class DescribeHitRuleFluctuationResponseBodyResultObject extends $dara.Mo
   withinThirtyDayNum?: string;
   /**
    * @remarks
-   * Count within three days
+   * The number of hits in the last three days.
    * 
    * @example
    * 300
@@ -53,7 +53,7 @@ export class DescribeHitRuleFluctuationResponseBodyResultObject extends $dara.Mo
   withinThreeDayNum?: string;
   /**
    * @remarks
-   * Yesterday\\"s count
+   * The number of hits yesterday.
    * 
    * @example
    * 200
@@ -95,7 +95,7 @@ export class DescribeHitRuleFluctuationResponseBodyResultObject extends $dara.Mo
 export class DescribeHitRuleFluctuationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -103,7 +103,7 @@ export class DescribeHitRuleFluctuationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -111,7 +111,7 @@ export class DescribeHitRuleFluctuationResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -119,7 +119,7 @@ export class DescribeHitRuleFluctuationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -127,12 +127,12 @@ export class DescribeHitRuleFluctuationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeHitRuleFluctuationResponseBodyResultObject[];
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

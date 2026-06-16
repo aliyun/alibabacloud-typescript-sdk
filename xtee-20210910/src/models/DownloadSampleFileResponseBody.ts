@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DownloadSampleFileResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Model status.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * OSS download URL.
+   * 
    * @example
    * https://pic.zfp.cn/image/2026/02/06/45b5fee18baf4b99b13025987486319c.jpg
    */
@@ -38,25 +44,41 @@ export class DownloadSampleFileResponseBodyResultObject extends $dara.Model {
 
 export class DownloadSampleFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result.
+   */
   resultObject?: DownloadSampleFileResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {

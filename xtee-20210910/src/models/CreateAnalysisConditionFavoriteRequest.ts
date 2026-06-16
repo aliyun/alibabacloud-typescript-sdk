@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Condition value.
+   * The condition value.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   eventBeginTime?: number;
   /**
    * @remarks
-   * Event codes, separated by commas
+   * The event codes. Separate multiple event codes with commas (,).
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   eventEndTime?: number;
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -63,7 +63,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * Field value
+   * The field value.
    * 
    * @example
    * 10
@@ -71,7 +71,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * Condition favorite name
+   * The name of the saved query condition.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateAnalysisConditionFavoriteRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Query type
+   * The query type.
    * 
    * This parameter is required.
    * 

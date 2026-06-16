@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOperatorListBySceneResponseBodyResultObjectOperatorsRightVariables extends $dara.Model {
   /**
    * @remarks
-   * Field name.
+   * The field name.
    * 
    * @example
    * 年龄
@@ -13,7 +13,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObjectOperatorsRightVa
   fieldName?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * INT
@@ -21,7 +21,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObjectOperatorsRightVa
   fieldType?: string;
   /**
    * @remarks
-   * Field value.
+   * The field value.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObjectOperatorsRightVa
 export class DescribeOperatorListBySceneResponseBodyResultObjectOperators extends $dara.Model {
   /**
    * @remarks
-   * Operator code
+   * The operator code.
    * 
    * @example
    * equals
@@ -63,7 +63,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObjectOperators extend
   code?: string;
   /**
    * @remarks
-   * Whether it contains a right variable
+   * Indicates whether the operator has a right variable.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObjectOperators extend
   hasRightVariable?: boolean;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * 等于
@@ -79,7 +79,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObjectOperators extend
   memo?: string;
   /**
    * @remarks
-   * Operator name
+   * The operator name.
    * 
    * @example
    * 等于
@@ -87,7 +87,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObjectOperators extend
   name?: string;
   /**
    * @remarks
-   * Right variable object
+   * The right variable object.
    */
   rightVariables?: DescribeOperatorListBySceneResponseBodyResultObjectOperatorsRightVariables[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObjectOperators extend
 export class DescribeOperatorListBySceneResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Return value type
+   * The return value type.
    * 
    * @example
    * STRING
@@ -133,7 +133,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObject extends $dara.M
   fieldType?: string;
   /**
    * @remarks
-   * Operator list
+   * The operator list.
    */
   operators?: DescribeOperatorListBySceneResponseBodyResultObjectOperators[];
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class DescribeOperatorListBySceneResponseBodyResultObject extends $dara.M
 export class DescribeOperatorListBySceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -173,7 +173,7 @@ export class DescribeOperatorListBySceneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeOperatorListBySceneResponseBodyResultObject[];
   static names(): { [key: string]: string } {

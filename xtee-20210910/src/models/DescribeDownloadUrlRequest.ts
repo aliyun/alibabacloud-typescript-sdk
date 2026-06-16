@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * File type
+   * The file type.
    * 
    * @example
    * CSV
@@ -13,9 +13,9 @@ export class DescribeDownloadUrlRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -23,7 +23,7 @@ export class DescribeDownloadUrlRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class DescribeDownloadUrlRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 18191
@@ -39,7 +39,7 @@ export class DescribeDownloadUrlRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * Download type
+   * The download type.
    * 
    * @example
    * FILE

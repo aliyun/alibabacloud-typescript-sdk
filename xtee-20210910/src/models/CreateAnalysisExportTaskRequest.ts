@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAnalysisExportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for the request and response messages, with a default value of **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Custom columns
+   * The custom columns.
    * 
    * @example
    * [
@@ -60,7 +60,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   columns?: string;
   /**
    * @remarks
-   * Query expression
+   * The query expression.
    * 
    * @example
    * {
@@ -71,7 +71,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   conditions?: string;
   /**
    * @remarks
-   * Start time, accurate to milliseconds (ms).
+   * The start time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   eventBeginTime?: number;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * End time, accurate to milliseconds (ms).
+   * The end time, in milliseconds (ms).
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   eventEndTime?: number;
   /**
    * @remarks
-   * Field name
+   * The field name.
    * 
    * @example
    * age
@@ -109,7 +109,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * Field value
+   * The field value.
    * 
    * @example
    * 20
@@ -117,7 +117,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * File format, Excel, CSV
+   * The file format. Valid values: Excel and CSV.
    * 
    * This parameter is required.
    * 
@@ -127,7 +127,7 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   fileFormat?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -137,7 +137,9 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Export scope: ALL: All, SELECT: Selected rows
+   * The export scope. Valid values:
+   * - ALL: all data
+   * - SELECT: selected rows.
    * 
    * This parameter is required.
    * 
@@ -147,7 +149,10 @@ export class CreateAnalysisExportTaskRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Type, BASIC: Basic query, ADVANCE: Advanced query, BATCH: Batch query
+   * The query type. Valid values:
+   * - BASIC: basic query
+   * - ADVANCE: advanced query
+   * - BATCH: batch query.
    * 
    * This parameter is required.
    * 

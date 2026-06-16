@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventVariableTemplateListResponseBodyResultObjectVariables extends $dara.Model {
   /**
    * @remarks
-   * Variable code
+   * The variable code.
    * 
    * @example
    * age
@@ -13,7 +13,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObjectVariables 
   code?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 描述
@@ -21,7 +21,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObjectVariables 
   description?: string;
   /**
    * @remarks
-   * Variable input type
+   * The variable input type.
    * 
    * @example
    * STRING
@@ -29,7 +29,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObjectVariables 
   fieldType?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 454
@@ -37,7 +37,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObjectVariables 
   id?: number;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * age
@@ -45,7 +45,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObjectVariables 
   name?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 年龄
@@ -53,7 +53,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObjectVariables 
   title?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * NATIVE
@@ -95,7 +95,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObjectVariables 
 export class DescribeEventVariableTemplateListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Template code.
+   * The template code.
    * 
    * @example
    * register
@@ -103,7 +103,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObject extends $
   templateCode?: string;
   /**
    * @remarks
-   * Template name.
+   * The template name.
    * 
    * @example
    * 注册模版
@@ -111,7 +111,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObject extends $
   templateName?: string;
   /**
    * @remarks
-   * Variable list.
+   * The list of variables.
    */
   variables?: DescribeEventVariableTemplateListResponseBodyResultObjectVariables[];
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class DescribeEventVariableTemplateListResponseBodyResultObject extends $
 export class DescribeEventVariableTemplateListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -153,7 +153,7 @@ export class DescribeEventVariableTemplateListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeEventVariableTemplateListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

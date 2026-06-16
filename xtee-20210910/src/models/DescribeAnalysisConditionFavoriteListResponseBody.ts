@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Condition value.
+   * The condition value.
    * 
    * @example
    * {"currentId":1,"deepCount":0,"list":[{"currentId":2,"deepCount":1,"left":{"code":"accountId","fieldType":"STRING","functionName":"","hasRightVariable":false,"name":"accountId"},"operatorCode":"isNotEmptyWrapper","parentId":1,"right":{"code":"\\"A\\nB\\nC\\"","functionName":"","name":"","rightVariableType":"constant"}}],"parentId":0,"relationship":"and"}
@@ -13,7 +13,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
   condition?: string;
   /**
    * @remarks
-   * Event start timestamp.
+   * The event start timestamp.
    * 
    * @example
    * 1752076800000
@@ -21,7 +21,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
   eventBeginTime?: number;
   /**
    * @remarks
-   * Event codes.
+   * The event code.
    * 
    * @example
    * de_ahespg8137
@@ -29,7 +29,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
   eventCodes?: string;
   /**
    * @remarks
-   * Event end time.
+   * The event end timestamp.
    * 
    * @example
    * 1753891199000
@@ -37,7 +37,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
   eventEndTime?: number;
   /**
    * @remarks
-   * Field name.
+   * The field name.
    * 
    * @example
    * age
@@ -45,7 +45,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
   fieldName?: string;
   /**
    * @remarks
-   * Field value.
+   * The field value.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
   fieldValue?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 497
@@ -61,7 +61,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
   id?: number;
   /**
    * @remarks
-   * Condition name
+   * The condition name.
    * 
    * @example
    * 查询条件1
@@ -69,7 +69,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
   name?: string;
   /**
    * @remarks
-   * Type, BASIC: Basic query, ADVANCE: Advanced query, BATCH: Batch query
+   * The type. Valid values: BASIC: basic query. ADVANCE: advanced query. BATCH: batch query.
    * 
    * @example
    * BASIC
@@ -115,7 +115,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBodyResultObject exten
 export class DescribeAnalysisConditionFavoriteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -123,7 +123,7 @@ export class DescribeAnalysisConditionFavoriteListResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    */
   resultObject?: DescribeAnalysisConditionFavoriteListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

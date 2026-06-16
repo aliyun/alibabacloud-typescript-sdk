@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSampleDataRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DeleteSampleDataRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 3144
@@ -23,7 +23,7 @@ export class DeleteSampleDataRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

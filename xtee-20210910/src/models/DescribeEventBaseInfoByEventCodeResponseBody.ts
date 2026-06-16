@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectInputFields extends $dara.Model {
   /**
    * @remarks
-   * Field description.
+   * The field description.
    * 
    * @example
    * 描述
@@ -13,7 +13,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectInputFields
   description?: string;
   /**
    * @remarks
-   * Field code
+   * The field code.
    * 
    * @example
    * age
@@ -21,7 +21,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectInputFields
   fieldCode?: string;
   /**
    * @remarks
-   * Field ranking
+   * The field sort order.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectInputFields
   fieldRank?: string;
   /**
    * @remarks
-   * Field source.
+   * The source of the field.
    * 
    * @example
    * DEFAULT
@@ -37,7 +37,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectInputFields
   fieldSource?: string;
   /**
    * @remarks
-   * Field type.
+   * The field type.
    * 
    * @example
    * STRING
@@ -45,7 +45,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectInputFields
   fieldType?: string;
   /**
    * @remarks
-   * Field name.
+   * The field name.
    * 
    * @example
    * 年龄
@@ -85,7 +85,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectInputFields
 export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails extends $dara.Model {
   /**
    * @remarks
-   * Policy Execution Logic
+   * The policy execution logic.
    * 
    * @example
    * 3&((1&2&4)
@@ -93,7 +93,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails
   logicExpression?: string;
   /**
    * @remarks
-   * Memo
+   * The remarks.
    * 
    * @example
    * 描述
@@ -101,7 +101,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails
   memo?: string;
   /**
    * @remarks
-   * Rule Actions
+   * The rule actions.
    * 
    * @example
    * [{\\"inputs\\":[\\"auto_accselist\\"],\\"name\\":\\"__addDeTags__\\",\\"actionType\\":\\"TAG\\",\\"outputType\\":\\"const\\"}]
@@ -109,7 +109,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails
   ruleActions?: string;
   /**
    * @remarks
-   * Policy Type
+   * The policy type.
    * 
    * @example
    * DEFAULT
@@ -117,7 +117,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails
   ruleAuthType?: string;
   /**
    * @remarks
-   * Event Expressions.
+   * The event expressions.
    * 
    * @example
    * [{\\"expressionName\\":\\"同一设备同一IP上的注册用户数\\",\\"itemId\\":1,\\"left\\":{\\"name\\":\\"dK7EXHr490f\\"},\\"operatorCode\\":\\"gte\\",\\"operatorName\\":\\"大于等于\\",\\"right\\":{\\"fieldValue\\":\\"2\\"}}]
@@ -125,7 +125,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails
   ruleExpressions?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 101544
@@ -133,7 +133,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails
   ruleId?: string;
   /**
    * @remarks
-   * Policy Name
+   * The policy name.
    * 
    * @example
    * 手机号MD5命中人脸测试名单
@@ -141,7 +141,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails
   ruleName?: string;
   /**
    * @remarks
-   * Policy Status
+   * The policy status.
    * 
    * @example
    * DRAFT
@@ -185,7 +185,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails
 export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Business version number
+   * The business version number.
    * 
    * @example
    * 1
@@ -193,7 +193,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $d
   bizVersion?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -201,7 +201,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $d
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -209,7 +209,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $d
   eventName?: string;
   /**
    * @remarks
-   * Event status.
+   * The event status.
    * 
    * @example
    * ONLINE
@@ -217,12 +217,12 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $d
   eventStauts?: string;
   /**
    * @remarks
-   * Field list.
+   * The field list.
    */
   inputFields?: DescribeEventBaseInfoByEventCodeResponseBodyResultObjectInputFields[];
   /**
    * @remarks
-   * Memo.
+   * The remarks.
    * 
    * @example
    * 备注
@@ -230,12 +230,12 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $d
   memo?: string;
   /**
    * @remarks
-   * Policy Information
+   * The policy information.
    */
   ruleDetails?: DescribeEventBaseInfoByEventCodeResponseBodyResultObjectRuleDetails[];
   /**
    * @remarks
-   * Operation template code
+   * The operation template code.
    * 
    * @example
    * register
@@ -243,7 +243,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $d
   templateCode?: string;
   /**
    * @remarks
-   * Template name
+   * The template name.
    * 
    * @example
    * 注册事件模板
@@ -251,7 +251,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $d
   templateName?: string;
   /**
    * @remarks
-   * Template type.
+   * The templatetype.
    * 
    * @example
    * TEMPLATE
@@ -305,7 +305,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBodyResultObject extends $d
 export class DescribeEventBaseInfoByEventCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -313,7 +313,7 @@ export class DescribeEventBaseInfoByEventCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeEventBaseInfoByEventCodeResponseBodyResultObject;
   static names(): { [key: string]: string } {

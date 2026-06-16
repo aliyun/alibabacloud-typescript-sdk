@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMonitorTaskLimitResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Whether the maximum limit has been reached
+   * Indicates whether the maximum number is reached.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class DescribeMonitorTaskLimitResponseBodyResultObject extends $dara.Mode
   limit?: boolean;
   /**
    * @remarks
-   * Maximum number of items
+   * The maximum number of items.
    * 
    * @example
    * 1000
@@ -21,7 +21,7 @@ export class DescribeMonitorTaskLimitResponseBodyResultObject extends $dara.Mode
   maxTotalItem?: number;
   /**
    * @remarks
-   * Total number of items
+   * The total number of items.
    * 
    * @example
    * 5
@@ -55,7 +55,7 @@ export class DescribeMonitorTaskLimitResponseBodyResultObject extends $dara.Mode
 export class DescribeMonitorTaskLimitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -63,7 +63,7 @@ export class DescribeMonitorTaskLimitResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The response object.
    */
   resultObject?: DescribeMonitorTaskLimitResponseBodyResultObject;
   static names(): { [key: string]: string } {

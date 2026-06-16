@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableSceneListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeVariableSceneListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Business type.
+   * The business type.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeVariableSceneListRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Configuration key.
+   * The configuration key.
    * 
    * @example
    * account_abuse_detection
@@ -33,7 +33,7 @@ export class DescribeVariableSceneListRequest extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class DescribeVariableSceneListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -49,7 +49,7 @@ export class DescribeVariableSceneListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Paging flag, default is true.
+   * Specifies whether to enable paging. Default value: true.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class DescribeVariableSceneListRequest extends $dara.Model {
   paging?: boolean;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrivateStackRequest extends $dara.Model {
   /**
    * @remarks
-   * Region Code
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

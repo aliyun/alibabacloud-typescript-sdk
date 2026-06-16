@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFieldRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class ModifyFieldRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Field classification
+   * The field category.
    * 
    * @example
    * REQUEST_PARAM
@@ -23,7 +23,7 @@ export class ModifyFieldRequest extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 描述
@@ -31,7 +31,7 @@ export class ModifyFieldRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Enum type
+   * The enumeration type.
    * 
    * @example
    * [{\\"name\\":\\"ENABLE\\",\\"value\\":\\"禁用\\"}]
@@ -39,7 +39,7 @@ export class ModifyFieldRequest extends $dara.Model {
   enumData?: string;
   /**
    * @remarks
-   * Variable ID
+   * The variable ID.
    * 
    * @example
    * 376773
@@ -47,7 +47,7 @@ export class ModifyFieldRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * age
@@ -55,7 +55,7 @@ export class ModifyFieldRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class ModifyFieldRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 年龄

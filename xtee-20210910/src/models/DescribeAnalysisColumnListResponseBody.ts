@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAnalysisColumnListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -13,7 +13,7 @@ export class DescribeAnalysisColumnListResponseBodyResultObject extends $dara.Mo
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -21,7 +21,7 @@ export class DescribeAnalysisColumnListResponseBodyResultObject extends $dara.Mo
   eventName?: string;
   /**
    * @remarks
-   * Whether it is a default column.
+   * Indicates whether the column is a default column.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeAnalysisColumnListResponseBodyResultObject extends $dara.Mo
   isDefault?: boolean;
   /**
    * @remarks
-   * Variable name.
+   * The variable name.
    * 
    * @example
    * age
@@ -37,7 +37,7 @@ export class DescribeAnalysisColumnListResponseBodyResultObject extends $dara.Mo
   variableName?: string;
   /**
    * @remarks
-   * Variable title.
+   * The variable name.
    * 
    * @example
    * 年龄
@@ -45,7 +45,7 @@ export class DescribeAnalysisColumnListResponseBodyResultObject extends $dara.Mo
   variableTitle?: string;
   /**
    * @remarks
-   * Variable type.
+   * The variable type.
    * 
    * @example
    * NATIVE
@@ -85,7 +85,7 @@ export class DescribeAnalysisColumnListResponseBodyResultObject extends $dara.Mo
 export class DescribeAnalysisColumnListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -93,7 +93,7 @@ export class DescribeAnalysisColumnListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeAnalysisColumnListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

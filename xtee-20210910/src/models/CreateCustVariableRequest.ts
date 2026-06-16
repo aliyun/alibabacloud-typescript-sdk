@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Condition value.
+   * The condition value.
    * 
    * @example
    * {"relationship":"and","list":[{"deepCount":1,"left":{"hasRightVariable":true,"fieldType":"INT","functionName":"","leftVariableType":"NATIVE","name":"DEtest222","operatorCode":"equals"},"right":{"rightVariableType":"constant","name":"11","functionName":""},"operatorCode":"equals"}]}
@@ -23,7 +23,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -31,7 +31,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * ip调用次数累计描述
@@ -39,7 +39,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Value type
+   * The value type.
    * 
    * @example
    * EARLIEST
@@ -57,7 +57,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   historyValueType?: string;
   /**
    * @remarks
-   * Accumulative object
+   * The cumulative object.
    * 
    * @example
    * age
@@ -65,7 +65,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   object?: string;
   /**
    * @remarks
-   * Variable return type
+   * The return type of the variable.
    * 
    * @example
    * STRING
@@ -73,7 +73,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   outputs?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -81,7 +81,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Primary object
+   * The subject object.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * Time slice type
+   * The time slice type.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   timeType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * This parameter is required.
    * 
@@ -111,7 +111,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Number of time units
+   * The number of time units.
    * 
    * @example
    * 1
@@ -119,7 +119,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   twCount?: number;
   /**
    * @remarks
-   * Variable type
+   * The variable type.
    * 
    * This parameter is required.
    * 
@@ -129,7 +129,7 @@ export class CreateCustVariableRequest extends $dara.Model {
   velocityFC?: string;
   /**
    * @remarks
-   * Time slice unit
+   * The time slice unit.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServiceListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Service code
+   * The service code.
    * 
    * @example
    * coupon_abuse_detection
@@ -13,7 +13,7 @@ export class DescribeServiceListResponseBodyResultObject extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * coupon_abuse_detection
@@ -45,7 +45,7 @@ export class DescribeServiceListResponseBodyResultObject extends $dara.Model {
 export class DescribeServiceListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -53,7 +53,7 @@ export class DescribeServiceListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeServiceListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

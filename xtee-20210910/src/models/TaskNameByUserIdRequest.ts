@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TaskNameByUserIdRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class TaskNameByUserIdRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Region code.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class TaskNameByUserIdRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task name.
+   * The task name.
    * 
    * @example
    * Methylation_node_5_3

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllEventNameAndCodeResponseBodyResultObjectChildren extends $dara.Model {
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -13,7 +13,7 @@ export class DescribeAllEventNameAndCodeResponseBodyResultObjectChildren extends
   createType?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aamexg3015
@@ -21,7 +21,7 @@ export class DescribeAllEventNameAndCodeResponseBodyResultObjectChildren extends
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险旁路
@@ -29,7 +29,7 @@ export class DescribeAllEventNameAndCodeResponseBodyResultObjectChildren extends
   eventName?: string;
   /**
    * @remarks
-   * Event type
+   * The event type.
    * 
    * @example
    * BYPASS
@@ -65,12 +65,12 @@ export class DescribeAllEventNameAndCodeResponseBodyResultObjectChildren extends
 export class DescribeAllEventNameAndCodeResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * List of child fields.
+   * The list of child fields.
    */
   children?: DescribeAllEventNameAndCodeResponseBodyResultObjectChildren[];
   /**
    * @remarks
-   * Creation type
+   * The creation type.
    * 
    * @example
    * MORMAL
@@ -78,7 +78,7 @@ export class DescribeAllEventNameAndCodeResponseBodyResultObject extends $dara.M
   createType?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -86,7 +86,7 @@ export class DescribeAllEventNameAndCodeResponseBodyResultObject extends $dara.M
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -94,7 +94,7 @@ export class DescribeAllEventNameAndCodeResponseBodyResultObject extends $dara.M
   eventName?: string;
   /**
    * @remarks
-   * Event type
+   * The event type.
    * 
    * @example
    * MAIN
@@ -135,7 +135,7 @@ export class DescribeAllEventNameAndCodeResponseBodyResultObject extends $dara.M
 export class DescribeAllEventNameAndCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -143,7 +143,7 @@ export class DescribeAllEventNameAndCodeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -151,7 +151,7 @@ export class DescribeAllEventNameAndCodeResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -159,7 +159,7 @@ export class DescribeAllEventNameAndCodeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -167,12 +167,12 @@ export class DescribeAllEventNameAndCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeAllEventNameAndCodeResponseBodyResultObject[];
   /**
    * @remarks
-   * Whether the operation was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDecisionResultTrendResponseBodyResultObjectSeriesData extends $dara.Model {
   /**
    * @remarks
-   * Number
+   * The quantity.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeDecisionResultTrendResponseBodyResultObjectSeriesData exten
   num?: number;
   /**
    * @remarks
-   * ratio
+   * The ratio.
    * 
    * @example
    * 5.56%
@@ -45,12 +45,12 @@ export class DescribeDecisionResultTrendResponseBodyResultObjectSeriesData exten
 export class DescribeDecisionResultTrendResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Returned data object
+   * The returned data object.
    */
   data?: DescribeDecisionResultTrendResponseBodyResultObjectSeriesData[];
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * IpTag_FFF
@@ -85,7 +85,7 @@ export class DescribeDecisionResultTrendResponseBodyResultObjectSeries extends $
 export class DescribeDecisionResultTrendResponseBodyResultObjectXaxis extends $dara.Model {
   /**
    * @remarks
-   * X-axis data structure.
+   * The xaxis data structure.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -115,12 +115,12 @@ export class DescribeDecisionResultTrendResponseBodyResultObjectXaxis extends $d
 export class DescribeDecisionResultTrendResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Chart data
+   * The chart data.
    */
   series?: DescribeDecisionResultTrendResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * X-axis data
+   * The x-axis data.
    */
   xaxis?: DescribeDecisionResultTrendResponseBodyResultObjectXaxis;
   static names(): { [key: string]: string } {
@@ -155,7 +155,7 @@ export class DescribeDecisionResultTrendResponseBodyResultObject extends $dara.M
 export class DescribeDecisionResultTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -163,7 +163,7 @@ export class DescribeDecisionResultTrendResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -171,7 +171,7 @@ export class DescribeDecisionResultTrendResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error details
+   * The error details.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -179,7 +179,7 @@ export class DescribeDecisionResultTrendResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -187,12 +187,12 @@ export class DescribeDecisionResultTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeDecisionResultTrendResponseBodyResultObject;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

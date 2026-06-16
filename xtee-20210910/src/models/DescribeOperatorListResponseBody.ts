@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOperatorListResponseBodyResultObjectOperatorsRightVariables extends $dara.Model {
   /**
    * @remarks
-   * Field name.
+   * The field name.
    * 
    * @example
    * 年龄
@@ -13,7 +13,7 @@ export class DescribeOperatorListResponseBodyResultObjectOperatorsRightVariables
   fieldName?: string;
   /**
    * @remarks
-   * Field type.
+   * The type of the field.
    * 
    * @example
    * INT
@@ -21,7 +21,7 @@ export class DescribeOperatorListResponseBodyResultObjectOperatorsRightVariables
   fieldType?: string;
   /**
    * @remarks
-   * Field value.
+   * The field value.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class DescribeOperatorListResponseBodyResultObjectOperatorsRightVariables
 export class DescribeOperatorListResponseBodyResultObjectOperators extends $dara.Model {
   /**
    * @remarks
-   * Operator code
+   * The operator code.
    * 
    * @example
    * equals
@@ -63,7 +63,7 @@ export class DescribeOperatorListResponseBodyResultObjectOperators extends $dara
   code?: string;
   /**
    * @remarks
-   * Whether it contains a right variable
+   * Indicates whether a right variable exists.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class DescribeOperatorListResponseBodyResultObjectOperators extends $dara
   hasRightVariable?: boolean;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * 等于
@@ -79,7 +79,7 @@ export class DescribeOperatorListResponseBodyResultObjectOperators extends $dara
   memo?: string;
   /**
    * @remarks
-   * Operator name
+   * The operator name.
    * 
    * @example
    * 等于
@@ -87,7 +87,7 @@ export class DescribeOperatorListResponseBodyResultObjectOperators extends $dara
   name?: string;
   /**
    * @remarks
-   * Right variable object
+   * The right variable object.
    */
   rightVariables?: DescribeOperatorListResponseBodyResultObjectOperatorsRightVariables[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class DescribeOperatorListResponseBodyResultObjectOperators extends $dara
 export class DescribeOperatorListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Return value type
+   * The type of the return value.
    * 
    * @example
    * STRING
@@ -133,7 +133,7 @@ export class DescribeOperatorListResponseBodyResultObject extends $dara.Model {
   fieldType?: string;
   /**
    * @remarks
-   * Operator list
+   * The list of operators.
    */
   operators?: DescribeOperatorListResponseBodyResultObjectOperators[];
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class DescribeOperatorListResponseBodyResultObject extends $dara.Model {
 export class DescribeOperatorListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -173,7 +173,7 @@ export class DescribeOperatorListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeOperatorListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

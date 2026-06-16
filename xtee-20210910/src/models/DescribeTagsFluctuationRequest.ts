@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsFluctuationRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeTagsFluctuationRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_afghcf6411
@@ -23,7 +23,7 @@ export class DescribeTagsFluctuationRequest extends $dara.Model {
   eventCodes?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou

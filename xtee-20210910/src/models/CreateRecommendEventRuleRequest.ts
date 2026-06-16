@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecommendEventRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class CreateRecommendEventRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_ahqido8038
@@ -23,7 +23,7 @@ export class CreateRecommendEventRuleRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 用户昵称文本审核检测结果
@@ -31,7 +31,7 @@ export class CreateRecommendEventRuleRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Strategy ID.
+   * The policy ID.
    * 
    * @example
    * [\\"100234\\",\\"100235\\"]
@@ -39,7 +39,7 @@ export class CreateRecommendEventRuleRequest extends $dara.Model {
   recommendRuleIdsStr?: string;
   /**
    * @remarks
-   * Region code.
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class CreateRecommendEventRuleRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 6770764

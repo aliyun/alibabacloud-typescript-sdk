@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckFieldLimitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -13,7 +13,7 @@ export class CheckFieldLimitResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the condition is met: -**true**: meets the condition-**false**: does not meet the condition
+   * The returned object.
    * 
    * @example
    * true

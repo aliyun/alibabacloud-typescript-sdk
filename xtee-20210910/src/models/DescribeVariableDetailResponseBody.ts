@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dara.Model {
   /**
    * @remarks
-   * Whether variable binding is allowed
+   * Specifies whether variable binding is allowed. Valid values:
+   * - **DISABLE**: unavailable
+   * - **ALL**: all
+   * - **ENABLE**: available
+   * - **PART_ENABLE**: partially available.
    * 
    * @example
    * ENABLE
@@ -13,7 +17,9 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   allowBind?: string;
   /**
    * @remarks
-   * Charging mode
+   * The billing mode. Valid values:
+   * - **PAY_PER_VIEW**: paid
+   * - **FREE**: free.
    * 
    * @example
    * FREE
@@ -21,7 +27,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   chargingMode?: string;
   /**
    * @remarks
-   * Charging mode description
+   * The billing mode description.
    * 
    * @example
    * 免费
@@ -29,7 +35,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   chargingModeDesc?: string;
   /**
    * @remarks
-   * Creator.
+   * The creator.
    * 
    * @example
    * 176020
@@ -37,7 +43,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   creator?: string;
   /**
    * @remarks
-   * Data distribution display, in JSON format
+   * The data distribution display in JSON format.
    * 
    * @example
    * {}
@@ -45,7 +51,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   dataDisplay?: string;
   /**
    * @remarks
-   * Data valid range, left-closed and right-closed
+   * The valid data range, inclusive on both ends.
    * 
    * @example
    * (0,10)
@@ -53,7 +59,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   dataThreshold?: string;
   /**
    * @remarks
-   * Deduction factor
+   * The deduction coefficient.
    * 
    * @example
    * 10
@@ -61,7 +67,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   deductionFactor?: number;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * 描述
@@ -69,7 +75,9 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   description?: string;
   /**
    * @remarks
-   * Front-end binding allowed
+   * Specifies whether front-end binding is allowed. Valid values:
+   * - **DISABLE**: not allowed
+   * - **ENABLE**: allowed.
    * 
    * @example
    * ENABLE
@@ -77,7 +85,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   frontAllowBind?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1698143758000
@@ -85,7 +93,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1698143758000
@@ -93,7 +101,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   gmtModified?: number;
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * @example
    * 3144
@@ -101,11 +109,11 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   id?: number;
   /**
    * @remarks
-   * Required parameters
+   * The required parameters.
    *      
-   *      When inputRequired=__all__, it means all parameters are required
-   *      When inputRequired=__one__, it means only one input is needed
-   *      Required fields are separated by commas, e.g., mobile,ip,email
+   * When inputRequired is set to __all__, all parameters are required.
+   * When inputRequired is set to __one__, only one input parameter is required.
+   * Required fields are separated by commas, such as mobile,ip,email.
    * 
    * @example
    * __one__
@@ -113,7 +121,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   inputRequired?: string;
   /**
    * @remarks
-   * Input parameters.
+   * The input parameters.
    * 
    * @example
    * ip,age,mobile
@@ -121,7 +129,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   inputs?: string;
   /**
    * @remarks
-   * Input parameter description.
+   * The input parameter description.
    * 
    * @example
    * ip,年龄,手机号
@@ -129,7 +137,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   inputsDesc?: string;
   /**
    * @remarks
-   * Invoke key
+   * The invocation key.
    * 
    * @example
    * onlineScamDetectionTags_v
@@ -137,7 +145,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   invokeKey?: string;
   /**
    * @remarks
-   * Invoke RT, unit: milliseconds
+   * The invocation response time, in milliseconds.
    * 
    * @example
    * 10
@@ -145,7 +153,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   invokeRt?: number;
   /**
    * @remarks
-   * Invocation success rate
+   * The invocation success rate.
    * 
    * @example
    * 100
@@ -153,7 +161,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   invokeSuccessRate?: string;
   /**
    * @remarks
-   * Number of invocations
+   * The number of invocations.
    * 
    * @example
    * 100000
@@ -161,7 +169,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   invokeTimes?: number;
   /**
    * @remarks
-   * Last modifier.
+   * The last modifier.
    * 
    * @example
    * root
@@ -169,7 +177,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   lastModifiedOperator?: string;
   /**
    * @remarks
-   * Variable name
+   * The variable name.
    * 
    * @example
    * __onlineScamDetectionTags__
@@ -177,7 +185,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   name?: string;
   /**
    * @remarks
-   * Output
+   * The outputs.
    * 
    * @example
    * STRING
@@ -185,7 +193,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   outputs?: string;
   /**
    * @remarks
-   * Output description
+   * The output description.
    * 
    * @example
    * 字符串
@@ -193,17 +201,17 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   outputsDesc?: string;
   /**
    * @remarks
-   * Code of applicable scenarios
+   * The applicable scenario code.
    */
   scene?: string[];
   /**
    * @remarks
-   * Applicable scenario description
+   * The applicable scenario description.
    */
   sceneDesc?: string[];
   /**
    * @remarks
-   * Display order
+   * The display order.
    * 
    * @example
    * 10
@@ -211,7 +219,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   showOrder?: string;
   /**
    * @remarks
-   * Source
+   * The source.
    * 
    * @example
    * SAF
@@ -219,7 +227,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   source?: string;
   /**
    * @remarks
-   * Source description
+   * The source description.
    * 
    * @example
    * 风险识别
@@ -227,7 +235,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   sourceDesc?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * ENABLE
@@ -235,12 +243,12 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   status?: string;
   /**
    * @remarks
-   * List of supported regions.
+   * The list of supported regions.
    */
   supportRegions?: string[];
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 诈骗引流识别_标签
@@ -248,7 +256,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   title?: string;
   /**
    * @remarks
-   * Type
+   * The type.
    * 
    * @example
    * NATIVE
@@ -256,7 +264,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   type?: string;
   /**
    * @remarks
-   * Category description
+   * The category description.
    * 
    * @example
    * 事件字段
@@ -264,7 +272,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   typeDesc?: string;
   /**
    * @remarks
-   * X-axis label for data distribution display
+   * The X-axis label for the data distribution chart.
    * 
    * @example
    * 10
@@ -272,7 +280,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
   xLabel?: string;
   /**
    * @remarks
-   * Data distribution display y-axis label
+   * The Y-axis label for the data distribution chart.
    * 
    * @example
    * 10
@@ -379,7 +387,7 @@ export class DescribeVariableDetailResponseBodyResultObjectBaseInfo extends $dar
 export class DescribeVariableDetailResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Basic attributes.
+   * The basic properties.
    */
   baseInfo?: DescribeVariableDetailResponseBodyResultObjectBaseInfo;
   static names(): { [key: string]: string } {
@@ -409,7 +417,7 @@ export class DescribeVariableDetailResponseBodyResultObject extends $dara.Model 
 export class DescribeVariableDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -417,7 +425,7 @@ export class DescribeVariableDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeVariableDetailResponseBodyResultObject;
   static names(): { [key: string]: string } {

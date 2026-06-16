@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthSceneListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Service code
+   * The service code.
    * 
    * @example
    * account_abuse
@@ -35,7 +35,7 @@ export class DescribeAuthSceneListResponseBodyResultObject extends $dara.Model {
 export class DescribeAuthSceneListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -43,7 +43,7 @@ export class DescribeAuthSceneListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeAuthSceneListResponseBodyResultObject[];
   static names(): { [key: string]: string } {

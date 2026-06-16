@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Impact indicators
+   * The affected metrics.
    */
   expectVelocities?: string[];
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -18,7 +18,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   gmtCreate?: number;
   /**
    * @remarks
-   * Number of samples
+   * The number of samples.
    * 
    * @example
    * 100
@@ -26,7 +26,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   normalCount?: number;
   /**
    * @remarks
-   * Number of normal samples
+   * The number of normal samples.
    * 
    * @example
    * 10
@@ -34,7 +34,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   normalSize?: number;
   /**
    * @remarks
-   * Number of records displayed on the current page.
+   * The number of records displayed on the current page.
    * 
    * @example
    * 100
@@ -42,7 +42,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   riskCount?: number;
   /**
    * @remarks
-   * Number of risk samples
+   * The number of risky samples.
    * 
    * @example
    * 5
@@ -50,7 +50,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   riskSize?: number;
   /**
    * @remarks
-   * Sample name
+   * The sample name.
    * 
    * @example
    * 白样本
@@ -58,7 +58,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   sampleName?: string;
   /**
    * @remarks
-   * Sample scenario
+   * The sample scenario.
    * 
    * @example
    * account_abuse_detection
@@ -66,7 +66,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   sampleScene?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 240c93ddffa74e38be3a00375eb3041d
@@ -74,7 +74,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   taskId?: number;
   /**
    * @remarks
-   * Task name.
+   * The task name.
    * 
    * @example
    * 策略推荐任务
@@ -82,7 +82,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
   taskName?: string;
   /**
    * @remarks
-   * Task status.
+   * The task status.
    * 
    * @example
    * CREATE
@@ -135,7 +135,7 @@ export class DescribeRecommendTaskPageListResponseBodyResultObject extends $dara
 export class DescribeRecommendTaskPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -143,7 +143,7 @@ export class DescribeRecommendTaskPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -151,7 +151,7 @@ export class DescribeRecommendTaskPageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -159,12 +159,12 @@ export class DescribeRecommendTaskPageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeRecommendTaskPageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -172,7 +172,7 @@ export class DescribeRecommendTaskPageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

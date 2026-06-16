@@ -13,7 +13,7 @@ export class DescribeTagsTrendResponseBodyResultObjectSeriesData extends $dara.M
   num?: number;
   /**
    * @remarks
-   * Proportion
+   * The proportion.
    * 
    * @example
    * 10%
@@ -45,12 +45,12 @@ export class DescribeTagsTrendResponseBodyResultObjectSeriesData extends $dara.M
 export class DescribeTagsTrendResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Chart data list
+   * The chart data list.
    */
   data?: DescribeTagsTrendResponseBodyResultObjectSeriesData[];
   /**
    * @remarks
-   * Category name.
+   * The category name.
    * 
    * @example
    * rm0102
@@ -85,7 +85,7 @@ export class DescribeTagsTrendResponseBodyResultObjectSeries extends $dara.Model
 export class DescribeTagsTrendResponseBodyResultObjectXaxis extends $dara.Model {
   /**
    * @remarks
-   * X-axis data
+   * The x-axis data.
    */
   data?: string[];
   static names(): { [key: string]: string } {
@@ -115,12 +115,12 @@ export class DescribeTagsTrendResponseBodyResultObjectXaxis extends $dara.Model 
 export class DescribeTagsTrendResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: DescribeTagsTrendResponseBodyResultObjectSeries[];
   /**
    * @remarks
-   * xaxis returned data
+   * The x-axis data.
    */
   xaxis?: DescribeTagsTrendResponseBodyResultObjectXaxis;
   static names(): { [key: string]: string } {
@@ -155,7 +155,7 @@ export class DescribeTagsTrendResponseBodyResultObject extends $dara.Model {
 export class DescribeTagsTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -163,7 +163,7 @@ export class DescribeTagsTrendResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -171,7 +171,7 @@ export class DescribeTagsTrendResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The input parameter data is not valid. order_storage_company_num component not found
@@ -179,7 +179,7 @@ export class DescribeTagsTrendResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -187,12 +187,12 @@ export class DescribeTagsTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeTagsTrendResponseBodyResultObject;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

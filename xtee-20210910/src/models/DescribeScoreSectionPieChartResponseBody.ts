@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScoreSectionPieChartResponseBodyResultObjectGrid extends $dara.Model {
   /**
    * @remarks
-   * Chart field, default false
+   * The chart field. Default value: false.
    * 
    * @example
    * false
@@ -35,7 +35,7 @@ export class DescribeScoreSectionPieChartResponseBodyResultObjectGrid extends $d
 export class DescribeScoreSectionPieChartResponseBodyResultObjectSeriesData extends $dara.Model {
   /**
    * @remarks
-   * Category item name.
+   * The category item name.
    * 
    * @example
    * 名称
@@ -43,7 +43,7 @@ export class DescribeScoreSectionPieChartResponseBodyResultObjectSeriesData exte
   name?: string;
   /**
    * @remarks
-   * Result value.
+   * The result value.
    * 
    * @example
    * 100
@@ -75,12 +75,12 @@ export class DescribeScoreSectionPieChartResponseBodyResultObjectSeriesData exte
 export class DescribeScoreSectionPieChartResponseBodyResultObjectSeries extends $dara.Model {
   /**
    * @remarks
-   * Chart data list
+   * The chart data list.
    */
   data?: DescribeScoreSectionPieChartResponseBodyResultObjectSeriesData[];
   /**
    * @remarks
-   * Category name.
+   * The category name.
    * 
    * @example
    * 分值区间占比
@@ -88,7 +88,7 @@ export class DescribeScoreSectionPieChartResponseBodyResultObjectSeries extends 
   name?: string;
   /**
    * @remarks
-   * Chart field, default false
+   * The chart field. Default value: false.
    * 
    * @example
    * false
@@ -125,7 +125,7 @@ export class DescribeScoreSectionPieChartResponseBodyResultObjectSeries extends 
 export class DescribeScoreSectionPieChartResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Chart field, default true
+   * The chart field. Default value: true.
    * 
    * @example
    * true
@@ -133,12 +133,12 @@ export class DescribeScoreSectionPieChartResponseBodyResultObject extends $dara.
   animation?: boolean;
   /**
    * @remarks
-   * Belongs to grid.
+   * The grid.
    */
   grid?: DescribeScoreSectionPieChartResponseBodyResultObjectGrid;
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   series?: DescribeScoreSectionPieChartResponseBodyResultObjectSeries[];
   static names(): { [key: string]: string } {
@@ -175,7 +175,7 @@ export class DescribeScoreSectionPieChartResponseBodyResultObject extends $dara.
 export class DescribeScoreSectionPieChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -183,7 +183,7 @@ export class DescribeScoreSectionPieChartResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The response object.
    */
   resultObject?: DescribeScoreSectionPieChartResponseBodyResultObject;
   static names(): { [key: string]: string } {

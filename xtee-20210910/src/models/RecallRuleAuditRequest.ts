@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RecallRuleAuditRequest extends $dara.Model {
   /**
    * @remarks
-   * Primary key ID
+   * The primary key ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RecallRuleAuditRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Region code
+   * The region encoding.
    * 
    * @example
    * cn-hangzhou

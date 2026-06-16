@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePocOssTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessKeyId for OSS file upload
+   * The AccessKey ID used to upload files to OSS.
    * 
    * @example
-   * LTAxxxxxxxxxxxx
+   * LTAI5tE7sActovY6Hvpu5oTh
    */
   accessId?: string;
   /**
    * @remarks
-   * Host address.
+   * The host address.
    * 
    * @example
    * 192.168.34.191
@@ -21,7 +21,7 @@ export class DescribePocOssTokenResponseBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The Key required for file upload.
+   * The key required for file upload.
    * 
    * @example
    * saf/de/namelist/e924/ufzgsedX9bd3a7
@@ -29,7 +29,7 @@ export class DescribePocOssTokenResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * OSS security policy.
+   * The OSS security policy.
    * 
    * @example
    * eyJleHBpcmF0aW9uIjoiMjAyNS0wNy0zMFQwNjowNTo0OS45NTRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJlcSIsIiRrZXkiLCJzYWZcL2RlXC9uYW1lbGlzdFwvZTkyNFwvdWZ6Z3NlZFg5Ymxxxxxxxxxxx
@@ -37,7 +37,7 @@ export class DescribePocOssTokenResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -45,7 +45,7 @@ export class DescribePocOssTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Upload signature information.
+   * The signature information for the upload.
    * 
    * @example
    * 0lxQEWM0BqHd476JJE0fNXdS3UA=
@@ -53,7 +53,7 @@ export class DescribePocOssTokenResponseBody extends $dara.Model {
   signature?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    * 
    * @example
    * true

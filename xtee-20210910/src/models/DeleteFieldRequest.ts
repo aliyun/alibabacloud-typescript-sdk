@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFieldRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values: 
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DeleteFieldRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Primary key ID of the field
+   * The primary key ID of the field.
    * 
    * @example
    * 2556
@@ -23,7 +23,7 @@ export class DeleteFieldRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Name of the field.
+   * The name of the field.
    * 
    * @example
    * age
@@ -31,7 +31,7 @@ export class DeleteFieldRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 

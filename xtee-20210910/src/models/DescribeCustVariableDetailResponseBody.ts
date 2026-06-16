@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Condition value.
+   * The condition value.
    * 
    * @example
    * {"currentId":1,"deepCount":0,"list":[{"currentId":2,"deepCount":1,"left":{"code":"accountId","fieldType":"STRING","functionName":"","hasRightVariable":false,"name":"accountId"},"operatorCode":"isNotEmptyWrapper","parentId":1,"right":{"code":"\\"A\\nB\\nC\\"","functionName":"","name":"","rightVariableType":"constant"}}],"parentId":0,"relationship":"and"}
@@ -13,7 +13,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   condition?: string;
   /**
    * @remarks
-   * Data version.
+   * The data version.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   dataVersion?: number;
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 变量描述
@@ -29,7 +29,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * Event code.
+   * The event code.
    * 
    * @example
    * de_ahespg8137
@@ -37,7 +37,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   eventCodes?: string;
   /**
    * @remarks
-   * Value type
+   * The value type.
    * 
    * @example
    * EARLIEST
@@ -45,7 +45,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   historyValueType?: string;
   /**
    * @remarks
-   * Primary key ID of the cumulative variable
+   * The primary key ID of the cumulative variable.
    * 
    * @example
    * 2793
@@ -53,7 +53,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   id?: number;
   /**
    * @remarks
-   * Cumulative object
+   * The cumulative object.
    * 
    * @example
    * DEpage
@@ -61,7 +61,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   object?: string;
   /**
    * @remarks
-   * Variable return type
+   * The variable return type.
    * 
    * @example
    * DOUBLE
@@ -69,7 +69,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   outputs?: string;
   /**
    * @remarks
-   * Main object
+   * The primary object.
    * 
    * @example
    * DEpname
@@ -77,7 +77,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   subject?: string;
   /**
    * @remarks
-   * Time slice type
+   * The time slice type.
    * 
    * @example
    * NEAR
@@ -85,7 +85,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   timeType?: string;
   /**
    * @remarks
-   * Title.
+   * The title.
    * 
    * @example
    * 累计变量求平均值
@@ -93,7 +93,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   title?: string;
   /**
    * @remarks
-   * Time count
+   * The number of time windows.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   twCount?: string;
   /**
    * @remarks
-   * Variable type
+   * The variable type.
    * 
    * @example
    * DISTINCT
@@ -109,7 +109,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
   velocityFC?: string;
   /**
    * @remarks
-   * Time slice unit
+   * The time slice unit.
    * 
    * @example
    * HOUR_1
@@ -165,7 +165,7 @@ export class DescribeCustVariableDetailResponseBodyResultObject extends $dara.Mo
 export class DescribeCustVariableDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -173,7 +173,7 @@ export class DescribeCustVariableDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeCustVariableDetailResponseBodyResultObject[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
    * 描述
@@ -13,7 +13,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -21,7 +21,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -29,7 +29,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   eventName?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1621578648000
@@ -37,7 +37,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1565701886000
@@ -45,7 +45,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   gmtModified?: number;
   /**
    * @remarks
-   * Template ID.
+   * The template ID.
    * 
    * @example
    * 497
@@ -53,7 +53,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   id?: number;
   /**
    * @remarks
-   * Number of policies
+   * The number of policies.
    * 
    * @example
    * 3
@@ -61,7 +61,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   ruleCount?: number;
   /**
    * @remarks
-   * Template code.
+   * The template code.
    * 
    * @example
    * register
@@ -69,7 +69,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   templateCode?: string;
   /**
    * @remarks
-   * Template name.
+   * The template name.
    * 
    * @example
    * 注册事件
@@ -77,7 +77,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   templateName?: string;
   /**
    * @remarks
-   * Event status
+   * The event status.
    * 
    * @example
    * ONLINE
@@ -85,7 +85,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   templateStatus?: string;
   /**
    * @remarks
-   * Template type
+   * The template type.
    * 
    * @example
    * PUB_SERVICE
@@ -93,7 +93,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   templateType?: string;
   /**
    * @remarks
-   * Number of customer authorizations
+   * The number of authorized customers.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
   userCount?: number;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * 1
@@ -155,7 +155,7 @@ export class DescribeTemplatePageListResponseBodyResultObject extends $dara.Mode
 export class DescribeTemplatePageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -163,7 +163,7 @@ export class DescribeTemplatePageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of items per page, default value is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -171,7 +171,7 @@ export class DescribeTemplatePageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -179,12 +179,12 @@ export class DescribeTemplatePageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned object
+   * The returned object.
    */
   resultObject?: DescribeTemplatePageListResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -192,7 +192,7 @@ export class DescribeTemplatePageListResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 1

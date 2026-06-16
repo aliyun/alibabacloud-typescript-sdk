@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $dara.Model {
   /**
    * @remarks
-   * Duration
+   * The time consumed.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
   cost?: number;
   /**
    * @remarks
-   * Whether the rule was hit.
+   * Indicates whether the rule is hit.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
   hitSuccessful?: boolean;
   /**
    * @remarks
-   * Whether to show details
+   * Indicates whether to display details.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
   isShowDetail?: boolean;
   /**
    * @remarks
-   * Order.
+   * The order.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
   order?: number;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * @example
    * 101544
@@ -45,7 +45,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
   ruleId?: string;
   /**
    * @remarks
-   * Policy name
+   * The policy name.
    * 
    * @example
    * 注册手机号是11位数字
@@ -53,7 +53,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
   ruleName?: string;
   /**
    * @remarks
-   * Rule snapshot ID
+   * The rule snapshot ID.
    * 
    * @example
    * 27
@@ -61,7 +61,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
   ruleSnapshotId?: string;
   /**
    * @remarks
-   * Policy status
+   * The policy status.
    * 
    * @example
    * RUNNING
@@ -69,7 +69,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
   ruleStatus?: string;
   /**
    * @remarks
-   * Rule Type
+   * The policy type.
    * 
    * @example
    * DEFAULT
@@ -115,7 +115,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
 export class DescribeRequestHitResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_aszbjb7236
@@ -123,7 +123,7 @@ export class DescribeRequestHitResponseBodyResultObject extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Event name.
+   * The event name.
    * 
    * @example
    * 注册风险
@@ -131,7 +131,7 @@ export class DescribeRequestHitResponseBodyResultObject extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Input parameters.
+   * The input parameters.
    * 
    * @example
    * {\\"eventCode\\":\\"de_afghcf6411\\",\\"ip\\":\\"196.168.0.1\\",\\"DEtest222\\":9007199254740999,\\"age\\":20}
@@ -139,7 +139,7 @@ export class DescribeRequestHitResponseBodyResultObject extends $dara.Model {
   inputs?: string;
   /**
    * @remarks
-   * Output parameters
+   * The output parameters.
    * 
    * @example
    * {\\"tags\\":\\"rm0102,test_tag,age\\",\\"score\\":\\"30.0\\",\\"extend\\":\\"{\\\\\\"OUT_V01\\\\\\":\\\\\\"Maritime\\\\\\",\\\\\\"OUT_V02\\\\\\":\\\\\\"Lome\\\\\\",\\\\\\"OUT_V03\\\\\\":\\\\\\"196.168.0.1_A\\\\\\"}\\",\\"finalDecision\\":\\"REJECT\\"}
@@ -147,7 +147,7 @@ export class DescribeRequestHitResponseBodyResultObject extends $dara.Model {
   outputs?: string;
   /**
    * @remarks
-   * Timestamp of the request.
+   * The timestamp of the request.
    * 
    * @example
    * 1752571330000
@@ -155,12 +155,12 @@ export class DescribeRequestHitResponseBodyResultObject extends $dara.Model {
   requestTime?: number;
   /**
    * @remarks
-   * Details of the executed rules.
+   * The details of the rules executed by the request.
    */
   ruleHitRecords?: DescribeRequestHitResponseBodyResultObjectRuleHitRecords[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 60C97040-D5D5-4906-9522-B9B413730CAA
@@ -168,7 +168,7 @@ export class DescribeRequestHitResponseBodyResultObject extends $dara.Model {
   sRequestId?: string;
   /**
    * @remarks
-   * Total amount of the request
+   * The total cost of the request.
    * 
    * @example
    * 4
@@ -215,7 +215,7 @@ export class DescribeRequestHitResponseBodyResultObject extends $dara.Model {
 export class DescribeRequestHitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AE7E6105-7DEB-5125-9B24-DCBC139F6CD2
@@ -223,7 +223,7 @@ export class DescribeRequestHitResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return object
+   * The returned object.
    */
   resultObject?: DescribeRequestHitResponseBodyResultObject;
   static names(): { [key: string]: string } {

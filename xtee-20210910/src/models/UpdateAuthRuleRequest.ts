@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuthRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class UpdateAuthRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Policy primary key ID
+   * The primary key ID of the policy.
    * 
    * @example
    * 7088
@@ -23,7 +23,7 @@ export class UpdateAuthRuleRequest extends $dara.Model {
   consoleRuleId?: number;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_afghcf6411
@@ -31,7 +31,7 @@ export class UpdateAuthRuleRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateAuthRuleRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy output action
+   * The output action of the policy.
    * 
    * @example
    * [{\\"inputs\\":[\\"auto_accselist\\"],\\"name\\":\\"__addDeTags__\\",\\"actionType\\":\\"TAG\\",\\"outputType\\":\\"const\\"}]
@@ -49,7 +49,7 @@ export class UpdateAuthRuleRequest extends $dara.Model {
   ruleActions?: string;
   /**
    * @remarks
-   * Expression
+   * The expression.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class UpdateAuthRuleRequest extends $dara.Model {
   ruleExpressions?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class UpdateAuthRuleRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * Policy version primary key ID
+   * The primary key ID of the policy version.
    * 
    * @example
    * 5190

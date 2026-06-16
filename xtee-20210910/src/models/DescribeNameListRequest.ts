@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNameListRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values: 
+   * Sets the language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeNameListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type.
+   * The creation type.
    * 
    * @example
    * NORMAL
@@ -23,7 +23,7 @@ export class DescribeNameListRequest extends $dara.Model {
   createType?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeNameListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Page size, with a default value of 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeNameListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class DescribeNameListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Search value.
+   * The search value.
    * 
    * @example
    * 白名单
@@ -55,7 +55,7 @@ export class DescribeNameListRequest extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * Variable ID.
+   * The variable ID.
    * 
    * @example
    * 393314

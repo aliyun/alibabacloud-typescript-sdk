@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSimulationPreditInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeSimulationPreditInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeSimulationPreditInfoRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -33,7 +33,7 @@ export class DescribeSimulationPreditInfoRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Policy list
+   * The policy list.
    * 
    * This parameter is required.
    * 

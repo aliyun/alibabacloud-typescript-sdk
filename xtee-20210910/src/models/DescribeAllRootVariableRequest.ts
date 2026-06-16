@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllRootVariableRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for requests and received messages, default value is **zh**. Values: 
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -15,7 +15,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Request source IP. No need to fill in, the system will automatically obtain it.
+   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
    * 
    * @example
    * 61.169.104.202
@@ -23,7 +23,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * Device variable list
+   * The list of device variables.
    * 
    * @example
    * [180]
@@ -31,7 +31,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   deviceVariableIds?: string;
   /**
    * @remarks
-   * Event code
+   * The event code.
    * 
    * @example
    * de_arqbuy7206
@@ -39,7 +39,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Custom variable list
+   * The list of custom variables.
    * 
    * @example
    * [6780]
@@ -47,7 +47,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   expressionVariableIds?: string;
   /**
    * @remarks
-   * Variable ID.
+   * The variable ID.
    * 
    * @example
    * 2557
@@ -55,7 +55,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Event field list
+   * The list of event fields.
    * 
    * @example
    * [106780]
@@ -63,7 +63,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   nativeVariableIds?: string;
   /**
    * @remarks
-   * Custom query variable
+   * The custom query variables.
    * 
    * @example
    * [2678]
@@ -71,7 +71,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   queryVariableIds?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * cn-hangzhou
@@ -79,7 +79,7 @@ export class DescribeAllRootVariableRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Custom cumulative variable
+   * The custom cumulative variables.
    * 
    * @example
    * [780]

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupAccountPageRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default value is **zh**. Values: 
+   * The language type for sending and receiving messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English
    * 
@@ -15,7 +15,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Community number.
+   * The community number.
    * 
    * @example
    * 129838420210118141502KiJ1SZL2
@@ -23,7 +23,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   communityNo?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Order direction.
+   * The sort order.
    * 
    * @example
    * 0
@@ -39,7 +39,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * fieldKey.
+   * fieldKey
    * 
    * @example
    * mobile
@@ -47,7 +47,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   fieldKey?: string;
   /**
    * @remarks
-   * fieldVal.
+   * fieldVal
    * 
    * @example
    * 18000000000
@@ -55,7 +55,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   fieldVal?: string;
   /**
    * @remarks
-   * Whether to paginate.
+   * Specifies whether to enable pagination.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   isPage?: boolean;
   /**
    * @remarks
-   * Sorting condition.
+   * The sort condition.
    * 
    * @example
    * asc
@@ -71,7 +71,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * Page size, default value is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -79,7 +79,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -87,7 +87,7 @@ export class DescribeGroupAccountPageRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * 6770764
