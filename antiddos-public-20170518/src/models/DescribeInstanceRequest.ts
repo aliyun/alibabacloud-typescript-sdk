@@ -27,9 +27,11 @@ export class DescribeInstanceRequest extends $dara.Model {
    * @remarks
    * The DDoS mitigation status of the asset. Valid values:
    * 
-   * *   **mitigating**: queries assets for which traffic scrubbing is triggered.
-   * *   **blackholed**: queries assets for which blackhole filtering is triggered.
-   * *   **normal**: queries assets that are not under DDoS attacks.
+   * - **mitigating**: queries assets for which traffic scrubbing is triggered.
+   * 
+   * - **blackholed**: queries assets for which blackhole filtering is triggered.
+   * 
+   * - **normal**: queries assets that are not under DDoS attacks.
    * 
    * @example
    * blackholed
@@ -39,9 +41,11 @@ export class DescribeInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the asset. The formats of asset IDs vary based on the value of the **InstanceType**. parameter.
    * 
-   * *   If you set **InstanceType** to **ecs**, specify the ID of the ECS instance. For example, you can specify i-bp1cb6x80tfgocid\\*\\*\\*\\*.
-   * *   If you set **InstanceType** to **slb**, specify the ID of the SLB instance. For example, you can specify alb-vn2dqg3v31y2vd\\*\\*\\*\\*.
-   * *   If you set **InstanceType** to **eip**, specify the ID of the EIP. For example, you can specify eip-j6ce6dcx9epi7rs46\\*\\*\\*\\*.
+   * - If you set **InstanceType** to **ecs**, specify the ID of the ECS instance. For example, you can specify i-bp1cb6x80tfgocid\\*\\*\\*\\*.
+   * 
+   * - If you set **InstanceType** to **slb**, specify the ID of the SLB instance. For example, you can specify alb-vn2dqg3v31y2vd\\*\\*\\*\\*.
+   * 
+   * - If you set **InstanceType** to **eip**, specify the ID of the EIP. For example, you can specify eip-j6ce6dcx9epi7rs46\\*\\*\\*\\*.
    * 
    * @example
    * i-bp1cb6x80tfgocid****
@@ -67,13 +71,19 @@ export class DescribeInstanceRequest extends $dara.Model {
    * @remarks
    * The type of the asset to query. Valid values:
    * 
-   * *   **ecs**: ECS instances.
-   * *   **slb**: SLB instances.
-   * *   **eip**: EIPs.
-   * *   **ipv6**: IPv6 gateways.
-   * *   **swas**: simple application servers.
-   * *   **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
-   * *   **ga_basic**: Global Accelerator (GA) instances.
+   * - **ecs**: ECS instances.
+   * 
+   * - **slb**: SLB instances.
+   * 
+   * - **eip**: EIPs.
+   * 
+   * - **ipv6**: IPv6 gateways.
+   * 
+   * - **swas**: simple application servers.
+   * 
+   * - **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
+   * 
+   * - **ga_basic**: Global Accelerator (GA) instances.
    * 
    * This parameter is required.
    * 

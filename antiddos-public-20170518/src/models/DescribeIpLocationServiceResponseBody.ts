@@ -23,13 +23,19 @@ export class DescribeIpLocationServiceResponseBodyInstance extends $dara.Model {
    * @remarks
    * The type of the asset. Valid values:
    * 
-   * *   **ecs**: an ECS instance.
-   * *   **slb**: an SLB instance.
-   * *   **eip**: an EIP.
-   * *   **ipv6**: an IPv6 gateway.
-   * *   **swas**: a simple application server.
-   * *   **waf**: a Web Application Firewall (WAF) instance of the Exclusive edition.
-   * *   **ga_basic**: a Global Accelerator (GA) instance.
+   * - **ecs**: an ECS instance.
+   * 
+   * - **slb**: an SLB instance.
+   * 
+   * - **eip**: an EIP.
+   * 
+   * - **ipv6**: an IPv6 gateway.
+   * 
+   * - **swas**: a simple application server.
+   * 
+   * - **waf**: a Web Application Firewall (WAF) instance of the Exclusive edition.
+   * 
+   * - **ga_basic**: a Global Accelerator (GA) instance.
    * 
    * @example
    * ecs

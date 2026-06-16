@@ -47,9 +47,11 @@ export class DescribeInstanceIpAddressResponseBodyInstanceListIpAddressConfig ex
    * @remarks
    * The DDoS mitigation status of the asset. Valid values:
    * 
-   * *   **mitigating**: indicates that traffic scrubbing is in progress.
-   * *   **blackholed**: indicates that blackhole filtering is triggered for the asset.
-   * *   **normal**: indicates that no DDoS attacks are launched against the asset.
+   * - **mitigating**: indicates that traffic scrubbing is in progress.
+   * 
+   * - **blackholed**: indicates that blackhole filtering is triggered for the asset.
+   * 
+   * - **normal**: indicates that no DDoS attacks are launched against the asset.
    * 
    * @example
    * normal
@@ -59,8 +61,9 @@ export class DescribeInstanceIpAddressResponseBodyInstanceListIpAddressConfig ex
    * @remarks
    * The IP version of the IP address. Valid values:
    * 
-   * *   **v4**: IPv4.
-   * *   **v6**: IPv6.
+   * - **v4**: IPv4.
+   * 
+   * - **v6**: IPv6.
    * 
    * @example
    * v4
@@ -70,8 +73,9 @@ export class DescribeInstanceIpAddressResponseBodyInstanceListIpAddressConfig ex
    * @remarks
    * Indicates whether the asset is added to the instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -81,8 +85,9 @@ export class DescribeInstanceIpAddressResponseBodyInstanceListIpAddressConfig ex
    * @remarks
    * Indicates whether best-effort protection is enabled for the asset. Valid values:
    * 
-   * *   **0**: no.
-   * *   **1**: yes.
+   * - **0**: no.
+   * 
+   * - **1**: yes.
    * 
    * @example
    * 0
@@ -156,8 +161,9 @@ export class DescribeInstanceIpAddressResponseBodyInstanceList extends $dara.Mod
    * @remarks
    * The DDoS mitigation status of the instance. Valid values:
    * 
-   * *   **normal**: not under DDoS attacks.
-   * *   **abnormal**: under DDoS attacks.
+   * - **normal**: not under DDoS attacks.
+   * 
+   * - **abnormal**: under DDoS attacks.
    * 
    * @example
    * normal
@@ -167,9 +173,11 @@ export class DescribeInstanceIpAddressResponseBodyInstanceList extends $dara.Mod
    * @remarks
    * The type of the asset. Valid values:
    * 
-   * *   **ecs**
-   * *   **slb**
-   * *   **eip**
+   * - **ecs**
+   * 
+   * - **slb**
+   * 
+   * - **eip**
    * 
    * @example
    * ecs

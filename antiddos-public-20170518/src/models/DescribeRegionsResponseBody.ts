@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The English name of the region.
-   * 
-   * @example
-   * East China 1
-   */
   regionEnName?: string;
-  /**
-   * @remarks
-   * The Chinese name of the region.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
   regionName?: string;
-  /**
-   * @remarks
-   * The code of the region.
-   * 
-   * @example
-   * cn-hangzhou-dg-a01
-   */
   regionNo?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionNoAlias?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array consisting of regions in which Anti-DDoS Origin Basic is available.
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks

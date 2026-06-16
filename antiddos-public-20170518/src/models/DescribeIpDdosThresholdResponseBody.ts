@@ -17,8 +17,9 @@ export class DescribeIpDdosThresholdResponseBodyThreshold extends $dara.Model {
    * @remarks
    * The type of the threshold. Valid values:
    * 
-   * *   **defense**: traffic scrubbing threshold
-   * *   **blackhole**: DDoS mitigation threshold
+   * - **defense**: traffic scrubbing threshold
+   * 
+   * - **blackhole**: DDoS mitigation threshold
    * 
    * @example
    * defense
@@ -54,8 +55,9 @@ export class DescribeIpDdosThresholdResponseBodyThreshold extends $dara.Model {
    * @remarks
    * Indicates whether the threshold is automatically adjusted. Valid values:
    * 
-   * *   **true**: The scrubbing thresholds are automatically adjusted based on the traffic load on the asset.
-   * *   **false**: The scrubbing thresholds are not automatically adjusted. You must manually specify the scrubbing thresholds.
+   * - **true**: The scrubbing thresholds are automatically adjusted based on the traffic load on the asset.
+   * 
+   * - **false**: The scrubbing thresholds are not automatically adjusted. You must manually specify the scrubbing thresholds.
    * 
    * @example
    * false

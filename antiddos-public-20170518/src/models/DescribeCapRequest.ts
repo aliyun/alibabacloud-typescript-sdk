@@ -43,13 +43,19 @@ export class DescribeCapRequest extends $dara.Model {
    * @remarks
    * The type of the asset that is under DDoS attacks. The asset is assigned a public IP address. Valid values:
    * 
-   * *   **ecs**: an Elastic Compute Service (ECS) instance.
-   * *   **slb**: a Server Load Balancer (SLB) instance.
-   * *   **eip**: an elastic IP address (EIP).
-   * *   **ipv6**: an IPv6 gateway.
-   * *   **swas**: a simple application server.
-   * *   **waf**: a Web Application Firewall (WAF) instance of the Exclusive edition.
-   * *   **ga_basic**: a Global Accelerator (GA) instance.
+   * - **ecs**: an Elastic Compute Service (ECS) instance.
+   * 
+   * - **slb**: a Server Load Balancer (SLB) instance.
+   * 
+   * - **eip**: an elastic IP address (EIP).
+   * 
+   * - **ipv6**: an IPv6 gateway.
+   * 
+   * - **swas**: a simple application server.
+   * 
+   * - **waf**: a Web Application Firewall (WAF) instance of the Exclusive edition.
+   * 
+   * - **ga_basic**: a Global Accelerator (GA) instance.
    * 
    * This parameter is required.
    * 

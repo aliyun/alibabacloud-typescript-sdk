@@ -23,12 +23,17 @@ export class DescribeDdosCreditResponseBodyDdosCredit extends $dara.Model {
    * @remarks
    * The security credit level. Valid values:
    * 
-   * *   **A**: outstanding
-   * *   **B**: excellent
-   * *   **C**: good
-   * *   **D**: average
-   * *   **E**: poor
-   * *   **F**: poorer
+   * - **A**: outstanding
+   * 
+   * - **B**: excellent
+   * 
+   * - **C**: good
+   * 
+   * - **D**: average
+   * 
+   * - **E**: poor
+   * 
+   * - **F**: poorer
    * 
    * @example
    * D
@@ -77,8 +82,9 @@ export class DescribeDdosCreditResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true

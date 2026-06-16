@@ -19,8 +19,9 @@ export class DescribeDdosThresholdRequest extends $dara.Model {
    * @remarks
    * The type of the threshold. Valid values:
    * 
-   * *   **defense**: traffic scrubbing threshold
-   * *   **blackhole**: DDoS mitigation threshold
+   * - **defense**: traffic scrubbing threshold
+   * 
+   * - **blackhole**: DDoS mitigation threshold
    * 
    * This parameter is required.
    * 
@@ -39,13 +40,19 @@ export class DescribeDdosThresholdRequest extends $dara.Model {
    * @remarks
    * The type of the asset that is assigned a public IP address. Valid values:
    * 
-   * *   **ecs**: ECS instances.
-   * *   **slb**: SLB instances.
-   * *   **eip**: EIPs.
-   * *   **ipv6**: IPv6 gateways.
-   * *   **swas**: simple application servers.
-   * *   **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
-   * *   **ga_basic**: Global Accelerator (GA) instances.
+   * - **ecs**: ECS instances.
+   * 
+   * - **slb**: SLB instances.
+   * 
+   * - **eip**: EIPs.
+   * 
+   * - **ipv6**: IPv6 gateways.
+   * 
+   * - **swas**: simple application servers.
+   * 
+   * - **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
+   * 
+   * - **ga_basic**: Global Accelerator (GA) instances.
    * 
    * This parameter is required.
    * 

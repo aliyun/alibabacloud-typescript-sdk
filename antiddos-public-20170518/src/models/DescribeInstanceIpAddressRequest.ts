@@ -27,11 +27,12 @@ export class DescribeInstanceIpAddressRequest extends $dara.Model {
    * @remarks
    * The DDoS mitigation status of the asset. Valid values:
    * 
-   * *   **defense**: queries assets for which traffic scrubbing is performed.
-   * *   **blackhole**: queries assets for which blackhole filtering is triggered.
+   * - **defense**: queries assets for which traffic scrubbing is performed.
+   * 
+   * - **blackhole**: queries assets for which blackhole filtering is triggered.
    * 
    * @example
-   * normal
+   * defense
    */
   ddosStatus?: string;
   /**
@@ -62,13 +63,19 @@ export class DescribeInstanceIpAddressRequest extends $dara.Model {
    * @remarks
    * The type of the asset that is assigned a public IP address. Valid values:
    * 
-   * *   **ecs**: ECS instances.
-   * *   **slb**: SLB instances.
-   * *   **eip**: EIPs.
-   * *   **ipv6**: IPv6 gateways.
-   * *   **swas**: simple application servers.
-   * *   **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
-   * *   **ga_basic**: Global Accelerator (GA) instances.
+   * - **ecs**: ECS instances.
+   * 
+   * - **slb**: SLB instances.
+   * 
+   * - **eip**: EIPs.
+   * 
+   * - **ipv6**: IPv6 gateways.
+   * 
+   * - **swas**: simple application servers.
+   * 
+   * - **waf**: Web Application Firewall (WAF) instances of the Exclusive edition.
+   * 
+   * - **ga_basic**: Global Accelerator (GA) instances.
    * 
    * This parameter is required.
    * 

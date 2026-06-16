@@ -75,6 +75,16 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "antiddos.aliyuncs.com",
       'eu-west-1-oxs': "antiddos.aliyuncs.com",
       'rus-west-1-pop': "antiddos.aliyuncs.com",
+      'us-southeast-1': "antiddos-openapi.us-southeast-1.aliyuncs.com",
+      'na-south-1': "antiddos-openapi.na-south-1.aliyuncs.com",
+      'me-central-1': "antiddos-openapi.me-central-1.aliyuncs.com",
+      'eu-west-2': "antiddos-openapi.eu-west-2.aliyuncs.com",
+      'cn-zhongwei': "antiddos-openapi.cn-zhongwei.aliyuncs.com",
+      'cn-zhengzhou-jva': "antiddos-openapi.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-wuhan-lr': "antiddos-openapi.cn-hangzhou-cloudstone.aliyuncs.com",
+      'cn-fuzhou': "antiddos-openapi.cn-hangzhou-cloudstone.aliyuncs.com",
+      'ap-southeast-8': "antiddos-openapi.ap-southeast-8.aliyuncs.com",
+      'ap-southeast-7': "antiddos-openapi.ap-southeast-7.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("antiddos-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -272,7 +282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the security credit score of the current Alibaba Cloud account in a specific region.
+   * Retrieves the details of the security credit score of the current Alibaba Cloud account in a specific region.
    * 
    * @remarks
    * You can call the DescribeDdosCredit operation to query the details of the security credit score of the current Alibaba Cloud account in a specific region. The details include the security credit score, security credit level, and the time period after which blackhole filtering is automatically deactivated.
@@ -308,7 +318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the security credit score of the current Alibaba Cloud account in a specific region.
+   * Retrieves the details of the security credit score of the current Alibaba Cloud account in a specific region.
    * 
    * @remarks
    * You can call the DescribeDdosCredit operation to query the details of the security credit score of the current Alibaba Cloud account in a specific region. The details include the security credit score, security credit level, and the time period after which blackhole filtering is automatically deactivated.
@@ -324,12 +334,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the DDoS attack events that occur on an asset. The asset is assigned a public IP address.
+   * Lists DDoS attack events for a specified asset with a public IP address.
    * 
    * @remarks
-   * You can call the DescribeDdosEventList operation to query the details of the DDoS attack events that occur on an asset by page. The details include the start time, end time, and status of each DDoS attack event.
-   * ## [](#qps-)Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * This operation performs a paged query to retrieve the details of DDoS attack events for a specific asset with a public IP address. The details include the start time, end time, and status of each event.
+   * ## QPS limits
+   * The queries per second (QPS) limit for this operation is 10 for each user. API calls are throttled if you exceed the limit. This can affect your business. We recommend that you call this operation a reasonable number of times.
    * 
    * @param request - DescribeDdosEventListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -384,12 +394,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the DDoS attack events that occur on an asset. The asset is assigned a public IP address.
+   * Lists DDoS attack events for a specified asset with a public IP address.
    * 
    * @remarks
-   * You can call the DescribeDdosEventList operation to query the details of the DDoS attack events that occur on an asset by page. The details include the start time, end time, and status of each DDoS attack event.
-   * ## [](#qps-)Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * This operation performs a paged query to retrieve the details of DDoS attack events for a specific asset with a public IP address. The details include the start time, end time, and status of each event.
+   * ## QPS limits
+   * The queries per second (QPS) limit for this operation is 10 for each user. API calls are throttled if you exceed the limit. This can affect your business. We recommend that you call this operation a reasonable number of times.
    * 
    * @param request - DescribeDdosEventListRequest
    * @returns DescribeDdosEventListResponse
@@ -400,7 +410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+   * Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
    * 
    * @remarks
    * You can call the DescribeDdosThreshold operation to query the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The details include the current traffic scrubbing threshold, maximum traffic scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
@@ -448,7 +458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+   * Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
    * 
    * @remarks
    * You can call the DescribeDdosThreshold operation to query the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The details include the current traffic scrubbing threshold, maximum traffic scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
@@ -464,7 +474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
+   * Retrieves the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
    * 
    * @remarks
    * You can call the DescribeInstance operation to query the details of the assets that are within the current Alibaba Cloud account by page. The details include the IDs and IP addresses of the assets, the basic protection thresholds and traffic scrubbing thresholds that are configured for the assets in Anti-DDoS Origin, and whether the assets are associated with Anti-DDoS Origin instances.
@@ -528,7 +538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
+   * Retrieves the details of the assets within the current Alibaba Cloud account. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses. This operation is phased out. We recommend that you use the DescribeInstanceIpAddress operation.
    * 
    * @remarks
    * You can call the DescribeInstance operation to query the details of the assets that are within the current Alibaba Cloud account by page. The details include the IDs and IP addresses of the assets, the basic protection thresholds and traffic scrubbing thresholds that are configured for the assets in Anti-DDoS Origin, and whether the assets are associated with Anti-DDoS Origin instances.
@@ -544,7 +554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+   * Retrieves the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
    * 
    * @remarks
    * If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeInstanceIpAddress operation to query the DDoS mitigation information and the details of the Anti-DDoS Origin instance. The information and the details include the basic protection threshold and traffic scrubbing threshold for the assets, DDoS mitigation status of the assets, ID of the instance, and the mitigation status of the instance.
@@ -608,7 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+   * Retrieves the details of the assets within the current Alibaba Cloud account and the details of the Anti-DDoS Origin instance to which the assets belong. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
    * 
    * @remarks
    * If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeInstanceIpAddress operation to query the DDoS mitigation information and the details of the Anti-DDoS Origin instance. The information and the details include the basic protection threshold and traffic scrubbing threshold for the assets, DDoS mitigation status of the assets, ID of the instance, and the mitigation status of the instance.
@@ -624,7 +634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+   * Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
    * 
    * @remarks
    * If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeIpDdosThreshold operation to query the details of the DDoS mitigation threshold or traffic scrubbing threshold for a specific asset. The details include the current traffic scrubbing threshold, maximum scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
@@ -676,7 +686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+   * Retrieves the details of the DDoS mitigation thresholds or traffic scrubbing thresholds for specified assets. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
    * 
    * @remarks
    * If one or more assets of the current Alibaba Cloud account are added to an Anti-DDoS Origin instance, you can call the DescribeIpDdosThreshold operation to query the details of the DDoS mitigation threshold or traffic scrubbing threshold for a specific asset. The details include the current traffic scrubbing threshold, maximum scrubbing threshold, current DDoS mitigation threshold, and maximum DDoS mitigation threshold.
@@ -751,7 +761,6 @@ export default class Client extends OpenApi {
    * ## Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
-   * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
@@ -786,11 +795,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the scrubbing thresholds for an asset that is assigned a public IP address.
+   * Modifies the Anti-DDoS scrubbing threshold for a single asset with a public IP address.
    * 
    * @remarks
-   * ## [](#qps-)Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * ## QPS limits
+   * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed the limit, API calls are throttled. This can affect your business. We recommend that you call this API at a reasonable rate.
    * 
    * @param request - ModifyDefenseThresholdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -849,11 +858,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the scrubbing thresholds for an asset that is assigned a public IP address.
+   * Modifies the Anti-DDoS scrubbing threshold for a single asset with a public IP address.
    * 
    * @remarks
-   * ## [](#qps-)Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * ## QPS limits
+   * The queries per second (QPS) limit for this API is 10 calls per second for each user. If you exceed the limit, API calls are throttled. This can affect your business. We recommend that you call this API at a reasonable rate.
    * 
    * @param request - ModifyDefenseThresholdRequest
    * @returns ModifyDefenseThresholdResponse
