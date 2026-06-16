@@ -1,0 +1,59 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { ModelParameters } from "./ModelParameters";
+import { PromptTemplateItem } from "./PromptTemplateItem";
+
+
+export class ExperimentConfig extends $dara.Model {
+  endpointConnectorId?: string;
+  label?: string;
+  modelName?: string;
+  modelParameters?: ModelParameters;
+  modelProvider?: string;
+  name?: string;
+  promptTemplate?: PromptTemplateItem[];
+  requestBodyTemplate?: string;
+  requestMethod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointConnectorId: 'endpointConnectorId',
+      label: 'label',
+      modelName: 'modelName',
+      modelParameters: 'modelParameters',
+      modelProvider: 'modelProvider',
+      name: 'name',
+      promptTemplate: 'promptTemplate',
+      requestBodyTemplate: 'requestBodyTemplate',
+      requestMethod: 'requestMethod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointConnectorId: 'string',
+      label: 'string',
+      modelName: 'string',
+      modelParameters: ModelParameters,
+      modelProvider: 'string',
+      name: 'string',
+      promptTemplate: { 'type': 'array', 'itemType': PromptTemplateItem },
+      requestBodyTemplate: 'string',
+      requestMethod: 'string',
+    };
+  }
+
+  validate() {
+    if(this.modelParameters && typeof (this.modelParameters as any).validate === 'function') {
+      (this.modelParameters as any).validate();
+    }
+    if(Array.isArray(this.promptTemplate)) {
+      $dara.Model.validateArray(this.promptTemplate);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
