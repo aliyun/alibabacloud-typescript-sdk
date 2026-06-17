@@ -83,4 +83,50 @@ export default class Client extends OpenApi {
     return await this.createComputeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * 删除实例
+   * 
+   * @param request - DeleteComputeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteComputeInstanceResponse
+   */
+  async deleteComputeInstanceWithOptions(request: $_model.DeleteComputeInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteComputeInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteComputeInstance",
+      version: "2026-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteComputeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteComputeInstanceResponse({}));
+  }
+
+  /**
+   * 删除实例
+   * 
+   * @param request - DeleteComputeInstanceRequest
+   * @returns DeleteComputeInstanceResponse
+   */
+  async deleteComputeInstance(request: $_model.DeleteComputeInstanceRequest): Promise<$_model.DeleteComputeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteComputeInstanceWithOptions(request, runtime);
+  }
+
 }
