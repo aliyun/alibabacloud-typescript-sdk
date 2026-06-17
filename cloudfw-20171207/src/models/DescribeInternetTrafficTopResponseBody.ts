@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the country.
+   * 
    * @example
    * US
    */
   dataName?: string;
   /**
+   * @remarks
+   * The inbound traffic percentage.
+   * 
    * @example
    * 47.12
    */
   dataValue?: string;
   /**
+   * @remarks
+   * Indicates whether the data is subscribed.
+   * 
    * @example
    * false
    */
   isSubscribed?: boolean;
+  /**
+   * @remarks
+   * The list of labels.
+   */
   labelList?: string[];
   /**
+   * @remarks
+   * The number of sessions.
+   * 
    * @example
    * 27
    */
   sessionCount?: number;
   /**
+   * @remarks
+   * The total traffic. Unit: bytes.
+   * 
    * @example
    * 0
    */
@@ -65,17 +84,30 @@ export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model 
 
 export class DescribeInternetTrafficTopResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of traffic data entries.
+   * 
    * @example
    * 10
    */
   dataCount?: number;
+  /**
+   * @remarks
+   * The list of traffic data.
+   */
   dataList?: DescribeInternetTrafficTopResponseBodyDataList[];
   /**
+   * @remarks
+   * The type of traffic data.
+   * 
    * @example
    * in_src_ip
    */
   dataType?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******
    */

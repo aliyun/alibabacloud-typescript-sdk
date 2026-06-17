@@ -3,19 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeConfiguredDestinationIPResponseBodyDestinations extends $dara.Model {
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * test
+   */
   comment?: string;
   /**
+   * @remarks
+   * The destination IP address.
+   * 
    * @example
    * 1.1.1.1
    */
   destinationIP?: string;
+  /**
+   * @remarks
+   * The ISP of the destination.
+   * 
+   * @example
+   * telecom
+   */
   destinationISP?: string;
   /**
+   * @remarks
+   * The destination region.
+   * 
    * @example
    * cn-shenzhen
    */
   destinationRegion?: string;
   /**
+   * @remarks
+   * The time of the operation. The value is a UNIX timestamp. Unit: seconds.
+   * 
    * @example
    * 1534408189
    */
@@ -50,23 +73,39 @@ export class DescribeConfiguredDestinationIPResponseBodyDestinations extends $da
 }
 
 export class DescribeConfiguredDestinationIPResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of destinations.
+   */
   destinations?: DescribeConfiguredDestinationIPResponseBodyDestinations[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F0AE91F8-E6C5-50D4-983F-FC53672****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 32
    */

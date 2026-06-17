@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatFirewallTrafficTrendResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
+   * The peak inbound network throughput. Unit: bps.
    * 
    * @example
    * 18038632
@@ -13,7 +13,7 @@ export class DescribeNatFirewallTrafficTrendResponseBodyDataList extends $dara.M
   maxInBps?: number;
   /**
    * @remarks
-   * The maximum outbound network throughput, which indicates the maximum number of bits that are sent outbound per second. Unit: bit/s.
+   * The peak outbound network throughput. Unit: bps.
    * 
    * @example
    * 122596487
@@ -21,7 +21,7 @@ export class DescribeNatFirewallTrafficTrendResponseBodyDataList extends $dara.M
   maxOutBps?: number;
   /**
    * @remarks
-   * The total maximum inbound and outbound network throughput, which indicates the maximum number of bits that are sent inbound and outbound per second. Unit: bit/s.
+   * The peak total network throughput for inbound and outbound traffic. Unit: bps.
    * 
    * @example
    * 66953194
@@ -29,7 +29,7 @@ export class DescribeNatFirewallTrafficTrendResponseBodyDataList extends $dara.M
   maxTotalBps?: number;
   /**
    * @remarks
-   * The time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The time of the query. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1734418980
@@ -65,12 +65,12 @@ export class DescribeNatFirewallTrafficTrendResponseBodyDataList extends $dara.M
 export class DescribeNatFirewallTrafficTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics on traffic.
+   * A list of traffic statistics.
    */
   dataList?: DescribeNatFirewallTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
+   * The peak inbound network throughput. Unit: bps.
    * 
    * @example
    * 18038632
@@ -78,7 +78,7 @@ export class DescribeNatFirewallTrafficTrendResponseBody extends $dara.Model {
   maxInBps?: number;
   /**
    * @remarks
-   * The maximum outbound network throughput, which indicates the maximum number of bits that are sent outbound per second. Unit: bit/s.
+   * The peak outbound network throughput. Unit: bps.
    * 
    * @example
    * 122596487
@@ -86,7 +86,7 @@ export class DescribeNatFirewallTrafficTrendResponseBody extends $dara.Model {
   maxOutBps?: number;
   /**
    * @remarks
-   * The total maximum inbound and outbound network throughput, which indicates the maximum number of bits that are sent inbound and outbound per second. Unit: bit/s.
+   * The peak total network throughput for inbound and outbound traffic. Unit: bps.
    * 
    * @example
    * 66953194
@@ -94,7 +94,7 @@ export class DescribeNatFirewallTrafficTrendResponseBody extends $dara.Model {
   maxTotalBps?: number;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 87F23A3A-6F57-59C3-8237-A090D0613D71

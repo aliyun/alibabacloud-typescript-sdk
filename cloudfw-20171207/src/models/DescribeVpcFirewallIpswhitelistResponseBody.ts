@@ -7,8 +7,9 @@ export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara
    * @remarks
    * The type of the list. Valid values:
    * 
-   * *   **1**: user-defined
-   * *   **2**: address book
+   * - **1**: custom
+   * 
+   * - **2**: address book
    * 
    * @example
    * 1
@@ -16,7 +17,7 @@ export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara
   listType?: number;
   /**
    * @remarks
-   * The entries in the list.
+   * The value of the list.
    * 
    * @example
    * 10.10.200.4/32,10.10.200.25/32
@@ -27,20 +28,21 @@ export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara
    * The instance ID of the VPC firewall.
    * 
    * @example
-   * vfw-57431e9abe424852a578
+   * cen-l6t5yj5fi762******
    */
   vpcFirewallId?: string;
   /**
    * @remarks
-   * An array of entries in the list.
+   * The content of the list.
    */
   whiteListValue?: string[];
   /**
    * @remarks
    * The type of the whitelist. Valid values:
    * 
-   * *   **1**: destination
-   * *   **2**: source
+   * - **1**: destination
+   * 
+   * - **2**: source
    * 
    * @example
    * 1
@@ -84,12 +86,12 @@ export class DescribeVpcFirewallIPSWhitelistResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * B5EE02F9-4F21-56CA-AA49-F9F8D69483C1
+   * B5EE02F9****AA49****F9F8D69483C1
    */
   requestId?: string;
   /**
    * @remarks
-   * The details of the IPS whitelist of the VPC firewall.
+   * The details of the IPS whitelist for the VPC firewall.
    */
   whitelists?: DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists[];
   static names(): { [key: string]: string } {

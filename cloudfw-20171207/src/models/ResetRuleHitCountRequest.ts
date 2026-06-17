@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResetRuleHitCountRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the access control policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,21 @@ export class ResetRuleHitCountRequest extends $dara.Model {
    */
   aclUuid?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh**: Chinese (default)
+   * 
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the requester.
+   * 
    * @example
    * 112.64.126.XXX
    */

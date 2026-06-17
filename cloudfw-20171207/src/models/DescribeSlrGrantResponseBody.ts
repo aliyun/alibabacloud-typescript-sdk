@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSlrGrantResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the authorization is successful.
+   * 
    * @example
    * true
    */
   isGranted?: boolean;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1BD3D277-AE2F-5609-893F-FF7A72A****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The type of the account.
+   * 
    * @example
    * sub
    */

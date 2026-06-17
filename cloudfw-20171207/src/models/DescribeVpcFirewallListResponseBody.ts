@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the strict mode. Valid values:
+   * Indicates whether to enable strict mode. Valid values:
    * 
-   * *   1: yes
-   * *   0: no
+   * - 1: enabled
+   * 
+   * - 0: disabled
    * 
    * This parameter is required.
    * 
@@ -40,10 +41,11 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig extends $d
 export class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether basic protection is enabled. Valid values:
+   * The status of the basic policies. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: enabled.
+   * 
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -51,10 +53,11 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig extends $d
   basicRules?: number;
   /**
    * @remarks
-   * Indicates whether virtual patching is enabled. Valid values:
+   * The status of virtual patching. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: enabled.
+   * 
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -62,11 +65,13 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig extends $d
   enableAllPatch?: number;
   /**
    * @remarks
-   * The level of the rule group for the IPS. Valid values:
+   * The IPS rule group. Valid values:
    * 
-   * *   **1**: loose
-   * *   **2**: medium
-   * *   **3**: strict
+   * - **1**: Loose.
+   * 
+   * - **2**: Medium.
+   * 
+   * - **3**: Strict.
    * 
    * @example
    * 1
@@ -74,10 +79,11 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig extends $d
   ruleClass?: number;
   /**
    * @remarks
-   * The mode of the IPS. Valid values:
+   * The IPS mode. Valid values:
    * 
-   * *   **1**: block mode
-   * *   **0**: monitor mode
+   * - **1**: Block Mode.
+   * 
+   * - **0**: Monitor mode.
    * 
    * @example
    * 0
@@ -121,7 +127,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpcVpcCidrTable
   destinationCidr?: string;
   /**
    * @remarks
-   * The instance ID of the next hop for the local VPC.
+   * The ID of the next hop instance for the local VPC.
    * 
    * @example
    * vrt-m5eb5me6c3l5sezae****
@@ -153,7 +159,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpcVpcCidrTable
 export class DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpcVpcCidrTableList extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the route entries of the local VPC.
+   * The route entries of the local VPC.
    */
   routeEntryList?: DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpcVpcCidrTableListRouteEntryList[];
   /**
@@ -193,7 +199,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpcVpcCidrTable
 export class DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpc extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Cloud Firewall is authorized to access the local VPC. The value is fixed as authorized, which indicates that Cloud Firewall is authorized to access the local VPC.
+   * The authorization status of the local VPC. The value is fixed as authorized.
    * 
    * @example
    * authorized
@@ -217,12 +223,12 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpc extends $da
   regionNo?: string;
   /**
    * @remarks
-   * An array that consists of the CIDR blocks of the local VPC.
+   * The CIDR blocks of the local VPC.
    */
   vpcCidrTableList?: DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpcVpcCidrTableList[];
   /**
    * @remarks
-   * The ID of the local VPC.
+   * The instance ID of the local VPC.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****
@@ -230,10 +236,10 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpc extends $da
   vpcId?: string;
   /**
    * @remarks
-   * The name of the local VPC.
+   * The instance name of the local VPC.
    * 
    * @example
-   * Test instance
+   * test-vpc1
    */
   vpcName?: string;
   static names(): { [key: string]: string } {
@@ -281,7 +287,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpcVpcCidrTableL
   destinationCidr?: string;
   /**
    * @remarks
-   * The instance ID of the next hop for the peer VPC.
+   * The ID of the next hop instance for the peer VPC.
    * 
    * @example
    * vrt-m5eb5me6c3l5sezae****
@@ -313,7 +319,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpcVpcCidrTableL
 export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpcVpcCidrTableList extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the route entries of the peer VPC.
+   * The route entries of the peer VPC.
    */
   routeEntryList?: DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpcVpcCidrTableListRouteEntryList[];
   /**
@@ -353,7 +359,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpcVpcCidrTableL
 export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Cloud Firewall is authorized to access the peer VPC. The value is fixed as **authorized**, which indicates that Cloud Firewall is authorized to access the peer VPC.
+   * The authorization status of the peer VPC. The value is fixed as **authorized**.
    * 
    * @example
    * authorized
@@ -377,12 +383,12 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc extends $dar
   regionNo?: string;
   /**
    * @remarks
-   * An array that consists of the CIDR blocks of the peer VPC.
+   * The CIDR blocks of the peer VPC.
    */
   vpcCidrTableList?: DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpcVpcCidrTableList[];
   /**
    * @remarks
-   * The ID of the peer VPC.
+   * The instance ID of the peer VPC.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****
@@ -390,10 +396,10 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc extends $dar
   vpcId?: string;
   /**
    * @remarks
-   * The name of the peer VPC.
+   * The instance name of the peer VPC.
    * 
    * @example
-   * Test VPC 2
+   * test-vpc2
    */
   vpcName?: string;
   static names(): { [key: string]: string } {
@@ -433,12 +439,12 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc extends $dar
 export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model {
   /**
    * @remarks
-   * ACL engine mode.
+   * The mode of the access control list (ACL) engine.
    */
   aclConfig?: DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig;
   /**
    * @remarks
-   * The bandwidth of the Express Connect circuit. Unit: Mbit/s.
+   * The bandwidth of the Express Connect circuit. Unit: Mbps.
    * 
    * @example
    * 2
@@ -446,10 +452,11 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
   bandwidth?: number;
   /**
    * @remarks
-   * The sub-type of the connection. Valid values:
+   * The subtype of the connection. Valid values:
    * 
-   * *   **vpc2vpc**: Express Connect connection
-   * *   **vpcpeer**: peer connection
+   * - **vpc2vpc**: Express Connect.
+   * 
+   * - **vpcpeer**: peering connection.
    * 
    * @example
    * vpcpeer
@@ -457,7 +464,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
   connectSubType?: string;
   /**
    * @remarks
-   * The connection type of the VPC firewall. The value is fixed as **expressconnect**, which indicates an Express Connect connection.
+   * The type of connection for the VPC firewall. The value is fixed as **expressconnect**, which indicates an Express Connect circuit.
    * 
    * @example
    * expressconnect
@@ -467,9 +474,11 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
    * @remarks
    * The status of the VPC firewall. Valid values:
    * 
-   * *   **opened**: The VPC firewall is enabled.
-   * *   **closed**: The VPC firewall is disabled.
-   * *   **notconfigured**: The VPC firewall is not configured.
+   * - **opened**: The firewall is enabled.
+   * 
+   * - **closed**: The firewall is disabled.
+   * 
+   * - **notconfigured**: The firewall is not configured.
    * 
    * @example
    * opened
@@ -477,17 +486,17 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The intrusion prevention system (IPS) configurations.
+   * The configuration of the intrusion prevention system (IPS).
    */
   ipsConfig?: DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig;
   /**
    * @remarks
-   * The details about the local VPC.
+   * The details of the local VPC.
    */
   localVpc?: DescribeVpcFirewallListResponseBodyVpcFirewallsLocalVpc;
   /**
    * @remarks
-   * The UID of the member that is managed by your Alibaba Cloud account.
+   * The UID of the member account.
    * 
    * @example
    * 258039427902****
@@ -495,15 +504,16 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
   memberUid?: string;
   /**
    * @remarks
-   * The details about the peer VPC.
+   * The details of the peer VPC.
    */
   peerVpc?: DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc;
   /**
    * @remarks
-   * Indicates whether you can create a VPC firewall in a specified region. Valid values:
+   * The status of the region. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: The region is available. You can create a VPC firewall in this region.
+   * 
+   * - **disable**: The region is unavailable. You cannot create a VPC firewall in this region.
    * 
    * @example
    * enable
@@ -511,11 +521,13 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
   regionStatus?: string;
   /**
    * @remarks
-   * The result code of the operation that creates the VPC firewall. Valid values:
+   * The result code of the VPC firewall creation. Valid values:
    * 
-   * *   **Unauthorized**: Cloud Firewall is not authorized to access a VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-   * *   **RegionDisable**: VPC Firewall is not supported in the region of a VPC for which the VPC firewall is created, and the VPC firewall cannot be created.
-   * *   **Empty string**: You can create a VPC firewall for the network instance.
+   * - **Unauthorized**: An unauthorized VPC exists. You cannot create a VPC firewall.
+   * 
+   * - **RegionDisable**: The VPC is in a region where VPC firewalls are not supported. You cannot create a VPC firewall.
+   * 
+   * - **An empty string**: You can create a VPC firewall for the network instance.
    * 
    * @example
    * Unauthorized
@@ -534,7 +546,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
    * The instance name of the VPC firewall.
    * 
    * @example
-   * Test firewall
+   * test-firewall
    */
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {
@@ -597,7 +609,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
 export class DescribeVpcFirewallListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 850A84D6-0DE4-4797-A1E8-00090125k8g2
@@ -613,7 +625,7 @@ export class DescribeVpcFirewallListResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the VPC firewalls.
+   * The details of the VPC firewalls.
    */
   vpcFirewalls?: DescribeVpcFirewallListResponseBodyVpcFirewalls[];
   static names(): { [key: string]: string } {

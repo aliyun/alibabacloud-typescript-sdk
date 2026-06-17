@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access control policy that is created on the Internet firewall.
+   * The unique ID of the access control policy for the Internet firewall.
    * 
    * @example
    * 00281255-d220-4db1-8f4f-c4df221ad84c

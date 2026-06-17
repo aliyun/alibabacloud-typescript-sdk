@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The reason why recommended intelligent policies are unavailable. Valid values:
+   * The reason why no intelligent policy is recommended. Valid values:
    * 
-   * *   No recommended intelligent policies are available.
-   * *   This feature is available only to some users.
-   * *   The policy configuration has been modified. No recommended intelligent policies are available.
-   * *   The recommended intelligent policies have been configured. No new recommended intelligent policies are available.
+   * - No intelligent policy is recommended.
+   * 
+   * - This feature is available only to specific users.
+   * 
+   * - The policy configuration has been modified. No intelligent policy is recommended.
+   * 
+   * - An intelligent policy has been configured. No new intelligent policy is recommended.
    * 
    * @example
    * No recommended intelligent policies are available.
@@ -42,7 +45,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   assetsType?: string;
   /**
    * @remarks
-   * The total number of ports.
+   * The total number of port details.
    * 
    * @example
    * 5
@@ -50,10 +53,11 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   detailNum?: number;
   /**
    * @remarks
-   * Specifies whether an access control policy is recommended. Valid values:
+   * Indicates whether an access control list (ACL) is recommended. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true
@@ -61,7 +65,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   hasAclRecommend?: boolean;
   /**
    * @remarks
-   * The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
+   * The inbound network throughput, which indicates the total number of bytes received. Unit: bytes.
    * 
    * @example
    * 235
@@ -69,7 +73,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   inBytes?: number;
   /**
    * @remarks
-   * The UID of the member that is managed by your Alibaba Cloud account.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 14151892****7022
@@ -77,7 +81,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
+   * The outbound network throughput, which indicates the total number of bytes sent. Unit: bytes.
    * 
    * @example
    * 1123
@@ -108,10 +112,13 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **3**: high risk
-   * *   **2**: medium risk
-   * *   **1**: low risk
-   * *   **0**: no risk
+   * - **3**: high
+   * 
+   * - **2**: medium
+   * 
+   * - **1**: low
+   * 
+   * - **0**: none
    * 
    * @example
    * 3
@@ -132,7 +139,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   serviceNameList?: string[];
   /**
    * @remarks
-   * Number of source IPs.
+   * The number of source IP addresses.
    * 
    * @example
    * 22
@@ -140,7 +147,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   srcIpCnt?: number;
   /**
    * @remarks
-   * The total inbound and outbound network throughput, which indicates the total number of bytes that are sent inbound and outbound. Unit: bytes.
+   * The total traffic. Unit: bytes.
    * 
    * @example
    * 253023143
@@ -148,7 +155,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   totalBytes?: number;
   /**
    * @remarks
-   * Outbound traffic in the last 7 days.
+   * The total response traffic in the last 7 days.
    * 
    * @example
    * 100000
@@ -156,7 +163,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   totalReplyBytes?: number;
   /**
    * @remarks
-   * For detailed traffic information, see the TotalBytes field.
+   * For details about the traffic, see the TotalBytes field.
    * 
    * @example
    * 0
@@ -164,7 +171,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   trafficPercent1Day?: string;
   /**
    * @remarks
-   * For detailed traffic information, see the TotalBytes field.
+   * For details about the traffic, see the TotalBytes field.
    * 
    * @example
    * 0
@@ -172,7 +179,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   trafficPercent30Day?: string;
   /**
    * @remarks
-   * For detailed traffic information, see the TotalBytes field.
+   * For details about the traffic, see the TotalBytes field.
    * 
    * @example
    * 0
@@ -180,7 +187,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
   trafficPercent7Day?: string;
   /**
    * @remarks
-   * Reasons for not analyzing the protocol when the protocol is identified as Unknown.
+   * The reason why the protocol is not identified when the protocol is Unknown.
    */
   unknownReason?: string[];
   static names(): { [key: string]: string } {
@@ -258,7 +265,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
 export class DescribeInternetOpenIpResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -266,7 +273,7 @@ export class DescribeInternetOpenIpResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -308,7 +315,7 @@ export class DescribeInternetOpenIpResponseBodyPageInfo extends $dara.Model {
 export class DescribeInternetOpenIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The list of returned data.
    */
   dataList?: DescribeInternetOpenIpResponseBodyDataList[];
   /**
@@ -318,7 +325,7 @@ export class DescribeInternetOpenIpResponseBody extends $dara.Model {
   pageInfo?: DescribeInternetOpenIpResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6B780BD6-282C-51A9-A8E6-59F636BAFA54

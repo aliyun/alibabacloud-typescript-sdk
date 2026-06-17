@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the access control policy.
+   * The unique ID of the access control policy.
    * 
-   * To delete an access control policy, you must specify the UUID of the policy. You can call the [DescribeControlPolicy](https://help.aliyun.com/document_detail/138866.html) operation to query the UUID.
+   * To delete an access control policy, you must provide its ID. Call the [DescribeControlPolicy](https://help.aliyun.com/document_detail/138866.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -17,12 +17,13 @@ export class DeleteControlPolicyRequest extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The direction of the traffic to which the access control policy applies.
+   * The traffic direction that the access control policy controls.
    * 
    * Valid values:
    * 
-   * *   **in**: inbound.
-   * *   **out**: outbound.
+   * - **in**: inbound traffic.
+   * 
+   * - **out**: outbound traffic.
    * 
    * @example
    * in
@@ -30,12 +31,13 @@ export class DeleteControlPolicyRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The language of the content within the request and response.
+   * The language of the request and response.
    * 
    * Valid values:
    * 
-   * *   **zh** (default)
-   * *   **en**
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh

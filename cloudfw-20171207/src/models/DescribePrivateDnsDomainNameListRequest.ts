@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrivateDnsDomainNameListRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,22 +14,33 @@ export class DescribePrivateDnsDomainNameListRequest extends $dara.Model {
    */
   accessInstanceId?: string;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of the page to return.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

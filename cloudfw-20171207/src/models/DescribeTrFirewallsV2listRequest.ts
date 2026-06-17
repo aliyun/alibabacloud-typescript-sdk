@@ -13,7 +13,7 @@ export class DescribeTrFirewallsV2ListRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number for a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -29,25 +29,31 @@ export class DescribeTrFirewallsV2ListRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The name of the VPC firewall.
+   * The instance name of the VPC firewall.
    * 
    * @example
-   * test
+   * vpc-firewall-test
    */
   firewallName?: string;
   /**
    * @remarks
    * The status of the VPC firewall. Valid values:
    * 
-   * *   **opened**: The VPC firewall is enabled.
-   * *   **closed**: The VPC firewall is disabled.
-   * *   **notconfigured**: The VPC firewall is not created.
-   * *   **configured**: The VPC firewall is created but is not enabled.
-   * *   **creating**: The VPC firewall is being created.
-   * *   **opening**: The VPC firewall is being enabled.
-   * *   **deleting**: The VPC firewall is being deleted.
+   * - **opened**: Enabled
    * 
-   * >  If you do not specify this parameter, VPC firewalls in all states are queried.
+   * - **closed**: Disabled
+   * 
+   * - **notconfigured**: The VPC firewall is not configured.
+   * 
+   * - **configured**: The VPC firewall is configured.
+   * 
+   * - **creating**: The VPC firewall is being created.
+   * 
+   * - **opening**: The VPC firewall is being enabled.
+   * 
+   * - **deleting**: The VPC firewall is being deleted.
+   * 
+   * > If you do not specify this parameter, VPC firewalls in all states are queried.
    * 
    * @example
    * opened
@@ -55,10 +61,11 @@ export class DescribeTrFirewallsV2ListRequest extends $dara.Model {
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response message. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -67,7 +74,7 @@ export class DescribeTrFirewallsV2ListRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The maximum number of entries to return on each page in a paged query. Default value: 10.
    * 
    * @example
    * 10
@@ -75,7 +82,7 @@ export class DescribeTrFirewallsV2ListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the transit router.
+   * The region ID of the transit router instance.
    * 
    * @example
    * cn-hangzhou
@@ -83,12 +90,13 @@ export class DescribeTrFirewallsV2ListRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The routing mode of the VPC firewall. Valid values:
+   * The routing mode. Valid values:
    * 
-   * *   **managed**: automatic mode
-   * *   **manual**: manual mode
+   * - **managed**: automatic mode.
    * 
-   * >  If you do not specify this parameter, VPC firewalls in all routing modes are queried.
+   * - **manual**: manual mode.
+   * 
+   * > If you do not specify this parameter, VPC firewalls in all routing modes are queried.
    * 
    * @example
    * managed
@@ -96,7 +104,7 @@ export class DescribeTrFirewallsV2ListRequest extends $dara.Model {
   routeMode?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The instance ID of the transit router.
    * 
    * @example
    * tr-uf6egtvyaedvt20xl****

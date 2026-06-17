@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchSecurityProxyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * F1E55690-3ABA-58FA-90E3-593EF05B73ED
+   * F1E55690-3ABA-58FA-90E3-593EF******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

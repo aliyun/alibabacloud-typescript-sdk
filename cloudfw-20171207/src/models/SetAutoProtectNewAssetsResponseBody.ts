@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetAutoProtectNewAssetsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The firewall module.
+   * 
    * @example
    * api_server
    */
   module?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****
    */

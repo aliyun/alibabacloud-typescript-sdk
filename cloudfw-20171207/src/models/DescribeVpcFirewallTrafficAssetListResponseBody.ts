@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVpcFirewallTrafficAssetListResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The IP address of the asset.
+   * 
    * @example
    * a.com
    */
   IP?: string;
   /**
+   * @remarks
+   * The number of intrusion prevention system (IPS) hits.
+   * 
    * @example
    * 10
    */
   ipsHitCnt?: number;
   /**
+   * @remarks
+   * The number of sessions.
+   * 
    * @example
    * 12
    */
   sessionCount?: number;
   /**
+   * @remarks
+   * The total traffic in bytes.
+   * 
    * @example
    * 253023143
    */
   totalBytes?: number;
   /**
+   * @remarks
+   * The VPC where the asset resides.
+   * 
    * @example
    * a.com
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The name of the VPC where the asset resides.
+   * 
    * @example
    * vpc-bp1mos0vhefmx5ah6****
    */
@@ -65,13 +83,23 @@ export class DescribeVpcFirewallTrafficAssetListResponseBodyDataList extends $da
 }
 
 export class DescribeVpcFirewallTrafficAssetListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   dataList?: DescribeVpcFirewallTrafficAssetListResponseBodyDataList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * C5BE1AA4-934A-5085-89CC-9AD1CAC3****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 132
    */

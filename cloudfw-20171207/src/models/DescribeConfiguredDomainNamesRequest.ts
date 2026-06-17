@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeConfiguredDomainNamesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
    * @remarks
+   * The traffic direction.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class DescribeConfiguredDomainNamesRequest extends $dara.Model {
    */
   direction?: string;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
    * @remarks
+   * The group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,17 +40,25 @@ export class DescribeConfiguredDomainNamesRequest extends $dara.Model {
    */
   groupName?: string;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
    * @remarks
+   * The trace code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +66,9 @@ export class DescribeConfiguredDomainNamesRequest extends $dara.Model {
    */
   sourceCode?: string;
   /**
+   * @remarks
+   * The source IP address.
+   * 
    * @example
    * 1.202.149.XXX
    */

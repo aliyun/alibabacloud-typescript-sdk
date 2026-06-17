@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOpenIpAccessSrcStatRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The destination IP address.
+   * 
    * @example
    * 47.100.102.XXX
    */
   dstIp?: string;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The number of the page to return.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 47.100.XX.XX
    */

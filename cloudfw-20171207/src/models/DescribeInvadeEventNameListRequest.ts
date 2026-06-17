@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInvadeEventNameListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time. This is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1738780437
    */
   endTime?: string;
   /**
+   * @remarks
+   * The language type.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 36.112.73.XXX
    */
   sourceIp?: string;
   /**
+   * @remarks
+   * The start time. This is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1757620800
    */

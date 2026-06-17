@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
+   * The instance ID of the VPC boundary firewall.
    * 
    * @example
    * vfw-tr-5b202e7f0be64611****
@@ -13,10 +13,11 @@ export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -24,10 +25,11 @@ export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to restore the traffic redirection configurations. Valid values:
+   * Specifies whether to restore the traffic redirection configuration. Valid values:
    * 
-   * *   true: roll back
-   * *   false: withdraw
+   * - true: Rolls back the route.
+   * 
+   * - false: Revokes the route.
    * 
    * @example
    * false
@@ -35,7 +37,7 @@ export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   shouldRecover?: string;
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the routing policy for the firewall.
    * 
    * @example
    * policy-93684cc5caa44b2e****
@@ -43,10 +45,11 @@ export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   trFirewallRoutePolicyId?: string;
   /**
    * @remarks
-   * The status of the routing policy. Valid values:
+   * The status of the policy. Valid values:
    * 
-   * *   open: enabled
-   * *   close: disabled
+   * - open: Enables the policy.
+   * 
+   * - close: Disables the policy.
    * 
    * @example
    * open

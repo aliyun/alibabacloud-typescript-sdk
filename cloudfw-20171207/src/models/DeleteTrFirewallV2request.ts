@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTrFirewallV2Request extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The ID of the VPC firewall for the transit router.
    * 
    * @example
    * vfw-tr-99bc4f0fc88b4d00****
@@ -13,10 +13,11 @@ export class DeleteTrFirewallV2Request extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response message. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh

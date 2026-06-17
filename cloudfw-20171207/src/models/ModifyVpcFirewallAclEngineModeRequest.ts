@@ -4,12 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyVpcFirewallAclEngineModeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The UID of the Cloud Firewall member account.
+   * 
    * @example
    * 258039427902****
    */
   memberUid?: string;
   /**
    * @remarks
+   * Specifies whether to enable strict mode.
+   * 
+   * - 1: strict mode
+   * 
+   * - 0: loose mode
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +27,8 @@ export class ModifyVpcFirewallAclEngineModeRequest extends $dara.Model {
   strictMode?: string;
   /**
    * @remarks
+   * The instance ID of the VPC border firewall.
+   * 
    * This parameter is required.
    * 
    * @example

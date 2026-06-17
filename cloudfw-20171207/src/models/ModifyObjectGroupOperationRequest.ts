@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyObjectGroupOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the operation.
+   * The remarks for the operation.
    * 
    * @example
    * test
@@ -13,12 +13,13 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The direction of the traffic to which the access control policy applies.
+   * The traffic direction that is controlled by the access control policy.
    * 
    * Valid values:
    * 
-   * *   **in**: inbound.
-   * *   **out**: outbound.
+   * - **in**: Inbound traffic.
+   * 
+   * - **out**: Outbound traffic.
    * 
    * This parameter is required.
    * 
@@ -28,10 +29,11 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default)
-   * *   **en**
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -39,19 +41,22 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The operation objects.
+   * The list of objects.
    * 
    * This parameter is required.
    */
   objectList?: string[];
   /**
    * @remarks
-   * The operation. Valid values:
+   * The operation to perform. Valid values:
    * 
-   * *   **ignore**: adds the operation object to the whitelist.
-   * *   **cancelIgnore**: removes the operation object from the whitelist.
-   * *   **subscribe**: follows the operation object.
-   * *   **unsubscribe**: unfollows the operation object.
+   * - **subscribe**: Follows the object.
+   * 
+   * - **unsubscribe**: Unfollows the object.
+   * 
+   * - **ignore**: Adds the object to the whitelist.
+   * 
+   * - **cancelIgnore**: Removes the object from the whitelist.
    * 
    * This parameter is required.
    * 
@@ -61,14 +66,17 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   objectOperation?: string;
   /**
    * @remarks
-   * The type of the operation object.
+   * The type of object to add to the whitelist or follow.
    * 
    * Valid values:
    * 
-   * *   **assetsIp**: the asset IP address.
-   * *   **destinationIp**: the destination IP address.
-   * *   **destinationPort**: the destination port.
-   * *   **destinationDomain**: the destination domain name.
+   * - **assetsIp**: Asset IP address.
+   * 
+   * - **destinationIp**: Destination IP address.
+   * 
+   * - **destinationPort**: Destination port.
+   * 
+   * - **destinationDomain**: Destination domain name.
    * 
    * This parameter is required.
    * 
@@ -78,7 +86,7 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the visitor.
    * 
    * @example
    * 123.xxx.251.60

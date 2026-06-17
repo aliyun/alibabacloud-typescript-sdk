@@ -16,7 +16,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
    * The description of the firewall.
    * 
    * @example
-   * vfw-sz
+   * vpc-firewall-description
    */
   firewallDescription?: string;
   /**
@@ -24,12 +24,12 @@ export class CreateTrFirewallV2Request extends $dara.Model {
    * The name of the firewall.
    * 
    * @example
-   * cfw_test2
+   * vpc-firewall-test
    */
   firewallName?: string;
   /**
    * @remarks
-   * The subnet CIDR block of the VPC in which the ENI of the firewall is stored in automatic mode.
+   * The CIDR block of the vSwitch in the firewall VPC that hosts the firewall\\"s elastic network interface (ENI). This parameter applies only in automatic mode.
    * 
    * @example
    * 10.0.1.0/24
@@ -37,7 +37,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   firewallSubnetCidr?: string;
   /**
    * @remarks
-   * The CIDR block that is allocated to the VPC created for the VPC firewall in automatic mode.
+   * The CIDR block of the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.0.0/16
@@ -45,7 +45,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   firewallVpcCidr?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the ENI associated with the VPC firewall is created in manual mode.
+   * The ID of the VPC where the firewall ENI is created. This parameter applies only in manual mode.
    * 
    * @example
    * vpc-wz9r5qvryn0lg3atb****
@@ -53,7 +53,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   firewallVpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch that is used to create the ENI in manual mode.
+   * The ID of the vSwitch where the firewall ENI is created. This parameter applies only in manual mode.
    * 
    * @example
    * vsw-uf6ydz3vqj77mr5l6****
@@ -61,10 +61,11 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   firewallVswitchId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response message. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -72,7 +73,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region ID of the route router.
+   * The region ID of the transit router instance.
    * 
    * @example
    * cn-hangzhou
@@ -80,10 +81,11 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The routing mode of the VPC firewall. Valid values:
+   * The routing mode. Valid values:
    * 
-   * *   **managed**: automatic mode
-   * *   **manual**: manual mode
+   * - **managed**: automatic mode
+   * 
+   * - **manual**: manual mode
    * 
    * @example
    * managed
@@ -91,7 +93,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   routeMode?: string;
   /**
    * @remarks
-   * The primary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
+   * The CIDR block of the primary vSwitch used to connect to the transit router. This parameter applies only in automatic mode.
    * 
    * @example
    * 10.0.3.0/24
@@ -107,7 +109,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   trAttachmentMasterZone?: string;
   /**
    * @remarks
-   * The secondary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
+   * The CIDR block of the secondary vSwitch used to connect to the transit router. This parameter applies only in automatic mode.
    * 
    * @example
    * 10.0.0.16/28
@@ -123,7 +125,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   trAttachmentSlaveZone?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The ID of the transit router instance.
    * 
    * @example
    * tr-m5etmb2q7e0mxcur****

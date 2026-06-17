@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteVpcFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUIDs of access control policies.
+   * The list of UUIDs of the access control policies.
    * 
    * This parameter is required.
    */

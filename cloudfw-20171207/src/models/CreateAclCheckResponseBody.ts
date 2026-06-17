@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAclCheckResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4FB718F0-CC04-5A12-B17B-188CFC3F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of task IDs.
+   */
   taskIds?: string[];
   static names(): { [key: string]: string } {
     return {

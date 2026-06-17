@@ -54,6 +54,7 @@ export { DescribeFirewallVSwitchResponseBodyVswitchListFirewallList } from './De
 export { DescribeFirewallVSwitchResponseBodyVswitchList } from './DescribeFirewallVswitchResponseBody';
 export { DescribeFirewallVswitchResourcesResponseBodyVswitchListFirewallList } from './DescribeFirewallVswitchResourcesResponseBody';
 export { DescribeFirewallVswitchResourcesResponseBodyVswitchList } from './DescribeFirewallVswitchResourcesResponseBody';
+export { DescribeIPSRulesResponseBodyRules } from './DescribeIpsrulesResponseBody';
 export { DescribeInstanceMembersResponseBodyMembers } from './DescribeInstanceMembersResponseBody';
 export { DescribeInstanceMembersResponseBodyPageInfo } from './DescribeInstanceMembersResponseBody';
 export { DescribeInstanceRdAccountsResponseBodyAccounts } from './DescribeInstanceRdAccountsResponseBody';
@@ -177,7 +178,6 @@ export { DescribeUnprotectedVulnTrendResponseBodyDataList } from './DescribeUnpr
 export { DescribeUserAlarmConfigResponseBodyAlarmConfig } from './DescribeUserAlarmConfigResponseBody';
 export { DescribeUserAlarmConfigResponseBodyContactConfig } from './DescribeUserAlarmConfigResponseBody';
 export { DescribeUserAlarmConfigResponseBodyDefaultContact } from './DescribeUserAlarmConfigResponseBody';
-export { DescribeUserAlarmConfigResponseBodyNotifyConfig } from './DescribeUserAlarmConfigResponseBody';
 export { DescribeUserIPSWhitelistResponseBodyIpv6Whitelists } from './DescribeUserIpswhitelistResponseBody';
 export { DescribeUserIPSWhitelistResponseBodyWhitelists } from './DescribeUserIpswhitelistResponseBody';
 export { DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList } from './DescribeVfwIpsconfigListResponseBody';
@@ -238,7 +238,7 @@ export { ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList } from './Mo
 export { ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList } from './ModifyTrFirewallV2routePolicyScopeRequest';
 export { ModifyUserAlarmConfigRequestAlarmConfig } from './ModifyUserAlarmConfigRequest';
 export { ModifyUserAlarmConfigRequestContactConfig } from './ModifyUserAlarmConfigRequest';
-export { ModifyUserAlarmConfigRequestNotifyConfig } from './ModifyUserAlarmConfigRequest';
+export { ModifyUserAlarmConfigShrinkRequestAlarmConfig } from './ModifyUserAlarmConfigShrinkRequest';
 export { PutEnableFwSwitchResponseBodyAbnormalResourceStatusList } from './PutEnableFwSwitchResponseBody';
 export { UpdateAckClusterConnectorResponseBodyAckClusterConnector } from './UpdateAckClusterConnectorResponseBody';
 export { UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAclTagList } from './UpdateAclCheckDetailStatusResponseBody';
@@ -515,6 +515,9 @@ export { DescribeFirewallVSwitchResponse } from './DescribeFirewallVswitchRespon
 export { DescribeFirewallVswitchResourcesRequest } from './DescribeFirewallVswitchResourcesRequest';
 export { DescribeFirewallVswitchResourcesResponseBody } from './DescribeFirewallVswitchResourcesResponseBody';
 export { DescribeFirewallVswitchResourcesResponse } from './DescribeFirewallVswitchResourcesResponse';
+export { DescribeIPSRulesRequest } from './DescribeIpsrulesRequest';
+export { DescribeIPSRulesResponseBody } from './DescribeIpsrulesResponseBody';
+export { DescribeIPSRulesResponse } from './DescribeIpsrulesResponse';
 export { DescribeInstanceMembersRequest } from './DescribeInstanceMembersRequest';
 export { DescribeInstanceMembersResponseBody } from './DescribeInstanceMembersResponseBody';
 export { DescribeInstanceMembersResponse } from './DescribeInstanceMembersResponse';
@@ -965,6 +968,7 @@ export { ModifyTrFirewallV2RoutePolicyScopeShrinkRequest } from './ModifyTrFirew
 export { ModifyTrFirewallV2RoutePolicyScopeResponseBody } from './ModifyTrFirewallV2routePolicyScopeResponseBody';
 export { ModifyTrFirewallV2RoutePolicyScopeResponse } from './ModifyTrFirewallV2routePolicyScopeResponse';
 export { ModifyUserAlarmConfigRequest } from './ModifyUserAlarmConfigRequest';
+export { ModifyUserAlarmConfigShrinkRequest } from './ModifyUserAlarmConfigShrinkRequest';
 export { ModifyUserAlarmConfigResponseBody } from './ModifyUserAlarmConfigResponseBody';
 export { ModifyUserAlarmConfigResponse } from './ModifyUserAlarmConfigResponse';
 export { ModifyUserIPSWhitelistRequest } from './ModifyUserIpswhitelistRequest';

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstanceRdAccountsResponseBodyAccounts extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the member account.
+   * 
    * @example
    * 171054237268****
    */
   accountId?: string;
   /**
+   * @remarks
+   * The display name of the member.
+   * 
    * @example
    * test
    */
@@ -37,8 +43,15 @@ export class DescribeInstanceRdAccountsResponseBodyAccounts extends $dara.Model 
 }
 
 export class DescribeInstanceRdAccountsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the accounts.
+   */
   accounts?: DescribeInstanceRdAccountsResponseBodyAccounts[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 06D1EC07-C9EB-58AC-A750-C87C9A0****
    */

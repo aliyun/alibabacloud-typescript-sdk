@@ -4,27 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSdlEventSdListResponseBodySdlEventSensitiveDataList extends $dara.Model {
   /**
+   * @remarks
+   * The sensitive data.
+   * 
    * @example
    * sk-N***************************SxiJ
    */
   sensitiveData?: string;
   /**
+   * @remarks
+   * The number of times the sensitive data appears.
+   * 
    * @example
    * 6
    */
   sensitiveDataCnt?: number;
   /**
+   * @remarks
+   * The sensitivity level of the data.
+   * 
    * @example
    * S3
    */
   sensitiveLevel?: string;
+  /**
+   * @remarks
+   * The type of sensitive data.
+   * 
+   * @example
+   * id_card
+   */
   sensitiveType?: string;
   /**
+   * @remarks
+   * The source IP address.
+   * 
    * @example
    * 172.23.191.XXX
    */
   srcIp?: string;
   /**
+   * @remarks
+   * The start time. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1753928907
    */
@@ -62,12 +84,22 @@ export class DescribeSdlEventSdListResponseBodySdlEventSensitiveDataList extends
 
 export class DescribeSdlEventSdListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of sensitive data from the data breach.
+   */
   sdlEventSensitiveDataList?: DescribeSdlEventSdListResponseBodySdlEventSensitiveDataList[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 6
    */

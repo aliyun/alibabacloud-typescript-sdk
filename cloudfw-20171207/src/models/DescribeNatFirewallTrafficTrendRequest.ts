@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatFirewallTrafficTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp that is accurate to seconds.
+   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1739330580
@@ -13,10 +13,11 @@ export class DescribeNatFirewallTrafficTrendRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The time interval between the data entries to return. Unit: seconds. Valid values:
+   * The time granularity for the query. Unit: seconds. Valid values:
    * 
-   * *   **60**: 1 minute
-   * *   **1800**: 30 minutes
+   * - **60**: 1 minute.
+   * 
+   * - **1800**: 30 minutes.
    * 
    * @example
    * 60
@@ -24,7 +25,7 @@ export class DescribeNatFirewallTrafficTrendRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT Gateway.
    * 
    * @example
    * ngw-xxxxxx
@@ -32,7 +33,7 @@ export class DescribeNatFirewallTrafficTrendRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The private IP address of the source.
+   * The private source IP address.
    * 
    * @example
    * 10.100.134.60
@@ -40,7 +41,7 @@ export class DescribeNatFirewallTrafficTrendRequest extends $dara.Model {
   srcPrivateIP?: string;
   /**
    * @remarks
-   * The public IP address of the source.
+   * The source IP address on the Internet.
    * 
    * @example
    * 47.112.210.136
@@ -48,7 +49,7 @@ export class DescribeNatFirewallTrafficTrendRequest extends $dara.Model {
   srcPublicIP?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start of the time range to query. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1739326980

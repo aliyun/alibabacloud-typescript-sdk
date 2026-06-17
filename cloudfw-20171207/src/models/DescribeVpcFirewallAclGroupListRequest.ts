@@ -13,11 +13,11 @@ export class DescribeVpcFirewallAclGroupListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Specifies whether VPC firewalls are configured. Valid values:
+   * The configuration status of the VPC boundary firewall. Valid values:
    * 
-   * *   **notconfigured**: VPC firewalls are not configured.
-   * *   **configured**: VPC firewalls are configured.
-   * *   If you do not specify this parameter, the access control policies of all VPC firewalls are queried.
+   * - **configured**: The VPC boundary firewall is configured.
+   * 
+   * - If you omit this parameter, the operation queries the access control policies for all VPC boundary firewalls.
    * 
    * @example
    * configured
@@ -25,7 +25,7 @@ export class DescribeVpcFirewallAclGroupListRequest extends $dara.Model {
   firewallConfigureStatus?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the VPC boundary firewall.
    * 
    * @example
    * vfw-tr-5b202e7f0be64611****
@@ -33,10 +33,11 @@ export class DescribeVpcFirewallAclGroupListRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -44,7 +45,7 @@ export class DescribeVpcFirewallAclGroupListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 50.
+   * The number of entries to return on each page. The maximum value is 50.
    * 
    * @example
    * 10

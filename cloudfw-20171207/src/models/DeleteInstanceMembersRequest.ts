@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * The UIDs of the members.
+   * The UIDs of the member accounts.
    * 
    * This parameter is required.
    * 

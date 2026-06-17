@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSlsAnalyzeOpenStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The enabled status of SLS. Valid values:
+   * 
+   * **true**: enabled.
+   * 
+   * **false**: disabled.
+   * 
    * @example
    * false
    */
   openStatus?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6CC01A2B-92FB-535C-9415-9A951C20****
    */

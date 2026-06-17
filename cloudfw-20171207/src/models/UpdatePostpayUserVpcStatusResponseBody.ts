@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePostpayUserVpcStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 450D47F5-956E-543E-8502-2F71C8******

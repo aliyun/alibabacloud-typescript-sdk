@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeFirewallVSwitchRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the VPC border firewall.
+   * 
    * @example
    * vfw-tr-5b202e7f0be64611****
    */
   firewallId?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The UID of the member account.
+   * 
    * @example
    * 102910763545****
    */
   memberUid?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: string;
   /**
+   * @remarks
+   * The number of the page to return.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionNo?: string;
   /**
+   * @remarks
+   * The ID of the VPC instance.
+   * 
    * @example
    * vpc-uf6b5lyul0x******
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
    * @example
    * vsw-bp1sqg9w******
    */

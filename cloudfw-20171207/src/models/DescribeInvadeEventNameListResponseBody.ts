@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInvadeEventNameListResponseBodyEventNameList extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the vulnerability event.
+   * 
    * @example
    * CActivity
    */
   eventKey?: string;
+  /**
+   * @remarks
+   * The name of the vulnerability event.
+   * 
+   * @example
+   * Suspicious central control communication
+   */
   eventName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,9 +43,20 @@ export class DescribeInvadeEventNameListResponseBodyEventNameList extends $dara.
 }
 
 export class DescribeInvadeEventNameListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of anomalous activity names.
+   */
   eventNameList?: DescribeInvadeEventNameListResponseBodyEventNameList[];
+  /**
+   * @remarks
+   * A list of vulnerability names.
+   */
   nameList?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6ABAA264-E7B5-5D66-8FC3-9253100****
    */

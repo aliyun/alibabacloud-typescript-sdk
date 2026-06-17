@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAckClusterNamespacesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of ACK cluster namespaces.
+   */
   ackNamespaces?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 133173B9-8010-5DF5-8B93-********
    */

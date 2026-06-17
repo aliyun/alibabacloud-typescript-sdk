@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -18,8 +19,9 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
    * @remarks
    * The type of the list. Valid values:
    * 
-   * *   **1**: user-defined
-   * *   **2**: address book
+   * - **1**: user-defined
+   * 
+   * - **2**: address book
    * 
    * This parameter is required.
    * 
@@ -29,7 +31,7 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
   listType?: number;
   /**
    * @remarks
-   * The entry in the list.
+   * The value that corresponds to the list type.
    * 
    * @example
    * 10.130.0.0/20,10.130.17.11/32
@@ -37,7 +39,7 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
   listValue?: string;
   /**
    * @remarks
-   * The UID of the member that is managed by your Alibaba Cloud account.
+   * The UID of the member account.
    * 
    * @example
    * 1415189284827022
@@ -57,8 +59,9 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
    * @remarks
    * The type of the whitelist. Valid values:
    * 
-   * *   **1**: destination
-   * *   **2**: source
+   * - **1**: destination
+   * 
+   * - **2**: source
    * 
    * This parameter is required.
    * 

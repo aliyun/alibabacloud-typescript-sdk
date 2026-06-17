@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOutgoingRiskTrendResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The number of threat domain names.
+   * 
    * @example
    * 20
    */
   riskDomain?: number;
   /**
+   * @remarks
+   * The number of threat IP addresses.
+   * 
    * @example
    * 5
    */
   riskIp?: number;
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 1659405600
    */
@@ -44,23 +53,39 @@ export class DescribeOutgoingRiskTrendResponseBodyDataList extends $dara.Model {
 }
 
 export class DescribeOutgoingRiskTrendResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of returned data.
+   */
   dataList?: DescribeOutgoingRiskTrendResponseBodyDataList[];
   /**
+   * @remarks
+   * The time interval.
+   * 
    * @example
    * 60
    */
   interval?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1CA8D98E-A71B-5856-A658-3E8B3152E****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of threat domain names.
+   * 
    * @example
    * 7
    */
   totalRiskDomain?: number;
   /**
+   * @remarks
+   * The total number of threat IP addresses.
+   * 
    * @example
    * 6
    */

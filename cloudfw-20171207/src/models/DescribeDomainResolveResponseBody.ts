@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainResolveResponseBodyResolveResult extends $dara.Model {
   /**
    * @remarks
-   * The IP address to which the domain name is resolved. Multiple IP addresses are separated by commas (,).
+   * The resolution result of the domain name. Multiple IP addresses are separated by commas (,).
    * 
    * @example
    * 11.1.X.X,12.1.X.X
@@ -13,7 +13,7 @@ export class DescribeDomainResolveResponseBodyResolveResult extends $dara.Model 
   ipAddrs?: string;
   /**
    * @remarks
-   * The time when the domain name was resolved. The value of this parameter is a timestamp. Unit: seconds.
+   * The timestamp of the resolution. Unit: seconds.
    * 
    * @example
    * 1579091739
@@ -45,7 +45,7 @@ export class DescribeDomainResolveResponseBodyResolveResult extends $dara.Model 
 export class DescribeDomainResolveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -53,7 +53,7 @@ export class DescribeDomainResolveResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details about the DNS record of the domain name.
+   * The result of the domain name resolution.
    */
   resolveResult?: DescribeDomainResolveResponseBodyResolveResult;
   static names(): { [key: string]: string } {

@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAITrafficAnalysisStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 4E7F94C7-781F-5192-86CF-DB085****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The enabling status. Valid values:
+   * 
+   * - **open**
+   * 
+   * - **close**
+   * 
    * @example
    * open
    */

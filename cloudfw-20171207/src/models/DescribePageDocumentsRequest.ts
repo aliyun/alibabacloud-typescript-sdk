@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePageDocumentsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The page name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DescribePageDocumentsRequest extends $dara.Model {
   pageName?: string;
   /**
    * @remarks
+   * The tracing code for the source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,17 @@ export class DescribePageDocumentsRequest extends $dara.Model {
    */
   sourceCode?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 223.167.221.XXX
    */
   sourceIp?: string;
   /**
    * @remarks
+   * The name of the protected object in the access control policy.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -13,7 +13,7 @@ export class DescribeVpcFirewallDetailResponseBodyLocalVpcVpcCidrTableListRouteE
   destinationCidr?: string;
   /**
    * @remarks
-   * The instance ID of the next hop for the local VPC.
+   * The ID of the next hop instance in the local VPC.
    * 
    * @example
    * vrt-m5eb5me6c3l5sezae****
@@ -45,7 +45,7 @@ export class DescribeVpcFirewallDetailResponseBodyLocalVpcVpcCidrTableListRouteE
 export class DescribeVpcFirewallDetailResponseBodyLocalVpcVpcCidrTableList extends $dara.Model {
   /**
    * @remarks
-   * The route entries of the local VPC.
+   * A list of routes for the local VPC.
    */
   routeEntryList?: DescribeVpcFirewallDetailResponseBodyLocalVpcVpcCidrTableListRouteEntryList[];
   /**
@@ -85,7 +85,7 @@ export class DescribeVpcFirewallDetailResponseBodyLocalVpcVpcCidrTableList exten
 export class DescribeVpcFirewallDetailResponseBodyLocalVpc extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ENI for the local VPC.
+   * The instance ID of the ENI in the local VPC.
    * 
    * @example
    * eni-8vbhfosfqv2rff42****
@@ -93,7 +93,7 @@ export class DescribeVpcFirewallDetailResponseBodyLocalVpc extends $dara.Model {
   eniId?: string;
   /**
    * @remarks
-   * The private IP address of the elastic network interface (ENI) for the local VPC.
+   * The private IP address of the elastic network interface (ENI) in the local VPC.
    * 
    * @example
    * 192.168.XX.XX
@@ -109,7 +109,7 @@ export class DescribeVpcFirewallDetailResponseBodyLocalVpc extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The router interface ID of the local VPC.
+   * The ID of the router interface in the local VPC.
    * 
    * @example
    * vrt-m5eb5me6c3l5sezae****
@@ -117,12 +117,12 @@ export class DescribeVpcFirewallDetailResponseBodyLocalVpc extends $dara.Model {
   routerInterfaceId?: string;
   /**
    * @remarks
-   * The CIDR blocks of the local VPC.
+   * A list of CIDR blocks for the local VPC.
    */
   vpcCidrTableList?: DescribeVpcFirewallDetailResponseBodyLocalVpcVpcCidrTableList[];
   /**
    * @remarks
-   * The ID of the local VPC.
+   * The instance ID of the local VPC.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****
@@ -130,10 +130,10 @@ export class DescribeVpcFirewallDetailResponseBodyLocalVpc extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The name of the local VPC.
+   * The instance name of the local VPC.
    * 
    * @example
-   * Vitasoy
+   * vpc-test-instancel
    */
   vpcName?: string;
   static names(): { [key: string]: string } {
@@ -183,7 +183,7 @@ export class DescribeVpcFirewallDetailResponseBodyPeerVpcVpcCidrTableListRouteEn
   destinationCidr?: string;
   /**
    * @remarks
-   * The instance ID of the next hop for the peer VPC.
+   * The ID of the next hop instance in the peer VPC.
    * 
    * @example
    * vrt-m5eb5me6c3l5sezae****
@@ -215,7 +215,7 @@ export class DescribeVpcFirewallDetailResponseBodyPeerVpcVpcCidrTableListRouteEn
 export class DescribeVpcFirewallDetailResponseBodyPeerVpcVpcCidrTableList extends $dara.Model {
   /**
    * @remarks
-   * The route entries of the peer VPC.
+   * A list of routes for the peer VPC.
    */
   routeEntryList?: DescribeVpcFirewallDetailResponseBodyPeerVpcVpcCidrTableListRouteEntryList[];
   /**
@@ -255,7 +255,7 @@ export class DescribeVpcFirewallDetailResponseBodyPeerVpcVpcCidrTableList extend
 export class DescribeVpcFirewallDetailResponseBodyPeerVpc extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ENI for the peer VPC.
+   * The instance ID of the ENI in the peer VPC.
    * 
    * @example
    * eni-8vbhfosfqv2rff42****
@@ -263,7 +263,7 @@ export class DescribeVpcFirewallDetailResponseBodyPeerVpc extends $dara.Model {
   eniId?: string;
   /**
    * @remarks
-   * The private IP address of the ENI for the peer VPC.
+   * The private IP address of the ENI in the peer VPC.
    * 
    * @example
    * 192.168.XX.XX
@@ -279,7 +279,7 @@ export class DescribeVpcFirewallDetailResponseBodyPeerVpc extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The router interface ID of the peer VPC.
+   * The ID of the router interface in the peer VPC.
    * 
    * @example
    * vrt-m5eb5me6c3l5sezae****
@@ -287,12 +287,12 @@ export class DescribeVpcFirewallDetailResponseBodyPeerVpc extends $dara.Model {
   routerInterfaceId?: string;
   /**
    * @remarks
-   * The CIDR blocks of the peer VPC.
+   * A list of CIDR blocks for the peer VPC.
    */
   vpcCidrTableList?: DescribeVpcFirewallDetailResponseBodyPeerVpcVpcCidrTableList[];
   /**
    * @remarks
-   * The ID of the peer VPC.
+   * The instance ID of the peer VPC.
    * 
    * @example
    * vpc-90rq0anm6t8vbwbo****
@@ -300,10 +300,10 @@ export class DescribeVpcFirewallDetailResponseBodyPeerVpc extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The name of the peer VPC.
+   * The instance name of the peer VPC.
    * 
    * @example
-   * zcy_prod
+   * test-vpc2
    */
   vpcName?: string;
   static names(): { [key: string]: string } {
@@ -353,7 +353,7 @@ export class DescribeVpcFirewallDetailResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The connection type of the VPC firewall. The value is fixed as **expressconnect**, which indicates Express Connect circuits.
+   * The connection type of the VPC firewall. The value is fixed as **expressconnect**, which indicates Express Connect.
    * 
    * @example
    * expressconnect
@@ -363,10 +363,13 @@ export class DescribeVpcFirewallDetailResponseBody extends $dara.Model {
    * @remarks
    * The status of the VPC firewall. Valid values:
    * 
-   * *   **opened**: The VPC firewall is enabled.
-   * *   **closed**: The VPC firewall is disabled.
-   * *   **notconfigured**: The VPC firewall is not configured.
-   * *   **configured**: The VPC firewall is configured.
+   * - **opened**: The firewall is enabled.
+   * 
+   * - **closed**: The firewall is disabled.
+   * 
+   * - **notconfigured**: The firewall is not configured.
+   * 
+   * - **configured**: The firewall is configured.
    * 
    * @example
    * opened
@@ -374,12 +377,12 @@ export class DescribeVpcFirewallDetailResponseBody extends $dara.Model {
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The details about the local VPC.
+   * The details of the local VPC.
    */
   localVpc?: DescribeVpcFirewallDetailResponseBodyLocalVpc;
   /**
    * @remarks
-   * The UID of the member that is managed by your Alibaba Cloud account.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 258039427902****
@@ -387,12 +390,12 @@ export class DescribeVpcFirewallDetailResponseBody extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The details about the peer VPC.
+   * The details of the peer VPC.
    */
   peerVpc?: DescribeVpcFirewallDetailResponseBodyPeerVpc;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 850A84D6-0DE4-4797-A1E8-00090125g4d2
@@ -411,7 +414,7 @@ export class DescribeVpcFirewallDetailResponseBody extends $dara.Model {
    * The instance name of the VPC firewall.
    * 
    * @example
-   * tf-test
+   * vpc-firewall-test
    */
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {

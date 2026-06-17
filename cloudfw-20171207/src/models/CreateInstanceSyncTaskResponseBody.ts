@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceSyncTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application module.
+   * 
    * @example
    * ips_server
    */
   module?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * D19D8F70-D64B-5A95-905A-6073BF4A****
    */

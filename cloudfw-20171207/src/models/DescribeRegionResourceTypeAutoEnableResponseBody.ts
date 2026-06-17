@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionResourceTypeAutoEnableResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The automatic traffic redirection settings for asset types in the region.
+   */
   regionResourceAutoEnable?: { [key: string]: {[key: string]: any} };
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * B2841452-CB8D-4F7D-B247-38E1CF7334F8

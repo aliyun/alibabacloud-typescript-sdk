@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOutgoingRiskDomainAndIpCountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * EE258AC0-6EDD-5929-AB47-165E9B54****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of risk domain names.
+   * 
    * @example
    * 6
    */
   riskDomainCount?: number;
   /**
+   * @remarks
+   * The number of risk IP addresses.
+   * 
    * @example
    * 47
    */
   riskIpCount?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 6
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDnsFirewallPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the access control policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class DeleteDnsFirewallPolicyRequest extends $dara.Model {
    */
   aclUuid?: string;
   /**
+   * @remarks
+   * The language of the request and response. Valid values: **zh** for Chinese and **en** for English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the request.
+   * 
    * @example
    * 140.210.39.***
    */

@@ -5,46 +5,87 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the private instance.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test
    */
   accessInstanceName?: string;
   /**
    * @remarks
+   * The type of the Cloud Firewall. Valid values:
+   * 
+   * - **internet**
+   * 
+   * - **vpc**
+   * 
+   * - **nat**
+   * 
    * This parameter is required.
    */
   firewallType?: string[];
   /**
+   * @remarks
+   * The IP protocol. Valid values:
+   * 
+   * - **TCP**
+   * 
+   * - **UDP**
+   * 
    * @example
    * UDP
    */
   ipProtocol?: string;
   /**
+   * @remarks
+   * The UID of the member account.
+   * 
    * @example
    * 258039427902****
    */
   memberUid?: number;
   /**
+   * @remarks
+   * The port number.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The primary DNS server.
+   * 
    * @example
    * 1.1.1.1
    */
   primaryDns?: string;
   /**
+   * @remarks
+   * The ID of the primary vSwitch.
+   * 
    * @example
    * vsw-uf6b0dkyryer8******
    */
   primaryVSwitchId?: string;
   /**
+   * @remarks
+   * The IP address of the primary vSwitch.
+   * 
    * @example
    * 10.1.1.1
    */
   primaryVSwitchIp?: string;
   /**
    * @remarks
+   * The type of the private DNS. Valid values:
+   * 
+   * - **PrivateZone**
+   * 
+   * - **Custom** (default)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +94,8 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   privateDnsType?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,22 +103,33 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
    */
   regionNo?: string;
   /**
+   * @remarks
+   * The standby DNS server.
+   * 
    * @example
    * 1.1.1.2
    */
   standbyDns?: string;
   /**
+   * @remarks
+   * The ID of the standby vSwitch.
+   * 
    * @example
    * vsw-8vb6jk75wfcwn******
    */
   standbyVSwitchId?: string;
   /**
+   * @remarks
+   * The IP address of the standby vSwitch.
+   * 
    * @example
    * 10.2.2.2
    */
   standbyVSwitchIp?: string;
   /**
    * @remarks
+   * The ID of the VPC instance.
+   * 
    * This parameter is required.
    * 
    * @example

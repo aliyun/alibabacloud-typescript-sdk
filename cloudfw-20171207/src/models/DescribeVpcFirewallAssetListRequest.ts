@@ -4,37 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test
    */
   appName?: string;
   /**
+   * @remarks
+   * The IP address of the asset.
+   * 
    * @example
    * 192.0.XX.XX
    */
   assetIP?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The traffic direction.
+   * 
    * @example
    * in
    */
   direction?: string;
   /**
+   * @remarks
+   * The ID of the ECS instance.
+   * 
    * @example
    * i-hp3ez3rs9bxwt034****
    */
   ecsInstanceId?: string;
   /**
+   * @remarks
+   * The name of the asset instance.
+   * 
    * @example
    * test-ecs
    */
   ecsInstanceName?: string;
   /**
    * @remarks
+   * The end time. The value is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,52 +62,81 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The protocol type.
+   * 
    * @example
    * tcp
    */
   IPProtocol?: string;
   /**
+   * @remarks
+   * Specifies whether to count only the traffic to AI services.
+   * 
    * @example
    * true
    */
   isAITraffic?: string;
   /**
+   * @remarks
+   * The language of the request and response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The ID of the peer VPC instance.
+   * 
    * @example
    * vpc-90rq0anm6t8vbwbo****
    */
   peerVpcId?: string;
   /**
+   * @remarks
+   * The port number.
+   * 
    * @example
    * 5234
    */
   port?: string;
   /**
+   * @remarks
+   * The threat level.
+   * 
    * @example
    * 3
    */
   riskLevel?: string;
   /**
+   * @remarks
+   * The sorting method.
+   * 
    * @example
    * SessionCount
    */
   sort?: string;
   /**
    * @remarks
+   * The start time. The value is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -96,6 +145,8 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
+   * The ID of the VPC instance.
+   * 
    * This parameter is required.
    * 
    * @example

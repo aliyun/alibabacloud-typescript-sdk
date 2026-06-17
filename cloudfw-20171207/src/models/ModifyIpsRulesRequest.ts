@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyIpsRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the Cloud Firewall.
+   * 
    * @example
    * VpcFirewall
    */
   firewallType?: string;
   /**
+   * @remarks
+   * The language of the request and response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The action of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class ModifyIpsRulesRequest extends $dara.Model {
   ruleAction?: string;
   /**
    * @remarks
+   * The type of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +41,8 @@ export class ModifyIpsRulesRequest extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
+   * The list of rules.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +50,9 @@ export class ModifyIpsRulesRequest extends $dara.Model {
    */
   rules?: string;
   /**
+   * @remarks
+   * The source IP address of the request.
+   * 
    * @example
    * 218.1.147.XXX
    */

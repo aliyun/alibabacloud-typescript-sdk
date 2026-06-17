@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.Model {
   /**
    * @remarks
-   * The inbound network throughput, which indicates the total number of bytes that are received Unit: bytes.
+   * The inbound network throughput, in bytes.
    * 
    * @example
    * 1115096939
@@ -13,7 +13,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   inBytes?: number;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The ID of the asset instance.
    * 
    * @example
    * i-8vb2d7c9mtn0bo9qcraq
@@ -21,7 +21,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The asset type. This value takes effect only for the Internet firewall.
+   * The asset type. This value is valid only for the Internet border.
    * 
    * @example
    * EcsPublicIP
@@ -29,7 +29,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   instanceType?: string;
   /**
    * @remarks
-   * The outbound network throughput, which indicates the total number of bytes that are sent. Unit: bytes.
+   * The outbound network throughput, in bytes.
    * 
    * @example
    * 100000000
@@ -37,7 +37,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   outBytes?: number;
   /**
    * @remarks
-   * Protection duration. Unit: hours.
+   * The protection duration, in hours.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   protectionDuration?: number;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-beijing
@@ -53,7 +53,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   regionNo?: string;
   /**
    * @remarks
-   * The resource ID. The resource ID for the Internet firewall is the public IP address that is protected the Internet firewall, and the resource ID for a NAT firewall is the instance ID of the NAT firewall.
+   * The ID of the resource. For Internet border traffic, this is the public IP address of the asset. For NAT border traffic, this is the instance ID of the firewall.
    * 
    * @example
    * 39.106.146.214
@@ -61,7 +61,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   resourceId?: string;
   /**
    * @remarks
-   * The total inbound and outbound network throughput, which indicates the total number of bytes that are received and sent. Unit: bytes.
+   * The total network throughput for both inbound and outbound traffic, in bytes.
    * 
    * @example
    * 1215096939
@@ -69,7 +69,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   totalBytes?: number;
   /**
    * @remarks
-   * The date on which the statistics are collected.
+   * The date of the traffic statistics.
    * 
    * @example
    * 20231001
@@ -77,11 +77,13 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   trafficDay?: string;
   /**
    * @remarks
-   * The traffic type. Valid values:
+   * The type of the firewall border for which traffic is queried. Valid values:
    * 
-   * *   **EIP_TRAFFIC**: traffic for the Internet firewall
-   * *   **NatGateway_TRAFFIC**: traffic for NAT firewalls
-   * *   **VPC_TRAFFIC**: traffic for VPC firewalls
+   * - **EIP_TRAFFIC**: traffic on the Internet border.
+   * 
+   * - **NatGateway_TRAFFIC**: traffic on the NAT border.
+   * 
+   * - **VPC_TRAFFIC**: traffic on the VPC border.
    * 
    * @example
    * EIP_TRAFFIC
@@ -137,7 +139,7 @@ export class DescribePostpayTrafficDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of traffic statistics entries.
    * 
    * @example
    * 132
@@ -145,7 +147,7 @@ export class DescribePostpayTrafficDetailResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The statistics on traffic.
+   * The list of traffic statistics.
    */
   trafficList?: DescribePostpayTrafficDetailResponseBodyTrafficList[];
   static names(): { [key: string]: string } {

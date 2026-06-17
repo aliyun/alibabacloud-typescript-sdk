@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayTrafficTotalRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -21,7 +22,7 @@ export class DeleteSecurityProxyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * proxy-nat00ab412ef93d4275a6b5
+   * proxy-nat00ab******
    */
   proxyId?: string;
   static names(): { [key: string]: string } {

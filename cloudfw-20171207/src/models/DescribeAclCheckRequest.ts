@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAclCheckRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DescribeAclCheckRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class DescribeAclCheckRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example

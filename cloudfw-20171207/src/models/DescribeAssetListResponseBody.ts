@@ -7,7 +7,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
    * @remarks
    * The UID of the Alibaba Cloud account.
    * 
-   * >  The value of this parameter indicates the management account to which the member is added.
+   * > The UID of the management account to which the member account belongs.
    * 
    * @example
    * 158039427902****
@@ -15,7 +15,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The ID of the cloud resource with which the asset is associated.
+   * The ID of the instance that is associated with the asset.
    * 
    * @example
    * i-8vbdrjrxzt78****
@@ -23,7 +23,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   bindInstanceId?: string;
   /**
    * @remarks
-   * The instance name of the asset.
+   * The name of the instance that is associated with the asset.
    * 
    * @example
    * instance01
@@ -31,7 +31,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   bindInstanceName?: string;
   /**
    * @remarks
-   * The timestamp when the asset is added to Cloud Firewall.
+   * The time when the asset was discovered by Cloud Firewall, in YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-02-28 10:29:58
@@ -39,7 +39,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   createTimeStamp?: string;
   /**
    * @remarks
-   * The public IP address of the server.
+   * The public IP address of the asset.
    * 
    * @example
    * 192.0.XX.XX
@@ -47,7 +47,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   internetAddress?: string;
   /**
    * @remarks
-   * The internal IP address of the server.
+   * The private IP address of the asset.
    * 
    * @example
    * 192.168.XX.XX
@@ -55,12 +55,13 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   intranetAddress?: string;
   /**
    * @remarks
-   * The IP version of the asset that is protected by Cloud Firewall.
+   * The IP version of the asset. Valid values:
    * 
-   * Valid values:
+   * Values:
    * 
-   * *   **4**: IPv4
-   * *   **6**: IPv6
+   * - **4**: An IPv4 address.
+   * 
+   * - **6**: An IPv6 address.
    * 
    * @example
    * 4
@@ -68,7 +69,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   ipVersion?: number;
   /**
    * @remarks
-   * Outbound traffic in the last 7 days.
+   * The amount of outbound traffic from the asset in the last 7 days, in bytes.
    * 
    * @example
    * 0
@@ -76,7 +77,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   last7DayOutTrafficBytes?: number;
   /**
    * @remarks
-   * The UID of the member.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 258039427902****
@@ -84,7 +85,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The instance name of the asset that is protected by Cloud Firewall.
+   * The name of the asset instance.
    * 
    * @example
    * instance01
@@ -92,11 +93,13 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the asset was added. Valid values:
+   * A tag that indicates how recently the asset was discovered. Valid values:
    * 
-   * *   **discovered in 1 hour**: within one hour.
-   * *   **discovered in 1 day**: within one day.
-   * *   **discovered in 7 days**: within seven days.
+   * - **discovered in 1 hour**: The asset was discovered within the last hour.
+   * 
+   * - **discovered in 1 day**: The asset was discovered within the last 24 hours.
+   * 
+   * - **discovered in 7 days**: The asset was discovered within the last 7 days.
    * 
    * @example
    * discovered in 1 hour
@@ -104,10 +107,11 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   newResourceTag?: string;
   /**
    * @remarks
-   * The remarks of the asset. Valid values:
+   * Additional information about the asset. Valid values:
    * 
-   * *   **REGION_NOT_SUPPORT**: The region is not supported.
-   * *   **NETWORK_NOT_SUPPORT**: The network is not supported.
+   * - **REGION_NOT_SUPPORT**: The region is not supported.
+   * 
+   * - **NETWORK_NOT_SUPPORT**: The network type is not supported.
    * 
    * @example
    * REGION_NOT_SUPPORT
@@ -115,12 +119,15 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The status of the firewall. Valid values:
+   * The protection status of the asset. Valid values:
    * 
-   * *   **open**: enabled.
-   * *   **opening**: being enabled.
-   * *   **closed**: disabled.
-   * *   **closing**: being disabled.
+   * - **open**: Protected.
+   * 
+   * - **opening**: Enabling protection.
+   * 
+   * - **closed**: Not protected.
+   * 
+   * - **closing**: Disabling protection.
    * 
    * @example
    * open
@@ -128,7 +135,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   protectStatus?: string;
   /**
    * @remarks
-   * The ID of the region in which the asset resides.
+   * The region ID of the asset.
    * 
    * @example
    * cn-hangzhou
@@ -136,10 +143,11 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   regionID?: string;
   /**
    * @remarks
-   * Indicates whether the firewall is supported in the region in which the asset resides. Valid values:
+   * Indicates whether the asset\\"s region supports Cloud Firewall protection. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: Supported.
+   * 
+   * - **disable**: Not supported.
    * 
    * @example
    * enable
@@ -147,7 +155,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   regionStatus?: string;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The ID of the asset instance.
    * 
    * @example
    * i-8vbdrjrxzt78****
@@ -157,17 +165,43 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
    * @remarks
    * The type of the asset. Valid values:
    * 
-   * *   **BastionHostEgressIP**: the egress IP address of a bastion host
-   * *   **BastionHostIngressIP**: the ingress IP address of a bastion host
-   * *   **EcsEIP**: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
-   * *   **EcsPublicIP**: the public IP address of an ECS instance
-   * *   **EIP**: the EIP
-   * *   **EniEIP**: the EIP of an elastic network interface (ENI)
-   * *   **NatEIP**: the EIP of a NAT gateway
-   * *   **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance
-   * *   **SlbPublicIP**: the public IP address of an SLB instance
-   * *   **NatPublicIP**: the public IP address of a NAT gateway
-   * *   **HAVIP**: the high-availability virtual IP address (HAVIP)
+   * - **BastionHostEgressIP**: The egress IP address of a bastion host.
+   * 
+   * - **BastionHostIngressIP**: The ingress IP address of a bastion host.
+   * 
+   * - **EcsEIP**: The EIP of an ECS instance.
+   * 
+   * - **EcsPublicIP**: The public IP address of an ECS instance.
+   * 
+   * - **EIP**: A standalone EIP.
+   * 
+   * - **EniEIP**: The EIP of an elastic network interface (ENI).
+   * 
+   * - **NatEIP**: The EIP of a NAT gateway.
+   * 
+   * - **SlbEIP**: The EIP of a Classic Load Balancer (CLB) instance.
+   * 
+   * - **SlbPublicIP**: The public IP address of a Classic Load Balancer (CLB) instance.
+   * 
+   * - **NatPublicIP**: The public IP address of a NAT gateway.
+   * 
+   * - **HAVIP**: A high-availability virtual IP (HAVIP).
+   * 
+   * - **NlbEIP**: The EIP of a Network Load Balancer (NLB) instance.
+   * 
+   * - **ApiGatewayEIP**: The EIP of an API Gateway instance.
+   * 
+   * - **AlbEIP**: The EIP of an Application Load Balancer (ALB) instance.
+   * 
+   * - **AiGatewayEIP**: The EIP of an AI Gateway instance.
+   * 
+   * - **GaEIP**: The EIP of a Global Accelerator (GA) instance.
+   * 
+   * - **SwasEIP**: The public IP address of a Simple Application Server instance.
+   * 
+   * - **EcdEIP**: The public IP address of an Elastic Desktop Service (EDS) instance.
+   * 
+   * - **BastionHostIP**: The IP address of a bastion host.
    * 
    * @example
    * EIP
@@ -177,11 +211,13 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
    * @remarks
    * The risk level of the asset. Valid values:
    * 
-   * *   **low**: low
-   * *   **middle**: medium
-   * *   **hight**: high
+   * - **low**: Low risk.
    * 
-   * >  The value of this parameter is returned only when the UserType parameter is set to free.
+   * - **middle**: Medium risk.
+   * 
+   * - **high**: High risk.
+   * 
+   * > This parameter is returned only if the `UserType` parameter is set to `free`.
    * 
    * @example
    * low
@@ -189,7 +225,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * Data leakage detection enabled status.
+   * Indicates whether data leak prevention is enabled.
    * 
    * @example
    * open
@@ -199,9 +235,11 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
    * @remarks
    * The status of the security group policy. Valid values:
    * 
-   * *   **pass**: applied
-   * *   **block**: not applied
-   * *   **unsupport**: unsupported
+   * - **pass**: The policy is applied.
+   * 
+   * - **block**: The policy is not applied.
+   * 
+   * - **unsupport**: Not supported.
    * 
    * @example
    * block
@@ -209,7 +247,7 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   sgStatus?: string;
   /**
    * @remarks
-   * The time when the status of the security group was last checked. The value is a UNIX timestamp. Unit: seconds.
+   * The timestamp of the last security group status check. Unit: seconds.
    * 
    * @example
    * 1615082937
@@ -217,10 +255,11 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
   sgStatusTime?: number;
   /**
    * @remarks
-   * Indicates whether traffic redirection is supported for the asset. Valid values:
+   * Indicates whether the asset supports traffic redirection. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: Traffic redirection is supported.
+   * 
+   * - **disable**: Traffic redirection is not supported.
    * 
    * @example
    * enable
@@ -302,12 +341,12 @@ export class DescribeAssetListResponseBodyAssets extends $dara.Model {
 export class DescribeAssetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The assets that are protected by Cloud Firewall.
+   * The details of the assets protected by Cloud Firewall.
    */
   assets?: DescribeAssetListResponseBodyAssets[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -315,7 +354,7 @@ export class DescribeAssetListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the assets that are protected by Cloud Firewall.
+   * The total number of assets protected by Cloud Firewall.
    * 
    * @example
    * 12

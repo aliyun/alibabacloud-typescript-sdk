@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvadeEventDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeInvadeEventDetailRequest extends $dara.Model {
   assetsInstanceId?: string;
   /**
    * @remarks
+   * The UUID of the threat detection event.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,16 +24,25 @@ export class DescribeInvadeEventDetailRequest extends $dara.Model {
    */
   eventUuid?: string;
   /**
+   * @remarks
+   * The language of the content within the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 182.92.103.XXX
    */
   publicIP?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 218.76.30.XXX
    */

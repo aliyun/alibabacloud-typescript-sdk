@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateIpsPrivateAssocRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the request and response messages.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ngw-c5vhmjdfp5t****
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayUserInternetStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 0DC783F1-B3A7-578D-8A63-*****
@@ -13,11 +13,13 @@ export class DescribePostpayUserInternetStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the Internet Firewall feature. Valid values:
+   * The status of the Internet Border firewall. Valid values:
    * 
-   * *   **open**: enabled
-   * *   **init**: being enabled
-   * *   **closed**: disabled
+   * - **open**: The firewall is enabled.
+   * 
+   * - **init**: The firewall is being enabled.
+   * 
+   * - **closed**: The firewall is disabled.
    * 
    * @example
    * open
@@ -25,7 +27,7 @@ export class DescribePostpayUserInternetStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of days during which no asset is added to the Internet Firewall feature for protection. This parameter is valid only when the value of Status is open.
+   * The number of days that the firewall was disabled. This parameter is returned only if the value of the Status parameter is open.
    * 
    * @example
    * 20

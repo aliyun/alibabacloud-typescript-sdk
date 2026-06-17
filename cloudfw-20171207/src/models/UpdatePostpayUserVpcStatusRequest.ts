@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePostpayUserVpcStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of Cloud Firewall.
+   * The ID of the Cloud Firewall instance.
    * 
    * @example
    * cfw_elasticity_public_cn-************
@@ -13,12 +13,13 @@ export class UpdatePostpayUserVpcStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response.
+   * The language of the request and response.
    * 
    * Valid values:
    * 
-   * *   **zh** (default)
-   * *   **en**
+   * - **zh** (default): Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -26,9 +27,9 @@ export class UpdatePostpayUserVpcStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The operation type.
+   * The operation to perform. Currently, only the open operation is supported.
    * 
-   * *   Set the value to open.
+   * - open: Enables the VPC border firewall.
    * 
    * @example
    * open

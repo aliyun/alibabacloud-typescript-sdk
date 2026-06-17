@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVpcFirewallCenManualConfigureResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * B14757D0-4640-4B44-AC67-7F558F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the VPC border firewall.
+   * 
    * @example
    * vfw-m5e7dbc4y****
    */

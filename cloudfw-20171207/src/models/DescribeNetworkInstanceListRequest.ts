@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNetworkInstanceListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the CEN instance.
+   * 
    * @example
    * cen-x5jayxou71ad73****
    */
   cenId?: string;
   /**
+   * @remarks
+   * The type of connection.
+   * 
    * @example
    * expressconnect
    */
   connectType?: string;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcListLiteRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,9 +17,9 @@ export class DescribeVpcListLiteRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region ID of the VPC.
+   * The ID of the region where the VPC resides.
    * 
-   * >  For more information about Cloud Firewall supported regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * > For more information about the regions that Cloud Firewall supports, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * @example
    * cn-shanghai
@@ -26,7 +27,7 @@ export class DescribeVpcListLiteRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 58.34.174.194
@@ -34,7 +35,7 @@ export class DescribeVpcListLiteRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****
@@ -42,7 +43,7 @@ export class DescribeVpcListLiteRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The instance name of the VPC.
    * 
    * @example
    * vpc-shanghai

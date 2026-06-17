@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallVswitchResourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of the Cloud Firewall.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class DescribeFirewallVswitchResourcesRequest extends $dara.Model {
    */
   firewallType?: string;
   /**
+   * @remarks
+   * The language of the response message.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class DescribeFirewallVswitchResourcesRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
+   * The ID of the VPC instance.
+   * 
    * This parameter is required.
    * 
    * @example

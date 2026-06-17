@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and the response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default)
-   * *   **en**
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -21,15 +22,16 @@ export class SwitchSecurityProxyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * proxy-natbfd2fafbb77042308d1b
+   * proxy-natbf******
    */
   proxyId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the NAT firewall. Valid values:
+   * The security protection switch. Valid values:
    * 
-   * *   open: yes
-   * *   close: no
+   * - open: Enables security protection.
+   * 
+   * - close: Disables security protection.
    * 
    * This parameter is required.
    * 

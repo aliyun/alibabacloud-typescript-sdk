@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatFirewallListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
-   * *   **zh** (default)
-   * *   **en**
+   * The language of the response message. Valid values:
+   * 
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -15,7 +17,7 @@ export class DescribeNatFirewallListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member that is managed by your Alibaba Cloud account.
+   * The UID of the member account.
    * 
    * @example
    * 147783******
@@ -23,10 +25,10 @@ export class DescribeNatFirewallListRequest extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT Gateway.
    * 
    * @example
-   * nat-bp123456g******
+   * ngw-bp123456g******
    */
   natGatewayId?: string;
   /**
@@ -39,9 +41,9 @@ export class DescribeNatFirewallListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of NAT firewalls to return on each page for a paged query.
    * 
-   * Default value: **10**.**** Maximum value: **50**.
+   * The default value is **10**. The maximum value is **50**.
    * 
    * @example
    * 10
@@ -57,15 +59,17 @@ export class DescribeNatFirewallListRequest extends $dara.Model {
   proxyId?: string;
   /**
    * @remarks
-   * The name of the NAT firewall. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). The name cannot start with an underscore.
+   * The name of the NAT firewall. The name must be 4 to 50 characters in length. It can contain letters, digits, and underscores (_). It cannot start with an underscore (_).
    * 
    * @example
-   * proxy-******
+   * nat-firewall
    */
   proxyName?: string;
   /**
    * @remarks
-   * The region ID of the virtual private cloud (VPC).
+   * The region ID of the VPC.
+   * 
+   * > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * @example
    * cn-hangzhou
@@ -73,15 +77,21 @@ export class DescribeNatFirewallListRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The status of the NAT firewall. Valid values:
+   * The status of the Cloud Firewall. Valid values:
    * 
-   * *   configuring
-   * *   deleting
-   * *   normal
-   * *   abnormal
-   * *   opening
-   * *   closing
-   * *   closed
+   * - configuring: The firewall is being created.
+   * 
+   * - deleting: The firewall is being deleted.
+   * 
+   * - normal: The firewall is working as expected.
+   * 
+   * - abnormal: The firewall is not working as expected.
+   * 
+   * - opening: The firewall is being enabled.
+   * 
+   * - closing: The firewall is being disabled.
+   * 
+   * - closed: The firewall is disabled.
    * 
    * @example
    * normal
@@ -89,7 +99,7 @@ export class DescribeNatFirewallListRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the VPC instance.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****

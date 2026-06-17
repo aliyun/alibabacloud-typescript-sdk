@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceMembersResponseBodyMembers extends $dara.Model {
   /**
    * @remarks
-   * The time when the member was added to Cloud Firewall. The value is a timestamp. Unit: seconds.
+   * The time when the member account was added to Cloud Firewall. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1615189819
@@ -13,7 +13,7 @@ export class DescribeInstanceMembersResponseBodyMembers extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The remarks of the member.
+   * The description of the Cloud Firewall member account.
    * 
    * @example
    * renewal
@@ -21,7 +21,7 @@ export class DescribeInstanceMembersResponseBodyMembers extends $dara.Model {
   memberDesc?: string;
   /**
    * @remarks
-   * The name of the member.
+   * The name of the Cloud Firewall member account.
    * 
    * @example
    * cloudfirewall_2
@@ -29,10 +29,11 @@ export class DescribeInstanceMembersResponseBodyMembers extends $dara.Model {
   memberDisplayName?: string;
   /**
    * @remarks
-   * The status of the member. Valid values:
+   * The status of the Cloud Firewall member account. Valid values:
    * 
-   * *   **normal**
-   * *   **deleting**
+   * - **normal**: Normal
+   * 
+   * - **deleting**: Deleting
    * 
    * @example
    * normal
@@ -40,7 +41,7 @@ export class DescribeInstanceMembersResponseBodyMembers extends $dara.Model {
   memberStatus?: string;
   /**
    * @remarks
-   * The UID of the member.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 258039427902****
@@ -48,7 +49,7 @@ export class DescribeInstanceMembersResponseBodyMembers extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The time when the member was last modified. The value is a timestamp. Unit: seconds.
+   * The time when the member account was last modified. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1615189819
@@ -88,7 +89,7 @@ export class DescribeInstanceMembersResponseBodyMembers extends $dara.Model {
 export class DescribeInstanceMembersResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -96,7 +97,7 @@ export class DescribeInstanceMembersResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -104,7 +105,7 @@ export class DescribeInstanceMembersResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of the members.
+   * The total number of Cloud Firewall member accounts.
    * 
    * @example
    * 20
@@ -138,7 +139,7 @@ export class DescribeInstanceMembersResponseBodyPageInfo extends $dara.Model {
 export class DescribeInstanceMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the member.
+   * The information about the Cloud Firewall member accounts.
    */
   members?: DescribeInstanceMembersResponseBodyMembers[];
   /**
@@ -148,7 +149,7 @@ export class DescribeInstanceMembersResponseBody extends $dara.Model {
   pageInfo?: DescribeInstanceMembersResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A531AE1A-FBA2-48B6-BAB8-84D02BD409EE

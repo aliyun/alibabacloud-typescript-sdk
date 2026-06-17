@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallListRequest extends $dara.Model {
   /**
    * @remarks
-   * The sub-type of the connection. Valid values:
+   * The subtype of the connection. Valid values:
    * 
-   * *   **vpc2vpc**: Express Connect connection
-   * *   **vpcpeer**: peer connection
+   * - **vpc2vpc**: Express Connect.
+   * 
+   * - **vpcpeer**: peering connection.
    * 
    * @example
    * vpcpeer
@@ -16,9 +17,9 @@ export class DescribeVpcFirewallListRequest extends $dara.Model {
   connectSubType?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
-   * Pages start from page **1**. Default value: **1**.
+   * Default value: **1**.
    * 
    * @example
    * 1
@@ -28,10 +29,13 @@ export class DescribeVpcFirewallListRequest extends $dara.Model {
    * @remarks
    * The status of the VPC firewall. Valid values:
    * 
-   * *   **opened**: The VPC firewall is enabled.
-   * *   **closed**: The VPC firewall is disabled.
-   * *   **notconfigured**: The VPC firewall is not configured.
-   * *   **configured**: The VPC firewall is configured.
+   * - **opened**: The firewall is enabled.
+   * 
+   * - **closed**: The firewall is disabled.
+   * 
+   * - **notconfigured**: The firewall is not configured.
+   * 
+   * - **configured**: The firewall is configured.
    * 
    * > If you do not specify this parameter, VPC firewalls in all states are queried.
    * 
@@ -41,10 +45,11 @@ export class DescribeVpcFirewallListRequest extends $dara.Model {
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -52,7 +57,7 @@ export class DescribeVpcFirewallListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member that is managed by your Alibaba Cloud account.
+   * The UID of the member account.
    * 
    * @example
    * 258039427902****
@@ -60,7 +65,7 @@ export class DescribeVpcFirewallListRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Default value: **10**. Maximum value: **50**.
    * 
@@ -80,7 +85,7 @@ export class DescribeVpcFirewallListRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPC.
    * 
-   * > For more information about the regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * > For more information about the regions where Cloud Firewall is supported, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * @example
    * cn-hangzhou
@@ -99,12 +104,12 @@ export class DescribeVpcFirewallListRequest extends $dara.Model {
    * The instance name of the VPC firewall.
    * 
    * @example
-   * Test firewall
+   * test-vpc-firewall
    */
   vpcFirewallName?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****

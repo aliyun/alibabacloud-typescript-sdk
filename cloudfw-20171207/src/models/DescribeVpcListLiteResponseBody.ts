@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcListLiteResponseBodyVpcList extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the VPC.
+   * The ID of the region to which the VPC belongs.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class DescribeVpcListLiteResponseBodyVpcList extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC.
    * 
    * @example
    * vpc-wz9dqhljd10fk0b4eh885
@@ -21,7 +21,7 @@ export class DescribeVpcListLiteResponseBodyVpcList extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The instance name of the VPC.
    * 
    * @example
    * Cloud_Firewall_VPC
@@ -63,7 +63,7 @@ export class DescribeVpcListLiteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the VPCs.
+   * The list of VPCs.
    */
   vpcList?: DescribeVpcListLiteResponseBodyVpcList[];
   static names(): { [key: string]: string } {

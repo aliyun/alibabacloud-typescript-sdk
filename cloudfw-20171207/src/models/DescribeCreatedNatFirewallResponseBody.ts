@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCreatedNatFirewallResponseBodyCreatedNatFirewalls extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the NAT firewall.
+   * 
    * @example
    * cfw-adk2ad45sf4t8****
    */
   natFirewallId?: string;
   /**
+   * @remarks
+   * The ID of the NAT Gateway.
+   * 
    * @example
    * ngw-uf6i0zkjtz4t2sttf****
    */
   natGatewayId?: string;
   /**
+   * @remarks
+   * The name of the NAT Gateway.
+   * 
    * @example
    * ngw-text
    */
@@ -44,8 +53,15 @@ export class DescribeCreatedNatFirewallResponseBodyCreatedNatFirewalls extends $
 }
 
 export class DescribeCreatedNatFirewallResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of the created NAT firewalls.
+   */
   createdNatFirewalls?: DescribeCreatedNatFirewallResponseBodyCreatedNatFirewalls[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 072B5287-8A85-529E-BD47-F8AC2DB1****
    */

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable basic protection. Valid values:
+   * The switch for basic policies. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enable.
+   * 
+   * - **0**: Disable.
    * 
    * @example
    * 1
@@ -16,10 +17,11 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   basicRules?: number;
   /**
    * @remarks
-   * Specifies whether to enable threat intelligence. Valid values:
+   * The switch for threat intelligence. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enable.
+   * 
+   * - **0**: Disable.
    * 
    * @example
    * 0
@@ -27,10 +29,11 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   ctiRules?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default)
-   * *   **en**
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -38,7 +41,7 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum amount of traffic that can be processed by the sensitive data leak detection feature each day.
+   * The daily traffic limit for sensitive data detection.
    * 
    * @example
    * 100
@@ -46,10 +49,11 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   maxSdl?: number;
   /**
    * @remarks
-   * Specifies whether to enable virtual patching. Valid values:
+   * The switch for virtual patching. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enable.
+   * 
+   * - **0**: Disable.
    * 
    * @example
    * 1
@@ -57,11 +61,13 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   patchRules?: number;
   /**
    * @remarks
-   * The level of the rule group for the IPS. Valid values:
+   * The IPS rule group. Valid values:
    * 
-   * *   **1**: loose
-   * *   **2**: medium
-   * *   **3**: strict
+   * - **1**: Loose rule group.
+   * 
+   * - **2**: Medium rule group.
+   * 
+   * - **3**: Strict rule group.
    * 
    * @example
    * 1
@@ -71,8 +77,9 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
    * @remarks
    * The mode of the IPS. Valid values:
    * 
-   * *   **1**: block mode
-   * *   **0**: monitor mode
+   * - **1**: Block Mode.
+   * 
+   * - **0**: Monitor Mode.
    * 
    * This parameter is required.
    * 

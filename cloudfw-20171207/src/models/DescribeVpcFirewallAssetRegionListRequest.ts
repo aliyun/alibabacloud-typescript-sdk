@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVpcFirewallAssetRegionListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The UID of the member account.
+   * 
    * @example
    * 258039427902****
    */
   memberUid?: string;
   /**
+   * @remarks
+   * The instance ID of the VPC border firewall.
+   * 
    * @example
    * vfw-m5e7dbc4y****
    */

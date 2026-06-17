@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddDnsFirewallPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the access control list.
+   * 
    * @example
    * f88dae6f-XXX-XXX-613de9ab2be8
    */
   aclUuid?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 71209DFE-XXX-XXX-52B4A4E9DA3B
    */

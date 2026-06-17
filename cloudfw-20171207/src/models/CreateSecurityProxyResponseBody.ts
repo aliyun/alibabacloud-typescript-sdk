@@ -8,15 +8,15 @@ export class CreateSecurityProxyResponseBody extends $dara.Model {
    * The ID of the NAT firewall.
    * 
    * @example
-   * proxy-nat97ac4d7cc3834a5daf40
+   * proxy-nat97a******
    */
   proxyId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 15FCCC52-1E23-57AE-B5EF-3E00A3DC3CAB
+   * 15FCCC52-1E23-57AE-B5EF-3E00A3******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

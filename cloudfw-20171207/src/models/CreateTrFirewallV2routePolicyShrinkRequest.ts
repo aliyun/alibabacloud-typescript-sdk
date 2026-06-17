@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The secondary traffic redirection instances.
+   * The list of destination network instances.
    */
   destCandidateListShrink?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The ID of the VPC firewall instance.
    * 
    * @example
    * vfw-tr-f8ce36689b224f77****
@@ -18,10 +18,11 @@ export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -29,27 +30,29 @@ export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The description of the traffic redirection instance.
+   * The description of the routing policy.
    * 
    * @example
-   * test
+   * Singapore Point to Multipoint
    */
   policyDescription?: string;
   /**
    * @remarks
-   * The name of the traffic redirection instance.
+   * The name of the routing policy.
    * 
    * @example
-   * TEST_VPC_FW
+   * Singapore Point to Multipoint
    */
   policyName?: string;
   /**
    * @remarks
-   * The type of the traffic redirection scenario of the VPC firewall. Valid values:
+   * The traffic redirection scenario of the Enterprise Edition transit router. Valid values:
    * 
-   * *   **fullmesh**: interconnected instances
-   * *   **one_to_one**: instance to instance
-   * *   **end_to_end**: instance to instances
+   * - **fullmesh**: full-mesh
+   * 
+   * - **one_to_one**: point-to-point
+   * 
+   * - **end_to_end**: point-to-multipoint
    * 
    * @example
    * fullmesh
@@ -57,7 +60,7 @@ export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The primary traffic redirection instances.
+   * The list of source network instances.
    */
   srcCandidateListShrink?: string;
   static names(): { [key: string]: string } {

@@ -4,27 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAclAppsResponseBodyAclApps extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 1.0
    */
   appId?: number;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test
    */
   appName?: string;
   /**
+   * @remarks
+   * Indicates whether the application is common. Valid values:
+   * 
+   * - **1**: common
+   * 
+   * - **0**: not common
+   * 
+   * -
+   * 
    * @example
    * 1
    */
   popular?: number;
+  /**
+   * @remarks
+   * The protocols supported by the application.
+   */
   protocols?: string[];
   /**
+   * @remarks
+   * The risk level. Valid values:
+   * 
+   * - **1**: Low
+   * 
+   * - **2**: Medium
+   * 
+   * - **3**: High
+   * 
    * @example
    * 1
    */
   riskLevel?: number;
   /**
+   * @remarks
+   * Indicates whether the application supports `FQDN`. Valid values:
+   * 
+   * - **0**: No
+   * 
+   * - **1**: Yes
+   * 
    * @example
    * 1
    */
@@ -64,13 +99,23 @@ export class DescribeAclAppsResponseBodyAclApps extends $dara.Model {
 }
 
 export class DescribeAclAppsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of ACL applications.
+   */
   aclApps?: DescribeAclAppsResponseBodyAclApps[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9063AB86-6FFA-5B2D-A16D-697C966D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 20
    */

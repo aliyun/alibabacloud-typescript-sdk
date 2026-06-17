@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSecurityModeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 218.108.54.XX
    */

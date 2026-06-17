@@ -16,7 +16,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeResponseBody extends $dara.Model 
    * The ID of the routing policy.
    * 
    * @example
-   * policy-4d724d0139df48f18091
+   * policy-4d724d0139df48f1****
    */
   trFirewallRoutePolicyId?: string;
   static names(): { [key: string]: string } {

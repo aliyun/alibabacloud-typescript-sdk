@@ -15,13 +15,13 @@ export class CreateDownloadTaskResponseBody extends $dara.Model {
    * @remarks
    * The status of the task. Valid values:
    * 
-   * finish: The task finished. You can query the task to obtain the download link of the file.
+   * finish: The task is complete. You can query the task to get the file download link.
    * 
-   * start: The task start.
+   * start: The task has started.
    * 
-   * error: An error occurred.
+   * error: The task failed.
    * 
-   * expire: The task file is invalid and cannot be downloaded.
+   * expire: The task expired. The task file is invalid and cannot be downloaded.
    * 
    * @example
    * start
@@ -40,7 +40,7 @@ export class CreateDownloadTaskResponseBody extends $dara.Model {
    * The name of the file download task.
    * 
    * @example
-   * Internet Boundary Firewall Assets - IPv4
+   * test-IPv4
    */
   taskName?: string;
   static names(): { [key: string]: string } {

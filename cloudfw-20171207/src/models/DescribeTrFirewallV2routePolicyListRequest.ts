@@ -13,7 +13,7 @@ export class DescribeTrFirewallV2RoutePolicyListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The ID of the VPC firewall instance.
    * 
    * @example
    * vfw-tr-d5ba592ac6c84aff****
@@ -21,10 +21,11 @@ export class DescribeTrFirewallV2RoutePolicyListRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response message. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -32,7 +33,7 @@ export class DescribeTrFirewallV2RoutePolicyListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page. Default value: 10.
    * 
    * @example
    * 10
@@ -40,7 +41,7 @@ export class DescribeTrFirewallV2RoutePolicyListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the firewall routing policy.
    * 
    * @example
    * policy-7b66257c14e141fb****

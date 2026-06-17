@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList extends $dara.Model {
   /**
    * @remarks
-   * The destination address of the route.
+   * The destination CIDR block of the route.
    * 
    * @example
    * 192.168.10.0/25
@@ -21,7 +21,7 @@ export class DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList e
   trFirewallRouteNexthop?: string;
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the firewall routing policy.
    * 
    * @example
    * policy-04ecbbc6720d4f90****
@@ -29,7 +29,7 @@ export class DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList e
   trFirewallRoutePolicyId?: string;
   /**
    * @remarks
-   * The ID of the route table to which the route entry belongs.
+   * The ID of the route table to which the route belongs.
    * 
    * @example
    * vtb-2zeockxxxorv0mnhz****
@@ -65,7 +65,7 @@ export class DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList e
 export class DescribeTrFirewallsV2RouteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The route tables of Cloud Firewall.
+   * The list of route tables for the VPC firewall.
    */
   firewallRouteDetailList?: DescribeTrFirewallsV2RouteListResponseBodyFirewallRouteDetailList[];
   /**

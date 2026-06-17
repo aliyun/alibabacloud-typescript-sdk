@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccessInstanceZoneListResponseBodyZones extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the zone in the local language.
+   * 
+   * @example
+   * Beijing Area G
+   */
   localName?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-beijing-g
    */
@@ -34,11 +44,22 @@ export class DescribeAccessInstanceZoneListResponseBodyZones extends $dara.Model
 
 export class DescribeAccessInstanceZoneListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31306819-C4BC-56F3-BBE6-*****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of zones.
+   */
   zoneList?: string[];
+  /**
+   * @remarks
+   * The list of zones.
+   */
   zones?: DescribeAccessInstanceZoneListResponseBodyZones[];
   static names(): { [key: string]: string } {
     return {

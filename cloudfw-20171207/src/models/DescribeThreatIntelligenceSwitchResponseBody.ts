@@ -4,23 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeThreatIntelligenceSwitchResponseBodyCategoryList extends $dara.Model {
   /**
+   * @remarks
+   * The action of the rule. Valid values:
+   * 
+   * **alert**: Monitor.
+   * 
+   * **drop**: Block.
+   * 
    * @example
    * alert
    */
   action?: string;
+  /**
+   * @remarks
+   * The description of the category.
+   * 
+   * @example
+   * Tor Export Malicious IP
+   */
   categoryDescribe?: string;
   /**
+   * @remarks
+   * The ID of the threat intelligence category.
+   * 
    * @example
    * 3000037
    */
   categoryId?: string;
+  /**
+   * @remarks
+   * The name of the category.
+   * 
+   * @example
+   * Tor Export Malicious IP
+   */
   categoryName?: string;
   /**
+   * @remarks
+   * The ID of the parent threat intelligence category.
+   * 
    * @example
    * 123
    */
   categoryParentId?: string;
   /**
+   * @remarks
+   * The status of the switch. Valid values:
+   * 
+   * **1**: enabled.
+   * 
+   * **0**: disabled.
+   * 
    * @example
    * 1
    */
@@ -57,13 +91,23 @@ export class DescribeThreatIntelligenceSwitchResponseBodyCategoryList extends $d
 }
 
 export class DescribeThreatIntelligenceSwitchResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of threat intelligence categories.
+   */
   categoryList?: DescribeThreatIntelligenceSwitchResponseBodyCategoryList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 6B8E0379-2629-59A1-B811-96F3E****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 24
    */

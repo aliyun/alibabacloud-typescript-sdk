@@ -4,22 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVpcFirewallTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The content of the task.
+   * 
    * @example
    * test
    */
   content?: string;
   /**
+   * @remarks
+   * The language of the response message. Valid values:
+   * 
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The priority of the rule.
+   * 
    * @example
    * 1
    */
   priority?: string;
   /**
    * @remarks
+   * The name of the task.
+   * 
    * This parameter is required.
    * 
    * @example

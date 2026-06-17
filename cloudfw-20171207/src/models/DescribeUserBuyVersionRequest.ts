@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserBuyVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID. If the Instance ID is provided, the query will be based on this ID. If not provided, the latest instance will be queried by default.
+   * The ID of the instance. If you specify this parameter, the query is performed based on the instance ID. If you leave this parameter empty, the latest instance is queried by default.
    * 
    * @example
    * cfw_elasticity_public_cn-*******

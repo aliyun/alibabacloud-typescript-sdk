@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddAddressBookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the returned address book.
+   * The unique ID of the address book that is created.
    * 
    * @example
    * f04ac7ce-628b-4cb7-be61-310222b7****

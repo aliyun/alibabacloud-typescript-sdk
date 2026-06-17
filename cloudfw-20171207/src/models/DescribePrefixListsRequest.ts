@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrefixListsRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribePrefixListsRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address.
    * 
    * @example
    * 47.100.XX.XX

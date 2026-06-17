@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNetworkTrafficTopRatioResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The data name.
+   * 
    * @example
    * test
    */
   dataName?: string;
   /**
+   * @remarks
+   * The ratio.
+   * 
    * @example
    * 12
    */
@@ -38,17 +44,30 @@ export class DescribeNetworkTrafficTopRatioResponseBodyDataList extends $dara.Mo
 
 export class DescribeNetworkTrafficTopRatioResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of results returned.
+   * 
    * @example
    * 1
    */
   dataCount?: number;
+  /**
+   * @remarks
+   * The list of data values.
+   */
   dataList?: DescribeNetworkTrafficTopRatioResponseBodyDataList[];
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * in_src_ip
    */
   dataType?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C05D58A1-28A9-563A-BB59-5F7D1867****
    */

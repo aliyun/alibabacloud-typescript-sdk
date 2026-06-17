@@ -8,7 +8,7 @@ export class DescribeDownloadTaskTypeResponseBodyTaskTypeArray extends $dara.Mod
    * The name of the task type.
    * 
    * @example
-   * Internet Boundary Firewall Assets
+   * Internet Border Firewall Assets
    */
   taskName?: string;
   /**
@@ -53,12 +53,12 @@ export class DescribeDownloadTaskTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task types.
+   * The list of task types.
    */
   taskTypeArray?: DescribeDownloadTaskTypeResponseBodyTaskTypeArray[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 3

@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAssetStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request. Valid values:
-   * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * Language for the request and response messages. Valid values:- **zh**: Chinese- **en**: English
    * 
    * @example
    * zh
@@ -16,7 +13,7 @@ export class DescribeAssetStatisticRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * Source IP address of the requester.
    * 
    * @example
    * 112.239.XX.XX

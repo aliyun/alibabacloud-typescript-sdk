@@ -29,7 +29,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   assetsType?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number for a paged query.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end time when the public IP address was exposed. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1663640336
@@ -47,10 +47,11 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response message.
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -58,7 +59,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page for a paged query.
    * 
    * This parameter is required.
    * 
@@ -94,10 +95,13 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
    * @remarks
    * The risk level. If you leave this parameter empty, all risk levels are queried. Valid values:
    * 
-   * *   **3**: high risk
-   * *   **2**: medium risk
-   * *   **1**: low risk
-   * *   **0**: no risk
+   * - **3**: high
+   * 
+   * - **2**: medium
+   * 
+   * - **1**: low
+   * 
+   * - **0**: none
    * 
    * @example
    * 2
@@ -105,7 +109,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The application.
+   * The name of the application to query.
    * 
    * @example
    * SSH
@@ -113,7 +117,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time when the public IP address was exposed. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1681957629

@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAccessInstanceVpcListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The UID of the Alibaba Cloud account that owns the resource.
+   * 
    * @example
    * 135809047715****
    */
   memberUid?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +38,9 @@ export class DescribeAccessInstanceVpcListRequest extends $dara.Model {
    */
   regionNo?: string;
   /**
+   * @remarks
+   * The ID of the VPC instance.
+   * 
    * @example
    * vpc-j6cvhdscntzuvr0x****
    */

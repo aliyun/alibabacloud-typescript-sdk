@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePrivateDnsStatisticsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end of the domain name creation time. The value is a UNIX timestamp.
+   * 
    * @example
    * 1726305596
    */
   domainNameCreatedEndTime?: number;
   /**
+   * @remarks
+   * The start of the domain name creation time. The value is a UNIX timestamp.
+   * 
    * @example
    * 1725864531
    */

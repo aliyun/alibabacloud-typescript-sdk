@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNatFirewallControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 31306869-C4BC-56F3-BBE6-C377CF9C8E1C
+   * 31306819-C4BC-56F3-BBE6-*****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

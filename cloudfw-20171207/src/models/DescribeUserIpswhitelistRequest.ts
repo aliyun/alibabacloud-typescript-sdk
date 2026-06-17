@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserIPSWhitelistRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 47.100.XX.XX
    */

@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVpcFirewallAssetRegionListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of regions.
+   */
   regionNoList?: string[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 00933CCB-65A4-5E51-B180-3D154281****
    */

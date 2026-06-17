@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyAdvancedConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the strict mode is enabled for the access control policy. Valid values:
+   * The status of strict mode. Valid values:
    * 
-   * *   **on**: The strict mode is enabled.
-   * *   **off**: The strict mode is disabled.
+   * - **on**: Strict mode is enabled.
+   * - **off**: Strict mode is disabled.
    * 
    * @example
    * off

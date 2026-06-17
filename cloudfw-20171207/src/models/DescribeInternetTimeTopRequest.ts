@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTimeTopRequest extends $dara.Model {
   /**
    * @remarks
+   * The direction of the traffic.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,47 +14,73 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
    */
   direction?: string;
   /**
+   * @remarks
+   * The end of the query time range, specified as a Unix timestamp in seconds.
+   * 
    * @example
    * 1733796528
    */
   endTime?: string;
   /**
+   * @remarks
+   * The network type of the IP address.
+   * 
    * @example
    * Public
    */
   IPType?: string;
   /**
+   * @remarks
+   * The time interval in seconds.
+   * 
    * @example
    * 60
    */
   interval?: number;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return. The value must be between 1 and 50. Default value: 50.
+   * 
    * @example
    * 5
    */
   limit?: string;
   /**
+   * @remarks
+   * The NAT public IP address. If omitted, traffic data for all assets is returned.
+   * 
    * @example
    * 47.97.66.XXX
    */
   natIP?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The metric by which to sort the results.
+   * 
    * @example
    * in_bps
    */
   sort?: string;
   /**
    * @remarks
+   * The identifier for the trace source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,26 +88,41 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
    */
   sourceCode?: string;
   /**
+   * @remarks
+   * The source IP address.
+   * 
    * @example
    * 60.179.179.XXX
    */
   sourceIp?: string;
   /**
+   * @remarks
+   * The source IP address.
+   * 
    * @example
    * 8.153.18.XX
    */
   srcIP?: string;
   /**
+   * @remarks
+   * The start of the query time range, specified as a Unix timestamp in seconds.
+   * 
    * @example
    * 1749434787
    */
   startTime?: string;
   /**
+   * @remarks
+   * The traffic timestamp to query, specified as a Unix timestamp in seconds.
+   * 
    * @example
    * 1745222880
    */
   trafficTime?: string;
   /**
+   * @remarks
+   * The traffic type.
+   * 
    * @example
    * EIP_TRAFFIC
    */

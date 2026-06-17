@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInternetServiceNameListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 91B01BCD-DFB0-5CA8-9191-5B38C62****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of application names.
+   */
   serviceNameList?: string[];
   static names(): { [key: string]: string } {
     return {

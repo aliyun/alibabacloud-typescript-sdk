@@ -4,19 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePrivateDnsEndpointResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * pd-12345
    */
   accessInstanceId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 850A84D6************00090125EEB1
    */
   requestId?: string;
   /**
+   * @remarks
+   * The unique ID of the task.
+   * 
    * @example
    * 132
    */

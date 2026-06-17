@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number. The default value is **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeInstanceMembersRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The remarks of the member. The remarks must be 1 to 256 characters in length.
+   * The description of the Cloud Firewall member account. The description must be 1 to 256 characters in length.
    * 
    * @example
    * renewal
@@ -21,7 +21,7 @@ export class DescribeInstanceMembersRequest extends $dara.Model {
   memberDesc?: string;
   /**
    * @remarks
-   * The name of the member.
+   * The name of the Cloud Firewall member account.
    * 
    * @example
    * cloudfirewall_2
@@ -29,7 +29,7 @@ export class DescribeInstanceMembersRequest extends $dara.Model {
   memberDisplayName?: string;
   /**
    * @remarks
-   * The UID of the member.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 258039427902****
@@ -39,7 +39,7 @@ export class DescribeInstanceMembersRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * Default value: **20**.
+   * The default value is **20**.
    * 
    * @example
    * 20

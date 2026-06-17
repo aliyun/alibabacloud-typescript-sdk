@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTrFirewallV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A774E66E-B170-59FC-9AAF-3068B15E991F

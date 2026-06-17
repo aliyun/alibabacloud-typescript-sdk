@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetRuleHitCountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application module.
+   * 
    * @example
    * sg_server
    */
   module?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 706B2093-CBA0-51B2-BEBF-58903FC6****
    */

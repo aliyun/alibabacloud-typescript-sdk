@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesDestCandidateList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the secondary traffic redirection instance.
+   * The ID of the traffic redirection instance.
    * 
    * @example
    * vpc-2ze9epancaw8t4sha****
@@ -13,7 +13,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   candidateId?: string;
   /**
    * @remarks
-   * The type of the secondary traffic redirection instance.
+   * The type of the traffic redirection instance.
    * 
    * @example
    * VPC
@@ -45,7 +45,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
 export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesSrcCandidateList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the primary traffic redirection instance.
+   * The ID of the traffic redirection instance.
    * 
    * @example
    * vpc-2ze9epancaw8t4sha****
@@ -53,7 +53,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   candidateId?: string;
   /**
    * @remarks
-   * The type of the primary traffic redirection instance.
+   * The type of the traffic redirection instance.
    * 
    * @example
    * VPC
@@ -85,35 +85,40 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
 export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies extends $dara.Model {
   /**
    * @remarks
-   * The secondary traffic redirection instances.
+   * The list of destination traffic redirection instances.
    */
   destCandidateList?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesDestCandidateList[];
   /**
    * @remarks
-   * The description of the routing policy.
+   * The description of the policy.
    * 
    * @example
-   * test
+   * Point to multipoint
    */
   policyDescription?: string;
   /**
    * @remarks
-   * The name of the routing policy.
+   * The name of the policy.
    * 
    * @example
-   * TEST_VPC_FW
+   * Singapore Point to Multipoint
    */
   policyName?: string;
   /**
    * @remarks
-   * The status of the routing policy. Valid values:
+   * The status of the policy. Valid values:
    * 
-   * *   creating: The policy is being created.
-   * *   deleting: The policy is being deleted.
-   * *   opening: The policy is being enabled.
-   * *   opened: The policy is enabled.
-   * *   closing: The policy is being disabled.
-   * *   closed: The policy is disabled.
+   * - creating: The policy is being created.
+   * 
+   * - deleting: The policy is being deleted.
+   * 
+   * - opening: The policy is being enabled.
+   * 
+   * - opened: The policy is enabled.
+   * 
+   * - closing: The policy is being disabled.
+   * 
+   * - closed: The policy is disabled.
    * 
    * @example
    * opened
@@ -121,11 +126,13 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   policyStatus?: string;
   /**
    * @remarks
-   * The type of the traffic redirection scenario of the VPC firewall. Valid values:
+   * The type of traffic redirection scenario for the VPC firewall. The firewall is created for a transit router that belongs to an Enterprise Edition Cloud Enterprise Network (CEN) instance. Valid values:
    * 
-   * *   **fullmesh**: interconnected instances
-   * *   **one_to_one**: instance to instance
-   * *   **end_to_end**: instance to instances
+   * - **fullmesh**: full-mesh
+   * 
+   * - **one_to_one**: point-to-point
+   * 
+   * - **end_to_end**: point-to-multipoint
    * 
    * @example
    * fullmesh
@@ -133,12 +140,12 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   policyType?: string;
   /**
    * @remarks
-   * The primary traffic redirection instances.
+   * The list of source traffic redirection instances.
    */
   srcCandidateList?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesSrcCandidateList[];
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the firewall routing policy.
    * 
    * @example
    * policy-7b66257c14e141fb****
@@ -194,7 +201,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -202,7 +209,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $dara.Model
   totalCount?: string;
   /**
    * @remarks
-   * The routing policies.
+   * The list of firewall routing policies.
    */
   trFirewallRoutePolicies?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies[];
   static names(): { [key: string]: string } {

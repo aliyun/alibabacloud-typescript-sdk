@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * All
    */
   categoryId?: string;
   /**
+   * @remarks
+   * The destination type.
+   * 
    * @example
    * domain
    */
   dstType?: string;
   /**
    * @remarks
+   * The end time of the query. This is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,17 +30,25 @@ export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The language of the response message.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 59.82.45.XXX
    */
   sourceIp?: string;
   /**
    * @remarks
+   * The start time of the query. This is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +56,9 @@ export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The fixed category ID.
+   * 
    * @example
    * All
    */

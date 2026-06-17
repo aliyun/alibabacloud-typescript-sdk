@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAccessInstanceRegionListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The status of the synchronization node.
+   * 
    * @example
    * ready
    */
   accessInstanceStatus?: string;
   /**
+   * @remarks
+   * The type of the synchronization node. Valid values:
+   * 
+   * - **PrivateDns**: private DNS.
+   * 
+   * - **AckClusterConnector**: ACK cluster connector.
+   * 
    * @example
    * AckClusterConnector
    */

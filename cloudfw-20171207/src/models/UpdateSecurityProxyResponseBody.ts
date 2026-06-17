@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSecurityProxyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application module.
+   * 
    * @example
    * ips_server
    */
   module?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 9E2CCAB4-E789-5BC9-88DC-5CE0358E****
    */

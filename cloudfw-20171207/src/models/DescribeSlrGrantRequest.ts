@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSlrGrantRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the request and response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the request.
+   * 
    * @example
    * 113.225.22.XXX
    */

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityProxyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 7447795A-39AB-52CB-8F92-128DF4898F36
+   * 7447795A-39AB-52CB-8F92-128DF******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRegionResourceTypeAutoEnableRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response message.
+   * 
    * @example
    * zh
    */

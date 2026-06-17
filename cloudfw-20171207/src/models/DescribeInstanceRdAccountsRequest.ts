@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of the page to return.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The language of the request and response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The description of the member account.
+   * 
    * @example
    * renewal
    */
   memberDesc?: string;
   /**
+   * @remarks
+   * The display name of the member account.
+   * 
    * @example
    * cloudfirewall_2
    */
   memberDisplayName?: string;
   /**
+   * @remarks
+   * The UID of the member account.
+   * 
    * @example
    * 258039427902****
    */
   memberUid?: string;
   /**
+   * @remarks
+   * The number of the page to return.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The source IP address of the request.
+   * 
    * @example
    * 47.100.170.XXX
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUnprotectedPortTrendResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The number of blocks.
+   * 
    * @example
    * 1
    */
   count?: number;
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 1659405600
    */
@@ -37,13 +43,23 @@ export class DescribeUnprotectedPortTrendResponseBodyDataList extends $dara.Mode
 }
 
 export class DescribeUnprotectedPortTrendResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data.
+   */
   dataList?: DescribeUnprotectedPortTrendResponseBodyDataList[];
   /**
+   * @remarks
+   * The time interval.
+   * 
    * @example
    * 60
    */
   interval?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * E599A84E-CD22-5E42-A2A9-01A254AC****
    */

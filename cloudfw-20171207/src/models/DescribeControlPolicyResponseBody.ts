@@ -7,9 +7,11 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
    * @remarks
    * The action that Cloud Firewall performs on the traffic. Valid values:
    * 
-   * *   **accept**: allows the traffic.
-   * *   **drop**: denies the traffic.
-   * *   **log**: monitors the traffic.
+   * - **accept**: Allow
+   * 
+   * - **drop**: Deny
+   * 
+   * - **log**: Monitor
    * 
    * @example
    * accept
@@ -17,7 +19,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   aclAction?: string;
   /**
    * @remarks
-   * The UUID of the access control policy.
+   * The unique ID of the access control policy.
    * 
    * @example
    * 00281255-d220-4db1-8f4f-c4df221a****
@@ -25,7 +27,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The application ID in the access control policy.
+   * The application ID for the traffic in the access control policy.
    * 
    * @example
    * 10***
@@ -33,23 +35,37 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The application type supported by the access control policy. We recommend that you specify ApplicationNameList. Valid values:
+   * The application type supported by the access control policy. Use \\`ApplicationNameList\\` instead. Valid values:
    * 
-   * *   **FTP**
-   * *   **HTTP**
-   * *   **HTTPS**
-   * *   **Memcache**
-   * *   **MongoDB**
-   * *   **MQTT**
-   * *   **MySQL**
-   * *   **RDP**
-   * *   **Redis**
-   * *   **SMTP**
-   * *   **SMTPS**
-   * *   **SSH**
-   * *   **SSL**
-   * *   **VNC**
-   * *   **ANY**: all types of applications
+   * - **FTP**
+   * 
+   * - **HTTP**
+   * 
+   * - **HTTPS**
+   * 
+   * - **Memcache**
+   * 
+   * - **MongoDB**
+   * 
+   * - **MQTT**
+   * 
+   * - **MySQL**
+   * 
+   * - **RDP**
+   * 
+   * - **Redis**
+   * 
+   * - **SMTP**
+   * 
+   * - **SMTPS**
+   * 
+   * - **SSH**
+   * 
+   * - **SSL**
+   * 
+   * - **VNC**
+   * 
+   * - **ANY** (all application types)
    * 
    * @example
    * HTTP
@@ -57,12 +73,12 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The application names.
+   * The list of application names.
    */
   applicationNameList?: string[];
   /**
    * @remarks
-   * The time when the access control policy was created.
+   * The time when the policy was created. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1761062400
@@ -78,7 +94,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination port in the access control policy.
+   * The destination port for the traffic in the access control policy.
    * 
    * @example
    * 80
@@ -86,7 +102,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   destPort?: string;
   /**
    * @remarks
-   * The name of the destination port address book in the access control policy.
+   * The name of the destination port address book for the traffic in the access control policy.
    * 
    * @example
    * my_port_group
@@ -94,15 +110,16 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   destPortGroup?: string;
   /**
    * @remarks
-   * The ports in the destination port address book.
+   * The list of ports in the destination port address book.
    */
   destPortGroupPorts?: string[];
   /**
    * @remarks
-   * The type of the destination port in the access control policy. Valid values:
+   * The destination port type for the traffic in the access control policy. Valid values:
    * 
-   * *   **port**: port
-   * *   **group**: port address book
+   * - **port**: port
+   * 
+   * - **group**: port address book
    * 
    * @example
    * port
@@ -110,12 +127,15 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   destPortType?: string;
   /**
    * @remarks
-   * The destination address in the access control policy. The value of this parameter varies based on the value of DestinationType.
+   * The destination address in the access control policy. The value of this parameter varies based on the value of the \\`DestinationType\\` parameter. Valid values:
    * 
-   * *   If the value of **DestinationType** is **net**, the value of Destination is a CIDR block. Example: 192.0.XX.XX/24.
-   * *   If the value of **DestinationType** is **domain**, the value of Destination is a domain name. Example: aliyuncs.com.
-   * *   If the value of **DestinationType** is **group**, the value of Destination is the name of an address book. Example: db_group.
-   * *   If the value of **DestinationType** is **location**, the value of Destination is the name of a location. For more information about location codes, see AddControlPolicy. Example: ["BJ11", "ZB"].
+   * - If **DestinationType** is **net**, the destination address is a CIDR block. Example: 192.0.XX.XX/24.
+   * 
+   * - If **DestinationType** is **domain**, the destination address is a domain name. Example: aliyuncs.com.
+   * 
+   * - If **DestinationType** is **group**, the destination address is the name of an address book. Example: db_group.
+   * 
+   * - If **DestinationType** is **location**, the destination address is a region name. For more information about region codes, see AddControlPolicy. Example: ["BJ11", "ZB"].
    * 
    * @example
    * 192.0.XX.XX/24
@@ -123,18 +143,22 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   destination?: string;
   /**
    * @remarks
-   * The CIDR blocks in the destination address book.
+   * The list of CIDR blocks in the destination address book of the access control policy.
    */
   destinationGroupCidrs?: string[];
   /**
    * @remarks
    * The type of the destination address book in the access control policy. Valid values:
    * 
-   * *   **ip**: an address book that includes one or more IP addresses
-   * *   **tag**: an ECS tag-based address book that includes the IP addresses of the ECS instances with one or more specific tags
-   * *   **domain**: an address book that includes one or more domain names
-   * *   **threat**: an address book that includes one or more malicious IP addresses or domain names
-   * *   **backsrc**: an address book that includes one or more back-to-origin addresses of Anti-DDoS Pro or Anti-DDoS Premium instances or WAF instances
+   * - **ip**: An IP address book that contains one or more CIDR blocks.
+   * 
+   * - **tag**: An ECS tag-based address book that contains the IP addresses of the ECS instances with one or more tags.
+   * 
+   * - **domain**: A domain name address book that contains one or more domain names.
+   * 
+   * - **threat**: A threat intelligence address book that contains one or more malicious IP addresses or domain names.
+   * 
+   * - **backsrc**: An origin URL address book that contains the origin URLs of one or more Anti-DDoS or WAF instances.
    * 
    * @example
    * ip
@@ -142,12 +166,15 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   destinationGroupType?: string;
   /**
    * @remarks
-   * The type of the destination address in the access control policy. Valid values:
+   * The destination address type in the access control policy. Valid values:
    * 
-   * *   **net**: CIDR block
-   * *   **group**: address book
-   * *   **domain**: domain name
-   * *   **location**: location
+   * - **net**: destination CIDR block
+   * 
+   * - **group**: destination address book
+   * 
+   * - **domain**: destination domain name
+   * 
+   * - **location**: destination region
    * 
    * @example
    * net
@@ -155,10 +182,11 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The direction of the traffic to which the access control policy applies. Valid values:
+   * The traffic direction of the access control policy. Valid values:
    * 
-   * *   **in**: inbound traffic
-   * *   **out**: outbound traffic
+   * - **in**: inbound traffic
+   * 
+   * - **out**: outbound traffic
    * 
    * @example
    * in
@@ -166,7 +194,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The DNS resolution results.
+   * The result of the DNS resolution.
    * 
    * @example
    * 192.0.XX.XX,192.0.XX.XX
@@ -176,7 +204,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   dnsResult?: string;
   /**
    * @remarks
-   * The time when the Domain Name System (DNS) resolution was performed. The value is a timestamp. Unit: seconds.
+   * The timestamp of the DNS resolution. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1579261141
@@ -184,11 +212,13 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   dnsResultTime?: number;
   /**
    * @remarks
-   * The domain name resolution method of the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
+   * The domain name resolution method of the access control policy. Valid values:
    * 
-   * * **FQDN**: fully qualified domain name (FQDN)-based resolution
-   * * **DNS**: DNS-based dynamic resolution
-   * * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
+   * - **FQDN**: FQDN-based
+   * 
+   * - **DNS**: DNS-based dynamic resolution
+   * 
+   * - **FQDN_AND_DNS**: FQDN- and DNS-based dynamic resolution
    * 
    * @example
    * FQDN
@@ -196,9 +226,9 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   domainResolveType?: string;
   /**
    * @remarks
-   * The time when the access control policy stops taking effect. The value is a timestamp. Unit: seconds. The end time must be on the hour or on the half hour, and at least 30 minutes later than the start time.
+   * The end time of the policy validity period for the access control policy. The value is a UNIX timestamp. The time must be on the hour or half-hour, and at least 30 minutes later than the start time.
    * 
-   * >  If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter must be specified.
+   * > If \\`RepeatType\\` is \\`Permanent\\`, \\`EndTime\\` is empty. If \\`RepeatType\\` is \\`None\\`, \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`, this parameter is required.
    * 
    * @example
    * 1694764800
@@ -206,7 +236,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The time when the access control policy was last hit. The value is a timestamp. Unit: seconds.
+   * The timestamp of the last hit. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1579261141
@@ -222,10 +252,11 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   hitTimes?: number;
   /**
    * @remarks
-   * The IP version used in the access control policy. Valid values:
+   * The IP version supported. Valid values:
    * 
-   * *   **4**: IPv4
-   * *   **6**: IPv6
+   * - **4**: IPv4 address
+   * 
+   * - **6**: IPv6 address
    * 
    * @example
    * 6
@@ -233,7 +264,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   ipVersion?: number;
   /**
    * @remarks
-   * The time when the access control policy was modified.
+   * The time when the policy was last modified. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1761062400
@@ -243,7 +274,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
    * @remarks
    * The priority of the access control policy.
    * 
-   * The priority value starts from 1. A smaller priority value indicates a higher priority.
+   * The priority value starts from 1 and increases sequentially. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -251,12 +282,15 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   order?: number;
   /**
    * @remarks
-   * The protocol type in the access control policy. Valid values:
+   * The protocol type of the traffic in the access control policy. Valid values:
    * 
-   * *   **ANY**
-   * *   **TCP**
-   * *   **UDP**
-   * *   **ICMP**
+   * - **ANY**
+   * 
+   * - **TCP**
+   * 
+   * - **UDP**
+   * 
+   * - **ICMP**
    * 
    * @example
    * TCP
@@ -264,10 +298,11 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   proto?: string;
   /**
    * @remarks
-   * The status of the access control policy. By default, an access control policy is enabled after it is created. Valid values:
+   * The status of the access control policy. The policy is enabled by default after it is created. Valid values:
    * 
-   * *   **true**: enabled
-   * *   **false**: disabled
+   * - **true**: The access control policy is enabled.
+   * 
+   * - **false**: The access control policy is disabled.
    * 
    * @example
    * true
@@ -275,23 +310,28 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   release?: string;
   /**
    * @remarks
-   * The days of a week or of a month on which the access control policy takes effect.
+   * The collection of recurring dates for the policy validity period of the access control policy.
    * 
-   * *   If RepeatType is set to `Permanent`, `None`, or `Daily`, this parameter is left empty. Example: [].
-   * *   If RepeatType is set to Weekly, this parameter must be specified. Example: [0, 6].
+   * - If \\`RepeatType\\` is \\`Permanent\\`, \\`None\\`, or \\`Daily\\`, \\`RepeatDays\\` is an empty collection.
+   *   Example: []
    * 
-   * >  If RepeatType is set to Weekly, the fields in the value of RepeatDays cannot be repeated.
+   * - If \\`RepeatType\\` is \\`Weekly\\`, \\`RepeatDays\\` cannot be empty.
+   *   Example: [0, 6]
    * 
-   * *   If RepeatType is set to `Monthly`, this parameter must be specified. Example: [1, 31].
+   * > If \\`RepeatType\\` is set to \\`Weekly\\`, \\`RepeatDays\\` cannot contain duplicate values.
    * 
-   * >  If RepeatType is set to Monthly, the fields in the value of RepeatDays cannot be repeated.
+   * - If \\`RepeatType\\` is \\`Monthly\\`, \\`RepeatDays\\` cannot be empty.
+   *   Example: [1, 31]
+   * 
+   * > If \\`RepeatType\\` is set to \\`Monthly\\`, \\`RepeatDays\\` cannot contain duplicate values.
    */
   repeatDays?: number[];
   /**
    * @remarks
-   * The point in time when the recurrence ends. Example: 23:30. The value must be on the hour or on the half hour, and at least 30 minutes later than the start time.
+   * The recurring end time for the policy validity period of the access control policy. Example: \\`23:30\\`. The time must be on the hour or half-hour, and at least 30 minutes later than the recurring start time.
    * 
-   * >  If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter must be specified.
+   * > If \\`RepeatType\\` is \\`Permanent\\` or \\`None\\`, \\`RepeatEndTime\\` is empty. If \\`RepeatType\\` is \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`, this parameter is required.
+   * > The time is in the HH:mm format (24-hour). Examples: \\`08:00\\` and \\`23:30\\`.
    * 
    * @example
    * 23:30
@@ -299,9 +339,10 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   repeatEndTime?: string;
   /**
    * @remarks
-   * The point in time when the recurrence starts. Example: 08:00. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
+   * The recurring start time for the policy validity period of the access control policy. Example: \\`08:00\\`. The time must be on the hour or half-hour, and at least 30 minutes earlier than the recurring end time.
    * 
-   * >  If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter must be specified.
+   * > If \\`RepeatType\\` is \\`Permanent\\` or \\`None\\`, \\`RepeatStartTime\\` is empty. If \\`RepeatType\\` is \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`, this parameter is required.
+   * > The time is in the HH:mm format (24-hour). Examples: \\`08:00\\` and \\`23:30\\`.
    * 
    * @example
    * 08:00
@@ -309,13 +350,17 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   repeatStartTime?: string;
   /**
    * @remarks
-   * The recurrence type based on which the access control policy takes effect. Valid values:
+   * The recurrence type for the policy validity period of the access control policy. Valid values:
    * 
-   * *   **Permanent** (default): The policy always takes effect.
-   * *   **None**: The policy takes effect for only once.
-   * *   **Daily**: The policy takes effect on a daily basis.
-   * *   **Weekly**: The policy takes effect on a weekly basis.
-   * *   **Monthly**: The policy takes effect on a monthly basis.
+   * - **Permanent** (default): Always
+   * 
+   * - **None**: One-time
+   * 
+   * - **Daily**: Daily
+   * 
+   * - **Weekly**: Weekly
+   * 
+   * - **Monthly**: Monthly
    * 
    * @example
    * Permanent
@@ -325,9 +370,11 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
    * @remarks
    * The source address in the access control policy. Valid values:
    * 
-   * *   If **SourceType** is set to `net`, the value of Source is a CIDR block. Example: 192.0.XX.XX/24.
-   * *   If **SourceType** is set to `group`, the value of Source is the name of an address book. Example: db_group.
-   * *   If **SourceType** is set to `location`, the value of Source is a location. For more information about location codes, see [AddControlPolicy](https://help.aliyun.com/document_detail/138867.html). Example: ["BJ11", "ZB"].
+   * - If **SourceType** is `net`, the source address is a CIDR block. Example: 192.0.XX.XX/24.
+   * 
+   * - If **SourceType** is `group`, the source address is the name of a source address book. Example: db_group.
+   * 
+   * - If **SourceType** is `location`, the source address is a region. For more information about region codes, see [AddControlPolicy](https://help.aliyun.com/document_detail/138867.html). Example: ["BJ11", "ZB"].
    * 
    * @example
    * 192.0.XX.XX/24
@@ -335,18 +382,22 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The CIDR blocks in the source address book.
+   * The list of CIDR blocks in the source address book of the access control policy.
    */
   sourceGroupCidrs?: string[];
   /**
    * @remarks
    * The type of the source address book in the access control policy. Valid values:
    * 
-   * *   **ip**: an address book that includes one or more IP addresses
-   * *   **tag**: an Elastic Compute Service (ECS) tag-based address book that includes the IP addresses of the ECS instances with one or more specific tags
-   * *   **domain**: an address book that includes one or more domain names
-   * *   **threat**: an address book that includes one or more malicious IP addresses or domain names
-   * *   **backsrc**: an address book that includes one or more back-to-origin addresses of Anti-DDoS Pro or Anti-DDoS Premium instances or Web Application Firewall (WAF) instances
+   * - **ip**: An IP address book that contains one or more CIDR blocks.
+   * 
+   * - **tag**: An ECS tag-based address book that contains the IP addresses of the ECS instances with one or more tags.
+   * 
+   * - **domain**: A domain name address book that contains one or more domain names.
+   * 
+   * - **threat**: A threat intelligence address book that contains one or more malicious IP addresses or domain names.
+   * 
+   * - **backsrc**: An origin URL address book that contains the origin URLs of one or more Anti-DDoS or WAF instances.
    * 
    * @example
    * ip
@@ -354,11 +405,13 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   sourceGroupType?: string;
   /**
    * @remarks
-   * The type of the source address in the access control policy. Valid values:
+   * The source address type in the access control policy. Valid values:
    * 
-   * *   **net**: CIDR block
-   * *   **group**: address book
-   * *   **location**: location
+   * - **net**: source CIDR block
+   * 
+   * - **group**: source address book
+   * 
+   * - **location**: source region
    * 
    * @example
    * net
@@ -366,17 +419,18 @@ export class DescribeControlPolicyResponseBodyPolicys extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy. The quota that is consumed by an access control policy is calculated by using the following formula: Quota that is consumed by an access control policy = Number of source addresses (number of CIDR blocks or regions) × Number of destination addresses (number of CIDR blocks, regions, or domain names) × Number of port ranges × Number of applications.
+   * The number of specification entries that the access control policy consumes. This is the sum of entries consumed by each policy.
+   * The number of entries for a single policy is calculated as: Number of source addresses (CIDR blocks or regions) × Number of destination addresses (CIDR blocks, regions, or domain names) × Number of port ranges × Number of applications.
    * 
    * @example
-   * 10,000
+   * 10000
    */
   spreadCnt?: number;
   /**
    * @remarks
-   * The time when the access control policy starts to take effect. The value is a timestamp. Unit: seconds. The start time must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
+   * The start time of the policy validity period for the access control policy. The value is a UNIX timestamp. The time must be on the hour or half-hour, and at least 30 minutes earlier than the end time.
    * 
-   * >  If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter must be specified.
+   * > If \\`RepeatType\\` is \\`Permanent\\`, \\`StartTime\\` is empty. If \\`RepeatType\\` is \\`None\\`, \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`, this parameter is required.
    * 
    * @example
    * 1694761200
@@ -522,7 +576,7 @@ export class DescribeControlPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the returned access control policies.
+   * The total number of access control policies.
    * 
    * @example
    * 100

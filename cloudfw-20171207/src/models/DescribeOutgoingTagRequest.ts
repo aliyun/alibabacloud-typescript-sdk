@@ -4,12 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOutgoingTagRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the destination. Valid values:
+   * 
+   * - **Domain**: domain name.
+   * 
+   * - **DstIP**: IP address.
+   * 
    * @example
    * Domain
    */
   dstType?: string;
   /**
    * @remarks
+   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,17 +26,29 @@ export class DescribeOutgoingTagRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The language of the content. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 60.179.226.XXX
    */
   sourceIp?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +56,9 @@ export class DescribeOutgoingTagRequest extends $dara.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The ID of the tag.
+   * 
    * @example
    * 103208
    */

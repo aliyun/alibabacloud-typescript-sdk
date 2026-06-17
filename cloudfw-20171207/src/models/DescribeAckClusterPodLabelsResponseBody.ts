@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAckClusterPodLabelsResponseBodyAckLabels extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * app
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * storage-operator
    */
@@ -37,8 +43,15 @@ export class DescribeAckClusterPodLabelsResponseBodyAckLabels extends $dara.Mode
 }
 
 export class DescribeAckClusterPodLabelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of ACK labels.
+   */
   ackLabels?: DescribeAckClusterPodLabelsResponseBodyAckLabels[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6169C0A4-B91A-5D48-AE4D-B9432D15****
    */

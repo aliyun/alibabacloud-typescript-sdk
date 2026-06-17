@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVpcFirewallCenSummaryListResponseBodyCenList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the CEN instance.
+   * 
    * @example
    * cen-maqfw3abcmjy56****
    */
   cenId?: string;
   /**
+   * @remarks
+   * The name of the CEN instance.
+   * 
    * @example
    * test
    */
   cenName?: string;
+  /**
+   * @remarks
+   * The list of region IDs for the VPC border firewall.
+   */
   regionNoList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -43,13 +53,23 @@ export class DescribeVpcFirewallCenSummaryListResponseBodyCenList extends $dara.
 }
 
 export class DescribeVpcFirewallCenSummaryListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of CEN instances.
+   */
   cenList?: DescribeVpcFirewallCenSummaryListResponseBodyCenList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 432D6CCA-5186-5B91-A2B8-10C8994B****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 5
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAclCheckQuotaResponseBodyQuota extends $dara.Model {
   /**
+   * @remarks
+   * The available quota.
+   * 
    * @example
    * 500
    */
   availableQuota?: number;
   /**
+   * @remarks
+   * The consumed quota.
+   * 
    * @example
    * 1500
    */
   consumedQuota?: number;
   /**
+   * @remarks
+   * The total quota.
+   * 
    * @example
    * 2000
    */
   totalQuota?: number;
   /**
+   * @remarks
+   * The time when the quota was last updated. This value is a UNIX timestamp. Unit: seconds.
+   * 
    * @example
    * 1724982259
    */
@@ -51,8 +63,15 @@ export class DescribeAclCheckQuotaResponseBodyQuota extends $dara.Model {
 }
 
 export class DescribeAclCheckQuotaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The quota.
+   */
   quota?: DescribeAclCheckQuotaResponseBodyQuota;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7D5483BF-2262-586D-8706-BDDB8B42****
    */

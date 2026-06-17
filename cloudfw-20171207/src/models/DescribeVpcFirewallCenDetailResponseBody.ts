@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether you can specify a CIDR block when you create a VPC firewall for a Basic Edition transit router of a CEN instance. Valid values:
+   * Indicates whether you can specify a CIDR block for the firewall VPC when you create a VPC firewall for a Basic Edition transit router. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: yes.
+   * 
+   * - **0**: no.
    * 
    * @example
    * 0
@@ -16,7 +17,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   allowConfiguration?: number;
   /**
    * @remarks
-   * Firewall backup availability zone ID.
+   * The ID of the secondary zone for the firewall.
    * 
    * @example
    * cn-hangzhou-k
@@ -32,7 +33,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   vpcCidr?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-bp1245k5oagy2bp74****
@@ -40,7 +41,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   vpcId?: string;
   /**
    * @remarks
-   * The CIDR block of the vSwitch.
+   * The CIDR block of the virtual switch.
    * 
    * @example
    * 10.0.0.1/24
@@ -48,7 +49,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   vswitchCidr?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The virtual switch ID.
    * 
    * @example
    * vsw-bp1sqg9wms9wxcs1****
@@ -56,7 +57,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   vswitchId?: string;
   /**
    * @remarks
-   * The availability zone ID of the virtual switch.
+   * The zone ID of the virtual switch.
    * 
    * @example
    * cn-hangzhou-i
@@ -64,7 +65,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   vswitchZoneId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The ID of the primary zone for the firewall.
    * 
    * @example
    * cn-hangzhou-i
@@ -108,7 +109,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
 export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ENI that belongs to the VPC.
+   * The instance ID of the ENI in the VPC.
    * 
    * @example
    * eni-8vbhfosfqv2rff42****
@@ -116,7 +117,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $da
   eniId?: string;
   /**
    * @remarks
-   * The private IP address of the ENI that belongs to the VPC.
+   * The private IP address of the ENI in the VPC.
    * 
    * @example
    * 192.168.XX.XX
@@ -124,7 +125,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList extends $da
   eniPrivateIpAddress?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the ENI is connected.
+   * The ID of the vSwitch for the ENI in the VPC.
    * 
    * @example
    * vsw-wz9viido7j436b0n1****
@@ -166,7 +167,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcVpcCidrTableListRou
   destinationCidr?: string;
   /**
    * @remarks
-   * The instance ID of the next hop for the VPC.
+   * The ID of the next hop instance in the VPC.
    * 
    * @example
    * vrt-m5eb5me6c3l5sezae****
@@ -198,12 +199,12 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcVpcCidrTableListRou
 export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcVpcCidrTableList extends $dara.Model {
   /**
    * @remarks
-   * The route entries for the VPC.
+   * The list of route entries for the VPC.
    */
   routeEntryList?: DescribeVpcFirewallCenDetailResponseBodyLocalVpcVpcCidrTableListRouteEntryList[];
   /**
    * @remarks
-   * The route table ID of the VPC.
+   * The ID of the route table for the VPC.
    * 
    * @example
    * vtb-1234
@@ -238,7 +239,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpcVpcCidrTableList ex
 export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Model {
   /**
    * @remarks
-   * The ID of the connection between two network instances.
+   * The ID of the network instance connection.
    * 
    * @example
    * tr-attach-sxig7bye51fid5****
@@ -246,25 +247,25 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   attachmentId?: string;
   /**
    * @remarks
-   * The name of the connection between two network instances.
+   * The name of the network instance connection.
    * 
    * @example
-   * Local test
+   * local-test
    */
   attachmentName?: string;
   /**
    * @remarks
-   * An array consisting of the CIDR blocks that are protected by the VPC firewall.
+   * The list of CIDR blocks that are protected by the VPC firewall.
    */
   defendCidrList?: string[];
   /**
    * @remarks
-   * The Elastic Network Interfaces (ENIs).
+   * The list of elastic network interfaces (ENIs).
    */
   eniList?: DescribeVpcFirewallCenDetailResponseBodyLocalVpcEniList[];
   /**
    * @remarks
-   * The ID of the specified vSwitch when the routing mode is manual.
+   * The ID of the vSwitch that is specified for the manual routing mode.
    * 
    * @example
    * vsw-zeq4o875u****
@@ -272,7 +273,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   manualVSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC for which the VPC firewall is created.
+   * The ID of the VPC instance for which the VPC firewall is created.
    * 
    * @example
    * vpc-2zefk9fbn8j7v585g****
@@ -283,7 +284,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
    * The name of the network instance.
    * 
    * @example
-   * Test VPC
+   * test-vpc
    */
   networkInstanceName?: string;
   /**
@@ -304,7 +305,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region in which the VPC resides.
+   * The region ID of the VPC.
    * 
    * @example
    * cn-hangzhou
@@ -314,8 +315,9 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
    * @remarks
    * The routing mode. Valid values:
    * 
-   * *   auto: automatic mode
-   * *   manual: manual mode
+   * - auto: automatic mode.
+   * 
+   * - manual: manual mode.
    * 
    * @example
    * auto
@@ -325,8 +327,9 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
    * @remarks
    * Indicates whether the manual routing mode is supported. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: yes.
+   * 
+   * - **0**: no.
    * 
    * @example
    * 0
@@ -344,8 +347,9 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
    * @remarks
    * The edition of the CEN transit router. Valid values:
    * 
-   * *   **Basic**: Basic Edition
-   * *   **Enterprise**: Enterprise Edition
+   * - **Basic**: Basic Edition.
+   * 
+   * - **Enterprise**: Enterprise Edition.
    * 
    * @example
    * Basic
@@ -353,12 +357,12 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   transitRouterType?: string;
   /**
    * @remarks
-   * An array that consists of the CIDR blocks of the VPC.
+   * The list of CIDR blocks for the VPC.
    */
   vpcCidrTableList?: DescribeVpcFirewallCenDetailResponseBodyLocalVpcVpcCidrTableList[];
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****
@@ -366,10 +370,10 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The instance name of the VPC.
    * 
    * @example
-   * Test instance
+   * vpc-firewall-test
    */
   vpcName?: string;
   static names(): { [key: string]: string } {
@@ -437,7 +441,7 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
 export class DescribeVpcFirewallCenDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The connection type of the VPC firewall. The value is fixed as **cen**, which indicates CEN instances.
+   * The connection type of the VPC firewall. The value is fixed as **cen**, which indicates CEN.
    * 
    * @example
    * cen
@@ -447,9 +451,11 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $dara.Model {
    * @remarks
    * The status of the VPC firewall. Valid values:
    * 
-   * *   **opened**: enabled
-   * *   **closed**: disabled
-   * *   **notconfigured**: not configured
+   * - **opened**: The firewall is enabled.
+   * 
+   * - **closed**: The firewall is disabled.
+   * 
+   * - **notconfigured**: The firewall is not configured.
    * 
    * @example
    * opened
@@ -457,12 +463,12 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $dara.Model {
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The firewall VPC.
+   * The VPC that is used by the firewall.
    */
   firewallVpc?: DescribeVpcFirewallCenDetailResponseBodyFirewallVpc;
   /**
    * @remarks
-   * The details about the VPC.
+   * The details of the VPC.
    */
   localVpc?: DescribeVpcFirewallCenDetailResponseBodyLocalVpc;
   /**
@@ -486,7 +492,7 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $dara.Model {
    * The instance name of the VPC firewall.
    * 
    * @example
-   * Test firewall
+   * vpc-firewall-test
    */
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {

@@ -7,8 +7,9 @@ export class DescribeVpcFirewallDefaultIPSConfigResponseBody extends $dara.Model
    * @remarks
    * Indicates whether basic policies are enabled. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: On.
+   * 
+   * - **0**: Off.
    * 
    * @example
    * 1
@@ -18,8 +19,9 @@ export class DescribeVpcFirewallDefaultIPSConfigResponseBody extends $dara.Model
    * @remarks
    * Indicates whether virtual patching is enabled. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: On.
+   * 
+   * - **0**: Off.
    * 
    * @example
    * 1
@@ -30,16 +32,18 @@ export class DescribeVpcFirewallDefaultIPSConfigResponseBody extends $dara.Model
    * The ID of the request.
    * 
    * @example
-   * 850A84D6-0DE4-4797-A1E8-00090125adf1
+   * 850A84D6-****-00090125adf1
    */
   requestId?: string;
   /**
    * @remarks
-   * The level of the rule group for the IPS. Valid values:
+   * The IPS rule group. Valid values:
    * 
-   * *   **1**: loose.
-   * *   **2**: medium.
-   * *   **3**: strict.
+   * - **1**: Loose rule group.
+   * 
+   * - **2**: Medium rule group.
+   * 
+   * - **3**: Strict rule group.
    * 
    * @example
    * 1
@@ -49,8 +53,9 @@ export class DescribeVpcFirewallDefaultIPSConfigResponseBody extends $dara.Model
    * @remarks
    * The mode of the intrusion prevention system (IPS). Valid values:
    * 
-   * *   **1**: block mode
-   * *   **0**: monitor mode
+   * - **1**: Block Mode.
+   * 
+   * - **0**: Monitor Mode.
    * 
    * @example
    * 0

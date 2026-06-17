@@ -4,22 +4,45 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application that is affected by the attack.
+   * 
    * @example
    * PHP
    */
   attackApp?: string;
   /**
+   * @remarks
+   * The type of the Cloud Firewall. Valid values:
+   * 
+   * - **VpcFirewall**: VPC firewall.
+   * 
+   * - **InternetFirewall** (default): Internet firewall.
+   * 
    * @example
    * InternetFirewall
    */
   firewallType?: string;
   /**
+   * @remarks
+   * The language of the content. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * - **basicRule**
+   * 
+   * - **customize**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +50,9 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
    */
   ruleType?: string;
   /**
+   * @remarks
+   * The list of rules.
+   * 
    * @example
    * [
    *   "uuid_1",
@@ -35,6 +61,9 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
    */
   rules?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 140.205.118.XXX
    */

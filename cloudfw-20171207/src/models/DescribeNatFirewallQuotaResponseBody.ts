@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNatFirewallQuotaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of nodes that are in an abnormal state.
+   * 
    * @example
    * 1
    */
   exceptionCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F98BAA59-5863-5B61-8FD4-C5E96813****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of quotas.
+   * 
    * @example
    * 6
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The number of unprotected assets.
+   * 
    * @example
    * 20
    */
   unprotectedCount?: number;
   /**
+   * @remarks
+   * The number of used quotas.
+   * 
    * @example
    * 10
    */

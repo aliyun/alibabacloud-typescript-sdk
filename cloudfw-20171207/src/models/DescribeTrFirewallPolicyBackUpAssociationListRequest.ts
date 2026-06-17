@@ -45,12 +45,12 @@ export class DescribeTrFirewallPolicyBackUpAssociationListRequestCandidateList e
 export class DescribeTrFirewallPolicyBackUpAssociationListRequest extends $dara.Model {
   /**
    * @remarks
-   * The traffic redirection instances.
+   * The list of traffic redirection instances.
    */
   candidateList?: DescribeTrFirewallPolicyBackUpAssociationListRequestCandidateList[];
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the VPC firewall for a transit router.
    * 
    * @example
    * vfw-tr-8b268ce1b26e4c68****
@@ -58,10 +58,11 @@ export class DescribeTrFirewallPolicyBackUpAssociationListRequest extends $dara.
   firewallId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -69,7 +70,7 @@ export class DescribeTrFirewallPolicyBackUpAssociationListRequest extends $dara.
   lang?: string;
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the firewall routing policy.
    * 
    * @example
    * policy-5dcafb12ff794a56****

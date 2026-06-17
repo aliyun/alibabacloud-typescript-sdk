@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserAlarmConfigResponseBodyAlarmConfig extends $dara.Model {
   /**
+   * @remarks
+   * The alarm threshold.
+   * 
    * @example
    * 0
    */
   alarmHour?: number;
   /**
+   * @remarks
+   * The notification method.
+   * 
    * @example
    * 1
    */
   alarmNotify?: number;
   /**
+   * @remarks
+   * The alarm period.
+   * 
    * @example
    * 30
    */
   alarmPeriod?: number;
   /**
+   * @remarks
+   * The alarm type.
+   * 
    * @example
    * bandwidth
    */
   alarmType?: string;
   /**
+   * @remarks
+   * The value that triggers the alarm.
+   * 
    * @example
    * 80
    */
   alarmValue?: string;
   /**
+   * @remarks
+   * The alarm retry count.
+   * 
    * @example
    * 0
    */
@@ -66,17 +84,33 @@ export class DescribeUserAlarmConfigResponseBodyAlarmConfig extends $dara.Model 
 
 export class DescribeUserAlarmConfigResponseBodyContactConfig extends $dara.Model {
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * 1530811****@qq.com
    */
   email?: string;
+  /**
+   * @remarks
+   * The mobile number.
+   * 
+   * @example
+   * zhangsan
+   */
   mobilePhone?: string;
   /**
+   * @remarks
+   * The contact name.
+   * 
    * @example
    * 1531123****
    */
   name?: string;
   /**
+   * @remarks
+   * The status of the contact. Valid values: **0** (Disabled) and **1** (Enabled).
+   * 
    * @example
    * 1
    */
@@ -110,17 +144,33 @@ export class DescribeUserAlarmConfigResponseBodyContactConfig extends $dara.Mode
 
 export class DescribeUserAlarmConfigResponseBodyDefaultContact extends $dara.Model {
   /**
+   * @remarks
+   * The email address of the default contact.
+   * 
    * @example
    * 1530811****@qq.com
    */
   email?: string;
   /**
+   * @remarks
+   * The mobile number of the default contact.
+   * 
    * @example
    * 1531123****
    */
   mobilePhone?: string;
+  /**
+   * @remarks
+   * The name of the default contact.
+   * 
+   * @example
+   * zhangsan
+   */
   name?: string;
   /**
+   * @remarks
+   * The status. Valid values: **normal** (Normal) and **disable** (Disabled).
+   * 
    * @example
    * 0
    */
@@ -152,51 +202,34 @@ export class DescribeUserAlarmConfigResponseBodyDefaultContact extends $dara.Mod
   }
 }
 
-export class DescribeUserAlarmConfigResponseBodyNotifyConfig extends $dara.Model {
-  /**
-   * @example
-   * mail
-   */
-  notifyType?: string;
-  /**
-   * @example
-   * 0
-   */
-  notifyValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      notifyType: 'NotifyType',
-      notifyValue: 'NotifyValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      notifyType: 'string',
-      notifyValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeUserAlarmConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The alarm configuration.
+   */
   alarmConfig?: DescribeUserAlarmConfigResponseBodyAlarmConfig[];
   /**
+   * @remarks
+   * The language of the alarm notifications.
+   * 
    * @example
    * zh
    */
   alarmLang?: string;
-  contactConfig?: DescribeUserAlarmConfigResponseBodyContactConfig[];
-  defaultContact?: DescribeUserAlarmConfigResponseBodyDefaultContact;
-  notifyConfig?: DescribeUserAlarmConfigResponseBodyNotifyConfig[];
   /**
+   * @remarks
+   * The contact information.
+   */
+  contactConfig?: DescribeUserAlarmConfigResponseBodyContactConfig[];
+  /**
+   * @remarks
+   * Information about the default alarm contact.
+   */
+  defaultContact?: DescribeUserAlarmConfigResponseBodyDefaultContact;
+  /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9D250177-4F11-58B8-9AFE-A4624FF1****
    */
@@ -207,7 +240,6 @@ export class DescribeUserAlarmConfigResponseBody extends $dara.Model {
       alarmLang: 'AlarmLang',
       contactConfig: 'ContactConfig',
       defaultContact: 'DefaultContact',
-      notifyConfig: 'NotifyConfig',
       requestId: 'RequestId',
     };
   }
@@ -218,7 +250,6 @@ export class DescribeUserAlarmConfigResponseBody extends $dara.Model {
       alarmLang: 'string',
       contactConfig: { 'type': 'array', 'itemType': DescribeUserAlarmConfigResponseBodyContactConfig },
       defaultContact: DescribeUserAlarmConfigResponseBodyDefaultContact,
-      notifyConfig: { 'type': 'array', 'itemType': DescribeUserAlarmConfigResponseBodyNotifyConfig },
       requestId: 'string',
     };
   }
@@ -232,9 +263,6 @@ export class DescribeUserAlarmConfigResponseBody extends $dara.Model {
     }
     if(this.defaultContact && typeof (this.defaultContact as any).validate === 'function') {
       (this.defaultContact as any).validate();
-    }
-    if(Array.isArray(this.notifyConfig)) {
-      $dara.Model.validateArray(this.notifyConfig);
     }
     super.validate();
   }

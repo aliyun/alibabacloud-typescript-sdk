@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPolicyAdvancedConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses. The versions of the IP addresses must be the same. You can specify a maximum of 100 IP addresses.
+   * A list of IP addresses. The IP addresses must use the same protocol version. You can specify up to 100 IP addresses.
    */
   eips?: string[];
   /**
    * @remarks
-   * Specifies whether to enable the strict mode for the access control policy. Valid values:
+   * Specifies whether to enable or disable the strict mode for access control policies. Valid values:
    * 
-   * *   **on**: enables the strict mode.
-   * *   **off**: disables the strict mode.
+   * - **on**: Enables strict mode.
+   * 
+   * - **off**: Disables strict mode.
    * 
    * This parameter is required.
    * 
@@ -23,10 +24,11 @@ export class ModifyPolicyAdvancedConfigRequest extends $dara.Model {
   internetSwitch?: string;
   /**
    * @remarks
-   * The natural language of the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -34,7 +36,7 @@ export class ModifyPolicyAdvancedConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the visitor.
    * 
    * @example
    * 192.0.XX.XX

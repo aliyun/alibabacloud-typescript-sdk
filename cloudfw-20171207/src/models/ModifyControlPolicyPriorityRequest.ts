@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyControlPolicyPriorityRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the access control policy.
+   * The unique ID of the access control policy.
    * 
    * This parameter is required.
    * 
    * @example
-   * 3770d603-3534-4878-b845-f00095ee5048
+   * 3770d603-3534-4878-b845-f00095ee****
    */
   aclUuid?: string;
   /**

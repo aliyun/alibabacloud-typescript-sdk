@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAccessInstanceVSwitchListResponseBodyZonesVSwitchList extends $dara.Model {
   /**
+   * @remarks
+   * The number of available IP addresses in the vSwitch.
+   * 
    * @example
    * 254
    */
   availableIpAddressCount?: number;
   /**
+   * @remarks
+   * The IPv4 CIDR block of the vSwitch.
+   * 
    * @example
    * 192.168.0.0/16
    */
   cidrBlock?: string;
   /**
+   * @remarks
+   * Indicates whether the vSwitch is in a VPC that is managed by Cloud Firewall.
+   * 
    * @example
    * false
    */
   firewallVSwitch?: boolean;
   /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
    * @example
    * vsw-qzeaol304m***
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The name of the vSwitch.
+   * 
    * @example
    * ManagedVSW
    */
   vSwitchName?: string;
   /**
+   * @remarks
+   * The ID of the VPC to which the vSwitch belongs.
+   * 
    * @example
    * vpc-uf6b5lyul0x******
    */
@@ -65,8 +83,15 @@ export class DescribeAccessInstanceVSwitchListResponseBodyZonesVSwitchList exten
 }
 
 export class DescribeAccessInstanceVSwitchListResponseBodyZones extends $dara.Model {
+  /**
+   * @remarks
+   * The list of vSwitches.
+   */
   vSwitchList?: DescribeAccessInstanceVSwitchListResponseBodyZonesVSwitchList[];
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-i
    */
@@ -99,25 +124,41 @@ export class DescribeAccessInstanceVSwitchListResponseBodyZones extends $dara.Mo
 
 export class DescribeAccessInstanceVSwitchListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 450D47F5-956E-543E-8502-2F71C8C54E72
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of zones.
+   */
   zones?: DescribeAccessInstanceVSwitchListResponseBodyZones[];
   static names(): { [key: string]: string } {
     return {

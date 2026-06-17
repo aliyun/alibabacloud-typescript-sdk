@@ -13,7 +13,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of assets protected all types of firewalls.
+   * The total number of assets that are protected by border firewalls.
    * 
    * @example
    * 132
@@ -21,7 +21,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalAssets?: number;
   /**
    * @remarks
-   * The volume of burstable protected traffic for which fees are generated. Unit: bytes.
+   * For the subscription edition, this is the total billed elastic traffic after deductions are applied. Unit: bytes.
    * 
    * @example
    * 2320274874426
@@ -29,7 +29,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalBillTraffic?: number;
   /**
    * @remarks
-   * The total number of assets protected by the Internet firewall.
+   * The total number of assets that are protected by Internet Border firewalls.
    * 
    * @example
    * 128
@@ -37,7 +37,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalInternetAssets?: number;
   /**
    * @remarks
-   * The total traffic for the Internet firewall. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic on the Internet boundary. Unit: bytes.
+   * The total traffic of the Internet Border. For the subscription edition, this is the total elastic traffic of the Internet Border. Unit: bytes.
    * 
    * @example
    * 2320274874426
@@ -45,7 +45,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalInternetTraffic?: number;
   /**
    * @remarks
-   * The total number of assets protected by NAT firewalls.
+   * The total number of assets that are protected by NAT border firewalls.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalNatAssets?: number;
   /**
    * @remarks
-   * The total traffic for NAT firewalls. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic on the NAT boundary. Unit: bytes.
+   * The total traffic of the NAT border. For the subscription edition, this is the total elastic traffic of the NAT border. Unit: bytes.
    * 
    * @example
    * 560646279
@@ -61,15 +61,15 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalNatTraffic?: number;
   /**
    * @remarks
-   * Data Leak Detection Total Fee Flow.
+   * The total billed traffic for data leakage detection.
    * 
    * @example
-   * 22879916142
+   * 0
    */
   totalSdlBillTraffic?: number;
   /**
    * @remarks
-   * Data Leak Detection Total free usage traffic.
+   * The total free traffic for data leakage detection.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalSdlFreeTraffic?: number;
   /**
    * @remarks
-   * The total volume of traffic. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic. Unit: bytes.
+   * The total traffic. For the subscription edition, this is the total elastic traffic. Unit: bytes.
    * 
    * @example
    * 2320274874426
@@ -85,7 +85,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalTraffic?: number;
   /**
    * @remarks
-   * The total number of assets protected by virtual private cloud (VPC) firewalls.
+   * The total number of assets that are protected by VPC border firewalls.
    * 
    * @example
    * 3
@@ -93,7 +93,7 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
   totalVpcAssets?: number;
   /**
    * @remarks
-   * The total traffic for VPC firewalls. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic on the VPC boundary. Unit: bytes.
+   * The total traffic of the VPC border. For the subscription edition, this is the total elastic traffic of the VPC border. Unit: bytes.
    * 
    * @example
    * 2320274874426

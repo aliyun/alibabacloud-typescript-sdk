@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNatFirewallAclGroupListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the request and response.
+   * 
    * @example
    * zh
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the affected asset.
+   * The instance ID of the affected asset.
    * 
    * @example
    * i-ECS****
@@ -23,17 +23,27 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
    * @remarks
    * The type of the affected asset. Valid values:
    * 
-   * *   **BastionHostIP**: the egress IP address of a bastion host
-   * *   **BastionHostIngressIP**: the ingress IP address of a bastion host
-   * *   **EcsEIP**: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
-   * *   **EcsPublicIP**: the public IP address of an ECS instance
-   * *   **EIP**: the EIP
-   * *   **EniEIP**: the EIP of an elastic network interface (ENI)
-   * *   **NatEIP**: the EIP of a NAT gateway
-   * *   **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance
-   * *   **SlbPublicIP**: the public IP address of an SLB instance
-   * *   **NatPublicIP**: the public IP address of a NAT gateway
-   * *   **HAVIP**: the high-availability virtual IP address (HAVIP)
+   * - **BastionHostIP**: the egress IP address of a bastion host.
+   * 
+   * - **BastionHostIngressIP**: the ingress IP address of a bastion host.
+   * 
+   * - **EcsEIP**: the EIP of an ECS instance.
+   * 
+   * - **EcsPublicIP**: the public IP address of an ECS instance.
+   * 
+   * - **EIP**: an EIP.
+   * 
+   * - **EniEIP**: the EIP of an ENI.
+   * 
+   * - **NatEIP**: the EIP of a NAT gateway.
+   * 
+   * - **SlbEIP**: the EIP of a CLB instance.
+   * 
+   * - **SlbPublicIP**: the public IP address of a CLB instance.
+   * 
+   * - **NatPublicIP**: the public IP address of a NAT gateway.
+   * 
+   * - **HAVIP**: an HAVIP.
    * 
    * @example
    * EcsPublicIp
@@ -41,7 +51,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   assetsType?: string;
   /**
    * @remarks
-   * The ID of the breach awareness event.
+   * The ID of the breach detection event.
    * 
    * @example
    * 69d189e2-ec17-4676-a2fe-02969234****
@@ -49,7 +59,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   eventKey?: string;
   /**
    * @remarks
-   * The name of the breach awareness event.
+   * The name of the breach detection event.
    * 
    * @example
    * event_test
@@ -57,10 +67,11 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The type of the breach awareness event. Valid values:
+   * The source of the breach detection event. Valid values:
    * 
-   * *   **IPS**: intrusion prevention event
-   * *   **offline**: disconnection event
+   * - **IPS**: an intrusion prevention system event.
+   * 
+   * - **offline**: an offline event.
    * 
    * @example
    * IPS
@@ -68,7 +79,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   eventSrc?: string;
   /**
    * @remarks
-   * The UUID of the breach awareness event.
+   * The UUID of the breach detection event.
    * 
    * @example
    * fadd-dfdd-****
@@ -76,7 +87,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   eventUuid?: string;
   /**
    * @remarks
-   * The time when the breach awareness event first occurred. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the breach detection event first occurred. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1656750960
@@ -84,10 +95,11 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * Indicates whether the breach awareness event is ignored. Valid values:
+   * Indicates whether the breach detection event is ignored. Valid values:
    * 
-   * *   **true**: The breach awareness event is ignored.
-   * *   **false**: The breach awareness event is not ignored.
+   * - **true**: The event is ignored.
+   * 
+   * - **false**: The event is not ignored.
    * 
    * @example
    * true
@@ -95,7 +107,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   isIgnore?: boolean;
   /**
    * @remarks
-   * The time when the breach awareness event last occurred. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the breach detection event last occurred. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1656837360
@@ -103,7 +115,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   lastTime?: number;
   /**
    * @remarks
-   * The ID of the member.
+   * The UID of the member.
    * 
    * @example
    * 135809047715****
@@ -119,10 +131,11 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   privateIP?: string;
   /**
    * @remarks
-   * The handling status of the breach awareness event. Valid values:
+   * The handling status of the breach detection event. Valid values:
    * 
-   * *   **0**: unhandled
-   * *   **20**: handled
+   * - **0**: pending
+   * 
+   * - **20**: handled
    * 
    * @example
    * 20
@@ -140,17 +153,27 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
    * @remarks
    * The type of the affected asset. Valid values:
    * 
-   * *   **BastionHostIP**: the egress IP address of a bastion host
-   * *   **BastionHostIngressIP**: the ingress IP address of a bastion host
-   * *   **EcsEIP**: the EIP of an ECS instance
-   * *   **EcsPublicIP**: the public IP address of an ECS instance
-   * *   **EIP**: the EIP
-   * *   **EniEIP**: the EIP of an ENI
-   * *   **NatEIP**: the EIP of a NAT gateway
-   * *   **SlbEIP**: the EIP of an SLB instance
-   * *   **SlbPublicIP**: the public IP address of an SLB instance
-   * *   **NatPublicIP**: the public IP address of a NAT gateway
-   * *   **HAVIP**: the HAVIP
+   * - **BastionHostIP**: the egress IP address of a bastion host.
+   * 
+   * - **BastionHostIngressIP**: the ingress IP address of a bastion host.
+   * 
+   * - **EcsEIP**: the EIP of an ECS instance.
+   * 
+   * - **EcsPublicIP**: the public IP address of an ECS instance.
+   * 
+   * - **EIP**: an EIP.
+   * 
+   * - **EniEIP**: the EIP of an ENI.
+   * 
+   * - **NatEIP**: the EIP of a NAT gateway.
+   * 
+   * - **SlbEIP**: the EIP of a CLB instance.
+   * 
+   * - **SlbPublicIP**: the public IP address of a CLB instance.
+   * 
+   * - **NatPublicIP**: the public IP address of a NAT gateway.
+   * 
+   * - **HAVIP**: an HAVIP.
    * 
    * @example
    * EcsPublicIp
@@ -160,9 +183,11 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
+   * - **1**: low
+   * 
+   * - **2**: medium
+   * 
+   * - **3**: high
    * 
    * @example
    * 1
@@ -238,7 +263,7 @@ export class DescribeInvadeEventListResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of breach awareness events.
+   * The total number of breach detection events.
    * 
    * @example
    * 40
@@ -272,7 +297,7 @@ export class DescribeInvadeEventListResponseBodyPageInfo extends $dara.Model {
 export class DescribeInvadeEventListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of breach awareness events.
+   * The list of breach detection events.
    */
   eventList?: DescribeInvadeEventListResponseBodyEventList[];
   /**
@@ -306,7 +331,7 @@ export class DescribeInvadeEventListResponseBody extends $dara.Model {
   pageInfo?: DescribeInvadeEventListResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****

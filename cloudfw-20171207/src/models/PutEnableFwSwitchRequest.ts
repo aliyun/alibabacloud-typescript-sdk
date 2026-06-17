@@ -4,15 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class PutEnableFwSwitchRequest extends $dara.Model {
   /**
+   * @remarks
+   * The IP version.
+   * 
    * @example
    * 4
    */
   ipVersion?: string;
   /**
    * @remarks
-   * The IP addresses.
+   * The list of IP addresses.
    * 
-   * > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+   * > You must specify at least one of the `IpaddrList`, `RegionList`, and `ResourceTypeList` parameters.
    * 
    * @example
    * ["192.0.X.X","192.0.X.X"]
@@ -20,25 +23,29 @@ export class PutEnableFwSwitchRequest extends $dara.Model {
   ipaddrList?: string[];
   /**
    * @remarks
-   * The language of the content within the response.
+   * The language of the response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The UID of the member.
+   * 
    * @example
    * 1234
    */
   memberUid?: string;
   /**
    * @remarks
-   * The regions.
+   * The list of regions.
    * 
-   * > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+   * > You must specify at least one of the `IpaddrList`, `RegionList`, and `ResourceTypeList` parameters.
    * 
    * @example
    * ["cn-hangzhou","cn-shanghai"]
@@ -46,23 +53,49 @@ export class PutEnableFwSwitchRequest extends $dara.Model {
   regionList?: string[];
   /**
    * @remarks
-   * The types of the assets.
+   * The list of asset types.
    * 
    * Valid values:
    * 
-   * *   BastionHostIP: the egress IP address of a bastion host
-   * *   BastionHostIngressIP: the ingress IP address of a bastion host
-   * *   EcsEIP: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
-   * *   EcsPublicIP: the public IP address of an ECS instance
-   * *   EIP: the EIP
-   * *   EniEIP: the EIP of an elastic network interface (ENI)
-   * *   NatEIP: the EIP of a NAT gateway
-   * *   SlbEIP: the EIP of a Server Load Balancer (SLB) instance
-   * *   SlbPublicIP: the public IP address of an SLB instance
-   * *   NatPublicIP: the public IP address of a NAT gateway
-   * *   HAVIP: the high-availability virtual IP address (HAVIP)
+   * - **BastionHostEgressIP**: the egress IP address of a bastion host.
    * 
-   * > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+   * - **BastionHostIngressIP**: the ingress IP address of a bastion host.
+   * 
+   * - **EcsEIP**: the EIP of an ECS instance.
+   * 
+   * - **EcsPublicIP**: the public IP address of an ECS instance.
+   * 
+   * - **EIP**: an EIP.
+   * 
+   * - **EniEIP**: the EIP of an ENI.
+   * 
+   * - **NatEIP**: the EIP of a NAT gateway.
+   * 
+   * - **SlbEIP**: the EIP of an SLB instance or a CLB instance.
+   * 
+   * - **SlbPublicIP**: the public IP address of an SLB instance or a CLB instance.
+   * 
+   * - **NatPublicIP**: the public IP address of a NAT gateway.
+   * 
+   * - **HAVIP**: an HAVIP.
+   * 
+   * - **NlbEIP**: the EIP of an NLB instance.
+   * 
+   * - **ApiGatewayEIP**: the public IP address of an API gateway.
+   * 
+   * - **AlbEIP**: the EIP of an ALB instance.
+   * 
+   * - **AiGatewayEIP**: the public IP address of an AI gateway.
+   * 
+   * - **GaEIP**: the EIP of a GA instance.
+   * 
+   * - **SwasEIP**: the public IP address of a Simple Application Server instance.
+   * 
+   * - **EcdEIP**: the public IP address of an Elastic Desktop Service instance.
+   * 
+   * - **BastionHostIP**: the IP address of a bastion host.
+   * 
+   * > You must specify at least one of the `IpaddrList`, `RegionList`, and `ResourceTypeList` parameters.
    * 
    * @example
    * ["EcsPublicIp","NatEip"]
@@ -73,7 +106,7 @@ export class PutEnableFwSwitchRequest extends $dara.Model {
    * The source IP address of the request.
    * 
    * @example
-   * 192.0.X.X
+   * 192.0.XX.XX
    * 
    * @deprecated
    */

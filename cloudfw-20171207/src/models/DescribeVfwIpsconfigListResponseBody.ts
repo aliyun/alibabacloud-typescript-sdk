@@ -4,37 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends $dara.Model {
   /**
+   * @remarks
+   * The status of the basic policies.
+   * 
    * @example
    * 1
    */
   basicRules?: number;
   /**
+   * @remarks
+   * The UID of the member account.
+   * 
    * @example
    * 134646920647****
    */
   memberUid?: string;
   /**
+   * @remarks
+   * The status of the virtual patching policies.
+   * 
    * @example
    * 1
    */
   patchRules?: number;
   /**
+   * @remarks
+   * The policy for the block mode.
+   * 
    * @example
    * 1
    */
   ruleClass?: number;
   /**
+   * @remarks
+   * The protection mode.
+   * 
    * @example
    * 1
    */
   runMode?: number;
   /**
+   * @remarks
+   * The instance ID of the VPC firewall.
+   * 
    * @example
    * cen-h678sl4wv3yd5v****
    */
   vpcFirewallId?: string;
+  /**
+   * @remarks
+   * The list of instance IDs of the VPC firewalls.
+   */
   vpcFirewallIdList?: string[];
   /**
+   * @remarks
+   * The instance name of the VPC firewall.
+   * 
    * @example
    * vpc-test
    */
@@ -79,25 +104,41 @@ export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends 
 
 export class DescribeVfwIPSConfigListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of configurations.
+   */
   vfwIpsSwitchConfigList?: DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList[];
   static names(): { [key: string]: string } {
     return {

@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteIpsPrivateAssocRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the request and response messages. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ngw-c5vhmjdfp5t****
    */

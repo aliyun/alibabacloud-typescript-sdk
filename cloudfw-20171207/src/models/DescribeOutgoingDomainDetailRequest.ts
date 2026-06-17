@@ -4,23 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   /**
+   * @remarks
+   * The policy coverage status to filter by.
+   * 
    * @example
    * FullCoverage
    */
   aclCoverage?: string;
   /**
+   * @remarks
+   * The page number to return.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The domain name to query.
+   * 
    * @example
    * example.com
    */
   domain?: string;
+  /**
+   * @remarks
+   * A list of domain names to query.
+   */
   domainList?: string[];
   /**
    * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,52 +43,81 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The IP address type. Set to `NatPrivate` to query details for outbound connections that originate from a private IP address via a NAT Gateway.
+   * 
    * @example
    * NatPrivate
    */
   IPType?: string;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The ID of the NAT Gateway.
+   * 
    * @example
    * ngw-uf62zzi7000bca7zn****
    */
   natGatewayId?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The number of entries to return per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The private IP address to query.
+   * 
    * @example
    * 10.210.0.XXX
    */
   privateIP?: string;
   /**
+   * @remarks
+   * The public IP address to query.
+   * 
    * @example
    * 47.96.181.XXX
    */
   publicIP?: string;
   /**
+   * @remarks
+   * The field to sort the results by.
+   * 
    * @example
    * OutBytes
    */
   sort?: string;
   /**
+   * @remarks
+   * The source IP address.
+   * 
    * @example
    * 121.15.137.XXX
    */
   sourceIp?: string;
   /**
    * @remarks
+   * The start of the time range to query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -81,6 +125,9 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The tag ID to filter by.
+   * 
    * @example
    * FirstFlow
    */

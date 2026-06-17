@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeResourceTypeAutoEnableRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the message that you receive. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */

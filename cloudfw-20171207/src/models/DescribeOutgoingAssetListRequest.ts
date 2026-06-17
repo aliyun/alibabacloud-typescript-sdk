@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOutgoingAssetListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the asset.
+   * 
    * @example
    * cn-beijing
    */
   assetsRegion?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
    * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,67 +30,105 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The follow status.
+   * 
    * @example
    * subscribe
    */
   groupName?: string;
   /**
+   * @remarks
+   * Queries outbound connections routed from a private network through a NAT gateway.
+   * 
    * @example
    * NatPrivate
    */
   IPType?: string;
   /**
+   * @remarks
+   * The language of the content.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The ID of the NAT Gateway.
+   * 
    * @example
    * ngw-bp123456g******
    */
   natGatewayId?: string;
   /**
+   * @remarks
+   * The name of the NAT Gateway.
+   * 
    * @example
    * ngw-test
    */
   natGatewayName?: string;
   /**
+   * @remarks
+   * The sorting order.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The private IP address.
+   * 
    * @example
    * 10.200.33.XXX
    */
   privateIP?: string;
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 47.116.70.XXX
    */
   publicIP?: string;
   /**
+   * @remarks
+   * The type of the public IP address of the asset.
+   * 
    * @example
    * NatEIP
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The security risk.
+   * 
    * @example
    * risk
    */
   securityRisk?: string;
   /**
+   * @remarks
+   * The sorting basis.
+   * 
    * @example
    * InBytes
    */
   sort?: string;
   /**
    * @remarks
+   * The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInvadeEcsTrendResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The number of ECS instances.
+   * 
    * @example
    * 27
    */
   ecsCount?: number;
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 1659405600
    */
@@ -37,28 +43,47 @@ export class DescribeInvadeEcsTrendResponseBodyDataList extends $dara.Model {
 }
 
 export class DescribeInvadeEcsTrendResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data list.
+   */
   dataList?: DescribeInvadeEcsTrendResponseBodyDataList[];
   /**
+   * @remarks
+   * The end of the time range. This is a UNIX timestamp. Unit: seconds.
+   * 
    * @example
    * 1736820365
    */
   endTime?: number;
   /**
+   * @remarks
+   * The time interval.
+   * 
    * @example
    * 60
    */
   interval?: number;
   /**
+   * @remarks
+   * The total number of compromised hosts.
+   * 
    * @example
    * 2
    */
   invadeEcsCount?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F90E816D-BEE7-5BD6-95ED-474F54****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start of the time range. This is a UNIX timestamp. Unit: seconds.
+   * 
    * @example
    * 1742177725
    */

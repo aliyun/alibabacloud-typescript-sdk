@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVfwIPSConfigListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The number of the page to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DescribeVfwIPSConfigListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of the page to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class DescribeVfwIPSConfigListRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The instance ID of the VPC firewall.
+   * 
    * @example
    * vfw-m5e7dbc4y****
    */

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNatFirewallAclGroupListResponseBodyNatFirewalls extends $dara.Model {
   /**
+   * @remarks
+   * The number of policies in the access control policy group of the NAT firewall.
+   * 
    * @example
    * 32
    */
   aclRuleCount?: number;
   /**
+   * @remarks
+   * Indicates whether the NAT firewall is the default one.
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
   /**
+   * @remarks
+   * The ID of the NAT Gateway.
+   * 
    * @example
    * ngw-2zed6z6qkd7ogc****
    */
   natGatewayId?: string;
   /**
+   * @remarks
+   * The name of the NAT Gateway.
+   * 
    * @example
    * ngw-test
    */
   natGatewayName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -58,8 +73,15 @@ export class DescribeNatFirewallAclGroupListResponseBodyNatFirewalls extends $da
 }
 
 export class DescribeNatFirewallAclGroupListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of NAT firewalls.
+   */
   natFirewalls?: DescribeNatFirewallAclGroupListResponseBodyNatFirewalls[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F06DE24D-6EB9-5F55-B588-7BB946DF****
    */

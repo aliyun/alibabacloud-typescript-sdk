@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOutgoingDestinationResponseBodyDstListTagList extends $dara.Model {
   /**
+   * @remarks
+   * The risk assessment level.
+   * 
    * @example
    * 1
    */
   riskLevel?: number;
   /**
+   * @remarks
+   * The tag description.
+   * 
    * @example
    * test
    */
   tagDescribe?: string;
   /**
+   * @remarks
+   * The tag ID.
+   * 
    * @example
    * FirstFlow
    */
   tagId?: string;
   /**
+   * @remarks
+   * The tag name.
+   * 
    * @example
    * verify
    */
@@ -52,75 +64,121 @@ export class DescribeOutgoingDestinationResponseBodyDstListTagList extends $dara
 
 export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model {
   /**
+   * @remarks
+   * The recommended Access Control List (ACL) details.
+   * 
    * @example
    * test
    */
   aclRecommendDetail?: string;
   /**
+   * @remarks
+   * The policy status.
+   * 
    * @example
    * Normal
    */
   aclStatus?: string;
   /**
+   * @remarks
+   * The business to which the domain name belongs.
+   * 
    * @example
    * example.com
    */
   business?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * AliYun
    */
   categoryId?: string;
   /**
+   * @remarks
+   * The category name of the service.
+   * 
    * @example
    * categor_test
    */
   categoryName?: string;
   /**
+   * @remarks
+   * The destination domain name.
+   * 
    * @example
    * example.com
    */
   dstDomain?: string;
   /**
+   * @remarks
+   * The destination IP address.
+   * 
    * @example
    * 101.6.15.XXX
    */
   dstIP?: string;
   /**
+   * @remarks
+   * The destination type.
+   * 
    * @example
    * domain
    */
   dstType?: string;
   /**
+   * @remarks
+   * The group name.
+   * 
    * @example
    * test
    */
   groupName?: string;
   /**
+   * @remarks
+   * Indicates whether a recommended ACL exists.
+   * 
    * @example
    * false
    */
   hasAclRecommend?: boolean;
   /**
+   * @remarks
+   * The inbound traffic. Unit: bytes.
+   * 
    * @example
    * 0.0
    */
   inBytes?: number;
   /**
+   * @remarks
+   * Indicates whether the destination is manually marked as normal.
+   * 
    * @example
    * false
    */
   isMarkNormal?: boolean;
   /**
+   * @remarks
+   * The outbound traffic. Unit: bytes.
+   * 
    * @example
    * 0.0
    */
   outBytes?: number;
   /**
+   * @remarks
+   * The number of sessions.
+   * 
    * @example
    * 10
    */
   sessionCount?: number;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tagList?: DescribeOutgoingDestinationResponseBodyDstListTagList[];
   static names(): { [key: string]: string } {
     return {
@@ -175,13 +233,23 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
 }
 
 export class DescribeOutgoingDestinationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the destination addresses.
+   */
   dstList?: DescribeOutgoingDestinationResponseBodyDstList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * A2845BA9-1642-5B27-9F04-8014DD94****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 42
    */

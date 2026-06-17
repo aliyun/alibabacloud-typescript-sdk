@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UseAclBackupDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****
    */

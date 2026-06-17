@@ -13,11 +13,13 @@ export class DescribePostpayUserVpcStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the VPC Firewall feature. Valid values:
+   * The status of the VPC border firewall for Cloud Firewall. Valid values:
    * 
-   * *   **open**: enabled
-   * *   **init**: being enabled
-   * *   **closed**: disabled
+   * - **open**: The firewall is enabled.
+   * 
+   * - **init**: The firewall is being enabled.
+   * 
+   * - **closed**: The firewall is disabled.
    * 
    * @example
    * open
@@ -25,7 +27,7 @@ export class DescribePostpayUserVpcStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of days during which no asset is added to the VPC Firewall feature for protection. This parameter is valid only when the value of Status is open.
+   * The number of days that protection was disabled. This parameter is valid only when the firewall is enabled.
    * 
    * @example
    * 20

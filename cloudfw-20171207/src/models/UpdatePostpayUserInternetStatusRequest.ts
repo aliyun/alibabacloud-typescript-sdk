@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePostpayUserInternetStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of Cloud Firewall.
+   * The ID of the Cloud Firewall instance.
    * 
    * @example
    * cfw_elasticity_public_cn-zsk39m******
@@ -13,10 +13,11 @@ export class UpdatePostpayUserInternetStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response messages. Valid values:
    * 
-   * *   **zh** (default)
-   * *   **en**
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -24,9 +25,9 @@ export class UpdatePostpayUserInternetStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The operation type.
+   * The type of operation. Currently, only the \\`open\\` operation is supported.
    * 
-   * *   Set the value to open.
+   * - open: enables the firewall.
    * 
    * @example
    * open

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDownloadTaskTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The default value is **1**.
    * 
    * @example
    * 1
@@ -13,10 +13,11 @@ export class DescribeDownloadTaskTypeRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -24,7 +25,7 @@ export class DescribeDownloadTaskTypeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 10

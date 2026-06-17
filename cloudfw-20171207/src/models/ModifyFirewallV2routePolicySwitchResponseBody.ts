@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFirewallV2RoutePolicySwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1F6D4A8D-EC01-5996-A61A-AA3B56490C00

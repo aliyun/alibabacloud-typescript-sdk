@@ -4,32 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAckClustersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ACK cluster.
+   * 
    * @example
    * cb0f5640b1b2d404cad6ba21509d7847b
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The name of the ACK cluster.
+   * 
    * @example
    * ack-cluster-name
    */
   clusterName?: string;
   /**
+   * @remarks
+   * The specification of the ACK cluster.
+   * 
    * @example
    * ack.pro.small
    */
   clusterSpec?: string;
   /**
+   * @remarks
+   * The status of the ACK cluster connector.
+   * 
    * @example
    * ready
    */
   connectorStatus?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud UID of the account to which the ACK cluster resources belong.
+   * 
    * @example
    * 135809047715****
    */
   memberUid?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +55,8 @@ export class DescribeAckClustersRequest extends $dara.Model {
   pageNo?: string;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,6 +65,8 @@ export class DescribeAckClustersRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
+   * The region ID of the ACK cluster.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRegionInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the request and response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The source tracking code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +26,9 @@ export class DescribeRegionInfoRequest extends $dara.Model {
    */
   sourceCode?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 59.82.59.XX
    */

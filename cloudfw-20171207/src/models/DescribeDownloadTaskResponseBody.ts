@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDownloadTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the task was created. This is a UNIX timestamp in seconds.
    * 
    * @example
    * 1706595827
@@ -13,7 +13,7 @@ export class DescribeDownloadTaskResponseBodyTasks extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The time when the task expires. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the task expires. This is a UNIX timestamp in seconds.
    * 
    * @example
    * 1714371828
@@ -29,7 +29,7 @@ export class DescribeDownloadTaskResponseBodyTasks extends $dara.Model {
   fileSize?: string;
   /**
    * @remarks
-   * The URL of the OSS file.
+   * The URL of the Object Storage Service (OSS) file.
    * 
    * @example
    * https://cfw-table-download-cn.oss-cn-hangzhou.aliyuncs.com/%E4%BA%92%E8%81%94%E7%BD%91%E8%BE%B9%E7%95%8C%E9%98%B2%E7%81%AB%E5%A2%99%E8%B5%84%E4%BA%A7-IPv4_1069.csv?Expires=1708583913&OSSAccessKeyId=****&Signature=******%3D
@@ -39,10 +39,13 @@ export class DescribeDownloadTaskResponseBodyTasks extends $dara.Model {
    * @remarks
    * The status of the task. Valid values:
    * 
-   * *   **finish**
-   * *   **start**
-   * *   **error**
-   * *   **expire**: The task file is invalid and cannot be downloaded.
+   * - **finish**: The task is complete.
+   * 
+   * - **start**: The task has started.
+   * 
+   * - **error**: The task failed.
+   * 
+   * - **expire**: The task has expired. The task file is no longer valid and cannot be downloaded.
    * 
    * @example
    * finish
@@ -61,7 +64,7 @@ export class DescribeDownloadTaskResponseBodyTasks extends $dara.Model {
    * The name of the task.
    * 
    * @example
-   * Internet Boundary Firewall Assets - IPv4
+   * Internet Border Firewall Assets-IPv4
    */
   taskName?: string;
   /**
@@ -118,7 +121,7 @@ export class DescribeDownloadTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tasks.
+   * The list of tasks.
    */
   tasks?: DescribeDownloadTaskResponseBodyTasks[];
   /**

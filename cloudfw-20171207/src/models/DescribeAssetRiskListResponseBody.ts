@@ -17,8 +17,9 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   **4**: IPv4
-   * *   **6**: IPv6
+   * - **4**: IPv4 address
+   * 
+   * - **6**: IPv6 address
    * 
    * @example
    * 4
@@ -36,9 +37,11 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **low**
-   * *   **middle**
-   * *   **high**
+   * - **low**: low risk
+   * 
+   * - **middle**: medium risk
+   * 
+   * - **high**: high risk
    * 
    * @example
    * low

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSdlEventStatisticRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1732586712
    */
   endTime?: number;
   /**
+   * @remarks
+   * The language of the request and response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The start time. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1656750960
    */

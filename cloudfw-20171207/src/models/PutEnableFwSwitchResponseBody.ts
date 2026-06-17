@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PutEnableFwSwitchResponseBodyAbnormalResourceStatusList extends $dara.Model {
   /**
    * @remarks
-   * The message displayed when the asset is not synchronized to Cloud Firewall. Valid values:
+   * A message that provides details about why an asset was not synchronized. Valid value:
    * 
-   * *   cloudfirewall do not sync this ip address: This IP address is not synchronized to Cloud Firewall.
+   * - `cloudfirewall do not sync this ip address`: Cloud Firewall does not synchronize the IP address of the asset.
    * 
    * @example
    * cloudfirewall do not sync this ip address
@@ -23,9 +23,9 @@ export class PutEnableFwSwitchResponseBodyAbnormalResourceStatusList extends $da
   resource?: string;
   /**
    * @remarks
-   * The status of the asset when it is not synchronized to Cloud Firewall. Valid values:
+   * The synchronization status of the asset. Valid value:
    * 
-   * *   ip_not_sync: The asset is not synchronized.
+   * - `ip_not_sync`: The asset is not synchronized.
    * 
    * @example
    * ip_not_sync
@@ -59,12 +59,12 @@ export class PutEnableFwSwitchResponseBodyAbnormalResourceStatusList extends $da
 export class PutEnableFwSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status information of the asset when it is not synchronized to Cloud Firewall.
+   * Information about unsynchronized assets.
    */
   abnormalResourceStatusList?: PutEnableFwSwitchResponseBodyAbnormalResourceStatusList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B2841452-CB8D-4F7D-B247-38E1CF7334F8

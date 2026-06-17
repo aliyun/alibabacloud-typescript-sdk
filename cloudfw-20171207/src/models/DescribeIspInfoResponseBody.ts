@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeIspInfoResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ISP.
+   * 
    * @example
    * isp-dhyw2lxfpc****
    */
   ispId?: number;
+  /**
+   * @remarks
+   * The name of the ISP.
+   * 
+   * @example
+   * telecom
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,13 +43,23 @@ export class DescribeIspInfoResponseBodyDataList extends $dara.Model {
 }
 
 export class DescribeIspInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of ISPs.
+   */
   dataList?: DescribeIspInfoResponseBodyDataList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 5
    */

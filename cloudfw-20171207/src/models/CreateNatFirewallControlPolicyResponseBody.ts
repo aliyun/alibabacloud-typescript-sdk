@@ -7,18 +7,18 @@ export class CreateNatFirewallControlPolicyResponseBody extends $dara.Model {
    * @remarks
    * The unique ID of the access control policy.
    * 
-   * >  To modify an access control policy, you must specify the unique ID of the policy. You can call the DescribeNatFirewallControlPolicy operation to obtain the ID.
+   * > To modify an access control policy, you must provide its unique ID. You can call the `DescribeNatFirewallControlPolicy` operation to obtain this ID.
    * 
    * @example
-   * 6504d2fb-ab36-49c3-92a6-822a56549783
+   * 6504d2fb-ab36-49c3-92a6-*****
    */
   aclUuid?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 0DC783F1-B3A7-578D-8A63-687CC9B82C0A
+   * 0DC783F1-B3A7-578D-8A63-*****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

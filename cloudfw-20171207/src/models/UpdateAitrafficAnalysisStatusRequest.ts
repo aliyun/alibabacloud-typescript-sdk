@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAITrafficAnalysisStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The enabling status. Valid values:
+   * 
+   * - **open**: Enables the feature.
+   * 
+   * - **close**: Disables the feature.
+   * 
    * @example
    * normal
    */

@@ -4,23 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeConfiguredDestinationIPRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The destination IP address.
+   * 
    * @example
    * 1.1.1.1
    */
   destinationIP?: string;
+  /**
+   * @remarks
+   * The destination ISP.
+   * 
+   * @example
+   * telecom
+   */
   destinationISP?: string;
   /**
+   * @remarks
+   * The destination region.
+   * 
    * @example
    * cn-shenzhen
    */
   destinationRegion?: string;
   /**
    * @remarks
+   * The traffic direction.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +47,8 @@ export class DescribeConfiguredDestinationIPRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
+   * The group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,17 +56,25 @@ export class DescribeConfiguredDestinationIPRequest extends $dara.Model {
    */
   groupName?: string;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 20
    */
   pageSize?: string;
   /**
    * @remarks
+   * The trace code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +82,9 @@ export class DescribeConfiguredDestinationIPRequest extends $dara.Model {
    */
   sourceCode?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 123.113.99.XXX
    */

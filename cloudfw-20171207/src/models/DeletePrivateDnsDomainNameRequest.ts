@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePrivateDnsDomainNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class DeletePrivateDnsDomainNameRequest extends $dara.Model {
   accessInstanceId?: string;
   /**
    * @remarks
+   * The list of domain names.
+   * 
    * This parameter is required.
    */
   domainNameList?: string[];
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

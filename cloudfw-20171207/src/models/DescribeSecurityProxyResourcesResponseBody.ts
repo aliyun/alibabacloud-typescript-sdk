@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGatewaysNatRouteEntryList extends $dara.Model {
   /**
+   * @remarks
+   * The destination CIDR block.
+   * 
    * @example
    * 10.0.70.XX/24
    */
   destinationCidr?: string;
   /**
+   * @remarks
+   * The ID of the next hop.
+   * 
    * @example
    * ngw-2zey0w2u02u1x584m****
    */
   nextHopId?: string;
   /**
+   * @remarks
+   * The network type of the next hop.
+   * 
    * @example
    * NatGateway
    */
   nextHopType?: string;
   /**
+   * @remarks
+   * The ID of the route table.
+   * 
    * @example
    * vtb-2ze409pp09d994a****
    */
@@ -52,22 +64,38 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
 
 export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGateways extends $dara.Model {
   /**
+   * @remarks
+   * The status of the NAT Gateway.
+   * 
    * @example
    * Available
    */
   detail?: string;
   /**
+   * @remarks
+   * The ID of the NAT Gateway.
+   * 
    * @example
    * ngw-bp1bm0k2t8i6ooxu****
    */
   natGatewayId?: string;
   /**
+   * @remarks
+   * The name of the NAT Gateway.
+   * 
    * @example
    * ngw-test
    */
   natGatewayName?: string;
+  /**
+   * @remarks
+   * The list of NAT route tables.
+   */
   natRouteEntryList?: DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGatewaysNatRouteEntryList[];
   /**
+   * @remarks
+   * The status of the NAT Gateway.
+   * 
    * @example
    * Available
    */
@@ -106,22 +134,38 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
 
 export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcList extends $dara.Model {
   /**
+   * @remarks
+   * The IPv4 CIDR block of the VPC.
+   * 
    * @example
    * 192.168.0.0/16
    */
   cidrBlock?: string;
   /**
+   * @remarks
+   * The UID of the member account.
+   * 
    * @example
    * 157862808111****
    */
   memberUid?: string;
+  /**
+   * @remarks
+   * The list of NAT gateways.
+   */
   natGateways?: DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGateways[];
   /**
+   * @remarks
+   * The ID of the VPC.
+   * 
    * @example
    * vpc-8vbuzirdl3w1r7exw****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The name of the VPC.
+   * 
    * @example
    * vpc-wz94a4q37rgl7g****
    */
@@ -160,10 +204,17 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcList exten
 
 export class DescribeSecurityProxyResourcesResponseBodyResourceList extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionNo?: string;
+  /**
+   * @remarks
+   * The list of VPCs.
+   */
   vpcList?: DescribeSecurityProxyResourcesResponseBodyResourceListVpcList[];
   static names(): { [key: string]: string } {
     return {
@@ -193,10 +244,17 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceList extends $dar
 
 export class DescribeSecurityProxyResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * A8E8D50E-9F45-5662-B116-A1D0807F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of resources.
+   */
   resourceList?: DescribeSecurityProxyResourcesResponseBodyResourceList[];
   static names(): { [key: string]: string } {
     return {

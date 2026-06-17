@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatAclPageStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Extra error information.
+   * The details of the exception.
    * 
    * @example
    * proxy_not_exist
@@ -13,7 +13,7 @@ export class DescribeNatAclPageStatusResponseBody extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * Indicates whether pagination for access control policies for NAT firewalls is supported.
+   * Indicates whether a separate page is supported for NAT ACL.
    * 
    * @example
    * True

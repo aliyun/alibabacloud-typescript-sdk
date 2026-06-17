@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses of servers.
+   * The IP address of the server.
    * 
    * @example
    * 203.107.XX.XX
@@ -13,9 +13,9 @@ export class DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails extends 
   ip?: string;
   /**
    * @remarks
-   * The risk levels. Valid values:
+   * The threat level. Valid value:
    * 
-   * *   **medium**
+   * - **medium**: medium
    * 
    * @example
    * medium
@@ -57,12 +57,12 @@ export class DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails extends 
 export class DescribeInstanceRiskLevelsResponseBodyInstanceRisks extends $dara.Model {
   /**
    * @remarks
-   * The risk levels of the Elastic Compute Service (ECS) instance.
+   * The list of threats for the ECS instances.
    */
   details?: DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails[];
   /**
    * @remarks
-   * The instance ID of your Cloud Firewall.
+   * The ID of the Cloud Firewall instance.
    * 
    * @example
    * vipcloudfw-cn-7mz2fj8nm0u
@@ -70,9 +70,9 @@ export class DescribeInstanceRiskLevelsResponseBodyInstanceRisks extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The risk levels. Valid values:
+   * The threat level. Valid value:
    * 
-   * *   **medium**
+   * - **medium**: medium
    * 
    * @example
    * medium
@@ -109,7 +109,7 @@ export class DescribeInstanceRiskLevelsResponseBodyInstanceRisks extends $dara.M
 export class DescribeInstanceRiskLevelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the instances.
+   * The list of instance threats.
    */
   instanceRisks?: DescribeInstanceRiskLevelsResponseBodyInstanceRisks[];
   /**

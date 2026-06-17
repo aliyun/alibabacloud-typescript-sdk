@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAddressBookResponseBodyAclsAckLabels extends $dara.Model {
   /**
+   * @remarks
+   * The key of the ACK pod label.
+   * 
    * @example
    * app
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the ACK pod label.
+   * 
    * @example
    * storage-operator
    */
@@ -39,7 +45,7 @@ export class DescribeAddressBookResponseBodyAclsAckLabels extends $dara.Model {
 export class DescribeAddressBookResponseBodyAclsAddresses extends $dara.Model {
   /**
    * @remarks
-   * Address information in the address book.
+   * The IP address or CIDR block.
    * 
    * @example
    * 192.168.0.1/32
@@ -47,10 +53,10 @@ export class DescribeAddressBookResponseBodyAclsAddresses extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * Single address description.
+   * The note for the address.
    * 
    * @example
-   * description
+   * Single Address Description
    */
   note?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +85,7 @@ export class DescribeAddressBookResponseBodyAclsAddresses extends $dara.Model {
 export class DescribeAddressBookResponseBodyAclsTagList extends $dara.Model {
   /**
    * @remarks
-   * The key of the ECS tag.
+   * The key of the tag.
    * 
    * @example
    * company
@@ -87,10 +93,10 @@ export class DescribeAddressBookResponseBodyAclsTagList extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the ECS tag.
+   * The value of the tag.
    * 
    * @example
-   * admin
+   * ALL VALUE
    */
   tagValue?: string;
   static names(): { [key: string]: string } {
@@ -118,20 +124,34 @@ export class DescribeAddressBookResponseBodyAclsTagList extends $dara.Model {
 
 export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ACK cluster connector.
+   * 
    * @example
-   * ac-7c1bad6c3cc84c33baab1
+   * ac-7c1bad6c3cc84c33baab
    */
   ackClusterConnectorId?: string;
   /**
+   * @remarks
+   * The name of the ACK cluster connector.
+   * 
    * @example
-   * ACK集群连接器
+   * ack-cluster-connector-name
    */
   ackClusterConnectorName?: string;
+  /**
+   * @remarks
+   * A list of ACK pod labels.
+   */
   ackLabels?: DescribeAddressBookResponseBodyAclsAckLabels[];
+  /**
+   * @remarks
+   * A list of ACK namespaces.
+   */
   ackNamespaces?: string[];
   /**
    * @remarks
-   * The addresses in the address book.
+   * A list of CIDR blocks in the address book.
    */
   addressList?: string[];
   /**
@@ -144,15 +164,12 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   addressListCount?: number;
   /**
    * @remarks
-   * A list of addresses in the address book, each with a single address description.
+   * A list of addresses, each with a description.
    */
   addresses?: DescribeAddressBookResponseBodyAclsAddresses[];
   /**
    * @remarks
-   * Indicates whether the public IP addresses of ECS instances are automatically added to the address book if the instances match the specified tags. The setting takes effect on both newly purchased ECS instances whose tag settings are complete and ECS instances whose tag settings are modified. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
+   * Indicates whether to automatically add the public IPs of tagged ECS instances to the address book. This applies to newly purchased instances and existing instances whose tags are modified to match.
    * 
    * @example
    * 1
@@ -163,7 +180,7 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
    * The description of the address book.
    * 
    * @example
-   * my address book
+   * DEMO
    */
   description?: string;
   /**
@@ -177,13 +194,6 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   /**
    * @remarks
    * The type of the address book. Valid values:
-   * 
-   * *   **ip**: IP address book
-   * *   **domain**: domain address book
-   * *   **port**: port address book
-   * *   **tag**: ECS tag-based address book
-   * *   **allCloud**: cloud service address book
-   * *   **threat**: threat intelligence address book
    * 
    * @example
    * ip
@@ -199,28 +209,28 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   groupUuid?: string;
   /**
    * @remarks
-   * The number of times that the address book is referenced.
+   * The number of times the address book is referenced.
    * 
    * @example
    * 3
    */
   referenceCount?: number;
   /**
+   * @remarks
+   * The region where the ACK cluster connector is deployed. This parameter is returned only when the GroupType parameter is "ack".
+   * 
    * @example
    * cn-beijing
    */
   regionNo?: string;
   /**
    * @remarks
-   * The details about the ECS tags that can be automatically added to the address book.
+   * A list of ECS tags.
    */
   tagList?: DescribeAddressBookResponseBodyAclsTagList[];
   /**
    * @remarks
-   * The logical relationship among ECS tags. Valid values:
-   * 
-   * *   **and**: Only the public IP addresses of ECS instances that match all the specified tags can be added to the address book.
-   * *   **or**: The public IP addresses of ECS instances that match any of the specified tags can be added to the address book.
+   * The logical relationship among multiple ECS tags. Valid values:
    * 
    * @example
    * and
@@ -295,12 +305,12 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
 export class DescribeAddressBookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the address book.
+   * A list of address books.
    */
   acls?: DescribeAddressBookResponseBodyAcls[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -308,7 +318,7 @@ export class DescribeAddressBookResponseBody extends $dara.Model {
   pageNo?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of address books returned per page.
    * 
    * @example
    * 10
@@ -324,7 +334,7 @@ export class DescribeAddressBookResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the returned address books.
+   * The total number of address books.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRiskLevelsRequestInstances extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of your Cloud Firewall.
+   * The ID of the Cloud Firewall instance.
    * 
    * @example
    * vipcloudfw-cn-7mz2fj8nm0u
@@ -13,7 +13,7 @@ export class DescribeInstanceRiskLevelsRequestInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The public IP addresses of instances.
+   * The public IP address of the instance.
    */
   internetIp?: string[];
   /**
@@ -65,15 +65,16 @@ export class DescribeInstanceRiskLevelsRequestInstances extends $dara.Model {
 export class DescribeInstanceRiskLevelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the instances.
+   * The list of instances.
    */
   instances?: DescribeInstanceRiskLevelsRequestInstances[];
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en

@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRiskEventTopAttackAssetResponseBodyAssets extends $dara.Model {
   /**
+   * @remarks
+   * The number of attacks.
+   * 
    * @example
    * 12
    */
   attackCnt?: number;
   /**
+   * @remarks
+   * The number of dropped attempts.
+   * 
    * @example
    * 8
    */
   dropCnt?: number;
   /**
+   * @remarks
+   * The IP address.
+   * 
    * @example
    * 10.3.54.XXX
    */
   ip?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-chengdu
    */
   regionNo?: string;
   /**
+   * @remarks
+   * The ID of the asset instance.
+   * 
    * @example
    * i-8vbdrjrxzt78****
    */
   resourceInstanceId?: string;
   /**
+   * @remarks
+   * The name of the resource instance.
+   * 
    * @example
    * test_resource
    */
   resourceInstanceName?: string;
   /**
+   * @remarks
+   * The type of the resource instance.
+   * 
    * @example
    * EcsPublicIP
    */
@@ -72,8 +93,15 @@ export class DescribeRiskEventTopAttackAssetResponseBodyAssets extends $dara.Mod
 }
 
 export class DescribeRiskEventTopAttackAssetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics of the assets.
+   */
   assets?: DescribeRiskEventTopAttackAssetResponseBodyAssets[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B9BF7C33-9A23-5096-8568-A3DACAF0****
    */

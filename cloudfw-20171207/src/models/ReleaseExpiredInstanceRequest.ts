@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseExpiredInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Cloud Firewall instance.
+   * 
    * This parameter is required.
    * 
    * @example

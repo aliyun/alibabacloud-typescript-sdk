@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRiskEventTopAttackAppResponseBodyAttackApps extends $dara.Model {
   /**
+   * @remarks
+   * The name of the application.
+   * 
    * @example
    * live
    */
   app?: string;
   /**
+   * @remarks
+   * The number of attacks.
+   * 
    * @example
    * 20
    */
   attackCnt?: number;
   /**
+   * @remarks
+   * The number of intercepted attacks.
+   * 
    * @example
    * 15
    */
@@ -44,8 +53,15 @@ export class DescribeRiskEventTopAttackAppResponseBodyAttackApps extends $dara.M
 }
 
 export class DescribeRiskEventTopAttackAppResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of attacked applications.
+   */
   attackApps?: DescribeRiskEventTopAttackAppResponseBodyAttackApps[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * C9DDAD29-C6B3-5997-B757-FFB3F1C3****
    */

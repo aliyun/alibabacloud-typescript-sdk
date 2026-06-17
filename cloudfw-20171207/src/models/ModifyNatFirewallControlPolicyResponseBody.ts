@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNatFirewallControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 3868197C-E6E8-52CD-8358-05E3308430E2
+   * 3768197C-E6E8-52CD-8358-*****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

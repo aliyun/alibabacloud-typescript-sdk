@@ -15,10 +15,11 @@ export class DescribeUserAssetIPTrafficInfoRequest extends $dara.Model {
   assetIP?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh**: Chinese (default).
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -26,7 +27,7 @@ export class DescribeUserAssetIPTrafficInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The time of the traffic query, specified as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

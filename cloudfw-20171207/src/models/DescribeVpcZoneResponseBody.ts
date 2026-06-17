@@ -8,12 +8,12 @@ export class DescribeVpcZoneResponseBodyZoneList extends $dara.Model {
    * The name of the zone.
    * 
    * @example
-   * Hangzhou Zone B
+   * China East 1 Zone B
    */
   localName?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The ID of the zone.
    * 
    * @example
    * cn-hangzhou-b
@@ -21,7 +21,7 @@ export class DescribeVpcZoneResponseBodyZoneList extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone type. Default value: AvailabilityZone. This value indicates Alibaba Cloud zones.
+   * The type of the zone. The default value is \\`AvailabilityZone\\`, which indicates a standard cloud zone.
    * 
    * @example
    * AvailabilityZone
@@ -63,7 +63,7 @@ export class DescribeVpcZoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The zones.
+   * The list of zones.
    */
   zoneList?: DescribeVpcZoneResponseBodyZoneList[];
   static names(): { [key: string]: string } {

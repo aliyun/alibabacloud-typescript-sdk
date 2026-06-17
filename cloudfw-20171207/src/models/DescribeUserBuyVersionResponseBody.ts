@@ -4,50 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The quota for ACK cluster connectors.
+   * 
    * @example
    * 5
    */
   ackClusterConnectorQuota?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase Cloud Firewall.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 119898001566xxxx
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The default bandwidth of the edition.
+   * 
    * @example
    * 1000
    */
   defaultBandwidth?: number;
   /**
    * @remarks
-   * The time when Cloud Firewall expires.
+   * The expiration time of the Cloud Firewall instance.
    * 
-   * >  The value is a timestamp in milliseconds.
+   * > The value is a UNIX timestamp in milliseconds.
    * 
-   * >  If you use Cloud Firewall that uses the pay-as-you-go billing method, ignore this parameter.
+   * > This parameter does not apply to pay-as-you-go editions.
    * 
    * @example
    * 1726934400000
    */
   expire?: number;
   /**
+   * @remarks
+   * The extended bandwidth.
+   * 
    * @example
    * 1000
    */
   extensionBandwidth?: number;
   /**
+   * @remarks
+   * The number of general-purpose instances.
+   * 
    * @example
    * 10
    */
   generalInstance?: number;
   /**
    * @remarks
-   * The instance ID of Cloud Firewall.
+   * The ID of the Cloud Firewall instance.
    * 
-   * >  If you use a trial of Cloud Firewall, ignore this parameter.
+   * > This parameter does not apply to trial editions.
    * 
    * @example
    * vipcloudfw-cn-xxxxx
@@ -55,13 +67,17 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The status of Cloud Firewall. Valid values:
+   * The operational status of the Cloud Firewall instance. Valid values:
    * 
-   * *   **normal**: Cloud Firewall is running as expected.
-   * *   **init**: Cloud Firewall is being initialized.
-   * *   **deleting**: Cloud Firewall is being deleted.
-   * *   **abnormal**: An exception occurs in Cloud Firewall.
-   * *   **free**: Cloud Firewall is invalid.
+   * - **normal**: The instance is running as expected.
+   * 
+   * - **init**: The instance is being initialized.
+   * 
+   * - **deleting**: The instance is being deleted.
+   * 
+   * - **abnormal**: The instance is in an abnormal state.
+   * 
+   * - **free**: No valid instance is available.
    * 
    * @example
    * normal
@@ -69,7 +85,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The peak Internet traffic that can be protected.
+   * The purchased traffic processing capability for the Internet firewall.
    * 
    * @example
    * 3000
@@ -79,7 +95,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * @remarks
    * The number of public IP addresses that can be protected.
    * 
-   * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+   * > This parameter applies only to subscription instances.
    * 
    * @example
    * 63
@@ -89,8 +105,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether log delivery is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled
+   * 
+   * - **false**: Disabled
    * 
    * @example
    * true
@@ -98,27 +115,31 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   logStatus?: boolean;
   /**
    * @remarks
-   * The log storage capacity.
+   * The purchased log storage capacity.
    * 
-   * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+   * > This parameter applies only to subscription instances.
    * 
    * @example
    * 3000
    */
   logStorage?: number;
   /**
+   * @remarks
+   * The major version.
+   * 
    * @example
    * 1
    */
   majorVersion?: number;
   /**
    * @remarks
-   * The status of the burstable protected traffic feature. Valid values:
+   * Indicates whether elastic billing for excess traffic is enabled. Valid values:
    * 
-   * *   **1000000**: enabled.
-   * *   **0**: disabled.
+   * - **1000000**: Enabled
    * 
-   * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+   * - **0**: Disabled
+   * 
+   * > This parameter applies only to subscription instances.
    * 
    * @example
    * 0
@@ -126,56 +147,69 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   maxOverflow?: number;
   /**
    * @remarks
-   * The peak traffic of NAT private network that can be protected.
+   * The purchased traffic processing capability for the NAT firewall.
    * 
    * @example
    * 3000
    */
   natBandwidth?: number;
   /**
+   * @remarks
+   * The quota for private DNS connectors.
+   * 
    * @example
    * 5
    */
   privateDnsConnectorQuota?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F71B03EE-xxxxx-91D79CC6AA1A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether data leakage prevention is enabled.
+   * 
    * @example
    * 1
    */
   sdl?: number;
   /**
    * @remarks
-   * The time when Cloud Firewall was activated.
+   * The time when the Cloud Firewall instance was enabled.
    * 
-   * >  The value is a timestamp in milliseconds.
+   * > The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1692504764000
    */
   startTime?: number;
   /**
+   * @remarks
+   * The temporary bandwidth.
+   * 
    * @example
    * 1000
    */
   temporaryBandwidth?: number;
   /**
+   * @remarks
+   * Indicates whether threat intelligence is enabled.
+   * 
    * @example
    * 1
    */
   threatIntelligence?: number;
   /**
    * @remarks
-   * Indicates whether Cloud Firewall is valid. Valid values:
+   * The status of the Cloud Firewall instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The instance is valid.
+   * 
+   * - **false**: The instance is invalid.
    * 
    * @example
    * true
@@ -183,12 +217,15 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   userStatus?: boolean;
   /**
    * @remarks
-   * The edition of Cloud Firewall. Valid values:
+   * The edition of the Cloud Firewall instance. Valid values:
    * 
-   * *   **2**: Premium Edition.
-   * *   **3**: Enterprise Edition.
-   * *   **4**: Ultimate Edition.
-   * *   **10**: Cloud Firewall that uses the pay-as-you-go billing method.
+   * - **2**: Premium Edition
+   * 
+   * - **3**: Enterprise Edition
+   * 
+   * - **4**: Ultimate Edition
+   * 
+   * - **10**: Pay-as-you-go
    * 
    * @example
    * 2
@@ -196,7 +233,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The peak cross-VPC traffic that can be protected.
+   * The purchased traffic processing capability for the VPC firewall.
    * 
    * @example
    * 3000
@@ -204,9 +241,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   vpcBandwidth?: number;
   /**
    * @remarks
-   * The number of virtual private clouds (VPCs) that can be protected.
+   * The number of purchased VPC firewalls.
    * 
-   * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
+   * > This parameter applies only to subscription instances.
    * 
    * @example
    * 21

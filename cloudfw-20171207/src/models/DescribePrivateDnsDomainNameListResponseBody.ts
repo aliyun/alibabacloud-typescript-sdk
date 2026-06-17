@@ -3,23 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePrivateDnsDomainNameListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of domain names.
+   */
   domainNameList?: string[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 822B9125-6E1A-551C-8EAF-6E7AE74****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of private DNS domain names.
+   * 
    * @example
    * 132
    */

@@ -4,66 +4,105 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The inbound bandwidth. Unit: bps.
+   * 
    * @example
    * 187
    */
   inBps?: number;
   /**
+   * @remarks
+   * The IP address.
+   * 
    * @example
    * 10.66.231.XXX
    */
   ip?: string;
   /**
+   * @remarks
+   * The ID of the NAT firewall.
+   * 
    * @example
    * vfw-tr-7a9c8901ed394****
    */
   natFirewallId?: string;
   /**
+   * @remarks
+   * The name of the NAT firewall.
+   * 
    * @example
    * vfw-test
    */
   natFirewallName?: string;
   /**
+   * @remarks
+   * The ID of the NAT Gateway.
+   * 
    * @example
    * ngw-uf6pnry5vpawb****
    */
   natGatewayId?: string;
   /**
+   * @remarks
+   * The name of the NAT Gateway.
+   * 
    * @example
    * ngw-test
    */
   natGatewayName?: string;
   /**
+   * @remarks
+   * The number of new connections.
+   * 
    * @example
    * 27
    */
   newConn?: string;
   /**
+   * @remarks
+   * The outbound bandwidth. Unit: bps.
+   * 
    * @example
    * 45
    */
   outBps?: number;
   /**
+   * @remarks
+   * The region.
+   * 
    * @example
    * cn-qingdao
    */
   regionNo?: string;
   /**
+   * @remarks
+   * The ID of the asset instance.
+   * 
    * @example
    * i-bp130nn8h6157dir****
    */
   resourceInstanceId?: string;
   /**
+   * @remarks
+   * The name of the asset instance.
+   * 
    * @example
    * test
    */
   resourceInstanceName?: string;
   /**
+   * @remarks
+   * The total number of sessions.
+   * 
    * @example
    * 27
    */
   sessionCount?: string;
   /**
+   * @remarks
+   * The total bandwidth. Unit: bps.
+   * 
    * @example
    * 232
    */
@@ -115,17 +154,30 @@ export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model 
 
 export class DescribeNatFirewallTimeTopResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of results.
+   * 
    * @example
    * 2
    */
   dataCount?: number;
+  /**
+   * @remarks
+   * The list of data.
+   */
   dataList?: DescribeNatFirewallTimeTopResponseBodyDataList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * C5DDD596-1191-5F36-A504-8733045A****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The point in time when the traffic data was collected. This is a UNIX timestamp. Unit: seconds.
+   * 
    * @example
    * 1656923760
    */

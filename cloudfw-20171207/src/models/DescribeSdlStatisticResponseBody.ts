@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSdlStatisticResponseBodySdlStatisticRespSdlAssetTopList extends $dara.Model {
   /**
+   * @remarks
+   * The asset type.
+   * 
    * @example
    * EIP
    */
   assetType?: string;
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 116.62.66.XXX
    */
   publicIp?: string;
   /**
+   * @remarks
+   * The amount of traffic in bytes.
+   * 
    * @example
    * 0
    */
@@ -45,11 +54,17 @@ export class DescribeSdlStatisticResponseBodySdlStatisticRespSdlAssetTopList ext
 
 export class DescribeSdlStatisticResponseBodySdlStatisticRespSdlDstTopList extends $dara.Model {
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 47.101.68.XXX
    */
   publicIp?: string;
   /**
+   * @remarks
+   * The amount of traffic in bytes.
+   * 
    * @example
    * 0
    */
@@ -79,10 +94,20 @@ export class DescribeSdlStatisticResponseBodySdlStatisticRespSdlDstTopList exten
 
 export class DescribeSdlStatisticResponseBodySdlStatisticRespSdlEventTypeCountList extends $dara.Model {
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 9
    */
   count?: string;
+  /**
+   * @remarks
+   * The event type.
+   * 
+   * @example
+   * id_card
+   */
   eventType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,8 +133,20 @@ export class DescribeSdlStatisticResponseBodySdlStatisticRespSdlEventTypeCountLi
 }
 
 export class DescribeSdlStatisticResponseBodySdlStatisticResp extends $dara.Model {
+  /**
+   * @remarks
+   * A ranked list of sensitive data assets.
+   */
   sdlAssetTopList?: DescribeSdlStatisticResponseBodySdlStatisticRespSdlAssetTopList[];
+  /**
+   * @remarks
+   * A ranked list of sensitive data destinations.
+   */
   sdlDstTopList?: DescribeSdlStatisticResponseBodySdlStatisticRespSdlDstTopList[];
+  /**
+   * @remarks
+   * A list of counts for each sensitive data event type.
+   */
   sdlEventTypeCountList?: DescribeSdlStatisticResponseBodySdlStatisticRespSdlEventTypeCountList[];
   static names(): { [key: string]: string } {
     return {
@@ -147,10 +184,17 @@ export class DescribeSdlStatisticResponseBodySdlStatisticResp extends $dara.Mode
 
 export class DescribeSdlStatisticResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 337A4DBA-8A01-5E9C-99CA-84293E13****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the sensitive data.
+   */
   sdlStatisticResp?: DescribeSdlStatisticResponseBodySdlStatisticResp;
   static names(): { [key: string]: string } {
     return {

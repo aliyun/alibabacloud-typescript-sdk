@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrFirewallsV2DetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The ID of the VPC firewall instance.
    * 
    * @example
    * vfw-tr-a5a6b89f46764928****
@@ -13,10 +13,11 @@ export class DescribeTrFirewallsV2DetailRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh

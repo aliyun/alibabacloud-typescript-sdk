@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcFirewallCenManualConfigureRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the CEN instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,29 @@ export class CreateVpcFirewallCenManualConfigureRequest extends $dara.Model {
    */
   cenId?: string;
   /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The UID of the member account of Cloud Firewall.
+   * 
    * @example
    * 258039427902****
    */
   memberUid?: string;
   /**
    * @remarks
+   * The ID of the vSwitch that is used to create the elastic network interface (ENI) of the Cloud Firewall.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,11 +45,18 @@ export class CreateVpcFirewallCenManualConfigureRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
+   * The name of the VPC border firewall.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * vpc-firewall-test
    */
   vpcFirewallName?: string;
   /**
    * @remarks
+   * The ID of the VPC.
+   * 
    * This parameter is required.
    * 
    * @example

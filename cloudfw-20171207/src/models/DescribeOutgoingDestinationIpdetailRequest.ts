@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOutgoingDestinationIPDetailRequest extends $dara.Model {
   /**
+   * @remarks
+   * The status of the access control policy.
+   * 
    * @example
    * FullCoverage
    */
   aclCoverage?: string;
   /**
+   * @remarks
+   * The number of the page to return.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
    * @remarks
+   * The destination IP address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class DescribeOutgoingDestinationIPDetailRequest extends $dara.Model {
   dstIP?: string;
   /**
    * @remarks
+   * The end of the time range to query. This is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,52 +40,81 @@ export class DescribeOutgoingDestinationIPDetailRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * Describes the outbound connections from a private network through a NAT gateway.
+   * 
    * @example
    * NatPrivate
    */
   IPType?: string;
   /**
+   * @remarks
+   * The language of the response message.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The ID of the NAT Gateway.
+   * 
    * @example
    * ngw-2zed6z6qkd7ogc****
    */
   natGatewayId?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The number of the page to return.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The private IP address.
+   * 
    * @example
    * 10.210.0.XXX
    */
   privateIP?: string;
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 192.0.XX.XX
    */
   publicIP?: string;
   /**
+   * @remarks
+   * The field to use for sorting.
+   * 
    * @example
    * InBytes
    */
   sort?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 1.202.193.XXX
    */
   sourceIp?: string;
   /**
    * @remarks
+   * The start of the time range to query. This is a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -83,6 +122,9 @@ export class DescribeOutgoingDestinationIPDetailRequest extends $dara.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The ID of the tag.
+   * 
    * @example
    * FirstFlow
    */

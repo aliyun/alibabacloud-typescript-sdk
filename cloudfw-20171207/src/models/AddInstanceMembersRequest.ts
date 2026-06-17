@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddInstanceMembersRequestMembers extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the member. The value must be 1 to 256 characters in length.
+   * The remarks of the member. The remarks must be 1 to 256 characters in length. You can add up to 20 members at a time.
    * 
    * @example
    * renewal
@@ -13,7 +13,7 @@ export class AddInstanceMembersRequestMembers extends $dara.Model {
   memberDesc?: string;
   /**
    * @remarks
-   * The UID of the member. You can add up to 20 members to Cloud Firewall at a time.
+   * The UID of the member. You can add up to 20 members at a time.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class AddInstanceMembersRequestMembers extends $dara.Model {
 export class AddInstanceMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * The members.
+   * The members that you want to add to Cloud Firewall.
    * 
    * This parameter is required.
    */

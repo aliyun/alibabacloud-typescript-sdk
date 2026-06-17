@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcFirewallControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access control policy.
+   * The unique ID of the access control policy.
    * 
    * @example
    * 00281255-d220-4db1-8f4f-c4df221ad84c

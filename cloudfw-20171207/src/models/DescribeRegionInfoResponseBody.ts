@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRegionInfoResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * Shanghai
+   */
   regionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,13 +43,23 @@ export class DescribeRegionInfoResponseBodyDataList extends $dara.Model {
 }
 
 export class DescribeRegionInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data.
+   */
   dataList?: DescribeRegionInfoResponseBodyDataList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 25E655B0-CAED-53D4-8054-F983126****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 8
    */

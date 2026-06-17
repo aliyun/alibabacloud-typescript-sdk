@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVpcFirewallZoneResponseBodyZoneList extends $dara.Model {
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-c
    */
   zoneId?: string;
+  /**
+   * @remarks
+   * The name of the zone.
+   * 
+   * @example
+   * Hangzhou Zone C
+   */
   localName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +44,17 @@ export class DescribeVpcFirewallZoneResponseBodyZoneList extends $dara.Model {
 
 export class DescribeVpcFirewallZoneResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 337A4DBA-8A01-5E9C-99CA-84293E13****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of zones.
+   */
   zoneList?: DescribeVpcFirewallZoneResponseBodyZoneList[][];
   static names(): { [key: string]: string } {
     return {

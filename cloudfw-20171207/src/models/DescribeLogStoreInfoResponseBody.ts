@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the SLS Logstore.
+   * 
    * @example
    * xxx-logstore
    */
   logStoreName?: string;
   /**
+   * @remarks
+   * The maximum number of shards supported for scaling.
+   * 
    * @example
    * 4
    */
   maxSplitShard?: number;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
    * cloudfirewall-project-14151892848****-cn-hangzhou
    */
   projectName?: string;
   /**
+   * @remarks
+   * The storage capacity threshold, in bytes.
+   * 
    * @example
    * 50000000
    */
   quota?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-qingdao
    */
   regionId?: string;
   /**
+   * @remarks
+   * The number of shards in use.
+   * 
    * @example
    * 2
    */
   shard?: number;
   /**
+   * @remarks
+   * The location of the Logstore. Valid values: \\`cn\\` for the Chinese mainland and \\`intl\\` for regions outside the Chinese mainland.
+   * 
    * @example
    * cn
    */
   site?: string;
   /**
+   * @remarks
+   * The storage duration of logs, in days.
+   * 
    * @example
    * 180
    */
   ttl?: number;
   /**
+   * @remarks
+   * The amount of stored logs, in bytes.
+   * 
    * @example
    * 21852955752
    */
@@ -86,28 +113,38 @@ export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
 }
 
 export class DescribeLogStoreInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information list.
+   */
   infoList?: DescribeLogStoreInfoResponseBodyInfoList[];
   /**
+   * @remarks
+   * The number of times the log storage mode can be changed.
+   * 
    * @example
    * 2
    */
   logModifyQuota?: number;
   /**
    * @remarks
-   * The name of the SLS LogStore in the log service.
+   * The name of the SLS Logstore.
    * 
    * @example
    * xxx-logstore
    */
   logStoreName?: string;
   /**
+   * @remarks
+   * The log version. 1: indicates one Logstore. 2: indicates two Logstores.
+   * 
    * @example
    * 2
    */
   logVersion?: number;
   /**
    * @remarks
-   * The Project name of the log service.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * project-xxx-cn-hangzhou
@@ -115,7 +152,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Available log storage capacity. Unit: Byte.
+   * The available log storage capacity, in bytes.
    * 
    * @example
    * 50000000
@@ -123,7 +160,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   quota?: number;
   /**
    * @remarks
-   * The region ID for log delivery.
+   * The ID of the region where logs are delivered.
    * 
    * @example
    * cn-shanghai
@@ -131,25 +168,31 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of this request.
+   * The request ID.
    * 
    * @example
    * C6C3B72B********E95FB0A161
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
-   * 用户进行日志修改所产生的任务id。
+   * 132
    */
   taskId?: string;
   /**
+   * @remarks
+   * The total purchased log storage capacity, in bytes.
+   * 
    * @example
    * 50000000
    */
   totalQuota?: number;
   /**
    * @remarks
-   * Log storage duration. Unit: days.
+   * The storage duration of logs, in days.
    * 
    * @example
    * 20
@@ -157,9 +200,9 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   ttl?: number;
   /**
    * @remarks
-   * Used storage capacity. Unit: Byte.
+   * The used storage capacity, in bytes.
    * 
-   * > The statistics of the log service have a delay of approximately two hours.
+   * > Statistics from Simple Log Service may be delayed by up to two hours.
    * 
    * @example
    * 0

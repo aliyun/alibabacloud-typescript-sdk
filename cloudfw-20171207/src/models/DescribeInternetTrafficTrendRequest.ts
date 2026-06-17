@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The direction of the internet traffic.
+   * The direction of the Internet traffic. Valid values:
    * 
-   * Valid values:
+   * - **in**: inbound
    * 
-   * *   **in**: inbound traffic
-   * *   **out**: outbound traffic
+   * - **out**: outbound
    * 
    * @example
    * in
@@ -18,7 +17,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end of the time range to query. This value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -28,10 +27,11 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the content in the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -39,7 +39,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source code.
+   * The source tracking code.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   sourceCode?: string;
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address of the visitor.
    * 
    * @example
    * 101.80.171.196
@@ -59,7 +59,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The private IP address of the source.
+   * The source private IP address.
    * 
    * @example
    * 10.100.134.60
@@ -67,7 +67,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   srcPrivateIP?: string;
   /**
    * @remarks
-   * The public IP address of the source.
+   * The source public IP address.
    * 
    * @example
    * 47.112.210.136
@@ -75,7 +75,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   srcPublicIP?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start of the time range to query. This value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -85,10 +85,11 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The type of the traffic that is captured. Valid values:
+   * The type of traffic to query. Valid values:
    * 
-   * *   **max** (default): peak traffic
-   * *   **avg**: average traffic
+   * - **max** (default): peak traffic
+   * 
+   * - **avg**: average traffic
    * 
    * @example
    * max

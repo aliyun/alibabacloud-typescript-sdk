@@ -5,13 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the service. This parameter is empty by default. Valid values:
+   * The asset category. If you leave this parameter empty, assets in all categories are queried. Valid values:
    * 
-   * *   **All**: all services
-   * *   **RiskDomain**: risky domain names
-   * *   **RiskIP**: risky IP addresses
-   * *   **AliYun**: Alibaba Cloud services
-   * *   **NotAliYun**: third-party services
+   * - **All**: all categories
+   * 
+   * - **RiskDomain**: risky domain names
+   * 
+   * - **RiskIP**: risky IP addresses
+   * 
+   * - **AliYun**: Alibaba Cloud services
+   * 
+   * - **NotAliYun**: third-party services
    * 
    * @example
    * All
@@ -19,7 +23,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number to return.
    * 
    * Default value: 1.
    * 
@@ -29,10 +33,11 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The source of traffic for statistics. Valid values:
+   * The source of traffic statistics. The default value is \\`internet\\`, which indicates Internet Firewall. Valid values:
    * 
-   * *   **internet** (default): the Internet firewall.
-   * *   **nat**: NAT firewalls.
+   * - **internet**: Internet Firewall
+   * 
+   * - **nat**: NAT Firewall
    * 
    * @example
    * nat
@@ -40,7 +45,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The domain name in outbound connections.
+   * The outbound domain name.
    * 
    * @example
    * www.aliyundoc.com
@@ -48,7 +53,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end of the time range to query. This is a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -58,10 +63,11 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to collect statistics only on AI service access traffic. Valid values:
+   * Specifies whether to count only traffic from accessing AI services. The default value is \\`false\\`. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true
@@ -69,10 +75,11 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   isAITraffic?: string;
   /**
    * @remarks
-   * The language of the content within the request. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -80,10 +87,11 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The method that you want to use to sort the query results. Valid values:
+   * The sorting order. Valid values:
    * 
-   * *   **asc**
-   * *   **desc** (default)
+   * - **asc**: ascending
+   * 
+   * - **desc** (default): descending
    * 
    * @example
    * desc
@@ -101,7 +109,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The public IP address of the Elastic Compute Service (ECS) instance that initiates outbound connections.
+   * The public IP address of the Elastic Compute Service (ECS) instance that initiates the outbound connections.
    * 
    * @example
    * 192.0.XX.XX
@@ -109,10 +117,11 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The field based on which you want to sort the query results. Valid values:
+   * The field to sort by. Valid values:
    * 
-   * *   **SessionCount** (default): the number of requests.
-   * *   **TotalBytes**: the total volume of traffic.
+   * - **SessionCount** (default): the number of requests
+   * 
+   * - **TotalBytes**: the total traffic
    * 
    * @example
    * SessionCount
@@ -120,7 +129,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The beginning of the time range to query. This is a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -130,45 +139,81 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the tag. Valid values:
+   * The ID of the intelligence tag. Valid values:
    * 
-   * *   **AliYun**: Alibaba Cloud service
-   * *   **RiskDomain**: risky domain name
-   * *   **RiskIP**: risky IP address
-   * *   **TrustedDomain**: trusted website
-   * *   **AliPay**: Alipay
-   * *   **DingDing**: DingTalk
-   * *   **WeChat**: WeChat
-   * *   **QQ**: Tencent QQ
-   * *   **SecurityService**: security service
-   * *   **Microsoft**: Microsoft
-   * *   **Amazon**: Amazon Web Services (AWS)
-   * *   **Pan**: cloud disk
-   * *   **Map**: map
-   * *   **Code**: code hosting
-   * *   **SystemService**: system service
-   * *   **Taobao**: Taobao
-   * *   **Google**: Google
-   * *   **ThirdPartyService**: third-party service
-   * *   **FirstFlow**: the first time when an outbound connection is initiated
-   * *   **Downloader**: malicious download
-   * *   **Alexa Top1M**: popular website
-   * *   **Miner**: mining pool
-   * *   **Intelligence**: threat intelligence
-   * *   **DDoS**: DDoS trojan
-   * *   **Ransomware**: ransomware
-   * *   **Spyware**: spyware
-   * *   **Rogue**: rogue software
-   * *   **Botnet**: botnet
-   * *   **Suspicious**: suspicious website
-   * *   **C\\&C**: command and control (C\\&C)
-   * *   **Gang**: gang
-   * *   **CVE**: Common Vulnerabilities and Exposures (CVE)
-   * *   **Backdoor**: webshell
-   * *   **Phishing**: phishing website
-   * *   **APT**: advanced persistent threat (APT) attack
-   * *   **Supply Chain Attack**: supply chain attack
-   * *   **Malicious software**: malware
+   * - **AliYun**: Alibaba Cloud service
+   * 
+   * - **RiskDomain**: Risky domain name
+   * 
+   * - **RiskIP**: Risky IP address
+   * 
+   * - **TrustedDomain**: Trusted website
+   * 
+   * - **AliPay**: Alipay
+   * 
+   * - **DingDing**: DingTalk
+   * 
+   * - **WeChat**: WeChat
+   * 
+   * - **QQ**: Tencent QQ
+   * 
+   * - **SecurityService**: Security service
+   * 
+   * - **Microsoft**: Microsoft
+   * 
+   * - **Amazon**: Amazon
+   * 
+   * - **Pan**: Cloud storage service
+   * 
+   * - **Map**: Map service
+   * 
+   * - **Code**: Code hosting service
+   * 
+   * - **SystemService**: System service
+   * 
+   * - **Taobao**: Taobao
+   * 
+   * - **Google**: Google
+   * 
+   * - **ThirdPartyService**: Third-party service
+   * 
+   * - **FirstFlow**: First-time access
+   * 
+   * - **Downloader**: Malicious downloader
+   * 
+   * - **Alexa Top 1M**: Popular website
+   * 
+   * - **Miner**: Mining pool
+   * 
+   * - **Intelligence**: Threat intelligence
+   * 
+   * - **DDoS**: DDoS trojan
+   * 
+   * - **Ransomware**: Ransomware
+   * 
+   * - **Spyware**: Spyware
+   * 
+   * - **Rogue**: Rogue software
+   * 
+   * - **Botnet**: Botnet
+   * 
+   * - **Suspicious**: Suspicious website
+   * 
+   * - **C\\&C**: Command and control (C\\&C)
+   * 
+   * - **Gang**: Gang-related activity
+   * 
+   * - **CVE**: CVE vulnerability
+   * 
+   * - **Backdoor**: Backdoor
+   * 
+   * - **Phishing**: Phishing website
+   * 
+   * - **APT**: Advanced Persistent Threat (APT) attack
+   * 
+   * - **Supply Chain Attack**: Supply chain attack
+   * 
+   * - **Malware**: Malicious software
    * 
    * @example
    * AliYun

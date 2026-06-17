@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrivateDnsEndpointDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribePrivateDnsEndpointDetailRequest extends $dara.Model {
   accessInstanceId?: string;
   /**
    * @remarks
+   * The ID of the region where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example

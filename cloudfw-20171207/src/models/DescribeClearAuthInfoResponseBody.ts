@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeClearAuthInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The UNIX timestamp when the authorization expires.
+   * 
    * @example
    * 1755964800
    */
   endTime?: number;
   /**
+   * @remarks
+   * The number of remaining clears.
+   * 
    * @example
    * 20
    */
   leftTimes?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 8DDEE254-5639-5548-82D1-AAAC7347****
    */

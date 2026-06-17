@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The inbound network throughput, which indicates the number of bits that are sent inbound per second. Unit: bit/s.
+   * The inbound network throughput. Unit: bps.
    * 
    * @example
    * 187
@@ -13,7 +13,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   inBps?: number;
   /**
    * @remarks
-   * The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
+   * The inbound traffic. Unit: bytes.
    * 
    * @example
    * 235
@@ -21,7 +21,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   inBytes?: number;
   /**
    * @remarks
-   * The inbound network throughput, which indicates the number of packets that are sent inbound per second. Unit: packets per second (pps).
+   * The inbound packet rate. Unit: pps.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   newConn?: number;
   /**
    * @remarks
-   * The outbound network throughput, which indicates the number of bits that are sent outbound per second. Unit: bit/s.
+   * The outbound network throughput. Unit: bps.
    * 
    * @example
    * 45
@@ -45,7 +45,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   outBps?: number;
   /**
    * @remarks
-   * The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
+   * The outbound traffic. Unit: bytes.
    * 
    * @example
    * 1123
@@ -53,7 +53,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   outBytes?: number;
   /**
    * @remarks
-   * The outbound network throughput, which indicates the number of packets that are sent outbound per second. Unit: pps.
+   * The outbound packet rate. Unit: pps.
    * 
    * @example
    * 2
@@ -69,9 +69,9 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   sessionCount?: number;
   /**
    * @remarks
-   * The time when traffic is generated. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the traffic was recorded. This value is a UNIX timestamp in seconds.
    * 
-   * If processing is not complete at this point in time, -1 is returned for all other fields.
+   * If data for this time point has not been processed, the values of other fields are -1.
    * 
    * @example
    * 1659405600
@@ -79,10 +79,10 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   time?: number;
   /**
    * @remarks
-   * The total outbound and inbound network throughput, which indicates the total number of bits that are sent inbound and outbound per second. Unit: bit/s.
+   * The total inbound and outbound network throughput. Unit: bps.
    * 
    * @example
-   * 323
+   * 232
    */
   totalBps?: number;
   static names(): { [key: string]: string } {
@@ -127,7 +127,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
 export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The average inbound network throughput, which indicates the average number of bits that are sent inbound per second. Unit: bit/s.
+   * The average inbound network throughput. Unit: bps.
    * 
    * @example
    * 6114152
@@ -135,7 +135,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   avgInBps?: number;
   /**
    * @remarks
-   * The average outbound network throughput, which indicates the average number of bits that are sent outbound per second. Unit: bit/s.
+   * The average outbound network throughput. Unit: bps.
    * 
    * @example
    * 70148993
@@ -151,7 +151,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   avgSession?: number;
   /**
    * @remarks
-   * The total average inbound and outbound network throughput, which indicates the average number of bits that are sent inbound and outbound per second. Unit: bit/s.
+   * The average total network throughput for inbound and outbound traffic. Unit: bps.
    * 
    * @example
    * 2306
@@ -159,12 +159,12 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   avgTotalBps?: number;
   /**
    * @remarks
-   * The statistics on traffic.
+   * A list of traffic statistics.
    */
   dataList?: DescribeInternetTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The timestamp generated when the bandwidth reaches the peak value. The value is a UNIX timestamp. Unit: seconds.
+   * The UNIX timestamp when the peak bandwidth was reached. Unit: seconds.
    * 
    * @example
    * 1672736400
@@ -172,7 +172,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxBandwidthTime?: number;
   /**
    * @remarks
-   * The maximum volume of excess traffic allowed per day.
+   * The peak daily excess traffic.
    * 
    * @example
    * 873
@@ -180,7 +180,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxDayExceedBytes?: number;
   /**
    * @remarks
-   * The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
+   * The peak inbound network throughput. Unit: bps.
    * 
    * @example
    * 10275643
@@ -188,7 +188,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxInBps?: number;
   /**
    * @remarks
-   * The maximum outbound network throughput, which indicates the maximum number of bits that are sent outbound per second. Unit: bit/s.
+   * The peak outbound network throughput. Unit: bps.
    * 
    * @example
    * 395188
@@ -196,7 +196,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxOutBps?: number;
   /**
    * @remarks
-   * The number of requests during the peak hour of the network throughout.
+   * The peak number of requests.
    * 
    * @example
    * 931641
@@ -204,7 +204,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxSession?: number;
   /**
    * @remarks
-   * The total maximum inbound and outbound network throughput, which indicates the maximum number of bits that are sent inbound and outbound per second. Unit: bit/s.
+   * The peak total network throughput for inbound and outbound traffic. Unit: bps.
    * 
    * @example
    * 89783147
@@ -212,7 +212,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxTotalBps?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C7E837BE-0379-565E-B7B4-DE595C8D337C
@@ -220,7 +220,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total inbound and outbound network throughput, which indicates the total number of bytes that are sent inbound and outbound. Unit: bytes.
+   * The total inbound and outbound traffic. Unit: bytes.
    * 
    * @example
    * 963227674958
@@ -228,7 +228,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   totalBytes?: number;
   /**
    * @remarks
-   * The total volume of excess traffic.
+   * The total excess traffic.
    * 
    * @example
    * 4243873
@@ -236,7 +236,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   totalExceedBytes?: number;
   /**
    * @remarks
-   * The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
+   * The total inbound traffic. Unit: bytes.
    * 
    * @example
    * 41536824243873
@@ -244,7 +244,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   totalInBytes?: number;
   /**
    * @remarks
-   * The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
+   * The total outbound traffic. Unit: bytes.
    * 
    * @example
    * 2660894567178

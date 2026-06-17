@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetNatFirewallRuleHitCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the access control policy.
+   * The unique ID of the access control policy.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class ResetNatFirewallRuleHitCountRequest extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -26,7 +27,7 @@ export class ResetNatFirewallRuleHitCountRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT Gateway.
    * 
    * @example
    * ngw-zm0h3c1exm5bifuorg8c5

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePageDocumentsResponseBodyDocs extends $dara.Model {
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * test
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the document.
+   * 
    * @example
    * https://notify-center-test.ybaobx.com/webhook/arms
    */
@@ -38,11 +44,17 @@ export class DescribePageDocumentsResponseBodyDocs extends $dara.Model {
 
 export class DescribePageDocumentsResponseBodyMore extends $dara.Model {
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * test
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the document.
+   * 
    * @example
    * https://zjysfy.womanhospital.cn/pub/hos/0/noneBackGround.png
    */
@@ -71,19 +83,36 @@ export class DescribePageDocumentsResponseBodyMore extends $dara.Model {
 }
 
 export class DescribePageDocumentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of documents.
+   */
   docs?: DescribePageDocumentsResponseBodyDocs[];
   /**
+   * @remarks
+   * The URL of the image.
+   * 
    * @example
    * https://img.alicdn.com/tfs/TB1E4FCAuT2gK0jSZFvXXXnFXXa-3399-662.png
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The application module.
+   * 
    * @example
    * sg_server
    */
   module?: string;
+  /**
+   * @remarks
+   * Additional information.
+   */
   more?: DescribePageDocumentsResponseBodyMore;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7C81E1AD-08C0-5E09-853B-FDC77B90****
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutEnableAllFwSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of your Cloud Firewall.
+   * The ID of the Cloud Firewall instance.
    * 
    * @example
    * i-2ze8v2x5kd9qyvp2****
@@ -13,10 +13,11 @@ export class PutEnableAllFwSwitchRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -24,7 +25,7 @@ export class PutEnableAllFwSwitchRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the visitor.
    * 
    * @example
    * 192.0.XX.XX

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingStatisticRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time. Use a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,29 @@ export class DescribeOutgoingStatisticRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 117.32.136.XXX
    */
   sourceIp?: string;
   /**
    * @remarks
+   * The start time. Use a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example

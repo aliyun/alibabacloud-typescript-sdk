@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DisableSdlProtectedAssetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of IP assets.
+   */
   ipList?: string[];
   /**
+   * @remarks
+   * The language of the response message.
+   * 
    * @example
    * zh
    */

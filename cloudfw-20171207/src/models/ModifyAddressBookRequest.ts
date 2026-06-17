@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAddressBookRequestAckLabels extends $dara.Model {
   /**
+   * @remarks
+   * The key of the ACK cluster pod label.
+   * 
    * @example
    * app
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the ACK cluster pod label.
+   * 
    * @example
    * storage-operator
    */
@@ -39,7 +45,7 @@ export class ModifyAddressBookRequestAckLabels extends $dara.Model {
 export class ModifyAddressBookRequestTagList extends $dara.Model {
   /**
    * @remarks
-   * The key of ECS tag N that you want to match.
+   * The tag key of the ECS instance.
    * 
    * @example
    * TXY
@@ -47,7 +53,7 @@ export class ModifyAddressBookRequestTagList extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of ECS tag N that you want to match.
+   * The tag value of the ECS instance.
    * 
    * @example
    * 1
@@ -77,26 +83,37 @@ export class ModifyAddressBookRequestTagList extends $dara.Model {
 }
 
 export class ModifyAddressBookRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of ACK cluster pod labels.
+   * 
+   * > Up to 10 labels are allowed.
+   */
   ackLabels?: ModifyAddressBookRequestAckLabels[];
+  /**
+   * @remarks
+   * A list of ACK cluster pod namespaces.
+   * 
+   * > Up to 10 namespaces are allowed.
+   */
   ackNamespaces?: string[];
   /**
    * @remarks
-   * The addresses in the address book. Separate multiple addresses with commas (,). If you set GroupType to **ip**, **port**, or **domain**, you must specify this parameter.
+   * A list of addresses in the address book. Separate multiple addresses with commas. Within each address element, separate the address and its description with a space. You must specify this parameter when GroupType is **ip**, **port**, or **domain**.
    * 
-   * *   If you set GroupType to **ip**, you must specify IP addresses for the address book. Example: 1.2.XX.XX/32,1.2.XX.XX/24.
-   * *   If you set GroupType to **port**, you must specify port numbers or port ranges for the address book. Example: 80/80,100/200.
-   * *   If you set GroupType to **domain**, you must specify domain names for the address book. Example: demo1.aliyun.com,demo2.aliyun.com.
+   * - When GroupType is **ip**, specify IP addresses. Example: 1.2.XX.XX/32 development CIDR block, 10.0.0.X/24,1.2.XX.XX/24 test CIDR block.
+   * 
+   * - When GroupType is **port**, specify ports or port ranges. Example: 80/80 HTTP port, 100/200,3306 database port.
+   * 
+   * - When GroupType is **domain**, specify domain names. Example: demo1.aliyun.com test domain, demo2.aliyun.com,www\\.aliyun.com Alibaba Cloud official website.
    * 
    * @example
-   * 192.0.XX.XX/32, 192.0.XX.XX/24
+   * 192.0.XX.XX/32 ,192.0.XX.XX/24
    */
   addressList?: string;
   /**
    * @remarks
-   * Specifies whether to automatically add public IP addresses of Elastic Compute Service (ECS) instances to the address book if the instances match the specified tags. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
+   * Specifies whether to automatically add public IP addresses of new ECS instances that match the specified tags to the address book.
    * 
    * @example
    * 1
@@ -124,9 +141,9 @@ export class ModifyAddressBookRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The ID of the address book.
+   * The unique ID of the address book.
    * 
-   * >  To modify the address book, you must provide the ID of the address book. You can call the [DescribeAddressBook](https://help.aliyun.com/document_detail/138869.html) operation to query the ID.
+   * > Obtain this value from [DescribeAddressBook](~~DescribeAddressBook~~).
    * 
    * This parameter is required.
    * 
@@ -136,10 +153,7 @@ export class ModifyAddressBookRequest extends $dara.Model {
   groupUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * The language type.
    * 
    * @example
    * zh
@@ -147,14 +161,10 @@ export class ModifyAddressBookRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Modification mode with the following values:
+   * The modification mode.
    * 
-   * - **Cover**: Use the value of the AddressList parameter to overwrite the original address book.
-   * - **Append**: After the original address book, append addresses using the value of the AddressList parameter.
-   * - **Delete**: Delete addresses using the value of the AddressList parameter from the address book.
-   * 
-   * >When GroupType is **ip**, **ipv6**, **port**, or **domain**, if this parameter is not configured, the default is to use the **Cover** method to modify the address book.
-   * >Notice: When GroupType is **tag**, this parameter must be empty.</notice>
+   * > When GroupType is **ip**, **ipv6**, **port**, or **domain**, the default mode is **Cover** if this parameter is not specified.
+   * > >Notice: When GroupType is **tag**, this parameter must be empty.
    * 
    * @example
    * Cover
@@ -162,7 +172,7 @@ export class ModifyAddressBookRequest extends $dara.Model {
   modifyMode?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX
@@ -172,15 +182,12 @@ export class ModifyAddressBookRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The ECS tags that you want to match.
+   * A list of ECS tags.
    */
   tagList?: ModifyAddressBookRequestTagList[];
   /**
    * @remarks
-   * The logical relationship among ECS tags. Valid values:
-   * 
-   * *   **and**: Only the public IP addresses of ECS instances that match all the specified tags can be added to the address book.
-   * *   **or**: The public IP addresses of ECS instances that match one of the specified tags can be added to the address book.
+   * The relationship between multiple ECS tags.
    * 
    * @example
    * and

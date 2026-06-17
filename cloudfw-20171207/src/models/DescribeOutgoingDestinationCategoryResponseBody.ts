@@ -3,14 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList extends $dara.Model {
-  categoryDescribe?: string;
   /**
+   * @remarks
+   * The description of the outbound connection category.
+   * 
    * @example
    * AliYun
    */
+  categoryDescribe?: string;
+  /**
+   * @remarks
+   * The ID of the outbound connection category.
+   * 
+   * @example
+   * 123
+   */
   categoryId?: string;
+  /**
+   * @remarks
+   * The name of the outbound connection category.
+   * 
+   * @example
+   * AliYun
+   */
   categoryName?: string;
   /**
+   * @remarks
+   * The classification ID of the outbound connection category.
+   * 
    * @example
    * Trusted
    */
@@ -43,13 +63,34 @@ export class DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList
 }
 
 export class DescribeOutgoingDestinationCategoryResponseBodyTypeList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of outbound connection categories.
+   */
   categoryList?: DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList[];
+  /**
+   * @remarks
+   * The description of the fixed category.
+   * 
+   * @example
+   * AliYun
+   */
   typeDescribe?: string;
   /**
+   * @remarks
+   * The fixed category ID.
+   * 
    * @example
    * All
    */
   typeId?: string;
+  /**
+   * @remarks
+   * The name of the fixed category.
+   * 
+   * @example
+   * AliYun
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,15 +124,25 @@ export class DescribeOutgoingDestinationCategoryResponseBodyTypeList extends $da
 
 export class DescribeOutgoingDestinationCategoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * C1ED80BC-FFC8-57DB-8151-705DC31****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of outbound connection categories.
+   */
   typeList?: DescribeOutgoingDestinationCategoryResponseBodyTypeList[];
   static names(): { [key: string]: string } {
     return {

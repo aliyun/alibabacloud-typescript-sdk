@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclChecksRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of ACL check.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DescribeAclChecksRequest extends $dara.Model {
    */
   aclType?: string;
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * zh
    */

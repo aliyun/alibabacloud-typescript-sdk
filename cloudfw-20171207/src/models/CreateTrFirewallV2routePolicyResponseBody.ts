@@ -13,7 +13,7 @@ export class CreateTrFirewallV2RoutePolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the routing policy for the VPC firewall.
    * 
    * @example
    * policy-8ebed27e13e14ce2****

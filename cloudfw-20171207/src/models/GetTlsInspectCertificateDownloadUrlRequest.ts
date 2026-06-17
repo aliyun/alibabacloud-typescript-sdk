@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetTlsInspectCertificateDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the CA certificate.
+   * 
+   * > Call the ListTlsInspectCACertificates operation to query existing CA certificates.
+   * 
    * This parameter is required.
    * 
    * @example

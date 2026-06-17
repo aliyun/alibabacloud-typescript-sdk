@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
   /**
+   * @remarks
+   * The traffic direction.
+   * 
    * @example
    * out
    */
   direction?: string;
   /**
    * @remarks
+   * The end time of the query, specified as a timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The traceability code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,12 +40,17 @@ export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
    */
   sourceCode?: string;
   /**
+   * @remarks
+   * The source IP address.
+   * 
    * @example
    * 120.136.21.XXX
    */
   sourceIp?: string;
   /**
    * @remarks
+   * The start time, specified as a timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example

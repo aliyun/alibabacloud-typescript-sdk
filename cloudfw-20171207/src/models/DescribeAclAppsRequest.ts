@@ -5,6 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclAppsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ACL type. Valid values:
+   * 
+   * - **Internet**
+   * 
+   * - **NAT**
+   * 
+   * - **VPC**
+   * 
+   * - **All**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +22,21 @@ export class DescribeAclAppsRequest extends $dara.Model {
    */
   aclType?: string;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +45,8 @@ export class DescribeAclAppsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The page size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,10 +54,23 @@ export class DescribeAclAppsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Specifies whether the application is common. Valid values:
+   * 
+   * - **1**: common
+   * 
+   * - **0**: not common
+   * 
+   * - If you omit this parameter (the default), all applications are returned.
+   * 
    * @example
    * 1
    */
   popular?: number;
+  /**
+   * @remarks
+   * The list of protocol types.
+   */
   protocols?: string[];
   static names(): { [key: string]: string } {
     return {

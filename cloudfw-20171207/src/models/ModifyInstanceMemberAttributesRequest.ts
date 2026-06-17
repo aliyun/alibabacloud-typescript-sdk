@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceMemberAttributesRequestMembers extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the member in Cloud Firewall.
+   * The description of the member account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyInstanceMemberAttributesRequestMembers extends $dara.Model {
   memberDesc?: string;
   /**
    * @remarks
-   * The UID of the member in Cloud Firewall.
+   * The UID of the member account.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ModifyInstanceMemberAttributesRequestMembers extends $dara.Model {
 export class ModifyInstanceMemberAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The members that to be modified.
+   * The member accounts in Cloud Firewall.
    * 
    * This parameter is required.
    */

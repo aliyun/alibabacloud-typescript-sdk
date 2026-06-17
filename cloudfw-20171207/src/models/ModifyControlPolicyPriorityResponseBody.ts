@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyControlPolicyPriorityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 586F34E8-3F16-4C08-9FFC-8FFDC64B9D0D
+   * 586F34E8-3F16-4C08-9FFC-8FFDC64B****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

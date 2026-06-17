@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifySlsDispatchStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * CE901E31-4AE9-579D-AC37-D2F1BB43****
    */

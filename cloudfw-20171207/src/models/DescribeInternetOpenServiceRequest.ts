@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInternetOpenServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1753804800
    */
   endTime?: string;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The port number.
+   * 
    * @example
    * 3389
    */
   port?: string;
   /**
+   * @remarks
+   * The risk level.
+   * 
    * @example
    * 2
    */
   riskLevel?: string;
   /**
+   * @remarks
+   * The name of the application for an exact match. If you do not specify this parameter, all applications are queried.
+   * 
    * @example
    * SMB
    */
   serviceName?: string;
   /**
+   * @remarks
+   * The name of the application for a fuzzy match. If you do not specify this parameter, all applications are queried.
+   * 
    * @example
    * SMB
    */
   serviceNameFuzzy?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 122.200.64.XXX
    */
   sourceIp?: string;
   /**
+   * @remarks
+   * The start of the time range to query. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1755742107
    */
   startTime?: string;
   /**
+   * @remarks
+   * The recommended policy level.
+   * 
    * @example
    * 10
    */

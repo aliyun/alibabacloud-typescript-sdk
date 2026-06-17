@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayUserNatStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of Cloud Firewall.
+   * The ID of the Cloud Firewall instance.
    * 
    * @example
    * cfw_elasticity_public_cn-zsk39m******
@@ -13,10 +13,11 @@ export class DescribePostpayUserNatStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response message. Valid values:
    * 
-   * *   **zh** (default)
-   * *   **en**
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh

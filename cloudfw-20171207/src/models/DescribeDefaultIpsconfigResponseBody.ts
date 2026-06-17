@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether basic protection is enabled. Valid values:
+   * The status of the basic policies feature. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: enabled
+   * 
+   * - **0**: disabled
    * 
    * @example
    * 0
@@ -16,10 +17,11 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
   basicRules?: number;
   /**
    * @remarks
-   * Indicates whether threat intelligence is enabled. Valid values:
+   * The status of the threat intelligence feature. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: enabled
+   * 
+   * - **0**: disabled
    * 
    * @example
    * 0
@@ -27,7 +29,7 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
   ctiRules?: number;
   /**
    * @remarks
-   * The maximum amount of traffic that can be processed by the sensitive data leak detection feature each day.
+   * The maximum daily traffic that can be scanned for sensitive data.
    * 
    * @example
    * 10
@@ -35,10 +37,11 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
   maxSdl?: number;
   /**
    * @remarks
-   * Indicates whether virtual patching is enabled. Valid values:
+   * The status of the virtual patching feature. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: enabled
+   * 
+   * - **0**: disabled
    * 
    * @example
    * 0
@@ -46,7 +49,7 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
   patchRules?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 133173B9-8010-5DF5-8B93-********
@@ -54,11 +57,13 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The level of the rule group for the IPS. Valid values:
+   * The strictness level of the intrusion prevention system (IPS) rules. Valid values:
    * 
-   * *   **1**: loose
-   * *   **2**: medium
-   * *   **3**: strict
+   * - **1**: Loose
+   * 
+   * - **2**: Medium
+   * 
+   * - **3**: Strict
    * 
    * @example
    * 3
@@ -68,8 +73,9 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
    * @remarks
    * The mode of the IPS. Valid values:
    * 
-   * *   **1**: block mode
-   * *   **0**: monitor mode
+   * - **1**: Block Mode
+   * 
+   * - **0**: Monitor Mode
    * 
    * @example
    * 0

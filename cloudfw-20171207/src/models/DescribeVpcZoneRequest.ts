@@ -7,8 +7,9 @@ export class DescribeVpcZoneRequest extends $dara.Model {
    * @remarks
    * The environment. Valid values:
    * 
-   * *   **VPC**
-   * *   **TransitRouter**
+   * - **VPC**: VPC
+   * 
+   * - **TransitRouter**: Transit Router
    * 
    * @example
    * VPC
@@ -16,10 +17,11 @@ export class DescribeVpcZoneRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -27,7 +29,7 @@ export class DescribeVpcZoneRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member in Cloud Firewall.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 1415189284827022

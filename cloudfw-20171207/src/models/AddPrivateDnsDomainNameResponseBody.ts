@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddPrivateDnsDomainNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclBackupListRequest extends $dara.Model {
   /**
    * @remarks
+   * The current page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class DescribeAclBackupListRequest extends $dara.Model {
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class DescribeAclBackupListRequest extends $dara.Model {
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The source IP address of the request.
+   * 
    * @example
    * 110.191.179.XXX
    */

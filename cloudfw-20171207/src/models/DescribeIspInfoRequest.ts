@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeIspInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response message.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
+   * The source tracking code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class DescribeIspInfoRequest extends $dara.Model {
    */
   sourceCode?: string;
   /**
+   * @remarks
+   * The source IP address of the visitor.
+   * 
    * @example
    * 39.91.37.XXX
    */

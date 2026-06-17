@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyAdvancedConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The natural language of the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DescribePolicyAdvancedConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX

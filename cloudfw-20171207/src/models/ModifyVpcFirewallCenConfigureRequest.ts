@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVpcFirewallCenConfigureRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class ModifyVpcFirewallCenConfigureRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member that is managed by your Alibaba Cloud account.
+   * The UID of the member account of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****

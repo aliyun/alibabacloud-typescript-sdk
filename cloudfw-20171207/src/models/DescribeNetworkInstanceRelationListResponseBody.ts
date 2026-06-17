@@ -3,10 +3,49 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the network instance connection.
+   * 
+   * @example
+   * tr-attach-b92yqn***
+   */
   attachmentId?: string;
+  /**
+   * @remarks
+   * The name of the network instance connection.
+   * 
+   * @example
+   * att-test1
+   */
   attachmentName?: string;
+  /**
+   * @remarks
+   * The ID of the CEN instance.
+   * 
+   * @example
+   * cen-sdij1***
+   */
   cenId?: string;
+  /**
+   * @remarks
+   * The name of the CEN instance.
+   * 
+   * @example
+   * test
+   */
   cenName?: string;
+  /**
+   * @remarks
+   * The type of the transit router. Valid values:
+   * 
+   * - **Basic**: Basic Edition transit router.
+   * 
+   * - **Enterprise**: Enterprise Edition transit router.
+   * 
+   * @example
+   * Enterprise
+   */
   transitRouterType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,10 +77,49 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListA
 }
 
 export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceListAssociatedCen extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the network instance connection.
+   * 
+   * @example
+   * tr-attach-b9dyqn***
+   */
   attachmentId?: string;
+  /**
+   * @remarks
+   * The name of the network instance connection.
+   * 
+   * @example
+   * att-test2
+   */
   attachmentName?: string;
+  /**
+   * @remarks
+   * The ID of the CEN instance.
+   * 
+   * @example
+   * cen-sdij1***
+   */
   cenId?: string;
+  /**
+   * @remarks
+   * The name of the CEN instance.
+   * 
+   * @example
+   * test
+   */
   cenName?: string;
+  /**
+   * @remarks
+   * The version of the transit router. Valid values:
+   * 
+   * - **Basic**: Basic Edition transit router.
+   * 
+   * - **Enterprise**: Enterprise Edition transit router.
+   * 
+   * @example
+   * Enterprise
+   */
   transitRouterType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,23 +151,39 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListP
 }
 
 export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceList extends $dara.Model {
+  /**
+   * @remarks
+   * The associated CEN instance.
+   */
   associatedCen?: DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceListAssociatedCen[];
   /**
+   * @remarks
+   * The ID of the network instance.
+   * 
    * @example
    * vpc-dsf232d****
    */
   networkInstanceId?: string;
   /**
+   * @remarks
+   * The name of the network instance.
+   * 
    * @example
    * vpc-test
    */
   networkInstanceName?: string;
   /**
+   * @remarks
+   * The type of the network instance.
+   * 
    * @example
    * vpc
    */
   networkInstanceType?: string;
   /**
+   * @remarks
+   * The region.
+   * 
    * @example
    * cn-shenzhen
    */
@@ -127,29 +221,52 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListP
 }
 
 export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList extends $dara.Model {
+  /**
+   * @remarks
+   * The associated CEN instance.
+   */
   associatedCen?: DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen[];
   /**
+   * @remarks
+   * The connection type.
+   * 
    * @example
    * cen
    */
   connectType?: string;
   /**
+   * @remarks
+   * The ID of the network instance.
+   * 
    * @example
    * vpc-2vcwfqbrh4kr****
    */
   networkInstanceId?: string;
   /**
+   * @remarks
+   * The name of the network instance.
+   * 
    * @example
    * vpc-test
    */
   networkInstanceName?: string;
   /**
+   * @remarks
+   * The type of the network instance.
+   * 
    * @example
    * VPC
    */
   networkInstanceType?: string;
+  /**
+   * @remarks
+   * The list of peer network instances.
+   */
   peerNetworkInstanceList?: DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceList[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
@@ -194,13 +311,23 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList 
 }
 
 export class DescribeNetworkInstanceRelationListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the network instances.
+   */
   networkInstanceList?: DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 284FF89D-4F70-546F-8EF6-77E0A530****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 12
    */

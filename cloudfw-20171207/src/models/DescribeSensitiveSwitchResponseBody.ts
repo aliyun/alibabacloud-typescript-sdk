@@ -3,19 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSensitiveSwitchResponseBodyUserSensitiveDataSwitchList extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the sensitive credential category.
+   * 
+   * @example
+   * Identity card
+   */
   categoryName?: string;
+  /**
+   * @remarks
+   * The description of the sensitive credential.
+   * 
+   * @example
+   * Sensitive ID card data leakage
+   */
   description?: string;
   /**
+   * @remarks
+   * The type of the sensitive credential.
+   * 
    * @example
    * id_card
    */
   sensitiveCategory?: string;
   /**
+   * @remarks
+   * The sensitivity level.
+   * 
    * @example
    * S3
    */
   sensitiveLevel?: string;
   /**
+   * @remarks
+   * The status of the sensitive data detection switch.
+   * 
    * @example
    * 1
    */
@@ -51,20 +74,33 @@ export class DescribeSensitiveSwitchResponseBodyUserSensitiveDataSwitchList exte
 
 export class DescribeSensitiveSwitchResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of enabled items.
+   * 
    * @example
    * 80
    */
   openCount?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * A7F3ED45-5556-5AF3-ADE3-EE48FFF0****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of sensitive data detection switches.
+   */
   userSensitiveDataSwitchList?: DescribeSensitiveSwitchResponseBodyUserSensitiveDataSwitchList[];
   static names(): { [key: string]: string } {
     return {

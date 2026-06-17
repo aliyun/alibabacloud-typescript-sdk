@@ -13,7 +13,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   assetsIP?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the affected instance.
    * 
    * @example
    * ins_1321_asedb_****
@@ -21,7 +21,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   assetsInstanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The name of the affected instance.
    * 
    * @example
    * ECS_test
@@ -31,7 +31,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
    * @remarks
    * The number of the page to return.
    * 
-   * Default value: 1.
+   * Default: 1.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the query ends at the current time.
+   * The end of the time range to query. This must be a UNIX timestamp in seconds. If you omit this parameter, the query defaults to the current time.
    * 
    * @example
    * 1656837360
@@ -47,7 +47,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the breach awareness event.
+   * A unique identifier for the breach awareness event.
    * 
    * @example
    * 69d189e2-ec17-4676-a2fe-02969234****
@@ -63,7 +63,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The UUID of the breach awareness event.
+   * The universally unique identifier (UUID) of the breach awareness event.
    * 
    * @example
    * fadd-dfdd-****
@@ -71,10 +71,11 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   eventUuid?: string;
   /**
    * @remarks
-   * Specifies whether the breach awareness event is ignored. Valid values:
+   * Specifies whether to query for ignored breach awareness events. Valid values:
    * 
-   * *   **true**: The breach awareness event is ignored.
-   * *   **false**: The breach awareness event is not ignored.
+   * - **true**: Ignored.
+   * 
+   * - **false**: Not ignored.
    * 
    * @example
    * true
@@ -82,10 +83,11 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   isIgnore?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -93,7 +95,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the member.
+   * The UID of the member account.
    * 
    * @example
    * 135809047715****
@@ -101,9 +103,9 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries to return per page.
    * 
-   * Default value: 6. Maximum value: 10.
+   * Default: 6. Maximum: 10.
    * 
    * @example
    * 1
@@ -111,17 +113,20 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The handling status of breach awareness events.
+   * An array of processing statuses to filter events by. Only events with a status specified in this array are returned.
+   * 
+   * @example
+   * 1358090477156271
    */
   processStatusList?: number[];
   /**
    * @remarks
-   * The risk levels.
+   * An array of risk levels to filter events by. Only events with a risk level specified in this array are returned.
    */
   riskLevel?: number[];
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address that initiated the event.
    * 
    * @example
    * 192.0.XX.XX
@@ -131,7 +136,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the query starts from 30 days before the current time.
+   * The start of the time range to query. This must be a UNIX timestamp in seconds. If you omit this parameter, the query defaults to the last 30 days.
    * 
    * @example
    * 1656750960

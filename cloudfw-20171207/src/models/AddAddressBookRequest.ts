@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddAddressBookRequestAckLabels extends $dara.Model {
   /**
+   * @remarks
+   * The key of the ACK cluster pod label.
+   * 
    * @example
    * app
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the ACK cluster pod label.
+   * 
    * @example
    * storage-operator
    */
@@ -80,32 +86,48 @@ export class AddAddressBookRequestTagList extends $dara.Model {
 
 export class AddAddressBookRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ACK cluster connector. You can obtain this value from the following operation:
+   * 
+   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Queries a list of ACK cluster connectors.
+   * 
    * @example
    * ac-7c1bad6c3cc84c33baab1
    */
   ackClusterConnectorId?: string;
+  /**
+   * @remarks
+   * The list of ACK cluster pod labels.
+   * 
+   * > You can specify a maximum of 10 labels.
+   */
   ackLabels?: AddAddressBookRequestAckLabels[];
+  /**
+   * @remarks
+   * The list of ACK cluster pod namespaces.
+   * 
+   * > You can specify a maximum of 10 namespaces.
+   */
   ackNamespaces?: string[];
   /**
    * @remarks
-   * The addresses that you want to add to the address book. Separate multiple addresses with commas (,).
+   * The list of addresses in the address book. Separate multiple addresses with commas (,). For each address, separate the address and its description with a space.
    * 
-   * >  If you set GroupType to `ip`, `port` or `domain`, you must specify AddressList.
+   * > This parameter is required when GroupType is set to `ip`, `port`, or `domain`.
    * 
-   * *   If you set GroupType to `ip`, you must add IP addresses to the address book. Example: 192.0.XX.XX/32,192.0.XX.XX/24.
-   * *   If you set GroupType to `port`, you must add port numbers or port ranges to the address book. Example: 80,100/200.
-   * *   If you set GroupType to `domain`, you must add domain names to the address book. Example: example.com,aliyundoc.com.
+   * - If you set GroupType to `ip`, enter IP addresses in the list. Example: 192.0.XX.XX/32 development segment,10.0.0.X/24,192.0.XX.XX/24 test segment.
+   * 
+   * - If you set GroupType to `port`, enter ports or port ranges in the list. Example: 80 HTTP port,100/200,3306 database port.
+   * 
+   * - If you set GroupType to `domain`, enter domain names in the list. Example: example.com test domain name,aliyundoc.com,www\\.aliyun.com Alibaba Cloud official website.
    * 
    * @example
-   * 192.0.XX.XX/32, 192.0.XX.XX/24
+   * 192.0.XX.XX/32 ,192.0.XX.XX/24
    */
   addressList?: string;
   /**
    * @remarks
-   * Specifies whether to automatically add public IP addresses of ECS instances to the address book if the instances match the specified tags. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0** (default): no
+   * Specifies whether to automatically add the public IP addresses of ECS instances that match the specified tags to the address book.
    * 
    * @example
    * 1
@@ -133,12 +155,7 @@ export class AddAddressBookRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The type of the address book. Valid values:
-   * 
-   * *   **ip**: IP address book
-   * *   **domain**: domain address book
-   * *   **port**: port address book
-   * *   **tag**: ECS tag-based address book
+   * The type of the address book.
    * 
    * This parameter is required.
    * 
@@ -148,10 +165,7 @@ export class AddAddressBookRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
-   * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * The language of the address book description.
    * 
    * @example
    * zh
@@ -159,7 +173,7 @@ export class AddAddressBookRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the visitor.
    * 
    * @example
    * 192.0.XX.XX
@@ -169,15 +183,12 @@ export class AddAddressBookRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The ECS tags that you want to match.
+   * The list of ECS tags.
    */
   tagList?: AddAddressBookRequestTagList[];
   /**
    * @remarks
-   * The logical relation among the ECS tags that you want to match. Valid values:
-   * 
-   * *   **and** (default): Only the public IP addresses of ECS instances that match all the specified tags can be added to the address book.
-   * *   **or**: The public IP addresses of ECS instances that match one of the specified tags can be added to the address book.
+   * The logical relationship between multiple ECS tags.
    * 
    * @example
    * and

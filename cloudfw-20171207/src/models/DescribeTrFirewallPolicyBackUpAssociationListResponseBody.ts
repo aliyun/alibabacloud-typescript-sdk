@@ -16,7 +16,7 @@ export class DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAsso
    * The name of the traffic redirection instance.
    * 
    * @example
-   * test
+   * vpc-instance
    */
   candidateName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAsso
   candidateType?: string;
   /**
    * @remarks
-   * The route table that is used after traffic redirection.
+   * The ID of the route table used after traffic redirection.
    * 
    * @example
    * vtb-wz9898grickmh5j09****
@@ -37,7 +37,7 @@ export class DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAsso
   currentRouteTableId?: string;
   /**
    * @remarks
-   * The ID of the route table.
+   * The ID of the original route table.
    * 
    * @example
    * vtb-wz9slp3s7m4qrzvnq****
@@ -75,12 +75,12 @@ export class DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAsso
 export class DescribeTrFirewallPolicyBackUpAssociationListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The route tables.
+   * The list of route tables to recover.
    */
   policyAssociationBackupConfigs?: DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAssociationBackupConfigs[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C264A756-9B48-57E3-B312-716941E146C6

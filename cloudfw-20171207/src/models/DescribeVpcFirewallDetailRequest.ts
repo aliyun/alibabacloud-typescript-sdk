@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The natural language of the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class DescribeVpcFirewallDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the local VPC.
+   * The instance ID of the local VPC.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****
@@ -24,7 +25,7 @@ export class DescribeVpcFirewallDetailRequest extends $dara.Model {
   localVpcId?: string;
   /**
    * @remarks
-   * The ID of the peer VPC.
+   * The instance ID of the peer VPC.
    * 
    * @example
    * vpc-90rq0anm6t8vbwbo****
@@ -34,7 +35,7 @@ export class DescribeVpcFirewallDetailRequest extends $dara.Model {
    * @remarks
    * The instance ID of the VPC firewall.
    * 
-   * >  You can call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance IDs of VPC firewalls.
+   * > Call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance ID of the VPC firewall.
    * 
    * This parameter is required.
    * 

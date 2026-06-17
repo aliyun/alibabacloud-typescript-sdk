@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetailEcsInfo extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ECS instance.
+   * 
    * @example
    * i-bp1gra23yai47d8e****
    */
   ecsInstanceId?: string;
   /**
+   * @remarks
+   * The name of the ECS instance.
+   * 
    * @example
    * tyf_test
    */
   ecsInstanceName?: string;
   /**
+   * @remarks
+   * The private IP address of the ECS instance.
+   * 
    * @example
    * 172.24.121.XXX
    */
   privateIp?: string;
   /**
+   * @remarks
+   * The public IP address of the ECS instance.
+   * 
    * @example
    * 47.107.141.XXX
    */
@@ -52,31 +64,49 @@ export class DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetailEcsInfo exte
 
 export class DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetailRuleInfo extends $dara.Model {
   /**
+   * @remarks
+   * The description of the rule.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The risk level of the rule.
+   * 
    * @example
    * high
    */
   riskLevel?: string;
   /**
+   * @remarks
+   * The name of the rule.
+   * 
    * @example
    * test
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The status of the rule.
+   * 
    * @example
    * enable
    */
   ruleStatus?: string;
   /**
+   * @remarks
+   * The UUID of the rule.
+   * 
    * @example
    * 4c1e72c9-6690-408b-9048-065f0f10****
    */
   ruleUuid?: string;
   /**
+   * @remarks
+   * The optimization suggestion.
+   * 
    * @example
    * test
    */
@@ -114,33 +144,59 @@ export class DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetailRuleInfo ext
 
 export class DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetail extends $dara.Model {
   /**
+   * @remarks
+   * The number of associated ECS instances.
+   * 
    * @example
    * 10
    */
   ecsCount?: number;
+  /**
+   * @remarks
+   * The ECS information.
+   */
   ecsInfo?: DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetailEcsInfo[];
   /**
+   * @remarks
+   * The ID of the security group instance.
+   * 
    * @example
    * sg-2vc0p803vgxumn6r****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * test-instance-name
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionNo?: string;
   /**
+   * @remarks
+   * The risk level of the rule.
+   * 
    * @example
    * high
    */
   riskLevel?: string;
+  /**
+   * @remarks
+   * The information about the risk security group rule.
+   */
   ruleInfo?: DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetailRuleInfo[];
   /**
+   * @remarks
+   * The ID of the VPC instance.
+   * 
    * @example
    * vpc-8vbuzirdl3w1r7exw****
    */
@@ -188,22 +244,38 @@ export class DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetail extends $da
 
 export class DescribeRiskSecurityGroupDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 33C94306-2064-5A06-9645-01419967****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the risk security group.
+   */
   riskSgDetail?: DescribeRiskSecurityGroupDetailResponseBodyRiskSgDetail[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 5
    */

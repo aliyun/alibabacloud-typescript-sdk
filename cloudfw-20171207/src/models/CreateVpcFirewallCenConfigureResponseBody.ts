@@ -13,7 +13,7 @@ export class CreateVpcFirewallCenConfigureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The ID of the VPC firewall instance.
    * 
    * @example
    * vfw-m5e7dbc4y****

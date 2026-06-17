@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteControlPolicyTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -16,7 +17,7 @@ export class DeleteControlPolicyTemplateRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address.
    * 
    * @example
    * 61.178.12.52

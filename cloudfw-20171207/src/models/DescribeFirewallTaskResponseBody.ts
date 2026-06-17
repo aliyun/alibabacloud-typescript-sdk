@@ -4,21 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
   /**
+   * @remarks
+   * The information about the task step.
+   * 
    * @example
    * abcd
    */
   stepInfo?: string;
   /**
+   * @remarks
+   * Creating the Cloud Firewall.
+   * 
    * @example
    * Create Firewall
    */
   stepName?: string;
   /**
+   * @remarks
+   * The progress of the task step.
+   * 
    * @example
    * 80
    */
   stepProgress?: string;
   /**
+   * @remarks
+   * The status of the task step. Valid values:
+   * 
+   * - **init**
+   * 
+   * - **running**
+   * 
+   * - **finished**
+   * 
+   * - **failed**
+   * 
    * @example
    * init
    */
@@ -52,42 +72,80 @@ export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
 
 export class DescribeFirewallTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the task exists.
+   * 
    * @example
    * false
    */
   isFound?: boolean;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 7D5483BF-2262-586D-8706-BDDB8B42****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The timestamp when the task was completed.
+   * 
    * @example
    * 17151381075
    */
   taskFinishTimestamp?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * 189997648
    */
   taskId?: number;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * egressgw
    */
   taskName?: string;
   /**
+   * @remarks
+   * The timestamp when the task started.
+   * 
    * @example
    * 17151361285
    */
   taskStartTimestamp?: string;
   /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * - **init**
+   * 
+   * - **running**
+   * 
+   * - **finished**
+   * 
+   * - **rollback**
+   * 
+   * - **rollbackDone**
+   * 
    * @example
    * init
    */
   taskStatus?: string;
+  /**
+   * @remarks
+   * The steps of the task.
+   */
   taskSteps?: DescribeFirewallTaskResponseBodyTaskSteps[];
   /**
+   * @remarks
+   * The waiting time in minutes.
+   * 
    * @example
    * 30
    */

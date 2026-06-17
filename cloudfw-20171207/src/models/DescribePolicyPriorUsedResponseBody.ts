@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyPriorUsedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The lowest priority of existing access control policies.
+   * The lowest priority of your access control policies.
    * 
-   * >  The value -1 indicates the lowest priority.
+   * > A larger value indicates a lower priority.
    * 
    * @example
    * 150
@@ -23,9 +23,9 @@ export class DescribePolicyPriorUsedResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The highest priority of existing access control policies.
+   * The highest priority of your access control policies.
    * 
-   * >  The value 0 indicates the highest priority.
+   * > A smaller value indicates a higher priority.
    * 
    * @example
    * -1

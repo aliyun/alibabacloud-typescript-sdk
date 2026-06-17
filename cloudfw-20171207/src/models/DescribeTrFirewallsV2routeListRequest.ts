@@ -13,7 +13,7 @@ export class DescribeTrFirewallsV2RouteListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
+   * The instance ID of the VPC firewall for the transit router.
    * 
    * @example
    * vfw-tr-8bcfa0f2f12d411e****
@@ -21,10 +21,11 @@ export class DescribeTrFirewallsV2RouteListRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -40,7 +41,7 @@ export class DescribeTrFirewallsV2RouteListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the firewall routing policy.
    * 
    * @example
    * policy-7d5c672e37ee4175****

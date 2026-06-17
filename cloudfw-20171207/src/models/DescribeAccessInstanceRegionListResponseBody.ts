@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccessInstanceRegionListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of regions that support the specified type of synchronization node.
+   */
   regionNoList?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B2841452-CB8D-4F7D-B247-38E1CF7334F8
    */

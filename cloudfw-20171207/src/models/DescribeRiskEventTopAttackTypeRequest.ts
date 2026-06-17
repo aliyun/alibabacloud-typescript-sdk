@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRiskEventTopAttackTypeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The edition of Cloud Firewall.
+   * 
    * @example
    * 2
    */
   buyVersion?: string;
   /**
    * @remarks
+   * The traffic direction.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DescribeRiskEventTopAttackTypeRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
+   * The end of the time range for the query. The value must be a Unix timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,17 +32,25 @@ export class DescribeRiskEventTopAttackTypeRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The language of the request and response.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The source IP address.
+   * 
    * @example
    * 140.210.153.XXX
    */
   sourceIp?: string;
   /**
    * @remarks
+   * The start of the time range for the query. The value must be a Unix timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
