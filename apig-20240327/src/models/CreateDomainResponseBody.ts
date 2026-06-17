@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the domain name.
+   * The domain name ID.
    * 
    * @example
    * d-cpu1aullhtgkidg7sa4g
@@ -35,7 +35,7 @@ export class CreateDomainResponseBodyData extends $dara.Model {
 export class CreateDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * Ok
@@ -48,7 +48,7 @@ export class CreateDomainResponseBody extends $dara.Model {
   data?: CreateDomainResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -56,7 +56,7 @@ export class CreateDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call link.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * 0C2D1C68-0D93-5561-8EE6-FDB7BF067A30

@@ -6,7 +6,7 @@ import { HttpRoute } from "./HttpRoute";
 export class GetHttpApiRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -19,7 +19,7 @@ export class GetHttpApiRouteResponseBody extends $dara.Model {
   data?: HttpRoute;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpApiOperationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -13,7 +13,7 @@ export class UpdateHttpApiOperationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

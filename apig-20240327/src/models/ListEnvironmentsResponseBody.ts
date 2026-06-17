@@ -6,12 +6,12 @@ import { EnvironmentInfo } from "./EnvironmentInfo";
 export class ListEnvironmentsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of environment information.
+   * 环境信息列表。
    */
   items?: EnvironmentInfo[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListEnvironmentsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListEnvironmentsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 25
@@ -66,7 +66,7 @@ export class ListEnvironmentsResponseBodyData extends $dara.Model {
 export class ListEnvironmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * Ok
@@ -74,12 +74,12 @@ export class ListEnvironmentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Paged query environment list response.
+   * The paged query response for the environment list.
    */
   data?: ListEnvironmentsResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -87,7 +87,7 @@ export class ListEnvironmentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used for tracing the call chain.
+   * The request ID, which is used to trace the call chain.
    * 
    * @example
    * CE857A85-251D-5018-8103-A38957D71E20

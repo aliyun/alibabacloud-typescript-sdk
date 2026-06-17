@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceResponseBodyDataK8SSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Container Service for Kubernetes (ACK) cluster.
+   * Container Service cluster ID.
    * 
    * @example
    * c2d290b2d8b5d4935864cace5f0173f31
@@ -35,7 +35,7 @@ export class GetSourceResponseBodyDataK8SSourceInfo extends $dara.Model {
 export class GetSourceResponseBodyDataNacosSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the Nacos instance.
+   * Nacos instance access address.
    * 
    * @example
    * mse
@@ -43,7 +43,7 @@ export class GetSourceResponseBodyDataNacosSourceInfo extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * Cluster ID.
    * 
    * @example
    * fluss-cn-w7k4hann601
@@ -51,7 +51,7 @@ export class GetSourceResponseBodyDataNacosSourceInfo extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The Nacos instance ID.
+   * Nacos instance ID.
    * 
    * @example
    * hgprecn-cn-cfn47q7oh001
@@ -84,8 +84,18 @@ export class GetSourceResponseBodyDataNacosSourceInfo extends $dara.Model {
 
 export class GetSourceResponseBodyData extends $dara.Model {
   /**
+   * @example
+   * Association completed
+   */
+  associationReason?: string;
+  /**
+   * @example
+   * ASSOCIATED
+   */
+  associationStatus?: string;
+  /**
    * @remarks
-   * The creation timestamp.
+   * Creation timestamp.
    * 
    * @example
    * 1719386834548
@@ -93,7 +103,7 @@ export class GetSourceResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The gateway ID.
+   * Gateway ID.
    * 
    * @example
    * gw-cq2vundlhtg***
@@ -101,17 +111,17 @@ export class GetSourceResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Kubernetes source information.
+   * K8s source information.
    */
   k8SSourceInfo?: GetSourceResponseBodyDataK8SSourceInfo;
   /**
    * @remarks
-   * The source information when the source type is MSE_NACOS.
+   * MSE Nacos source information.
    */
   nacosSourceInfo?: GetSourceResponseBodyDataNacosSourceInfo;
   /**
    * @remarks
-   * The name.
+   * Name.
    * 
    * @example
    * import-test
@@ -119,7 +129,7 @@ export class GetSourceResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-aekz4us4iruleja
@@ -127,7 +137,7 @@ export class GetSourceResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The source ID.
+   * Source ID.
    * 
    * @example
    * src-crdddallhtgt***
@@ -135,7 +145,7 @@ export class GetSourceResponseBodyData extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The type.
+   * Type.
    * 
    * @example
    * K8S
@@ -143,7 +153,7 @@ export class GetSourceResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The update timestamp.
+   * Update timestamp.
    * 
    * @example
    * 1719386834548
@@ -151,6 +161,8 @@ export class GetSourceResponseBodyData extends $dara.Model {
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      associationReason: 'associationReason',
+      associationStatus: 'associationStatus',
       createTimestamp: 'createTimestamp',
       gatewayId: 'gatewayId',
       k8SSourceInfo: 'k8SSourceInfo',
@@ -165,6 +177,8 @@ export class GetSourceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      associationReason: 'string',
+      associationStatus: 'string',
       createTimestamp: 'number',
       gatewayId: 'string',
       k8SSourceInfo: GetSourceResponseBodyDataK8SSourceInfo,
@@ -195,7 +209,7 @@ export class GetSourceResponseBodyData extends $dara.Model {
 export class GetSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * Response status code.
    * 
    * @example
    * Ok
@@ -203,12 +217,12 @@ export class GetSourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * Response data.
    */
   data?: GetSourceResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * Response message.
    * 
    * @example
    * success
@@ -216,7 +230,7 @@ export class GetSourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * DE10E3C0-A676-5169-812D-6610AACBFAFF

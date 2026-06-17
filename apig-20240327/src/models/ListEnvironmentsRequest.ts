@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEnvironmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * Environment alias, fuzzy search.
+   * The environment alias. Fuzzy match is supported.
    * 
    * @example
    * 测试
@@ -13,7 +13,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
   aliasLike?: string;
   /**
    * @remarks
-   * Gateway ID, exact search.
+   * The gateway ID. Exact match is supported.
    * 
    * @example
    * gw-cptv6ktlhtgnqr73h8d1
@@ -21,7 +21,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Gateway name, fuzzy search.
+   * The gateway name. Fuzzy match is supported.
    * 
    * @example
    * test-gw
@@ -29,7 +29,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
   gatewayNameLike?: string;
   /**
    * @remarks
-   * The gateway type
+   * The gateway type.
    * 
    * @example
    * APIGateway
@@ -37,7 +37,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Environment name, fuzzy search.
+   * The environment name. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * Page number, default is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, default is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-aek2nqpppkzplmq

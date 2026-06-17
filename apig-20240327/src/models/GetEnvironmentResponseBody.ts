@@ -8,7 +8,7 @@ import { ResourceStatistic } from "./ResourceStatistic";
 export class GetEnvironmentResponseBodyDataStatisticsInfo extends $dara.Model {
   /**
    * @remarks
-   * 4
+   * The online resource count.
    */
   resourceStatistics?: ResourceStatistic[];
   /**
@@ -48,7 +48,7 @@ export class GetEnvironmentResponseBodyDataStatisticsInfo extends $dara.Model {
 export class GetEnvironmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Test environment
+   * The environment alias.
    * 
    * @example
    * 测试环境
@@ -56,7 +56,7 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The update timestamp.
+   * The creation timestamp.
    * 
    * @example
    * 1719386834548
@@ -64,7 +64,7 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The creation timestamp.
+   * Indicates whether this is the default environment.
    * 
    * @example
    * true
@@ -72,7 +72,7 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
   default?: boolean;
   /**
    * @remarks
-   * Testing environment for xx project of xxx
+   * The environment description.
    * 
    * @example
    * 这是xxx的xx项目测试环境
@@ -80,7 +80,7 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment name.
+   * The environment ID.
    * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
@@ -88,12 +88,12 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The subdomains.
+   * The gateway information.
    */
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The environment alias.
+   * The environment name.
    * 
    * @example
    * test
@@ -101,7 +101,7 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * rg-aekzzzntl5njbpi
+   * The resource group ID.
    * 
    * @example
    * rg-aekz4us4iruleja
@@ -109,17 +109,17 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The information about online resources.
+   * The online resource information.
    */
   statisticsInfo?: GetEnvironmentResponseBodyDataStatisticsInfo;
   /**
    * @remarks
-   * The subdomain information.
+   * The list of subdomains.
    */
   subDomainInfos?: SubDomainInfo[];
   /**
    * @remarks
-   * The resource group ID.
+   * The update timestamp.
    * 
    * @example
    * 1719386834548
@@ -178,7 +178,7 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
 export class GetEnvironmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message returned.
+   * The response code.
    * 
    * @example
    * Ok
@@ -186,12 +186,12 @@ export class GetEnvironmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The environment ID.
+   * The response data.
    */
   data?: GetEnvironmentResponseBodyData;
   /**
    * @remarks
-   * The response data.
+   * The response message.
    * 
    * @example
    * success
@@ -199,7 +199,7 @@ export class GetEnvironmentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The status code returned.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * 3F8EE674-BB08-5E92-BE6F-E4756A748B0F

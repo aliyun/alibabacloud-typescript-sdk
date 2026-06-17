@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSslCertsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name keyword for matching.
+   * The keyword for fuzzy match of the certificate name.
    * 
    * @example
    * ali
@@ -21,7 +21,7 @@ export class ListSslCertsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1

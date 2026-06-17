@@ -56,6 +56,11 @@ export class HttpRouteDomainInfos extends $dara.Model {
 
 export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
   /**
+   * @example
+   * MultiTenantServerless
+   */
+  gatewayEdition?: string;
+  /**
    * @remarks
    * The gateway ID
    * 
@@ -73,6 +78,7 @@ export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      gatewayEdition: 'gatewayEdition',
       gatewayId: 'gatewayId',
       name: 'name',
     };
@@ -80,6 +86,7 @@ export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      gatewayEdition: 'string',
       gatewayId: 'string',
       name: 'string',
     };

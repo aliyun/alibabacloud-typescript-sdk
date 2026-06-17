@@ -11,7 +11,34 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "apig.us-west-1.aliyuncs.com",
+      'us-east-1': "apig.us-east-1.aliyuncs.com",
+      'me-east-1': "apig.me-east-1.aliyuncs.com",
+      'me-central-1': "apig.me-central-1.aliyuncs.com",
+      'eu-west-1': "apig.eu-west-1.aliyuncs.com",
+      'eu-central-1': "apig.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "apig.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "apig.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen': "apig.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "apig.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "apig.cn-qingdao.aliyuncs.com",
+      'cn-hongkong': "apig.cn-hongkong.aliyuncs.com",
+      'cn-heyuan': "apig.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou': "apig.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "apig.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "apig.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "apig.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "apig.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "apig.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "apig.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "apig.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-2': "apig.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-1': "apig.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "apig.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "apig.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("apig", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -542,9 +569,6 @@ export default class Client extends OpenApi {
   /**
    * Creates a domain name.
    * 
-   * @remarks
-   * Create Domain.
-   * 
    * @param request - CreateDomainRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -563,6 +587,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientCACert)) {
       body["clientCACert"] = request.clientCACert;
+    }
+
+    if (!$dara.isNull(request.domainScope)) {
+      body["domainScope"] = request.domainScope;
     }
 
     if (!$dara.isNull(request.forceHttps)) {
@@ -625,9 +653,6 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a domain name.
-   * 
-   * @remarks
-   * Create Domain.
    * 
    * @param request - CreateDomainRequest
    * @returns CreateDomainResponse
@@ -2439,7 +2464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a consumer authentication rule.
+   * Retrieves a consumer authorization rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2464,7 +2489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a consumer authentication rule.
+   * Retrieves a consumer authorization rule.
    * @returns GetConsumerAuthorizationRuleResponse
    */
   async getConsumerAuthorizationRule(consumerAuthorizationRuleId: string, consumerId: string): Promise<$_model.GetConsumerAuthorizationRuleResponse> {
@@ -2557,7 +2582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a domain name.
+   * Queries a domain name.
    * 
    * @param request - GetDomainRequest
    * @param headers - map
@@ -2590,7 +2615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a domain name.
+   * Queries a domain name.
    * 
    * @param request - GetDomainRequest
    * @returns GetDomainResponse
@@ -2875,7 +2900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a route of an HTTP API.
+   * Retrieves the route details of an HTTP API.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2900,7 +2925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a route of an HTTP API.
+   * Retrieves the route details of an HTTP API.
    * @returns GetHttpApiRouteResponse
    */
   async getHttpApiRoute(httpApiId: string, routeId: string): Promise<$_model.GetHttpApiRouteResponse> {
@@ -2951,7 +2976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a plug-in attachment.
+   * Queries a plugin attachment.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2976,7 +3001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a plug-in attachment.
+   * Queries a plugin attachment.
    * @returns GetPluginAttachmentResponse
    */
   async getPluginAttachment(pluginAttachmentId: string): Promise<$_model.GetPluginAttachmentResponse> {
@@ -3218,7 +3243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a service source.
+   * Queries the details of a service source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3243,7 +3268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a service source.
+   * Queries the details of a service source.
    * @returns GetSourceResponse
    */
   async getSource(sourceId: string): Promise<$_model.GetSourceResponse> {
@@ -3444,7 +3469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of consumer authentication rules.
+   * Retrieves the list of consumer authorization rules.
    * 
    * @param request - ListConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -3485,7 +3510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of consumer authentication rules.
+   * Retrieves the list of consumer authorization rules.
    * 
    * @param request - ListConsumerAuthorizationRulesRequest
    * @returns ListConsumerAuthorizationRulesResponse
@@ -3564,6 +3589,10 @@ export default class Client extends OpenApi {
   async listDomainsWithOptions(request: $_model.ListDomainsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDomainsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.domainScope)) {
+      query["domainScope"] = request.domainScope;
+    }
+
     if (!$dara.isNull(request.gatewayId)) {
       query["gatewayId"] = request.gatewayId;
     }
@@ -3619,7 +3648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListEnvironments
+   * Queries a list of environments.
    * 
    * @deprecated OpenAPI ListEnvironments is deprecated
    * 
@@ -3682,7 +3711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListEnvironments
+   * Queries a list of environments.
    * 
    * @deprecated OpenAPI ListEnvironments is deprecated
    * 
@@ -4038,7 +4067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the route list for an HTTP API.
+   * Queries the route list of an HTTP API.
    * 
    * @param request - ListHttpApiRoutesRequest
    * @param headers - map
@@ -4127,7 +4156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the route list for an HTTP API.
+   * Queries the route list of an HTTP API.
    * 
    * @param request - ListHttpApiRoutesRequest
    * @returns ListHttpApiRoutesResponse
@@ -4893,7 +4922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries SSL certificates.
+   * Retrieves a list of certificates.
    * 
    * @param request - ListSslCertsRequest
    * @param headers - map
@@ -4938,7 +4967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries SSL certificates.
+   * Retrieves a list of certificates.
    * 
    * @param request - ListSslCertsRequest
    * @returns ListSslCertsResponse
@@ -4985,7 +5014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of consumer authentication rules.
+   * Queries a list of consumer authorization rules.
    * 
    * @param request - QueryConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -5058,7 +5087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of consumer authentication rules.
+   * Queries a list of consumer authorization rules.
    * 
    * @param request - QueryConsumerAuthorizationRulesRequest
    * @returns QueryConsumerAuthorizationRulesResponse
@@ -5601,7 +5630,7 @@ export default class Client extends OpenApi {
    * Updates a domain name.
    * 
    * @remarks
-   * You can update the listening Ingress only for sources whose types are **ACK**.
+   * Only sources of the **Container Service** type can update the listener Ingress configuration.
    * 
    * @param request - UpdateDomainRequest
    * @param headers - map
@@ -5621,6 +5650,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientCACert)) {
       body["clientCACert"] = request.clientCACert;
+    }
+
+    if (!$dara.isNull(request.domainScope)) {
+      body["domainScope"] = request.domainScope;
     }
 
     if (!$dara.isNull(request.forceHttps)) {
@@ -5673,7 +5706,7 @@ export default class Client extends OpenApi {
    * Updates a domain name.
    * 
    * @remarks
-   * You can update the listening Ingress only for sources whose types are **ACK**.
+   * Only sources of the **Container Service** type can update the listener Ingress configuration.
    * 
    * @param request - UpdateDomainRequest
    * @returns UpdateDomainResponse
@@ -6070,7 +6103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an operation of an HTTP API.
+   * Updates an API operation.
    * 
    * @param request - UpdateHttpApiOperationRequest
    * @param headers - map
@@ -6103,7 +6136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an operation of an HTTP API.
+   * Updates an API operation.
    * 
    * @param request - UpdateHttpApiOperationRequest
    * @returns UpdateHttpApiOperationResponse

@@ -10,7 +10,7 @@ import { ResourceInfo } from "./ResourceInfo";
 export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the plug-in is enabled.
+   * Indicates whether the plugin attachment is enabled.
    * 
    * @example
    * true
@@ -18,22 +18,22 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The environment information.
+   * The environment context.
    */
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * The instance information.
+   * The gateway information.
    */
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The information about the parent resource to which the plug-in is attached.
+   * The parent attachment resource information.
    */
   parentResourceInfo?: ParentResourceInfo;
   /**
    * @remarks
-   * The attachment ID.
+   * The plugin attachment ID.
    * 
    * @example
    * pa-d05f1tmm1hku195dd8j0
@@ -41,12 +41,12 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   pluginAttachmentId?: string;
   /**
    * @remarks
-   * The plug-in type information.
+   * The plugin type information.
    */
   pluginClassInfo?: PluginClassInfo;
   /**
    * @remarks
-   * The Base64-encoded configurations of the plug-in.
+   * The Base64-encoded content of the original plugin configuration.
    * 
    * @example
    * cHJlcGVuZDoKLSByb2xlOiBzeXN0ZW0KICBjb250ZW50OiDor7fkvb/nlKjoi7Hor63lm57nrZTpl67popgKYXBwZW5kOgotIHJvbGU6IHVzZXIKICBjb250ZW50OiDmr4/mrKHlm57nrZTlrozpl67popjvvIzlsJ3or5Xov5vooYzlj43pl64K
@@ -54,7 +54,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   pluginConfig?: string;
   /**
    * @remarks
-   * The plug-in ID.
+   * The plugin ID.
    * 
    * @example
    * pl-cvo8ub6m1hkvgv03r3k0
@@ -62,7 +62,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The resource information.
+   * The list of attachment resource information.
    */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {
@@ -120,7 +120,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
 export class GetPluginAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -128,12 +128,12 @@ export class GetPluginAttachmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: GetPluginAttachmentResponseBodyData;
   /**
    * @remarks
-   * The status message.
+   * The response message.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEnvironmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to trace the API call link.
+   * Specifies whether to return online resource information.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetEnvironmentRequest extends $dara.Model {
   withStatistics?: boolean;
   /**
    * @remarks
-   * Schema of Response
+   * Specifies whether to include VPC information.
    * 
    * @example
    * true

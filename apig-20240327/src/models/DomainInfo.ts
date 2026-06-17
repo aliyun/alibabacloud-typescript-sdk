@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DomainInfo extends $dara.Model {
   /**
    * @remarks
-   * The certificate identifier.
+   * The China Security certificate identity.
    * 
    * @example
    * 235556-cn-hangzhou
@@ -25,12 +25,7 @@ export class DomainInfo extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The creation source of the domain name.
-   * 
-   * Valid values:
-   * 
-   * *   Console
-   * *   Ingress
+   * The source from which the domain name was created.
    * 
    * @example
    * Console
@@ -52,9 +47,10 @@ export class DomainInfo extends $dara.Model {
    * d-cq1lthllhtgja4dk54eg
    */
   domainId?: string;
+  domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forcible HTTPS redirection when HTTPS is used as the protocol.
+   * Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
    * 
    * @example
    * false
@@ -62,7 +58,7 @@ export class DomainInfo extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable mutual authentication.
+   * Specifies whether to enable mTLS mutual authentication.
    * 
    * @example
    * true
@@ -78,10 +74,10 @@ export class DomainInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The supported protocol. Valid values:
+   * The protocol type supported by the domain name. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
+   * - HTTP: Only HTTP is supported.
+   * - HTTPS: Only HTTPS is supported.
    * 
    * @example
    * HTTP
@@ -98,11 +94,6 @@ export class DomainInfo extends $dara.Model {
   /**
    * @remarks
    * The domain name status.
-   * 
-   * Valid values:
-   * 
-   * *   UnPublished
-   * *   Published
    * 
    * @example
    * Published
@@ -123,6 +114,7 @@ export class DomainInfo extends $dara.Model {
       createFrom: 'createFrom',
       createTimestamp: 'createTimestamp',
       domainId: 'domainId',
+      domainScope: 'domainScope',
       forceHttps: 'forceHttps',
       mTLSEnabled: 'mTLSEnabled',
       name: 'name',
@@ -140,6 +132,7 @@ export class DomainInfo extends $dara.Model {
       createFrom: 'string',
       createTimestamp: 'number',
       domainId: 'string',
+      domainScope: 'string',
       forceHttps: 'boolean',
       mTLSEnabled: 'boolean',
       name: 'string',

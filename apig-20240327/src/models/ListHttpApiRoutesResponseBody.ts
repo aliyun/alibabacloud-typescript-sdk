@@ -6,12 +6,12 @@ import { HttpRoute } from "./HttpRoute";
 export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * An array of route objects.
+   * 路由列表。
    */
   items?: HttpRoute[];
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -27,7 +27,7 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of available entries.
+   * The total number of entries.
    * 
    * @example
    * 9

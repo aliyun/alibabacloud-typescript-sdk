@@ -4,8 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDomainsRequest extends $dara.Model {
   /**
+   * @example
+   * Serverless
+   */
+  domainScope?: string;
+  /**
    * @remarks
-   * The instance ID.
+   * The gateway ID.
    * 
    * @example
    * gw-xxxxxx
@@ -13,7 +18,7 @@ export class ListDomainsRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The gateway type to filter. Valid values: **AI** and **API**.
+   * The gateway type used for filtering. Valid values: **AI** and **API**.
    * 
    * @example
    * API
@@ -21,7 +26,7 @@ export class ListDomainsRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The domain name keyword for fuzzy search.
+   * The domain name. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -29,7 +34,7 @@ export class ListDomainsRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -45,7 +50,7 @@ export class ListDomainsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aek27lpqyiie6qy
@@ -53,6 +58,7 @@ export class ListDomainsRequest extends $dara.Model {
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainScope: 'domainScope',
       gatewayId: 'gatewayId',
       gatewayType: 'gatewayType',
       nameLike: 'nameLike',
@@ -64,6 +70,7 @@ export class ListDomainsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      domainScope: 'string',
       gatewayId: 'string',
       gatewayType: 'string',
       nameLike: 'string',

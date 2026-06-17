@@ -12,7 +12,7 @@ export class GetDomainResponseBodyDataStatisticsInfo extends $dara.Model {
   resourceStatistics?: ResourceStatistic[];
   /**
    * @remarks
-   * The total number of resources.
+   * The total count.
    * 
    * @example
    * 30
@@ -47,7 +47,7 @@ export class GetDomainResponseBodyDataStatisticsInfo extends $dara.Model {
 export class GetDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm.
+   * The encryption algorithm name.
    * 
    * @example
    * RSA
@@ -55,7 +55,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The CA certificate ID.
+   * The CA certificate identifier.
    * 
    * @example
    * 8237***-cn-hangzhou
@@ -63,7 +63,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
-   * The certificate ID.
+   * The certificate identifier.
    * 
    * @example
    * 2382***-cn-hangzhou
@@ -94,12 +94,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The creation source.
-   * 
-   * Valid values:
-   * 
-   * *   Console
-   * *   Ingress
+   * The source from which the domain name was created.
    * 
    * @example
    * Console
@@ -115,7 +110,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether the domain name is the default domain name.
+   * Indicates whether this is the default domain name.
    * 
    * @example
    * false
@@ -123,15 +118,20 @@ export class GetDomainResponseBodyData extends $dara.Model {
   default?: boolean;
   /**
    * @remarks
-   * The ID of the domain name.
+   * The domain name ID.
    * 
    * @example
    * d-cq1m3utlhtgvgkv7sitg
    */
   domainId?: string;
   /**
+   * @example
+   * Serverless
+   */
+  domainScope?: string;
+  /**
    * @remarks
-   * Indicates whether forcible HTTPS redirection is enabled.
+   * Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
    * 
    * @example
    * false
@@ -139,13 +139,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * The HTTP/2 configuration.
-   * 
-   * Valid values:
-   * 
-   * *   GlobalConfig
-   * *   Close
-   * *   Open
+   * The HTTP/2 setting.
    * 
    * @example
    * Open
@@ -153,7 +147,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * The certificate issuer.
+   * The certification authority.
    * 
    * @example
    * Alibaba
@@ -161,12 +155,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * Indicates whether mutual authentication is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   false
-   * *   true
+   * Indicates whether mutual TLS (mTLS) authentication is enabled.
    * 
    * @example
    * false
@@ -182,7 +171,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The expiration time of the certificate.
+   * The certificate expiration time.
    * 
    * @example
    * 1719386834548
@@ -190,7 +179,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notAfterTimstamp?: number;
   /**
    * @remarks
-   * The time when the certificate started to take effect.
+   * The certificate effective period.
    * 
    * @example
    * 1719386834548
@@ -198,10 +187,10 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The supported protocol. Valid values:
+   * The protocol type supported by the domain name. Valid values:
    * 
-   * *   HTTP: Only HTTP is supported.
-   * *   HTTPS: Only HTTPS is supported.
+   * - HTTP: only HTTP is supported.
+   * - HTTPS: only HTTPS is supported.
    * 
    * @example
    * HTTP
@@ -217,7 +206,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * All domain names that are bound to the certificate.
+   * All domain names bound to the certificate.
    * 
    * @example
    * aliyun.com
@@ -225,7 +214,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   sans?: string;
   /**
    * @remarks
-   * The information about online resources.
+   * The online resource information.
    */
   statisticsInfo?: GetDomainResponseBodyDataStatisticsInfo;
   /**
@@ -235,7 +224,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * The maximum version of the TLS protocol. Up to TLS 1.3 is supported.
+   * The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
    * 
    * @example
    * TLS 1.3
@@ -243,7 +232,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum version of the TLS protocol. Down to TLS 1.0 is supported.
+   * The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
    * 
    * @example
    * TLS 1.0
@@ -268,6 +257,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
       createTimestamp: 'createTimestamp',
       default: 'default',
       domainId: 'domainId',
+      domainScope: 'domainScope',
       forceHttps: 'forceHttps',
       http2Option: 'http2Option',
       issuer: 'issuer',
@@ -297,6 +287,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
       createTimestamp: 'number',
       default: 'boolean',
       domainId: 'string',
+      domainScope: 'string',
       forceHttps: 'boolean',
       http2Option: 'string',
       issuer: 'string',
@@ -333,7 +324,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
 export class GetDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * Ok
@@ -346,7 +337,7 @@ export class GetDomainResponseBody extends $dara.Model {
   data?: GetDomainResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -354,7 +345,7 @@ export class GetDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call link.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695

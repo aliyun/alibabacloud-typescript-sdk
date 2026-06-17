@@ -6,12 +6,12 @@ import { SslCertMetaInfo } from "./SslCertMetaInfo";
 export class ListSslCertsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of certificate information.
+   * 证书信息列表。
    */
   items?: SslCertMetaInfo[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListSslCertsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListSslCertsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -66,7 +66,7 @@ export class ListSslCertsResponseBodyData extends $dara.Model {
 export class ListSslCertsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -74,12 +74,12 @@ export class ListSslCertsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ListSslCertsResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

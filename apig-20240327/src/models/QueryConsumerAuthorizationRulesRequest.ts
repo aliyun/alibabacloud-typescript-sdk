@@ -37,7 +37,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Specifies whether to group the results by API.
+   * Specifies whether to group results by API.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   groupByApi?: boolean;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The resource types.
+   * The service source type.
    * 
    * @example
    * K8S

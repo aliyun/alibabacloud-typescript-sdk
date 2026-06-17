@@ -6,7 +6,7 @@ import { TlsCipherSuitesConfig } from "./TlsCipherSuitesConfig";
 export class UpdateDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The CA certificate ID.
+   * The CA certificate identifier.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -14,7 +14,7 @@ export class UpdateDomainRequest extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
-   * The certificate ID.
+   * The certificate identifier.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -33,8 +33,13 @@ export class UpdateDomainRequest extends $dara.Model {
    */
   clientCACert?: string;
   /**
+   * @example
+   * Serverless
+   */
+  domainScope?: string;
+  /**
    * @remarks
-   * Specifies whether to enable forcible HTTPS redirection. If protocol is set to HTTPS, forceHttps is required.
+   * Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS. This parameter is required when the protocol is HTTPS.
    * 
    * @example
    * false
@@ -42,13 +47,7 @@ export class UpdateDomainRequest extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * The HTTP/2 configuration.
-   * 
-   * Enumerated values:
-   * 
-   * *   GlobalConfig
-   * *   Close
-   * *   Open
+   * The HTTP/2 settings.
    * 
    * @example
    * Open
@@ -56,17 +55,15 @@ export class UpdateDomainRequest extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Specifies whether to enable mutual TLS (mTLS) authentication.
+   * Specifies whether to enable mTLS mutual authentication.
    */
   mTLSEnabled?: boolean;
   /**
    * @remarks
-   * The protocol type to be supported by the domain name. Valid values:
+   * The protocol type supported by the domain name.
    * 
-   * *   HTTP
-   * *   HTTPS
-   * 
-   * This parameter is required.
+   * - HTTP: Only HTTP is supported.
+   * - HTTPS: Only HTTPS is supported.
    * 
    * @example
    * HTTP
@@ -79,7 +76,7 @@ export class UpdateDomainRequest extends $dara.Model {
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * The maximum TLS version. Up to TLS 1.3 is supported.
+   * The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
    * 
    * @example
    * TLS 1.3
@@ -87,7 +84,7 @@ export class UpdateDomainRequest extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum TLS version. Down to TLS 1.0 is supported.
+   * The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
    * 
    * @example
    * TLS 1.0
@@ -98,6 +95,7 @@ export class UpdateDomainRequest extends $dara.Model {
       caCertIdentifier: 'caCertIdentifier',
       certIdentifier: 'certIdentifier',
       clientCACert: 'clientCACert',
+      domainScope: 'domainScope',
       forceHttps: 'forceHttps',
       http2Option: 'http2Option',
       mTLSEnabled: 'mTLSEnabled',
@@ -113,6 +111,7 @@ export class UpdateDomainRequest extends $dara.Model {
       caCertIdentifier: 'string',
       certIdentifier: 'string',
       clientCACert: 'string',
+      domainScope: 'string',
       forceHttps: 'boolean',
       http2Option: 'string',
       mTLSEnabled: 'boolean',

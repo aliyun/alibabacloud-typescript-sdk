@@ -10,6 +10,11 @@ import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 
 export class HttpApiApiInfoEnvironmentsGatewayInfo extends $dara.Model {
   /**
+   * @example
+   * MultiTenantServerless
+   */
+  gatewayEdition?: string;
+  /**
    * @remarks
    * The instance ID.
    * 
@@ -27,6 +32,7 @@ export class HttpApiApiInfoEnvironmentsGatewayInfo extends $dara.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      gatewayEdition: 'gatewayEdition',
       gatewayId: 'gatewayId',
       name: 'name',
     };
@@ -34,6 +40,7 @@ export class HttpApiApiInfoEnvironmentsGatewayInfo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      gatewayEdition: 'string',
       gatewayId: 'string',
       name: 'string',
     };

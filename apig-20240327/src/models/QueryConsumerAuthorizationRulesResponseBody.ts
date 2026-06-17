@@ -11,12 +11,12 @@ import { HttpRoute } from "./HttpRoute";
 export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The operation information.
+   * 接口信息。
    */
   operationInfo?: HttpApiOperationInfo;
   /**
    * @remarks
-   * The route.
+   * 路由规则。
    */
   route?: HttpRoute;
   static names(): { [key: string]: string } {
@@ -51,12 +51,12 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo ex
 export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The API details.
+   * API信息详情。
    */
   apiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * The rule ID.
+   * 消费者授权规则ID。
    * 
    * @example
    * car-csgeka5lhtggrjcprok0
@@ -64,7 +64,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   consumerAuthorizationRuleId?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * 消费者ID。
    * 
    * @example
    * cs-csheiftlhtgmp0j0hp4g
@@ -72,12 +72,12 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   consumerId?: string;
   /**
    * @remarks
-   * The consumer information.
+   * 消费者信息详情。
    */
   consumerInfo?: ConsumerInfo;
   /**
    * @remarks
-   * The creation timestamp. Unit: milliseconds.
+   * 创建时间戳。单位: 毫秒。
    * 
    * @example
    * 1719386834548
@@ -85,7 +85,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   createTimestamp?: number;
   /**
    * @remarks
-   * The deployment status of the API in the current environment.
+   * API在当前环境的发布状态
    * 
    * @example
    * {}
@@ -93,12 +93,12 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   deployStatus?: string;
   /**
    * @remarks
-   * The environment information.
+   * 环境信息。
    */
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * The expiry mode. Valid values: LongTerm and ShortTerm.
+   * 失效模式。LongTerm、ShortTerm，二选一。
    * 
    * @example
    * ShortTerm
@@ -106,7 +106,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   expireMode?: string;
   /**
    * @remarks
-   * The rule status.
+   * 失效状态。
    * 
    * @example
    * InEffect
@@ -114,7 +114,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   expireStatus?: string;
   /**
    * @remarks
-   * The time when the rule expires.
+   * 到期时间。
    * 
    * @example
    * 172086834548
@@ -122,12 +122,12 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   expireTimestamp?: number;
   /**
    * @remarks
-   * The instance information.
+   * 网关信息。
    */
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The resource IDs.
+   * 资源ID。
    * 
    * @example
    * 2351944
@@ -135,12 +135,12 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   resourceId?: string;
   /**
    * @remarks
-   * The resource information.
+   * 资源信息详情。
    */
   resourceInfo?: QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo;
   /**
    * @remarks
-   * The resource type.
+   * 资源类型。
    * 
    * @example
    * HttpApiRoute
@@ -148,7 +148,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   resourceType?: string;
   /**
    * @remarks
-   * The update timestamp. Unit: milliseconds.
+   * 更新时间戳。单位: 毫秒。
    * 
    * @example
    * 1719386834548
@@ -221,12 +221,12 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
 export class QueryConsumerAuthorizationRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The rules.
+   * 消费者规则列表。
    */
   items?: QueryConsumerAuthorizationRulesResponseBodyDataItems[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -234,7 +234,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyData extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -242,7 +242,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyData extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -281,7 +281,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyData extends $dara.Model
 export class QueryConsumerAuthorizationRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -289,12 +289,12 @@ export class QueryConsumerAuthorizationRulesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: QueryConsumerAuthorizationRulesResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -302,7 +302,7 @@ export class QueryConsumerAuthorizationRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * A60EE5CA-1294-532A-9775-8D2FD1C6EFBF

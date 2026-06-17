@@ -45,15 +45,20 @@ export class GatewayInfoVpcInfo extends $dara.Model {
 export class GatewayInfo extends $dara.Model {
   /**
    * @remarks
-   * The instance engine version.
+   * The gateway DPI engine database engine version.
    * 
    * @example
    * 2.0.7
    */
   engineVersion?: string;
   /**
+   * @example
+   * MultiTenantServerless
+   */
+  gatewayEdition?: string;
+  /**
    * @remarks
-   * The instance ID.
+   * The gateway ID.
    * 
    * @example
    * gw-cq7og15lhtgi6qasrj60
@@ -61,7 +66,7 @@ export class GatewayInfo extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The gateway name.
    * 
    * @example
    * apitest-gw
@@ -69,12 +74,13 @@ export class GatewayInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) information.
+   * The VPC information.
    */
   vpcInfo?: GatewayInfoVpcInfo;
   static names(): { [key: string]: string } {
     return {
       engineVersion: 'engineVersion',
+      gatewayEdition: 'gatewayEdition',
       gatewayId: 'gatewayId',
       name: 'name',
       vpcInfo: 'vpcInfo',
@@ -84,6 +90,7 @@ export class GatewayInfo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       engineVersion: 'string',
+      gatewayEdition: 'string',
       gatewayId: 'string',
       name: 'string',
       vpcInfo: GatewayInfoVpcInfo,

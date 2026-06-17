@@ -378,6 +378,8 @@ export { ServiceLinkedRole } from './ServiceLinkedRole';
 export { SslCertMetaInfo } from './SslCertMetaInfo';
 export { SubDomainInfo } from './SubDomainInfo';
 export { TlsCipherSuitesConfig } from './TlsCipherSuitesConfig';
+export { TransportCertificateInfo } from './TransportCertificateInfo';
+export { TransportEncryptionInfo } from './TransportEncryptionInfo';
 export { ValidationOptions } from './ValidationOptions';
 export { HttpApiApiInfoDeployCntMapValue } from './HttpApiApiInfoDeployCntMapValue';
 export { AddGatewayQuotaRuleRequest } from './AddGatewayQuotaRuleRequest';

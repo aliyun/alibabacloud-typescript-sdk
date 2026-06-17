@@ -6,12 +6,12 @@ import { DomainInfo } from "./DomainInfo";
 export class ListDomainsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of domain information.
+   * 域名信息列表。
    */
   items?: DomainInfo[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -27,7 +27,7 @@ export class ListDomainsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 9
@@ -66,7 +66,7 @@ export class ListDomainsResponseBodyData extends $dara.Model {
 export class ListDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * Ok
@@ -74,12 +74,12 @@ export class ListDomainsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response parameters.
+   * The response data.
    */
   data?: ListDomainsResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The response description.
    * 
    * @example
    * success
@@ -87,7 +87,7 @@ export class ListDomainsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call link.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * C61E30D3-579A-5B43-994E-31E02EDC9129
