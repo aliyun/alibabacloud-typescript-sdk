@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSupabaseProjectTagsResponseBodyTagResources extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * spb-xxxxxxxxxx
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * instance
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * TestKey
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * TestValue
    */
@@ -52,18 +64,25 @@ export class ListSupabaseProjectTagsResponseBodyTagResources extends $dara.Model
 
 export class ListSupabaseProjectTagsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The pagination token for the next page of results. This parameter is not returned if no more results are available.
+   * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 34b32a0a-08ef-4a87-b6be-cdd9f56fc3ad
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of tagged resources.
+   */
   tagResources?: ListSupabaseProjectTagsResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {

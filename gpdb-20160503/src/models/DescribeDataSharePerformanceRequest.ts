@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSharePerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The end of the time range to query. The time must be later than the start time, in UTC, and in the *&#x79;**\\*\\*\\*\\***&#x64;*&#x54;*HH:mm*Z format.
    * 
    * @example
    * 2022-08-03T15:10Z
@@ -13,10 +13,11 @@ export class DescribeDataSharePerformanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the performance metric. Separate multiple values with commas (,). Valid values:
+   * The name of the performance metric. To specify multiple metrics, separate the metric names with a comma (,). Valid values:
    * 
-   * *   **adbpg_datashare_topic_count**: the number of shared topics.
-   * *   **adbpg_datashare_data_size_mb**: the amount of data shared.
+   * - **adbpg_datashare_topic_count**: the number of shared topics.
+   * 
+   * - **adbpg_datashare_data_size_mb**: the size of shared data in MB.
    * 
    * This parameter is required.
    * 
@@ -26,9 +27,9 @@ export class DescribeDataSharePerformanceRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available region IDs.
    * 
    * This parameter is required.
    * 
@@ -38,15 +39,15 @@ export class DescribeDataSharePerformanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * This parameter is deprecated.
    * 
    * @example
-   * rg-bp67acfmxazb4p****
+   * null
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start of the time range to query. The time must be in UTC and in the *yyyy-MM-dd*T*HH:mm*Z format.
    * 
    * @example
    * 2022-08-03T15:00Z

@@ -32,7 +32,7 @@ export class DescribeExternalDataServiceResponseBody extends $dara.Model {
    * The description of the service.
    * 
    * @example
-   * test-adbpgss
+   * pxf test
    */
   serviceDescription?: string;
   /**
@@ -48,7 +48,7 @@ export class DescribeExternalDataServiceResponseBody extends $dara.Model {
    * The name of the service.
    * 
    * @example
-   * test-adbpgss
+   * test-pxf
    */
   serviceName?: string;
   /**
@@ -56,7 +56,7 @@ export class DescribeExternalDataServiceResponseBody extends $dara.Model {
    * The specifications of the service. Unit: compute units (CUs).
    * 
    * @example
-   * 2
+   * 8
    */
   serviceSpec?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySupabaseProjectSecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D****

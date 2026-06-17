@@ -8,7 +8,7 @@ export class DescribeCollectionResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * gp-xxxxxxxxx
+   * gp-bp152460513z****
    */
   DBInstanceId?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeCollectionResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Successful
+   * success
    */
   message?: string;
   /**

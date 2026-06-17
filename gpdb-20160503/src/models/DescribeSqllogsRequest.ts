@@ -51,7 +51,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
    * *   **0**: failed.
    * 
    * @example
-   * success
+   * 1
    */
   executeState?: string;
   /**

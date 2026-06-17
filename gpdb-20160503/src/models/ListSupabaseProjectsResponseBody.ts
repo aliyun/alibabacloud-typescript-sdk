@@ -4,13 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Indicates if the **auto start and stop** feature is enabled.
+   * Valid values:
+   * 
+   * - `true`: The feature is enabled. The Supabase instance automatically pauses and resumes based on traffic.
+   * 
+   * - `false`: The auto start and stop feature is disabled.
+   * 
    * @example
    * false
    */
   autoScale?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the resource was created.
    * 
    * @example
    * 2021-10-09T04:54:08Z
@@ -18,7 +26,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Supabase Dashboard password (not used).
+   * The password for the Supabase dashboard. This parameter is reserved.
    * 
    * @example
    * xxpassword
@@ -26,7 +34,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   dashboardPassword?: string;
   /**
    * @remarks
-   * Supabase Dashboard user name (not used).
+   * The username for the Supabase dashboard. This parameter is reserved.
    * 
    * @example
    * null
@@ -34,7 +42,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   dashboardUserName?: string;
   /**
    * @remarks
-   * The ESSD performance level.
+   * The disk performance level.
    * 
    * @example
    * PL0
@@ -42,7 +50,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   diskPerformanceLevel?: string;
   /**
    * @remarks
-   * The database engine type.
+   * The database engine.
    * 
    * @example
    * gpdb
@@ -50,24 +58,29 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The engine version.
    * 
    * @example
    * 6.0
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 2026-04-27T16:00:00Z
    */
   expireTime?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription.
-   * *   **Free**: Free.
+   * - **Postpaid**: pay-as-you-go.
+   * 
+   * - **Prepaid**: subscription.
+   * 
+   * - **Free**: The instance is free of charge.
    * 
    * @example
    * Postpaid
@@ -75,16 +88,23 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The private (VPC) connection URL for the Supabase Dashboard.
+   * The private endpoint for the Supabase dashboard.
    * 
    * @example
    * 192.168.0.1
    */
   privateConnectUrl?: string;
+  /**
+   * @remarks
+   * The detailed description of the Supabase project.
+   * 
+   * @example
+   * for-test-project
+   */
   projectDescription?: string;
   /**
    * @remarks
-   * The Supabase project ID.
+   * The ID of the Supabase instance.
    * 
    * @example
    * sbp-12***
@@ -100,7 +120,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The type of the Supabase instance.
+   * The Supabase instance specification.
    * 
    * @example
    * 1C1G
@@ -108,7 +128,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   projectSpec?: string;
   /**
    * @remarks
-   * The public connection URL for the Supabase Dashboard.
+   * The public endpoint for the Supabase dashboard.
    * 
    * @example
    * 10.154.11.10
@@ -124,11 +144,13 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A comma-separated list of IP addresses and CIDR blocks allowed to connect. Valid values:
+   * The IP whitelist. IP addresses are separated by commas. The following formats are supported:
    * 
-   * *   0.0.0.0/0
-   * *   10.23.12.24(IP)
-   * *   10.23.12.24/24. This is a CIDR block. The value`/24`indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value in the range of`[1,32]`.
+   * - 0.0.0.0/0
+   * 
+   * - 10.23.12.24 (IP)
+   * 
+   * - 10.23.12.24/24 (a Classless Inter-Domain Routing (CIDR) block; the prefix length, which is the number after the `/`, must be an integer from 1 to 32.)
    * 
    * @example
    * 127.0.0.1
@@ -136,7 +158,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The status of the Supabase instance.
+   * The status of the instance.
    * 
    * @example
    * running
@@ -144,7 +166,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage capacity of the instance. Unit: GB.
+   * The storage size in GB.
    * 
    * @example
    * 2
@@ -152,7 +174,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
   storageSize?: number;
   /**
    * @remarks
-   * The vSwitch ID of the instance.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1cpq8mr64paltkb****
@@ -240,12 +262,12 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
 export class ListSupabaseProjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of objects, where each object represents a Supabase instance.
+   * A list of instance details.
    */
   items?: ListSupabaseProjectsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum amount of data to read this time. Default value: 10.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 50
@@ -253,7 +275,7 @@ export class ListSupabaseProjectsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token to use in the next request to get the next page. If this field is empty, there are no more results.
+   * A pagination token for retrieving the next page of results. If this parameter is not returned, it indicates that all results have been displayed.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -261,7 +283,7 @@ export class ListSupabaseProjectsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -269,7 +291,7 @@ export class ListSupabaseProjectsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 20
@@ -277,7 +299,7 @@ export class ListSupabaseProjectsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D****
@@ -285,7 +307,7 @@ export class ListSupabaseProjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of log entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

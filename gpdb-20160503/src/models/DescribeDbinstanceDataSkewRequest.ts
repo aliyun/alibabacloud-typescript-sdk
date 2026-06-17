@@ -28,7 +28,7 @@ export class DescribeDBInstanceDataSkewRequest extends $dara.Model {
    * order by condition
    * 
    * @example
-   * {Field: TableSkew, Type: Desc}
+   * {Field: TableSize, Type: Desc}
    */
   orderBy?: string;
   /**
@@ -50,7 +50,7 @@ export class DescribeDBInstanceDataSkewRequest extends $dara.Model {
    * Default value: **30**.
    * 
    * @example
-   * 20
+   * 30
    */
   pageSize?: number;
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class CreateNamespaceResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Successful
+   * success
    */
   message?: string;
   /**

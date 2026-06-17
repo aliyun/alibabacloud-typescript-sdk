@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelServiceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of AI nodes for model deployment.
+   * A list of AINodes on which to deploy the model.
    * 
    * This parameter is required.
    */
   aiNodesShrink?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/327176.html)
+   * A token to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88**********
@@ -20,9 +20,9 @@ export class CreateModelServiceShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the instance.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
    * 
    * This parameter is required.
    * 
@@ -32,16 +32,23 @@ export class CreateModelServiceShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The description.
+   * The description of the model service.
    * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable a public network connection.
+   * 
+   * @example
+   * false
+   */
   enablePublicConnection?: boolean;
   /**
    * @remarks
-   * The inference engine. Only vllm is supported.
+   * The inference engine. Currently, only vllm is supported.
    * 
    * @example
    * vllm
@@ -59,7 +66,10 @@ export class CreateModelServiceShrinkRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * Model parameters (to be supported).
+   * The model parameters. This parameter is not yet supported.
+   * 
+   * @example
+   * Not yet available.
    */
   modelParamsShrink?: string;
   /**
@@ -72,7 +82,7 @@ export class CreateModelServiceShrinkRequest extends $dara.Model {
   replicas?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. For more information about how to get the ID of a resource group, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -80,9 +90,9 @@ export class CreateModelServiceShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP whitelist.
    * 
-   * 127.0.0.1 indicates that access from any external IP address is prohibited. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after the instance is created.
+   * Set this parameter to `127.0.0.1` to deny access from all external IP addresses. After the model service is created, you can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP whitelist.
    * 
    * @example
    * 127.0.0.1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAINodePoolsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListAINodePoolsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

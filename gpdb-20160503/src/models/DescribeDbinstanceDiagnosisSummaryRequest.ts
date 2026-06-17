@@ -34,7 +34,7 @@ export class DescribeDBInstanceDiagnosisSummaryRequest extends $dara.Model {
    * Default value: **20**.
    * 
    * @example
-   * 20
+   * 30
    */
   pageSize?: number;
   /**

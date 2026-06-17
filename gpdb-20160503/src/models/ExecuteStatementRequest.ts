@@ -3,7 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecuteStatementRequestRagWorkspaceCollection extends $dara.Model {
+  /**
+   * @remarks
+   * Collection name.  
+   * 
+   * > You can view the list by using the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API.
+   * 
+   * @example
+   * mycollection
+   */
   collection?: string;
+  /**
+   * @remarks
+   * Namespace.  
+   * 
+   * > You can view the list by using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+   * 
+   * @example
+   * mynamespace
+   */
   namespace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,6 +73,11 @@ export class ExecuteStatementRequest extends $dara.Model {
    * The configuration parameters.
    */
   parameters?: any[];
+  /**
+   * @remarks
+   * Parameters for the vector dataset.  
+   * > When WorkspaceId is not empty, you must also pass this parameter.
+   */
   ragWorkspaceCollection?: ExecuteStatementRequestRagWorkspaceCollection;
   /**
    * @remarks
@@ -110,6 +133,13 @@ export class ExecuteStatementRequest extends $dara.Model {
    * test
    */
   statementName?: string;
+  /**
+   * @remarks
+   * The ID of a workspace composed of multiple database instances. This parameter and DBInstanceId cannot both be empty. If both are specified, this parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

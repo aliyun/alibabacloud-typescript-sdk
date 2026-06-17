@@ -188,6 +188,10 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeDBInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of instances.
+   */
   items?: DescribeDBInstancesResponseBodyItems;
   /**
    * @remarks
@@ -199,7 +203,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 1
@@ -215,7 +219,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

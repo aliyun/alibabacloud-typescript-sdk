@@ -104,21 +104,33 @@ export class ListChunksResponseBodyChunks extends $dara.Model {
 export class ListChunksResponseBody extends $dara.Model {
   chunks?: ListChunksResponseBodyChunks;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on the current page.
+   * 
    * @example
    * 20
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 34b32a0a-08ef-4a87-b6be-cdd9f56fc3ad
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 30
    */

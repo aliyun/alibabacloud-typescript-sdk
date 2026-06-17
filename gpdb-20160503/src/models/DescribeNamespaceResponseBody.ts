@@ -8,7 +8,7 @@ export class DescribeNamespaceResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * gp-xxxxxxxxx
+   * gp-bp152460513z****
    */
   DBInstanceId?: string;
   /**

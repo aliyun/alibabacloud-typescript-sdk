@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * The key of the tag.
    * 
    * @example
    * test-key
@@ -13,7 +13,7 @@ export class DescribeDBInstancesShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The value of the tag.
    * 
    * @example
    * test-value
@@ -45,12 +45,12 @@ export class DescribeDBInstancesShrinkRequestTag extends $dara.Model {
 export class DescribeDBInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The edition of the instance. Separate multiple values with commas (,).
+   * The instance edition. You can specify multiple editions. Separate multiple editions with a comma (,).
    */
   DBInstanceCategoriesShrink?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -58,7 +58,7 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The instance ID. Separate multiple values with commas (,).
+   * The instance IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -66,7 +66,7 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
   DBInstanceIds?: string;
   /**
    * @remarks
-   * The resource type of the instance. Separate multiple values with commas (,).
+   * The resource type of the instance. You can specify multiple resource types. Separate multiple resource types with a comma (,).
    */
   DBInstanceModesShrink?: string;
   /**
@@ -76,17 +76,18 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
   DBInstanceStatusesShrink?: string;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * This parameter is deprecated. Do not specify this parameter.
    */
   instanceDeployTypesShrink?: string;
   /**
    * @remarks
-   * The network type of the instance. Valid values:
+   * The instance network type. Valid values:
    * 
-   * *   **VPC**: virtual private cloud (VPC).
-   * *   **Classic**: classic network.
+   * - **VPC**: VPC
    * 
-   * > If you do not specify this parameter, instances of all network types are returned.
+   * - **Classic**: classic network
+   * 
+   * > If you omit this parameter, the operation returns instances of all network types.
    * 
    * @example
    * VPC
@@ -95,7 +96,7 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be an integer that is greater than 0. Default value: **1**.
    * 
    * @example
    * 1
@@ -103,11 +104,13 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * Default value: **30**.
    * 
@@ -117,9 +120,9 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the instance.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available region IDs.
    * 
    * This parameter is required.
    * 
@@ -137,12 +140,12 @@ export class DescribeDBInstancesShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tags of the instance.
    */
   tag?: DescribeDBInstancesShrinkRequestTag[];
   /**
    * @remarks
-   * The VPC ID. You can use this parameter to filter instances that reside in the specified VPC.
+   * The VPC ID. You can specify this parameter to query instances in a VPC.
    * 
    * @example
    * vpc-t4nqyp3tc5mx7vy6****

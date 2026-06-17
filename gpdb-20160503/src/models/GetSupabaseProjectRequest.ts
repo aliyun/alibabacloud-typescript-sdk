@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Supabase instance. You can obtain the ID on the Supabase page in the console.
+   * The Supabase instance ID. You can find this ID on the Supabase page in the console.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class GetSupabaseProjectRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to view the available region IDs.
    * 
    * @example
    * cn-hangzhou

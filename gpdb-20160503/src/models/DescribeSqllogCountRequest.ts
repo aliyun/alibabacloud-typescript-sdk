@@ -52,7 +52,7 @@ export class DescribeSQLLogCountRequest extends $dara.Model {
    * *   0,1 or 1,0: all.
    * 
    * @example
-   * success
+   * 1
    */
   executeState?: string;
   /**

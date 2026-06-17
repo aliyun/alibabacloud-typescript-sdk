@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgsRrf extends $dara.Model {
   /**
    * @remarks
-   * Formula to calculate the score: 1/(k + rank_i). The k constant must be a positive integer greater than 1.
+   * The constant `k` used in the reciprocal rank fusion (RRF) formula `1/(k + rank_i)`. The value must be an integer greater than 1.
    * 
    * @example
    * 60
@@ -35,7 +35,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgsRrf
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgsWeight extends $dara.Model {
   /**
    * @remarks
-   * An array of weights for each SourceCollection.
+   * An array of weights for each `SourceCollection`.
    */
   weights?: number[];
   static names(): { [key: string]: string } {
@@ -65,12 +65,12 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgsWei
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgs extends $dara.Model {
   /**
    * @remarks
-   * The parameter to be configured when the MergeMethod parameter is set to RRF.
+   * Parameters for the `RRF` merge method.
    */
   rrf?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgsRrf;
   /**
    * @remarks
-   * The smoothing constant in the formula to calculate the score: 1/(k + rank_i). It must be a positive integer greater than 1.
+   * Parameters for the `Weight` merge method.
    */
   weight?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgsWeight;
   static names(): { [key: string]: string } {
@@ -104,11 +104,17 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgs ex
 
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsRerankModel extends $dara.Model {
   /**
+   * @remarks
+   * An instruction for the rerank model.
+   * 
    * @example
    * Given a web search query, retrieve relevant passages that answer the query
    */
   instruct?: string;
   /**
+   * @remarks
+   * The name of the rerank model.
+   * 
    * @example
    * qwen3-rerank
    */
@@ -139,7 +145,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsRerankModel extend
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParamsGraphSearchArgs extends $dara.Model {
   /**
    * @remarks
-   * The number of top entities and relationship edges. Default value: 60.
+   * The number of top entities and relationship edges to return. Default value: `60`.
    * 
    * @example
    * 60
@@ -168,11 +174,17 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
 
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel extends $dara.Model {
   /**
+   * @remarks
+   * An instruction for the rerank model.
+   * 
    * @example
    * Given a web search query, retrieve relevant passages that answer the query
    */
   instruct?: string;
   /**
+   * @remarks
+   * The name of the rerank model.
+   * 
    * @example
    * qwen3-rerank
    */
@@ -203,7 +215,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParams extends $dara.Model {
   /**
    * @remarks
-   * The condition that is used to filter the data to be updated. Specify this parameter in a format that is the same as the WHERE clause.
+   * A filter expression to apply to the search, similar to a SQL `WHERE` clause.
    * 
    * @example
    * method_id=\\"e41695f0-2851-40ac-b21d-dd337b60d71c\\"
@@ -211,7 +223,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
   filter?: string;
   /**
    * @remarks
-   * Whether to enable knowledge graph enhancement. Default value: false.
+   * Specifies whether to enable knowledge graph enhancement. Default value: `false`.
    * 
    * @example
    * true
@@ -219,18 +231,20 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
   graphEnhance?: boolean;
   /**
    * @remarks
-   * The knowledge graph retrieval parameters.
+   * The parameters for knowledge graph search.
    */
   graphSearchArgs?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParamsGraphSearchArgs;
   /**
    * @remarks
-   * The dual-path retrieval algorithm. This parameter is empty by default, which specifies that scores of vector retrieval and full-text retrieval are directly compared and sorted together.
+   * Specifies the hybrid search algorithm. If omitted, the system performs a basic score comparison of vector search and full-text retrieval results.
    * 
    * Valid values:
    * 
-   * *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Cascaded: This algorithm performs first full-text retrieval and then vector retrieval.
+   * - `RRF`: Reciprocal rank fusion. Configure the `k` parameter in `HybridSearchArgs`.
+   * 
+   * - `Weight`: Weighted score fusion. Use the `alpha` parameter in `HybridSearchArgs` to control the balance between vector and full-text search scores.
+   * 
+   * - `Cascaded`: First performs full-text retrieval, then runs a vector search on the results.
    * 
    * @example
    * Cascaded
@@ -238,36 +252,38 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
   hybridSearch?: string;
   /**
    * @remarks
-   * The parameters of the dual-path retrieval algorithm. RRF and Weight are supported at this time:
+   * The arguments for the specified hybrid search algorithm. Supports `RRF` and `Weight`.
    * 
-   * *   RRF: Specifies the smoothing constant k in the formula to calculate the score: `1/(k + rank_i)`. The k constant must be a positive integer greater than 1. The format:
+   * - `RRF`: Specifies the constant `k` in the score calculation formula `1/(k+rank_i)`. `k` must be an integer greater than 1. Format:
    * 
-   * <!---->
+   * ```
+   * { 
+   *    "RRF": {
+   *     "k": 60
+   *    }
+   * }
+   * ```
    * 
-   *     { 
-   *        "RRF": {
-   *         "k": 60
-   *        }
-   *     }
+   * - `Weight`: Calculates the final score using the formula `alpha * vector_score + (1 - alpha) * text_score`. The `alpha` parameter balances the scores, ranging from 0 (full-text only) to 1 (vector only). Format:
    * 
-   * *   Weight: The score is computed as `alpha * vector_score + (1 - alpha) * text_score`. The parameter alpha controls the weighting between vector search and full-text search scores, with a valid range of [0, 1]. 0 specifies only full-text search score. 1 specifies only vector search score.
-   * 
-   * <!---->
-   * 
-   *     { 
-   *        "Weight": {
-   *         "alpha": 0.5
-   *        }
-   *     }
+   * ```
+   * { 
+   *    "Weight": {
+   *     "alpha": 0.5
+   *    }
+   * }
+   * ```
    */
   hybridSearchArgs?: { [key: string]: any };
   /**
    * @remarks
-   * The method that is used to create vector indexes. Valid values:
+   * The distance metric for vector search. Valid values:
    * 
-   * *   l2: Euclidean distance.
-   * *   ip: Inner product distance.
-   * *   cosine: Cosine similarity.
+   * - `l2`: Euclidean distance.
+   * 
+   * - `ip`: Inner product.
+   * 
+   * - `cosine`: Cosine similarity.
    * 
    * @example
    * cosine
@@ -275,33 +291,33 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
   metrics?: string;
   /**
    * @remarks
-   * The retrieval window. If you specify this parameter, the context of the retrieved result is added in the output. Format: List\\<A, B>. Valid values: -10<=A<=0 and 0<=B<=10.
+   * The recall window. Specifies a window of context to include around retrieved chunks. The value must be a two-element array `[A, B]`, where -10 <= A <= 0 and 0 <= B <= 10.
    * 
-   * > 
-   * 
-   * *   We recommend that you specify this parameter if the source document is segmented into large numbers of pieces, which may result in loss of contextual information during retrieval.
-   * 
-   * *   Prioritized reranking with windowing, i.e., perform reranking first followed by windowing processing.
+   * > - This parameter is useful when document chunks are small and a search might miss important surrounding context.
+   * >
+   * > - The window is applied after reranking.
    */
   recallWindow?: number[];
   /**
    * @remarks
-   * The rerank factor. If you specify this parameter, the retrieved results are reranked once again. Valid values: 1\\<RerankFactor<=5.
+   * The rerank factor. If specified, the system reranks the results from the vector search. The value must be greater than 1 and less than or equal to 5.
    * 
-   * > 
-   * 
-   * *   If the document is segmented into sparse parts, reranking is inefficient.
-   * 
-   * *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
+   * > - Reranking may be inefficient if document chunks are sparse.
+   * >
+   * > - The number of items to rerank, calculated as `ceil(TopK * RerankFactor)`, should not exceed 50.
    * 
    * @example
    * 2.0
    */
   rerankFactor?: number;
+  /**
+   * @remarks
+   * The rerank model to use.
+   */
   rerankModel?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel;
   /**
    * @remarks
-   * The number of top results.
+   * The number of top results to return from this collection.
    * 
    * @example
    * 101
@@ -309,7 +325,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
   topK?: number;
   /**
    * @remarks
-   * Specifies whether to use full-text retrieval (dual-path retrieval). The default value is false, which means only vector retrieval is used.
+   * Specifies whether to use full-text retrieval for hybrid search. If `false` (the default), only vector search is performed.
    * 
    * @example
    * true
@@ -371,7 +387,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollection extends $dara.Model {
   /**
    * @remarks
-   * The name of the collection to be recalled.
+   * The name of the collection to search.
    * 
    * This parameter is required.
    * 
@@ -381,9 +397,9 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollection e
   collection?: string;
   /**
    * @remarks
-   * The namespace.
+   * The namespace that contains the collection.
    * 
-   * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view available namespaces.
    * 
    * @example
    * ddstar_vector
@@ -391,9 +407,9 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollection e
   namespace?: string;
   /**
    * @remarks
-   * The password for the namespace.
+   * The password for the specified namespace.
    * 
-   * > The value of this parameter is specified by the CreateNamespace operation.
+   * > This value is specified in the `CreateNamespace` operation.
    * 
    * This parameter is required.
    * 
@@ -403,7 +419,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollection e
   namespacePassword?: string;
   /**
    * @remarks
-   * Parameters related to the knowledge base retrieval.
+   * Parameters for the knowledge base query.
    */
   queryParams?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParams;
   static names(): { [key: string]: string } {
@@ -439,10 +455,11 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollection e
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParams extends $dara.Model {
   /**
    * @remarks
-   * The method used to merge multiple knowledge base. Default value: RRF. Valid values:
+   * Specifies the method for merging results from multiple knowledge bases. Default: `RRF`. Valid values:
    * 
-   * *   RRF
-   * *   Weight
+   * - `RRF`
+   * 
+   * - `Weight`
    * 
    * @example
    * "RRF"
@@ -450,34 +467,36 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParams extends $dara.Mod
   mergeMethod?: string;
   /**
    * @remarks
-   * Parameters for multi-knowledge-base fusion.
+   * The arguments for the result merging method.
    */
   mergeMethodArgs?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgs;
   /**
    * @remarks
-   * The rerank factor. If you specify this parameter, the search result is reranked once again. Valid values: 1\\<RerankFactor<=5.
+   * Specifies the factor for reranking vector search results. The value must be greater than 1 and less than or equal to 5.
    * 
-   * > 
-   * 
-   * *   If the document is segmented into sparse parts, reranking is inefficient.
-   * 
-   * *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
+   * > - Reranking may be inefficient if document chunks are sparse.
+   * >
+   * > - The number of items to rerank, calculated as `ceil(TopK * RerankFactor)`, should not exceed 50.
    * 
    * @example
    * 5.0
    */
   rerankFactor?: number;
+  /**
+   * @remarks
+   * The rerank model to use.
+   */
   rerankModel?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsRerankModel;
   /**
    * @remarks
-   * Knowledge base.
+   * An array of knowledge bases to search.
    * 
    * This parameter is required.
    */
   sourceCollection?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollection[];
   /**
    * @remarks
-   * Specifies the number of top results to return after merging retrieved results from multiple vector collections.
+   * The total number of top results to return after merging results from all collections.
    * 
    * @example
    * 10
@@ -526,18 +545,23 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParams extends $dara.Mod
 export class ChatWithKnowledgeBaseStreamRequestModelParamsMessages extends $dara.Model {
   /**
    * @remarks
-   * The message content.
+   * The content of the message.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * You are a helpful assistant.
    */
   content?: string;
   /**
    * @remarks
-   * The message role. Valid values:
+   * The role of the message author. Valid values:
    * 
-   * *   system
-   * *   user
-   * *   assistant
+   * - `system`
+   * 
+   * - `user`
+   * 
+   * - `assistant`
    * 
    * This parameter is required.
    * 
@@ -571,12 +595,15 @@ export class ChatWithKnowledgeBaseStreamRequestModelParamsMessages extends $dara
 export class ChatWithKnowledgeBaseStreamRequestModelParamsToolsFunction extends $dara.Model {
   /**
    * @remarks
-   * The description of the function.
+   * A description of the function tool.
+   * 
+   * @example
+   * Get weather.
    */
   description?: string;
   /**
    * @remarks
-   * The name of the function.
+   * The name of the function tool.
    * 
    * @example
    * get_weather
@@ -584,7 +611,7 @@ export class ChatWithKnowledgeBaseStreamRequestModelParamsToolsFunction extends 
   name?: string;
   /**
    * @remarks
-   * JSON Schema for function parameters.
+   * The parameters of the function, described as a JSON Schema object.
    * 
    * @example
    * {"type": "object", ...}
@@ -618,7 +645,7 @@ export class ChatWithKnowledgeBaseStreamRequestModelParamsToolsFunction extends 
 export class ChatWithKnowledgeBaseStreamRequestModelParamsTools extends $dara.Model {
   /**
    * @remarks
-   * The information about a function.
+   * The function information.
    */
   function?: ChatWithKnowledgeBaseStreamRequestModelParamsToolsFunction;
   static names(): { [key: string]: string } {
@@ -648,7 +675,7 @@ export class ChatWithKnowledgeBaseStreamRequestModelParamsTools extends $dara.Mo
 export class ChatWithKnowledgeBaseStreamRequestModelParams extends $dara.Model {
   /**
    * @remarks
-   * Maximum number of tokens to generate.
+   * The maximum number of tokens to generate.
    * 
    * @example
    * 8192
@@ -656,14 +683,14 @@ export class ChatWithKnowledgeBaseStreamRequestModelParams extends $dara.Model {
   maxTokens?: number;
   /**
    * @remarks
-   * Message list.
+   * A list of messages in the conversation.
    * 
    * This parameter is required.
    */
   messages?: ChatWithKnowledgeBaseStreamRequestModelParamsMessages[];
   /**
    * @remarks
-   * The model name. See [Model Studio Document](https://help.aliyun.com/zh/model-studio/compatibility-of-openai-with-dashscope?spm=openapi-amp.newDocPublishment.0.0.257c281fH8TtM8\\&scm=20140722.H_2833609._.OR_help-T_cn~zh-V_1#eadfc13038jd5) for the available models.
+   * The name of the Large Language Model to use. For a list of available models, refer to the [Model Studio documentation](https://help.aliyun.com/zh/model-studio/compatibility-of-openai-with-dashscope?spm=openapi-amp.newDocPublishment.0.0.257c281fH8TtM8\\&scm=20140722.H_2833609._.OR_help-T_cn~zh-V_1#eadfc13038jd5).
    * 
    * This parameter is required.
    * 
@@ -681,7 +708,7 @@ export class ChatWithKnowledgeBaseStreamRequestModelParams extends $dara.Model {
   n?: number;
   /**
    * @remarks
-   * Presence penalty coefficient (-2.0 to 2.0).
+   * The presence penalty. A value between -2.0 and 2.0.
    * 
    * @example
    * 1.0
@@ -689,7 +716,7 @@ export class ChatWithKnowledgeBaseStreamRequestModelParams extends $dara.Model {
   presencePenalty?: number;
   /**
    * @remarks
-   * The random seed.
+   * The random seed for sampling.
    * 
    * @example
    * 42
@@ -697,12 +724,12 @@ export class ChatWithKnowledgeBaseStreamRequestModelParams extends $dara.Model {
   seed?: number;
   /**
    * @remarks
-   * Stop words.
+   * A list of stop sequences.
    */
   stop?: string[];
   /**
    * @remarks
-   * Sampling temperature (0~2).
+   * The sampling temperature. A value between 0 and 2.
    * 
    * @example
    * 0.6
@@ -710,12 +737,12 @@ export class ChatWithKnowledgeBaseStreamRequestModelParams extends $dara.Model {
   temperature?: number;
   /**
    * @remarks
-   * Tools.
+   * A list of tools the model can call.
    */
   tools?: ChatWithKnowledgeBaseStreamRequestModelParamsTools[];
   /**
    * @remarks
-   * Top-p (nucleus) sampling threshold (0–1).
+   * The nucleus sampling probability threshold. A value between 0 and 1.
    * 
    * @example
    * 0.9
@@ -772,9 +799,9 @@ export class ChatWithKnowledgeBaseStreamRequestModelParams extends $dara.Model {
 export class ChatWithKnowledgeBaseStreamRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specified region.
    * 
    * This parameter is required.
    * 
@@ -784,7 +811,7 @@ export class ChatWithKnowledgeBaseStreamRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Whether to return the retrieved result. Default value: false.
+   * Specifies whether to include the retrieved knowledge base results in the response. Default value: `false`.
    * 
    * @example
    * false
@@ -792,12 +819,12 @@ export class ChatWithKnowledgeBaseStreamRequest extends $dara.Model {
   includeKnowledgeBaseResults?: boolean;
   /**
    * @remarks
-   * The knowledge retrieval parameter object. If you do not specify this parameter, only chat mode is enabled.
+   * Parameters for knowledge retrieval. If omitted, the API performs a chat-only operation.
    */
   knowledgeParams?: ChatWithKnowledgeBaseStreamRequestKnowledgeParams;
   /**
    * @remarks
-   * The Large Language Model (LLM) invocation parameter object.
+   * An object that contains parameters for the Large Language Model (LLM) call.
    * 
    * This parameter is required.
    */
@@ -805,12 +832,15 @@ export class ChatWithKnowledgeBaseStreamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The system prompt template, which should include {{ text_chunks }},{{ user_system_prompt }},{{ graph_entities },{{ graph_relations }}. If any of these placeholders are not specified, the corresponding section should have no effect.
+   * A template for the system prompt. It must include placeholders such as `{{text_chunks}}`, `{{user_system_prompt}}`, `{{graph_entities}}`, and `{{graph_relations}}`. If omitted, no custom prompt template is applied.
+   * 
+   * @example
+   * "参考以下知识回答问题:{{ text_chunks }}"
    */
   promptParams?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The instance\\"s region ID.
    * 
    * This parameter is required.
    * 

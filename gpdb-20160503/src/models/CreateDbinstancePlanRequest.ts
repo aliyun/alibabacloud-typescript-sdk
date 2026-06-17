@@ -45,7 +45,7 @@ export class CreateDBInstancePlanRequest extends $dara.Model {
    * *   If you do not specify this parameter, the plan stops until the plan is deleted.
    * 
    * @example
-   * 2023-04-17T23:00Z
+   * 2023-04-17T23:00:00Z
    */
   planEndDate?: string;
   /**
@@ -82,7 +82,7 @@ export class CreateDBInstancePlanRequest extends $dara.Model {
    * *   If you do not specify this parameter, the current time is used.
    * 
    * @example
-   * 2022-04-17T23:00Z
+   * 2022-04-17T23:00:00Z
    */
   planStartDate?: string;
   /**

@@ -10,7 +10,7 @@ export class DescribeExternalDataServiceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * gp-bp10g78o9807yv9h3
+   * gp-xxx
    */
   DBInstanceId?: string;
   /**

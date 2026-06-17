@@ -34,6 +34,9 @@ export class CreateIndexRequest extends $dara.Model {
    * *   b-tree: To create a B-tree index, set the fillFactor parameter to a value between 10 and 100. Default value: 90.
    * 
    * *   gin: To create a GIN index, set the fastUpdate parameter to true or false. Default value: true.
+   * 
+   * @example
+   * {"b-tree":{"fillFactor":90}} or {"gin":{"fastUpdate":false}}
    */
   indexConfig?: string;
   /**

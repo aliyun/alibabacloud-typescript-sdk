@@ -7,9 +7,9 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * @remarks
    * The password of the initial account.
    * 
-   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
-   * *   The password must be 8 to 32 characters in length.
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - The following special characters are supported: `!@#$%^&*()_+-=`
+   * - The password must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -28,24 +28,50 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The performance level of Enterprise SSDs (ESSDs). Default value: PL0. Valid values:
-   * 
-   * *   PL0
-   * *   PL1
+   * The performance level (PL) of the cloud disk. Default value: PL0. Valid values:
+   * - PL0
+   * - PL1
    * 
    * @example
    * PL0
    */
   diskPerformanceLevel?: string;
+  engineVersion?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * - **Postpaid**: pay-as-you-go.
+   * - **Prepaid**: subscription.
+   * 
+   * > - If you do not specify this parameter, an instance of the Free type is created by default.
+   * > - If you select the subscription billing method, you can receive discounts when you purchase a one-year or longer subscription. We recommend that you select a billing method based on your business requirements.
+   * 
+   * @example
+   * Postpaid
+   */
   payType?: string;
+  /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * - **Month**: month.
+   * - **Year**: year.
+   * 
+   * > This parameter is required when you create a subscription instance.
+   * 
+   * @example
+   * Month
+   */
   period?: string;
   /**
    * @remarks
-   * The name of the Supabase project. The name must meet the following requirements:
+   * The project name. The naming rules are as follows:
    * 
-   * *   The name must be 1 to 128 characters in length.
-   * *   The name can contain only letters, digits, hyphens (-), and underscores (_).
-   * *   The name must start with a letter or an underscore (_).
+   * - The name must be 1 to 128 characters in length.
+   * 
+   * - The name can contain only letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The name must start with a letter or an underscore (_).
    * 
    * This parameter is required.
    * 
@@ -55,7 +81,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The specifications of the Supabase project. Default value: 1C1G.
+   * The Supabase instance specification. The default specification for the Free type is 1C1G. The specifications for paid types are consistent with those available on the console.
    * 
    * This parameter is required.
    * 
@@ -65,7 +91,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   projectSpec?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) to view the available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -75,7 +101,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * @remarks
    * The IP address whitelist.
    * 
-   * A value of 127.0.0.1 denies access from any external IP address. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create a project.
+   * The value 127.0.0.1 indicates that no external IP addresses are allowed to access the instance. After the instance is created, you can call [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) to modify the IP address whitelist.
    * 
    * This parameter is required.
    * 
@@ -91,16 +117,24 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * 2
    */
   storageSize?: number;
+  /**
+   * @remarks
+   * The subscription duration. Valid values:
+   * - If **Period** is set to **Month**, the valid values are 1 to 11.
+   * - If **Period** is set to **Year**, the valid values are 1 to 3.
+   * 
+   * > This parameter is required when you create a subscription instance.
+   * 
+   * @example
+   * 1
+   */
   usedTime?: string;
   /**
    * @remarks
    * The vSwitch ID.
    * 
-   * > 
-   * 
-   * *   **This parameter** must be specified.
-   * 
-   * *   The zone where the **vSwitch** resides must be the same as the zone that is specified by **ZoneId**.
+   * > - The **vSwitchId** parameter is required.
+   * > - The zone of the **vSwitch** must be the same as the value of **ZoneId**.
    * 
    * This parameter is required.
    * 
@@ -110,13 +144,9 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * > 
-   * 
-   * *   You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPC IDs.
-   * 
-   * *   This parameter must be specified.
+   * The VPC ID.
+   * >  - You can call [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) to view the available VPC IDs.
+   * > - This parameter is required.
    * 
    * This parameter is required.
    * 
@@ -128,7 +158,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent zone list.
+   * > You can call [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) to view the available zone IDs.
    * 
    * This parameter is required.
    * 
@@ -142,6 +172,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       autoScale: 'AutoScale',
       clientToken: 'ClientToken',
       diskPerformanceLevel: 'DiskPerformanceLevel',
+      engineVersion: 'EngineVersion',
       payType: 'PayType',
       period: 'Period',
       projectName: 'ProjectName',
@@ -162,6 +193,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       autoScale: 'boolean',
       clientToken: 'string',
       diskPerformanceLevel: 'string',
+      engineVersion: 'string',
       payType: 'string',
       period: 'string',
       projectName: 'string',

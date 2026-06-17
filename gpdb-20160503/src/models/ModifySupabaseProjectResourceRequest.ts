@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySupabaseProjectResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The modification type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifySupabaseProjectResourceRequest extends $dara.Model {
   modifyType?: string;
   /**
    * @remarks
+   * The Supabase project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,16 +24,25 @@ export class ModifySupabaseProjectResourceRequest extends $dara.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The new project specifications.
+   * 
    * @example
    * 2C4G
    */
   projectSpec?: string;
   /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The storage size, in GB.
+   * 
    * @example
    * 100
    */

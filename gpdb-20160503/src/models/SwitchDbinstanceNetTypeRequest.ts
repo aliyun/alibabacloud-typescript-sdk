@@ -13,7 +13,7 @@ export class SwitchDBInstanceNetTypeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test1234
+   * gp-bp12ga6v69h86****
    */
   connectionStringPrefix?: string;
   /**
@@ -25,7 +25,7 @@ export class SwitchDBInstanceNetTypeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxx
+   * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
   /**
@@ -35,7 +35,7 @@ export class SwitchDBInstanceNetTypeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 3306
+   * 5432
    */
   port?: string;
   static names(): { [key: string]: string } {

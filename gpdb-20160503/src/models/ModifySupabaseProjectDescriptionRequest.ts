@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifySupabaseProjectDescriptionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The detailed description of the Supabase project.
+   * 
    * @example
    * for-test-project
    */
   projectDescription?: string;
   /**
+   * @remarks
+   * The Supabase instance ID.
+   * 
    * @example
    * sbp-twmoe9bakow
    */
   projectId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

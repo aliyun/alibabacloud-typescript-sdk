@@ -49,7 +49,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Tuesday, Thursday, Saturday
+   * Tuesday,Thursday,Saturday
    */
   preferredBackupPeriod?: string;
   /**

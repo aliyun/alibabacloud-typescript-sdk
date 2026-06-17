@@ -8,7 +8,7 @@ export class UpgradeDBVersionResponseBody extends $dara.Model {
    * This parameter is no longer returned.
    * 
    * @example
-   * gp-wz9kmr708m155j***
+   * null
    */
   DBInstanceId?: string;
   /**

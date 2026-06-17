@@ -13,7 +13,7 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
   downloadId?: number;
   /**
    * @remarks
-   * The URL that can be used to download the file.
+   * The download URL.
    * 
    * @example
    * https://perth-download-task.oss-cn-beijing.aliyuncs.com/*****
@@ -21,7 +21,7 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Error message
@@ -29,7 +29,7 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
   exceptionMsg?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * 20220509113448-20220509173448.csv
@@ -37,11 +37,13 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The state of the upload task. After you call the DownloadDiagnosisRecords operation, query diagnostic information is first uploaded to Object Storage Service (OSS). After the upload task is complete, the query diagnostic information can be downloaded. Valid values:
+   * The status of the task that uploads the query diagnostic information file to Object Storage Service (OSS). You can download the file after the upload is complete. Valid values:
    * 
-   * *   **running**: uploading
-   * *   **finished**: uploaded
-   * *   **failed**: failed
+   * - **running**: The file is being uploaded.
+   * 
+   * - **finished**: The file upload is complete.
+   * 
+   * - **failed**: The file upload failed.
    * 
    * @example
    * finished
@@ -79,7 +81,7 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
 export class DescribeDownloadRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The URL that is used to download the file.
+   * An array of download records.
    */
   records?: DescribeDownloadRecordsResponseBodyRecords[];
   /**

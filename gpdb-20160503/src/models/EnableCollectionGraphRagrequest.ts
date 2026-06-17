@@ -34,6 +34,9 @@ export class EnableCollectionGraphRAGRequest extends $dara.Model {
    * > If the knowledge graph construction is enabled, this parameter is required.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Location
    */
   entityTypes?: string[];
   /**
@@ -129,6 +132,9 @@ export class EnableCollectionGraphRAGRequest extends $dara.Model {
    * > If the knowledge graph construction is enabled, this parameter is required.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Occurred
    */
   relationshipTypes?: string[];
   static names(): { [key: string]: string } {

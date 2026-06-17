@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCollectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * Successful
@@ -13,13 +13,11 @@ export class ModifyCollectionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
+   * The metadata schema of the collection, returned as a JSON string. This string represents a map where keys are field names and values are their data types.
    * 
-   * > 
-   * 
-   * *   For information about the supported data types, see [Data types](https://help.aliyun.com/document_detail/424383.html).
-   * 
-   * *   The money data type is not supported.
+   * > - See [Data types](https://help.aliyun.com/document_detail/424383.html) for the list of supported data types.
+   * >
+   * > - The \\"money\\" data type is not supported.
    * 
    * @example
    * {"title":"text","content":"text","response":"int"}
@@ -35,10 +33,11 @@ export class ModifyCollectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The status of the API request. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **Other values**: The request failed.
+   * 
+   * - **success**: The request was successful.
    * 
    * @example
    * success

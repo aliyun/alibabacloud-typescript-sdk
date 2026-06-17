@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifySupabaseProjectResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * *********
    */
   orderId?: string;
   /**
+   * @remarks
+   * The Supabase project ID.
+   * 
    * @example
    * sbp-tyarplz****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */

@@ -8,7 +8,7 @@ export class DescribeModifyParameterLogResponseBodyChangelogs extends $dara.Mode
    * The effective time.
    * 
    * @example
-   * 2020-05-05T11:22:22Z
+   * 2023-01-03T17:00:00Z
    */
   effectTime?: string;
   /**
@@ -83,7 +83,7 @@ export class DescribeModifyParameterLogResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 7565770E-7C45-462D-BA4A-8A5396F2CAD1
+   * 4FA1F1D1-50A6-4F60-9A78-5752F2076A53
    */
   requestId?: string;
   static names(): { [key: string]: string } {

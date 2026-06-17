@@ -8,7 +8,7 @@ export class ModifySQLCollectorPolicyResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 4FA1F1D1-50A6-4F60-9A78-5752F2076A53
+   * API-48109b5c-a157-44e3-9f54-eb27f02bdd15
    */
   requestId?: string;
   static names(): { [key: string]: string } {

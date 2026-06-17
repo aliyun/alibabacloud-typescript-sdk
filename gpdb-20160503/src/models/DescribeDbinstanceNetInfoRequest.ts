@@ -22,7 +22,7 @@ export class DescribeDBInstanceNetInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * gp-xxxxxxxxxx
+   * gp-0xin9q82c33xc****
    */
   DBInstanceId?: string;
   static names(): { [key: string]: string } {

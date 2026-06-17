@@ -52,7 +52,7 @@ export class DescribeJDBCDataSourceResponseBody extends $dara.Model {
    * The type of the data source.
    * 
    * @example
-   * MySQL
+   * mysql
    */
   dataSourceType?: string;
   /**
@@ -68,7 +68,7 @@ export class DescribeJDBCDataSourceResponseBody extends $dara.Model {
    * The JDBC connection string.
    * 
    * @example
-   * xxxxxx
+   * jdbc:mysql://rm-xxx.mysql.rds.aliyuncs.com:3306/testadmin
    */
   JDBCConnectionString?: string;
   /**
@@ -76,7 +76,7 @@ export class DescribeJDBCDataSourceResponseBody extends $dara.Model {
    * The password of the database account.
    * 
    * @example
-   * xxxxxx
+   * testpasswd
    */
   JDBCPassword?: string;
   /**
@@ -84,7 +84,7 @@ export class DescribeJDBCDataSourceResponseBody extends $dara.Model {
    * The name of the database account.
    * 
    * @example
-   * xxxxxx
+   * testuser
    */
   JDBCUserName?: string;
   /**
@@ -92,7 +92,7 @@ export class DescribeJDBCDataSourceResponseBody extends $dara.Model {
    * The time when the data source was last modified.
    * 
    * @example
-   * 2024-08-27T02:01:10Z
+   * 2024-09-04T02:27:55Z
    */
   modifyTime?: string;
   /**

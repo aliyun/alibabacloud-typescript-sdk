@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSupabaseProjectResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 278880417310796
+   */
   orderId?: string;
   /**
    * @remarks
-   * The Supabase project ID.
+   * The Supabase instance ID.
    * 
    * @example
    * sbp-180****

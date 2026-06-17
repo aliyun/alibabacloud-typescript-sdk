@@ -12,7 +12,7 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * gp-xxxxxx
+   * gp-9dpm71ov2wxxq****
    */
   DBInstanceId?: string;
   /**
@@ -20,7 +20,7 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
    * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC. The end time must be later than the start time.
    * 
    * @example
-   * 2020-05-05T11:22:22Z
+   * 2023-01-03T20:00:00Z
    */
   endTime?: string;
   /**
@@ -28,7 +28,7 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
    * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
    * 
    * @example
-   * 2020-02-02T11:22:22Z
+   * 2023-01-03T16:00:00Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {

@@ -28,7 +28,7 @@ export class DescribeDBInstanceIndexUsageRequest extends $dara.Model {
    * order by search condition
    * 
    * @example
-   * {Field: TableName, Type: Desc}
+   * {Field: SchemaName, Type: Desc}
    */
   orderBy?: string;
   /**
@@ -50,7 +50,7 @@ export class DescribeDBInstanceIndexUsageRequest extends $dara.Model {
    * Default value: **30**.
    * 
    * @example
-   * 20
+   * 30
    */
   pageSize?: number;
   static names(): { [key: string]: string } {

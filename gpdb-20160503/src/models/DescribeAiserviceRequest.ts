@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
+   * > To view details of all instances in a region, including their IDs, call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class DescribeAIServiceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The ID of the service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +27,8 @@ export class DescribeAIServiceRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
+   * The type of service. Only drama is supported.
+   * 
    * This parameter is required.
    * 
    * @example

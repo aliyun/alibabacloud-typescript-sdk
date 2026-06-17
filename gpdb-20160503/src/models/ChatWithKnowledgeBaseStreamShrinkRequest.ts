@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specified region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Whether to return the retrieved result. Default value: false.
+   * Specifies whether to include the retrieved knowledge base results in the response. Default value: `false`.
    * 
    * @example
    * false
@@ -25,12 +25,12 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   includeKnowledgeBaseResults?: boolean;
   /**
    * @remarks
-   * The knowledge retrieval parameter object. If you do not specify this parameter, only chat mode is enabled.
+   * Parameters for knowledge retrieval. If omitted, the API performs a chat-only operation.
    */
   knowledgeParamsShrink?: string;
   /**
    * @remarks
-   * The Large Language Model (LLM) invocation parameter object.
+   * An object that contains parameters for the Large Language Model (LLM) call.
    * 
    * This parameter is required.
    */
@@ -38,12 +38,15 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The system prompt template, which should include {{ text_chunks }},{{ user_system_prompt }},{{ graph_entities },{{ graph_relations }}. If any of these placeholders are not specified, the corresponding section should have no effect.
+   * A template for the system prompt. It must include placeholders such as `{{text_chunks}}`, `{{user_system_prompt}}`, `{{graph_entities}}`, and `{{graph_relations}}`. If omitted, no custom prompt template is applied.
+   * 
+   * @example
+   * "参考以下知识回答问题:{{ text_chunks }}"
    */
   promptParams?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The instance\\"s region ID.
    * 
    * This parameter is required.
    * 

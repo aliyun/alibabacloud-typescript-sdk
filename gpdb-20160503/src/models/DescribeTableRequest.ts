@@ -66,6 +66,13 @@ export class DescribeTableRequest extends $dara.Model {
    * mytable
    */
   table?: string;
+  /**
+   * @remarks
+   * The ID of the workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. If both parameters are specified, this parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

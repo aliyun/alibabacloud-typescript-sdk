@@ -24,7 +24,7 @@ export class ListExternalDataServicesResponseBodyServiceItems extends $dara.Mode
    * The description of the service.
    * 
    * @example
-   * test-adbpgss
+   * test-pxf
    */
   serviceDescription?: string;
   /**
@@ -40,7 +40,7 @@ export class ListExternalDataServicesResponseBodyServiceItems extends $dara.Mode
    * The name of the service.
    * 
    * @example
-   * test-adbpgss
+   * test-pxf
    */
   serviceName?: string;
   /**
@@ -48,7 +48,7 @@ export class ListExternalDataServicesResponseBodyServiceItems extends $dara.Mode
    * The specifications of the service. Unit: compute units (CUs).
    * 
    * @example
-   * 2
+   * 8
    */
   serviceSpec?: string;
   /**

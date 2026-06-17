@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseProjectApiKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The Supabase project ID.
+   * The Supabase instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class GetSupabaseProjectApiKeysRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to view the available region IDs.
    * 
    * @example
    * cn-hangzhou

@@ -18,6 +18,9 @@ export class RerankRequest extends $dara.Model {
   /**
    * @remarks
    * List of documents to be re-ordered.
+   * 
+   * @example
+   * ADBPG is an Alibaba Cloud OLAP database.
    */
   documents?: string[];
   /**

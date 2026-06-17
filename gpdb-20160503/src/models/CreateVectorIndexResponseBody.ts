@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVectorIndexResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed information returned by the API.
+   * The response message.
    * 
    * @example
    * Successful
@@ -13,7 +13,7 @@ export class CreateVectorIndexResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -21,9 +21,11 @@ export class CreateVectorIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * API execution status. Value description:
-   * - **success**: Execution succeeded.
-   * - **fail**: Execution failed.
+   * The status of the request. Valid values:
+   * 
+   * - **success**: The request was successful.
+   * 
+   * - **fail**: The request failed.
    * 
    * @example
    * success

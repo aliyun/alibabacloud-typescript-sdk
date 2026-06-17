@@ -22,7 +22,7 @@ export class ModifyDBResourceGroupRequestResourceGroupItems extends $dara.Model 
    * This parameter is required.
    * 
    * @example
-   * {"CpuRateLimit":"10","MemoryLimit":"12","MemorySharedQuota":"20","MemorySpillRatio":"75","Concurrency":"3"}
+   * {"CpuRateLimit":10,"MemoryLimit":12,"MemorySharedQuota":20,"MemorySpillRatio":75,"Concurrency":3}
    */
   resourceGroupConfig?: string;
   /**

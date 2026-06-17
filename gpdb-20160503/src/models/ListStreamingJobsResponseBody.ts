@@ -129,7 +129,7 @@ export class ListStreamingJobsResponseBodyJobItems extends $dara.Model {
    * 2.  professional: In professional mode, you can submit a YAML configuration file.
    * 
    * @example
-   * Basic / Professional
+   * basic / professional
    */
   mode?: string;
   /**

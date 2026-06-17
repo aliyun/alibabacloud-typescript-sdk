@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAIServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB PostgreSQL instances in the destination region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class DeleteAIServiceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +27,8 @@ export class DeleteAIServiceRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
+   * The service type. Only drama is supported.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -24,6 +24,11 @@ export class DeleteStreamingJobRequest extends $dara.Model {
    */
   jobId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * > You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * 
    * @example
    * cn-beijing
    */

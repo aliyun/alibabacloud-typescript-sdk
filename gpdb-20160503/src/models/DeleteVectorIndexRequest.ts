@@ -24,7 +24,7 @@ export class DeleteVectorIndexRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * gp-xxxxxxxxx
+   * gp-bp152460513z****
    */
   DBInstanceId?: string;
   /**

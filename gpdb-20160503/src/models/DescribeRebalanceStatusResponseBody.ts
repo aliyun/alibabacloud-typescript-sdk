@@ -8,7 +8,7 @@ export class DescribeRebalanceStatusResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 7F5B5023-94EA-5D5D-AB72-B7B356BA****
+   * 9C6122AD-2FCC-50B3-873A-37B68775****
    */
   requestId?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeRebalanceStatusResponseBody extends $dara.Model {
    * The rebalance status of the instance. Valid values: Balanced and Imbalanced.
    * 
    * @example
-   * Init
+   * Balanced
    */
   status?: string;
   static names(): { [key: string]: string } {

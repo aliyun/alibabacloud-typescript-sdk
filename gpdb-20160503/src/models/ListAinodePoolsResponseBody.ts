@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara.Model {
   /**
    * @remarks
-   * The binding type of the AI node.
+   * The type of the bound object.
    * 
    * @example
    * model_serving
@@ -13,10 +13,14 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
   bindObject?: string;
   /**
    * @remarks
-   * The status of the AI node.
+   * The binding status.
    * 
-   * *   unbound: The node is not bound.
-   * *   bound: The node is bound.
+   * - `unbound`: The node is not bound.
+   * 
+   * - `bound`: The node is bound.
+   * 
+   * @example
+   * bound
    */
   bindStatus?: string;
   /**
@@ -37,7 +41,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
   namespace?: string;
   /**
    * @remarks
-   * The name of the AI node.
+   * The name of the AINode.
    * 
    * @example
    * ai-xxxxxxxxx
@@ -45,35 +49,37 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
   nodeName?: string;
   /**
    * @remarks
-   * The AI node specifications. The list of supported specifications is shown below.
+   * The AINode specification. The following specifications are supported:
    * 
-   *     ADB.AIMedium.1
-   *     ADB.AILarge.1
-   *     ADB.AIStandard.2
-   *     ADB.AIMedium.2
-   *     ADB.AILarge.2
-   *     ADB.AIXLarge.2
-   *     ADB.AIStandard.6
-   *     ADB.AIMedium.6
-   *     ADB.AILarge.6
-   *     ADB.AIXLarge.6
-   *     ADB.AIStandard.3
-   *     ADB.AIMedium.3
-   *     ADB.AILarge.3
-   *     ADB.AIXLarge.3
-   *     ADB.AIStandard.4
-   *     ADB.AIMedium.4
-   *     ADB.AILarge.4
-   *     ADB.AIXLarge.4
-   *     ADB.AIStandard.5
-   *     ADB.AIMedium.5
-   *     ADB.AILarge.5
-   *     ADB.AIXLarge.5
-   *     ADB.AIStandard.8
-   *     ADB.AIMedium.8
-   *     ADB.AILarge.8
-   *     ADB.AIXLarge.8
-   *     ADB.AI2XLarge.8
+   * ```
+   * ADB.AIMedium.1
+   * ADB.AILarge.1
+   * ADB.AIStandard.2
+   * ADB.AIMedium.2
+   * ADB.AILarge.2
+   * ADB.AIXLarge.2
+   * ADB.AIStandard.6
+   * ADB.AIMedium.6
+   * ADB.AILarge.6
+   * ADB.AIXLarge.6
+   * ADB.AIStandard.3
+   * ADB.AIMedium.3
+   * ADB.AILarge.3
+   * ADB.AIXLarge.3
+   * ADB.AIStandard.4
+   * ADB.AIMedium.4
+   * ADB.AILarge.4
+   * ADB.AIXLarge.4
+   * ADB.AIStandard.5
+   * ADB.AIMedium.5
+   * ADB.AILarge.5
+   * ADB.AIXLarge.5
+   * ADB.AIStandard.8
+   * ADB.AIMedium.8
+   * ADB.AILarge.8
+   * ADB.AIXLarge.8
+   * ADB.AI2XLarge.8
+   * ```
    * 
    * @example
    * ADB.AIStandard.1
@@ -87,6 +93,13 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
    * 2025-06-16T02:04:42Z
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,12 +139,12 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
 export class ListAINodePoolsResponseBodyAINodePoolInfos extends $dara.Model {
   /**
    * @remarks
-   * AI node details.
+   * The details of AINodes.
    */
   AINodeInfos?: ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos[];
   /**
    * @remarks
-   * The ID of the resource pool to which the AI node belongs.
+   * The ID of the AINode resource pool.
    * 
    * @example
    * aipool-xxxxxxxxx
@@ -176,7 +189,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfos extends $dara.Model {
 export class ListAINodePoolsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the AI node resource pool.
+   * The details of the AINode resource pools.
    */
   AINodePoolInfos?: ListAINodePoolsResponseBodyAINodePoolInfos[];
   /**

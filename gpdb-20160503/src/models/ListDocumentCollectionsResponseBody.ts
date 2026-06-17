@@ -78,7 +78,7 @@ export class ListDocumentCollectionsResponseBodyItems extends $dara.Model {
 export class ListDocumentCollectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of items.
    * 
    * @example
    * 10
@@ -87,7 +87,7 @@ export class ListDocumentCollectionsResponseBody extends $dara.Model {
   items?: ListDocumentCollectionsResponseBodyItems;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -95,7 +95,7 @@ export class ListDocumentCollectionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -103,10 +103,11 @@ export class ListDocumentCollectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The creation status. Valid values:
    * 
-   * *   **success**
-   * *   **fail**
+   * - **success**: The operation succeeded.
+   * 
+   * - **fail**: The operation failed.
    * 
    * @example
    * success

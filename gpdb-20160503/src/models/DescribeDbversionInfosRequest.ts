@@ -19,7 +19,7 @@ export class DescribeDBVersionInfosRequest extends $dara.Model {
    * The minor version number that does not include the prefix.
    * 
    * @example
-   * 6.3.10.20
+   * 6.3.10.20。
    */
   DBVersion?: string;
   ownerId?: number;

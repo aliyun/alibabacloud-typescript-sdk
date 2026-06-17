@@ -43,6 +43,9 @@ export class DescribeModelServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * Model parameters.
+   * 
+   * @example
+   * Not yet available.
    */
   modelParams?: { [key: string]: any };
   /**

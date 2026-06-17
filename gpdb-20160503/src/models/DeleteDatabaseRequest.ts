@@ -12,7 +12,7 @@ export class DeleteDatabaseRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * gp-xxxxxxxxxxx
+   * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
   /**

@@ -14,6 +14,9 @@ export class DeleteStreamingDataServiceRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-beijing
    */

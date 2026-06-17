@@ -91,7 +91,7 @@ export class CreateStreamingJobShrinkRequest extends $dara.Model {
    * Kafka group name
    * 
    * @example
-   * group_name.
+   * group_name。
    */
   groupName?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseProjectApiKeysResponseBodyApiKeys extends $dara.Model {
   /**
    * @remarks
-   * The queried API key.
+   * The value of the API key.
    * 
    * @example
    * Tmz2Z59caMDeq/Xi9vuc****
@@ -13,7 +13,7 @@ export class GetSupabaseProjectApiKeysResponseBodyApiKeys extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The name of the API key, including the Anon key and the service role key.
+   * The name of the API key, such as anon key, service role key, or JWT secret.
    * 
    * @example
    * anon key
@@ -45,7 +45,7 @@ export class GetSupabaseProjectApiKeysResponseBodyApiKeys extends $dara.Model {
 export class GetSupabaseProjectApiKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried API keys.
+   * A list of API keys.
    */
   apiKeys?: GetSupabaseProjectApiKeysResponseBodyApiKeys[];
   /**

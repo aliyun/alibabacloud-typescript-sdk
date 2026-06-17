@@ -3,11 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVectorIndexRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The vector indexing algorithm.
+   * 
+   * Valid values:
+   * 
+   * - `hnswflat`: (Default) An HNSW index that does not use quantization compression.
+   * 
+   * - `novam`: A graph-based index that does not use quantization compression. This algorithm is suitable for high-performance scenarios, such as real-time recommendations.
+   * 
+   * - `novad`: A partitioned index that uses rabitq quantization. This algorithm is suitable for large-scale, cost-effective retrieval scenarios.
+   * 
+   * @example
+   * hnswflat
+   */
   algorithm?: string;
   /**
    * @remarks
-   * Collection name.
-   * > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
+   * The collection name.
+   * 
+   * > You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to list all collections.
    * 
    * This parameter is required.
    * 
@@ -17,9 +33,9 @@ export class CreateVectorIndexRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance ID.
    * 
    * This parameter is required.
    * 
@@ -29,8 +45,11 @@ export class CreateVectorIndexRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Vector dimension.
-   * > This value must be consistent with the length of the vector data (Rows. Vector) uploaded via the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) API.
+   * The vector dimension.
+   * 
+   * > - This parameter is required for dense vectors.
+   * >
+   * > - This value must match the length of the `Rows.Vector` data provided when calling the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) operation.
    * 
    * @example
    * 1024
@@ -38,26 +57,51 @@ export class CreateVectorIndexRequest extends $dara.Model {
   dimension?: number;
   /**
    * @remarks
-   * Whether to use mmap to build the HNSW index, default is 0. If the data does not need to be deleted and there are performance requirements for uploading data, it is recommended to set this to 1.
+   * Specifies whether to use `mmap` to build the HNSW index. The default value is 0. Set this to 1 for high-performance data uploads in scenarios where data deletion is not required.
    * 
-   * > 
-   * > - When set to 0, the segment-page storage mode is used to build the index, which can use the shared_buffer in PostgreSQL for caching and supports deletion and update operations.
-   * > - When set to 1, the index is built using mmap, which does not support deletion and update operations.
+   * Valid values:
+   * 
+   * - `0`: (Default) Builds the index by using segmented page storage. This mode uses the `shared_buffer` in PostgreSQL for caching and supports delete and update operations.
+   * 
+   * - `1`: Builds the index by using `mmap`. This mode does not support delete and update operations.
+   * 
+   * >Notice: 
+   * 
+   * The `ExternalStorage` parameter is supported only by AnalyticDB for PostgreSQL V6.0.
    * 
    * @example
    * 0
    */
   externalStorage?: number;
+  /**
+   * @remarks
+   * The size of the candidate set for the HNSW algorithm during index construction. The value must be in the range of 4 to 1,000. The default value is 64.
+   * 
+   * > This parameter applies only to AnalyticDB for PostgreSQL V7.0 instances, and its value must be greater than or equal to `2 * HnswM`.
+   * 
+   * @example
+   * 128
+   */
   hnswEfConstruction?: number;
   /**
    * @remarks
-   * The maximum number of neighbors in the HNSW algorithm, ranging from 1 to 1000. The API will automatically set this value based on the vector dimension, and it generally does not need to be manually set.
+   * The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. The system automatically sets this value based on the vector dimension. You do not typically need to configure this parameter manually.
    * 
-   * > It is suggested to set this based on the vector dimension as follows:
-   * > - Less than or equal to 384: 16
-   * > - Greater than 384 and less than or equal to 768: 32
-   * > - Greater than 768 and less than or equal to 1024: 64
-   * > - Greater than 1024: 128
+   * > Valid values:
+   * >
+   * > - For AnalyticDB for PostgreSQL V6.0 instances: 1 to 1,000.
+   * >
+   * > - For AnalyticDB for PostgreSQL V7.0 instances: 2 to 100. The default value is 16.
+   * 
+   * > We recommend the following values based on the vector dimension:
+   * >
+   * > - For dimensions of 384 or less: 16
+   * >
+   * > - For dimensions from 385 to 768: 32
+   * >
+   * > - For dimensions from 769 to 1,024: 64
+   * >
+   * > - For dimensions greater than 1,024: 128
    * 
    * @example
    * 64
@@ -65,9 +109,9 @@ export class CreateVectorIndexRequest extends $dara.Model {
   hnswM?: number;
   /**
    * @remarks
-   * Name of the management account with rds_superuser permissions.
+   * The name of the management account that has `rds_superuser` permissions.
    * 
-   * > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
+   * > You can create an account on the \\*\\*account management\\*\\* page in the console or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
    * 
    * This parameter is required.
    * 
@@ -77,7 +121,7 @@ export class CreateVectorIndexRequest extends $dara.Model {
   managerAccount?: string;
   /**
    * @remarks
-   * Management account password.
+   * The password of the management account.
    * 
    * This parameter is required.
    * 
@@ -87,10 +131,15 @@ export class CreateVectorIndexRequest extends $dara.Model {
   managerAccountPassword?: string;
   /**
    * @remarks
-   * Method used for building the vector index. Value description:
-   * - l2: Euclidean distance.
-   * - ip: Inner product (dot product) distance.
-   * - cosine: Cosine similarity.
+   * The distance metric used to build the vector index. Valid values:
+   * 
+   * - `l2`: euclidean distance
+   * 
+   * - `ip`: dot product (inner product)
+   * 
+   * - `cosine`: cosine similarity
+   * 
+   * > Sparse vectors support only `ip`.
    * 
    * @example
    * cosine
@@ -98,30 +147,46 @@ export class CreateVectorIndexRequest extends $dara.Model {
   metrics?: string;
   /**
    * @remarks
-   * Namespace, default is public.
+   * The namespace. The default value is `public`.
    * 
-   * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
+   * > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to list all namespaces.
    * 
    * @example
    * mynamespace
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The number of lists (partitions) for the Novad algorithm. The value must be in the range of 2 to 1,073,741,824. The default value is 256.
+   * 
+   * @example
+   * 256
+   */
   nlist?: number;
   ownerId?: number;
   /**
    * @remarks
-   * Whether to enable PQ (Product Quantization) algorithm acceleration for the index. It is recommended to enable this when the data volume exceeds 500,000. Value description:
-   * - 0: Disabled.
-   * - 1: Enabled (default).
+   * Specifies whether to enable Product Quantization (PQ) to accelerate indexing. Recommended for collections with over 500,000 vectors. Valid values:
+   * 
+   * - `0`: Disabled.
+   * 
+   * - `1`: Enabled. (Default)
    * 
    * @example
    * 1
    */
   pqEnable?: number;
+  /**
+   * @remarks
+   * The number of bits for rabitq compression. The valid range is 1 to 8. The default value is 3.
+   * 
+   * @example
+   * 3
+   */
   rabitqBits?: number;
   /**
    * @remarks
-   * Region ID where the instance is located.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -129,6 +194,17 @@ export class CreateVectorIndexRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The vector type. Valid values:
+   * 
+   * - `Dense`: (Default) a dense vector
+   * 
+   * - `Sparse`: a sparse vector
+   * 
+   * @example
+   * Dense
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

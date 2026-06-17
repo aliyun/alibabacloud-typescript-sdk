@@ -24,6 +24,13 @@ export class ListSecretsRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. If both are specified, this parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

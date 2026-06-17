@@ -28,6 +28,9 @@ export class TextEmbeddingShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * A list of text content to be embedded. The list length must not exceed 100.
+   * 
+   * @example
+   * What is ADBPG?
    */
   inputShrink?: string;
   /**
@@ -42,7 +45,7 @@ export class TextEmbeddingShrinkRequest extends $dara.Model {
    * *   m3e-small: 512 dimensions
    * 
    * @example
-   * text-embedding-v2
+   * text-embedding-v3
    */
   model?: string;
   ownerId?: number;

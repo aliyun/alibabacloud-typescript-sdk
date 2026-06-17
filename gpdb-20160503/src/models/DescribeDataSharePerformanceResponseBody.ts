@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues extends $dara.Model {
   /**
    * @remarks
-   * The value of the performance metric at a point in time.
+   * An array that contains the timestamp and the corresponding metric value.
    */
   point?: string[];
   static names(): { [key: string]: string } {
@@ -43,7 +43,7 @@ export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries exten
   name?: string;
   /**
    * @remarks
-   * One or more values of the performance metric.
+   * The data points of the time series.
    */
   values?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues[];
   static names(): { [key: string]: string } {
@@ -83,7 +83,7 @@ export class DescribeDataSharePerformanceResponseBodyPerformanceKeys extends $da
   name?: string;
   /**
    * @remarks
-   * Details of the performance metric.
+   * The details of the time series data for the metric.
    */
   series?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries[];
   /**
@@ -125,7 +125,7 @@ export class DescribeDataSharePerformanceResponseBodyPerformanceKeys extends $da
 export class DescribeDataSharePerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -133,7 +133,7 @@ export class DescribeDataSharePerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query.
+   * The end of the queried time range.
    * 
    * @example
    * 2022-08-03T15:10Z
@@ -141,12 +141,12 @@ export class DescribeDataSharePerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Details of data sharing performance metrics.
+   * The list of performance metrics.
    */
   performanceKeys?: DescribeDataSharePerformanceResponseBodyPerformanceKeys[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BBE00C04-A3E8-4114-881D-0480A72CB92E
@@ -154,7 +154,7 @@ export class DescribeDataSharePerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The start of the queried time range.
    * 
    * @example
    * 2022-08-03T15:00Z

@@ -46,7 +46,7 @@ export class DescribeParametersResponseBodyParameters extends $dara.Model {
    * The description of the configuration parameter.
    * 
    * @example
-   * Sets the maximum allowed duration of any statement, A value of 0 turns off the timeout.
+   * Sets the maximum allowed duration of any statement，A value of 0 turns off the timeout.
    */
   parameterDescription?: string;
   /**

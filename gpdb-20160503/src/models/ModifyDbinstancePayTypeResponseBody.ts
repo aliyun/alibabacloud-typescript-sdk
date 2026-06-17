@@ -16,7 +16,7 @@ export class ModifyDBInstancePayTypeResponseBody extends $dara.Model {
    * The order ID.
    * 
    * @example
-   * 50578361067****
+   * 22719089834****
    */
   orderId?: string;
   /**

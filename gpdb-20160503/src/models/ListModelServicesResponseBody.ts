@@ -43,6 +43,9 @@ export class ListModelServicesResponseBodyModelServices extends $dara.Model {
   /**
    * @remarks
    * Model service parameters (not available).
+   * 
+   * @example
+   * Not yet available.
    */
   modelParams?: { [key: string]: string };
   /**

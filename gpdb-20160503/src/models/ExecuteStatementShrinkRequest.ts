@@ -29,6 +29,11 @@ export class ExecuteStatementShrinkRequest extends $dara.Model {
    * The configuration parameters.
    */
   parametersShrink?: string;
+  /**
+   * @remarks
+   * Parameters for the vector dataset.  
+   * > When WorkspaceId is not empty, you must also pass this parameter.
+   */
   ragWorkspaceCollectionShrink?: string;
   /**
    * @remarks
@@ -84,6 +89,13 @@ export class ExecuteStatementShrinkRequest extends $dara.Model {
    * test
    */
   statementName?: string;
+  /**
+   * @remarks
+   * The ID of a workspace composed of multiple database instances. This parameter and DBInstanceId cannot both be empty. If both are specified, this parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

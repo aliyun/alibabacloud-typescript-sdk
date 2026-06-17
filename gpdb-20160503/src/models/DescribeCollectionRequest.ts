@@ -22,7 +22,7 @@ export class DescribeCollectionRequest extends $dara.Model {
    * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
    * @example
-   * gp-xxxxxxxxx
+   * gp-bp152460513z****
    */
   DBInstanceId?: string;
   /**

@@ -82,7 +82,7 @@ export class DescribeDBInstanceNetInfoResponseBody extends $dara.Model {
    * *   VPC: VPC.
    * 
    * @example
-   * Classic
+   * VPC
    */
   instanceNetworkType?: string;
   /**

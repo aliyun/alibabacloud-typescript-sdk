@@ -5,16 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The text content for retrieval.
+   * The text content to search for.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * What is ADBPG?
    */
   content?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB for PostgreSQL instances in a specific region, including their instance IDs.
    * 
    * This parameter is required.
    * 
@@ -24,10 +27,11 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The method used to merge multiple knowledge bases. Default value: RRF. Valid values:
+   * The method for merging results from multiple knowledge bases. The default value is `RRF`. Valid values:
    * 
-   * *   RRF
-   * *   Weight
+   * - RRF
+   * 
+   * - Weight
    * 
    * @example
    * RRF
@@ -35,13 +39,13 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
   mergeMethod?: string;
   /**
    * @remarks
-   * The parameters of the merge method for each SourceCollection.
+   * The arguments for the specified `MergeMethod`.
    */
   mergeMethodArgsShrink?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -51,29 +55,31 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The rerank factor. If you specify this parameter, the vector retrieval results are reranked once more. Valid values: 1\\<RerankFactor<=5.
+   * The reranking factor. If specified, the system reranks the final merged results. Valid values: 1 < RerankFactor <= 5.
    * 
-   * > 
-   * 
-   * *   If the document is segmented into sparse parts, reranking is inefficient.
-   * 
-   * *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
+   * > - Sparse document chunking reduces reranking efficiency.
+   * >
+   * > - We recommend that the number of items to rerank (TopK × Factor, rounded up) does not exceed 50.
    * 
    * @example
    * 2
    */
   rerankFactor?: number;
+  /**
+   * @remarks
+   * Parameters for the rerank model applied to the final merged results.
+   */
   rerankModelShrink?: string;
   /**
    * @remarks
-   * The information about collections to retrieve from.
+   * The source collections to search.
    * 
    * This parameter is required.
    */
   sourceCollectionShrink?: string;
   /**
    * @remarks
-   * Set the number of top results to be returned after merging results from multiple path retrieval.
+   * The number of top results to return after the results from all recall paths are merged.
    * 
    * @example
    * 10
