@@ -11,7 +11,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      public: "websitebuild.aliyuncs.com",
+      'cn-zhangjiakou': "websitebuild.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("websitebuild", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -428,10 +432,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 试用转正
+   * Converts a trial instance to a paid instance.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - ConfirmAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -506,10 +510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 试用转正
+   * Converts a trial instance to a paid instance.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - ConfirmAppInstanceRequest
    * @returns ConfirmAppInstanceResponse
@@ -5292,10 +5296,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 数据变更通知触发（for admin）
+   * Triggers a data change notification (for admin).
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - NotifyAppNotificationForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5310,6 +5314,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.env)) {
       query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.payload)) {
+      query["Payload"] = request.payload;
     }
 
     if (!$dara.isNull(request.sceneId)) {
@@ -5334,10 +5342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 数据变更通知触发（for admin）
+   * Triggers a data change notification (for admin).
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - NotifyAppNotificationForAdminRequest
    * @returns NotifyAppNotificationForAdminResponse

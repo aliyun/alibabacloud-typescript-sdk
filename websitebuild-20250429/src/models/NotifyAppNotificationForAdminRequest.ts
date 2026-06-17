@@ -4,16 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class NotifyAppNotificationForAdminRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business ID.
+   * 
    * @example
    * WS20260206134746000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * The environment identifier.
+   * 
    * @example
    * staging
    */
   env?: string;
+  payload?: string;
   /**
+   * @remarks
+   * The scene ID.
+   * 
    * @example
    * 8c909373-6c33-41a7-aa38-3650e288a63e
    */
@@ -22,6 +32,7 @@ export class NotifyAppNotificationForAdminRequest extends $dara.Model {
     return {
       bizId: 'BizId',
       env: 'Env',
+      payload: 'Payload',
       sceneId: 'SceneId',
     };
   }
@@ -30,6 +41,7 @@ export class NotifyAppNotificationForAdminRequest extends $dara.Model {
     return {
       bizId: 'string',
       env: 'string',
+      payload: 'string',
       sceneId: 'string',
     };
   }

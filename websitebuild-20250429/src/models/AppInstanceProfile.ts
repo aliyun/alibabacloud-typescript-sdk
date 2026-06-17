@@ -6,10 +6,13 @@ export class AppInstanceProfile extends $dara.Model {
   applicationType?: string;
   applicationTypeText?: string;
   bizId?: string;
+  chatbiTaskId?: string;
+  chatbiTaskStatus?: string;
   commodityCode?: string;
   customerService?: string;
   deployArea?: string;
   instanceId?: string;
+  openChatBi?: boolean;
   ordTime?: string;
   orderId?: string;
   payTime?: string;
@@ -20,17 +23,18 @@ export class AppInstanceProfile extends $dara.Model {
   source?: string;
   templateEtag?: string;
   templateId?: string;
-  chatbiTaskId?: string;
-  chatbiTaskStatus?: string;
   static names(): { [key: string]: string } {
     return {
       applicationType: 'ApplicationType',
       applicationTypeText: 'ApplicationTypeText',
       bizId: 'BizId',
+      chatbiTaskId: 'ChatbiTaskId',
+      chatbiTaskStatus: 'ChatbiTaskStatus',
       commodityCode: 'CommodityCode',
       customerService: 'CustomerService',
       deployArea: 'DeployArea',
       instanceId: 'InstanceId',
+      openChatBi: 'OpenChatBi',
       ordTime: 'OrdTime',
       orderId: 'OrderId',
       payTime: 'PayTime',
@@ -41,8 +45,6 @@ export class AppInstanceProfile extends $dara.Model {
       source: 'Source',
       templateEtag: 'TemplateEtag',
       templateId: 'TemplateId',
-      chatbiTaskId: 'chatbiTaskId',
-      chatbiTaskStatus: 'chatbiTaskStatus',
     };
   }
 
@@ -51,10 +53,13 @@ export class AppInstanceProfile extends $dara.Model {
       applicationType: 'string',
       applicationTypeText: 'string',
       bizId: 'string',
+      chatbiTaskId: 'string',
+      chatbiTaskStatus: 'string',
       commodityCode: 'string',
       customerService: 'string',
       deployArea: 'string',
       instanceId: 'string',
+      openChatBi: 'boolean',
       ordTime: 'string',
       orderId: 'string',
       payTime: 'string',
@@ -65,8 +70,6 @@ export class AppInstanceProfile extends $dara.Model {
       source: 'string',
       templateEtag: 'string',
       templateId: 'string',
-      chatbiTaskId: 'string',
-      chatbiTaskStatus: 'string',
     };
   }
 
