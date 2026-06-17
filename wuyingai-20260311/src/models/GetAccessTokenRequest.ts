@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAccessTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the user in the external system.
+   * 
    * @example
    * "user-38764"
    */
   externalUserId?: string;
   /**
+   * @remarks
+   * The ID of the agent template.
+   * 
    * @example
    * 1600112233445566
    */
