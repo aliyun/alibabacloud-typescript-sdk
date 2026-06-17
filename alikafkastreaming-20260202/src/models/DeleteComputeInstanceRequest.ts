@@ -13,10 +13,12 @@ export class DeleteComputeInstanceRequest extends $dara.Model {
    * This parameter is required.
    */
   regionId?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -24,6 +26,7 @@ export class DeleteComputeInstanceRequest extends $dara.Model {
     return {
       instanceId: 'string',
       regionId: 'string',
+      resourceType: 'string',
     };
   }
 
