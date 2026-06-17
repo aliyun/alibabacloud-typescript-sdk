@@ -15,9 +15,9 @@ export class ModifyDBClusterMaintainTimeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The maintenance window of the cluster. Specify the maintenance window in the `HH:mmZ-HH:mmZ` format. For example, the value `16:00Z-17:00Z` indicates that the cluster can be maintained from 00:00 to 01:00 (UTC+8).
-   *  
-   * >  The maintenance window must start on the hour and last for an hour.
+   * The maintenance window of the cluster. The format is `HH:mmZ- HH:mmZ`. For example, `16:00Z-17:00Z` indicates that routine maintenance can be performed from 00:00 to 01:00 (UTC+08:00).
+   * 
+   * > The maintenance window must start on the hour and last for one hour.
    * 
    * This parameter is required.
    * 

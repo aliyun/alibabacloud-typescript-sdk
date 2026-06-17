@@ -4,39 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnablePolarClawPluginResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the application.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   ok?: boolean;
   /**
+   * @remarks
+   * The ID of the plugin that was enabled.
+   * 
    * @example
    * openclaw-lark
    */
   pluginId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 7F2007D3-7E74-4ECB-89A8-BF130D******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the gateway was restarted.
+   * 
    * @example
    * true
    */

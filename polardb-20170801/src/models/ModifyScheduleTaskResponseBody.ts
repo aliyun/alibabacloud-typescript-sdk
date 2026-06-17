@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyScheduleTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E56531A4-E552-40BA-9C58-137B80******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result of the request. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * True
    */

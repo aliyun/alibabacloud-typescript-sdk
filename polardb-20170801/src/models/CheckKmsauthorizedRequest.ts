@@ -7,7 +7,7 @@ export class CheckKMSAuthorizedRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information of all clusters that are deployed in a specific region, such as the cluster IDs.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/2319131.html) operation to query information about all clusters in the destination region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,9 @@ export class CheckKMSAuthorizedRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all regions that are available for your account, such as the region IDs.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/2319134.html) operation to query information about the available regions of the destination account, including region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class CheckKMSAuthorizedRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The region in which the TDE key resides.
+   * The region where the transparent data encryption (TDE) key is located.
    * 
    * @example
    * cn-beijing

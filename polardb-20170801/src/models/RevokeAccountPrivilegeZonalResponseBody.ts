@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RevokeAccountPrivilegeZonalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F9F1CB1A-B1D5-4EF5-A53A-************
    */

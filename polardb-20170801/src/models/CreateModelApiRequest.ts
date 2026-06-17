@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateModelApiRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The model to which requests are forcibly routed.
+   * 
+   * @example
+   * xxx
+   */
   forceModel?: string;
   /**
    * @remarks
+   * The gateway instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,14 @@ export class CreateModelApiRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
+   * The model API category. Valid values:
+   * 
+   * - **text**
+   * 
+   * - **embedding**
+   * 
+   * - **rerank**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +39,8 @@ export class CreateModelApiRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
+   * The model API name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +49,8 @@ export class CreateModelApiRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The path prefix.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +59,16 @@ export class CreateModelApiRequest extends $dara.Model {
   pathPrefix?: string;
   /**
    * @remarks
+   * The model API protocol. Valid values:
+   * 
+   * - **OpenAI**
+   * 
+   * - **Anthropic**
+   * 
+   * - **Model Studio**
+   * 
+   * - **vLLM**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,18 +76,33 @@ export class CreateModelApiRequest extends $dara.Model {
    */
   protocol?: string;
   /**
+   * @remarks
+   * Specifies whether to record input for billing.
+   * 
    * @example
    * 10
    */
   recordInput?: string;
   /**
+   * @remarks
+   * Specifies whether to record output for billing.
+   * 
    * @example
    * 10
    */
   recordOutput?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   /**
    * @remarks
+   * A list of routing rules, provided as a JSON array string.
+   * 
    * This parameter is required.
    * 
    * @example

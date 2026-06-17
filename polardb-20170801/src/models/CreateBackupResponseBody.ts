@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup set.
+   * The backup job ID.
    * 
    * @example
    * 11111111

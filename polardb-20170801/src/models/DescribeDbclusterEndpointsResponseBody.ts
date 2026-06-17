@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The connection string.
    * 
    * @example
    * ********.rwlb.polardb-pg-public.rds.aliyuncs.com
@@ -13,10 +13,11 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
   connectionString?: string;
   /**
    * @remarks
-   * Whether it is the dashboard endpoint of the PolarDB search node.
+   * Indicates whether the endpoint is a dashboard endpoint for a PolarDB Search node.
    * 
-   * *   Ture
-   * *   False
+   * - **True**: Yes
+   * 
+   * - **False**: No
    * 
    * @example
    * True
@@ -32,10 +33,21 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
   IPAddress?: string;
   /**
    * @remarks
-   * The network type of the endpoint. Valid values:
+   * The network type. Valid values:
    * 
-   * *   **Public**
-   * *   **Private**
+   * - **Public**: public network
+   * 
+   * - **Private**: private network
+   * 
+   * <props="china">
+   * 
+   * - **Inner**: classic network
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * Only PolarDB for MySQL clusters support the classic network type.
    * 
    * @example
    * Private
@@ -51,7 +63,7 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
   port?: string;
   /**
    * @remarks
-   * The private domain name that is bound to the endpoint.
+   * The connection string for the private domain name.
    * 
    * @example
    * ***.***.**.com
@@ -59,7 +71,7 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
   privateZoneConnectionString?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-***************
@@ -67,7 +79,7 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-************
@@ -75,9 +87,9 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) instance.
+   * The VPC instance ID.
    * 
-   * > This parameter is returned for only PolarDB for MySQL clusters.
+   * > This parameter is returned only for PolarDB for MySQL clusters.
    * 
    * @example
    * pe-*************
@@ -123,24 +135,32 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
 export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The details of the endpoint.
+   * The connection addresses for the endpoint.
    */
   addressItems?: DescribeDBClusterEndpointsResponseBodyItemsAddressItems[];
   /**
    * @remarks
-   * Indicates whether new nodes are automatically associated with the default cluster endpoint. Valid values:
+   * Indicates whether new nodes are automatically added to the default cluster endpoint. Valid values:
    * 
-   * *   **Enable**
-   * *   **Disable**
+   * - **Enable**
+   * 
+   * - **Disable**
    * 
    * @example
    * Enable
    */
   autoAddNewNodes?: string;
+  /**
+   * @remarks
+   * The connection string.
+   * 
+   * @example
+   * ********.rwlb.polardb-pg-public.rds.aliyuncs.com
+   */
   connectionString?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * pc-bp1s826a1up******
@@ -148,7 +168,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the endpoint.
+   * The endpoint name.
    * 
    * @example
    * test
@@ -156,7 +176,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   DBEndpointDescription?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The endpoint ID.
    * 
    * @example
    * pe-*************
@@ -164,25 +184,29 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   DBEndpointId?: string;
   /**
    * @remarks
-   * The advanced configurations of the endpoint.
+   * The advanced settings for the cluster endpoint.
    * 
-   * *   **DistributedTransaction**: indicates whether transaction splitting is enabled. Valid values:
+   * - **DistributedTransaction**: The transaction splitting status. Valid values:
    * 
-   *     *   **on**
-   *     *   **off**
+   *   - **on**: enabled
    * 
-   * *   **ConsistLevel**: the consistency level of sessions. Valid values:
+   *   - **off**: disabled
    * 
-   *     *   **0**: eventual consistency.
-   *     *   **1**: session consistency.
-   *     *   **2**: global consistency.
+   * - **ConsistLevel**: The consistency level. Valid values:
    * 
-   * *   **LoadBalanceStrategy**: the load balancing policy that automatically schedules loads. Only **load** may be returned.
+   *   - **0**: eventual consistency
    * 
-   * *   **MasterAcceptReads**: indicates whether the primary node processes read requests. Valid values:
+   *   - **1**: session consistency
    * 
-   *     *   **on**
-   *     *   **off**
+   *   - **2**: global consistency
+   * 
+   * - **LoadBalanceStrategy**: The load balancing policy. The value is fixed to **load**, which indicates load-based scheduling.
+   * 
+   * - **MasterAcceptReads**: Indicates whether the primary node accepts read requests. Valid values:
+   * 
+   *   - **on**: The primary node accepts read requests.
+   * 
+   *   - **off**: The primary node does not accept read requests.
    * 
    * @example
    * {\\"DistributedTransaction\\":\\"off\\",\\"ConsistLevel\\":\\"0\\",\\"LoadBalanceStrategy\\":\\"load\\",\\"MasterAcceptReads\\":\\"on\\"}
@@ -190,22 +214,35 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   endpointConfig?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid values:
+   * The type of the cluster endpoint. Valid values:
    * 
-   * *   **Cluster**: the default endpoint.
-   * *   **Primary**: the primary endpoint.
-   * *   **Custom**: a custom cluster endpoint.
+   * - **Cluster**: the default cluster endpoint.
+   * 
+   * - **Primary**: the primary endpoint.
+   * 
+   * - **Custom**: a custom cluster endpoint.
    * 
    * @example
    * Custom
    */
   endpointType?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * - **Public**: public network
+   * 
+   * - **Private**: private network
+   * 
+   * @example
+   * Private
+   */
   netType?: string;
   /**
    * @remarks
-   * The role name of each node in the endpoint. The role name of the primary node is **Writer**. Multiple read-only nodes can be associated with an endpoint. Therefore, the role name of each read-only node is suffixed with a number. For example, you can use **Reader1** and **Reader2** as the role names.
+   * The role of each node in the endpoint. The primary node has the **Writer** role. Read-only nodes have numbered roles, such as **Reader1**, **Reader2**, and so on.
    * 
-   * >  This parameter is valid only for PolarDB for PostgreSQL clusters and PolarDB for PostgreSQL (Compatible with Oracle)) clusters.
+   * > This parameter is supported only by PolarDB for PostgreSQL clusters and PolarDB for PostgreSQL (compatible with Oracle) clusters.
    * 
    * @example
    * Reader1
@@ -213,7 +250,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   nodeWithRoles?: string;
   /**
    * @remarks
-   * The nodes in the endpoint.
+   * The list of nodes configured for the endpoint.
    * 
    * @example
    * pi-***************,pi-***************
@@ -221,10 +258,11 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   nodes?: string;
   /**
    * @remarks
-   * The global consistency timeout policy. Valid values:
+   * The policy for handling global consistency read timeouts. Valid values:
    * 
-   * *   **0**: sends the request to the primary node.
-   * *   **2**: downgrades the consistency level of a query to inconsistent read when a global consistent read in the query times out. No error message is returned to the client.
+   * - **0**: Redirects the request to the primary node.
+   * 
+   * - **2**: Downgrades the request. If a global consistency read times out, the system automatically downgrades the query to a non-consistent read, and the client does not receive an error.
    * 
    * @example
    * 0
@@ -232,20 +270,35 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   polarSccTimeoutAction?: string;
   /**
    * @remarks
-   * Global consistency timeout.
+   * The timeout period for global consistency reads.
    * 
    * @example
    * 100
    */
   polarSccWaitTimeout?: string;
+  /**
+   * @remarks
+   * The port.
+   * 
+   * @example
+   * 1521
+   */
   port?: string;
+  /**
+   * @remarks
+   * The protocol type.
+   * 
+   * @example
+   * http
+   */
   protocol?: string;
   /**
    * @remarks
    * The read/write mode. Valid values:
    * 
-   * *   **ReadWrite**: handles read and write requests. Automatic read/write splitting is enabled.
-   * *   **ReadOnly**: handles read-only requests.
+   * - **ReadWrite**: read and write (automatic read/write splitting).
+   * 
+   * - **ReadOnly**: read-only.
    * 
    * @example
    * ReadOnly
@@ -253,16 +306,31 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
   readWriteMode?: string;
   /**
    * @remarks
-   * Indicates whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
+   * Indicates whether global consistency (high-performance mode) is enabled for the node. Valid values:
    * 
-   * *   **on**: enabled.
-   * *   **off**: disabled
+   * - **on**: enabled
+   * 
+   * - **off**: disabled
    * 
    * @example
    * on
    */
   sccMode?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * test-name
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-***************
+   */
   VPCId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -327,12 +395,12 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
 export class DescribeDBClusterEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the endpoints.
+   * A list of cluster endpoints.
    */
   items?: DescribeDBClusterEndpointsResponseBodyItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2DC120BF-6EBA-4C63-BE99-B09F9E******

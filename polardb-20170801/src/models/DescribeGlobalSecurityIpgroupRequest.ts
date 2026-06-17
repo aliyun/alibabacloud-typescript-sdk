@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalSecurityIPGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IP whitelist template.
+   * The ID of the IP allowlist template.
    * 
    * @example
    * g-zsldxfiwjmti0kcm****
@@ -15,7 +15,7 @@ export class DescribeGlobalSecurityIPGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the IP whitelist template.
+   * The region ID.
    * 
    * This parameter is required.
    * 

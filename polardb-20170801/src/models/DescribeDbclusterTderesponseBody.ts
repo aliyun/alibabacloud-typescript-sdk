@@ -7,10 +7,11 @@ export class DescribeDBClusterTDEResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether automatic key rotation is allowed. Valid values:
    * 
-   * *   **Enabled**: Automatic key rotation is allowed.
-   * *   **Disabled**: Automatic key rotation is not allowed.
+   * - **Enabled**: Automatic key rotation is allowed.
    * 
-   * >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   * - **Disabled**: Automatic key rotation is not allowed.
+   * 
+   * > This parameter is returned only when the database engine is compatible with PostgreSQL or Oracle syntax.
    * 
    * @example
    * Enabled
@@ -18,7 +19,7 @@ export class DescribeDBClusterTDEResponseBody extends $dara.Model {
   automaticRotation?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The unique ID of the cluster.
    * 
    * @example
    * pc-***************
@@ -26,12 +27,13 @@ export class DescribeDBClusterTDEResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Indicates whether automatic encryption is enabled for new tables. Valid values:
+   * Indicates whether automatic encryption is enabled for all newly created tables. Valid values:
    * 
-   * *   **ON**
-   * *   **OFF**
+   * - **ON**: Automatic encryption is enabled.
    * 
-   * >  This parameter is returned only for a PolarDB for MySQL cluster.
+   * - **OFF**: Automatic encryption is disabled.
+   * 
+   * > This parameter is returned only when the database engine is compatible with MySQL.
    * 
    * @example
    * ON
@@ -46,13 +48,20 @@ export class DescribeDBClusterTDEResponseBody extends $dara.Model {
    */
   encryptionKey?: string;
   /**
+   * @remarks
+   * The status of the key. Valid values:
+   * 
+   * - **Enabled**: The key is enabled.
+   * 
+   * - **Disabled**: The key is disabled.
+   * 
    * @example
    * Enabled
    */
   encryptionKeyStatus?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * E37D1508-EC3B-4E06-A24A-C7AC31******
@@ -60,11 +69,11 @@ export class DescribeDBClusterTDEResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The automatic key rotation period configured in Key Management Service (KMS). If no automatic key rotation period is configured, 0s is returned. Unit: seconds.
+   * The automatic key rotation interval configured in KMS. If no automatic key rotation interval is set, 0 s is returned. Unit: s.
    * 
-   * For example, if the rotation period is set to 7 days, 604800s is returned.
+   * For example, if the rotation interval is 7 days, 604800 s is returned.
    * 
-   * >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster whose AutomaticRotation parameter is set to Enabled.
+   * > This parameter is returned only when the database engine is compatible with PostgreSQL or Oracle syntax, and the value of `AutomaticRotation` is `Enabled`.
    * 
    * @example
    * 604800s
@@ -72,7 +81,7 @@ export class DescribeDBClusterTDEResponseBody extends $dara.Model {
   rotationInterval?: string;
   /**
    * @remarks
-   * The region where the TDE key resides.
+   * The region where the TDE key is located.
    * 
    * @example
    * cn-beijing
@@ -82,8 +91,9 @@ export class DescribeDBClusterTDEResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether TDE encryption is enabled. Valid values:
    * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * - **Enabled**: TDE encryption is enabled.
+   * 
+   * - **Disabled**: TDE encryption is disabled.
    * 
    * @example
    * Enabled

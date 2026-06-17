@@ -9,8 +9,7 @@ export class DeleteParameterGroupRequest extends $dara.Model {
    * @remarks
    * The parameter template ID.
    * 
-   *  
-   * >  You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the parameter template ID.
+   * > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to view parameter template IDs.
    * 
    * This parameter is required.
    * 
@@ -21,8 +20,8 @@ export class DeleteParameterGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   *  
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view available regions.
    * 
    * This parameter is required.
    * 
@@ -32,7 +31,7 @@ export class DeleteParameterGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-************

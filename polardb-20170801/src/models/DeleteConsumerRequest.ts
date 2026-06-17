@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConsumerRequest extends $dara.Model {
   /**
    * @remarks
+   * The consumer ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,21 @@ export class DeleteConsumerRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
+   * The gateway instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * pg-xxxxxxxxxx
    */
   gwClusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCostRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of cost points per million cache tokens. The default value is 0.
+   * 
    * @example
    * 0
    */
   cacheCostPointsPerMillion?: string;
   /**
    * @remarks
+   * The gateway instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class CreateCostRuleRequest extends $dara.Model {
    */
   gwClusterId?: string;
   /**
+   * @remarks
+   * The number of cost points per million input tokens. The default value is 0.
+   * 
    * @example
    * 0
    */
   inputCostPointsPerMillion?: string;
   /**
    * @remarks
+   * The name of the model, such as `gpt-4` or `qwen-turbo`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +41,8 @@ export class CreateCostRuleRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
+   * The model service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,10 +50,20 @@ export class CreateCostRuleRequest extends $dara.Model {
    */
   modelServiceId?: string;
   /**
+   * @remarks
+   * The number of cost points per million output tokens. The default value is 0.
+   * 
    * @example
    * 0
    */
   outputCostPointsPerMillion?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEncryptionDBRolePrivilegeRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,6 +18,11 @@ export class DescribeEncryptionDBRolePrivilegeRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The name of the role permission to query. To query multiple permissions at a time, enter multiple permission names and separate them with commas (,).
+   * 
+   * > - Call the [DescribeEncryptionDBRolePrivilege](https://help.aliyun.com/document_detail/212573.html) operation to view the details of all role access policy rules for the cluster. The details include the permission names.
+   * 
    * @example
    * test
    */

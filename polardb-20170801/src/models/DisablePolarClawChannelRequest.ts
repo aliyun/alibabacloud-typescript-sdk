@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisablePolarClawChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DisablePolarClawChannelRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The unique ID of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DisablePolarClawChannelRequest extends $dara.Model {
    */
   channelId?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway after the channel is disabled. Defaults to true.
+   * 
    * @example
    * true
    */

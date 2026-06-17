@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGlobalDatabaseNetworkRequest extends $dara.Model {
   /**
    * @remarks
-   * Create a global domain
+   * Specifies whether to create a global domain name.
    * 
    * @example
    * false
@@ -13,12 +13,15 @@ export class ModifyGlobalDatabaseNetworkRequest extends $dara.Model {
   enableGlobalDomainName?: boolean;
   /**
    * @remarks
-   * The description of the GDN. The description must meet the following requirements:
+   * The description of the GDN. It must meet the following requirements:
    * 
-   * *   The description cannot start with http:// or https://.
-   * *   The description must start with a letter.
-   * *   The description can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The description must be 2 to 126 characters in length.
+   * - Cannot start with http\\:// or https\\://.
+   * 
+   * - Must start with a letter or a Chinese character.
+   * 
+   * - Can contain letters, Chinese characters, digits, underscores (_), and hyphens (-).
+   * 
+   * - Must be 2 to 126 characters in length.
    * 
    * @example
    * GDN-fortest
@@ -26,7 +29,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $dara.Model {
   GDNDescription?: string;
   /**
    * @remarks
-   * The GDN ID.
+   * The ID of the GDN.
    * 
    * This parameter is required.
    * 
@@ -38,7 +41,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-************

@@ -4,21 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLocalAvailableRecoveryTimeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-2ze3ngi149b313***
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The start of the time range available for recovery.
+   * 
+   * > This is calculated based on level-1 backups and does not include level-2 backups.
+   * 
    * @example
    * 2025-09-10T14:19:48Z
    */
   recoveryBeginTime?: string;
   /**
+   * @remarks
+   * The end of the time range available for recovery.
+   * 
+   * > This is calculated based on level-1 backups and does not include level-2 backups.
+   * 
    * @example
    * 2025-09-17T08:56:45Z
    */
   recoveryEndTime?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4EA0E6F8-BDB2-17B2-9567-591F6B3D7***
    */

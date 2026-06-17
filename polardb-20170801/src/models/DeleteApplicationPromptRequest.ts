@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationPromptRequest extends $dara.Model {
   /**
    * @remarks
+   * The Application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteApplicationPromptRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The Prompt ID.
+   * 
    * This parameter is required.
    * 
    * @example

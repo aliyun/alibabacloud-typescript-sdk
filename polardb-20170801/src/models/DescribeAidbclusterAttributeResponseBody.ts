@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes extends $dara.Model {
   /**
+   * @remarks
+   * The mount path.
+   * 
    * @example
    * /tmp/CrowdStrike
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The disk name.
+   * 
    * @example
    * jueming
    */
   name?: string;
   /**
+   * @remarks
+   * The size of the data disk in GB.
+   * 
    * @example
    * 8192
    */
   sizeGB?: string;
   /**
+   * @remarks
+   * The storage category.
+   * 
    * @example
    * PolarFs
    */
   storageCategory?: string;
   /**
+   * @remarks
+   * The storage type.
+   * 
    * @example
    * PL1
    */
@@ -58,73 +73,139 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes extends
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
+  /**
+   * @remarks
+   * A list of data disks.
+   */
   childVolumes?: DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes[];
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 2
    */
   cpuCores?: string;
   /**
+   * @remarks
+   * The time when the node was created.
+   * 
    * @example
    * 2020-08-14T05:58:42Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The node specification.
+   * 
    * @example
    * polar.pg.g8.8xlarge.gu30
    */
   DBNodeClass?: string;
   /**
+   * @remarks
+   * The node description.
+   * 
    * @example
    * test
    */
   DBNodeDescription?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * pi-****************
    */
   DBNodeId?: string;
   /**
+   * @remarks
+   * The status of the node. Valid values:
+   * 
+   * - **Creating**: The node is being created.
+   * 
+   * - **Running**: The node is running.
+   * 
+   * - **Deleting**: The node is being deleted.
+   * 
+   * - **Rebooting**: The node is being rebooted.
+   * 
+   * - **DBNodeCreating**: A node is being added to the cluster.
+   * 
+   * - **DBNodeDeleting**: A node is being deleted from the cluster.
+   * 
+   * - **ClassChanging**: The node specifications are being changed.
+   * 
+   * - **MinorVersionUpgrading**: The minor version is being updated.
+   * 
+   * - **Maintaining**: The node is being maintained.
+   * 
+   * - **Switching**: A failover is in progress.
+   * 
    * @example
    * Running
    */
   DBNodeStatus?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 2
    */
   GPU?: string;
   /**
+   * @remarks
+   * The private IP address.
+   * 
    * @example
    * 10.*.*12
    */
   linkIP?: string;
   /**
+   * @remarks
+   * The memory size in MB.
+   * 
    * @example
    * 8192
    */
   memorySize?: string;
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 101.101.101.101
    */
   publicIp?: string;
   /**
+   * @remarks
+   * The Kubernetes virtual node ID.
+   * 
    * @example
    * vn-***************
    */
   VNodeId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-*******************
    */
   VPCId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-*********************
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-d
    */
@@ -183,16 +264,31 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
 
 export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems extends $dara.Model {
   /**
+   * @remarks
+   * The database endpoint.
+   * 
    * @example
    * pc-**********.rwlb.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
+   * @remarks
+   * The network type of the endpoint. Valid values:
+   * 
+   * - **Public**: A public endpoint.
+   * 
+   * - **Private**: A private endpoint.
+   * 
+   * - **Inner**: A private endpoint in a classic network.
+   * 
    * @example
    * Public
    */
   netType?: string;
   /**
+   * @remarks
+   * The port number.
+   * 
    * @example
    * 3306
    */
@@ -223,6 +319,10 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems ex
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyEndpointList extends $dara.Model {
+  /**
+   * @remarks
+   * A list of network information for the instance.
+   */
   netInfoItems?: DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems[];
   static names(): { [key: string]: string } {
     return {
@@ -250,26 +350,41 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointList extends $dara.
 
 export class DescribeAIDBClusterAttributeResponseBodyVolumes extends $dara.Model {
   /**
+   * @remarks
+   * The mount path in the container.
+   * 
    * @example
    * /var/run/secrets/kubernetes.io/serviceaccount
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The disk name.
+   * 
    * @example
    * jueming
    */
   name?: string;
   /**
+   * @remarks
+   * The storage size in GB.
+   * 
    * @example
    * 8192
    */
   sizeGB?: string;
   /**
+   * @remarks
+   * The storage category.
+   * 
    * @example
    * PL1
    */
   storageCategory?: string;
   /**
+   * @remarks
+   * The storage type.
+   * 
    * @example
    * PolarFs
    */
@@ -305,130 +420,290 @@ export class DescribeAIDBClusterAttributeResponseBodyVolumes extends $dara.Model
 
 export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * - **vnode**: The node is managed by ACK.
+   * 
+   * - **container**: A container that you can log on to.
+   * 
+   * - **maas**: Model-as-a-Service (MaaS).
+   * 
    * @example
    * vnode
    */
   aiNodeType?: string;
+  /**
+   * @remarks
+   * The API key.
+   * 
+   * @example
+   * x********
+   */
   apiKey?: string;
   /**
+   * @remarks
+   * The time when the cluster was created.
+   * 
    * @example
    * 2020-08-14T05:58:42Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description of the cluster. Fuzzy search is supported.
+   * 
    * @example
    * test
    */
   DBClusterDescription?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-**************
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The status of the cluster. Valid values:
+   * 
+   * - **Creating**: The cluster is being created.
+   * 
+   * - **Running**: The cluster is running.
+   * 
+   * - **Deleting**: The cluster is being deleted.
+   * 
+   * - **DBNodeCreating**: Nodes are being added.
+   * 
+   * - **DBNodeDeleting**: Nodes are being deleted.
+   * 
+   * - **ClassChanging**: The node specifications are being changed.
+   * 
+   * - **Deleted**: The cluster is deleted.
+   * 
    * @example
    * Running
    */
   DBClusterStatus?: string;
+  /**
+   * @remarks
+   * The details of the nodes.
+   */
   DBNodes?: DescribeAIDBClusterAttributeResponseBodyDBNodes[];
   /**
+   * @remarks
+   * The cluster version. Valid values:
+   * 
+   * **1.0**
+   * 
+   * **2.0**
+   * 
+   * **3.0**
+   * 
    * @example
    * 1.0
    */
   DBVersion?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-xxxxxx
    */
   ecsSecurityGroupId?: string;
+  /**
+   * @remarks
+   * A list of endpoints for the instance.
+   */
   endpointList?: DescribeAIDBClusterAttributeResponseBodyEndpointList[];
   /**
+   * @remarks
+   * The expiration time of the cluster.
+   * 
+   * > This parameter is returned only for **subscription** clusters. For **pay-as-you-go** clusters, an empty string is returned.
+   * 
    * @example
    * 2020-11-14T16:00:00Z
    */
   expireTime?: string;
   /**
+   * @remarks
+   * Indicates whether the cluster has expired. Valid values:
+   * 
+   * - **true**
+   * 
+   * - **false**
+   * 
    * @example
    * false
    */
   expired?: boolean;
   /**
+   * @remarks
+   * The private IP address.
+   * 
    * @example
    * 10.*.*.72
    */
   internalIp?: string;
   /**
+   * @remarks
+   * The KVCache instance ID.
+   * 
    * @example
    * pkv-xxxxx
    */
   KVCacheInstanceId?: string;
   /**
+   * @remarks
+   * The ACK cluster ID.
+   * 
    * @example
    * xxxxxxxxxxxxxxxxxxxxxxx
    */
   kubeClusterId?: string;
   /**
+   * @remarks
+   * The lock mode of the instance. A value of **lock** indicates that the instance is locked due to expiration or an overdue payment.
+   * 
    * @example
    * Unlock
    */
   lockMode?: string;
   /**
+   * @remarks
+   * The maximum number of queries per minute.
+   * 
    * @example
    * 20
    */
   maxQPM?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * Qwen3-Embedding-8B
    */
   modelName?: string;
+  /**
+   * @remarks
+   * The model type.
+   * 
+   * @example
+   * custom
+   */
   modelType?: string;
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * - **Postpaid**: pay-as-you-go.
+   * 
+   * - **Prepaid**: subscription.
+   * 
    * @example
    * Postpaid
    */
   payType?: string;
+  /**
+   * @remarks
+   * The public IP address.
+   * 
+   * @example
+   * 8.xxx.xxx.xxx
+   */
   publicIp?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EBEAA83D-1734-42E3-85E3-E25F6E******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The architecture type. Valid values:
+   * 
+   * - **container**: AI container.
+   * 
+   * - **ainode**: AI node.
+   * 
    * @example
    * container
    */
   runType?: string;
   /**
+   * @remarks
+   * The storage type for Enterprise Edition. Valid values:
+   * 
+   * - **PSL5**
+   * 
+   * - **PSL4**
+   * 
+   * The storage type for Standard Edition. Valid values:
+   * 
+   * - **ESSDPL0**
+   * 
+   * - **ESSDPL1**
+   * 
+   * - **ESSDPL2**
+   * 
+   * - **ESSDPL3**
+   * 
+   * - **ESSDAUTOPL**
+   * 
    * @example
    * essdpl1
    */
   storageType?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-*******************
    */
   VPCId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * >
+   * 
    * @example
    * vsw-*********************
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * A list of data disks.
+   */
   volumes?: DescribeAIDBClusterAttributeResponseBodyVolumes[];
   /**
+   * @remarks
+   * The ID of the zone in which the PolarDB cluster nodes are deployed.
+   * 
    * @example
    * cn-hangzhou-d
    */
   zoneId?: string;
   /**
+   * @remarks
+   * The zone IDs.
+   * 
    * @example
    * cn-hangzhou-i,cn-hangzhou-g
    */

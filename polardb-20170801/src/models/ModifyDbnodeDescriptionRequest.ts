@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBNodeDescriptionRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view information about all clusters in the destination region, including cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,12 @@ export class ModifyDBNodeDescriptionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the node. The name must meet the following requirements:
+   * 
+   * - It cannot start with http\\:// or https\\://.
+   * 
+   * - It must be 2 to 256 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +31,10 @@ export class ModifyDBNodeDescriptionRequest extends $dara.Model {
   DBNodeDescription?: string;
   /**
    * @remarks
+   * The ID of the cluster node.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to view the details of all clusters that belong to your account, including node IDs.
+   * 
    * This parameter is required.
    * 
    * @example

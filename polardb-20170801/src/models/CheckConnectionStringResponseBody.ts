@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckConnectionStringResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * CD3FA5F3-FAF3-44CA-AFFF-BAF869******
    */

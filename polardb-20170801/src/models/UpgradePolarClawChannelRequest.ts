@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradePolarClawChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class UpgradePolarClawChannelRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The channel configuration object.
+   * 
    * @example
    * {
    *     "enabled": true,
@@ -25,6 +30,8 @@ export class UpgradePolarClawChannelRequest extends $dara.Model {
   channelConfig?: { [key: string]: any };
   /**
    * @remarks
+   * The channel ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,16 +39,25 @@ export class UpgradePolarClawChannelRequest extends $dara.Model {
    */
   channelId?: string;
   /**
+   * @remarks
+   * The npm package name of the channel plugin, including the version number.
+   * 
    * @example
    * @larksuite/openclaw-feishu@2026.4.7
    */
   npmPackage?: string;
   /**
+   * @remarks
+   * The ID of the channel plugin.
+   * 
    * @example
    * openclaw-feishu
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway after the upgrade. The default value is `true`.
+   * 
    * @example
    * true
    */

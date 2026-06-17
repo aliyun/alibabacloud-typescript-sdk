@@ -96,7 +96,7 @@ export class DescribeSlowLogsResponseBodyItems extends $dara.Model {
 export class DescribeSlowLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of cluster.
+   * The cluster ID.
    * 
    * @example
    * pc-****************
@@ -104,7 +104,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end date of the query.
+   * The end time of the query.
    * 
    * @example
    * 2021-05-30Z
@@ -112,7 +112,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine.
    * 
    * @example
    * polardb_mysql
@@ -121,7 +121,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   items?: DescribeSlowLogsResponseBodyItems;
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 3
@@ -129,7 +129,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of SQL statements that are returned on the current page.
+   * The number of SQL statements on the current page.
    * 
    * @example
    * 6
@@ -137,7 +137,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2553A660-E4EB-4AF4-A402-8AFF70A49143
@@ -145,7 +145,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start date of the query.
+   * The start time of the query.
    * 
    * @example
    * 2021-05-01Z
@@ -153,7 +153,7 @@ export class DescribeSlowLogsResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of records.
    * 
    * @example
    * 5

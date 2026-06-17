@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class InstallPolarClawPluginRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class InstallPolarClawPluginRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The npm package name, including the version number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class InstallPolarClawPluginRequest extends $dara.Model {
   npmPackage?: string;
   /**
    * @remarks
+   * The plugin ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class InstallPolarClawPluginRequest extends $dara.Model {
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway after installation. Defaults to true.
+   * 
    * @example
    * true
    */

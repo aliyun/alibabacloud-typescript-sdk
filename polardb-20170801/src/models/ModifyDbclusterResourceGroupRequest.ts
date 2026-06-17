@@ -27,7 +27,7 @@ export class ModifyDBClusterResourceGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the original resource group.
+   * The original resource group ID.
    * 
    * @example
    * rg-**********

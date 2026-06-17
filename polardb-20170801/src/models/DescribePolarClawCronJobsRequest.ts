@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawCronJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,21 +14,33 @@ export class DescribePolarClawCronJobsRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * Include disabled tasks. Default is true.
+   * 
    * @example
    * true
    */
   includeDisabled?: boolean;
   /**
+   * @remarks
+   * Include run history. Default is false.
+   * 
    * @example
    * true
    */
   includeRuns?: boolean;
   /**
+   * @remarks
+   * Filter by Job ID list
+   * 
    * @example
    * 0ee00f56-f467-4d41-858c-ca4ede2c770e,1ee00f56-f467-4d41-858c-ca4ede2c770f
    */
   jobIdList?: string[];
   /**
+   * @remarks
+   * Maximum number of run history entries per task. Default is 10.
+   * 
    * @example
    * 10
    */

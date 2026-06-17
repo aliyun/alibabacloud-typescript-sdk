@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLicenseOrderDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud order ID (or virtual order ID).
+   * The ID of the Alibaba Cloud order or virtual order.
    * 
    * This parameter is required.
    * 

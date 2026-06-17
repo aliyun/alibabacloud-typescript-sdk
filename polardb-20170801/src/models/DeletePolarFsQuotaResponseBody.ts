@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePolarFsQuotaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Polarlakebase instance.
+   * 
    * @example
    * pfs-2ze0i74ka607*****
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolarFsQuotaRequestQuotas extends $dara.Model {
   /**
    * @remarks
+   * The ID of the quota.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeletePolarFsQuotaRequestQuotas extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The name of the quota.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,12 +48,19 @@ export class DeletePolarFsQuotaRequestQuotas extends $dara.Model {
 
 export class DeletePolarFsQuotaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view the details of all clusters under your account, including the cluster ID.
+   * 
    * @example
    * pc-************
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * The ID of the Polarlakebase instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +69,8 @@ export class DeletePolarFsQuotaRequest extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
+   * The details of the quota rules.
+   * 
    * This parameter is required.
    */
   quotas?: DeletePolarFsQuotaRequestQuotas[];

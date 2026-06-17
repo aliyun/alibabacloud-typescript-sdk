@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPolarClawBindingsResponseBodyBindings extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * work
@@ -13,7 +13,7 @@ export class ListPolarClawBindingsResponseBodyBindings extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Channel ID
+   * The channel ID.
    * 
    * @example
    * feishu
@@ -21,7 +21,7 @@ export class ListPolarClawBindingsResponseBodyBindings extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Account ID
+   * The account ID.
    * 
    * @example
    * default
@@ -54,24 +54,37 @@ export class ListPolarClawBindingsResponseBodyBindings extends $dara.Model {
 
 export class ListPolarClawBindingsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The list of bindings.
+   */
   bindings?: ListPolarClawBindingsResponseBodyBindings[];
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 7F2007D3-7E74-4ECB-89A8-BF130D******

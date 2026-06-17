@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationEndpointAddressRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateApplicationEndpointAddressRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The service endpoint ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateApplicationEndpointAddressRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
+   * The network type of the new connection address. The value must be `Public`, which indicates an Internet address.
+   * 
    * This parameter is required.
    * 
    * @example

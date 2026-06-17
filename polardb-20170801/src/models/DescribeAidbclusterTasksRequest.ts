@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAIDBClusterTasksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The model operator type.
+   * 
    * @example
    * aitrain
    */
@@ -11,11 +14,17 @@ export class DescribeAIDBClusterTasksRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the PolarDB instance.
+   * 
    * @example
    * pc-2ze88***
    */

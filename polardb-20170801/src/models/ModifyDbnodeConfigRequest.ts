@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBNodeConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the node configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyDBNodeConfigRequest extends $dara.Model {
   configName?: string;
   /**
    * @remarks
+   * The configuration of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class ModifyDBNodeConfigRequest extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account, including the cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +37,10 @@ export class ModifyDBNodeConfigRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The ID of the cluster node.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters in your account, including the node ID.
+   * 
    * This parameter is required.
    * 
    * @example

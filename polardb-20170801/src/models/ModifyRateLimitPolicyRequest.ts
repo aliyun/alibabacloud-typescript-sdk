@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRateLimitPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The gateway instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyRateLimitPolicyRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
+   * The rate limit policy ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,15 +24,28 @@ export class ModifyRateLimitPolicyRequest extends $dara.Model {
    */
   policyId?: string;
   /**
+   * @remarks
+   * The maximum number of requests per minute.
+   * 
    * @example
    * 10
    */
   rateLimitRpm?: string;
   /**
+   * @remarks
+   * The maximum number of tokens per minute.
+   * 
    * @example
    * 10
    */
   rateLimitTpm?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCostRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cost rule ID.
+   * 
    * @example
    * 924d450014e64e88ac6e8486f8e990**
    */
   costRuleId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 580EF224-9647-59E7-9950-D9EBFD6A2921

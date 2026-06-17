@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PatchPolarClawConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class PatchPolarClawConfigRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * A JSON merge-patch object.
+   * 
    * @example
    * {
    *     "tools": {
@@ -25,6 +30,9 @@ export class PatchPolarClawConfigRequest extends $dara.Model {
    */
   configPatch?: { [key: string]: any };
   /**
+   * @remarks
+   * Specifies whether to restart the gateway after applying the patch. The default is `true`.
+   * 
    * @example
    * true
    */

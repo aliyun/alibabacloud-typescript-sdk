@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePendingMaintenanceActionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the historical tasks. Valid values:
+   * Specifies whether to return historical tasks. Valid values:
    * 
-   * *   **0**: returns the current task.
-   * *   **1**: returns the historical tasks.
+   * - **0**: returns current tasks.
+   * 
+   * - **1**: returns historical tasks.
    * 
    * Default value: **0**.
    * 
@@ -20,7 +21,7 @@ export class DescribePendingMaintenanceActionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -30,7 +31,7 @@ export class DescribePendingMaintenanceActionsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-************

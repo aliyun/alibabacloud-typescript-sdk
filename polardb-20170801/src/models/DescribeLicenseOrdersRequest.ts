@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLicenseOrdersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud order. The value can be the ID of a virtual order.
+   * The Alibaba Cloud order ID. This can be a virtual order ID.
    * 
    * @example
    * 239618016570503
@@ -15,13 +15,17 @@ export class DescribeLicenseOrdersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The plan type. Valid values:
+   * The package type. Valid values:
    * 
-   * *   single_node_subscribe: Single-node Edition (Subscription).
-   * *   single_node_long_term: Single-node Edition (Long-term).
-   * *   primary_backup_subscribe: HA Edition (Subscription).
-   * *   primary_backup_long_term: HA Edition (Long-term).
-   * *   pre_generation_long_term: Pre-generated (Long-term).
+   * - single_node_subscribe: single node (subscription)
+   * 
+   * - single_node_long_term: single node (long-term)
+   * 
+   * - primary_backup_subscribe: primary/standby (subscription)
+   * 
+   * - primary_backup_long_term: primary/standby (long-term)
+   * 
+   * - pre_generation_long_term: pre-generated (long-term)
    * 
    * @example
    * single_node_subscribe
@@ -29,7 +33,7 @@ export class DescribeLicenseOrdersRequest extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number to query.
    * 
    * @example
    * 1
@@ -37,7 +41,7 @@ export class DescribeLicenseOrdersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records to return on each page.
    * 
    * @example
    * 30
@@ -45,7 +49,7 @@ export class DescribeLicenseOrdersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The purchase channel. Valid values: aliyun_market and aliyun_public. aliyun_market specifies Alibaba Cloud Marketplace. aliyun_public specifies the PolarDB buy page.
+   * The purchase channel. Valid values: \\`aliyun_market\\` (Alibaba Cloud Marketplace) and \\`aliyun_public\\` (standard purchase page).
    * 
    * @example
    * aliyun_market

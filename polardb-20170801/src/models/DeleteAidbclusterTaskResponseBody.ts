@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAIDBClusterTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * pm-2ze9***
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The ID of the PolarDB database instance for the AI model service.
+   * 
    * @example
    * pc-2zejpr***
    */
   relativeDBClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * E56531A4-E552-40BA-9C58-137B80******

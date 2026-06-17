@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationPromptRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateApplicationPromptRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The name of the Prompt.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateApplicationPromptRequest extends $dara.Model {
   promptName?: string;
   /**
    * @remarks
+   * The type of the Prompt.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +44,8 @@ export class CreateApplicationPromptRequest extends $dara.Model {
   promptType?: string;
   /**
    * @remarks
+   * The content of the Prompt.
+   * 
    * This parameter is required.
    * 
    * @example

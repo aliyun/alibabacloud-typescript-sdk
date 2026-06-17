@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of generated activation codes.
+   * The number of activation codes that have been generated.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   activatedCodeCount?: number;
   /**
    * @remarks
-   * The maximum number of activation codes that you can apply for.
+   * The quota for requesting activation codes.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   activationCodeQuota?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud order. The ID of a virtual order may be returned.
+   * The Alibaba Cloud order ID or virtual order ID.
    * 
    * @example
    * 227638319690519
@@ -29,7 +29,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   aliyunOrderId?: string;
   /**
    * @remarks
-   * Indicates whether the SystemIdentifier parameter can be left empty when the system generates an activation code.
+   * Specifies whether the System Identifier can be left empty when an activation code is generated.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   allowEmptySystemIdentifier?: boolean;
   /**
    * @remarks
-   * The engine of the PolarDB cluster. Valid values: PG, Oracle, and MySQL.
+   * The database type, such as PG, Oracle, or MySQL.
    * 
    * @example
    * PG
@@ -45,7 +45,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The time when the order was created.
+   * The creation time.
    * 
    * @example
    * 2022-02-11 03:14:15
@@ -53,7 +53,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the order was updated.
+   * The update time.
    * 
    * @example
    * 2022-02-11 03:14:15
@@ -61,7 +61,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the order is a virtual order. Pre-generation of activation codes is allowed for virtual orders.
+   * Indicates whether the order is a virtual order. Virtual orders allow for pre-generating activation codes.
    * 
    * @example
    * false
@@ -69,7 +69,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   isVirtualOrder?: boolean;
   /**
    * @remarks
-   * Indicates whether the virtual order is frozen. Generation of activation codes is not allowed for frozen virtual orders.
+   * Indicates whether the virtual order is frozen. No more activation codes can be generated from a frozen order.
    * 
    * @example
    * false
@@ -77,13 +77,17 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   isVirtualOrderFrozen?: boolean;
   /**
    * @remarks
-   * The type of the package. Valid values:
+   * The package type. Valid values:
    * 
-   * *   single_node_subscribe: Single-node Edition (Subscription).
-   * *   single_node_long_term: Single-node Edition (Long-term).
-   * *   primary_backup_subscribe: HA Edition (Subscription).
-   * *   primary_backup_long_term: HA Edition (Long-term).
-   * *   pre_generation_long_term: Pre-generated (Long-term).
+   * - single_node_subscribe: single node (subscription)
+   * 
+   * - single_node_long_term: single node (long-term)
+   * 
+   * - primary_backup_subscribe: primary/standby (subscription)
+   * 
+   * - primary_backup_long_term: primary/standby (long-term)
+   * 
+   * - pre_generation_long_term: pre-generated (long-term)
    * 
    * @example
    * single_node_subscribe
@@ -91,7 +95,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The validity period of the package. Valid values: 1 year and 30 years.
+   * The validity period of the package. Common options are one year or long-term (30 years).
    * 
    * @example
    * 1 year
@@ -99,7 +103,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   packageValidity?: string;
   /**
    * @remarks
-   * The purchase channel. Valid values: aliyun_market and aliyun_public. aliyun_market indicates Alibaba Cloud Marketplace. aliyun_public indicates the PolarDB buy page.
+   * The purchase channel. Valid values: \\`aliyun_market\\` (Alibaba Cloud Marketplace) and \\`aliyun_public\\` (standard purchase page).
    * 
    * @example
    * aliyun_public
@@ -107,7 +111,7 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
   purchaseChannel?: string;
   /**
    * @remarks
-   * The ID of the virtual order.
+   * The virtual order ID.
    * 
    * @example
    * 227638319690519
@@ -161,12 +165,12 @@ export class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
 export class DescribeLicenseOrdersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried orders.
+   * The list of orders.
    */
   items?: DescribeLicenseOrdersResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -174,7 +178,7 @@ export class DescribeLicenseOrdersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 12
@@ -190,7 +194,7 @@ export class DescribeLicenseOrdersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 50

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCostRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cost rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,21 @@ export class DeleteCostRuleRequest extends $dara.Model {
   costRuleId?: string;
   /**
    * @remarks
+   * The ID of the gateway instance.
+   * 
    * This parameter is required.
    * 
    * @example
    * pg-xxxxxxxx
    */
   gwClusterId?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ManuallyStartDBClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class ManuallyStartDBClusterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The ID of the region.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou

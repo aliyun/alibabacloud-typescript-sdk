@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableModelsRequest extends $dara.Model {
   /**
    * @remarks
-   * aideploy
+   * The service type. The value must be set to `aideploy`.
    * 
    * @example
    * aideploy
    */
   kubeType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

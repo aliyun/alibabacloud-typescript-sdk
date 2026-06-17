@@ -75,7 +75,7 @@ export class DescribeParameterTemplatesResponseBodyParameters extends $dara.Mode
 export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine type.
    * 
    * @example
    * MySQL
@@ -83,7 +83,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * @example
    * 5.7
@@ -91,7 +91,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The database engine of the cluster.
+   * The database engine.
    * 
    * @example
    * POLARDB

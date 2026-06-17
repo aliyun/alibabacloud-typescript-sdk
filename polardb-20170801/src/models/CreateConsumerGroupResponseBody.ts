@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConsumerGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the created consumer group.
+   * 
    * @example
    * cg-xxxxxx
    */
   consumerGroupId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******

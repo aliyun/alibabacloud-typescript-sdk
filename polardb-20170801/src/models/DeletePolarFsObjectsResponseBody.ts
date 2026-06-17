@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePolarFsObjectsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The PolarLakebase instance ID.
+   * 
    * @example
    * pfs-2ze0i7*****
    */
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C890995A-CF06-4F4D-8DB8-DD26C2******

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteParameterGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4F7195E7-5F74-479D-AF59-1B4BF9******

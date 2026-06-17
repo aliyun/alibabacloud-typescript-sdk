@@ -13,11 +13,13 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   checkingCode?: string;
   /**
    * @remarks
-   * The data type of the parameter value. Valid values:
+   * The data type of the parameter. Valid values:
    * 
-   * *   **INT**
-   * *   **STRING**
-   * *   **B**
+   * - **INT**: Integer
+   * 
+   * - **STRING**: String
+   * 
+   * - **B**: Byte
    * 
    * @example
    * INT
@@ -33,7 +35,7 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   defaultParameterValue?: string;
   /**
    * @remarks
-   * A divisor of the parameter. For a parameter of the integer or byte type, the valid values must be a multiple of Factor unless you set Factor to 0.
+   * The divisor. For integer and byte type parameters, the parameter value must be a multiple of this factor. The factor cannot be 0.
    * 
    * @example
    * 20
@@ -41,10 +43,11 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   factor?: string;
   /**
    * @remarks
-   * Indicates whether a cluster restart is required to allow the parameter modification to take effect. Valid values:
+   * Indicates whether a restart is required for the parameter modification to take effect. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: No
+   * 
+   * - **true**: Yes
    * 
    * @example
    * true
@@ -54,8 +57,9 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
    * @remarks
    * Indicates whether the parameter can be modified. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: No
+   * 
+   * - **true**: Yes
    * 
    * @example
    * true
@@ -65,8 +69,9 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
    * @remarks
    * Indicates whether the parameter is a global parameter. Valid values:
    * 
-   * *   **0**: yes. The modified parameter value is synchronized to other nodes.
-   * *   **1**: no. You can customize the nodes to which the modified parameter value can be synchronized to.
+   * - **0**: The parameter is a global parameter. Modifications to the parameter are applied to other nodes by default and cannot be canceled.
+   * 
+   * - **1**: The parameter is not a global parameter. You can specify the nodes to which you want to apply the parameter modifications.
    * 
    * @example
    * 1
@@ -74,7 +79,7 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   isNodeAvailable?: string;
   /**
    * @remarks
-   * The dependencies of the parameter.
+   * The dependency of the parameter.
    * 
    * @example
    * utf8
@@ -100,8 +105,9 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
    * @remarks
    * The status of the parameter. Valid values:
    * 
-   * *   **normal**
-   * *   **modifying**
+   * - **normal**: Normal
+   * 
+   * - **modifying**: Modifying
    * 
    * @example
    * normal
@@ -169,7 +175,7 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIds extends $dara.Model 
   DBNodeId?: string;
   /**
    * @remarks
-   * The parameters of the current node.
+   * The list of parameters that are running on the node.
    */
   runningParameters?: DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters[];
   static names(): { [key: string]: string } {
@@ -201,12 +207,12 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIds extends $dara.Model 
 export class DescribeDBNodesParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the nodes.
+   * The list of node IDs.
    */
   DBNodeIds?: DescribeDBNodesParametersResponseBodyDBNodeIds[];
   /**
    * @remarks
-   * The type of the database engine. Set the value to **MySQL**.
+   * The type of the database. The value is fixed as **MySQL**.
    * 
    * @example
    * MySQL
@@ -214,11 +220,13 @@ export class DescribeDBNodesParametersResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the MySQL database engine. Valid values:
+   * The version of the MySQL database. Valid values:
    * 
-   * *   **5.6**
-   * *   **5.7**
-   * *   **8.0**
+   * - **5.6**
+   * 
+   * - **5.7**
+   * 
+   * - **8.0**
    * 
    * @example
    * 5.6
@@ -226,7 +234,7 @@ export class DescribeDBNodesParametersResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The cluster engine.
+   * The database engine of the cluster.
    * 
    * @example
    * POLARDB
@@ -234,7 +242,7 @@ export class DescribeDBNodesParametersResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9B7BFB11-C077-4FE3-B051-F69CEB******

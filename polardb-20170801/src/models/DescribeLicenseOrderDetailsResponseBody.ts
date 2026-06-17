@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of generated activation codes.
+   * The number of activation codes that have been generated.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   activatedCodeCount?: number;
   /**
    * @remarks
-   * The maximum number of activation codes that you can apply for.
+   * The quota for requesting activation codes.
    * 
    * @example
    * 8
@@ -21,7 +21,7 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   activationCodeQuota?: number;
   /**
    * @remarks
-   * The Alibaba Cloud order ID (including the virtual order ID).
+   * The ID of the Alibaba Cloud order, including the virtual order ID.
    * 
    * @example
    * 239618016570503
@@ -29,7 +29,7 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   aliyunOrderId?: string;
   /**
    * @remarks
-   * Indicates whether activation codes can be generated without the system identifier.
+   * Indicates whether you can leave the System Identifier parameter empty when you generate an activation code.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   allowEmptySystemIdentifier?: boolean;
   /**
    * @remarks
-   * The type of the engine. Valid values: PG, Oracle, and MySQL.
+   * The database type, such as PG, Oracle, or MySQL.
    * 
    * @example
    * PG
@@ -61,7 +61,7 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the order is a virtual order (virtual orders allow pre-generation of activation codes).
+   * Indicates whether the order is a virtual order. You can pre-generate activation codes for virtual orders.
    * 
    * @example
    * false
@@ -69,7 +69,7 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   isVirtualOrder?: boolean;
   /**
    * @remarks
-   * Indicates whether the virtual order is frozen (activation codes cannot be generated for a frozen virtual order).
+   * Indicates whether the virtual order is frozen. If a virtual order is frozen, you can no longer generate activation codes.
    * 
    * @example
    * false
@@ -77,13 +77,17 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   isVirtualOrderFrozen?: boolean;
   /**
    * @remarks
-   * The plan type. Valid values:
+   * The package type. Valid values:
    * 
-   * *   single_node_subscribe
-   * *   single_node_long_term
-   * *   primary_backup_subscribe
-   * *   primary_backup_long_term
-   * *   pre_generation_long_term
+   * - single_node_subscribe: single-node (subscription)
+   * 
+   * - single_node_long_term: single-node (long-term)
+   * 
+   * - primary_backup_subscribe: primary/standby (subscription)
+   * 
+   * - primary_backup_long_term: primary/standby (long-term)
+   * 
+   * - pre_generation_long_term: pre-generation (long-term)
    * 
    * @example
    * pre_generation_long_term
@@ -91,7 +95,7 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The validity period of the plan, which is one year (common) or thirty years (long-term).
+   * The validity period of the package. The validity period is typically one year or a long-term period of 30 years.
    * 
    * @example
    * 1 year
@@ -99,7 +103,7 @@ export class DescribeLicenseOrderDetailsResponseBody extends $dara.Model {
   packageValidity?: string;
   /**
    * @remarks
-   * The plan validity period, one year (common) or thirty years (long-term).
+   * The purchase channel. Valid values: \\`aliyun_market\\` (Alibaba Cloud Marketplace) and \\`aliyun_public\\` (standard purchase page).
    * 
    * @example
    * aliyun_market

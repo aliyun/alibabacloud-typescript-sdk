@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyBudgetPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the gateway instance.
+   * 
    * @example
    * pg-xxxxxxxx
    */
   gwClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******

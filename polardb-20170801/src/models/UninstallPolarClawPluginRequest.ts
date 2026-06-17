@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallPolarClawPluginRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UninstallPolarClawPluginRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The plugin ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class UninstallPolarClawPluginRequest extends $dara.Model {
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Indicates whether to restart the gateway after the plugin is uninstalled. The default is true.
+   * 
    * @example
    * true
    */

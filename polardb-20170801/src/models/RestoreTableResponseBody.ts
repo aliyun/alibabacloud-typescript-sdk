@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0C47508C-9DC8-455B-985E-2F2FA8******

@@ -4,39 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class UninstallPolarClawPluginResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */
   ok?: boolean;
   /**
+   * @remarks
+   * The plugin ID.
+   * 
    * @example
    * openclaw-lark
    */
   pluginId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the gateway has been restarted.
+   * 
    * @example
    * true
    */

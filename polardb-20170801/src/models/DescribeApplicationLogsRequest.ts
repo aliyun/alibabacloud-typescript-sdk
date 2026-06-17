@@ -5,16 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationLogsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * pa-**************
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The component instance ID.
+   * 
+   * @example
+   * pac-xxx
+   */
   componentName?: string;
+  /**
+   * @remarks
+   * The container name.
+   * 
+   * @example
+   * analytics
+   */
   containerName?: string;
   /**
    * @remarks
+   * The end time for the query. Specify the time in `YYYY-MM-DDTHH:mmZ` format (UTC).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,11 +40,17 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The keyword to search for. This parameter applies only to polarclaw instances.
+   * 
    * @example
    * Config
    */
   keyword?: string;
   /**
+   * @remarks
+   * The log level. This parameter applies only to polarclaw instances.
+   * 
    * @example
    * WARN
    */
@@ -34,17 +58,25 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number to return. The default value is 1.
+   * 
    * @example
    * 3
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **30**. Valid values: 30 to 100.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +86,8 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
+   * The start time for the query. Specify the time in `YYYY-MM-DDTHH:mmZ` format (UTC).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +95,9 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The log type. This parameter applies only to polarclaw instances. Currently, only `gateway` is supported.
+   * 
    * @example
    * gateway
    */

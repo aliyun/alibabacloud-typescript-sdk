@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterVersionZonalRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,13 @@ export class DescribeDBClusterVersionZonalRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to return information about the latest version or a list of upgradable versions. Valid values:
+   * 
+   * - LATEST_VERSION: Queries information about the latest version.
+   * 
+   * - AVAILABLE_VERSION: Queries the list of upgradable versions.
+   * 
    * @example
    * LATEST_VERSION
    */

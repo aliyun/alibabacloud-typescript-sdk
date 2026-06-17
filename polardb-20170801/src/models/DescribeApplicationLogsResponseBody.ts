@@ -95,27 +95,46 @@ export class DescribeApplicationLogsResponseBodyItems extends $dara.Model {
 
 export class DescribeApplicationLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * A container for the log data.
+   */
   items?: DescribeApplicationLogsResponseBodyItems;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on the current page.
+   * 
    * @example
    * 6
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CED079B7-A408-41A1-BFF1-EC608E******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 9
    */

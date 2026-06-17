@@ -27,7 +27,7 @@ export class DescribeDatabasesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+   * The number of the page to return. The value must be an integer that is greater than 0 and does not exceed the maximum value of an integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -35,11 +35,13 @@ export class DescribeDatabasesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * Default value: **30**.
    * 

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AbortDBClusterMigrationRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,9 @@ export class AbortDBClusterMigrationRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-************
    */

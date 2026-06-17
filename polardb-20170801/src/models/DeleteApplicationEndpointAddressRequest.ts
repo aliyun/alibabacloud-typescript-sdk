@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationEndpointAddressRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteApplicationEndpointAddressRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The ID of the server-side endpoint to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteApplicationEndpointAddressRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
+   * The network type of the connection address to delete. The value is fixed to `Public`.
+   * 
    * This parameter is required.
    * 
    * @example

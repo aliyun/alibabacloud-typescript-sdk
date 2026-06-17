@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableDBClusterServerlessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the serverless cluster.
+   * The serverless cluster ID.
    * 
    * @example
    * pc-****************

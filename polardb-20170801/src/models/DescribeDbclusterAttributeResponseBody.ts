@@ -75,7 +75,7 @@ export class DescribeDBClusterAttributeResponseBodyBranch extends $dara.Model {
 export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   /**
    * @remarks
-   * Number of CPU cores for second-level elastic scaling.
+   * The number of CPU cores that are added for the elastic scaling feature within seconds.
    * 
    * @example
    * 6
@@ -83,7 +83,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   addedCpuCores?: string;
   /**
    * @remarks
-   * Number of CPU cores for the node.
+   * The number of CPU cores of the node.
    * 
    * @example
    * 2
@@ -91,29 +91,39 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   cpuCores?: string;
   /**
    * @remarks
-   * Node creation time.
+   * The time when the node was created.
    * 
    * @example
    * 2020-03-23T21:35:43Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The CXL remote memory configuration.
+   * 
+   * @example
+   * 3072
+   */
   DBNodeCXLRemoteMemory?: string;
   /**
    * @remarks
-   * Node specification.
+   * The node specifications.
    * 
    * @example
    * polar.mysql.x4.large
    */
   DBNodeClass?: string;
   /**
+   * @remarks
+   * The node description.
+   * 
    * @example
    * test
    */
   DBNodeDescription?: string;
   /**
    * @remarks
-   * Node ID.
+   * The node ID.
    * 
    * @example
    * pi-****************
@@ -121,10 +131,11 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   DBNodeId?: string;
   /**
    * @remarks
-   * Node role, with possible values as follows:
+   * The role of the node. Valid values:
    * 
-   * - **Writer**: Primary node.
-   * - **Reader**: Read-only node.
+   * - **Writer**: the primary node.
+   * 
+   * - **Reader**: a read-only node.
    * 
    * @example
    * Reader
@@ -132,20 +143,33 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   DBNodeRole?: string;
   /**
    * @remarks
-   * Node status, with possible values as follows:
-   * * **Creating**: Creating
-   * * **Running**: Running
-   * * **Deleting**: Deleting
-   * * **Rebooting**: Rebooting
-   * * **DBNodeCreating**: Adding node
-   * * **DBNodeDeleting**: Removing node
-   * * **ClassChanging**: Modifying node specification
-   * * **NetAddressCreating**: Creating network connection
-   * * **NetAddressDeleting**: Deleting network connection
-   * * **NetAddressModifying**: Modifying network connection
-   * * **MinorVersionUpgrading**: Upgrading minor version
-   * * **Maintaining**: Instance maintenance
-   * * **Switching**: Switching
+   * The status of the node. Valid values:
+   * 
+   * - **Creating**
+   * 
+   * - **Running**
+   * 
+   * - **Deleting**
+   * 
+   * - **Rebooting**
+   * 
+   * - **DBNodeCreating**: A node is being added.
+   * 
+   * - **DBNodeDeleting**: A node is being deleted.
+   * 
+   * - **ClassChanging**: The node specifications are being changed.
+   * 
+   * - **NetAddressCreating**: A network connection is being created.
+   * 
+   * - **NetAddressDeleting**: A network connection is being deleted.
+   * 
+   * - **NetAddressModifying**: A network connection is being modified.
+   * 
+   * - **MinorVersionUpgrading**: The minor version is being upgraded.
+   * 
+   * - **Maintaining**: The instance is being maintained.
+   * 
+   * - **Switching**: A switchover is in progress.
    * 
    * @example
    * Running
@@ -153,8 +177,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   DBNodeStatus?: string;
   /**
    * @remarks
-   * Failover priority. Each node has a failover priority, determining the likelihood of being elected as the primary node during a failover. A higher value indicates a higher priority.
-   * Range: 1 to 15.
+   * The failover priority. Each node has a failover priority. A larger value indicates a higher priority for the node to be promoted to the primary node during a failover. Valid values: 1 to 15.
    * 
    * @example
    * 1
@@ -162,10 +185,11 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   failoverPriority?: number;
   /**
    * @remarks
-   * Whether hot standby is enabled. Possible values are:
+   * Indicates whether the hot replica feature is enabled. Valid values:
    * 
-   * - **ON**: Enabled
-   * - **OFF**: Disabled
+   * - **ON**: enabled
+   * 
+   * - **OFF**: disabled
    * 
    * @example
    * ON
@@ -173,10 +197,11 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   hotReplicaMode?: string;
   /**
    * @remarks
-   * Whether columnar index is enabled. Possible values are:
+   * Indicates whether the In-Memory Column Index (IMCI) feature is enabled. Valid values:
    * 
-   * - **ON**: Enabled
-   * - **OFF**: Disabled
+   * - **ON**: enabled
+   * 
+   * - **OFF**: disabled
    * 
    * @example
    * ON
@@ -184,7 +209,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   imciSwitch?: string;
   /**
    * @remarks
-   * Primary node ID of the multi-master architecture cluster edition.
+   * The ID of the primary node in a Multi-master Cluster Edition cluster.
    * 
    * @example
    * pi-bp18z52akld3*****
@@ -192,7 +217,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   masterId?: string;
   /**
    * @remarks
-   * Maximum concurrent connections of the cluster.
+   * The maximum number of concurrent connections to the cluster.
    * 
    * @example
    * 8000
@@ -200,7 +225,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   maxConnections?: number;
   /**
    * @remarks
-   * Maximum number of I/O requests, that is, IOPS.
+   * The maximum input/output operations per second (IOPS).
    * 
    * @example
    * 32000
@@ -208,7 +233,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   maxIOPS?: number;
   /**
    * @remarks
-   * Node memory size, in MB.
+   * The memory size of the node. Unit: MB.
    * 
    * @example
    * 8192
@@ -216,18 +241,34 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   memorySize?: string;
   /**
    * @remarks
-   * The name of the hot standby compute node corresponding to the node when the hot standby storage and compute clusters feature is enabled.
+   * The name of the hot replica compute node that corresponds to the node in an architecture where both hot standby storage and hot standby compute are enabled.
    * 
    * @example
    * pi-bp18z52mirror*****
    */
   mirrorInsName?: string;
+  /**
+   * @remarks
+   * The local secondary node in a multi-master cluster.
+   * 
+   * @example
+   * pi-****************
+   */
   multiMasterLocalStandby?: string;
+  /**
+   * @remarks
+   * The primary node in a multi-master cluster.
+   * 
+   * @example
+   * pi-****************
+   */
   multiMasterPrimaryNode?: string;
   /**
    * @remarks
-   * Orca feature, valid values are:
+   * The Orca feature. Valid values:
+   * 
    * - on: enabled
+   * 
    * - off: disabled
    * 
    * @example
@@ -236,7 +277,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   orca?: string;
   /**
    * @remarks
-   * Remote memory size, in MB.
+   * The size of the remote memory. Unit: MB.
    * 
    * @example
    * 3072
@@ -244,11 +285,11 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   remoteMemorySize?: string;
   /**
    * @remarks
-   * Whether the node has the global consistency (high-performance mode) feature enabled. Possible values are:
+   * Indicates whether global consistency (high-performance mode) is enabled for the node. Valid values:
    * 
-   * - **ON**: Enabled
+   * - **ON**: enabled
    * 
-   * - **OFF**: Disabled
+   * - **OFF**: disabled
    * 
    * This parameter is required.
    * 
@@ -258,8 +299,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   sccMode?: string;
   /**
    * @remarks
-   * Routing weight.
-   * Range: 1~100. Default is 1.
+   * The routing weight. Valid values: 1 to 100. Default value: 1.
    * 
    * @example
    * 1
@@ -267,32 +307,41 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   serverWeight?: string;
   /**
    * @remarks
-   * Serverless type. Possible values include:
+   * The Serverless type of the node. Valid values:
    * 
-   * - **AgileServerless**: Agile
-   * - **SteadyServerless**: Steady
+   * - AgileServerless: agile, which indicates a Serverless node.
    * 
-   * > This parameter is only supported by Serverless clusters.
+   * - SteadyServerless: steady, which indicates that Serverless capabilities are added to a node with defined specifications.
+   * 
+   * > * This parameter is supported only for Serverless clusters or clusters with defined specifications for which the Serverless feature is enabled. For more information, see [Serverless](https://help.aliyun.com/document_detail/452274.html).
    * 
    * @example
-   * AgileServerless
+   * SteadyServerless
    */
   serverlessType?: string;
   /**
    * @remarks
-   * Identifies whether the node is in the primary or standby availability zone, primarily used in resource mirroring scenarios.
-   * Values include:
-   * - **Primary**: Primary Availability Zone
-   * - **Standby**: Standby Availability Zone
+   * Indicates whether the node is in the primary zone or a secondary zone. This parameter is mainly used for peer resources. Valid values:
+   * 
+   * - Primary: the primary zone
+   * 
+   * - Standby: a secondary zone
    * 
    * @example
    * Primary
    */
   subCluster?: string;
+  /**
+   * @remarks
+   * The description of the cluster subgroup.
+   * 
+   * @example
+   * test Description
+   */
   subGroupDescription?: string;
   /**
    * @remarks
-   * Availability zone ID.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i
@@ -374,7 +423,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
 export class DescribeDBClusterAttributeResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * Tag key.
+   * The tag key.
    * 
    * @example
    * test
@@ -382,7 +431,7 @@ export class DescribeDBClusterAttributeResponseBodyTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value.
    * 
    * @example
    * MySQL
@@ -414,7 +463,7 @@ export class DescribeDBClusterAttributeResponseBodyTags extends $dara.Model {
 export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Start time for free AI activation
+   * The start time of the free trial for the AI feature.
    * 
    * @example
    * 2024-03-13T01:20:28Z
@@ -422,10 +471,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   aiCreatingTime?: string;
   /**
    * @remarks
-   * Types of AI nodes. Values include:
+   * The AI node type. Valid values:
    * 
-   * - **SearchNode**: Search node.
-   * - **DLNode**: AI node.
+   * - **SearchNode**: a search node.
+   * 
+   * - **DLNode**: an AI node.
    * 
    * @example
    * DLNode
@@ -433,8 +483,10 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   aiType?: string;
   /**
    * @remarks
-   * CPU architecture. Available options are:
+   * The CPU architecture. Valid values:
+   * 
    * - **X86**
+   * 
    * - **ARM**
    * 
    * @example
@@ -443,10 +495,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
-   * The minor version upgrade method.
+   * The method for minor version upgrades.
    * 
-   * *   Auto
-   * *   Manual
+   * - Auto: automatic upgrade
+   * 
+   * - Manual: manual upgrade
    * 
    * @example
    * Manual
@@ -454,7 +507,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   autoUpgradeMinorVersion?: string;
   /**
    * @remarks
-   * Maximum number of blktags in the file system.
+   * The maximum number of blktags for the file system.
    * 
    * @example
    * 7,864,320
@@ -462,7 +515,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   blktagTotal?: number;
   /**
    * @remarks
-   * Current blktag usage.
+   * The number of used blktags.
    * 
    * @example
    * 5,242,880
@@ -470,37 +523,56 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   blktagUsed?: number;
   branch?: DescribeDBClusterAttributeResponseBodyBranch;
   /**
+   * @remarks
+   * Indicates whether the performance burst feature is enabled for the ESSD AutoPL disk. Valid values:
+   * 
+   * - **true**: enabled
+   * 
+   * - **false**: disabled
+   * 
    * @example
    * false
    */
   burstingEnabled?: string;
   /**
    * @remarks
-   * [Product Series](https://help.aliyun.com/document_detail/183258.html), with values as follows:
-   * * **Normal**: Cluster Edition
-   * * **Basic**: Single Node
-   * * **Archive**: High Compression Engine (X-Engine)
-   * * **NormalMultimaster**: Multi-Master Cluster Edition
-   * * **SENormal**: Standard Edition
+   * The [product edition](https://help.aliyun.com/document_detail/183258.html). Valid values:
    * 
-   * > * PolarDB PostgreSQL version 11 does not support single-node.
-   * >* PolarDB MySQL versions 8.0 and 5.7, and PolarDB PostgreSQL version 14 support the Standard Edition.
-   * >* PolarDB MySQL version 8.0 supports High Compression Engine (X-Engine) and Multi-Master Cluster Edition.
+   * - **Normal**: Cluster Edition
+   * 
+   * - **Basic**: Single Node Edition
+   * 
+   * - **Archive**: X-Engine
+   * 
+   * - **NormalMultimaster**: Multi-master Cluster Edition
+   * 
+   * - **SENormal**: Standard Edition
+   * 
+   * > * The single node edition is not supported for PolarDB for PostgreSQL that runs PostgreSQL 11.
+   * >
+   * > * The Standard Edition is supported on PolarDB for MySQL that runs MySQL 8.0 or 5.7 and on PolarDB for PostgreSQL that runs PostgreSQL 14.
+   * >
+   * > * PolarDB for MySQL that runs MySQL 8.0 supports X-Engine and the Multi-master Cluster Edition.
    * 
    * @example
    * Normal
    */
   category?: string;
   /**
+   * @remarks
+   * Indicates whether column-oriented tables are enabled.
+   * 
    * @example
    * OFF
    */
   columnTable?: string;
   /**
    * @remarks
-   * Whether storage compression is enabled. Values are as follows:
-   * - ON: Enabled
-   * - OFF: Disabled
+   * Indicates whether storage compression is enabled. Valid values:
+   * 
+   * - ON: enabled
+   * 
+   * - OFF: disabled
    * 
    * @example
    * ON
@@ -508,8 +580,9 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   compressStorageMode?: string;
   /**
    * @remarks
-   * Compressed storage data size.
-   * > This parameter is supported only when the cluster\\"s storage compression feature is enabled.
+   * The size of the compressed storage data.
+   * 
+   * > This parameter is returned only when the storage compression feature is enabled for the cluster.
    * 
    * @example
    * 15529410560
@@ -517,7 +590,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   compressStorageUsed?: number;
   /**
    * @remarks
-   * Cluster creation time.
+   * The time when the cluster was created.
    * 
    * @example
    * 2020-08-14T05:58:42Z
@@ -525,7 +598,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Cluster description.
+   * The cluster description.
    * 
    * @example
    * test
@@ -533,7 +606,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * @example
    * pc-*****************
@@ -541,7 +614,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Network type of the cluster.
+   * The network type of the cluster.
    * 
    * @example
    * VPC
@@ -549,7 +622,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   DBClusterNetworkType?: string;
   /**
    * @remarks
-   * Cluster status. For the full list of values, refer to [Cluster Status Table](https://help.aliyun.com/document_detail/99286.html).
+   * The cluster status. For more information about the valid values, see [Cluster states](https://help.aliyun.com/document_detail/99286.html).
    * 
    * @example
    * Running
@@ -557,12 +630,12 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   DBClusterStatus?: string;
   /**
    * @remarks
-   * The information about the nodes.
+   * The details of the nodes.
    */
   DBNodes?: DescribeDBClusterAttributeResponseBodyDBNodes[];
   /**
    * @remarks
-   * Database engine type.
+   * The database engine type.
    * 
    * @example
    * MySQL
@@ -570,7 +643,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * Database engine version.
+   * The database engine version.
    * 
    * @example
    * 8.0
@@ -578,14 +651,19 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The status of the minor version. Valid values:
+   * The status of the minor engine version. Valid values:
    * 
-   * *   **Stable**: The minor version is stable.
-   * *   **Old**: The minor version is outdated. We recommend that you update it to the latest version.
-   * *   **HighRisk**: The minor version has critical defects. We recommend that you immediately update it to the latest version.
-   * *   **Beta**: The minor version is a Beta version.
+   * - **Stable**: The current version is stable.
    * 
-   * >  For information about how to update the minor version, see [Minor version update](https://help.aliyun.com/document_detail/158572.html).
+   * - **Old**: The current version is old. Upgrade the cluster to the latest version.
+   * 
+   * - **HighRisk**: The current version has critical defects. Immediately upgrade the cluster to the latest version.
+   * 
+   * - **Beta**: The current version is a beta version.
+   * 
+   * > * For more information about how to upgrade the minor engine version, see [Upgrade versions](https://help.aliyun.com/document_detail/158572.html).
+   * >
+   * > * This parameter is returned only when the **DBType** parameter is set to **MySQL**.
    * 
    * @example
    * Stable
@@ -593,7 +671,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   DBVersionStatus?: string;
   /**
    * @remarks
-   * Total size of Level 1 backups (snapshots), in bytes.
+   * The total size of level-1 backups (snapshots). Unit: bytes.
    * 
    * @example
    * 74448896
@@ -601,9 +679,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   dataLevel1BackupChainSize?: number;
   /**
    * @remarks
-   * Data replication relationship mode. Values are as follows:
-   * - **AsyncSync**: Asynchronous
-   * - **SemiSync**: Semi-synchronous
+   * The data replication mode. Valid values:
+   * 
+   * - **AsyncSync**: asynchronous
+   * 
+   * - **SemiSync**: semi-synchronous
    * 
    * @example
    * AsyncSync
@@ -611,9 +691,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   dataSyncMode?: string;
   /**
    * @remarks
-   * Lock status for cluster deletion, with values as follows:
-   * * **0**: Unlocked, cluster can be deleted.
-   * * **1**: Locked, cluster cannot be deleted.
+   * The lock state of the cluster for deletion. Valid values:
+   * 
+   * - **0**: The cluster is not locked and can be deleted.
+   * 
+   * - **1**: The cluster is locked and cannot be deleted.
    * 
    * @example
    * 0
@@ -621,7 +703,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   deletionLock?: number;
   /**
    * @remarks
-   * Cluster engine.
+   * The cluster engine.
    * 
    * @example
    * POLARDB
@@ -629,9 +711,9 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * Cluster expiration time.
+   * The expiration time of the cluster.
    * 
-   * > Only clusters with **Prepaid** (subscription) payment methods return specific parameter values; **Postpaid** (pay-as-you-go) clusters return empty values.
+   * > This parameter is returned only for subscription clusters. An empty value is returned for pay-as-you-go clusters.
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -639,8 +721,9 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * Whether the cluster has expired.
-   * > This parameter is only supported for clusters with **Prepaid** (Subscription) payment methods.
+   * Indicates whether the cluster has expired.
+   * 
+   * > This parameter is returned only for subscription clusters.
    * 
    * @example
    * false
@@ -648,9 +731,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   expired?: string;
   /**
    * @remarks
-   * Whether to replenish resources for the new primary after cross-AZ switch. Values are as follows:
-   * - **true**: Yes
-   * - **false**: No
+   * Indicates whether resources for the new primary database are provisioned after a cross-zone failover. Valid values:
+   * 
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -658,9 +743,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   hasCompleteStandbyRes?: boolean;
   /**
    * @remarks
-   * Whether to enable storage hot backup cluster (and Standby compute nodes). Values are as follows:
-   * - **StandbyClusterON**: Enable storage hot backup/Enable storage hot backup and Standby compute nodes.
-   * - **StandbyClusterOFF**: Disable storage hot backup/Disable storage hot backup and Standby compute nodes.
+   * Indicates whether the hot standby storage cluster (and standby compute nodes) is enabled. Valid values:
+   * 
+   * - **StandbyClusterON**: The hot standby storage cluster or both the hot standby storage cluster and standby compute nodes are enabled.
+   * 
+   * - **StandbyClusterOFF**: The hot standby storage cluster or both the hot standby storage cluster and standby compute nodes are disabled.
    * 
    * @example
    * StandbyClusterON
@@ -668,10 +755,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   hotStandbyCluster?: string;
   /**
    * @remarks
-   * Indicates whether the automatic IMCI-based query acceleration feature is enabled. Valid values:
+   * The automatic IMCI-based query acceleration feature. Valid values:
    * 
-   * *   `ON`: enabled
-   * *   `OFF`: disabled
+   * - `ON`: enabled.
+   * 
+   * - `OFF`: disabled.
    * 
    * @example
    * OFF
@@ -679,15 +767,19 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   imciAutoIndex?: string;
   /**
    * @remarks
-   * Indicates whether failover with hot replica is enabled. Valid values:
+   * The imperceptible switchover feature. Valid values:
    * 
-   * *   `true`
-   * *   `false` (default)
+   * - `true`: enabled.
+   * 
+   * - `false`: disabled.
+   * 
+   * @example
+   * true
    */
   imperceptibleSwitch?: string;
   /**
    * @remarks
-   * Maximum number of inodes in the file system.
+   * The maximum number of inodes for the file system.
    * 
    * @example
    * 6,291,456
@@ -695,7 +787,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   inodeTotal?: number;
   /**
    * @remarks
-   * Current inode usage.
+   * The number of used inodes.
    * 
    * @example
    * 4,194,304
@@ -703,11 +795,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   inodeUsed?: number;
   /**
    * @remarks
-   * Indicates whether it is the latest kernel version. Values are as follows:
+   * Indicates whether the kernel is the latest version. Valid values:
    * 
-   * - **true**: Yes
+   * - **true**
    * 
-   * - **false**: No
+   * - **false**
    * 
    * @example
    * false
@@ -715,10 +807,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   isLatestVersion?: boolean;
   /**
    * @remarks
-   * Indicates whether it is the latest version of the database proxy, with possible values as follows:
+   * Indicates whether the database proxy is the latest version. Valid values:
    * 
-   * - **true**: Yes
-   * - **false**: No
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -726,11 +819,13 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   isProxyLatestVersion?: boolean;
   /**
    * @remarks
-   * Lock mode. Possible values are as follows:
+   * The lock mode. Valid values:
    * 
-   * - **Unlock**: Unlocked.
-   * - **ManualLock**: Manually triggered lock.
-   * - **LockByExpiration**: Automatic cluster lock upon expiration.
+   * - **Unlock**: The cluster is not locked.
+   * 
+   * - **ManualLock**: The cluster is manually locked.
+   * 
+   * - **LockByExpiration**: The cluster is automatically locked after it expires.
    * 
    * @example
    * Unlock
@@ -738,7 +833,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The maintenance window for the cluster, formatted as `HH:mmZ-HH:mmZ` (UTC time). For example, `16:00Z-17:00Z` indicates that routine maintenance can be performed from 0:00 to 1:00 (UTC+08:00).
+   * The maintenance window of the cluster. The time is in the `HH:mmZ-HH:mmZ` format and is in UTC. For example, `16:00Z-17:00Z` indicates that routine maintenance can be performed from 00:00 to 01:00 (UTC+8).
    * 
    * @example
    * 18:00Z-19:00Z
@@ -746,11 +841,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   maintainTime?: string;
   /**
    * @remarks
-   * Orca function with possible values as follows:
+   * The Orca feature. Valid values:
    * 
-   * - **on**: Enabled
+   * - on: enabled
    * 
-   * - **off**: Disabled
+   * - off: disabled
    * 
    * @example
    * ON
@@ -758,10 +853,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   orca?: string;
   /**
    * @remarks
-   * Payment type. Possible values are:
+   * The billing method. Valid values:
    * 
-   * - **Postpaid**: Pay-As-You-Go
-   * - **Prepaid**: Prepaid (Subscription).
+   * - **Postpaid**: pay-as-you-go.
+   * 
+   * - **Prepaid**: subscription.
    * 
    * @example
    * Prepaid
@@ -769,7 +865,21 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * Describes the preconfigured read and write IOPS for ESSD AutoPL cloud disks. Possible values: 0 to min{50,000, 1000*capacity - baseline performance}.<br>Baseline performance = min{1,800 + 50*capacity, 50000}.<br>Note: This parameter is supported only when StorageType is ESSDAUTOPL.
+   * <props="china">
+   * 
+   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * > This parameter is supported only when StorageType is set to ESSDAUTOPL.
    * 
    * @example
    * 2500
@@ -777,7 +887,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   provisionedIops?: string;
   /**
    * @remarks
-   * Number of CPU cores for the database proxy.
+   * The number of CPU cores of the database proxy.
    * 
    * @example
    * 4
@@ -785,15 +895,19 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   proxyCpuCores?: string;
   /**
    * @remarks
-   * Serverless type for the database proxy. Currently, the value is fixed to AgileServerless.
+   * The Serverless type of the database proxy. Valid values:
+   * 
+   * - AgileServerless: agile, which indicates a Serverless cluster.
+   * 
+   * - SteadyServerless: steady, which indicates a cluster with defined specifications (a subscription or pay-as-you-go cluster).
    * 
    * @example
-   * AgileServerless
+   * SteadyServerless
    */
   proxyServerlessType?: string;
   /**
    * @remarks
-   * Standard configuration CPU cores for the database proxy.
+   * The number of CPU cores of the database proxy with standard specifications.
    * 
    * @example
    * 2
@@ -801,19 +915,29 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   proxyStandardCpuCores?: string;
   /**
    * @remarks
-   * Status of the database proxy. Possible values include:
+   * The status of the database proxy. Valid values:
    * 
-   * - **Creating**: Creating
-   * - **Running**: Running
-   * - **Deleting**: Releasing
-   * - **Rebooting**: Restarting
-   * - **DBNodeCreating**: Adding nodes
-   * - **DBNodeDeleting**: Deleting nodes
-   * - **ClassChanging**: Changing node specifications
-   * - **NetAddressCreating**: Creating network connections
-   * - **NetAddressDeleting**: Deleting network connections
-   * - **NetAddressModifying**: Modifying network connections
-   * - **Deleted**: Released
+   * - **Creating**
+   * 
+   * - **Running**
+   * 
+   * - **Deleting**: The proxy is being released.
+   * 
+   * - **Rebooting**
+   * 
+   * - **DBNodeCreating**: A node is being added.
+   * 
+   * - **DBNodeDeleting**: A node is being deleted.
+   * 
+   * - **ClassChanging**: The node specifications are being changed.
+   * 
+   * - **NetAddressCreating**: A network connection is being created.
+   * 
+   * - **NetAddressDeleting**: A network connection is being deleted.
+   * 
+   * - **NetAddressModifying**: A network connection is being modified.
+   * 
+   * - **Deleted**: The proxy is released.
    * 
    * @example
    * Running
@@ -821,10 +945,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   proxyStatus?: string;
   /**
    * @remarks
-   * Database proxy types, with the following values:
+   * The type of the database proxy. Valid values:
    * 
-   * - **Exclusive**: Enterprise Exclusive Edition
-   * - **General**: Enterprise General Purpose Edition
+   * - **Exclusive**: Dedicated Enterprise Edition
+   * 
+   * - **General** : Standard Enterprise Edition
    * 
    * @example
    * Exclusive
@@ -832,7 +957,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   proxyType?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -840,7 +965,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 074467EF-86B9-4C23-ACBF-E9B81A******
@@ -848,7 +973,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-***************
@@ -856,8 +981,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * If RestoreType is **RestoreByTime** or **RestoreByTimeOss**, this value represents the recovery time point. If RestoreType is **RestoreByBackupSet** or **RestoreByBackupSetOss**, this value indicates the ID of the backup set on which the recovery is based.
-   * <note>Only clusters restored from a backup set or time point after June 1, 2024, support this parameter.</note>
+   * - If RestoreType is set to **RestoreByTime** or **RestoreByTimeOss**, this parameter indicates the point in time for the restoration.
+   * 
+   * - If RestoreType is set to **RestoreByBackupSet** or **RestoreByBackupSetOss**, this parameter indicates the ID of the backup set that is used for the restoration.
+   * 
+   * > This parameter is supported only for clusters that are restored from a backup set or a point in time after June 1, 2024.
    * 
    * @example
    * 2179639137
@@ -865,38 +993,84 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   restoreDataPoint?: string;
   /**
    * @remarks
-   * Cluster recovery method, with possible values:
-   * * **RestoreByTime**: Restore from a time point based on primary backup. * **RestoreByBackupSet**: Restore from a backup set based on primary backup. * **RestoreByTimeOss**: Restore from a time point based on secondary backup. * **RestoreByBackupSetOss**: Restore from a backup set based on secondary backup. * **CloneFromSourceCluster**: Clone from the source cluster.
-   * <note>This parameter is only supported for clusters restored from a backup set or time point after June 1, 2024.</note>
+   * The method that is used to restore the cluster. Valid values:
+   * 
+   * - **RestoreByTime**: The cluster is restored to a point in time from a level-1 backup.
+   * 
+   * - **RestoreByBackupSet**: The cluster is restored from a level-1 backup set.
+   * 
+   * - **RestoreByTimeOss**: The cluster is restored to a point in time from a level-2 backup.
+   * 
+   * - **RestoreByBackupSetOss**: The cluster is restored from a level-2 backup set.
+   * 
+   * - **CloneFromSourceCluster**: The cluster is cloned from a source cluster.
+   * 
+   * > This parameter is supported only for clusters that are restored from a backup set or a point in time after June 1, 2024.
    * 
    * @example
    * RestoreByTime
    */
   restoreType?: string;
+  /**
+   * @remarks
+   * The row compression settings.
+   * 
+   * @example
+   * OFF
+   */
   rowCompression?: string;
   /**
    * @remarks
-   * Storage amount of SQL, in bytes. If the value is -1, it indicates no data.
+   * The storage usage for SQL statements. Unit: bytes. A value of -1 indicates that no data is available.
    * 
    * @example
    * 0
    */
   SQLSize?: number;
+  /**
+   * @remarks
+   * The running state of the search node.
+   * 
+   * @example
+   * Running
+   */
   searchClusterStatus?: string;
+  /**
+   * @remarks
+   * The size of the compressed storage data of the search node.
+   * 
+   * > This parameter is returned only when the storage compression feature is enabled for the cluster.
+   * 
+   * @example
+   * 15529410560
+   */
   searchCompressStorageUsed?: number;
+  /**
+   * @remarks
+   * The storage usage of the search node.
+   * 
+   * @example
+   * 3012558848
+   */
   searchStorageUsed?: number;
   /**
    * @remarks
-   * Serverless type. Valid values are as follows:
-   * - AgileServerless: Agile - SteadyServerless: Stable
+   * The Serverless type of the cluster. Valid values:
+   * 
+   * - AgileServerless: agile, which indicates a Serverless cluster.
+   * 
+   * - SteadyServerless: steady, which indicates a cluster with defined specifications for which the Serverless feature is enabled.
+   * 
+   * > This parameter is supported only for Serverless clusters or clusters with defined specifications for which the Serverless feature is enabled.
    * 
    * @example
-   * AgileServerless
+   * SteadyServerless
    */
   serverlessType?: string;
   /**
    * @remarks
-   * Source cluster ID. <note>Clusters restored from backup sets or specific points in time after June 1, 2024, support this parameter.</note>
+   * The source cluster ID.
+   * > This parameter is supported only for clusters that are restored from a backup set or a point in time after June 1, 2024.
    * 
    * @example
    * pc-pz51ziv48317b2880
@@ -905,8 +1079,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The region ID of the source cluster.
-   * 
-   * >  This parameter is returned only if the source cluster ID exists.
+   * > This parameter is returned only when the source cluster ID exists.
    * 
    * @example
    * cn-beijing
@@ -914,10 +1087,13 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   sourceRegionId?: string;
   /**
    * @remarks
-   * Cross-AZ disaster recovery mode. Values are as follows:
-   * - **ON**: Enable cross-AZ disaster recovery mode.
-   * - **OFF**: Disable cross-AZ disaster recovery mode.
-   * - **0**: Customer drill mode.
+   * The cross-zone disaster recovery mode. Valid values:
+   * 
+   * - **ON**: The cross-zone disaster recovery mode is enabled.
+   * 
+   * - **OFF**: The cross-zone disaster recovery mode is disabled.
+   * 
+   * - **0**: The customer drill mode.
    * 
    * @example
    * OFF
@@ -925,7 +1101,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   standbyHAMode?: string;
   /**
    * @remarks
-   * The maximum storage capacity of the current cluster specification, in bytes.
+   * The maximum storage capacity of the current cluster specifications. Unit: bytes.
    * 
    * @example
    * 10995116277760
@@ -933,9 +1109,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   storageMax?: number;
   /**
    * @remarks
-   * Storage billing type. Valid values are as follows:
-   * - **Postpaid**: Pay-as-you-go (by capacity).
-   * - **Prepaid**: Subscription (by space).
+   * The billing method for storage. Valid values:
+   * 
+   * - **Postpaid**: pay-as-you-go.
+   * 
+   * - **Prepaid**: subscription.
    * 
    * @example
    * Prepaid
@@ -943,7 +1121,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   storagePayType?: string;
   /**
    * @remarks
-   * Storage space for pay-by-space (subscription) billing. Unit: Byte.
+   * The storage space of the subscription cluster. Unit: bytes.
    * 
    * @example
    * 50
@@ -951,7 +1129,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   storageSpace?: number;
   /**
    * @remarks
-   * Storage type, with a fixed value of **HighPerformance**.
+   * The storage class. The value is fixed as **HighPerformance**.
    * 
    * @example
    * HighPerformance
@@ -959,7 +1137,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * Amount of used storage space, in bytes.
+   * The used storage space. Unit: bytes.
    * 
    * @example
    * 3012558848
@@ -967,9 +1145,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   storageUsed?: number;
   /**
    * @remarks
-   * Indicates whether multi-AZ data strong consistency is enabled for the cluster. The value ranges are as follows:
-   * - **ON**: Indicates that multi-AZ data strong consistency is enabled, applicable to the Standard 3AZ scenario.
-   * - **OFF**: Indicates that multi-AZ data strong consistency is not enabled.
+   * Indicates whether strong consistency is enabled for the multi-zone data. Valid values:
+   * 
+   * - **ON**: Strong consistency is enabled for the multi-zone data. This applies to Standard Edition clusters that are deployed across three zones.
+   * 
+   * - **OFF**: Strong consistency is not enabled for the multi-zone data.
    * 
    * @example
    * ON
@@ -977,11 +1157,13 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   strictConsistency?: string;
   /**
    * @remarks
-   * Specification type of compute nodes, with possible values as follows:
-   * * **Exclusive**: Dedicated specification
-   * * **General**: General-purpose specification
+   * The specification type of the compute node. Valid values:
    * 
-   * > This parameter is supported only for PolarDB MySQL Edition with the product series set to Cluster Edition.
+   * - **Exclusive**: Dedicated
+   * 
+   * - **General**: General-purpose
+   * 
+   * > This parameter is returned only for PolarDB for MySQL Cluster Edition clusters.
    * 
    * @example
    * Exclusive
@@ -989,7 +1171,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   subCategory?: string;
   /**
    * @remarks
-   * Indicates whether queries based on In-Memory Column Indexes (IMCIs) are supported during and after a failover with hot replica.
+   * Indicates whether the instant switchover feature that is compatible with IMCI is supported.
    * 
    * @example
    * ON
@@ -997,12 +1179,12 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   supportInstantSwitchWithImci?: string;
   /**
    * @remarks
-   * Details of tags.
+   * The details of the tags.
    */
   tags?: DescribeDBClusterAttributeResponseBodyTags[];
   /**
    * @remarks
-   * VPC ID.
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-*******************
@@ -1010,7 +1192,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * VSwitch ID.
+   * The virtual switch ID.
    * 
    * @example
    * vsw-*********************
@@ -1018,7 +1200,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * Availability Zone IDs.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i,cn-hangzhou-g

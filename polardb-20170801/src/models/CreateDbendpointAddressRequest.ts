@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBEndpointAddressRequestZoneInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The virtual switch ID.
    * 
    * @example
    * vsw-**********
@@ -13,7 +13,7 @@ export class CreateDBEndpointAddressRequestZoneInfo extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-b
@@ -45,11 +45,13 @@ export class CreateDBEndpointAddressRequestZoneInfo extends $dara.Model {
 export class CreateDBEndpointAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the new endpoint. The prefix of the endpoint must meet the following requirements:
+   * The prefix of the new endpoint. The prefix must meet the following requirements:
    * 
-   * *   The prefix can contain lowercase letters, digits, and hyphens (-).
-   * *   The prefix must start with a letter and end with a digit or a letter.
-   * *   The prefix must be 6 to 40 characters in length.
+   * - Consist of lowercase letters, digits, and hyphens (-).
+   * 
+   * - Start with a letter and end with a digit or a letter.
+   * 
+   * - Be 6 to 40 characters in length.
    * 
    * @example
    * test-1
@@ -57,7 +59,7 @@ export class CreateDBEndpointAddressRequest extends $dara.Model {
   connectionStringPrefix?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -67,9 +69,9 @@ export class CreateDBEndpointAddressRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The endpoint ID.
    * 
-   * >  You can call the [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html) operation to query endpoint details.
+   * > For more information, see [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html).
    * 
    * @example
    * pe-**************
@@ -77,7 +79,7 @@ export class CreateDBEndpointAddressRequest extends $dara.Model {
   DBEndpointId?: string;
   /**
    * @remarks
-   * The network type of the endpoint. Set the value to **Public**.
+   * The network type of the new endpoint. Set the value to **Public**.
    * 
    * This parameter is required.
    * 
@@ -107,7 +109,7 @@ export class CreateDBEndpointAddressRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The details of the zones.
+   * The zone information.
    */
   zoneInfo?: CreateDBEndpointAddressRequestZoneInfo[];
   static names(): { [key: string]: string } {

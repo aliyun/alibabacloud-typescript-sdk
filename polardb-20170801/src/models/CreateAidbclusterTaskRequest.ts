@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIDBClusterTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,22 +14,35 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * polar.pg.g6.4xlarge.guh
    */
   DBInstanceClass?: string;
   /**
+   * @remarks
+   * The ID of the training dataset. This parameter is required for fine-tuning.
+   * 
    * @example
    * pds-2zetrain***
    */
   datasetPath?: string;
   /**
+   * @remarks
+   * The ID of the validation dataset. This parameter is required for evaluation.
+   * 
    * @example
    * pds-2zetrain***
    */
   evalDatasetPath?: string;
   /**
    * @remarks
+   * The type of model service. Valid values:
+   * 
+   * - **aitrain**: For model operator tuning.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +51,12 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   kubeType?: string;
   /**
    * @remarks
+   * The model name.
+   * 
+   * - For a **preset model**, specify the model name.
+   * 
+   * - For a **custom model**, specify the path to the model. This option is for models trained in a cold storage edition instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +65,12 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
+   * The model source. Valid values:
+   * 
+   * - **public**: A preset model.
+   * 
+   * - **custom**: A custom model.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,6 +78,9 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
    */
   modelSource?: string;
   /**
+   * @remarks
+   * The type of the custom model.
+   * 
    * @example
    * qwen3
    */
@@ -58,6 +88,9 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -66,6 +99,8 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The runtime parameters, specified as a JSON string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,26 +108,41 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
    */
   runningParameter?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-bp**************
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * xxxx
    */
   taskName?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-*******************
    */
   VPCId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-*********************
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-k
    */

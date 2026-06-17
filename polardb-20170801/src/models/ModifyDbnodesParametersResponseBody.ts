@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBNodesParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EBEAA83D-1734-42E3-85E3-E25F6E******

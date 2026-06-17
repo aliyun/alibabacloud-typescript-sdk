@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePolarClawAgentsRequest extends $dara.Model {
   /**
+   * @remarks
+   * A list of agent IDs to query.
+   * 
    * @example
    * work,research
    */
   agentList?: string[];
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example

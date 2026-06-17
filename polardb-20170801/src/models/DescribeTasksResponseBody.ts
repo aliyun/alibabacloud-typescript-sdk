@@ -93,7 +93,7 @@ export class DescribeTasksResponseBodyTasks extends $dara.Model {
 export class DescribeTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster for which the task was created.
+   * The ID of the cluster to which the task belongs.
    * 
    * @example
    * pc-***************
@@ -101,7 +101,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query.
+   * The end of the time range to query.
    * 
    * @example
    * 2020-12-02T03:00Z
@@ -109,7 +109,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 30
@@ -133,7 +133,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The beginning of the time range to query.
    * 
    * @example
    * 2020-11-30T00:00Z

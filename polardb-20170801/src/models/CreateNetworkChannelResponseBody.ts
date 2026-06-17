@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * F9F1CB1A-B1D5-4EF5-A53A-************

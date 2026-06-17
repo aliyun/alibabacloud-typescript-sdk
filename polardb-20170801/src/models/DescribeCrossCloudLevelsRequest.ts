@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCrossCloudLevelsRequest extends $dara.Model {
   /**
    * @remarks
+   * The database engine type. Valid values:
+   * 
+   * - MySQL
+   * 
+   * - PostgreSQL
+   * 
+   * - Oracle
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +20,33 @@ export class DescribeCrossCloudLevelsRequest extends $dara.Model {
    */
   DBType?: string;
   /**
+   * @remarks
+   * The version number of the database engine.
+   * 
+   * Valid values for MySQL:
+   * 
+   * - 5.6
+   * 
+   * - 5.7
+   * 
+   * - 8.0
+   * 
+   * Valid values for PostgreSQL:
+   * 
+   * - 11
+   * 
+   * - 14
+   * 
+   * - 15
+   * 
    * @example
    * 5.6
    */
   DBVersion?: string;
   /**
    * @remarks
+   * The resource pool ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +55,8 @@ export class DescribeCrossCloudLevelsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
+   * The storage class.
+   * 
    * This parameter is required.
    * 
    * @example

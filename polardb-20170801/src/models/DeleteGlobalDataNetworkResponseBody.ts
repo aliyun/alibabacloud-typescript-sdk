@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteGlobalDataNetworkResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * EBEAA83D-1734-42E3-85E3-E25F6E******
    */

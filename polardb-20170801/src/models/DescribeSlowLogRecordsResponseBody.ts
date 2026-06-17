@@ -87,7 +87,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * @example
    * pc-*****************
@@ -95,7 +95,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Database engine.
+   * The database engine.
    * 
    * @example
    * polardb_mysql
@@ -104,7 +104,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   items?: DescribeSlowLogRecordsResponseBodyItems;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -112,7 +112,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records on this page.
+   * The number of records on the current page.
    * 
    * @example
    * 1
@@ -120,7 +120,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******
@@ -128,7 +128,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of SQL statements.
+   * The total number of records.
    * 
    * @example
    * 1

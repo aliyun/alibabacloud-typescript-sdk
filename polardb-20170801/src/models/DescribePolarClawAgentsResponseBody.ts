@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Model {
   /**
+   * @remarks
+   * The path or content of the avatar.
+   * 
    * @example
    * test
    */
   avatar?: string;
   /**
+   * @remarks
+   * The avatar URL.
+   * 
    * @example
    * test
    */
   avatarUrl?: string;
   /**
+   * @remarks
+   * The emoji for the identity. This can be a Unicode code point (e.g., `U+1F99E`) or an emoji character.
+   * 
    * @example
    * U+1F99E
    */
   emoji?: string;
   /**
+   * @remarks
+   * The identity name.
+   * 
    * @example
    * PolarClaw
    */
   name?: string;
   /**
+   * @remarks
+   * The identity theme.
+   * 
    * @example
    * space lobster
    */
@@ -60,14 +75,21 @@ export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Mod
 export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * main
    */
   id?: string;
+  /**
+   * @remarks
+   * The agent\\"s identity.
+   */
   identity?: DescribePolarClawAgentsResponseBodyAgentsIdentity;
   /**
+   * @remarks
+   * The agent display name.
+   * 
    * @example
    * main
    */
@@ -101,41 +123,63 @@ export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
 }
 
 export class DescribePolarClawAgentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of agents.
+   */
   agents?: DescribePolarClawAgentsResponseBodyAgents[];
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The default agent ID.
+   * 
    * @example
    * main
    */
   defaultId?: string;
   /**
+   * @remarks
+   * The main agent key name.
+   * 
    * @example
    * main
    */
   mainKey?: string;
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The routing scope.
+   * 
    * @example
    * per-sender
    */

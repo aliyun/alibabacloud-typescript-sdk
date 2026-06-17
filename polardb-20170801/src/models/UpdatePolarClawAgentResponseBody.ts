@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   /**
+   * @remarks
+   * The path or content of the avatar.
+   * 
    * @example
    * test
    */
   avatar?: string;
   /**
+   * @remarks
+   * The avatar URL.
+   * 
    * @example
    * test
    */
   avatarUrl?: string;
   /**
+   * @remarks
+   * The identity\\"s Emoji identifier. This can be a Unicode code point, such as U+1F99E, or the Emoji character itself.
+   * 
    * @example
    * U+1F99E
    */
   emoji?: string;
   /**
+   * @remarks
+   * The name of the identity.
+   * 
    * @example
    * PolarClaw
    */
   name?: string;
   /**
+   * @remarks
+   * The theme of the identity.
+   * 
    * @example
    * soul lobster
    */
@@ -60,19 +75,29 @@ export class UpdatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
 export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * main
    */
   id?: string;
+  /**
+   * @remarks
+   * The identity information of the agent.
+   */
   identity?: UpdatePolarClawAgentResponseBodyAgentIdentity;
   /**
+   * @remarks
+   * The display name of the agent.
+   * 
    * @example
    * PolarClaw
    */
   name?: string;
   /**
+   * @remarks
+   * The workspace path.
+   * 
    * @example
    * /home/node/.openclaw/workspace-work-v2
    */
@@ -108,33 +133,46 @@ export class UpdatePolarClawAgentResponseBodyAgent extends $dara.Model {
 }
 
 export class UpdatePolarClawAgentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the updated agent.
+   */
   agent?: UpdatePolarClawAgentResponseBodyAgent;
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * main
    */
   agentId?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CDB3258F-B5DE-43C4-8935-CBA0CA******

@@ -290,6 +290,7 @@ export { DescribeResourcePackagesResponseBodyResourcePackageList } from './Descr
 export { DescribeSQLRateLimitingRulesResponseBodyData } from './DescribeSqlrateLimitingRulesResponseBody';
 export { DescribeScheduleTasksResponseBodyDataTimerInfos } from './DescribeScheduleTasksResponseBody';
 export { DescribeScheduleTasksResponseBodyData } from './DescribeScheduleTasksResponseBody';
+export { DescribeSharedBackupsResponseBodyItems } from './DescribeSharedBackupsResponseBody';
 export { DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord } from './DescribeSlowLogRecordsResponseBody';
 export { DescribeSlowLogRecordsResponseBodyItems } from './DescribeSlowLogRecordsResponseBody';
 export { DescribeSlowLogsResponseBodyItemsSQLSlowLog } from './DescribeSlowLogsResponseBody';
@@ -1075,6 +1076,9 @@ export { DescribeSQLRateLimitingRulesResponse } from './DescribeSqlrateLimitingR
 export { DescribeScheduleTasksRequest } from './DescribeScheduleTasksRequest';
 export { DescribeScheduleTasksResponseBody } from './DescribeScheduleTasksResponseBody';
 export { DescribeScheduleTasksResponse } from './DescribeScheduleTasksResponse';
+export { DescribeSharedBackupsRequest } from './DescribeSharedBackupsRequest';
+export { DescribeSharedBackupsResponseBody } from './DescribeSharedBackupsResponseBody';
+export { DescribeSharedBackupsResponse } from './DescribeSharedBackupsResponse';
 export { DescribeSlowLogRecordsRequest } from './DescribeSlowLogRecordsRequest';
 export { DescribeSlowLogRecordsResponseBody } from './DescribeSlowLogRecordsResponseBody';
 export { DescribeSlowLogRecordsResponse } from './DescribeSlowLogRecordsResponse';
@@ -1412,6 +1416,9 @@ export { MovePolarFsObjectsResponse } from './MovePolarFsObjectsResponse';
 export { OpenAITaskRequest } from './OpenAitaskRequest';
 export { OpenAITaskResponseBody } from './OpenAitaskResponseBody';
 export { OpenAITaskResponse } from './OpenAitaskResponse';
+export { OperateApplicationRequest } from './OperateApplicationRequest';
+export { OperateApplicationResponseBody } from './OperateApplicationResponseBody';
+export { OperateApplicationResponse } from './OperateApplicationResponse';
 export { PatchPolarClawConfigRequest } from './PatchPolarClawConfigRequest';
 export { PatchPolarClawConfigShrinkRequest } from './PatchPolarClawConfigShrinkRequest';
 export { PatchPolarClawConfigResponseBody } from './PatchPolarClawConfigResponseBody';

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBNodesClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The database cluster ID.
    * 
    * @example
    * pc-*************
@@ -13,7 +13,7 @@ export class ModifyDBNodesClassResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 2035629******

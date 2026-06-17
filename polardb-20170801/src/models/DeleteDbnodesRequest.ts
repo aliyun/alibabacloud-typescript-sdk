@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
+   * The client token that is used to ensure the idempotence of the request. The client generates this value, which must be unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
    * 
    * @example
    * 6000170000591aed949d0f54a343f1a42***********
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The service provider of the node.
+   * 
    * @example
    * ENS
    */
   cloudProvider?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -28,9 +31,9 @@ export class DeleteDBNodesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The IDs of the nodes.
+   * The IDs of the nodes to be deleted.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters that belong to your Alibaba Cloud account, such as the cluster ID.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters in your account, including node IDs.
    * 
    * This parameter is required.
    * 
@@ -42,15 +45,11 @@ export class DeleteDBNodesRequest extends $dara.Model {
    * @remarks
    * The node type. Valid values:
    * 
-   * *   RO
-   * *   STANDBY
-   * *   DLNode
+   * - RO
    * 
-   * Enumerated values:
+   * - STANDBY
    * 
-   * *   DLNode: AI node
-   * *   STANDBY: standby node
-   * *   RO: read-only node
+   * - DLNode
    * 
    * @example
    * RO

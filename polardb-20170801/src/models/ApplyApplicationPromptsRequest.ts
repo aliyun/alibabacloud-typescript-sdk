@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyApplicationPromptsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ApplyApplicationPromptsRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * An array of prompt IDs to disable.
+   * 
    * @example
    * papt-************
    */
   disabledPromptIds?: string[];
   /**
+   * @remarks
+   * An array of prompt IDs to enable.
+   * 
    * @example
    * papt-************
    */

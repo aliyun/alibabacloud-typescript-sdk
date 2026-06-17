@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The end time of the query. The time is in the yyyy-MM-ddTHH:mmZ format in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The performance metrics. Separate multiple metrics with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/141787.html).
+   * 
    * @example
    * PolarDBCPUForPCU,PolarDBPCU,PolarDBMemoryForPCU,PolarDBQPSTPS,PolarDBConnections
    */
@@ -30,6 +37,8 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The start time of the query. The time is in the yyyy-MM-ddTHH:mmZ format in UTC.
+   * 
    * This parameter is required.
    * 
    * @example

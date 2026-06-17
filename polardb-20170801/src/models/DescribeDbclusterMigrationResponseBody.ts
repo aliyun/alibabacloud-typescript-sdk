@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether SSL encryption is enabled. Valid values:
-   * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * The connection string.
    * 
    * @example
    * pc-**************.rwlb.rds.aliyuncs.com
@@ -16,7 +13,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
   connectionString?: string;
   /**
    * @remarks
-   * The description of a migration exception. If no exception occurs during the migration, an empty string is returned.
+   * The IP address.
    * 
    * @example
    * 192.***.***.10
@@ -24,7 +21,13 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
   IPAddress?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The network type of the endpoint. Valid values:
+   * 
+   * - **Public**: An endpoint for the Internet.
+   * 
+   * - **Private**: A private endpoint.
+   * 
+   * - **Inner**: A private endpoint in a classic network.
    * 
    * @example
    * Private
@@ -32,11 +35,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
   netType?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid values:
-   * 
-   * *   **Cluster**: the default cluster endpoint
-   * *   **Primary**: the primary endpoint
-   * *   **Custom**: the custom endpoint
+   * The port.
    * 
    * @example
    * 3306
@@ -44,7 +43,11 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
   port?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Indicates whether Secure Sockets Layer (SSL) encryption is enabled. Valid values:
+   * 
+   * - **Enabled**: SSL encryption is enabled.
+   * 
+   * - **Disabled**: SSL encryption is disabled.
    * 
    * @example
    * Enabled
@@ -52,10 +55,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
   SSLEnabled?: string;
   /**
    * @remarks
-   * The read/write mode. Valid values:
-   * 
-   * *   ReadWrite: receives and forwards read and write requests (automatic read-write splitting).
-   * *   ReadOnly (default): receives and forwards read requests only.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-**********
@@ -63,7 +63,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
   VPCId?: string;
   /**
    * @remarks
-   * The IP address of the endpoint.
+   * The ID of the virtual switch.
    * 
    * @example
    * vsw-**********
@@ -105,12 +105,12 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
 export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointList extends $dara.Model {
   /**
    * @remarks
-   * The VPC ID.
+   * The details of the connection strings.
    */
   addressItems?: DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressItems[];
   /**
    * @remarks
-   * The expiration time of the replication between ApsaraDB RDS and PolarDB. The time is in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+   * The endpoint ID.
    * 
    * @example
    * pe-***********
@@ -118,7 +118,13 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointList extends
   DBEndpointId?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The type of the endpoint. Valid values:
+   * 
+   * - **Cluster**: The default cluster endpoint.
+   * 
+   * - **Primary**: The primary endpoint.
+   * 
+   * - **Custom**: A custom cluster endpoint.
    * 
    * @example
    * Cluster
@@ -126,10 +132,11 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointList extends
   endpointType?: string;
   /**
    * @remarks
-   * The synchronization direction. Valid values:
+   * The read/write mode. Valid values:
    * 
-   * *   **RDS2POLARDB**: Data is replicated from an ApsaraDB RDS instance to a PolarDB cluster.
-   * *   **POLARDB2RDS**: Data is replicated from a PolarDB cluster to an ApsaraDB RDS instance.
+   * - ReadWrite: Read and write (automatic read/write splitting).
+   * 
+   * - ReadOnly (Default): Read-only.
    * 
    * @example
    * ReadOnly
@@ -168,10 +175,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointList extends
 export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether SSL encryption is enabled. Valid values:
-   * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * The connection string.
    * 
    * @example
    * rm-***********.mysql.rds.aliyuncs.com
@@ -179,10 +183,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
   connectionString?: string;
   /**
    * @remarks
-   * The type of the source database. Valid values:
-   * 
-   * *   **PolarDBMySQL**: The source database is a PolarDB for MySQL database when the major version of your PolarDB cluster is upgraded.
-   * *   **RDS**: The source database is an ApsaraDB RDS database when data is migrated from ApsaraDB RDS to PolarDB for MySQL.
+   * The IP address.
    * 
    * @example
    * 172.***.***.173
@@ -190,7 +191,13 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
   IPAddress?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The network type of the endpoint. Valid values:
+   * 
+   * - **Public**: An endpoint for the Internet.
+   * 
+   * - **Private**: A private endpoint.
+   * 
+   * - **Inner**: A private endpoint in a classic network.
    * 
    * @example
    * Private
@@ -198,10 +205,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
   netType?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid values:
-   * 
-   * *   **Normal**: the standard endpoint
-   * *   **ReadWriteSplitting**: the read/write splitting endpoint
+   * The port.
    * 
    * @example
    * 3306
@@ -211,8 +215,9 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
    * @remarks
    * Indicates whether SSL encryption is enabled. Valid values:
    * 
-   * - **Enabled**
-   * - **Disabled**
+   * - **Enabled**: SSL encryption is enabled.
+   * 
+   * - **Disabled**: SSL encryption is disabled.
    * 
    * @example
    * Enabled
@@ -220,7 +225,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
   SSLEnabled?: string;
   /**
    * @remarks
-   * The instance type.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-************
@@ -228,7 +233,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
   VPCId?: string;
   /**
    * @remarks
-   * The IP address of the endpoint.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-**************
@@ -270,7 +275,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
 export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $dara.Model {
   /**
    * @remarks
-   * The VPC ID.
+   * The details of the connection strings.
    */
   addressItems?: DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems[];
   /**
@@ -285,7 +290,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $dara
   custinsType?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The endpoint ID.
    * 
    * @example
    * rm-************-normal
@@ -295,8 +300,9 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $dara
    * @remarks
    * The type of the endpoint. Valid values:
    * 
-   * - **Normal**: the standard endpoint
-   * - **ReadWriteSplitting**: the read/write splitting endpoint
+   * - **Normal**: A regular endpoint.
+   * 
+   * - **ReadWriteSplitting**: A read/write splitting endpoint.
    * 
    * @example
    * Normal
@@ -335,10 +341,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $dara
 export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The mode of the source ApsaraDB RDS instance. Valid values:
-   * 
-   * *   **rw**: read and write mode
-   * *   **ro**: read-only mode
+   * The comments on the migration exception. If no exception occurs during the migration, an empty value is returned.
    * 
    * @example
    * test
@@ -346,12 +349,12 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The port number.
+   * The details of the PolarDB endpoints.
    */
   DBClusterEndpointList?: DescribeDBClusterMigrationResponseBodyDBClusterEndpointList[];
   /**
    * @remarks
-   * The replication latency between the ApsaraDB RDS instance and the PolarDB cluster. Unit: seconds.
+   * The cluster ID.
    * 
    * @example
    * pc-****************
@@ -359,7 +362,11 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Details about the endpoints.
+   * The read/write mode of the cluster. Valid values:
+   * 
+   * - **rw**: Read and write.
+   * 
+   * - **ro**: Read-only.
    * 
    * @example
    * ro
@@ -367,7 +374,7 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   DBClusterReadWriteMode?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The replication delay between the ApsaraDB RDS instance and the PolarDB cluster, in seconds.
    * 
    * @example
    * 0
@@ -375,11 +382,7 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   delayedSeconds?: number;
   /**
    * @remarks
-   * The network type of the endpoint. Valid values:
-   * 
-   * *   **Public**: the public endpoint
-   * *   **Private**: the internal endpoint (VPC)
-   * *   **Inner**: the internal endpoint (classic network)
+   * The ID of the sync task.
    * 
    * @example
    * dts**********618bs
@@ -387,10 +390,7 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The mode of the PolarDB cluster. Valid values:
-   * 
-   * *   **rw**: read and write mode
-   * *   **ro**: read-only mode
+   * The time when the replication relationship between the ApsaraDB RDS instance and the PolarDB cluster expires. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and is displayed in UTC.
    * 
    * @example
    * 2020-06-17T01:56:36Z
@@ -398,7 +398,21 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The endpoint.
+   * The migration status of the PolarDB cluster. Valid values:
+   * 
+   * - **NO_MIGRATION**: No migration task is created.
+   * 
+   * - **RDS2POLARDB_CLONING**: Data is being cloned.
+   * 
+   * - **RDS2POLARDB_SYNCING**: Data is being synchronized. In this state, the PolarDB cluster is read-only, and the ApsaraDB RDS instance is read-write.
+   * 
+   * - **SWITCHING**: The database is being switched.
+   * 
+   * - **POLARDB2RDS_SYNCING**: The database switch is complete. In this state, the PolarDB cluster is read-write, and the ApsaraDB RDS instance is read-only. Change the endpoints in your application.
+   * 
+   * - **ROLLBACK**: The migration is being rolled back. After the rollback is complete, the migration status changes to **RDS2POLARDB_SYNCING**.
+   * 
+   * - **CLOSING_MIGRATION**: The migration task is being shut down.
    * 
    * @example
    * RDS2POLARDB_SYNCING
@@ -406,12 +420,16 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   migrationStatus?: string;
   /**
    * @remarks
-   * The endpoints of the ApsaraDB RDS instance.
+   * The details of the ApsaraDB RDS endpoints.
    */
   rdsEndpointList?: DescribeDBClusterMigrationResponseBodyRdsEndpointList[];
   /**
    * @remarks
-   * The ID of the synchronous task.
+   * The read/write mode of the source ApsaraDB RDS instance. Valid values:
+   * 
+   * - **rw**: Read and write.
+   * 
+   * - **ro**: Read-only.
    * 
    * @example
    * rw
@@ -419,7 +437,7 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   rdsReadWriteMode?: string;
   /**
    * @remarks
-   * The ID of the source ApsaraDB RDS instance.
+   * The request ID.
    * 
    * @example
    * F2A9EFA7-915F-4572-8299-85A307******
@@ -427,7 +445,7 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The endpoints of the ApsaraDB RDS instance.
+   * The ID of the source ApsaraDB RDS instance.
    * 
    * @example
    * rm-************
@@ -437,8 +455,9 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
    * @remarks
    * The type of the source database. Valid values:
    * 
-   * - **PolarDBMySQL**: The source database is a PolarDB for MySQL database when the major version of your PolarDB cluster is upgraded.
-   * - **RDS**: The source database is an ApsaraDB RDS database when data is migrated from ApsaraDB RDS to PolarDB for MySQL.
+   * - **PolarDBMySQL**: The source database for a major version upgrade of a PolarDB cluster.
+   * 
+   * - **RDS**: The source database for migrating data from an ApsaraDB RDS instance to a PolarDB for MySQL cluster.
    * 
    * @example
    * PolarDBMySQL
@@ -446,15 +465,11 @@ export class DescribeDBClusterMigrationResponseBody extends $dara.Model {
   srcDbType?: string;
   /**
    * @remarks
-   * The migration state of the PolarDB cluster. Valid values:
+   * The data synchronization relationship. Valid values:
    * 
-   * *   **NO_MIGRATION**: No migration task is running.
-   * *   **RDS2POLARDB_CLONING**: Data is being replicated.
-   * *   **RDS2POLARDB_SYNCING**: Data is being replicated. During the replication, the PolarDB cluster is running in read-only mode and the source ApsaraDB RDS instance is running in read and write mode.
-   * *   **SWITCHING**: Databases are being switched.
-   * *   **POLARDB2RDS_SYNCING**: Databases are switched. The PolarDB cluster is running in read and write mode and the source ApsaraDB RDS instance is running in read-only mode. In this state, you can modify the endpoints for your applications.
-   * *   **ROLLBACK**: The migration is being rolled back. After the rollback is complete, the value **RDS2POLARDB_SYNCING** is returned.
-   * *   **CLOSING_MIGRATION**: The migration task is being terminated.
+   * - **RDS2POLARDB**: Data is synchronized from the ApsaraDB RDS instance to the PolarDB cluster.
+   * 
+   * - **POLARDB2RDS**: Data is synchronized from the PolarDB cluster to the ApsaraDB RDS instance.
    * 
    * @example
    * RDS2POLARDB

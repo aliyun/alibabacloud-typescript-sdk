@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The channel configuration.
+   * 
    * @example
    * {
    *     "enabled": true,
@@ -24,6 +29,8 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
   channelConfigShrink?: string;
   /**
    * @remarks
+   * The channel\\"s unique identifier.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +39,8 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The name and version of the npm package for the channel plugin.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +49,8 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
   npmPackage?: string;
   /**
    * @remarks
+   * The channel plugin\\"s name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +58,9 @@ export class CreatePolarClawChannelShrinkRequest extends $dara.Model {
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Indicates whether to restart the gateway after the channel is created. Default: `true`.
+   * 
    * @example
    * true
    */

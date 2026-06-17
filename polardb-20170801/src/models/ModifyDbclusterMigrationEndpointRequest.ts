@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterMigrationEndpointRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to view information about all clusters in the destination region, including the cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,14 @@ export class ModifyDBClusterMigrationEndpointRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The parameters for modifying the DTS task.
+   * 
+   * **dtsJobId**: The ID of the DTS task.
+   * 
+   * endpoint: The endpoint to switch. Set the value to src for the source endpoint or **dst** for the destination endpoint.
+   * 
+   * **endpointInstanceId**: The ID of the cloud instance.
+   * 
    * This parameter is required.
    * 
    * @example

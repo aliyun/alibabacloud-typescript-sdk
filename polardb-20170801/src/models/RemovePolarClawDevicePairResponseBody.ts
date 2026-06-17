@@ -4,28 +4,40 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemovePolarClawDevicePairResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * device-mac-789
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 580EF224-9647-59E7-9950-D9EBFD6A2921

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class LoginPolarClawChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class LoginPolarClawChannelRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The ID of the PolarClaw channel to log into.
+   * 
    * This parameter is required.
    * 
    * @example

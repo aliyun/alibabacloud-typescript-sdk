@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model {
   /**
    * @remarks
-   * The type of the scheduled tasks.
+   * The task type.
    * 
    * @example
    * CreateDBNodes
@@ -13,7 +13,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   action?: string;
   /**
    * @remarks
-   * The ID of the scheduled task.
+   * The ID of the scheduled O\\&M task.
    * 
    * @example
    * 86293c29-a03d-4872-b625-***********
@@ -29,7 +29,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   DBClusterId?: string;
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
    * test_cluster
@@ -37,7 +37,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   dbClusterDescription?: string;
   /**
    * @remarks
-   * The state of the cluster.
+   * The cluster status.
    * 
    * @example
    * Running
@@ -45,9 +45,9 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   dbClusterStatus?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
-   * >  This parameter is returned only when you set the `Action` parameter to **CreateDBNodes** or **ModifyDBNodeClass**.
+   * > This parameter is returned only if `Action` is **CreateDBNodes** or **ModifyDBNodeClass**.
    * 
    * @example
    * 208161753******
@@ -55,16 +55,23 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   orderId?: string;
   /**
    * @remarks
-   * The latest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
+   * The latest start time of the task. The time is in UTC.
    * 
    * @example
    * 2021-01-28T12:30Z
    */
   plannedEndTime?: string;
+  /**
+   * @remarks
+   * The scheduled time for the transient switchover.
+   * 
+   * @example
+   * 2021-01-28T12:30Z
+   */
   plannedFlashingOffTime?: string;
   /**
    * @remarks
-   * The earliest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
+   * The scheduled start time of the task. The time is in UTC.
    * 
    * @example
    * 2021-01-28T12:00Z
@@ -72,7 +79,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   plannedStartTime?: string;
   /**
    * @remarks
-   * The expected start time of the task. The time is displayed in UTC.
+   * The estimated start time of the task. The time is in UTC.
    * 
    * @example
    * 2021-01-28T12:16Z
@@ -80,7 +87,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   plannedTime?: string;
   /**
    * @remarks
-   * The ID of the region in which the scheduled task runs.
+   * The region ID of the task.
    * 
    * @example
    * cn-hangzhou
@@ -88,7 +95,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   region?: string;
   /**
    * @remarks
-   * The state of the scheduled task.
+   * The status of the task.
    * 
    * @example
    * finish
@@ -98,8 +105,9 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
    * @remarks
    * Indicates whether the scheduled task can be canceled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -107,7 +115,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
   taskCancel?: boolean;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 53879cdb-9a00-428e-acaf-ff4cff******
@@ -163,7 +171,7 @@ export class DescribeScheduleTasksResponseBodyDataTimerInfos extends $dara.Model
 export class DescribeScheduleTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -171,7 +179,7 @@ export class DescribeScheduleTasksResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -179,12 +187,12 @@ export class DescribeScheduleTasksResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The details of the scheduled tasks.
+   * Details of scheduled tasks.
    */
   timerInfos?: DescribeScheduleTasksResponseBodyDataTimerInfos[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -223,14 +231,14 @@ export class DescribeScheduleTasksResponseBodyData extends $dara.Model {
 export class DescribeScheduleTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result data.
+   * The result set.
    */
   data?: DescribeScheduleTasksResponseBodyData;
   /**
    * @remarks
-   * The message that is returned for the request.
+   * The response message.
    * 
-   * >  If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. Otherwise, an error message is returned.
    * 
    * @example
    * Successful
@@ -246,7 +254,7 @@ export class DescribeScheduleTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

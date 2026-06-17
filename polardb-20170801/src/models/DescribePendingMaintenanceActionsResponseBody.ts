@@ -13,12 +13,15 @@ export class DescribePendingMaintenanceActionsResponseBodyTypeList extends $dara
   count?: number;
   /**
    * @remarks
-   * The task type of pending events. Valid values:
+   * The task type of the pending event. Valid values:
    * 
-   * *   **DatabaseSoftwareUpgrading**: database software upgrades
-   * *   **DatabaseHardwareMaintenance**: hardware maintenance and upgrades
-   * *   **DatabaseStorageUpgrading**: database storage upgrades
-   * *   **DatabaseProxyUpgrading**: minor version upgrades of the proxy
+   * - **DatabaseSoftwareUpgrading**: database software upgrade
+   * 
+   * - **DatabaseHardwareMaintenance**: hardware maintenance and upgrade
+   * 
+   * - **DatabaseStorageUpgrading**: database storage upgrade
+   * 
+   * - **DatabaseProxyUpgrading**: proxy minor version upgrade
    * 
    * @example
    * DatabaseSoftwareUpgrading

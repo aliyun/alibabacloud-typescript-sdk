@@ -4,81 +4,129 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The completion time.
+   * 
    * @example
    * 2020-06-09T18:00:00Z
    */
   completedTime?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-03-25T09:37:10Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The node description.
+   * 
    * @example
    * test
    */
   DBNodeDescription?: string;
   /**
+   * @remarks
+   * The model operator instance ID.
+   * 
    * @example
    * pm-2ze***
    */
   DBNodeId?: string;
   /**
+   * @remarks
+   * The instance status. This parameter is not always returned.
+   * 
    * @example
    * RUNNING
    */
   DBNodeStatus?: string;
   /**
+   * @remarks
+   * The description of the instance status.
+   * 
    * @example
    * RUNNING
    */
   DBNodeStatusDesc?: string;
   /**
+   * @remarks
+   * The availability zone.
+   * 
    * @example
    * cn-beijing-i
    */
   dataZoneId?: string;
   /**
+   * @remarks
+   * The engine.
+   * 
    * @example
    * polardb_ai
    */
   engine?: string;
   /**
+   * @remarks
+   * The engine version.
+   * 
    * @example
    * 3.1
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * ***
    */
   modelName?: string;
   /**
+   * @remarks
+   * The model path.
+   * 
    * @example
    * ***
    */
   modelPath?: string;
   /**
+   * @remarks
+   * The model source.
+   * 
    * @example
    * public
    */
   modelSource?: string;
   /**
+   * @remarks
+   * The runtime parameters.
+   * 
    * @example
    * xxx
    */
   runningTimes?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2020-06-09T18:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The training mode.
+   * 
    * @example
    * sft
    */
   trainMode?: string;
   /**
+   * @remarks
+   * The training type.
+   * 
    * @example
    * lora
    */
@@ -136,30 +184,46 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
 
 export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The engine.
+   * 
    * @example
    * polardb_ai
    */
   engine?: string;
   /**
+   * @remarks
+   * The engine version.
+   * 
    * @example
    * 3.1
    */
   engineVersion?: string;
+  /**
+   * @remarks
+   * A list of model operators.
+   */
   items?: DescribeAIDBClusterTasksResponseBodyItems[];
   /**
+   * @remarks
+   * The PolarDB cluster ID.
+   * 
    * @example
    * pc-2ze***
    */
   relativeDBClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * train
    */

@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view details of all clusters in your account, such as cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -15,10 +17,11 @@ export class DescribeDBClusterVersionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to query the information about the latest versions or the versions to which the cluster can be updated. Valid values:
+   * Specifies whether to return information about the latest version or a list of upgradable versions. Valid values:
    * 
-   * *   LATEST_VERSION: the information about the latest versions.
-   * *   AVAILABLE_VERSION: the information about the versions to which the cluster can be updated.
+   * - LATEST_VERSION: Queries information about the latest version.
+   * 
+   * - AVAILABLE_VERSION: Queries a list of upgradable versions.
    * 
    * @example
    * LATEST_VERSION

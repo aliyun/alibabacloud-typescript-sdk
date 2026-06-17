@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePolarFsAttributeResponseBodyCustomBucketPathList extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint of the custom storage bucket.
+   * 
    * @example
    * pfs-xxx.oss-[regionId]-internal.aliyuncs.com
    */
   bucket?: string;
   /**
+   * @remarks
+   * The path in the custom storage bucket.
+   * 
    * @example
    * /data
    */
@@ -38,16 +44,25 @@ export class DescribePolarFsAttributeResponseBodyCustomBucketPathList extends $d
 
 export class DescribePolarFsAttributeResponseBodyMountInfo extends $dara.Model {
   /**
+   * @remarks
+   * The cluster management address.
+   * 
    * @example
    * TCP://**.**.**.**:3000,TCP://**.**.**.**:3000,TCP://**.**.**.**:3000
    */
   polarDbProxy?: string;
   /**
+   * @remarks
+   * The file system name.
+   * 
    * @example
    * pfs-**********
    */
   polarFsCluster?: string;
   /**
+   * @remarks
+   * The token value.
+   * 
    * @example
    * a734298c391cb9ebd05e2ee85feb624
    */
@@ -79,152 +94,323 @@ export class DescribePolarFsAttributeResponseBodyMountInfo extends $dara.Model {
 
 export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The acceleration type.
+   * 
    * @example
    * alluxio
    */
   accelerateType?: string;
   /**
+   * @remarks
+   * The capacity of the acceleration cache in GB.
+   * 
    * @example
    * 1000
    */
   acceleratedStorageSpace?: number;
   /**
+   * @remarks
+   * Indicates whether the acceleration cache is enabled. Valid values:
+   * 
+   * - **ON**: Enabled
+   * 
+   * - **OFF**: Disabled
+   * 
    * @example
    * ON
    */
   acceleratingEnable?: string;
   /**
+   * @remarks
+   * The bandwidth in MB/s.
+   * 
    * @example
    * 100
    */
   bandwidth?: number;
   /**
+   * @remarks
+   * The baseline bandwidth in MB/s per TiB.
+   * 
    * @example
    * 100
    */
   bandwidthBaseLine?: number;
+  /**
+   * @remarks
+   * The bucket ID.
+   * 
+   * @example
+   * xxx
+   */
   bucketId?: string;
   /**
+   * @remarks
+   * The edition of the PolarFS instance. Valid values:
+   * 
+   * - **high_performance**: High-performance Edition
+   * 
+   * - **basic**: Basic Edition
+   * 
+   * - **cold**: Cold Storage Edition
+   * 
    * @example
    * high_performance
    */
   category?: string;
+  /**
+   * @remarks
+   * The download path for the client.
+   * 
+   * @example
+   * oss://*
+   */
   clientDownloadPath?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-08-02T05:57:10Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The custom bucket path.
+   * 
    * @example
    * xxxxxx-%d.oss-cn-beijing-internal.aliyuncs.com
    */
   customBucketPath?: string;
+  /**
+   * @remarks
+   * A list of custom storage paths.
+   */
   customBucketPathList?: DescribePolarFsAttributeResponseBodyCustomBucketPathList[];
   /**
+   * @remarks
+   * The database engine type. Valid values:
+   * 
+   * - **MySQL**
+   * 
+   * - **PostgreSQL**
+   * 
    * @example
    * MySQL
    */
   DBType?: string;
   /**
+   * @remarks
+   * The expiration time of the cluster.
+   * 
+   * > This parameter is returned only for **Prepaid** (subscription) clusters. It is empty for **Postpaid** (pay-as-you-go) clusters.
+   * 
    * @example
    * 2025-10-10T16:00:00Z
    */
   expireTime?: string;
   /**
+   * @remarks
+   * Indicates whether the cluster has expired.
+   * 
+   * > This parameter is returned only for **Prepaid** (subscription) clusters.
+   * 
    * @example
    * false
    */
   expired?: string;
+  /**
+   * @remarks
+   * The file system ID.
+   * 
+   * @example
+   * xxx
+   */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The lock mode. Valid values:
+   * 
+   * - **Unlock**: The cluster is not locked.
+   * 
+   * - **ManualLock**: The cluster is manually locked.
+   * 
+   * - **LockByExpiration**: The cluster is automatically locked after it expires.
+   * 
    * @example
    * Unlock
    */
   lockMode?: string;
+  /**
+   * @remarks
+   * The encrypted metadata address for the FUSE mount.
+   * 
+   * @example
+   * e6cc1d2e2a6fa292038d999fda6501*****
+   */
   metaUrl?: string;
+  /**
+   * @remarks
+   * The minor version of the instance.
+   * 
+   * @example
+   * v1.3.0-v1.1.1
+   */
   minorVersion?: string;
+  /**
+   * @remarks
+   * The mount configuration.
+   */
   mountInfo?: DescribePolarFsAttributeResponseBodyMountInfo;
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * - **Postpaid**: pay-as-you-go.
+   * 
+   * - **Prepaid**: subscription.
+   * 
    * @example
    * Prepaid
    */
   payType?: string;
   /**
+   * @remarks
+   * The description of the PolarFS instance.
+   * 
    * @example
    * pfs-xxx
    */
   polarFsInstanceDescription?: string;
   /**
+   * @remarks
+   * The ID of the PolarFS instance.
+   * 
    * @example
    * pfs-2ze0i74ka607*****
    */
   polarFsInstanceId?: string;
   /**
+   * @remarks
+   * The status of the PolarFS instance.
+   * 
    * @example
    * Running
    */
   polarFsStatus?: string;
   /**
+   * @remarks
+   * The version of PolarFS. Valid values:
+   * 
+   * - **PolarFS 2.0**
+   * 
+   * - **PolarFS 1.0**
+   * 
    * @example
    * PolarFS 2.0
    */
   polarFsType?: string;
   /**
+   * @remarks
+   * The version of the PolarFS instance.
+   * 
    * @example
    * 1.0.1-1.0.3
    */
   polarFsVersion?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the associated PolarDB cluster.
+   * 
    * @example
    * pc-2zejpr41d9xk3uk34
    */
   relativeDbClusterId?: string;
+  /**
+   * @remarks
+   * The ID of the associated PolarFS instance.
+   * 
+   * @example
+   * pfs-**********
+   */
   relativePfsClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 3F9E6A3B-C13E-4064-A010-18582A******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the managed security group.
+   * 
    * @example
    * sg-bp**************
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The storage capacity in GB.
+   * 
    * @example
    * 1000
    */
   storageSpace?: number;
   /**
+   * @remarks
+   * The storage class for the High-performance Edition. Valid values:
+   * 
+   * - **ESSDPL1**
+   * 
+   * - **ESSDPL0**
+   * 
+   * The storage class for the Basic Edition. Valid values:
+   * 
+   * - **city_redundancy**: zone-redundant storage
+   * 
    * @example
    * essdpl1
    */
   storageType?: string;
   /**
+   * @remarks
+   * The amount of used storage in bytes.
+   * 
    * @example
    * 3012558848
    */
   storageUsed?: number;
   /**
+   * @remarks
+   * The ID of the VPC.
+   * 
    * @example
    * vpc-**********
    */
   VPCId?: string;
   /**
+   * @remarks
+   * The VSwitch ID.
+   * 
    * @example
    * vsw-**************
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The ID of the zone where the vSwitch is located.
+   * 
    * @example
    * cn-beijing-k
    */

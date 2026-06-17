@@ -12,7 +12,7 @@ export class ModifyDBNodeHotReplicaModeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * pc-2vc327c2a14a3u858
+   * pc-*****************
    */
   DBClusterId?: string;
   /**
@@ -22,7 +22,7 @@ export class ModifyDBNodeHotReplicaModeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * pi-2ze28275h9x5r4wt1
+   * pi-*****************
    */
   DBNodeId?: string;
   /**

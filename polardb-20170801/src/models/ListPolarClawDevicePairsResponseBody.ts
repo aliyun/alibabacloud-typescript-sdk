@@ -4,50 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
   /**
+   * @remarks
+   * The client ID.
+   * 
    * @example
    * cli
    */
   clientId?: string;
   /**
+   * @remarks
+   * The client mode.
+   * 
    * @example
    * cli
    */
   clientMode?: string;
   /**
+   * @remarks
+   * The time when the device pairing was created, in Unix milliseconds.
+   * 
    * @example
    * 1778659807727
    */
   createdAtMs?: number;
   /**
+   * @remarks
+   * The device family.
+   * 
    * @example
    * empty
    */
   deviceFamily?: string;
   /**
+   * @remarks
+   * The unique device ID.
+   * 
    * @example
    * f92620d6bea04f65d48cf603c57b367c97e837c1ab9f6d78f741f477e99d857c
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The display name of the device.
+   * 
    * @example
    * empty
    */
   displayName?: string;
   /**
+   * @remarks
+   * The time when the device was last active, in Unix milliseconds.
+   * 
    * @example
    * 1778659807727
    */
   lastSeenAtMs?: number;
   /**
+   * @remarks
+   * The operating system.
+   * 
    * @example
    * linux
    */
   platform?: string;
   /**
+   * @remarks
+   * The device role.
+   * 
    * @example
    * operator
    */
   role?: string;
+  /**
+   * @remarks
+   * The list of permission scopes.
+   */
   scopes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -93,68 +124,115 @@ export class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
 
 export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
   /**
+   * @remarks
+   * The client ID.
+   * 
    * @example
    * cli
    */
   clientId?: string;
   /**
+   * @remarks
+   * The client mode.
+   * 
    * @example
    * cli
    */
   clientMode?: string;
   /**
+   * @remarks
+   * The device family.
+   * 
    * @example
    * server
    */
   deviceFamily?: string;
   /**
+   * @remarks
+   * The unique device ID.
+   * 
    * @example
    * device-784x37k0vko734fk
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The display name of the device.
+   * 
    * @example
    * test
    */
   displayName?: string;
   /**
+   * @remarks
+   * Whether the request is to repair an existing pairing.
+   * 
    * @example
    * false
    */
   isRepair?: boolean;
   /**
+   * @remarks
+   * The pairing request ID.
+   * 
    * @example
    * test-1778647932986
    */
   pairRequestId?: string;
   /**
+   * @remarks
+   * The operating system.
+   * 
    * @example
    * linux
    */
   platform?: string;
   /**
+   * @remarks
+   * The Ed25519 public key.
+   * 
    * @example
    * test-pubkey-base64url
    */
   publicKey?: string;
   /**
+   * @remarks
+   * The requester\\"s remote IP address.
+   * 
    * @example
    * 127.0.0.1
    */
   remoteIp?: string;
   /**
+   * @remarks
+   * The device role.
+   * 
    * @example
    * operator
    */
   role?: string;
+  /**
+   * @remarks
+   * The list of roles.
+   */
   roles?: string[];
+  /**
+   * @remarks
+   * The list of permission scopes.
+   */
   scopes?: string[];
   /**
+   * @remarks
+   * Whether this is a silent pairing.
+   * 
    * @example
    * false
    */
   silent?: boolean;
   /**
+   * @remarks
+   * The timestamp of the pairing request, in Unix milliseconds.
+   * 
    * @example
    * 1778660347550
    */
@@ -216,25 +294,42 @@ export class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
 
 export class ListPolarClawDevicePairsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The status code of the response.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * A list of paired devices.
+   */
   paired?: ListPolarClawDevicePairsResponseBodyPaired[];
+  /**
+   * @remarks
+   * A list of pending pairing requests.
+   */
   pending?: ListPolarClawDevicePairsResponseBodyPending[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******

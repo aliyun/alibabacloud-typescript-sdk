@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C5D526E5-91B5-48B8-B980-FE07FF******

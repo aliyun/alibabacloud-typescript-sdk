@@ -5,41 +5,56 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindPolarClawAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * work
    */
   agentId?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-********************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The status code of the response.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The number of removed bindings.
+   * 
    * @example
    * 1
    */
   removedCount?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of bindings after the operation.
+   * 
    * @example
    * 0
    */

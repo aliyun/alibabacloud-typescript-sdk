@@ -8,7 +8,7 @@ export class CreateExtensionsResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * 123e4567-e89b-12d3-a456-426655440000
+   * 86627CF4-CBB6-531E-BBDA-7B6DD5C42E85
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterGroupResponseBodyParameterGroupParameterDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * back_log
@@ -13,7 +13,7 @@ export class DescribeParameterGroupResponseBodyParameterGroupParameterDetail ext
   paramName?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The parameter value.
    * 
    * @example
    * 3000
@@ -45,7 +45,7 @@ export class DescribeParameterGroupResponseBodyParameterGroupParameterDetail ext
 export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Model {
   /**
    * @remarks
-   * The time when the parameter template was created. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The creation time of the parameter template, in `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2023-03-10T08:40:39Z
@@ -53,7 +53,7 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine type.
    * 
    * @example
    * MySQL
@@ -61,7 +61,7 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * @example
    * 8.0
@@ -69,10 +69,11 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   DBVersion?: string;
   /**
    * @remarks
-   * Indicates whether to restart the cluster when this parameter template is applied. Valid values:
+   * Specifies whether a cluster restart is required for the parameter template to take effect. Valid values:
    * 
-   * *   **0**: A restart is not required.
-   * *   **1**: A restart is required.
+   * - **0**: No restart is required.
+   * 
+   * - **1**: A restart is required.
    * 
    * @example
    * 1
@@ -88,7 +89,7 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   parameterCounts?: number;
   /**
    * @remarks
-   * Details about the parameters.
+   * A list of parameters.
    */
   parameterDetail?: DescribeParameterGroupResponseBodyParameterGroupParameterDetail[];
   /**
@@ -119,9 +120,11 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
    * @remarks
    * The type of the parameter template. Valid values:
    * 
-   * *   **0**: the default parameter template.
-   * *   **1**: a custom parameter template.
-   * *   **2**: an automatic backup parameter template. After you apply this type of template, the system automatically backs up the original parameter settings and saves the backup as a template.
+   * - **0**: default template
+   * 
+   * - **1**: custom template
+   * 
+   * - **2**: automatic backup template. This type of template is an automatic backup of the previous settings, created when you apply a new template.
    * 
    * @example
    * 1
@@ -172,12 +175,12 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
 export class DescribeParameterGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the parameter templates.
+   * A list of parameter templates.
    */
   parameterGroup?: DescribeParameterGroupResponseBodyParameterGroup[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F1F16757-D31B-49CA-9BF4-305BAF******

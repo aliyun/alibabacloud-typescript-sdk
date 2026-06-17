@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -17,8 +17,9 @@ export class ModifyDBDescriptionRequest extends $dara.Model {
    * @remarks
    * The description of the database. The description must meet the following requirements:
    * 
-   * *   It cannot start with `http://` or `https://`.
-   * *   It must be 2 to 256 characters in length.
+   * - Cannot start with `http://` or `https://`.
+   * 
+   * - Must be 2 to 256 characters in length.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class ModifyDBDescriptionRequest extends $dara.Model {
   DBDescription?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * This parameter is required.
    * 

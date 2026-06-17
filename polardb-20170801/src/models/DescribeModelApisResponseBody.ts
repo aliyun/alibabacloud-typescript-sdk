@@ -4,46 +4,87 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeModelApisResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The model category. Valid values:
+   * 
+   * - **text**
+   * 
+   * - **embedding**
+   * 
+   * - **rerank**
+   * 
    * @example
    * text
    */
   category?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-10-16 16:46:20
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The Model API ID.
+   * 
    * @example
    * mi-xxxx
    */
   modelApiId?: string;
   /**
+   * @remarks
+   * The Model API name.
+   * 
    * @example
    * testName
    */
   name?: string;
   /**
+   * @remarks
+   * The API path prefix.
+   * 
    * @example
    * tests/models/
    */
   pathPrefix?: string;
   /**
+   * @remarks
+   * The protocol. Valid values:
+   * 
+   * - **openai**
+   * 
+   * - **anthropic**
+   * 
+   * - **bailian**
+   * 
+   * - **vllm**
+   * 
    * @example
    * openai
    */
   protocol?: string;
   /**
+   * @remarks
+   * The number of input records.
+   * 
    * @example
    * 10
    */
   recordInput?: string;
   /**
+   * @remarks
+   * The number of output records.
+   * 
    * @example
    * 10
    */
   recordOutput?: string;
   /**
+   * @remarks
+   * A JSON array of routing rules, formatted as a string.
+   * 
    * @example
    * [
    *   {
@@ -72,6 +113,9 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
    */
   routeRules?: string;
   /**
+   * @remarks
+   * The Model API status.
+   * 
    * @example
    * Enable
    */
@@ -116,31 +160,49 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeModelApisResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Model API objects.
+   */
   items?: DescribeModelApisResponseBodyItems[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records returned on the current page.
+   * 
    * @example
    * 30
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The number of records to return on each page. Valid values: **30**, **50**, and **100**.
+   * 
+   * Default value: **30**.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * C61892A4-0850-4516-9E26-44D96C1782DE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records that match the query.
+   * 
    * @example
    * 1
    */

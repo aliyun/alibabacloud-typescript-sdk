@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $dara.Model {
   /**
    * @remarks
-   * The details of the clusters that are associated with the global IP address whitelist template.
+   * The list of clusters associated with the IP allowlist template.
    */
   DBInstances?: string[];
   /**
    * @remarks
-   * The IP address in the global IP whitelist template.
+   * The IP addresses in the allowlist template.
    * 
-   * >  Separate multiple IP addresses with commas (,). You can add up to 1,000 IP addresses or CIDR blocks to all IP whitelists.
+   * > Separate multiple IP addresses with commas (,). You can add up to 1,000 IP addresses or CIDR blocks to all IP allowlists in total.
    * 
    * @example
    * 192.168.0.1
@@ -20,11 +20,13 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
   GIpList?: string;
   /**
    * @remarks
-   * The name of the global IP whitelist template. The name must meet the following requirements:
+   * The name of the IP allowlist template. The name of the IP allowlist template must meet the following requirements:
    * 
-   * *   The name can contain lowercase letters, digits, and underscores (_).
-   * *   The name must start with a letter and end with a letter or a digit.
-   * *   The name must be 2 to 120 characters in length.
+   * - The name can contain lowercase letters, digits, and underscores (_).
+   * 
+   * - The name must start with a letter and end with a letter or a digit.
+   * 
+   * - The name must be 2 to 120 characters in length.
    * 
    * @example
    * test_123
@@ -32,7 +34,7 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
   globalIgName?: string;
   /**
    * @remarks
-   * The ID of the global IP whitelist template.
+   * The ID of the IP allowlist template.
    * 
    * @example
    * g-zsldxfiwjmti0kcm****
@@ -40,7 +42,7 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
   globalSecurityGroupId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -81,12 +83,12 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
 export class DescribeGlobalSecurityIPGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the global IP whitelist template.
+   * The information about the global IP allowlist template.
    */
   globalSecurityIPGroup?: DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B7BFB11-C077-4FE3-B051-F69CEB******

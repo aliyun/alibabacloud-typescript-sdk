@@ -219,23 +219,39 @@ export class DescribeApplicationsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeApplicationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Contains the returned applications.
+   */
   items?: DescribeApplicationsResponseBodyItems;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on the current page.
+   * 
    * @example
    * 1
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total record count.
+   * 
    * @example
    * 1
    */

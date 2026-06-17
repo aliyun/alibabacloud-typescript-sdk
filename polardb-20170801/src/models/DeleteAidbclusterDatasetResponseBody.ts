@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAIDBClusterDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Data Service instance.
+   * 
    * @example
    * pcs-2zeei***
    */
   dataServiceId?: string;
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * pds-xxxxxxxxxxxxxxxx
    */
   datasetId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CD35F3-F3-44CA-AFFF-BAF869******

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The database cluster ID.
    * 
    * @example
    * pc-**************
@@ -13,7 +13,7 @@ export class DeleteDBNodesResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 2035638*******
@@ -21,7 +21,7 @@ export class DeleteDBNodesResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6566B2E6-3157-4B57-A693-AFB751******

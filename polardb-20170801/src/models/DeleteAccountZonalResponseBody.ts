@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAccountZonalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627******
    */

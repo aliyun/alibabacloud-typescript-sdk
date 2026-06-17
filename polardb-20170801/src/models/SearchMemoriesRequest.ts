@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMemoriesRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,22 +14,33 @@ export class SearchMemoriesRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The start time for filtering memories by creation time. Must be in UTC and ISO 8601 format.
+   * 
    * @example
    * yyyy-MM-ddTHH:mm:ssZ
    */
   createTimeBegin?: string;
   /**
+   * @remarks
+   * The end time for filtering memories by creation time. Must be in UTC and ISO 8601 format.
+   * 
    * @example
    * yyyy-MM-ddTHH:mm:ssZ
    */
   createTimeEnd?: string;
   /**
+   * @remarks
+   * The agent ID associated with the memory.
+   * 
    * @example
    * agent1
    */
   memoryAgentId?: string;
   /**
    * @remarks
+   * The user ID associated with the memory.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +49,8 @@ export class SearchMemoriesRequest extends $dara.Model {
   memoryUserId?: string;
   /**
    * @remarks
+   * The search query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +58,9 @@ export class SearchMemoriesRequest extends $dara.Model {
    */
   query?: string;
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 3
    */

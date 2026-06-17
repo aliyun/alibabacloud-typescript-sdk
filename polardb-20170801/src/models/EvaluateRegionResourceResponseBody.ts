@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class EvaluateRegionResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether sufficient resources are available. Valid values:
+   * Indicates whether the resources are sufficient.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The resources are sufficient.
+   * 
+   * - **false**: The resources are insufficient.
    * 
    * @example
    * true
@@ -16,11 +17,13 @@ export class EvaluateRegionResourceResponseBody extends $dara.Model {
   DBInstanceAvailable?: string;
   /**
    * @remarks
-   * The type of the database engine. Valid values:
+   * The database engine type. Valid values:
    * 
-   * *   **MySQL**
-   * *   **PostgreSQL**
-   * *   **Oracle**
+   * - **MySQL**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **Oracle**
    * 
    * @example
    * MySQL
@@ -28,20 +31,23 @@ export class EvaluateRegionResourceResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine
+   * The version of the database engine.
    * 
-   * *   Valid values for the MySQL database engine:
+   * - Valid values for MySQL:
    * 
-   *     *   **5.6**
-   *     *   **5.7**
-   *     *   **8.0**
+   *   - **5.6**
    * 
-   * *   Valid values for the PostgreSQL database engine:
+   *   - **5.7**
    * 
-   *     *   **11**
-   *     *   **14**
+   *   - **8.0**
    * 
-   * *   Valid value for the Oracle database engine: **11**
+   * - Valid values for PostgreSQL:
+   * 
+   *   - **11**
+   * 
+   *   - **14**
+   * 
+   * - Valid value for Oracle: **11**.
    * 
    * @example
    * 8.0
@@ -49,7 +55,7 @@ export class EvaluateRegionResourceResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69A85BAF-1089-4CDF-A82F-0A140F******

@@ -13,7 +13,7 @@ export class CancelScheduleTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

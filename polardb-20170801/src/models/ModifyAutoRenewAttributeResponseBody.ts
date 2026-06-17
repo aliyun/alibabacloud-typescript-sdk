@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAutoRenewAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4CE6DF97-AEA4-484F-906F-C407EE******

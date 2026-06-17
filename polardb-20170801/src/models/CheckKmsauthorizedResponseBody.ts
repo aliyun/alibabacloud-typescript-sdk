@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CheckKMSAuthorizedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the cluster is authorized to use KMS. Valid values:
+   * The authorization status. Valid values:
    * 
-   * *   **0**: no.
-   * *   **1**: yes.
+   * - **0**: Unauthorized.
+   * 
+   * - **1**: Authorized.
    * 
    * @example
    * 0
@@ -32,7 +33,7 @@ export class CheckKMSAuthorizedResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
+   * The Global Resource Descriptor of the role. It specifies the role. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
    * 
    * @example
    * acs:ram::1406926*****:role/aliyunrdsinstanceencryptiondefaultrole

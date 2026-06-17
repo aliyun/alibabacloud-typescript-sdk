@@ -193,6 +193,9 @@ export class DescribeDBClusterNetInfoResponseBodyDBNodeNetInfos extends $dara.Mo
 
 export class DescribeDBClusterNetInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The network type of the cluster. The value is fixed as **VPC**.
+   * 
    * @example
    * VPC
    */
@@ -200,6 +203,9 @@ export class DescribeDBClusterNetInfoResponseBody extends $dara.Model {
   DBClusterNetInfos?: DescribeDBClusterNetInfoResponseBodyDBClusterNetInfos;
   DBNodeNetInfos?: DescribeDBClusterNetInfoResponseBodyDBNodeNetInfos;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 72D99256-ACF1-5F86-831F-8CB53E9C23ED
    */

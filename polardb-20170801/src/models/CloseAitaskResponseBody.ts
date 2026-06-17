@@ -13,7 +13,7 @@ export class CloseAITaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task for disabling the PolarDB for AI feature.
+   * The ID of the task.
    * 
    * @example
    * 53879cdb-9a00-428e-acaf-ff4cff******

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExtensionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeExtensionsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The database name.
+   * 
    * This parameter is required.
    * 
    * @example

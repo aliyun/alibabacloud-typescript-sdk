@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGatewayRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the gateway instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteGatewayRequest extends $dara.Model {
    */
   gwClusterId?: string;
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * cn-beijing
    */

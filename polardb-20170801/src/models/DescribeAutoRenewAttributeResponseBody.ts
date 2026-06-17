@@ -70,7 +70,7 @@ export class DescribeAutoRenewAttributeResponseBody extends $dara.Model {
   items?: DescribeAutoRenewAttributeResponseBodyItems;
   /**
    * @remarks
-   * The page number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -78,7 +78,7 @@ export class DescribeAutoRenewAttributeResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total page count.
    * 
    * @example
    * 1
@@ -86,7 +86,7 @@ export class DescribeAutoRenewAttributeResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 65D7ACE6-4A61-4B6E-B357-8CB24A******

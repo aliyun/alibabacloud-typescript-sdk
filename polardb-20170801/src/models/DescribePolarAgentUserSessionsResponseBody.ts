@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePolarAgentUserSessionsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 01IC17MLISBB98SL345H7B5AES1E8VB1
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The status of the session. Valid values:
+   * 
+   * - **1**: Active
+   * 
+   * - **0**: Closed
+   * 
    * @example
    * 1
    */
   sessionStatus?: number;
   /**
+   * @remarks
+   * The content.
+   * 
    * @example
    * content
    */
@@ -44,8 +57,15 @@ export class DescribePolarAgentUserSessionsResponseBodyData extends $dara.Model 
 }
 
 export class DescribePolarAgentUserSessionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result set.
+   */
   data?: DescribePolarAgentUserSessionsResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E2FDB684-751D-424D-98B9-704BEA******
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GrantAccountPrivilegeZonalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CD35F3-F3-44CA-AFFF-BAF869******
    */

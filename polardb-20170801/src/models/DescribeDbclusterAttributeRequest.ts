@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
-   * > You can view detailed information about all clusters under your account, including the cluster ID, through the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) interface.
+   * The cluster ID.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in your account, including the cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -16,7 +17,7 @@ export class DescribeDBClusterAttributeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Whether to obtain information about AI-related nodes.
+   * Specifies whether to query information about AI nodes.
    * 
    * @example
    * AI

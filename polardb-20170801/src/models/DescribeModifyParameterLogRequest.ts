@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModifyParameterLogRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The end of the time range to query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format and is in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +29,8 @@ export class DescribeModifyParameterLogRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The beginning of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is in UTC.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -115,7 +115,7 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeys extends $dara.
 export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster node.
+   * The ID of the node in the PolarDB cluster.
    * 
    * @example
    * pi-*****************
@@ -123,7 +123,7 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   DBNodeId?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine type.
    * 
    * @example
    * MySQL
@@ -131,7 +131,7 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * @example
    * 8.0
@@ -139,7 +139,7 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The end time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The end of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is in UTC.
    * 
    * @example
    * 2020-09-23T01:01:00Z
@@ -156,7 +156,7 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The beginning of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is in UTC.
    * 
    * @example
    * 2020-09-23T01:00:00Z

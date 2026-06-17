@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAIDBClusterDescriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CD3FA5F3-FAF3-44CA-AFFF-BAF869******

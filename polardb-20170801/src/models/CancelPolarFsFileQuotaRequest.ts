@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelPolarFsFileQuotaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the PolarDB cluster that the application depends on.
+   * 
    * @example
    * pc-**************
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * The file paths. Separate multiple paths with a comma (`,`).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class CancelPolarFsFileQuotaRequest extends $dara.Model {
   filePathIds?: string;
   /**
    * @remarks
+   * The ID of the Polarlakebase instance.
+   * 
    * This parameter is required.
    * 
    * @example

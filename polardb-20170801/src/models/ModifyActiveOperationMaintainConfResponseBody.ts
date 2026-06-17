@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyActiveOperationMaintainConfResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1CC9CB4B-BBAF-5963-9545-A8DE9FFC7DFB

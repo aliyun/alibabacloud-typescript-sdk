@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click **Add** to add tag keys.
+   * The tag key. To add multiple tags to the cluster at once, click **Add** to specify multiple tag keys.
    * 
-   * >  You can create up to 20 tags for a cluster at a time. The value of `Tag.N.Key` is paired with the value of `Tag.N.Value`.
+   * > You can add a maximum of 20 tag pairs at a time. `Tag.n.Key` corresponds to `Tag.n.Value`.
    * 
    * @example
    * type
@@ -15,9 +15,9 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click **Add** to add tag values.
+   * The tag value. To add multiple tags to the cluster at once, click **Add** to specify multiple tag values.
    * 
-   * >  You can create up to 20 tags for a cluster at a time. The value of `Tag.N.Key` is paired with the value of `Tag.N.Value`.
+   * > You can add a maximum of 20 tag pairs at a time. `Tag.n.Value` corresponds to `Tag.n.Key`.
    * 
    * @example
    * test
@@ -51,7 +51,7 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the target cluster.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to **cluster**.
+   * The resource type. Set the value to **cluster**.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    * 
    * This parameter is required.
    */

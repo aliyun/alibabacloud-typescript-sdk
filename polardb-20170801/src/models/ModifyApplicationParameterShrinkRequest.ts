@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApplicationParameterShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,15 +14,25 @@ export class ModifyApplicationParameterShrinkRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * name
    */
   parameterName?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * value
    */
   parameterValue?: string;
+  /**
+   * @remarks
+   * The list of parameter names and values for modifying multiple parameters.
+   */
   parametersShrink?: string;
   static names(): { [key: string]: string } {
     return {

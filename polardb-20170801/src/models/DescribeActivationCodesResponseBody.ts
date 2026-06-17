@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the activation code takes effect.
+   * Effective period
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -13,7 +13,7 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   activateAt?: string;
   /**
    * @remarks
-   * The description of the activation code.
+   * Activation code description
    * 
    * @example
    * testCode
@@ -21,7 +21,7 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the activation code expires.
+   * Expiration time
    * 
    * @example
    * 2054-10-16 16:46:20
@@ -29,7 +29,7 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   expireAt?: string;
   /**
    * @remarks
-   * The time when the activation code was generated.
+   * Creation time
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -37,7 +37,7 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the activation code was updated.
+   * Update time
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -45,7 +45,7 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The activation code ID.
+   * Activation code ID
    * 
    * @example
    * 123
@@ -53,7 +53,7 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The media access control (MAC) address used in the generation of the activation code.
+   * MAC address
    * 
    * @example
    * 12:34:56:78:98:00
@@ -61,7 +61,7 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   macAddress?: string;
   /**
    * @remarks
-   * The name of the activation code.
+   * Activation code name
    * 
    * @example
    * testName
@@ -69,7 +69,7 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The unique identifier of the database.
+   * Unique identifier in the database
    * 
    * @example
    * 1234567890123456
@@ -115,12 +115,12 @@ export class DescribeActivationCodesResponseBodyItems extends $dara.Model {
 export class DescribeActivationCodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried activation codes.
+   * List of activation codes
    */
   items?: DescribeActivationCodesResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * Current page number
    * 
    * @example
    * 1
@@ -128,7 +128,7 @@ export class DescribeActivationCodesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * Number of records on the current page
    * 
    * @example
    * 1
@@ -136,7 +136,7 @@ export class DescribeActivationCodesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID generated for this request.
    * 
    * @example
    * 65D7ACE6-4A61-4B6E-B357-8CB24A******
@@ -144,7 +144,7 @@ export class DescribeActivationCodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * Total number of records
    * 
    * @example
    * 1

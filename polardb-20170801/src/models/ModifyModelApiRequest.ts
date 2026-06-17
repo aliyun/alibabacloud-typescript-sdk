@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyModelApiRequest extends $dara.Model {
   /**
    * @remarks
+   * The gateway instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyModelApiRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
+   * The model API ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,14 @@ export class ModifyModelApiRequest extends $dara.Model {
   modelApiId?: string;
   /**
    * @remarks
+   * The model category. Valid values:
+   * 
+   * - `text`
+   * 
+   * - `embedding`
+   * 
+   * - `rerank`
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +41,8 @@ export class ModifyModelApiRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
+   * The API path prefix.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +51,16 @@ export class ModifyModelApiRequest extends $dara.Model {
   pathPrefix?: string;
   /**
    * @remarks
+   * The protocol. Valid values:
+   * 
+   * - `openai`
+   * 
+   * - `anthropic`
+   * 
+   * - `Model Studio`
+   * 
+   * - `vllm`
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,18 +68,33 @@ export class ModifyModelApiRequest extends $dara.Model {
    */
   protocol?: string;
   /**
+   * @remarks
+   * The number of input units.
+   * 
    * @example
    * 10
    */
   recordInput?: string;
   /**
+   * @remarks
+   * The number of output units.
+   * 
    * @example
    * 10
    */
   recordOutput?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   /**
    * @remarks
+   * A JSON array of routing rules, provided as a string.
+   * 
    * This parameter is required.
    * 
    * @example

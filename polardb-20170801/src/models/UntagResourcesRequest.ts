@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to detach all tags from the cluster. Valid values: **true** and **false**. Default value: **false**.
+   * Specifies whether to detach all tags. Valid values: **true** and **false**. Default value: **false**.
    * 
-   * >  This parameter takes effect only if `TagKey.n` is empty.
+   * > This parameter takes effect only when the `TagKey.n` parameter is empty.
    * 
    * @example
    * true
@@ -17,9 +17,9 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view available regions.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the clusters.
+   * The ID of the target cluster.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Set the value to **cluster**.
+   * The resource type. Set the value to **cluster**.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The keys of the tags.
+   * The tag key.
    * 
    * @example
    * type

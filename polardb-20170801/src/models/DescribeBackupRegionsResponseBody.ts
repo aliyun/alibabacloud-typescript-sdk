@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of regions where the backup sets are stored.
+   */
   regions?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EB07CFF0-D8A4-5C76-AED7-D00E26FC2***
    */

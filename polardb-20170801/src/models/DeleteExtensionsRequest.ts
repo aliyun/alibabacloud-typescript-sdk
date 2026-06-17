@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteExtensionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * A client-generated token to ensure that the request is idempotent. The token must be unique for each request. It is case-sensitive and can contain a maximum of 64 ASCII characters.
+   * 
    * @example
    * 6000170000591aed949d0f54a343f1a4233c1e7d1c5c******
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DeleteExtensionsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class DeleteExtensionsRequest extends $dara.Model {
   DBNames?: string;
   /**
    * @remarks
+   * The extensions to uninstall. Separate multiple extension names with a comma (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,11 +52,17 @@ export class DeleteExtensionsRequest extends $dara.Model {
    */
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-************
    */
@@ -63,6 +78,9 @@ export class DeleteExtensionsRequest extends $dara.Model {
    */
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) where the endpoint is located.
+   * 
    * @example
    * vpc-25cdvfeq58pl****
    */

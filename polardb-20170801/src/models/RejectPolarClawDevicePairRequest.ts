@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RejectPolarClawDevicePairRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RejectPolarClawDevicePairRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The pairing request ID.
+   * 
    * This parameter is required.
    * 
    * @example

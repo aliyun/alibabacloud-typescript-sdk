@@ -3,14 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum capacity, in PCUs, for a cluster in agile mode. In agile mode, the cluster consists of only serverless nodes.
+   * 
+   * @example
+   * 32
+   */
   agileScaleMax?: string;
   /**
    * @remarks
-   * Whether to enable idle shutdown. Values:
+   * Indicates whether the no-activity suspension feature is enabled. Valid values:
    * 
-   * - **true**: Enable
+   * - **true**: Enabled
    * 
-   * - **false**: Disable (default)
+   * - **false**: Disabled (Default)
    * 
    * @example
    * true
@@ -18,7 +25,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   allowShutDown?: string;
   /**
    * @remarks
-   * Serverless cluster ID.
+   * The ID of the serverless cluster.
    * 
    * @example
    * pc-bp10gr51qasnl****
@@ -26,7 +33,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 5E71541A-6007-4DCC-A38A-F872C31FEB45
@@ -50,7 +57,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   scaleApRoNumMin?: string;
   /**
    * @remarks
-   * Maximum scaling limit for a single node. Range: 1 PCU~32 PCU.
+   * The maximum compute capacity of a single node in PCUs. Valid values: 1 to 32.
    * 
    * @example
    * 3
@@ -58,7 +65,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   scaleMax?: string;
   /**
    * @remarks
-   * Minimum scaling limit for a single node. Range: 1 PCU~31 PCU.
+   * The minimum compute capacity of a single node in PolarDB Capacity Units (PCUs). Valid values: 1 to 31.
    * 
    * @example
    * 1
@@ -66,7 +73,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * Maximum scaling limit for the number of read-only nodes. Range: 0~15.
+   * The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
    * 
    * @example
    * 4
@@ -74,7 +81,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   scaleRoNumMax?: string;
   /**
    * @remarks
-   * Minimum scaling limit for the number of read-only nodes. Range: 0~15.
+   * The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
    * 
    * @example
    * 2
@@ -82,7 +89,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   scaleRoNumMin?: string;
   /**
    * @remarks
-   * Detection duration for idle shutdown. Range: 300~86,400. Unit: seconds. The detection duration must be a multiple of 300 seconds.
+   * The detection period for no-activity suspension, in seconds. The value must be an integer from 300 to 86,400 and must be a multiple of 300.
    * 
    * @example
    * 10
@@ -90,7 +97,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   secondsUntilAutoPause?: string;
   /**
    * @remarks
-   * CPU upscale threshold.
+   * The CPU scale-up threshold.
    * 
    * @example
    * 60
@@ -98,7 +105,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   serverlessRuleCpuEnlargeThreshold?: string;
   /**
    * @remarks
-   * CPU downscale threshold.
+   * The CPU scale-down threshold.
    * 
    * @example
    * 30
@@ -106,11 +113,11 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   serverlessRuleCpuShrinkThreshold?: string;
   /**
    * @remarks
-   * Elasticity sensitivity. Values:
+   * The elasticity sensitivity. Valid values:
    * 
    * - normal: Standard
    * 
-   * - flexible: Sensitive
+   * - flexible: Flexible
    * 
    * @example
    * normal
@@ -118,7 +125,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
   serverlessRuleMode?: string;
   /**
    * @remarks
-   * Whether steady state is enabled. Values:
+   * Indicates whether the steady-state mode is enabled. Valid values:
    * 
    * 1: Enabled
    * 
@@ -128,6 +135,13 @@ export class DescribeDBClusterServerlessConfResponseBody extends $dara.Model {
    * 1
    */
   switchs?: string;
+  /**
+   * @remarks
+   * The maximum capacity, in PCUs, for a cluster in steady-state mode. Steady-state mode adds serverless capabilities to nodes that have fixed specifications.
+   * 
+   * @example
+   * 16
+   */
   traditionalScaleMaxThreshold?: string;
   static names(): { [key: string]: string } {
     return {

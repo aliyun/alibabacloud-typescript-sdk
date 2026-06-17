@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteApplicationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier for the API request.
+   * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
    */

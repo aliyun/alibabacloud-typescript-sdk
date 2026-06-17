@@ -6,7 +6,7 @@ export class ModifyDBClusterArchRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * pc-****************
@@ -14,10 +14,11 @@ export class ModifyDBClusterArchRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the hot standby storage cluster feature. Valid values:
+   * Specifies whether to enable a hot standby cluster. Valid values:
    * 
-   * *   **on**: enables hot standby storage cluster.
-   * *   **equal**: Enable a peer-to-peer cluster.
+   * - **on**: Enables a hot standby cluster.
+   * 
+   * - **equal**: Enables a peer cluster.
    * 
    * @example
    * on
@@ -32,7 +33,7 @@ export class ModifyDBClusterArchRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query information about regions.
+   * > For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/98041.html).
    * 
    * @example
    * cn-beijing
@@ -40,11 +41,11 @@ export class ModifyDBClusterArchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The zone of the hot standby storage cluster. Valid values:
+   * The zone for the hot standby storage cluster. Valid values:
    * 
-   * *   **auto** (default): The zone is automatically selected.
+   * - **auto** (default): The system automatically selects a zone.
    * 
-   * >  You can use the default value when HotStandbyCluster is set to on. If HotStandbyCluster is set to equal, specify the zone of the hot standby storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/98041.html) operation to query information about zones.
+   * > The default value is valid only when \\`HotStandbyCluster\\` is set to \\`on\\`. A specific zone is required when \\`HotStandbyCluster\\` is set to \\`equal\\`. For more information about zones, see [DescribeZones](https://help.aliyun.com/document_detail/98041.html).
    * 
    * @example
    * cn-beijing-i

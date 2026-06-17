@@ -7,8 +7,9 @@ export class ModifyDBClusterAuditLogCollectorRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable or disable SQL collector. Valid values:
    * 
-   * *   Enable
-   * *   Disable
+   * - Enable
+   * 
+   * - Disable
    * 
    * This parameter is required.
    * 

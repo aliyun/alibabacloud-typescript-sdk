@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountsResponseBodyAccountsDatabasePrivileges extends $dara.Model {
   /**
    * @remarks
-   * The permissions that the account is granted on the database. Valid values:
+   * The permissions of the account.
    * 
    * @example
    * ReadOnly
@@ -13,7 +13,7 @@ export class DescribeAccountsResponseBodyAccountsDatabasePrivileges extends $dar
   accountPrivilege?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * DBtest
@@ -45,7 +45,7 @@ export class DescribeAccountsResponseBodyAccountsDatabasePrivileges extends $dar
 export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   /**
    * @remarks
-   * The description of the account.
+   * The description of the database account.
    * 
    * @example
    * test
@@ -53,10 +53,11 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The locking state of the account. Valid values:
+   * The lock status of the account. Valid values:
    * 
-   * *   **UnLock**
-   * *   **Lock**
+   * - **UnLock**: The account is not locked.
+   * 
+   * - **Lock**: The account is locked.
    * 
    * @example
    * UnLock
@@ -64,7 +65,7 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   accountLockState?: string;
   /**
    * @remarks
-   * The name of the account.
+   * The name of the database account.
    * 
    * @example
    * test_acc
@@ -80,11 +81,13 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   accountPasswordValidTime?: string;
   /**
    * @remarks
-   * The state of the account. Valid values:
+   * The status of the database account. Valid values:
    * 
-   * *   **Creating**: The account is being created.
-   * *   **Available**: The account is available.
-   * *   **Deleting**: The account is being deleted
+   * - **Creating**: The account is being created.
+   * 
+   * - **Available**: The account is available.
+   * 
+   * - **Deleting**: The account is being deleted.
    * 
    * @example
    * Available
@@ -94,9 +97,11 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
    * @remarks
    * The type of the account. Valid values:
    * 
-   * *   **Normal**: standard account.
-   * *   **Super**: privileged account.
-   * *   **ReadOnly**: global read-only account.
+   * - **Normal**: standard account.
+   * 
+   * - **Super**: privileged account.
+   * 
+   * - **ReadOnly**: global read-only account.
    * 
    * @example
    * Normal
@@ -151,7 +156,7 @@ export class DescribeAccountsResponseBody extends $dara.Model {
   accounts?: DescribeAccountsResponseBodyAccounts[];
   /**
    * @remarks
-   * The page number of the page returned.
+   * The page number. Pages start from page 1.
    * 
    * @example
    * 1

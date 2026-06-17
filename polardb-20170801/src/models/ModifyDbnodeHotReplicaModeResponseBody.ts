@@ -10,7 +10,7 @@ export class ModifyDBNodeHotReplicaModeResponseBody extends $dara.Model {
    * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
    * 
    * @example
-   * pc-2vc327c2a14a3u858
+   * pc-*****************
    */
   DBClusterId?: string;
   /**
@@ -26,7 +26,7 @@ export class ModifyDBNodeHotReplicaModeResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 9F4DDFBF-205C-5A3E-8DC2-C60F3E3FDC38
+   * 9F4DDFBF-205C-5A3E-8DC2-C6**********
    */
   requestId?: string;
   static names(): { [key: string]: string } {

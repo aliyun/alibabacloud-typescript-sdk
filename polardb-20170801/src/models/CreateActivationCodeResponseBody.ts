@@ -13,7 +13,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   activateAt?: string;
   /**
    * @remarks
-   * The activation code in the base64 format. The activation code is decoded and stored into a file named license.lic. PolarDB can access and read the license.lic file upon startup to validate the license or perform related operations.
+   * The content of the activation code. Decode this Base64-encoded content and save it to the \\`license.lic\\` file. PolarDB reads this file on startup.
    * 
    * @example
    * AAEAA******AAA=
@@ -29,7 +29,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the activation code expires.
+   * The expiration time.
    * 
    * @example
    * 2054-10-09 16:46:20
@@ -37,7 +37,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   expireAt?: string;
   /**
    * @remarks
-   * The time when the activation code was created.
+   * The creation time.
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -45,7 +45,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the activation code was last updated.
+   * The update time.
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -53,7 +53,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The activation code ID.
+   * The ID of the activation code.
    * 
    * @example
    * 123
@@ -77,7 +77,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 4CE6DF97-AEA4-484F-906F-C407EE******
@@ -85,7 +85,7 @@ export class CreateActivationCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The system identifier of the database.
+   * The unique system identifier of the database.
    * 
    * @example
    * 1234567890123456

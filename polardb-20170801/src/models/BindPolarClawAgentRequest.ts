@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindPolarClawAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * The agent ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BindPolarClawAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class BindPolarClawAgentRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The channel ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class BindPolarClawAgentRequest extends $dara.Model {
    */
   channel?: string;
   /**
+   * @remarks
+   * The account ID for the channel. If omitted, the default value is \\"default\\".
+   * 
    * @example
    * default
    */

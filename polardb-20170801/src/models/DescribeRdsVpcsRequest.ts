@@ -7,6 +7,8 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,9 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-************
    */
@@ -22,6 +27,9 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
   resourceOwnerId?: number;
   securityToken?: string;
   /**
+   * @remarks
+   * The ID of the zone.
+   * 
    * @example
    * cn-hangzhou-k
    */

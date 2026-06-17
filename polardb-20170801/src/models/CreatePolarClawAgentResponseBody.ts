@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
   /**
+   * @remarks
+   * The avatar\\"s path or content.
+   * 
    * @example
    * test
    */
   avatar?: string;
   /**
+   * @remarks
+   * The avatar URL.
+   * 
    * @example
    * test
    */
   avatarUrl?: string;
   /**
+   * @remarks
+   * The emoji identifier.
+   * 
    * @example
    * U+1F99E
    */
   emoji?: string;
   /**
+   * @remarks
+   * The identity name.
+   * 
    * @example
    * work
    */
   name?: string;
   /**
+   * @remarks
+   * The theme.
+   * 
    * @example
    * work
    */
@@ -60,19 +75,29 @@ export class CreatePolarClawAgentResponseBodyAgentIdentity extends $dara.Model {
 export class CreatePolarClawAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * work
    */
   id?: string;
+  /**
+   * @remarks
+   * The agent\\"s identity.
+   */
   identity?: CreatePolarClawAgentResponseBodyAgentIdentity;
   /**
+   * @remarks
+   * The display name of the agent.
+   * 
    * @example
    * work
    */
   name?: string;
   /**
+   * @remarks
+   * The workspace path.
+   * 
    * @example
    * /home/node/.openclaw/workspace-work
    */
@@ -108,41 +133,63 @@ export class CreatePolarClawAgentResponseBodyAgent extends $dara.Model {
 }
 
 export class CreatePolarClawAgentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the new agent.
+   */
   agent?: CreatePolarClawAgentResponseBodyAgent;
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * work
    */
   agentId?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The display name of the agent.
+   * 
    * @example
    * work
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
    */
   requestId?: string;
   /**
+   * @remarks
+   * The workspace path.
+   * 
    * @example
    * /home/node/.openclaw/workspace-work
    */

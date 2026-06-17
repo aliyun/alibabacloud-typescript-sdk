@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolarClawAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the agent to delete. This parameter cannot be set to `main`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeletePolarClawAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DeletePolarClawAgentRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * Specifies whether to delete the working directory and session files. Default value: `true`.
+   * 
    * @example
    * true
    */

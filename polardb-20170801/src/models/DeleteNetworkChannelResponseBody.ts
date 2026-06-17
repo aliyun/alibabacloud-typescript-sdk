@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNetworkChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 3AA69096-757C-4647-B36C-29EBC2******

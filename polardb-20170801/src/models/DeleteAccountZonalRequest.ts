@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountZonalRequest extends $dara.Model {
   /**
    * @remarks
+   * The account name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteAccountZonalRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

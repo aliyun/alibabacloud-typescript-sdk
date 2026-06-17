@@ -120,27 +120,46 @@ export class DescribeApplicationPerformanceResponseBodyPerformanceKeys extends $
 
 export class DescribeApplicationPerformanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The application cluster ID.
+   * 
    * @example
    * pa-**************
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The application type.
+   * 
    * @example
    * supabase
    */
   applicationType?: string;
   /**
+   * @remarks
+   * The end time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * 
    * @example
    * 2025-05-23T02:21:00Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The performance metrics.
+   */
   performanceKeys?: DescribeApplicationPerformanceResponseBodyPerformanceKeys;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CDB3258F-B5DE-43C4-8935-CBA0CA******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * 
    * @example
    * 2022-11-15T16:00Z
    */

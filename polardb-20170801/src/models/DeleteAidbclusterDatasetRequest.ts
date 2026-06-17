@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAIDBClusterDatasetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-**************
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * The dataset ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,6 +24,9 @@ export class DeleteAIDBClusterDatasetRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

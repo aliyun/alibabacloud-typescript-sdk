@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the database engine. Only **MySQL** is supported.
+   * The database engine type. Only **MySQL** is supported.
    * 
    * @example
    * MySQL
@@ -15,9 +15,11 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
    * @remarks
    * The version of the database engine. Valid values:
    * 
-   * *   **5.6**
-   * *   **5.7**
-   * *   **8.0**
+   * - **5.6**
+   * 
+   * - **5.7**
+   * 
+   * - **8.0**
    * 
    * @example
    * 8.0
@@ -27,9 +29,9 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The ID of the region.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all regions that are available for your account, such as the region ID.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the information about all available regions of your account, including the region IDs.
    * 
    * This parameter is required.
    * 
@@ -39,7 +41,7 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the virtual node belongs.
+   * The ID of the resource group.
    * 
    * @example
    * rg-************

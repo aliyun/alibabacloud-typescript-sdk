@@ -118,7 +118,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformanceKeys extends $da
 export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The database cluster ID.
    * 
    * @example
    * pc-*****************
@@ -126,7 +126,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * The compatible database type.
    * 
    * @example
    * MySQL
@@ -134,7 +134,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The compatible database version.
    * 
    * @example
    * 8.0
@@ -142,7 +142,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The end time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The end of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
    * 
    * @example
    * 2020-09-23T01:01:00Z
@@ -159,7 +159,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The beginning of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
    * 
    * @example
    * 2020-09-23T01:00:00Z

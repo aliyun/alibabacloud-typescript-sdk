@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAIDBClusterTaskLogFilesResponseBodyItemsSlsLogItems extends $dara.Model {
   /**
+   * @remarks
+   * The time when the log was recorded.
+   * 
    * @example
    * 2026-01-15T14:13:50.830295892Z
    */
   logTime?: string;
   /**
+   * @remarks
+   * The log message.
+   * 
    * @example
    * test
    */
   message?: string;
   /**
+   * @remarks
+   * The specific point in time when the metric was recorded. The value is a UNIX timestamp. Unit: seconds.
+   * 
    * @example
    * 1765677660
    */
@@ -44,6 +53,10 @@ export class DescribeAIDBClusterTaskLogFilesResponseBodyItemsSlsLogItems extends
 }
 
 export class DescribeAIDBClusterTaskLogFilesResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The SLS log information.
+   */
   slsLogItems?: DescribeAIDBClusterTaskLogFilesResponseBodyItemsSlsLogItems[];
   static names(): { [key: string]: string } {
     return {
@@ -71,35 +84,54 @@ export class DescribeAIDBClusterTaskLogFilesResponseBodyItems extends $dara.Mode
 
 export class DescribeAIDBClusterTaskLogFilesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 2026-01-15T15:00:00Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The list of logs.
+   */
   items?: DescribeAIDBClusterTaskLogFilesResponseBodyItems;
   /**
+   * @remarks
+   * The page number of the returned page. The default value is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The total number of entries that meet the query conditions. This parameter is optional and may not be returned.
+   * 
    * @example
    * 7
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The maximum number of records returned for the current request.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 7E2FE3BB-C677-5FF9-9FC5-9CF364BD6BE5
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
+   * 
    * @example
    * 2026-01-15T14:00:00Z
    */

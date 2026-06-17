@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class EnableDBClusterOrcaRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view information about all clusters in the destination region, including cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example

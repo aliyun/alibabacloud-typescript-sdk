@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBClusterEndpointZonalRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteDBClusterEndpointZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The custom cluster endpoint ID.
+   * 
    * This parameter is required.
    * 
    * @example

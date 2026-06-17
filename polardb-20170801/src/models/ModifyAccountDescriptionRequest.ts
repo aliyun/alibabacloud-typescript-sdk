@@ -7,8 +7,9 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * @remarks
    * The description of the account. The description must meet the following requirements:
    * 
-   * *   The description cannot start with `http://` or `https://`.
-   * *   The description must be 2 to 256 characters in length.
+   * - It cannot start with `http://` or `https://`.
+   * 
+   * - It must be 2 to 256 characters in length.
    * 
    * This parameter is required.
    * 
@@ -18,7 +19,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The name of the account.
+   * The account name.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 

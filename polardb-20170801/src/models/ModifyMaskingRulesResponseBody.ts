@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMaskingRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message that is returned for the request.
+   * The response message.
    * 
-   * > If the request is successful, Successful is returned. If the request fails, an error message such as an error code is returned.
+   * > If the request is successful, `Successful` is returned. If the request fails, an error message is returned.
    * 
    * @example
    * Message
@@ -15,7 +15,7 @@ export class ModifyMaskingRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 99B355CE-526C-478B-B730-AD9D7C******
@@ -23,10 +23,11 @@ export class ModifyMaskingRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid value:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**:
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

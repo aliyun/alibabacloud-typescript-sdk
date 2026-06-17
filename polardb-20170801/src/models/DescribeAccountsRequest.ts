@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the account.
+   * The account name.
    * 
    * @example
    * test_acc
@@ -23,9 +23,9 @@ export class DescribeAccountsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The node type. This parameter is required when you query the PolarDB search node account.
+   * The node type. Required when you query the PolarDB search node account
    * 
-   * *   Search
+   * - Search
    * 
    * @example
    * Search
@@ -35,7 +35,7 @@ export class DescribeAccountsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return. Set this parameter to an integer that is larger than 0. Default value: **1**.
+   * The page number of the returned page. The value must be an integer that is larger than 0. The default value is **1**.
    * 
    * @example
    * 1
@@ -43,13 +43,15 @@ export class DescribeAccountsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of entries returned per page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
    * 
-   * Default value: **30**.
+   * - **50**
+   * 
+   * - **100**
+   * 
+   * The default value is **30**.
    * 
    * @example
    * 30

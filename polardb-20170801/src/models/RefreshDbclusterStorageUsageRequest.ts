@@ -9,10 +9,11 @@ export class RefreshDBClusterStorageUsageRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable real-time synchronization. Valid values:
+   * Specifies the synchronization mode. Valid values:
    * 
-   * *   **true**
-   * *   **false**: T + 1
+   * - **true**: Real-time synchronization.
+   * 
+   * - **false**: T+1 synchronization.
    * 
    * @example
    * true

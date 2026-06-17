@@ -4,56 +4,99 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   /**
+   * @remarks
+   * The TTL of the access time. Unit: seconds.
+   * 
    * @example
    * 7200
    */
   accessTTL?: number;
   /**
+   * @remarks
+   * The TTL of the change time. Unit: seconds.
+   * 
    * @example
    * 7200
    */
   changeTTL?: number;
   /**
+   * @remarks
+   * The rule description.
+   * 
    * @example
    * NULL
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * - **true**: The rule takes effect immediately for new events. This is the default value.
+   * 
+   * - **false**: The rule does not take effect for new events.
+   * 
    * @example
    * false
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The glob pattern of paths to exclude.
+   * 
+   * - The pattern must start with `/` and supports glob syntax, including `*`, `?`, and `**`.
+   * 
    * @example
    * NULL
    */
   exclude?: string;
   /**
+   * @remarks
+   * The maximum number of files in the directory.
+   * 
    * @example
    * 77
    */
   fileCountLimit?: number;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 73
    */
   id?: number;
   /**
+   * @remarks
+   * The glob pattern for paths to include.
+   * 
+   * - The pattern must start with `/` and supports glob syntax, including `*`, `?`, and `**`.
+   * 
    * @example
    * /a*
    */
   include?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * xxxxx
    */
   name?: string;
   /**
+   * @remarks
+   * The priority of the quota rule.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The maximum total size of files in the directory. Unit: GB.
+   * 
+   * - The value must be greater than or equal to 1.
+   * 
    * @example
    * 1
    */
@@ -101,26 +144,41 @@ export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
 
 export class DescribePolarFsQuotaResponseBodyQuotaItems extends $dara.Model {
   /**
+   * @remarks
+   * The capacity. Unit: bytes.
+   * 
    * @example
    * 1073741824
    */
   capacity?: number;
   /**
+   * @remarks
+   * The total number of inodes.
+   * 
    * @example
    * 100
    */
   inodes?: number;
   /**
+   * @remarks
+   * The directory path.
+   * 
    * @example
    * /data
    */
   path?: string;
   /**
+   * @remarks
+   * The used capacity. Unit: bytes.
+   * 
    * @example
    * 104857600
    */
   usedCapacity?: number;
   /**
+   * @remarks
+   * The number of used inodes.
+   * 
    * @example
    * 1
    */
@@ -156,41 +214,67 @@ export class DescribePolarFsQuotaResponseBodyQuotaItems extends $dara.Model {
 
 export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries returned on the current page.
+   * 
    * @example
    * 5
    */
   pageRecordCount?: string;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 5 to 50. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The path of the directory.
+   * 
    * @example
    * /data
    */
   path?: string;
   /**
+   * @remarks
+   * The PolarFS instance ID.
+   * 
    * @example
    * pfs-2ze0i74ka607*****
    */
   polarFsInstanceId?: string;
+  /**
+   * @remarks
+   * The details of the rules.
+   */
   policyItems?: DescribePolarFsQuotaResponseBodyPolicyItems[];
+  /**
+   * @remarks
+   * The quota information.
+   */
   quotaItems?: DescribePolarFsQuotaResponseBodyQuotaItems[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 5
    */

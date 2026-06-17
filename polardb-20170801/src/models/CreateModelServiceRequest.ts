@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The API key for the model service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateModelServiceRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
+   * The URL of the upstream service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateModelServiceRequest extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
+   * The gateway instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,12 +34,17 @@ export class CreateModelServiceRequest extends $dara.Model {
    */
   gwClusterId?: string;
   /**
+   * @remarks
+   * The billing cost for input, measured in points per one million tokens.
+   * 
    * @example
    * 10
    */
   inputCostPointsPerMillion?: string;
   /**
    * @remarks
+   * The model category.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +53,8 @@ export class CreateModelServiceRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
+   * The model service name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,27 +62,47 @@ export class CreateModelServiceRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The billing cost for output, measured in points per one million tokens.
+   * 
    * @example
    * 10
    */
   outputCostPointsPerMillion?: string;
   /**
    * @remarks
+   * The protocol type.
+   * 
    * This parameter is required.
    * 
    * @example
    * openai
    */
   protocol?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   /**
+   * @remarks
+   * The billing cost per request, measured in points.
+   * 
    * @example
    * 10
    */
   requestCostPoints?: string;
   /**
    * @remarks
+   * The model service provider. The example value `bailian` is a pinyin-based identifier that corresponds to the product name Model Studio.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * bailian
    */
   vendor?: string;
   static names(): { [key: string]: string } {

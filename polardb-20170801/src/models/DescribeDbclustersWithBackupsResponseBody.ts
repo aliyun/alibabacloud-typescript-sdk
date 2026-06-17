@@ -109,7 +109,7 @@ export class DescribeDBClustersWithBackupsResponseBody extends $dara.Model {
   items?: DescribeDBClustersWithBackupsResponseBodyItems;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The page number.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class DescribeDBClustersWithBackupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of clusters returned per page.
+   * The number of clusters on the current page.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class DescribeDBClustersWithBackupsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F8529AA2-522F-4B30-B80B-8F7D39******
@@ -133,7 +133,7 @@ export class DescribeDBClustersWithBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1

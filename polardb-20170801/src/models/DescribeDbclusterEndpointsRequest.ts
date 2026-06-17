@@ -7,7 +7,7 @@ export class DescribeDBClusterEndpointsRequest extends $dara.Model {
    * @remarks
    * The ID of the cluster.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to find the IDs of all clusters in your account.
    * 
    * This parameter is required.
    * 
@@ -17,13 +17,16 @@ export class DescribeDBClusterEndpointsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The ID of the cluster endpoint.
    * 
    * @example
    * pe-*************
    */
   DBEndpointId?: string;
   /**
+   * @remarks
+   * Specifies whether to return information about AI nodes.
+   * 
    * @example
    * AI
    */
@@ -31,6 +34,9 @@ export class DescribeDBClusterEndpointsRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the PolarFS instance.
+   * 
    * @example
    * pfs-test*****
    */

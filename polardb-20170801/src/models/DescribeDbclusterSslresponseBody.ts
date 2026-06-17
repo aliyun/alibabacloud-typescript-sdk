@@ -5,20 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint.
+   * The cluster endpoint ID.
    * 
    * @example
    * pe-************
    */
   DBEndpointId?: string;
   /**
+   * @remarks
+   * Indicates whether automatic rotation of SSL certificates is enabled. Valid values:
+   * 
+   * - **Enable**: enabled
+   * 
+   * - **Disable**: disabled
+   * 
+   * > This parameter is supported only when the database engine is compatible with PostgreSQL or Oracle syntax.
+   * 
    * @example
    * Enable
    */
   SSLAutoRotate?: string;
   /**
    * @remarks
-   * The SSL connection string.
+   * The SSL connection endpoint.
    * 
    * @example
    * pc-************.mysql.polardb.rds.aliyuncs.com
@@ -28,8 +37,9 @@ export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
    * @remarks
    * Indicates whether SSL encryption is enabled. Valid values:
    * 
-   * *   **Enabled**: SSL is enabled.
-   * *   **Disable**: SSL is disabled.
+   * - **Enabled**: enabled.
+   * 
+   * - **Disabled**: disabled.
    * 
    * @example
    * Enabled
@@ -37,7 +47,7 @@ export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
   SSLEnabled?: string;
   /**
    * @remarks
-   * The time when the server certificate expires. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The certificate validity period. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
    * 
    * @example
    * 2021-11-13T07:14:22Z
@@ -75,12 +85,12 @@ export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
 export class DescribeDBClusterSSLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of SSL connections.
+   * A list of SSL connection information.
    */
   items?: DescribeDBClusterSSLResponseBodyItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C890995A-CF06-4F4D-8DB8-DD26C2******
@@ -90,10 +100,11 @@ export class DescribeDBClusterSSLResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether automatic rotation of SSL certificates is enabled. Valid values:
    * 
-   * *   **Enable**: The feature is enabled.
-   * *   **Disable**: The feature is disabled.
+   * - **Enable**: enabled
    * 
-   * > This parameter is valid only for a PolarDB for MySQL cluster.
+   * - **Disable**: disabled
+   * 
+   * > This parameter is supported only for PolarDB for MySQL.
    * 
    * @example
    * Enable

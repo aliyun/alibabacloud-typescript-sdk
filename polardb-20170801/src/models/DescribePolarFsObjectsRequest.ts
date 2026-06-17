@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarFsObjectsRequest extends $dara.Model {
   /**
    * @remarks
+   * The absolute path of the directory.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribePolarFsObjectsRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
+   * The PolarFs instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

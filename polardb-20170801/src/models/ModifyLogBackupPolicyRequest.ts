@@ -3,14 +3,105 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyLogBackupPolicyRequestAdvancedLogPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The operation type. Valid values:
+   * 
+   * - **CREATE**: Create
+   * 
+   * - **UPDATE**: Update
+   * 
+   * - **DELETE**: Delete
+   * 
+   * @example
+   * CREATE
+   */
   actionType?: string;
+  /**
+   * @remarks
+   * The destination region of the log backup policy.
+   * 
+   * @example
+   * cn-shanghai
+   */
   destRegion?: string;
+  /**
+   * @remarks
+   * The destination type of the backup policy. Valid values:
+   * 
+   * - **level1**: level-1 backup
+   * 
+   * - **level2**: level-2 backup
+   * 
+   * - **level2Cross**: level-2 cross-region backup
+   * 
+   * @example
+   * level2
+   */
   destType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable log backup. Set the value to 1.
+   * 
+   * @example
+   * 1
+   */
   enableLogBackup?: number;
+  /**
+   * @remarks
+   * The retention period type for log backups. Valid values:
+   * 
+   * - **never**: The backups never expire.
+   * 
+   * - **delay**: The backups expire after a fixed number of days.
+   * 
+   * @example
+   * delay
+   */
   logRetentionType?: string;
+  /**
+   * @remarks
+   * The number of days to retain the log backups. Valid values:
+   * 
+   * - 3 to 7300: The retention period in days.
+   * 
+   * - -1: long-term retention.
+   * 
+   * @example
+   * 10
+   */
   logRetentionValue?: string;
+  /**
+   * @remarks
+   * The ID of the log backup policy.
+   * 
+   * @example
+   * 71930ac2e9f15e41615e10627c******
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The source region of the log backup policy.
+   * 
+   * @example
+   * cn-beijing
+   */
   srcRegion?: string;
+  /**
+   * @remarks
+   * The source type of the log backup policy. Valid values:
+   * 
+   * - **db**: database cluster
+   * 
+   * - **level1**: level-1 backup
+   * 
+   * - **level2**: level-2 backup
+   * 
+   * - **level2Cross**: level-2 cross-region backup
+   * 
+   * @example
+   * level1
+   */
   srcType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,12 +141,20 @@ export class ModifyLogBackupPolicyRequestAdvancedLogPolicies extends $dara.Model
 }
 
 export class ModifyLogBackupPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The advanced backup policies.
+   * 
+   * > - - This parameter is not supported for PolarDB for PostgreSQL (Oracle Compatible) or PolarDB for PostgreSQL.
+   * >
+   * > - - This parameter is supported only for clusters for which the BackupPolicyLevel parameter is set to Advanced.
+   */
   advancedLogPolicies?: ModifyLogBackupPolicyRequestAdvancedLogPolicies[];
   /**
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information of all clusters that are deployed in a specific region, such as the cluster IDs.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view information about all clusters in a specific region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -65,7 +164,9 @@ export class ModifyLogBackupPolicyRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The region in which you want to store cross-region log backups. For information about regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+   * The destination region for cross-region log backups. For information about the regions that support cross-region backup, see [Overview](https://help.aliyun.com/document_detail/72672.html).
+   * 
+   * > - - After you enable the advanced backup feature, this parameter is no longer valid. Use the AdvancedLogPolicies parameter instead.
    * 
    * @example
    * cn-hangzhou
@@ -75,11 +176,15 @@ export class ModifyLogBackupPolicyRequest extends $dara.Model {
    * @remarks
    * The retention period of cross-region log backups. Valid values:
    * 
-   * *   **0**: The cross-region backup feature is disabled.
-   * *   **30 to 7300**: Cross-region log backups are retained for 30 to 7,300 days.
-   * *   **-1**: The log backups are permanently retained.
+   * - **0**: Disables the cross-region log backup feature.
    * 
-   * >  When you create a cluster, the default value of this parameter is **0**.
+   * - **30 to 7300**: The retention period in days.
+   * 
+   * - **-1**: long-term retention.
+   * 
+   * > * * When you create a cluster, the default value of this parameter is **0**. This value disables the cross-region log backup feature.
+   * >
+   * > * - After you enable the advanced backup feature, this parameter is no longer valid. Use the AdvancedLogPolicies parameter instead.
    * 
    * @example
    * 30
@@ -87,10 +192,13 @@ export class ModifyLogBackupPolicyRequest extends $dara.Model {
   logBackupAnotherRegionRetentionPeriod?: string;
   /**
    * @remarks
-   * The retention period of the log backups. Valid values:
+   * The retention period of log backups. Valid values:
    * 
-   * *   3 to 7300: The log backups are retained for 3 to 7,300 days.
-   * *   \\-1: The log backups are permanently retained.
+   * - 3 to 7300: The retention period in days.
+   * 
+   * - -1: long-term retention.
+   * 
+   * > * * After you enable the advanced backup feature, this parameter is no longer valid. Use the AdvancedLogPolicies parameter instead.
    * 
    * @example
    * 3

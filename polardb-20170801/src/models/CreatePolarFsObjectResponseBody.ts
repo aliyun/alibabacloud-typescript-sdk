@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePolarFsObjectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The absolute path of the created directory.
+   * 
    * @example
    * /test
    */
   path?: string;
   /**
+   * @remarks
+   * The PolarFS instance id.
+   * 
    * @example
    * pfs-test****
    */
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request id.
    * 
    * @example
    * C890995A-CF06-4F4D-8DB8-DD26C2******

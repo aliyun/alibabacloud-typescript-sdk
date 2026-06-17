@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBatchTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the batch task.
+   * 
    * @example
    * pcb-xxx
    */

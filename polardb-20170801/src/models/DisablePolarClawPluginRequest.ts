@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisablePolarClawPluginRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DisablePolarClawPluginRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The ID of the plugin to disable.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DisablePolarClawPluginRequest extends $dara.Model {
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway. Default value: true.
+   * 
    * @example
    * true
    */

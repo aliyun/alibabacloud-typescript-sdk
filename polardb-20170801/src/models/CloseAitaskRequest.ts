@@ -17,7 +17,7 @@ export class CloseAITaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 

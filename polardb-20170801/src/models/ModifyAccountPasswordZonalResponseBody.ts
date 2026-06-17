@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAccountPasswordZonalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******
    */

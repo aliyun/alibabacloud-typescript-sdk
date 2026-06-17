@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterConnectivityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code for connection diagnosis. Valid values:
+   * The connection check error code. Valid values:
    * 
-   * *   **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not added to the whitelist.
-   * *   **CONNECTION_ABNORMAL**: The connection to the cluster is normal.
+   * - **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not in the whitelist.
+   * 
+   * - **CONNECTION_ABNORMAL**: The connection is abnormal.
    * 
    * @example
    * SRC_IP_NOT_IN_USER_WHITELIST
@@ -16,7 +17,7 @@ export class DescribeDBClusterConnectivityResponseBody extends $dara.Model {
   connCheckErrorCode?: string;
   /**
    * @remarks
-   * The error message for connection diagnosis.
+   * The connection check error message.
    * 
    * @example
    * Src ip:192.***.***.1 not in user whitelist
@@ -24,10 +25,11 @@ export class DescribeDBClusterConnectivityResponseBody extends $dara.Model {
   connCheckErrorMessage?: string;
   /**
    * @remarks
-   * The connection diagnosis result. Valid values:
+   * The connection check result. Valid values:
    * 
-   * *   **Success**
-   * *   **Failed**
+   * - **Success**
+   * 
+   * - **Failed**
    * 
    * @example
    * Failed

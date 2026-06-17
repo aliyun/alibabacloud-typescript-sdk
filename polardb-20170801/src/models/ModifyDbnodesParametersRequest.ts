@@ -15,7 +15,7 @@ export class ModifyDBNodesParametersRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the node. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
+   * The IDs of the nodes. To specify multiple node IDs, separate the IDs with a comma (,).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyDBNodesParametersRequest extends $dara.Model {
   DBNodeIds?: string;
   /**
    * @remarks
-   * Specifies whether to immediately run the task to modify parameters and restart the cluster. Valid values: false: runs the task on schedule. true: runs the task immediately. Default value: false.
+   * Specifies whether to apply the parameter modifications and restart the node. Valid values: \\`false\\` (default): Schedules the task. \\`true\\`: Executes the task immediately.
    * 
    * @example
    * false
@@ -35,7 +35,7 @@ export class ModifyDBNodesParametersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the parameter template that is used for the cluster.
+   * The ID of the parameter template.
    * 
    * @example
    * pcpg-**************
@@ -43,7 +43,7 @@ export class ModifyDBNodesParametersRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The JSON string that specifies the parameter and its value.
+   * A JSON string that contains the parameters and their values.
    * 
    * @example
    * {"wait_timeout":"86","innodb_old_blocks_time":"10"}
@@ -51,7 +51,7 @@ export class ModifyDBNodesParametersRequest extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The latest start time to run the task. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * The latest time to start the scheduled task. The time must be in the \\`YYYY-MM-DDThh:mm:ssZ\\` format and in UTC.
    * 
    * @example
    * 2022-04-28T14:30:00Z
@@ -59,7 +59,7 @@ export class ModifyDBNodesParametersRequest extends $dara.Model {
   plannedEndTime?: string;
   /**
    * @remarks
-   * The earliest start time to run the task to upgrade the kernel version of the cluster. The task runs within a specified period of time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * The earliest time to start the scheduled task. The time must be in the \\`YYYY-MM-DDThh:mm:ssZ\\` format and in UTC.
    * 
    * @example
    * 2022-04-28T14:00:00Z

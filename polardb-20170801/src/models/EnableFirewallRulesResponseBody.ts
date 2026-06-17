@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EnableFirewallRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message that is returned for the request.
+   * The message returned.
    * 
-   * > If the request was successful, Successful is returned. If the request failed, an error message that contains information such as an error code is returned.
+   * > Typically returns `Successful` on success. When the request fails, this parameter returns exception information such as error codes.
    * 
    * @example
    * Message
@@ -15,7 +15,7 @@ export class EnableFirewallRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request.
    * 
    * @example
    * 99B355CE-526C-478B-B730-AD9D7C******
@@ -25,8 +25,8 @@ export class EnableFirewallRulesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

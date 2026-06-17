@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterAccessWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the PolarDB cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 

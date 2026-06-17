@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAIDBClusterTaskAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * pm-2ze99***
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The query mode. Valid value:
+   * 
+   * - **RelatedAITask**: Returns the task details.
+   * 
    * @example
    * RelatedAITask
    */
@@ -16,6 +24,9 @@ export class DescribeAIDBClusterTaskAttributeRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

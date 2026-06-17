@@ -4,19 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddFirewallRulesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2921D843-433A-5FB3-A03B-4EC093B219F8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result of the request. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * True
    */

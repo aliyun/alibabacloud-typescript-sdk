@@ -76,7 +76,7 @@ export class DescribeBackupLogsResponseBody extends $dara.Model {
   items?: DescribeBackupLogsResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class DescribeBackupLogsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 2
@@ -100,7 +100,7 @@ export class DescribeBackupLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 2

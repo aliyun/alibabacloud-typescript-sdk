@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolarClawConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetPolarClawConfigRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The path to the configuration section to retrieve, specified in JSONPath dot notation. If this parameter is empty, the entire configuration is returned.
+   * 
    * @example
    * models
    */

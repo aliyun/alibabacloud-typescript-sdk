@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyResourcePackageRequest extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether to enable automatic quotas.
+   * 
    * @example
    * true
    */
   autoQuota?: boolean;
   /**
    * @remarks
+   * The ID of the cross-cloud resource plan.
+   * 
    * This parameter is required.
    * 
    * @example

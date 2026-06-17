@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableDBClusterOrcaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-***************
    */
   DBClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

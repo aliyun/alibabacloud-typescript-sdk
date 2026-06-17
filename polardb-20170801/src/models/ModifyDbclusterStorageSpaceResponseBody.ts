@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterStorageSpaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the database cluster.
    * 
    * @example
    * pc-*************
@@ -13,7 +13,7 @@ export class ModifyDBClusterStorageSpaceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 2035629******
@@ -21,7 +21,7 @@ export class ModifyDBClusterStorageSpaceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 685F028C-4FCD-407D-A559-072D63******

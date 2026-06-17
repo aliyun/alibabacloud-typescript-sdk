@@ -13,12 +13,12 @@ export class TempModifyDBNodeResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The details of the nodes.
+   * The list of nodes.
    */
   DBNodeIds?: string[];
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 2035638*******

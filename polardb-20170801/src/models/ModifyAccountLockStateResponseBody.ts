@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAccountLockStateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B762E8C5-0129-51DB-80C8-********
    */

@@ -7,8 +7,9 @@ export class DescribeDBClusterAuditLogCollectorResponseBody extends $dara.Model 
    * @remarks
    * The status of SQL collector. Valid values:
    * 
-   * *   Enable
-   * *   Disabled
+   * - Enable
+   * 
+   * - Disabled
    * 
    * @example
    * Disabled

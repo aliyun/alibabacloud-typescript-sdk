@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCharacterSetNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
-   * > You can only query character sets that PolarDB for MySQL clusters support. If you enter the ID of a PolarDB for PostgreSQL or PolarDB for Oracle cluster, the returned value of the `CharacterSetNameItems` parameter is an empty string.
+   * > This operation supports only PolarDB for MySQL clusters. If you specify the cluster ID of a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Oracle Compatible) cluster, `CharacterSetNameItems` will be empty in the response.
    * 
    * @example
    * pc-****************
@@ -17,7 +17,7 @@ export class DescribeCharacterSetNameRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
    * 

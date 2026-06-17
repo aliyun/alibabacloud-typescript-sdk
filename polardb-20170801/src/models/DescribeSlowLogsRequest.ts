@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * PolarDB_MySQL
@@ -23,7 +23,7 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. The time span between the start time and the end time cannot exceed 31 days. Specify the time in the yyyy-MM-ddZ format. The time must be in UTC.
+   * The end date of the query range. The end date cannot be earlier than the start date, and the interval between the start and end dates cannot exceed 31 days. Specify the date in `yyyy-MM-ddZ` format. The time is in UTC.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,9 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from 1.
+   * The page number.
    * 
-   * Default value: 1.
+   * The default value is 1.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 30 to 100. Default value: 30.
+   * The number of logs to return on each page. Valid values: 30 to 100. The default value is 30.
    * 
    * @example
    * 30
@@ -53,7 +53,7 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class DescribeSlowLogsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddZ format. The time must be in UTC.
+   * The start date of the query range. The date can be up to 31 days in the past. Specify the date in `yyyy-MM-ddZ` format. The time is in UTC.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * pc-************
@@ -13,33 +13,45 @@ export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Cluster key list.
+   * The list of cluster keys.
    */
   keyList?: string[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 1
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */

@@ -13,7 +13,7 @@ export class CreateStoragePlanResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 2035638*******

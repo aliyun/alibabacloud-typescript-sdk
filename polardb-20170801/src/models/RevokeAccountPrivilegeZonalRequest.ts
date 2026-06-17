@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeAccountPrivilegeZonalRequest extends $dara.Model {
   /**
    * @remarks
+   * The account name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class RevokeAccountPrivilegeZonalRequest extends $dara.Model {
    */
   accountName?: string;
   /**
+   * @remarks
+   * A client-generated token that ensures the idempotence of the request. The token must be unique for each request. It is case-sensitive and cannot exceed 64 ASCII characters.
+   * 
    * @example
    * 6000170000591aed949d0f5********************
    */
   clientToken?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class RevokeAccountPrivilegeZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the database. To specify multiple databases, separate the names with a comma (,).
+   * 
    * This parameter is required.
    * 
    * @example

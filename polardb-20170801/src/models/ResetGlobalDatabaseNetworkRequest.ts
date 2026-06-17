@@ -7,7 +7,7 @@ export class ResetGlobalDatabaseNetworkRequest extends $dara.Model {
    * @remarks
    * The ID of the cluster in the GDN.
    * 
-   * >  You can call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to view the ID of the cluster in the GDN.
+   * > Call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to query the IDs of clusters in the GDN.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ResetGlobalDatabaseNetworkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the GDN.
+   * The ID of the Global Database Network (GDN).
    * 
    * This parameter is required.
    * 

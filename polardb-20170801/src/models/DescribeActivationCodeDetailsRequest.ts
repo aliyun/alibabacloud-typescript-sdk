@@ -13,7 +13,7 @@ export class DescribeActivationCodeDetailsRequest extends $dara.Model {
   activationCodeId?: number;
   /**
    * @remarks
-   * The Alibaba Cloud order ID (including the virtual order ID).
+   * The Alibaba Cloud order ID, including virtual orders.
    * 
    * This parameter is required.
    * 

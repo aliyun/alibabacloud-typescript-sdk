@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBatchTasksShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the query range. Specify the time in UTC format.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -12,25 +14,42 @@ export class DescribeBatchTasksShrinkRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. The value must be a positive integer. The default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The start time of the query range. Specify the time in UTC format.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
    * 2026-04-06T20:51:40Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The task statuses.
+   * 
+   * > If you omit this parameter, the operation returns tasks of all statuses.
+   */
   statusShrink?: string;
   /**
+   * @remarks
+   * The type of the batch task.
+   * 
    * @example
    * polarclaw_install_skills
    */

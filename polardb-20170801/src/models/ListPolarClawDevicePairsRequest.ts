@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListPolarClawDevicePairsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example

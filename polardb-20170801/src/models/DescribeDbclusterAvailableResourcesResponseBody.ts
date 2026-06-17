@@ -7,14 +7,19 @@ export class DescribeDBClusterAvailableResourcesResponseBodyAvailableZonesSuppor
    * @remarks
    * The edition of the cluster. Valid values:
    * 
-   * *   **Normal**: Cluster Edition.
-   * *   **Basic**: Single Node Edition.
-   * *   **ArchiveNormal**: X-Engine.
-   * *   **NormalMultimaster**: Multi-master Cluster (Database/Table) Edition.
-   * *   **SENormal**: Standard Edition.
+   * - **Normal**: Cluster Edition.
    * 
-   * >- Only PolarDB for MySQL supports Single Node Edition.
-   * >- Only PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster (Database/Table) Edition.
+   * - **Basic**: Single Node Edition.
+   * 
+   * - **ArchiveNormal**: X-Engine.
+   * 
+   * - **NormalMultimaster**: Multi-master Cluster (Database/Table) Edition.
+   * 
+   * - **SENormal**: Standard Edition.
+   * 
+   * > * Only PolarDB for MySQL supports Single Node Edition.
+   * >
+   * > * Only PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster (Database/Table) Edition.
    * 
    * @example
    * Normal
@@ -94,7 +99,7 @@ export class DescribeDBClusterAvailableResourcesResponseBodyAvailableZonesSuppor
 export class DescribeDBClusterAvailableResourcesResponseBodyAvailableZones extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -102,12 +107,12 @@ export class DescribeDBClusterAvailableResourcesResponseBodyAvailableZones exten
   regionId?: string;
   /**
    * @remarks
-   * The database engines that the available resources support.
+   * The list of available engines.
    */
   supportedEngines?: DescribeDBClusterAvailableResourcesResponseBodyAvailableZonesSupportedEngines[];
   /**
    * @remarks
-   * The zone ID of the cluster.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i
@@ -144,12 +149,12 @@ export class DescribeDBClusterAvailableResourcesResponseBodyAvailableZones exten
 export class DescribeDBClusterAvailableResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available zones of the cluster.
+   * The list of available resources.
    */
   availableZones?: DescribeDBClusterAvailableResourcesResponseBodyAvailableZones[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2B19F698-8FFC-4918-B9E2-58D878******

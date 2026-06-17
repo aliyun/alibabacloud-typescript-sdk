@@ -31,8 +31,9 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
    * @remarks
    * Indicates whether the vSwitch is the default vSwitch. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The vSwitch is the default vSwitch.
+   * 
+   * - **false**: The vSwitch is not the default vSwitch.
    * 
    * @example
    * true
@@ -40,7 +41,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The zone to which the NAT gateway belongs.
+   * The zone where the NAT Gateway is located.
    * 
    * @example
    * cn-hangzhou-b
@@ -50,8 +51,9 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
    * @remarks
    * The status of the vSwitch. Valid values:
    * 
-   * *   **Pending**: The vSwitch is being configured.
-   * *   **Available**: The vSwitch is available.
+   * - **Pending**: The vSwitch is being configured.
+   * 
+   * - **Available**: The vSwitch is active.
    * 
    * @example
    * Available
@@ -59,7 +61,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-25bcdxs7pv1****
@@ -111,7 +113,7 @@ export class DescribeVSwitchesResponseBodyVSwitchs extends $dara.Model {
 export class DescribeVSwitchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -119,7 +121,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -135,7 +137,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of returned entries.
+   * The number of entries in the list.
    * 
    * @example
    * 1
@@ -143,7 +145,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The vSwitches.
+   * The list of vSwitches.
    */
   vSwitchs?: DescribeVSwitchesResponseBodyVSwitchs[];
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The dedicated cluster ID.
+   * The ID of the dedicated cluster.
    * 
-   * >  You must specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
+   * > Specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
    * 
    * @example
    * dhg-4n****
@@ -17,7 +17,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The page number of the list. The default value is 1.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 50. The default value is 50.
+   * The number of entries to return on each page for a paged query. The maximum value is 50. The default value is 50.
    * 
    * @example
    * 50
@@ -33,7 +33,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the vSwitch is deployed.
+   * The region ID of the vSwitch.
    * 
    * @example
    * cn-hangzhou
@@ -52,9 +52,9 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The ID of the virtual private type (VPC) to which the vSwitch belongs.
+   * The ID of the virtual private cloud (VPC) to which the vSwitch belongs.
    * 
-   * >  You must specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
+   * > Specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
    * 
    * @example
    * vpc-25cdvfeq58pl****
@@ -62,7 +62,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs.
+   * The zone ID of the vSwitch.
    * 
    * @example
    * cn-hangzhou-d

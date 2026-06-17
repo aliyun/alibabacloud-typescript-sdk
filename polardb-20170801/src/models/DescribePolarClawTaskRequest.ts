@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribePolarClawTaskRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The asynchronous task ID.
+   * 
    * This parameter is required.
    * 
    * @example

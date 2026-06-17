@@ -142,7 +142,7 @@ export class DescribeDatabasesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 1

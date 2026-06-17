@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the bucket.
+   * 
    * @example
    * Bucket1
    */
   bucket?: string;
   /**
+   * @remarks
+   * The custom storage path.
+   * 
    * @example
    * /data1
    */
@@ -39,9 +45,15 @@ export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Mode
 }
 
 export class AddPolarFsPathMappingRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of objects, each containing a bucket and its corresponding path.
+   */
   customBucketPathList?: AddPolarFsPathMappingRequestCustomBucketPathList[];
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +62,8 @@ export class AddPolarFsPathMappingRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The ID of the PolarFS instance.
+   * 
    * This parameter is required.
    * 
    * @example

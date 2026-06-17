@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarAgentChatRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DescribePolarAgentChatRecordsRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The product source. Valid value: polardb-console.
+   * 
    * @example
    * polardb-console
    */

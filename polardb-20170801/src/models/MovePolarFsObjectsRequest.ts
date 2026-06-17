@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MovePolarFsObjectsRequestObjectsToMove extends $dara.Model {
   /**
+   * @remarks
+   * The destination path.
+   * 
    * @example
    * /test1
    */
   destinationPath?: string;
   /**
+   * @remarks
+   * The source path.
+   * 
    * @example
    * /test
    */
@@ -37,8 +43,15 @@ export class MovePolarFsObjectsRequestObjectsToMove extends $dara.Model {
 }
 
 export class MovePolarFsObjectsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of files to move or rename.
+   */
   objectsToMove?: MovePolarFsObjectsRequestObjectsToMove[];
   /**
+   * @remarks
+   * The PolarFs instance ID.
+   * 
    * @example
    * pfs-test*****
    */

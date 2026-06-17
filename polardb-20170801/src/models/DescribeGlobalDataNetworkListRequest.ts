@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeGlobalDataNetworkListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records to return on each page.
+   * 
    * @example
    * 30
    */

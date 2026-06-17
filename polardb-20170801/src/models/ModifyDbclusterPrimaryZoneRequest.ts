@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query the details of all clusters in a destination region, including their cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to change the primary zone immediately. Valid values:
+   * Specifies whether to perform the zone change immediately or at a scheduled time. Valid values:
    * 
-   * *   false (default): changes the primary zone as scheduled.
-   * *   true: changes the primary zone immediately.
+   * - false (default): The zone change is performed at the scheduled time.
+   * 
+   * - true: The zone change is performed immediately.
    * 
    * @example
    * false
@@ -28,10 +29,11 @@ export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   fromTimeService?: boolean;
   /**
    * @remarks
-   * Specifies whether to switch back to the original primary zone.
+   * Specifies whether to fail back to the original zone. Valid values:
    * 
-   * *   true: switches back to the original primary zone.
-   * *   false: does not switch back to the original primary zone.
+   * - true: Fails back to the original zone.
+   * 
+   * - false: Does not fail back to the original zone.
    * 
    * @example
    * false
@@ -41,10 +43,11 @@ export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The latest start time to switch the primary zone within the scheduled time period. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * The latest time to start the scheduled task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
    * 
-   * > *   The latest start time must be at least 30 minutes later than the earliest start time.
-   * >*   If you specify the `PlannedStartTime` parameter but do not specify the PlannedEndTime parameter, the latest start time of the task is set to a value that is calculated by `the value of the PlannedEndTime parameter + 30 minutes` by default. For example, if you set the `PlannedStartTime` parameter to `2021-01-14T09:00:00Z` and you do not specify the PlannedEndTime parameter, the latest start time of the task is set to `2021-01-14T09:30:00Z`.
+   * > - The latest start time must be at least 30 minutes later than the earliest start time.
+   * >
+   * > - If you specify `PlannedStartTime` but not this parameter, the latest start time of the task is the value of `PlannedStartTime` plus 30 minutes by default. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and leave this parameter empty, the task starts no later than `2021-01-14T09:30:00Z`.
    * 
    * @example
    * 2021-01-14T09:30:00Z
@@ -52,10 +55,11 @@ export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   plannedEndTime?: string;
   /**
    * @remarks
-   * The start time to change the primary zone within the scheduled time period. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * The earliest time to start the scheduled task to change the zone. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
    * 
-   * > *   The start time of the task can be a point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a point in time from `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
-   * >*   If you leave this parameter empty, the primary zone is immediately changed.
+   * > - The start time must be a point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can set the start time to a value from `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
+   * >
+   * > - If you do not specify this parameter, the zone change task is performed immediately.
    * 
    * @example
    * 2021-01-14T09:00:00Z
@@ -65,7 +69,7 @@ export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the destination primary zone.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-**********
@@ -73,10 +77,11 @@ export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the destination primary zone.
+   * The ID of the vSwitch in the destination zone.
    * 
-   * > *   For a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, this parameter is required.
-   * >*   For a PolarDB for MySQL cluster, the default vSwitch is used if no vSwitches are created in the destination zone. If a vSwitch is in the destination zone, this parameter is required.
+   * > - This parameter is required for PolarDB for Oracle and PolarDB for PostgreSQL clusters.
+   * >
+   * > - For PolarDB for MySQL clusters, this parameter is required if a vSwitch is created in the destination zone. If no vSwitch is created, the default vSwitch is used and this parameter is optional.
    * 
    * @example
    * vsw-**************
@@ -84,9 +89,9 @@ export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the destination primary zone.
+   * The ID of the new zone.
    * 
-   * >  You can call the DescribeRegions operation to query available zones.[](~~98041~~)
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available zones.
    * 
    * This parameter is required.
    * 
@@ -96,10 +101,11 @@ export class ModifyDBClusterPrimaryZoneRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone type. Valid values:
+   * The type of the zone. Valid values:
    * 
-   * *   **Primary**: primary zone
-   * *   **Standby**: secondary zone
+   * - **Primary**: The primary zone.
+   * 
+   * - **Standby**: The secondary zone.
    * 
    * @example
    * Primary

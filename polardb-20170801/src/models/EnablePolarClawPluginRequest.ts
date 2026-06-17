@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EnablePolarClawPluginRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EnablePolarClawPluginRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The ID of the plugin to enable.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class EnablePolarClawPluginRequest extends $dara.Model {
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Indicates whether to restart the gateway after the plugin is enabled. Default value: `true`.
+   * 
    * @example
    * true
    */

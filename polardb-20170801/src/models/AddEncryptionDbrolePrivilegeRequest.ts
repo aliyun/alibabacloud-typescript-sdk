@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddEncryptionDBRolePrivilegeRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,11 +18,17 @@ export class AddEncryptionDBRolePrivilegeRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The access policy for the role.
+   * 
    * @example
    * {"notEncryption":["alton"],"encryption":["alton01"]}
    */
   rolePrivilegeConfig?: string;
   /**
+   * @remarks
+   * The name of the role-based permission.
+   * 
    * @example
    * test
    */

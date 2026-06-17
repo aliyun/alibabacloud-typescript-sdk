@@ -172,7 +172,7 @@ export class DescribeDBClusterParametersResponseBodyRunningParameters extends $d
 export class DescribeDBClusterParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * pc-bp1s826a1up******
@@ -180,11 +180,13 @@ export class DescribeDBClusterParametersResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The database engine that the clusters runs. Valid values:
+   * The database type. Valid values:
    * 
-   * *   **MySQL**
-   * *   **PostgreSQL**
-   * *   **Oracle**
+   * - **MySQL**
+   * 
+   * - **PostgreSQL**
+   * 
+   * - **Oracle**
    * 
    * @example
    * MySQL
@@ -192,16 +194,26 @@ export class DescribeDBClusterParametersResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine. 
+   * The database engine version.
+   * Valid values for MySQL:
    * 
-   * - Valid values for the MySQL database engine:   
-   *   - **5.6**
-   *   - **5.7**
-   *   - **8.0**
-   * - Valid value for the PostgreSQL database engine:    
-   *   - **11**
-   *   - **14**
-   * - Valid value for the Oracle database engine:  **11**
+   * - **5.6**
+   * 
+   * - **5.7**
+   * 
+   * - **8.0**
+   * 
+   * Valid values for PostgreSQL:
+   * 
+   * - **11**
+   * 
+   * - **14**
+   * 
+   * Valid values for Oracle:
+   * 
+   * - **11**
+   * 
+   * - **14**
    * 
    * @example
    * 5.6
@@ -209,7 +221,7 @@ export class DescribeDBClusterParametersResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The cluster engine.
+   * The engine.
    * 
    * @example
    * POLARDB
@@ -226,7 +238,7 @@ export class DescribeDBClusterParametersResponseBody extends $dara.Model {
   parameters?: DescribeDBClusterParametersResponseBodyParameters;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EBEAA83D-1734-42E3-85E3-E25F6E******

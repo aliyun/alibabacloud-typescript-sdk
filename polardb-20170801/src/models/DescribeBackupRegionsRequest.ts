@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBackupRegionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-uf64u64fln9039***
    */

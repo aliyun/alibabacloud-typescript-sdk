@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBNodeSccModeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E2FDB684-751D-424D-98B9-704BEA******
    */

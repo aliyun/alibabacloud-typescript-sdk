@@ -31,7 +31,7 @@ export class CreateDBNodesResponseBodyDBNodeIds extends $dara.Model {
 export class CreateDBNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The database cluster ID.
    * 
    * @example
    * pc-***************
@@ -40,7 +40,7 @@ export class CreateDBNodesResponseBody extends $dara.Model {
   DBNodeIds?: CreateDBNodesResponseBodyDBNodeIds;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 2148126708*****
@@ -48,7 +48,7 @@ export class CreateDBNodesResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E053E730-5755-4AA9-AA9D-A47867******

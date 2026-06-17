@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAvailableModelsResponseBodyItemsGpuRequired extends $dara.Model {
   /**
+   * @remarks
+   * The minimum number of GPUs required.
+   * 
    * @example
    * xx
    */
   gpuMinCount?: string;
   /**
+   * @remarks
+   * The GPU model.
+   * 
    * @example
    * xxx
    */
@@ -37,27 +43,47 @@ export class DescribeAvailableModelsResponseBodyItemsGpuRequired extends $dara.M
 }
 
 export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The required GPU configurations.
+   */
   gpuRequired?: DescribeAvailableModelsResponseBodyItemsGpuRequired[];
   /**
+   * @remarks
+   * The minimum number of CPU cores required.
+   * 
    * @example
    * 8
    */
   minimumCpu?: number;
   /**
+   * @remarks
+   * The minimum memory required, in MiB.
+   * 
    * @example
    * 16384
    */
   minimumMemory?: number;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * Qwen3-32B-GPTQ-Int4
    */
   modelName?: string;
   /**
+   * @remarks
+   * The model series.
+   * 
    * @example
    * BERT
    */
   modelSeries?: string;
+  /**
+   * @remarks
+   * The supported GPU models.
+   */
   supportedGpuModels?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -98,19 +124,29 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
 
 export class DescribeAvailableModelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The database engine.
+   * 
    * @example
    * polardb_ai
    */
   engine?: string;
   /**
+   * @remarks
+   * The engine version.
+   * 
    * @example
    * 3.0
    */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The list of models.
+   */
   items?: DescribeAvailableModelsResponseBodyItems[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 3AA69096-757C-4647-B36C-29EBC2******

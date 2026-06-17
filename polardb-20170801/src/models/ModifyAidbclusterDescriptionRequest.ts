@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAIDBClusterDescriptionRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyAIDBClusterDescriptionRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

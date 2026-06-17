@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetAccountZonalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******
    */

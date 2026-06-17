@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalDatabaseNetworkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GDN.
+   * The ID of the Global Database Network (GDN).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeGlobalDatabaseNetworkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-************

@@ -4,12 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBClusterDescriptionZonalRequest extends $dara.Model {
   /**
+   * @remarks
+   * A client token to ensure the idempotence of the request. The client generates this value. It must be unique among different requests. The token is case-sensitive and can contain up to 64 ASCII characters.
+   * 
    * @example
    * 6000170000591aed949d0f54a343f1a4233c1e7d1c5c******
    */
   clientToken?: string;
   /**
    * @remarks
+   * The cluster name. The cluster name must meet the following requirements:
+   * 
+   * - It cannot start with `http://` or `https://`.
+   * 
+   * - It must be 2 to 256 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +27,8 @@ export class ModifyDBClusterDescriptionZonalRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

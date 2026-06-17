@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyEncryptionDBRolePrivilegeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-******************
    */
   DBClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******

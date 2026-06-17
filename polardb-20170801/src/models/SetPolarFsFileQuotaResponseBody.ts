@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetPolarFsFileQuotaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the PolarFS instance.
+   * 
    * @example
    * pfs-2ze0i74ka607*****
    */
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******

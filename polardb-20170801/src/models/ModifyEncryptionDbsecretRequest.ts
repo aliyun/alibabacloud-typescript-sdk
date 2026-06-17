@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyEncryptionDBSecretRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,21 @@ export class ModifyEncryptionDBSecretRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The status of the key. Valid values:
+   * 
+   * - **Enabled**
+   * 
+   * - **Disabled**
+   * 
    * @example
    * Enabled
    */
   encryptionDBStatus?: string;
   /**
+   * @remarks
+   * The key ID.
+   * 
    * @example
    * 749c1df7-****-****-****-*********
    */
@@ -26,6 +38,9 @@ export class ModifyEncryptionDBSecretRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The Global Resource Descriptor (GRD) of the role. For more information, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+   * 
    * @example
    * acs:ram::1406926*****:role/aliyunrdsinstanceencryptiondefaultrole
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDBNameZonalRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CheckDBNameZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example

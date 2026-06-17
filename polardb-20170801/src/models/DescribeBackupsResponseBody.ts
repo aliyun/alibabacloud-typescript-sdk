@@ -17,6 +17,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
   expectExpireTime?: string;
   expectExpireType?: string;
   isAvail?: string;
+  tableRestoreMetaStatus?: string;
   static names(): { [key: string]: string } {
     return {
       backupEndTime: 'BackupEndTime',
@@ -33,6 +34,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
       expectExpireTime: 'ExpectExpireTime',
       expectExpireType: 'ExpectExpireType',
       isAvail: 'IsAvail',
+      tableRestoreMetaStatus: 'TableRestoreMetaStatus',
     };
   }
 
@@ -52,6 +54,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
       expectExpireTime: 'string',
       expectExpireType: 'string',
       isAvail: 'string',
+      tableRestoreMetaStatus: 'string',
     };
   }
 
@@ -102,7 +105,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records on the current page.
    * 
    * @example
    * 1
@@ -110,20 +113,29 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total size of level-2 backups in the specified region, in bytes.
+   * 
+   * > - Supported only for storage classes PSL4 and PSL5.
+   * >
+   * > - Supported only for clusters with the level-2 backup feature enabled.
+   * >
+   * > - If this field is not returned, the level-2 backup size is 0.
+   * 
    * @example
    * 4639948800
    */
   totalLevel2BackupSize?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of records.
    * 
    * @example
    * 1

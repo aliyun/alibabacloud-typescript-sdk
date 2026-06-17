@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterProxyRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,11 +16,19 @@ export class DescribeDBClusterProxyRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * > For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/98041.html).
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfm4ifnqnun3zq
    */

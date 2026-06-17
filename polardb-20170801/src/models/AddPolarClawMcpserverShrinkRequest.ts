@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddPolarClawMCPServerShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class AddPolarClawMCPServerShrinkRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The configuration object for the MCP server.
+   * 
    * @example
    * {
    *     "command": "node",
@@ -24,6 +29,8 @@ export class AddPolarClawMCPServerShrinkRequest extends $dara.Model {
   serverConfigShrink?: string;
   /**
    * @remarks
+   * The unique identifier for the MCP server.
+   * 
    * This parameter is required.
    * 
    * @example

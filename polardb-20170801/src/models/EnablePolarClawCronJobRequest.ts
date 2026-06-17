@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EnablePolarClawCronJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EnablePolarClawCronJobRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The ID of the cron job to enable.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class EnablePolarClawCronJobRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway after the job is enabled. The default value is `true`.
+   * 
    * @example
    * true
    */

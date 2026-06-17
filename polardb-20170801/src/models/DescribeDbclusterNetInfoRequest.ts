@@ -4,12 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBClusterNetInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the endpoint. Valid values:
+   * 
+   * - Normal: the primary endpoint
+   * 
+   * - ReadWriteSplitting: the cluster endpoint
+   * 
+   * - MPP: the Massively Parallel Processing (MPP) endpoint
+   * 
    * @example
    * Normal
    */
   connectionStringType?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example

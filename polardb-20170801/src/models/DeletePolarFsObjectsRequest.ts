@@ -4,17 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePolarFsObjectsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-***
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * The list of objects to delete.
+   * 
    * This parameter is required.
    */
   objectsToDelete?: string[];
   /**
    * @remarks
+   * The PolarLakebase instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

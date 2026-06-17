@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveDBClusterFromGDNRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster in the GDN.
+   * The ID of the secondary cluster that you want to remove from the GDN.
    * 
-   * >  You can call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to view the ID of the cluster in the GDN.
+   * > You can call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to query the IDs of clusters in the GDN.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,13 @@ export class RemoveDBClusterFromGDNRequest extends $dara.Model {
    * pc-wz9fb5nn44u1d****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcibly remove the cluster.
+   * 
+   * @example
+   * false
+   */
   force?: boolean;
   /**
    * @remarks
@@ -31,6 +38,13 @@ export class RemoveDBClusterFromGDNRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The ID of the target cluster.
+   * 
+   * @example
+   * pc-wz9fb5nn44u1d****
+   */
   targetDBClusterId?: string;
   static names(): { [key: string]: string } {
     return {

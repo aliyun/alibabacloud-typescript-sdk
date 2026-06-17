@@ -4,37 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchMemoriesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the memory.
+   * 
    * @example
    * 2025-09-26T08:25:44Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The unique ID of the memory.
+   * 
    * @example
    * 423
    */
   id?: string;
   /**
+   * @remarks
+   * The content of the memory.
+   * 
    * @example
    * xxx
    */
   memory?: string;
   /**
+   * @remarks
+   * The agent ID that owns the memory.
+   * 
    * @example
    * agent1
    */
   memoryAgentId?: string;
   /**
+   * @remarks
+   * The user ID that owns the memory.
+   * 
    * @example
    * user1
    */
   memoryUserId?: string;
+  /**
+   * @remarks
+   * Additional metadata associated with the memory.
+   * 
+   * @example
+   * {\\"tags\\":\\"Issue_date_2023-11-30,VD_现行有效\\"}
+   */
   metadata?: string;
   /**
+   * @remarks
+   * The relevance score of the result.
+   * 
    * @example
    * 12
    */
   score?: string;
   /**
+   * @remarks
+   * The update time of the memory.
+   * 
    * @example
    * 2025-10-16T02:27:33Z
    */
@@ -76,10 +104,17 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
 
 export class SearchMemoriesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
    */
   requestId?: string;
+  /**
+   * @remarks
+   * An array of search results.
+   */
   results?: SearchMemoriesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

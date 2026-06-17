@@ -4,19 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindPolarClawAgentResponseBodyBinding extends $dara.Model {
   /**
+   * @remarks
+   * The account ID.
+   * 
    * @example
    * default
    */
   accountId?: string;
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * work
    */
   agentId?: string;
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * feishu
    */
@@ -49,21 +55,28 @@ export class BindPolarClawAgentResponseBodyBinding extends $dara.Model {
 export class BindPolarClawAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * work
    */
   agentId?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-********************
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * Details of the newly created binding.
+   */
   binding?: BindPolarClawAgentResponseBodyBinding;
   /**
    * @remarks
-   * 200
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -71,18 +84,24 @@ export class BindPolarClawAgentResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * successful
+   * A message that indicates the request result.
    * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2281C6C9-CBAB-1AFD-8400-670750CF6025_2212
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of global bindings after the operation.
+   * 
    * @example
    * 1
    */

@@ -4,31 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   /**
+   * @remarks
+   * The capacity quota in GB.
+   * 
    * @example
    * 100
    */
   capacity?: number;
   /**
+   * @remarks
+   * The absolute path of the directory.
+   * 
    * @example
    * /a/project
    */
   filePathId?: string;
   /**
+   * @remarks
+   * The inode quota.
+   * 
    * @example
    * 100
    */
   inodes?: number;
   /**
+   * @remarks
+   * The maximum depth of subdirectories to traverse under the path specified by `FilePathId`. A value of 1 traverses only the first level of subdirectories. A value of 0 traverses to the deepest level.
+   * 
    * @example
    * 1
    */
   maxDepth?: number;
   /**
+   * @remarks
+   * A list of file quota rule IDs, separated by a comma (`,`).
+   * 
    * @example
    * 1,2
    */
   quotaIds?: string;
   /**
+   * @remarks
+   * Specifies how to apply the rule to existing files. Valid values:
+   * 
+   * - **missing**: Applies the rule only if one does not already exist. (Default)
+   * 
+   * - **all**: Applies the rule to all files.
+   * 
    * @example
    * missing
    */
@@ -66,17 +88,24 @@ export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
 
 export class SetPolarFsFileQuotaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-**************
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * An array of objects defining the file quota rules for specific directories.
+   * 
    * This parameter is required.
    */
   filePathQuotas?: SetPolarFsFileQuotaRequestFilePathQuotas[];
   /**
    * @remarks
+   * The ID of the PolarFS instance.
+   * 
    * This parameter is required.
    * 
    * @example

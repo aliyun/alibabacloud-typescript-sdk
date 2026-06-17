@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeModifyParameterLogResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The time when the parameter was last modified.
+   * 
    * @example
    * 2024-10-29T09:31:37Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The parameter value after the modification.
+   * 
    * @example
    * test01
    */
   newParameterValue?: string;
   /**
+   * @remarks
+   * The parameter value before the modification.
+   * 
    * @example
    * test
    */
   oldParameterValue?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * hz
    */
   parameterName?: string;
   /**
+   * @remarks
+   * Indicates whether the modification was applied successfully.
+   * 
    * @example
    * True
    */
@@ -59,19 +74,29 @@ export class DescribeModifyParameterLogResponseBodyItems extends $dara.Model {
 
 export class DescribeModifyParameterLogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster engine.
+   * 
    * @example
    * polardb_mysql
    */
   engine?: string;
   /**
+   * @remarks
+   * The engine version.
+   * 
    * @example
    * 8.0
    */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The list of parameter modification history.
+   */
   items?: DescribeModifyParameterLogResponseBodyItems[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * CD35F3-F3-44CA-AFFF-BAF869******

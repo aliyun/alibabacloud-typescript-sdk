@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBClusterEndpointZonalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F2A9EFA7-915F-4572-8299-85A307******
    */

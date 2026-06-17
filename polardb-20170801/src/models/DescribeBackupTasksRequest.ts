@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup task.
+   * The backup job ID.
    * 
    * @example
    * 11111111
@@ -15,8 +15,9 @@ export class DescribeBackupTasksRequest extends $dara.Model {
    * @remarks
    * The backup mode. Valid values:
    * 
-   * *   **Automated**
-   * *   **Manual**
+   * - **Automated**: An automatic backup.
+   * 
+   * - **Manual**: A manual backup.
    * 
    * @example
    * Manual

@@ -13,13 +13,28 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
    * pc-**************
    */
   DBClusterId?: string;
+  /**
+   * @example
+   * false
+   */
+  fromTimeService?: boolean;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 2022-04-28T14:30:00Z
+   */
+  plannedEndTime?: string;
+  /**
+   * @example
+   * 2022-04-28T14:00:00Z
+   */
+  plannedStartTime?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The maximum number of stable AP read-only nodes. Valid values: 0 to 7.
+   * The maximum number of steady-state AP read-only nodes. Valid values: 0 to 7.
    * 
    * @example
    * 1
@@ -27,7 +42,7 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
   scaleApRoNumMax?: string;
   /**
    * @remarks
-   * The minimum number of stable AP read-only nodes. Valid values: 0 to 7.
+   * The minimum number of steady-state AP read-only nodes. Valid values: 0 to 7.
    * 
    * @example
    * 1
@@ -35,7 +50,7 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
   scaleApRoNumMin?: string;
   /**
    * @remarks
-   * The maximum number of PCUs per node for scaling. Valid values: 1 to 8 PCUs.
+   * The maximum scaling limit per node. Valid values: 0 PCU to 16 PCU.
    * 
    * @example
    * 2
@@ -43,7 +58,7 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
   scaleMax?: string;
   /**
    * @remarks
-   * The minimum number of PolarDB capacity units (PCUs) per node for scaling. Valid values: 1 to 8 PCUs.
+   * The minimum scaling limit per node. Valid values: 0 PCU to 16 PCU.
    * 
    * @example
    * 1
@@ -51,7 +66,7 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * The maximum number of read-only nodes for scaling. Valid values: 0 to 7.
+   * The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
    * 
    * @example
    * 2
@@ -59,7 +74,7 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
   scaleRoNumMax?: string;
   /**
    * @remarks
-   * The minimum number of read-only nodes for scaling. Valid values: 0 to 7.
+   * The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
    * 
    * @example
    * 1
@@ -68,8 +83,11 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      fromTimeService: 'FromTimeService',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      plannedEndTime: 'PlannedEndTime',
+      plannedStartTime: 'PlannedStartTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       scaleApRoNumMax: 'ScaleApRoNumMax',
@@ -84,8 +102,11 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      fromTimeService: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
+      plannedEndTime: 'string',
+      plannedStartTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       scaleApRoNumMax: 'string',

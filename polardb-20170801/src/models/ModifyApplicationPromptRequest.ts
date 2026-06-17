@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApplicationPromptRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class ModifyApplicationPromptRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * papt-xx
+   * The ID of the prompt.
    * 
    * This parameter is required.
    * 
@@ -22,11 +24,17 @@ export class ModifyApplicationPromptRequest extends $dara.Model {
    */
   promptId?: string;
   /**
+   * @remarks
+   * The name of the prompt.
+   * 
    * @example
    * prompt name
    */
   promptName?: string;
   /**
+   * @remarks
+   * The content of the prompt.
+   * 
    * @example
    * prompt value
    */

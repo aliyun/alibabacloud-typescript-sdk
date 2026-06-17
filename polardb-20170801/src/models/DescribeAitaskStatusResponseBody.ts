@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAITaskStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account that is used to connect to the AI nodes in the cluster.
+   * The most recently configured account name.
    * 
    * @example
    * testacc
@@ -31,8 +31,9 @@ export class DescribeAITaskStatusResponseBody extends $dara.Model {
    * @remarks
    * The status of the PolarDB for AI feature. Valid values:
    * 
-   * *   **1**: enabled.
-   * *   **2**: disabled.
+   * - **1**: Enabled
+   * 
+   * - **2**: Disabled
    * 
    * @example
    * 1
@@ -40,10 +41,10 @@ export class DescribeAITaskStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the status of the PolarDB for AI feature.
+   * A description of the feature status.
    * 
    * @example
-   * Closed State
+   * 关闭状态
    */
   statusName?: string;
   static names(): { [key: string]: string } {

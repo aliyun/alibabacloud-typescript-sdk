@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBNodeSccModeRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyDBNodeSccModeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,7 +29,7 @@ export class ModifyDBNodeSccModeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * SCC
+   * The SCC mode to set for the node.
    * 
    * This parameter is required.
    * 

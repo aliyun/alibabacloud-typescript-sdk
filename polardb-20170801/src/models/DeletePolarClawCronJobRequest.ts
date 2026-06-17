@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolarClawCronJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeletePolarClawCronJobRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The ID of the cron job to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DeletePolarClawCronJobRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway after the cron job is deleted. The default value is true.
+   * 
    * @example
    * true
    */

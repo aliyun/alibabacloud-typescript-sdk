@@ -6,24 +6,30 @@ export class ModifyDBClusterStoragePerformanceRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the I/O Burst feature for the ESSD AutoPL disk. Valid value:
+   * Specifies if the I/O performance burst feature is enabled for an ESSD AutoPL disk. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: Enabled
    * 
-   * >  This parameter is available only when the StorageType parameter is set to ESSDAUTOPL.
+   * - **false**: Disabled (Default)
+   * 
+   * > This parameter applies only when StorageType is set to ESSDAUTOPL.
    * 
    * @example
    * false
    */
   burstingEnabled?: string;
   /**
+   * @remarks
+   * A client-generated token that ensures request idempotence. The token must be unique for each request. It is case-sensitive and can be up to 64 ASCII characters long.
+   * 
    * @example
    * 6000170000591aed949d0f******************
    */
   clientToken?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +37,13 @@ export class ModifyDBClusterStoragePerformanceRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The modification type. Valid values:
+   * 
+   * - **Upgrade**: Upgrades the storage performance.
+   * 
+   * - **Downgrade**: Downgrades the storage performance.
+   * 
    * @example
    * Upgrade
    */
@@ -41,12 +54,48 @@ export class ModifyDBClusterStoragePerformanceRequest extends $dara.Model {
    */
   promotionCode?: string;
   /**
+   * @remarks
+   * <props="china">
+   * 
+   * Valid values: 0 to min{50,000, 1000 \\* capacity - baseline performance}.
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * Baseline performance = min{1,800 + 50 \\* capacity, 50,000}.
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * > This parameter applies only when StorageType is set to ESSDAUTOPL.
+   * 
    * @example
    * 2500
    */
   provisionedIops?: number;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The target storage type. Valid values for Enterprise Edition:
+   * 
+   * - **PSL5**
+   * 
+   * - **PSL4**
+   * 
+   * Valid values for Standard Edition:
+   * 
+   * - **ESSDPL0**
+   * 
+   * - **ESSDPL1**
+   * 
+   * - **ESSDPL2**
+   * 
+   * - **ESSDPL3**
+   * 
+   * - **ESSDAUTOPL**
+   * 
    * @example
    * ESSDAUTOPL
    */

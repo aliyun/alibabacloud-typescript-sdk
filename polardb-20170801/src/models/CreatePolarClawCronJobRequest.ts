@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
   /**
+   * @remarks
+   * The account ID for the delivery channel.
+   * 
    * @example
    * default
    */
   accountId?: string;
   /**
+   * @remarks
+   * Specifies whether to use best-effort delivery. If `true`, delivery failures are ignored.
+   * 
    * @example
    * false
    */
   bestEffort?: boolean;
   /**
+   * @remarks
+   * The delivery channel.
+   * 
    * @example
    * feishu
    */
   channel?: string;
   /**
+   * @remarks
+   * The delivery mode. Valid values are `none`, `announce`, and `webhook`.
+   * 
    * @example
    * announce
    */
   mode?: string;
   /**
+   * @remarks
+   * The recipient for the delivery.
+   * 
    * @example
    * ou_***
    */
@@ -59,31 +74,49 @@ export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
 
 export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   /**
+   * @remarks
+   * The account ID for the alert channel.
+   * 
    * @example
    * default
    */
   accountId?: string;
   /**
+   * @remarks
+   * The number of consecutive failures required to trigger an alert.
+   * 
    * @example
    * 3
    */
   after?: number;
   /**
+   * @remarks
+   * The channel for sending failure alerts.
+   * 
    * @example
    * feishu
    */
   channel?: string;
   /**
+   * @remarks
+   * The cooldown period, in milliseconds, between alerts for the same job.
+   * 
    * @example
    * 5000
    */
   cooldownMs?: number;
   /**
+   * @remarks
+   * The mode for sending alerts. Valid values are `announce` and `webhook`.
+   * 
    * @example
    * announce
    */
   mode?: string;
   /**
+   * @remarks
+   * The recipient for the failure alert.
+   * 
    * @example
    * ou_***
    */
@@ -121,57 +154,94 @@ export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
 
 export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to use best-effort delivery. If `true`, delivery failures are ignored.
+   * 
    * @example
    * false
    */
   bestEffortDeliver?: boolean;
   /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
    * @example
    * feishu
    */
   channel?: string;
   /**
+   * @remarks
+   * Specifies whether to deliver the agent\\"s output to a channel.
+   * 
    * @example
    * true
    */
   deliver?: boolean;
+  /**
+   * @remarks
+   * A list of fallback models to use if the primary model fails.
+   */
   fallbacks?: string[];
   /**
+   * @remarks
+   * The payload type. Valid values are `agentTurn` and `systemEvent`.
+   * 
    * @example
    * systemEvent
    */
   kind?: string;
   /**
+   * @remarks
+   * Specifies whether to use a light context for the agent conversation.
+   * 
    * @example
    * false
    */
   lightContext?: boolean;
   /**
+   * @remarks
+   * The prompt for an agent conversation, used when `Kind` is `agentTurn`.
+   * 
    * @example
    * Generate the daily report.
    */
   message?: string;
   /**
+   * @remarks
+   * Specifies a model that overrides the agent\\"s default model.
+   * 
    * @example
    * bailian/qwen3.5-plus
    */
   model?: string;
   /**
+   * @remarks
+   * The text for the system event, used when `Kind` is `systemEvent`.
+   * 
    * @example
    * Generate the daily report.
    */
   text?: string;
   /**
+   * @remarks
+   * The thinking level for the agent\\"s response generation. Valid values are `off`, `minimal`, `low`, `medium`, `high`, and `xhigh`.
+   * 
    * @example
    * xhigh
    */
   thinking?: string;
   /**
+   * @remarks
+   * The execution timeout, in seconds.
+   * 
    * @example
    * 10
    */
   timeoutSeconds?: number;
   /**
+   * @remarks
+   * The specific target or recipient within the channel.
+   * 
    * @example
    * ou_***
    */
@@ -224,36 +294,57 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
 
 export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   /**
+   * @remarks
+   * The anchor timestamp for aligning interval-based schedules, in milliseconds.
+   * 
    * @example
    * 1777370572518
    */
   anchorMs?: number;
   /**
+   * @remarks
+   * The specific time for a one-time execution, specified as an ISO 8601 timestamp.
+   * 
    * @example
    * 2026-04-10T09:00:00+08:00
    */
   at?: string;
   /**
+   * @remarks
+   * The task execution interval, in milliseconds.
+   * 
    * @example
    * 100000
    */
   everyMs?: number;
   /**
+   * @remarks
+   * The cron expression that specifies when the task runs.
+   * 
    * @example
    * 0 9 * * *
    */
   expr?: string;
   /**
+   * @remarks
+   * The type of schedule.
+   * 
    * @example
    * cron
    */
   kind?: string;
   /**
+   * @remarks
+   * The deterministic jitter window, in milliseconds.
+   * 
    * @example
    * 0
    */
   staggerMs?: number;
   /**
+   * @remarks
+   * The time zone for the schedule.
+   * 
    * @example
    * Asia/Shanghai
    */
@@ -293,12 +384,17 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
 
 export class CreatePolarClawCronJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the agent that executes the task.
+   * 
    * @example
    * main
    */
   agentId?: string;
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -306,32 +402,49 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * Specifies whether to automatically delete the job after its first execution. This is useful for one-time tasks. Default: `false`.
+   * 
    * @example
    * false
    */
   deleteAfterRun?: boolean;
   /**
+   * @remarks
+   * The configuration for delivering task execution results.
+   * 
    * @example
    * {"Mode":"announce","Channel":"telegram"}
    */
   delivery?: CreatePolarClawCronJobRequestDelivery;
   /**
+   * @remarks
+   * A description of the task.
+   * 
    * @example
    * Daily report generation
    */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether the cron job is enabled. Default: `true`.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The failure alert configuration.
+   * 
    * @example
    * {"After":3,"Channel":"telegram"}
    */
   failureAlert?: CreatePolarClawCronJobRequestFailureAlert;
   /**
    * @remarks
+   * The unique name of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -340,6 +453,8 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The execution payload configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -347,17 +462,25 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
    */
   payload?: CreatePolarClawCronJobRequestPayload;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway upon job creation. Default: `true`.
+   * 
    * @example
    * true
    */
   restart?: boolean;
   /**
+   * @remarks
+   * Specifies whether to run the job once immediately upon creation. Default: `false`.
+   * 
    * @example
    * false
    */
   runImmediately?: boolean;
   /**
    * @remarks
+   * The schedule configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -365,12 +488,17 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
    */
   schedule?: CreatePolarClawCronJobRequestSchedule;
   /**
+   * @remarks
+   * The session routing key, which determines the conversation session for the task.
+   * 
    * @example
    * agent:main:feishu:direct:***
    */
   sessionKey?: string;
   /**
    * @remarks
+   * The session target. Valid values are `main`, `isolated`, and `current`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -379,6 +507,8 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   sessionTarget?: string;
   /**
    * @remarks
+   * The wake mode for the agent. Valid values are `now` and `next-heartbeat`.
+   * 
    * This parameter is required.
    * 
    * @example

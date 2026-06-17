@@ -4,12 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableDBClusterOrcaRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to clean up data. Valid values:
+   * 
+   * - **Enable**
+   * 
+   * - **Disable**
+   * 
    * @example
    * Enable
    */
   cleanData?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in a specific region, including cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example

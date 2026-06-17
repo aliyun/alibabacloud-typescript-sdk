@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawChannelsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DescribePolarClawChannelsShrinkRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The channel IDs to query. Leave this parameter empty to return all channels.
+   * 
    * @example
    * feishu,telegram
    */

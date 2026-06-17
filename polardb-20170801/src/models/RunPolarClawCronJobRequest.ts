@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RunPolarClawCronJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RunPolarClawCronJobRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
+   * The ID of the cron job to run.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class RunPolarClawCronJobRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The execution mode. Valid values: force and due. Default value: force.
+   * 
    * @example
    * force
    */
   mode?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway after the job completes. Default value: true.
+   * 
    * @example
    * true
    */

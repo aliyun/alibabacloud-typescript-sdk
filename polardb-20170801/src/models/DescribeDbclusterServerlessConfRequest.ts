@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterServerlessConfRequest extends $dara.Model {
   /**
    * @remarks
-   * Serverless cluster ID.
+   * The ID of the serverless cluster.
    * 
    * This parameter is required.
    * 

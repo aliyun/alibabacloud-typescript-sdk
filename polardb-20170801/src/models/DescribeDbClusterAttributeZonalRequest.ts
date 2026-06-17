@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDbClusterAttributeZonalRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DescribeDbClusterAttributeZonalRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to obtain information about AI-related nodes.
+   * 
    * @example
    * AI
    */

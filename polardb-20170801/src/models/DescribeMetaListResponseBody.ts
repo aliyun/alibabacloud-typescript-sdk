@@ -5,16 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetaListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The name of the database that can be restored.
+   * The name of the database that can be recovered.
    * 
    * @example
    * test_db
    */
   database?: string;
+  /**
+   * @remarks
+   * The size of the database or table, in bytes.
+   */
   size?: number[];
   /**
    * @remarks
-   * The name of the table that can be restored.
+   * The names of the tables that can be recovered.
    */
   tables?: string[];
   static names(): { [key: string]: string } {
@@ -51,7 +55,7 @@ export class DescribeMetaListResponseBodyItems extends $dara.Model {
 export class DescribeMetaListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * pc-bp1s826a1up******
@@ -59,12 +63,12 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The details of databases and tables that can be restored.
+   * The details of recoverable databases and tables.
    */
   items?: DescribeMetaListResponseBodyItems[];
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -72,7 +76,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of records on the current page.
    * 
    * @example
    * 30
@@ -80,7 +84,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AA815DE7-B576-4B22-B33C-3FB31A******
@@ -88,7 +92,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -96,7 +100,7 @@ export class DescribeMetaListResponseBody extends $dara.Model {
   totalPageCount?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 2

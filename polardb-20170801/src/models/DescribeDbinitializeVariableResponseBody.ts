@@ -62,9 +62,11 @@ export class DescribeDBInitializeVariableResponseBody extends $dara.Model {
    * @remarks
    * The database type. Valid values:
    * 
-   * *   Oracle
-   * *   PostgreSQL
-   * *   MySQL
+   * - Oracle
+   * 
+   * - PostgreSQL
+   * 
+   * - MySQL
    * 
    * @example
    * PostgreSQL
@@ -72,7 +74,7 @@ export class DescribeDBInitializeVariableResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database version.
    * 
    * @example
    * 11
@@ -80,7 +82,7 @@ export class DescribeDBInitializeVariableResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 475F58B7-F394-4394-AA6E-4F1CBA******

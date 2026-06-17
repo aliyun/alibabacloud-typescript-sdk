@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * The agent ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreatePolarClawAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,22 +24,33 @@ export class CreatePolarClawAgentRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The avatar\\"s URL or path.
+   * 
    * @example
    * test
    */
   avatar?: string;
   /**
+   * @remarks
+   * The emoji character.
+   * 
    * @example
    * U+1F99E
    */
   emoji?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the gateway after the agent is created. The default value is `true`.
+   * 
    * @example
    * true
    */
   restart?: boolean;
   /**
    * @remarks
+   * The absolute path of the agent workspace.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -15,7 +15,7 @@ export class DescribeDBClusterPerformanceRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+   * The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,21 @@ export class DescribeDBClusterPerformanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The interval at which performance data is collected. Valid values: 5, 30, 60, 600, 1800, 3600, 86400, in seconds.
+   * The granularity of the performance data. Valid values:
+   * 
+   * - 5
+   * 
+   * - 30
+   * 
+   * - 60
+   * 
+   * - 600
+   * 
+   * - 1800
+   * 
+   * - 3600
+   * 
+   * - 86400
    * 
    * @example
    * 60
@@ -35,7 +49,7 @@ export class DescribeDBClusterPerformanceRequest extends $dara.Model {
    * @remarks
    * The performance metrics that you want to query. Separate multiple metrics with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/141787.html).
    * 
-   * >  You can specify a maximum of five performance metrics.
+   * > Specify up to five performance metrics.
    * 
    * This parameter is required.
    * 
@@ -45,7 +59,7 @@ export class DescribeDBClusterPerformanceRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
