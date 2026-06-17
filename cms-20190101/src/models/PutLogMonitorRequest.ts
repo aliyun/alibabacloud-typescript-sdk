@@ -15,7 +15,7 @@ export class PutLogMonitorRequestAggregates extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The name of the field to be aggregated. Valid values of N: 1 to 10.
+   * The name of the original field for aggregation. Valid values of N: 1 to 10.
    * 
    * This parameter is required.
    * 
@@ -25,16 +25,15 @@ export class PutLogMonitorRequestAggregates extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The function that is used to aggregate log data within a statistical period. Valid values of N: 1 to 10. Valid values:
-   * 
-   * *   count: counts the number.
-   * *   sum: calculates the total value.
-   * *   avg: calculates the average value.
-   * *   max: calculates the maximum value.
-   * *   min: calculates the minimum value.
-   * *   countps: calculates the number of values of the specified field divided by the total number of seconds within a statistical period.
-   * *   sumps: calculates the sum of the values of the specified field divided by the total number of seconds within a statistical period.
-   * *   distinct: calculates the number of unique values of the specified field within a statistical period.
+   * The statistical method used to aggregate log data within a statistical period. Valid values of N: 1 to 10. Valid values:
+   * - count: counts the number of occurrences.
+   * - sum: calculates the sum.
+   * - avg: calculates the average.
+   * - max: returns the maximum value.
+   * - min: returns the minimum value.
+   * - countps: calculates the average count per second for the specified field within the statistical period.
+   * - sumps: calculates the average sum per second for the specified field within the statistical period.
+   * - distinct: counts the number of occurrences of the specified field after deduplication within the statistical period.
    * 
    * This parameter is required.
    * 
@@ -70,7 +69,7 @@ export class PutLogMonitorRequestAggregates extends $dara.Model {
 export class PutLogMonitorRequestGroupbys extends $dara.Model {
   /**
    * @remarks
-   * The alias of the dimension based on which the data is grouped. Valid values of N: 1 to 10.
+   * The alias of the Group By field. Valid values of N: 1 to 10.
    * 
    * @example
    * CPUUtilization
@@ -78,7 +77,7 @@ export class PutLogMonitorRequestGroupbys extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The name of the field that is specified as the dimension. Valid values of N: 1 to 10.
+   * The name of the Group By field. Valid values of N: 1 to 10.
    * 
    * @example
    * cpu
@@ -110,7 +109,7 @@ export class PutLogMonitorRequestGroupbys extends $dara.Model {
 export class PutLogMonitorRequestValueFilter extends $dara.Model {
   /**
    * @remarks
-   * The name of the log field that is used for matching in the filter condition. Valid values of N: 1 to 10.
+   * The name of the log field to match. Valid values of N: 1 to 10.
    * 
    * @example
    * lh_source
@@ -118,14 +117,13 @@ export class PutLogMonitorRequestValueFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The method that is used to match the field value. Valid values of N: 1 to 10. Valid values:
-   * 
-   * *   `contain`: contains
-   * *   `notContain`: does not contain
-   * *   `>`: greater than
-   * *   `<`: less than
-   * *   `>=`: greater than or equal to
-   * *   `<=`: less than or equal to
+   * The matching method for the field value. Valid values of N: 1 to 10. Valid values:
+   * - `contain`: contains.
+   * - `notContain`: does not contain.
+   * - `>`: greater than.
+   * - `<`: less than.
+   * - `>=`: greater than or equal to.
+   * - `<=`: less than or equal to.
    * 
    * @example
    * contain
@@ -133,7 +131,7 @@ export class PutLogMonitorRequestValueFilter extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The field value to be matched in the filter condition. Valid values of N: 1 to 10.
+   * The value of the log field to match. Valid values of N: 1 to 10.
    * 
    * @example
    * test
@@ -167,7 +165,7 @@ export class PutLogMonitorRequestValueFilter extends $dara.Model {
 export class PutLogMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The aggregation logic.
+   * The aggregate function definitions.
    * 
    * This parameter is required.
    */
@@ -182,7 +180,7 @@ export class PutLogMonitorRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The dimension based on which the data is grouped. This parameter is equivalent to the GROUP BY clause in SQL statements. If no dimension is specified, all data is aggregated based on the aggregate function.
+   * The dimensions used for spatial aggregation. This is equivalent to the Group By clause in SQL, which groups monitoring data by specified dimensions. If no dimension is specified, all monitoring data is aggregated based on the aggregate function.
    */
   groupbys?: PutLogMonitorRequestGroupbys[];
   /**
@@ -195,15 +193,17 @@ export class PutLogMonitorRequest extends $dara.Model {
   logId?: string;
   /**
    * @remarks
-   * The extended field. The extended field allows you to perform basic operations on the aggregation results.
+   * The extended field. The extended field provides arithmetic operations on the results of the statistical methods.
    * 
-   * For example, you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\\*100.
+   * For example, if you configure the total number of HTTP status code requests (TotalNumber) and the number of requests with HTTP status codes greater than 499 (5xxNumber) in the statistical methods, you can use the extended field to calculate the server error rate: 5xxNumber/TotalNumber*100.
    * 
-   * JSON format: {"extend":{"errorPercent":"5XXNumber/TotalNumber\\*100"}}. Description:
+   * JSON format: {"extend":{"errorPercent":"5xxNumber/TotalNumber*100"}}. Field description:
    * 
-   * *   extend: required.
-   * *   errorPercent: the alias of the field generated in the calculation result. You can specify the alias as needed.
-   * *   5XXNumber/TotalNumber\\*100: the calculation expression.
+   * - extend: required.
+   * 
+   * - errorPercent: the alias of the new field generated from the calculation result. You can specify a custom name. 
+   * 
+   * - errorPercent: the calculation expression for existing fields.
    * 
    * @example
    * {"extend":{"errorPercent":"5XXNumber/TotalNumber*100"}}
@@ -211,7 +211,7 @@ export class PutLogMonitorRequest extends $dara.Model {
   metricExpress?: string;
   /**
    * @remarks
-   * The metric name. For more information about the metrics for cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The metric name. For information about the metrics supported by CloudMonitor for Alibaba Cloud services, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -222,7 +222,7 @@ export class PutLogMonitorRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the Log Service Logstore.
    * 
    * This parameter is required.
    * 
@@ -232,7 +232,7 @@ export class PutLogMonitorRequest extends $dara.Model {
   slsLogstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the Log Service project.
    * 
    * This parameter is required.
    * 
@@ -242,7 +242,7 @@ export class PutLogMonitorRequest extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * The region in which the Simple Log Service project resides.
+   * The region where the Log Service project resides.
    * 
    * This parameter is required.
    * 
@@ -252,7 +252,7 @@ export class PutLogMonitorRequest extends $dara.Model {
   slsRegionId?: string;
   /**
    * @remarks
-   * The size of the tumbling window for calculation. Unit: seconds. CloudMonitor performs aggregation for each tumbling window.
+   * The tumbling window size for pre-aggregation. Unit: seconds. CloudMonitor performs an aggregation calculation on the data at the specified interval.
    * 
    * @example
    * 60,300
@@ -268,17 +268,18 @@ export class PutLogMonitorRequest extends $dara.Model {
   unit?: string;
   /**
    * @remarks
-   * The condition that is used to filter logs. The ValueFilter and ValueFilterRelation parameters are used in pair. The filter condition is equivalent to the WHERE clause in SQL statements. If no filter condition is specified, all logs are processed. For example, logs contain the Level and Error fields. If you need to calculate the number of times that logs of the Error level appear every minute, you can set the filter condition to Level=Error and count the number of logs that meet this condition.
+   * The filter rules, used together with ValueFilterRelation. This is equivalent to the Where clause in SQL. If this parameter is not specified, all data is processed. For example, if the log contains Level and Error fields and you want to count the number of Error occurrences per minute, you can define the statistical method to sum the Level field with the condition Level=Error.
    */
   valueFilter?: PutLogMonitorRequestValueFilter[];
   /**
    * @remarks
-   * The logical operator that is used between log filter conditions. Valid values:
+   * The logical operator used to combine log filter conditions. Valid values:
    * 
-   * *   and
-   * *   or
+   * - and
    * 
-   * >  The ValueFilterRelation and `ValueFilter.N.Key` parameters must be used in pair.
+   * - or
+   * 
+   * > This parameter must be used together with `ValueFilter.N.Key`.
    * 
    * This parameter is required.
    * 

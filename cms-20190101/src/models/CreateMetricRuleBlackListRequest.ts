@@ -63,12 +63,13 @@ export class CreateMetricRuleBlackListRequest extends $dara.Model {
    * @remarks
    * The time range within which the blacklist policy is effective.
    * 
-   * *   If you do not configure this parameter, the blacklist policy is permanently effective.
+   * - If you do not configure this parameter, the blacklist policy is permanently effective.
    * 
-   * *   If you configure this parameter, the blacklist policy is effective only within the specified time range. Examples:
+   * - If you configure this parameter, the blacklist policy is effective only within the specified time range. Examples:
    * 
-   *     *   `03:00-04:59`: The blacklist policy is effective from 03:00 to 05:00 local time. 05:00 local time is excluded.
-   *     *   `03:00-04:59 UTC+0700`: The blacklist policy is effective from 03:00 to 05:00 (UTC+7). 05:00 (UTC+7) is excluded.
+   *   - `03:00-04:59`: The blacklist policy is effective from 03:00 to 05:00 local time. 05:00 local time is excluded.
+   * 
+   *   - `03:00-04:59 UTC+0700`: The blacklist policy is effective from 03:00 to 05:00 (UTC+7). 05:00 (UTC+7) is excluded.
    * 
    * @example
    * 03:00-04:59
@@ -105,8 +106,9 @@ export class CreateMetricRuleBlackListRequest extends $dara.Model {
    * @remarks
    * The metrics of the instance.
    * 
-   * *   If you do not configure this parameter, the blacklist policy applies to all metrics of the specified cloud service.
-   * *   If you configure this parameter, the blacklist policy applies only to the current metric.
+   * - If you do not configure this parameter, the blacklist policy applies to all metrics of the specified cloud service.
+   * 
+   * - If you configure this parameter, the blacklist policy applies only to the current metric.
    */
   metrics?: CreateMetricRuleBlackListRequestMetrics[];
   /**
@@ -136,8 +138,9 @@ export class CreateMetricRuleBlackListRequest extends $dara.Model {
    * @remarks
    * The effective scope of the blacklist policy. Valid values:
    * 
-   * *   USER (default): The blacklist policy takes effect only for the current Alibaba Cloud account.
-   * *   GROUP: The blacklist policy takes effect only for the specified application group. For information about how to query the IDs of application groups, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+   * - USER (default): The blacklist policy takes effect only for the current Alibaba Cloud account.
+   * 
+   * - GROUP: The blacklist policy takes effect only for the specified application group. For information about how to query the IDs of application groups, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
    * 
    * @example
    * USER

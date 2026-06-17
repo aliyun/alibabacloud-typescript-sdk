@@ -7,19 +7,27 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfigTargetList exten
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the resource.
    * 
-   * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+   * For more information, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
    * 
-   * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
+   * The ARN of a resource is in the following format: `acs:{product-abbreviation}:{regionId}:{userId}:/{resource-type}/{resource-name}/message`. For example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The parameters are described as follows:
    * 
-   * - {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
-   * - {userId}: the ID of the Alibaba Cloud account.
-   * - {regionId}: the region ID of the message queue or topic.
-   * - {Resource type}: the type of the resource for which alerts are triggered. Valid values: 
-   *     - **queues** 
-   *     - **topics** 
-   * - {Resourcename}: the name of the resource. 
-   *   - If the resource type is set to **queues**, the resource name is the name of the message queue. 
-   *   - If the resource type is set to **topics**, the resource name is the name of the topic.`
+   * - {product-abbreviation}: Currently, only Simple Message Queue (formerly MNS) is supported.
+   * 
+   * - {userId}: The ID of your Alibaba Cloud account.
+   * 
+   * - {regionId}: The region where the Simple Message Queue (formerly MNS) queue or subject is located.
+   * 
+   * - {resource-type}: The type of the resource that receives alerts. Valid values:
+   * 
+   *   - **queues**: a queue.
+   * 
+   *   - **topics**: a subject.
+   * 
+   * - {resource-name}: The name of the resource.
+   * 
+   *   - If the resource type is **queues**, the resource name is the queue name.
+   * 
+   *   - If the resource type is **topics**, the resource name is the subject name.
    * 
    * @example
    * acs:mns:cn-hangzhou:120886317861****:/queues/test/message
@@ -27,9 +35,9 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfigTargetList exten
   arn?: string;
   /**
    * @remarks
-   * The ID of the resource for which alerts are triggered.
+   * The ID of the alert-triggered target.
    * 
-   * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+   * For more information, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
    * 
    * @example
    * 1
@@ -37,7 +45,7 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfigTargetList exten
   id?: string;
   /**
    * @remarks
-   * The parameters of the alert callback. The parameters are in the JSON format.
+   * The JSON-formatted parameters for the alert callback.
    * 
    * @example
    * {"customField1":"value1","customField2":"$.name"}
@@ -45,11 +53,13 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfigTargetList exten
   jsonParams?: string;
   /**
    * @remarks
-   * The level of the alert. Valid values:
+   * The alert level. Valid values:
    * 
-   * *   INFO: information
-   * *   WARN: warning
-   * *   CRITICAL: critical
+   * - INFO: information
+   * 
+   * - WARN: warning
+   * 
+   * - CRITICAL: critical
    * 
    * @example
    * ["INFO", "WARN", "CRITICAL"]
@@ -85,19 +95,29 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfigTargetList exten
 export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator that is used to compare the metric value with the threshold. Valid values of N: 1 to 200. Valid values:
+   * The comparison operator for the threshold of the Critical alert level. The value of N can be 1 to 200. Valid values:
    * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold.
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday.
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * - GreaterThanOrEqualToThreshold: greater than or equal to
+   * 
+   * - GreaterThanThreshold: greater than
+   * 
+   * - LessThanOrEqualToThreshold: less than or equal to
+   * 
+   * - LessThanThreshold: less than
+   * 
+   * - NotEqualToThreshold: not equal to
+   * 
+   * - GreaterThanYesterday: greater than the value at the same time yesterday
+   * 
+   * - LessThanYesterday: less than the value at the same time yesterday
+   * 
+   * - GreaterThanLastWeek: greater than the value at the same time last week
+   * 
+   * - LessThanLastWeek: less than the value at the same time last week
+   * 
+   * - GreaterThanLastPeriod: greater than the value in the last monitoring cycle
+   * 
+   * - LessThanLastPeriod: less than the value in the last monitoring cycle
    * 
    * This parameter is required.
    * 
@@ -107,7 +127,7 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.M
   comparisonOperator?: string;
   /**
    * @remarks
-   * The time period during which the alert rule is effective. Valid values of N: 1 to 200.
+   * The time period when the alert rule is effective. The value of N can be 1 to 200.
    * 
    * @example
    * 00:00-22:59
@@ -115,11 +135,13 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.M
   effectiveInterval?: string;
   /**
    * @remarks
-   * The level of the alert. Valid values of N: 1 to 200. Valid values:
+   * The alert level. The value of N can be 1 to 200. Valid values:
    * 
-   * *   critical (default value): critical
-   * *   warn: warning
-   * *   info: information
+   * - critical (default): critical
+   * 
+   * - warn: warning
+   * 
+   * - info: information
    * 
    * This parameter is required.
    * 
@@ -129,19 +151,19 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.M
   escalationsLevel?: string;
   /**
    * @remarks
-   * The time period during which the alert rule is ineffective. Valid values of N: 1 to 200.
+   * This parameter is deprecated. You can ignore it.
    * 
    * @example
-   * 23:00-23:59
+   * 00:00-05:30
    */
   noEffectiveInterval?: string;
   /**
    * @remarks
-   * The mute period during which new alerts are not sent even if the trigger conditions are met. Valid values of N: 1 to 200.
+   * The mute period. The value of N can be 1 to 200.
    * 
-   * Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
+   * Unit: seconds. Minimum value: 3600. Default value: 86400.
    * 
-   * >  Only one alert notification is sent during a mute period even if the metric value exceeds the alert threshold during consecutive checks.
+   * > If monitoring data continuously exceeds the alert threshold, an alert notification is sent only once during each mute period.
    * 
    * @example
    * 86400
@@ -149,9 +171,9 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.M
   silenceTime?: string;
   /**
    * @remarks
-   * The statistical aggregation method that is used to calculate the metric values. Valid values of N: 1 to 200.
+   * The statistical method for alerts. The value of N can be 1 to 200.
    * 
-   * >  Set the value to Average.
+   * > Only Average is supported.
    * 
    * @example
    * Average
@@ -159,12 +181,12 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.M
   statistics?: string;
   /**
    * @remarks
-   * The alert trigger.
+   * None.
    */
   targetList?: ModifyGroupMonitoringAgentProcessRequestAlertConfigTargetList[];
   /**
    * @remarks
-   * The alert threshold. Valid values of N: 1 to 200.
+   * The alert threshold. The value of N can be 1 to 200.
    * 
    * This parameter is required.
    * 
@@ -174,9 +196,9 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.M
   threshold?: string;
   /**
    * @remarks
-   * The number of times for which the threshold can be consecutively exceeded. Valid values of N: 1 to 200. Default value: 3.
+   * The number of consecutive times that the alert level is reached. The value of N can be 1 to 200. Default value: 3.
    * 
-   * >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
+   * > An alert is triggered only when the alert level is reached the specified number of consecutive times and the threshold is met.
    * 
    * This parameter is required.
    * 
@@ -186,7 +208,7 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.M
   times?: string;
   /**
    * @remarks
-   * The callback URL to which a POST request is sent when an alert is triggered based on the alert rule. Valid values of N: 1 to 200.
+   * The callback URL. A POST request is sent to this URL when an alert is triggered. The value of N can be 1 to 200.
    * 
    * @example
    * http://www.aliyun.com
@@ -237,7 +259,7 @@ export class ModifyGroupMonitoringAgentProcessRequestAlertConfig extends $dara.M
 export class ModifyGroupMonitoringAgentProcessRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert rule configurations.
+   * The configurations of the alert rule.
    * 
    * This parameter is required.
    */
@@ -254,7 +276,7 @@ export class ModifyGroupMonitoringAgentProcessRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the process monitoring task.
+   * The ID of the process monitoring job for the application group.
    * 
    * This parameter is required.
    * 
@@ -264,11 +286,7 @@ export class ModifyGroupMonitoringAgentProcessRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The logical operator used between conditional expressions that are used to match instances. Valid values:
-   * 
-   * *   all
-   * *   and
-   * *   or
+   * This parameter is deprecated. You can ignore it.
    * 
    * @example
    * and

@@ -6,8 +6,7 @@ export class PutCustomMetricResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * 
-   * >  The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200

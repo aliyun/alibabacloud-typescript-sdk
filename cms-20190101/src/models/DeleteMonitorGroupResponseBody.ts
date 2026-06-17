@@ -92,7 +92,7 @@ export class DeleteMonitorGroupResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * > The status code 200 indicates that the call was successful.
    * 
    * @example
    * 200

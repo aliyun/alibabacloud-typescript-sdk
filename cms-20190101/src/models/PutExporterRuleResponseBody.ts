@@ -7,7 +7,7 @@ export class PutExporterRuleResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -15,10 +15,10 @@ export class PutExporterRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+   * The returned message.
    * 
    * @example
-   * success
+   * The specified resource is not found.
    */
   message?: string;
   /**
@@ -31,10 +31,11 @@ export class PutExporterRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

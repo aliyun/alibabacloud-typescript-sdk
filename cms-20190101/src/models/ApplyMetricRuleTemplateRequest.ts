@@ -7,8 +7,9 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
    * @remarks
    * The template application policy. Valid values:
    * 
-   * *   all (default): deletes all the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the template.
-   * *   append: deletes the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the existing template.
+   * - all (default): deletes all the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the template.
+   * 
+   * - append: deletes the rules that are created by using the alert template from the selected application group, and then creates alert rules based on the existing template.
    * 
    * @example
    * all
@@ -18,8 +19,9 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
    * @remarks
    * The mode in which the alert template is applied. Valid values:
    * 
-   * *   GROUP_INSTANCE_FIRST: The metrics in the application group take precedence. If a metric specified in the alert template does not exist in the application group, the system does not generate an alert rule for the metric based on the alert template.
-   * *   ALARM_TEMPLATE_FIRST: The metrics specified in the alert template take precedence. If a metric specified in the alert template does not exist in the application group, the system still generates an alert rule for the metric based on the alert template.
+   * - GROUP_INSTANCE_FIRST: The metrics in the application group take precedence. If a metric specified in the alert template does not exist in the application group, the system does not generate an alert rule for the metric based on the alert template.
+   * 
+   * - ALARM_TEMPLATE_FIRST: The metrics specified in the alert template take precedence. If a metric specified in the alert template does not exist in the application group, the system still generates an alert rule for the metric based on the alert template.
    * 
    * @example
    * GROUP_INSTANCE_FIRST
@@ -67,7 +69,7 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
    * @remarks
    * The mute period during which notifications are not repeatedly sent for an alert. Unit: seconds. Default value: 86400.
    * 
-   * >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
+   * > Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
    * 
    * @example
    * 86400

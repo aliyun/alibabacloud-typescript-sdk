@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagKeyListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
-   * 
-   * Pages start from page 1. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -16,8 +14,6 @@ export class DescribeTagKeyListRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page.
-   * 
-   * Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10

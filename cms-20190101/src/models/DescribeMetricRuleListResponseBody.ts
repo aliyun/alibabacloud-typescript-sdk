@@ -407,6 +407,14 @@ export class DescribeMetricRuleListResponseBodyAlarmsAlarm extends $dara.Model {
   resources?: string;
   ruleId?: string;
   ruleName?: string;
+  /**
+   * @remarks
+   * 是否关闭恢复告警。取值：true（是）、false（否）。
+   * 
+   * @example
+   * true
+   */
+  sendOK?: boolean;
   silenceTime?: number;
   sourceType?: string;
   webhook?: string;
@@ -435,6 +443,7 @@ export class DescribeMetricRuleListResponseBodyAlarmsAlarm extends $dara.Model {
       resources: 'Resources',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
+      sendOK: 'SendOK',
       silenceTime: 'SilenceTime',
       sourceType: 'SourceType',
       webhook: 'Webhook',
@@ -466,6 +475,7 @@ export class DescribeMetricRuleListResponseBodyAlarmsAlarm extends $dara.Model {
       resources: 'string',
       ruleId: 'string',
       ruleName: 'string',
+      sendOK: 'boolean',
       silenceTime: 'number',
       sourceType: 'string',
       webhook: 'string',
@@ -523,9 +533,9 @@ export class DescribeMetricRuleListResponseBody extends $dara.Model {
   alarms?: DescribeMetricRuleListResponseBodyAlarms;
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call is successful.
+   * >A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -541,7 +551,7 @@ export class DescribeMetricRuleListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 386C6712-335F-5054-930A-CC92B851ECBA
@@ -549,10 +559,11 @@ export class DescribeMetricRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -560,7 +571,7 @@ export class DescribeMetricRuleListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of records.
    * 
    * @example
    * 1

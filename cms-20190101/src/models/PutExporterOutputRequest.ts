@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class PutExporterOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration set for exporting monitoring data. It is a JSON object string. The string must include the following fields:
+   * The configuration of the data export. The value is a JSONObject string that must contain the following fields:
    * 
-   * *   endpoint: the endpoint of Log Service.
-   * *   project: the Log Service project to which monitoring data is exported.
-   * *   logstore: the Log Service Logstore to which the monitoring data is exported.
-   * *   ak: the AccessKey ID.
-   * *   as: the AccessKey secret.
+   * - endpoint: the domain name that corresponds to the data of Log Service (SLS).
+   * - project: the project.
+   * - logstore: the Logstore.
+   * - ak: the AccessKey ID.
+   * - as: the AccessKey secret.
    * 
    * This parameter is required.
    * 
@@ -21,15 +21,15 @@ export class PutExporterOutputRequest extends $dara.Model {
   configJson?: string;
   /**
    * @remarks
-   * The description of the configuration set.
+   * The description of the configuration.
    * 
    * @example
-   * Export CPU metrics
+   * CPU metric export
    */
   desc?: string;
   /**
    * @remarks
-   * The name of the configuration set.
+   * The name of the configuration.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class PutExporterOutputRequest extends $dara.Model {
   destName?: string;
   /**
    * @remarks
-   * The service to which the monitoring data is exported.
+   * The product to which the data is exported.
    * 
    * @example
    * sls

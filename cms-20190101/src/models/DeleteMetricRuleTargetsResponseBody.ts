@@ -59,7 +59,7 @@ export class DeleteMetricRuleTargetsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * **
+   * \\*\\*
    * 
    * **Description** The status code 200 indicates that the request was successful.
    * 
@@ -92,8 +92,9 @@ export class DeleteMetricRuleTargetsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

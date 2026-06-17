@@ -174,9 +174,9 @@ export class DescribeContactListResponseBodyContacts extends $dara.Model {
 export class DescribeContactListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -185,7 +185,7 @@ export class DescribeContactListResponseBody extends $dara.Model {
   contacts?: DescribeContactListResponseBodyContacts;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The Request is not authorization.
@@ -201,10 +201,11 @@ export class DescribeContactListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: Successful.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true
@@ -212,7 +213,7 @@ export class DescribeContactListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 15

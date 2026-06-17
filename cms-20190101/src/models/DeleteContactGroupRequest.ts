@@ -10,7 +10,7 @@ export class DeleteContactGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * contact_group_2019_templatedfkXQ
+   * My alert group
    */
   contactGroupName?: string;
   static names(): { [key: string]: string } {

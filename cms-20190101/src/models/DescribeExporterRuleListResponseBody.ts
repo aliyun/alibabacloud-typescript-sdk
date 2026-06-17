@@ -107,9 +107,9 @@ export class DescribeExporterRuleListResponseBodyDatapoints extends $dara.Model 
 export class DescribeExporterRuleListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * > A value of 200 indicates success. Any other value indicates failure.
    * 
    * @example
    * 200
@@ -121,12 +121,12 @@ export class DescribeExporterRuleListResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * susscess
+   * The specified resource is not found.
    */
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -142,10 +142,9 @@ export class DescribeExporterRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`
-   * *   `false`
+   * Indicates whether the call was successful. Valid values:  
+   * - `true`: Successful.
+   * - `false`: Failed.
    * 
    * @example
    * true
@@ -153,7 +152,7 @@ export class DescribeExporterRuleListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of records.
    * 
    * @example
    * 1000

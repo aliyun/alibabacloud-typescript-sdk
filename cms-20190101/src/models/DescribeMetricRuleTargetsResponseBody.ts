@@ -63,9 +63,9 @@ export class DescribeMetricRuleTargetsResponseBodyTargets extends $dara.Model {
 export class DescribeMetricRuleTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -81,7 +81,7 @@ export class DescribeMetricRuleTargetsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 786E92D2-AC66-4250-B76F-F1E2FCDDBA1C
@@ -89,10 +89,11 @@ export class DescribeMetricRuleTargetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

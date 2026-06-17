@@ -7,8 +7,9 @@ export class DescribeMetricRuleTemplateListRequest extends $dara.Model {
    * @remarks
    * Specifies whether to display the history of applying the alert templates to application groups. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * false
@@ -34,8 +35,9 @@ export class DescribeMetricRuleTemplateListRequest extends $dara.Model {
    * @remarks
    * The sorting order. Valid values:
    * 
-   * *   true (default): ascending order
-   * *   false: descending order
+   * - true (default): ascending order
+   * 
+   * - false: descending order
    * 
    * @example
    * true
@@ -45,8 +47,9 @@ export class DescribeMetricRuleTemplateListRequest extends $dara.Model {
    * @remarks
    * The sorting basis. Valid values:
    * 
-   * *   gmtMotified: sorts alert templates by modification time
-   * *   gmtCreate (default): sorts alert templates by creation time
+   * - gmtMotified: sorts alert templates by modification time
+   * 
+   * - gmtCreate (default): sorts alert templates by creation time
    * 
    * @example
    * gmtCreate

@@ -66,7 +66,7 @@ export class DescribeAlertLogHistogramResponseBody extends $dara.Model {
    * @remarks
    * The response code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -92,8 +92,9 @@ export class DescribeAlertLogHistogramResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

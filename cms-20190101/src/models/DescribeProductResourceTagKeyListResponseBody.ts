@@ -33,7 +33,7 @@ export class DescribeProductResourceTagKeyListResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -41,7 +41,7 @@ export class DescribeProductResourceTagKeyListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The returned message.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -49,9 +49,7 @@ export class DescribeProductResourceTagKeyListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token. If more entries are to be returned on the next page, a pagination token is returned.
-   * 
-   * >  If the value of this parameter is not null, more entries are to be returned on the next page. You can use the returned pagination token as a request parameter to retrieve a new page of results. If the value of this parameter is null, all the entries have been returned.
+   * The token that is used to start the next query.
    * 
    * @example
    * dbc2826f237e****
@@ -67,7 +65,11 @@ export class DescribeProductResourceTagKeyListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

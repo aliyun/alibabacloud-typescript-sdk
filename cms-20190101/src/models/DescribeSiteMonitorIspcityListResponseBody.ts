@@ -131,9 +131,9 @@ export class DescribeSiteMonitorISPCityListResponseBodyIspCityList extends $dara
 export class DescribeSiteMonitorISPCityListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * 状态码。
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > 200表示成功。
    * 
    * @example
    * 200
@@ -142,7 +142,7 @@ export class DescribeSiteMonitorISPCityListResponseBody extends $dara.Model {
   ispCityList?: DescribeSiteMonitorISPCityListResponseBodyIspCityList;
   /**
    * @remarks
-   * The returned message.
+   * 返回信息。
    * 
    * @example
    * successful
@@ -150,7 +150,7 @@ export class DescribeSiteMonitorISPCityListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * B35D7D84-547B-4E61-B909-48A1F8A0C756
@@ -158,10 +158,11 @@ export class DescribeSiteMonitorISPCityListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * 操作是否成功。取值：
    * 
-   * *   true
-   * *   false
+   * - true：成功。
+   * 
+   * - false：失败。
    * 
    * @example
    * true

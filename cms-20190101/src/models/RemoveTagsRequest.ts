@@ -7,7 +7,7 @@ export class RemoveTagsRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * > The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+   * > You must specify both the tag key (`Tag.N.Key`) and the tag value (`Tag.N.Value`).
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class RemoveTagsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * > The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
+   * > You must specify both the tag key (`Tag.N.Key`) and the tag value (`Tag.N.Value`).
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class RemoveTagsRequestTag extends $dara.Model {
 export class RemoveTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the application groups.
+   * The ID of the application group.
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class RemoveTagsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    * 
    * This parameter is required.
    */

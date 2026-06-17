@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteMonitorListRequest extends $dara.Model {
   /**
    * @remarks
-   * Task network type. Valid values:
+   * The type of detection points used by the task. Valid values:
    * 
-   * - PC: Cable Network
+   * - PC: PC-based detection points.
    * 
-   * - MOBILE: Mobile Cellular Network
+   * - MOBILE: mobile-based detection points.
    * 
-   * - FC: Alibaba Cloud VPC Network
+   * - FC: internal detection points.
    * 
    * @example
    * PC
@@ -19,9 +19,9 @@ export class DescribeSiteMonitorListRequest extends $dara.Model {
   agentGroup?: string;
   /**
    * @remarks
-   * The keyword to be matched.
+   * The keyword used to search for site monitoring tasks.
    * 
-   * >  You can search for tasks by name or address. Fuzzy search is supported.
+   * > Fuzzy match is supported based on the task name or task address.
    * 
    * @example
    * site
@@ -56,8 +56,9 @@ export class DescribeSiteMonitorListRequest extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   1: The task is enabled.
-   * *   2: The task is disabled.
+   * - 1: Normal.
+   * 
+   * - 2: Disabled.
    * 
    * @example
    * 1
@@ -65,7 +66,7 @@ export class DescribeSiteMonitorListRequest extends $dara.Model {
   taskState?: string;
   /**
    * @remarks
-   * The protocol that is used by the site monitoring task. Valid values: HTTP, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
+   * The type of the site monitoring task. CloudMonitor supports the following types: HTTP, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
    * 
    * @example
    * HTTP

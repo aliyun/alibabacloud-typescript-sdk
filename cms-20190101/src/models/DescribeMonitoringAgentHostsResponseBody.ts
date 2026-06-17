@@ -93,9 +93,9 @@ export class DescribeMonitoringAgentHostsResponseBodyHosts extends $dara.Model {
 export class DescribeMonitoringAgentHostsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the call is successful.
+   * > A status code of 200 indicates a successful response.
    * 
    * @example
    * 200
@@ -112,7 +112,7 @@ export class DescribeMonitoringAgentHostsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -120,7 +120,7 @@ export class DescribeMonitoringAgentHostsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -128,7 +128,7 @@ export class DescribeMonitoringAgentHostsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The number of pages.
    * 
    * @example
    * 50
@@ -136,7 +136,7 @@ export class DescribeMonitoringAgentHostsResponseBody extends $dara.Model {
   pageTotal?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 63EEBB2A-9E51-41E4-9E83-5DE7F3B292E0
@@ -144,10 +144,11 @@ export class DescribeMonitoringAgentHostsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -155,7 +156,7 @@ export class DescribeMonitoringAgentHostsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 10

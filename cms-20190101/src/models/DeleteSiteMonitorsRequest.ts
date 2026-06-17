@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSiteMonitorsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete the alert rules configured for the site monitoring tasks. Valid values:
+   * Specifies whether to delete the alert rules associated with the tasks. Valid values:
    * 
-   * *   true (default value)
-   * *   false
+   * - true (default): Deletes the alert rules.
+   * 
+   * - false: Does not delete the alert rules.
    * 
    * @example
    * true
@@ -17,7 +18,7 @@ export class DeleteSiteMonitorsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the site monitoring tasks that you want to delete. Separate multiple task IDs with commas (,).
+   * The IDs of the tasks to be deleted. Separate multiple task IDs with commas (,).
    * 
    * This parameter is required.
    * 

@@ -19,8 +19,9 @@ export class CreateMonitorGroupByResourceGroupIdRequest extends $dara.Model {
    * @remarks
    * Specifies whether the CloudMonitor agent is automatically installed for the application group. CloudMonitor determines whether to automatically install the CloudMonitor agent for the hosts in an application group based on the value of this parameter. Valid values:
    * 
-   * *   true: The CloudMonitor agent is automatically installed.
-   * *   false (default): The CloudMonitor agent is not automatically installed.
+   * - true: The CloudMonitor agent is automatically installed.
+   * 
+   * - false (default): The CloudMonitor agent is not automatically installed.
    * 
    * @example
    * true
@@ -30,8 +31,9 @@ export class CreateMonitorGroupByResourceGroupIdRequest extends $dara.Model {
    * @remarks
    * Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
    * 
-   * *   true: The application group automatically subscribes to event notifications.
-   * *   false (default): The application group does not automatically subscribe to event notifications.
+   * - true: The application group automatically subscribes to event notifications.
+   * 
+   * - false (default): The application group does not automatically subscribe to event notifications.
    * 
    * @example
    * true

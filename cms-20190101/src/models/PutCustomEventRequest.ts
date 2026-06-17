@@ -41,7 +41,7 @@ export class PutCustomEventRequestEventInfo extends $dara.Model {
    * 
    * Valid values of N: 1 to 50.
    * 
-   * >  You can also specify a UNIX timestamp. Example: 1552199984000. Unit: milliseconds.
+   * > You can also specify a UNIX timestamp. Example: 1552199984000. Unit: milliseconds.
    * 
    * @example
    * 20171013T170923.456+0800

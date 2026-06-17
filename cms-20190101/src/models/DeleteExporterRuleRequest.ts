@@ -6,7 +6,7 @@ export class DeleteExporterRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the data export rule.
+   * The name of the export rules.
    * 
    * This parameter is required.
    * 

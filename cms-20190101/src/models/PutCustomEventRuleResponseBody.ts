@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PutCustomEventRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The value 200 indicates that the call was successful.
+   * > The value 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -33,8 +33,9 @@ export class PutCustomEventRuleResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * - true: The call was successful.
+   * 
+   * - false: The call failed.
    * 
    * @example
    * true

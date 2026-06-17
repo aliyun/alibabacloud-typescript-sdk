@@ -173,9 +173,8 @@ export class PutEventRuleTargetsResponseBodyFailedMnsParameters extends $dara.Mo
 export class PutEventRuleTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * >  The status code 200 indicates that the request was successful.
+   * The status code.
+   * >The value 200 indicates success.
    * 
    * @example
    * 200
@@ -186,7 +185,7 @@ export class PutEventRuleTargetsResponseBody extends $dara.Model {
   failedMnsParameters?: PutEventRuleTargetsResponseBodyFailedMnsParameters;
   /**
    * @remarks
-   * The number of resources that failed to be created or modified.
+   * The number of failed parameters.
    * 
    * @example
    * 2
@@ -210,7 +209,7 @@ export class PutEventRuleTargetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the operation was successful. The value true indicates success. The value false indicates failure.
    * 
    * @example
    * true

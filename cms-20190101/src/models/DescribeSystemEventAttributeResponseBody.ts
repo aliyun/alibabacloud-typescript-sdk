@@ -86,7 +86,7 @@ export class DescribeSystemEventAttributeResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the call is successful.
+   * > The status code 200 indicates that the call is successful.
    * 
    * @example
    * 200

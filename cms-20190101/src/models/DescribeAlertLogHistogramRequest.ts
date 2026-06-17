@@ -17,11 +17,11 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * 
    * Unit: milliseconds.
    * 
-   * > 
+   * >
    * 
-   * *   You can query only the alert logs within the last year.
+   * - You can query only the alert logs within the last year.
    * 
-   * *   The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
+   * - The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
    * 
    * @example
    * 1609989009694
@@ -31,8 +31,9 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * @remarks
    * The type of the alert event. Valid values:
    * 
-   * *   TRIGGERED: The alert is triggered.
-   * *   RESOLVED: The alert is resolved.
+   * - TRIGGERED: The alert is triggered.
+   * 
+   * - RESOLVED: The alert is resolved.
    * 
    * @example
    * RESOLVED
@@ -42,11 +43,15 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * @remarks
    * The dimensions based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
    * 
-   * *   `product`: aggregates data by cloud service.
-   * *   `level`: aggregates data by alert level.
-   * *   `groupId`: aggregates data by application group.
-   * *   `contactGroup`: aggregates data by alert contact group.
-   * *   `product,metricName`: aggregates data both by cloud service and by metric.
+   * - `product`: aggregates data by cloud service.
+   * 
+   * - `level`: aggregates data by alert level.
+   * 
+   * - `groupId`: aggregates data by application group.
+   * 
+   * - `contactGroup`: aggregates data by alert contact group.
+   * 
+   * - `product,metricName`: aggregates data both by cloud service and by metric.
    * 
    * @example
    * product
@@ -72,8 +77,9 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * @remarks
    * The severity level and notification methods of the alert. Valid values:
    * 
-   * *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
-   * *   OK: No alert is generated.
+   * - P4: Alert notifications are sent by using emails and DingTalk chatbots.
+   * 
+   * - OK: No alert is generated.
    * 
    * @example
    * P4
@@ -83,7 +89,7 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * @remarks
    * The metric name.
    * 
-   * >  For more information about the metrics of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * cpu_total
@@ -93,7 +99,7 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * @remarks
    * The namespace of the Alibaba Cloud service.
    * 
-   * >  For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * > For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * acs_ecs_dashboard
@@ -158,11 +164,15 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * @remarks
    * The alert status. Valid values:
    * 
-   * *   0: The alert is triggered or cleared.
-   * *   1: The alert is ineffective.
-   * *   2: The alert is muted and not triggered in a specified period.
-   * *   3: The host is restarting.
-   * *   4: No alert notification is sent.
+   * - 0: The alert is triggered or cleared.
+   * 
+   * - 1: The alert is ineffective.
+   * 
+   * - 2: The alert is muted and not triggered in a specified period.
+   * 
+   * - 3: The host is restarting.
+   * 
+   * - 4: No alert notification is sent.
    * 
    * If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
    * 
@@ -175,7 +185,7 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * This parameter is deprecated.
    * 
    * @example
-   * None
+   * 无
    */
   sourceType?: string;
   /**
@@ -184,11 +194,11 @@ export class DescribeAlertLogHistogramRequest extends $dara.Model {
    * 
    * Unit: milliseconds.
    * 
-   * > 
+   * >
    * 
-   * *   You can query only the alert logs within the last year.
+   * - You can query only the alert logs within the last year.
    * 
-   * *   The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
+   * - The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
    * 
    * @example
    * 1609988009694

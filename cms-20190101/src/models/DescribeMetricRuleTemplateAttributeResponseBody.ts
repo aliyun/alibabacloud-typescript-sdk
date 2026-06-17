@@ -275,6 +275,9 @@ export class DescribeMetricRuleTemplateAttributeResponseBodyResource extends $da
   /**
    * @remarks
    * The description of the alert template.
+   * 
+   * @example
+   * ECS template
    */
   description?: string;
   /**
@@ -338,7 +341,7 @@ export class DescribeMetricRuleTemplateAttributeResponseBody extends $dara.Model
    * @remarks
    * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -346,7 +349,7 @@ export class DescribeMetricRuleTemplateAttributeResponseBody extends $dara.Model
   code?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The specified resource is not found.
@@ -367,10 +370,11 @@ export class DescribeMetricRuleTemplateAttributeResponseBody extends $dara.Model
   resource?: DescribeMetricRuleTemplateAttributeResponseBodyResource;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

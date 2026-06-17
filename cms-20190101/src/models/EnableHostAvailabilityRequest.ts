@@ -5,12 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EnableHostAvailabilityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the availability monitoring task. Valid values of N: 1 to 20.
+   * The ID of the availability monitoring task.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   id?: number[];
   regionId?: string;

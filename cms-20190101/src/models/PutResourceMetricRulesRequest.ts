@@ -5,24 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara.Model {
   /**
    * @remarks
-   * The operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
+   * Critical级别阈值比较符。取值：
    * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   EqualToThreshold: equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * - GreaterThanOrEqualToThreshold：大于等于。
+   * - GreaterThanThreshold：大于。
+   * - LessThanOrEqualToThreshold：小于等于。
+   * - LessThanThreshold：小于。
+   * - NotEqualToThreshold：不等于。
+   * - EqualToThreshold：等于。
+   * - GreaterThanYesterday：同比昨天时间上涨。
+   * - LessThanYesterday：同比昨天时间下降。
+   * - GreaterThanLastWeek：同比上周同一时间上涨。
+   * - LessThanLastWeek：同比上周同一时间下降。
+   * - GreaterThanLastPeriod：环比上周期上涨。
+   * - LessThanLastPeriod：环比上周期下降。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -32,13 +32,13 @@ export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara
   preCondition?: string;
   /**
    * @remarks
-   * The statistical methods for Critical-level alerts.
+   * Critical级别报警统计方法。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * Average
@@ -46,11 +46,12 @@ export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara
   statistics?: string;
   /**
    * @remarks
-   * The threshold for Critical-level alerts.
+   * Critical级别报警阈值。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * 
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * 90
@@ -58,11 +59,11 @@ export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara
   threshold?: string;
   /**
    * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+   * Critical级别报警重试次数。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * 3
@@ -102,24 +103,24 @@ export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara
 export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Model {
   /**
    * @remarks
-   * The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
+   * Info级别阈值比较符。取值：
    * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   EqualToThreshold: equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * - GreaterThanOrEqualToThreshold：大于等于。
+   * - GreaterThanThreshold：大于。
+   * - LessThanOrEqualToThreshold：小于等于。
+   * - LessThanThreshold：小于。
+   * - NotEqualToThreshold：不等于。
+   * - EqualToThreshold：等于。
+   * - GreaterThanYesterday：同比昨天时间上涨。
+   * - LessThanYesterday：同比昨天时间下降。
+   * - GreaterThanLastWeek：同比上周同一时间上涨。
+   * - LessThanLastWeek：同比上周同一时间下降。
+   * - GreaterThanLastPeriod：环比上周期上涨。
+   * - LessThanLastPeriod：环比上周期下降。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -129,13 +130,13 @@ export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Mod
   preCondition?: string;
   /**
    * @remarks
-   * The statistical methods for Info-level alerts.
+   * Info级别报警统计方法。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * Average
@@ -143,9 +144,9 @@ export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Mod
   statistics?: string;
   /**
    * @remarks
-   * The threshold for Info-level alerts.
+   * Info级别报警阈值。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * 90
@@ -153,11 +154,11 @@ export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Mod
   threshold?: string;
   /**
    * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
+   * Info级别报警重试次数。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * 3
@@ -197,24 +198,24 @@ export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Mod
 export class PutResourceMetricRulesRequestRulesEscalationsWarn extends $dara.Model {
   /**
    * @remarks
-   * The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
+   * Warn级别阈值比较符。取值：
    * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   EqualToThreshold: equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * - GreaterThanOrEqualToThreshold：大于等于。
+   * - GreaterThanThreshold：大于。
+   * - LessThanOrEqualToThreshold：小于等于。
+   * - LessThanThreshold：小于。
+   * - NotEqualToThreshold：不等于。
+   * - EqualToThreshold：等于。
+   * - GreaterThanYesterday：同比昨天时间上涨。
+   * - LessThanYesterday：同比昨天时间下降。
+   * - GreaterThanLastWeek：同比上周同一时间上涨。
+   * - LessThanLastWeek：同比上周同一时间下降。
+   * - GreaterThanLastPeriod：环比上周期上涨。
+   * - LessThanLastPeriod：环比上周期下降。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -224,13 +225,13 @@ export class PutResourceMetricRulesRequestRulesEscalationsWarn extends $dara.Mod
   preCondition?: string;
   /**
    * @remarks
-   * The statistical methods for Warn-level alerts.
+   * Warn级别报警统计方法。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * Average
@@ -238,11 +239,11 @@ export class PutResourceMetricRulesRequestRulesEscalationsWarn extends $dara.Mod
   statistics?: string;
   /**
    * @remarks
-   * The threshold for Warn-level alerts.
+   * Warn级别报警阈值。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * 90
@@ -250,11 +251,11 @@ export class PutResourceMetricRulesRequestRulesEscalationsWarn extends $dara.Mod
   threshold?: string;
   /**
    * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
+   * Warn级别报警重试次数。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
+   * > 报警级别Critical（严重）、Warn（警告）或Info（信息）至少设置一个，且该报警级别中的参数Statistics、ComparisonOperator、Threshold和Times必须同时设置。
    * 
    * @example
    * 3
@@ -332,7 +333,7 @@ export class PutResourceMetricRulesRequestRulesEscalations extends $dara.Model {
 export class PutResourceMetricRulesRequestRulesLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * 标签键。
    * 
    * @example
    * tagKey1
@@ -340,9 +341,9 @@ export class PutResourceMetricRulesRequestRulesLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * 标签值。
    * 
-   * >  You can use a template parameter to specify a tag value. CloudMonitor replaces the value of the template parameter with an actual tag value.
+   * > 标签值支持模板参数，将模板参数替换为实际标签值。
    * 
    * @example
    * ECS
@@ -375,11 +376,11 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   escalations?: PutResourceMetricRulesRequestRulesEscalations;
   /**
    * @remarks
-   * The alert contact groups. The alert notifications are sent to the alert contacts in the alert contact group.
+   * 报警联系组。报警通知会发送给该报警联系组中的报警联系人。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](https://help.aliyun.com/document_detail/114923.html) and [PutContactGroup](https://help.aliyun.com/document_detail/114929.html).
+   * > 报警联系组是一组报警联系人，可以包含一个或多个报警联系人。关于如何创建报警联系人和报警联系组，请参见[PutContact](https://help.aliyun.com/document_detail/114923.html)和[PutContactGroup](https://help.aliyun.com/document_detail/114929.html)。
    * 
    * This parameter is required.
    * 
@@ -389,9 +390,9 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   contactGroups?: string;
   /**
    * @remarks
-   * The time period during which the alert rule is effective.
+   * 报警规则的生效时间范围。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
    * @example
    * 00:00-23:59
@@ -399,20 +400,23 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   effectiveInterval?: string;
   /**
    * @remarks
-   * The subject of the alert notification email.
+   * 报警邮件主题。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
+   * 
+   * @example
+   * ECS instance alert
    */
   emailSubject?: string;
   /**
    * @remarks
-   * The interval at which alerts are triggered based on the alert rule.
+   * 报警规则的触发周期。
    * 
-   * Unit: seconds.
+   * 单位：秒。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * >关于如何查询监控项的统计周期，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
    * 
    * @example
    * 60
@@ -420,16 +424,16 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * If the metric meets the specified condition in the alert rule and CloudMonitor sends an alert notification, the tag is also written to the metric and displayed in the alert notification.
+   * 当监控项达到报警条件并进行报警时，标签同时写入监控项，在报警通知中进行展示。
    */
   labels?: PutResourceMetricRulesRequestRulesLabels[];
   /**
    * @remarks
-   * The metric name.
+   * 监控项名称。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * For information about how to query the name of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 关于如何查询监控项名称，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
    * 
    * @example
    * cpu_total
@@ -437,11 +441,11 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The namespace of the cloud service.
+   * 云产品的数据命名空间。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 关于如何查询云产品的数据命名空间，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
    * 
    * This parameter is required.
    * 
@@ -451,13 +455,13 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The method that is used to handle alerts when no monitoring data is found. Valid values:
+   * 无监控数据时报警的处理方式。取值：
    * 
-   * *   KEEP_LAST_STATE (default): No operation is performed.
-   * *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-   * *   OK: The status is considered normal.
+   * - KEEP_LAST_STATE（默认值）：不做任何处理。
+   * - INSUFFICIENT_DATA：报警内容为无数据。
+   * - OK：正常。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
    * @example
    * KEEP_LAST_STATE
@@ -465,9 +469,9 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   noDataPolicy?: string;
   /**
    * @remarks
-   * The time period during which the alert rule is ineffective.
+   * 报警规则的失效时间范围。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
    * @example
    * 00:00-06:00
@@ -475,13 +479,13 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   noEffectiveInterval?: string;
   /**
    * @remarks
-   * The statistical period of the metric.
+   * 监控项的统计周期。
    * 
-   * Unit: seconds. The default value is the interval at which the monitoring data of the metric is collected.
+   * 单位：秒。默认为监控项的原始上报周期。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * >关于如何查询监控项的统计周期，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
    * 
    * @example
    * 60
@@ -489,11 +493,11 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The information about the resource. Example: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` or `[{"userId":"100931896542****"}]`.
+   * 资源信息，例如：`[{"instanceId":"i-uf6j91r34rnwawoo****"}]`、`[{"userId":"100931896542****"}]`。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * For more information about the supported dimensions that are used to query resources, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 关于资源信息支持的维度Dimensions，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
    * 
    * This parameter is required.
    * 
@@ -503,13 +507,13 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   resources?: string;
   /**
    * @remarks
-   * The ID of the alert rule.
+   * 报警规则ID。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * You can specify a new ID or the ID of an existing alert rule. For information about how to query the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * 您可以输入新的报警规则ID，也可以使用云监控已存在的报警规则ID。关于如何查询报警规则ID，请参见[DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html)。
    * 
-   * >  If you specify a new ID, a threshold-triggered alert rule is created.
+   * > 输入新的报警规则ID，表示创建一条阈值报警规则。
    * 
    * This parameter is required.
    * 
@@ -519,13 +523,13 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The name of the alert rule.
+   * 报警规则名称。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * You can specify a new name or the name of an existing alert rule. For information about how to query the name of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * 您可以输入新的报警规则名称，也可以使用云监控已存在的报警规则名称。关于如何查询报警规则名称，请参见[DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html)。
    * 
-   * >  If you specify a new name, a threshold-triggered alert rule is created.
+   * > 输入新的报警规则名称，表示创建一条阈值报警规则。
    * 
    * This parameter is required.
    * 
@@ -533,16 +537,23 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
    * test123
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * 是否发送恢复通知
+   * 
+   * @example
+   * true
+   */
   sendOK?: boolean;
   /**
    * @remarks
-   * The mute period during which new alert notifications are not sent even if the trigger conditions are met.
+   * 通道沉默周期。
    * 
-   * Unit: seconds. Default value: 86400.
+   * 单位：秒，默认值：86400。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
-   * >  If an alert is not cleared after the mute period ends, CloudMonitor resends an alert notification.
+   * > 通道沉默周期是指报警发生后未恢复正常，间隔多久重新发送一次报警通知。
    * 
    * @example
    * 86400
@@ -550,9 +561,9 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
+   * 报警发生回调时指定的URL地址，向URL发送POST请求。
    * 
-   * Valid values of N: 1 to 500.
+   * N的取值范围：1~50。
    * 
    * @example
    * https://alert.aliyun.com.com:8080/callback
@@ -620,9 +631,9 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
 export class PutResourceMetricRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The threshold-triggered alert rules.
+   * The list of threshold alert rules.
    * 
-   * Valid values of N: 1 to 500.
+   * Valid values of N: 1 to 50.
    * 
    * This parameter is required.
    */

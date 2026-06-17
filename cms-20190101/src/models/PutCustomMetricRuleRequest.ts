@@ -5,14 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class PutCustomMetricRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The operator that is used to compare the metric value with the threshold. Valid values:
+   * The comparison operator for the threshold. Valid values:
    * 
-   * *   `>=`
-   * *   `=`
-   * *   `<=`
-   * *   `>`
-   * *   `<`
-   * *   `!=`
+   * - `>=`
+   * 
+   * - `=`
+   * 
+   * - `<=`
+   * 
+   * - `>`
+   * 
+   * - `<`
+   * 
+   * - `!=`.
    * 
    * This parameter is required.
    * 
@@ -22,7 +27,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   comparisonOperator?: string;
   /**
    * @remarks
-   * The alert contact groups. Separate multiple alert contact groups with commas (,).
+   * The alert contact group. Separate multiple alert contact groups with commas (,).
    * 
    * This parameter is required.
    * 
@@ -32,7 +37,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   contactGroups?: string;
   /**
    * @remarks
-   * The period of time during which the alert rule is effective. Valid values: 00:00 to 23:59.
+   * The effective time range of the alert rule. Valid values: 00:00-23:59.
    * 
    * @example
    * 00:00-23:59
@@ -40,12 +45,15 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   effectiveInterval?: string;
   /**
    * @remarks
-   * The subject of the alert notification email.
+   * The subject of the alert email.
+   * 
+   * @example
+   * ECS instance
    */
   emailSubject?: string;
   /**
    * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
+   * The number of alert retries.
    * 
    * This parameter is required.
    * 
@@ -57,7 +65,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the application group to which the custom monitoring data belongs.
    * 
-   * >  The value 0 indicates that the reported custom monitoring data does not belong to an application group.
+   * > A value of 0 indicates that the reported custom monitoring data does not belong to any application group.
    * 
    * @example
    * 7378****
@@ -66,10 +74,9 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The alert level. Valid values:
-   * 
-   * *   CRITICAL
-   * *   WARN
-   * *   INFO
+   * - CRITICAL: critical.
+   * - WARN: warning.
+   * - INFO: information.
    * 
    * This parameter is required.
    * 
@@ -81,7 +88,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
    * @remarks
    * The metric name.
    * 
-   * >  For more information about how to obtain the metric name, see [DescribeCustomMetricList](https://help.aliyun.com/document_detail/115005.html).
+   * > For more information about how to obtain the metric name, see [DescribeCustomMetricList](https://help.aliyun.com/document_detail/115005.html).
    * 
    * This parameter is required.
    * 
@@ -91,7 +98,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The cycle that is used to aggregate custom monitoring data. Unit: seconds Set the value to an integral multiple of 60. The original reporting cycle of custom monitoring data is used by default.
+   * The aggregation period of the custom monitoring data. Unit: seconds. Set the value to 60 or a multiple of 60. Default value: the original reporting period of the custom monitoring data.
    * 
    * @example
    * 300
@@ -99,7 +106,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The custom monitoring data to which the alert rule applies. The value includes the application group ID to which the custom monitoring data belongs and the dimension to which the metric belongs.
+   * The custom monitoring data to which the alert rule applies. The value consists of the application group ID to which the custom monitoring data belongs and the dimensions of the metric.
    * 
    * This parameter is required.
    * 
@@ -111,7 +118,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the alert rule.
    * 
-   * >  You can specify an existing ID to modify the corresponding alert rule or specify a new ID to create an alert rule.
+   * > If the alert rule ID already exists, the alert rule is modified. If the alert rule ID does not exist, an alert rule is created.
    * 
    * This parameter is required.
    * 
@@ -129,9 +136,9 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400, which is equivalent to one day.
+   * The mute for period. Unit: seconds. Default value: 86400 (1 day).
    * 
-   * >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
+   * > If the monitoring data continuously exceeds the alert threshold, only one alert notification is sent within each mute for period.
    * 
    * @example
    * 86400
@@ -139,7 +146,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * The method used to calculate the metric value based on which alerts are triggered.
+   * The statistical method for alerts.
    * 
    * This parameter is required.
    * 
@@ -159,7 +166,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   threshold?: string;
   /**
    * @remarks
-   * The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
+   * The alert callback URL. An HTTP POST request is sent to the specified URL when an alert is triggered.
    * 
    * @example
    * https://www.aliyun.com

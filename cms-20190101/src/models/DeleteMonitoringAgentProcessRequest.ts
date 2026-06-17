@@ -17,7 +17,7 @@ export class DeleteMonitoringAgentProcessRequest extends $dara.Model {
    * @remarks
    * The process ID.
    * 
-   * > You must configure either `ProcessId` or `ProcessName`.
+   * > You must specify either ProcessId or ProcessName.
    * 
    * @example
    * 123****
@@ -27,7 +27,7 @@ export class DeleteMonitoringAgentProcessRequest extends $dara.Model {
    * @remarks
    * The process name.
    * 
-   * > You must configure either `ProcessId` or `ProcessName`.
+   * > You must specify either ProcessId or ProcessName.
    * 
    * @example
    * http

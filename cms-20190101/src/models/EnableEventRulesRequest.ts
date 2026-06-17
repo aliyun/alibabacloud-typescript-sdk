@@ -6,6 +6,8 @@ export class EnableEventRulesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The names of the event rules to enable.
+   * 
    * This parameter is required.
    * 
    * @example

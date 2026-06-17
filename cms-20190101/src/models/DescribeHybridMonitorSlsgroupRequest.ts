@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridMonitorSLSGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword that is used to search for Logstore groups.
+   * The search keyword.
    * 
    * @example
    * Logstore
@@ -15,7 +15,7 @@ export class DescribeHybridMonitorSLSGroupRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1

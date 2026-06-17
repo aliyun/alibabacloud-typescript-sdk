@@ -255,9 +255,9 @@ export class DescribeSiteMonitorListResponseBodySiteMonitors extends $dara.Model
 export class DescribeSiteMonitorListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -298,10 +298,11 @@ export class DescribeSiteMonitorListResponseBody extends $dara.Model {
   siteMonitors?: DescribeSiteMonitorListResponseBodySiteMonitors;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true
@@ -309,7 +310,7 @@ export class DescribeSiteMonitorListResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

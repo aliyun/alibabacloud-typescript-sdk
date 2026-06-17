@@ -61,8 +61,7 @@ export class DescribeProjectMetaResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * 
-   * > The status code 200 indicates that the request was successful.
+   * >The value 200 indicates success.
    * 
    * @example
    * 200
@@ -103,7 +102,7 @@ export class DescribeProjectMetaResponseBody extends $dara.Model {
   resources?: DescribeProjectMetaResponseBodyResources;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
+   * Indicates whether the operation was successful. Valid values: true and false. The value true indicates success, and the value false indicates failure.
    * 
    * @example
    * true
@@ -111,7 +110,7 @@ export class DescribeProjectMetaResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 12

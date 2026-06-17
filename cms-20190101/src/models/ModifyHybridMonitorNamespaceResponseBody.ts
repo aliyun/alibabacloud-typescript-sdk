@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHybridMonitorNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The response code.
    * 
    * @example
    * Success
@@ -29,10 +29,10 @@ export class ModifyHybridMonitorNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

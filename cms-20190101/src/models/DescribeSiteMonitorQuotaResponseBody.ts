@@ -7,8 +7,9 @@ export class DescribeSiteMonitorQuotaResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether second-level monitoring is enabled. Valid values:
    * 
-   * *   true: Second-level monitoring is enabled.
-   * *   false: Second-level monitoring is disabled.
+   * - true: enabled.
+   * 
+   * - false: disabled.
    * 
    * @example
    * false
@@ -16,7 +17,7 @@ export class DescribeSiteMonitorQuotaResponseBodyData extends $dara.Model {
   secondMonitor?: boolean;
   /**
    * @remarks
-   * The quota of detection points that are provided by Alibaba Cloud. Five detection points are provided for free.
+   * The quota of Alibaba detection points. The free quota is 5.
    * 
    * @example
    * 5
@@ -24,7 +25,7 @@ export class DescribeSiteMonitorQuotaResponseBodyData extends $dara.Model {
   siteMonitorIdcQuota?: number;
   /**
    * @remarks
-   * The quota of detection points that are not provided by Alibaba Cloud. Default value: 0.
+   * The quota of non-Alibaba detection points. Default value: 0.
    * 
    * @example
    * 0
@@ -32,7 +33,7 @@ export class DescribeSiteMonitorQuotaResponseBodyData extends $dara.Model {
   siteMonitorOperatorQuotaQuota?: number;
   /**
    * @remarks
-   * The used quota of site monitoring tasks.
+   * The number of used site monitoring detection task quotas.
    * 
    * @example
    * 6
@@ -40,7 +41,7 @@ export class DescribeSiteMonitorQuotaResponseBodyData extends $dara.Model {
   siteMonitorQuotaTaskUsed?: number;
   /**
    * @remarks
-   * The quota of site monitoring tasks.
+   * The quota of site monitoring detection tasks.
    * 
    * @example
    * 10
@@ -50,8 +51,9 @@ export class DescribeSiteMonitorQuotaResponseBodyData extends $dara.Model {
    * @remarks
    * The version of site monitoring. Valid values:
    * 
-   * *   V1
-   * *   V2
+   * - V1: the old version.
+   *  
+   * - V2: the new version.
    * 
    * @example
    * V1
@@ -91,9 +93,9 @@ export class DescribeSiteMonitorQuotaResponseBodyData extends $dara.Model {
 export class DescribeSiteMonitorQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The responses code.
+   * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The value 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -101,12 +103,15 @@ export class DescribeSiteMonitorQuotaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The quota.
+   * The quota information.
    */
   data?: DescribeSiteMonitorQuotaResponseBodyData;
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * Request succeeded.
    */
   message?: string;
   /**
@@ -119,10 +124,11 @@ export class DescribeSiteMonitorQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

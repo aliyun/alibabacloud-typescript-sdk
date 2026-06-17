@@ -13,7 +13,7 @@ export class CreateHybridMonitorNamespaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Namespace.Existed
@@ -29,10 +29,10 @@ export class CreateHybridMonitorNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

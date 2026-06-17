@@ -7,7 +7,7 @@ export class DescribeCustomMetricListResponseBody extends $dara.Model {
    * @remarks
    * The responses code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200

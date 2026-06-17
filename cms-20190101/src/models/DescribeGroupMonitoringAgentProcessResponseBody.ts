@@ -269,7 +269,7 @@ export class DescribeGroupMonitoringAgentProcessResponseBody extends $dara.Model
    * @remarks
    * The HTTP status codes.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200

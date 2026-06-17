@@ -6,11 +6,14 @@ export class PutEventRuleTargetsRequestContactParameters extends $dara.Model {
   /**
    * @remarks
    * The name of the alert contact group. Valid values of N: 1 to 5.
+   * 
+   * @example
+   * Default alert contact group
    */
   contactGroupName?: string;
   /**
    * @remarks
-   * The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+   * The unique identifier of the rule target. Valid values of N: 1 to 5.
    * 
    * @example
    * 2
@@ -18,12 +21,20 @@ export class PutEventRuleTargetsRequestContactParameters extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The alert notification methods. Valid values of N: 1 to 5. Valid values:
+   * The alert notification level. Valid values of N: 1 to 5. Valid values:
    * 
-   * 4: Alert notifications are sent by using DingTalk and emails.
+   * <props="china">- 2: phone call, text message, DingTalk, and email
+   * 
+   * <props="china">- 3: text message, DingTalk, and email
+   * 
+   * <props="china">- 4: DingTalk and email
+   * 
+   * <props="intl">4: DingTalk and email
+   * 
+   * <props="partner">4: DingTalk and email.
    * 
    * @example
-   * 3
+   * 4
    */
   level?: string;
   static names(): { [key: string]: string } {
@@ -62,7 +73,7 @@ export class PutEventRuleTargetsRequestFcParameters extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+   * The unique identifier of the rule target. Valid values of N: 1 to 5.
    * 
    * @example
    * 1
@@ -70,7 +81,7 @@ export class PutEventRuleTargetsRequestFcParameters extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The region where Function Compute is deployed. Valid values of N: 1 to 5.
+   * The region where the Function Compute service resides. Valid values of N: 1 to 5.
    * 
    * @example
    * cn-hangzhou
@@ -78,7 +89,7 @@ export class PutEventRuleTargetsRequestFcParameters extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The name of the Function Compute service. Valid values of N: 1 to 5.
+   * The service name of the Function Compute service. Valid values of N: 1 to 5.
    * 
    * @example
    * fc-test
@@ -114,7 +125,7 @@ export class PutEventRuleTargetsRequestFcParameters extends $dara.Model {
 export class PutEventRuleTargetsRequestMnsParameters extends $dara.Model {
   /**
    * @remarks
-   * The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+   * The unique identifier of the rule target. Valid values of N: 1 to 5.
    * 
    * @example
    * 3
@@ -122,7 +133,7 @@ export class PutEventRuleTargetsRequestMnsParameters extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the SMQ queue. Valid values of N: 1 to 5.
+   * The name of the queue. Valid values of N: 1 to 5.
    * 
    * @example
    * queue1
@@ -130,7 +141,7 @@ export class PutEventRuleTargetsRequestMnsParameters extends $dara.Model {
   queue?: string;
   /**
    * @remarks
-   * The region for SMQ. Valid values of N: 1 to 5.
+   * The region where Simple Message Queue (formerly MNS) resides. Valid values of N: 1 to 5.
    * 
    * @example
    * cn-hangzhou
@@ -138,7 +149,7 @@ export class PutEventRuleTargetsRequestMnsParameters extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The SMQ topic.
+   * The topic of Simple Message Queue (formerly MNS).
    * 
    * @example
    * topic_sample
@@ -182,18 +193,18 @@ export class PutEventRuleTargetsRequestOpenApiParameters extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the resource. Valid values of N: 1 to 5. Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
-   * 
-   * *   Service: the code of a cloud service
-   * *   Region: the region ID
-   * *   Account: the ID of an Alibaba Cloud account
-   * *   ResourceType: the resource type
-   * *   ResourceId: the resource ID
+   * The Alibaba Cloud Resource Name (ARN) of the resource. Valid values of N: 1 to 5.
+   * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. The fields are described as follows:
+   *   - Service: the Alibaba Cloud service.
+   *   - Region: the region ID.
+   *   - Account: the Alibaba Cloud account ID.
+   *   - ResourceType: the resource type.
+   *   - ResourceId: the resource ID.
    */
   arn?: string;
   /**
    * @remarks
-   * The ID of the recipient that receives alert notifications sent by an API callback.
+   * The unique identifier of the API callback notification method.
    * 
    * @example
    * 3
@@ -201,7 +212,7 @@ export class PutEventRuleTargetsRequestOpenApiParameters extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The parameters of the alert callback. Specify the parameters in the JSON format.
+   * The JSON-formatted parameters of the alert callback.
    * 
    * @example
    * {"customField1":"value1","customField2":"$.name"}
@@ -209,7 +220,7 @@ export class PutEventRuleTargetsRequestOpenApiParameters extends $dara.Model {
   jsonParams?: string;
   /**
    * @remarks
-   * The ID of the cloud service to which the API operation belongs.
+   * The ID of the Alibaba Cloud service to which the API belongs.
    * 
    * @example
    * log
@@ -225,7 +236,7 @@ export class PutEventRuleTargetsRequestOpenApiParameters extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The name of the role.
+   * The role name.
    * 
    * @example
    * MyRole
@@ -233,7 +244,7 @@ export class PutEventRuleTargetsRequestOpenApiParameters extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The version of the API.
+   * The API version.
    * 
    * @example
    * 2019-01-01
@@ -277,7 +288,7 @@ export class PutEventRuleTargetsRequestOpenApiParameters extends $dara.Model {
 export class PutEventRuleTargetsRequestSlsParameters extends $dara.Model {
   /**
    * @remarks
-   * The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+   * The unique identifier of the rule target. Valid values of N: 1 to 5.
    * 
    * @example
    * 5
@@ -285,7 +296,7 @@ export class PutEventRuleTargetsRequestSlsParameters extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore. Valid values of N: 1 to 5.
+   * The Logstore of Simple Log Service. Valid values of N: 1 to 5.
    * 
    * @example
    * testlogstore
@@ -293,7 +304,7 @@ export class PutEventRuleTargetsRequestSlsParameters extends $dara.Model {
   logStore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project. Valid values of N: 1 to 5.
+   * The project of Simple Log Service. Valid values of N: 1 to 5.
    * 
    * @example
    * testproject
@@ -301,7 +312,7 @@ export class PutEventRuleTargetsRequestSlsParameters extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The region where Simple Log Service is deployed. Valid values of N: 1 to 5.
+   * The region where Simple Log Service resides. Valid values of N: 1 to 5.
    * 
    * @example
    * cn-hangzhou
@@ -337,7 +348,7 @@ export class PutEventRuleTargetsRequestSlsParameters extends $dara.Model {
 export class PutEventRuleTargetsRequestWebhookParameters extends $dara.Model {
   /**
    * @remarks
-   * The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+   * The unique identifier of the rule target. Valid values of N: 1 to 5.
    * 
    * @example
    * 4
@@ -345,9 +356,9 @@ export class PutEventRuleTargetsRequestWebhookParameters extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The HTTP request method. Valid values of N: 1 to 5.
+   * The request method of the HTTP callback. Valid values of N: 1 to 5.
    * 
-   * Valid values: GET and POST.
+   * Only GET and POST are supported.
    * 
    * @example
    * GET
@@ -355,11 +366,11 @@ export class PutEventRuleTargetsRequestWebhookParameters extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The name of the protocol. Valid values of N: 1 to 5. Valid values:
+   * The protocol name. Valid values of N: 1 to 5. Valid values:
    * 
-   * *   http
-   * *   telnet
-   * *   ping
+   * - http
+   * - telnet
+   * - ping.
    * 
    * @example
    * http
@@ -403,22 +414,22 @@ export class PutEventRuleTargetsRequestWebhookParameters extends $dara.Model {
 export class PutEventRuleTargetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the alert contact groups that receive alert notifications.
+   * The alert contact group notification method.
    */
   contactParameters?: PutEventRuleTargetsRequestContactParameters[];
   /**
    * @remarks
-   * The information about the recipients in Function Compute.
+   * The Function Compute notification method.
    */
   fcParameters?: PutEventRuleTargetsRequestFcParameters[];
   /**
    * @remarks
-   * The notifications of Simple Message Queue (formerly MNS) (SMQ).
+   * The Simple Message Queue (formerly MNS) notification method.
    */
   mnsParameters?: PutEventRuleTargetsRequestMnsParameters[];
   /**
    * @remarks
-   * The parameters of API callback notification.
+   * The list of API callback notification parameters.
    */
   openApiParameters?: PutEventRuleTargetsRequestOpenApiParameters[];
   regionId?: string;
@@ -434,12 +445,12 @@ export class PutEventRuleTargetsRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The information about the recipients in Simple Log Service.
+   * The Simple Log Service notification method.
    */
   slsParameters?: PutEventRuleTargetsRequestSlsParameters[];
   /**
    * @remarks
-   * The information about the callback URLs that are used to receive alert notifications.
+   * The URL callback notification method.
    */
   webhookParameters?: PutEventRuleTargetsRequestWebhookParameters[];
   static names(): { [key: string]: string } {

@@ -5,32 +5,57 @@ import * as $dara from '@darabonba/typescript';
 export class PutEventRuleRequestEventPattern extends $dara.Model {
   /**
    * @remarks
-   * The keyword that is used to filter events. If the content of an event contains the specified keyword, an alert is automatically triggered.
+   * The keyword for event filtering. When the event content contains this keyword, an alert is automatically triggered.
    * 
    * @example
    * Stopping
    */
   customFilters?: string;
   /**
+   * @remarks
+   * The type of the Event-triggered Alert Rule. Valid values of N: 1 to 50. Valid values:
+   * 
+   * - StatusNotification: fault notification.
+   * 
+   * - Exception: exception.
+   * 
+   * - Maintenance: O&M.
+   * 
+   * - \\*: unlimited.
+   * 
    * @example
    * Exception
    */
   eventTypeList?: string[];
   /**
+   * @remarks
+   * The level of the Event-triggered Alert Rule. Valid values of N: 1 to 50. Valid values:
+   * 
+   * - CRITICAL: critical.
+   * 
+   * - WARN: warning.
+   * 
+   * - INFO: information.
+   * 
+   * - \\*: all levels.
+   * 
    * @example
    * CRITICAL
    */
   levelList?: string[];
   /**
+   * @remarks
+   * The name of the Event-triggered Alert Rule. Valid values of N: 1 to 50.
+   * 
    * @example
    * Agent_Status_Stopped
    */
   nameList?: string[];
   /**
    * @remarks
-   * The type of the cloud service. Valid values of N: 1 to 50.
+   * The Alibaba Cloud service type. Valid values of N: 1 to 50.
    * 
-   * >  You can call the DescribeSystemEventMetaList operation to query the cloud services that support event-triggered alerts. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
+   * >For information about the Alibaba Cloud services supported by Event-triggered Alert Rules, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * This parameter is required.
    * 
@@ -40,15 +65,17 @@ export class PutEventRuleRequestEventPattern extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The SQL condition that is used to filter events. If the content of an event meets the specified SQL condition, an alert is automatically triggered.
-   * 
-   * >  The syntax of SQL event filtering is consistent with the query syntax of Log Service.
+   * The SQL filter for events. When the event content meets the SQL condition, an alert is automatically triggered.
+   * > The syntax of the SQL event filter is consistent with the query syntax of Simple Log Service (SLS).
    * 
    * @example
    * 192.168.XX.XX and Executed
    */
   SQLFilter?: string;
   /**
+   * @remarks
+   * The status of the Event-triggered Alert Rule. Valid values of N: 1 to 50.
+   * 
    * @example
    * Failed
    */
@@ -101,20 +128,25 @@ export class PutEventRuleRequestEventPattern extends $dara.Model {
 export class PutEventRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the event-triggered alert rule.
+   * The description of the Event-triggered Alert Rule.
+   * 
+   * @example
+   * Event alert test
    */
   description?: string;
   /**
    * @remarks
+   * The pattern of the Event-triggered Alert Rule.
+   * 
    * This parameter is required.
    */
   eventPattern?: PutEventRuleRequestEventPattern[];
   /**
    * @remarks
-   * The type of the event-triggered alert rule. Valid values:
+   * The type of the Event-triggered Alert Rule. Valid values:
    * 
-   * *   SYSTEM: system event-triggered alert rule
-   * *   CUSTOM: custom event-triggered alert rule
+   * - SYSTEM: system event.
+   * - CUSTOM: custom event.
    * 
    * @example
    * SYSTEM
@@ -122,7 +154,7 @@ export class PutEventRuleRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the application group to which the event-triggered alert rule belongs.
+   * The ID of the application group to which the Event-triggered Alert Rule belongs.
    * 
    * @example
    * 7378****
@@ -131,7 +163,7 @@ export class PutEventRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the event-triggered alert rule.
+   * The name of the Event-triggered Alert Rule.
    * 
    * This parameter is required.
    * 
@@ -141,7 +173,7 @@ export class PutEventRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds.
+   * The mute period. Unit: seconds.
    * 
    * @example
    * 86400
@@ -149,10 +181,10 @@ export class PutEventRuleRequest extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * The status of the event-triggered alert rule. Valid values:
+   * The status of the Event-triggered Alert Rule. Valid values:
    * 
-   * *   ENABLED: enabled
-   * *   DISABLED: disabled
+   * - ENABLED: enabled.
+   * - DISABLED: disabled.
    * 
    * @example
    * ENABLED

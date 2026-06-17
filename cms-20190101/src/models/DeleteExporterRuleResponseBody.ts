@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteExporterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * > A value of 200 indicates success. Any other value indicates failure.
    * 
    * @example
    * 200
@@ -31,10 +31,9 @@ export class DeleteExporterRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`
-   * *   `false`
+   * Indicates whether the operation was successful. Valid values:  
+   * - `true`: Successful.
+   * - `false`: Failed.
    * 
    * @example
    * true

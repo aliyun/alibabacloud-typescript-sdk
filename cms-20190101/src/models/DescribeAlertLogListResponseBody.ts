@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertLogListResponseBodyAlertLogListDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension.
+   * The key of the alerting resource.
    * 
    * @example
    * instanceId
@@ -13,7 +13,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListDimensions extends $dar
   key?: string;
   /**
    * @remarks
-   * The value of the dimension.
+   * The value of the alerting resource.
    * 
    * @example
    * i-m5e1qg6uo38rztr4****
@@ -45,9 +45,9 @@ export class DescribeAlertLogListResponseBodyAlertLogListDimensions extends $dar
 export class DescribeAlertLogListResponseBodyAlertLogListEscalation extends $dara.Model {
   /**
    * @remarks
-   * The description of the alert rule.
+   * The description of the rule that triggers the alert.
    * 
-   * >  The content of the alert rule. This parameter indicates the conditions that trigger an alert.
+   * > The body of the alert rule. An alert rule is triggered when the monitoring data meets the alert conditions.
    * 
    * @example
    * $Average<90
@@ -55,10 +55,23 @@ export class DescribeAlertLogListResponseBodyAlertLogListEscalation extends $dar
   expression?: string;
   /**
    * @remarks
-   * The alert level and the methods that are used to send alert notifications. Valid values:
+   * The alert level and notification methods. Valid values:
    * 
-   * *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
-   * *   OK: No alert is generated.
+   * <props="china">- P2: phone calls, text messages, emails, and DingTalk chatbots.
+   * 
+   * <props="china">- P3: text messages, emails, and DingTalk chatbots.
+   * 
+   * <props="china">- P4: emails and DingTalk chatbots.
+   * 
+   * <props="china">- OK: no alerts.
+   * 
+   * <props="intl">- P4: emails and DingTalk chatbots.
+   * 
+   * <props="intl">- OK: no alerts.
+   * 
+   * <props="partner">- P4: emails and DingTalk chatbots.
+   * 
+   * <props="partner">- OK: no alerts.
    * 
    * @example
    * P4
@@ -66,7 +79,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListEscalation extends $dar
   level?: string;
   /**
    * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
+   * The number of times that the alert is retried.
    * 
    * @example
    * 1
@@ -100,7 +113,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListEscalation extends $dar
 export class DescribeAlertLogListResponseBodyAlertLogListExtendedInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the extended field.
+   * The name of the extension field.
    * 
    * @example
    * userId
@@ -108,10 +121,10 @@ export class DescribeAlertLogListResponseBodyAlertLogListExtendedInfo extends $d
   name?: string;
   /**
    * @remarks
-   * The value of the extended field.
+   * The value of the extension field.
    * 
    * @example
-   * 120886317861****
+   * 100931896542****
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -140,10 +153,11 @@ export class DescribeAlertLogListResponseBodyAlertLogListExtendedInfo extends $d
 export class DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResultListResultList extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * *   If the value of the `Channel` parameter is `WEBHOOK`, the status code is 200 or 500.
-   * *   If the value of the `Channel` parameter is `MAIL`, `SMS`, `SLS`, `ONCALL`, `FC`, or `MNS`, this parameter is empty or not returned.
+   * - If `Channel` is set to `WEBHOOK`, the status code is 200 or 500.
+   * 
+   * - If `Channel` is set to `MAIL`, `SMS`, `SLS`, `ONCALL`, `FC`, or `MNS`, this parameter is unavailable or empty.
    * 
    * @example
    * 200
@@ -151,7 +165,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResult
   code?: string;
   /**
    * @remarks
-   * The details of the returned results.
+   * The details of the returned result.
    * 
    * @example
    * { }
@@ -159,7 +173,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResult
   detail?: string;
   /**
    * @remarks
-   * The request ID returned when CloudMonitor calls another cloud service.
+   * The request ID returned by calling another cloud service.
    * 
    * @example
    * 0BDAF8A8-04DC-5F0C-90E4-724D42C4****
@@ -167,15 +181,20 @@ export class DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResult
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The result of calling the target.
    * 
-   * *   true
-   * *   false
+   * - true: The call was successful.
+   * 
+   * - false: The call failed.
    * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The list of channel notifications.
+   */
   notifyTargetList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -212,15 +231,21 @@ export class DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResult
 export class DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResultList extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to send alert notifications. Valid values:
+   * The alert pushing channel. Valid values:
    * 
-   * *   MAIL: email
-   * *   SMS: text message
-   * *   WEBHOOK: alert callback
-   * *   SLS: Simple Log Service
-   * *   ONCALL: phone call
-   * *   FC: Function Compute
-   * *   MNS: Message Service queue
+   * - MAIL: email.
+   * 
+   * - SMS: text message.
+   * 
+   * - WEBHOOK: alert callback.
+   * 
+   * - SLS: Log Service.
+   * 
+   * - ONCALL: phone call.
+   * 
+   * - FC: Function Compute.
+   * 
+   * - MNS: Message Service (MNS).
    * 
    * @example
    * MAIL
@@ -228,7 +253,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResult
   channel?: string;
   /**
    * @remarks
-   * The sending results of alert notifications.
+   * The list of alert information results that CloudMonitor sends to the alert channel.
    */
   resultList?: DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResultListResultList[];
   static names(): { [key: string]: string } {
@@ -260,15 +285,16 @@ export class DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResult
 export class DescribeAlertLogListResponseBodyAlertLogListSendDetail extends $dara.Model {
   /**
    * @remarks
-   * The list of sending results that are categorized by notification method.
+   * The list of alert pushing results by alert channel.
    */
   channelResultList?: DescribeAlertLogListResponseBodyAlertLogListSendDetailChannelResultList[];
   /**
    * @remarks
-   * Indicates whether the alert notifications are sent.
+   * The pushing status of the alert information.
    * 
-   * *   If the alert notifications are sent, the value "success" is returned.
-   * *   If the configuration is invalid, no alert notification is sent and an error code is returned.
+   * - success: The alert was pushed.
+   * 
+   * - error code: If a configuration error occurs and the pushing list is empty, an error code is displayed.
    * 
    * @example
    * success
@@ -303,22 +329,21 @@ export class DescribeAlertLogListResponseBodyAlertLogListSendDetail extends $dar
 export class DescribeAlertLogListResponseBodyAlertLogListSendResultList extends $dara.Model {
   /**
    * @remarks
-   * The category of the alert notification method. Valid values:
-   * 
-   * *   MAIL: email
-   * *   ALIIM: TradeManager
-   * *   SMS: text message
-   * *   CALL: phone call
-   * *   DING: DingTalk chatbot
-   * *   Merged: alert merging
+   * The channel that sends the alert. Valid values:
+   * - MAIL: email.
+   * - ALIIM: Wangwang.
+   * - SMS: text message.
+   * - CALL: phone call.
+   * - DING: DingTalk chatbot.
+   * - Merged: alert combination.
    * 
    * @example
-   * Mail
+   * MAIL
    */
   key?: string;
   /**
    * @remarks
-   * The notification object corresponding to the alert notification method.
+   * The notification target that corresponds to the alert channel.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -350,7 +375,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListSendResultList extends 
 export class DescribeAlertLogListResponseBodyAlertLogListWebhookList extends $dara.Model {
   /**
    * @remarks
-   * The status code of the alert callback.
+   * The status code returned for the alert callback.
    * 
    * @example
    * 200
@@ -358,7 +383,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListWebhookList extends $da
   code?: string;
   /**
    * @remarks
-   * The message returned for the alert callback.
+   * The information returned for the alert callback.
    * 
    * @example
    * success
@@ -366,7 +391,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListWebhookList extends $da
   message?: string;
   /**
    * @remarks
-   * The callback URL.
+   * The URL that is called back when the alert is triggered.
    * 
    * @example
    * https://www.aliyun.com/webhook.html
@@ -400,7 +425,7 @@ export class DescribeAlertLogListResponseBodyAlertLogListWebhookList extends $da
 export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   /**
    * @remarks
-   * The timestamp that was generated when the alert was triggered.
+   * The timestamp when the alert was triggered.
    * 
    * Unit: milliseconds.
    * 
@@ -410,48 +435,76 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   alertTime?: string;
   /**
    * @remarks
-   * The details of the blacklist policy.
+   * The details of the matched alert blacklist.
    * 
    * @example
-   * BlackListDetail
+   * {"id":12****,"metricProject":"acs_ecs_dashboard","userId":173651113438****,"uuid":"8410dbbd-7d30-41c5-94cb-****","name":"alert-****","productCategory":"ecs","instances":[{"instanceId":"i-m5e1qg6uo38rztr4****"}],"metrics":null,"scopeType":"USER","scopeValue":"","startTime":"0001-01-01T00:00:00Z","endTime":"9999-12-31T23:59:59.999999999+08:00","effectiveTime":null,"isEnable":true,"status":1,"gmtCreate":"2021-11-02T16:35:59+08:00","gmtModified":"2021-11-02T16:35:59+08:00","loadTime":"2021-11-02T16:36:15.213072177+08:00"}
    */
   blackListDetail?: string;
   /**
    * @remarks
-   * The name of the blacklist policy.
+   * The name of the matched alert blacklist.
    * 
    * @example
-   * {"id":123,"metricProject":"acs_ecs_dashboard","userId":1736511134389110,"uuid":"8410dbbd-7d30-41c5-94cb-***","name":"alert-***","productCategory":"ecs","instances":[{"instanceId":"host-***"}],"metrics":null,"scopeType":"USER","scopeValue":"","startTime":"0001-01-01T00:00:00Z","endTime":"9999-12-31T23:59:59.999999999+08:00","effectiveTime":null,"isEnable":true,"status":1,"gmtCreate":"2021-11-02T16:35:59+08:00","gmtModified":"2021-11-02T16:35:59+08:00","loadTime":"2021-11-02T16:36:15.213072177+08:00"}
+   * Black_Test
    */
   blackListName?: string;
   /**
    * @remarks
-   * The ID of the blacklist policy.
+   * The UUID of the matched alert blacklist.
    * 
    * @example
-   * 8410dbbd-7d30-41c5-94cb-*****
+   * 8410dbbd-7d30-41c5-94cb-****
    */
   blackListUUID?: string;
+  /**
+   * @remarks
+   * The list of Wangwang IDs of the alert contact.
+   */
   contactALIIWWList?: string[];
+  /**
+   * @remarks
+   * The list of DingTalk accounts of the alert contact.
+   */
   contactDingList?: string[];
+  /**
+   * @remarks
+   * The list of alert contact groups.
+   */
   contactGroups?: string[];
+  /**
+   * @remarks
+   * The list of email addresses of the alert contact.
+   */
   contactMailList?: string[];
+  /**
+   * @remarks
+   * The list of phone numbers of the alert contact.
+   */
   contactOnCallList?: string[];
+  /**
+   * @remarks
+   * The list of phone numbers that receive text messages of the alert contact.
+   */
   contactSMSList?: string[];
   /**
    * @remarks
-   * The dimensions of the resource that triggered alerts.
+   * The dimensions of the resource for which the alert is triggered.
    */
   dimensions?: DescribeAlertLogListResponseBodyAlertLogListDimensions[];
+  /**
+   * @remarks
+   * The list of webhook URLs of DingTalk chatbots for the alert contact.
+   */
   dingdingWebhookList?: string[];
   /**
    * @remarks
-   * The alert rule based on which the alert is triggered.
+   * The rule that triggers the alert.
    */
   escalation?: DescribeAlertLogListResponseBodyAlertLogListEscalation;
   /**
    * @remarks
-   * The event name.
+   * The name of the event.
    * 
    * @example
    * IOHang
@@ -459,7 +512,7 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The extended fields.
+   * The extended information of the alert.
    */
   extendedInfo?: DescribeAlertLogListResponseBodyAlertLogListExtendedInfo[];
   /**
@@ -480,7 +533,7 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * i-m5e1qg6uo38rztr4****
@@ -488,7 +541,7 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The resource name.
+   * The name of the resource.
    * 
    * @example
    * portalHost
@@ -496,10 +549,23 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The alert level and the methods that are used to send alert notifications. Valid values:
+   * The alert level and notification methods. Valid values:
    * 
-   * *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
-   * *   OK: No alert is generated.
+   * <props="china">- P2: phone calls, text messages, emails, and DingTalk chatbots.
+   * 
+   * <props="china">- P3: text messages, emails, and DingTalk chatbots.
+   * 
+   * <props="china">- P4: emails and DingTalk chatbots.
+   * 
+   * <props="china">- OK: no alerts.
+   * 
+   * <props="intl">- P4: emails and DingTalk chatbots.
+   * 
+   * <props="intl">- OK: no alerts.
+   * 
+   * <props="partner">- P4: emails and DingTalk chatbots.
+   * 
+   * <props="partner">- OK: no alerts.
    * 
    * @example
    * P4
@@ -507,10 +573,9 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Indicates whether the alert level was changed. Valid values:
-   * 
-   * *   `P4->OK`: The alert level was changed from P4 to OK.
-   * *   `P4->P4`: The alert level was still P4.
+   * The change of the alert level. Valid values:
+   * - `P4->OK`: The alert level changes from P4 to OK, which indicates that the alert is cleared.
+   * - `P4->P4`: indicates a P4-level alert.
    * 
    * @example
    * P4->OK
@@ -521,12 +586,12 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
    * The log ID.
    * 
    * @example
-   * 7818361[1523]@1671593992[1]
+   * 7510****::e8a472a0-46ae-4ac0-84b1-e46be368****
    */
   logId?: string;
   /**
    * @remarks
-   * The alert information in a JSON string.
+   * The alert-related information, which is a JSON string.
    * 
    * @example
    * {"alertName":"e47aa0ac-4076-44db-a47d-d1083968****_Availability"}
@@ -534,7 +599,7 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
    * @example
    * cpu_total
@@ -550,10 +615,11 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The identifier of the cloud service. Valid values:
+   * The cloud service identifier. Valid values:
    * 
-   * *   If the cloud service is provided by Alibaba Cloud, the abbreviation of the service name is returned. Example: ECS.
-   * *   If the cloud service is not provided by Alibaba Cloud, a value in the `acs_Service keyword` format is returned. Example: acs_networkmonitor.
+   * - For an Alibaba Cloud service, the value is the abbreviation of the cloud service name. Example: ECS.
+   * 
+   * - For a non-Alibaba Cloud service, the value is in the format of `acs_Product keyword`. Example: acs_networkmonitor.
    * 
    * @example
    * ECS
@@ -570,29 +636,33 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   /**
    * @remarks
    * The name of the alert rule.
+   * 
+   * @example
+   * CPU utilization
    */
   ruleName?: string;
   /**
    * @remarks
-   * The details about the sending results of alert notifications.
+   * The details of the alert pushing result.
    */
   sendDetail?: DescribeAlertLogListResponseBodyAlertLogListSendDetail;
   /**
    * @remarks
-   * The sending results of alert notifications.
+   * The list of alert sending results.
    */
   sendResultList?: DescribeAlertLogListResponseBodyAlertLogListSendResultList[];
   /**
    * @remarks
-   * The status of the alert. Valid values:
+   * The alert status. Valid values:
+   * - 0: An alert is triggered or cleared.
+   * - 1: The current time is not within the effective period of the alert.
+   * - 2: The current time is within the channel silence period.
+   * - 3: The host is being restarted.
+   * - 4: No alerts are sent.
    * 
-   * *   0: The alert is triggered or cleared.
-   * *   1: The alert is ineffective.
-   * *   2: The alert is muted.
-   * *   3: The host is restarting.
-   * *   4: No alert notification is sent.
-   * 
-   * If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
+   * <props="china">When the alert status is 0, an alert is triggered if Level is set to P2, P3, or P4; the alert is cleared if Level is set to OK.
+   * <props="intl">When the alert status is 0, an alert is triggered if Level is set to P4; the alert is cleared if Level is set to OK.
+   * <props="partner">When the alert status is 0, an alert is triggered if Level is set to P4; the alert is cleared if Level is set to OK.
    * 
    * @example
    * 0
@@ -600,7 +670,7 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
   sendStatus?: string;
   /**
    * @remarks
-   * The callback URLs.
+   * The list of URLs that are called back when the alert is triggered.
    */
   webhookList?: DescribeAlertLogListResponseBodyAlertLogListWebhookList[];
   static names(): { [key: string]: string } {
@@ -728,14 +798,14 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
 export class DescribeAlertLogListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried alert logs.
+   * The list of alert history entries.
    */
   alertLogList?: DescribeAlertLogListResponseBodyAlertLogList[];
   /**
    * @remarks
    * The HTTP status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -775,10 +845,11 @@ export class DescribeAlertLogListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The call was successful.
+   * 
+   * - false: The call failed.
    * 
    * @example
    * true

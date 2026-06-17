@@ -6,7 +6,7 @@ export class DeleteMetricRuleTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the alert template.
+   * The ID of the alert rule template.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridMonitorNamespaceListRequest extends $dara.Model {
   /**
    * @remarks
-   * The search keyword.
+   * The keyword for the search.
    * 
    * @example
    * aliyun
@@ -15,7 +15,7 @@ export class DescribeHybridMonitorNamespaceListRequest extends $dara.Model {
    * @remarks
    * The name of the namespace.
    * 
-   * The name can contain letters, digits, and hyphens (-).
+   * The name can contain uppercase letters, lowercase letters, digits, and hyphens (-).
    * 
    * @example
    * aliyun-test
@@ -25,7 +25,7 @@ export class DescribeHybridMonitorNamespaceListRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Page numbers start from 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -33,9 +33,9 @@ export class DescribeHybridMonitorNamespaceListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
-   * Page numbers start from 1. Default value: 10.
+   * Minimum value: 1. Default value: 10.
    * 
    * @example
    * 10
@@ -44,10 +44,11 @@ export class DescribeHybridMonitorNamespaceListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to return the configuration details of metric import tasks for Alibaba Cloud services and the number of metric import tasks for third-party services. Valid values:
+   * Specifies whether to display the configuration details of data import tasks for Alibaba Cloud services and the number of data import tasks for non-Alibaba Cloud services. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * false

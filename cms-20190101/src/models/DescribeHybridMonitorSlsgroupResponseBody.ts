@@ -21,7 +21,7 @@ export class DescribeHybridMonitorSLSGroupResponseBodyListSLSGroupConfig extends
   SLSProject?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -31,7 +31,7 @@ export class DescribeHybridMonitorSLSGroupResponseBodyListSLSGroupConfig extends
    * @remarks
    * The member ID.
    * 
-   * **Description** This parameter is returned when you call the operation by using an administrative account.
+   * > This parameter is returned only when you call this operation by using a management account.
    * 
    * @example
    * 120886317861****
@@ -67,7 +67,7 @@ export class DescribeHybridMonitorSLSGroupResponseBodyListSLSGroupConfig extends
 export class DescribeHybridMonitorSLSGroupResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The time when the Logstore group was created.
+   * The timestamp when the Logstore group was created.
    * 
    * Unit: milliseconds.
    * 
@@ -77,12 +77,15 @@ export class DescribeHybridMonitorSLSGroupResponseBodyList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The configurations of the Logstore group.
+   * The configuration information of the Logstore group.
    */
   SLSGroupConfig?: DescribeHybridMonitorSLSGroupResponseBodyListSLSGroupConfig[];
   /**
    * @remarks
    * The description of the Logstore group.
+   * 
+   * @example
+   * Logstore group of Alibaba Cloud products.
    */
   SLSGroupDescription?: string;
   /**
@@ -95,7 +98,7 @@ export class DescribeHybridMonitorSLSGroupResponseBodyList extends $dara.Model {
   SLSGroupName?: string;
   /**
    * @remarks
-   * The time when the Logstore group was modified.
+   * The timestamp when the Logstore group was last modified.
    * 
    * Unit: milliseconds.
    * 
@@ -138,9 +141,9 @@ export class DescribeHybridMonitorSLSGroupResponseBodyList extends $dara.Model {
 export class DescribeHybridMonitorSLSGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -148,7 +151,7 @@ export class DescribeHybridMonitorSLSGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The queried Logstore groups.
+   * The list of Logstore groups.
    */
   list?: DescribeHybridMonitorSLSGroupResponseBodyList[];
   /**
@@ -185,15 +188,18 @@ export class DescribeHybridMonitorSLSGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * - false: Failed.
+   * 
+   * @example
+   * true
    */
   success?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

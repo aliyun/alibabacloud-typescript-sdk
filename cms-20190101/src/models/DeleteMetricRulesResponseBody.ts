@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMetricRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * 
-   * >  The status code 200 indicates a success.
+   * The status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -18,23 +16,24 @@ export class DeleteMetricRulesResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * The specified resource is not found.
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
-   * E5599964-8D0D-40DC-8E90-27A619384B81
+   * 09B3A484-1A2B-5743-BB6B-D796416F2677
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: successful.
-   * *   false: failed.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

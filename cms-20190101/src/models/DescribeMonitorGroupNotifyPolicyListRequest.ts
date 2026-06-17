@@ -29,9 +29,9 @@ export class DescribeMonitorGroupNotifyPolicyListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the policy.
+   * The type of the pause notification.
    * 
-   * Valid value: PauseNotify.
+   * Currently, only PauseNotify is supported.
    * 
    * This parameter is required.
    * 

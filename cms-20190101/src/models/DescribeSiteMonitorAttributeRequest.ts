@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteMonitorAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the information of the alert rules that are configured for the site monitoring task. Valid values:
+   * Specifies whether the returned task details include alert rules.
    * 
-   * *   true: The system returns the information of the alert rules that are configured for the site monitoring task.
-   * *   false (default): The system does not return the information of the alert rules that are configured for the site monitoring task.
+   * - true: Alert rules are returned.
+   * - false (default): Alert rules are not returned.
    * 
    * @example
    * false
@@ -17,7 +17,7 @@ export class DescribeSiteMonitorAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the site monitoring task.
+   * The ID of the monitoring task.
    * 
    * This parameter is required.
    * 

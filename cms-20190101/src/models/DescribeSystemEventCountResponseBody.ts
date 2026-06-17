@@ -84,9 +84,8 @@ export class DescribeSystemEventCountResponseBodySystemEventCounts extends $dara
 export class DescribeSystemEventCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status codes.
-   * 
-   * >  The status code 200 indicates that the request was successful.
+   * The status code.
+   * >A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -96,7 +95,7 @@ export class DescribeSystemEventCountResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * If the request was successful, a success message is returned. If the request failed, an error message is returned.
+   * If the request is successful, a success message is returned. If the request fails, the failure reason is returned.
    * 
    * @example
    * success
@@ -112,10 +111,11 @@ export class DescribeSystemEventCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation is successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

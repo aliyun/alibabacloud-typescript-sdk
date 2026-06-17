@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstantSiteMonitorResponseBodyCreateResultList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instant test task.
+   * The ID of the detection task.
    * 
    * @example
    * 2c8dbdf9-a3ab-46a1-85a4-f094965e****
@@ -13,7 +13,7 @@ export class CreateInstantSiteMonitorResponseBodyCreateResultList extends $dara.
   taskId?: string;
   /**
    * @remarks
-   * The name of the instant test task.
+   * The name of the detection task.
    * 
    * @example
    * task1
@@ -45,9 +45,9 @@ export class CreateInstantSiteMonitorResponseBodyCreateResultList extends $dara.
 export class CreateInstantSiteMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the call was successful.
+   * > A value of 200 indicates that the call is successful.
    * 
    * @example
    * 200
@@ -55,7 +55,7 @@ export class CreateInstantSiteMonitorResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The results for creating the instant test task.
+   * The results of the one-time detection task.
    */
   createResultList?: CreateInstantSiteMonitorResponseBodyCreateResultList[];
   /**
@@ -68,7 +68,7 @@ export class CreateInstantSiteMonitorResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 68192f5d-0d45-4b98-9724-892813f86c71
@@ -76,9 +76,11 @@ export class CreateInstantSiteMonitorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

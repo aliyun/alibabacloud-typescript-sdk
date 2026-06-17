@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMonitorGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the application group. Valid values of N: 1 to 5.
+   * The key of tag N. Valid values of N: 1 to 5.
    * 
    * @example
    * tagKey1
@@ -13,7 +13,7 @@ export class DescribeMonitorGroupsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the application group. Valid values of N: 1 to 5.
+   * The value of tag N. Valid values of N: 1 to 5.
    * 
    * @example
    * tagValue1
@@ -45,7 +45,7 @@ export class DescribeMonitorGroupsRequestTag extends $dara.Model {
 export class DescribeMonitorGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the tag rule.
+   * The ID of the dynamic tag rule.
    * 
    * @example
    * 6b882d9a-5117-42e2-9d0c-4749a0c6****
@@ -53,7 +53,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   dynamicTagRuleId?: string;
   /**
    * @remarks
-   * The tag key that is created for the application group by using the tag rule.
+   * The tag key of the application group that is created using a dynamic tag rule.
    * 
    * @example
    * GroupKey1
@@ -61,7 +61,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   groupFounderTagKey?: string;
   /**
    * @remarks
-   * The tag value that is created for the application group by using the tag rule.
+   * The tag value of the application group that is created using a dynamic tag rule.
    * 
    * @example
    * GroupValue1
@@ -69,7 +69,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   groupFounderTagValue?: string;
   /**
    * @remarks
-   * The ID of the application group. Separate multiple application group IDs with commas (,).
+   * The IDs of the application groups. Separate multiple IDs with commas (,).
    * 
    * @example
    * 92****
@@ -85,10 +85,11 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Specifies whether to include the historical alert templates that are applied to the application group in the response. Valid values:
+   * Specifies whether to include the history of alert templates that are applied to the application group in the response. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -96,7 +97,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   includeTemplateHistory?: boolean;
   /**
    * @remarks
-   * The instance ID. This parameter is used to query the application group to which the specified instance belongs.
+   * The ID of the instance. This parameter is used to query the application group to which the specified instance belongs.
    * 
    * @example
    * i-abcdefgh12****
@@ -104,7 +105,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The keyword that is used for the search.
+   * The keyword for the search.
    * 
    * @example
    * test
@@ -112,7 +113,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * Pages start from page 1. Default value: 1.
    * 
@@ -133,10 +134,11 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to include the alert contact groups in the response. Valid values:
+   * Specifies whether to include alert contact groups in the response. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -151,9 +153,11 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
    * @remarks
    * The type of the application group. Valid values:
    * 
-   * *   custom: a self-managed application group
-   * *   ehpc_cluster: an application group that is synchronized from an E-HPC cluster
-   * *   kubernetes: an application group that is synchronized from an ACK cluster
+   * - custom: a custom application group.
+   * 
+   * - ehpc_cluster: an application group that is synchronized from an E-HPC cluster.
+   * 
+   * - kubernetes: an application group that is synchronized from a Container Service for Kubernetes (ACK) cluster.
    * 
    * @example
    * custom
@@ -163,12 +167,17 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
    * @remarks
    * The type of the application group. Valid values:
    * 
-   * *   custom: a self-managed application group
-   * *   ehpc_cluster: an application group that is synchronized from an Elastic High Performance Computing (E-HPC) cluster
-   * *   kubernetes: an application group that is synchronized from a Container Service for Kubernetes (ACK) cluster
-   * *   tag: an application group that is automatically created by using tags
-   * *   resMgr: an application group that is created by using resource groups
-   * *   ess: an application group that is synchronized from Auto Scaling (ESS)
+   * - custom: a custom application group.
+   * 
+   * - ehpc_cluster: an application group that is synchronized from an E-HPC cluster.
+   * 
+   * - kubernetes: an application group that is synchronized from a Container Service for Kubernetes (ACK) cluster.
+   * 
+   * - tag: an application group that is automatically created based on tags.
+   * 
+   * - resMgr: an application group that is created based on a resource group.
+   * 
+   * - ess: an application group that is synchronized from Auto Scaling (ESS).
    * 
    * @example
    * custom

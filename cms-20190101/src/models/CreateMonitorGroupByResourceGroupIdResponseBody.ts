@@ -41,8 +41,9 @@ export class CreateMonitorGroupByResourceGroupIdResponseBody extends $dara.Model
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

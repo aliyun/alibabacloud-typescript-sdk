@@ -7,7 +7,7 @@ export class AddTagsResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -31,10 +31,11 @@ export class AddTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

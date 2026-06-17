@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * > A value of 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -15,7 +15,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The monitoring data.
+   * The list of monitoring data.
    * 
    * @example
    * [{"timestamp":1548777660000,"userId":"120886317861****","instanceId":"i-abc","Minimum":9.92,"Average":9.92,"Maximum":9.92}]
@@ -31,7 +31,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paging token.
+   * The pagination cursor.
    * 
    * @example
    * 15761441850009dd70bb64cff1f0fff6d0b08ffff073be5fb1e785e2b020f7fed9b5e137bd810a6d6cff5ae****
@@ -39,7 +39,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The interval at which the monitoring data is queried. Unit: seconds. Valid values: 60, 300, and 900.
+   * The statistical period. Unit: seconds. Valid values: 60, 300, and 900.
    * 
    * @example
    * 60
@@ -47,7 +47,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3121AE7D-4AFF-4C25-8F1D-C8226EBB1F42
@@ -55,10 +55,11 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

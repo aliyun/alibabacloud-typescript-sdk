@@ -677,9 +677,11 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuota exte
    * @remarks
    * The current edition of CloudMonitor. Valid values:
    * 
-   * *   free: Free Edition
-   * *   pro: Pro Edition
-   * *   cms_post: pay-as-you-go
+   * - free: Free Edition
+   * 
+   * - pro: Pro Edition
+   * 
+   * - cms_post: pay-as-you-go
    * 
    * @example
    * pro

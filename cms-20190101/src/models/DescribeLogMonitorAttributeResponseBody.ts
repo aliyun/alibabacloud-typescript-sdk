@@ -8,29 +8,36 @@ export class DescribeLogMonitorAttributeResponseBodyLogMonitorAggregates extends
    * The alias of the field.
    * 
    * @example
-   * HostName
+   * alias_******
    */
   alias?: string;
   /**
    * @remarks
-   * The name of the field in logs.
+   * The original name of the field in the log.
    * 
    * @example
-   * hostName
+   * field_******
    */
   fieldName?: string;
   /**
    * @remarks
-   * The function that is used to aggregate the monitoring data of logs within a statistical period. Valid values:
+   * The function that is used to aggregate log data in a statistical period. Valid values:
    * 
-   * *   count: counts the number
-   * *   sum: calculates the total value
-   * *   avg: calculates the average value
-   * *   max: calculates the maximum value
-   * *   min: calculates the minimum value
-   * *   countps: calculates the number of values of the specified field divided by the total number of seconds within a statistical period
-   * *   sumps: calculates the sum of the values of the specified field divided by the total number of seconds within a statistical period
-   * *   distinct: calculates the number of unique values of the specified field within a statistical period
+   * - count: Counts the number of logs.
+   * 
+   * - sum: Calculates the sum of values in a field.
+   * 
+   * - avg: Calculates the average of values in a field.
+   * 
+   * - max: Selects the maximum value in a field.
+   * 
+   * - min: Selects the minimum value in a field.
+   * 
+   * - countps: Calculates the average number of logs that are generated per second in a statistical period.
+   * 
+   * - sumps: Calculates the average sum of values in a field per second in a statistical period.
+   * 
+   * - distinct: Counts the number of unique values in a field in a statistical period.
    * 
    * @example
    * count
@@ -41,7 +48,7 @@ export class DescribeLogMonitorAttributeResponseBodyLogMonitorAggregates extends
    * The maximum value.
    * 
    * @example
-   * 10
+   * 0
    */
   max?: string;
   /**
@@ -84,22 +91,27 @@ export class DescribeLogMonitorAttributeResponseBodyLogMonitorAggregates extends
 export class DescribeLogMonitorAttributeResponseBodyLogMonitorValueFilter extends $dara.Model {
   /**
    * @remarks
-   * The name of the log field used for matching in the filter condition.
+   * The key.
    * 
    * @example
-   * hostName
+   * key_******
    */
   key?: string;
   /**
    * @remarks
-   * The method that is used to match the field value. Valid values:
+   * The operator that is used to match the field value. Valid values:
    * 
-   * *   `contain`: contains
-   * *   `notContain`: does not contain
-   * *   `>`: greater than
-   * *   `<`: less than
-   * *   `>=`: greater than or equal to
-   * *   `<=`: less than or equal to
+   * - `contain`: contains.
+   * 
+   * - `notContain`: does not contain.
+   * 
+   * - `>`: greater than.
+   * 
+   * - `<`: less than.
+   * 
+   * - `>=`: greater than or equal to.
+   * 
+   * - `<=`: less than or equal to.
    * 
    * @example
    * contain
@@ -107,10 +119,10 @@ export class DescribeLogMonitorAttributeResponseBodyLogMonitorValueFilter extend
   operator?: string;
   /**
    * @remarks
-   * The field value to be matched in the filter condition.
+   * The value.
    * 
    * @example
-   * portal
+   * value_******
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -141,17 +153,17 @@ export class DescribeLogMonitorAttributeResponseBodyLogMonitorValueFilter extend
 export class DescribeLogMonitorAttributeResponseBodyLogMonitor extends $dara.Model {
   /**
    * @remarks
-   * The aggregation logic.
+   * The definitions of aggregations.
    */
   aggregates?: DescribeLogMonitorAttributeResponseBodyLogMonitorAggregates[];
   /**
    * @remarks
-   * The time when the metric was created.
+   * The time when the task was created.
    * 
-   * This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970.
    * 
    * @example
-   * 1547431398000
+   * 1678440033000
    */
   gmtCreate?: number;
   /**
@@ -159,34 +171,36 @@ export class DescribeLogMonitorAttributeResponseBodyLogMonitor extends $dara.Mod
    * The ID of the application group.
    * 
    * @example
-   * 12345
+   * 123******
    */
   groupId?: number;
+  /**
+   * @remarks
+   * The dimension based on which log data is aggregated. This parameter is equivalent to the \\`GROUP BY\\` clause in an SQL statement. You can specify a dimension to group monitoring data. If you do not specify this parameter, all monitoring data is aggregated based on the aggregation method.
+   */
   groupbys?: string[];
   /**
    * @remarks
-   * The ID of the log.
+   * The ID of the Log Monitoring task.
    * 
    * @example
-   * 1234
+   * 123******
    */
   logId?: number;
   /**
    * @remarks
-   * The extended field. The extended field allows you to perform basic operations on the aggregation results.
-   * 
-   * For example, if you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\\*100.
+   * The metric expression.
    * 
    * @example
-   * {"extend":{"errorPercent":"5XXNumber/TotalNumber*100"}}
+   * {}
    */
   metricExpress?: string;
   /**
    * @remarks
-   * The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The name of the metric.
    * 
    * @example
-   * cpu_total
+   * cpu_total_******
    */
   metricName?: string;
   /**
@@ -194,39 +208,44 @@ export class DescribeLogMonitorAttributeResponseBodyLogMonitor extends $dara.Mod
    * The name of the Simple Log Service Logstore.
    * 
    * @example
-   * test-logstore
+   * logstore_******
    */
   slsLogstore?: string;
   /**
    * @remarks
-   * The name of the SLS project.
+   * The name of the Simple Log Service project.
    * 
    * @example
-   * test-project
+   * project_******
    */
   slsProject?: string;
   /**
    * @remarks
-   * The ID of the region where the Simple Log Service (SLS) Logstore resides.
+   * The ID of the region where Simple Log Service resides.
    * 
    * @example
    * cn-hangzhou
    */
   slsRegionId?: string;
+  /**
+   * @remarks
+   * The pre-aggregation window. Unit: seconds. Cloud Monitor aggregates data in the specified pre-aggregation window.
+   */
   tumblingwindows?: string[];
   /**
    * @remarks
-   * The condition that is used to filter logs. The ValueFilter and ValueFilterRelation parameters are used in pair. The filter condition is equivalent to the WHERE clause in SQL statements.
+   * The filter conditions. This parameter is used with \\`ValueFilterRelation\\`. This parameter is equivalent to the \\`WHERE\\` clause in an SQL statement.
    * 
-   * If no filter condition is specified, all logs are processed. For example, logs contain the Level and Error fields. If you need to calculate the number of times that logs of the Error level appear every minute, you can set the filter condition to Level=Error and count the number of logs that meet this condition.
+   * If you do not specify this parameter, all data is processed. For example, if a log contains a \\`Level\\` field and you want to count the number of logs where the value of \\`Level\\` is \\`Error\\`, you can set the aggregation function to \\`count\\` and specify a filter condition where \\`Level\\` equals \\`Error\\`.
    */
   valueFilter?: DescribeLogMonitorAttributeResponseBodyLogMonitorValueFilter[];
   /**
    * @remarks
-   * The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters must be used in pair. Valid values:
+   * The logical operator for the filter conditions. This parameter is used with \\`ValueFilter\\`. Valid values:
    * 
-   * *   and
-   * *   or
+   * - and: The logical AND operator.
+   * 
+   * - or: The logical OR operator.
    * 
    * @example
    * and
@@ -294,7 +313,7 @@ export class DescribeLogMonitorAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > A status code of 200 indicates a successful request.
    * 
    * @example
    * 200
@@ -302,15 +321,15 @@ export class DescribeLogMonitorAttributeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the log monitoring metric.
+   * The details of the Log Monitoring task.
    */
   logMonitor?: DescribeLogMonitorAttributeResponseBodyLogMonitor;
   /**
    * @remarks
-   * The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+   * The returned message.
    * 
    * @example
-   * successful
+   * The specified resource is not found.
    */
   message?: string;
   /**
@@ -323,10 +342,11 @@ export class DescribeLogMonitorAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

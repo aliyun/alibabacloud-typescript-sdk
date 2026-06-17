@@ -7,10 +7,13 @@ export class PutMonitorGroupDynamicRuleRequestGroupRulesFilters extends $dara.Mo
    * @remarks
    * The method that is used to filter instances. Valid values of N: 1 to 3. Valid values:
    * 
-   * *   contains: contains
-   * *   notContains: does not contain
-   * *   startWith: starts with a prefix
-   * *   endWith: ends with a suffix
+   * - contains: contains
+   * 
+   * - notContains: does not contain
+   * 
+   * - startWith: starts with a prefix
+   * 
+   * - endWith: ends with a suffix
    * 
    * This parameter is required.
    * 
@@ -70,9 +73,11 @@ export class PutMonitorGroupDynamicRuleRequestGroupRules extends $dara.Model {
    * @remarks
    * The cloud service to which the alert rule is applied. Valid values of N: 1 to 3. Valid values:
    * 
-   * *   ecs: Elastic Compute Service (ECS)
-   * *   rds: ApsaraDB RDS
-   * *   slb: Server Load Balancer (SLB)
+   * - ecs: Elastic Compute Service (ECS)
+   * 
+   * - rds: ApsaraDB RDS
+   * 
+   * - slb: Server Load Balancer (SLB)
    * 
    * This parameter is required.
    * 
@@ -84,8 +89,9 @@ export class PutMonitorGroupDynamicRuleRequestGroupRules extends $dara.Model {
    * @remarks
    * The logical operator used between conditional expressions in the alert rule. Valid values of N: 1 to 3. Valid values:
    * 
-   * *   and: The instances that meet all the conditional expressions are automatically added to the application group.
-   * *   or: The instances that meet one of the conditional expressions are automatically added to the application group.
+   * - and: The instances that meet all the conditional expressions are automatically added to the application group.
+   * 
+   * - or: The instances that meet one of the conditional expressions are automatically added to the application group.
    * 
    * This parameter is required.
    * 
@@ -150,8 +156,9 @@ export class PutMonitorGroupDynamicRuleRequest extends $dara.Model {
    * @remarks
    * The mode for creating the alert rule. Valid values:
    * 
-   * *   true: creates asynchronously
-   * *   false (default): creates synchronously
+   * - true: creates asynchronously
+   * 
+   * - false (default): creates synchronously
    * 
    * @example
    * false

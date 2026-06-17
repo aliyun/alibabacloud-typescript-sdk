@@ -126,7 +126,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule 
   days?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays;
   /**
    * @remarks
-   * The end time of the detection. Unit: hours.
+   * The custom monitoring end time.
+   * 
+   * Unit: hours.
    * 
    * @example
    * 18
@@ -134,7 +136,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule 
   endHour?: number;
   /**
    * @remarks
-   * The start time of the detection. Unit: hours.
+   * The custom monitoring start time.
+   * 
+   * Unit: hours.
    * 
    * @example
    * 8
@@ -142,7 +146,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule 
   startHour?: number;
   /**
    * @remarks
-   * The time zone of the detection.
+   * The time zone for custom monitoring.
    * 
    * @example
    * local
@@ -324,23 +328,142 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
 }
 
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Supported only in multi-step monitoring. The AccessKey ID used for Alibaba Cloud authentication. We recommend that you use encrypted storage.
+   * 
+   * @example
+   * testAk
+   */
   accessKeyId?: string;
+  /**
+   * @remarks
+   * Supported only in multi-step monitoring. The AccessKey secret used for Alibaba Cloud authentication. We recommend that you use encrypted storage.
+   * 
+   * @example
+   * testSk
+   */
   accessKeySecret?: string;
+  /**
+   * @remarks
+   * Supported only in multi-step monitoring. The API action of the request when using Alibaba Cloud operations.
+   * 
+   * @example
+   * example_api
+   */
   apiAction?: string;
+  /**
+   * @remarks
+   * Supported only in multi-step monitoring. The API version of the request when using Alibaba Cloud operations.
+   * 
+   * @example
+   * 2019-01-01
+   */
   apiVersion?: string;
+  /**
+   * @remarks
+   * The OAuth 2.0 authentication style. Valid values: ROA and RPC.
+   * 
+   * @example
+   * ROA
+   */
   authStyle?: string;
+  /**
+   * @remarks
+   * The client ID used for client authentication in OAuth 2.0.
+   * 
+   * @example
+   * client_id
+   */
   clientId?: string;
+  /**
+   * @remarks
+   * The client secret used for client authentication in OAuth 2.0.
+   * 
+   * @example
+   * client_secret
+   */
   clientSecret?: string;
+  /**
+   * @remarks
+   * The grant type used in OAuth 2.0 authentication. Valid values: client_credentials and password.
+   * 
+   * @example
+   * password
+   */
   grantType?: string;
+  /**
+   * @remarks
+   * The password used for HTTP Basic Authentication.
+   * 
+   * @example
+   * test_password
+   */
   password?: string;
+  /**
+   * @remarks
+   * Supported only in multi-step monitoring. The region ID of the request when using Alibaba Cloud authentication.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   scopes?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthInfoScopes;
+  /**
+   * @remarks
+   * The service name of the request when using AWS authentication.
+   * 
+   * @example
+   * example_service_name
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The session token used for AWS authentication.
+   * 
+   * @example
+   * example_token
+   */
   sessionToken?: string;
+  /**
+   * @remarks
+   * The authorization server URL in OAuth 2.0.
+   * 
+   * @example
+   * https://www.example.com
+   */
   tokenUrl?: string;
+  /**
+   * @remarks
+   * The authentication type. HTTP Basic Authentication is supported. Valid values: basic.
+   * 
+   * @example
+   * basic
+   */
   type?: string;
+  /**
+   * @remarks
+   * Specifies whether the key is stored in the client cookie for digest authentication.
+   * 
+   * @example
+   * false
+   */
   useCookieSessionKey?: boolean;
+  /**
+   * @remarks
+   * The username used for HTTP Basic Authentication.
+   * 
+   * @example
+   * test_username
+   */
   username?: string;
+  /**
+   * @remarks
+   * Supported only in multi-step monitoring. Specifies whether additional resources exist when using Alibaba Cloud authentication for this step.
+   * 
+   * @example
+   * false
+   */
   withAddonResources?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -891,12 +1014,16 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   assertions?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAssertions;
   /**
    * @remarks
-   * The number of retries after a DNS failure occurred.
+   * The number of retries after a DNS failure.
    * 
    * @example
    * 3
    */
   attempts?: number;
+  /**
+   * @remarks
+   * The authentication information.
+   */
   authInfo?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthInfo;
   blockedUrlList?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBlockedUrlList;
   browserHeaders?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHeaders;
@@ -904,9 +1031,10 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   browserInfo?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfo;
   /**
    * @remarks
-   * Indicates whether certificate errors are ignored. Valid values:
-   * - false: Certificate errors are not ignored.
-   * - true: Certificate errors are ignored.
+   * Specifies whether to ignore certificate errors. Valid values:
+   * 
+   * - false: Does not ignore certificate errors.
+   * - true: Ignores certificate errors.
    * 
    * @example
    * false
@@ -914,9 +1042,10 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   browserInsecure?: boolean;
   /**
    * @remarks
-   * The version of the browser test task. Valid values:
-   * - 1: browser test for a single page
-   * - 2: browser test for multiple pages
+   * The browser monitoring version. Valid values:
+   * 
+   * - 1: Single-page monitoring.
+   * - 2: Multi-page monitoring.
    * 
    * @example
    * 1
@@ -925,7 +1054,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   configVariables?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonConfigVariables;
   /**
    * @remarks
-   * The cookie of the HTTP request.
+   * The cookie for the HTTP request.
    * 
    * @example
    * lang=en
@@ -933,9 +1062,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   cookie?: string;
   /**
    * @remarks
-   * Indicates whether the automatic MTR diagnostics feature is enabled for a failed task. Valid values:
-   * - false: The automatic MTR diagnostics feature is disabled for a failed task.
-   * - true: The automatic MTR diagnostics feature is enabled for a failed task.
+   * Specifies whether to enable automatic MTR network diagnostics after a task failure. Valid values:
+   * - false: Disabled.
+   * - true: Enabled.
    * 
    * @example
    * false
@@ -943,9 +1072,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   diagnosisMtr?: boolean;
   /**
    * @remarks
-   * Indicates whether the automatic ping latency detection feature is enabled for a failed task. Valid values:
-   * - false: The automatic ping latency detection feature is disabled for a failed task.
-   * - true: The automatic ping latency detection feature is enabled for a failed task.
+   * Specifies whether to enable automatic PING network latency detection after a task failure. Valid values:
+   * - false: Disabled.
+   * - true: Enabled.
    * 
    * @example
    * false
@@ -953,7 +1082,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   diagnosisPing?: boolean;
   /**
    * @remarks
-   * The DNS hijack whitelist.
+   * The DNS hijacking configuration list.
    * 
    * @example
    * www.taobao.com:www.taobao.com.danuoyi.tbcache.com
@@ -961,12 +1090,12 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   dnsHijackWhitelist?: string;
   /**
    * @remarks
-   * The relationship between the list of expected aliases or IP addresses and the list of DNS results. Valid values:
+   * The DNS matching rule. Valid values:
    * 
-   * *   IN_DNS: The list of expected values is a subset of the list of DNS results.
-   * *   DNS_IN: The list of DNS results is a subset of the list of expected values.
-   * *   EQUAL: The list of DNS results is the same as the list of expected values.
-   * *   ANY: The list of DNS results intersects with the list of expected values.
+   * - IN_DNS: The expected aliases or IP addresses are all included in the DNS response.
+   * - DNS_IN: All DNS responses are included in the expected aliases or IP addresses.
+   * - EQUAL: The DNS response exactly matches the expected aliases or IP addresses.
+   * - ANY: The DNS response and the expected aliases or IP addresses have an intersection.
    * 
    * @example
    * IN_DNS
@@ -976,7 +1105,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * @remarks
    * The IP address of the DNS server.
    * 
-   * >  This parameter is returned only if the TaskType parameter is set to DNS.
+   * > This parameter applies only to the DNS monitoring type.
    * 
    * @example
    * 192.168.XX.XX
@@ -984,13 +1113,12 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   dnsServer?: string;
   /**
    * @remarks
-   * The type of the DNS record. This parameter is returned only if the TaskType parameter is set to DNS. Valid values:
-   * 
-   * *   A (default): a record that specifies an IP address related to the specified host name or domain name.
-   * *   CNAME: a record that maps multiple domain names to a domain name.
-   * *   NS: a record that specifies a DNS server used to parse domain names.
-   * *   MX: a record that links domain names to the address of a mail server.
-   * *   TXT: a record that stores the text information of host name or domain names. The text must be 1 to 512 bytes in length. The TXT record serves as a Sender Policy Framework (SPF) record to fight against spam.
+   * The DNS resolution type. This parameter applies only to the DNS monitoring type. Valid values:
+   * - A: Specifies the IP address corresponding to a hostname or domain name.
+   * - CNAME: Maps multiple domain names to another domain name.
+   * - NS: Specifies the DNS server that resolves a domain name.
+   * - MX: Points a domain name to a mail server address.
+   * - TXT: A description of the hostname or domain name. The text length is limited to 512 bytes and is typically used for SPF (Sender Policy Framework) records for anti-spam purposes.
    * 
    * @example
    * A
@@ -998,20 +1126,29 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   dnsType?: string;
   /**
    * @remarks
-   * Indicates whether the WebSocket task is allowed to return no response or return an empty response. Default value: false. Valid values: false and true.
+   * Specifies whether the WebSocket task is allowed to return no message or an empty message. Valid values:
+   * - false (default): Not allowed.
+   * - true: Allowed.
    * 
    * @example
    * false
    */
   emptyMessage?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable packet capture for this task.
+   * 
+   * @example
+   * true
+   */
   enablePacketCapture?: boolean;
   expectExistString?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectExistString;
   expectNonExistString?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectNonExistString;
   /**
    * @remarks
-   * The domain name or alias to be parsed.
+   * The alias or address to be resolved.
    * 
-   * >  This parameter is returned only if the TaskType parameter is set to DNS.
+   * > This parameter applies only to the DNS monitoring type.
    * 
    * @example
    * dns_server
@@ -1021,7 +1158,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * @remarks
    * The packet loss rate.
    * 
-   * >  This parameter is returned only if the TaskType parameter is set to PING.
+   * > This parameter applies only to the PING monitoring type.
    * 
    * @example
    * 0.4
@@ -1029,7 +1166,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   failureRate?: number;
   /**
    * @remarks
-   * The header of the HTTP request.
+   * The HTTP request header.
    * 
    * @example
    * testKey:testValue
@@ -1037,7 +1174,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   header?: string;
   /**
    * @remarks
-   * The number of hops to perform traceroute diagnostics if the PING task fails.
+   * The number of hops for traceroute diagnostics when a PING task fails.
    * 
    * @example
    * 20
@@ -1045,7 +1182,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   hops?: number;
   /**
    * @remarks
-   * The custom hosts for the HTTP test task. Format: ip1,ip2:address. You can specify values in multiple lines. Specify the A record or CNAME record that can be resolved by the domain name at the left of the colon. Separate multiple records with commas (,). Specify the domain name at the right of the colon.
+   * The custom host for HTTP tasks. The format is ip1,ip2:address. Multiple mappings can be configured. The left side of the colon contains A records or CNAMEs that the domain name can be resolved to, separated by commas. The right side of the colon is the domain name.
    * 
    * @example
    * 127.0.0.1:www.aliyun.com
@@ -1053,7 +1190,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   hostBinding?: string;
   /**
    * @remarks
-   * The host binding type. Valid values: 0 and 1. 0 indicates random. 1 indicates polling.
+   * Specifies how the custom host takes effect. Valid values: 0 (random) and 1 (round-robin).
    * 
    * @example
    * 0
@@ -1062,10 +1199,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   /**
    * @remarks
    * The HTTP request method. Valid values:
-   * 
-   * *   get
-   * *   post
-   * *   head
+   * - get 
+   * - post
+   * - head.
    * 
    * @example
    * get
@@ -1073,7 +1209,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   httpMethod?: string;
   /**
    * @remarks
-   * The timeout period of a PING task that uses ICMP. Unit: milliseconds.
+   * The timeout period for a single PING request using the ICMP protocol. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -1081,7 +1217,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   icmpTimeoutMillis?: number;
   /**
    * @remarks
-   * ip_network indicates the network type of the task. Valid values: v4, v6, and auto. Default value: v4.
+   * The network type of the task. Valid values: v4, v6, and auto. Default value: v4.
    * 
    * @example
    * v4
@@ -1089,27 +1225,35 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   ipNetwork?: string;
   /**
    * @remarks
-   * Indicates whether to perform Base64 decoding and then store the password. Valid values: true and false.
+   * Specifies whether to decode and store the password using Base64. Valid values:
+   * - true: The password is decoded and stored using Base64.
+   * - false: The password is not decoded and stored using Base64.
    * 
    * @example
-   * true
+   * false
    */
   isBase64Encode?: string;
   /**
    * @remarks
-   * Indicates whether the alert rule is included. Valid values:
-   * 
-   * *   0: The alert rule is included.
-   * *   1: The alert rule is excluded.
+   * Specifies whether alert rules are included. Valid values:
+   * - 0: Yes.
+   * - 1: No.
    * 
    * @example
    * 1
    */
   matchRule?: number;
+  /**
+   * @remarks
+   * The maximum TLS version.
+   * 
+   * @example
+   * tlsv1.3
+   */
   maxTlsVersion?: string;
   /**
    * @remarks
-   * The minimum TLS version. By default, TLS 1.2 and later versions are supported. TLS 1.0 and 1.1 are disabled. If you still require TLS 1.0 or 1.1, you can change the configuration.
+   * The minimum TLS version. TLS 1.2 and later are supported by default. TLS 1.0 and 1.1 are disabled. To support these versions, modify the configuration.
    * 
    * @example
    * tlsv1.2
@@ -1117,7 +1261,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   minTlsVersion?: string;
   /**
    * @remarks
-   * The password of the SMTP, POP3, or FTP protocol.
+   * The password for SMTP, POP3, or FTP monitoring types.
    * 
    * @example
    * 123****
@@ -1125,7 +1269,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   password?: string;
   /**
    * @remarks
-   * The heartbeat of the PING protocol.
+   * The number of PING packets for the PING monitoring type.
    * 
    * @example
    * 29
@@ -1133,7 +1277,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   pingNum?: number;
   /**
    * @remarks
-   * The port number for TCP pings.
+   * The PING port. This parameter applies to TCP PING.
    * 
    * @example
    * 80
@@ -1143,30 +1287,35 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * @remarks
    * The PING protocol type. Valid values:
    * 
-   * *   icmp
-   * *   tcp
-   * *   udp
+   * - icmp
+   * 
+   * - tcp
+   * 
+   * - udp.
    * 
    * @example
-   * icmp,tcp,udp
+   * icmp
    */
   pingType?: string;
   /**
    * @remarks
-   * The port number of the TCP, UDP, SMTP, or POP3 protocol.
+   * The port for TCP, UDP, SMTP, or POP3 monitoring types.
    * 
    * @example
    * 110
    */
   port?: number;
   /**
+   * @remarks
+   * The certificate file name of the private certificate.
+   * 
    * @example
    * cert.pem
    */
   privateCrtFileName?: string;
   /**
    * @remarks
-   * The protocol that is used to send the request.
+   * The monitoring protocol.
    * 
    * @example
    * TCP
@@ -1174,7 +1323,10 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   protocol?: string;
   /**
    * @remarks
-   * Indicates whether the Quick UDP Internet Connections (QUIC) protocol is used for browser detection. Valid values: true false Default value: false.
+   * Specifies whether the browser monitoring task uses the QUIC protocol. Valid values:
+   * - true: Uses the QUIC protocol.
+   * - false: Does not use the QUIC protocol.
+   * Default value: false.
    * 
    * @example
    * true
@@ -1183,7 +1335,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   quicTarget?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonQuicTarget;
   /**
    * @remarks
-   * The content of the HTTP request.
+   * The request content for the HTTP monitoring type.
    * 
    * @example
    * aa=bb
@@ -1191,10 +1343,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   requestContent?: string;
   /**
    * @remarks
-   * The format of the HTTP request. Valid values:
-   * 
-   * *   hex: hexadecimal
-   * *   txt: text
+   * The format of the HTTP request content. Valid values:
+   * - hex: hexadecimal.
+   * - txt: text.
    * 
    * @example
    * txt
@@ -1202,7 +1353,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   requestFormat?: string;
   /**
    * @remarks
-   * The response to the HTTP request.
+   * The expected response content to match.
    * 
    * @example
    * txt
@@ -1210,10 +1361,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   responseContent?: string;
   /**
    * @remarks
-   * The format of the HTTP response. Valid values:
-   * 
-   * *   hex: hexadecimal
-   * *   txt: text
+   * The format of the HTTP response content. Valid values:
+   * - hex: hexadecimal.
+   * - txt: text.
    * 
    * @example
    * txt
@@ -1221,16 +1371,23 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   responseFormat?: string;
   /**
    * @remarks
-   * The number of retries for failed detections.
+   * The number of retries after a monitoring failure.
    * 
    * @example
    * 0
    */
   retryDelay?: number;
+  /**
+   * @remarks
+   * This parameter takes effect for SMTP monitoring tasks. Set this parameter to 1 to use a secure connection. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
   safeLink?: number;
   /**
    * @remarks
-   * Indicates whether page screenshot is enabled.
+   * Specifies whether to enable page screenshots.
    * 
    * @example
    * false
@@ -1238,22 +1395,29 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   screenShot?: boolean;
   /**
    * @remarks
-   * Indicates whether to scroll to the bottom of the page after opening the page. This parameter is valid for a browser test task.
+   * For browser monitoring tasks, specifies whether to scroll to the bottom of the page after it is opened.
    * 
    * @example
    * false
    */
   scrollEnd?: boolean;
-  serverName?: string;
-  steps?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonSteps;
   /**
    * @remarks
-   * Indicates whether to allow the loading failures of some page elements. Valid values: false and true.
+   * The Server Name Indication (SNI).
    * 
    * @example
-   * false
+   * www.aliyun.com
    */
+  serverName?: string;
+  steps?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonSteps;
   strictMode?: boolean;
+  /**
+   * @remarks
+   * The supported cipher suites.
+   * 
+   * @example
+   * TLS_AES_256_GCM_SHA384
+   */
   supportedCipherSuits?: string;
   /**
    * @remarks
@@ -1263,23 +1427,52 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * 3
    */
   timeOut?: number;
+  /**
+   * @remarks
+   * The deployment region of the target application when integrating with Managed Service for OpenTelemetry.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   traceRegion?: string;
+  /**
+   * @remarks
+   * Settings for the Tracing Analysis protocol used when integrating with Managed Service for OpenTelemetry.
+   * Valid values:
+   * - OpenTelemetry
+   * - Zipkin
+   * - Jaeger.
+   * 
+   * @example
+   * OpenTelemetry
+   */
   traceType?: string;
   trafficHijackElementBlacklist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist;
   /**
    * @remarks
-   * When redirection occurs, if the browser loads more than the specified number of resources, traffic hijacking is considered to have occurred. If you set the value to 0, no validation is performed. Default value: 0.
+   * When a redirect occurs, if the number of resources loaded by the browser exceeds this value, traffic hijacking is considered to have occurred. When this value is 0, no verification is performed. Default value: 0.
    * 
    * @example
    * 0
    */
   trafficHijackElementCount?: number;
   trafficHijackElementWhitelist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist;
+  /**
+   * @remarks
+   * Specifies whether to use a private certificate.
+   */
   usePrivateCrt?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use an SSL connection when performing a TCP task.
+   * 
+   * @example
+   * tlsv1.0
+   */
   useSsl?: boolean;
   /**
    * @remarks
-   * The username of the FTP, SMTP, or POP3 protocol.
+   * The username for FTP, SMTP, or POP3.
    * 
    * @example
    * testUser
@@ -1287,7 +1480,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   username?: string;
   /**
    * @remarks
-   * The additional waiting time after a page is opened in a browser test task.
+   * The additional wait time after the page is opened in a browser monitoring task.
    * 
    * @example
    * 3
@@ -1484,7 +1677,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig extends $dara.Model {
   /**
    * @remarks
-   * The region of the website for synthetic monitoring.
+   * The region where the target site of the internal network monitoring task is located.
    * 
    * @example
    * cn-beijing
@@ -1492,7 +1685,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
   region?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The ID of the security group associated with the internal network monitoring task.
    * 
    * @example
    * sg-xxxxxx
@@ -1500,7 +1693,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
   securityGroupId?: string;
   /**
    * @remarks
-   * The ID of the VPC used by the synthetic test task.
+   * The ID of the VPC associated with the internal network monitoring task.
    * 
    * @example
    * vpc-xxxxxx
@@ -1508,7 +1701,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch used by the synthetic test task.
+   * The ID of the vSwitch associated with the internal network monitoring task.
    * 
    * @example
    * vsw-xxxxxx
@@ -1544,7 +1737,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.Model {
   /**
    * @remarks
-   * The URL that is monitored by the site monitoring task.
+   * The monitored address of the monitoring task.
    * 
    * @example
    * https://aliyun.com
@@ -1552,9 +1745,12 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   address?: string;
   /**
    * @remarks
-   * The type of the detection point. Default value: PC. Valid values:
-   * - PC
-   * - MOBILE
+   * The type of detection point. Default value: PC.
+   * Valid values:
+   * 
+   * - PC: wired network.
+   * 
+   * - MOBILE: mobile network.
    * 
    * @example
    * PC
@@ -1562,12 +1758,12 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   agentGroup?: string;
   /**
    * @remarks
-   * The custom detection cycle. You can specify only a time range within a week (from Monday to Sunday).
+   * The custom monitoring schedule. You can select a time range from Monday to Sunday for monitoring.
    */
   customSchedule?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule;
   /**
    * @remarks
-   * The interval at which the site monitoring task is executed. Unit: minutes. Valid values: 1, 5, 15, 30, and 60.
+   * The monitoring interval. Unit: minutes. Valid values: 1, 5, 15, 30, and 60.
    * 
    * @example
    * 1
@@ -1576,12 +1772,12 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   ispCities?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCities;
   /**
    * @remarks
-   * The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](https://help.aliyun.com/document_detail/115048.html).
+   * The extended options. Each monitoring type has different extended options. For more information, see [CreateSiteMonitor](https://help.aliyun.com/document_detail/115048.html).
    */
   optionJson?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson;
   /**
    * @remarks
-   * The ID of the site monitoring task.
+   * The ID of the monitoring task.
    * 
    * @example
    * cc641dff-c19d-45f3-ad0a-818a0c4f****
@@ -1589,7 +1785,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   taskId?: string;
   /**
    * @remarks
-   * The name of the site monitoring task.
+   * The name of the monitoring task.
    * 
    * @example
    * test123
@@ -1597,10 +1793,10 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   taskName?: string;
   /**
    * @remarks
-   * The status of the site monitoring task. Valid values:
+   * The status of the monitoring task. Valid values:
    * 
-   * *   1: The task is enabled.
-   * *   2: The task is disabled.
+   * - 1: Enabled.
+   * - 2: Disabled.
    * 
    * @example
    * 1
@@ -1608,7 +1804,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   taskState?: string;
   /**
    * @remarks
-   * The protocol that is used by the site monitoring task. Valid values: HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
+   * The type of the monitoring task. Site monitoring task types include HTTP(S), PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
    * 
    * @example
    * HTTP
@@ -1616,7 +1812,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   taskType?: string;
   /**
    * @remarks
-   * The VPC configurations of the synthetic test task.
+   * The VPC configuration for the internal network monitoring task.
    */
   vpcConfig?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig;
   static names(): { [key: string]: string } {
@@ -1675,9 +1871,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
 export class DescribeSiteMonitorAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
-   * 
-   * >  The status code 200 indicates that the request was successful.
+   * The status code.
+   * >The value 200 indicates success.
    * 
    * @example
    * 200
@@ -1702,15 +1897,16 @@ export class DescribeSiteMonitorAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the site monitoring task.
+   * The details of the monitoring task.
    */
   siteMonitors?: DescribeSiteMonitorAttributeResponseBodySiteMonitors;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true

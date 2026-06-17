@@ -66,9 +66,9 @@ export class DescribeMonitorGroupNotifyPolicyListResponseBodyNotifyPolicyList ex
 export class DescribeMonitorGroupNotifyPolicyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -93,10 +93,11 @@ export class DescribeMonitorGroupNotifyPolicyListResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -104,7 +105,7 @@ export class DescribeMonitorGroupNotifyPolicyListResponseBody extends $dara.Mode
   success?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 11

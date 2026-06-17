@@ -10,7 +10,7 @@ export class DeleteContactRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test-01
+   * John Doe
    */
   contactName?: string;
   static names(): { [key: string]: string } {

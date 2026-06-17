@@ -6,7 +6,7 @@ export class DisableSiteMonitorsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the site monitoring task. Separate multiple IDs with commas (,).
+   * The IDs of site monitoring tasks. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 

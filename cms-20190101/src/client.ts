@@ -11,7 +11,52 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "metrics.us-west-1.aliyuncs.com",
+      'us-southeast-1': "metrics.us-southeast-1.aliyuncs.com",
+      'us-east-1': "metrics.us-east-1.aliyuncs.com",
+      'na-south-1': "metrics.na-south-1.aliyuncs.com",
+      'me-east-1': "metrics.me-east-1.aliyuncs.com",
+      'me-central-1': "metrics.me-central-1.aliyuncs.com",
+      'eu-west-2': "metrics.eu-west-2.aliyuncs.com",
+      'eu-west-1': "metrics.eu-west-1.aliyuncs.com",
+      'eu-central-1': "metrics.eu-central-1.aliyuncs.com",
+      'cn-zhongwei': "metrics.cn-zhongwei.aliyuncs.com",
+      'cn-zhengzhou-jva': "metrics.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-zhangjiakou': "metrics.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "metrics.cn-wulanchabu-gic-1.aliyuncs.com",
+      'cn-wulanchabu': "metrics.cn-wulanchabu.aliyuncs.com",
+      'cn-wuhan-lr': "metrics.cn-wuhan-lr.aliyuncs.com",
+      'cn-shenzhen-finance-1': "metrics.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-shenzhen': "metrics.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "metrics.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "metrics.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "metrics.cn-qingdao.aliyuncs.com",
+      'cn-north-2-gov-1': "metrics.cn-north-2-gov-1.aliyuncs.com",
+      'cn-nanjing': "metrics.cn-nanjing.aliyuncs.com",
+      'cn-huhehaote': "metrics.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "metrics.cn-hongkong.aliyuncs.com",
+      'cn-heyuan-acdr-1': "metrics.cn-heyuan-acdr-1.aliyuncs.com",
+      'cn-heyuan': "metrics.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou-finance': "metrics.cn-hangzhou-finance.aliyuncs.com",
+      'cn-hangzhou': "metrics.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "metrics.cn-guangzhou.aliyuncs.com",
+      'cn-fuzhou': "metrics.cn-fuzhou.aliyuncs.com",
+      'cn-chengdu': "metrics.cn-chengdu.aliyuncs.com",
+      'cn-beijing-finance-1': "metrics.cn-beijing-finance-1.aliyuncs.com",
+      'cn-beijing': "metrics.cn-beijing.aliyuncs.com",
+      'ap-southeast-8': "metrics.ap-southeast-8.aliyuncs.com",
+      'ap-southeast-7': "metrics.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "metrics.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "metrics.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "metrics.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-2': "metrics.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-1': "metrics.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "metrics.ap-south-1.aliyuncs.com",
+      'ap-northeast-2': "metrics.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "metrics.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cms", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,10 +75,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to an application group.
+   * The AddTags operation attaches tags to specified application groups.
    * 
    * @remarks
-   * This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
+   * This topic provides an example of how to attach a tag to the application group `7301****`. In this example, the tag key is `key1` and the tag value is `value1`.
    * 
    * @param request - AddTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68,10 +113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to an application group.
+   * The AddTags operation attaches tags to specified application groups.
    * 
    * @remarks
-   * This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
+   * This topic provides an example of how to attach a tag to the application group `7301****`. In this example, the tag key is `key1` and the tag value is `value1`.
    * 
    * @param request - AddTagsRequest
    * @returns AddTagsResponse
@@ -162,10 +207,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates site monitoring tasks.
+   * You can call the BatchCreateInstantSiteMonitor operation to create a batch of site monitoring tasks.
    * 
    * @remarks
-   * This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
+   * This topic provides an example of how to create a site monitoring task named `HangZhou_ECS1`. The task uses the `HTTP` protocol to monitor `https://www.aliyun.com`. The response shows that the task is successfully created with the name `HangZhou_ECS1` and the ID `679fbe4f-b80b-4706-91b2-5427b43e****`.
    * 
    * @param request - BatchCreateInstantSiteMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -196,10 +241,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates site monitoring tasks.
+   * You can call the BatchCreateInstantSiteMonitor operation to create a batch of site monitoring tasks.
    * 
    * @remarks
-   * This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
+   * This topic provides an example of how to create a site monitoring task named `HangZhou_ECS1`. The task uses the `HTTP` protocol to monitor `https://www.aliyun.com`. The response shows that the task is successfully created with the name `HangZhou_ECS1` and the ID `679fbe4f-b80b-4706-91b2-5427b43e****`.
    * 
    * @param request - BatchCreateInstantSiteMonitorRequest
    * @returns BatchCreateInstantSiteMonitorResponse
@@ -210,13 +255,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the monitoring data that is defined in the Cursor operation.
+   * Calls the BatchExport operation to export monitoring data defined in the Cursor operation.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * The `Cursor` information is returned by calling the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation.
-   * ### [](#)Description
-   * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
+   * ### Prerequisites
+   * Make sure that you have called the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation to obtain the initial `Cursor`.
+   * ### Usage notes
+   * This topic provides an example to show how to export the monitoring data of an initial `Cursor` of the metric `cpu_idle` of the cloud service `acs_ecs_dashboard`. A maximum of 1,000 data entries are returned per call.
    * 
    * @param tmpReq - BatchExportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -269,13 +314,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the monitoring data that is defined in the Cursor operation.
+   * Calls the BatchExport operation to export monitoring data defined in the Cursor operation.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * The `Cursor` information is returned by calling the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation.
-   * ### [](#)Description
-   * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
+   * ### Prerequisites
+   * Make sure that you have called the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation to obtain the initial `Cursor`.
+   * ### Usage notes
+   * This topic provides an example to show how to export the monitoring data of an initial `Cursor` of the metric `cpu_idle` of the cloud service `acs_ecs_dashboard`. A maximum of 1,000 data entries are returned per call.
    * 
    * @param request - BatchExportRequest
    * @returns BatchExportResponse
@@ -286,11 +331,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application group based on the tags of cloud resources.
+   * You can call the CreateDynamicTagGroup operation to automatically create application groups using tags.
    * 
    * @remarks
-   * This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
-   * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
+   * This operation supports the following Alibaba Cloud services: Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+   * This topic provides an example of how to automatically create an application group for resources that have the `ecs_instance` tag key. The alert contact group for the application group is `ECS_Group`.
    * 
    * @param request - CreateDynamicTagGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -349,11 +394,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application group based on the tags of cloud resources.
+   * You can call the CreateDynamicTagGroup operation to automatically create application groups using tags.
    * 
    * @remarks
-   * This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
-   * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
+   * This operation supports the following Alibaba Cloud services: Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+   * This topic provides an example of how to automatically create an application group for resources that have the `ecs_instance` tag key. The alert contact group for the application group is `ECS_Group`.
    * 
    * @param request - CreateDynamicTagGroupRequest
    * @returns CreateDynamicTagGroupResponse
@@ -364,10 +409,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more alert rules for a specified application group.
+   * Creates alert rules in batches for a specified application group by calling the CreateGroupMetricRules operation.
    * 
    * @remarks
-   * This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
+   * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `123456`. The alert rule ID is `456789`, the alert rule name is `ECS_Rule1`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule `ECS_Rule1` is created.
    * 
    * @param request - CreateGroupMetricRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -402,10 +447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more alert rules for a specified application group.
+   * Creates alert rules in batches for a specified application group by calling the CreateGroupMetricRules operation.
    * 
    * @remarks
-   * This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
+   * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `123456`. The alert rule ID is `456789`, the alert rule name is `ECS_Rule1`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule `ECS_Rule1` is created.
    * 
    * @param request - CreateGroupMetricRulesRequest
    * @returns CreateGroupMetricRulesResponse
@@ -474,10 +519,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an availability monitoring task.
+   * Creates an availability monitoring task by calling the CreateHostAvailability operation.
    * 
    * @remarks
-   * This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
+   * This topic provides an example of how to create an availability monitoring task named `task1` with the detection type set to `HTTP` in application group `123456`. Alert notifications are sent by email and DingTalk chatbot.
    * 
    * @param request - CreateHostAvailabilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -540,10 +585,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an availability monitoring task.
+   * Creates an availability monitoring task by calling the CreateHostAvailability operation.
    * 
    * @remarks
-   * This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
+   * This topic provides an example of how to create an availability monitoring task named `task1` with the detection type set to `HTTP` in application group `123456`. Alert notifications are sent by email and DingTalk chatbot.
    * 
    * @param request - CreateHostAvailabilityRequest
    * @returns CreateHostAvailabilityResponse
@@ -554,13 +599,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a namespace.
+   * Calls the CreateHybridMonitorNamespace operation to create a metric repository.
    * 
    * @remarks
-   * ## [](#)Prerequisites
-   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-   * ## [](#)Operation description
-   * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
+   * ## Before you begin
+   * Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+   * ## Operation description
+   * This topic provides an example on how to create a metric repository named `aliyun` with a data storage duration of `cms.s1.3xlarge`. The response indicates that the metric repository is created.
    * 
    * @param request - CreateHybridMonitorNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -607,13 +652,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a namespace.
+   * Calls the CreateHybridMonitorNamespace operation to create a metric repository.
    * 
    * @remarks
-   * ## [](#)Prerequisites
-   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-   * ## [](#)Operation description
-   * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
+   * ## Before you begin
+   * Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+   * ## Operation description
+   * This topic provides an example on how to create a metric repository named `aliyun` with a data storage duration of `cms.s1.3xlarge`. The response indicates that the metric repository is created.
    * 
    * @param request - CreateHybridMonitorNamespaceRequest
    * @returns CreateHybridMonitorNamespaceResponse
@@ -624,13 +669,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Logstore group of Hybrid Cloud Monitoring.
+   * Creates a Logstore group for Hybrid Cloud Monitoring.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-   * ### [](#)Operation description
-   * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+   * ### Before you begin
+   * Make sure that you have activated Simple Log Service (SLS) and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
+   * ### Operation description
+   * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region is `ap-southeast-1`, the project is `aliyun-project`, and the Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
    * 
    * @param request - CreateHybridMonitorSLSGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -669,13 +714,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Logstore group of Hybrid Cloud Monitoring.
+   * Creates a Logstore group for Hybrid Cloud Monitoring.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-   * ### [](#)Operation description
-   * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+   * ### Before you begin
+   * Make sure that you have activated Simple Log Service (SLS) and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
+   * ### Operation description
+   * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region is `ap-southeast-1`, the project is `aliyun-project`, and the Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
    * 
    * @param request - CreateHybridMonitorSLSGroupRequest
    * @returns CreateHybridMonitorSLSGroupResponse
@@ -686,14 +731,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
+   * Calls the CreateHybridMonitorTask operation to create a data import task for an Alibaba Cloud service or a metric for Simple Log Service (SLS) logs.
    * 
    * @remarks
-   * # [](#)Prerequisites
-   * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-   * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-   * # [](#)Description
-   * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
+   * ## Before you begin
+   * - Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+   * - If you want to create a metric for SLS logs, make sure that you have activated SLS and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
+   * ## Operation description
+   * This topic provides an example of how to create a data import task named `aliyun_task` for an Alibaba Cloud service to import the `cpu_total` metric of Elastic Compute Service (ECS) into the `aliyun` metric repository. The response shows that the data import task is created.
    * 
    * @param request - CreateHybridMonitorTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -772,14 +817,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
+   * Calls the CreateHybridMonitorTask operation to create a data import task for an Alibaba Cloud service or a metric for Simple Log Service (SLS) logs.
    * 
    * @remarks
-   * # [](#)Prerequisites
-   * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-   * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-   * # [](#)Description
-   * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
+   * ## Before you begin
+   * - Make sure that you have activated Hybrid Cloud Monitoring. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+   * - If you want to create a metric for SLS logs, make sure that you have activated SLS and created a project and a Logstore. For more information, see [Quick Start](https://help.aliyun.com/document_detail/54604.html).
+   * ## Operation description
+   * This topic provides an example of how to create a data import task named `aliyun_task` for an Alibaba Cloud service to import the `cpu_total` metric of Elastic Compute Service (ECS) into the `aliyun` metric repository. The response shows that the data import task is created.
    * 
    * @param request - CreateHybridMonitorTaskRequest
    * @returns CreateHybridMonitorTaskResponse
@@ -790,11 +835,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an instant test task.
+   * Call the CreateInstantSiteMonitor operation to create a one-time detection task.
    * 
    * @remarks
-   * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
-   * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+   * Only Alibaba Cloud accounts that have Network Analysis and Monitoring activated can create one-time detection tasks.
+   * This topic provides an example of how to create a one-time detection task. The example creates a task named `task1` that detects the address `http://www.aliyun.com`. The detection type is `HTTP`, and the number of detection points is `1`.
    * 
    * @param request - CreateInstantSiteMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -849,11 +894,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an instant test task.
+   * Call the CreateInstantSiteMonitor operation to create a one-time detection task.
    * 
    * @remarks
-   * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. 
-   * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+   * Only Alibaba Cloud accounts that have Network Analysis and Monitoring activated can create one-time detection tasks.
+   * This topic provides an example of how to create a one-time detection task. The example creates a task named `task1` that detects the address `http://www.aliyun.com`. The detection type is `HTTP`, and the number of detection points is `1`.
    * 
    * @param request - CreateInstantSiteMonitorRequest
    * @returns CreateInstantSiteMonitorResponse
@@ -868,8 +913,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Background information
-   * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
-   * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * - CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
+   * - CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @param request - CreateMetricRuleBlackListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -940,8 +985,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Background information
-   * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
-   * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * - CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
+   * - CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @param request - CreateMetricRuleBlackListRequest
    * @returns CreateMetricRuleBlackListResponse
@@ -952,7 +997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates resources with an alert rule.
+   * Calls the CreateMetricRuleResources operation to create a resource associated with an alert rule.
    * 
    * @param request - CreateMetricRuleResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -991,7 +1036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates resources with an alert rule.
+   * Calls the CreateMetricRuleResources operation to create a resource associated with an alert rule.
    * 
    * @param request - CreateMetricRuleResourcesRequest
    * @returns CreateMetricRuleResourcesResponse
@@ -1276,11 +1321,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy to pause alert notifications for an application group.
+   * Calls the CreateMonitorGroupNotifyPolicy operation to create a pause alert notification policy for an application group.
    * 
    * @remarks
-   * If the policy is valid, no alert notifications are sent for the application group.
-   * This topic describes how to create a `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
+   * During the effective period of the policy, no alert notifications are sent for any alerts triggered within the application group.
+   *  
+   * This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group pauses alert notifications during the period from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
    * 
    * @param request - CreateMonitorGroupNotifyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1323,11 +1369,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy to pause alert notifications for an application group.
+   * Calls the CreateMonitorGroupNotifyPolicy operation to create a pause alert notification policy for an application group.
    * 
    * @remarks
-   * If the policy is valid, no alert notifications are sent for the application group.
-   * This topic describes how to create a `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
+   * During the effective period of the policy, no alert notifications are sent for any alerts triggered within the application group.
+   *  
+   * This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group pauses alert notifications during the period from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
    * 
    * @param request - CreateMonitorGroupNotifyPolicyRequest
    * @returns CreateMonitorGroupNotifyPolicyResponse
@@ -1391,7 +1438,7 @@ export default class Client extends OpenApi {
    * Creates a site monitoring task.
    * 
    * @remarks
-   * This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
+   * This topic describes how to create a site monitoring task. The example creates a task named `HanZhou_ECS1` to monitor the URL `https://www.aliyun.com` over `HTTPS`.
    * 
    * @param request - CreateSiteMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1461,7 +1508,7 @@ export default class Client extends OpenApi {
    * Creates a site monitoring task.
    * 
    * @remarks
-   * This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
+   * This topic describes how to create a site monitoring task. The example creates a task named `HanZhou_ECS1` to monitor the URL `https://www.aliyun.com` over `HTTPS`.
    * 
    * @param request - CreateSiteMonitorRequest
    * @returns CreateSiteMonitorResponse
@@ -1472,15 +1519,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
+   * Calls the Cursor operation to define the scope of monitoring data to be exported, and returns the Cursor value used for the initial call to the BatchExport operation.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-   * ### [](#)Background information
-   * You can call this operation to obtain the Cursor information and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export the monitoring data.
-   * ### [](#)Description
-   * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
+   * ### Prerequisites
+   * Make sure that Enterprise CloudMonitor is activated. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+   * ### Background information
+   * First, call this operation to obtain the initial Cursor. Then, call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export monitoring data.
+   * ### Usage notes
+   * This topic provides an example to describe how to define the scope to export data of the `cpu_idle` metric of the `acs_ecs_dashboard` cloud service every 60 seconds in the time range from `1641627000000` (2022-01-08 15:30:00) to `1641645000000` (2022-01-08 20:30:00). The returned result shows the `Cursor` information.
    * 
    * @param tmpReq - CursorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1537,15 +1584,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
+   * Calls the Cursor operation to define the scope of monitoring data to be exported, and returns the Cursor value used for the initial call to the BatchExport operation.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-   * ### [](#)Background information
-   * You can call this operation to obtain the Cursor information and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export the monitoring data.
-   * ### [](#)Description
-   * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
+   * ### Prerequisites
+   * Make sure that Enterprise CloudMonitor is activated. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+   * ### Background information
+   * First, call this operation to obtain the initial Cursor. Then, call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export monitoring data.
+   * ### Usage notes
+   * This topic provides an example to describe how to define the scope to export data of the `cpu_idle` metric of the `acs_ecs_dashboard` cloud service every 60 seconds in the time range from `1641627000000` (2022-01-08 15:30:00) to `1641645000000` (2022-01-08 20:30:00). The returned result shows the `Cursor` information.
    * 
    * @param request - CursorRequest
    * @returns CursorResponse
@@ -1598,7 +1645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert contact group.
+   * Calls the DeleteContactGroup operation to delete an alert contact group.
    * 
    * @param request - DeleteContactGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1629,7 +1676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert contact group.
+   * Calls the DeleteContactGroup operation to delete an alert contact group.
    * 
    * @param request - DeleteContactGroupRequest
    * @returns DeleteContactGroupResponse
@@ -1782,7 +1829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes event-triggered alert rules.
+   * Deletes one or more event-triggered alert rules.
    * 
    * @param request - DeleteEventRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1813,7 +1860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes event-triggered alert rules.
+   * Deletes one or more event-triggered alert rules.
    * 
    * @param request - DeleteEventRulesRequest
    * @returns DeleteEventRulesResponse
@@ -1824,7 +1871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a configuration set that is used to export monitoring data.
+   * Calls the DeleteExporterOutput operation to delete a monitoring data export configuration.
    * 
    * @param request - DeleteExporterOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1855,7 +1902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a configuration set that is used to export monitoring data.
+   * Calls the DeleteExporterOutput operation to delete a monitoring data export configuration.
    * 
    * @param request - DeleteExporterOutputRequest
    * @returns DeleteExporterOutputResponse
@@ -1866,7 +1913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data export rule.
+   * Invokes the DeleteExporterRule operation to delete export rules.
    * 
    * @param request - DeleteExporterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1897,7 +1944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data export rule.
+   * Invokes the DeleteExporterRule operation to delete export rules.
    * 
    * @param request - DeleteExporterRuleRequest
    * @returns DeleteExporterRuleResponse
@@ -1908,7 +1955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a process monitoring task for an application group.
+   * Deletes a group process monitoring task by calling the DeleteGroupMonitoringAgentProcess operation.
    * 
    * @param request - DeleteGroupMonitoringAgentProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1943,7 +1990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a process monitoring task for an application group.
+   * Deletes a group process monitoring task by calling the DeleteGroupMonitoringAgentProcess operation.
    * 
    * @param request - DeleteGroupMonitoringAgentProcessRequest
    * @returns DeleteGroupMonitoringAgentProcessResponse
@@ -1954,7 +2001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes availability monitoring tasks.
+   * Deletes one or more availability monitoring jobs.
    * 
    * @param request - DeleteHostAvailabilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1985,7 +2032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes availability monitoring tasks.
+   * Deletes one or more availability monitoring jobs.
    * 
    * @param request - DeleteHostAvailabilityRequest
    * @returns DeleteHostAvailabilityResponse
@@ -2192,7 +2239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple blacklist policies at a time.
+   * Calls the DeleteMetricRuleBlackList operation to delete alert blacklist policies.
    * 
    * @param request - DeleteMetricRuleBlackListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2223,7 +2270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple blacklist policies at a time.
+   * Calls the DeleteMetricRuleBlackList operation to delete alert blacklist policies.
    * 
    * @param request - DeleteMetricRuleBlackListRequest
    * @returns DeleteMetricRuleBlackListResponse
@@ -2326,7 +2373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert template.
+   * Deletes an alert rule template.
    * 
    * @param request - DeleteMetricRuleTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2357,7 +2404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert template.
+   * Deletes an alert rule template.
    * 
    * @param request - DeleteMetricRuleTemplateRequest
    * @returns DeleteMetricRuleTemplateResponse
@@ -2368,7 +2415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more alert rules.
+   * The DeleteMetricRules operation deletes one or more alert rules.
    * 
    * @param request - DeleteMetricRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2399,7 +2446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more alert rules.
+   * The DeleteMetricRules operation deletes one or more alert rules.
    * 
    * @param request - DeleteMetricRulesRequest
    * @returns DeleteMetricRulesResponse
@@ -2594,7 +2641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables monitoring on a process.
+   * Calls the DeleteMonitoringAgentProcess operation to delete the specified process monitoring from a specified host.
    * 
    * @param request - DeleteMonitoringAgentProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2633,7 +2680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables monitoring on a process.
+   * Calls the DeleteMonitoringAgentProcess operation to delete the specified process monitoring from a specified host.
    * 
    * @param request - DeleteMonitoringAgentProcessRequest
    * @returns DeleteMonitoringAgentProcessResponse
@@ -2644,7 +2691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more site monitoring tasks.
+   * Deletes site monitoring tasks by calling the DeleteSiteMonitors operation.
    * 
    * @param request - DeleteSiteMonitorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2679,7 +2726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more site monitoring tasks.
+   * Deletes site monitoring tasks by calling the DeleteSiteMonitors operation.
    * 
    * @param request - DeleteSiteMonitorsRequest
    * @returns DeleteSiteMonitorsResponse
@@ -2690,7 +2737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of initiative alert rules.
+   * Queries initiative alert rules.
    * 
    * @param request - DescribeActiveMetricRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2721,7 +2768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of initiative alert rules.
+   * Queries initiative alert rules.
    * 
    * @param request - DescribeActiveMetricRuleListRequest
    * @returns DescribeActiveMetricRuleListResponse
@@ -3063,11 +3110,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert logs.
+   * Queries the alert history by calling the DescribeAlertLogList operation.
    * 
    * @remarks
-   * You can call the operation to query only the alert logs within the last year.
-   * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
+   * This operation can query the alert history only within the last year.
+   * This topic provides an example to show how to query the alert history of Elastic Compute Service (ECS) from the cloud service `product` dimension.
    * 
    * @param request - DescribeAlertLogListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3166,11 +3213,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert logs.
+   * Queries the alert history by calling the DescribeAlertLogList operation.
    * 
    * @remarks
-   * You can call the operation to query only the alert logs within the last year.
-   * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
+   * This operation can query the alert history only within the last year.
+   * This topic provides an example to show how to query the alert history of Elastic Compute Service (ECS) from the cloud service `product` dimension.
    * 
    * @param request - DescribeAlertLogListRequest
    * @returns DescribeAlertLogListResponse
@@ -3265,7 +3312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert contacts.
+   * Calls the DescribeContactList operation to query a list of alert contacts.
    * 
    * @param request - DescribeContactListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3312,7 +3359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert contacts.
+   * Calls the DescribeContactList operation to query a list of alert contacts.
    * 
    * @param request - DescribeContactListRequest
    * @returns DescribeContactListResponse
@@ -3365,7 +3412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom event.
+   * Queries a custom event.
    * 
    * @param request - DescribeCustomEventAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3424,7 +3471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom event.
+   * Queries a custom event.
    * 
    * @param request - DescribeCustomEventAttributeRequest
    * @returns DescribeCustomEventAttributeResponse
@@ -3438,7 +3485,7 @@ export default class Client extends OpenApi {
    * Queries the number of times that a custom event occurred within a period of time.
    * 
    * @remarks
-   * >  This operation queries the number of times that a custom event occurred for each service.
+   * > This operation queries the number of times that a custom event occurred for each service.
    * 
    * @param request - DescribeCustomEventCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3492,7 +3539,7 @@ export default class Client extends OpenApi {
    * Queries the number of times that a custom event occurred within a period of time.
    * 
    * @remarks
-   * >  This operation queries the number of times that a custom event occurred for each service.
+   * > This operation queries the number of times that a custom event occurred for each service.
    * 
    * @param request - DescribeCustomEventCountRequest
    * @returns DescribeCustomEventCountResponse
@@ -3572,7 +3619,7 @@ export default class Client extends OpenApi {
    * Queries the reported monitoring data.
    * 
    * @remarks
-   * >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+   * > You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
    * 
    * @param request - DescribeCustomMetricListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3626,7 +3673,7 @@ export default class Client extends OpenApi {
    * Queries the reported monitoring data.
    * 
    * @remarks
-   * >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+   * > You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
    * 
    * @param request - DescribeCustomMetricListRequest
    * @returns DescribeCustomMetricListResponse
@@ -3637,10 +3684,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tag rules.
+   * Call the DescribeDynamicTagRuleList operation to query the rules for dynamic tags.
    * 
    * @remarks
-   * This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
+   * This topic provides an example of how to query the rules for the tag key `tagkey1`. The response shows that two rules are returned. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
    * 
    * @param request - DescribeDynamicTagRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3691,10 +3738,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tag rules.
+   * Call the DescribeDynamicTagRuleList operation to query the rules for dynamic tags.
    * 
    * @remarks
-   * This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
+   * This topic provides an example of how to query the rules for the tag key `tagkey1`. The response shows that two rules are returned. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
    * 
    * @param request - DescribeDynamicTagRuleListRequest
    * @returns DescribeDynamicTagRuleListResponse
@@ -3705,10 +3752,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an event-triggered alert rule.
+   * Queries the details of a specified event-triggered alert rule by calling the DescribeEventRuleAttribute operation.
    * 
    * @remarks
-   * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+   * This topic provides an example on how to query the details of the event-triggered alert rule `testRule`.
    * 
    * @param request - DescribeEventRuleAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3743,10 +3790,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an event-triggered alert rule.
+   * Queries the details of a specified event-triggered alert rule by calling the DescribeEventRuleAttribute operation.
    * 
    * @remarks
-   * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+   * This topic provides an example on how to query the details of the event-triggered alert rule `testRule`.
    * 
    * @param request - DescribeEventRuleAttributeRequest
    * @returns DescribeEventRuleAttributeResponse
@@ -3815,10 +3862,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries event-triggered alert rules.
+   * Queries the list of event-triggered alert rules.
    * 
    * @remarks
-   * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+   * This topic provides an example to query the details of the event-triggered alert rule `testRule`.
    * 
    * @param request - DescribeEventRuleTargetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3849,10 +3896,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries event-triggered alert rules.
+   * Queries the list of event-triggered alert rules.
    * 
    * @remarks
-   * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+   * This topic provides an example to query the details of the event-triggered alert rule `testRule`.
    * 
    * @param request - DescribeEventRuleTargetListRequest
    * @returns DescribeEventRuleTargetListResponse
@@ -3863,7 +3910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries configuration sets that are used to export monitoring data.
+   * Queries the list of monitoring data exports by calling the DescribeExporterOutputList operation.
    * 
    * @param request - DescribeExporterOutputListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3898,7 +3945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries configuration sets that are used to export monitoring data.
+   * Queries the list of monitoring data exports by calling the DescribeExporterOutputList operation.
    * 
    * @param request - DescribeExporterOutputListRequest
    * @returns DescribeExporterOutputListResponse
@@ -3909,7 +3956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data export rules.
+   * Queries the list of data export rules by calling the DescribeExporterRuleList operation.
    * 
    * @param request - DescribeExporterRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3944,7 +3991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data export rules.
+   * Queries the list of data export rules by calling the DescribeExporterRuleList operation.
    * 
    * @param request - DescribeExporterRuleListRequest
    * @returns DescribeExporterRuleListResponse
@@ -4157,10 +4204,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries namespaces and the details of the related metric import tasks.
+   * Queries a list of namespaces and the details of their data sources.
    * 
    * @remarks
-   * In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
+   * This example shows how to query all namespaces that belong to the current account. The response indicates that only one namespace, `aliyun-test`, exists.
    * 
    * @param request - DescribeHybridMonitorNamespaceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4207,10 +4254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries namespaces and the details of the related metric import tasks.
+   * Queries a list of namespaces and the details of their data sources.
    * 
    * @remarks
-   * In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
+   * This example shows how to query all namespaces that belong to the current account. The response indicates that only one namespace, `aliyun-test`, exists.
    * 
    * @param request - DescribeHybridMonitorNamespaceListRequest
    * @returns DescribeHybridMonitorNamespaceListResponse
@@ -4221,10 +4268,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Logstore groups.
+   * Queries the list of Logstore groups by calling the DescribeHybridMonitorSLSGroup operation.
    * 
    * @remarks
-   * In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
+   * This topic provides an example of how to query all Logstore groups in the current account. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
    * 
    * @param request - DescribeHybridMonitorSLSGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4267,10 +4314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Logstore groups.
+   * Queries the list of Logstore groups by calling the DescribeHybridMonitorSLSGroup operation.
    * 
    * @remarks
-   * In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
+   * This topic provides an example of how to query all Logstore groups in the current account. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
    * 
    * @param request - DescribeHybridMonitorSLSGroupRequest
    * @returns DescribeHybridMonitorSLSGroupResponse
@@ -4361,7 +4408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a log monitoring metric.
+   * Queries a Log Monitoring task.
    * 
    * @param request - DescribeLogMonitorAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4388,7 +4435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a log monitoring metric.
+   * Queries a Log Monitoring task.
    * 
    * @param request - DescribeLogMonitorAttributeRequest
    * @returns DescribeLogMonitorAttributeResponse
@@ -4457,10 +4504,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Limits
-   * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-   * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+   * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+   * - Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
    * ### [](#)Description
-   * >  Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
+   * > Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
    * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
    * 
    * @param request - DescribeMetricDataRequest
@@ -4524,10 +4571,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Limits
-   * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-   * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+   * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+   * - Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
    * ### [](#)Description
-   * >  Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
+   * > Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
    * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
    * 
    * @param request - DescribeMetricDataRequest
@@ -4543,14 +4590,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Limits
-   * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-   * *   Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
-   * >  If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
+   * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+   * - Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+   * > If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
    * ### [](#)Precautions
    * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-   * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
-   * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
-   * *   The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
+   * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+   * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+   * - The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
    * ### [](#)Operation description
    * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
    * 
@@ -4619,14 +4666,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Limits
-   * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-   * *   Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
-   * >  If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
+   * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+   * - Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+   * > If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
    * ### [](#)Precautions
    * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-   * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
-   * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
-   * *   The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
+   * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+   * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+   * - The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
    * ### [](#)Operation description
    * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
    * 
@@ -4639,12 +4686,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the monitoring data of a metric for a specified cloud service.
+   * The DescribeMetricList operation queries the monitoring data of a specific metric for a cloud service.
    * 
    * @remarks
-   * ## Limits
-   * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota. 
-   * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+   * ### Limits
+   * - You have a free quota of 1 million total API calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If you use up the free quota and have not enabled the pay-as-you-go billing method for CloudMonitor Basic, you can no longer use these API operations. If you have enabled the pay-as-you-go billing method, you can continue to use the API operations after the free quota is used up. API calls that exceed the free quota are automatically charged on a pay-as-you-go basis. For more information, see [Enable pay-as-you-go](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+   * - You can call each API operation up to 50 times per second. This limit is shared between an Alibaba Cloud account and its RAM users.
+   * > If you receive the `Throttling.User` or `Request was denied due to user flow control` error message when you call an API operation, the API call is throttled. For more information, see [How do I resolve an API call throttling issue?](https://help.aliyun.com/document_detail/2615031.html).
+   * ### Notes
+   * The storage duration of monitoring data for a cloud service depends on the `Period` (statistical period). A larger `Period` value indicates that the monitoring data is less granular and is stored for a longer period. The relationship is as follows:
+   * - If the value of `Period` is less than 60 seconds, the storage duration is 7 days.
+   * - If the value of `Period` is 60 seconds, the storage duration is 31 days.
+   * - If the value of `Period` is 300 seconds or greater, the storage duration is 91 days.
+   * ### Usage notes
+   * This topic provides an example of how to query the monitoring data of the `cpu_idle` metric for the `acs_ecs_dashboard` cloud service. The response shows the data for the instance `i-abcdefgh12****`, which belongs to the Alibaba Cloud account `120886317861****`. At a 60 second interval, the maximum, minimum, and average values of the metric are 100, 93.1, and 99.52, respectively.
    * 
    * @param request - DescribeMetricListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4707,12 +4762,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the monitoring data of a metric for a specified cloud service.
+   * The DescribeMetricList operation queries the monitoring data of a specific metric for a cloud service.
    * 
    * @remarks
-   * ## Limits
-   * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota. 
-   * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
+   * ### Limits
+   * - You have a free quota of 1 million total API calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If you use up the free quota and have not enabled the pay-as-you-go billing method for CloudMonitor Basic, you can no longer use these API operations. If you have enabled the pay-as-you-go billing method, you can continue to use the API operations after the free quota is used up. API calls that exceed the free quota are automatically charged on a pay-as-you-go basis. For more information, see [Enable pay-as-you-go](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+   * - You can call each API operation up to 50 times per second. This limit is shared between an Alibaba Cloud account and its RAM users.
+   * > If you receive the `Throttling.User` or `Request was denied due to user flow control` error message when you call an API operation, the API call is throttled. For more information, see [How do I resolve an API call throttling issue?](https://help.aliyun.com/document_detail/2615031.html).
+   * ### Notes
+   * The storage duration of monitoring data for a cloud service depends on the `Period` (statistical period). A larger `Period` value indicates that the monitoring data is less granular and is stored for a longer period. The relationship is as follows:
+   * - If the value of `Period` is less than 60 seconds, the storage duration is 7 days.
+   * - If the value of `Period` is 60 seconds, the storage duration is 31 days.
+   * - If the value of `Period` is 300 seconds or greater, the storage duration is 91 days.
+   * ### Usage notes
+   * This topic provides an example of how to query the monitoring data of the `cpu_idle` metric for the `acs_ecs_dashboard` cloud service. The response shows the data for the instance `i-abcdefgh12****`, which belongs to the Alibaba Cloud account `120886317861****`. At a 60 second interval, the maximum, minimum, and average values of the metric are 100, 93.1, and 99.52, respectively.
    * 
    * @param request - DescribeMetricListRequest
    * @returns DescribeMetricListResponse
@@ -4723,10 +4786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of metrics that are supported in CloudMonitor.
+   * Queries metrics that are supported in CloudMonitor.
    * 
    * @remarks
-   * This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
+   * Use this operation together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
    * 
    * @param request - DescribeMetricMetaListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4773,10 +4836,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of metrics that are supported in CloudMonitor.
+   * Queries metrics that are supported in CloudMonitor.
    * 
    * @remarks
-   * This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
+   * Use this operation together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
    * 
    * @param request - DescribeMetricMetaListRequest
    * @returns DescribeMetricMetaListResponse
@@ -4787,7 +4850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries blacklist policies.
+   * You can call the DescribeMetricRuleBlackList operation to query blacklist policies.
    * 
    * @param request - DescribeMetricRuleBlackListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4854,7 +4917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries blacklist policies.
+   * You can call the DescribeMetricRuleBlackList operation to query blacklist policies.
    * 
    * @param request - DescribeMetricRuleBlackListRequest
    * @returns DescribeMetricRuleBlackListResponse
@@ -4903,10 +4966,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert rules.
+   * Queries all alert rules in the alert rule list.
    * 
    * @remarks
-   * This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+   * This topic provides an example of how to query all alert rules in the alert rule list of the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The alert rule is named `Rule_01` and has an ID of `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
    * 
    * @param request - DescribeMetricRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4973,10 +5036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries alert rules.
+   * Queries all alert rules in the alert rule list.
    * 
    * @remarks
-   * This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+   * This topic provides an example of how to query all alert rules in the alert rule list of the current Alibaba Cloud account. The response shows that the alert rule list contains only one alert rule. The alert rule is named `Rule_01` and has an ID of `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
    * 
    * @param request - DescribeMetricRuleListRequest
    * @returns DescribeMetricRuleListResponse
@@ -4987,12 +5050,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resources that are associated with a specified alert rule.
+   * Queries the notification channels of a specified alert rule by calling the DescribeMetricRuleTargets operation.
    * 
    * @remarks
-   * ## Limit
-   * This operation supports only Message Service (MNS) resources. 
-   * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
+   * ## Usage notes
+   * This topic provides an example to query the target resources associated with the alert rule `ae06917_75a8c43178ab66****`.
    * 
    * @param request - DescribeMetricRuleTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5023,12 +5085,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resources that are associated with a specified alert rule.
+   * Queries the notification channels of a specified alert rule by calling the DescribeMetricRuleTargets operation.
    * 
    * @remarks
-   * ## Limit
-   * This operation supports only Message Service (MNS) resources. 
-   * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
+   * ## Usage notes
+   * This topic provides an example to query the target resources associated with the alert rule `ae06917_75a8c43178ab66****`.
    * 
    * @param request - DescribeMetricRuleTargetsRequest
    * @returns DescribeMetricRuleTargetsResponse
@@ -5039,10 +5100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an alert template.
+   * Queries the details of an alert template by calling the DescribeMetricRuleTemplateAttribute operation.
    * 
    * @remarks
-   * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
+   * This topic provides an example on how to query the details of the alert template `70****`.
    * 
    * @param request - DescribeMetricRuleTemplateAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5077,10 +5138,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an alert template.
+   * Queries the details of an alert template by calling the DescribeMetricRuleTemplateAttribute operation.
    * 
    * @remarks
-   * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
+   * This topic provides an example on how to query the details of the alert template `70****`.
    * 
    * @param request - DescribeMetricRuleTemplateAttributeRequest
    * @returns DescribeMetricRuleTemplateAttributeResponse
@@ -5171,13 +5232,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Limits
-   * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-   * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+   * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+   * - Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
    * ### [](#)Precautions
    * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-   * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
-   * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
-   * *   The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
+   * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+   * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+   * - The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
    * ### [](#)Operation description
    * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in descending order based on the `Average` field.
    * 
@@ -5250,13 +5311,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Limits
-   * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
-   * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
+   * - The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+   * - Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
    * ### [](#)Precautions
    * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-   * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
-   * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
-   * *   The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
+   * - The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+   * - The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+   * - The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
    * ### [](#)Operation description
    * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in descending order based on the `Average` field.
    * 
@@ -5353,7 +5414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the resources in an application group.
+   * Queries the resources in an application group.
    * 
    * @param request - DescribeMonitorGroupInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5408,7 +5469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the resources in an application group.
+   * Queries the resources in an application group.
    * 
    * @param request - DescribeMonitorGroupInstanceAttributeRequest
    * @returns DescribeMonitorGroupInstanceAttributeResponse
@@ -5481,7 +5542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policies that are used to pause alert notifications for an application group.
+   * Queries the list of alert notification pause policies for an application group by calling the DescribeMonitorGroupNotifyPolicyList operation.
    * 
    * @param request - DescribeMonitorGroupNotifyPolicyListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5524,7 +5585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policies that are used to pause alert notifications for an application group.
+   * Queries the list of alert notification pause policies for an application group by calling the DescribeMonitorGroupNotifyPolicyList operation.
    * 
    * @param request - DescribeMonitorGroupNotifyPolicyListRequest
    * @returns DescribeMonitorGroupNotifyPolicyListResponse
@@ -5535,10 +5596,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application groups.
+   * You can call the DescribeMonitorGroups operation to query a list of application groups.
    * 
    * @remarks
-   * This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+   * This topic provides an example of how to query a list of application groups. The response shows that two application groups are returned: `testGroup124` and `test123`.
    * 
    * @param request - DescribeMonitorGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5621,10 +5682,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application groups.
+   * You can call the DescribeMonitorGroups operation to query a list of application groups.
    * 
    * @remarks
-   * This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+   * This topic provides an example of how to query a list of application groups. The response shows that two application groups are returned: `testGroup124` and `test123`.
    * 
    * @param request - DescribeMonitorGroupsRequest
    * @returns DescribeMonitorGroupsResponse
@@ -5747,7 +5808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
+   * You can call the DescribeMonitoringAgentHosts operation to query a list of all hosts, regardless of whether the CloudMonitor agent is installed.
    * 
    * @param request - DescribeMonitoringAgentHostsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5814,7 +5875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
+   * You can call the DescribeMonitoringAgentHosts operation to query a list of all hosts, regardless of whether the CloudMonitor agent is installed.
    * 
    * @param request - DescribeMonitoringAgentHostsRequest
    * @returns DescribeMonitoringAgentHostsResponse
@@ -5825,11 +5886,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes the DescribeMonitoringAgentProcesses interface to query the process list of a specified resource.
+   * Call the DescribeMonitoringAgentProcesses operation to query the list of processes for a specified resource.
    * 
    * @remarks
-   * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
-   * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
+   * > Before you call this operation, you must call the CreateMonitoringAgentProcess operation to create a process monitoring task. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/2513212.html).
+   * This topic provides an example of how to query the list of processes for the resource i-hp3hl3cx1pbahzy8\\*\\*\\*\\*. The response shows the details of the Nginx and HTTP processes.
    * 
    * @param request - DescribeMonitoringAgentProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5860,11 +5921,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes the DescribeMonitoringAgentProcesses interface to query the process list of a specified resource.
+   * Call the DescribeMonitoringAgentProcesses operation to query the list of processes for a specified resource.
    * 
    * @remarks
-   * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
-   * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
+   * > Before you call this operation, you must call the CreateMonitoringAgentProcess operation to create a process monitoring task. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/2513212.html).
+   * This topic provides an example of how to query the list of processes for the resource i-hp3hl3cx1pbahzy8\\*\\*\\*\\*. The response shows the details of the Nginx and HTTP processes.
    * 
    * @param request - DescribeMonitoringAgentProcessesRequest
    * @returns DescribeMonitoringAgentProcessesResponse
@@ -5875,7 +5936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the CloudMonitor agent.
+   * Queries the running status of the CloudMonitor agent by calling the DescribeMonitoringAgentStatuses operation.
    * 
    * @remarks
    * This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
@@ -5913,7 +5974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the CloudMonitor agent.
+   * Queries the running status of the CloudMonitor agent by calling the DescribeMonitoringAgentStatuses operation.
    * 
    * @remarks
    * This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
@@ -5962,10 +6023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the keys of all tags that are attached to cloud resources in a region.
-   * 
-   * @remarks
-   * >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+   * Call the DescribeProductResourceTagKeyList operation to query all tag keys of cloud resources in a specified region.
    * 
    * @param request - DescribeProductResourceTagKeyListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5996,10 +6054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the keys of all tags that are attached to cloud resources in a region.
-   * 
-   * @remarks
-   * >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+   * Call the DescribeProductResourceTagKeyList operation to query all tag keys of cloud resources in a specified region.
    * 
    * @param request - DescribeProductResourceTagKeyListRequest
    * @returns DescribeProductResourceTagKeyListResponse
@@ -6045,10 +6100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about monitored services in CloudMonitor.
+   * Calls the DescribeProjectMeta operation to query the list of cloud services that support time series monitoring metrics in CloudMonitor.
    * 
    * @remarks
-   * The information obtained by this operation includes the service description, namespace, and tags.
+   * Obtains the information about the connected cloud services, including the description, namespace, and tags of each service.
    * 
    * @param request - DescribeProjectMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6087,10 +6142,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about monitored services in CloudMonitor.
+   * Calls the DescribeProjectMeta operation to query the list of cloud services that support time series monitoring metrics in CloudMonitor.
    * 
    * @remarks
-   * The information obtained by this operation includes the service description, namespace, and tags.
+   * Obtains the information about the connected cloud services, including the description, namespace, and tags of each service.
    * 
    * @param request - DescribeProjectMetaRequest
    * @returns DescribeProjectMetaResponse
@@ -6101,10 +6156,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a site monitoring task.
+   * Queries the details of a site monitoring task by calling the DescribeSiteMonitorAttribute operation.
    * 
    * @remarks
-   * This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
+   * This topic provides an example on how to query the details of the site monitoring task `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The response shows that the task name is `test123`, the monitored address is `https://aliyun.com`, and the carrier is `Alibaba`.
    * 
    * @param request - DescribeSiteMonitorAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6139,10 +6194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a site monitoring task.
+   * Queries the details of a site monitoring task by calling the DescribeSiteMonitorAttribute operation.
    * 
    * @remarks
-   * This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
+   * This topic provides an example on how to query the details of the site monitoring task `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The response shows that the task name is `test123`, the monitored address is `https://aliyun.com`, and the carrier is `Alibaba`.
    * 
    * @param request - DescribeSiteMonitorAttributeRequest
    * @returns DescribeSiteMonitorAttributeResponse
@@ -6223,10 +6278,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detection points that are provided by carriers.
+   * Queries the details of all carrier detection points by calling the DescribeSiteMonitorISPCityList operation.
    * 
    * @remarks
-   * This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+   * 本文将提供一个示例，查询运营商“联通”在“贵阳市”的探测点详情。
    * 
    * @param request - DescribeSiteMonitorISPCityListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6273,10 +6328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detection points that are provided by carriers.
+   * Queries the details of all carrier detection points by calling the DescribeSiteMonitorISPCityList operation.
    * 
    * @remarks
-   * This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+   * 本文将提供一个示例，查询运营商“联通”在“贵阳市”的探测点详情。
    * 
    * @param request - DescribeSiteMonitorISPCityListRequest
    * @returns DescribeSiteMonitorISPCityListResponse
@@ -6287,10 +6342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries site monitoring tasks.
+   * Queries the list of site monitoring tasks by calling the DescribeSiteMonitorList operation.
    * 
    * @remarks
-   * This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
+   * This topic provides an example of how to query the list of site monitoring tasks for the current account. The response shows that the current account has one site monitoring task named `HanZhou_ECS2`.
    * 
    * @param request - DescribeSiteMonitorListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6345,10 +6400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries site monitoring tasks.
+   * Queries the list of site monitoring tasks by calling the DescribeSiteMonitorList operation.
    * 
    * @remarks
-   * This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
+   * This topic provides an example of how to query the list of site monitoring tasks for the current account. The response shows that the current account has one site monitoring task named `HanZhou_ECS2`.
    * 
    * @param request - DescribeSiteMonitorListRequest
    * @returns DescribeSiteMonitorListResponse
@@ -6359,11 +6414,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of one or more instant test tasks.
+   * Call the DescribeSiteMonitorLog operation to query the detection logs for a one-time detection task.
    * 
    * @remarks
-   * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-   * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+   * Only Alibaba Cloud accounts with Network Analysis and Monitoring activated can create one-time detection tasks.
+   * This topic provides an example of how to query the detection logs for the one-time detection task `afa5c3ce-f944-4363-9edb-ce919a29****`.
    * 
    * @param request - DescribeSiteMonitorLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6438,11 +6493,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of one or more instant test tasks.
+   * Call the DescribeSiteMonitorLog operation to query the detection logs for a one-time detection task.
    * 
    * @remarks
-   * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-   * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+   * Only Alibaba Cloud accounts with Network Analysis and Monitoring activated can create one-time detection tasks.
+   * This topic provides an example of how to query the detection logs for the one-time detection task `afa5c3ce-f944-4363-9edb-ce919a29****`.
    * 
    * @param request - DescribeSiteMonitorLogRequest
    * @returns DescribeSiteMonitorLogResponse
@@ -6453,7 +6508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas and version of site monitoring.
+   * Calls the DescribeSiteMonitorQuota operation to query the quota and version of site monitoring.
    * 
    * @param request - DescribeSiteMonitorQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6477,7 +6532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas and version of site monitoring.
+   * Calls the DescribeSiteMonitorQuota operation to query the quota and version of site monitoring.
    * 
    * @param request - DescribeSiteMonitorQuotaRequest
    * @returns DescribeSiteMonitorQuotaResponse
@@ -6488,10 +6543,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of a specified metric for a specified site monitoring task.
+   * Queries the average statistics of a specified metric in a specified site monitoring task by calling the DescribeSiteMonitorStatistics operation.
    * 
    * @remarks
-   * This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+   * This topic provides an example on how to query the average statistics of the `Availability` metric in the site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The returned result shows that the availability is `100`.
    * 
    * @param request - DescribeSiteMonitorStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6534,10 +6589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of a specified metric for a specified site monitoring task.
+   * Queries the average statistics of a specified metric in a specified site monitoring task by calling the DescribeSiteMonitorStatistics operation.
    * 
    * @remarks
-   * This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+   * This topic provides an example on how to query the average statistics of the `Availability` metric in the site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The returned result shows that the availability is `100`.
    * 
    * @param request - DescribeSiteMonitorStatisticsRequest
    * @returns DescribeSiteMonitorStatisticsResponse
@@ -6548,7 +6603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detection points.
+   * Queries a list of detection points.
+   * 
+   * @remarks
+   * This topic provides an example of how to call the DescribeSyntheticProbeList operation to query detection point details for the China Unicom carrier in Beijing.
    * 
    * @param request - DescribeSyntheticProbeListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6607,7 +6665,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detection points.
+   * Queries a list of detection points.
+   * 
+   * @remarks
+   * This topic provides an example of how to call the DescribeSyntheticProbeList operation to query detection point details for the China Unicom carrier in Beijing.
    * 
    * @param request - DescribeSyntheticProbeListRequest
    * @returns DescribeSyntheticProbeListResponse
@@ -6618,7 +6679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a system event.
+   * Queries a system event.
    * 
    * @param request - DescribeSystemEventAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6689,7 +6750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a system event.
+   * Queries a system event.
    * 
    * @param request - DescribeSystemEventAttributeRequest
    * @returns DescribeSystemEventAttributeResponse
@@ -6700,13 +6761,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of times that a system event of a cloud service has occurred.
+   * Queries the number of events that occurred for each Alibaba Cloud service under the current account.
    * 
    * @remarks
-   * ### [](#)Background information
-   * You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the cloud services supported by CloudMonitor and their system events.
-   * ### [](#)Description
-   * This topic provides an example on how to query the number of times that a system event of `Elastic Compute Service (ECS)` has occurred. The returned result shows that the specified system event has occurred three times.
+   * ### Background information
+   * You can call [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) to obtain the Alibaba Cloud services and their system events supported by CloudMonitor.
+   * ### Operation description
+   * This topic provides an example of how to query the number of events that occurred for Elastic Compute Service (`ECS`) under the current account. The response shows that a total of 3 events occurred.
    * 
    * @param request - DescribeSystemEventCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6769,13 +6830,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of times that a system event of a cloud service has occurred.
+   * Queries the number of events that occurred for each Alibaba Cloud service under the current account.
    * 
    * @remarks
-   * ### [](#)Background information
-   * You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the cloud services supported by CloudMonitor and their system events.
-   * ### [](#)Description
-   * This topic provides an example on how to query the number of times that a system event of `Elastic Compute Service (ECS)` has occurred. The returned result shows that the specified system event has occurred three times.
+   * ### Background information
+   * You can call [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) to obtain the Alibaba Cloud services and their system events supported by CloudMonitor.
+   * ### Operation description
+   * This topic provides an example of how to query the number of events that occurred for Elastic Compute Service (`ECS`) under the current account. The response shows that a total of 3 events occurred.
    * 
    * @param request - DescribeSystemEventCountRequest
    * @returns DescribeSystemEventCountResponse
@@ -6860,7 +6921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the meta information about system events.
+   * Queries the meta information of system events by calling the DescribeSystemEventMetaList operation.
    * 
    * @param request - DescribeSystemEventMetaListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6884,7 +6945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the meta information about system events.
+   * Queries the meta information of system events by calling the DescribeSystemEventMetaList operation.
    * 
    * @param request - DescribeSystemEventMetaListRequest
    * @returns DescribeSystemEventMetaListResponse
@@ -6895,7 +6956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tag keys.
+   * Queries a list of tag keys by calling the DescribeTagKeyList operation.
    * 
    * @param request - DescribeTagKeyListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6930,7 +6991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tag keys.
+   * Queries a list of tag keys by calling the DescribeTagKeyList operation.
    * 
    * @param request - DescribeTagKeyListRequest
    * @returns DescribeTagKeyListResponse
@@ -6941,10 +7002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values corresponding to a specified tag key.
-   * 
-   * @remarks
-   * This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+   * Queries the tag values for a specified tag key.
    * 
    * @param request - DescribeTagValueListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6983,10 +7041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values corresponding to a specified tag key.
-   * 
-   * @remarks
-   * This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+   * Queries the tag values for a specified tag key.
    * 
    * @param request - DescribeTagValueListRequest
    * @returns DescribeTagValueListResponse
@@ -6997,7 +7052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries unhealthy instances detected by availability monitoring tasks.
+   * Call the DescribeUnhealthyHostAvailability operation to query a list of unhealthy servers.
    * 
    * @param request - DescribeUnhealthyHostAvailabilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7028,7 +7083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries unhealthy instances detected by availability monitoring tasks.
+   * Call the DescribeUnhealthyHostAvailability operation to query a list of unhealthy servers.
    * 
    * @param request - DescribeUnhealthyHostAvailabilityRequest
    * @returns DescribeUnhealthyHostAvailabilityResponse
@@ -7081,6 +7136,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables one or more event-triggered alert rules.
+   * 
    * @param request - DisableEventRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableEventRulesResponse
@@ -7110,6 +7167,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables one or more event-triggered alert rules.
+   * 
    * @param request - DisableEventRulesRequest
    * @returns DisableEventRulesResponse
    */
@@ -7119,7 +7178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables availability monitoring tasks.
+   * Disables one or more specified availability monitoring jobs.
    * 
    * @param request - DisableHostAvailabilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7150,7 +7209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables availability monitoring tasks.
+   * Disables one or more specified availability monitoring jobs.
    * 
    * @param request - DisableHostAvailabilityRequest
    * @returns DisableHostAvailabilityResponse
@@ -7161,7 +7220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables alert rules.
+   * You can call the DisableMetricRules operation to disable alert rules.
    * 
    * @param request - DisableMetricRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7192,7 +7251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables alert rules.
+   * You can call the DisableMetricRules operation to disable alert rules.
    * 
    * @param request - DisableMetricRulesRequest
    * @returns DisableMetricRulesResponse
@@ -7203,7 +7262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables site monitoring tasks.
+   * Disables one or more site monitoring tasks by calling the DisableSiteMonitors operation.
    * 
    * @param request - DisableSiteMonitorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7234,7 +7293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables site monitoring tasks.
+   * Disables one or more site monitoring tasks by calling the DisableSiteMonitors operation.
    * 
    * @param request - DisableSiteMonitorsRequest
    * @returns DisableSiteMonitorsResponse
@@ -7287,6 +7346,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * The EnableEventRules operation enables one or more event rules.
+   * 
    * @param request - EnableEventRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableEventRulesResponse
@@ -7316,6 +7377,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * The EnableEventRules operation enables one or more event rules.
+   * 
    * @param request - EnableEventRulesRequest
    * @returns EnableEventRulesResponse
    */
@@ -7325,7 +7388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables availability monitoring tasks.
+   * Enables a specified availability monitoring task.
    * 
    * @param request - EnableHostAvailabilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7356,7 +7419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables availability monitoring tasks.
+   * Enables a specified availability monitoring task.
    * 
    * @param request - EnableHostAvailabilityRequest
    * @returns EnableHostAvailabilityResponse
@@ -7497,11 +7560,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * InstallMonitoringAgent
+   * Call the InstallMonitoringAgent operation to install the CloudMonitor agent on specified Alibaba Cloud hosts.
    * 
    * @remarks
    * ## Prerequisites
-   * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
+   * Ensure that Cloud Assistant is installed on the Alibaba Cloud host. For more information, see [Cloud Assistant overview](https://help.aliyun.com/document_detail/64601.html).
+   * ## Background information
+   * This API applies only to Alibaba Cloud hosts, which are Elastic Compute Service (ECS) instances. The success rate for installing the CloudMonitor agent using this API is approximately 95%. If the installation fails, you must manually install the agent. For more information about how to install the CloudMonitor agent, see [Install and uninstall the C++ agent](https://help.aliyun.com/document_detail/183482.html).
+   * ## Example
+   * This example shows how to forcibly install the latest version of the CloudMonitor agent on the ECS instance `i-m5e0k0bexac8tykr****`.
    * 
    * @param request - InstallMonitoringAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7540,11 +7607,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * InstallMonitoringAgent
+   * Call the InstallMonitoringAgent operation to install the CloudMonitor agent on specified Alibaba Cloud hosts.
    * 
    * @remarks
    * ## Prerequisites
-   * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
+   * Ensure that Cloud Assistant is installed on the Alibaba Cloud host. For more information, see [Cloud Assistant overview](https://help.aliyun.com/document_detail/64601.html).
+   * ## Background information
+   * This API applies only to Alibaba Cloud hosts, which are Elastic Compute Service (ECS) instances. The success rate for installing the CloudMonitor agent using this API is approximately 95%. If the installation fails, you must manually install the agent. For more information about how to install the CloudMonitor agent, see [Install and uninstall the C++ agent](https://help.aliyun.com/document_detail/183482.html).
+   * ## Example
+   * This example shows how to forcibly install the latest version of the CloudMonitor agent on the ECS instance `i-m5e0k0bexac8tykr****`.
    * 
    * @param request - InstallMonitoringAgentRequest
    * @returns InstallMonitoringAgentResponse
@@ -7555,7 +7626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用分组内的进程监控
+   * You can call the ModifyGroupMonitoringAgentProcess operation to modify the process monitoring settings for an application group.
    * 
    * @param request - ModifyGroupMonitoringAgentProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7598,7 +7669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用分组内的进程监控
+   * You can call the ModifyGroupMonitoringAgentProcess operation to modify the process monitoring settings for an application group.
    * 
    * @param request - ModifyGroupMonitoringAgentProcessRequest
    * @returns ModifyGroupMonitoringAgentProcessResponse
@@ -7689,7 +7760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改非阿里云的主机显示信息
+   * Calls the ModifyHostInfo operation to modify the display information of a non-Alibaba Cloud host.
    * 
    * @remarks
    * ***
@@ -7727,7 +7798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改非阿里云的主机显示信息
+   * Calls the ModifyHostInfo operation to modify the display information of a non-Alibaba Cloud host.
    * 
    * @remarks
    * ***
@@ -7741,10 +7812,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a namespace.
+   * Calls the ModifyHybridMonitorNamespace operation to modify a metric store.
    * 
    * @remarks
-   * This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
+   * This topic provides an example on how to change the data storage duration of the metric store `aliyun` to `cms.s1.2xlarge`. The response shows that the metric store is modified.
    * 
    * @param request - ModifyHybridMonitorNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7783,10 +7854,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a namespace.
+   * Calls the ModifyHybridMonitorNamespace operation to modify a metric store.
    * 
    * @remarks
-   * This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
+   * This topic provides an example on how to change the data storage duration of the metric store `aliyun` to `cms.s1.2xlarge`. The response shows that the metric store is modified.
    * 
    * @param request - ModifyHybridMonitorNamespaceRequest
    * @returns ModifyHybridMonitorNamespaceResponse
@@ -7797,10 +7868,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Logstore group.
+   * Modifies a Logstore group by calling the ModifyHybridMonitorSLSGroup operation.
    * 
    * @remarks
-   * In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
+   * This topic provides an example on how to change the Logstore in the `aliyun-project` log project in the `ap-southeast-1` region of the Logstore group `Logstore_test` to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
    * 
    * @param request - ModifyHybridMonitorSLSGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7839,10 +7910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Logstore group.
+   * Modifies a Logstore group by calling the ModifyHybridMonitorSLSGroup operation.
    * 
    * @remarks
-   * In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
+   * This topic provides an example on how to change the Logstore in the `aliyun-project` log project in the `ap-southeast-1` region of the Logstore group `Logstore_test` to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
    * 
    * @param request - ModifyHybridMonitorSLSGroupRequest
    * @returns ModifyHybridMonitorSLSGroupResponse
@@ -7853,10 +7924,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a metric for the logs that are imported from Log Service.
+   * Modifies the metrics of a Simple Log Service (SLS) log monitoring task by calling the ModifyHybridMonitorTask operation.
    * 
    * @remarks
-   * This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
+   * This topic provides an example on how to change the collection interval of the SLS log monitoring task `36****` to `15` seconds. The response shows that the metric is modified.
    * 
    * @param request - ModifyHybridMonitorTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7907,10 +7978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a metric for the logs that are imported from Log Service.
+   * Modifies the metrics of a Simple Log Service (SLS) log monitoring task by calling the ModifyHybridMonitorTask operation.
    * 
    * @remarks
-   * This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
+   * This topic provides an example on how to change the collection interval of the SLS log monitoring task `36****` to `15` seconds. The response shows that the metric is modified.
    * 
    * @param request - ModifyHybridMonitorTaskRequest
    * @returns ModifyHybridMonitorTaskResponse
@@ -8067,7 +8138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用分组
+   * You can call the ModifyMonitorGroup operation to modify an application group.
    * 
    * @param request - ModifyMonitorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8106,7 +8177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用分组
+   * You can call the ModifyMonitorGroup operation to modify an application group.
    * 
    * @param request - ModifyMonitorGroupRequest
    * @returns ModifyMonitorGroupResponse
@@ -8117,7 +8188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用分组中的资源
+   * The ModifyMonitorGroupInstances operation modifies the resources in an application group.
    * 
    * @param request - ModifyMonitorGroupInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8152,7 +8223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改应用分组中的资源
+   * The ModifyMonitorGroupInstances operation modifies the resources in an application group.
    * 
    * @param request - ModifyMonitorGroupInstancesRequest
    * @returns ModifyMonitorGroupInstancesResponse
@@ -8163,10 +8234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a site monitoring task.
-   * 
-   * @remarks
-   * The number of site monitoring tasks.
+   * Modifies a site monitoring task by calling the ModifySiteMonitor operation.
    * 
    * @param request - ModifySiteMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8229,10 +8297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a site monitoring task.
-   * 
-   * @remarks
-   * The number of site monitoring tasks.
+   * Modifies a site monitoring task by calling the ModifySiteMonitor operation.
    * 
    * @param request - ModifySiteMonitorRequest
    * @returns ModifySiteMonitorResponse
@@ -8243,7 +8308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an alert contact.
+   * Creates or modifies an alert contact by calling the PutContact operation.
    * 
    * @param request - PutContactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8286,7 +8351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an alert contact.
+   * Creates or modifies an alert contact by calling the PutContact operation.
    * 
    * @param request - PutContactRequest
    * @returns PutContactResponse
@@ -8297,10 +8362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an alert contact group.
-   * 
-   * @remarks
-   * This topic provides an example on how to create an alert contact group named `ECS_Group`.
+   * Creates or modifies an alert contact group by calling the PutContactGroup operation.
    * 
    * @param request - PutContactGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8343,10 +8405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an alert contact group.
-   * 
-   * @remarks
-   * This topic provides an example on how to create an alert contact group named `ECS_Group`.
+   * Creates or modifies an alert contact group by calling the PutContactGroup operation.
    * 
    * @param request - PutContactGroupRequest
    * @returns PutContactGroupResponse
@@ -8399,8 +8458,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the PutCustomEventRule operation to create an alert rule for a custom event.
+   * 
    * @remarks
-   * Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
+   * Before you call this operation, you must call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
    * 
    * @param request - PutCustomEventRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8471,8 +8532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the PutCustomEventRule operation to create an alert rule for a custom event.
+   * 
    * @remarks
-   * Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
+   * Before you call this operation, you must call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
    * 
    * @param request - PutCustomEventRuleRequest
    * @returns PutCustomEventRuleResponse
@@ -8483,10 +8546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reports monitoring data.
+   * Calls the PutCustomMetric operation to report custom monitoring data.
    * 
    * @remarks
-   * >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
+   * > We recommend that you use the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation in Enterprise CloudMonitor.
    * 
    * @param request - PutCustomMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8517,10 +8580,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reports monitoring data.
+   * Calls the PutCustomMetric operation to report custom monitoring data.
    * 
    * @remarks
-   * >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
+   * > We recommend that you use the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation in Enterprise CloudMonitor.
    * 
    * @param request - PutCustomMetricRequest
    * @returns PutCustomMetricResponse
@@ -8531,10 +8594,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom alert rule.
+   * Creates a custom monitoring alert rule by calling the PutCustomMetricRule operation.
    * 
    * @remarks
-   * Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
+   * 调用本接口前，请先调用PutCustomMetric接口上报自定义监控数据，详情请参见 [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html)。
    * 
    * @param request - PutCustomMetricRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8625,10 +8688,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom alert rule.
+   * Creates a custom monitoring alert rule by calling the PutCustomMetricRule operation.
    * 
    * @remarks
-   * Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
+   * 调用本接口前，请先调用PutCustomMetric接口上报自定义监控数据，详情请参见 [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html)。
    * 
    * @param request - PutCustomMetricRuleRequest
    * @returns PutCustomMetricRuleResponse
@@ -8639,11 +8702,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或者修改事件监控
+   * Creates or modifies an event-based alert rule by calling the PutEventRule operation.
    * 
    * @remarks
-   * If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
-   * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
+   * If the Event-triggered Alert Rule name does not exist, a new alert rule is created. If the Event-triggered Alert Rule name already exists, the existing alert rule is modified.
+   * This topic provides an example of how to create an event-based alert rule named `myRuleName` for the Alibaba Cloud service `ecs`.
    * 
    * @param request - PutEventRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8698,11 +8761,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或者修改事件监控
+   * Creates or modifies an event-based alert rule by calling the PutEventRule operation.
    * 
    * @remarks
-   * If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
-   * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
+   * If the Event-triggered Alert Rule name does not exist, a new alert rule is created. If the Event-triggered Alert Rule name already exists, the existing alert rule is modified.
+   * This topic provides an example of how to create an event-based alert rule named `myRuleName` for the Alibaba Cloud service `ecs`.
    * 
    * @param request - PutEventRuleRequest
    * @returns PutEventRuleResponse
@@ -8713,7 +8776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or modifies the push channels of an event-triggered alert rule.
+   * Adds or modifies the notification channels of an event-triggered alert rule by calling the PutEventRuleTargets operation.
    * 
    * @param request - PutEventRuleTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8768,7 +8831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or modifies the push channels of an event-triggered alert rule.
+   * Adds or modifies the notification channels of an event-triggered alert rule by calling the PutEventRuleTargets operation.
    * 
    * @param request - PutEventRuleTargetsRequest
    * @returns PutEventRuleTargetsResponse
@@ -8779,10 +8842,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies a configuration set for exporting monitoring data.
+   * Creates or modifies a monitoring data export configuration by calling the PutExporterOutput operation.
    * 
    * @remarks
-   * > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+   * > Only Log Service (SLS) is supported. More products will be supported in the future.
    * 
    * @param request - PutExporterOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8825,10 +8888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies a configuration set for exporting monitoring data.
+   * Creates or modifies a monitoring data export configuration by calling the PutExporterOutput operation.
    * 
    * @remarks
-   * > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+   * > Only Log Service (SLS) is supported. More products will be supported in the future.
    * 
    * @param request - PutExporterOutputRequest
    * @returns PutExporterOutputResponse
@@ -8839,7 +8902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies a data export rule.
+   * Invokes the PutExporterRule operation to create or modify export rules.
    * 
    * @param request - PutExporterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8890,7 +8953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies a data export rule.
+   * Invokes the PutExporterRule operation to create or modify export rules.
    * 
    * @param request - PutExporterRuleRequest
    * @returns PutExporterRuleResponse
@@ -8901,10 +8964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an alert rule for an application group.
+   * Creates or modifies an alert rule in a specified application group.
    * 
    * @remarks
-   * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
+   * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `17285****`. The alert rule ID is `123456`, the alert rule name is `Rule_test`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule is created. The alert rule ID is `123456`.
    * 
    * @param request - PutGroupMetricRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9011,10 +9074,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an alert rule for an application group.
+   * Creates or modifies an alert rule in a specified application group.
    * 
    * @remarks
-   * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
+   * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the application group `17285****`. The alert rule ID is `123456`, the alert rule name is `Rule_test`, the alert severity is `Critical`, the statistical method is `Average`, the comparison operator is `GreaterThanOrEqualToThreshold`, the threshold is `90`, and the retry count is `3`. The response shows that the alert rule is created. The alert rule ID is `123456`.
    * 
    * @param request - PutGroupMetricRuleRequest
    * @returns PutGroupMetricRuleResponse
@@ -9025,15 +9088,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
+   * Reports the specified monitoring data to a specified metric namespace of Enterprise CloudMonitor by calling the PutHybridMonitorMetricData operation.
    * 
    * @remarks
-   * ## [](#)Prerequisites
-   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-   * ## [](#)Limits
-   * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
-   * ## [](#)Operation description
-   * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
+   * ## Prerequisites
+   * Make sure that you have activated Enterprise CloudMonitor. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+   * ## Limits
+   * The size of the monitoring data that you can report at a time cannot exceed 1 MB.
+   * ## Usage notes
+   * This topic provides an example to show how to report the monitoring data of the `CPU_Usage` metric to the `default-aliyun` metric namespace of Enterprise CloudMonitor.
    * 
    * @param request - PutHybridMonitorMetricDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9068,15 +9131,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
+   * Reports the specified monitoring data to a specified metric namespace of Enterprise CloudMonitor by calling the PutHybridMonitorMetricData operation.
    * 
    * @remarks
-   * ## [](#)Prerequisites
-   * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-   * ## [](#)Limits
-   * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
-   * ## [](#)Operation description
-   * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
+   * ## Prerequisites
+   * Make sure that you have activated Enterprise CloudMonitor. For more information, see [Activate Enterprise CloudMonitor](https://help.aliyun.com/document_detail/250773.html).
+   * ## Limits
+   * The size of the monitoring data that you can report at a time cannot exceed 1 MB.
+   * ## Usage notes
+   * This topic provides an example to show how to report the monitoring data of the `CPU_Usage` metric to the `default-aliyun` metric namespace of Enterprise CloudMonitor.
    * 
    * @param request - PutHybridMonitorMetricDataRequest
    * @returns PutHybridMonitorMetricDataResponse
@@ -9087,10 +9150,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies a log monitoring metric.
+   * Creates or modifies a log monitoring metric by calling the PutLogMonitor operation.
    * 
    * @remarks
-   * In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
+   * This topic provides an example of how to create a log monitoring metric named `cpu_total`. The response shows that the log monitoring metric is created. The log monitoring metric ID is `16****`.
    * 
    * @param request - PutLogMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9169,10 +9232,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies a log monitoring metric.
+   * Creates or modifies a log monitoring metric by calling the PutLogMonitor operation.
    * 
    * @remarks
-   * In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
+   * This topic provides an example of how to create a log monitoring metric named `cpu_total`. The response shows that the log monitoring metric is created. The log monitoring metric ID is `16****`.
    * 
    * @param request - PutLogMonitorRequest
    * @returns PutLogMonitorResponse
@@ -9183,11 +9246,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or modifies the push channels of an alert rule.
+   * Adds or modifies push channels for a specified alert rule by calling the PutMetricRuleTargets operation.
    * 
    * @remarks
-   * # [](#)
-   * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
+   * ## Usage notes
+   * This topic provides an example on how to associate the resource `acs:mns:ap-southeast-1:120886317861****:/queues/test/message` with the alert rule `ae06917_75a8c43178ab66****`. The alert trigger target ID is `1`. The response shows that the resource is associated.
    * 
    * @param request - PutMetricRuleTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9222,11 +9285,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or modifies the push channels of an alert rule.
+   * Adds or modifies push channels for a specified alert rule by calling the PutMetricRuleTargets operation.
    * 
    * @remarks
-   * # [](#)
-   * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
+   * ## Usage notes
+   * This topic provides an example on how to associate the resource `acs:mns:ap-southeast-1:120886317861****:/queues/test/message` with the alert rule `ae06917_75a8c43178ab66****`. The alert trigger target ID is `1`. The response shows that the resource is associated.
    * 
    * @param request - PutMetricRuleTargetsRequest
    * @returns PutMetricRuleTargetsResponse
@@ -9333,11 +9396,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures an alert rule.
+   * Configures a threshold alert rule.
    * 
    * @remarks
-   * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-   * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+   * This topic provides an example on how to configure a threshold alert rule for the `cpu_total` metric of the Elastic Computing Service (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+   * > As of August 15, 2024, Statistics validation is increased. The statistical value must match the Statistics of the corresponding metric. For information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param tmpReq - PutResourceMetricRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9450,11 +9513,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures an alert rule.
+   * Configures a threshold alert rule.
    * 
    * @remarks
-   * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-   * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+   * This topic provides an example on how to configure a threshold alert rule for the `cpu_total` metric of the Elastic Computing Service (ECS) instance `i-uf6j91r34rnwawoo****` in the `acs_ecs_dashboard` namespace. The alert contact group is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+   * > As of August 15, 2024, Statistics validation is increased. The statistical value must match the Statistics of the corresponding metric. For information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param request - PutResourceMetricRuleRequest
    * @returns PutResourceMetricRuleResponse
@@ -9465,11 +9528,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple alert rules for the specified metric of a specified resource.
+   * Creates multiple threshold alert rules for a specified metric of a specified resource by calling the PutResourceMetricRules operation.
    * 
    * @remarks
-   * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-   * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+   * 本文将提供一个示例，为云服务器ECS `acs_ecs_dashboard`的实例`i-uf6j91r34rnwawoo****`中的监控项`cpu_total`设置阈值报警规则。该报警规则的报警联系组为`ECS_Group`、报警规则名称为`test123`、报警规则ID为`a151cd6023eacee2f0978e03863cc1697c89508****`、Critical级别的统计方法为`Average`、Critical级别的比较符为`GreaterThanOrEqualToThreshold`、Critical级别的阈值为`90`和Critical级别的报警重试次数为`3`。
+   * > 2024-08-15 增加Statistics校验，统计值只能填对应指标的Statistics。关于如何获取该参数的取值，请参见[云产品监控项](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics)。
    * 
    * @param request - PutResourceMetricRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9500,11 +9563,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple alert rules for the specified metric of a specified resource.
+   * Creates multiple threshold alert rules for a specified metric of a specified resource by calling the PutResourceMetricRules operation.
    * 
    * @remarks
-   * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-   * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+   * 本文将提供一个示例，为云服务器ECS `acs_ecs_dashboard`的实例`i-uf6j91r34rnwawoo****`中的监控项`cpu_total`设置阈值报警规则。该报警规则的报警联系组为`ECS_Group`、报警规则名称为`test123`、报警规则ID为`a151cd6023eacee2f0978e03863cc1697c89508****`、Critical级别的统计方法为`Average`、Critical级别的比较符为`GreaterThanOrEqualToThreshold`、Critical级别的阈值为`90`和Critical级别的报警重试次数为`3`。
+   * > 2024-08-15 增加Statistics校验，统计值只能填对应指标的Statistics。关于如何获取该参数的取值，请参见[云产品监控项](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics)。
    * 
    * @param request - PutResourceMetricRulesRequest
    * @returns PutResourceMetricRulesResponse
@@ -9515,7 +9578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes tags.
+   * The RemoveTags operation removes one or more tags.
    * 
    * @param request - RemoveTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9550,7 +9613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes tags.
+   * The RemoveTags operation removes one or more tags.
    * 
    * @param request - RemoveTagsRequest
    * @returns RemoveTagsResponse
@@ -9564,7 +9627,7 @@ export default class Client extends OpenApi {
    * Debugs a system event of an Alibaba Cloud service.
    * 
    * @remarks
-   * This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after the system event triggers an alert.
+   * Tests whether a system event can be triggered as expected. Simulates a system event and verifies the response when the event triggers an alert.
    * 
    * @param request - SendDryRunSystemEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9610,7 +9673,7 @@ export default class Client extends OpenApi {
    * Debugs a system event of an Alibaba Cloud service.
    * 
    * @remarks
-   * This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after the system event triggers an alert.
+   * Tests whether a system event can be triggered as expected. Simulates a system event and verifies the response when the event triggers an alert.
    * 
    * @param request - SendDryRunSystemEventRequest
    * @returns SendDryRunSystemEventResponse
@@ -9624,7 +9687,7 @@ export default class Client extends OpenApi {
    * Uninstalls the CloudMonitor agent from a third-party host.
    * 
    * @remarks
-   * >  This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
+   * > This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
    * 
    * @param request - UninstallMonitoringAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9658,7 +9721,7 @@ export default class Client extends OpenApi {
    * Uninstalls the CloudMonitor agent from a third-party host.
    * 
    * @remarks
-   * >  This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
+   * > This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
    * 
    * @param request - UninstallMonitoringAgentRequest
    * @returns UninstallMonitoringAgentResponse

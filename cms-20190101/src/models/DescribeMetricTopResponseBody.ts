@@ -7,7 +7,7 @@ export class DescribeMetricTopResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200

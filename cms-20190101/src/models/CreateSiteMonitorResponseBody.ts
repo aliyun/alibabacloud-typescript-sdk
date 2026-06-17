@@ -144,9 +144,9 @@ export class CreateSiteMonitorResponseBodyData extends $dara.Model {
 export class CreateSiteMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the operation.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > A value of \\`200\\` indicates success.
    * 
    * @example
    * 200
@@ -155,12 +155,12 @@ export class CreateSiteMonitorResponseBody extends $dara.Model {
   createResultList?: CreateSiteMonitorResponseBodyCreateResultList;
   /**
    * @remarks
-   * The result of the site monitoring task.
+   * The results of the monitoring task.
    */
   data?: CreateSiteMonitorResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * Successful
@@ -168,7 +168,7 @@ export class CreateSiteMonitorResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 68192f5d-0d45-4b98-9724-892813f86c71
@@ -178,8 +178,9 @@ export class CreateSiteMonitorResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

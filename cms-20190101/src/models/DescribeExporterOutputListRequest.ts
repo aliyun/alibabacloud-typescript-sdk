@@ -13,7 +13,7 @@ export class DescribeExporterOutputListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of records per page. Default value: 10.
    * 
    * @example
    * 10

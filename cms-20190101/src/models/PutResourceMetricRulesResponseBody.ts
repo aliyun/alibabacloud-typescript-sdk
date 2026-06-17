@@ -89,9 +89,9 @@ export class PutResourceMetricRulesResponseBodyFailedListResult extends $dara.Mo
 export class PutResourceMetricRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * 状态码。
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * >200表示成功。
    * 
    * @example
    * 200
@@ -100,7 +100,7 @@ export class PutResourceMetricRulesResponseBody extends $dara.Model {
   failedListResult?: PutResourceMetricRulesResponseBodyFailedListResult;
   /**
    * @remarks
-   * The error message returned.
+   * 错误信息。
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -108,7 +108,7 @@ export class PutResourceMetricRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * 15D1440E-BF24-5A41-93E4-36864635179E
@@ -116,10 +116,11 @@ export class PutResourceMetricRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * 操作是否成功。取值：
    * 
-   * *   true
-   * *   false
+   * - true：成功。
+   * 
+   * - false：失败。
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceAliyunProductMetricListNamespaceListMetricList extends $dara.Model {
   /**
    * @remarks
-   * The metrics.
+   * The list of metrics.
    */
   list?: string[];
   /**
@@ -47,12 +47,12 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
 export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceAliyunProductMetricListNamespaceList extends $dara.Model {
   /**
    * @remarks
-   * The metrics for the Alibaba Cloud service.
+   * The list of metrics for the Alibaba Cloud service.
    */
   metricList?: DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceAliyunProductMetricListNamespaceListMetricList[];
   /**
    * @remarks
-   * The namespace for the Alibaba Cloud service.
+   * The data namespace of the Alibaba Cloud service.
    * 
    * @example
    * acs_ecs_dashboard
@@ -87,7 +87,7 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
 export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceAliyunProductMetricList extends $dara.Model {
   /**
    * @remarks
-   * The namespaces.
+   * The list of namespaces.
    */
   namespaceList?: DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceAliyunProductMetricListNamespaceList[];
   /**
@@ -100,11 +100,13 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
   userId?: number;
   /**
    * @remarks
-   * The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+   * The configuration file for the Alibaba Cloud service that is connected to Hybrid Cloud Monitoring.
    * 
-   * *   namespace: the namespace of the Alibaba Cloud service.
-   * *   metric_list: the metrics of the Alibaba Cloud service.
-   * *   dimension: the resources of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring. If you do not specify a dimension, all resources of the Alibaba Cloud service are monitored.
+   * - namespace: the namespace of the Alibaba Cloud service.
+   * 
+   * - metric_list: the metrics of the Alibaba Cloud service.
+   * 
+   * - dimension: the resources of the Alibaba Cloud service that can be queried in Hybrid Cloud Monitoring. If this parameter is empty, all resources are monitored.
    * 
    * @example
    * products:- namespace: acs_ecs_dashboard metric_info: - metric_list: - cpu_total dimension: \\"\\"
@@ -141,20 +143,29 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
 export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceDetail extends $dara.Model {
   /**
    * @remarks
-   * The region where the metric data is stored.
+   * The region where the monitoring data is stored.
    * 
-   * >  This parameter is returned if you select `m_prom_user` for `NamespaceType` when you create a namespace.
+   * > This parameter is returned if you set `NamespaceType` to `m_prom_user` when you create the namespace.
    * 
    * @example
    * cn-hangzhou
    */
   namespaceRegion?: string;
+  /**
+   * @remarks
+   * The Prometheus instance where the monitoring data is stored.
+   * 
+   * > This parameter is returned if you set `NamespaceType` to `aliyun_prometheus` when you create the namespace.
+   * 
+   * @example
+   * rw-57******************7f
+   */
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * The project where the metric data is located.
+   * The Simple Log Service (SLS) project where the monitoring data is stored.
    * 
-   * >  This parameter is returned if you select `m_prom_user` for `NamespaceType` when you create a namespace.
+   * > This parameter is returned if you set `NamespaceType` to `m_prom_user` when you create the namespace.
    * 
    * @example
    * cms-hybrid-120886317861****-cn-hangzhou-a83d
@@ -162,14 +173,19 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
   SLSProject?: string;
   /**
    * @remarks
-   * The data retention period. Valid values:
+   * The data storage duration. Valid values:
    * 
-   * *   cms.s1.large (Retention Period 15 Days)
-   * *   cms.s1.xlarge (Retention Period 32 Days)
-   * *   cms.s1.2xlarge (Retention Period 63 Days)
-   * *   cms.s1.3xlarge (Retention Period 93 Days)
-   * *   cms.s1.6xlarge (Retention Period 185 Days)
-   * *   cms.s1.12xlarge (Retention Period 367 Days)
+   * - cms.s1.large: 15 days.
+   * 
+   * - cms.s1.xlarge: 32 days.
+   * 
+   * - cms.s1.2xlarge: 63 days.
+   * 
+   * - cms.s1.3xlarge: 93 days.
+   * 
+   * - cms.s1.6xlarge: 185 days.
+   * 
+   * - cms.s1.12xlarge: 376 days.
    * 
    * @example
    * cms.s1.3xlarge
@@ -205,12 +221,12 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
 export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespace extends $dara.Model {
   /**
    * @remarks
-   * The configuration details of metric import tasks for Alibaba Cloud services.
+   * The configuration details of data import tasks for Alibaba Cloud services.
    */
   aliyunProductMetricList?: DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceAliyunProductMetricList[];
   /**
    * @remarks
-   * The timestamp that was generated when the namespace was created.
+   * The timestamp when the namespace was created.
    * 
    * Unit: milliseconds.
    * 
@@ -228,12 +244,12 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
   description?: string;
   /**
    * @remarks
-   * The details of the data retention period.
+   * The details of the data storage duration.
    */
   detail?: DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceDetail;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * 3****
@@ -243,8 +259,9 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
    * @remarks
    * Indicates whether the namespace is deleted. Valid values:
    * 
-   * *   0: The namespace is not deleted.
-   * *   1: The namespace is deleted.
+   * - 0: The namespace is not deleted.
+   * 
+   * - 1: The namespace is deleted.
    * 
    * @example
    * 0
@@ -252,7 +269,7 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
   isDelete?: number;
   /**
    * @remarks
-   * The timestamp that was generated when the namespace was last modified.
+   * The timestamp when the namespace was last modified. Unit: milliseconds.
    * 
    * @example
    * 1652682744000
@@ -268,18 +285,21 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
   namespace?: string;
   /**
    * @remarks
-   * The storage scheme of metric data. Valid values:
+   * The storage solution for monitoring data. Valid values:
    * 
-   * *   m_prom_user: The metric data is stored in Simple Log Service.
-   * *   m_prom_pool: The metric data is stored in the storage space provided by CloudMonitor.
+   * - m_prom_user: The monitoring data is stored in SLS.
+   * 
+   * - m_prom_pool: The monitoring data is stored in the storage space provided by Cloud Monitor.
+   * 
+   * - aliyun_prometheus: The monitoring data is stored in a Prometheus instance.
    * 
    * @example
-   * m_prom_user
+   * aliyun_prometheus
    */
   namespaceType?: string;
   /**
    * @remarks
-   * The number of metric import tasks for third-party services.
+   * The number of data import tasks for non-Alibaba Cloud services.
    * 
    * @example
    * 0
@@ -333,7 +353,7 @@ export class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitor
 export class DescribeHybridMonitorNamespaceListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code.
    * 
    * @example
    * Success
@@ -346,7 +366,7 @@ export class DescribeHybridMonitorNamespaceListResponseBody extends $dara.Model 
   describeHybridMonitorNamespace?: DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespace[];
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * Specified parameter PageSize is not valid.
@@ -362,7 +382,7 @@ export class DescribeHybridMonitorNamespaceListResponseBody extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -378,10 +398,11 @@ export class DescribeHybridMonitorNamespaceListResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -389,7 +410,7 @@ export class DescribeHybridMonitorNamespaceListResponseBody extends $dara.Model 
   success?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DisableEventRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * > A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -18,12 +18,12 @@ export class DisableEventRulesResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * success
+   * The specified resource is not found.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3FD0E8B5-F132-4F4E-A081-2878AF378B12
@@ -31,7 +31,11 @@ export class DisableEventRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

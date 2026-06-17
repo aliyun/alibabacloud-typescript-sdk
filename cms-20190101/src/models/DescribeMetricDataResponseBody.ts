@@ -7,7 +7,7 @@ export class DescribeMetricDataResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -17,10 +17,13 @@ export class DescribeMetricDataResponseBody extends $dara.Model {
    * @remarks
    * The monitoring data. The value includes the following fields:
    * 
-   * *   `timestamp`: the time when the alert was triggered.
-   * *   `userId`: the ID of the user for which the alert was triggered.
-   * *   `instanceId`: the ID of the instance for which the alert was triggered.
-   * *   `Minimum`, `Average`, and `Maximum`: the aggregation methods.
+   * - `timestamp`: the time when the alert was triggered.
+   * 
+   * - `userId`: the ID of the user for which the alert was triggered.
+   * 
+   * - `instanceId`: the ID of the instance for which the alert was triggered.
+   * 
+   * - `Minimum`, `Average`, and `Maximum`: the aggregation methods.
    * 
    * @example
    * [{\\"timestamp\\":1618368900000,\\"Average\\":95.8291666666667,\\"Minimum\\":65.48,\\"Maximum\\":100.0},{\\"timestamp\\":1618368960000,\\"Average\\":95.8683333333333,\\"Minimum\\":67.84,\\"Maximum\\":100.0}]

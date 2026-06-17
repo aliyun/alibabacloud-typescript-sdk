@@ -17,7 +17,7 @@ export class DescribeSystemEventHistogramRequest extends $dara.Model {
    * @remarks
    * The event type.
    * 
-   * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the types of system events.
+   * > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the types of system events.
    * 
    * @example
    * Exception
@@ -35,9 +35,11 @@ export class DescribeSystemEventHistogramRequest extends $dara.Model {
    * @remarks
    * The level of the event. Valid values:
    * 
-   * *   CRITICAL
-   * *   WARN
-   * *   INFO
+   * - CRITICAL
+   * 
+   * - WARN
+   * 
+   * - INFO
    * 
    * @example
    * CRITICAL
@@ -47,7 +49,7 @@ export class DescribeSystemEventHistogramRequest extends $dara.Model {
    * @remarks
    * The event name.
    * 
-   * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the names of system events.
+   * > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the names of system events.
    * 
    * @example
    * BucketIngressBandwidth
@@ -57,7 +59,7 @@ export class DescribeSystemEventHistogramRequest extends $dara.Model {
    * @remarks
    * The abbreviation of the service name.
    * 
-   * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the abbreviations of service names.
+   * > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the abbreviations of service names.
    * 
    * @example
    * OSS
@@ -68,8 +70,9 @@ export class DescribeSystemEventHistogramRequest extends $dara.Model {
    * @remarks
    * The keywords that are used to search for the system event. Valid values:
    * 
-   * *   If you want to search for the system event whose content contains a and b, set the value to `a and b`.
-   * *   If you want to search for the system event whose content contains a or b, set the value to `a or b`.
+   * - If you want to search for the system event whose content contains a and b, set the value to `a and b`.
+   * 
+   * - If you want to search for the system event whose content contains a or b, set the value to `a or b`.
    * 
    * @example
    * cms
@@ -89,7 +92,7 @@ export class DescribeSystemEventHistogramRequest extends $dara.Model {
    * @remarks
    * The event status.
    * 
-   * >  You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the status of system events.
+   * > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the status of system events.
    * 
    * @example
    * normal

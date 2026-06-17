@@ -3,42 +3,81 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the area in Chinese.
+   * 
+   * @example
+   * 华北
+   */
   areaCn?: string;
   /**
+   * @remarks
+   * The name of the area in English.
+   * 
    * @example
    * Huabei
    */
   areaEn?: string;
   /**
+   * @remarks
+   * The city ID.
+   * 
    * @example
    * 738
    */
   city?: string;
+  /**
+   * @remarks
+   * The name of the city in Chinese.
+   * 
+   * @example
+   * 北京
+   */
   cityCn?: string;
   /**
+   * @remarks
+   * The name of the city in English.
+   * 
    * @example
    * Beijing
    */
   cityEn?: string;
   /**
+   * @remarks
+   * The country code.
+   * 
    * @example
    * 629
    */
   country?: string;
+  /**
+   * @remarks
+   * The name of the country in Chinese.
+   * 
+   * @example
+   * 中国
+   */
   countryCn?: string;
   /**
+   * @remarks
+   * The name of the country or region in English.
+   * 
    * @example
    * China
    */
   countryEn?: string;
   /**
+   * @remarks
+   * The number of IPv4 detection points in data centers.
+   * 
    * @example
    * 1
    */
   idcV4ProbeCount?: number;
   /**
    * @remarks
-   * The number of IPv6 nodes in data centers.
+   * The number of IDC IPv6 nodes.
    * 
    * @example
    * 1
@@ -46,37 +85,69 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   idcV6ProbeCount?: number;
   /**
    * @remarks
-   * The IP addresses of the monitored nodes.
+   * The list of node IP addresses.
    */
   ipPool?: string[];
   /**
+   * @remarks
+   * The carrier ID.
+   * 
    * @example
    * 232
    */
   isp?: string;
+  /**
+   * @remarks
+   * The name of the carrier in Chinese.
+   * 
+   * @example
+   * 联通
+   */
   ispCn?: string;
   /**
+   * @remarks
+   * The name of the carrier in English.
+   * 
    * @example
    * China-Unicom
    */
   ispEn?: string;
   /**
+   * @remarks
+   * The number of last-mile detection points.
+   * 
    * @example
    * 1
    */
   lmProbeCount?: number;
   /**
+   * @remarks
+   * The number of mobile detection points.
+   * 
    * @example
    * 1
    */
   mbProbeCount?: number;
   /**
+   * @remarks
+   * The province code.
+   * 
    * @example
    * 264
    */
   region?: string;
+  /**
+   * @remarks
+   * The name of the province in Chinese.
+   * 
+   * @example
+   * 江西省
+   */
   regionCn?: string;
   /**
+   * @remarks
+   * The name of the province in English.
+   * 
    * @example
    * Jiangxi
    */
@@ -143,26 +214,38 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
 
 export class DescribeSyntheticProbeListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
    * @remarks
-   * The queried detection points.
+   * The list of detection points.
    */
   ispCityList?: DescribeSyntheticProbeListResponseBodyIspCityList[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The specified resource is not found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 87170bc7-e28a-4c93-b9bf-90a1dbe84736
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
+   * 
    * @example
    * true
    */

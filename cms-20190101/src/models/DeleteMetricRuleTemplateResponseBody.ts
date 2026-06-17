@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMetricRuleTemplateResponseBodyResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
    * 123****
@@ -35,9 +35,9 @@ export class DeleteMetricRuleTemplateResponseBodyResource extends $dara.Model {
 export class DeleteMetricRuleTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -66,7 +66,10 @@ export class DeleteMetricRuleTemplateResponseBody extends $dara.Model {
   resource?: DeleteMetricRuleTemplateResponseBodyResource;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

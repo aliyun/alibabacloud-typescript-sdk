@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMonitorGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert groups that can receive alert notifications for the application group.
+   * The alert contact group.
    * 
    * @example
    * alarm_ecs_group

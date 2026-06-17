@@ -41,7 +41,7 @@ export class DescribeHybridMonitorDataListRequest extends $dara.Model {
    * @remarks
    * The metric name.
    * 
-   * >  PromQL statements are supported.
+   * > PromQL statements are supported.
    * 
    * This parameter is required.
    * 

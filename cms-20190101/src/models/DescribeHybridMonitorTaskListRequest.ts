@@ -17,8 +17,9 @@ export class DescribeHybridMonitorTaskListRequest extends $dara.Model {
    * @remarks
    * Specifies whether the returned result includes metric import tasks for Alibaba Cloud services. Valid values:
    * 
-   * *   true (default): The returned result includes metric import tasks for Alibaba Cloud services.
-   * *   false: The returned result excludes metric import tasks for Alibaba Cloud services.
+   * - true (default): The returned result includes metric import tasks for Alibaba Cloud services.
+   * 
+   * - false: The returned result excludes metric import tasks for Alibaba Cloud services.
    * 
    * @example
    * true
@@ -85,8 +86,9 @@ export class DescribeHybridMonitorTaskListRequest extends $dara.Model {
    * @remarks
    * The type of the metric import task. Valid values:
    * 
-   * *   aliyun_fc: metric import tasks for Alibaba Cloud services
-   * *   aliyun_sls: metrics for logs imported from Log Service
+   * - aliyun_fc: metric import tasks for Alibaba Cloud services
+   * 
+   * - aliyun_sls: metrics for logs imported from Log Service
    * 
    * @example
    * aliyun_fc

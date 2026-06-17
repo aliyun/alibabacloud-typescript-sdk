@@ -8,8 +8,9 @@ export class DescribeMonitorResourceQuotaAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return information about used quotas. Valid values:
    * 
-   * *   true (default): yes
-   * *   false: no
+   * - true (default): yes
+   * 
+   * - false: no
    * 
    * @example
    * true

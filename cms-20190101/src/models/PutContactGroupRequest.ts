@@ -7,20 +7,15 @@ export class PutContactGroupRequest extends $dara.Model {
    * @remarks
    * The name of the alert contact group.
    * 
-   * For information about how to obtain the name of an alert contact group, see [DescribeContactGroupList](https://help.aliyun.com/document_detail/114922.html).
-   * 
    * This parameter is required.
    * 
    * @example
-   * ECS_Group
+   * Attendance system group
    */
   contactGroupName?: string;
   /**
    * @remarks
-   * The name of the alert contact. Valid values of N: 1 to 100.
-   * 
-   * @example
-   * Alice
+   * The name of the alert contact.
    */
   contactNames?: string[];
   /**
@@ -28,17 +23,16 @@ export class PutContactGroupRequest extends $dara.Model {
    * The description of the alert contact group.
    * 
    * @example
-   * ECS_Alert_Group
+   * Alert test
    */
   describe?: string;
   /**
    * @remarks
-   * Specifies whether to enable the weekly report subscription feature. Valid values:
+   * Specifies whether to enable the subscription feature. Valid values:
    * 
-   * *   true: The weekly report subscription feature is enabled.
-   * *   false: The weekly report subscription feature is disabled.
+   * - true: Enabled.
    * 
-   * >  You can enable the weekly report subscription feature only for an Alibaba Cloud account that has at least five Elastic Compute Service (ECS) instances.
+   * - false: Disabled.
    * 
    * @example
    * true

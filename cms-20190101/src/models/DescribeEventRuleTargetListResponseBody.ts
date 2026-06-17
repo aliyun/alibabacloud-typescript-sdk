@@ -368,9 +368,9 @@ export class DescribeEventRuleTargetListResponseBodyWebhookParameters extends $d
 export class DescribeEventRuleTargetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -390,7 +390,7 @@ export class DescribeEventRuleTargetListResponseBody extends $dara.Model {
   openApiParameters?: DescribeEventRuleTargetListResponseBodyOpenApiParameters;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 87170bc7-e28a-4c93-b9bf-90a1dbe84736

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DisableMetricRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The responses code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -18,7 +18,7 @@ export class DisableMetricRulesResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * RuleId is mandatory for this action.
+   * The specified resource is not found.
    */
   message?: string;
   /**
@@ -31,10 +31,7 @@ export class DisableMetricRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the operation was successful. A value of \\`true\\` indicates success and a value of \\`false\\` indicates failure.
    * 
    * @example
    * true

@@ -58,10 +58,10 @@ export class DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilt
   keywords?: DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObjKeywords;
   /**
    * @remarks
-   * The relationship between multiple keywords in a condition. Valid values:
+   * The condition for multiple keywords. Valid values:
    * 
-   * *   OR: The relationship between keywords is OR.
-   * *   NOT: The keyword is excluded. The value NOT indicates that all events that do not contain the keywords are matched.
+   * - OR: The relationship between multiple keywords is OR.
+   * - NOT: Does not contain the keyword. Matches all events that are not in the keyword list.
    * 
    * @example
    * OR
@@ -175,7 +175,7 @@ export class DescribeEventRuleAttributeResponseBodyResultEventPattern extends $d
   eventTypeList?: DescribeEventRuleAttributeResponseBodyResultEventPatternEventTypeList;
   /**
    * @remarks
-   * The keyword for filtering.
+   * The filter keyword.
    */
   keywordFilterObj?: DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObj;
   levelList?: DescribeEventRuleAttributeResponseBodyResultEventPatternLevelList;
@@ -190,7 +190,7 @@ export class DescribeEventRuleAttributeResponseBodyResultEventPattern extends $d
   product?: string;
   /**
    * @remarks
-   * Indicates that logs are filtered based on the specified SQL statement. If the specified conditions are met, an alert is triggered.
+   * Filters logs by using SQL statements. An alert is triggered if the filter conditions are met.
    * 
    * @example
    * ycccluster1 and (i-23ij0o82612 or Executed1) or Asimulated not 222
@@ -256,15 +256,16 @@ export class DescribeEventRuleAttributeResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The event pattern. This parameter describes the trigger conditions of an event.
+   * The event pattern. Describes the trigger conditions of the event.
    */
   eventPattern?: DescribeEventRuleAttributeResponseBodyResultEventPattern;
   /**
    * @remarks
    * The event type. Valid values:
    * 
-   * *   SYSTEM: system event
-   * *   CUSTOM: custom event
+   * - SYSTEM: system event.
+   * 
+   * - CUSTOM: custom event.
    * 
    * @example
    * SYSTEM
@@ -272,7 +273,7 @@ export class DescribeEventRuleAttributeResponseBodyResult extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the application group.
+   * The application group ID.
    * 
    * @example
    * 3607****
@@ -290,8 +291,9 @@ export class DescribeEventRuleAttributeResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the event-triggered alert rule. Valid values:
    * 
-   * *   ENABLED
-   * *   DISABLED
+   * - ENABLED: enabled.
+   * 
+   * - DISABLED: disabled.
    * 
    * @example
    * ENABLED
@@ -334,9 +336,9 @@ export class DescribeEventRuleAttributeResponseBodyResult extends $dara.Model {
 export class DescribeEventRuleAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -365,10 +367,11 @@ export class DescribeEventRuleAttributeResponseBody extends $dara.Model {
   result?: DescribeEventRuleAttributeResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

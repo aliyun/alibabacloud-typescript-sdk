@@ -7,8 +7,13 @@ export class DescribeContactListRequest extends $dara.Model {
    * @remarks
    * The alert notification method. Valid values:
    * 
-   * *   Mail: emails
-   * *   DingWebHook: DingTalk chatbots
+   * <props="china">- SMS: text message.
+   * 
+   * <props="china">- AliIM: TradeManager.
+   * 
+   * - Mail: email.
+   * 
+   * - DingWebHook: DingTalk chatbot.
    * 
    * @example
    * Mail
@@ -16,9 +21,9 @@ export class DescribeContactListRequest extends $dara.Model {
   chanelType?: string;
   /**
    * @remarks
-   * The value specified for the alert notification method.
+   * The value of the alert notification method.
    * 
-   * >  This parameter is required only if you set the `ChanelType` parameter to `Mail`.
+   * > This parameter is required only when `ChanelType` is set to `Mail`.
    * 
    * @example
    * Alice@example.com
@@ -34,7 +39,7 @@ export class DescribeContactListRequest extends $dara.Model {
   contactName?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * Default value: 1.
    * 

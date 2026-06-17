@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSystemEventCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Unit: milliseconds.
+   * The timestamp of the end time for the event query. Unit: milliseconds.
    * 
    * @example
    * 1635993921000
@@ -13,9 +13,9 @@ export class DescribeSystemEventCountRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The type of the system event.
+   * The event type.
    * 
-   * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `EventType`. The value of the EventType parameter indicates the types of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
+   * Call the DescribeSystemEventMetaList operation to obtain the value of the `EventType` response parameter, which provides the event types for all Alibaba Cloud services under the current Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * StatusNotification
@@ -23,7 +23,7 @@ export class DescribeSystemEventCountRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the application group.
+   * The application group ID.
    * 
    * @example
    * 17285****
@@ -31,13 +31,15 @@ export class DescribeSystemEventCountRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The level of the system event. Valid values:
+   * The event level. Valid values:
    * 
-   * *   Critical
-   * *   Warn
-   * *   Info
+   * - Critical: critical.
    * 
-   * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Level`. The value of the Level parameter indicates the levels of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
+   * - Warn: warning.
+   * 
+   * - Info: information.
+   * 
+   * Call the DescribeSystemEventMetaList operation to obtain the value of the `Level` response parameter, which provides the event levels for all Alibaba Cloud services under the current Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * Info
@@ -45,9 +47,9 @@ export class DescribeSystemEventCountRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The name of the system event.
+   * The event name.
    * 
-   * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Name`. The value of the Name parameter indicates the names of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
+   * Call the DescribeSystemEventMetaList operation to obtain the value of the `Name` response parameter, which provides the event names for all Alibaba Cloud services under the current Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * Instance:StateChange
@@ -55,9 +57,9 @@ export class DescribeSystemEventCountRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the cloud service.
+   * The name of the Alibaba Cloud service.
    * 
-   * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Product`. The value of the Product parameter indicates the names of all cloud services in which the system events of your Alibaba Cloud account occurred. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
+   * Call the DescribeSystemEventMetaList operation to obtain the value of the `Product` response parameter, which provides the Alibaba Cloud service names for all events under the current Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * ECS
@@ -66,10 +68,11 @@ export class DescribeSystemEventCountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The keywords that are used to search for the system event. Valid values:
+   * The keywords contained in the event content for searching. Valid values:
    * 
-   * *   If you want to search for the system event whose content contains a and b, set the value to `a and b`.
-   * *   If you want to search for the system event whose content contains a or b, set the value to `a or b`.
+   * - To search for event content that contains both a and b, search for `a and b`.
+   * 
+   * - To search for event content that contains either a or b, search for `a or b`.
    * 
    * @example
    * ECS
@@ -77,7 +80,7 @@ export class DescribeSystemEventCountRequest extends $dara.Model {
   searchKeywords?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Unit: milliseconds.
+   * The timestamp of the start time for the event query. Unit: milliseconds.
    * 
    * @example
    * 1635993541000
@@ -85,9 +88,9 @@ export class DescribeSystemEventCountRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the system event.
+   * The event status.
    * 
-   * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Status`. The value of the Status parameter indicates the status of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
+   * Call the DescribeSystemEventMetaList operation to obtain the value of the `Status` response parameter, which provides the event statuses for all Alibaba Cloud services under the current Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * Normal

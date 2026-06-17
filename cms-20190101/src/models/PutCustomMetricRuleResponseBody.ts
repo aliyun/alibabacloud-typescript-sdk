@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PutCustomMetricRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * 状态码。
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > 200表示成功。
    * 
    * @example
    * 200
@@ -15,7 +15,7 @@ export class PutCustomMetricRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message. If the request was successful, the return value is null. If the request failed, an error message is returned.
+   * 返回信息。接口调用成功时，返回为空；接口调用失败时，返回失败原因。
    * 
    * @example
    * ComparisonOperator is mandatory for this action.
@@ -23,7 +23,7 @@ export class PutCustomMetricRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * 65D50468-ECEF-48F1-A6E1-D952E89D9432
@@ -31,10 +31,11 @@ export class PutCustomMetricRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * 操作是否成功。取值：
    * 
-   * *   true
-   * *   false
+   * - true：成功。
+   * 
+   * - false：失败。
    * 
    * @example
    * true

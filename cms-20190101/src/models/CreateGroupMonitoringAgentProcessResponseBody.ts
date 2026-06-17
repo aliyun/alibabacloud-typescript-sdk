@@ -56,7 +56,7 @@ export class CreateGroupMonitoringAgentProcessResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 3F6150F9-45C7-43F9-9578-A58B2E726C90
+   * 718FEA81-64C3-4F23-8F90-0531F7489FC1
    */
   requestId?: string;
   /**
@@ -68,8 +68,9 @@ export class CreateGroupMonitoringAgentProcessResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call is successful. Valid values:
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: The call is successful.
+   * 
+   * - false: The call fails.
    * 
    * @example
    * true

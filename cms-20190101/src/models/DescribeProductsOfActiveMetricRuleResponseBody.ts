@@ -133,7 +133,7 @@ export class DescribeProductsOfActiveMetricRuleResponseBody extends $dara.Model 
    * @remarks
    * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -143,17 +143,27 @@ export class DescribeProductsOfActiveMetricRuleResponseBody extends $dara.Model 
    * @remarks
    * The information about the services for which the initiative alert feature is enabled. Services are separated with commas (,). Valid values:
    * 
-   * *   ECS: Elastic Compute Service (ECS)
-   * *   rds: ApsaraDB RDS
-   * *   slb: Server Load Balancer (SLB)
-   * *   redis_standard: Redis Open-Source Edition (standard architecture)
-   * *   redis_sharding: Redis Open-Source Edition (cluster architecture)
-   * *   redis_splitrw: Redis Open-Source Edition (read/write splitting architecture)
-   * *   mongodb: ApsaraDB for MongoDB of the replica set architecture
-   * *   mongodb_sharding: ApsaraDB for MongoDB of the sharded cluster architecture
-   * *   hbase: ApsaraDB for HBase
-   * *   elasticsearch: Elasticsearch
-   * *   opensearch: OpenSearch
+   * - ECS: Elastic Compute Service (ECS)
+   * 
+   * - rds: ApsaraDB RDS
+   * 
+   * - slb: Server Load Balancer (SLB)
+   * 
+   * - redis_standard: Redis Open-Source Edition (standard architecture)
+   * 
+   * - redis_sharding: Redis Open-Source Edition (cluster architecture)
+   * 
+   * - redis_splitrw: Redis Open-Source Edition (read/write splitting architecture)
+   * 
+   * - mongodb: ApsaraDB for MongoDB of the replica set architecture
+   * 
+   * - mongodb_sharding: ApsaraDB for MongoDB of the sharded cluster architecture
+   * 
+   * - hbase: ApsaraDB for HBase
+   * 
+   * - elasticsearch: Elasticsearch
+   * 
+   * - opensearch: OpenSearch
    * 
    * @example
    * ecs,rds
@@ -179,8 +189,9 @@ export class DescribeProductsOfActiveMetricRuleResponseBody extends $dara.Model 
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

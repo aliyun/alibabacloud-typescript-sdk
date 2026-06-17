@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUnhealthyHostAvailabilityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the availability monitoring task. Valid values of N: 1 to 20.
+   * The task ID.
    * 
    * This parameter is required.
    * 

@@ -62,7 +62,7 @@ export class DescribeCustomEventHistogramResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200

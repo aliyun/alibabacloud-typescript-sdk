@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMetricRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the alert rules to delete.
+   * 
    * This parameter is required.
    * 
    * @example

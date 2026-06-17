@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMetricRuleResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
-   * 
-   * >  The status code 200 indicates that the request was successful.
+   * The status code.
+   * > The value 200 indicates success.
+   * >
    * 
    * @example
    * 200
@@ -31,7 +31,7 @@ export class CreateMetricRuleResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
+   * Indicates whether the operation was successful. The value true indicates success, and the value false indicates failure.
    * 
    * @example
    * true

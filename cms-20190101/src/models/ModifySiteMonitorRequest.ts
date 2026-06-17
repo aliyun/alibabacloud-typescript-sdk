@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySiteMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The URL or IP address that is monitored by the task.
+   * The URL or IP address of the monitoring task.
    * 
    * @example
    * http://www.aliyun.com
@@ -13,7 +13,7 @@ export class ModifySiteMonitorRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The ID of the alert rule. You can call the DescribeMetricRuleList operation to query the IDs of existing alert rules in CloudMonitor. For more information, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * The ID of the alert rule. The ID of an existing alert rule in CloudMonitor. You can call the DescribeMetricRuleList operation to query alert rule IDs. For more information, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * @example
    * 49f7c317-7645-4cc9-94fd-ea42e122****
@@ -21,7 +21,7 @@ export class ModifySiteMonitorRequest extends $dara.Model {
   alertIds?: string;
   /**
    * @remarks
-   * The custom detection period. You can only select a time period from Monday to Sunday for detection.
+   * The custom monitoring schedule. You can select a specific time period from Monday to Sunday for monitoring.
    * 
    * @example
    * {"start_hour":0,"end_hour":24, "days":[0], "time_zone":"Local"}
@@ -29,7 +29,7 @@ export class ModifySiteMonitorRequest extends $dara.Model {
   customSchedule?: string;
   /**
    * @remarks
-   * The interval at which detection requests are sent. Valid values: 1, 5, and 15. Unit: minutes. Default value: 1.
+   * The monitoring frequency. Valid values: 1, 5, and 15. Unit: minutes. Default value: 1.
    * 
    * @example
    * 1
@@ -37,9 +37,9 @@ export class ModifySiteMonitorRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The unit of the metric.
+   * The unit of the monitoring metrics.
    * 
-   * Unit: milliseconds.
+   * Unit: milliseconds (ms).
    * 
    * @example
    * ms
@@ -47,9 +47,9 @@ export class ModifySiteMonitorRequest extends $dara.Model {
   intervalUnit?: string;
   /**
    * @remarks
-   * The information of the detection points. The value is a JSON array. Example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`. The values of the `city` field indicate Beijing, Hangzhou, and Qingdao.
+   * The detection point information. The value is in JSONArray format, for example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`, where `city` corresponds to Beijing, Hangzhou, and Qingdao respectively.
    * 
-   * > You can call the DescribeSiteMonitorISPCityList operation to query the detection points. For more information, see [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html). If you leave this parameter empty, the system randomly selects three detection points.
+   * > You can call the DescribeSiteMonitorISPCityList operation to query detection point information. For more information, see [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html). If this parameter is left empty, the system randomly selects three detection points.
    * 
    * @example
    * [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
@@ -57,7 +57,7 @@ export class ModifySiteMonitorRequest extends $dara.Model {
   ispCities?: string;
   /**
    * @remarks
-   * The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
+   * The advanced extended options for the protocol type of the monitoring task. Different protocol types correspond to different extended options.
    * 
    * @example
    * {"time_out":5000}
@@ -66,7 +66,7 @@ export class ModifySiteMonitorRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the site monitoring task.
+   * The ID of the monitoring task.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class ModifySiteMonitorRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The name of the site monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (_).
+   * The name of the monitoring task. The name must be 4 to 100 characters in length and can contain letters, digits, underscores (_), and Chinese characters.
    * 
    * @example
    * HanZhou_ECS2

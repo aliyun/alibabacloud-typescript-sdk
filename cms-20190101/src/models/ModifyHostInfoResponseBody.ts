@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHostInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * > The value 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -23,7 +23,7 @@ export class ModifyHostInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EBB5215C-44AB-4000-A2D7-48634FDC4F04
@@ -31,7 +31,7 @@ export class ModifyHostInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+   * Indicates whether the call was successful. The value true indicates that the call was successful. The value false indicates that the call failed.
    * 
    * @example
    * true

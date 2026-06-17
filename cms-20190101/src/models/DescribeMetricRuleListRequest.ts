@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricRuleListRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the alert rule. Valid values:
-   * 
-   * *   OK: The alert rule has no active alerts.
-   * *   ALARM: The alert rule has active alerts.
-   * *   INSUFFICIENT_DATA: No data is available.
+   * The state of the alert rule. Valid values:
+   * - OK: Normal.
+   * - ALARM: Alert.
+   * - INSUFFICIENT_DATA: No data.
    * 
    * @example
    * OK
@@ -19,7 +18,7 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
    * @remarks
    * The monitoring dimensions of the specified resource.
    * 
-   * Set the value to a collection of `key:value` pairs. Example: `{"userId":"120886317861****"}` or `{"instanceId":"i-2ze2d6j5uhg20x47****"}`.
+   * Format: a collection of `key:value` pairs. Example: `{"userId":"120886317861****"}` and `{"instanceId":"i-2ze2d6j5uhg20x47****"}`.
    * 
    * @example
    * {"instanceId":"i-2ze2d6j5uhg20x47****"}
@@ -27,10 +26,9 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   dimensions?: string;
   /**
    * @remarks
-   * Specifies whether to query enabled or disabled alert rules. Valid values:
-   * 
-   * *   true: queries enabled alert rules.
-   * *   false: queries disabled alert rules.
+   * The enabled state of the alert rule. Valid values:
+   * - true: enabled.
+   * - false: disabled.
    * 
    * @example
    * true
@@ -40,7 +38,7 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
    * @remarks
    * The ID of the application group.
    * 
-   * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+   * For information about how to obtain the application group ID, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
    * 
    * @example
    * 7301****
@@ -48,9 +46,11 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the metric.
+   * The metric name.
    * 
-   * For information about how to obtain the name of a metric, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about how to obtain metric names, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 
+   * Note: For composite metrics, you can retrieve results only by the first metric.
    * 
    * @example
    * cpu_total
@@ -58,9 +58,9 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The namespace of the cloud service.
+   * The namespace of the Alibaba Cloud service.
    * 
-   * For information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about how to obtain the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * acs_ecs_dashboard
@@ -68,7 +68,7 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The page number.
    * 
    * Minimum value: 1. Default value: 1.
    * 
@@ -78,7 +78,7 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Minimum value: 1. Default value: 10.
    * 
@@ -89,7 +89,7 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the alert rule. You can specify up to 20 IDs at a time. Separate multiple IDs with commas (,).
+   * The IDs of the alert rules. Separate multiple IDs with commas (,). You can query up to 20 alert rules at a time.
    * 
    * @example
    * applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****

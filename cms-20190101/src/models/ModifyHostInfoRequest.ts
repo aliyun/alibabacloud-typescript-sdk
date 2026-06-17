@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHostInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the host.
+   * The host name.
    * 
    * @example
    * portalHost
@@ -13,7 +13,7 @@ export class ModifyHostInfoRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The ID of the instance. Only hosts not on Alibaba Cloud are supported.
+   * The instance ID. Only non-Alibaba Cloud hosts are supported.
    * 
    * This parameter is required.
    * 

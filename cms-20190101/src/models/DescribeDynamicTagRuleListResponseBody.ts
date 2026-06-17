@@ -223,9 +223,9 @@ export class DescribeDynamicTagRuleListResponseBodyTagGroupList extends $dara.Mo
 export class DescribeDynamicTagRuleListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * > A status code of 200 indicates that the operation was successful.
    * 
    * @example
    * 200
@@ -241,7 +241,7 @@ export class DescribeDynamicTagRuleListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -257,7 +257,7 @@ export class DescribeDynamicTagRuleListResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0D50523D-8D59-4A61-B58E-E2286ECFB3A9
@@ -265,10 +265,11 @@ export class DescribeDynamicTagRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -277,7 +278,7 @@ export class DescribeDynamicTagRuleListResponseBody extends $dara.Model {
   tagGroupList?: DescribeDynamicTagRuleListResponseBodyTagGroupList;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries in the tag list.
    * 
    * @example
    * 2

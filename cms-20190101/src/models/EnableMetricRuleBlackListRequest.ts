@@ -21,8 +21,9 @@ export class EnableMetricRuleBlackListRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the blacklist policy. Valid values:
    * 
-   * *   true: The blacklist policy is enabled.
-   * *   false (default): The blacklist policy is disabled.
+   * - true: The blacklist policy is enabled.
+   * 
+   * - false (default): The blacklist policy is disabled.
    * 
    * This parameter is required.
    * 

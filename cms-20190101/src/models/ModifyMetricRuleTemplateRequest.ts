@@ -7,17 +7,27 @@ export class ModifyMetricRuleTemplateRequestAlertTemplatesEscalationsCritical ex
    * @remarks
    * The operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
    * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * 
+   * - GreaterThanThreshold: greater than the threshold
+   * 
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * 
+   * - LessThanThreshold: less than the threshold
+   * 
+   * - NotEqualToThreshold: not equal to the threshold
+   * 
+   * - GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * 
+   * - LessThanYesterday: less than the metric value at the same time yesterday
+   * 
+   * - GreaterThanLastWeek: greater than the metric value at the same time last week
+   * 
+   * - LessThanLastWeek: less than the metric value at the same time last week
+   * 
+   * - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * 
+   * - LessThanLastPeriod: less than the metric value in the last monitoring cycle
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -100,17 +110,27 @@ export class ModifyMetricRuleTemplateRequestAlertTemplatesEscalationsInfo extend
    * @remarks
    * The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
    * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * 
+   * - GreaterThanThreshold: greater than the threshold
+   * 
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * 
+   * - LessThanThreshold: less than the threshold
+   * 
+   * - NotEqualToThreshold: not equal to the threshold
+   * 
+   * - GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * 
+   * - LessThanYesterday: less than the metric value at the same time yesterday
+   * 
+   * - GreaterThanLastWeek: greater than the metric value at the same time last week
+   * 
+   * - LessThanLastWeek: less than the metric value at the same time last week
+   * 
+   * - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * 
+   * - LessThanLastPeriod: less than the metric value in the last monitoring cycle
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -193,17 +213,27 @@ export class ModifyMetricRuleTemplateRequestAlertTemplatesEscalationsWarn extend
    * @remarks
    * The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
    * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * 
+   * - GreaterThanThreshold: greater than the threshold
+   * 
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * 
+   * - LessThanThreshold: less than the threshold
+   * 
+   * - NotEqualToThreshold: not equal to the threshold
+   * 
+   * - GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * 
+   * - LessThanYesterday: less than the metric value at the same time yesterday
+   * 
+   * - GreaterThanLastWeek: greater than the metric value at the same time last week
+   * 
+   * - LessThanLastWeek: less than the metric value at the same time last week
+   * 
+   * - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * 
+   * - LessThanLastPeriod: less than the metric value in the last monitoring cycle
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -376,7 +406,7 @@ export class ModifyMetricRuleTemplateRequestAlertTemplates extends $dara.Model {
    * Valid values of N: 1 to 200.
    * 
    * @example
-   * rule1
+   * Rule_123
    */
   ruleName?: string;
   /**
@@ -402,7 +432,7 @@ export class ModifyMetricRuleTemplateRequestAlertTemplates extends $dara.Model {
    * The callback URL must be accessible over the Internet. CloudMonitor pushes an alert notification to the specified callback URL by sending an HTTP POST request. Only the HTTP protocol is supported.
    * 
    * @example
-   * https://apiwebhook.hipac.cn/api/v1/alarm/aly/eregfeeferrtbnmkdszp
+   * http://www.aliyun.com
    */
   webhook?: string;
   static names(): { [key: string]: string } {
@@ -464,7 +494,7 @@ export class ModifyMetricRuleTemplateRequest extends $dara.Model {
    * For information about how to obtain the name of an alert template, see [DescribeMetricRuleTemplateList](https://help.aliyun.com/document_detail/114982.html).
    * 
    * @example
-   * test123
+   * Template_123
    */
   name?: string;
   regionId?: string;
@@ -477,7 +507,7 @@ export class ModifyMetricRuleTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 0
+   * 1
    */
   restVersion?: number;
   /**

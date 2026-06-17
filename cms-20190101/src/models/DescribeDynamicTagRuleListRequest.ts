@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDynamicTagRuleListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the tag rule.
+   * The ID of the dynamic tag rule.
    * 
    * @example
    * 004155fa-15ba-466d-b61a-***********
@@ -13,9 +13,9 @@ export class DescribeDynamicTagRuleListRequest extends $dara.Model {
   dynamicTagRuleId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Start value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeDynamicTagRuleListRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * Minimum value: 1. Default value: 30.
+   * Start value: 1. Default value: 30.
    * 
    * @example
    * 30
@@ -43,7 +43,7 @@ export class DescribeDynamicTagRuleListRequest extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The ID of the region to which the tags belong.
+   * The region ID of the tag.
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +53,7 @@ export class DescribeDynamicTagRuleListRequest extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * For more information about how to obtain a tag value, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145557.html).
+   * For more information about how to obtain a tag value, see [DescribeTagValueList](https://help.aliyun.com/document_detail/145557.html).
    * 
    * @example
    * *

@@ -58,8 +58,9 @@ export class DescribeCustomEventAttributeRequest extends $dara.Model {
    * @remarks
    * The keywords that are used to search for the event.
    * 
-   * *   If you need to query the custom event whose content contains a and b, set the value to a and b.
-   * *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+   * - If you need to query the custom event whose content contains a and b, set the value to a and b.
+   * 
+   * - If you need to query the custom event whose content contains a or b, set the value to a or b.
    * 
    * @example
    * cms

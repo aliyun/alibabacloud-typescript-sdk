@@ -7,8 +7,9 @@ export class DescribeSiteMonitorDataRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query. The following formats are supported:
    * 
-   * *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
-   * *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
+   * - UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+   * 
+   * - UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 1551581437000
@@ -26,8 +27,9 @@ export class DescribeSiteMonitorDataRequest extends $dara.Model {
    * @remarks
    * The metric name. Valid values:
    * 
-   * *   Availability
-   * *   ResponseTime
+   * - Availability
+   * 
+   * - ResponseTime
    * 
    * This parameter is required.
    * 
@@ -47,7 +49,7 @@ export class DescribeSiteMonitorDataRequest extends $dara.Model {
    * @remarks
    * The statistical period. The value is an integral multiple of 60. Unit: seconds.
    * 
-   * >  The default value equals the minimum interval at which detection requests are sent to the monitored address.
+   * > The default value equals the minimum interval at which detection requests are sent to the monitored address.
    * 
    * @example
    * 60
@@ -58,8 +60,9 @@ export class DescribeSiteMonitorDataRequest extends $dara.Model {
    * @remarks
    * The start of the time range to query. The following formats are supported:
    * 
-   * *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
-   * *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
+   * - UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+   * 
+   * - UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 1551579637000
@@ -79,8 +82,9 @@ export class DescribeSiteMonitorDataRequest extends $dara.Model {
    * @remarks
    * The type of the monitored object whose monitoring data is to be queried. Valid values:
    * 
-   * *   metric
-   * *   event
+   * - metric
+   * 
+   * - event
    * 
    * @example
    * metric

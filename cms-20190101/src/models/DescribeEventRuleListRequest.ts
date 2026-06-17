@@ -16,6 +16,7 @@ export class DescribeEventRuleListRequest extends $dara.Model {
    * Specifies whether to enable the event-triggered alert rule. Valid values:
    * 
    * - true (default)
+   * 
    * - false
    * 
    * @example

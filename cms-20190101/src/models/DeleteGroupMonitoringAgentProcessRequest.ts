@@ -15,7 +15,7 @@ export class DeleteGroupMonitoringAgentProcessRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the process monitoring task.
+   * The ID of the group process.
    * 
    * This parameter is required.
    * 

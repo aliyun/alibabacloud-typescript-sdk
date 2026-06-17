@@ -5,39 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class PutExporterRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the data export rule.
+   * The description of the export rules.
    * 
    * @example
-   * Export CPU metrics
+   * desc_******
    */
   describe?: string;
   /**
    * @remarks
-   * The destination to which the data is exported. Valid values of N: 1 to 20.
+   * The destination for data export.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * distName1
    */
   dstNames?: string[];
   /**
    * @remarks
-   * The name of the metric.
-   * 
-   * > 
-   * 
-   * For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The metric name. For more information, see [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
-   * cpu_total
+   * CPUUtilization
    */
   metricName?: string;
   /**
    * @remarks
-   * The namespace of the cloud service.
-   * 
-   * > For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The namespace of the Alibaba Cloud service. For more information, see [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * acs_ecs_dashboard
@@ -48,21 +39,18 @@ export class PutExporterRuleRequest extends $dara.Model {
    * @remarks
    * The name of the rule.
    * 
-   * > If the specified rule exists, the existing rule is modified. Otherwise, a rule is created.
+   * > If the rule name already exists, the existing rule is modified. Otherwise, a new rule is created.
    * 
    * @example
-   * MyRuleName
+   * rule1_****
    */
   ruleName?: string;
   /**
    * @remarks
-   * The time window of the exported data. Unit: seconds.
+   * The time windows for data export. Unit: seconds.
    * 
-   * > 
-   * 
-   * *   Separate multiple time windows with commas (,).
-   * 
-   * *   Data in a time window of less than 60 seconds cannot be exported.
+   * > - To export data for multiple windows, separate the windows with commas (,).
+   * - Exporting data at intervals of less than 60 seconds is not supported.
    * 
    * @example
    * 60,300

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class InstallMonitoringAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to install the CloudMonitor agent. Valid values:
+   * Specifies whether to forcibly install the CloudMonitor agent. Valid values:
    * 
-   * *   true (default value): yes
-   * *   false: no
+   * - true (default): Forcibly installs the agent.
+   * 
+   * - false: Does not forcibly install the agent.
    * 
    * @example
    * true
@@ -16,19 +17,28 @@ export class InstallMonitoringAgentRequest extends $dara.Model {
   force?: boolean;
   /**
    * @remarks
-   * Specifies whether to install the CloudMonitor agent on all ECS instances that belong to the current Alibaba Cloud account. Valid values:
+   * The installation command. This command installs the CloudMonitor agent on all Alibaba Cloud hosts that belong to your Alibaba Cloud account. Valid values:
    * 
-   * *   `onlyInstallNotHasAgent`: installs the latest version of the CloudMonitor agent only on ECS instances on which the agent is not installed.
-   * *   `onlyUpgradeAgent`: upgrades the CloudMonitor agent to the latest version only for ECS instances on which an earlier version of the agent is installed.
-   * *   `installAndUpgrade`: installs the latest version of the CloudMonitor agent on ECS instances on which the agent is not installed, and upgrades the CloudMonitor agent to the latest version for ECS instances on which an earlier version of the agent is installed.
+   * - `onlyInstallNotHasAgent`: Installs the latest version of the CloudMonitor agent only on Alibaba Cloud hosts where the agent is not installed.
    * 
-   * >  If you set the InstallCommand parameter, the `InstanceIds` parameter does not take effect.
+   * - `onlyUpgradeAgent`: Upgrades the CloudMonitor agent only on Alibaba Cloud hosts where an earlier version of the agent is installed.
+   * 
+   * - `installAndUpgrade`: Installs the latest version of the CloudMonitor agent on Alibaba Cloud hosts where the agent is not installed, and upgrades the agent on Alibaba Cloud hosts where an earlier version of the agent is installed.
+   * 
+   * > If you set this parameter, the `InstanceIds` parameter is invalid.
    * 
    * @example
    * onlyInstallNotHasAgent
    */
   installCommand?: string;
   /**
+   * @remarks
+   * The IDs of the Alibaba Cloud hosts.
+   * 
+   * You can specify from 1 to 10 instance IDs.
+   * 
+   * > You must specify either `InstallCommand` or `InstanceIds`.
+   * 
    * @example
    * i-m5e0k0bexac8tykr****
    */

@@ -77,7 +77,7 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
    * @remarks
    * The response code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -96,7 +96,7 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 0CCE0AF0-053C-4B13-A583-DC9A85785D49
+   * CDE9EAFF-D54E-4024-BBFC-B0AAC883143B
    */
   requestId?: string;
   resources?: DescribeMetricMetaListResponseBodyResources;
@@ -104,8 +104,9 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -116,7 +117,7 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
    * The total number of entries returned.
    * 
    * @example
-   * 12
+   * 10
    */
   totalCount?: string;
   static names(): { [key: string]: string } {

@@ -15,12 +15,17 @@ export class DescribeLogMonitorListResponseBodyLogMonitorListValueFilter extends
    * @remarks
    * The method that is used to match the field value. Valid values:
    * 
-   * *   contain: contains
-   * *   notContain: does not contain
-   * *   `>`: greater than
-   * *   `<`: less than
-   * *   `>=`: greater than or equal to
-   * *   `<=`: less than or equal to
+   * - contain: contains
+   * 
+   * - notContain: does not contain
+   * 
+   * - `>`: greater than
+   * 
+   * - `<`: less than
+   * 
+   * - `>=`: greater than or equal to
+   * 
+   * - `<=`: less than or equal to
    * 
    * @example
    * contain
@@ -127,8 +132,9 @@ export class DescribeLogMonitorListResponseBodyLogMonitorList extends $dara.Mode
    * @remarks
    * The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
    * 
-   * *   and
-   * *   or
+   * - and
+   * 
+   * - or
    * 
    * @example
    * and
@@ -179,7 +185,7 @@ export class DescribeLogMonitorListResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -226,8 +232,9 @@ export class DescribeLogMonitorListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

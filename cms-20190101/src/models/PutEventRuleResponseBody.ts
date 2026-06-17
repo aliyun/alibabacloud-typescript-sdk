@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PutEventRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * >A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -15,7 +15,7 @@ export class PutEventRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of event-triggered alert rules that were created or modified.
+   * The number of rows affected when the Event-triggered Alert Rule is created or modified.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class PutEventRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0B47C47B-E68A-4429-BB23-370E91889C7D
@@ -39,10 +39,11 @@ export class PutEventRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

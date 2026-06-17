@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutHybridMonitorMetricDataResponseBodyErrorDetail extends $dara.Model {
   /**
    * @remarks
-   * The error message of the invalid parameter.
+   * The error message that is returned for the invalid parameter.
    * 
    * @example
    * label name :123 not match [a-zA-Z_][a-zA-Z0-9_]*
@@ -13,7 +13,7 @@ export class PutHybridMonitorMetricDataResponseBodyErrorDetail extends $dara.Mod
   errorMessage?: string;
   /**
    * @remarks
-   * The position of the error message in the array.
+   * The position of the error information in the array.
    * 
    * @example
    * 0
@@ -45,9 +45,9 @@ export class PutHybridMonitorMetricDataResponseBodyErrorDetail extends $dara.Mod
 export class PutHybridMonitorMetricDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The value 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -55,9 +55,9 @@ export class PutHybridMonitorMetricDataResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of invalid parameters.
+   * The details of the invalid parameters.
    * 
-   * If a request parameter is invalid, the details of the invalid parameter are returned.
+   * If the request parameters that you specify do not meet the requirements, the details of the invalid parameters are displayed.
    */
   errorDetail?: PutHybridMonitorMetricDataResponseBodyErrorDetail[];
   /**

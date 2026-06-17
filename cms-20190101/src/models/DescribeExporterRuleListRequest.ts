@@ -13,10 +13,10 @@ export class DescribeExporterRuleListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 1000.
+   * The number of entries per page.
    * 
    * @example
-   * 1000
+   * 10
    */
   pageSize?: number;
   regionId?: string;

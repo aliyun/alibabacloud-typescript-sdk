@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableHostAvailabilityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the availability monitoring task. Valid values of N: 1 to 20.
+   * The IDs of the availability monitoring jobs.
    * 
    * This parameter is required.
    * 

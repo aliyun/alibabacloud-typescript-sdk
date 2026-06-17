@@ -4,32 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSiteMonitorLogRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the browser.
+   * 
    * @example
    * Chrome
    */
   browser?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated. You do not need to specify this parameter.
+   * 
+   * @example
+   * 无
+   */
   browserInfo?: string;
   /**
    * @remarks
-   * The city identification code.
+   * The city ID.
    * 
    * @example
    * 546
    */
   city?: string;
   /**
+   * @remarks
+   * The type of the device. This parameter specifies the screen size for impersonation.
+   * 
    * @example
    * laptop
    */
   device?: string;
   /**
    * @remarks
-   * The end of the time range to query. Valid values:
+   * The end of the time range to query. The following formats are supported:
    * 
-   * *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 Thursday, January 1, 1970
-   * *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format
+   * - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970.
    * 
-   * >  We recommend that you use UNIX timestamps to prevent time zone-related issues.
+   * - UTC format: YYYY-MM-DDThh:mm:ssZ.
+   * 
+   * > Use UNIX timestamps to prevent time zone-related issues.
    * 
    * @example
    * 1638422475687
@@ -37,9 +51,9 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The filter condition.
+   * The filter expression for detection results.
    * 
-   * You can specify a simple expression, for example, `TotalTime>100`. In this case, the operation returns only the data for instant test tasks whose total response time exceeds 100 milliseconds.
+   * Simple expressions are supported. For example, you can use the `TotalTime>100` expression to query the detection data whose total response time exceeds 100 milliseconds.
    * 
    * @example
    * TotalTime>100
@@ -47,7 +61,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The carrier identification code.
+   * The carrier ID.
    * 
    * @example
    * 465
@@ -55,7 +69,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 1440.
+   * The number of entries to return on each page for a paged query. Valid values: 1 to 1440.
    * 
    * @example
    * 1000
@@ -63,7 +77,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   length?: number;
   /**
    * @remarks
-   * The name of the metric.
+   * The metric.
    * 
    * Only the `ProbeLog` metric is supported.
    * 
@@ -73,7 +87,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The token that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.``
+   * If the response is truncated, use the `NextToken` parameter to retrieve the next page of results.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -82,15 +96,13 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start of the time range to query. The following formats are supported:
+   * The beginning of the time range to query. The following formats are supported:
    * 
-   * *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 Thursday, January 1, 1970
-   * *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format
+   * - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970.
    * 
-   * > 
+   * - UTC format: YYYY-MM-DDThh:mm:ssZ.
    * 
-   * *   The specified time range includes the end time and excludes the start time. The start time must be earlier than the end time.\\
-   *     We recommend that you use UNIX timestamps to prevent time zone-related issues.
+   * > * The start time and end time follow the (StartTime, EndTime] pattern. The value of StartTime cannot be the same as or later than the value of EndTime.<br> - Use UNIX timestamps to prevent time zone-related issues.<br>
    * 
    * @example
    * 1638422474389
@@ -98,7 +110,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The IDs of the instant test tasks. Separate multiple task IDs with commas (,).
+   * The ID of the detection task. You can specify multiple task IDs. Separate them with commas (,).
    * 
    * This parameter is required.
    * 

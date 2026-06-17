@@ -289,7 +289,7 @@ export class DescribeEventRuleListResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The status code 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -316,8 +316,9 @@ export class DescribeEventRuleListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

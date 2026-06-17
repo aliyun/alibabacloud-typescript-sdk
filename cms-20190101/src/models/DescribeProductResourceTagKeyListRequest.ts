@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProductResourceTagKeyListRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * dbc2826f237e****

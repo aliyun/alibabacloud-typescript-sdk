@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class InstallMonitoringAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the call was successful.
+   * > A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -23,7 +23,7 @@ export class InstallMonitoringAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0BDAF8A8-04DC-5F0C-90E4-724D42C41945
@@ -31,10 +31,11 @@ export class InstallMonitoringAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

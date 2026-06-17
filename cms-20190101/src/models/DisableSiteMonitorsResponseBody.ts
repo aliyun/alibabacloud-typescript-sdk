@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableSiteMonitorsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of detection points.
+   * The number of detection point records.
    * 
    * @example
    * 0
@@ -35,9 +35,9 @@ export class DisableSiteMonitorsResponseBodyData extends $dara.Model {
 export class DisableSiteMonitorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The responses code.
+   * The status code.
    * 
-   * >  The status code 200 indicates that the request was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class DisableSiteMonitorsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of detection points that are affected by the site monitoring tasks.
+   * The number of detection point records affected by the site monitoring task.
    */
   data?: DisableSiteMonitorsResponseBodyData;
   /**
@@ -66,10 +66,11 @@ export class DisableSiteMonitorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

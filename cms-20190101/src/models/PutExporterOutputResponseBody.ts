@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PutExporterOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > The value 200 indicates that the call is successful.
    * 
    * @example
    * 200
@@ -31,7 +31,7 @@ export class PutExporterOutputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. true: The request was successful. false: The request failed.
+   * Indicates whether the call was successful. The value true indicates that the call was successful. The value false indicates that the call failed.
    * 
    * @example
    * true

@@ -7,7 +7,7 @@ export class DescribeTagValueListRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -16,8 +16,6 @@ export class DescribeTagValueListRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page.
-   * 
-   * Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 10
@@ -28,7 +26,7 @@ export class DescribeTagValueListRequest extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * For more information about how to obtain a tag key, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145558.html).
+   * For more information about how to obtain the tag key, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145558.html).
    * 
    * This parameter is required.
    * 

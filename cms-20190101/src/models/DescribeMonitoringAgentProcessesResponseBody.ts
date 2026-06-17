@@ -69,9 +69,9 @@ export class DescribeMonitoringAgentProcessesResponseBodyNodeProcesses extends $
 export class DescribeMonitoringAgentProcessesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >  The value 200 indicates that the call was successful.
+   * > A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -79,7 +79,7 @@ export class DescribeMonitoringAgentProcessesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * The specified resource is not found.
@@ -96,10 +96,11 @@ export class DescribeMonitoringAgentProcessesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The call was successful.
-   * *   false: The call failed.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

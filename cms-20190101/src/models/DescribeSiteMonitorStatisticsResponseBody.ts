@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteMonitorStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The responses code.
-   * 
-   * >  The status code 200 indicates that the request was successful.
+   * The HTTP status code.
+   * > The value 200 indicates that the call is successful.
    * 
    * @example
    * 200
@@ -15,7 +14,7 @@ export class DescribeSiteMonitorStatisticsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The statistics.
+   * The statistical result.
    * 
    * @example
    * 100
@@ -26,12 +25,12 @@ export class DescribeSiteMonitorStatisticsResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Succcessful
+   * Successful
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3AD2724D-E317-4BFB-B422-D6691D071BE1
@@ -39,10 +38,11 @@ export class DescribeSiteMonitorStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The call is successful.
+   * 
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -45,7 +45,7 @@ export class CreateHybridMonitorTaskRequestAttachLabels extends $dara.Model {
 export class CreateHybridMonitorTaskRequestSLSProcessConfigExpress extends $dara.Model {
   /**
    * @remarks
-   * The alias of the extended field that specifies the result of basic operations performed on aggregation results.
+   * The alias of the arithmetic operation result on the extended fields of SLS log statistics results.
    * 
    * @example
    * SuccRate
@@ -53,7 +53,7 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigExpress extends $dara
   alias?: string;
   /**
    * @remarks
-   * The extended field that specifies the result of basic operations performed on aggregation results.
+   * The result of arithmetic operations on the extended fields of SLS log statistics results.
    * 
    * @example
    * success_count
@@ -85,16 +85,15 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigExpress extends $dara
 export class CreateHybridMonitorTaskRequestSLSProcessConfigFilterFilters extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to filter logs imported from Simple Log Service. Valid values:
-   * 
-   * *   `contain`: contains
-   * *   `notContain`: does not contain
-   * *   `>`: greater than
-   * *   `<`: less than
-   * *   `=`: equal to
-   * *   `! =`: not equal to
-   * *   `>=`: greater than or equal to
-   * *   `<=`: less than or equal to
+   * The method used to filter parameter values in SLS logs. Valid values:
+   * - `contain`: contains.
+   * - `notContain`: does not contain.
+   * - `>`: greater than.
+   * - `<`: less than.
+   * - `=`: equal to.
+   * - `!=`: not equal to.
+   * - `>=`: greater than or equal to.
+   * - `<=`: less than or equal to.
    * 
    * @example
    * =
@@ -102,7 +101,7 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigFilterFilters extends
   operator?: string;
   /**
    * @remarks
-   * The name of the key that is used to filter logs imported from Simple Log Service.
+   * The name of the parameter to filter in SLS logs.
    * 
    * @example
    * code
@@ -110,7 +109,7 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigFilterFilters extends
   SLSKeyName?: string;
   /**
    * @remarks
-   * The value of the key that is used to filter logs imported from Simple Log Service.
+   * The filter value of the parameter in SLS logs.
    * 
    * @example
    * 200
@@ -144,15 +143,15 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigFilterFilters extends
 export class CreateHybridMonitorTaskRequestSLSProcessConfigFilter extends $dara.Model {
   /**
    * @remarks
-   * The conditions that are used to filter logs imported from Simple Log Service.
+   * The list of filter conditions for parameters in SLS logs.
    */
   filters?: CreateHybridMonitorTaskRequestSLSProcessConfigFilterFilters[];
   /**
    * @remarks
    * The relationship between multiple filter conditions. Valid values:
    * 
-   * *   and (default): Logs are processed only if all filter conditions are met.
-   * *   or: Logs are processed if one of the filter conditions is met.
+   * - and (default): Logs are processed only when all filter conditions are met.
+   * - or: Logs are processed when any filter condition is met.
    * 
    * @example
    * and
@@ -187,7 +186,7 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigFilter extends $dara.
 export class CreateHybridMonitorTaskRequestSLSProcessConfigGroupBy extends $dara.Model {
   /**
    * @remarks
-   * The alias of the aggregation result.
+   * The alias of the SLS log statistics result.
    * 
    * @example
    * ApiResult
@@ -195,7 +194,7 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigGroupBy extends $dara
   alias?: string;
   /**
    * @remarks
-   * The name of the key that is used to aggregate logs imported from Simple Log Service.
+   * The name of the parameter for SLS log statistics.
    * 
    * @example
    * code
@@ -227,7 +226,7 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigGroupBy extends $dara
 export class CreateHybridMonitorTaskRequestSLSProcessConfigStatistics extends $dara.Model {
   /**
    * @remarks
-   * The alias of the aggregation result.
+   * The alias of the SLS log statistics result.
    * 
    * @example
    * level_count
@@ -235,19 +234,18 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
   alias?: string;
   /**
    * @remarks
-   * The function that is used to aggregate the log data of a statistical period. Valid values:
-   * 
-   * *   count: counts the number.
-   * *   sum: calculates the total value.
-   * *   avg: calculates the average value.
-   * *   max: calculates the maximum value.
-   * *   min: calculates the minimum value.
-   * *   value: collects samples within the statistical period.
-   * *   countps: calculates the number of values of the specified field divided by the total number of seconds within a statistical period.
-   * *   sumps: calculates the sum of the values of the specified field divided by the total number of seconds within a statistical period.
-   * *   distinct: calculates the number of unique values of the specified field within a statistical period.
-   * *   distribution: calculates the number of logs that meet a specified condition within the statistical period.
-   * *   percentile: sorts the values of the specified field in ascending order, and then returns the value that is at the specified percentile within the statistical period. Example: P50.
+   * Aggregates log data within the statistical period by using the specified statistical method. Valid values:
+   * - count: counts the number of occurrences.
+   * - sum: calculates the sum.
+   * - avg: calculates the average.
+   * - max: returns the maximum value.
+   * - min: returns the minimum value.
+   * - value: samples within the statistical period.
+   * - countps: calculates the average count per second for the specified field within the statistical period.
+   * - sumps: calculates the average sum per second for the specified field within the statistical period.
+   * - distinct: counts the number of occurrences of the specified field after deduplication within the statistical period.
+   * - distribution: counts the number of occurrences of field values within a specified range.
+   * - percentile: calculates the distribution value of field values, such as P50.
    * 
    * @example
    * count
@@ -255,10 +253,11 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
   function?: string;
   /**
    * @remarks
-   * The value of the function that is used to aggregate logs imported from Simple Log Service.
+   * The statistical value of SLS logs.
    * 
-   * *   If the `Function` parameter is set to `distribution`, this parameter specifies the lower limit of the statistical interval. For example, if you want to calculate the number of HTTP requests whose status code is 2XX, set this parameter to 200.
-   * *   If the `Function` parameter is set to `percentile`, this parameter specifies the percentile at which the expected value is. For example, 0.5 specifies P50.
+   * - If Function is set to `distribution`, this parameter specifies the lower limit of the statistical range. For example, to count the number of 2XX HTTP status codes, set this parameter to 200.
+   * 
+   * - If Function is set to `percentile`, this parameter specifies the percentile of the statistical distribution. For example, 0.5 indicates P50.
    * 
    * @example
    * 200
@@ -266,9 +265,9 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
   parameter1?: string;
   /**
    * @remarks
-   * The value of the function that is used to aggregate logs imported from Simple Log Service.
+   * The statistical value of SLS logs.
    * 
-   * >  This parameter is required only if the `Function` parameter is set to `distribution`. This parameter specifies the upper limit of the statistical interval. For example, if you want to calculate the number of HTTP requests whose status code is 2XX, set this parameter to 299.
+   * > This parameter is required only when Function is set to `distribution`. This parameter specifies the upper limit of the statistical range. For example, to count the number of 2XX HTTP status codes, set this parameter to 299.
    * 
    * @example
    * 299
@@ -276,7 +275,7 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
   parameter2?: string;
   /**
    * @remarks
-   * The name of the key that is used to aggregate logs imported from Simple Log Service.
+   * The name of the parameter for SLS log statistics.
    * 
    * @example
    * name
@@ -314,22 +313,22 @@ export class CreateHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
 export class CreateHybridMonitorTaskRequestSLSProcessConfig extends $dara.Model {
   /**
    * @remarks
-   * The extended fields that specify the results of basic operations performed on aggregation results.
+   * The result of arithmetic operations on the extended fields of SLS log statistics results.
    */
   express?: CreateHybridMonitorTaskRequestSLSProcessConfigExpress[];
   /**
    * @remarks
-   * The conditions that are used to filter logs imported from Simple Log Service.
+   * The filter conditions for parameters in SLS logs.
    */
   filter?: CreateHybridMonitorTaskRequestSLSProcessConfigFilter;
   /**
    * @remarks
-   * The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL.
+   * Aggregates data by spatial dimension, which is equivalent to the GROUP BY clause in SQL.
    */
   groupBy?: CreateHybridMonitorTaskRequestSLSProcessConfigGroupBy[];
   /**
    * @remarks
-   * The method that is used to aggregate logs imported from Simple Log Service.
+   * The method used to aggregate SLS log data.
    */
   statistics?: CreateHybridMonitorTaskRequestSLSProcessConfigStatistics[];
   static names(): { [key: string]: string } {
@@ -376,20 +375,24 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
    * @remarks
    * The tags of the metric.
    * 
-   * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+   * > This parameter is required only when TaskType is set to `aliyun_sls`.
    */
   attachLabels?: CreateHybridMonitorTaskRequestAttachLabels[];
+  /**
+   * @remarks
+   * The IDs of the accounts of other cloud providers that are connected to CloudMonitor.
+   */
   cloudAccessId?: string[];
   /**
    * @remarks
    * The collection period of the metric. Valid values:
    * 
-   * *   15
-   * *   60 (default)
+   * - 15
+   * - 60 (default)
    * 
    * Unit: seconds.
    * 
-   * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+   * > This parameter is required only when TaskType is set to `aliyun_sls`.
    * 
    * @example
    * 60
@@ -397,10 +400,9 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
   collectInterval?: string;
   /**
    * @remarks
-   * The type of the collection target.
-   * 
-   * *   If the `TaskType` parameter is set to `aliyun_fc`, enter `aliyun_fc`.
-   * *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the Logstore group.
+   * The type of the collection target for monitoring data.
+   * - If TaskType is set to `aliyun_fc`, set this parameter to `aliyun_fc`.
+   * - If TaskType is set to `aliyun_sls`, set this parameter to the name of the Logstore group for SLS logs.
    * 
    * This parameter is required.
    * 
@@ -410,16 +412,19 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
   collectTargetType?: string;
   /**
    * @remarks
-   * The description of the metric import task.
+   * The description of the monitoring task.
+   * 
+   * @example
+   * Alibaba Cloud product data ingestion task.
    */
   description?: string;
   /**
    * @remarks
    * The ID of the application group.
    * 
-   * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+   * For information about how to obtain the application group ID, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
    * 
-   * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+   * > This parameter is required only when TaskType is set to `aliyun_sls`.
    * 
    * @example
    * 3607****
@@ -427,9 +432,9 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The name of the metric repository.
    * 
-   * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
+   * For information about how to obtain the name of a metric repository, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
    * 
    * This parameter is required.
    * 
@@ -440,18 +445,18 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The configurations of the logs that are imported from Simple Log Service.
+   * The configurations of SLS logs.
    * 
-   * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+   * > This parameter is required only when TaskType is set to `aliyun_sls`.
    */
   SLSProcessConfig?: CreateHybridMonitorTaskRequestSLSProcessConfig;
   /**
    * @remarks
    * The ID of the member account.
    * 
-   * If you call this operation by using the management account of a resource directory, you can connect the Alibaba Cloud services that are activated for all members in the resource directory to Hybrid Cloud Monitoring. You can use the resource directory to monitor Alibaba Cloud services across enterprise accounts.
+   * When you call this operation by using a management account, you can connect any Alibaba Cloud service of any member account in the resource directory to Hybrid Cloud Monitoring. This allows you to use the resource directory to monitor the Alibaba Cloud services of member accounts across the enterprise in a unified manner.
    * 
-   * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
+   * > This parameter is required only when TaskType is set to `aliyun_fc`.
    * 
    * @example
    * 120886317861****
@@ -459,9 +464,9 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
   targetUserId?: string;
   /**
    * @remarks
-   * The IDs of the member accounts. Separate multiple member account IDs with commas (,).
+   * The IDs of the member accounts. Separate multiple IDs with commas (,).
    * 
-   * >  This parameter is required only if you call this operation by using the management account.
+   * > This parameter is required only when you call this operation by using a management account.
    * 
    * @example
    * 120886317861****
@@ -469,10 +474,10 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
   targetUserIdList?: string;
   /**
    * @remarks
-   * The name of the metric import task.
+   * The name of the monitoring task.
    * 
-   * *   If the `TaskType` parameter is set to `aliyun_fc`, enter the name of the metric import task.
-   * *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the metric for logs imported from Simple Log Service.
+   * - If TaskType is set to `aliyun_fc`, specify the name of the data import task for the Alibaba Cloud service.
+   * - If TaskType is set to `aliyun_sls`, specify the metric name for SLS logs.
    * 
    * @example
    * aliyun_task
@@ -480,10 +485,10 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of the metric import task. Valid values:
+   * The type of the monitoring task. Valid values:
    * 
-   * *   aliyun_fc: metric import tasks for Alibaba Cloud services.
-   * *   aliyun_sls: metrics for logs imported from Simple Log Service.
+   * - aliyun_fc: data import task for an Alibaba Cloud service.
+   * - aliyun_sls: metric for SLS logs.
    * 
    * This parameter is required.
    * 
@@ -493,32 +498,33 @@ export class CreateHybridMonitorTaskRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+   * The configuration file of the Alibaba Cloud service that is connected to Hybrid Cloud Monitoring.
    * 
-   * *   namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
-   * *   metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
+   * - namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
+   * - metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html).
    * 
-   * The following code shows a sample configuration file:
+   * The following example shows a sample configuration file:
    * 
-   *     products:
-   *     - namespace: acs_ecs_dashboard
-   *       metric_info:
-   *       - metric_list:
-   *         - cpu_total
-   *         - cpu_idle
-   *         - diskusage_utilization
-   *         - CPUUtilization
-   *         - DiskReadBPS
-   *         - InternetOut
-   *         - IntranetOut
-   *         - cpu_system
-   *     - namespace: acs_rds_dashboard
-   *       metric_info:
-   *       - metric_list:
-   *         - MySQL_QPS
-   *         - MySQL_TPS
-   * 
-   * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
+   * ```
+   * products:
+   * - namespace: acs_ecs_dashboard
+   *   metric_info:
+   *   - metric_list:
+   *     - cpu_total
+   *     - cpu_idle
+   *     - diskusage_utilization
+   *     - CPUUtilization
+   *     - DiskReadBPS
+   *     - InternetOut
+   *     - IntranetOut
+   *     - cpu_system
+   * - namespace: acs_rds_dashboard
+   *   metric_info:
+   *   - metric_list:
+   *     - MySQL_QPS
+   *     - MySQL_TPS
+   * ```
+   * > This parameter is required only when TaskType is set to `aliyun_fc`.
    * 
    * @example
    * products:- namespace: acs_ecs_dashboard  metric_info:  - metric_list:    - cpu_total

@@ -6,6 +6,8 @@ export class DisableEventRulesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The names of the event-triggered alert rules.
+   * 
    * This parameter is required.
    * 
    * @example

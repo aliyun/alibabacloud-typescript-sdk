@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackListMetrics extends $dara.Model {
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
    * @example
    * disk_utilization
@@ -13,7 +13,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackListM
   metricName?: string;
   /**
    * @remarks
-   * The extended dimension of the instance. For example, `{"device":"C:"}` specifies that the blacklist policy is applied to all C disks of the specified Elastic Compute Service (ECS) instance.
+   * The extended dimension of the instance. For example, `{"device":"C:"}` means that the blacklist policy is applied to all C drives of an Elastic Compute Service (ECS) instance.
    * 
    * @example
    * [{"device":"C:"}]
@@ -45,7 +45,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackListM
 export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList extends $dara.Model {
   /**
    * @remarks
-   * The category of the cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
+   * The category of the Alibaba Cloud service. For example, Redis has different editions, such as `kvstore_standard` (Standard Edition), `kvstore_sharding` (Cluster Edition), and `kvstore_splitrw` (Read/write Splitting Edition).
    * 
    * @example
    * ecs
@@ -53,7 +53,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   category?: string;
   /**
    * @remarks
-   * The timestamp when the blacklist policy was created.
+   * The timestamp that indicates when the blacklist policy was created.
    * 
    * Unit: milliseconds.
    * 
@@ -63,7 +63,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   createTime?: string;
   /**
    * @remarks
-   * The time range within which the blacklist policy is effective.
+   * The time range during which the blacklist policy is effective.
    * 
    * @example
    * 00:00-23:59
@@ -71,9 +71,9 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   effectiveTime?: string;
   /**
    * @remarks
-   * The timestamp when the blacklist policy started to take effect.
+   * The timestamp that indicates when the alert blacklist policy is no longer in effect.
    * 
-   * Unit: milliseconds.
+   * The timestamp is measured in milliseconds.
    * 
    * @example
    * 1640608200000
@@ -81,9 +81,9 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   enableEndTime?: number;
   /**
    * @remarks
-   * The timestamp when the blacklist policy expired.
+   * The time when the alert blacklist policy expires.
    * 
-   * Unit: milliseconds.
+   * This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1640237400000
@@ -99,15 +99,16 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   id?: string;
   /**
    * @remarks
-   * The IDs of the instances that belong to the specified cloud service.
+   * The instances of the Alibaba Cloud service in the blacklist policy.
    */
   instances?: string[];
   /**
    * @remarks
    * The status of the blacklist policy. Valid values:
    * 
-   * *   true: The blacklist policy is enabled.
-   * *   false: The blacklist policy is disabled.
+   * - true: enabled.
+   * 
+   * - false: disabled.
    * 
    * @example
    * true
@@ -128,7 +129,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   name?: string;
   /**
    * @remarks
-   * The namespace of the cloud service.
+   * The namespace of the Alibaba Cloud service.
    * 
    * @example
    * acs_ecs_dashboard
@@ -136,10 +137,11 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   namespace?: string;
   /**
    * @remarks
-   * The effective scope of the blacklist policy. Valid values:
+   * The scope of the blacklist policy. Valid values:
    * 
-   * *   USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
-   * *   GROUP: The blacklist policy takes effect only within the specified application group.
+   * - USER: The blacklist policy takes effect only for the current Alibaba Cloud account.
+   * 
+   * - GROUP: The blacklist policy takes effect for the specified application groups.
    * 
    * @example
    * USER
@@ -152,7 +154,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   scopeValue?: string[];
   /**
    * @remarks
-   * The timestamp when the blacklist policy was modified.
+   * The timestamp that indicates when the blacklist policy was modified.
    * 
    * Unit: milliseconds.
    * 
@@ -219,7 +221,9 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
 export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The categories of the Alibaba Cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
+   * The status code.
+   * 
+   * > A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -227,7 +231,7 @@ export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The queried blacklist policies.
+   * The blacklist policies.
    */
   describeMetricRuleBlackList?: DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList[];
   /**
@@ -240,7 +244,7 @@ export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The namespace of the cloud service.
+   * The request ID.
    * 
    * @example
    * D63E76CB-29AA-5B9F-88CE-400A6F28D428
@@ -248,9 +252,11 @@ export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The namespace of the cloud service.
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -258,9 +264,7 @@ export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The timestamp when the blacklist policy was created.
-   * 
-   * Unit: milliseconds.
+   * The total number of blacklist policies.
    * 
    * @example
    * 1

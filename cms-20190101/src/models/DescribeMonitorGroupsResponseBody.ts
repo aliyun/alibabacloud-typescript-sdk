@@ -290,9 +290,9 @@ export class DescribeMonitorGroupsResponseBodyResources extends $dara.Model {
 export class DescribeMonitorGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > A value of 200 indicates that the operation was successful.
    * 
    * @example
    * 200
@@ -300,7 +300,7 @@ export class DescribeMonitorGroupsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * The specified resource is not found.
@@ -308,7 +308,7 @@ export class DescribeMonitorGroupsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -333,10 +333,11 @@ export class DescribeMonitorGroupsResponseBody extends $dara.Model {
   resources?: DescribeMonitorGroupsResponseBodyResources;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -344,7 +345,7 @@ export class DescribeMonitorGroupsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 10
