@@ -69,6 +69,7 @@ export default class Client extends OpenApi {
       'rus-west-1-pop': "agency.aliyuncs.com",
       'us-east-1': "agency.aliyuncs.com",
       'us-west-1': "agency.aliyuncs.com",
+      'ap-southeast-1': "agency.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("agency", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -88,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query bill export files.
+   * Queries exported bill files.
    * 
    * @param request - GetBillDetailFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -143,7 +144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query bill export files.
+   * Queries exported bill files.
    * 
    * @param request - GetBillDetailFileListRequest
    * @returns GetBillDetailFileListResponse
@@ -154,7 +155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query partner commission details.
+   * Queries the commission details of a partner.
    * 
    * @param request - GetCommissionDetailFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -209,7 +210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query partner commission details.
+   * Queries the commission details of a partner.
    * 
    * @param request - GetCommissionDetailFileListRequest
    * @returns GetCommissionDetailFileListResponse
@@ -220,7 +221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query partner customer acquisition orders.
+   * Queries partner customer acquisition orders.
    * 
    * @param tmpReq - GetCustomerOrderListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -325,7 +326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query partner customer acquisition orders.
+   * Queries partner customer acquisition orders.
    * 
    * @param request - GetCustomerOrderListRequest
    * @returns GetCustomerOrderListResponse
@@ -336,7 +337,81 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query partner renewal rate.
+   * Downloads the commission details of an international partner.
+   * 
+   * @remarks
+   * Make sure that the current caller identity is a T1 distribution partner. 
+   * <notice>Available only for international sites.</notice>.
+   * 
+   * @param request - GetIntlCommissionDetailFileListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIntlCommissionDetailFileListResponse
+   */
+  async getIntlCommissionDetailFileListWithOptions(request: $_model.GetIntlCommissionDetailFileListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIntlCommissionDetailFileListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.billMonth)) {
+      query["BillMonth"] = request.billMonth;
+    }
+
+    if (!$dara.isNull(request.ossAccessKeyId)) {
+      query["OssAccessKeyId"] = request.ossAccessKeyId;
+    }
+
+    if (!$dara.isNull(request.ossAccessKeySecret)) {
+      query["OssAccessKeySecret"] = request.ossAccessKeySecret;
+    }
+
+    if (!$dara.isNull(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!$dara.isNull(request.ossEndpoint)) {
+      query["OssEndpoint"] = request.ossEndpoint;
+    }
+
+    if (!$dara.isNull(request.ossRegion)) {
+      query["OssRegion"] = request.ossRegion;
+    }
+
+    if (!$dara.isNull(request.ossSecurityToken)) {
+      query["OssSecurityToken"] = request.ossSecurityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIntlCommissionDetailFileList",
+      version: "2025-02-27",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIntlCommissionDetailFileListResponse>(await this.callApi(params, req, runtime), new $_model.GetIntlCommissionDetailFileListResponse({}));
+  }
+
+  /**
+   * Downloads the commission details of an international partner.
+   * 
+   * @remarks
+   * Make sure that the current caller identity is a T1 distribution partner. 
+   * <notice>Available only for international sites.</notice>.
+   * 
+   * @param request - GetIntlCommissionDetailFileListRequest
+   * @returns GetIntlCommissionDetailFileListResponse
+   */
+  async getIntlCommissionDetailFileList(request: $_model.GetIntlCommissionDetailFileListRequest): Promise<$_model.GetIntlCommissionDetailFileListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIntlCommissionDetailFileListWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the partner renewal rate.
    * 
    * @param request - GetRenewalRateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -367,7 +442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query partner renewal rate.
+   * Queries the partner renewal rate.
    * 
    * @param request - GetRenewalRateListRequest
    * @returns GetRenewalRateListResponse
@@ -378,7 +453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of second-tier distributors.
+   * Queries the list of secondary distributors.
    * 
    * @param request - GetSubPartnerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -421,7 +496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of second-tier distributors.
+   * Queries the list of secondary distributors.
    * 
    * @param request - GetSubPartnerListRequest
    * @returns GetSubPartnerListResponse
@@ -432,7 +507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query channel expansion orders.
+   * Queries channel expansion orders.
    * 
    * @param tmpReq - GetSubPartnerOrderListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -533,7 +608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query channel expansion orders.
+   * Queries channel expansion orders.
    * 
    * @param request - GetSubPartnerOrderListRequest
    * @returns GetSubPartnerOrderListResponse

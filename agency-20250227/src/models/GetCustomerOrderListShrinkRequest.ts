@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Customer Account
+   * The customer account.
    * 
    * @example
    * test_123
@@ -13,7 +13,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   customerAccount?: string;
   /**
    * @remarks
-   * Customer UID
+   * The customer UID.
    * 
    * @example
    * 123456
@@ -21,8 +21,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   customerUid?: number;
   /**
    * @remarks
-   * The UNIX timestamp indicating the start time of order creation. The time range must not exceed six months.  
-   * The time range for order creation and the time range for order payment cannot both be empty.
+   * The start timestamp for order creation. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
    * 
    * @example
    * 1727789348000
@@ -30,8 +29,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   orderCreateAfter?: number;
   /**
    * @remarks
-   * The UNIX timestamp indicating the end time of order creation. The time range must not exceed six months.  
-   * The time range for order creation and the time range for order payment cannot both be empty.
+   * The end timestamp for order creation. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
    * 
    * @example
    * 1741008566000
@@ -39,7 +37,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   orderCreateBefore?: number;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 13595216
@@ -47,8 +45,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * Order payment start UNIX timestamp. The time range must not exceed six months.
-   * The order creation time range and the order payment time range cannot both be empty.
+   * The start timestamp for order payment. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
    * 
    * @example
    * 1727789348000
@@ -56,8 +53,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   orderPayAfter?: number;
   /**
    * @remarks
-   * Order payment end UNIX timestamp. The time range must not exceed six months.
-   * The order creation time range and the order payment time range cannot both be empty.
+   * The end timestamp for order payment. The time range cannot exceed 6 months. The order creation time range and the order payment time range cannot both be empty.
    * 
    * @example
    * 1741008566000
@@ -65,10 +61,10 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   orderPayBefore?: number;
   /**
    * @remarks
-   * Order status:
-   * - 1 Unpaid
-   * - 2 Discarded
-   * - 3 Paid
+   * The order status. Valid values:
+   * - 1: unpaid
+   * - 2: canceled
+   * - 3: paid.
    * 
    * @example
    * 3
@@ -76,12 +72,12 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   orderStatus?: number;
   /**
    * @remarks
-   * Order type List
+   * The list of order types.
    */
   orderTypeListShrink?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -91,7 +87,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -101,7 +97,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Minimum paid amount
+   * The minimum actual payment amount.
    * 
    * @example
    * 1
@@ -109,7 +105,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   payAmountAfter?: number;
   /**
    * @remarks
-   * Actual payment amount up to this point
+   * The maximum actual payment amount.
    * 
    * @example
    * 1000
@@ -117,9 +113,9 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   payAmountBefore?: number;
   /**
    * @remarks
-   * Payment Type:
-   * 1: Non-agent payment;
-   * 2: Agent payment
+   * The payment type. Valid values:
+   * - 1: non-delegated payment
+   * - 2: delegated payment.
    * 
    * @example
    * 1
@@ -127,7 +123,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   payType?: number;
   /**
    * @remarks
-   * Product code
+   * The product code.
    * 
    * @example
    * ecs
@@ -135,7 +131,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Product Name
+   * The product name.
    * 
    * @example
    * 弹性计算
@@ -143,7 +139,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * Opportunity ID
+   * The opportunity ID.
    * 
    * @example
    * 202502002231
@@ -151,7 +147,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Customer follow-up staff
+   * The employee who follows up with the customer.
    * 
    * @example
    * 1234532

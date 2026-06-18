@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBillDetailFileListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Month
+   * The billing month.
    * 
    * @example
    * 202502
@@ -15,7 +15,7 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
   billMonth?: string;
   /**
    * @remarks
-   * File Name
+   * The file name.
    * 
    * @example
    * 账单202502021112
@@ -23,7 +23,7 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * File URL
+   * The file URL.
    * 
    * @example
    * aps.ailyun.com/file/download?resourceId=1234&type=1
@@ -31,7 +31,10 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * OSS file push status. 1: Pending, 2: Processing, 3: Succeeded
+   * The OSS file push status. Valid values:
+   * - 1: pending
+   * - 2: processing
+   * - 3: completed.
    * 
    * @example
    * 3
@@ -39,7 +42,7 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Type: customer acquisition, channel expansion
+   * The type. Valid values: customer acquisition or channel expansion.
    * 
    * @example
    * 拓渠
@@ -77,7 +80,7 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
 export class GetBillDetailFileListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -85,12 +88,12 @@ export class GetBillDetailFileListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    */
   data?: GetBillDetailFileListResponseBodyData[];
   /**
    * @remarks
-   * Prompt message
+   * The message.
    * 
    * @example
    * 成功
@@ -98,7 +101,7 @@ export class GetBillDetailFileListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Same as message
+   * Same as Message.
    * 
    * @example
    * 成功
@@ -114,7 +117,7 @@ export class GetBillDetailFileListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

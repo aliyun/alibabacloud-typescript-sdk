@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCommissionDetailFileListRequest extends $dara.Model {
   /**
    * @remarks
-   * Billing month
+   * The billing month.
    * 
    * @example
    * 202501
@@ -13,7 +13,7 @@ export class GetCommissionDetailFileListRequest extends $dara.Model {
   billMonth?: string;
   /**
    * @remarks
-   * AccessKeyID used to upload files to OSS
+   * The AccessKey ID used to upload files to OSS.
    * 
    * @example
    * yourAccessKeyID
@@ -21,7 +21,7 @@ export class GetCommissionDetailFileListRequest extends $dara.Model {
   ossAccessKeyId?: string;
   /**
    * @remarks
-   * AccessKeySecret used to upload files to OSS
+   * The AccessKey secret used to upload files to OSS.
    * 
    * @example
    * yourAccessKeySecret
@@ -29,7 +29,7 @@ export class GetCommissionDetailFileListRequest extends $dara.Model {
   ossAccessKeySecret?: string;
   /**
    * @remarks
-   * OSS bucket
+   * The OSS bucket name.
    * 
    * @example
    * yourBucketName
@@ -37,7 +37,7 @@ export class GetCommissionDetailFileListRequest extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * Edge zone of the Region where the OSS bucket for file sharing is located
+   * The endpoint of the region where the Object Storage Service (OSS) bucket corresponding to the file sharing resides.
    * 
    * @example
    * http://oss-cn-beijing.aliyuncs.com
@@ -45,7 +45,7 @@ export class GetCommissionDetailFileListRequest extends $dara.Model {
   ossEndpoint?: string;
   /**
    * @remarks
-   * Region to which the current OSS bucket belongs
+   * The region where the OSS bucket resides.
    * 
    * @example
    * cn-beijing
@@ -53,7 +53,7 @@ export class GetCommissionDetailFileListRequest extends $dara.Model {
   ossRegion?: string;
   /**
    * @remarks
-   * STS token used to upload files to OSS
+   * The STS token used to upload files to OSS.
    * 
    * @example
    * yourSecurityToken

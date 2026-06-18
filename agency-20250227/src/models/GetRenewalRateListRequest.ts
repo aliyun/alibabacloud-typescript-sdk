@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRenewalRateListRequest extends $dara.Model {
   /**
    * @remarks
-   * Fiscal year and quarter
+   * The fiscal year and quarter.
    * 
    * This parameter is required.
    * 

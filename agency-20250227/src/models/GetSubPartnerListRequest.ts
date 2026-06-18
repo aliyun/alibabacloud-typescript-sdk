@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSubPartnerListRequest extends $dara.Model {
   /**
    * @remarks
-   * Page index, starting from the first page.
+   * The page number, starting from 1.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetSubPartnerListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of entries returned per page. Maximum value supported is 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetSubPartnerListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Tier-2 partner company name
+   * The company name of the secondary partner.
    * 
    * @example
    * xxx有限公司
@@ -33,7 +33,7 @@ export class GetSubPartnerListRequest extends $dara.Model {
   subPartnerCompanyName?: string;
   /**
    * @remarks
-   * Tier-2 partner PID
+   * The PID of the secondary partner.
    * 
    * @example
    * 2323431211

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRenewalRateListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Adjusted amount due for Gold customer renewal
+   * The adjusted customer acquisition amount due for renewal.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   customerAdjustedRenewalAmountDue?: number;
   /**
    * @remarks
-   * Rewind amount for new customer acquisition upgrade
+   * The customer acquisition amount for new purchases, upgrades, and refunds.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   customerOtherBillAmount?: number;
   /**
    * @remarks
-   * Amount due for Gold customer renewal
+   * The customer acquisition amount due for renewal.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalCustomerRenewalAmountDue?: number;
   /**
    * @remarks
-   * Gold customer commission renewal rate
+   * The customer acquisition commission renewal rate.
    * 
    * @example
    * 0.9
@@ -37,7 +37,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalCustomerRenewalRate?: number;
   /**
    * @remarks
-   * Renewed amount from customer acquisition
+   * The customer acquisition renewed amount.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalCustomerRenewedAmount?: number;
   /**
    * @remarks
-   * Total rewind amount for new upgrades
+   * The total amount for new purchases, upgrades, and refunds.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalOtherBillAmount?: number;
   /**
    * @remarks
-   * Final amount due for renewal
+   * The final amount due for renewal.
    * 
    * @example
    * 100
@@ -61,7 +61,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalRenewalAmountDue?: number;
   /**
    * @remarks
-   * Final commission renewal rate
+   * The final commission renewal rate.
    * 
    * @example
    * 0.9
@@ -69,7 +69,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalRenewalRate?: number;
   /**
    * @remarks
-   * Final renewed amount
+   * The final renewed amount.
    * 
    * @example
    * 100
@@ -77,7 +77,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalRenewedAmount?: number;
   /**
    * @remarks
-   * Renewal amount due from channel partner acquisition
+   * The sub-partner acquisition amount due for renewal.
    * 
    * @example
    * 100
@@ -85,7 +85,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalSubPartnerRenewalAmountDue?: number;
   /**
    * @remarks
-   * Channel expansion commission renewal rate
+   * The sub-partner acquisition commission renewal rate.
    * 
    * @example
    * 0.85
@@ -93,7 +93,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalSubPartnerRenewalRate?: number;
   /**
    * @remarks
-   * Renewed amount from channel partner acquisition
+   * The sub-partner acquisition renewed amount.
    * 
    * @example
    * 100
@@ -101,7 +101,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   finalSubPartnerRenewedAmount?: number;
   /**
    * @remarks
-   * Fiscal year and quarter
+   * The fiscal year and quarter.
    * 
    * @example
    * 2025Q4
@@ -109,7 +109,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   fiscalYearAndQuarter?: string;
   /**
    * @remarks
-   * Partner PID
+   * The partner PID.
    * 
    * @example
    * P123423453
@@ -117,7 +117,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   masterPid?: string;
   /**
    * @remarks
-   * Partner PID name
+   * The partner PID name.
    * 
    * @example
    * XX有限公司
@@ -125,7 +125,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   masterPidName?: string;
   /**
    * @remarks
-   * Gold customer commission renewal rate including special approval
+   * The customer acquisition commission renewal rate including special approvals.
    * 
    * @example
    * 0.7
@@ -133,7 +133,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialCustomerRenewRatio?: number;
   /**
    * @remarks
-   * Renewal amount due including specially approved customer acquisition
+   * The customer acquisition amount due for renewal including special approvals.
    * 
    * @example
    * 100
@@ -141,7 +141,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialCustomerRenewalAmountDue?: number;
   /**
    * @remarks
-   * Renewed amount including specially approved customer acquisition
+   * The customer acquisition renewed amount including special approvals.
    * 
    * @example
    * 100
@@ -149,7 +149,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialCustomerRenewedAmount?: number;
   /**
    * @remarks
-   * Renewal rate including specially approved final quarter commission
+   * The final quarterly commission renewal rate including special approvals.
    * 
    * @example
    * 0.7
@@ -157,7 +157,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialFinalRenewRatio?: number;
   /**
    * @remarks
-   * Renewal amount due for final quarterly commission including special approvals
+   * The final quarterly commission amount due for renewal including special approvals.
    * 
    * @example
    * 100
@@ -165,7 +165,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialFinalRenewalAmountDue?: number;
   /**
    * @remarks
-   * Renewed amount including specially approved final quarter commission
+   * The final quarterly commission renewed amount including special approvals.
    * 
    * @example
    * 100
@@ -173,7 +173,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialFinalRenewedAmount?: number;
   /**
    * @remarks
-   * Channel expansion commission renewal rate including special approval
+   * The sub-partner acquisition commission renewal rate including special approvals.
    * 
    * @example
    * 0.8
@@ -181,7 +181,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialSubPartnerRenewRatio?: number;
   /**
    * @remarks
-   * Amount due for renewal including specially approved channel partner
+   * The sub-partner acquisition amount due for renewal including special approvals.
    * 
    * @example
    * 100
@@ -189,7 +189,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialSubPartnerRenewalAmountDue?: number;
   /**
    * @remarks
-   * Renewed amount including specially approved channel partner renewals
+   * The sub-partner acquisition renewed amount including special approvals.
    * 
    * @example
    * 100
@@ -197,7 +197,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   specialSubPartnerRenewedAmount?: number;
   /**
    * @remarks
-   * Adjusted amount due for channel partner renewal
+   * The adjusted sub-partner acquisition amount due for renewal.
    * 
    * @example
    * 100
@@ -205,7 +205,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   subPartnerAdjustedRenewalAmountDue?: number;
   /**
    * @remarks
-   * Channel partner new upgrade rewind amount
+   * The sub-partner acquisition amount for new purchases, upgrades, and refunds.
    * 
    * @example
    * 100
@@ -285,7 +285,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
 export class GetRenewalRateListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -293,12 +293,12 @@ export class GetRenewalRateListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    */
   data?: GetRenewalRateListResponseBodyData[];
   /**
    * @remarks
-   * Message
+   * The prompt message.
    * 
    * @example
    * 成功
@@ -314,7 +314,7 @@ export class GetRenewalRateListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

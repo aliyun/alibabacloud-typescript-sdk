@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   /**
    * @remarks
-   * Detailed address of registration
+   * The detailed registered address.
    * 
    * @example
    * xxx街道xxx号
@@ -13,7 +13,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * Contract status encoding
+   * The agreement status code.
    * 
    * @example
    * ACTIVE_PERIOD
@@ -21,7 +21,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   agreementStatus?: string;
   /**
    * @remarks
-   * Agreement status description
+   * The description of the agreement status.
    * 
    * @example
    * 生效期
@@ -29,7 +29,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   agreementStatusDesc?: string;
   /**
    * @remarks
-   * City of registration
+   * The city of the registered address.
    * 
    * @example
    * 杭州市
@@ -37,7 +37,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   city?: string;
   /**
    * @remarks
-   * Name of the second-tier distributor
+   * The name of the secondary distributor.
    * 
    * @example
    * xxx有限公司
@@ -45,7 +45,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   companyName?: string;
   /**
    * @remarks
-   * Contact name
+   * The name of the contact.
    * 
    * @example
    * 张三
@@ -53,7 +53,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   contact?: string;
   /**
    * @remarks
-   * District or county of registration
+   * The district or county of the registered address.
    * 
    * @example
    * 西湖区
@@ -61,7 +61,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   district?: string;
   /**
    * @remarks
-   * Initial onboarding time
+   * The time when the secondary distributor first joined.
    * 
    * @example
    * 2000-01-01
@@ -69,7 +69,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   joinTime?: string;
   /**
    * @remarks
-   * Master account name of the secondary distributor
+   * The name of the primary account of the secondary distributor.
    * 
    * @example
    * xxxxxx有限公司主账号
@@ -77,7 +77,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   masterAccount?: string;
   /**
    * @remarks
-   * UID of the Master account of the second-tier distributor
+   * The UID of the primary account of the secondary distributor.
    * 
    * @example
    * 123456
@@ -85,7 +85,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   masterUid?: string;
   /**
    * @remarks
-   * PID of the secondary distributor
+   * The PID of the secondary distributor.
    * 
    * @example
    * P123456
@@ -93,7 +93,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   pid?: string;
   /**
    * @remarks
-   * Province of registration
+   * The province of the registered address.
    * 
    * @example
    * 浙江省
@@ -145,7 +145,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
 export class GetSubPartnerListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Message
+   * The message returned.
    * 
    * @example
    * 成功
@@ -153,7 +153,7 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -161,7 +161,7 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
   pageNo?: string;
   /**
    * @remarks
-   * Number of second-tier distributors returned per page, up to 100
+   * The number of secondary distributors returned per page. Maximum value: 100.
    * 
    * This parameter is required.
    * 
@@ -171,7 +171,7 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
@@ -179,12 +179,12 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of second-tier distributors
+   * The list of secondary distributors.
    */
   subPartnerList?: GetSubPartnerListResponseBodySubPartnerList[];
   /**
    * @remarks
-   * Indicates whether the invocation succeeded.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -192,7 +192,7 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total amount of data under the current request conditions
+   * The total number of entries that match the query conditions.
    * 
    * @example
    * 10

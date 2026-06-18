@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Order discount
+   * The order discount.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   amountDiscount?: number;
   /**
    * @remarks
-   * Actual payment amount
+   * The actual payment amount.
    * 
    * @example
    * 29137
@@ -21,7 +21,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   amountDue?: number;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2019-01-24 14:20:40
@@ -29,7 +29,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Customer Account
+   * The customer account.
    * 
    * @example
    * test_123
@@ -37,7 +37,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   customerAccount?: string;
   /**
    * @remarks
-   * Customer categorization
+   * The customer classification.
    * 
    * @example
    * C类
@@ -45,7 +45,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   customerClassification?: string;
   /**
    * @remarks
-   * Customer UID
+   * The customer UID.
    * 
    * @example
    * 123456
@@ -53,7 +53,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   customerUid?: number;
   /**
    * @remarks
-   * Coupon amount
+   * The coupon amount.
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   deductedAmountByCoupons?: number;
   /**
    * @remarks
-   * Discounted price
+   * The discounted price.
    * 
    * @example
    * 29137
@@ -69,7 +69,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   discountedPrice?: number;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 236414227150922
@@ -77,10 +77,10 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * Order status. Values include:  
-   * 1: Unpaid  
-   * 2: Paid  
-   * 3: Voided
+   * The order status. Valid values:
+   * - 1: unpaid
+   * - 2: paid
+   * - 3: canceled.
    * 
    * @example
    * 3
@@ -88,7 +88,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   orderStatus?: number;
   /**
    * @remarks
-   * Order type. Values include: BUY, UPGRADE, DOWNGRADE, RENEW, REFUND, OTHERS
+   * The order type. Valid values: BUY, UPGRADE, DOWNGRADE, RENEW, REFUND, OTHERS.
    * 
    * @example
    * BUY
@@ -96,7 +96,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Payment Time
+   * The payment time.
    * 
    * @example
    * 2019-01-24 14:20:40
@@ -104,9 +104,9 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   paidAt?: string;
   /**
    * @remarks
-   * Payment type:  
-   * 1: Non-agent payment  
-   * 2: Agent payment
+   * The payment type. Valid values:
+   * - 1: non-delegated payment
+   * - 2: delegated payment.
    * 
    * @example
    * 1
@@ -114,7 +114,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   payType?: number;
   /**
    * @remarks
-   * Original Price/List Price
+   * The original price or list price.
    * 
    * @example
    * 29137
@@ -122,7 +122,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   price?: number;
   /**
    * @remarks
-   * Product code
+   * The product code.
    * 
    * @example
    * slb
@@ -130,7 +130,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Product name
+   * The product name.
    * 
    * @example
    * slb
@@ -138,7 +138,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * Opportunity ID
+   * The opportunity ID.
    * 
    * @example
    * 202502230421
@@ -146,7 +146,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Customer-facing staff
+   * The employee who follows up with the customer.
    */
   ramAccountForCustomerManagers?: string[];
   static names(): { [key: string]: string } {
@@ -210,7 +210,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
 export class GetCustomerOrderListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access denied details
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -218,7 +218,7 @@ export class GetCustomerOrderListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Status Code
+   * The status code.
    * 
    * @example
    * 200
@@ -226,12 +226,12 @@ export class GetCustomerOrderListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    */
   data?: GetCustomerOrderListResponseBodyData[];
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 400
@@ -239,7 +239,7 @@ export class GetCustomerOrderListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Message
+   * The message.
    * 
    * @example
    * success
@@ -247,7 +247,7 @@ export class GetCustomerOrderListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -255,7 +255,7 @@ export class GetCustomerOrderListResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -263,7 +263,7 @@ export class GetCustomerOrderListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 2103a30617045934095083027d88c5
@@ -271,7 +271,7 @@ export class GetCustomerOrderListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -279,7 +279,7 @@ export class GetCustomerOrderListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of entries
+   * The total number of entries.
    * 
    * @example
    * 100

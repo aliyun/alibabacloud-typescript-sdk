@@ -2,10 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.Model {
+export class GetIntlCommissionDetailFileListResponseBodyDataFileList extends $dara.Model {
   /**
    * @remarks
-   * The push status of the OSS file. Valid values: Processing, Succeeded, or Failed.
+   * The push status of the OSS file. Valid values:
+   * - 初始化状态: initialization status
+   * - 处理中: processing
+   * - 处理成功: processing succeeded
+   * - 处理失败: processing failed.
    * 
    * @example
    * 处理中
@@ -13,7 +17,7 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
   bucketSyncStatus?: string;
   /**
    * @remarks
-   * The policy name.
+   * The commission policy name.
    * 
    * @example
    * 参考【APS佣金查询下载功能】的政策名称
@@ -24,32 +28,14 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
    * The file name.
    * 
    * @example
-   * 佣金202502021112
+   * 202606_FY27_TEST_4397912340.xlsx
    */
   fileName?: string;
-  /**
-   * @remarks
-   * The file type.
-   * 
-   * @example
-   * 总代政策为拓渠、普通政策为拓客
-   */
-  fileType?: string;
-  /**
-   * @remarks
-   * The file URL.
-   * 
-   * @example
-   * aps.ailyun.com/file/download?resourceId=1234&type=1
-   */
-  fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
       bucketSyncStatus: 'BucketSyncStatus',
       commissionPolicyName: 'CommissionPolicyName',
       fileName: 'FileName',
-      fileType: 'FileType',
-      fileUrl: 'FileUrl',
     };
   }
 
@@ -58,8 +44,6 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
       bucketSyncStatus: 'string',
       commissionPolicyName: 'string',
       fileName: 'string',
-      fileType: 'string',
-      fileUrl: 'string',
     };
   }
 
@@ -72,7 +56,7 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
   }
 }
 
-export class GetCommissionDetailFileListResponseBodyData extends $dara.Model {
+export class GetIntlCommissionDetailFileListResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The billing month.
@@ -83,9 +67,9 @@ export class GetCommissionDetailFileListResponseBodyData extends $dara.Model {
   billMonth?: string;
   /**
    * @remarks
-   * The file list.
+   * The file list object.
    */
-  fileList?: GetCommissionDetailFileListResponseBodyDataFileList[];
+  fileList?: GetIntlCommissionDetailFileListResponseBodyDataFileList[];
   /**
    * @remarks
    * The UID of the partner.
@@ -105,7 +89,7 @@ export class GetCommissionDetailFileListResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       billMonth: 'string',
-      fileList: { 'type': 'array', 'itemType': GetCommissionDetailFileListResponseBodyDataFileList },
+      fileList: { 'type': 'array', 'itemType': GetIntlCommissionDetailFileListResponseBodyDataFileList },
       partnerUid: 'string',
     };
   }
@@ -122,10 +106,10 @@ export class GetCommissionDetailFileListResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetCommissionDetailFileListResponseBody extends $dara.Model {
+export class GetIntlCommissionDetailFileListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * code
+   * The status code.
    * 
    * @example
    * 200
@@ -133,12 +117,12 @@ export class GetCommissionDetailFileListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data.
    */
-  data?: GetCommissionDetailFileListResponseBodyData;
+  data?: GetIntlCommissionDetailFileListResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The message information.
    * 
    * @example
    * 成功
@@ -146,10 +130,10 @@ export class GetCommissionDetailFileListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * RequestId
    * 
    * @example
-   * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
+   * 2103a30617045934095083027d88c5
    */
   requestId?: string;
   /**
@@ -173,7 +157,7 @@ export class GetCommissionDetailFileListResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetCommissionDetailFileListResponseBodyData,
+      data: GetIntlCommissionDetailFileListResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Order discount
+   * The order discount.
    * 
    * @example
    * 0.9
@@ -13,7 +13,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   amountDiscount?: number;
   /**
    * @remarks
-   * Actual payment amount
+   * The actual payment amount.
    * 
    * @example
    * 3750
@@ -21,7 +21,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   amountDue?: number;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2024-07-07 07:52:22
@@ -29,7 +29,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Customer classification
+   * The customer classification.
    * 
    * @example
    * C类
@@ -37,7 +37,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   customerClassification?: string;
   /**
    * @remarks
-   * Coupon amount
+   * The coupon amount.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   deductedAmountByCoupons?: number;
   /**
    * @remarks
-   * Discounted price
+   * The discounted price.
    * 
    * @example
    * 3750
@@ -53,7 +53,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   discountedPrice?: number;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 236414227150922
@@ -61,10 +61,10 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * Order status:  
-   * - 1 Unpaid  
-   * - 2 Abandoned  
-   * - 3 Paid
+   * The order status. Valid values:
+   * - 1: unpaid
+   * - 2: deprecated
+   * - 3: paid.
    * 
    * @example
    * 3
@@ -72,13 +72,13 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   orderStatus?: number;
   /**
    * @remarks
-   * Order type:  
-   * - BUY: New purchase  
-   * - UPGRADE: Upgrade  
-   * - DOWNGRADE: Downgrade  
-   * - RENEW: Renewal  
-   * - REFUND: Refund  
-   * - OTHERS: Others
+   * The order type. Valid values:
+   * - BUY: new purchase
+   * - UPGRADE: upgrade
+   * - DOWNGRADE: downgrade
+   * - RENEW: renewal
+   * - REFUND: refund
+   * - OTHERS: other.
    * 
    * @example
    * BUY
@@ -86,7 +86,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Payment Time
+   * The payment time.
    * 
    * @example
    * 2024-07-07 07:52:22
@@ -94,9 +94,9 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   paidAt?: string;
   /**
    * @remarks
-   * Payment type:  
-   * 1: Non-agent payment  
-   * 2: Agent payment
+   * The payment type. Valid values:
+   * - 1: non-delegated payment
+   * - 2: delegated payment.
    * 
    * @example
    * 1
@@ -104,7 +104,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   payType?: number;
   /**
    * @remarks
-   * Original price/List price
+   * The original price or list price.
    * 
    * @example
    * 3750
@@ -112,7 +112,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   price?: number;
   /**
    * @remarks
-   * Product code
+   * The product code.
    * 
    * @example
    * ecs
@@ -120,7 +120,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Product name.
+   * The product name.
    * 
    * @example
    * 弹性计算
@@ -128,7 +128,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * Opportunity ID
+   * The opportunity ID.
    * 
    * @example
    * 202502233443
@@ -136,7 +136,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Sub-partner Name
+   * The name of the secondary partner.
    * 
    * @example
    * xxx有限公司
@@ -144,7 +144,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
   subPartnerName?: string;
   /**
    * @remarks
-   * Secondary partner UID
+   * The UID of the secondary partner.
    * 
    * @example
    * 1123132
@@ -206,7 +206,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
 export class GetSubPartnerOrderListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -214,12 +214,12 @@ export class GetSubPartnerOrderListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data
+   * The returned data.
    */
   data?: GetSubPartnerOrderListResponseBodyData[];
   /**
    * @remarks
-   * Message
+   * The message returned.
    * 
    * @example
    * 成功
@@ -227,7 +227,7 @@ export class GetSubPartnerOrderListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -235,7 +235,7 @@ export class GetSubPartnerOrderListResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Paging size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -251,7 +251,7 @@ export class GetSubPartnerOrderListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -259,7 +259,7 @@ export class GetSubPartnerOrderListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * TotalCount indicates the total amount of data under the current request conditions. This parameter is optional and is not returned by default.
+   * The total number of entries that meet the query conditions. This is an optional parameter and is not returned by default.
    * 
    * @example
    * 10
