@@ -14,6 +14,9 @@ export class DescribeOrgByLayerResponseBodyOrgs extends $dara.Model {
   /**
    * @remarks
    * The name of the organization.
+   * 
+   * @example
+   * 开发部
    */
   orgName?: string;
   /**

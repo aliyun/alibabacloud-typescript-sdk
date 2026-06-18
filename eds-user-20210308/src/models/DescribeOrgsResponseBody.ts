@@ -34,15 +34,15 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
    * The organization ID.
    * 
    * @example
-   * org-****
+   * org-1mox****
    */
   orgId?: string;
   /**
    * @remarks
-   * The name of the organizational unit.
+   * The organization name.
    * 
    * @example
-   * org****
+   * 设计部****
    */
   orgName?: string;
   orgNamePath?: string;
@@ -51,7 +51,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
    * The parent organization ID.
    * 
    * @example
-   * org-****
+   * org-ezqr****
    */
   parentOrgId?: string;
   resourcePolicyList?: DescribeOrgsResponseBodyOrgsResourcePolicyList[];
@@ -90,7 +90,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
 export class DescribeOrgsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the DescribeOrgs operation was called.
+   * The token used to retrieve the next page of results. If this parameter is not empty, more results are available. To retrieve the next page, pass this value in the `NextToken` parameter of a subsequent request.
    * 
    * @example
    * AAAAAV3MpHK****
@@ -98,7 +98,7 @@ export class DescribeOrgsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The organizations.
+   * The organization list.
    */
   orgs?: DescribeOrgsResponseBodyOrgs[];
   /**

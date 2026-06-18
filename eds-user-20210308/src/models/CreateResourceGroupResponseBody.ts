@@ -13,7 +13,7 @@ export class CreateResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the newly created resource group.
    * 
    * @example
    * rg-ckf3cx7isinhk***

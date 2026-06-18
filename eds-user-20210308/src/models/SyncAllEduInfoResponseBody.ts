@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class SyncAllEduInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * True
    */

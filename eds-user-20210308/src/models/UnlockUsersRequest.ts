@@ -12,6 +12,9 @@ export class UnlockUsersRequest extends $dara.Model {
    */
   autoLockTime?: string;
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */

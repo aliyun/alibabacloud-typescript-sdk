@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOrgByLayerRequest extends $dara.Model {
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */
@@ -11,6 +14,9 @@ export class DescribeOrgByLayerRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the organization.
+   * 
+   * @example
+   * 产品部
    */
   orgName?: string;
   /**

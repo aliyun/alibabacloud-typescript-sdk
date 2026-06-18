@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMfaDevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The address of the AD office network.
+   * The AD domain name.
    * 
    * @example
    * cn.misumi.pri
    */
   adDomain?: string;
   /**
+   * @remarks
+   * The business channel.
+   * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
   /**
    * @remarks
-   * The usernames of the convenience accounts.
+   * An array of end user usernames.
    * 
    * @example
    * test
@@ -27,8 +30,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The maximum number of entries to return. Valid values: 1 to 500.\\
-   * Default value: 100.
+   * The maximum number of results to return per page. Valid range: 1–500.<br>Default value: 100.<br>
    * 
    * @example
    * 100
@@ -36,7 +38,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Set the value to the token that is obtained from the previous query.
+   * The token for the next page of results. This value is the `NextToken` returned from a previous call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -44,7 +46,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The serial numbers of the virtual MFA devices.
+   * An array of serial numbers for virtual MFA devices.
    * 
    * @example
    * c2d9ae94-a64b-4a0d-8024-9519ca50****

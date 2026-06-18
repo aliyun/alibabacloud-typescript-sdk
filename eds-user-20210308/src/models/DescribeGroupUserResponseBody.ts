@@ -14,6 +14,9 @@ export class DescribeGroupUserResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
    * The name of the user group.
+   * 
+   * @example
+   * 开发组
    */
   groupName?: string;
   /**
@@ -71,7 +74,7 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
    * The email address.
    * 
    * @example
-   * alex****@aliyun.com
+   * alex****@example.com
    */
   email?: string;
   /**
@@ -119,7 +122,7 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
    * The mobile number.
    * 
    * @example
-   * 188888****
+   * 138****1111
    */
   phone?: string;
   /**

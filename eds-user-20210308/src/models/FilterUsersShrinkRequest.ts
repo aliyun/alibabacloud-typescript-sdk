@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class FilterUsersShrinkRequestPropertyFilterParam extends $dara.Model {
   /**
    * @remarks
-   * The ID of the property.
+   * The property ID.
    * 
    * @example
-   * 123
+   * 328
    */
   propertyId?: number;
   /**
    * @remarks
-   * The IDs of the property values.
+   * The property value ID.
    * 
    * @example
-   * test
+   * 1255
    */
   propertyValueIds?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class FilterUsersShrinkRequestPropertyFilterParam extends $dara.Model {
 export class FilterUsersShrinkRequestPropertyKeyValueFilterParam extends $dara.Model {
   /**
    * @remarks
-   * The property name.
+   * The property key.
    * 
    * @example
    * job
@@ -53,7 +53,7 @@ export class FilterUsersShrinkRequestPropertyKeyValueFilterParam extends $dara.M
   propertyKey?: string;
   /**
    * @remarks
-   * The property values.
+   * The property value.
    * 
    * @example
    * dev
@@ -84,45 +84,30 @@ export class FilterUsersShrinkRequestPropertyKeyValueFilterParam extends $dara.M
 
 export class FilterUsersShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The channel.
+   * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
   /**
    * @remarks
-   * The list of usernames to be precisely excluded.
+   * The usernames (`EndUserId`) to exclude by exact match.
    */
   excludeEndUserIds?: string[];
   /**
    * @remarks
-   * The string that is used for fuzzy search. You can use usernames and email addresses to perform fuzzy search. Wildcard characters (\\*) are supported for this parameter. For example, if you set this parameter to a\\*m, the usernames or an email addresses that start with a or end with m are returned.
+   * The string for a fuzzy search on the username (`EndUserId`) and email address (`Email`). The wildcard character (`*`) is supported. For example, if you set this parameter to `a*m`, the query returns all results where the username or email address starts with `a` and ends with `m`.
    * 
    * @example
-   * test
+   * a*m
    */
   filter?: string;
   filterMapShrink?: string;
   /**
    * @remarks
-   * Specifies whether to return the number of cloud desktops that are assigned to the convenience user.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Specifies whether to return the number of cloud desktops that are assigned to the user.
    * 
    * @example
    * true
@@ -130,25 +115,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   includeDesktopCount?: boolean;
   /**
    * @remarks
-   * Specifies whether to return the number of cloud desktop pools that are assigned to the convenience user.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Specifies whether to return the number of desktop groups that are assigned to the user.
    * 
    * @example
    * false
@@ -157,12 +124,12 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   includeEndUserIds?: string[];
   /**
    * @remarks
-   * Specifies whether to return the organization information.
+   * Specifies whether to include organization information in the response.
    */
   includeOrgInfo?: boolean;
   /**
    * @remarks
-   * Specifies whether to return the supported logon types.
+   * Specifies whether to include the supported logon types in the response.
    */
   includeSupportIdps?: boolean;
   /**
@@ -172,7 +139,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
-   * The number of entries per page. If you set this parameter to a value greater than 100, the system resets the value to 100.
+   * The number of entries per page. If you specify a value greater than 100, the system automatically sets this parameter to 100.
    * 
    * @example
    * 10
@@ -180,20 +147,20 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If not all results are returned in a query, a value is returned for the NextToken parameter. In this case, you can use the returned NextToken value to start the next query.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If the number of results exceeds the value of the `MaxResults` parameter, a `NextToken` is returned. You can use the `NextToken` to query the next page of results.
    * 
    * @example
-   * caeba0bbb2be03f84eb48b699f0a4883
+   * caeba0bbb2be03f84eb48b699f0a****
    */
   nextToken?: string;
   /**
    * @remarks
-   * The parameter that might affect the sorting logic.
+   * The sorting parameters.
    */
   orderParamShrink?: string;
   /**
    * @remarks
-   * The ID of the organization.
+   * The organization ID.
    * 
    * @example
    * org-aliyun-wy-org-id
@@ -201,12 +168,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The activation type of the convenience account.
-   * 
-   * Valid values:
-   * 
-   * *   CreateFromManager: administrator-activated.
-   * *   Normal: user-activated.
+   * The account activation type.
    * 
    * @example
    * Normal
@@ -214,18 +176,18 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   ownerType?: string;
   /**
    * @remarks
-   * The list of properties for fuzzy search.
+   * The user properties for a fuzzy search.
    */
   propertyFilterParam?: FilterUsersShrinkRequestPropertyFilterParam[];
   /**
    * @remarks
-   * The list of property names and property values.
+   * The information about property keys and property values.
    */
   propertyKeyValueFilterParam?: FilterUsersShrinkRequestPropertyKeyValueFilterParam[];
   showExtras?: { [key: string]: string };
   /**
    * @remarks
-   * The status.
+   * The user status by which to filter the results.
    * 
    * @example
    * 0

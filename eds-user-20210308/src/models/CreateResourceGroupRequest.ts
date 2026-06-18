@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business channel.
+   * 
    * @example
    * ENTERPRISE
    */
@@ -11,7 +14,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   enableAliyunResourceGroup?: boolean;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is for internal use only.
    * 
    * @example
    * 0
@@ -19,17 +22,19 @@ export class CreateResourceGroupRequest extends $dara.Model {
   isResourceGroupWithOfficeSite?: number;
   /**
    * @remarks
-   * >  Set the value to AliyunConsole.
-   * 
-   * *   This parameter is not publicly available in other platforms.
+   * Set this parameter to `AliyunConsole` for Wuying Workspace Enterprise Edition.
    * 
    * @example
    * AliyunConsole
    */
   platform?: string;
+  resourceClassification?: string;
   /**
    * @remarks
    * The name of the resource group.
+   * 
+   * @example
+   * 部门A资源组
    */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
@@ -38,6 +43,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
       enableAliyunResourceGroup: 'EnableAliyunResourceGroup',
       isResourceGroupWithOfficeSite: 'IsResourceGroupWithOfficeSite',
       platform: 'Platform',
+      resourceClassification: 'ResourceClassification',
       resourceGroupName: 'ResourceGroupName',
     };
   }
@@ -48,6 +54,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
       enableAliyunResourceGroup: 'boolean',
       isResourceGroupWithOfficeSite: 'number',
       platform: 'string',
+      resourceClassification: 'string',
       resourceGroupName: 'string',
     };
   }

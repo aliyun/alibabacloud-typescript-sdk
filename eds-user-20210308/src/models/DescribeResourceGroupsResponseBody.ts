@@ -42,7 +42,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $da
   id?: string;
   /**
    * @remarks
-   * Specifies whether to use the default policy.
+   * Specifies whether this is the default policy.
    * 
    * @example
    * False
@@ -51,6 +51,9 @@ export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $da
   /**
    * @remarks
    * The policy name.
+   * 
+   * @example
+   * 测试策略123
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -82,7 +85,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
   bindStatus?: string;
   /**
    * @remarks
-   * The ID of the scheduled task.
+   * The scheduled task ID.
    * 
    * @example
    * t-asdzx0mbjhg***
@@ -90,7 +93,10 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
   id?: string;
   /**
    * @remarks
-   * The name of the scheduled task.
+   * The scheduled task name.
+   * 
+   * @example
+   * 测试任务123
    */
   name?: string;
   timerStatus?: string;
@@ -123,6 +129,9 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
 
 export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud resource group ID.
+   * 
    * @example
    * rg-123456
    */
@@ -130,7 +139,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   appRules?: DescribeResourceGroupsResponseBodyResourceGroupAppRules[];
   /**
    * @remarks
-   * The number of administrators that are authorized to access the resource group.
+   * The number of administrators authorized for the resource group.
    * 
    * @example
    * 3
@@ -138,7 +147,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   authCount?: string;
   /**
    * @remarks
-   * The time when the resource group was created.
+   * The time the resource group was created.
    * 
    * @example
    * 2022-11-29T17:25:40.000000000Z
@@ -146,11 +155,11 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * >  The policy that is associated with the resource group.
-   * 
-   * *   The policy applies to cloud computers in the resource group. If multiple policies exist, they are enforced in order of priority.
-   * 
-   * *   If any of these cloud computers are already associated with other policies, the resource group\\"s policy takes precedence.
+   * > The policies associated with the resource group.
+   * >
+   * > - These policies apply to the cloud computers in the resource group. If multiple policies are associated, they are applied in order of priority.
+   * >
+   * > - Policies associated with the resource group take precedence over policies assigned to individual cloud computers.
    */
   policies?: DescribeResourceGroupsResponseBodyResourceGroupPolicies[];
   /**
@@ -163,7 +172,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   resourceCount?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-cyo0il2pzge1***
@@ -172,13 +181,16 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   /**
    * @remarks
    * The name of the resource group.
+   * 
+   * @example
+   * 测试资源组
    */
   resourceGroupName?: string;
   /**
    * @remarks
-   * >  The associated scheduled task.
-   * 
-   * *   The scheduled task applies to all cloud computers in the resource group. If any of these cloud computers are already associated with other scheduled tasks, the resource group\\"s scheduled task takes precedence.
+   * > The scheduled tasks associated with the resource group.
+   * >
+   * > - These scheduled tasks apply to cloud computers in the resource group and take precedence over any tasks associated with individual cloud computers.
    */
   timers?: DescribeResourceGroupsResponseBodyResourceGroupTimers[];
   static names(): { [key: string]: string } {
@@ -238,7 +250,7 @@ export class DescribeResourceGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource groups.
+   * A list of resource groups.
    */
   resourceGroup?: DescribeResourceGroupsResponseBodyResourceGroup[];
   /**

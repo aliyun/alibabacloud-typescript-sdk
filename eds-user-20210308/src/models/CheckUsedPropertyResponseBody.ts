@@ -8,7 +8,7 @@ export class CheckUsedPropertyResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 22C97624-2405-54AC-BD44-A63FBE97CC2D
+   * 22C97624-2405-54AC-BD44-A63FBE97****
    */
   requestId?: string;
   /**
@@ -16,7 +16,7 @@ export class CheckUsedPropertyResponseBody extends $dara.Model {
    * The number of convenience users that are associated with the property.
    * 
    * @example
-   * 7
+   * 2
    */
   useCount?: number;
   static names(): { [key: string]: string } {

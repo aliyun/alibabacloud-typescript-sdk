@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is for internal use only.
    * 
    * @example
    * ENTERPRISE
@@ -14,7 +14,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * 是否排除已关联登录策略的用户组。
+   * Specifies whether to exclude user groups that are already associated with a logon policy.
    */
   excludeAttachedLoginPolicyGroups?: boolean;
   /**
@@ -22,7 +22,7 @@ export class DescribeGroupsRequest extends $dara.Model {
    * The ID of the user group.
    * 
    * @example
-   * ug-12341234****
+   * ug-16nf7xxh4o9gc****
    */
   groupId?: string;
   /**
@@ -36,12 +36,12 @@ export class DescribeGroupsRequest extends $dara.Model {
   idpId?: string;
   /**
    * @remarks
-   * 指定关联的登录策略筛选。
+   * The ID of a logon policy. If you specify this parameter, the call returns only user groups associated with the policy.
    */
   loginPolicyId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number to return.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -57,7 +57,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is for internal use only.
    * 
    * @example
    * co-0esnf80jab***
@@ -65,7 +65,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   solutionId?: string;
   /**
    * @remarks
-   * Indicates whether the file approval feature is enabled.
+   * Specifies whether file approval is enabled.
    * 
    * @example
    * false

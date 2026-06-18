@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserResponseBodyUserExternalInfo extends $dara.Model {
   /**
+   * @remarks
+   * External User ID.
+   * 
    * @example
    * oijjnabsf****
    */
   externalId?: string;
   /**
+   * @remarks
+   * External information name.
+   * 
    * @example
    * Alex
    */
   externalName?: string;
   /**
+   * @remarks
+   * Employee ID.
+   * 
    * @example
    * 15412***
    */
   jobNumber?: string;
   /**
+   * @remarks
+   * SSO logon type.
+   * 
    * @example
    * OIDC
    */
@@ -52,11 +64,17 @@ export class DescribeUserResponseBodyUserExternalInfo extends $dara.Model {
 
 export class DescribeUserResponseBodyUserProperties extends $dara.Model {
   /**
+   * @remarks
+   * Attribute key.
+   * 
    * @example
    * role
    */
   key?: string;
   /**
+   * @remarks
+   * Attribute value.
+   * 
    * @example
    * teacher
    */
@@ -86,42 +104,83 @@ export class DescribeUserResponseBodyUserProperties extends $dara.Model {
 
 export class DescribeUserResponseBodyUser extends $dara.Model {
   /**
+   * @remarks
+   * Mailbox.
+   * 
    * @example
    * alex@test-email.com
    */
   email?: string;
   /**
+   * @remarks
+   * Username.
+   * 
    * @example
    * alex
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * Associated external user information.
+   */
   externalInfo?: DescribeUserResponseBodyUserExternalInfo;
+  /**
+   * @remarks
+   * Extension information.
+   */
   extras?: { [key: string]: string };
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 2025-01-01 12:00:00
    */
   gmtCreate?: number;
   nickName?: string;
+  /**
+   * @remarks
+   * List of organization IDs.
+   */
   orgIds?: string[];
+  /**
+   * @remarks
+   * List of organizations.
+   */
   orgPaths?: string[];
   /**
+   * @remarks
+   * Phone number.
+   * 
    * @example
    * 1888888****
    */
   phone?: string;
+  /**
+   * @remarks
+   * User attributes.
+   */
   properties?: DescribeUserResponseBodyUserProperties[];
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * remark
    */
   remark?: string;
   /**
+   * @remarks
+   * User status.
+   * 
    * @example
    * 0
    */
   status?: number;
   /**
+   * @remarks
+   * Unique ID of the Wuying user.
+   * 
    * @example
    * aisdfumj****
    */
@@ -188,10 +247,17 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
 
 export class DescribeUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * User information.
+   */
   user?: DescribeUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {

@@ -38,7 +38,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   adUser?: DescribeMfaDevicesResponseBodyMfaDevicesAdUser;
   /**
    * @remarks
-   * The number of consecutive failures to bind the virtual MFA device, or the number of authentication failures based on the virtual MFA device.
+   * The number of consecutive failed attempts to bind or authenticate the virtual MFA device.
    * 
    * @example
    * 0
@@ -46,7 +46,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   consecutiveFails?: number;
   /**
    * @remarks
-   * The type of the virtual MFA device. The value can only be `TOTP_VIRTUAL`. This value indicates that the virtual MFA device follows the Time-based One-time Password (TOTP) algorithm.
+   * The type of the virtual MFA device. Set the value to `TOTP_VIRTUAL`, which indicates a virtual MFA device that complies with the Time-based One-time Password (TOTP) algorithm.
    * 
    * @example
    * TOTP_VIRTUAL
@@ -54,7 +54,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   deviceType?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not in use.
    * 
    * @example
    * username@example.com
@@ -62,15 +62,15 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username of the convenience account that uses the virtual MFA device.
+   * The username of the convenience user who uses the virtual MFA device.
    * 
    * @example
-   * test
+   * alice
    */
   endUserId?: string;
   /**
    * @remarks
-   * The time when the virtual MFA device was enabled. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The time when the virtual MFA device was enabled. The time is displayed in UTC and is formatted as `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2021-06-22T06:20:49Z
@@ -78,7 +78,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   gmtEnabled?: string;
   /**
    * @remarks
-   * The time when the locked virtual MFA device was automatically unlocked. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The time when the locked virtual MFA device is automatically unlocked. The time is displayed in UTC and is formatted as `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2021-06-23T06:20:49Z
@@ -103,32 +103,6 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   /**
    * @remarks
    * The status of the virtual MFA device.
-   * 
-   * Valid values:
-   * 
-   * *   LOCKED
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   UNBOUND
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NORMAL
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * NORMAL
@@ -179,12 +153,12 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
 export class DescribeMfaDevicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the virtual MFA devices.
+   * A list of virtual MFA devices.
    */
   mfaDevices?: DescribeMfaDevicesResponseBodyMfaDevices[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6na6YlN9asMM31MsMcdQNpp

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * > This parameter is not publicly available for use.
+   * 
    * @example
    * ENTERPRISE
    */
   bizType?: string;
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */
@@ -21,6 +27,13 @@ export class CreateGroupRequest extends $dara.Model {
    * TestGroup
    */
   description?: string;
+  /**
+   * @remarks
+   * The group name.
+   * 
+   * @example
+   * 开发组
+   */
   groupName?: string;
   /**
    * @remarks

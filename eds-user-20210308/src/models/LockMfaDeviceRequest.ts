@@ -8,10 +8,13 @@ export class LockMfaDeviceRequest extends $dara.Model {
    * The domain of the Active Directory (AD) workspace.
    * 
    * @example
-   * pg-jifenn.com
+   * upower.vip
    */
   adDomain?: string;
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */

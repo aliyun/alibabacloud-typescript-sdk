@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class LockUsersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The channel.
+   * 
    * @example
    * ENTERPRISE
    */
@@ -11,7 +14,7 @@ export class LockUsersRequest extends $dara.Model {
   logoutSession?: boolean;
   /**
    * @remarks
-   * The usernames of the convenience users that you want to lock.
+   * The usernames of the convenience accounts to lock.
    * 
    * This parameter is required.
    * 

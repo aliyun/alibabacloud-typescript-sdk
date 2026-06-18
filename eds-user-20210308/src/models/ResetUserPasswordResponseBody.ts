@@ -8,7 +8,7 @@ export class ResetUserPasswordResponseBodyResetUsersResultFailedUsers extends $d
    * The ID of the convenience user whose password failed to be reset.
    * 
    * @example
-   * test123
+   * alice
    */
   endUserId?: string;
   /**

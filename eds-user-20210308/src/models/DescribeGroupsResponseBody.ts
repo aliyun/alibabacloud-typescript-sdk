@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGroupsResponseBodyGroupsAttachedLoginPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the logon policy.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the logon policy.
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,15 +37,19 @@ export class DescribeGroupsResponseBodyGroupsAttachedLoginPolicy extends $dara.M
 }
 
 export class DescribeGroupsResponseBodyGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The logon policy attached to the user group.
+   */
   attachedLoginPolicy?: DescribeGroupsResponseBodyGroupsAttachedLoginPolicy;
   /**
    * @remarks
-   * The type of the resource assigned to the user group.
+   * A list of authorized resources.
    */
   authedResources?: { [key: string]: string };
   /**
    * @remarks
-   * The time when the user group is created.
+   * The time when the user group was created.
    * 
    * @example
    * 2025-08-07T13:40:40+08:00
@@ -52,6 +64,9 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the user group.
+   * 
    * @example
    * ug-2412ojkwtybd****
    */
@@ -66,7 +81,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Indicates whether the file approval feature is enabled.
+   * Indicates whether file transfer approval is enabled.
    * 
    * @example
    * false
@@ -74,7 +89,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   transferFileNeedApproval?: boolean;
   /**
    * @remarks
-   * The number of users in the user group.
+   * The number of members in the user group.
    * 
    * @example
    * 20
@@ -124,7 +139,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
 export class DescribeGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the entries returned.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -132,10 +147,13 @@ export class DescribeGroupsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The user groups.
+   * A list of user groups.
    */
   groups?: DescribeGroupsResponseBodyGroups[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

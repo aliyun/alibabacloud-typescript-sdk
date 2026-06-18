@@ -8,7 +8,7 @@ export class UnlockUsersResponseBodyUnlockUsersResultFailedUsers extends $dara.M
    * The ID of the convenience user that failed to be unlocked.
    * 
    * @example
-   * test123
+   * alice
    */
   endUserId?: string;
   /**

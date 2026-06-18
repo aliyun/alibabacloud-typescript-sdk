@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Alibaba Cloud account ID.
+   * 
    * @example
    * 131239236086****
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The enterprise ID.
+   * 
    * @example
    * cdrs948144195608****
    */
   corpId?: string;
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 2020-06-30 07:50:42
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The updated at time.
+   * 
    * @example
    * 2022-03-02 14:27:39
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Auto increment ID.
+   * 
    * @example
    * 18500
    */
   id?: number;
   /**
+   * @remarks
+   * The latest start time.
+   * 
    * @example
    * 2022-03-02 14:31:39
    */
   latestBeginTime?: string;
   /**
+   * @remarks
+   * The latest end time, regardless of whether the operation succeeded or failed.
+   * 
    * @example
    * 2022-03-02 16:13:12
    */
   latestEndTime?: string;
   /**
+   * @remarks
+   * The latest success time.
+   * 
    * @example
    * 2022-03-02 18:24:01
    */
   latestSuccessTime?: string;
   /**
+   * @remarks
+   * The user synchronization status.
+   * 
    * @example
    * success
    */
@@ -87,27 +114,46 @@ export class QuerySyncStatusByAliUidResponseBodyData extends $dara.Model {
 
 export class QuerySyncStatusByAliUidResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * System status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: QuerySyncStatusByAliUidResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned when the request fails.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * True
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetUserPropertyValueRequest extends $dara.Model {
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */
@@ -15,7 +18,7 @@ export class SetUserPropertyValueRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 390
+   * 240**
    */
   propertyId?: number;
   /**
@@ -25,7 +28,7 @@ export class SetUserPropertyValueRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 978
+   * 2251**
    */
   propertyValueId?: number;
   /**
@@ -35,7 +38,7 @@ export class SetUserPropertyValueRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 11
+   * 111****
    */
   userId?: number;
   /**
@@ -45,7 +48,7 @@ export class SetUserPropertyValueRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * alice
    */
   userName?: string;
   static names(): { [key: string]: string } {

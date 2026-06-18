@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeUserPasswordRequest extends $dara.Model {
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
   /**
+   * @remarks
+   * The username of the convenience account whose password is to be modified.
+   * 
    * @example
    * alice***
    */
   endUserId?: string;
   /**
+   * @remarks
+   * The new password for the user.
+   * 
    * @example
    * Admin@12***
    */

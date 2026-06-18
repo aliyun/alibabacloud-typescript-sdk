@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model {
   /**
    * @remarks
-   * The email address of the end user.
+   * The email address.
    * 
    * @example
    * username@example.com
@@ -13,7 +13,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model
   email?: string;
   /**
    * @remarks
-   * The name of the end user.
+   * The user name.
    * 
    * @example
    * test1
@@ -21,7 +21,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model
   endUserId?: string;
   /**
    * @remarks
-   * The mobile number of the end user.
+   * The phone number.
    * 
    * @example
    * 1381111****
@@ -29,7 +29,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model
   phone?: string;
   /**
    * @remarks
-   * The display name of the end user.
+   * The display name.
    * 
    * @example
    * Bean
@@ -37,7 +37,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model
   realNickName?: string;
   /**
    * @remarks
-   * The remarks of the end user.
+   * The user\\"s remark.
    * 
    * @example
    * remark1
@@ -75,7 +75,7 @@ export class CreateUsersResponseBodyCreateResultCreatedUsers extends $dara.Model
 export class CreateUsersResponseBodyCreateResultFailedUsers extends $dara.Model {
   /**
    * @remarks
-   * The email address of the end user.
+   * The email address.
    * 
    * @example
    * username2@example.com
@@ -83,7 +83,7 @@ export class CreateUsersResponseBodyCreateResultFailedUsers extends $dara.Model 
   email?: string;
   /**
    * @remarks
-   * The name of the end user.
+   * The user name.
    * 
    * @example
    * test2
@@ -91,7 +91,7 @@ export class CreateUsersResponseBodyCreateResultFailedUsers extends $dara.Model 
   endUserId?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * ExistedEndUserId
@@ -99,7 +99,7 @@ export class CreateUsersResponseBodyCreateResultFailedUsers extends $dara.Model 
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The username test is used by another user.
@@ -107,7 +107,7 @@ export class CreateUsersResponseBodyCreateResultFailedUsers extends $dara.Model 
   errorMessage?: string;
   /**
    * @remarks
-   * The mobile number of the end user.
+   * The phone number.
    * 
    * @example
    * 1390000****
@@ -145,12 +145,12 @@ export class CreateUsersResponseBodyCreateResultFailedUsers extends $dara.Model 
 export class CreateUsersResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * Details of the created convenience users.
+   * The convenience accounts that were successfully created.
    */
   createdUsers?: CreateUsersResponseBodyCreateResultCreatedUsers[];
   /**
    * @remarks
-   * Details of the convenience users that failed to be created.
+   * The convenience accounts that failed to be created.
    */
   failedUsers?: CreateUsersResponseBodyCreateResultFailedUsers[];
   static names(): { [key: string]: string } {
@@ -186,12 +186,12 @@ export class CreateUsersResponseBody extends $dara.Model {
   allSucceed?: boolean;
   /**
    * @remarks
-   * The result of user creation.
+   * The result of creating convenience accounts.
    */
   createResult?: CreateUsersResponseBodyCreateResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

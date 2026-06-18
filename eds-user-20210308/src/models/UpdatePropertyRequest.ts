@@ -44,6 +44,9 @@ export class UpdatePropertyRequestPropertyValues extends $dara.Model {
 
 export class UpdatePropertyRequest extends $dara.Model {
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */

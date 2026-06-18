@@ -12,6 +12,9 @@ export class DescribeGroupUserRequest extends $dara.Model {
    */
   bizType?: string;
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */

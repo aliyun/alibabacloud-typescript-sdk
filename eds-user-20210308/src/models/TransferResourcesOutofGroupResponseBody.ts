@@ -2,33 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateGroupResponseBody extends $dara.Model {
+export class TransferResourcesOutofGroupResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the user group.
-   * 
    * @example
-   * ug-eld7uv7vtgqsz****
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AA8D67CB-345D-5CDA-986E-FFAC7D0****
+   * D2B1DF9E-576B-5B91-BAF6-2C3DD1****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
       requestId: 'string',
     };
   }

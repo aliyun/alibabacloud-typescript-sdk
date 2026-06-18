@@ -3,15 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourceGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Aliyun resource group IDs.
+   */
   aliyunResourceGroupIds?: string[];
   /**
+   * @remarks
+   * The business channel.
+   * 
    * @example
    * ENTERPRISE
    */
   businessChannel?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 0
@@ -19,7 +26,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   needContainResourceGroupWithOfficeSite?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number.
    * 
    * @example
    * 1
@@ -27,7 +34,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return per page.
    * 
    * @example
    * 20
@@ -35,22 +42,26 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * >  Set the value to AliyunConsole.
-   * 
-   * *   This parameter is not publicly available on other platforms.
+   * > The cloud platform.
+   * >
+   * > - For Elastic Desktop Service (EDS) Enterprise Edition, this parameter must be set to AliyunConsole.
    * 
    * @example
    * AliyunConsole
    */
   platform?: string;
+  resourceClassification?: string;
   /**
    * @remarks
-   * The IDs of the resource groups that you want to query.
+   * A list of resource group IDs.
    */
   resourceGroupIds?: string[];
   /**
    * @remarks
    * The name of the resource group.
+   * 
+   * @example
+   * 部门A资源组
    */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
@@ -61,6 +72,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       platform: 'Platform',
+      resourceClassification: 'ResourceClassification',
       resourceGroupIds: 'ResourceGroupIds',
       resourceGroupName: 'ResourceGroupName',
     };
@@ -74,6 +86,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       platform: 'string',
+      resourceClassification: 'string',
       resourceGroupIds: { 'type': 'array', 'itemType': 'string' },
       resourceGroupName: 'string',
     };

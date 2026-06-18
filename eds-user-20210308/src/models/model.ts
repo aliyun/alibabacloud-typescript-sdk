@@ -55,6 +55,8 @@ export { RemoveUsersResponseBodyRemoveUsersResultFailedUsers } from './RemoveUse
 export { RemoveUsersResponseBodyRemoveUsersResult } from './RemoveUsersResponseBody';
 export { ResetUserPasswordResponseBodyResetUsersResultFailedUsers } from './ResetUserPasswordResponseBody';
 export { ResetUserPasswordResponseBodyResetUsersResult } from './ResetUserPasswordResponseBody';
+export { TransferResourcesIntoGroupRequestResources } from './TransferResourcesIntoGroupRequest';
+export { TransferResourcesOutofGroupRequestResources } from './TransferResourcesOutofGroupRequest';
 export { UnlockUsersResponseBodyUnlockUsersResultFailedUsers } from './UnlockUsersResponseBody';
 export { UnlockUsersResponseBodyUnlockUsersResult } from './UnlockUsersResponseBody';
 export { UpdatePropertyRequestPropertyValues } from './UpdatePropertyRequest';
@@ -187,6 +189,12 @@ export { SetUserPropertyValueResponseBody } from './SetUserPropertyValueResponse
 export { SetUserPropertyValueResponse } from './SetUserPropertyValueResponse';
 export { SyncAllEduInfoResponseBody } from './SyncAllEduInfoResponseBody';
 export { SyncAllEduInfoResponse } from './SyncAllEduInfoResponse';
+export { TransferResourcesIntoGroupRequest } from './TransferResourcesIntoGroupRequest';
+export { TransferResourcesIntoGroupResponseBody } from './TransferResourcesIntoGroupResponseBody';
+export { TransferResourcesIntoGroupResponse } from './TransferResourcesIntoGroupResponse';
+export { TransferResourcesOutofGroupRequest } from './TransferResourcesOutofGroupRequest';
+export { TransferResourcesOutofGroupResponseBody } from './TransferResourcesOutofGroupResponseBody';
+export { TransferResourcesOutofGroupResponse } from './TransferResourcesOutofGroupResponse';
 export { UnlockMfaDeviceRequest } from './UnlockMfaDeviceRequest';
 export { UnlockMfaDeviceResponseBody } from './UnlockMfaDeviceResponseBody';
 export { UnlockMfaDeviceResponse } from './UnlockMfaDeviceResponse';

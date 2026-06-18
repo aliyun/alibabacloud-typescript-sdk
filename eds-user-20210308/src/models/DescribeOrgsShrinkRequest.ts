@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOrgsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The channel.
+   * 
    * @example
    * ENTERPRISE
    */
@@ -11,8 +14,8 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
   includeOrgIds?: string[];
   /**
    * @remarks
-   * The maximum number of entries to return. Valid values: 1 to 100.\\
-   * Default value: 100.
+   * The maximum number of entries to return. Valid values: 1 to 100.<br>
+   * Default value: 100.<br>
    * 
    * @example
    * 20
@@ -20,7 +23,7 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the DescribeOrgs operation was called.
+   * The pagination token. To retrieve the next page of results, set this parameter to the `NextToken` value that was returned from a previous request.
    * 
    * @example
    * AAAAAV3MpHK****
@@ -28,10 +31,10 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The name of the organization.
+   * The organization name.
    * 
    * @example
-   * org****
+   * 产品部
    */
   orgName?: string;
   /**
@@ -39,7 +42,7 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
    * The parent organization ID.
    * 
    * @example
-   * org-****
+   * org-11fs****
    */
   parentOrgId?: string;
   showExtrasShrink?: string;

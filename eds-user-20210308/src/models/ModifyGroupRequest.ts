@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */
@@ -23,7 +26,7 @@ export class ModifyGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ug-12341234****
+   * ug-dzjax1ez5qgph****
    */
   groupId?: string;
   /**
@@ -31,6 +34,9 @@ export class ModifyGroupRequest extends $dara.Model {
    * The name of the new user group.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 开发组
    */
   newGroupName?: string;
   static names(): { [key: string]: string } {

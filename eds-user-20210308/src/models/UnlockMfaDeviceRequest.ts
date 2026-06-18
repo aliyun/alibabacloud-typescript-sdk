@@ -12,6 +12,9 @@ export class UnlockMfaDeviceRequest extends $dara.Model {
    */
   adDomain?: string;
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */

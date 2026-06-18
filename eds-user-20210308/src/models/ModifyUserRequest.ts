@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyUserRequest extends $dara.Model {
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */
@@ -23,7 +26,7 @@ export class ModifyUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Alice
+   * alice
    */
   endUserId?: string;
   /**

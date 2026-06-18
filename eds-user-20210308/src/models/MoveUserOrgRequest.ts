@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class MoveUserOrgRequest extends $dara.Model {
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * ENTERPRISE
    */
