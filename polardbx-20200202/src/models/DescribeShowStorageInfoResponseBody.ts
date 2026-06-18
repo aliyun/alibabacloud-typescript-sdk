@@ -4,46 +4,76 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeShowStorageInfoResponseBodyDataStorageInfos extends $dara.Model {
   /**
+   * @remarks
+   * The specification type (specification code) of the instance.
+   * 
    * @example
    * polar.mysql.x4.large
    */
   class?: string;
   /**
+   * @remarks
+   * The number of databases.
+   * 
    * @example
    * 3
    */
   dbCount?: number;
   /**
+   * @remarks
+   * Indicates whether the instance can be deleted.
+   * 
    * @example
    * True
    */
   deletable?: boolean;
   /**
+   * @remarks
+   * The number of node groups.
+   * 
    * @example
    * 12
    */
   groupCount?: number;
   /**
+   * @remarks
+   * The role type of the instance. Valid values:
+   * MASTER: primary instance.
+   * READONLY: read-only instance.
+   * STANDBY: standby instance (high-availability scenario).
+   * 
    * @example
    * MASTER
    */
   instKind?: string;
   /**
+   * @remarks
+   * Indicates whether the instance or cluster is currently in a healthy state.
+   * 
    * @example
    * true
    */
   isHealthy?: boolean;
   /**
+   * @remarks
+   * The identifier of the leader node.
+   * 
    * @example
    * 11.117.237.205:3029
    */
   leaderNode?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
    * @example
    * 0
    */
   status?: number;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-xdb-m-pxcbjrylg49skcxb17394
    */
@@ -86,6 +116,10 @@ export class DescribeShowStorageInfoResponseBodyDataStorageInfos extends $dara.M
 }
 
 export class DescribeShowStorageInfoResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of storage information.
+   */
   storageInfos?: DescribeShowStorageInfoResponseBodyDataStorageInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -113,10 +147,17 @@ export class DescribeShowStorageInfoResponseBodyData extends $dara.Model {
 
 export class DescribeShowStorageInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code of the request. This parameter is empty when the request is successful. When the request fails, exception information such as an error code is returned.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: DescribeShowStorageInfoResponseBodyData;
   /**
    * @remarks

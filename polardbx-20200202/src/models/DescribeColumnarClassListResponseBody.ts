@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeColumnarClassListResponseBodyDataClassCodeList extends $dara.Model {
   /**
+   * @remarks
+   * The instance specification.
+   * 
    * @example
    * polarx.n8.large.col
    */
   classCode?: string;
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 2
    */
   cpuCore?: string;
   /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
    * @example
    * 2048
    */
@@ -74,6 +83,10 @@ export class DescribeColumnarClassListResponseBodyData extends $dara.Model {
 }
 
 export class DescribeColumnarClassListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DescribeColumnarClassListResponseBodyData;
   /**
    * @remarks

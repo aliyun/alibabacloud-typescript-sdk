@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyAccountDescriptionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the account.
+   * 
+   * @example
+   * 测试账号
+   */
   accountDescription?: string;
   /**
    * @remarks
+   * The name of the instance account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,8 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +33,8 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateGdnInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 2209883
    */
@@ -30,8 +33,16 @@ export class CreateGdnInstanceResponseBodyData extends $dara.Model {
 }
 
 export class CreateGdnInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance details.
+   */
   data?: CreateGdnInstanceResponseBodyData;
   /**
+   * @remarks
+   * The returned message.
+   * > This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
+   * 
    * @example
    * ****
    */
@@ -45,6 +56,9 @@ export class CreateGdnInstanceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */

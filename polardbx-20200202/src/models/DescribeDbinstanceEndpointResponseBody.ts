@@ -158,6 +158,10 @@ export class DescribeDBInstanceEndpointResponseBodyDataItemsRealServer extends $
    * 3306
    */
   port?: string;
+  /**
+   * @example
+   * 节点id
+   */
   replicaId?: number;
   /**
    * @example
@@ -266,9 +270,6 @@ export class DescribeDBInstanceEndpointResponseBody extends $dara.Model {
    */
   nextToken?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * A501A191-BD70-5E50-98A9-C2A486A82****
    */

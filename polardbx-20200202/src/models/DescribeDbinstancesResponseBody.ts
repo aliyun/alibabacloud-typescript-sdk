@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $dara.Model {
   /**
+   * @remarks
+   * The instance specifications.
+   * 
    * @example
    * polarx.x4.large.2e
    */
   classCode?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * pxi-zd89wrzqh******
+   */
   id?: string;
   /**
    * **if can be null:**
@@ -15,11 +25,17 @@ export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $dara.Model
    */
   name?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou-g-aliyun
    */
   regionId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-g
    */
@@ -55,11 +71,17 @@ export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $dara.Model
 
 export class DescribeDBInstancesResponseBodyDBInstancesTagSet extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value1
    */
@@ -89,113 +111,238 @@ export class DescribeDBInstancesResponseBodyDBInstancesTagSet extends $dara.Mode
 
 export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   /**
+   * @remarks
+   * The name of the log node.
+   * 
    * @example
    * pxc-c-dmlgit****
    */
   cdcInstanceName?: string;
   /**
+   * @remarks
+   * The CN node specifications. Valid values:
+   * 
+   * - **polarx.x4.medium.2e**: 2 cores, 8 GB memory
+   * - **polarx.x4.large.2e**: 4 cores, 16 GB memory
+   * - **polarx.x8.large.2e**: 4 cores, 32 GB memory
+   * - **polarx.x4.xlarge.2e**: 8 cores, 32 GB memory
+   * - **polarx.x8.xlarge.2e**: 8 cores, 64 GB memory
+   * - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB memory
+   * - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB memory
+   * - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB memory
+   * - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB memory
+   * - **polarx.st.8xlarge.2e**: 60 cores, 470 GB memory
+   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB memory.
+   * 
    * @example
    * polarx.x4.large.2e
    */
   cnNodeClassCode?: string;
   /**
+   * @remarks
+   * The number of CN nodes.
+   * 
    * @example
    * 2
    */
   cnNodeCount?: number;
+  /**
+   * @remarks
+   * The name of the column store engine instance.
+   * 
+   * @example
+   * xxxxxxxx
+   */
   columnarInstanceName?: string;
+  /**
+   * @remarks
+   * The column store read-only instance information.
+   */
   columnarReadDBInstances?: string[];
   /**
+   * @remarks
+   * The commodity code.
+   * 
    * @example
    * drds_polarxpre_public_cn
    */
   commodityCode?: string;
   /**
+   * @remarks
+   * Indicates whether the instance contains the multi-stream log service. Valid values:
+   * 
+   * - **true**: The instance contains the multi-stream log service.
+   * - **false**: The instance does not contain the multi-stream log service.
+   * 
    * @example
    * true
    */
   containBinlogX?: boolean;
   cpuType?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-11-01T03:49:50.000+0000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The name of the database instance.
+   * 
    * @example
    * pxc-xxxxx
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The database type.
+   * 
    * @example
    * polarx
    */
   DBType?: string;
   /**
+   * @remarks
+   * The database version.
+   * 
    * @example
    * 5.7
    */
   DBVersion?: string;
+  /**
+   * @remarks
+   * The database description.
+   * 
+   * @example
+   * 测试
+   */
   description?: string;
   /**
+   * @remarks
+   * The DN node specifications. Valid values:
+   * - **mysql.n2.medium.25**: 2 cores, 4 GB memory
+   * - **mysql.n4.medium.25**: 2 cores, 8 GB memory
+   * - **mysql.x8.medium.25**: 2 cores, 16 GB memory
+   * - **mysql.n2.large.25**: 4 cores, 8 GB memory
+   * - **mysql.n4.large.25**: 4 cores, 16 GB memory
+   * - **mysql.x8.large.25**: 4 cores, 32 GB memory
+   * - **mysql.n2.xlarge.25**: 8 cores, 16 GB memory
+   * - **mysql.n4.xlarge.25**: 8 cores, 32 GB memory
+   * - **mysql.x8.xlarge.25**: 8 cores, 64 GB memory
+   * - **mysql.n4.2xlarge.25**: 16 cores, 64 GB memory
+   * - **mysql.x8.2xlarge.25**: 16 cores, 128 GB memory
+   * - **mysql.x4.4xlarge.25**: 32 cores, 128 GB memory
+   * - **mysql.x8.4xlarge.25**: 32 cores, 256 GB memory
+   * - **mysql.st.8xlarge.25**: 60 cores, 470 GB memory
+   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB memory.
+   * 
    * @example
    * mysql.n4.medium.25
    */
   dnNodeClassCode?: string;
   /**
+   * @remarks
+   * The number of DN nodes.
+   * 
    * @example
    * 2
    */
   dnNodeCount?: number;
   /**
+   * @remarks
+   * The engine type.
+   * 
    * @example
    * polarx
    */
   engine?: string;
   engineVersion?: string;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 2021-12-01T16:00:00.000+0000
    */
   expireTime?: string;
   /**
+   * @remarks
+   * Indicates whether the instance has expired.
+   * 
    * @example
    * false
    */
   expired?: boolean;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
-   * pxc-hzr2yeov9jmg3z
+   * pxc-hzr2yeov******
    */
   id?: string;
   /**
+   * @remarks
+   * Indicates whether the instance is locked.
+   * 
    * @example
    * Unlock
    */
   lockMode?: string;
+  /**
+   * @remarks
+   * The reason why the instance is locked.
+   * 
+   * @example
+   * 欠费
+   */
   lockReason?: string;
   /**
+   * @remarks
+   * The current Milvus version.
+   * 
    * @example
    * polarx-kernel_5.4.12-16349923_xcluster-20210926
    */
   minorVersion?: string;
   /**
+   * @remarks
+   * The network type.
+   * 
    * @example
    * VPC
    */
   network?: string;
   /**
+   * @remarks
+   * The node specifications.
+   * 
    * @example
    * polarx.x4.large.2e
    */
   nodeClass?: string;
   /**
+   * @remarks
+   * The number of nodes.
+   * 
    * @example
    * 5
    */
   nodeCount?: number;
+  /**
+   * @remarks
+   * The list of nodes.
+   */
   nodes?: DescribeDBInstancesResponseBodyDBInstancesNodes[];
   /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * - **Postpaid**: pay-as-you-go.
+   * - **Prepaid**: subscription.
+   * 
    * @example
    * Prepaid
    */
@@ -203,65 +350,115 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   primaryInstanceId?: string;
   /**
    * @remarks
-   * 主可用区。
+   * The primary zone.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-j
    */
   primaryZone?: string;
+  /**
+   * @remarks
+   * The list of read-only instances.
+   */
   readDBInstances?: string[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxxxxx
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * 次可用区。
+   * The secondary zone.
+   * 
+   * @example
+   * cn-hangzhou-l
    */
   secondaryZone?: string;
   /**
+   * @remarks
+   * The instance edition. Valid values:
+   * 
+   * - **enterprise**: Enterprise Edition.
+   * - **standard**: Standard Edition.
+   * 
    * @example
    * enterprise
    */
   series?: string;
   /**
+   * @remarks
+   * The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/339826.html).
+   * 
    * @example
    * Running
    */
   status?: string;
   storageType?: string;
   /**
+   * @remarks
+   * The storage usage.
+   * 
    * @example
    * 40658534400
    */
   storageUsed?: number;
   /**
+   * @remarks
+   * Indicates whether the instance supports multi-stream. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * true
    */
   supportBinlogX?: boolean;
+  /**
+   * @remarks
+   * The set of tags.
+   */
   tagSet?: DescribeDBInstancesResponseBodyDBInstancesTagSet[];
   /**
    * @remarks
-   * 第三可用区。
+   * The third zone in the three-zone deployment.
+   * 
+   * @example
+   * cn-hangzhou-k
    */
   tertiaryZone?: string;
   /**
    * @remarks
-   * 拓扑类型：
+   * The topology type. Valid values:
    * 
-   * - **3azones**：三可用区；
-   * - **1azone**：单可用区。
+   * - **3azones**: three-zone deployment.
+   * - **1azone**: single-zone deployment.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 3azones
    */
   topologyType?: string;
   /**
+   * @remarks
+   * The instance type. Valid values:
+   * 
+   * - **ReadWrite**: primary instance.
+   * - **ReadOnly**: read-only instance.
+   * 
    * @example
    * ReadWrite
    */
@@ -275,6 +472,9 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
    */
   VPCId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-g
    */
@@ -407,23 +607,39 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
 }
 
 export class DescribeDBInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of instances.
+   */
   DBInstances?: DescribeDBInstancesResponseBodyDBInstances[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C458B1E8-1683-3645-B154-6BA32080EEA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 30
    */

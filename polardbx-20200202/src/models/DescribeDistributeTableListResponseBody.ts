@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDistributeTableListResponseBodyDataTables extends $dara.Model {
   /**
+   * @remarks
+   * The data key.
+   * 
    * @example
    * id
    */
   dbKey?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * sbtest1
    */
   tableName?: string;
   /**
+   * @remarks
+   * The table type.
+   * 
    * @example
    * multi
    */
   tableType?: string;
   /**
+   * @remarks
+   * The table key.
+   * 
    * @example
    * “”
    */
@@ -51,6 +63,10 @@ export class DescribeDistributeTableListResponseBodyDataTables extends $dara.Mod
 }
 
 export class DescribeDistributeTableListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of tables.
+   */
   tables?: DescribeDistributeTableListResponseBodyDataTables[];
   static names(): { [key: string]: string } {
     return {
@@ -77,18 +93,31 @@ export class DescribeDistributeTableListResponseBodyData extends $dara.Model {
 }
 
 export class DescribeDistributeTableListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DescribeDistributeTableListResponseBodyData;
   /**
+   * @remarks
+   * The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C458B1E8-1683-3645-B154-6BA32080EEA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

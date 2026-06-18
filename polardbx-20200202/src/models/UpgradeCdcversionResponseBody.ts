@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpgradeCDCVersionResponseBodyDataTaskList extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rm-uf68f345****88zf8
    */
   dbInstanceName?: string;
   /**
+   * @remarks
+   * The target task ID.
+   * 
    * @example
    * 1861190497624654848
    */
@@ -38,10 +44,17 @@ export class UpgradeCDCVersionResponseBodyDataTaskList extends $dara.Model {
 
 export class UpgradeCDCVersionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The target version number.
+   * 
    * @example
    * polardb-2.4.0_5.4.19-20250116_xcluster5.4.20-20241213
    */
   minorVersion?: string;
+  /**
+   * @remarks
+   * The list of upgrade tasks.
+   */
   taskList?: UpgradeCDCVersionResponseBodyDataTaskList[];
   static names(): { [key: string]: string } {
     return {
@@ -70,8 +83,15 @@ export class UpgradeCDCVersionResponseBodyData extends $dara.Model {
 }
 
 export class UpgradeCDCVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: UpgradeCDCVersionResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
@@ -85,6 +105,9 @@ export class UpgradeCDCVersionResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */

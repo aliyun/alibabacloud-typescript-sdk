@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableCrossRegionsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   */
   regions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +33,15 @@ export class DescribeAvailableCrossRegionsResponseBodyData extends $dara.Model {
 }
 
 export class DescribeAvailableCrossRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter details.
+   */
   data?: DescribeAvailableCrossRegionsResponseBodyData[];
   /**
+   * @remarks
+   * The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+   * 
    * @example
    * *****
    */
@@ -44,6 +55,9 @@ export class DescribeAvailableCrossRegionsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

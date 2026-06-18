@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class MigrateDBInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Returns success if the request was successful, or an error code if the request failed.
+   * 
    * @example
    * *****
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

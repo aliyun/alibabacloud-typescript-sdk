@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBInstanceKernelVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class UpgradeDBInstanceKernelVersionRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The kernel version.
+   * 
    * @example
    * polarx-kernel_5.4.12-16349923_xcluster-20210926
    */
   minorVersion?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,12 @@ export class UpgradeDBInstanceKernelVersionRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The switch mode. Valid values:
+   * 
+   * - 0: immediately.
+   * - 1: during the O&M window.
+   * 
    * @example
    * 0
    */

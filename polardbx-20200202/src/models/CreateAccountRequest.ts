@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAccountRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the account.
+   * 
    * @example
    * test
    */
   accountDescription?: string;
   /**
    * @remarks
+   * The name of the account to be created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class CreateAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The password of the account to be created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,22 @@ export class CreateAccountRequest extends $dara.Model {
    */
   accountPassword?: string;
   /**
+   * @remarks
+   * The permissions to be granted to the new account on the specified database. Valid values:
+   * 
+   * - ReadWrite
+   * - ReadOnly
+   * - DMLOnly
+   * - DDLOnly.
+   * 
    * @example
    * ReadWrite
    */
   accountPrivilege?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,12 +55,17 @@ export class CreateAccountRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The name of the database to be authorized.
+   * 
    * @example
    * testdb
    */
   DBName?: string;
   /**
    * @remarks
+   * The region in which the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,11 +73,21 @@ export class CreateAccountRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the security administrator account.
+   * 
+   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
+   * 
    * @example
    * securityAccount
    */
   securityAccountName?: string;
   /**
+   * @remarks
+   * The password of the security administrator account.
+   * 
+   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
+   * 
    * @example
    * securityPassword
    */

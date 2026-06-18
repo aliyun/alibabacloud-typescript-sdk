@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfirmNoConnectionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The original task ID, used to match the response with the request.
+   * 
    * @example
    * etx-szr2rr6i*****
    */
@@ -30,18 +33,31 @@ export class ConfirmNoConnectionResponseBodyData extends $dara.Model {
 }
 
 export class ConfirmNoConnectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ConfirmNoConnectionResponseBodyData;
   /**
+   * @remarks
+   * The additional information returned. The value success is returned if the request is successful. Otherwise, an error code is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6BA32080EEA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

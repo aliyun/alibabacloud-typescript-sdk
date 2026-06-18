@@ -14,6 +14,9 @@ export class UpdateCustinsParamRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 数仓抽数地址
    */
   name?: string;
   /**

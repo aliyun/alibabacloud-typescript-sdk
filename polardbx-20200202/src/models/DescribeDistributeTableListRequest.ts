@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDistributeTableListRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeDistributeTableListRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DescribeDistributeTableListRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

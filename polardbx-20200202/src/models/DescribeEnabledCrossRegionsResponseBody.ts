@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEnabledCrossRegionsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether VPC is supported.
+   */
   regions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +33,15 @@ export class DescribeEnabledCrossRegionsResponseBodyData extends $dara.Model {
 }
 
 export class DescribeEnabledCrossRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter details.
+   */
   data?: DescribeEnabledCrossRegionsResponseBodyData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * *****
    */
@@ -44,6 +55,9 @@ export class DescribeEnabledCrossRegionsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

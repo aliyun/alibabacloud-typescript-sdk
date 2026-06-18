@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDBInstanceSSLRequest extends $dara.Model {
   /**
+   * @remarks
+   * The domain name bound to the certificate.
+   * 
    * @example
    * pxc-hzrqjarxdocd4t.polarx.rds.aliyuncs.com
    */
   certCommonName?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdateDBInstanceSSLRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * Specifies whether to enable SSL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class UpdateDBInstanceSSLRequest extends $dara.Model {
    */
   enableSSL?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

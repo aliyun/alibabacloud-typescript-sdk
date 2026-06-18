@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList extends $dara.Model {
   /**
+   * @remarks
+   * The delay time.
+   * 
    * @example
    * 58329
    */
   delay?: number;
   /**
+   * @remarks
+   * The most recent error message.
+   * 
    * @example
    * null
    */
   lastError?: string;
   /**
+   * @remarks
+   * The physical database name.
+   * 
    * @example
    * drds_test
    */
   physicalDbName?: string;
   /**
+   * @remarks
+   * The data import progress.
+   * 
    * @example
    * 0
    */
   progress?: number;
   /**
+   * @remarks
+   * The performance and runtime metrics collected during the execution of the data migration or import task.
+   * 
    * @example
    * {
    *   "applyCount": 0,
@@ -34,16 +49,25 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
    */
   statistics?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * fc3b1568-ad96-****-adca-dfe018b38077
    */
   taskId?: number;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * FULL_COPY
    */
@@ -85,17 +109,32 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
 
 export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList extends $dara.Model {
   /**
+   * @remarks
+   * The service detail ID.
+   * 
    * @example
    * 1991609
    */
   id?: number;
   /**
+   * @remarks
+   * The task execution status.
+   * 
    * @example
    * FINISHED
    */
   status?: string;
+  /**
+   * @remarks
+   * The task details.
+   */
   taskDetailList?: DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList[];
   /**
+   * @remarks
+   * Valid values:
+   * - FULL_COPY: full replication.
+   * - INC_COPY: incremental replication.
+   * 
    * @example
    * FULL_COPY
    */
@@ -132,20 +171,33 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
 
 export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfo extends $dara.Model {
   /**
+   * @remarks
+   * The progress ID.
+   * 
    * @example
    * 1
    */
   fsmId?: number;
   /**
+   * @remarks
+   * The state identifier in a data migration or synchronization task.
+   * 
    * @example
    * RECON_FINISHED_CATCH_UP
    */
   fsmState?: string;
   /**
+   * @remarks
+   * The status in a data migration, import, or synchronization system.
+   * 
    * @example
    * IMPORT_NOT_BEGIN
    */
   fsmStatus?: string;
+  /**
+   * @remarks
+   * The data import task details.
+   */
   serviceDetailList?: DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList[];
   static names(): { [key: string]: string } {
     return {
@@ -178,6 +230,10 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfo 
 }
 
 export class DescribeDataImportTaskInfoResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The task details.
+   */
   dataImportTaskDetailInfo?: DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfo;
   static names(): { [key: string]: string } {
     return {
@@ -205,22 +261,38 @@ export class DescribeDataImportTaskInfoResponseBodyData extends $dara.Model {
 
 export class DescribeDataImportTaskInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code. This parameter is empty when the request succeeds. When the request fails, an exception message such as an error code is returned.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned result set.
+   */
   data?: DescribeDataImportTaskInfoResponseBodyData;
   /**
+   * @remarks
+   * The returned message. This parameter has a value only when the task status is success. Otherwise, an empty value is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9B2F3840-5C98-****-B269-2D5C3A31797C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCustomEndpointResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint ID.
+   * 
    * @example
    * pxe-c4gkgqg****7sgyg
    */
   customEndpointId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-*********
    */
@@ -37,6 +43,10 @@ export class CreateCustomEndpointResponseBodyData extends $dara.Model {
 }
 
 export class CreateCustomEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateCustomEndpointResponseBodyData;
   /**
    * @remarks

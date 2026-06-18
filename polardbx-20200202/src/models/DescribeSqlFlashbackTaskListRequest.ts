@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlFlashbackTaskListRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the PolarDB-X instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeSqlFlashbackTaskListRequest extends $dara.Model {
   polardbxInstanceId?: string;
   /**
    * @remarks
+   * The region in which the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example

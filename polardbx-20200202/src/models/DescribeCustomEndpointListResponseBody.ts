@@ -9,51 +9,82 @@ export class DescribeCustomEndpointListResponseBodyDataEndpoints extends $dara.M
    */
   cnNames?: string[];
   /**
+   * @remarks
+   * The endpoint of the instance.
+   * 
    * @example
    * pxc-shra****zq0j01.polarx.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
+   * @remarks
+   * The ID of the custom endpoint.
+   * 
    * @example
    * pxe-b6e****o4pfap1s
    */
   customEndpointId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-hz****zoxherr7
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The name of the custom endpoint.
+   * 
    * @example
    * Name
    */
   name?: string;
   /**
+   * @remarks
+   * Indicates whether a node automatically joins the cluster and starts providing services after the node is added or recovered.
+   * 
    * @example
    * true
    */
   nodeAutoEnter?: string;
   /**
+   * @remarks
+   * To query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, set this parameter to **READONLY** and specify the **NodeId** parameter.
+   * >  In other cases, you do not need to specify this parameter or you can set it to **MASTER**.
+   * 
    * @example
    * same_azone_as_last
    */
   nodeRole?: string;
   /**
+   * @remarks
+   * The port used to connect to the instance.
+   * 
    * @example
    * 3306
    */
   port?: number;
   /**
+   * @remarks
+   * The status of the custom endpoint.
+   * 
    * @example
    * created
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
    * @example
    * vsw-8vbkw****5yh4nrd639ih
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) in which the endpoint resides.
+   * 
    * @example
    * vpc-uf61h****dj1zg5fqp5x7
    */
@@ -104,10 +135,17 @@ export class DescribeCustomEndpointListResponseBodyDataEndpoints extends $dara.M
 
 export class DescribeCustomEndpointListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the node can be deleted.
+   * 
    * @example
    * 0
    */
   canDeleteCount?: number;
+  /**
+   * @remarks
+   * The details of the endpoints.
+   */
   endpoints?: DescribeCustomEndpointListResponseBodyDataEndpoints[];
   static names(): { [key: string]: string } {
     return {
@@ -136,6 +174,10 @@ export class DescribeCustomEndpointListResponseBodyData extends $dara.Model {
 }
 
 export class DescribeCustomEndpointListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DescribeCustomEndpointListResponseBodyData;
   /**
    * @remarks

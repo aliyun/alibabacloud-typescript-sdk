@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCharacterSetResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The character sets supported by the instance. Valid values:
+   * 
+   * - utf8mb4
+   * - gbk
+   * - latin1
+   * - utf8.
+   */
   characterSet?: string[];
   /**
+   * @remarks
+   * The storage type of databases in the target instance. Currently, only polarx is supported.
+   * 
    * @example
    * polarx
    */
@@ -36,18 +48,31 @@ export class DescribeCharacterSetResponseBodyData extends $dara.Model {
 }
 
 export class DescribeCharacterSetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DescribeCharacterSetResponseBodyData;
   /**
+   * @remarks
+   * The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 709C1E40-092D-4A3D-9958-6D7438******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

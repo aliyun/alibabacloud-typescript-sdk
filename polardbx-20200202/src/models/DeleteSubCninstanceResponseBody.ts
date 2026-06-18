@@ -32,9 +32,6 @@ export class DeleteSubCNInstanceResponseBodyData extends $dara.Model {
 export class DeleteSubCNInstanceResponseBody extends $dara.Model {
   data?: DeleteSubCNInstanceResponseBodyData;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 1A586DCB-39A6-4050-81CC-C7BD4CCDB49F
    */

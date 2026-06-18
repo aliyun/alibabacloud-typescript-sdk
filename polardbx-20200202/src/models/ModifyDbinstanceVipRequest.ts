@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceVipRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class ModifyDBInstanceVipRequest extends $dara.Model {
   instanceClusterName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class ModifyDBInstanceVipRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The vSwitch ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +36,8 @@ export class ModifyDBInstanceVipRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
+   * The ID of the virtual private cloud (VPC) where the access endpoint resides.
+   * 
    * This parameter is required.
    * 
    * @example

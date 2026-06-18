@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeStructureImportTaskInfoResponseBodyDataStructureImportResult extends $dara.Model {
   /**
+   * @remarks
+   * The cause of the exception.
+   * 
    * @example
    * java.sql.SQLException: [1a7a5f22aa403000][10.239.190.4:3058][hash_realtime_new]ERR-CODE: [TDDL-5123][ERR_INSTANCE_READ_ONLY_OPTION_NOT_SUPPORT] server is running with the instance-read-only option so it cannot execute this statement
    */
   exceptionDetail?: string;
   /**
+   * @remarks
+   * The name of the table that encountered an exception.
+   * 
    * @example
    * hash_realtime_new.wm_in_job_et
    */
   exceptionFullTableName?: string;
   /**
+   * @remarks
+   * The number of completed records.
+   * 
    * @example
    * 118
    */
   finishedNum?: number;
   /**
+   * @remarks
+   * The current progress in percentage.
+   * 
    * @example
    * 100
    */
   percentage?: number;
   /**
+   * @remarks
+   * The import status.
+   * 
    * @example
    * finish
    */
   status?: string;
   /**
+   * @remarks
+   * The total number of results.
+   * 
    * @example
    * 1
    */
@@ -66,10 +84,17 @@ export class DescribeStructureImportTaskInfoResponseBodyDataStructureImportResul
 
 export class DescribeStructureImportTaskInfoResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The slink status.
+   * 
    * @example
    * STRUCTURE_IMPORT
    */
   slinkStage?: string;
+  /**
+   * @remarks
+   * The import result of the schema import task.
+   */
   structureImportResult?: DescribeStructureImportTaskInfoResponseBodyDataStructureImportResult;
   static names(): { [key: string]: string } {
     return {
@@ -98,18 +123,31 @@ export class DescribeStructureImportTaskInfoResponseBodyData extends $dara.Model
 }
 
 export class DescribeStructureImportTaskInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result set.
+   */
   data?: DescribeStructureImportTaskInfoResponseBodyData;
   /**
+   * @remarks
+   * The returned message. This parameter is empty if the request is successful. If the request fails, an error message is returned, such as an error code.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

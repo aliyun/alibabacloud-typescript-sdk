@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The event IDs, separated by commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CancelActiveOperationTasksRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

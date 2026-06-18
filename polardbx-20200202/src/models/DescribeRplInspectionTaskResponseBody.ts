@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRplInspectionTaskResponseBodyDataInspectionTaskList extends $dara.Model {
   /**
+   * @remarks
+   * The timestamp when the task was created.
+   * 
    * @example
    * 2025-09-25T02:36:20.000+0000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The description of the inspection task.
+   * 
    * @example
    * For database: wms ,Found SIMPLE sequences in 1.0. PolarDB-X 2.0 does not support SIMPLE sequence any more， please use show sequence to check them.
    */
   description?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 10142
    */
@@ -27,16 +36,25 @@ export class DescribeRplInspectionTaskResponseBodyDataInspectionTaskList extends
    */
   slinkTaskId?: string;
   /**
+   * @remarks
+   * The stage name.
+   * 
    * @example
    * CONNECTIVITY
    */
   stage?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * SUCCEEDED
    */
   status?: string;
   /**
+   * @remarks
+   * The timestamp of the most recent task update.
+   * 
    * @example
    * 2025-09-23T03:25:21.000+0000
    */
@@ -75,8 +93,15 @@ export class DescribeRplInspectionTaskResponseBodyDataInspectionTaskList extends
 }
 
 export class DescribeRplInspectionTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The machine task information.
+   */
   inspectionTaskList?: DescribeRplInspectionTaskResponseBodyDataInspectionTaskList[];
   /**
+   * @remarks
+   * The slink status.
+   * 
    * @example
    * PRE_CHECK
    */
@@ -108,18 +133,31 @@ export class DescribeRplInspectionTaskResponseBodyData extends $dara.Model {
 }
 
 export class DescribeRplInspectionTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The task details.
+   */
   data?: DescribeRplInspectionTaskResponseBodyData;
   /**
+   * @remarks
+   * The error message of the task.
+   * 
    * @example
    * *****
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

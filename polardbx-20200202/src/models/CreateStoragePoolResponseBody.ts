@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateStoragePoolResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */

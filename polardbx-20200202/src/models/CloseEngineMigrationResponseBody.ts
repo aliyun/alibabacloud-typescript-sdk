@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloseEngineMigrationResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-hzjasd****
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The backend task ID.
+   * 
    * @example
    * 2209883
    */
@@ -38,17 +44,30 @@ export class CloseEngineMigrationResponseBodyData extends $dara.Model {
 
 export class CloseEngineMigrationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The new endpoint information.
+   */
   data?: CloseEngineMigrationResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The error message. This parameter is empty if the request is successful.
+   * 
    * @example
    * *****
    */
@@ -62,6 +81,9 @@ export class CloseEngineMigrationResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

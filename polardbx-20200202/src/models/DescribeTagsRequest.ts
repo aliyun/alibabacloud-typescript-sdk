@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTagsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-xxx
    */
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class DescribeTagsRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * test
    */

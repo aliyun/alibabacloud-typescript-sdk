@@ -3,18 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeComponentPropetiesResponseBodyProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * 4核32G
+   */
   name?: string;
   /**
+   * @remarks
+   * The display order of the commodity module property.
+   * 
+   * The returned content varies depending on the commodity module.
+   * 
    * @example
    * 1
    */
   orderIndex?: string;
   /**
+   * @remarks
+   * The commodity module.
+   * 
    * @example
    * dn_node_spec
    */
   propertyCode?: string;
   /**
+   * @remarks
+   * The label value.
+   * 
    * @example
    * 172.27.35.
    */
@@ -47,6 +65,10 @@ export class DescribeComponentPropetiesResponseBodyProperties extends $dara.Mode
 }
 
 export class DescribeComponentPropetiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The export parameters of the exception event.
+   */
   properties?: DescribeComponentPropetiesResponseBodyProperties[];
   /**
    * @remarks

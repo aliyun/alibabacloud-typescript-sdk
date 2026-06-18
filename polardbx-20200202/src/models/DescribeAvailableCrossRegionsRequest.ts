@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAvailableCrossRegionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-hzjasd****
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The region in which the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */

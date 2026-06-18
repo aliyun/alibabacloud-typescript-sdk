@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpgradeColumnarVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The column store version.
+   * 
    * @example
    * polarx-col-kernel-5.4.20-20250819_17555906
    */
   columnarVersion?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-xxx
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-hzrh51fze****pon-cdc
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region in which the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The switch mode.
+   * 
    * @example
    * 0
    */

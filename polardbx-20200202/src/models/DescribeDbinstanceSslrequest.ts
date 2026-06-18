@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBInstanceSSLRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-*********
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The ID of the region where the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */

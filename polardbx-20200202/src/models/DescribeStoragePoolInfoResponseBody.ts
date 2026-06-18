@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.Model {
   /**
+   * @remarks
+   * The specification type of the instance (the specification code).
+   * 
    * @example
    * polar.mysql.x4.large
    */
   class?: string;
   /**
+   * @remarks
+   * The list of DN IDs.
+   * 
    * @example
    * [pxc-xdb-s-pxcbj****xxnwp0wac2c4\\",\\"pxc-xdb-s-pxcbjr3b8****p0wa1589\\"]
    */
@@ -22,31 +28,49 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
    */
   dnIdString?: string;
   /**
+   * @remarks
+   * The reserved field.
+   * 
    * @example
    * {\\"appId\\":\\"APP_ETLUP1E5FMI5ND5IFO8W\\"}
    */
   extra?: string;
   /**
+   * @remarks
+   * The time when the account was created.
+   * 
    * @example
    * 2025-08-27 23:19:52.0
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The time when the storage pool was last modified, in timestamp format.
+   * 
    * @example
    * 2025-09-02 16:52:47.0
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The list of idle DN IDs.
+   * 
    * @example
    * none
    */
   idleDNIdList?: string[];
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * test-cacheapi
    */
   name?: string;
   /**
+   * @remarks
+   * The DN that cannot be deleted.
+   * 
    * @example
    * pxc-xdb-s-hzr*****6j4se284344
    */
@@ -95,6 +119,10 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
 }
 
 export class DescribeStoragePoolInfoResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The storage pools.
+   */
   storagePools?: DescribeStoragePoolInfoResponseBodyDataStoragePools[];
   static names(): { [key: string]: string } {
     return {
@@ -122,10 +150,17 @@ export class DescribeStoragePoolInfoResponseBodyData extends $dara.Model {
 
 export class DescribeStoragePoolInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of instance details.
+   */
   data?: DescribeStoragePoolInfoResponseBodyData;
   /**
    * @remarks

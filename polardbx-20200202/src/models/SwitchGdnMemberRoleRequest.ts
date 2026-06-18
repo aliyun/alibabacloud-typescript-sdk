@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchGdnMemberRoleRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the primary instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,6 +18,8 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
   isModifyEndpoint?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,9 +30,22 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
   srcMainPort?: string;
   /**
    * @remarks
+   * The switchover mode.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 常规切换：switch_over
+   * 强制切换：fail_over
    */
   switchMode?: string;
+  /**
+   * @remarks
+   * The timeout period of the switchover task. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   taskTimeout?: number;
   static names(): { [key: string]: string } {
     return {

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpgradeDBInstanceKernelVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-hzjasd****
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
    */
   requestId?: string;
   /**
+   * @remarks
+   * The target version number.
+   * 
    * @example
    * polarx-kernel_5.4.7-16001481_xcluster-20200910
    */
   targetMinorVersion?: string;
   /**
+   * @remarks
+   * The backend task ID.
+   * 
    * @example
    * 422922413
    */

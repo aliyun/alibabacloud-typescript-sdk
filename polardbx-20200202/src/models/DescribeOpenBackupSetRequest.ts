@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOpenBackupSetRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class DescribeOpenBackupSetRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The point in time to which you want to restore the instance. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * 
    * @example
    * 2024-10-14T00:00:00Z
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The node type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   characterType?: string;
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,25 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * testdb
    */
   DBName?: string;
   /**
+   * @remarks
+   * The node ID. You can specify multiple node IDs separated by commas (`,`). This parameter is required when you query storage nodes.
+   * 
    * @example
    * pxc-i-mezcj4ejdz
    */
   DBNodeIds?: string;
   /**
    * @remarks
+   * The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,17 +50,27 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * Limit: A maximum of 100 entries can be returned at a time.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +79,8 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+   * 
    * This parameter is required.
    * 
    * @example

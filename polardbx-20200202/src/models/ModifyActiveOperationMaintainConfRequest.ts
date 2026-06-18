@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   /**
    * @remarks
+   * The day of the week. Valid values: 1 to 7.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   cycleTime?: string;
   /**
    * @remarks
+   * The cycle mode. Set this parameter to Week.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
+   * The end time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   maintainEndTime?: string;
   /**
    * @remarks
+   * The start time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   maintainStartTime?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +55,11 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * Specifies whether to enable the configuration. Valid values:
+   * 
+   * - **1**: Enabled.
+   * - **0**: Disabled.
+   * 
    * This parameter is required.
    * 
    * @example

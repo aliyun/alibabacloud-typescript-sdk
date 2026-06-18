@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   /**
    * @remarks
+   * The original connection string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The new port number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   newPort?: string;
   /**
    * @remarks
+   * The new connection string prefix.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   newPrefix?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

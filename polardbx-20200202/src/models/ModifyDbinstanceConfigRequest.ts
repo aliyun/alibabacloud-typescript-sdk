@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration item to modify. For more information, see [Compute layer variables](https://help.aliyun.com/document_detail/316576.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyDBInstanceConfigRequest extends $dara.Model {
   configName?: string;
   /**
    * @remarks
+   * If configName is set to ENABLE_CONSISTENT_REPLICA_READ, the valid values are "true" and "false".
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifyDBInstanceConfigRequest extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ModifyDBInstanceConfigRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

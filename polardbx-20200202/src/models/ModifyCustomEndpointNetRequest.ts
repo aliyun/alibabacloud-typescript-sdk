@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyCustomEndpointNetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The connection prefix.
+   * 
    * @example
    * pxc-****
    */
   connPrefix?: string;
   /**
    * @remarks
+   * The ID of the custom endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ModifyCustomEndpointNetRequest extends $dara.Model {
   customEndpointId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,21 +32,33 @@ export class ModifyCustomEndpointNetRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The public endpoint port.
+   * 
    * @example
    * 3306
    */
   port?: number;
   /**
+   * @remarks
+   * The region in which the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-*********
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) in which the endpoint resides.
+   * 
    * @example
    * vpc-bp1ndoug37dtwoedlmru0
    */

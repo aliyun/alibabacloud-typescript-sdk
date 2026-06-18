@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceViaEndpointRequest extends $dara.Model {
   /**
    * @remarks
+   * The endpoint of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,12 @@ export class DescribeDBInstanceViaEndpointRequest extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   static names(): { [key: string]: string } {

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateBackupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The backup type. Currently, only "0" is supported, which indicates fast backup.
+   * 
    * @example
    * 0
    */
   backupType?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class CreateBackupRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region where the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example

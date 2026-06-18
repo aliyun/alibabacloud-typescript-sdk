@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEventsResponseBodyEventItems extends $dara.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 50421290
    */
   eventId?: number;
   /**
+   * @remarks
+   * The event name.
+   * 
    * @example
    * ModifySecurityIps
    */
   eventName?: string;
   /**
+   * @remarks
+   * The supplementary information.
+   * 
    * @example
    * {\\"Domain\\": \\"rds-cn-hangzhou.aliyuncs.com\\"}
    */
   eventPayload?: string;
   /**
+   * @remarks
+   * The reason.
+   * 
    * @example
    * FROM_USER
    */
   eventReason?: string;
   /**
+   * @remarks
+   * The record time.
+   * 
    * @example
    * 2021-10-15T06:39:49Z
    */
   eventRecordTime?: string;
   /**
+   * @remarks
+   * The event time.
+   * 
    * @example
    * 2021-10-15T06:35:00Z
    */
   eventTime?: string;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * SecurityManagement
    */
   eventType?: string;
   /**
+   * @remarks
+   * The event user type.
+   * 
    * @example
    * USRE
    */
   eventUserType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource name.
+   * 
    * @example
    * px-bp1v8udesc89g156g
    */
   resourceName?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * instance
    */
@@ -100,23 +133,39 @@ export class DescribeEventsResponseBodyEventItems extends $dara.Model {
 }
 
 export class DescribeEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The event items.
+   */
   eventItems?: DescribeEventsResponseBodyEventItems[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4748127A-6D50-432C-B635-433467074C27
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 20
    */

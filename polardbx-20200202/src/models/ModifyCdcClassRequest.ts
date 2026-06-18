@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyCdcClassRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of CDC nodes.
+   * 
    * @example
    * 1
    */
   CDCNodeCount?: string;
   /**
    * @remarks
+   * The instance type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ModifyCdcClassRequest extends $dara.Model {
   cdcClass?: string;
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ModifyCdcClassRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +42,9 @@ export class ModifyCdcClassRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The switch mode.
+   * 
    * @example
    * 0
    */

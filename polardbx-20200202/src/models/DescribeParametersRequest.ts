@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParametersRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,20 @@ export class DescribeParametersRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The parameter level. Valid values:
+   * 
+   * - compute: compute layer
+   * - storage: storage layer.
+   * 
    * @example
    * compute
    */
   paramLevel?: string;
   /**
    * @remarks
+   * The region to which the instance belongs.
+   * 
    * This parameter is required.
    * 
    * @example

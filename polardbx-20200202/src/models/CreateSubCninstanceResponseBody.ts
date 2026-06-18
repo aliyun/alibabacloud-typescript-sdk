@@ -32,9 +32,6 @@ export class CreateSubCNInstanceResponseBodyData extends $dara.Model {
 export class CreateSubCNInstanceResponseBody extends $dara.Model {
   data?: CreateSubCNInstanceResponseBodyData;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * D6A4256F-7B83-5BD7-9AC0-72E1FAC05330
    */

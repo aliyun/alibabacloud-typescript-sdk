@@ -4,18 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeParameterTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-********
    */
   DBInstanceId?: string;
   engineVersion?: string;
   /**
+   * @remarks
+   * The parameter level. Valid values:
+   * 
+   * - **compute**: compute layer.
+   * - **storage**: storage layer.
+   * 
    * @example
    * compute
    */
   paramLevel?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

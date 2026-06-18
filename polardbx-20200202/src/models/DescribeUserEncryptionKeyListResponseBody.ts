@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUserEncryptionKeyListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The key list.
+   */
   keyIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +33,15 @@ export class DescribeUserEncryptionKeyListResponseBodyData extends $dara.Model {
 }
 
 export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeUserEncryptionKeyListResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
    */

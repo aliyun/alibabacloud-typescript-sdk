@@ -3,10 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PreCheckSqlFlashbackTaskResponseBodyDataCheckResult extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether valid binary log files exist. This value is used to determine whether operations such as flashback and synchronization can be performed.
+   */
   binlogExists?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the recording of original SQL query events is enabled. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
+   */
   binlogRowQueryEventEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the upgrade can succeed.
+   */
   canUpgradeSupportBinlogRowQueryEvents?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the table exists. Valid values: true and false.
+   */
   hasTable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether log recording is supported. Valid values:
+   * - **true**: Supported.
+   * - **false**: Not supported.
+   */
   supportBinlogRowQueryEvents?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38,6 +62,10 @@ export class PreCheckSqlFlashbackTaskResponseBodyDataCheckResult extends $dara.M
 }
 
 export class PreCheckSqlFlashbackTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The check result.
+   */
   checkResult?: PreCheckSqlFlashbackTaskResponseBodyDataCheckResult;
   static names(): { [key: string]: string } {
     return {
@@ -64,18 +92,31 @@ export class PreCheckSqlFlashbackTaskResponseBodyData extends $dara.Model {
 }
 
 export class PreCheckSqlFlashbackTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result set.
+   */
   data?: PreCheckSqlFlashbackTaskResponseBodyData;
   /**
+   * @remarks
+   * The response message. This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+   * 
    * @example
    * successs
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 14036EBE-***-44DB-ACE9-AC6157D3A6FC
    */
   requestId?: string;
   /**
+   * @remarks
+   * The request result.
+   * 
    * @example
    * true
    */

@@ -4,41 +4,67 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRdsVswitchesResponseBodyDataVswitchList extends $dara.Model {
   /**
+   * @remarks
+   * The number of available IP addresses.
+   * 
    * @example
    * 16378
    */
   availabeIpCount?: string;
   /**
+   * @remarks
+   * The CIDR block of the VPC.
+   * 
    * @example
    * 172.16.0.0/24
    */
   cidrBlock?: string;
   /**
+   * @remarks
+   * The description of the database.
+   * 
    * @example
    * describe
    */
   description?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * babac91eff704edf9bdccfaa6ba4efce
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * drdshbgae0han226
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the VPC is the default VPC. Valid values:
+   * - **true**: The VPC is the default VPC.
+   * - **false**: The VPC is not the default VPC.
+   * 
    * @example
    * true
    */
   isDefault?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-j
    */
   izNo?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * szt-backup
    */
@@ -89,6 +115,10 @@ export class DescribeRdsVswitchesResponseBodyDataVswitchList extends $dara.Model
 }
 
 export class DescribeRdsVswitchesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The vSwitch list.
+   */
   vswitchList?: DescribeRdsVswitchesResponseBodyDataVswitchList[];
   static names(): { [key: string]: string } {
     return {
@@ -115,6 +145,10 @@ export class DescribeRdsVswitchesResponseBodyData extends $dara.Model {
 }
 
 export class DescribeRdsVswitchesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DescribeRdsVswitchesResponseBodyData;
   /**
    * @remarks

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAccountPrivilegeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Returns success if the request is successful. Otherwise, returns the corresponding error code.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 73559800-3c8c-11ec-bd40-99cfcff3fe1e
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

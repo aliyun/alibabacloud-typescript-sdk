@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataImportTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The import task ID.
+   * 
    * @example
    * etx-szr2rr6i*****
    */
@@ -30,18 +33,31 @@ export class CreateDataImportTaskResponseBodyData extends $dara.Model {
 }
 
 export class CreateDataImportTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: CreateDataImportTaskResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * *****
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 173CA69A-3513-591D-8A09-C1EA37CBE2D9
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

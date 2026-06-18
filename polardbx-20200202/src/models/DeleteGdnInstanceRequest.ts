@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGdnInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the GDN instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteGdnInstanceRequest extends $dara.Model {
    */
   gdnInstanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

@@ -4,22 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePolarxDataNodesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of nodes to query. Valid values:
+   * - all: queries both dn and gms nodes.
+   * - gms: queries only gms nodes.
+   * - dn: queries only dn nodes.
+   * 
    * @example
    * dn
    */
   nodeType?: string;
   /**
+   * @remarks
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the integer data type. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region in which the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +41,9 @@ export class DescribePolarxDataNodesRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The keyword for filtering query results.
+   * 
    * @example
    * pc-bp1c5w4fx****2274
    */

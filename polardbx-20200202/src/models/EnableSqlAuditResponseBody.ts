@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableSqlAuditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DC3ABA3E-0F8A-4596-9104-F5167C******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

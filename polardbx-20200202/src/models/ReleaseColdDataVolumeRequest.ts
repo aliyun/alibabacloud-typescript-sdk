@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseColdDataVolumeRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ReleaseColdDataVolumeRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region in which the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example

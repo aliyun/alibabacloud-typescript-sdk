@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitSqlFlashbackTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 1111
    */
@@ -30,18 +33,31 @@ export class SubmitSqlFlashbackTaskResponseBodyData extends $dara.Model {
 }
 
 export class SubmitSqlFlashbackTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned by the request.
+   */
   data?: SubmitSqlFlashbackTaskResponseBodyData;
   /**
+   * @remarks
+   * The description of the request result.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API request was successful.
+   * 
    * @example
    * true
    */

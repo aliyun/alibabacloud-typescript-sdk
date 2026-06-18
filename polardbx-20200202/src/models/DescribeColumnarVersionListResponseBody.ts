@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeColumnarVersionListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The version list.
+   */
   versionList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +33,10 @@ export class DescribeColumnarVersionListResponseBodyData extends $dara.Model {
 }
 
 export class DescribeColumnarVersionListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter details.
+   */
   data?: DescribeColumnarVersionListResponseBodyData;
   /**
    * @remarks

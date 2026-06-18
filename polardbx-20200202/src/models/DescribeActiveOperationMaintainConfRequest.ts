@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationMaintainConfRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

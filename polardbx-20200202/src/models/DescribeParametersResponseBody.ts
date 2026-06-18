@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParametersResponseBodyDataConfigParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter description.
+   * 
+   * @example
+   * 存储节点私有协议开关(-1关闭，0开启)
+   */
   parameterDescription?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * CONN_POOL_XPROTO_STORAGE_DB_PORT
    */
   parameterName?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * -1
    */
@@ -40,13 +53,26 @@ export class DescribeParametersResponseBodyDataConfigParameters extends $dara.Mo
 }
 
 export class DescribeParametersResponseBodyDataRunningParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter description.
+   * 
+   * @example
+   * 存储节点私有协议开关(-1关闭，0开启)
+   */
   parameterDescription?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * CONN_POOL_XPROTO_STORAGE_DB_PORT
    */
   parameterName?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * -1
    */
@@ -77,18 +103,32 @@ export class DescribeParametersResponseBodyDataRunningParameters extends $dara.M
 }
 
 export class DescribeParametersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of original parameters.
+   */
   configParameters?: DescribeParametersResponseBodyDataConfigParameters[];
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The engine. Default value: polarx.
+   * 
    * @example
    * polarx
    */
   engine?: string;
   /**
+   * @remarks
+   * The DPI engine version. Default value: 2.0.
+   * 
    * @example
    * 2.0
    */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The list of running parameter details.
+   */
   runningParameters?: DescribeParametersResponseBodyDataRunningParameters[];
   static names(): { [key: string]: string } {
     return {
@@ -126,8 +166,15 @@ export class DescribeParametersResponseBodyData extends $dara.Model {
 }
 
 export class DescribeParametersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter details.
+   */
   data?: DescribeParametersResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6BA32080EEA
    */

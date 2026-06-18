@@ -4,12 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeGdnInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The message filter type.
+   * 
    * @example
    * gdn_id、
    * polarx_id
    */
   filterType?: string;
   /**
+   * @remarks
+   * The filter value for querying resources.
+   * 
+   * This parameter is used together with FilterKey.
+   * 
    * @example
    * gdn-***、
    * pxc-***
@@ -17,23 +25,32 @@ export class DescribeGdnInstancesRequest extends $dara.Model {
   filterValue?: string;
   /**
    * @remarks
-   * GDN ID。
+   * The GDN ID.
    * 
    * @example
    * gdn-***
    */
   GDNId?: string;
   /**
+   * @remarks
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
+   * 
    * @example
    * 50
    */
   pageNum?: string;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 30
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

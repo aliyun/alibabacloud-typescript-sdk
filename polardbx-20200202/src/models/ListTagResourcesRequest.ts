@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The label key.
+   * 
    * @example
    * 1
    */
   key?: string;
   /**
+   * @remarks
+   * The label value.
+   * 
    * @example
    * 2
    */
@@ -38,27 +44,42 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 
 export class ListTagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The token for the next query. If this parameter is empty, no more results exist.
+   * 
    * @example
    * xxdds
    */
   nextToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs. You can specify up to 50 subkeys.
+   */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type. Set this parameter to PolarDBXInstance.
+   * 
    * This parameter is required.
    * 
    * @example
    * PolarDBXInstance
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of labels. You can specify up to 20 subkeys.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {

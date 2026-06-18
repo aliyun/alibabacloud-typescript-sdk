@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SwitchGdnMemberRoleResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 2209883
    */
@@ -30,8 +33,15 @@ export class SwitchGdnMemberRoleResponseBodyData extends $dara.Model {
 }
 
 export class SwitchGdnMemberRoleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: SwitchGdnMemberRoleResponseBodyData;
   /**
+   * @remarks
+   * The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+   * 
    * @example
    * success
    */
@@ -45,6 +55,9 @@ export class SwitchGdnMemberRoleResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

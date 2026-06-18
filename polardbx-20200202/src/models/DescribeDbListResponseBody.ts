@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDbListResponseBodyDataAccounts extends $dara.Model {
   /**
+   * @remarks
+   * The account name.
+   * 
    * @example
    * root4test
    */
   accountName?: string;
   /**
+   * @remarks
+   * The account privilege.
+   * 
    * @example
    * ReadWrite
    */
@@ -37,23 +43,39 @@ export class DescribeDbListResponseBodyDataAccounts extends $dara.Model {
 }
 
 export class DescribeDbListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of accounts.
+   */
   accounts?: DescribeDbListResponseBodyDataAccounts[];
   /**
+   * @remarks
+   * The character set.
+   * 
    * @example
    * utf8mb4
    */
   characterSetName?: string;
   /**
+   * @remarks
+   * The database description.
+   * 
    * @example
    * test
    */
   DBDescription?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-********
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * test
    */
@@ -91,18 +113,31 @@ export class DescribeDbListResponseBodyData extends $dara.Model {
 }
 
 export class DescribeDbListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of databases.
+   */
   data?: DescribeDbListResponseBodyData[];
   /**
+   * @remarks
+   * The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C458B1E8-1683-3645-B154-6BA32080EEA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTransformStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-xxx
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The verification report.
+   * 
    * @example
    * true
    */
   queryReport?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

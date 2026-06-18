@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes extends $dara.Model {
   /**
+   * @remarks
+   * The zone in which the instance resides.
+   * 
    * @example
    * cn-hangzhou-h
    */
   AZone?: string;
   /**
+   * @remarks
+   * The disk size. Unit: MB.
+   * 
    * @example
    * 204800
    */
   disk?: number;
   /**
+   * @remarks
+   * The instance specifications.
+   * 
    * @example
    * polarx.x4.large.2e.cdc
    */
   nodeClass?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * ***
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The name of the node.
+   * 
    * @example
    * pxc-c-***
    */
   nodeName?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
    * @example
    * ACTIVATION
    */
   status?: string;
   /**
+   * @remarks
+   * The instance version.
+   * 
    * @example
    * polarx-cdc-kernel-***
    */
@@ -73,32 +94,54 @@ export class DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes ex
 
 export class DescribeCdcInfoResponseBodyDataInstanceTopologyList extends $dara.Model {
   /**
+   * @remarks
+   * The cluster type.
+   * 
    * @example
    * BINLOG_X
    */
   clusterType?: string;
   /**
+   * @remarks
+   * The remarks on the instance type.
+   * 
    * @example
    * ***
    */
   comment?: string;
   /**
+   * @remarks
+   * The name of the multi-stream group.
+   * 
    * @example
    * test
    */
   groupName?: string;
   /**
+   * @remarks
+   * The split level.
+   * 
    * @example
    * RECORD
    */
   hashLevel?: string;
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * pxc-***
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The array of nodes.
+   */
   physicalNodes?: DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes[];
   /**
+   * @remarks
+   * The number of splits.
+   * 
    * @example
    * 2
    */
@@ -141,12 +184,17 @@ export class DescribeCdcInfoResponseBodyDataInstanceTopologyList extends $dara.M
 
 export class DescribeCdcInfoResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of days that binlogs are retained.
+   * 
    * @example
    * 15
    */
   binlogPersistTime?: number;
   /**
    * @remarks
+   * The size of the binlog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -155,6 +203,8 @@ export class DescribeCdcInfoResponseBodyData extends $dara.Model {
   binlogSize?: number;
   /**
    * @remarks
+   * The latest CDC version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -162,15 +212,25 @@ export class DescribeCdcInfoResponseBodyData extends $dara.Model {
    */
   cdcNewVersion?: string;
   /**
+   * @remarks
+   * The checksum switch status.
+   * 
    * @example
    * ON
    */
   checkSumSwitch?: string;
   /**
+   * @remarks
+   * Indicates whether bidirectional replication is supported.
+   * 
    * @example
    * true
    */
   enableCyclicReplication?: boolean;
+  /**
+   * @remarks
+   * The list of instances.
+   */
   instanceTopologyList?: DescribeCdcInfoResponseBodyDataInstanceTopologyList[];
   /**
    * @remarks
@@ -183,6 +243,9 @@ export class DescribeCdcInfoResponseBodyData extends $dara.Model {
    */
   serverId?: number;
   /**
+   * @remarks
+   * Indicates whether multi-stream CDC is supported.
+   * 
    * @example
    * true
    */
@@ -226,9 +289,15 @@ export class DescribeCdcInfoResponseBodyData extends $dara.Model {
 }
 
 export class DescribeCdcInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance data.
+   */
   data?: DescribeCdcInfoResponseBodyData;
   /**
    * @remarks
+   * The HTTP status code of the request.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -245,6 +314,8 @@ export class DescribeCdcInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
+   * Indicates whether the request was successful.
+   * 
    * This parameter is required.
    * 
    * @example

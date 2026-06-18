@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSecurityIpsResponseBodyDataGroupItems extends $dara.Model {
   /**
+   * @remarks
+   * The name of the whitelist group.
+   * 
    * @example
    * defaultGroup
    */
   groupName?: string;
   /**
+   * @remarks
+   * The details of the whitelist in the group.
+   * 
    * @example
    * 127.0.0.1,172.168.0.0
    */
@@ -38,10 +44,17 @@ export class DescribeSecurityIpsResponseBodyDataGroupItems extends $dara.Model {
 
 export class DescribeSecurityIpsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * pxc-hzjasd****
    */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The list of whitelist groups.
+   */
   groupItems?: DescribeSecurityIpsResponseBodyDataGroupItems[];
   static names(): { [key: string]: string } {
     return {
@@ -70,18 +83,31 @@ export class DescribeSecurityIpsResponseBodyData extends $dara.Model {
 }
 
 export class DescribeSecurityIpsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeSecurityIpsResponseBodyData;
   /**
+   * @remarks
+   * The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 14036EBE-CF2E-44DB-ACE9-AC6157D3A6FC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

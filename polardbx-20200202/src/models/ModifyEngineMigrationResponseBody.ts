@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyEngineMigrationResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-*********
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 42292****
    */
@@ -38,17 +44,30 @@ export class ModifyEngineMigrationResponseBodyData extends $dara.Model {
 
 export class ModifyEngineMigrationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ModifyEngineMigrationResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The additional information. The value success is returned if the request succeeds. Otherwise, an error code is returned.
+   * 
    * @example
    * Success
    */
@@ -62,6 +81,9 @@ export class ModifyEngineMigrationResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTagsResponseBodyTagInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The list of database instances associated with the tag.
+   */
   DBInstanceIds?: string[];
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * testKey
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * testValue
    */
@@ -51,6 +61,10 @@ export class DescribeTagsResponseBody extends $dara.Model {
    * requestid
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of tag information.
+   */
   tagInfos?: DescribeTagsResponseBodyTagInfos[];
   static names(): { [key: string]: string } {
     return {

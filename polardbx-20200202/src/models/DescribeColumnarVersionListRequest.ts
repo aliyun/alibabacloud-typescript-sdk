@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeColumnarVersionListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * pxc-hzjasd****
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The region in which the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */

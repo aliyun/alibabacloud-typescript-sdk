@@ -83,18 +83,31 @@ export class DescribeBackupPolicyResponseBodyData extends $dara.Model {
 }
 
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response body.
+   */
   data?: DescribeBackupPolicyResponseBodyData;
   /**
+   * @remarks
+   * The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B87E2AB3-B7C9-4394-9160-7F639F732031
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateStructureImportTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Slink task ID.
+   * 
    * @example
    * etx-szr2rr6i*****
    */
@@ -30,18 +33,31 @@ export class CreateStructureImportTaskResponseBodyData extends $dara.Model {
 }
 
 export class CreateStructureImportTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: CreateStructureImportTaskResponseBodyData;
   /**
+   * @remarks
+   * The response message. > This parameter is empty if the request is successful. If the request fails, an exception message is returned, such as an error code.
+   * 
    * @example
    * *****
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 73559800-3c8c-****-bd40-99cfcff3fe1e
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

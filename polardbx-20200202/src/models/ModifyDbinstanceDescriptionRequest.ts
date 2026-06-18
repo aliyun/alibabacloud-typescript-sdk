@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceDescriptionRequest extends $dara.Model {
   /**
    * @remarks
+   * The description of the instance.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 测试实例
    */
   DBInstanceDescription?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class ModifyDBInstanceDescriptionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

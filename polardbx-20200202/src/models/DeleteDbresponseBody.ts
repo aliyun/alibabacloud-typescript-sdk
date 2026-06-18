@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDBResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Empty if the request is successful. An error message is returned if the request fails.
+   * 
    * @example
    * *****
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9B2F3840-5C98-475C-B269-2D5C3A31797C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

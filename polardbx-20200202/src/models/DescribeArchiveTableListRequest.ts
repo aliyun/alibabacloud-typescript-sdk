@@ -10,6 +10,8 @@ export class DescribeArchiveTableListRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The page number. Pages start from 1.
+   * 
    * This parameter is required.
    */
   pageIndex?: number;

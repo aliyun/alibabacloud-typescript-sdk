@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PreCheckSqlFlashbackTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The database name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class PreCheckSqlFlashbackTaskRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
+   * The end time of the flashback SQL execution.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class PreCheckSqlFlashbackTaskRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class PreCheckSqlFlashbackTaskRequest extends $dara.Model {
   polardbxInstanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class PreCheckSqlFlashbackTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The start time of the flashback SQL execution.
+   * 
    * This parameter is required.
    * 
    * @example

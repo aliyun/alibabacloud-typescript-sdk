@@ -117,27 +117,42 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 200
    */
   errorCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   regions?: DescribeRegionsResponseBodyRegions;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C458B1E8-1683-3645-B154-6BA32080EEA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseInstancePublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The connection string of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ReleaseInstancePublicConnectionRequest extends $dara.Model {
   currentConnectionString?: string;
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class ReleaseInstancePublicConnectionRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

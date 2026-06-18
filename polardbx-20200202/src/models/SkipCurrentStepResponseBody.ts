@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SkipCurrentStepResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Slink task ID.
+   * 
    * @example
    * etx-szr2rr6i*****
    */
@@ -30,8 +33,15 @@ export class SkipCurrentStepResponseBodyData extends $dara.Model {
 }
 
 export class SkipCurrentStepResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: SkipCurrentStepResponseBodyData;
   /**
+   * @remarks
+   * The return message. This parameter is empty when the request succeeds. When the request fails, exception information such as error codes is returned.
+   * 
    * @example
    * *****
    */
@@ -45,6 +55,9 @@ export class SkipCurrentStepResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * True
    */

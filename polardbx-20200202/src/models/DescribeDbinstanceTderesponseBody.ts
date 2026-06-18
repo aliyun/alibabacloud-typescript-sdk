@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBInstanceTDEResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether TDE is enabled. Valid values:
+   * 
+   * - 0: TDE is disabled.
+   * - 1: TDE is enabled.
+   * 
    * @example
    * 0
    */
@@ -30,8 +36,15 @@ export class DescribeDBInstanceTDEResponseBodyData extends $dara.Model {
 }
 
 export class DescribeDBInstanceTDEResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DescribeDBInstanceTDEResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C458B1E8-1683-3645-B154-6BA32080EEA
    */

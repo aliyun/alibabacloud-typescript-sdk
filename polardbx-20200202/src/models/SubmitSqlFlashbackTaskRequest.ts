@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
+   * The end time for executing the flashback SQL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The instance ID of the PolarDB-X instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,11 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   polardbxInstanceId?: string;
   /**
    * @remarks
+   * The restoration type. Valid values:
+   * 
+   * - **1**: Image-based restoration.
+   * - **0**: Reverse restoration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +47,12 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
    */
   recallRestoreType?: string;
   /**
+   * @remarks
+   * The matching mode. Valid values:
+   * 
+   * - **0**: exact match.
+   * - **1**: fuzzy match.
+   * 
    * @example
    * 0
    * 
@@ -45,6 +62,8 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   recallType?: string;
   /**
    * @remarks
+   * The region where the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +71,9 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The primary key of the flashback SQL.
+   * 
    * @example
    * 1111
    * 
@@ -60,6 +82,9 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
    */
   sqlPk?: string;
   /**
+   * @remarks
+   * The type of SQL. Valid values: INSERT, UPDATE, and DELETE. Separate multiple types with commas (,).
+   * 
    * @example
    * INSERT,UPDATE
    * 
@@ -69,6 +94,8 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
+   * The start time for executing the flashback SQL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -76,6 +103,9 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The name of the table on which the flashback SQL operation is performed.
+   * 
    * @example
    * test
    * 
@@ -84,6 +114,9 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
    */
   tableName?: string;
   /**
+   * @remarks
+   * The trace ID of the flashback SQL.
+   * 
    * @example
    * ase*****
    * 

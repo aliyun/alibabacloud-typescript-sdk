@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdcVersionListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the associated legacy project. You can ignore this parameter.
+   */
   versionList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +33,10 @@ export class DescribeCdcVersionListResponseBodyData extends $dara.Model {
 }
 
 export class DescribeCdcVersionListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DescribeCdcVersionListResponseBodyData;
   /**
    * @remarks

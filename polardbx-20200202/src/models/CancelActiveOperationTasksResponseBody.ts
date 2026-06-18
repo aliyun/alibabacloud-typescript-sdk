@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelActiveOperationTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The event IDs, separated by commas.
+   * 
    * @example
    * 111,1223
    */
   ids?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AE4F6C34-065F-45AA-B5DC-4B8D816F6305
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDBInstanceSSLResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The backend task ID.
+   * 
    * @example
    * 2209883
    */
@@ -30,8 +33,15 @@ export class UpdateDBInstanceSSLResponseBodyData extends $dara.Model {
 }
 
 export class UpdateDBInstanceSSLResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned by the request.
+   */
   data?: UpdateDBInstanceSSLResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
    */

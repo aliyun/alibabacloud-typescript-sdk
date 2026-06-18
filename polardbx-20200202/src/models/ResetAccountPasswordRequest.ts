@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAccountPasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The password of the account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,11 +44,17 @@ export class ResetAccountPasswordRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the security administrator account.
+   * 
    * @example
    * account_sec
    */
   securityAccountName?: string;
   /**
+   * @remarks
+   * The password of the security administrator account.
+   * 
    * @example
    * *****
    */

@@ -26,6 +26,10 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
    * pxc-***
    */
   cloneInstanceName?: string;
+  /**
+   * @example
+   * 4核32G
+   */
   cnClass?: string;
   /**
    * @example
@@ -37,6 +41,10 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
    * go-to-the-docks-for-french-fries
    */
   description?: string;
+  /**
+   * @example
+   * 4核32G
+   */
   dnClass?: string;
   /**
    * @remarks
@@ -124,9 +132,6 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
    */
   usedTime?: number;
   /**
-   * @remarks
-   * VPC ID。
-   * 
    * @example
    * vpc-*****
    */

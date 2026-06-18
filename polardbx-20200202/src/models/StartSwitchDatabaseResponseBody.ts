@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartSwitchDatabaseResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the slink task.
+   * 
    * @example
    * etx-szr2rr6i*****
    */
@@ -30,8 +33,15 @@ export class StartSwitchDatabaseResponseBodyData extends $dara.Model {
 }
 
 export class StartSwitchDatabaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The monitoring data.
+   */
   data?: StartSwitchDatabaseResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * *****
    */
@@ -45,6 +55,9 @@ export class StartSwitchDatabaseResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

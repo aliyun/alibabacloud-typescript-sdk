@@ -168,9 +168,6 @@ export class RestoreDBInstanceRequest extends $dara.Model {
    */
   usedTime?: number;
   /**
-   * @remarks
-   * VPC ID。
-   * 
    * @example
    * vpc-*****
    */

@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEvaluateAndImportTasksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 0
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * 
    * This parameter is required.
    * 
    * @example

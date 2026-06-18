@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStructureImportTaskInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The region in which the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeStructureImportTaskInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the destination task.
+   * 
    * This parameter is required.
    * 
    * @example

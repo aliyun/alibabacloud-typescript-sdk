@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeTasksRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The end time of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,13 +26,25 @@ export class DescribeTasksRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 30
    */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 5 to 1000.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +55,8 @@ export class DescribeTasksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The start time of the task.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AllocateColdDataVolumeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D6A4256F-7B83-5BD7-9AC0-72E1FAC05330
    */

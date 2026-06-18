@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBInstanceMaintainTimeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique token.
+   * 
    * @example
    * 73559800-3c8c-11ec-bd40-99cfcff3fe1e
    */
   clientToken?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,14 +23,18 @@ export class ModifyDBInstanceMaintainTimeRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The maintenance window in UTC. Valid values: 00:00Z-23:59Z.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 19:00Z-20:00Z
+   * 21:00Z-00:00Z
    */
   maintainTime?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

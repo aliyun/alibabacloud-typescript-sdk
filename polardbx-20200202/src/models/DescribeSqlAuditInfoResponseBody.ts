@@ -4,18 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSqlAuditInfoResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the SQL audit feature is enabled.
+   * 
    * @example
    * true
    */
   isEnabled?: boolean;
   /**
+   * @remarks
+   * The name of the Simple Log Service Logstore.
+   * 
    * @example
    * polardbx-sqlaudit-log
    */
   SLSLogStore?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service project.
+   * 
    * @example
-   * polardbx-sqlaudit-cn-hangzhou-123456789
+   * polardbx-sqlaudit-cn-hangzhou-1852045029120897
    */
   SLSProject?: string;
   static names(): { [key: string]: string } {
@@ -44,8 +53,15 @@ export class DescribeSqlAuditInfoResponseBodyData extends $dara.Model {
 }
 
 export class DescribeSqlAuditInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result set.
+   */
   data?: DescribeSqlAuditInfoResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DC3ABA3E-0F8A-4596-9104-F5155C******
    */

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableRightsSeparationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the audit account.
+   * 
    * @example
    * test123
    */
   auditAccountDescription?: string;
   /**
    * @remarks
+   * The name of the audit account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class EnableRightsSeparationRequest extends $dara.Model {
   auditAccountName?: string;
   /**
    * @remarks
+   * The password of the audit account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class EnableRightsSeparationRequest extends $dara.Model {
   auditAccountPassword?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class EnableRightsSeparationRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,12 +52,17 @@ export class EnableRightsSeparationRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The description of the security administrator account.
+   * 
    * @example
    * test123
    */
   securityAccountDescription?: string;
   /**
    * @remarks
+   * The name of the security administrator account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +71,8 @@ export class EnableRightsSeparationRequest extends $dara.Model {
   securityAccountName?: string;
   /**
    * @remarks
+   * The password of the security administrator account.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountPrivilegeRequest extends $dara.Model {
   /**
    * @remarks
+   * The account name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,22 @@ export class ModifyAccountPrivilegeRequest extends $dara.Model {
    */
   accountName?: string;
   /**
+   * @remarks
+   * The account permissions. Valid values:
+   * 
+   * - **ReadWrite**
+   * - **ReadOnly**
+   * - **DMLOnly**
+   * - **DDLOnly**.
+   * 
    * @example
    * ReadWrite
    */
   accountPrivilege?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +37,17 @@ export class ModifyAccountPrivilegeRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * sbtest
    */
   dbName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,11 +55,17 @@ export class ModifyAccountPrivilegeRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the security administrator account.
+   * 
    * @example
    * account_audit
    */
   securityAccountName?: string;
   /**
+   * @remarks
+   * The password of the security administrator account.
+   * 
    * @example
    * *****
    */

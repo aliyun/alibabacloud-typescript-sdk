@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustomEndpointRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the custom endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyCustomEndpointRequest extends $dara.Model {
   customEndpointId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,29 +24,41 @@ export class ModifyCustomEndpointRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The name of the custom endpoint.
+   * 
    * @example
    * secondary-endpoint
    */
   name?: string;
   /**
+   * @remarks
+   * Specifies whether a node automatically joins the cluster and starts providing services after it is added or recovered.
+   * 
    * @example
    * true
    */
   nodeAutoEnter?: boolean;
   /**
    * @remarks
-   * node ids
+   * The node IDs.
    * 
    * @example
    * node3
    */
   nodeIds?: string;
   /**
+   * @remarks
+   * The role of the node.
+   * 
    * @example
    * master
    */
   nodeRole?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-zhangjiakou
    */

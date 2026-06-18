@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteEvaluateAndImportTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the task is deleted.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The returned message. > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+   * 
    * @example
    * msg
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 14036EBE-***-44DB-ACE9-AC6157D3A6FC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

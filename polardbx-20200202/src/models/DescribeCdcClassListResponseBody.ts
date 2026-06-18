@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCdcClassListResponseBodyDataClassCodeList extends $dara.Model {
   /**
+   * @remarks
+   * The instance specification.
+   * 
    * @example
    * polarx.n2.small.2e.cdc
    */
   classCode?: string;
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 2
    */
   cpuCore?: string;
   /**
+   * @remarks
+   * The total memory size of the tenant. Unit: GB.
+   * 
    * @example
    * 2048
    */
@@ -74,6 +83,10 @@ export class DescribeCdcClassListResponseBodyData extends $dara.Model {
 }
 
 export class DescribeCdcClassListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DescribeCdcClassListResponseBodyData;
   /**
    * @remarks

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteGdnInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 2209883
    */
@@ -30,8 +33,16 @@ export class DeleteGdnInstanceResponseBodyData extends $dara.Model {
 }
 
 export class DeleteGdnInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DeleteGdnInstanceResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+   * 
    * @example
    * ****
    */
@@ -45,6 +56,9 @@ export class DeleteGdnInstanceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

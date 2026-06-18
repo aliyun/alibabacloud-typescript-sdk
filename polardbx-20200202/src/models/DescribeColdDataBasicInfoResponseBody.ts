@@ -3,14 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeColdDataBasicInfoResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of backup sets.
+   */
   backupSetCount?: number;
+  /**
+   * @remarks
+   * The data size of valid backup sets.
+   */
   backupSetSpaceSize?: number;
+  /**
+   * @remarks
+   * The underlying storage cloud service.
+   */
   cloudProduct?: string;
+  /**
+   * @remarks
+   * The data size of cold storage.
+   */
   currentSpaceSize?: number;
   dataRedundancyType?: string;
+  /**
+   * @remarks
+   * Indicates whether cold storage is enabled.
+   */
   enableStatus?: boolean;
   readAccessNum?: number;
   regionId?: string;
+  /**
+   * @remarks
+   * The storage volume name.
+   */
   volumeName?: string;
   writeAccessNum?: number;
   static names(): { [key: string]: string } {
@@ -53,7 +77,15 @@ export class DescribeColdDataBasicInfoResponseBodyData extends $dara.Model {
 }
 
 export class DescribeColdDataBasicInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details.
+   */
   data?: DescribeColdDataBasicInfoResponseBodyData;
+  /**
+   * @remarks
+   * requestId
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

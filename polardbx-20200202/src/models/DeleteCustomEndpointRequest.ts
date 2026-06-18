@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCustomEndpointRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the custom endpoint domain name.
+   * 
    * @example
    * pxe-8if3zrfsu****hgw
    */
   customEndpointId?: string;
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * pxc-hzravgpt8q****
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The region in which the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRdsVpcsRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID of the instance. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-beijing-h
    */

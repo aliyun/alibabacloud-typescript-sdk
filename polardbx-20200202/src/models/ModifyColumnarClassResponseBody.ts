@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyColumnarClassResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ******
    */
@@ -30,6 +33,10 @@ export class ModifyColumnarClassResponseBodyData extends $dara.Model {
 }
 
 export class ModifyColumnarClassResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The policy details returned.
+   */
   data?: ModifyColumnarClassResponseBodyData;
   /**
    * @remarks

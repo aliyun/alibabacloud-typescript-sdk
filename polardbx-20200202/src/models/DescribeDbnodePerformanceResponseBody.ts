@@ -117,22 +117,34 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeys extends $dara.
 
 export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-********
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The end of the time range to query. The time is in the YYYY-MM-ddTHH:mm:ssZ format (UTC).
+   * 
    * @example
    * 2021-10-20T02:00Z
    */
   endTime?: string;
   performanceKeys?: DescribeDBNodePerformanceResponseBodyPerformanceKeys;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EFB5E10B-5268-170F-A378-9AF86CCEACC8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. The time is in the YYYY-MM-ddTHH:mm:ssZ format (UTC).
+   * 
    * @example
    * 2021-10-20T00:00Z
    */

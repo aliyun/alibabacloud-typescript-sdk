@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyCdcClassResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 2209883
    */
@@ -30,6 +33,10 @@ export class ModifyCdcClassResponseBodyData extends $dara.Model {
 }
 
 export class ModifyCdcClassResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: ModifyCdcClassResponseBodyData;
   /**
    * @remarks

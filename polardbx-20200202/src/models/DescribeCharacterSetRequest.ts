@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCharacterSetRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeCharacterSetRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The ID of the region where the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example

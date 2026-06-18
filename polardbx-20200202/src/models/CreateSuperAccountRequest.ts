@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSuperAccountRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the account.
+   * 
    * @example
    * testdbadescription
    */
   accountDescription?: string;
   /**
    * @remarks
+   * The name of the account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class CreateSuperAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The password of the account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class CreateSuperAccountRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class CreateSuperAccountRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

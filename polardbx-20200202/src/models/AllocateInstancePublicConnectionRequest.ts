@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The prefix of the public endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   connectionStringPrefix?: string;
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +32,8 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The port of the public endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +41,9 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
    */
   port?: string;
   /**
+   * @remarks
+   * The region in which the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The connection string.
+   * 
    * @example
    * test2.polarx.huhehaote.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-unrf5ssig0ecg8
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The network type of the connection string.
+   * 
    * @example
    * 1
    */
   DBInstanceNetType?: string;
   /**
+   * @remarks
+   * The port number.
+   * 
    * @example
    * 3300
    */
@@ -52,17 +64,30 @@ export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Mode
 
 export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The new connection string information.
+   */
   data?: ModifyDBInstanceConnectionStringResponseBodyData;
   /**
+   * @remarks
+   * The response message. This is typically an error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. It is a unique identifier.
+   * 
    * @example
    * c3cf535c-a585-11ea-8263-00163e04d3a7
    */

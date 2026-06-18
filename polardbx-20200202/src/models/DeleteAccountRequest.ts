@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the account to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteAccountRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region in which the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,11 +34,21 @@ export class DeleteAccountRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the security administrator account.
+   * 
+   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, you do not need to specify this parameter.
+   * 
    * @example
    * securityAccount
    */
   securityAccountName?: string;
   /**
+   * @remarks
+   * The password of the security administrator account.
+   * 
+   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, you do not need to specify this parameter.
+   * 
    * @example
    * securityPassword
    */

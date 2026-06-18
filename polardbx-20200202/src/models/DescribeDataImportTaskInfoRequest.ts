@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDataImportTaskInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number of failed records.
+   * 
    * @example
    * 1
    */
   failPageNumber?: number;
   /**
+   * @remarks
+   * The number of failed records to display per page.
+   * 
    * @example
    * 10
    */
   failPageSize?: number;
   /**
    * @remarks
+   * The region where the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class DescribeDataImportTaskInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,11 +40,17 @@ export class DescribeDataImportTaskInfoRequest extends $dara.Model {
    */
   slinkTaskId?: string;
   /**
+   * @remarks
+   * The page number of successful records.
+   * 
    * @example
    * 1
    */
   successPageNumber?: number;
   /**
+   * @remarks
+   * The number of successful records to display per page.
+   * 
    * @example
    * 15
    */

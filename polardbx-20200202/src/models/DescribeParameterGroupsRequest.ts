@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeParameterGroupsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region where the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */

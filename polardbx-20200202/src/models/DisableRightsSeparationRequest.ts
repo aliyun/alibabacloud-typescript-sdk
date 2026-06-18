@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisableRightsSeparationRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the database instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DisableRightsSeparationRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The name of the DBA account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DisableRightsSeparationRequest extends $dara.Model {
   dbaAccountName?: string;
   /**
    * @remarks
+   * The password of the DBA account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DisableRightsSeparationRequest extends $dara.Model {
   dbaAccountPassword?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

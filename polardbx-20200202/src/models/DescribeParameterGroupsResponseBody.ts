@@ -3,54 +3,96 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether a forced restart of CN is required.
+   */
   cnForceRestart?: boolean;
   /**
+   * @remarks
+   * The number of CN parameters.
+   * 
    * @example
    * 10
    */
   cnParamCount?: number;
   /**
+   * @remarks
+   * The database type.
+   * 
    * @example
    * polarx
    */
   dbType?: string;
   /**
+   * @remarks
+   * The database engine version.
+   * 
    * @example
    * 5.7
    */
   dbVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether a forced restart of DN is required.
+   */
   dnForceRestart?: boolean;
   /**
+   * @remarks
+   * The number of DN parameters.
+   * 
    * @example
    * 10
    */
   dnParamCount?: number;
   /**
+   * @remarks
+   * The time when the account was created.
+   * 
    * @example
    * 2024-12-19T16:41:31+08:00
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The modification time, in timestamp format.
+   * 
    * @example
    * 1605079985000
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The parameter template ID.
+   * > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the details of all parameter templates in the specified region, including the parameter template ID.
+   * 
    * @example
    * rpg-s1y1xy06****fqs7y
    */
   parameterGroupId?: string;
   /**
+   * @remarks
+   * The parameter template name.
+   * 
    * @example
    * dstest_api_new
    */
   parameterGroupName?: string;
   /**
+   * @remarks
+   * The parameter templatetype.
+   * 
    * @example
    * 0
    */
   parameterGroupType?: string;
   /**
+   * @remarks
+   * The instance edition. Valid values:
+   * 
+   * - **enterprise**: Enterprise Edition.
+   * - **standard**: Standard Edition.
+   * 
    * @example
    * enterprise
    */
@@ -99,8 +141,15 @@ export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dar
 }
 
 export class DescribeParameterGroupsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter template name.
+   */
   parameterGroups?: DescribeParameterGroupsResponseBodyDataParameterGroups[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1E5DCFFC-A00D-****-836E-73318F8CA577
    */
@@ -132,6 +181,10 @@ export class DescribeParameterGroupsResponseBodyData extends $dara.Model {
 }
 
 export class DescribeParameterGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance details.
+   */
   data?: DescribeParameterGroupsResponseBodyData;
   /**
    * @remarks

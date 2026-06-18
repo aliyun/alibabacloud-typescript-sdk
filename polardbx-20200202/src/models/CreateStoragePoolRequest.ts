@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStoragePoolRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateStoragePoolRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,16 +24,25 @@ export class CreateStoragePoolRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxxxx
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The list of storage pool DNs.
+   * 
    * @example
    * node6
    */
   storagePoolDNList?: string;
   /**
+   * @remarks
+   * The name of the storage pool.
+   * 
    * @example
    * test
    */
