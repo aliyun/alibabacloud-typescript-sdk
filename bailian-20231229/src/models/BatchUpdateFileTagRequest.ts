@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUpdateFileTagRequestFileInfos extends $dara.Model {
   /**
    * @remarks
+   * The file ID. To get this ID, go to the <props="china">[application data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[application data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page and click the ID icon next to the file name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BatchUpdateFileTagRequestFileInfos extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
+   * - A list of up to 100 tags to associate with the file. The total length of all tags cannot exceed 700 characters.
+   * 
    * This parameter is required.
    */
   tags?: string[];
@@ -45,10 +49,15 @@ export class BatchUpdateFileTagRequestFileInfos extends $dara.Model {
 export class BatchUpdateFileTagRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of files to update.
+   * 
    * This parameter is required.
    */
   fileInfos?: BatchUpdateFileTagRequestFileInfos[];
   /**
+   * @remarks
+   * The update mode. Valid values are APPEND and OVERWRITE.
+   * 
    * @example
    * OVERWRITE
    */

@@ -42,9 +42,6 @@ export class DeleteConnectorResponseBody extends $dara.Model {
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 1C139002-0EC5-584C-A755-4B8B9FA080BE
    */

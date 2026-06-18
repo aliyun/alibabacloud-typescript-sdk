@@ -8,8 +8,7 @@ export class GetParseSettingsResponseBodyDataParserConfig extends $dara.Model {
    * The model name.
    * 
    * @example
-   * - qwen-vl-max
-   * - qwen-vl-plus
+   * qwen-vl-max
    */
   modelName?: string;
   /**
@@ -17,11 +16,10 @@ export class GetParseSettingsResponseBodyDataParserConfig extends $dara.Model {
    * The prompt used for parsing.
    * 
    * @example
-   * # Role  
-   * You are a professional image content annotator, skilled in identifying and describing the contents of images.  
-   * 
-   * # Task Objective  
-   * Based on the input image, provide a detailed description of its contents.
+   * #角色
+   * 你是一个专业的图片内容标注人员，擅长识别并描述出图片中的内容。
+   * # 任务目标
+   * 请结合输入图片，详细描述图片中的内容。
    */
   modelPrompt?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +77,7 @@ export class GetParseSettingsResponseBodyData extends $dara.Model {
    * The display name of the parsing method.
    * 
    * @example
-   * Digital parsing
+   * 电子文档解析
    */
   parserDisplayName?: string;
   static names(): { [key: string]: string } {

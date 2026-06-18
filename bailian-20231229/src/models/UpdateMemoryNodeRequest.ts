@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMemoryNodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The memory fragment content.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 用户喜欢吃西红柿炒鸡蛋
    */
   content?: string;
   static names(): { [key: string]: string } {

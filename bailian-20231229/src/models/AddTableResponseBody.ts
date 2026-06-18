@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddTableResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The table ID.
+   * 
    * @example
    * table_b6ddc67e7df14db38b74ef5e2e0fe24e_12792097
    */
@@ -31,12 +34,22 @@ export class AddTableResponseBodyData extends $dara.Model {
 
 export class AddTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Index.Forbidden
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: AddTableResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
@@ -50,11 +63,20 @@ export class AddTableResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code returned by the operation.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - true: Succeeded.
+   * - false: Failed.
+   * 
    * @example
    * True
    */

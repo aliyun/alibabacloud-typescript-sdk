@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class AddFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The primary key ID of the document. We recommend that you store the ID because it is required for all subsequent API operations related to this document.
+   * The ID of the file. Save this ID for use in subsequent API calls involving this file.
    * 
    * @example
-   * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
+   * file_9a65732555b54d5ea10796ca5742ba22_xxxxxxxx
    */
   fileId?: string;
   /**
    * @remarks
-   * The parser that is used to parse the document. Valid value:
+   * The parser that was used for the file. A possible value is:
    * 
-   * *   DASHSCOPE_DOCMIND: Intelligent document parsing by Alibaba Cloud.
+   * - `DASHSCOPE_DOCMIND`: Alibaba Cloud Document Intelligence
    * 
    * @example
    * DASHSCOPE_DOCMIND
@@ -47,7 +47,7 @@ export class AddFileResponseBodyData extends $dara.Model {
 export class AddFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The error code.
    * 
    * @example
    * DataCenter.FileTooLarge
@@ -55,7 +55,7 @@ export class AddFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data fields.
+   * The data returned for the request.
    */
   data?: AddFileResponseBodyData;
   /**
@@ -76,7 +76,7 @@ export class AddFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -84,10 +84,11 @@ export class AddFileResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indications whether the call is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The call was successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true

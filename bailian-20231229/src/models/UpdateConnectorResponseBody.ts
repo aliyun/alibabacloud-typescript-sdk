@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateConnectorResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the connector.
+   * 
    * @example
    * conn_file_e0c9db4030b2465a9478028f7d76cd92_1234
    */
@@ -31,30 +34,46 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
 
 export class UpdateConnectorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Index.Forbidden
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned by the operation.
+   */
   data?: UpdateConnectorResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 778C0B3B-03C1-5FC1-A947-36EDD13606AB
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code of the response.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

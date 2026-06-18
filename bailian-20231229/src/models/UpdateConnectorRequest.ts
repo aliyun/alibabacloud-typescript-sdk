@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConnectorRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the connector.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateConnectorRequest extends $dara.Model {
   connectorName?: string;
   /**
    * @remarks
+   * A description of the connector.
+   * 
    * This parameter is required.
    * 
    * @example

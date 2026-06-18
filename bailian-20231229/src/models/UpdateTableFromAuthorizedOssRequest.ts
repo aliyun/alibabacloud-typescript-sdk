@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTableFromAuthorizedOssRequest extends $dara.Model {
   /**
    * @remarks
+   * Name of the OSS bucket. For details, see [bucket](https://help.aliyun.com/document_detail/177682.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateTableFromAuthorizedOssRequest extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
+   * Object key of the file in the OSS bucket. For details, see [object naming](https://help.aliyun.com/document_detail/273129.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateTableFromAuthorizedOssRequest extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
+   * Region ID of the OSS bucket. For details, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class UpdateTableFromAuthorizedOssRequest extends $dara.Model {
   ossRegionId?: string;
   /**
    * @remarks
+   * Update mode. Valid values: APPEND and OVERWRITE.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddTableRequestTableColumns extends $dara.Model {
   /**
+   * @remarks
+   * The column description.
+   * 
    * @example
    * desc
    */
   columnDesc?: string;
   /**
    * @remarks
+   * The column name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class AddTableRequestTableColumns extends $dara.Model {
   columnName?: string;
   /**
    * @remarks
+   * The data type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +59,8 @@ export class AddTableRequestTableColumns extends $dara.Model {
 export class AddTableRequest extends $dara.Model {
   /**
    * @remarks
+   * The connector ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,11 +69,16 @@ export class AddTableRequest extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
+   * The column information of the table.
+   * 
    * This parameter is required.
    */
   tableColumns?: AddTableRequestTableColumns[];
+  tableDesc?: string;
   /**
    * @remarks
+   * The table name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,6 +89,7 @@ export class AddTableRequest extends $dara.Model {
     return {
       connectorId: 'ConnectorId',
       tableColumns: 'TableColumns',
+      tableDesc: 'TableDesc',
       tableName: 'TableName',
     };
   }
@@ -83,6 +98,7 @@ export class AddTableRequest extends $dara.Model {
     return {
       connectorId: 'string',
       tableColumns: { 'type': 'array', 'itemType': AddTableRequestTableColumns },
+      tableDesc: 'string',
       tableName: 'string',
     };
   }

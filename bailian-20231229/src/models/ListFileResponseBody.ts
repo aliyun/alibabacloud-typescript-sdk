@@ -4,48 +4,79 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFileResponseBodyDataFileList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the category to which the file belongs.
+   * 
    * @example
-   * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
+   * cate_cdd11b1b79a74e8bbd675c356a91ee35xxxxxxxx
    */
   categoryId?: string;
   /**
+   * @remarks
+   * The timestamp when the file was added to Alibaba Cloud Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
+   * 
    * @example
-   * 2023-08-18 11:03:35
+   * 2024-09-09 11:03:35
    */
   createTime?: string;
   /**
    * @remarks
-   * The document ID, which is the `FileId` parameter returned by the [AddFile](~~AddFile~~) operation. To view the ID, click the icon next to the file name on the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page.
+   * The file ID, which is the `FileId` returned by the **AddFile** operation. You can also obtain it on the <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page by clicking the icon next to the file name.
    * 
    * @example
-   * file_5ff599b3455a45db8c41b0054b361518_10098576
+   * file_5ff599b3455a45db8c41b0054b361518_xxxxxxxx
    */
   fileId?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
-   * auto-test-1721096109278.pdf
+   * product-overview.pdf
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
+   * 
    * @example
    * docx
    */
   fileType?: string;
+  parseErrorMessage?: string;
   /**
+   * @remarks
+   * The document parser. Valid values:
+   * - DASHSCOPE_DOCMIND: Alibaba Cloud intelligent document parsing.
+   * 
    * @example
    * DASHSCOPE_DOCMIND
    */
   parser?: string;
   /**
+   * @remarks
+   * The file size in bytes.
+   * 
    * @example
    * 512
    */
   sizeInBytes?: number;
   /**
+   * @remarks
+   * The file parsing status. Valid values:
+   * - INIT: Initialization state, waiting to be scheduled.
+   * - PARSING: Parsing in progress.
+   * - PARSE_SUCCESS: Parsing completed.
+   * - PARSE_FAILED: Parsing failed.
+   * 
    * @example
-   * 200
+   * PARSE_SUCCESS
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of tags associated with the file. A document can be associated with multiple tags.
+   */
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -54,6 +85,7 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
       fileId: 'FileId',
       fileName: 'FileName',
       fileType: 'FileType',
+      parseErrorMessage: 'ParseErrorMessage',
       parser: 'Parser',
       sizeInBytes: 'SizeInBytes',
       status: 'Status',
@@ -68,6 +100,7 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
       fileId: 'string',
       fileName: 'string',
       fileType: 'string',
+      parseErrorMessage: 'string',
       parser: 'string',
       sizeInBytes: 'number',
       status: 'string',
@@ -90,25 +123,39 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
 export class ListFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of documents in the category.
+   * The list of files in the category.
    */
   fileList?: ListFileResponseBodyDataFileList[];
   /**
+   * @remarks
+   * Indicates whether there is a next page of category data that matches the query conditions. Valid values:
+   * - true: Yes.
+   * - false: No.
+   * 
    * @example
    * true
    */
   hasNext?: boolean;
   /**
+   * @remarks
+   * The number of entries per page for paging.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token returned by this call.
+   * 
    * @example
    * 4jzbJk9J6lNeuXD9hP0viA==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The total number of entries in the returned results.
+   * 
    * @example
    * 48
    */
@@ -147,34 +194,48 @@ export class ListFileResponseBodyData extends $dara.Model {
 
 export class ListFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * success
    */
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data field returned by the operation.
    */
   data?: ListFileResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Requests throttling triggered.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * 8F97A63B-55F1-527F-9D6E-467B6A7E8CF1
+   * 8F97A63B-xxxx-527F-9D6E-467B6A7E8CF1
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code returned by the operation.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * - true: Successful. 
+   * - false: Failed.
+   * 
    * @example
    * true
    */

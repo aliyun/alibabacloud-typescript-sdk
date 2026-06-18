@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePromptTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Prompt template ID.
+   * 
    * @example
    * 6e49109bfeb94a39bb268f4e483ccxxx
    */
   promptTemplateId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * FE9B6CBF-47E6-5D76-9C5D-B814DD5ABxxx
    */

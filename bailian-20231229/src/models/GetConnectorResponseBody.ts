@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConnectorResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the connector.
+   * 
    * @example
    * conn_file_e0c9db4030b2465a9478028f7d76cd92_1234
    */
   connectorId?: string;
   /**
+   * @remarks
+   * The name of the connector.
+   * 
    * @example
    * name
    */
   connectorName?: string;
   /**
+   * @remarks
+   * The type of the connector.
+   * 
    * @example
    * FILE
    */
   connectorType?: string;
   /**
+   * @remarks
+   * The description of the connector.
+   * 
    * @example
    * Description
    */
@@ -52,30 +64,50 @@ export class GetConnectorResponseBodyData extends $dara.Model {
 
 export class GetConnectorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code.
+   * 
    * @example
    * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetConnectorResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Requests throttling triggered.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 7BA8ADD9-53D6-53F0-918F-A1E776AD230E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code of the response.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. The valid values are:
+   * 
+   * - `true`: The call was successful.
+   * 
+   * - `false`: The call failed.
+   * 
    * @example
    * True
    */

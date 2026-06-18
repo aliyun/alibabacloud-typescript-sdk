@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFileResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The file ID.
+   * 
    * @example
-   * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
+   * file_9a65732555b54d5ea10796ca5742ba22_xxxxxxxx
    */
   fileId?: string;
   static names(): { [key: string]: string } {
@@ -31,12 +34,22 @@ export class DeleteFileResponseBodyData extends $dara.Model {
 
 export class DeleteFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error status code.
+   * 
    * @example
    * InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data field of the API response.
+   */
   data?: DeleteFileResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Current file status does not support delete.
    */
@@ -50,11 +63,21 @@ export class DeleteFileResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code returned by the API.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded. Valid values:
+   * 
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
+   * 
    * @example
    * true
    */

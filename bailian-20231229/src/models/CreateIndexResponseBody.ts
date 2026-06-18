@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIndexResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The knowledge base ID, or `IndexId`, is a unique identifier for the knowledge base created.
+   * The ID of the knowledge base, also known as \\`IndexId\\`. This is the unique identifier of the created knowledge base.
    * 
-   * > Keep this ID. It is required for all subsequent API operations related to this knowledge base.
+   * > Keep this value safe. It will be used for all subsequent API operations related to this knowledge base.
    * 
    * @example
-   * jkurxhju6b
+   * jkurxhxxxx
    */
   id?: string;
   static names(): { [key: string]: string } {
@@ -37,47 +37,42 @@ export class CreateIndexResponseBodyData extends $dara.Model {
 export class CreateIndexResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
-   * 
-   * @example
-   * Forbidden
+   * Error status code
    */
   code?: string;
   /**
    * @remarks
-   * The data returned if the request is successful.
+   * The business data returned when the request is successful.
    */
   data?: CreateIndexResponseBodyData;
   /**
    * @remarks
-   * The error message.
-   * 
-   * @example
-   * Invalid input, variable name is missing
+   * Error message
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
-   * 17204B98-7734-4F9A-8464-2446A84821CA
+   * 17204B98-xxxx-4F9A--2446A84821CA
    */
   requestId?: string;
   /**
    * @remarks
-   * The status code.
+   * The status code returned by the interface.
    * 
    * @example
-   * 200
+   * "200"
    */
   status?: string;
   /**
    * @remarks
-   * Indications whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Possible values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful
+   * 
+   * - false: Failed
    * 
    * @example
    * true

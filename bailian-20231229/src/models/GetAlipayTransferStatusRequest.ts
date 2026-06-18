@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAlipayTransferStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The tipping code returned by the Alipay tipping link request.
+   * 
    * @example
    * xxx-xxxx
    */
   code?: string;
   /**
+   * @remarks
+   * The Bailian workspace ID.
+   * 
    * @example
    * llm-cxxxxxxb8d47ks
    */

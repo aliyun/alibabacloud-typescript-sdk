@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddTableShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The connector ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,16 @@ export class AddTableShrinkRequest extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
+   * The column information of the table.
+   * 
    * This parameter is required.
    */
   tableColumnsShrink?: string;
+  tableDesc?: string;
   /**
    * @remarks
+   * The table name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +35,7 @@ export class AddTableShrinkRequest extends $dara.Model {
     return {
       connectorId: 'ConnectorId',
       tableColumnsShrink: 'TableColumns',
+      tableDesc: 'TableDesc',
       tableName: 'TableName',
     };
   }
@@ -36,6 +44,7 @@ export class AddTableShrinkRequest extends $dara.Model {
     return {
       connectorId: 'string',
       tableColumnsShrink: 'string',
+      tableDesc: 'string',
       tableName: 'string',
     };
   }

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddConnectorResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the connector.
+   * 
    * @example
    * conn_file_e0c9db4030b2465a9478028f7d76cd92_1234
    */
@@ -31,30 +34,50 @@ export class AddConnectorResponseBodyData extends $dara.Model {
 
 export class AddConnectorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. A value of `Success` indicates that the request succeeded.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned by the operation.
+   */
   data?: AddConnectorResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Current file status does not support delete.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 35A267BF-FBFA-54DB-8394-AA3B0742D833
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

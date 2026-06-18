@@ -26,7 +26,27 @@ export class RetrieveRequestExtra extends $dara.Model {
 }
 
 export class RetrieveRequestQueryHistory extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the message for the specified `role`.
+   * 
+   * @example
+   * 代表一段文本。
+   */
   content?: string;
+  /**
+   * @remarks
+   * The role of the entity that sent the message.
+   * 
+   * Valid values:
+   * 
+   * - `user`: Indicates that the `content` is from the end user.
+   * 
+   * - `assistant`: Indicates that the `content` is a response from the Model Studio application.
+   * 
+   * @example
+   * user
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,16 +74,90 @@ export class RetrieveRequestQueryHistory extends $dara.Model {
 export class RetrieveRequestRerank extends $dara.Model {
   /**
    * @remarks
-   * The name of the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * The reranking model to use. Specifying a model here overrides the default model selected when the knowledge base was created. Valid values:
    * 
-   * *   gte-rerank-hybrid: Recommended official model.
-   * *   gte-rerank
+   * <props="china">
+   * 
+   * - `qwen3-rerank-hybrid`: Performs reranking by using the qwen3-rerank (hybrid) model.
+   * 
+   * - `qwen3-rerank`: Performs reranking by using the qwen3-rerank model.
+   * 
+   * - `gte-rerank-hybrid`: Performs reranking by using the gte-rerank (hybrid) model.
+   * 
+   * - `gte-rerank`: Performs reranking by using the gte-rerank model.
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * - `gte-rerank-hybrid`: Performs reranking by using the gte-rerank (hybrid) model.
+   * 
+   * - `gte-rerank`: Performs reranking by using the gte-rerank model.
+   * 
+   * 
+   * 
+   * If you do not specify this parameter, the model configured for the knowledge base is used.
+   * 
+   * <props="china">
+   * 
+   * > Use `qwen3-rerank` for semantic ranking only. We recommend `qwen3-rerank-hybrid` if you require both semantic ranking and text matching features for higher relevance.
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * > Use `gte-rerank` for semantic ranking only. We recommend `gte-rerank-hybrid` if you require both semantic ranking and text matching features for higher relevance.
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * > The `gte-rerank-hybrid` and `gte-rerank` models are no longer updated and are not recommended for use.
    * 
    * @example
    * gte-rerank-hybrid
    */
   modelName?: string;
+  /**
+   * @remarks
+   * <props="intl">
+   * 
+   * This parameter is not yet available. Do not specify a value for it.
+   * 
+   * 
+   * 
+   * <props="china">
+   * 
+   * A natural language instruction to fine-tune the behavior of the reranking model.
+   * 
+   * >Notice: 
+   * 
+   * This parameter takes effect only when `RerankMode` is set to `custom`.
+   */
   rerankInstruct?: string;
+  /**
+   * @remarks
+   * <props="china">
+   * 
+   * Specifies the instruction intervention mode for the reranking model. This mode determines the model\\"s scoring preference.
+   * 
+   * **Valid values:**
+   * 
+   * - `qa`: (Default) Q\\&A mode. The model assigns higher scores to candidates that directly answer the query. Recommended for Q\\&A scenarios.
+   * 
+   * - `similar`: Similarity mode. The model assigns higher scores to candidates with high content similarity to the query. Recommended for match-based retrieval scenarios.
+   * 
+   * - `custom`: Custom mode. The model\\"s ranking behavior is determined by the instructions in the `RerankInstruct` parameter.
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * This parameter is not yet available. Do not specify a value for it.
+   * 
+   * @example
+   * qa
+   */
   rerankMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,11 +187,11 @@ export class RetrieveRequestRerank extends $dara.Model {
 export class RetrieveRequestRewrite extends $dara.Model {
   /**
    * @remarks
-   * Conversation rewriting model name. The query rewriting model automatically adjusts the original prompt based on the context to improve retrieval performance. Valid value:
+   * Specifies the model for conversational query rewriting, which automatically rewrites the original query based on the conversation context to improve retrieval results. Valid value:
    * 
-   * *   conv-rewrite-qwen-1.8b
+   * - `conv-rewrite-qwen-1.8b`: The only model currently supported for this feature.
    * 
-   * By default, this parameter is left empty, which means conv-rewrite-qwen-1.8b is used.
+   * If this parameter is not specified, `conv-rewrite-qwen-1.8b` is used by default.
    * 
    * @example
    * conv-rewrite-qwen-1.8b
@@ -127,7 +221,7 @@ export class RetrieveRequestRewrite extends $dara.Model {
 export class RetrieveRequest extends $dara.Model {
   /**
    * @remarks
-   * Vector retrieval top K. After generating vectors based on input text, the top K chunks in the knowledge base that are most similar to the vector representation of the input text are retrieved. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
+   * The number of top-K similar text chunks to retrieve using vector retrieval. This is achieved by generating a vector representation of the query and searching the knowledge base for the K text chunks with the most similar vectors. The value must be an integer from 0 to 100. The sum of `DenseSimilarityTopK` and `SparseSimilarityTopK` must not exceed 200.
    * 
    * Default value: 100.
    * 
@@ -137,12 +231,13 @@ export class RetrieveRequest extends $dara.Model {
   denseSimilarityTopK?: number;
   /**
    * @remarks
-   * Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * Specifies whether to enable reranking. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html). Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: Enables reranking.
    * 
-   * Default value: true.
+   * - `false`: Disables reranking.
+   * 
+   * Default value: `true`.
    * 
    * @example
    * true
@@ -150,45 +245,60 @@ export class RetrieveRequest extends $dara.Model {
   enableReranking?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
+   * Specifies whether to enable <props="china">[conversational query rewriting](https://help.aliyun.com/model-studio/use-cases/rag-optimization#b7031e2ad6cji)<props="intl">[conversational query rewriting](https://www.alibabacloud.com/help/model-studio/use-cases/rag-optimization#b7031e2ad6cji).
+   * Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: Enables conversational query rewriting.
    * 
-   * Default value: false.
+   * - `false`: Disables conversational query rewriting.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * false
    */
   enableRewrite?: boolean;
   extra?: RetrieveRequestExtra;
+  /**
+   * @remarks
+   * The URLs of images to include in the query.
+   */
   images?: string[];
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The ID of the knowledge base. This is the `Data.Id` value returned by the `CreateIndex` operation.
+   * 
+   * > - Ensure the specified knowledge base exists and has not been deleted.
    * 
    * This parameter is required.
    * 
    * @example
-   * 5pwe0m2g6t
+   * 5pwe0mxxxx
    */
   indexId?: string;
   /**
    * @remarks
-   * The input query prompt. The length and characters of the query are not limited.
+   * The query, which is the original user prompt. There are no limits on the length of the query.
+   * 
+   * @example
+   * 阿里云百炼平台介绍
    */
   query?: string;
+  /**
+   * @remarks
+   * The conversation history, used for <props="china">[conversational query rewriting](https://help.aliyun.com/model-studio/use-cases/rag-optimization#b7031e2ad6cji)<props="intl">[conversational query rewriting](https://www.alibabacloud.com/help/model-studio/use-cases/rag-optimization#b7031e2ad6cji). This parameter is effective only when `EnableRewrite` is set to `true`.
+   */
   queryHistory?: RetrieveRequestQueryHistory[];
   /**
    * @remarks
-   * Ranking configurations.
+   * The reranking configurations.
    */
   rerank?: RetrieveRequestRerank[];
   /**
    * @remarks
-   * Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
+   * The similarity threshold for reranking. Only text chunks with a similarity score greater than this value are returned. The value must be between 0.01 and 1.00, inclusive. This parameter overrides the similarity threshold setting of the knowledge base.
    * 
-   * By default, this parameter is left empty. In this case, the similarity threshold of the knowledge base is used.
+   * If not specified, the threshold configured for the knowledge base is used.
    * 
    * @example
    * 0.20
@@ -196,7 +306,7 @@ export class RetrieveRequest extends $dara.Model {
   rerankMinScore?: number;
   /**
    * @remarks
-   * The top N return data after reranking. Valid values: 1 to 20. Default value: 5.
+   * The number of top-ranked text chunks to return after reranking. The value must be an integer from 1 to 20. Default value: 5.
    * 
    * @example
    * 5
@@ -204,17 +314,18 @@ export class RetrieveRequest extends $dara.Model {
   rerankTopN?: number;
   /**
    * @remarks
-   * Conversation rewriting configurations.
+   * Configuration for conversational query rewriting.
    */
   rewrite?: RetrieveRequestRewrite[];
   /**
    * @remarks
-   * Specifies whether to save the retrieve test history. Valid values:
+   * Specifies whether to save the retrieval history for testing purposes. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: Saves the retrieval history.
    * 
-   * Default value: false.
+   * - `false`: Does not save the retrieval history.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * false
@@ -222,12 +333,15 @@ export class RetrieveRequest extends $dara.Model {
   saveRetrieverHistory?: boolean;
   /**
    * @remarks
-   * Specifies complex filter conditions. For more information about the syntax of SearchFilters, see the SearchFilter syntax section of this topic.
+   * Specifies custom retrieval conditions, such as tags, to filter semantic retrieval results and exclude irrelevant information.
+   * The filtering logic is applied only when the `is_displayed_chunk_content` parameter is set to `true`. For more information, see [SearchFilters for a knowledge base](https://help.aliyun.com/document_detail/2869641.html).
    */
   searchFilters?: { [key: string]: string }[];
   /**
    * @remarks
-   * The top K of keyword retrieval. Chunks that exactly match the keywords of the input text are retrieved from the knowledge base. This filters out irrelevant chunks and boosts accuracy. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
+   * The number of top-K text chunks to retrieve using keyword retrieval. This feature finds text chunks in the knowledge base that exactly match the keywords in the query. It helps filter out irrelevant text chunks and provide more accurate results.
+   * The value must be an integer from 0 to 100.
+   * The sum of `DenseSimilarityTopK` and `SparseSimilarityTopK` must not exceed 200.
    * 
    * Default value: 100.
    * 

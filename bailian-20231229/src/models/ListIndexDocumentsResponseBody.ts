@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
-   * The error status code of document import.
+   * The error status code for the file import.
    * 
    * @example
    * 110002
@@ -13,24 +13,31 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The format of the document. Valid values: pdf, docx, doc, txt, md, pptx, ppt, and EXCEL.
+   * The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
    * 
    * @example
    * pdf
    */
   documentType?: string;
+  /**
+   * @remarks
+   * The time when the file was imported to the knowledge base, in UNIX timestamp format.
+   * 
+   * @example
+   * 1744856423000
+   */
   gmtModified?: number;
   /**
    * @remarks
-   * The primary key ID of the document.
+   * The file ID.
    * 
    * @example
-   * doc_c134aa2073204a5d936d870bf960f56a10024701
+   * doc_c134aa2073204a5d936d870bf960f56axxxxxxxx
    */
   id?: string;
   /**
    * @remarks
-   * The error message of document import.
+   * The error message for the file import.
    * 
    * @example
    * check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
@@ -38,35 +45,52 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the document.
+   * The file name.
+   * 
+   * @example
+   * product-overview
    */
   name?: string;
   /**
    * @remarks
-   * The size of the document. Unit: bytes.
+   * The file size, in bytes.
    * 
    * @example
-   * 996764
+   * 996765
    */
   size?: number;
   /**
    * @remarks
-   * For unstructured knowledge base, this parameter is the category ID. To view the category ID, you can click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * <props="china">
    * 
-   * For structured knowledge base, this parameter is the data table ID. To view the table ID, you can click the ID icon next to the table name on the Structured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+   * For document search or audio/video search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the category ID by clicking the ID icon next to the category name on the Files tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+   * 
+   * 
+   * For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain the data table ID by clicking the ID icon next to the data table name on the Tables tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+   * 
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * For document search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the category ID by clicking the ID icon next to the category name on the Files tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+   * 
+   * 
+   * For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain the data table ID by clicking the ID icon next to the data table name on the Tables tab of the [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page.
+   * 
+   * .
    * 
    * @example
-   * cate_21a407a3372c4ba7aedc649709143f0c10021401
+   * cate_21a407a3372c4ba7aedc649709143f0cxxxxxxxx
    */
   sourceId?: string;
   /**
    * @remarks
-   * The import status of the document. Valid values:
-   * 
-   * *   INSERT_ERROR
-   * *   RUNNING
-   * *   DELETED
-   * *   FINISH
+   * The file import status. Valid values:
+   * - INSERT_ERROR: The file failed to be imported.
+   * - RUNNING: The file is being imported.
+   * - DELETED: The file has been deleted.
+   * - FINISH: The file was imported.
    * 
    * @example
    * RUNNING
@@ -112,20 +136,20 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
 export class ListIndexDocumentsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of documents in the knowledge base.
+   * The list of files in the knowledge base, sorted by file import time in descending order (consistent with the console).
    */
   documents?: ListIndexDocumentsResponseBodyDataDocuments[];
   /**
    * @remarks
-   * The primary key ID of the knowledge base.
+   * The knowledge base ID.
    * 
    * @example
-   * pno97tn8iu
+   * pno97txxxx
    */
   indexId?: string;
   /**
    * @remarks
-   * The specified page number.
+   * The returned page number.
    * 
    * @example
    * 1
@@ -133,7 +157,7 @@ export class ListIndexDocumentsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The specified number of documents on each page.
+   * The returned number of entries per page.
    * 
    * @example
    * 10
@@ -141,7 +165,7 @@ export class ListIndexDocumentsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of documents returned.
+   * The total number of returned results.
    * 
    * @example
    * 2437
@@ -182,7 +206,7 @@ export class ListIndexDocumentsResponseBodyData extends $dara.Model {
 export class ListIndexDocumentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * HTTP status code
+   * The error status code.
    * 
    * @example
    * InvalidParameter
@@ -190,7 +214,7 @@ export class ListIndexDocumentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data field returned by the operation.
    */
   data?: ListIndexDocumentsResponseBodyData;
   /**
@@ -211,7 +235,7 @@ export class ListIndexDocumentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -219,10 +243,9 @@ export class ListIndexDocumentsResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indications whether the API call is successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the operation was successful. Valid values:
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

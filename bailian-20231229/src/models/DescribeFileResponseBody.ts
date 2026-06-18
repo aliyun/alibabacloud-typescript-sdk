@@ -5,50 +5,50 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the category to which the document belongs.
+   * The ID of the category to which the file belongs.
    * 
    * @example
-   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3xxxxxxxx
    */
   categoryId?: string;
   /**
    * @remarks
-   * The timestamp when the document was uploaded to Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC + 8.
+   * The timestamp when the file was added to Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
    * 
    * @example
-   * 2024-05-26 12:45:43
+   * 2024-09-09 12:45:43
    */
   createTime?: string;
   /**
    * @remarks
-   * The primary key ID of the document.
+   * The file ID.
    * 
    * @example
-   * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
+   * file_9a65732555b54d5ea10796ca5742ba22_xxxxxxxx
    */
   fileId?: string;
   /**
    * @remarks
-   * The name of the document.
+   * The file name.
    * 
    * @example
-   * test.pdf
+   * XXX产品介绍.pdf
    */
   fileName?: string;
   /**
    * @remarks
-   * The file type of the document. The value is an extension. Valid values: pdf, docx, doc, txt, md, pptx, and ppt.
+   * The file type (extension). Valid values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
    * 
    * @example
    * pdf
    */
   fileType?: string;
+  parseErrorMessage?: string;
   parseResultDownloadUrl?: string;
   /**
    * @remarks
-   * The parser that is used to parse the document. Valid value:
-   * 
-   * *   DASHSCOPE_DOCMIND: The default document parser.
+   * The parser type used to parse the file. Valid values:
+   * - DASHSCOPE_DOCMIND: the default document parser.
    * 
    * @example
    * DASHSCOPE_DOCMIND
@@ -56,7 +56,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
   parser?: string;
   /**
    * @remarks
-   * The size of the document. Unit: bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 1234
@@ -64,12 +64,45 @@ export class DescribeFileResponseBodyData extends $dara.Model {
   sizeInBytes?: number;
   /**
    * @remarks
-   * The status of the document. Valid values:
+   * <props="china">
    * 
-   * *   INIT: pending parsing.
-   * *   PARSING
-   * *   PARSE_SUCCESS
-   * *   PARSE_FAILED
+   * For files used in document-based knowledge bases (type: UNSTRUCTURED), valid values:
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * For files used in unstructured knowledge bases (type: UNSTRUCTURED), valid values:
+   * 
+   * 
+   * 
+   * 
+   * - INIT: pending parsing.
+   * - IN_PARSE_QUEUE: queued for parsing.
+   * - PARSING: being parsed.
+   * - PARSE_SUCCESS: parsing completed.
+   * <note>The document can be imported into a knowledge base only after the status changes to PARSE_SUCCESS.</note>
+   * - PARSE_FAILED: parsing failed.
+   * 
+   * <props="china">
+   * For files used in agent application [session interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction) (type: SESSION_FILE), valid values:
+   * 
+   * - INIT: pending parsing.
+   * - IN_PARSE_QUEUE: queued for parsing.
+   * - PARSING: being parsed.
+   * - PARSE_SUCCESS: parsing completed.
+   * - PARSE_FAILED: parsing failed.
+   * - SAFE_CHECKING: security check in progress.
+   * - SAFE_CHECK_FAILED: security check failed.
+   * - INDEX_BUILDING: index being built.
+   * - INDEX_BUILD_SUCCESS: index built.
+   * - INDEX_BUILDING_FAILED: index building failed.
+   * - INDEX_DELETED: file index deleted.
+   * - FILE_IS_READY: file is ready.
+   * <note>Q&A can proceed only after the status changes to FILE_IS_READY.</note>
+   * - FILE_EXPIRED: file expired.
+   * <note>The file is valid only for the current user session. After the user closes the session, the file expires (maximum validity period: 7 days). Long-term retention is not supported.</note>
+   * .
    * 
    * @example
    * PARSE_SUCCESS
@@ -77,7 +110,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags that are associated with the document. A document can be associated with multiple tags.
+   * The list of tags associated with the file. A file can be associated with multiple tags.
    */
   tags?: string[];
   static names(): { [key: string]: string } {
@@ -87,6 +120,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
       fileId: 'FileId',
       fileName: 'FileName',
       fileType: 'FileType',
+      parseErrorMessage: 'ParseErrorMessage',
       parseResultDownloadUrl: 'ParseResultDownloadUrl',
       parser: 'Parser',
       sizeInBytes: 'SizeInBytes',
@@ -102,6 +136,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
       fileId: 'string',
       fileName: 'string',
       fileType: 'string',
+      parseErrorMessage: 'string',
       parseResultDownloadUrl: 'string',
       parser: 'string',
       sizeInBytes: 'number',
@@ -125,7 +160,7 @@ export class DescribeFileResponseBodyData extends $dara.Model {
 export class DescribeFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The error status code.
    * 
    * @example
    * Success
@@ -133,7 +168,7 @@ export class DescribeFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data fields.
+   * The data field of the operation.
    */
   data?: DescribeFileResponseBodyData;
   /**
@@ -154,7 +189,7 @@ export class DescribeFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -162,10 +197,9 @@ export class DescribeFileResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indications whether the API call is successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

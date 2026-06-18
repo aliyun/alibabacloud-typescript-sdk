@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMemoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6a71f2d9-f1c9-913b-818b-114029103cad
+   * 6a71f2d9-f1c9-913b-818b-11402910xxxx
    */
   requestId?: string;
   static names(): { [key: string]: string } {

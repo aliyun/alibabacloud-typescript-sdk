@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFilesResponseBodyDataDeleteFileResultList extends $dara.Model {
   /**
+   * @remarks
+   * The file ID.
+   * 
    * @example
    * file_6b193b9b4b1546ef9eaa7340e69adfca_10052857
    */
   fileId?: string;
   /**
+   * @remarks
+   * The file deletion status. Valid values:
+   * 
+   * - DELETED: The file is deleted.
+   * - FAILED: The file fails to be deleted.
+   * - NOT_FOUND: The file is not found.
+   * 
    * @example
    * DELETED
    */
@@ -37,6 +47,10 @@ export class DeleteFilesResponseBodyDataDeleteFileResultList extends $dara.Model
 }
 
 export class DeleteFilesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The deletion results.
+   */
   deleteFileResultList?: DeleteFilesResponseBodyDataDeleteFileResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -64,12 +78,22 @@ export class DeleteFilesResponseBodyData extends $dara.Model {
 
 export class DeleteFilesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataCenter.FileTooLarge
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DeleteFilesResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
    */
@@ -83,11 +107,19 @@ export class DeleteFilesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code returned by the API.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the API call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
+   * 
    * @example
    * true
    */

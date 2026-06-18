@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIndexResponseBody extends $dara.Model {
   /**
    * @remarks
-   * HTTP status code
+   * The error code.
    * 
    * @example
    * Index.InvalidParameter
@@ -29,7 +29,7 @@ export class DeleteIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -37,10 +37,9 @@ export class DeleteIndexResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indications whether the API call is successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the operation was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

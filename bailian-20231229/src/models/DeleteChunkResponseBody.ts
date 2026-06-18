@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChunkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * 
-   * @example
-   * InvalidParameter
+   * The error status code.
    */
   code?: string;
   /**
    * @remarks
-   * The data returned if the request is successful.
+   * The business data returned upon a successful request.
    * 
    * @example
    * true
@@ -22,9 +19,6 @@ export class DeleteChunkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
-   * 
-   * @example
-   * Required parameter(%s) missing or invalid, please check the request parameters.
    */
   message?: string;
   /**
@@ -37,7 +31,7 @@ export class DeleteChunkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -45,10 +39,10 @@ export class DeleteChunkResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indications whether the API call is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAlipayUrlResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The tipping code used to query the tipping status.
+   * 
    * @example
    * xxsdfasfw
    */
   code?: string;
+  /**
+   * @remarks
+   * The generated tipping URL.
+   * 
+   * @example
+   * https://xxxxxx.aliyun-inc.com
+   */
   qrUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,8 +43,15 @@ export class GetAlipayUrlResponseBodyData extends $dara.Model {
 }
 
 export class GetAlipayUrlResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetAlipayUrlResponseBodyData;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 6a71f2d9-f1c9-913b-818b-11402910xxxx
    */

@@ -14,6 +14,9 @@ export class ListPromptTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword that is used to search for templates.
+   * 
+   * @example
+   * 小红书
    */
   name?: string;
   /**

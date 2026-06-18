@@ -6,10 +6,20 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddCategoryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the category. Save this ID for future API calls that use this category.
+   * 
    * @example
-   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3xxxxxxxx
    */
   categoryId?: string;
+  /**
+   * @remarks
+   * The name of the category.
+   * 
+   * @example
+   * 类目名称
+   */
   categoryName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,30 +46,50 @@ export class AddCategoryResponseBodyData extends $dara.Model {
 
 export class AddCategoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: AddCategoryResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Requests throttling triggered.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
-   * 778C0B3B-03C1-5FC1-A947-36EDD13606AB
+   * 778C0B3B-xxxx-5FC1-A947-36EDD13606AB
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

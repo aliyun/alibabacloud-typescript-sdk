@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFileTagResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the file.
+   * 
    * @example
    * file_9a65732555b54d5ea10796ca5742ba22_xxxxxxxx
    */
@@ -31,30 +34,50 @@ export class UpdateFileTagResponseBodyData extends $dara.Model {
 
 export class UpdateFileTagResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of `Success` indicates that the request was successful.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: UpdateFileTagResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Requests throttling triggered.
    */
   message?: string;
   /**
    * @remarks
-   * RequestId
+   * The request ID.
    * 
    * @example
    * 35A267BF-xxxx-54DB-8394-AA3B0742D833
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
+   * 
    * @example
    * true
    */

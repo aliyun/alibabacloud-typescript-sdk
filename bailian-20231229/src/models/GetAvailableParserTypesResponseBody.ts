@@ -6,6 +6,9 @@ export class GetAvailableParserTypesResponseBodyDataParserList extends $dara.Mod
   /**
    * @remarks
    * The display name of the parsing method.
+   * 
+   * @example
+   * 智能文档解析
    */
   displayName?: string;
   /**

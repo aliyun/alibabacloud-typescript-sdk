@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIndexDocumentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of primary key IDs of documents that are deleted.
+   * The list of successfully deleted file IDs.
    */
   deletedDocument?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class DeleteIndexDocumentResponseBodyData extends $dara.Model {
 export class DeleteIndexDocumentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * HTTP status code
+   * The error code.
    * 
    * @example
    * Index.InvalidParameter
@@ -43,7 +43,7 @@ export class DeleteIndexDocumentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The parameters returned by the operation.
+   * The business data field returned by the operation.
    */
   data?: DeleteIndexDocumentResponseBodyData;
   /**
@@ -64,7 +64,7 @@ export class DeleteIndexDocumentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -72,10 +72,9 @@ export class DeleteIndexDocumentResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indications whether the API call is successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the operation was successful. Valid values:
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

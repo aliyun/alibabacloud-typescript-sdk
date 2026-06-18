@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitIndexJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+   * The knowledge base ID, which is the `Data.Id` returned by the **CreateIndex** operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * 79c0aly8zw
+   * 79c0alxxxx
    */
   indexId?: string;
   static names(): { [key: string]: string } {

@@ -3,20 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMemoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the long-term memory.
+   * 
+   * @example
+   * 我的大模型应用$APP_ID关于A用户的长期记忆体
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the long-term memory.
+   * 
    * @example
-   * 6bff4f317a14442fbc9f73d29dbd5fc3
+   * 6bff4f317a14442fbc9f73d29dbdxxxx
    */
   memoryId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6a71f2d9-f1c9-913b-818b-114029103cad
+   * 6a71f2d9-f1c9-913b-818b-11402910xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the long-term memory belongs.
+   * 
    * @example
-   * llm-us9hjmt32nysdm5v
+   * llm-3z7uw7fwz0vexxxx
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
