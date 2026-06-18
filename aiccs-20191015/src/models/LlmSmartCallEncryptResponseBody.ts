@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class LlmSmartCallEncryptResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
-   * 149922088206^136666368206
+   * 149******206
    */
   callId?: string;
   static names(): { [key: string]: string } {
@@ -31,23 +34,50 @@ export class LlmSmartCallEncryptResponseBodyData extends $dara.Model {
 
 export class LlmSmartCallEncryptResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details about the access denied error.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code. A value of \\"ok\\" indicates that the request succeeded.
+   * 
    * @example
    * ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: LlmSmartCallEncryptResponseBodyData;
+  /**
+   * @remarks
+   * A description of the status code.
+   * 
+   * @example
+   * 成功
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F92F9749-105E-518F-8B08-CF16EF36A0E2
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful. Valid values:
+   * 
+   * - **true**: The API call was successful.
+   * 
+   * - **false**: The API call failed.
+   * 
    * @example
    * true
    */

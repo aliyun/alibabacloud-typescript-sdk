@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateThirdSsoAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the created agent.
+   * 
    * @example
    * 123456
    */
   data?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * Success
    */
@@ -32,6 +44,9 @@ export class CreateThirdSsoAgentResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * 
    * @example
    * true
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryHotlineInQueueRequest extends $dara.Model {
   /**
    * @remarks
+   * External skill group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryHotlineInQueueRequest extends $dara.Model {
   outerGroupId?: string;
   /**
    * @remarks
+   * External skill group type.
+   * 
    * This parameter is required.
    * 
    * @example

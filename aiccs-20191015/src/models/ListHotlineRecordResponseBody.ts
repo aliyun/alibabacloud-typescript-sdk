@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHotlineRecordResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Session ID. This corresponds to the acid in WebSocket after an inbound call.
+   * 
    * @example
    * 100365558
    */
   callId?: string;
   /**
+   * @remarks
+   * Connection ID.
+   * 
    * @example
    * 100365548
    */
   connectionId?: string;
   /**
+   * @remarks
+   * Recording end UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 16128694810
    */
   endTime?: number;
   /**
+   * @remarks
+   * Recording start UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 16128694110
    */
   startTime?: number;
   /**
+   * @remarks
+   * Recording file URL.
+   * 
    * @example
    * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com
    */
@@ -59,22 +74,38 @@ export class ListHotlineRecordResponseBodyData extends $dara.Model {
 
 export class ListHotlineRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of Success indicates that the request succeeded.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Hotline session information.
+   */
   data?: ListHotlineRecordResponseBodyData[];
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * xxxx
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the API call succeeded.
+   * 
    * @example
    * true
    */

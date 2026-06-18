@@ -6,6 +6,13 @@ export class ListAiccsRobotRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The robot name. You can view the robot name in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface.
+   * 
+   * @example
+   * 测试机器人
+   */
   robotName?: string;
   static names(): { [key: string]: string } {
     return {

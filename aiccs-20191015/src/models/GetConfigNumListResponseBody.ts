@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConfigNumListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A return value of "Success" indicates that the request succeeded.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The number list.
+   */
   data?: string[];
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * xxxx
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EE339D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * 
    * @example
    * true
    */

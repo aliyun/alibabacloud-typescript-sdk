@@ -3,20 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentBasisStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of agent IDs.
+   */
   agentIds?: number[];
   /**
+   * @remarks
+   * The current page number. The value must be greater than **0**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * A list of department IDs.
+   */
   depIds?: number[];
   /**
+   * @remarks
+   * End Datetime UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1617761765000
    */
   endDate?: number;
   /**
    * @remarks
+   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+   * You can obtain it in the **Instance Management** section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,11 +41,17 @@ export class GetAgentBasisStatusRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The number of entries per page. The value must be greater than **0**. Default value: **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The UNIX timestamp of the start date. Unit: milliseconds.
+   * 
    * @example
    * 1615083365000
    */

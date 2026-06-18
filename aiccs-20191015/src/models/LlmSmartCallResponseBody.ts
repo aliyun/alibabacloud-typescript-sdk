@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class LlmSmartCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Unique receipt ID for this call.
+   * 
    * @example
    * 125165515***^11195613****
    */
   callId?: string;
   /**
+   * @remarks
+   * Request status code. A return value of "OK" indicates that the request succeeded.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * OK
    */
@@ -23,7 +32,7 @@ export class LlmSmartCallResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * EE338D98-9BD3-XX13-B165
+   * D6A51251-F7C4-596A-9F45-3C3219A5450D
    */
   requestId?: string;
   static names(): { [key: string]: string } {

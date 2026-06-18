@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConfigNumListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The agent account name. It is unique within the instance (logon name).
+   * 
    * @example
    * 123@123.com
    */
   accountName?: string;
   /**
+   * @remarks
+   * The department ID.
+   * 
    * @example
    * 12345
    */
   departmentId?: number;
   /**
    * @remarks
+   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example

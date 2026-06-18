@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * 121312*******
    */
   agentId?: string;
   /**
+   * @remarks
+   * The agent name.
+   * 
    * @example
-   * 示例值
+   * 测试智能体
    */
   agentName?: string;
   /**
+   * @remarks
+   * The application code.
+   * 
    * @example
    * DFAS*****
    */
   applicationCode?: string;
   /**
+   * @remarks
+   * The reason for the review failure.
+   * 
    * @example
-   * 示例值
+   * 请补充流程说明
    */
   auditReason?: string;
   /**
+   * @remarks
+   * The reason for the build failure.
+   * 
    * @example
-   * 构建失败原因
+   * 系统错误
    */
   buildFailReason?: string;
   /**
+   * @remarks
+   * The business scenario name.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 个人客户线索转化
    */
   businessTypeName?: string;
   /**
+   * @remarks
+   * The time the agent was created.
+   * 
    * @example
    * 2025-10-28 17:10:17
    */
   createTime?: string;
   /**
+   * @remarks
+   * The agent description.
+   * 
    * @example
-   * 示例值示例值
+   * 用于日常测试
    */
   description?: string;
   /**
+   * @remarks
+   * The time the agent was last online.
+   * 
    * @example
    * 2025-10-28 14:38:15
    */
   lastOnlineTime?: string;
   /**
+   * @remarks
+   * The time the agent was last modified.
+   * 
    * @example
    * 2025-10-28 17:10:17
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The agent status.
+   * 
    * @example
    * 7
    */
@@ -64,6 +97,9 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    */
   withActivePrompt?: boolean;
   /**
+   * @remarks
+   * Indicates whether the agent has been configured.
+   * 
    * @example
    * false
    */
@@ -114,18 +150,31 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
 }
 
 export class PageQueryAgentListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of agents.
+   */
   list?: PageQueryAgentListResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total count of entries.
+   * 
    * @example
    * 14
    */
@@ -162,27 +211,50 @@ export class PageQueryAgentListResponseBodyData extends $dara.Model {
 
 export class PageQueryAgentListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason for the access denial.
+   * 
    * @example
    * Access Denied
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: PageQueryAgentListResponseBodyData;
   /**
+   * @remarks
+   * The description of the status code.
+   * 
    * @example
-   * 示例值
+   * 成功
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 742C9243-2870-B8D6-0C68-C60BEB2DF09A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * false
    */

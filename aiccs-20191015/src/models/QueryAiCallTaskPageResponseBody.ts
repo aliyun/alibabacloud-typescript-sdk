@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
-   * 11213132123123*****
+   * 1180**************
    */
   agentId?: string;
   /**
+   * @remarks
+   * The agent name.
+   * 
    * @example
-   * 示例值示例值
+   * 测试智能体
    */
   agentName?: string;
   /**
@@ -24,91 +30,145 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
    */
   applicationName?: string;
   /**
+   * @remarks
+   * The number of calls in progress.
+   * 
    * @example
    * 72
    */
   callingCount?: number;
   /**
+   * @remarks
+   * The completion rate of the task.
+   * 
    * @example
    * 70%
    */
   completeRate?: string;
   /**
+   * @remarks
+   * The number of concurrent tasks.
+   * 
    * @example
    * 10
    */
   concurrentCount?: number;
   /**
+   * @remarks
+   * The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1748932499000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The number of calls made on the current day.
+   * 
    * @example
    * 22
    */
   dayCallCount?: number;
   /**
+   * @remarks
+   * The connection rate of the current day. This is the number of connected calls on the current day divided by the total number of calls on the current day (`DayCallCount`).
+   * 
    * @example
    * 74.14%
    */
   dayConnectRate?: string;
   /**
+   * @remarks
+   * The number of data entries imported on the current day.
+   * 
    * @example
    * 400
    */
   dayImportCount?: number;
   /**
+   * @remarks
+   * The total number of failed tasks.
+   * 
    * @example
    * 61
    */
   failedCount?: number;
   /**
+   * @remarks
+   * The historical connection rate. This is the historical number of connected calls divided by the total number of calls (`TotalCallCount`).
+   * 
    * @example
    * 95.89%
    */
   historyConnectRate?: string;
   /**
+   * @remarks
+   * The time when the task actually starts. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1748932499000
    */
   realStartTime?: number;
   /**
+   * @remarks
+   * The reason why the task failed to start.
+   * 
    * @example
-   * 示例值示例值
+   * 智能体不在线
    */
   startFailedReason?: string;
   /**
+   * @remarks
+   * The time when the task is scheduled to start. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1748932499000
    */
   startTime?: number;
   /**
+   * @remarks
+   * The status of the task.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The total number of successful tasks.
+   * 
    * @example
    * 36
    */
   succeedCount?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
-   * 11121221121*****
+   * 1187**************
    */
   taskId?: string;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
-   * 示例值示例值
+   * 测试任务
    */
   taskName?: string;
   /**
+   * @remarks
+   * The total number of calls.
+   * 
    * @example
    * 58
    */
   totalCallCount?: number;
   /**
+   * @remarks
+   * The total number of tasks.
+   * 
    * @example
    * 71
    */
@@ -177,18 +237,31 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
 }
 
 export class QueryAiCallTaskPageResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The tasks.
+   */
   list?: QueryAiCallTaskPageResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 37
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 74
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 72
    */
@@ -225,27 +298,50 @@ export class QueryAiCallTaskPageResponseBodyData extends $dara.Model {
 
 export class QueryAiCallTaskPageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason for the access denial.
+   * 
    * @example
-   * Access Denied
+   * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The details of the tasks.
+   */
   data?: QueryAiCallTaskPageResponseBodyData;
   /**
+   * @remarks
+   * The error message. This parameter is returned only if the call fails.
+   * 
    * @example
-   * 示例值示例值
+   * 参数不合法
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B99C5955-5664-573D-97BE-A7CC1AFD8401
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

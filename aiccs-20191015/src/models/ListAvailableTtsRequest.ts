@@ -8,15 +8,24 @@ export class ListAvailableTtsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 复刻音色编码
+   * The voice code for a custom voice. You can find it on the [Custom Voice](https://aiccs.console.aliyun.com/engine/voiceprint) page.
    * 
    * @example
-   * V123456789
+   * V9A******
    */
   ttsVoiceCode?: string;
   /**
+   * @remarks
+   * The type of the TTS voice. Valid values:
+   * 
+   * `SYSTEM`: system voice.
+   * 
+   * `COSYCLONE`: cloned voice.
+   * 
+   * `BL-CUSTOM`: premium custom voice.
+   * 
    * @example
-   * 示例值示例值
+   * SYSTEM
    */
   voiceType?: string;
   static names(): { [key: string]: string } {

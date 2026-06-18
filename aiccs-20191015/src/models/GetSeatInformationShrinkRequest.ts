@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetSeatInformationShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * AICCS instance ID.  
+   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,27 +15,48 @@ export class GetSeatInformationShrinkRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Current page number. The value must be greater than **0**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * List of department IDs.
+   */
   depIdsShrink?: string;
   /**
+   * @remarks
+   * End UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1617761765000
    */
   endDate?: number;
   /**
+   * @remarks
+   * Specifies whether to query by department grouping. Default value: **false**. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * true
    */
   existDepartmentGrouping?: boolean;
   /**
+   * @remarks
+   * Page size. The value must be greater than **0**. Default value: **20**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Start UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1615083365000
    */

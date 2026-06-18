@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $dara.Model {
   /**
+   * @remarks
+   * Custom business information.
+   * 
    * @example
    * xxxx
    */
   bizData?: string;
   /**
+   * @remarks
+   * Description of the failure reason.
+   * 
    * @example
    * 号码格式异常
    */
   msg?: string;
   /**
+   * @remarks
+   * The callee number for outbound calls.
+   * 
    * @example
    * 150****0000
    */
@@ -44,13 +53,23 @@ export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $dara.Mod
 }
 
 export class InsertAiOutboundPhoneNumsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Details of failed numbers.
+   */
   failInfo?: InsertAiOutboundPhoneNumsResponseBodyDataFailInfo[];
   /**
+   * @remarks
+   * Number of successfully imported entries.
+   * 
    * @example
    * 7
    */
   successCount?: number;
   /**
+   * @remarks
+   * Total number of imported entries.
+   * 
    * @example
    * 10
    */
@@ -85,22 +104,40 @@ export class InsertAiOutboundPhoneNumsResponseBodyData extends $dara.Model {
 
 export class InsertAiOutboundPhoneNumsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Import result.
+   */
   data?: InsertAiOutboundPhoneNumsResponseBodyData;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.  
+   * - **true**: Succeeded.  
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

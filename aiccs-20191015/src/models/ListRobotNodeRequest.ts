@@ -8,6 +8,9 @@ export class ListRobotNodeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The robot ID, which is the script ID.  
+   * You can obtain it in the <b>outbound robot</b> > <b>Script Management</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example

@@ -8,10 +8,12 @@ export class CancelTaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The unique job ID of the robot calling task. You can view it in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or obtain it by using the [CreateTask](https://help.aliyun.com/document_detail/223556.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 123456
+   * 12****
    */
   taskId?: number;
   static names(): { [key: string]: string } {

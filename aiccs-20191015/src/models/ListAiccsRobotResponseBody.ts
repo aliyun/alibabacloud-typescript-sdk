@@ -3,15 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAiccsRobotResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Associated industry.
+   * 
+   * @example
+   * 房地产
+   */
   atProfession?: string;
+  /**
+   * @remarks
+   * Associated business.
+   * 
+   * @example
+   * 新房销售
+   */
   atSence?: string;
   /**
+   * @remarks
+   * Robot ID.
+   * 
    * @example
-   * 123456
+   * 12****
    */
   id?: number;
+  /**
+   * @remarks
+   * Robot name.
+   * 
+   * @example
+   * 测试机器人
+   */
   robotName?: string;
   /**
+   * @remarks
+   * Robot type.
+   * 
    * @example
    * CUSTOM
    */
@@ -47,22 +74,40 @@ export class ListAiccsRobotResponseBodyData extends $dara.Model {
 
 export class ListAiccsRobotResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request status code. A return value of OK indicates that the request Succeeded.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Robot scripts.
+   */
   data?: ListAiccsRobotResponseBodyData[];
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API invocation Succeeded. Valid values:
+   * - **true**: Succeeded.
+   * - **false**: failed.
+   * 
    * @example
    * true
    */

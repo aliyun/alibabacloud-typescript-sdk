@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAiVoiceAgentDetailRequest extends $dara.Model {
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * 123123********
    */

@@ -5,19 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineAgentDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent account name, which is the phone number or mailbox specified during account registration. It is unique within the instance.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 123@****.com
+   * username@example.com
    */
   accountName?: string;
   /**
+   * @remarks
+   * Unique ID of the customer request. Used for idempotency validation. You can generate it by using a UUID.
+   * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d****
    */
   clientToken?: string;
   /**
    * @remarks
+   * Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example

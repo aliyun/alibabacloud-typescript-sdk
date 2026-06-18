@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateModelApplicationRequestInterruptConfigAvoidInterruptDTO extends $dara.Model {
   /**
+   * @remarks
+   * The number of consecutive interruptions.
+   * 
    * @example
    * 3
    */
   interruptNum?: number;
   /**
+   * @remarks
+   * The interruption protection duration, in seconds.
+   * 
    * @example
    * 16.417547
    */
@@ -39,25 +45,28 @@ export class UpdateModelApplicationRequestInterruptConfigAvoidInterruptDTO exten
 export class UpdateModelApplicationRequestInterruptConfig extends $dara.Model {
   /**
    * @remarks
-   * 防止连续抢话功能配置
+   * The configuration to prevent consecutive barge-ins.
    */
   avoidInterruptDTO?: UpdateModelApplicationRequestInterruptConfigAvoidInterruptDTO;
   /**
    * @remarks
-   * 防止连续抢话功能是否开启
+   * Specifies whether to prevent consecutive barge-ins.
    * 
    * @example
    * true
    */
   enableAvoidInterrupt?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable the backchannel configuration for interruptions.
+   * 
    * @example
    * true
    */
   enableInterruptBackchannel?: boolean;
   /**
    * @remarks
-   * 开场白全程不打断
+   * Specifies whether to make the entire opening statement non-interruptible.
    * 
    * @example
    * true
@@ -65,12 +74,12 @@ export class UpdateModelApplicationRequestInterruptConfig extends $dara.Model {
   enableStartwordEntireNotInterrupt?: boolean;
   /**
    * @remarks
-   * 开场白不打断配置是否开启
+   * Specifies whether to make the opening statement non-interruptible.
    */
   enableStartwordNotInterrupt?: boolean;
   /**
    * @remarks
-   * 开场白保护时长
+   * The protection duration for the opening statement, in seconds.
    * 
    * @example
    * 1.4699
@@ -112,13 +121,16 @@ export class UpdateModelApplicationRequestInterruptConfig extends $dara.Model {
 
 export class UpdateModelApplicationRequestTtsConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable background sound.
+   * 
    * @example
    * true
    */
   backgroundEnabled?: boolean;
   /**
    * @remarks
-   * 背景音id
+   * The background sound ID.
    * 
    * @example
    * 111
@@ -126,38 +138,47 @@ export class UpdateModelApplicationRequestTtsConfig extends $dara.Model {
   backgroundSound?: number;
   /**
    * @remarks
-   * 背景音音量(id)
+   * The volume of the background sound. Valid values: `0` (low), `1` (medium), and `2` (high).
    * 
    * @example
    * 1
    */
   backgroundVolume?: number;
   /**
+   * @remarks
+   * The account ID.
+   * 
    * @example
    * 47
    */
   customerAccountId?: number;
   /**
+   * @remarks
+   * Specifies whether to enable audio mixing.
+   * 
    * @example
    * true
    */
   mixingEnabled?: boolean;
   /**
    * @remarks
-   * 混音模版id
+   * The mixing template ID.
    * 
    * @example
    * 111
    */
   mixingTemplate?: number;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
-   * 示例值示例值
+   * 122
    */
   resourceId?: string;
   /**
    * @remarks
-   * TTS 变量播放时的声音速度。取值范围：-200~200，默认值为 0。
+   * The TTS playback speech rate. Valid values range from -200 to 200. The default value is 0.
    * 
    * @example
    * 7
@@ -165,7 +186,7 @@ export class UpdateModelApplicationRequestTtsConfig extends $dara.Model {
   ttsSpeed?: number;
   /**
    * @remarks
-   * 声音风格
+   * The voice style.
    * 
    * @example
    * voice
@@ -173,7 +194,7 @@ export class UpdateModelApplicationRequestTtsConfig extends $dara.Model {
   ttsStyle?: string;
   /**
    * @remarks
-   * TTS 变量播放的音量。取值范围：0~100，默认值为 0。
+   * The TTS playback volume. Valid values range from 0 to 100. The default value is 0.
    * 
    * @example
    * 11
@@ -181,18 +202,24 @@ export class UpdateModelApplicationRequestTtsConfig extends $dara.Model {
   ttsVolume?: number;
   /**
    * @remarks
-   * 声音编码
+   * The voice code.
    * 
    * @example
-   * 示例值示例值
+   * 12123213123
    */
   voiceCode?: string;
   /**
    * @remarks
-   * 声音类型
+   * The voice type. Valid values:
+   * 
+   * ```
+   * SYSTEM: System voice.
+   * COSYCLONE: Cloned voice.
+   * BL-CUSTOM: Premium custom-cloned voice.
+   * ```
    * 
    * @example
-   * 示例值示例值
+   * SYSTEM
    */
   voiceType?: string;
   static names(): { [key: string]: string } {
@@ -241,17 +268,17 @@ export class UpdateModelApplicationRequestTtsConfig extends $dara.Model {
 export class UpdateModelApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用编码
+   * The application code.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * DKSDLSA
    */
   applicationCode?: string;
   /**
    * @remarks
-   * 应用并发请求数
+   * The number of concurrent requests for the application.
    * 
    * @example
    * 12
@@ -259,107 +286,155 @@ export class UpdateModelApplicationRequest extends $dara.Model {
   applicationCps?: number;
   /**
    * @remarks
-   * 模型应用名称
+   * The name of the model application.
    * 
    * @example
-   * 示例值示例值
+   * 测试应用
    */
   applicationName?: string;
   /**
+   * @remarks
+   * Specifies whether to hang up the call when a call assistant is detected.
+   * 
    * @example
    * false
    */
   callAssistantHangup?: boolean;
   /**
    * @remarks
-   * 通话助手识别
+   * Specifies whether to enable call assistant recognition.
    * 
    * @example
-   * 示例值
+   * true
    */
   callAssistantRecognize?: boolean;
   /**
+   * @remarks
+   * Specifies whether to trigger the model immediately after the call is connected.
+   * 
    * @example
    * false
    */
   callConnectedTriggerModel?: boolean;
   /**
+   * @remarks
+   * The allowed DTMF digits, specified as a comma-separated string such as `1,2,3`. You can specify a maximum of 20 digits.
+   * 
    * @example
-   * 示例值
+   * 1
    */
   dtmfAllowedDigits?: string;
   /**
+   * @remarks
+   * Specifies whether to automatically validate the DTMF digits.
+   * 
    * @example
    * true
    */
   dtmfAutoValidateEnable?: boolean;
   /**
+   * @remarks
+   * The number of DTMF digits to collect. The value must be between 1 and 12.
+   * 
    * @example
    * 1
    */
   dtmfDigitCount?: number;
   /**
+   * @remarks
+   * The timeout for DTMF input, in seconds. The value must be between 1 and 10.
+   * 
    * @example
    * 1
    */
   dtmfInputTimeout?: number;
   /**
+   * @remarks
+   * The action to take when the input is outside the allowed range. Valid values: `RETURN_MODEL` and `AUTO_RETRY`.
+   * 
    * @example
    * RETURN_MODEL
    */
   dtmfOutOfRangeAction?: string;
   /**
+   * @remarks
+   * The number of retry attempts. The value must be between 1 and 3. This parameter is effective only when `DtmfOutOfRangeAction` is set to `AUTO_RETRY`.
+   * 
    * @example
    * 1
    */
   dtmfRetryPlayTimes?: number;
   /**
+   * @remarks
+   * The custom text for the retry prompt. The text can contain a maximum of 50 characters. If this parameter is empty, the system uses the default prompt: "Invalid input. Please try again."
+   * 
    * @example
-   * 示例值示例值示例值
+   * 测试文本
    */
   dtmfRetryPromptText?: string;
   /**
+   * @example
+   * 90
+   */
+  dtmfSendMaxCount?: number;
+  /**
+   * @example
+   * 58
+   */
+  dtmfSendWaitTimeout?: number;
+  /**
    * @remarks
-   * 场景名称
+   * The scene name.
    * 
    * @example
-   * 示例值示例值
+   * 测试场景
    */
   dyvmsSceneName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the collection of DTMF signals. The default value is `false`.
+   * 
    * @example
    * false
    */
   enableDtmfReceive?: boolean;
   /**
    * @example
+   * true
+   */
+  enableDtmfSend?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the Morse code configuration. The default value is `false`.
+   * 
+   * @example
    * false
    */
   enableMorse?: boolean;
   /**
    * @remarks
-   * 打断配置
+   * The interruption configuration.
    */
   interruptConfig?: UpdateModelApplicationRequestInterruptConfig;
   /**
    * @remarks
-   * 模型编码
+   * The model code.
    * 
    * @example
-   * 示例值示例值示例值
+   * 1231
    */
   modelCode?: string;
   /**
    * @remarks
-   * 模型版本
+   * The model version.
    * 
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   modelVersion?: string;
   /**
    * @remarks
-   * 第一个静音是否唤起模型
+   * Specifies whether the first mute event triggers the model.
    * 
    * @example
    * true
@@ -367,7 +442,7 @@ export class UpdateModelApplicationRequest extends $dara.Model {
   muteActive?: boolean;
   /**
    * @remarks
-   * 静音时长
+   * The mute duration.
    * 
    * @example
    * 85
@@ -375,24 +450,32 @@ export class UpdateModelApplicationRequest extends $dara.Model {
   muteDuration?: number;
   /**
    * @remarks
-   * 连续多少个静音事件主动挂机
+   * The number of consecutive mute events that trigger an automatic hang-up.
    * 
    * @example
    * 70
    */
   muteHangupNum?: number;
+  /**
+   * @remarks
+   * 静音事件推送模式
+   * 
+   * @example
+   * FIRST_ONLY
+   */
+  mutePushMode?: string;
   ownerId?: number;
   /**
    * @remarks
-   * 提示词
+   * The prompt.
    * 
    * @example
-   * 示例值示例值
+   * 测试提示词
    */
   prompt?: string;
   /**
    * @remarks
-   * 资质ID
+   * The qualification ID.
    * 
    * @example
    * 61
@@ -400,22 +483,25 @@ export class UpdateModelApplicationRequest extends $dara.Model {
   qualificationId?: number;
   /**
    * @remarks
-   * 资质名称
+   * The name of the qualification.
    * 
    * @example
-   * 示例值示例值示例值
+   * 测试质检
    */
   qualificationName?: string;
   /**
+   * @remarks
+   * The URL of the recording file.
+   * 
    * @example
-   * 示例值示例值
+   * https://xxxxxxxxxxxxxxx.wav
    */
   recordingFile?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 最大通话时长
+   * The session timeout, which is the maximum duration of a call.
    * 
    * @example
    * 49
@@ -423,23 +509,23 @@ export class UpdateModelApplicationRequest extends $dara.Model {
   sessionTimeout?: number;
   /**
    * @remarks
-   * 来源
+   * The value must be `USER`.
    * 
    * @example
-   * 示例值示例值
+   * USER
    */
   source?: string;
   /**
    * @remarks
-   * 话术内容
+   * The content of the speech.
    * 
    * @example
-   * 示例值
+   * 测试话术
    */
   speechContent?: string;
   /**
    * @remarks
-   * 话束id
+   * The speech ID.
    * 
    * @example
    * 15
@@ -447,28 +533,32 @@ export class UpdateModelApplicationRequest extends $dara.Model {
   speechId?: number;
   /**
    * @remarks
-   * 开场白
+   * The opening statement.
    * 
    * @example
-   * 示例值示例值
+   * 你好，这是个测试开场白
    */
   startWord?: string;
   /**
+   * @remarks
+   * The type of the opening statement. Valid values:
+   * 
    * @example
-   * 1
+   * 0：文本
+   * 1：录音
    */
   startWordType?: number;
   /**
    * @remarks
-   * tts配置，包括音色、音量、音速等。
+   * The TTS configuration, such as voice, volume, and speech rate.
    */
   ttsConfig?: UpdateModelApplicationRequestTtsConfig;
   /**
    * @remarks
-   * 用途
+   * The purpose of the application.
    * 
    * @example
-   * 示例值示例值
+   * 测试用途
    */
   usageDesc?: string;
   static names(): { [key: string]: string } {
@@ -486,8 +576,11 @@ export class UpdateModelApplicationRequest extends $dara.Model {
       dtmfOutOfRangeAction: 'DtmfOutOfRangeAction',
       dtmfRetryPlayTimes: 'DtmfRetryPlayTimes',
       dtmfRetryPromptText: 'DtmfRetryPromptText',
+      dtmfSendMaxCount: 'DtmfSendMaxCount',
+      dtmfSendWaitTimeout: 'DtmfSendWaitTimeout',
       dyvmsSceneName: 'DyvmsSceneName',
       enableDtmfReceive: 'EnableDtmfReceive',
+      enableDtmfSend: 'EnableDtmfSend',
       enableMorse: 'EnableMorse',
       interruptConfig: 'InterruptConfig',
       modelCode: 'ModelCode',
@@ -495,6 +588,7 @@ export class UpdateModelApplicationRequest extends $dara.Model {
       muteActive: 'MuteActive',
       muteDuration: 'MuteDuration',
       muteHangupNum: 'MuteHangupNum',
+      mutePushMode: 'MutePushMode',
       ownerId: 'OwnerId',
       prompt: 'Prompt',
       qualificationId: 'QualificationId',
@@ -528,8 +622,11 @@ export class UpdateModelApplicationRequest extends $dara.Model {
       dtmfOutOfRangeAction: 'string',
       dtmfRetryPlayTimes: 'number',
       dtmfRetryPromptText: 'string',
+      dtmfSendMaxCount: 'number',
+      dtmfSendWaitTimeout: 'number',
       dyvmsSceneName: 'string',
       enableDtmfReceive: 'boolean',
+      enableDtmfSend: 'boolean',
       enableMorse: 'boolean',
       interruptConfig: UpdateModelApplicationRequestInterruptConfig,
       modelCode: 'string',
@@ -537,6 +634,7 @@ export class UpdateModelApplicationRequest extends $dara.Model {
       muteActive: 'boolean',
       muteDuration: 'number',
       muteHangupNum: 'number',
+      mutePushMode: 'string',
       ownerId: 'number',
       prompt: 'string',
       qualificationId: 'number',

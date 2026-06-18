@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class MakeDoubleCallRequest extends $dara.Model {
   /**
    * @remarks
+   * Account name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class MakeDoubleCallRequest extends $dara.Model {
    */
   accountName?: string;
   /**
+   * @remarks
+   * Business data carried in the request. The value must be in JSON format.
+   * 
    * @example
    * {"bizId": 123456}
    */
   bizData?: string;
   /**
    * @remarks
+   * Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class MakeDoubleCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * User\\"s phone number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class MakeDoubleCallRequest extends $dara.Model {
   memberPhone?: string;
   /**
    * @remarks
+   * Outbound caller number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +52,10 @@ export class MakeDoubleCallRequest extends $dara.Model {
    */
   outboundCallNumber?: string;
   /**
+   * @remarks
+   * Agent\\"s phone number.  
+   * > This parameter is required only if the call needs to be placed through the agent\\"s phone.
+   * 
    * @example
    * 150****1234
    */

@@ -4,31 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddLargeModelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The reason for the authentication failure.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code. A value of `OK` indicates that the request was successful.
+   * 
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The result of the operation.
+   * 
    * @example
    * false
    */
   data?: boolean;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
-   * 示例值示例值
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值
+   * B1B8E483-372F-5AA8-A4B2-CA82EC967B0C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * false
    */

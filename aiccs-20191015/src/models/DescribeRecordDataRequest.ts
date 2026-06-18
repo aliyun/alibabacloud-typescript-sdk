@@ -4,22 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRecordDataRequest extends $dara.Model {
   /**
+   * @remarks
+   * AccountId.
+   * 
    * @example
    * 2235****
    */
   accountId?: string;
   /**
+   * @remarks
+   * Account type.
+   * 
    * @example
    * BUC_TYPE
    */
   accountType?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 1004849****
    */
   acid?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Product name. Default value: **aiccs**.
+   * 
    * @example
    * aiccs
    */
@@ -27,6 +39,9 @@ export class DescribeRecordDataRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * Recording desensitization level. Valid values: **1–4**.
+   * 
    * @example
    * 2
    */

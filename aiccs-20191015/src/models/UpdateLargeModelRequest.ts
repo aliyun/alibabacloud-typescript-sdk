@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLargeModelRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权码
+   * The authorization code.
    * 
    * @example
-   * 示例值示例值示例值
+   * sk-sxxxxx*********xx
    */
   authCode?: string;
   /**
    * @remarks
-   * 基础模型
+   * A list of base models.
    */
   baseModel?: string[];
   /**
    * @remarks
-   * 模型编码
+   * The model code.
    * 
    * @example
    * Test Model Name
@@ -26,18 +26,18 @@ export class UpdateLargeModelRequest extends $dara.Model {
   modelCode?: string;
   /**
    * @remarks
-   * 模型名称
+   * The model name.
    * 
    * @example
-   * 示例值
+   * Test model
    */
   modelName?: string;
   /**
    * @remarks
-   * 模型地址
+   * The model URL.
    * 
    * @example
-   * 示例值示例值示例值
+   * https://xxxxxxxxx
    */
   modelUrl?: string;
   ownerId?: number;
@@ -45,26 +45,26 @@ export class UpdateLargeModelRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 温度
+   * Controls the randomness of the model\\"s output. A higher value increases randomness, and a lower value makes the output more deterministic.
    * 
    * @example
-   * 49.29
+   * 0.1
    */
   temperature?: number;
   /**
    * @remarks
-   * topK
+   * Restricts token selection to the top k most probable tokens.
    * 
    * @example
-   * 20
+   * 2
    */
   topK?: number;
   /**
    * @remarks
-   * topP
+   * Controls output diversity by using nucleus sampling. It defines a cumulative probability threshold for token selection, considering only the most likely tokens.
    * 
    * @example
-   * 84.38427
+   * 0.1
    */
   topP?: number;
   static names(): { [key: string]: string } {

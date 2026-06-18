@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAiCallTaskDetailResponseBodyDataCallTimes extends $dara.Model {
   /**
+   * @remarks
+   * The end of the time window.
+   * 
    * @example
    * 09:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The beginning of the time window.
+   * 
    * @example
    * 12:00:00
    */
@@ -38,13 +44,19 @@ export class QueryAiCallTaskDetailResponseBodyDataCallTimes extends $dara.Model 
 
 export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the deployed agent.
+   * 
    * @example
-   * 示例值示例值
+   * 1180**************
    */
   agentId?: string;
   /**
+   * @remarks
+   * The name of the agent.
+   * 
    * @example
-   * 示例值示例值
+   * 测试智能体
    */
   agentName?: string;
   /**
@@ -57,26 +69,40 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
    * 示例值
    */
   applicationName?: string;
+  /**
+   * @remarks
+   * The days of the week on which calls are permitted.
+   */
   callDays?: string[];
+  /**
+   * @remarks
+   * The allowed call time windows.
+   */
   callTimes?: QueryAiCallTaskDetailResponseBodyDataCallTimes[];
   /**
+   * @remarks
+   * The caller ID.
+   * 
    * @example
    * 05370124****
    */
   callerNumber?: string;
   /**
+   * @remarks
+   * The number of concurrent tasks.
+   * 
    * @example
    * 10
    */
   concurrentCount?: number;
   /**
    * @example
-   * 示例值示例值
+   * 示例值
    */
   lineEncoding?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 示例值
    */
   linePhoneNum?: string;
   /**
@@ -85,44 +111,80 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
    */
   phoneType?: number;
   /**
+   * @remarks
+   * The actual start time of the task. This value is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1748932499000
    */
   realStartTime?: number;
   /**
+   * @remarks
+   * The number of retries.
+   * 
    * @example
    * 2
    */
   retryCount?: number;
   /**
+   * @remarks
+   * Indicates whether call retry is enabled. Valid values:
+   * 
+   * - `true`
+   * 
+   * - `false`
+   * 
    * @example
    * true
    */
   retryEnable?: boolean;
   /**
+   * @remarks
+   * The retry interval. Unit: minutes.
+   * 
    * @example
    * 1
    */
   retryInterval?: number;
+  /**
+   * @remarks
+   * The reasons for which a failed call can be retried.
+   */
   retryReasons?: string[];
   /**
+   * @remarks
+   * The scheduled start time of the task. This value is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1748932499000
    */
   startTime?: number;
   /**
+   * @remarks
+   * The start mode. Valid values:
+   * 
+   * - `IMMEDIATE`: The task starts immediately.
+   * 
+   * - `SCHEDULE`: The task starts at a scheduled time.
+   * 
    * @example
    * IMMEDIATE
    */
   startType?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
-   * 11121232222****
+   * 1187**************
    */
   taskId?: string;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
-   * 示例值示例值
+   * 测试任务
    */
   taskName?: string;
   static names(): { [key: string]: string } {
@@ -195,27 +257,50 @@ export class QueryAiCallTaskDetailResponseBodyData extends $dara.Model {
 
 export class QueryAiCallTaskDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The access denial details. This parameter is returned only if RAM validation fails.
+   * 
    * @example
-   * Access Denied
+   * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryAiCallTaskDetailResponseBodyData;
   /**
+   * @remarks
+   * The error message. This parameter is returned only if the call fails.
+   * 
    * @example
-   * 示例值示例值
+   * 参数无效
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 23822ECB-8CAA-5C52-9C9E-807FD82A5A7F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**
+   * 
+   * - **false**
+   * 
    * @example
    * false
    */

@@ -5,33 +5,48 @@ import * as $dara from '@darabonba/typescript';
 export class PageQueryAgentListNewRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The agent ID.
    * 
    * @example
    * 12345
    */
   agentId?: string;
   /**
+   * @remarks
+   * The agent name.
+   * 
    * @example
-   * 示例值示例值
+   * 智能客服助手
    */
   agentName?: string;
   /**
+   * @remarks
+   * Indicates whether the agent is available for outbound calls. The value is `true` if the agent\\"s current deployment branch has a published version.
+   * 
    * @example
    * true
    */
   isAvailable?: boolean;
   /**
+   * @remarks
+   * The page index. This parameter is deprecated. Use `PageNo` instead.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 20
    */

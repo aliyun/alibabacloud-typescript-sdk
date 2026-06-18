@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class MakeDoubleCallResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 68255155365620598
    */
@@ -31,22 +34,38 @@ export class MakeDoubleCallResponseBodyData extends $dara.Model {
 
 export class MakeDoubleCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: MakeDoubleCallResponseBodyData;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * 
    * @example
    * true
    */

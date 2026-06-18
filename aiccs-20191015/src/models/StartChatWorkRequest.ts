@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartChatWorkRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent logon name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StartChatWorkRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example

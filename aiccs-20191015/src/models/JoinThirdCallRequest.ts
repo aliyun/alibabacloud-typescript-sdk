@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class JoinThirdCallRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent account name (agent logon name)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,27 +14,41 @@ export class JoinThirdCallRequest extends $dara.Model {
    */
   accountName?: string;
   /**
+   * @remarks
+   * acid from WebSocket after an inbound call
+   * 
    * @example
    * 7719786
    */
   callId?: string;
   /**
+   * @remarks
+   * Unique customer request ID used for idempotency validation; can be generated using UUID
+   * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
    */
   clientToken?: string;
   /**
+   * @remarks
+   * connId from WebSocket after an inbound call
+   * 
    * @example
    * 7719788
    */
   connectionId?: string;
   /**
+   * @remarks
+   * holdConnId from WebSocket after an inbound call (only provided during two-step transfer)
+   * 
    * @example
    * 0
    */
   holdConnectionId?: string;
   /**
    * @remarks
+   * AICCS instance ID, visible in the Artificial Intelligence Cloud Call Service console
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +56,9 @@ export class JoinThirdCallRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * jobId from WebSocket after an inbound call
+   * 
    * @example
    * 7719787
    */

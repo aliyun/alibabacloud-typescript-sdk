@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class TestLargeModelRequest extends $dara.Model {
   /**
    * @remarks
-   * 基础模型
+   * The base models.
    */
   baseModel?: string[];
   /**
    * @remarks
-   * 场景ID
+   * The ID of the test scenario.
    * 
    * @example
    * 1232
@@ -21,10 +21,10 @@ export class TestLargeModelRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 用户对话内容
+   * The user dialog content.
    * 
    * @example
-   * 示例值示例值示例值
+   * 你好。
    */
   userDialogContent?: string;
   static names(): { [key: string]: string } {

@@ -27,6 +27,7 @@ export { GetAiOutboundTaskProgressResponseBodyDataCalloutProgress } from './GetA
 export { GetAiOutboundTaskProgressResponseBodyDataTaskProgress } from './GetAiOutboundTaskProgressResponseBody';
 export { GetAiOutboundTaskProgressResponseBodyData } from './GetAiOutboundTaskProgressResponseBody';
 export { GetAllDepartmentResponseBodyData } from './GetAllDepartmentResponseBody';
+export { GetAudioNoteUploadUrlResponseBodyData } from './GetAudioNoteUploadUrlResponseBody';
 export { GetCallDialogContentResponseBodyData } from './GetCallDialogContentResponseBody';
 export { GetCustomerInfoResponseBodyData } from './GetCustomerInfoResponseBody';
 export { GetDepGroupTreeDataResponseBodyDataGroupDTOS } from './GetDepGroupTreeDataResponseBody';
@@ -339,6 +340,9 @@ export { GetAiOutboundTaskProgressResponse } from './GetAiOutboundTaskProgressRe
 export { GetAllDepartmentRequest } from './GetAllDepartmentRequest';
 export { GetAllDepartmentResponseBody } from './GetAllDepartmentResponseBody';
 export { GetAllDepartmentResponse } from './GetAllDepartmentResponse';
+export { GetAudioNoteUploadUrlRequest } from './GetAudioNoteUploadUrlRequest';
+export { GetAudioNoteUploadUrlResponseBody } from './GetAudioNoteUploadUrlResponseBody';
+export { GetAudioNoteUploadUrlResponse } from './GetAudioNoteUploadUrlResponse';
 export { GetCallDialogContentRequest } from './GetCallDialogContentRequest';
 export { GetCallDialogContentResponseBody } from './GetCallDialogContentResponseBody';
 export { GetCallDialogContentResponse } from './GetCallDialogContentResponse';
@@ -686,6 +690,9 @@ export { StopAiOutboundTaskResponse } from './StopAiOutboundTaskResponse';
 export { StopTaskRequest } from './StopTaskRequest';
 export { StopTaskResponseBody } from './StopTaskResponseBody';
 export { StopTaskResponse } from './StopTaskResponse';
+export { SubmitAudioNoteRequest } from './SubmitAudioNoteRequest';
+export { SubmitAudioNoteResponseBody } from './SubmitAudioNoteResponseBody';
+export { SubmitAudioNoteResponse } from './SubmitAudioNoteResponse';
 export { SuspendHotlineServiceRequest } from './SuspendHotlineServiceRequest';
 export { SuspendHotlineServiceResponseBody } from './SuspendHotlineServiceResponseBody';
 export { SuspendHotlineServiceResponse } from './SuspendHotlineServiceResponse';

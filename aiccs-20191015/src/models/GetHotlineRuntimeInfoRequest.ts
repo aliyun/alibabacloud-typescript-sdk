@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineRuntimeInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The agent account name. It is unique within the instance (logon name).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class GetHotlineRuntimeInfoRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The instance ID.  
+   * 
+   * You can log on to the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview) and view the instance ID in **Instance Management**.
+   * 
    * This parameter is required.
    * 
    * @example

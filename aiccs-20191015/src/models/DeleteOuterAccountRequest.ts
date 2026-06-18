@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOuterAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * External Account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteOuterAccountRequest extends $dara.Model {
   outerAccountId?: string;
   /**
    * @remarks
+   * Type of the external account.
+   * 
    * This parameter is required.
    * 
    * @example

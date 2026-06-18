@@ -4,29 +4,58 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSkillGroupLatitudeStateShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page. The value must be greater than **0**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * List of department IDs.
+   */
   depIdsShrink?: string;
   /**
+   * @remarks
+   * End datetime UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1617761765000
    */
   endDate?: number;
   /**
+   * @remarks
+   * Indicates whether to group by department. Valid values:  
+   * 
+   * - **true**: Yes.  
+   * - **false**: No.
+   * 
    * @example
    * true
    */
   existDepartmentGrouping?: boolean;
   /**
+   * @remarks
+   * Specifies whether to group by skill group. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * true
    */
   existSkillGroupGrouping?: boolean;
+  /**
+   * @remarks
+   * A list of skill group IDs.
+   */
   groupIdsShrink?: string;
   /**
    * @remarks
+   * AICCS instance ID.  
+   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,11 +63,17 @@ export class GetSkillGroupLatitudeStateShrinkRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page size. The value must be greater than **0**. Default value: **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The start date as a UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1615083365000
    */

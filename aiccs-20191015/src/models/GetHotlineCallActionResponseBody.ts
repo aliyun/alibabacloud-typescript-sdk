@@ -4,74 +4,140 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Customer ID.
+   * 
    * @example
    * 8999****
    */
   actionId?: number;
   /**
+   * @remarks
+   * Tenant ID.
+   * 
    * @example
    * 2367****
    */
   buId?: number;
   /**
+   * @remarks
+   * Callout ID.
+   * 
    * @example
    * 1122****
    */
   calloutId?: number;
+  /**
+   * @remarks
+   * Call name.
+   * 
+   * @example
+   * 王XX
+   */
   calloutName?: string;
   /**
+   * @remarks
+   * Ticket ID.
+   * 
    * @example
    * 1138902****
    */
   caseId?: number;
   /**
+   * @remarks
+   * Channel ID.
+   * 
    * @example
    * 2377****
    */
   channelId?: string;
   /**
+   * @remarks
+   * Channel Type. Valid values:
+   * 
+   * - **1**: Hotline.
+   * - **2**: Online.
+   * 
    * @example
    * 2
    */
   channelType?: number;
   /**
+   * @remarks
+   * Department ID.
+   * 
    * @example
    * 1223****
    */
   depId?: number;
   /**
+   * @remarks
+   * Indicates whether the call is transferred.
+   * 
    * @example
    * true
    */
   isTransfer?: string;
   /**
+   * @remarks
+   * Membership ID.
+   * 
    * @example
    * 7856876****
    */
   memberId?: number;
   /**
+   * @remarks
+   * Membership List.
+   * 
    * @example
    * 8900****
    */
   memberList?: string;
+  /**
+   * @remarks
+   * Membership name.
+   * 
+   * @example
+   * 匿名会员
+   */
   memberName?: string;
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * 1332****
    */
   servicerId?: number;
+  /**
+   * @remarks
+   * Agent name.
+   * 
+   * @example
+   * XX测试
+   */
   servicerName?: string;
   /**
+   * @remarks
+   * Sub-touch ID.
+   * 
    * @example
    * 3423****
    */
   subTouchId?: number;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * 12345****
    */
   taskId?: number;
   /**
+   * @remarks
+   * Touch ID.
+   * 
    * @example
    * 2235****
    */
@@ -131,22 +197,40 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
 
 export class GetHotlineCallActionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetHotlineCallActionResponseBodyData;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE339D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded. Valid values:
+   * - **true**: Succeeded.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

@@ -4,29 +4,58 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetQueueInformationShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current page. The value must be greater than **0**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * List of department IDs.
+   */
   depIdsShrink?: string;
   /**
+   * @remarks
+   * End UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1617761765000
    */
   endDate?: number;
   /**
+   * @remarks
+   * Specifies whether to query by department grouping. Default value: **false**. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * false
    */
   existDepartmentGrouping?: boolean;
   /**
+   * @remarks
+   * Specifies whether to query data grouped by skill group. Default value: **false**. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
-   * fasle
+   * false
    */
   existSkillGroupGrouping?: boolean;
+  /**
+   * @remarks
+   * The list of skill group IDs.
+   */
   groupIdsShrink?: string;
   /**
    * @remarks
+   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID.
+   * 
+   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,11 +63,17 @@ export class GetQueueInformationShrinkRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The number of entries per page. The value must be greater than **0**. Default value: **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The start UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1615083365000
    */

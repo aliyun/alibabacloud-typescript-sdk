@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineWaitingNumberRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent account name (agent logon name)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class GetHotlineWaitingNumberRequest extends $dara.Model {
    */
   accountName?: string;
   /**
+   * @remarks
+   * Unique customer request ID, used for idempotency validation; can be generated using UUID
+   * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
    */
   clientToken?: string;
   /**
    * @remarks
+   * AICCS instance ID, visible in the Artificial Intelligence Cloud Call Service console
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,33 +4,55 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportTaskNumberDatasResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why access was denied.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code. `OK` indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The import batch ID.
+   * 
    * @example
-   * 1223123132123*****
+   * 123497836486******
    */
   data?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
-   * 示例值示例值
+   * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CFC2F07E-F763-7C48-1A32-6EFFB6EA344E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
-   * false
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveAgentFromSkillGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of agents successfully removed.
+   * 
    * @example
    * 2
    */
@@ -31,22 +34,40 @@ export class RemoveAgentFromSkillGroupResponseBodyData extends $dara.Model {
 
 export class RemoveAgentFromSkillGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of "Success" indicates that the request succeeded.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: RemoveAgentFromSkillGroupResponseBodyData;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API invocation succeeded. Valid values:
+   * - **true**: Succeeded.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

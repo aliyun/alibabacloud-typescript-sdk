@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHotlineRecordDetailResponseBodyResultDataData extends $dara.Model {
   /**
+   * @remarks
+   * Hotline End Time.
+   * 
    * @example
    * 1614578410000
    */
   endTime?: number;
   /**
+   * @remarks
+   * OSS URL of the hotline call recording.
+   * 
    * @example
    * http://xxx.xxxxx/xx.wav
    */
   ossUrl?: string;
   /**
+   * @remarks
+   * Servicer Account.
+   * 
    * @example
    * 123@123.com
    */
   servicerName?: string;
   /**
+   * @remarks
+   * Start Time of the hotline call.
+   * 
    * @example
    * 1614578400000
    */
@@ -52,22 +64,38 @@ export class ListHotlineRecordDetailResponseBodyResultDataData extends $dara.Mod
 
 export class ListHotlineRecordDetailResponseBodyResultData extends $dara.Model {
   /**
+   * @remarks
+   * Current page.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Query result data.
+   */
   data?: ListHotlineRecordDetailResponseBodyResultDataData[];
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 100
    */
   onePageSize?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 10
    */
   totalPage?: number;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 945
    */
@@ -106,27 +134,46 @@ export class ListHotlineRecordDetailResponseBodyResultData extends $dara.Model {
 
 export class ListHotlineRecordDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates that the request succeeded.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * xxxx
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   resultData?: ListHotlineRecordDetailResponseBodyResultData;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * 
    * @example
    * true
    */

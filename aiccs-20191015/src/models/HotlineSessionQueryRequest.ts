@@ -4,49 +4,117 @@ import * as $dara from '@darabonba/typescript';
 
 export class HotlineSessionQueryRequest extends $dara.Model {
   /**
+   * @remarks
+   * Session ID. The acid received via WebSocket after an inbound call.
+   * 
    * @example
    * 7719786****
    */
   acid?: string;
+  /**
+   * @remarks
+   * Session ID List.
+   */
   acidList?: string[];
   /**
+   * @remarks
+   * Call result. Valid values:  
+   * 
+   * - **normal**: Normal hang-up.  
+   * - **touchRouteError**: Queue hang-up.  
+   * - **touchInQueue**: Queue hang-up.  
+   * - **touchInLoss**: Queue hang-up.  
+   * - **userHangup**: User hang-up or IVR hang-up.  
+   * - **sysHangup**: System hang-up or IVR hang-up.  
+   * - **transferAgent**: User hang-up or IVR hang-up.  
+   * - **dailing**: Agent hang-up during ringing.  
+   * - **TouchRingCallLoss**: Queue hang-up during ringing.
+   * 
    * @example
    * normal
    */
   callResult?: string;
+  /**
+   * @remarks
+   * List of call results.
+   */
   callResultList?: string[];
   /**
+   * @remarks
+   * Call Type. Valid values:
+   * - **1**: Outbound call.
+   * - **2**: Inbound call.
+   * - **3**: Change owner.
+   * 
    * @example
    * 1
    */
   callType?: number;
+  /**
+   * @remarks
+   * Call Type List.
+   */
   callTypeList?: number[];
   /**
+   * @remarks
+   * Calling party number, such as a user\\"s phone number, agent number, or machine number.
+   * 
    * @example
    * 135615****
    */
   calledNumber?: string;
+  /**
+   * @remarks
+   * List of called numbers.
+   */
   calledNumberList?: string[];
   /**
+   * @remarks
+   * Calling party number, such as a user\\"s phone number, customer service agent number, or machine number.
+   * 
    * @example
    * 057177****
    */
   callingNumber?: string;
+  /**
+   * @remarks
+   * List of calling numbers.
+   */
   callingNumberList?: string[];
   /**
+   * @remarks
+   * Skill group ID.
+   * 
    * @example
    * 123456
    */
   groupId?: number;
+  /**
+   * @remarks
+   * List of skill group IDs.
+   */
   groupIdList?: number[];
+  /**
+   * @remarks
+   * Skill group name.
+   * 
+   * @example
+   * 自动化技能组
+   */
   groupName?: string;
   /**
+   * @remarks
+   * Global unique ID (GUID) of the call detail.
+   * 
    * @example
-   * acc1c58dab4a4dd280e3813c66
+   * acc1c58dab4a4****0e3813c66
    */
   id?: string;
   /**
    * @remarks
+   * AICCS instance ID.  
+   * You can obtain it in the **Instance Management** section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,48 +122,94 @@ export class HotlineSessionQueryRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Membership ID.
+   * 
    * @example
    * 7856****
    */
   memberId?: string;
+  /**
+   * @remarks
+   * Membership List.
+   */
   memberIdList?: string[];
+  /**
+   * @remarks
+   * Membership name.
+   * 
+   * @example
+   * 匿名会员
+   */
   memberName?: string;
   /**
+   * @remarks
+   * Current page number. The value must be greater than **0**. Default Value: **1**.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Page size. The value must be greater than **0**. Default value: **20**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Extension parameters.
+   * 
    * @example
    * xxxx
    */
   params?: string;
   /**
+   * @remarks
+   * End UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
-   * 161482972
+   * 1614829721
    */
   queryEndTime?: number;
   /**
+   * @remarks
+   * Start UNIX timestamp. Unit: ms.
+   * 
    * @example
-   * 161482872
+   * 1614828721
    */
   queryStartTime?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * 555555
    */
   servicerId?: string;
+  /**
+   * @remarks
+   * List of agent IDs.
+   */
   servicerIdList?: string[];
+  /**
+   * @remarks
+   * Agent Name.
+   * 
+   * @example
+   * 刘测试
+   */
   servicerName?: string;
   static names(): { [key: string]: string } {
     return {

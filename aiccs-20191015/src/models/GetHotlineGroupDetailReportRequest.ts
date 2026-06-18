@@ -4,22 +4,39 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHotlineGroupDetailReportRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number. The value must be greater than **0**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * List of department IDs.
+   */
   depIds?: number[];
   /**
    * @remarks
+   * End date as a UNIX timestamp. Unit: milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1614824972
    */
   endDate?: number;
+  /**
+   * @remarks
+   * List of skill group IDs.
+   */
   groupIds?: number[];
   /**
    * @remarks
+   * Artificial Intelligence Cloud Call Service (AICCS) instance ID.
+   * 
+   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,12 +44,17 @@ export class GetHotlineGroupDetailReportRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Page size. The value must be greater than **0**. Default value: **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * Start date as a UNIX timestamp. Unit: milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,26 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request status code. A return value of "OK" indicates that the request succeeded.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Unique job ID of the robot outbound calling task.
+   * 
    * @example
-   * 123456
+   * 12****
    */
   data?: number;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.  
+   * - **true**: Succeeded.  
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

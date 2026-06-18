@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The batch ID.
+   * 
    * @example
-   * 12121211111*****
+   * 1183**************
    */
   batchId?: string;
   /**
@@ -15,7 +18,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   branchId?: number;
   /**
    * @example
-   * 示例值
+   * example
    */
   branchName?: string;
   /**
@@ -24,63 +27,165 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    */
   branchVersionId?: number;
   /**
+   * @remarks
+   * The call result.
+   * 
    * @example
-   * 示例值
+   * 用户接通
    */
   callResult?: string;
   /**
+   * @remarks
+   * The called number.
+   * 
    * @example
    * 0537101****
    */
   calledNumber?: string;
   /**
+   * @remarks
+   * The call time, formatted as a timestamp in milliseconds.
+   * 
    * @example
    * 1748948749000
    */
   callingTime?: number;
   /**
+   * @remarks
+   * The conversation duration, in seconds.
+   * 
    * @example
    * 100
    */
   conversationDuration?: number;
   /**
+   * @remarks
+   * The conversation record, formatted as a chronologically sorted JSON array. Each object has the following structure:
+   * 
+   * ```json
+   * [
+   *     {
+   *         "content":"The content of the message.",
+   *         "role":"The role of the speaker.", // Valid values: user, assistant
+   *     }
+   * ]
+   * ```
+   * 
    * @example
-   * 示例值示例值
+   * [
+   *     {
+   *         "content": "111您好，年龄222，性别男，我这边是**汽车的官方顾问，我们新出了一款车型为**；**已经上市了，售价**万元起，**分钟破*台，您看要不了解一下？",
+   *         "role": "assistant"
+   *     },
+   *     {
+   *         "content": "<客户打断>哎，你是谁？",
+   *         "role": "user",
+   *     },
+   *     {
+   *         "content": "<客户打断>你再说一遍。",
+   *         "role": "user",
+   *     },
+   *     {
+   *         "content": "哎，我没听清。",
+   *         "role": "user",
+   *     },
+   *     {
+   *         "content": "你在说什么？",
+   *         "role": "user",
+   *     },
+   *     {
+   *         "content": "您好，",
+   *         "role": "assistant",
+   *     },
+   *     {
+   *         "content": "我是**汽车总部销售服务顾问。",
+   *         "role": "assistant",
+   *     },
+   *     {
+   *         "content": "我们最近推出了一款新车**，想了解一下您是否对这款车型感兴趣？",
+   *         "role": "assistant",
+   *     },
+   *     {
+   *         "content": "<客户打断>哎，那我是谁？",
+   *         "role": "user",
+   *     },
+   *     {
+   *         "content": "你在说什么呢？",
+   *         "role": "user",
+   *     },
+   *     {
+   *         "content": "抱歉打扰了，111先生。",
+   *         "role": "assistant",
+   *     },
+   *     {
+   *         "content": "祝您生活愉快！再见！",
+   *         "role": "assistant",
+   *     }
+   * ]
    */
   conversationRecord?: string;
   /**
+   * @remarks
+   * The conversation turn count.
+   * 
    * @example
    * 10
    */
   conversationTurnCount?: number;
   /**
+   * @remarks
+   * The task detail ID.
+   * 
    * @example
-   * 12121211111*****
+   * 9662*************
    */
   detailId?: string;
   /**
+   * @remarks
+   * The encryption type. Valid values are: 0 (no encryption), 1 (MD5), 2 (SHA256), and 3 (SM3).
+   * 
    * @example
-   * 21
+   * 1
    */
   encryptionType?: number;
   /**
+   * @remarks
+   * The failure reason. Provided only if the call fails.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 账户停机
    */
   failedReason?: string;
   /**
+   * @remarks
+   * The import time, formatted as a timestamp in milliseconds.
+   * 
    * @example
    * 1748948749000
    */
   importedTime?: number;
   /**
+   * @remarks
+   * The major intent.
+   * 
    * @example
    * A
    */
   majorIntent?: string;
   /**
+   * @remarks
+   * A JSON object of key-value pairs for runtime variables.
+   * 
    * @example
-   * 示例值
+   * {
+   *   "date": "666",
+   *   "phoneNumber": "777",
+   *   "distance": "555",
+   *   "mendian": "444",
+   *   "sex": "男",
+   *   "name": "111",
+   *   "age": "222"
+   * }
    */
   options?: string;
   /**
@@ -89,23 +194,46 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    */
   outId?: string;
   /**
+   * @remarks
+   * The recording file path. Provided only after the recording file is generated.
+   * 
    * @example
    * https://*******
    */
   recordingFilePath?: string;
   /**
+   * @remarks
+   * The task detail status.
+   * 
+   * - 0: Initializing
+   * 
+   * - 1: Waiting to call
+   * 
+   * - 2: Waiting to retry
+   * 
+   * - 3: Calling
+   * 
+   * - 4: Call ended
+   * 
+   * - 5: Call failed
+   * 
+   * Only statuses 4 and 5 are terminal states.
+   * 
    * @example
-   * 51
+   * 4
    */
   status?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
-   * 12121211111*****
+   * 1187**************
    */
   taskId?: string;
   /**
    * @example
-   * 示例值示例值
+   * example
    */
   versionName?: string;
   /**
@@ -177,18 +305,31 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
 }
 
 export class QueryAiCallDetailPageResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of task details.
+   */
   list?: QueryAiCallDetailPageResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 60
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 5
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 2
    */
@@ -225,27 +366,50 @@ export class QueryAiCallDetailPageResponseBodyData extends $dara.Model {
 
 export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The reason why the access request was denied.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: QueryAiCallDetailPageResponseBodyData;
   /**
+   * @remarks
+   * A description of the status code.
+   * 
    * @example
-   * 示例值
+   * 成功
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A57441B2-8EB6-5B93-9F37-0A51B8E2C9F5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values are:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

@@ -4,26 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAiOutboundTaskBatchResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The version ID of the newly created job batch.
+   * 
    * @example
    * 123456
    */
   data?: number;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded. Valid values:
+   * - **true**: Succeeded.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class AddLargeModelShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权码
+   * The authorization code.
    * 
    * @example
-   * 示例值
+   * sk-xxxxxxxxxxx*******xx
    */
   authCode?: string;
   /**
    * @remarks
-   * 基础模型
+   * The base model.
    */
   baseModelShrink?: string;
   /**
    * @remarks
-   * 模型名称
+   * The model name.
    * 
    * @example
    * Test Model Name
@@ -26,10 +26,10 @@ export class AddLargeModelShrinkRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * 模型地址
+   * The model URL.
    * 
    * @example
-   * 示例值示例值
+   * https://xxxxxxxxxxx
    */
   modelUrl?: string;
   ownerId?: number;
@@ -37,26 +37,26 @@ export class AddLargeModelShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 温度
+   * The temperature.
    * 
    * @example
-   * 16.46
+   * 0.1
    */
   temperature?: number;
   /**
    * @remarks
-   * topK
+   * The `top-k` value.
    * 
    * @example
-   * 87
+   * 1
    */
   topK?: number;
   /**
    * @remarks
-   * topP
+   * The `top-p` value.
    * 
    * @example
-   * 73.64386
+   * 0.1
    */
   topP?: number;
   static names(): { [key: string]: string } {

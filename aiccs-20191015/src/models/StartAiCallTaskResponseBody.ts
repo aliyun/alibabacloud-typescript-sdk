@@ -4,31 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartAiCallTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why access is denied.
+   * 
    * @example
-   * Access Denied
+   * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code. OK indicates that the request was successful.
+   * 
    * @example
-   * 示例值
+   * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Indicates whether the task was successfully started. Valid values:
+   * 
+   * - **true**: Success.
+   * 
+   * - **false**: Failure.
+   * 
    * @example
    * false
    */
   data?: boolean;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
-   * 示例值示例值
+   * 成功
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 58A32FFF-86EE-5CF0-B365-97E8C574C7F4
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful. Valid values:
+   * 
+   * - **true**: Success.
+   * 
+   * - **false**: Failure.
+   * 
    * @example
    * false
    */

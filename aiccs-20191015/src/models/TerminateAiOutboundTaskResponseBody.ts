@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class TerminateAiOutboundTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * - **true**: Succeeded.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

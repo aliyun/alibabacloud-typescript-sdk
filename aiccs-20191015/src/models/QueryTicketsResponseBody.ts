@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryTicketsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates that the request succeeded.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Ticket information.
+   * 
    * @example
    * { "totalResults":1 "previousPage":1 "data":[ 0:{ "serviceType":1 "lastUrgeTime":0 "queueId":0 "sopCateId":252011 "totalUrgeMemo":"" "taskGmtModified":0 "departmentId":10 "groupId":0 "channelType":1 "questionInfo":"" "templateId":0 "deadLine":0 "srType":30701 "caseId":2000000001165962}
    */
   data?: string;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * 
    * @example
    * true
    */

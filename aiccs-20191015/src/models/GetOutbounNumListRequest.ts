@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetOutbounNumListRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent account name (agent logon name).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,19 @@ export class GetOutbounNumListRequest extends $dara.Model {
    */
   accountName?: string;
   /**
+   * @remarks
+   * Unique ID of the customer request. Used for idempotency validation. You can generate it by using UUID.
+   * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d****
    */
   clientToken?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * You can log on to the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview) and view the instance ID in **Instance Management**.
+   * 
    * This parameter is required.
    * 
    * @example

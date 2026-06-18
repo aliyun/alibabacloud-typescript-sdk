@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddModelApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用并发请求数
+   * The number of concurrent requests per second (CPS).
    * 
    * This parameter is required.
    * 
@@ -15,48 +15,51 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   applicationCps?: number;
   /**
    * @remarks
-   * 模型应用名称
+   * The name of the model application.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * 测试应用
    */
   applicationName?: string;
   /**
+   * @remarks
+   * Specifies whether to push an event notification when a call is connected. The default value is false.
+   * 
    * @example
    * false
    */
   callConnectedTriggerModel?: boolean;
   /**
    * @remarks
-   * 场景名称
+   * The scene name.
    * 
    * @example
-   * 示例值示例值
+   * 测试场景
    */
   dyvmsSceneName?: string;
   /**
    * @remarks
-   * 模型编码
+   * The model code.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 1234
    */
   modelCode?: string;
   /**
    * @remarks
-   * 模型版本
+   * The model version.
    * 
    * @example
-   * 示例值示例值
+   * 1
    */
   modelVersion?: string;
   /**
    * @remarks
-   * 第一个静音是否唤起模型
+   * Specifies whether the first mute event triggers the model.
    * 
    * @example
    * false
@@ -64,7 +67,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   muteActive?: boolean;
   /**
    * @remarks
-   * 静音时长
+   * The mute duration.
    * 
    * @example
    * 70
@@ -72,7 +75,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   muteDuration?: number;
   /**
    * @remarks
-   * 连续多少个静音事件主动挂机
+   * The number of consecutive mute events that trigger an automatic hang-up.
    * 
    * @example
    * 5
@@ -81,15 +84,15 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 提示词
+   * The prompt.
    * 
    * @example
-   * 示例值示例值示例值
+   * 测试提示词。
    */
   prompt?: string;
   /**
    * @remarks
-   * 资质ID
+   * The qualification ID.
    * 
    * @example
    * 85
@@ -97,22 +100,25 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   qualificationId?: number;
   /**
    * @remarks
-   * 资质名称
+   * The name of the qualification.
    * 
    * @example
-   * 示例值
+   * 测试资质
    */
   qualificationName?: string;
   /**
+   * @remarks
+   * The URL of the audio file for the opening line. This parameter is required if `StartWordType` is set to `1`.
+   * 
    * @example
-   * 示例值示例值
+   * https://xxxxxxxx.wav
    */
   recordingFile?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 来源
+   * The source. The value must be `USER`.
    * 
    * @example
    * USER
@@ -120,15 +126,15 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * 话术内容
+   * The speech script content.
    * 
    * @example
-   * 示例值示例值示例值
+   * 测试话术。
    */
   speechContent?: string;
   /**
    * @remarks
-   * 话束id
+   * The speech script ID.
    * 
    * @example
    * 88
@@ -136,32 +142,36 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   speechId?: number;
   /**
    * @remarks
-   * 开场白
+   * The opening line.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 你好，这是一句开场白。
    */
   startWord?: string;
   /**
+   * @remarks
+   * The type of the opening line.
+   * 
    * @example
-   * 1
+   * 0：文本
+   * 1：录音
    */
   startWordType?: number;
   /**
    * @remarks
-   * tts配置，包括音色、音量、音速等。
+   * The TTS configuration, including voice, volume, speech speed, and more.
    * 
    * This parameter is required.
    */
   ttsConfigShrink?: string;
   /**
    * @remarks
-   * 用途
+   * The purpose of the application.
    * 
    * @example
-   * 示例值示例值示例值
+   * 测试用途
    */
   usageDesc?: string;
   static names(): { [key: string]: string } {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHotlineNumberRequest extends $dara.Model {
   /**
    * @remarks
+   * The hotline number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteHotlineNumberRequest extends $dara.Model {
   hotlineNumber?: string;
   /**
    * @remarks
+   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example

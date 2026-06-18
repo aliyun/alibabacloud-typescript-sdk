@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SendCcoSmartCallOperateRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique receipt ID of the call. This can be obtained from the response of the [SendCcoSmartCall](https://help.aliyun.com/document_detail/311247.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class SendCcoSmartCallOperateRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
+   * Specifies the action to be performed for the called number during an Intelligent Outbound Call.  
+   * 
+   * > Currently, only the **parallelBridge** parameter is supported, which indicates bridging the called number with a call center agent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,11 +27,17 @@ export class SendCcoSmartCallOperateRequest extends $dara.Model {
   command?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Extension field.
+   * 
    * @example
    * Param
    */
   param?: string;
   /**
+   * @remarks
+   * Product name. Default value: **aiccs**.
+   * 
    * @example
    * aiccs
    */

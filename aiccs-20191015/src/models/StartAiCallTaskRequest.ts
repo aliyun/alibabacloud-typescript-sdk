@@ -8,10 +8,12 @@ export class StartAiCallTaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The ID of the call task.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 121212121****
+   * 1187**************
    */
   taskId?: string;
   static names(): { [key: string]: string } {

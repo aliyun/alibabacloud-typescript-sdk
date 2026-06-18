@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentIndexRealTimeResponseBodyDataColumns extends $dara.Model {
+  /**
+   * @remarks
+   * Metric.
+   * 
+   * @example
+   * 客服ID
+   */
   key?: string;
   /**
+   * @remarks
+   * Metric description.
+   * 
    * @example
    * servicerId
    */
@@ -33,19 +43,36 @@ export class GetAgentIndexRealTimeResponseBodyDataColumns extends $dara.Model {
 }
 
 export class GetAgentIndexRealTimeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Description of returned columns.
+   */
   columns?: GetAgentIndexRealTimeResponseBodyDataColumns[];
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Returned data results.
+   */
   rows?: { [key: string]: any }[];
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 4
    */
@@ -87,22 +114,40 @@ export class GetAgentIndexRealTimeResponseBodyData extends $dara.Model {
 
 export class GetAgentIndexRealTimeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of 200 indicates that the request succeeded.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Data list.
+   */
   data?: GetAgentIndexRealTimeResponseBodyData;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded. Valid values:  
+   * - **true**: Succeeded.  
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

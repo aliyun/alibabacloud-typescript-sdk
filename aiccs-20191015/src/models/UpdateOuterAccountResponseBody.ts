@@ -4,26 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateOuterAccountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A value of 200 indicates that the request succeeded.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded. Valid values:
+   * 
+   * - **true**: Succeeded
+   * - **false**: Failed
+   * 
    * @example
    * true
    */
   data?: string;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * xxxx
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * 
    * @example
    * true
    */

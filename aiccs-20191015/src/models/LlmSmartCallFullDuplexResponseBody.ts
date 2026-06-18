@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class LlmSmartCallFullDuplexResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The call record ID that identifies a call record.
+   * 
+   * > When you call the LlmSmartCall operation to initiate an LLM-based outbound call, this call record ID (CallId) is returned.
+   * 
    * @example
    * 153955119976^140696759976
    */
   callId?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * OK
    */

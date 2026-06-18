@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class HangupThirdCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Fault encoding
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
    * xxxx
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used to trail the cause of a fault
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded
+   * 
    * @example
    * true
    */

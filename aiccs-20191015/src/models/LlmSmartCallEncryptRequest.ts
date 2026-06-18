@@ -5,41 +5,60 @@ import * as $dara from '@darabonba/typescript';
 export class LlmSmartCallEncryptRequest extends $dara.Model {
   /**
    * @remarks
+   * The application code for the large language model.
+   * 
    * This parameter is required.
    * 
    * @example
-   * ADDFA32145
+   * AD******45
    */
   applicationCode?: string;
   /**
    * @remarks
+   * The caller number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * ADDFA32145
+   * 132******65
    */
   callerNumber?: string;
   /**
    * @remarks
+   * The encrypted called number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 140432432432243
+   * 140*********243
    */
   encryptCalledNumber?: string;
   /**
+   * @remarks
+   * A user-defined ID for the outbound call.
+   * 
    * @example
-   * dsadsaasfdsad
+   * dsa*******sad
    */
   outId?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Parameters for the large language model\\"s prompt.
+   * 
    * @example
-   * {}
+   * {"prompt":"推荐一部电影"}
    */
   promptParam?: { [key: string]: any };
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Parameters for the large language model\\"s opening statement.
+   * 
+   * @example
+   * {"name":"小明","address":"浙江省杭州市"}
+   */
   startWordParam?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCallDialogContentRequest extends $dara.Model {
   /**
    * @remarks
+   * The outbound call date, in yyyy-MM-dd format. You can only query data from the last 30 days.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class GetCallDialogContentRequest extends $dara.Model {
   callDate?: string;
   /**
    * @remarks
+   * The unique identifier for a call.
+   * 
+   * > The LlmSmartCall API returns this ID in the CallId parameter of its response.
+   * 
    * This parameter is required.
    * 
    * @example

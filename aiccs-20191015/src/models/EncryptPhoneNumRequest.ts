@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EncryptPhoneNumRequest extends $dara.Model {
   /**
    * @remarks
+   * AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EncryptPhoneNumRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The plaintext phone number.
+   * 
    * This parameter is required.
    * 
    * @example

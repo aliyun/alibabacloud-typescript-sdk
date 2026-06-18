@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddInboundNumberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The code of the large model application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class AddInboundNumberShrinkRequest extends $dara.Model {
   applicationCode?: string;
   /**
    * @remarks
+   * A list of inbound numbers.
+   * 
    * This parameter is required.
    */
   inboundNumbersShrink?: string;
   /**
    * @remarks
+   * The line type. Valid values: `1` (cloud communication resource) and `2` (customer-owned line).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +31,9 @@ export class AddInboundNumberShrinkRequest extends $dara.Model {
    */
   inboundType?: number;
   /**
+   * @remarks
+   * The code for the custom line.
+   * 
    * @example
    * JILIANG_*****_TEST_NET
    */

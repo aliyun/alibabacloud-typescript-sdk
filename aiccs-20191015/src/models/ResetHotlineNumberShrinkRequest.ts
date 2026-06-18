@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Number description.
+   * 
    * This parameter is required.
    * 
    * @example
-   * desc
+   * 热线号码
    */
   description?: string;
   /**
    * @remarks
+   * Indicates whether the number is used for inbound calls.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   enableInbound?: boolean;
   /**
    * @remarks
+   * Whether inbound call satisfaction evaluation is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   enableInboundEvaluation?: boolean;
   /**
    * @remarks
+   * Whether used for outbound calls.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   enableOutbound?: boolean;
   /**
    * @remarks
+   * Indicates whether outbound satisfaction evaluation is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,12 +54,22 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
    */
   enableOutboundEvaluation?: boolean;
   /**
+   * @remarks
+   * Satisfaction level. Valid values:
+   * 
+   * - **2**: Two-level (Satisfied, Not Satisfied)
+   * - **3**: Three-level (Satisfied, Neutral, Not Satisfied)
+   * - **4**: Four-level (Very Satisfied, Satisfied, Neutral, Not Satisfied)
+   * - **5**: Five-level (Very Satisfied, Satisfied, Neutral, Not Satisfied, Very Poor)
+   * 
    * @example
    * 2
    */
   evaluationLevel?: number;
   /**
    * @remarks
+   * Hotline number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,12 +77,17 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
    */
   hotlineNumber?: string;
   /**
+   * @remarks
+   * The IVR flow ID for inbound calls.
+   * 
    * @example
    * 123456
    */
   inboundFlowId?: number;
   /**
    * @remarks
+   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -71,12 +96,18 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Indicates whether outbound calls apply to all departments.
+   * 
    * This parameter is required.
    * 
    * @example
    * true
    */
   outboundAllDepart?: boolean;
+  /**
+   * @remarks
+   * Outbound call effective scope.
+   */
   outboundRangeListShrink?: string;
   static names(): { [key: string]: string } {
     return {

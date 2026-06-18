@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDepGroupTreeDataResponseBodyDataGroupDTOS extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the skill group.
+   * 
+   * @example
+   * 自动化技能组
+   */
   name?: string;
   /**
+   * @remarks
+   * The skill group ID.
+   * 
    * @example
-   * 555555
+   * 55****
    */
   skillGroupId?: number;
   static names(): { [key: string]: string } {
@@ -34,11 +44,25 @@ export class GetDepGroupTreeDataResponseBodyDataGroupDTOS extends $dara.Model {
 
 export class GetDepGroupTreeDataResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The department ID.
+   * 
    * @example
-   * 10
+   * 10****
    */
   depGroupId?: string;
+  /**
+   * @remarks
+   * The department name.
+   * 
+   * @example
+   * 部门A
+   */
   depGroupName?: string;
+  /**
+   * @remarks
+   * Skill group data.
+   */
   groupDTOS?: GetDepGroupTreeDataResponseBodyDataGroupDTOS[];
   static names(): { [key: string]: string } {
     return {
@@ -70,22 +94,40 @@ export class GetDepGroupTreeDataResponseBodyData extends $dara.Model {
 
 export class GetDepGroupTreeDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of Success indicates that the request succeeded.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Department information.
+   */
   data?: GetDepGroupTreeDataResponseBodyData[];
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded. Valid values:
+   * - **true**: Succeeded.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

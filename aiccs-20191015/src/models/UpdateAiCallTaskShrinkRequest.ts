@@ -5,22 +5,36 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The days of the week when calls can be made.
+   * 
    * This parameter is required.
    */
   callDayShrink?: string;
   /**
+   * @remarks
+   * The retry interval in minutes. The maximum value is 120.
+   * 
    * @example
    * 25
    */
   callRetryInterval?: number;
+  /**
+   * @remarks
+   * The call failure statuses that trigger a retry.
+   */
   callRetryReasonShrink?: string;
   /**
+   * @remarks
+   * The number of retries. The maximum value is 3.
+   * 
    * @example
    * 2
    */
   callRetryTimes?: number;
   /**
    * @remarks
+   * The callable time windows.
+   * 
    * This parameter is required.
    */
   callTimeShrink?: string;
@@ -35,6 +49,13 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
    */
   linePhoneNum?: string;
   /**
+   * @remarks
+   * Specifies whether to enable retry. Valid values:
+   * 
+   * - `true`: Yes.
+   * 
+   * - `false` (default): No.
+   * 
    * @example
    * true
    */
@@ -54,6 +75,12 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   source?: number;
   /**
    * @remarks
+   * The startup method. Valid values:
+   * 
+   * - `IMMEDIATE`: Start immediately.
+   * 
+   * - `SCHEDULE`: Start at a specified time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +89,8 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   startType?: string;
   /**
    * @remarks
+   * The number of concurrent calls per second (CPS) for the task. The maximum value is 500.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,26 +99,36 @@ export class UpdateAiCallTaskShrinkRequest extends $dara.Model {
   taskCps?: number;
   /**
    * @remarks
+   * The ID of the task to update.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1152311212312***
+   * 1187**************
    */
   taskId?: string;
   /**
    * @remarks
+   * The task name. The name must be unique within an Alibaba Cloud account.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 测试任务
    */
   taskName?: string;
   /**
+   * @remarks
+   * The scheduled start time for the task, specified as a Unix timestamp in milliseconds. This parameter is required when `StartType` is set to `SCHEDULE`.
+   * 
    * @example
    * 1748923429000
    */
   taskStartTime?: number;
   /**
+   * @remarks
+   * The service instance used for outbound calls.
+   * 
    * @example
    * 0537022*****
    */

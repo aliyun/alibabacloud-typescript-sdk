@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMcuLvsIpRequest extends $dara.Model {
   /**
    * @remarks
+   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Intelligent Cloud Call console.
+   * 
    * This parameter is required.
    * 
    * @example

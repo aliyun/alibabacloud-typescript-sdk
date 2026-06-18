@@ -6,10 +6,18 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddHotlineNumberRequestOutboundRangeList extends $dara.Model {
   /**
+   * @remarks
+   * Effective department ID.
+   * 
    * @example
    * 123456
    */
   departmentId?: number;
+  /**
+   * @remarks
+   * List of effective skill groups.  
+   * > If the skill group list is empty, the setting applies to the entire department. Otherwise, it applies only to the specified skill groups under the department.
+   */
   groupIdList?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -40,14 +48,18 @@ export class AddHotlineNumberRequestOutboundRangeList extends $dara.Model {
 export class AddHotlineNumberRequest extends $dara.Model {
   /**
    * @remarks
+   * Description of the number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * desc
+   * 热线号码
    */
   description?: string;
   /**
    * @remarks
+   * Indicates whether the number is used for inbound calls.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +68,8 @@ export class AddHotlineNumberRequest extends $dara.Model {
   enableInbound?: boolean;
   /**
    * @remarks
+   * Whether inbound satisfaction evaluation is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,6 +78,8 @@ export class AddHotlineNumberRequest extends $dara.Model {
   enableInboundEvaluation?: boolean;
   /**
    * @remarks
+   * Whether it is used for outbound calls.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -72,6 +88,8 @@ export class AddHotlineNumberRequest extends $dara.Model {
   enableOutbound?: boolean;
   /**
    * @remarks
+   * Indicates whether outbound call satisfaction evaluation is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -79,12 +97,22 @@ export class AddHotlineNumberRequest extends $dara.Model {
    */
   enableOutboundEvaluation?: boolean;
   /**
+   * @remarks
+   * Satisfaction Level. Valid values:  
+   * 
+   * - **2**: Two-level (Satisfied, Not satisfied)  
+   * - **3**: Three-level (Satisfied, Neutral, Not satisfied)  
+   * - **4**: Four-level (Very satisfied, Satisfied, Neutral, Not satisfied)  
+   * - **5**: Five-level (Very satisfied, Satisfied, Neutral, Not satisfied, Very poor)
+   * 
    * @example
    * 2
    */
   evaluationLevel?: number;
   /**
    * @remarks
+   * Hotline number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92,12 +120,17 @@ export class AddHotlineNumberRequest extends $dara.Model {
    */
   hotlineNumber?: string;
   /**
+   * @remarks
+   * The IVR flow ID for inbound calls. You can obtain it on the SaaS Workbench > Channel Integration > IVR Flow Management page.
+   * 
    * @example
    * 123456
    */
   inboundFlowId?: number;
   /**
    * @remarks
+   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it in the Intelligent Contact Center console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -106,12 +139,18 @@ export class AddHotlineNumberRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Whether outbound calls apply to all departments under the instance.
+   * 
    * This parameter is required.
    * 
    * @example
    * true
    */
   outboundAllDepart?: boolean;
+  /**
+   * @remarks
+   * Outbound call effective scope.
+   */
   outboundRangeList?: AddHotlineNumberRequestOutboundRangeList[];
   static names(): { [key: string]: string } {
     return {

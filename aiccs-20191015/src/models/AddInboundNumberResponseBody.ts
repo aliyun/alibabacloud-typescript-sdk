@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddInboundNumberResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The inbound number.
+   * 
    * @example
    * 234234238**33
    */
   inboundNumber?: string;
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
-   * 示例值
+   * 号码不合法
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the number was added successfully. `true` indicates success, and `false` indicates failure.
+   * 
    * @example
    * false
    */
@@ -45,27 +54,50 @@ export class AddInboundNumberResponseBodyData extends $dara.Model {
 
 export class AddInboundNumberResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details about why access was denied.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: AddInboundNumberResponseBodyData[];
   /**
+   * @remarks
+   * The status code description.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D6A51251-F7C4-596A-9F45-3C3219A5450D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * 
+   * - **true**: The call succeeded.
+   * 
+   * - **false**: The call failed.
+   * 
    * @example
    * false
    */

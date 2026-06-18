@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetAllDepartmentRequest extends $dara.Model {
   /**
    * @remarks
+   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
+   * You can obtain it in the <b>Instance Management</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example

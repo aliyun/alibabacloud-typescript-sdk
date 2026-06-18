@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecordDataRequest extends $dara.Model {
   /**
    * @remarks
+   * Session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class GetRecordDataRequest extends $dara.Model {
   acid?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * Log on to the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview) and view the instance ID in **Instance Management**.
+   * 
    * This parameter is required.
    * 
    * @example

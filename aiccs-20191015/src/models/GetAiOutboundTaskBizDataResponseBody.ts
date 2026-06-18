@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAiOutboundTaskBizDataResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Custom business information.
+   * 
    * @example
    * {"customer":123}
    */
   bizData?: string;
   /**
+   * @remarks
+   * The Activity ID associated with this outbound call.
+   * 
    * @example
    * 123
    */
   caseId?: number;
   /**
+   * @remarks
+   * The outbound phone number.
+   * 
    * @example
    * 158****0000
    */
   phoneNum?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 123456
    */
@@ -52,22 +64,40 @@ export class GetAiOutboundTaskBizDataResponseBodyData extends $dara.Model {
 
 export class GetAiOutboundTaskBizDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The business information associated with this call.
+   */
   data?: GetAiOutboundTaskBizDataResponseBodyData;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded.
+   * - **true**: Succeeded.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

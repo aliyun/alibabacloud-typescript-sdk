@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateThirdSsoAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * Account ID to synchronize.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateThirdSsoAgentRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
+   * Account name to synchronize.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateThirdSsoAgentRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The client ID issued to the tenant instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,20 +34,40 @@ export class CreateThirdSsoAgentRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * Unique ID for the customer request. Used for idempotency validation and can be generated using UUID.
+   * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Agent display name.
+   * 
+   * @example
+   * 张三
+   */
   displayName?: string;
   /**
    * @remarks
+   * AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example
    * ccc_xp_pre***
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * List of role IDs.
+   */
   roleIds?: number[];
+  /**
+   * @remarks
+   * List of skill group IDs.
+   */
   skillGroupIds?: number[];
   static names(): { [key: string]: string } {
     return {

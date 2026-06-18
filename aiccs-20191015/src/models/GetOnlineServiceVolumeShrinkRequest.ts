@@ -3,36 +3,75 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetOnlineServiceVolumeShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of agent IDs.
+   */
   agentIdsShrink?: string;
   /**
+   * @remarks
+   * Current page number. The value must be greater than **0**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * List of department IDs.
+   */
   depIdsShrink?: string;
   /**
+   * @remarks
+   * End Datetime UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1617761765000
    */
   endDate?: number;
   /**
+   * @remarks
+   * Whether to query by agent grouping. Default value: **false**. Valid values:  
+   * 
+   * - **true**: Yes.  
+   * - **false**: No.
+   * 
    * @example
    * false
    */
   existAgentGrouping?: boolean;
   /**
+   * @remarks
+   * Whether to group by department in the query. Default Value: **false**. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * false
    */
   existDepartmentGrouping?: boolean;
   /**
+   * @remarks
+   * Indicates whether to query by skill group grouping. Default value: **false**. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * false
    */
   existSkillGroupGrouping?: boolean;
+  /**
+   * @remarks
+   * List of skill group IDs.
+   */
   groupIdsShrink?: string;
   /**
    * @remarks
+   * AICCS instance ID.  
+   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,16 +79,28 @@ export class GetOnlineServiceVolumeShrinkRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Page size. The value must be greater than **0**. Default value: **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Start date UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1615083365000
    */
   startDate?: number;
   /**
+   * @remarks
+   * Time latitude type. Valid values:  
+   * - **minute**: Minute.  
+   * - **hour**: Hour.  
+   * - **day**: Day.
+   * 
    * @example
    * minute
    */

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRolesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Unique ID for the customer request. Used for idempotency validation and can be generated using UUID.
+   * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
    */
   clientToken?: string;
   /**
    * @remarks
+   * AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example

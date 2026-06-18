@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteSkillGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * External skill group ID
+   * 
    * @example
    * 123456
    */
   outerGroupId?: string;
   /**
+   * @remarks
+   * External skill group type. Valid enumeration values are: 1: Hotline, 2: Online, 4: Ticket
+   * 
    * @example
    * 2
    */

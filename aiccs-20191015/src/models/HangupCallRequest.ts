@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class HangupCallRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent account name (agent logon name).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,22 +14,33 @@ export class HangupCallRequest extends $dara.Model {
    */
   accountName?: string;
   /**
+   * @remarks
+   * Hotline session ID.
+   * 
    * @example
    * 7719786
    */
   callId?: string;
   /**
+   * @remarks
+   * Unique customer request ID. Used for idempotency validation and can be generated using UUID.
+   * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The connId from the WebSocket after an inbound call.
+   * 
    * @example
    * 7719788
    */
   connectionId?: string;
   /**
    * @remarks
+   * AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +48,9 @@ export class HangupCallRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The jobId from the WebSocket after an inbound call.
+   * 
    * @example
    * 7719787
    */

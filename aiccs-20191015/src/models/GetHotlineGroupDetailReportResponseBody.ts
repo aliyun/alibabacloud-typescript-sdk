@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHotlineGroupDetailReportResponseBodyDataColumns extends $dara.Model {
   /**
+   * @remarks
+   * Metric.
+   * 
    * @example
    * skillGroupName
    */
   key?: string;
+  /**
+   * @remarks
+   * Metric description.
+   * 
+   * @example
+   * 技能组名称
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,19 +43,36 @@ export class GetHotlineGroupDetailReportResponseBodyDataColumns extends $dara.Mo
 }
 
 export class GetHotlineGroupDetailReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Description of returned columns.
+   */
   columns?: GetHotlineGroupDetailReportResponseBodyDataColumns[];
   /**
+   * @remarks
+   * Current page.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Returned data results.
+   */
   rows?: { [key: string]: any }[];
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 9
    */
@@ -87,22 +114,40 @@ export class GetHotlineGroupDetailReportResponseBodyData extends $dara.Model {
 
 export class GetHotlineGroupDetailReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A return value of "Success" indicates that the request succeeded.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Query result data.
+   */
   data?: GetHotlineGroupDetailReportResponseBodyData;
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EE338D98-9BD3-4413-B165
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API was invoked successfully. Valid values:
+   * - **true**: Succeeded.
+   * - **false**: Failed.
+   * 
    * @example
    * Public
    */

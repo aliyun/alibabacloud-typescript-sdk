@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityProjectListRequest extends $dara.Model {
   /**
    * @remarks
+   * Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,27 +14,55 @@ export class GetQualityProjectListRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The current page. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Page size. Default value: **10**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Quality inspection job ID (supports fuzzy search).
+   * 
    * @example
    * 15
    */
   projectId?: number;
+  /**
+   * @remarks
+   * Quality inspection job name (supports fuzzy search).
+   * 
+   * @example
+   * 质检
+   */
   projectName?: string;
   /**
+   * @remarks
+   * Quality inspection job status. Valid values:  
+   * 
+   * - **0**: Start  
+   * - **1**: Shutdown
+   * 
    * @example
    * 0
    */
   status?: number;
   /**
+   * @remarks
+   * The check frequency type. Valid values:
+   * 
+   * - **1**: Periodic quality inspection
+   * - **4**: Temporary quality inspection
+   * 
    * @example
    * 1
    */

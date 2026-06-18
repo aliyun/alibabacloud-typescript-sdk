@@ -4,15 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRobotParamsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the parameter is required. Valid values:
+   * 
+   * - 0: Not required.
+   * 
+   * - 1: Required.
+   * 
    * @example
    * 0
    */
   isEmpty?: number;
   /**
+   * @remarks
+   * Parameter ID.
+   * 
    * @example
-   * name
+   * 1
    */
   paramCode?: string;
+  /**
+   * @remarks
+   * Parameter name.
+   * 
+   * @example
+   * 名称
+   */
   paramName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,22 +58,40 @@ export class ListRobotParamsResponseBodyData extends $dara.Model {
 
 export class ListRobotParamsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A value of 200 indicates that the request succeeded.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Parameter information.
+   */
   data?: ListRobotParamsResponseBodyData[];
   /**
+   * @remarks
+   * Description of the status code.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * FF67D4D5-4E90-1DF5-BB8F-060BBFAD72DB
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API invocation succeeded. Valid values:
+   * - **true**: Succeeded.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */
