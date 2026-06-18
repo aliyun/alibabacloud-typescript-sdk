@@ -55,7 +55,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the resources.
+   * A list of resource IDs.
    * 
    * This parameter is required.
    */
@@ -63,14 +63,6 @@ export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type.
-   * 
-   * Valid values:
-   * 
-   * *   Node
-   * *   Vcc
-   * *   Cluster
-   * *   Vpd
-   * *   Subnet
    * 
    * This parameter is required.
    * 

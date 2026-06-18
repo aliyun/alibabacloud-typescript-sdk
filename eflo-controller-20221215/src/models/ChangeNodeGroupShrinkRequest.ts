@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeNodeGroupShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to skip failed nodes. The default value is False.
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * The node information.
+   */
   nodesShrink?: string;
   /**
+   * @remarks
+   * The ID of the target node group.
+   * 
    * @example
    * i234242342342
    */

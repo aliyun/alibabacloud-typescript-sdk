@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource group into which you want to change.
+   * The ID of the destination resource group.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * @example
    * Node

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMachineNetworkInfoRequestMachineHpnInfo extends $dara.Model {
   /**
    * @remarks
-   * hpn zone infomation
+   * The cluster ID.
    * 
    * @example
    * C1
@@ -13,7 +13,7 @@ export class ListMachineNetworkInfoRequestMachineHpnInfo extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * The type of machine.
+   * The machine type.
    * 
    * @example
    * efg2.C48cNHmcn
@@ -21,7 +21,7 @@ export class ListMachineNetworkInfoRequestMachineHpnInfo extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The ID of the region in which the application is located.
+   * The region ID.
    * 
    * @example
    * cn-heyuan
@@ -55,7 +55,7 @@ export class ListMachineNetworkInfoRequestMachineHpnInfo extends $dara.Model {
 export class ListMachineNetworkInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * hpn information of machine
+   * The information about the machine types.
    */
   machineHpnInfo?: ListMachineNetworkInfoRequestMachineHpnInfo[];
   static names(): { [key: string]: string } {

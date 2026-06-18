@@ -12,6 +12,9 @@ export class ChangeNodeGroupResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * i159136551662516768776
    */

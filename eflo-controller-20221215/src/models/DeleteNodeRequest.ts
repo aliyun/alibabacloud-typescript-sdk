@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the node.
+   * 
    * This parameter is required.
    * 
    * @example

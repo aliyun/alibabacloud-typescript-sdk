@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
+   * The token used to retrieve the next page of results. Set this parameter to the NextToken value returned in the previous response.
    * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
@@ -63,20 +63,12 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the resources.
+   * The list of resource IDs.
    */
   resourceId?: string[];
   /**
    * @remarks
    * The resource type.
-   * 
-   * Valid values:
-   * 
-   * *   Node
-   * *   Vcc
-   * *   Cluster
-   * *   Subnet
-   * *   Vpd
    * 
    * This parameter is required.
    * 
@@ -86,7 +78,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

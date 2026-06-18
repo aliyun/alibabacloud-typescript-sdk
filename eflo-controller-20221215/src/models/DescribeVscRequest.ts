@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVscRequest extends $dara.Model {
   /**
    * @remarks
-   * The VSC ID.
+   * The ID of the Vsc.
    * 
    * This parameter is required.
    * 

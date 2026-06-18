@@ -38,9 +38,6 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
    * Indicates whether file storage mounting is supported.
-   * 
-   * @example
-   * False
    */
   fileSystemMountEnabled?: boolean;
   /**

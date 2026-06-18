@@ -13,7 +13,7 @@ export class DeleteVscRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the VSC that you want to delete.
+   * The ID of the VSC to delete.
    * 
    * This parameter is required.
    * 

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListClusterHyperNodesResponseBodyHyperNodesTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * ali-zeekr-ota-doris-prod-hz-selectdb
    */
@@ -38,84 +44,136 @@ export class ListClusterHyperNodesResponseBodyHyperNodesTags extends $dara.Model
 
 export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   /**
+   * @remarks
+   * The commodity code.
+   * 
    * @example
    * bccluster_eflocomputing_public_cn
    */
   commodityCode?: string;
   /**
+   * @remarks
+   * The time when the node was created.
+   * 
    * @example
    * 2025-07-07T17:38:35.391
    */
   createTime?: string;
   /**
+   * @remarks
+   * The expiration time of the machine.
+   * 
    * @example
    * 2025-04-19T02:32:48Z
    */
   expireTime?: string;
   /**
+   * @remarks
+   * Indicates whether file storage mounting is supported.
+   * 
    * @example
    * False
    */
   fileSystemMountEnabled?: boolean;
   /**
+   * @remarks
+   * The hostname.
+   * 
    * @example
    * alywlcb-lingjun-gpu-0025
    */
   hostname?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * B1
    */
   hpnZone?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * e01-cn-2r42tmj4z02
    */
   hyperNodeId?: string;
   /**
+   * @remarks
+   * The machine type.
+   * 
    * @example
    * efg2.NH2cn
    */
   machineType?: string;
   /**
+   * @remarks
+   * The node group ID.
+   * 
    * @example
    * i123229811742436895560
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * The name of the node group.
+   * 
    * @example
    * g1
    */
   nodeGroupName?: string;
   /**
+   * @remarks
+   * The status of the hyper node.
+   * 
    * @example
    * Using
    */
   operatingState?: string;
   /**
+   * @remarks
+   * The status of the node.
+   * 
    * @example
    * Extending
    * 
    * @deprecated
    */
   status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   */
   tags?: ListClusterHyperNodesResponseBodyHyperNodesTags[];
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * i153907661745288876128
    */
   taskId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-bp1u4ej4ap8c4yiqfi87c
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
    * @example
    * vpc-0jl8gs7qmx89739e210dn
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-shanghai-b
    */
@@ -177,15 +235,22 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
 }
 
 export class ListClusterHyperNodesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of nodes.
+   */
   hyperNodes?: ListClusterHyperNodesResponseBodyHyperNodes[];
   /**
+   * @remarks
+   * The query token returned from this call.
+   * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54

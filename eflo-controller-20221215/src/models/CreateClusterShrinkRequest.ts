@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * Key
+   * The key.
    * 
    * @example
    * env-name
@@ -13,7 +13,7 @@ export class CreateClusterShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Value
+   * The value.
    * 
    * @example
    * dev
@@ -45,15 +45,15 @@ export class CreateClusterShrinkRequestTag extends $dara.Model {
 export class CreateClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster description
+   * The description of the cluster.
    * 
    * @example
-   * Cluster description
+   * Standard cluster test
    */
   clusterDescription?: string;
   /**
    * @remarks
-   * Cluster name
+   * The name of the cluster.
    * 
    * @example
    * Standard_Cluster
@@ -61,7 +61,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Cluster type
+   * The type of the cluster.
    * 
    * @example
    * Lite
@@ -69,12 +69,12 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Components (software instances)
+   * The components (software instances).
    */
   componentsShrink?: string;
   /**
    * @remarks
-   * Cluster number
+   * The cluster number.
    * 
    * @example
    * A1
@@ -82,7 +82,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Whether to allow skipping failed nodes, the default value is False
+   * Specifies whether to skip failed nodes. The default value is False.
    * 
    * @example
    * False
@@ -90,22 +90,22 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * Network information
+   * The network information.
    */
   networksShrink?: string;
   /**
    * @remarks
-   * Node VSwitches
+   * The vSwitches for the node.
    */
   nimizVSwitchesShrink?: string;
   /**
    * @remarks
-   * Node group list
+   * The list of node groups.
    */
   nodeGroupsShrink?: string;
   /**
    * @remarks
-   * Whether the network interface supports jumbo frames
+   * Specifies whether the network interface supports jumbo frames.
    * 
    * @example
    * false
@@ -113,7 +113,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   openEniJumboFrame?: boolean;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-aek2xdkc6icwfha
@@ -121,7 +121,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource tags
+   * The resource tags.
    */
   tag?: CreateClusterShrinkRequestTag[];
   static names(): { [key: string]: string } {

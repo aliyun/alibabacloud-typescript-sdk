@@ -71,7 +71,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that is used in the next request to retrieve a new page of results.
+   * The token to retrieve the next page of results. If the response is paged, this parameter is returned. To retrieve the next page, include this token in the next request.
    * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=

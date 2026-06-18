@@ -16,12 +16,12 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTestHosts extends $
    * The resource ID.
    * 
    * @example
-   * e01-cn-wwo3eteze19
+   * e01-cn-wwo3ete****
    */
   resourceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * www.xinjiaoyu.com
@@ -63,7 +63,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.
   GPUNum?: string;
   /**
    * @remarks
-   * The hosts of the test node.
+   * The hosts of the test nodes.
    */
   hosts?: ListNetTestResultsResponseBodyNetTestResultsCommTestHosts[];
   /**
@@ -76,7 +76,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.
   model?: string;
   /**
    * @remarks
-   * The CommTest type, which can be ACCL or NCCL.
+   * The type of the communication library test. Valid values: ACCL or NCCL.
    * 
    * @example
    * ACCL
@@ -115,7 +115,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.
 export class ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts extends $dara.Model {
   /**
    * @remarks
-   * The bonding of network interface card.
+   * The bonded port of the network interface card.
    * 
    * @example
    * bond1
@@ -134,12 +134,12 @@ export class ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts extends 
    * The resource ID.
    * 
    * @example
-   * e01-cn-wwo3eteze19
+   * e01-cn-wwo3ete****
    */
   resourceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * WrF
@@ -175,7 +175,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts extends 
 export class ListNetTestResultsResponseBodyNetTestResultsDelayTest extends $dara.Model {
   /**
    * @remarks
-   * The hosts.
+   * The list of resources.
    */
   hosts?: ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts[];
   static names(): { [key: string]: string } {
@@ -205,7 +205,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsDelayTest extends $dara
 export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients extends $dara.Model {
   /**
    * @remarks
-   * The bonding of network interface card.
+   * The bonded port of the network interface card.
    * 
    * @example
    * bond1
@@ -229,7 +229,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients exte
   resourceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * prod-gf-cn.juequling.com
@@ -265,7 +265,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients exte
 export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers extends $dara.Model {
   /**
    * @remarks
-   * The bonding of network interface card.
+   * The bonded port of the network interface card.
    * 
    * @example
    * bond1
@@ -284,12 +284,12 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers exte
    * The resource ID.
    * 
    * @example
-   * e01-cn-wwo3eteze19
+   * e01-cn-wwo3ete****
    */
   resourceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * prod-gf-cn.juequling.com
@@ -325,12 +325,12 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers exte
 export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $dara.Model {
   /**
    * @remarks
-   * The clients.
+   * The client.
    */
   clients?: ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients[];
   /**
    * @remarks
-   * The running duration of the pipeline job. Unit: seconds.
+   * The runtime of the flow task, in seconds.
    * 
    * @example
    * 1
@@ -338,7 +338,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
   duration?: number;
   /**
    * @remarks
-   * If the protocol is RDMA, can be True or False. If the protocol is TCP, this field is empty.
+   * If the protocol is RDMA, specify True or False. If the protocol is TCP, this field is empty.
    * 
    * @example
    * True
@@ -346,7 +346,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
   GDR?: string;
   /**
    * @remarks
-   * The network protocol, which can be RDMA or TCP.
+   * The network protocol. Valid values are RDMA and TCP.
    * 
    * @example
    * TCP
@@ -354,7 +354,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
   protocol?: string;
   /**
    * @remarks
-   * If the protocol is TCP, the number of concurrent connections. If the protocol is RDMA, the configured QP value.
+   * If the protocol is TCP, this parameter specifies the number of concurrent connections for the test. If the protocol is RDMA, this parameter specifies the QP value.
    * 
    * @example
    * RDMA
@@ -362,12 +362,12 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
   QP?: number;
   /**
    * @remarks
-   * If the TrafficModel is Fullmesh, this parameter is empty.
+   * This field is empty if \\`TrafficModel\\` is set to \\`Fullmesh\\`.
    */
   servers?: ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers[];
   /**
    * @remarks
-   * The traffic model, which can be MTON or Fullmesh.
+   * The traffic model. Valid values are MTON and Fullmesh.
    * 
    * @example
    * Fullmesh
@@ -418,7 +418,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * i110667211718265012218
+   * i11066721171826501****
    */
   clusterId?: string;
   /**
@@ -431,12 +431,12 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Returned when NetTestType is CommTest.
+   * The details of the communication library test. This object is returned if the value of \\`NetTestType\\` is \\`CommTest\\`.
    */
   commTest?: ListNetTestResultsResponseBodyNetTestResultsCommTest;
   /**
    * @remarks
-   * The creation time.
+   * The time when the task was created.
    * 
    * @example
    * 2024-01-19T02:18:12Z
@@ -444,12 +444,12 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Returned when NetTestType is DelayTest.
+   * The details of the delay test. This object is returned if the value of \\`NetTestType\\` is \\`DelayTest\\`.
    */
   delayTest?: ListNetTestResultsResponseBodyNetTestResultsDelayTest;
   /**
    * @remarks
-   * The finish time.
+   * The time when the task was completed.
    * 
    * @example
    * 2024-10-30T02:07Z
@@ -473,7 +473,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * The port number.
+   * The test port.
    * 
    * @example
    * 80
@@ -481,10 +481,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The status of the network test task. Valid values:\\
-   * ● InProgress\\
-   * ● Finished\\
-   * ● Failed
+   * The status of the network test task. Valid values: ● InProgress: The test is in progress. ● Finished: The test is complete. ● Failed: The test failed.
    * 
    * @example
    * InProgress
@@ -492,7 +489,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The test ID. The unique identifier of the resource test task.
+   * The test ID. It is the unique identifier of the resource test task.
    * 
    * @example
    * String	i-uf6i0tv2refv8wz*****
@@ -500,7 +497,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   testId?: string;
   /**
    * @remarks
-   * Returned when NetTestType is TrafficTest.
+   * The details of the traffic test. This object is returned if the value of \\`NetTestType\\` is \\`TrafficTest\\`.
    */
   trafficTest?: ListNetTestResultsResponseBodyNetTestResultsTrafficTest;
   static names(): { [key: string]: string } {
@@ -558,12 +555,12 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
 export class ListNetTestResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100.
+   * The number of entries returned on each page. Maximum value: 100.
    * 
    * Default value:
    * 
-   * *   If you do not configure this parameter or if you set this parameter to a value less than 20, the default value is 20.
-   * *   If you set this parameter to a value that is greater than 100, the default value is 100.
+   * - If you do not set this parameter or you set it to a value less than 20, the default value is 20.
+   * - If you set the value to greater than 100, the default value is 100.
    * 
    * @example
    * 20
@@ -571,15 +568,15 @@ export class ListNetTestResultsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The results.
+   * The list of nodes.
    */
   netTestResults?: ListNetTestResultsResponseBodyNetTestResults[];
   /**
    * @remarks
-   * The token that is used in the next request to retrieve a new page of results.
+   * The token that is used to retrieve the next page of results. If this parameter is not returned, it indicates that all results have been returned.
    * 
    * @example
-   * 3a6b93229825ac667104463b56790c91
+   * 3a6b93229825ac667104463b5679****
    */
   nextToken?: string;
   /**

@@ -53,7 +53,7 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm2zkwhkns57i
@@ -61,13 +61,7 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The VSC status.
-   * 
-   * Valid values:
-   * 
-   * *   Creating
-   * *   Normal
-   * *   Deleting
+   * The status of the VSC.
    * 
    * @example
    * Normal
@@ -80,7 +74,7 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   tags?: ListVscsResponseBodyVscsTags[];
   /**
    * @remarks
-   * The VSC ID.
+   * The ID of the VSC.
    * 
    * @example
    * vsc-001
@@ -96,7 +90,7 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   vscName?: string;
   /**
    * @remarks
-   * The VSC type. Valid values: primary and standard.
+   * The type of the VSC. Valid values: \\`primary\\` and \\`standard\\`.
    * 
    * @example
    * primary
@@ -141,7 +135,7 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
 export class ListVscsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * No response is returned. The TotalCount parameter is used.
+   * This parameter is not returned. Use the \\`TotalCount\\` parameter instead.
    * 
    * @example
    * 0
@@ -149,7 +143,7 @@ export class ListVscsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token. It can be used in the next request to retrieve a new page of results. If this parameter is empty, no next page exists.
+   * The token to retrieve the next page of results. If this parameter is empty, all results have been returned.
    * 
    * This parameter is required.
    * 
@@ -159,7 +153,7 @@ export class ListVscsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 03668372-18FF-5959-98D9-6B36A4643C7A
@@ -167,7 +161,7 @@ export class ListVscsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of VSCs.
+   * The total number of entries that match the query conditions.
    * 
    * @example
    * 3
@@ -175,7 +169,7 @@ export class ListVscsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The VSCs.
+   * A list of VSCs.
    */
   vscs?: ListVscsResponseBodyVscs[];
   static names(): { [key: string]: string } {

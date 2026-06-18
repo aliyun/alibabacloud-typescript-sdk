@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListClustersResponseBodyClustersTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * Tag key.
    * 
    * @example
-   * aa_key
+   * env
    */
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * Tag value.
    * 
    * @example
-   * aa_value
+   * daily
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -45,15 +45,15 @@ export class ListClustersResponseBodyClustersTags extends $dara.Model {
 export class ListClustersResponseBodyClusters extends $dara.Model {
   /**
    * @remarks
-   * The cluster description.
+   * Cluster description.
    * 
    * @example
-   * PPU-cluster2 bz
+   * Test cluster
    */
   clusterDescription?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * Cluster ID.
    * 
    * @example
    * i137590131672134915401
@@ -61,7 +61,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The cluster name.
+   * Cluster name.
    * 
    * @example
    * cnp_test_cluster
@@ -69,13 +69,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The cluster type.
-   * 
-   * Valid values:
-   * 
-   * *   AckEdgePro
-   * *   ExclusiveBareCluster
-   * *   Lite
+   * Cluster type.
    * 
    * @example
    * AckEdgePro
@@ -83,7 +77,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The component information.
+   * Component information.
    * 
    * @example
    * {}
@@ -91,7 +85,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   components?: any;
   /**
    * @remarks
-   * The IP type of the computing network.
+   * IP version of computing network.
    * 
    * @example
    * IPv4
@@ -99,15 +93,15 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   computingIpVersion?: string;
   /**
    * @remarks
-   * The creation time.
+   * Cluster creation time.
    * 
    * @example
-   * 1672134938
+   * 2026-01-27T14:54:02.360
    */
   createTime?: string;
   /**
    * @remarks
-   * The cluster number.
+   * Cluster zone identifier.
    * 
    * @example
    * B1
@@ -115,7 +109,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * The number of nodes.
+   * Number of nodes.
    * 
    * @example
    * 12
@@ -123,7 +117,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * The number of node groups.
+   * Number of node groups.
    * 
    * @example
    * 2
@@ -131,14 +125,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   nodeGroupCount?: number;
   /**
    * @remarks
-   * The cluster status.
-   * 
-   * Valid values:
-   * 
-   * *   running
-   * *   expanding
-   * *   shrinking
-   * *   initializing
+   * Cluster status.
    * 
    * @example
    * initializing
@@ -146,7 +133,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-aek2ajbjoloa23q
@@ -154,12 +141,12 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * Tag information.
    */
   tags?: ListClustersResponseBodyClustersTags[];
   /**
    * @remarks
-   * The job ID.
+   * Task ID.
    * 
    * @example
    * i156365121663149566024
@@ -167,15 +154,15 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The update time.
+   * Last update time.
    * 
    * @example
-   * 1672134968
+   * 2026-01-28T20:56:32.585
    */
   updateTime?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * VPC ID.
    * 
    * @example
    * vpc-0jlx4hol2bjboafzmffvd
@@ -238,12 +225,12 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
 export class ListClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The clusters.
+   * Cluster information.
    */
   clusters?: ListClustersResponseBodyClusters[];
   /**
    * @remarks
-   * The returned pagination token which can be used in the next request to retrieve a new page of results.
+   * Token returned by this call for retrieving next page.
    * 
    * @example
    * f4f9a292c17072a2
@@ -251,7 +238,7 @@ export class ListClustersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1

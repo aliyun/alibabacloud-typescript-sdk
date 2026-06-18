@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $dara.Model {
   /**
    * @remarks
-   * Bond name
+   * Bond name.
    * 
    * @example
    * Bond0
@@ -13,7 +13,7 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $dara
   name?: string;
   /**
    * @remarks
-   * IP source cluster subnet
+   * IP source cluster subnet.
    * 
    * @example
    * subnet-3od2fe
@@ -45,7 +45,7 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $dara
 export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $dara.Model {
   /**
    * @remarks
-   * Default bond cluster subnet
+   * Default bond cluster subnet.
    * 
    * @example
    * subnet-3od2fe
@@ -53,7 +53,7 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $dara.Mode
   bondDefaultSubnet?: string;
   /**
    * @remarks
-   * Bond information
+   * Bond information.
    */
   bonds?: ExtendClusterRequestIpAllocationPolicyBondPolicyBonds[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $dara.Mode
 export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extends $dara.Model {
   /**
    * @remarks
-   * Bond name
+   * Bond name.
    * 
    * @example
    * Bond0
@@ -93,7 +93,7 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extend
   name?: string;
   /**
    * @remarks
-   * IP source cluster subnet
+   * IP source cluster subnet.
    * 
    * @example
    * subnet-fdo3dv
@@ -125,12 +125,12 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extend
 export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $dara.Model {
   /**
    * @remarks
-   * Bond information
+   * Bond information.
    */
   bonds?: ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds[];
   /**
    * @remarks
-   * Machine type
+   * Machine type.
    * 
    * @example
    * efg1.nvga1
@@ -165,7 +165,7 @@ export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $da
 export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $dara.Model {
   /**
    * @remarks
-   * Bond name
+   * Bond name.
    * 
    * @example
    * Bond0
@@ -173,7 +173,7 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $dara
   name?: string;
   /**
    * @remarks
-   * IP source cluster subnet
+   * IP source cluster subnet.
    * 
    * @example
    * subnet-fdo3dv
@@ -205,12 +205,12 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $dara
 export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Model {
   /**
    * @remarks
-   * Bond information
+   * Bond information.
    */
   bonds?: ExtendClusterRequestIpAllocationPolicyNodePolicyBonds[];
   /**
    * @remarks
-   * Hostname
+   * Hostname.
    * 
    * @example
    * a100-xa5dza28-0085
@@ -218,7 +218,7 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Mode
   hostname?: string;
   /**
    * @remarks
-   * Node ID
+   * Node ID.
    * 
    * @example
    * i-3fdodw2
@@ -255,17 +255,17 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Mode
 export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specify the cluster subnet ID based on the bond name
+   * Specifies the cluster subnet ID based on the bond name.
    */
   bondPolicy?: ExtendClusterRequestIpAllocationPolicyBondPolicy;
   /**
    * @remarks
-   * Machine type allocation policy
+   * Machine type allocation policy.
    */
   machineTypePolicy?: ExtendClusterRequestIpAllocationPolicyMachineTypePolicy[];
   /**
    * @remarks
-   * Node allocation policy
+   * Node allocation policy.
    */
   nodePolicy?: ExtendClusterRequestIpAllocationPolicyNodePolicy[];
   static names(): { [key: string]: string } {
@@ -303,11 +303,57 @@ export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
 }
 
 export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable burst (performance bursting).
+   * 
+   * @example
+   * false
+   */
   burstingEnabled?: boolean;
+  /**
+   * @remarks
+   * Disk type. Valid values:
+   * 
+   *  - cloud_essd: ESSD cloud disk.
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * Whether the data disk is deleted when the node is unsubscribed.
+   * 
+   * @example
+   * True
+   */
   deleteWithNode?: boolean;
+  /**
+   * @remarks
+   * The performance level of the ESSD cloud disk used as the system disk. Valid values:
+   * - PL0: maximum random read/write IOPS of 10,000 per disk.
+   * - PL1: maximum random read/write IOPS of 50,000 per disk.
+   * 
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * Provisioned read/write IOPS of the ESSD AutoPL cloud disk (per disk).
+   * 
+   * @example
+   * 9600
+   */
   provisionedIops?: number;
+  /**
+   * @remarks
+   * Disk size, in GiB.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -341,12 +387,58 @@ export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
 }
 
 export class ExtendClusterRequestNodeGroupsHyperNodes extends $dara.Model {
+  /**
+   * @remarks
+   * Disk information list.
+   */
   dataDisk?: ExtendClusterRequestNodeGroupsHyperNodesDataDisk[];
+  /**
+   * @remarks
+   * Hostname.
+   * 
+   * @example
+   * liliang-rmn7stf7-0000
+   */
   hostname?: string;
+  /**
+   * @remarks
+   * HyperNode ID.
+   * 
+   * @example
+   * e01-cn-2r42tmj4z02
+   */
   hyperNodeId?: string;
+  /**
+   * @remarks
+   * Login password.
+   * 
+   * @example
+   * ***
+   */
   loginPassword?: string;
+  /**
+   * @remarks
+   * Security group ID.
+   * 
+   * @example
+   * sg-uf68xu2102avz7pl3t5d
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * vSwitch ID.
+   * 
+   * @example
+   * vsw-8vbobo4cvzsygw98f4j6b
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * VPC ID.
+   * 
+   * @example
+   * vpc-0jl8gs7qmx89739e210dn
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -387,7 +479,7 @@ export class ExtendClusterRequestNodeGroupsHyperNodes extends $dara.Model {
 export class ExtendClusterRequestNodeGroupsNodeTag extends $dara.Model {
   /**
    * @remarks
-   * Node tag key
+   * Node tag key.
    * 
    * @example
    * key_my
@@ -395,7 +487,7 @@ export class ExtendClusterRequestNodeGroupsNodeTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Node tag value
+   * Node tag value.
    * 
    * @example
    * value_my
@@ -425,10 +517,17 @@ export class ExtendClusterRequestNodeGroupsNodeTag extends $dara.Model {
 }
 
 export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable burst (performance bursting).
+   * 
+   * @example
+   * true
+   */
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * Type
+   * Disk type.
    * 
    * @example
    * cloud_essd
@@ -436,7 +535,7 @@ export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Whether the data disk is deleted with the node
+   * Whether the data disk is deleted when the node is unsubscribed.
    * 
    * @example
    * true
@@ -444,16 +543,23 @@ export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   deleteWithNode?: boolean;
   /**
    * @remarks
-   * Data Disk Performance Level
+   * Data disk performance level.
    * 
    * @example
    * PL0
    */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * Provisioned performance (IOPS). Valid values: 0 to 50000.
+   * 
+   * @example
+   * 1000
+   */
   provisionedIops?: number;
   /**
    * @remarks
-   * Disk Size
+   * Disk size.
    * 
    * @example
    * 80
@@ -493,12 +599,12 @@ export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
 export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   /**
    * @remarks
-   * Data Disk Specifications
+   * Data disk specifications.
    */
   dataDisk?: ExtendClusterRequestNodeGroupsNodesDataDisk[];
   /**
    * @remarks
-   * Hostname
+   * Hostname.
    * 
    * @example
    * d044d220-33fd-11ed-86a6
@@ -506,7 +612,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Login Password
+   * Login password.
    * 
    * @example
    * ***
@@ -514,16 +620,23 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Node ID
+   * Node ID.
    * 
    * @example
    * e01-cn-zvp2zdpy601
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * Security group ID.
+   * 
+   * @example
+   * sg-uf68xu2102avz7pl3t5d
+   */
   securityGroupId?: string;
   /**
    * @remarks
-   * VSwitch ID
+   * vSwitch ID.
    * 
    * @example
    * vsw-bp169pi5fj151rrms4sia
@@ -531,7 +644,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID
+   * VPC ID.
    * 
    * @example
    * vpc-0jlasms92fdxqd3wlf8ny
@@ -576,7 +689,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
 export class ExtendClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * Number of nodes to purchase. Range: 0~500. If the Amount parameter is set to 0, it means no new nodes will be purchased and existing nodes will be used for scaling. If the Amount parameter is set to 1~500, it means a certain number of nodes will be purchased and used for scaling. Default value: 0
+   * The number of nodes to purchase. Valid values: 0 to 500. If the Amount parameter is set to 0, no nodes are purchased and existing nodes are used for scale-out. If the Amount parameter is set to a value from 1 to 500, the specified number of nodes are purchased and used for scale-out. Default value: 0.
    * 
    * @example
    * 4
@@ -584,7 +697,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Whether to automatically renew the purchased nodes. This parameter takes effect when the Amount parameter is not 0 and the ChargeType is set to PrePaid. Valid values: True (auto-renewal); False (no auto-renewal). Default value: False
+   * Whether to enable auto-renewal for the purchased nodes. This parameter takes effect when the Amount parameter is not 0 and ChargeType is set to PREPAY or POSTPAY. Valid values: True: enable auto-renewal. False: disable auto-renewal. Default value: False.
    * 
    * @example
    * True
@@ -592,7 +705,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * Payment method for the nodes. When the Amount parameter is set to 0, this parameter does not take effect. Valid values: PrePaid (Subscription); PostPaid (Pay-As-You-Go). Default value: PrePaid.
+   * The billing method of nodes. This parameter does not take effect when the Amount parameter is set to 0. Valid values: PREPAY: subscription. POSTPAY: pay-as-you-go. Default value: PREPAY.
    * 
    * @example
    * PostPaid
@@ -600,13 +713,17 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Set the hostnames for the purchased nodes. This parameter does not take effect when the Amount parameter is set to 0.
+   * The hostnames set for the purchased nodes. This parameter does not take effect when the Amount parameter is set to 0.
    */
   hostnames?: string[];
+  /**
+   * @remarks
+   * HyperNode list.
+   */
   hyperNodes?: ExtendClusterRequestNodeGroupsHyperNodes[];
   /**
    * @remarks
-   * Set the login password for the purchased nodes. This parameter is not effective when the Amount parameter is set to 0.
+   * The login password set for the purchased nodes. This parameter does not take effect when the Amount parameter is set to 0.
    * 
    * @example
    * skkO(*89Y
@@ -614,7 +731,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Node Group ID
+   * Node group ID.
    * 
    * @example
    * i16d4883a46cbadeb4bc9
@@ -622,25 +739,26 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * Node tags
+   * Node tags.
    */
   nodeTag?: ExtendClusterRequestNodeGroupsNodeTag[];
   /**
    * @remarks
-   * List of Nodes
+   * Node list.
    */
   nodes?: ExtendClusterRequestNodeGroupsNodes[];
   /**
    * @remarks
-   * Duration of the node purchase (in months). Valid values: 1, 6, 12, 24, 36, 48. This parameter takes effect when the Amount parameter is not 0 and the ChargeType is set to PrePaid.
+   * The subscription duration of nodes (unit: month). Valid values: 1, 6, 12, 24, 36, and 48. This parameter takes effect when the Amount parameter is not 0 and ChargeType is set to PREPAY.
    * 
    * @example
    * 6
    */
   period?: number;
+  savingsPlanId?: string;
   /**
    * @remarks
-   * Custom Data
+   * Custom data.
    * 
    * @example
    * #!/bin/sh
@@ -649,7 +767,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * VSwitch ID
+   * vSwitch ID.
    * 
    * @example
    * vsw-uf65m8xqjgy55xj9jw92n
@@ -657,7 +775,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID
+   * VPC ID.
    * 
    * @example
    * vpc-0jl3b0c0ukydlfezr13n6
@@ -665,7 +783,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Zone ID
+   * Zone ID.
    * 
    * @example
    * cn-hangzhou-i
@@ -683,6 +801,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
       nodeTag: 'NodeTag',
       nodes: 'Nodes',
       period: 'Period',
+      savingsPlanId: 'SavingsPlanId',
       userData: 'UserData',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -702,6 +821,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
       nodeTag: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsNodeTag },
       nodes: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsNodes },
       period: 'number',
+      savingsPlanId: 'string',
       userData: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -733,7 +853,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
 export class ExtendClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * Cluster ID.
    * 
    * @example
    * i15b480fbd2fcdbc2869cd80
@@ -741,7 +861,7 @@ export class ExtendClusterRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
+   * Whether to allow skipping failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -749,17 +869,17 @@ export class ExtendClusterRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * IP allocation combination policy: Each policy can only choose one type, and multiple policies can be combined
+   * Combined policy for IP allocation. Each policy can only select one policy type, and multiple policies can be combined.
    */
   ipAllocationPolicy?: ExtendClusterRequestIpAllocationPolicy[];
   /**
    * @remarks
-   * Node Groups
+   * Node groups.
    */
   nodeGroups?: ExtendClusterRequestNodeGroups[];
   /**
    * @remarks
-   * VSwitch availability zone ID
+   * vSwitch zone ID.
    * 
    * @example
    * cn-shanghai-b
@@ -767,7 +887,7 @@ export class ExtendClusterRequest extends $dara.Model {
   vSwitchZoneId?: string;
   /**
    * @remarks
-   * List of cluster subnets
+   * Cluster subnet list.
    */
   vpdSubnets?: string[];
   static names(): { [key: string]: string } {

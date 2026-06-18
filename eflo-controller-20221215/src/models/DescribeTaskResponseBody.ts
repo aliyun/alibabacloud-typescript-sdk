@@ -131,7 +131,7 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
    * *   异常机器释放: Abnormal machine release.
    * 
    * @example
-   * 节点缩容
+   * Node scale-down
    */
   stageTag?: string;
   /**

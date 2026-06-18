@@ -6,16 +6,25 @@ import * as $dara from '@darabonba/typescript';
  */
 export class ChangeNodeTypesResponseBodyNodeResponse extends $dara.Model {
   /**
+   * @remarks
+   * The response code for the node.
+   * 
    * @example
    * PASSED
    */
   code?: string;
   /**
+   * @remarks
+   * The response message for the node.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the node included in the response.
+   * 
    * @example
    * e01-in-067da4ca9c2
    */
@@ -46,13 +55,23 @@ export class ChangeNodeTypesResponseBodyNodeResponse extends $dara.Model {
 }
 
 export class ChangeNodeTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The responses for the nodes.
+   */
   nodeResponse?: ChangeNodeTypesResponseBodyNodeResponse[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID. A task ID is returned only if all nodes pass the precheck. If an exception occurs, this parameter is empty.
+   * 
    * @example
    * i158475611663639202234
    */

@@ -13,7 +13,7 @@ export class ReimageNodesShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to allow skipping failed nodes. Default value: False.
+   * Specifies whether to skip failed nodes. The default value is False.
    * 
    * @example
    * False
@@ -21,12 +21,12 @@ export class ReimageNodesShrinkRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * The nodes.
+   * The list of nodes.
    */
   nodesShrink?: string;
   /**
    * @remarks
-   * The user data.
+   * The custom data.
    * 
    * @example
    * #!/bin/sh

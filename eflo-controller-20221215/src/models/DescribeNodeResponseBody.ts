@@ -7,7 +7,7 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * *   cloud_essd
+   *  - cloud_essd: ESSD cloud disk.
    * 
    * @example
    * cloud_essd
@@ -18,15 +18,14 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
    * The disk ID.
    * 
    * @example
-   * d-bp1fi88ryk4yah8a6yos
+   * d-2zeap7wkns2tdmbr11se
    */
   diskId?: string;
   /**
    * @remarks
-   * The performance level of the ESSD that is used as the system disk. Valid values:
-   * 
-   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+   * The performance level of the cloud disk when an ESSD cloud disk is created as a system disk. Valid values:
+   * - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
    * 
    * @example
    * PL1
@@ -44,8 +43,8 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * *   system: system disk
-   * *   data: data disk
+   * - system: system disk.
+   * - data: data disk.
    * 
    * @example
    * system
@@ -83,7 +82,7 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
 export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   /**
    * @remarks
-   * The port information of the elastic network interface (ENI).
+   * The NIC port information.
    * 
    * @example
    * Bond0
@@ -91,25 +90,39 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   bondName?: string;
   /**
    * @remarks
-   * The IP address of the node.
+   * The machine IP address.
    * 
    * @example
    * 47.254.235.44
    */
   ip?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-bp1d3dvbh9by7j5rujax
+   */
   securityGroupId?: string;
   /**
    * @remarks
-   * The subnet ID.
+   * The cluster subnet ID.
    * 
    * @example
    * vsw-uf68v51fldm5egmui5a6k
    */
   subnetId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-asjdfklj
+   */
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the cluster network.
+   * The cluster network ID.
    * 
    * @example
    * vpd-xcuhjyrj
@@ -173,7 +186,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The disks.
+   * The list of disk information.
    */
   disks?: DescribeNodeResponseBodyDisks[];
   /**
@@ -186,10 +199,10 @@ export class DescribeNodeResponseBody extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * Indicates whether file storage mounting is supported.
+   * Indicates whether file system mounting is supported.
    * 
    * @example
-   * False
+   * True
    */
   fileSystemMountEnabled?: boolean;
   /**
@@ -209,6 +222,9 @@ export class DescribeNodeResponseBody extends $dara.Model {
    */
   hpnZone?: string;
   /**
+   * @remarks
+   * The hyper node ID.
+   * 
    * @example
    * e01-cn-zvp2tgykr08
    */
@@ -231,7 +247,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The instance type.
+   * The machine type.
    * 
    * @example
    * efg1.nvga1
@@ -267,6 +283,15 @@ export class DescribeNodeResponseBody extends $dara.Model {
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The type of the current node. Valid values:
+   * ● cpfs-enhanced
+   * ● ebs-enhanced
+   * ● standard
+   * ● standby
+   * ● standard-v2
+   * ● standby-v2
+   * 
    * @example
    * standard
    */
@@ -274,22 +299,6 @@ export class DescribeNodeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The node status.
-   * 
-   * Valid values:
-   * 
-   * *   Extending
-   * *   UnusedNodeStopped
-   * *   UnusedNodeStopping
-   * *   Unused
-   * *   Using
-   * *   ReleaseLocking
-   * *   Operating
-   * *   Cutting
-   * *   ClusterNodeStopped
-   * *   UnusedNodeRecovering
-   * *   ClusterNodeStopping
-   * *   ClusterNodeRecovering
-   * *   Replacing
    * 
    * @example
    * Using
@@ -313,7 +322,15 @@ export class DescribeNodeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The serial number of the node.
+   * The savings plan ID.
+   * 
+   * @example
+   * spn-25e985acAWbrwEBK
+   */
+  savingsPlanId?: string;
+  /**
+   * @remarks
+   * The unique machine identifier.
    * 
    * @example
    * sag42ckf4jx
@@ -321,7 +338,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   sn?: string;
   /**
    * @remarks
-   * The custom script.
+   * The user-defined script.
    * 
    * @example
    * #!/bin/bash
@@ -359,6 +376,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       operatingState: 'OperatingState',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
+      savingsPlanId: 'SavingsPlanId',
       sn: 'Sn',
       userData: 'UserData',
       zoneId: 'ZoneId',
@@ -387,6 +405,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       operatingState: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
+      savingsPlanId: 'string',
       sn: 'string',
       userData: 'string',
       zoneId: 'string',

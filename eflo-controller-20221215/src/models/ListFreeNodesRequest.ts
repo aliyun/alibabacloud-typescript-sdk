@@ -8,7 +8,7 @@ export class ListFreeNodesRequestTags extends $dara.Model {
    * The tag key.
    * 
    * @example
-   * key_aa
+   * my_key
    */
   key?: string;
   /**
@@ -16,7 +16,7 @@ export class ListFreeNodesRequestTags extends $dara.Model {
    * The tag value.
    * 
    * @example
-   * value_aa
+   * 129
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListFreeNodesRequestTags extends $dara.Model {
 export class ListFreeNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster number.
+   * The cluster ID.
    * 
    * @example
    * A1
@@ -53,7 +53,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * The instance type.
+   * The machine type.
    * 
    * @example
    * mock-machine-type2
@@ -61,7 +61,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The number of entries to return on each page for a paged query. The default value is 20.
    * 
    * @example
    * 20
@@ -69,7 +69,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
+   * The query token. Set it to the NextToken value returned from the previous API call.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -77,7 +77,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The types of the returned nodes that are not used.
+   * The type of unused nodes to be returned.
    */
   operatingStates?: string[];
   /**
@@ -90,7 +90,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    */
   tags?: ListFreeNodesRequestTags[];
   static names(): { [key: string]: string } {

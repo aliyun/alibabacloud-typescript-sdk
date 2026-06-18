@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ShrinkClusterRequestNodeGroupsHyperNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The hyper node ID.
+   * 
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
   hyperNodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,6 +63,10 @@ export class ShrinkClusterRequestNodeGroupsNodes extends $dara.Model {
 }
 
 export class ShrinkClusterRequestNodeGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The list of hyper nodes.
+   */
   hyperNodes?: ShrinkClusterRequestNodeGroupsHyperNodes[];
   /**
    * @remarks
@@ -67,7 +78,7 @@ export class ShrinkClusterRequestNodeGroups extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The nodes.
+   * The list of nodes.
    */
   nodes?: ShrinkClusterRequestNodeGroupsNodes[];
   static names(): { [key: string]: string } {
@@ -112,7 +123,7 @@ export class ShrinkClusterRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to allow skipping failed nodes. Default value: False.
+   * Specifies whether to skip failed nodes. The default value is False.
    * 
    * @example
    * False
@@ -120,7 +131,7 @@ export class ShrinkClusterRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * The node groups.
+   * The information about the node groups.
    */
   nodeGroups?: ShrinkClusterRequestNodeGroups[];
   static names(): { [key: string]: string } {

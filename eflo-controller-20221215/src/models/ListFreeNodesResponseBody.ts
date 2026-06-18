@@ -8,7 +8,7 @@ export class ListFreeNodesResponseBodyNodesTags extends $dara.Model {
    * The tag key.
    * 
    * @example
-   * aa_key
+   * alarm_xdc
    */
   key?: string;
   /**
@@ -16,7 +16,7 @@ export class ListFreeNodesResponseBodyNodesTags extends $dara.Model {
    * The tag value.
    * 
    * @example
-   * aa_vakye
+   * true
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -56,33 +56,36 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
    * The creation time.
    * 
    * @example
-   * 1652321554
+   * 2026-02-02T11:27:07
    */
   createTime?: string;
   /**
    * @remarks
-   * The time when the node expires.
+   * The expiration time of the machine.
    * 
    * @example
-   * 1673107200
+   * 2026-03-03T00:00:00
    */
   expiredTime?: string;
   /**
    * @remarks
-   * The cluster number.
+   * The cluster ID.
    * 
    * @example
    * A1
    */
   hpnZone?: string;
   /**
+   * @remarks
+   * The hyper node ID.
+   * 
    * @example
    * e01-cn-zvp2tgykr08
    */
   hyperNodeId?: string;
   /**
    * @remarks
-   * The instance type.
+   * The machine type.
    * 
    * @example
    * efg1.nvga1
@@ -101,7 +104,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
    * The node status.
    * 
    * @example
-   * Unused
+   * Extending
    */
   operatingState?: string;
   /**
@@ -114,7 +117,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The serial number of the node.
+   * The serial number (SN) of the machine.
    * 
    * @example
    * sn_pozkHBgicd
@@ -122,7 +125,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   sn?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListFreeNodesResponseBodyNodesTags[];
   /**
@@ -182,7 +185,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
 export class ListFreeNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned pagination token which can be used in the next request to retrieve a new page of results.
+   * The token returned for the next query.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -190,7 +193,7 @@ export class ListFreeNodesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The nodes.
+   * The list of nodes.
    */
   nodes?: ListFreeNodesResponseBodyNodes[];
   /**

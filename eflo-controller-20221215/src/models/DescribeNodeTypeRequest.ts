@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNodeTypeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The node scale-out pattern.
+   * 
    * @example
    * standard
    */

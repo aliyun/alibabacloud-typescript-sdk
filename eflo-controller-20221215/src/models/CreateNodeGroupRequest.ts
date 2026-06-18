@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeGroupRequestNodeGroupSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * Disk type. Value range:
+   * The type of the system disk. Valid values:
    * 
-   *  - cloud_essd: ESSD cloud disk.
+   * - `cloud_essd`: ESSD.
    * 
    * @example
    * clou_essd
@@ -15,9 +15,11 @@ export class CreateNodeGroupRequestNodeGroupSystemDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * When creating an ESSD cloud disk as a system disk, set the performance level of the cloud disk. Value range:
-   * - PL0: Maximum random read/write IOPS per disk 10,000.
-   * - PL1: Maximum random read/write IOPS per disk 50,000.
+   * The performance level of the ESSD system disk. Valid values:
+   * 
+   * - `PL0`: A single disk delivers up to 10,000 random read/write IOPS.
+   * 
+   * - `PL1`: A single disk delivers up to 50,000 random read/write IOPS.
    * 
    * @example
    * PL1
@@ -25,7 +27,7 @@ export class CreateNodeGroupRequestNodeGroupSystemDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * Unit: GB.
+   * The size of the system disk, in GB.
    * 
    * @example
    * 1000
@@ -59,7 +61,7 @@ export class CreateNodeGroupRequestNodeGroupSystemDisk extends $dara.Model {
 export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   /**
    * @remarks
-   * Availability Zone
+   * The availability zone of the node group.
    * 
    * This parameter is required.
    * 
@@ -69,15 +71,15 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   az?: string;
   /**
    * @remarks
-   * Whether file storage mounting is supported
+   * Specifies whether to enable file system mounting.
    * 
    * @example
-   * true
+   * false
    */
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * Image ID.
+   * The image ID for the nodes.
    * 
    * This parameter is required.
    * 
@@ -87,7 +89,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Key pair name.
+   * The name of the key pair for SSH login.
    * 
    * @example
    * test-keypair
@@ -95,7 +97,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * Password
+   * The password to log in to the nodes.
    * 
    * @example
    * test-LoginPassword
@@ -103,7 +105,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Machine type
+   * The machine type for the nodes.
    * 
    * This parameter is required.
    * 
@@ -113,15 +115,15 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Node group description
+   * The description of the node group.
    * 
    * @example
-   * describe for node group
+   * Node group description
    */
   nodeGroupDescription?: string;
   /**
    * @remarks
-   * Node group name
+   * The name of the node group.
    * 
    * This parameter is required.
    * 
@@ -129,15 +131,22 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
    * PAI-LINGJUN
    */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * The name of the RAM role to attach to the nodes. You can call the RAM API `ListRoles` operation to query the RAM roles that you have created. The trust entity of the specified role must be Intelligent Computing Lingjun.<br>**Note:** You cannot detach an existing role by clearing this parameter.<br>
+   * 
+   * @example
+   * xianwen-test-ram-role
+   */
   ramRoleName?: string;
   /**
    * @remarks
-   * Details of the node system disk configuration.
+   * The system disk configuration for the nodes.
    */
   systemDisk?: CreateNodeGroupRequestNodeGroupSystemDisk;
   /**
    * @remarks
-   * User-defined data
+   * The user data passed to the nodes at launch.
    * 
    * @example
    * #!/bin/bash
@@ -147,7 +156,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * Whether to enable gpu virtualization or not
+   * Specifies whether to enable GPU virtualization.
    * 
    * @example
    * false
@@ -202,7 +211,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
 export class CreateNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The ID of the cluster to which the node group belongs.
    * 
    * This parameter is required.
    * 
@@ -212,14 +221,14 @@ export class CreateNodeGroupRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Node ID.
+   * The configurations of the node group.
    * 
    * This parameter is required.
    */
   nodeGroup?: CreateNodeGroupRequestNodeGroup;
   /**
    * @remarks
-   * Node information
+   * The configuration of the node unit.
    * 
    * @example
    * {\\"NodeUnitId\\":\\"3c2999a8-2b95-4409-93c5-ad3985fc5c9f\\",\\"ResourceGroupId\\":\\"\\",\\"MaxNodes\\":0,\\"NodeUnitName\\":\\"asi_cn-serverless-sale_e01-lingjun-psale\\"}

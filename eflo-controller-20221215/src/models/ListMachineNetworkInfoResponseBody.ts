@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.Model {
   /**
    * @remarks
-   * Network of cluster
+   * The cluster network.
    * 
    * @example
    * vpc/acl
@@ -13,16 +13,7 @@ export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.
   clusterNet?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
-   * 
-   * *   true: The Jumbo Frame feature is enabled for the instance.
-   * *   false: The Jumbo Frame feature is disabled for the instance.
-   * 
-   * Take note of the following items:
-   * 
-   * *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
-   * *   The instance must reside in a VPC.
-   * *   After the Jumbo Frames feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frames feature is disabled, the MTU value of the instance is set to 1500. You can enable the Jumbo Frames feature only for specific instance types. For more information, see [Jumbo Frames](https://help.aliyun.com/document_detail/200512.html).
+   * Indicates whether jumbo frames are enabled.
    * 
    * @example
    * true
@@ -30,7 +21,7 @@ export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.
   enableJumboFrame?: boolean;
   /**
    * @remarks
-   * HPN zone
+   * The cluster ID.
    * 
    * @example
    * B1
@@ -38,7 +29,7 @@ export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.
   hpnZone?: string;
   /**
    * @remarks
-   * Specifies whether dpu machine.
+   * Indicates whether the machine is in DPU mode.
    * 
    * @example
    * true
@@ -46,7 +37,7 @@ export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.
   isDpuMode?: boolean;
   /**
    * @remarks
-   * The type of machine.
+   * The machine type.
    * 
    * @example
    * efg1.nvga8n
@@ -54,7 +45,7 @@ export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.
   machineType?: string;
   /**
    * @remarks
-   * Network architecture
+   * The network architecture.
    * 
    * @example
    * XX-7.0
@@ -62,7 +53,7 @@ export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.
   netArch?: string;
   /**
    * @remarks
-   * The ID of the region in which the application is located.
+   * The region ID.
    * 
    * @example
    * cn-heyuan
@@ -104,12 +95,12 @@ export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.
 export class ListMachineNetworkInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * machine network infomation
+   * The network information of the machine types.
    */
   machineNetworkInfo?: ListMachineNetworkInfoResponseBodyMachineNetworkInfo[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54

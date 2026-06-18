@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVscRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The resource tag key.
+   * The tag key.
    * 
    * @example
    * key001
@@ -13,7 +13,7 @@ export class CreateVscRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The resource tag value.
+   * The tag value.
    * 
    * @example
    * value001
@@ -45,7 +45,7 @@ export class CreateVscRequestTag extends $dara.Model {
 export class CreateVscRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token to ensure the idempotency of the request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -53,7 +53,7 @@ export class CreateVscRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class CreateVscRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek2xdkc6icwfha
@@ -71,12 +71,12 @@ export class CreateVscRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource tags.
+   * The tags of the resource.
    */
   tag?: CreateVscRequestTag[];
   /**
    * @remarks
-   * The custom name of the VSC, which is unique on a compute node.
+   * The custom name of the VSC. The name must be unique on a single compute node.
    * 
    * @example
    * test_name
@@ -84,7 +84,7 @@ export class CreateVscRequest extends $dara.Model {
   vscName?: string;
   /**
    * @remarks
-   * The VSC type. Valid values: primary and standard. Default value: primary.
+   * The type of the VSC. Valid values: primary and standard. The default value is primary.
    * 
    * @example
    * primary

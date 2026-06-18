@@ -13,7 +13,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   bondNum?: number;
   /**
    * @remarks
-   * The CPU information.
+   * CPU information.
    * 
    * @example
    * 2x Intel Icelake 8369B 32C CPU
@@ -21,7 +21,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   cpuInfo?: string;
   /**
    * @remarks
-   * The disk information.
+   * Disk information.
    * 
    * @example
    * 2x 480GB SATA SSD
@@ -29,7 +29,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   diskInfo?: string;
   /**
    * @remarks
-   * The GPU information.
+   * GPU information.
    * 
    * @example
    * 8x NVIDIA SXM4 80GB A100 GPU
@@ -37,7 +37,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   gpuInfo?: string;
   /**
    * @remarks
-   * The storage information.
+   * Memory information.
    * 
    * @example
    * 32x 64GB DDR4 3200 Memory
@@ -45,7 +45,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   memoryInfo?: string;
   /**
    * @remarks
-   * The name of the instance type.
+   * The name of the machine type.
    * 
    * @example
    * efg1.nvga1
@@ -53,7 +53,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network information.
+   * Network information.
    * 
    * @example
    * 2x 100Gbps DP NIC
@@ -69,7 +69,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   nodeCount?: string;
   /**
    * @remarks
-   * The number of vCPUs.
+   * The number of CPU cores.
    * 
    * @example
    * 48
@@ -77,7 +77,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   totalCpuCore?: number;
   /**
    * @remarks
-   * The access type.
+   * The type of the machine type.
    * 
    * @example
    * Public
@@ -125,12 +125,12 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
 export class ListMachineTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance types.
+   * Details of the machine types.
    */
   machineTypes?: ListMachineTypesResponseBodyMachineTypes[];
   /**
    * @remarks
-   * The token that is used in the next request to retrieve a new page of results.
+   * The token to request the next page of results. Include this token in your next request to retrieve the next page.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -138,7 +138,7 @@ export class ListMachineTypesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * F16BA4D8-FF50-53B6-A026-F443FE31006C

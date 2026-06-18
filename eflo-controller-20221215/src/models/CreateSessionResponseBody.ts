@@ -16,7 +16,7 @@ export class CreateSessionResponseBody extends $dara.Model {
    * The node ID.
    * 
    * @example
-   * 2A59143F1
+   * 2A591****
    */
   serverSn?: string;
   /**
@@ -24,7 +24,7 @@ export class CreateSessionResponseBody extends $dara.Model {
    * The session ID.
    * 
    * @example
-   * i207023871669364793713
+   * i20702387166936479****
    */
   sessionId?: string;
   /**
@@ -32,7 +32,7 @@ export class CreateSessionResponseBody extends $dara.Model {
    * The session credential.
    * 
    * @example
-   * 03f53c719015a9ad4f4f55d66cac2dac161b18e8065ca75a3220b89de389c980
+   * 03f53c719015a9ad4f4f55d66cac2dac161b18e8065ca75a3220b89de389****
    */
   sessionToken?: string;
   /**

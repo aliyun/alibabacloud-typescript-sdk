@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListClusterHyperNodesRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * my_key
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * my_value
    */
@@ -39,6 +45,8 @@ export class ListClusterHyperNodesRequestTags extends $dara.Model {
 export class ListClusterHyperNodesRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,25 +54,47 @@ export class ListClusterHyperNodesRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * • If this parameter is not set or is set to a value less than 20, the default value is 20.
+   * 
+   * • If this parameter is set to a value greater than 100, the default value is 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token used to start the query. Set this parameter to the NextToken value returned from a previous call.
+   * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The node group ID.
+   * 
    * @example
    * ng-ec3c96ff0aa4c60d
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfmywpvugkh7kq
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag information.
+   */
   tags?: ListClusterHyperNodesRequestTags[];
   static names(): { [key: string]: string } {
     return {

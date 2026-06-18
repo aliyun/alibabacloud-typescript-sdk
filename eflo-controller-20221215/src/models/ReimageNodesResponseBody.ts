@@ -13,7 +13,7 @@ export class ReimageNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * i158782151663841517926

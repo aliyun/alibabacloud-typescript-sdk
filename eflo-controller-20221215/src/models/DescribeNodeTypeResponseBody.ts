@@ -3,28 +3,50 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNodeTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of disks that can be attached.
+   * 
+   * @example
+   * 17
+   */
   diskQuantity?: number;
   /**
+   * @remarks
+   * The maximum number of network interfaces for high-density mode.
+   * 
    * @example
    * 63
    */
   eniHighDenseQuantity?: number;
   /**
+   * @remarks
+   * The maximum number of IPv6 addresses that an ENI can have.
+   * 
    * @example
    * 256
    */
   eniIpv6AddressQuantity?: number;
   /**
+   * @remarks
+   * The maximum number of IPv4 addresses that an ENI can have.
+   * 
    * @example
    * 256
    */
   eniPrivateIpAddressQuantity?: number;
   /**
+   * @remarks
+   * The maximum number of supported elastic network interfaces (ENIs), including primary and secondary ENIs.
+   * 
    * @example
    * 22
    */
   eniQuantity?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
    */

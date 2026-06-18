@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChangeNodeTypesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of node IDs. You can specify a maximum of 10 nodes in a single request.
+   */
   nodeIds?: string[];
   /**
+   * @remarks
+   * The node specifications.
+   * 
    * @example
-   * standard
+   * cpfs-enhanced
    */
   nodeType?: string;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class ShrinkClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * i159136551662516768776

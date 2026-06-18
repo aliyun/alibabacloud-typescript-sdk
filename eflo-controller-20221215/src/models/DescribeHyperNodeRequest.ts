@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHyperNodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the hyper node.
+   * 
    * This parameter is required.
    * 
    * @example

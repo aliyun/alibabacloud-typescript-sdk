@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVscResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
@@ -13,7 +13,7 @@ export class CreateVscResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The VSC ID.
+   * The ID of the VSC that is created.
    * 
    * @example
    * vsc-001

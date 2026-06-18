@@ -8,7 +8,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
    * The region name.
    * 
    * @example
-   * Hang Zhou
+   * Hangzhou
    */
   localName?: string;
   /**

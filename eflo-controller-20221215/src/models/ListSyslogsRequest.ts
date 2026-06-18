@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListSyslogsRequest extends $dara.Model {
   /**
    * @remarks
+   * The start time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListSyslogsRequest extends $dara.Model {
    */
   fromTime?: string;
   /**
+   * @remarks
+   * The token for the next page. To retrieve the next page of results, include the token in the next request.
+   * 
    * @example
    * 392e8b4a03ed171433cc39f5b464ec9d
    */
   nextToken?: string;
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,17 +32,25 @@ export class ListSyslogsRequest extends $dara.Model {
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The query condition.
+   * 
    * @example
    * *
    */
   query?: string;
   /**
+   * @remarks
+   * Specifies whether to sort the results by time in descending order.
+   * 
    * @example
    * true
    */
   reverse?: boolean;
   /**
    * @remarks
+   * The end time.
+   * 
    * This parameter is required.
    * 
    * @example

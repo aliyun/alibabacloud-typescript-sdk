@@ -196,7 +196,7 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
    * The command description.
    * 
    * @example
-   * Description
+   * Description.
    */
   description?: string;
   /**

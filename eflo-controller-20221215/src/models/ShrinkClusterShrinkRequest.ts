@@ -13,7 +13,7 @@ export class ShrinkClusterShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to allow skipping failed nodes. Default value: False.
+   * Specifies whether to skip failed nodes. The default value is False.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class ShrinkClusterShrinkRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * The node groups.
+   * The information about the node groups.
    */
   nodeGroupsShrink?: string;
   static names(): { [key: string]: string } {

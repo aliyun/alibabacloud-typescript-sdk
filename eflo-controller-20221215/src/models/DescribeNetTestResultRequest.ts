@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetTestResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the test task. The unique identifier of a network test task.
+   * The ID of the test task.
    * 
    * @example
    * dr-uf6i0tv2refv8wz*****

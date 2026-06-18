@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether file storage mounting is supported
+   * Specifies whether to mount file storage on nodes.
    * 
    * @example
    * True
@@ -13,7 +13,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * The default image ID of the node group. If not set, it will not change.
+   * The ID of the image for the node group. If you omit this parameter, the image remains unchanged.
    * 
    * @example
    * i1232142432432
@@ -21,7 +21,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Key pair name.
+   * The name of the key pair.
    * 
    * @example
    * test
@@ -29,15 +29,15 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * Login password for machines within the node group
+   * The login password for the nodes in the node group.
    * 
    * @example
-   * LoginPassword
+   * Password
    */
   loginPassword?: string;
   /**
    * @remarks
-   * Node group name
+   * The new name of the node group.
    * 
    * @example
    * test-update
@@ -45,16 +45,23 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   newNodeGroupName?: string;
   /**
    * @remarks
-   * Node group ID
+   * The ID of the node group.
    * 
    * @example
    * i120021051733814190732
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * To query the RAM roles that you have created, call the ListRoles operation in the RAM API. The trust policy for the role must specify Intelligent Computing Lingjun as the trusted entity. Note: You cannot remove a role by clearing this parameter.
+   * 
+   * @example
+   * xianwen-test-ram-role
+   */
   ramRoleName?: string;
   /**
    * @remarks
-   * User-defined script
+   * The user data. This script runs at node startup.
    * 
    * @example
    * #!/bin/bash

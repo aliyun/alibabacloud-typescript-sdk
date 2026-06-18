@@ -8,7 +8,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
    * The cluster ID.
    * 
    * @example
-   * i118578141694745246055
+   * i11857814169474524****
    */
   clusterId?: string;
   /**
@@ -32,7 +32,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
    * Diagnostic content. For example, in network diagnostics, there are static configuration checks, dynamic operation checks, and other diagnostic contents.
    * 
    * @example
-   * diagcontent
+   * Test diagnosis information
    */
   diagContent?: string;
   /**
@@ -64,7 +64,7 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
    * The resource ID.
    * 
    * @example
-   * e01-cn-bl03ofg6206
+   * e01-cn-bl03ofg6****
    */
   resourceId?: string;
   /**
@@ -149,7 +149,7 @@ export class ListDiagnosticResultsResponseBody extends $dara.Model {
    * NextToken for the next page. Include this value when requesting the next page.
    * 
    * @example
-   * a3f2224a5ec7224116c4f5246120abe4
+   * a3f2224a5ec7224116c4f5246120****
    */
   nextToken?: string;
   /**

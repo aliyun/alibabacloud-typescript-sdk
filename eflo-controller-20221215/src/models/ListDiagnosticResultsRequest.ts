@@ -29,7 +29,7 @@ export class ListDiagnosticResultsRequest extends $dara.Model {
    * NextToken for the next page. Include this value when requesting the next page.
    * 
    * @example
-   * a3f2224a5ec7224116c4f5246120abe4
+   * a3f2224a5ec7224116c4f5246120****
    */
   nextToken?: string;
   /**
@@ -37,7 +37,7 @@ export class ListDiagnosticResultsRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmywpvugkh7kq
+   * rg-acfmywpvugk****
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

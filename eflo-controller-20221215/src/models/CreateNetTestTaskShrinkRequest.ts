@@ -21,17 +21,17 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Specify when NetTestType is CommTest.
+   * Specify this parameter if NetTestType is set to CommTest.
    */
   commTestShrink?: string;
   /**
    * @remarks
-   * Specify when NetTestType is DelayTest.
+   * Specify this parameter if NetTestType is set to DelayTest.
    */
   delayTestShrink?: string;
   /**
    * @remarks
-   * The type of the network test. Valid values: DelayTest, TrafficTest, and CommTest.
+   * The type of network test. Valid values: DelayTest, TrafficTest, and CommTest.
    * 
    * @example
    * DelayTest
@@ -47,7 +47,7 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * The port number.
+   * The test port number.
    * 
    * @example
    * 23604
@@ -55,7 +55,7 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * If the TrafficModel is Fullmesh, leave this parameter empty.
+   * This field is empty if TrafficModel is set to Fullmesh.
    */
   trafficTestShrink?: string;
   static names(): { [key: string]: string } {

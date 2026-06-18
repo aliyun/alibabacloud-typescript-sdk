@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMachineNetworkInfoShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * hpn information of machine
+   * The information about the machine types.
    */
   machineHpnInfoShrink?: string;
   static names(): { [key: string]: string } {

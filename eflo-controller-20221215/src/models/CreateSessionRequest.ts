@@ -8,7 +8,7 @@ export class CreateSessionRequest extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * e01-cn-kvw44e6dn04
+   * e01-cn-kvw44e6****
    */
   nodeId?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateSessionRequest extends $dara.Model {
    * The type of the session corresponding to the session package.
    * 
    * @example
-   * Valid values: Sol (default): based on serial port Assistant: based on cloud assistant
+   * Sol
    */
   sessionType?: string;
   /**

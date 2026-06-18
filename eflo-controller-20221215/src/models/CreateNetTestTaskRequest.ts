@@ -29,7 +29,7 @@ export class CreateNetTestTaskRequestCommTestHosts extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * VBw
@@ -73,7 +73,7 @@ export class CreateNetTestTaskRequestCommTest extends $dara.Model {
   GPUNum?: number;
   /**
    * @remarks
-   * The host IDs.
+   * The hosts.
    */
   hosts?: CreateNetTestTaskRequestCommTestHosts[];
   /**
@@ -86,7 +86,7 @@ export class CreateNetTestTaskRequestCommTest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The CommTest type, which can be ACCL or NCCL.
+   * The type of communication library test. Valid values: ACCL and NCCL.
    * 
    * @example
    * ACCL
@@ -125,7 +125,7 @@ export class CreateNetTestTaskRequestCommTest extends $dara.Model {
 export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
   /**
    * @remarks
-   * The bonding of network interface card.
+   * The bonded NIC port.
    * 
    * @example
    * bond1
@@ -157,7 +157,7 @@ export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * NQU
@@ -195,7 +195,7 @@ export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
 export class CreateNetTestTaskRequestDelayTest extends $dara.Model {
   /**
    * @remarks
-   * The hosts of the test node.
+   * The hosts of the test nodes.
    */
   hosts?: CreateNetTestTaskRequestDelayTestHosts[];
   static names(): { [key: string]: string } {
@@ -225,7 +225,7 @@ export class CreateNetTestTaskRequestDelayTest extends $dara.Model {
 export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
   /**
    * @remarks
-   * The bonding of network interface card.
+   * The bonded port of the network interface card (NIC).
    * 
    * @example
    * bond1
@@ -257,7 +257,7 @@ export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * xMv
@@ -295,7 +295,7 @@ export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
 export class CreateNetTestTaskRequestTrafficTestServers extends $dara.Model {
   /**
    * @remarks
-   * The bonding of network interface card.
+   * The bonded NIC port.
    * 
    * @example
    * bond1
@@ -327,7 +327,7 @@ export class CreateNetTestTaskRequestTrafficTestServers extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * xMv
@@ -365,12 +365,12 @@ export class CreateNetTestTaskRequestTrafficTestServers extends $dara.Model {
 export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   /**
    * @remarks
-   * The client IDs.
+   * The client resources.
    */
   clients?: CreateNetTestTaskRequestTrafficTestClients[];
   /**
    * @remarks
-   * The running duration of the pipeline job. Unit: seconds.
+   * The runtime duration of the flow task, in seconds.
    * 
    * @example
    * 1
@@ -378,7 +378,7 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * If the protocol is RDMA, enter True or False. If the protocol is TCP, leave this field empty.
+   * If Protocol is set to RDMA, specify True or False. This field is empty if Protocol is set to TCP.
    * 
    * @example
    * False
@@ -386,7 +386,7 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   GDR?: boolean;
   /**
    * @remarks
-   * The network protocol, which can be RDMA or TCP.
+   * The network protocol. Valid values: RDMA and TCP.
    * 
    * @example
    * TCP
@@ -394,7 +394,7 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * If the protocol is TCP, enter the number of concurrent connections. If the protocol is RDMA, enter the configured QP value.
+   * If Protocol is set to TCP, specify the number of concurrent connections for the test. If Protocol is set to RDMA, specify the QP value.
    * 
    * @example
    * 1
@@ -402,12 +402,12 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   QP?: number;
   /**
    * @remarks
-   * The services.
+   * The list of servers.
    */
   servers?: CreateNetTestTaskRequestTrafficTestServers[];
   /**
    * @remarks
-   * The traffic model, which can be MTON or Fullmesh.
+   * The traffic model. Valid values: MTON and Fullmesh.
    * 
    * @example
    * Fullmesh
@@ -471,17 +471,17 @@ export class CreateNetTestTaskRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Specify when NetTestType is CommTest.
+   * Specify this parameter if NetTestType is set to CommTest.
    */
   commTest?: CreateNetTestTaskRequestCommTest;
   /**
    * @remarks
-   * Specify when NetTestType is DelayTest.
+   * Specify this parameter if NetTestType is set to DelayTest.
    */
   delayTest?: CreateNetTestTaskRequestDelayTest;
   /**
    * @remarks
-   * The type of the network test. Valid values: DelayTest, TrafficTest, and CommTest.
+   * The type of network test. Valid values: DelayTest, TrafficTest, and CommTest.
    * 
    * @example
    * DelayTest
@@ -497,7 +497,7 @@ export class CreateNetTestTaskRequest extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * The port number.
+   * The test port number.
    * 
    * @example
    * 23604
@@ -505,7 +505,7 @@ export class CreateNetTestTaskRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * If the TrafficModel is Fullmesh, leave this parameter empty.
+   * This field is empty if TrafficModel is set to Fullmesh.
    */
   trafficTest?: CreateNetTestTaskRequestTrafficTest;
   static names(): { [key: string]: string } {

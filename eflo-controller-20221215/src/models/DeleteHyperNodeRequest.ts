@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHyperNodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The hyper node ID.
+   * 
    * This parameter is required.
    * 
    * @example

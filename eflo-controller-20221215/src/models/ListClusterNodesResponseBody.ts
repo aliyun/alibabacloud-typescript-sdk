@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   /**
    * @remarks
-   * The name of the network port for the node.
+   * The name of the network interface.
    * 
    * @example
    * bond0
@@ -13,7 +13,7 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   bondName?: string;
   /**
    * @remarks
-   * The IP address of the node in the virtual private cloud (VPC).
+   * The IP address of the node in the VPC.
    * 
    * @example
    * 192.168.22.2
@@ -29,7 +29,7 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   subnetId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC to which the network interface belongs.
    * 
    * @example
    * vpd-eoiy88ju
@@ -68,7 +68,7 @@ export class ListClusterNodesResponseBodyNodesTags extends $dara.Model {
    * The tag key.
    * 
    * @example
-   * aa_key
+   * alarm_xdc
    */
   key?: string;
   /**
@@ -76,7 +76,7 @@ export class ListClusterNodesResponseBodyNodesTags extends $dara.Model {
    * The tag value.
    * 
    * @example
-   * aa_value
+   * true
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -105,10 +105,10 @@ export class ListClusterNodesResponseBodyNodesTags extends $dara.Model {
 export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * The commodity code.
+   * The unique code that identifies the cloud product or service.
    * 
    * @example
-   * bcccluster
+   * bccluster_eflocomputing_public_cn（表示灵骏中国站包年包月）、bccluster_eflocomputing_public_intl（表示灵骏国际站包年包月）
    */
   commodityCode?: string;
   /**
@@ -116,20 +116,20 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * The creation time.
    * 
    * @example
-   * 1642472468000
+   * 2026-02-02T11:27:07
    */
   createTime?: string;
   /**
    * @remarks
-   * The time when the node expires.
+   * The expiration time of the node.
    * 
    * @example
-   * 1762185600000
+   * 2026-03-03T00:00:00
    */
   expiredTime?: string;
   /**
    * @remarks
-   * Indicates whether file storage mounting is supported.
+   * Indicates whether the node supports mounting file storage.
    * 
    * @example
    * False
@@ -145,20 +145,23 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The cluster number.
+   * The ID of the HPN zone.
    * 
    * @example
    * A1
    */
   hpnZone?: string;
   /**
+   * @remarks
+   * The hyper node ID.
+   * 
    * @example
    * e01-cn-2r42tmj4z02
    */
   hyperNodeId?: string;
   /**
    * @remarks
-   * The system image ID.
+   * The image ID.
    * 
    * @example
    * i190297201669099844192
@@ -169,12 +172,12 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * The image name.
    * 
    * @example
-   * Alinux3_x86_AMD_R_Host_D3_E3_24.13.00_UEFI_N_250121
+   * Alinux3_x86_gu8xf_P_Host_D3_C7E3_550.127_Legacy_N_241230
    */
   imageName?: string;
   /**
    * @remarks
-   * The node type.
+   * The machine type.
    * 
    * @example
    * cn-wulanchabu-b11
@@ -182,7 +185,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The network information.
+   * Network details.
    */
   networks?: ListClusterNodesResponseBodyNodesNetworks[];
   /**
@@ -209,26 +212,17 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * e01-cn-2r42tmj4z02
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * The type of the node.
+   * 
+   * @example
+   * standard
+   */
   nodeType?: string;
   /**
    * @remarks
-   * The node status.
-   * 
-   * Valid values:
-   * 
-   * *   Extending
-   * *   UnusedNodeStopped
-   * *   UnusedNodeStopping
-   * *   Unused
-   * *   Using
-   * *   ReleaseLocking
-   * *   Operating
-   * *   Cutting
-   * *   ClusterNodeStopped
-   * *   UnusedNodeRecovering
-   * *   ClusterNodeStopping
-   * *   ClusterNodeRecovering
-   * *   Replacing
+   * The status of the node.
    * 
    * @example
    * Extending
@@ -236,7 +230,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * The serial number of the node.
+   * The serial number (SN) of the node.
    * 
    * @example
    * sn_tOuUk
@@ -244,15 +238,15 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   sn?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags attached to the node.
    */
   tags?: ListClusterNodesResponseBodyNodesTags[];
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
-   * i28ddkdkkdkdd
+   * i-skkdsdl83ksxxs3
    */
   taskId?: string;
   /**
@@ -260,20 +254,20 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * The vSwitch ID.
    * 
    * @example
-   * vsw-bp1mxqhw8o20tgv3xk47h
+   * vsw-0jlohur7nhbxd1ttyq8p8
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC where the node is located.
    * 
    * @example
-   * vpc-0jltf9vinjz3if3lltdy7
+   * vpc-f8zcet5mwerafyqlrhyoi
    */
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The availability zone ID.
    * 
    * @example
    * cn-hangzhou-b
@@ -351,7 +345,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
 export class ListClusterNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned pagination token which can be used in the next request to retrieve a new page of results.
+   * The token to retrieve the next page of results. If this parameter is empty, no more results are available.
    * 
    * @example
    * AAAAAXW/ZB9TBvH+0ZK0phtCibQgQmu1RbqplAI6Velo2OKR
@@ -359,7 +353,7 @@ export class ListClusterNodesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The nodes.
+   * The list of nodes.
    */
   nodes?: ListClusterNodesResponseBodyNodes[];
   /**

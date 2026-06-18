@@ -13,7 +13,7 @@ export class ReimageNodesRequestNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The system image ID.
+   * The OS image ID.
    * 
    * @example
    * m-8vbf8rpv2nn14y7oybjy
@@ -73,7 +73,7 @@ export class ReimageNodesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to allow skipping failed nodes. Default value: False.
+   * Specifies whether to skip failed nodes. The default value is False.
    * 
    * @example
    * False
@@ -81,12 +81,12 @@ export class ReimageNodesRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * The nodes.
+   * The list of nodes.
    */
   nodes?: ReimageNodesRequestNodes[];
   /**
    * @remarks
-   * The user data.
+   * The custom data.
    * 
    * @example
    * #!/bin/sh

@@ -13,12 +13,7 @@ export class DescribeClusterResponseBodyComponents extends $dara.Model {
   componentId?: string;
   /**
    * @remarks
-   * The component type.
-   * 
-   * Valid values:
-   * 
-   * *   ARMS
-   * *   ACKEdge
+   * The type of the component.
    * 
    * @example
    * ACKEdge
@@ -50,7 +45,7 @@ export class DescribeClusterResponseBodyComponents extends $dara.Model {
 export class DescribeClusterResponseBodyNetworks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CIDR block for the cluster.
+   * The ID of the virtual private datacenter (VPD).
    * 
    * @example
    * vpd-iqd7xunc
@@ -80,7 +75,7 @@ export class DescribeClusterResponseBodyNetworks extends $dara.Model {
 export class DescribeClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster description.
+   * The description of the cluster.
    * 
    * @example
    * Test cluster
@@ -96,7 +91,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The name of the cluster.
    * 
    * @example
    * Eflo-YJ-Test-Cluster
@@ -104,7 +99,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The cluster type.
+   * The type of the cluster.
    * 
    * @example
    * AckEdgePro
@@ -117,7 +112,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   components?: DescribeClusterResponseBodyComponents[];
   /**
    * @remarks
-   * The IP type of the computing network.
+   * The IP version of the computing network.
    * 
    * @example
    * IPv4
@@ -125,7 +120,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   computingIpVersion?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the cluster was created.
    * 
    * @example
    * 2022-06-08T07:05:11Z
@@ -133,7 +128,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The cluster number.
+   * The zone of the cluster.
    * 
    * @example
    * A2
@@ -162,7 +157,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   nodeGroupCount?: number;
   /**
    * @remarks
-   * The status of Jumbo Frames for the elastic network interface (ENI).
+   * The jumbo frame setting for the network interface.
    * 
    * @example
    * unsupported
@@ -170,7 +165,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   openEniJumboFrame?: string;
   /**
    * @remarks
-   * The cluster status.
+   * The state of the cluster.
    * 
    * @example
    * running
@@ -192,10 +187,17 @@ export class DescribeClusterResponseBody extends $dara.Model {
    * rg-aek2k3rqlvv6ytq
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-0jlff84q4o3s58i7fkhy
+   */
   securityGroupId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * i152609221670466904596
@@ -203,12 +205,19 @@ export class DescribeClusterResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the cluster was last updated.
    * 
    * @example
    * 2022-08-23T06:36:17.000Z
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-0jlwrfecgcbflyosvo242
+   */
   vSwitchId?: string;
   /**
    * @remarks

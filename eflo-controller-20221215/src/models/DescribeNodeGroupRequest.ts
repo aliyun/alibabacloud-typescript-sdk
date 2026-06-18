@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the node group.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * i128903591758597631635
    */
   nodeGroupId?: string;
   static names(): { [key: string]: string } {

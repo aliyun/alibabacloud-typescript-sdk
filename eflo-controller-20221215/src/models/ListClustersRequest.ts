@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListClustersRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * Tag key.
    * 
    * @example
-   * key_aa
+   * my_key
    */
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * Tag value.
    * 
    * @example
-   * value_aa
+   * my_value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListClustersRequestTags extends $dara.Model {
 export class ListClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * Number of entries per page. Default: 20.
    * 
    * @example
    * 20
@@ -53,15 +53,15 @@ export class ListClustersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
+   * Token for retrieving the next page of results. Use the NextToken value returned in the previous response.
    * 
    * @example
-   * a3f2224a5ec7224116c4f5246120abe4
+   * a3f2224a5ec7224116c4f5246120abe2
    */
   nextToken?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-aek2bg6wyoox6jq
@@ -69,7 +69,7 @@ export class ListClustersRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * List of tags.
    */
   tags?: ListClustersRequestTags[];
   static names(): { [key: string]: string } {
