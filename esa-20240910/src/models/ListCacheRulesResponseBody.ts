@@ -5,18 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Enable caching on specified ports. Value range: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, 2096.
+   * - Enables caching on the specified ports.
+   * 
+   * - Valid values: `8880`, `2052`, `2082`, `2086`, `2095`, `2053`, `2083`, `2087`, and `2096`.
+   * 
+   * - You can specify multiple ports, separated by commas (`,`).
    * 
    * @example
-   * 2082
+   * 8880,2052,2086
    */
   additionalCacheablePorts?: string;
   /**
    * @remarks
-   * Browser cache mode. Possible values:
-   * - no_cache: Do not cache.
-   * - follow_origin: Follow origin cache policy.
-   * - override_origin: Override origin cache policy.
+   * The browser cache mode. Valid values:
+   * 
+   * - `no_cache`: Disables browser caching.
+   * 
+   * - `follow_origin`: Follows the origin server\\"s cache policy.
+   * 
+   * - `override_origin`: Overrides the origin server\\"s cache policy.
    * 
    * @example
    * no_cache
@@ -24,7 +31,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   browserCacheMode?: string;
   /**
    * @remarks
-   * Browser cache expiration time, in seconds.
+   * The browser cache TTL, in seconds.
    * 
    * @example
    * 300
@@ -32,9 +39,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   browserCacheTtl?: string;
   /**
    * @remarks
-   * Set bypass cache mode. Possible values:
-   * - cache_all: Cache all requests.
-   * - bypass_all: Bypass cache for all requests.
+   * Specifies the bypass cache mode. Valid values:
+   * 
+   * - `cache_all`: Caches all requests.
+   * 
+   * - `bypass_all`: Bypasses all requests.
    * 
    * @example
    * cache_all
@@ -42,9 +51,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   bypassCache?: string;
   /**
    * @remarks
-   * Cache deception defense. Used to defend against web cache deception attacks; only verified cache content will be cached. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * The cache deception protection. This feature defends against web cache deception attacks by caching only validated content. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -52,9 +63,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   cacheDeceptionArmor?: string;
   /**
    * @remarks
-   * Cache reserve eligibility. This is used to control whether user requests bypass the cache reserve node when returning to the origin. The value range is as follows:
-   * - bypass_cache_reserve: Requests bypass the cache reserve.
-   * - eligible_for_cache_reserve: Eligible for cache reserve.
+   * The cache reserve eligibility. This setting controls whether a user request bypasses the cache reserve node when it is forwarded to the origin server. Valid values:
+   * 
+   * - `bypass_cache_reserve`: The request bypasses the cache reserve.
+   * 
+   * - `eligible_for_cache_reserve`: The request is eligible for the cache reserve.
    * 
    * @example
    * bypass_cache_reserve
@@ -62,23 +75,35 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   cacheReserveEligibility?: string;
   /**
    * @remarks
-   * When generating the cache key, check if the cookie exists. If it does, add the cookie name (case-insensitive) to the cache key. Multiple cookie names are supported, separated by spaces.
+   * Checks for the presence of specified cookies when generating the cache key. If a cookie exists, its name (case-insensitive) is included in the cache key. Separate multiple cookie names with spaces. Cookie names can contain the following characters:
+   * 
+   * - Symbols: ``! # $ % & \\" * + - . ^ _ ` | ~``
+   * 
+   * - Digits: `0-9`
+   * 
+   * - Letters: lowercase English letters `a-z`
    * 
    * @example
-   * cookiename
+   * cookiename1 cookiename2
    */
   checkPresenceCookie?: string;
   /**
    * @remarks
-   * When generating the cache key, check if the header exists. If it does, add the header name (case-insensitive) to the cache key. Multiple header names are supported, separated by spaces.
+   * Checks for the presence of specified headers when generating the cache key. If a header exists, its name (case-insensitive) is included in the cache key. Separate multiple header names with spaces. Header names can contain the following characters:
+   * 
+   * - Symbols: ``! # $ % & \\" * + - . ^ _ ` | ~``
+   * 
+   * - Digits: `0-9`
+   * 
+   * - Letters: lowercase English letters `a-z`
    * 
    * @example
-   * headername
+   * headername1 headername2
    */
   checkPresenceHeader?: string;
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 395386449776640
@@ -86,9 +111,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule-based configurations. Possible values:
-   * - global: Query global configuration.
-   * - rule: Query rule-based configuration.
+   * The configuration type, which indicates whether the configuration is global or rule-specific. Valid values:
+   * 
+   * - `global`
+   * 
+   * - `rule`
    * 
    * @example
    * global
@@ -96,11 +123,17 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Edge cache mode. The value range is as follows:
-   * - follow_origin: Follow the origin server\\"s cache policy (if it exists), otherwise use the default cache policy.
-   * - no_cache: Do not cache.
-   * - override_origin: Override the origin server\\"s cache policy.
-   * - follow_origin_bypass: Follow the origin server\\"s cache policy (if it exists), otherwise do not cache.
+   * The edge cache mode. Valid values:
+   * 
+   * - `follow_origin`: Follows the origin server\\"s cache policy. If no policy exists, the default policy is used.
+   * 
+   * - `no_cache`: Disables caching on edge nodes.
+   * 
+   * - `override_origin`: Overrides the origin server\\"s cache policy.
+   * 
+   * - `follow_origin_bypass`: Follows the origin server\\"s cache policy. If no policy exists, requests bypass the cache.
+   * 
+   * - `follow_origin_override`: Follows the cache policy of the origin server. If no policy exists, a custom cache TTL is used.
    * 
    * @example
    * follow_origin
@@ -108,7 +141,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   edgeCacheMode?: string;
   /**
    * @remarks
-   * Edge cache expiration time, in seconds.
+   * The edge cache TTL, in seconds.
    * 
    * @example
    * 300
@@ -116,42 +149,77 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   edgeCacheTtl?: string;
   /**
    * @remarks
-   * Edge cache expiration time, in seconds.
+   * The status code cache TTL, in seconds.
+   * 
+   * - You can set the cache TTL for a specific status code. For example, `404=10` caches responses with a 404 status code for 10 seconds.
+   * 
+   * - You can set the cache TTL for a series of status codes, such as 4xx and 5xx. For example, `4xx=10` caches all responses with a 4xx status code for 10 seconds.
+   * 
+   * - Separate multiple settings with commas (`,`).
    * 
    * @example
-   * 300
+   * 5xx=0,404=10
    */
   edgeStatusCodeCacheTtl?: string;
   /**
    * @remarks
-   * Include the specified cookie names and their values when generating the cache key. Multiple values are supported, separated by spaces.
+   * The cookie names whose values are included in the cache key. Names are case-insensitive. Separate multiple names with spaces. Cookie names can contain the following characters:
+   * 
+   * - Symbols: ``! # $ % & \\" * + - . ^ _ ` | ~``
+   * 
+   * - Digits: `0-9`
+   * 
+   * - Letters: lowercase English letters `a-z`
    * 
    * @example
-   * cookie_exapmle
+   * cookiename1 cookiename2
    */
   includeCookie?: string;
   /**
    * @remarks
-   * Include the specified header names and their values when generating the cache key. Multiple values are supported, separated by spaces.
+   * The header names whose values are included in the cache key. Names are case-insensitive. Separate multiple names with spaces. Header names can contain the following characters:
+   * 
+   * - Symbols: ``! # $ % & \\" * + - . ^ _ ` | ~``
+   * 
+   * - Digits: `0-9`
+   * 
+   * - Letters: lowercase English letters `a-z`
    * 
    * @example
-   * example
+   * headername1 headername2
    */
   includeHeader?: string;
   /**
+   * @remarks
+   * The handling mode for the request body when generating the cache key for a POST request.
+   * 
+   * - `md5`: Calculates the MD5 hash of the body content and includes the hash in the cache key.
+   * 
+   * - `ignore`: Ignores the body content in the cache key.
+   * 
    * @example
    * ignore
    */
   postBodyCacheKey?: string;
+  /**
+   * @remarks
+   * The maximum size of a POST request body that can be cached, in KB. The value must be an integer from 1 to 8. The default is 8 KB.
+   * 
+   * @example
+   * 1
+   */
   postBodySizeLimit?: string;
   /**
+   * @remarks
+   * Specifies whether to enable caching for POST requests.
+   * 
    * @example
    * on
    */
   postCache?: string;
   /**
    * @remarks
-   * The query strings to be reserved or excluded. Multiple values are supported, separated by spaces.
+   * The query strings to include in or exclude from the cache key. Separate multiple values with spaces.
    * 
    * @example
    * example
@@ -159,11 +227,15 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * The processing mode for query strings when generating the cache key. The value range is as follows:
-   * - ignore_all: Ignore all query strings.
-   * - exclude_query_string: Exclude specified query strings.
-   * - reserve_all: Default, reserve all query strings.
-   * - include_query_string: Include specified query strings.
+   * Specifies how to handle query strings when generating a cache key. Valid values:
+   * 
+   * - `ignore_all`: Ignores all query strings.
+   * 
+   * - `exclude_query_string`: Excludes specified query strings.
+   * 
+   * - `reserve_all`: Retains all query strings. This is the default value.
+   * 
+   * - `include_query_string`: Includes specified query strings.
    * 
    * @example
    * ignore_all
@@ -171,9 +243,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   queryStringMode?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+   * The rule content, which uses a conditional expression to match user requests. This parameter is not required for a global configuration.
+   * 
+   * - To match all incoming requests, set this to `true`.
+   * 
+   * - To match specific requests, set this to a custom expression, such as `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -181,9 +255,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * The rule status. This parameter is not required for a global configuration. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -191,7 +267,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter is not required for a global configuration.
    * 
    * @example
    * rule_example
@@ -199,7 +275,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The rule execution sequence. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -207,9 +283,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Serve stale cache. When enabled, the node can still respond to user requests with expired cached files even when the origin server is unavailable. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Specifies whether to serve stale content. If enabled, edge nodes serve expired cached files when the origin server is unavailable. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -217,7 +295,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   serveStale?: string;
   /**
    * @remarks
-   * Site configuration version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
+   * The site version. If version management is enabled for the site, this specifies the version to which the configuration applies. The default is 0.
    * 
    * @example
    * 1
@@ -225,9 +303,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Query string sorting. The value range is as follows:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to enable query string sorting. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -235,9 +315,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   sortQueryStringForCache?: string;
   /**
    * @remarks
-   * Include the client device type when generating the cache key. The value range is as follows:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to include the client device type in the cache key. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -245,9 +327,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   userDeviceType?: string;
   /**
    * @remarks
-   * Include the client\\"s geographic location when generating the cache key. The value range is as follows:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to include the client\\"s geographical location in the cache key. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -255,9 +339,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   userGeo?: string;
   /**
    * @remarks
-   * Include the client\\"s language type when generating the cache key. The value range is as follows:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to include the client language in the cache key. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -345,12 +431,12 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
 export class ListCacheRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body configuration.
+   * The list of configurations.
    */
   configs?: ListCacheRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -358,7 +444,7 @@ export class ListCacheRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -366,7 +452,7 @@ export class ListCacheRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -374,7 +460,7 @@ export class ListCacheRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total count of records.
    * 
    * @example
    * 20
@@ -382,7 +468,7 @@ export class ListCacheRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 2

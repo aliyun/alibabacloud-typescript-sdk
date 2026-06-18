@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCacheRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The ID of the configuration.
    * 
    * @example
    * 352816096987136
@@ -13,7 +13,7 @@ export class CreateCacheRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368

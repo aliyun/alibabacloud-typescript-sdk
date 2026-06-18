@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCompressionRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Brotli compression. Value range:
+   * Specifies whether to enable Brotli compression. Valid values:
    * 
-   * - on: Enable.
-   * - off: Disable.
+   * - `on`: Enables Brotli compression.
+   * 
+   * - `off`: Disables Brotli compression.
    * 
    * @example
    * on
@@ -16,10 +17,11 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   brotli?: string;
   /**
    * @remarks
-   * Gzip compression. Value range:
+   * Specifies whether to enable Gzip compression. Valid values:
    * 
-   * - on: Enable.
-   * - off: Disable.
+   * - `on`: Enables Gzip compression.
+   * 
+   * - `off`: Disables Gzip compression.
    * 
    * @example
    * on
@@ -27,9 +29,11 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   gzip?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - To match all incoming requests: Set the value to true
-   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The conditional expression used to match user requests. This parameter is not required when adding a global configuration. There are two use cases:
+   * 
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, set the value to a custom expression, for example, `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -37,9 +41,11 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to enable the rule. This parameter is not required when adding a global configuration. Valid values:
+   * 
+   * - `on`: Enables the rule.
+   * 
+   * - `off`: Disables the rule.
    * 
    * @example
    * on
@@ -47,16 +53,23 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The name of the rule. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * The execution priority of the rule. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The unique identifier of the site. To obtain this value, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * This parameter is required.
    * 
@@ -66,7 +79,7 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
+   * The version of the site\\"s configuration. If versioning is enabled for the site, this parameter specifies the version to modify. Defaults to 0.
    * 
    * @example
    * 0
@@ -74,10 +87,11 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Zstd compression. Value range:
+   * Specifies whether to enable Zstd compression. Valid values:
    * 
-   * - on: Enable.
-   * - off: Disable.
+   * - `on`: Enables Zstd compression.
+   * 
+   * - `off`: Disables Zstd compression.
    * 
    * @example
    * on

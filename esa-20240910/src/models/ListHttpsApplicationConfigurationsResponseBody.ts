@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Alt-Svc feature switch, default is off. Value range: 
-   * - on: enabled. 
-   * - off: disabled.
+   * Whether to enable the Alt-Svc feature. Default: `off`. Valid values:
+   * 
+   * - `on`: The Alt-Svc feature is enabled.
+   * 
+   * - `off`: The Alt-Svc feature is disabled.
    * 
    * @example
    * on
@@ -15,9 +17,11 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   altSvc?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the clear parameter, default is off. Values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether the Alt-Svc header includes the `clear` parameter. Default: `off`. Valid values:
+   * 
+   * - `on`: The `clear` parameter is included.
+   * 
+   * - `off`: The `clear` parameter is not included.
    * 
    * @example
    * on
@@ -25,7 +29,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   altSvcClear?: string;
   /**
    * @remarks
-   * The validity period of Alt-Svc in seconds, default is 86400 seconds.
+   * The Alt-Svc max-age in seconds. Default: `86400`.
    * 
    * @example
    * 86400
@@ -33,9 +37,11 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   altSvcMa?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the persist parameter, default is off. Values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether the Alt-Svc header includes the `persist` parameter. Default: `off`. Valid values:
+   * 
+   * - `on`: The `persist` parameter is included.
+   * 
+   * - `off`: The `persist` parameter is not included.
    * 
    * @example
    * on
@@ -43,7 +49,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   altSvcPersist?: string;
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 395386449776640
@@ -51,9 +57,11 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule-based configurations. Possible values:
-   * - global: Query global configuration.
-   * - rule: Query rule-based configuration.
+   * The type of the configuration. Valid values:
+   * 
+   * - `global`: A global configuration.
+   * 
+   * - `rule`: A rule-based configuration.
    * 
    * @example
    * global
@@ -61,9 +69,11 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   configType?: string;
   /**
    * @remarks
-   * Whether HSTS is enabled, default is off. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether to enable HSTS. Default: `off`. Valid values:
+   * 
+   * - `on`: HSTS is enabled.
+   * 
+   * - `off`: HSTS is disabled.
    * 
    * @example
    * on
@@ -71,9 +81,11 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   hsts?: string;
   /**
    * @remarks
-   * Whether to include subdomains in HSTS, default is off. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether the HSTS header includes the `includeSubDomains` directive. Default: `off`. Valid values:
+   * 
+   * - `on`: The `includeSubDomains` directive is included.
+   * 
+   * - `off`: The `includeSubDomains` directive is not included.
    * 
    * @example
    * on
@@ -81,7 +93,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   hstsIncludeSubdomains?: string;
   /**
    * @remarks
-   * The expiration time of HSTS in seconds.
+   * The HSTS `max-age`, in seconds.
    * 
    * @example
    * 3600
@@ -89,9 +101,11 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   hstsMaxAge?: string;
   /**
    * @remarks
-   * Whether HSTS preloading is enabled, default is off. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether the HSTS header includes the `preload` directive. Default: `off`. Valid values:
+   * 
+   * - `on`: The `preload` directive is included.
+   * 
+   * - `off`: The `preload` directive is not included.
    * 
    * @example
    * on
@@ -99,9 +113,11 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   hstsPreload?: string;
   /**
    * @remarks
-   * Whether to enable forced HTTPS, default is disabled. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether to enable HTTPS redirection. Default: `off`. Valid values:
+   * 
+   * - `on`: HTTPS redirection is enabled.
+   * 
+   * - `off`: HTTPS redirection is disabled.
    * 
    * @example
    * on
@@ -109,24 +125,59 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   httpsForce?: string;
   /**
    * @remarks
-   * Forced HTTPS redirect status code. Possible values:
-   * - 301
-   * - 302
-   * - 307
-   * - 308
+   * The status code for HTTPS redirection. Valid values:
+   * 
+   * - `301`
+   * 
+   * - `302`
+   * 
+   * - `307`
+   * 
+   * - `308`
    * 
    * @example
    * 301
    */
   httpsForceCode?: string;
+  /**
+   * @remarks
+   * Whether to reject TLS handshake requests that lack an SNI. Default: `off`. Valid values:
+   * 
+   * - `on`: Requests that lack an SNI are rejected.
+   * 
+   * - `off`: Requests that lack an SNI are not rejected.
+   * 
+   * @example
+   * on
+   */
   httpsNoSniDeny?: string;
+  /**
+   * @remarks
+   * Whether to enable SNI verification. Default: `off`. Valid values:
+   * 
+   * - `on`: SNI verification is enabled.
+   * 
+   * - `off`: SNI verification is disabled.
+   * 
+   * @example
+   * on
+   */
   httpsSniVerify?: string;
+  /**
+   * @remarks
+   * The SNI allowlist. Separate multiple values with a space.
+   * 
+   * @example
+   * abc edf
+   */
   httpsSniWhitelist?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true.
-   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+   * The content of the rule, a conditional expression that matches user requests. This parameter is not required for a global configuration. The following use cases are supported:
+   * 
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -134,9 +185,11 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether the rule is enabled. This parameter is not required for a global configuration. Valid values:
+   * 
+   * - `on`: The rule is enabled.
+   * 
+   * - `off`: The rule is disabled.
    * 
    * @example
    * on
@@ -144,7 +197,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The name of the rule. This parameter is not required for a global configuration.
    * 
    * @example
    * rule_example
@@ -152,7 +205,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The execution priority of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -160,7 +213,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   sequence?: number;
   /**
    * @remarks
-   * Site configuration version number. For sites with version management enabled, this parameter can specify the site version for which the configuration is effective, default is version 0.
+   * The site configuration version. For sites with version management, this specifies the version to which the configuration applies. Default: `0`.
    * 
    * @example
    * 1
@@ -228,12 +281,12 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
 export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body configurations.
+   * A list of HTTPS application configurations.
    */
   configs?: ListHttpsApplicationConfigurationsResponseBodyConfigs[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -241,7 +294,7 @@ export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -249,7 +302,7 @@ export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
@@ -257,7 +310,7 @@ export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of entries.
    * 
    * @example
    * 16
@@ -265,7 +318,7 @@ export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model 
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 2

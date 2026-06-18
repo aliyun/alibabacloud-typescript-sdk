@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of tags to return.
+   * The maximum number of entries to return.
    * 
    * @example
    * 20
@@ -53,9 +53,8 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxItem?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * >  This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
+   * The token for the next query to return more results.
+   * > You do not need to specify this parameter for the first query. If a query does not return all results, pass the **NextToken** value returned from the previous query to continue the query.
    * 
    * @example
    * AAAAAZjtYxxxxxxxx
@@ -63,7 +62,9 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region where the resources reside.
+   * The region ID. Valid values:
+   * - Alibaba Cloud China Website (www.aliyun.com): cn-hangzhou
+   * - Alibaba Cloud International Website (www.alibabacloud.com): ap-southeast-1.
    * 
    * This parameter is required.
    * 
@@ -73,12 +74,15 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The resource ID. Enter a site ID or a DNS record ID. You must specify at least one of ResourceId and Tag.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Valid values:
+   * 
+   * - site: site
+   * - record: DNS record.
    * 
    * This parameter is required.
    * 
@@ -89,7 +93,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * A list of tags. You can enter up to 20 tags.
+   * The list of tags. You can specify up to 20 tags. You must specify at least one of ResourceId and Tag.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

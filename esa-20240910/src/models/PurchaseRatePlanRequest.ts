@@ -3,10 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PurchaseRatePlanRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of plans to purchase.
+   * 
+   * @example
+   * 1
+   */
   amount?: number;
   /**
    * @remarks
-   * Specifies whether to enable auto payment.
+   * Specifies whether to enable automatic payment.
+   * Set this parameter to true when you directly call this operation.
    * 
    * @example
    * true
@@ -14,21 +22,28 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Auto-renewal:
-   * - true: Enable auto-renewal.
-   * - false: Disable auto-renewal.
+   * Specifies whether to enable auto-renewal. Valid values:
+   * - true: Auto-renewal is enabled.
+   * - false: Auto-renewal is disabled.
    * 
    * @example
    * true
    */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The channel field.
+   * 
+   * @example
+   * xxxWodkxxx
+   */
   channel?: string;
   /**
    * @remarks
    * The billing method. Valid values:
-   * 
-   * *   PREPAY: subscription.
-   * *   POSTPAY: pay-as-you-go.
+   * - PREPAY: subscription.
+   * - POSTPAY: pay-as-you-go.
+   * Set this parameter to PREPAY when you directly call this operation.
    * 
    * @example
    * PREPAY
@@ -36,11 +51,10 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The service location. Valid values:
-   * 
-   * *   domestic: the Chinese mainland.
-   * *   global: global.
-   * *   overseas: outside the Chinese mainland.
+   * The acceleration region. Valid values:
+   * - domestic: the Chinese mainland only.
+   * - global: global.
+   * - overseas: global (excluding the Chinese mainland).
    * 
    * @example
    * domestic
@@ -48,7 +62,8 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * Subscription period (in months).
+   * The purchase period, in months.
+   * This parameter is required when you directly call this operation.
    * 
    * @example
    * 1
@@ -56,15 +71,43 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * Package code.
+   * The plan code.
+   * 
+   * China site
+   * 
+   * - Free Edition: entranceplan
+   * - Basic: basicplan
+   * - Standard: standardplan
+   * - Premium: advancedplan
+   * 
+   * International site
+   * 
+   * - Entrance: entranceplan
+   * - Pro: standardplan
+   * - Premium: advancedpla.
    * 
    * @example
-   * entranceplan
+   * basicplan
    */
   planCode?: string;
   /**
    * @remarks
-   * Package name.
+   * The plan name.
+   * 
+   * China site
+   * 
+   * - Free Edition: entranceplan
+   * - Basic: basic
+   * - Standard: medium
+   * - Premium: high
+   * 
+   * International site
+   * 
+   * - Entrance: entranceplan_intl
+   * - Pro: basicplan_intl
+   * - Premium: vipplan_intl
+   * 
+   * > Note: For Enterprise Edition plans, the plan name is provided after backend configuration.
    * 
    * @example
    * basic
@@ -72,7 +115,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * Site name.
+   * The site name.
    * 
    * @example
    * test.com
@@ -80,10 +123,9 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The DNS setup option for the website. Valid values:
-   * 
-   * *   NS
-   * *   CNAME
+   * The site access type. Valid values:
+   * - NS: NS access.
+   * - CNAME: CNAME access.
    * 
    * @example
    * CNAME

@@ -13,7 +13,7 @@ export class DeleteEdgeContainerAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the deletion is successful.
+   * The deletion status.
    * 
    * @example
    * ok

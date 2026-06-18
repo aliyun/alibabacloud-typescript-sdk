@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetOriginProtectionResponseBodyCurrentIPWhitelist extends $dara.Model {
   /**
    * @remarks
-   * The IP whitelist for origin protection used by the website, specified as IPv4 addresses or CIDR blocks.
+   * The IPv4 addresses or CIDR blocks in the back-to-origin IP address whitelist that the site currently uses.
    */
   IPv4?: string[];
   /**
    * @remarks
-   * The IP whitelist for origin protection used by the website, specified as IPv6 addresses or CIDR blocks.
+   * The IPv6 addresses or CIDR blocks in the back-to-origin IP address whitelist that the site currently uses.
    */
   IPv6?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetOriginProtectionResponseBodyCurrentIPWhitelist extends $dara.Mod
 export class GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist extends $dara.Model {
   /**
    * @remarks
-   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   * The IPv4 addresses or CIDR blocks in the back-to-origin IP address whitelist.
    */
   IPv4?: string[];
   /**
    * @remarks
-   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   * The IPv6 addresses or CIDR blocks in the back-to-origin IP address whitelist.
    */
   IPv6?: string[];
   static names(): { [key: string]: string } {
@@ -85,12 +85,12 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist exte
 export class GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist extends $dara.Model {
   /**
    * @remarks
-   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   * The IPv4 addresses or CIDR blocks in the back-to-origin IP address whitelist.
    */
   IPv4?: string[];
   /**
    * @remarks
-   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   * The IPv6 addresses or CIDR blocks in the back-to-origin IP address whitelist.
    */
   IPv6?: string[];
   static names(): { [key: string]: string } {
@@ -125,12 +125,12 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist e
 export class GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist extends $dara.Model {
   /**
    * @remarks
-   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   * The IPv4 addresses or CIDR blocks in the back-to-origin IP address whitelist.
    */
   IPv4?: string[];
   /**
    * @remarks
-   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   * The IPv6 addresses or CIDR blocks in the back-to-origin IP address whitelist.
    */
   IPv6?: string[];
   static names(): { [key: string]: string } {
@@ -165,17 +165,17 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist ex
 export class GetOriginProtectionResponseBodyDiffIPWhitelist extends $dara.Model {
   /**
    * @remarks
-   * The new IP whitelist for origin protection.
+   * The added back-to-origin IP address whitelist.
    */
   addedIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist;
   /**
    * @remarks
-   * The IP whitelist for origin protection that remains unchanged.
+   * The unchanged back-to-origin IP address whitelist.
    */
   noChangeIpWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist;
   /**
    * @remarks
-   * The IP whitelist for origin protection that has been deleted.
+   * The removed back-to-origin IP address whitelist.
    */
   removedIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist;
   static names(): { [key: string]: string } {
@@ -215,12 +215,12 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelist extends $dara.Model 
 export class GetOriginProtectionResponseBodyLatestIPWhitelist extends $dara.Model {
   /**
    * @remarks
-   * The latest IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   * The IPv4 addresses or CIDR blocks in the latest back-to-origin IP address whitelist.
    */
   IPv4?: string[];
   /**
    * @remarks
-   * The latest IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   * The IPv6 addresses or CIDR blocks in the latest back-to-origin IP address whitelist.
    */
   IPv6?: string[];
   static names(): { [key: string]: string } {
@@ -254,11 +254,17 @@ export class GetOriginProtectionResponseBodyLatestIPWhitelist extends $dara.Mode
 
 export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv4 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv4 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv4 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -288,11 +294,17 @@ export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIP
 
 export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv6 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv6 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv6 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -321,7 +333,15 @@ export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIP
 }
 
 export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 CIDR blocks and regions in the regional back-to-origin IP address whitelist that the site currently uses.
+   */
   regionalIPv4?: GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv4[];
+  /**
+   * @remarks
+   * The IPv6 CIDR blocks and regions in the regional back-to-origin IP address whitelist that the site currently uses.
+   */
   regionalIPv6?: GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv6[];
   static names(): { [key: string]: string } {
     return {
@@ -354,11 +374,17 @@ export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist extends $
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv4 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv4 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv4 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -388,11 +414,17 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegion
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv6 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv6 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv6 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -421,7 +453,15 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegion
 }
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+   */
   regionalIPv4?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv4[];
+  /**
+   * @remarks
+   * The IPv6 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+   */
   regionalIPv6?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv6[];
   static names(): { [key: string]: string } {
     return {
@@ -454,11 +494,17 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegion
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv4 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv4 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv4 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -488,11 +534,17 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhi
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv6 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv6 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv6 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -521,7 +573,15 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhi
 }
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+   */
   regionalIPv4?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv4[];
+  /**
+   * @remarks
+   * The IPv6 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+   */
   regionalIPv6?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv6[];
   static names(): { [key: string]: string } {
     return {
@@ -554,11 +614,17 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhi
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv4 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv4 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv4 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -588,11 +654,17 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegi
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv6 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv6 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv6 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -621,7 +693,15 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegi
 }
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+   */
   regionalIPv4?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv4[];
+  /**
+   * @remarks
+   * The IPv6 CIDR blocks and regions in the regional back-to-origin IP address whitelist.
+   */
   regionalIPv6?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv6[];
   static names(): { [key: string]: string } {
     return {
@@ -653,8 +733,20 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegi
 }
 
 export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The added regional back-to-origin IP address whitelist.
+   */
   addedIPRegionWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelist;
+  /**
+   * @remarks
+   * The unchanged regional back-to-origin IP address whitelist.
+   */
   noChangeIpWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelist;
+  /**
+   * @remarks
+   * The removed regional back-to-origin IP address whitelist.
+   */
   removedIPRegionWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelist;
   static names(): { [key: string]: string } {
     return {
@@ -692,11 +784,17 @@ export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelist extends $dar
 
 export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv4 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv4 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv4 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -726,11 +824,17 @@ export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv
 
 export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv6 extends $dara.Model {
   /**
+   * @remarks
+   * The IPv6 CIDR block.
+   * 
    * @example
    * 101.66.250.0/25
    */
   cidr?: string;
   /**
+   * @remarks
+   * The IPv6 region.
+   * 
    * @example
    * chinese_mainland
    */
@@ -759,7 +863,15 @@ export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv
 }
 
 export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 CIDR blocks and regions in the latest regional back-to-origin IP address whitelist.
+   */
   regionalIPv4?: GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv4[];
+  /**
+   * @remarks
+   * The IPv6 CIDR blocks and regions in the latest regional back-to-origin IP address whitelist.
+   */
   regionalIPv6?: GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv6[];
   static names(): { [key: string]: string } {
     return {
@@ -792,31 +904,35 @@ export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelist extends $d
 
 export class GetOriginProtectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the latest back-to-origin IP address list is automatically enabled.
+   * 
    * @example
    * off
    */
   autoConfirmIPList?: string;
   /**
    * @remarks
-   * The IP whitelist for origin protection used by the website.
+   * The back-to-origin IP address whitelist that the site currently uses.
    */
   currentIPWhitelist?: GetOriginProtectionResponseBodyCurrentIPWhitelist;
   /**
    * @remarks
-   * The IP whitelist for origin protection that has been updated.
+   * The changes in the back-to-origin IP address whitelist.
    */
   diffIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelist;
   /**
    * @remarks
-   * The latest IP whitelist for origin protection.
+   * The latest back-to-origin IP address whitelist.
    */
   latestIPWhitelist?: GetOriginProtectionResponseBodyLatestIPWhitelist;
   /**
    * @remarks
-   * Indicates whether the IP whitelist for origin protection needs to be updated. If the currently used IP whitelist is different from the latest IP whitelist, it needs to be updated, and the value is true.
+   * Indicates whether the back-to-origin IP address whitelist needs to be updated. If the current whitelist differs from the latest one, this parameter returns true.
    * 
-   * *   true: The update is required.
-   * *   false: No update is required.
+   * - true: An update is required.
+   * 
+   * - false: No update is required.
    * 
    * @example
    * true
@@ -824,10 +940,11 @@ export class GetOriginProtectionResponseBody extends $dara.Model {
   needUpdate?: boolean;
   /**
    * @remarks
-   * Indicates whether IP convergence is enabled.
+   * The back-to-origin convergence switch.
    * 
-   * *   on
-   * *   off
+   * - on: enabled.
+   * 
+   * - off: disabled.
    * 
    * @example
    * on
@@ -835,17 +952,30 @@ export class GetOriginProtectionResponseBody extends $dara.Model {
   originConverge?: string;
   /**
    * @remarks
-   * Indicates whether origin protection is enabled.
+   * The origin protection switch.
    * 
-   * *   on
-   * *   off
+   * - on: enabled.
+   * 
+   * - off: disabled.
    * 
    * @example
    * on
    */
   originProtection?: string;
+  /**
+   * @remarks
+   * The regional back-to-origin IP address whitelist that the site currently uses.
+   */
   regionalCurrentIPWhitelist?: GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist;
+  /**
+   * @remarks
+   * The IP address whitelist for back-to-origin requests, differentiated by region.
+   */
   regionalDiffIPWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelist;
+  /**
+   * @remarks
+   * The latest regional back-to-origin IP address whitelist.
+   */
   regionalLatestIPWhitelist?: GetOriginProtectionResponseBodyRegionalLatestIPWhitelist;
   /**
    * @remarks
@@ -857,7 +987,7 @@ export class GetOriginProtectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456****

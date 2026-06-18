@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteResponseBodySiteModel extends $dara.Model {
   /**
    * @remarks
-   * The DNS setup option for the website. Valid values:
+   * The access type of the site. Valid values:
    * 
-   * *   **NS**
-   * *   **CNAME**
+   * - **NS**: Access via NS.
+   * 
+   * - **CNAME**: Access via CNAME.
    * 
    * @example
    * NS
@@ -16,7 +17,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The CNAME of the website domain. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * For sites onboarded via CNAME, use this suffix to configure the CNAME record.
    * 
    * @example
    * example.cname.com
@@ -24,11 +25,13 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   cnameZone?: string;
   /**
    * @remarks
-   * The service location. Valid values:
+   * The acceleration region. Valid values:
    * 
-   * *   **domestic**: the Chinese mainland.
-   * *   **global**: global.
-   * *   **overseas**: outside the Chinese mainland.
+   * - **domestic**: Chinese mainland only
+   * 
+   * - **global**: Global
+   * 
+   * - **overseas**: Global (excluding the Chinese mainland)
    * 
    * @example
    * domestic
@@ -36,7 +39,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * The time when the WEBsite was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+   * The time (in UTC) when the site was created, formatted in ISO 8601 (`yyyy-MM-ddTHH:mm:ssZ`).
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -44,7 +47,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The plan ID.
+   * The ID of the plan instance.
    * 
    * @example
    * cas-merge-q6h0bv
@@ -52,16 +55,33 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The nameservers assigned to the website domain. They are separated by commas (,).
+   * A comma-separated list of name servers assigned to the site.
    * 
    * @example
    * male1-1.ialicdn.com,female1-1.ialicdn.com
    */
   nameServerList?: string;
+  /**
+   * @remarks
+   * The reason the site is offline. This parameter appears only when `Status` is `offline`. Valid values:
+   * 
+   * - **expiration_arrears**: The subscription plan has expired or the account has overdue payments.
+   * 
+   * - **internally_disabled**: The site was disabled by the system.
+   * 
+   * - **missing_icp**: The domain is missing an ICP license.
+   * 
+   * - **content_violation**: The site violated content policies.
+   * 
+   * - **proactively_disabled**: The site was disabled either by you or by a usage limit that you configured.
+   * 
+   * @example
+   * expiration_ arrears
+   */
   offlineReason?: string;
   /**
    * @remarks
-   * The plan name.
+   * The name of the plan.
    * 
    * @example
    * plan-168777532****
@@ -69,7 +89,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * The specification of the plan associated with the website.
+   * The name of the plan specification.
    * 
    * @example
    * normal
@@ -77,7 +97,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   planSpecName?: string;
   /**
    * @remarks
-   * The ID of your Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek26g6i6se****
@@ -85,7 +105,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * @example
    * 1234567890123
@@ -93,7 +113,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The name of the site.
    * 
    * @example
    * example.com
@@ -101,12 +121,15 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The website status. Valid values:
+   * The status of the site. Valid values:
    * 
-   * *   **pending**: The website is to be configured.
-   * *   **active**: The website is active.
-   * *   **offline**: The website is suspended.
-   * *   **moved**: The website has been added and verified by another Alibaba Cloud account.
+   * - **pending**: The site is pending configuration.
+   * 
+   * - **active**: The site is active.
+   * 
+   * - **offline**: The site is offline.
+   * 
+   * - **moved**: The site has been superseded.
    * 
    * @example
    * pending
@@ -114,7 +137,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the website.
+   * The tags of the site.
    * 
    * @example
    * {"tag1":"value1"}
@@ -122,7 +145,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the WEBsite was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+   * The time (in UTC) when the site was last updated, formatted in ISO 8601 (`yyyy-MM-ddTHH:mm:ssZ`).
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -130,12 +153,12 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The information about custom nameservers of the website domain. The key is a custom nameserver name, and the value is the IP address of the custom nameserver. Multiple IP addresses are separated by commas (,).
+   * Each key is a custom name server, and its value is a comma-separated list of the server\\"s IP addresses.
    */
   vanityNSList?: { [key: string]: string };
   /**
    * @remarks
-   * The code that is used to verify the website domain ownership. As part of the verification TXT record, this parameter is returned for websites that use CNAME setup.
+   * For sites onboarded via CNAME, you must configure this code as a TXT record.
    * 
    * @example
    * verify_d516cb3740f81f0cef77d162edd1****
@@ -143,7 +166,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
   verifyCode?: string;
   /**
    * @remarks
-   * The status of version management. If true is returned, version management is enabled for the website.
+   * If `true`, version management is enabled for the site.
    * 
    * @example
    * true
@@ -221,7 +244,7 @@ export class GetSiteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried website information.
+   * The details of the site.
    */
   siteModel?: GetSiteResponseBodySiteModel;
   static names(): { [key: string]: string } {

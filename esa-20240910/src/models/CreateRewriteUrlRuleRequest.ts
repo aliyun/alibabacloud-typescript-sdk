@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRewriteUrlRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The query string after rewriting.
+   * The query string after the rewrite.
    * 
    * @example
    * example=123
@@ -13,10 +13,11 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * Query string rewrite type. Value range:
+   * The query string rewrite mode. Valid values:
    * 
-   * - static: static mode.
-   * - dynamic: dynamic mode.
+   * - `static`: Static mode.
+   * 
+   * - `dynamic`: Dynamic mode.
    * 
    * @example
    * static
@@ -27,10 +28,11 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   rewriteQueryStringType?: string;
   /**
    * @remarks
-   * URI rewrite type. Value range:
+   * The URI rewrite mode. Valid values:
    * 
-   * - static: static mode.
-   * - dynamic: dynamic mode.
+   * - `static`: Static mode.
+   * 
+   * - `dynamic`: Dynamic mode.
    * 
    * @example
    * static
@@ -41,9 +43,11 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   rewriteUriType?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: set the value to true
-   * - Match specific requests: set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The conditional expression used to match user requests. This parameter is not required when you add a global configuration. Two use cases are supported:
+   * 
+   * - To match all inbound requests, set the value to `true`.
+   * 
+   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -51,9 +55,11 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Value range:
-   * - on: enable.
-   * - off: disable.
+   * This parameter is not required when you add a global configuration. Valid values:
+   * 
+   * - `on`: Enables the rule.
+   * 
+   * - `off`: Disables the rule.
    * 
    * @example
    * on
@@ -61,16 +67,23 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * rule_example
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * The execution priority of the rule. A lower value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. Obtain it by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -80,7 +93,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
+   * If configuration versioning is enabled for the site, this parameter specifies the target version. The default value is 0.
    * 
    * @example
    * 0
@@ -88,7 +101,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The target URI after rewriting.
+   * The target URI after the rewrite.
    * 
    * @example
    * /image/example.jpg

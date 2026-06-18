@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteOriginClientCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the client certificate.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetSiteOriginClientCertificateRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site.
    * 
    * This parameter is required.
    * 

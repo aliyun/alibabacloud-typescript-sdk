@@ -21,7 +21,7 @@ export class ListClientCertificatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * This parameter is required.
    * 

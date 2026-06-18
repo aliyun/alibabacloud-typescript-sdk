@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransportLayerApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Query type for the transport layer application host record, supporting the following 4 types, with exact query as the default.
+   * The match type for the host record of the Layer 4 application. The default is an exact search. Valid values:
    * 
-   * - fuzzy: Fuzzy query.
-   * - exact: Exact query.
-   * - prefix: Prefix match query.
-   * - suffix: Suffix match query.
+   * - fuzzy: fuzzy search.
+   * 
+   * - exact: exact search.
+   * 
+   * - prefix: prefix search.
+   * 
+   * - suffix: suffix search.
    * 
    * @example
    * fuzzy
@@ -18,7 +21,7 @@ export class ListTransportLayerApplicationsRequest extends $dara.Model {
   matchType?: string;
   /**
    * @remarks
-   * Page number set for pagination. Starting value: 1. Default value: 1.
+   * The page number. The minimum value is 1. The default value is 1.
    * 
    * @example
    * 1
@@ -26,7 +29,7 @@ export class ListTransportLayerApplicationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size. The maximum value is 500.
+   * The number of entries to return on each page. The maximum value is 500.
    * 
    * @example
    * 500
@@ -34,7 +37,7 @@ export class ListTransportLayerApplicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Host record of the transport layer application.
+   * The host record of the Layer 4 application.
    * 
    * @example
    * www.example.com
@@ -42,7 +45,7 @@ export class ListTransportLayerApplicationsRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain it.
    * 
    * This parameter is required.
    * 

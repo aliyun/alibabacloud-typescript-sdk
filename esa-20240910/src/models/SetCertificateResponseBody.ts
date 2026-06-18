@@ -8,7 +8,7 @@ export class SetCertificateResponseBody extends $dara.Model {
    * The certificate ID.
    * 
    * @example
-   * babaffe176ae44e2ad16d3e309b9e506
+   * babae7c40fef412d887688b91c9e****
    */
   id?: string;
   /**

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Model {
   /**
    * @remarks
-   * The time when the policy expires.
+   * The end time of the policy.
    * 
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time is in UTC and follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-03-06T16:00:00Z
@@ -15,7 +15,7 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
   endTime?: string;
   /**
    * @remarks
-   * The name of the scenario-specific policy.
+   * The name of the custom scene policy.
    * 
    * @example
    * test
@@ -23,7 +23,9 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The IDs of websites that are associated with the policy.
+   * A list of associated site IDs.
+   * 
+   * > This field is deprecated. We recommend that you use the `SiteIds` field instead.
    */
   objects?: string[];
   /**
@@ -34,12 +36,19 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
    * 1234****
    */
   policyId?: number;
+  /**
+   * @remarks
+   * A comma-separated list of site IDs associated with the policy.
+   * 
+   * @example
+   * 123456****,123457****
+   */
   siteIds?: string;
   /**
    * @remarks
-   * The time when the policy takes effect.
+   * The start time of the policy.
    * 
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time is in UTC and follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-03-04T16:00:00Z
@@ -47,12 +56,15 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
   startTime?: string;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The effective status of the policy. Valid values:
    * 
-   * *   **Disabled**
-   * *   **Pending**
-   * *   **Running**
-   * *   **Expired**
+   * - **disabled**: The policy is disabled.
+   * 
+   * - **pending**: The policy is waiting to take effect.
+   * 
+   * - **running**: The policy is in effect.
+   * 
+   * - **expired**: The policy has expired.
    * 
    * @example
    * Expired
@@ -60,9 +72,9 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The name of the policy template. Valid value:
+   * The template name. Valid value:
    * 
-   * *   **promotion**: major events.
+   * - **promotion**: A major event.
    * 
    * @example
    * promotion
@@ -109,7 +121,7 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
 export class DescribeCustomScenePoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The scenario-specific policies.
+   * The configurations of custom scene policies.
    */
   dataModule?: DescribeCustomScenePoliciesResponseBodyDataModule[];
   /**
@@ -122,7 +134,7 @@ export class DescribeCustomScenePoliciesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -130,7 +142,7 @@ export class DescribeCustomScenePoliciesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The policy quota.
+   * The maximum number of policies that you can create.
    * 
    * @example
    * 10
@@ -146,7 +158,7 @@ export class DescribeCustomScenePoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the WAF ruleset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetUserWafRulesetRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example

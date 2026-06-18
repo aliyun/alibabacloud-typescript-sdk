@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRewriteUrlRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 39237781679****
@@ -13,7 +13,7 @@ export class CreateRewriteUrlRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE

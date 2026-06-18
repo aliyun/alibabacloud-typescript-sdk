@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the security instance. This must be a DDoS security instance ID in the format of esa-ddos-*. You can call the ListDDoSInstances operation to obtain the ID. Site instance IDs in the format of esa-site-* are not supported.
+   * 
    * This parameter is required.
    * 
    * @example

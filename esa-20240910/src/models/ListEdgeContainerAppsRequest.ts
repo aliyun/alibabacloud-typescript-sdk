@@ -58,7 +58,7 @@ export class ListEdgeContainerAppsRequest extends $dara.Model {
    * *   Name: the application name.
    * 
    * @example
-   * Appid
+   * AppId
    */
   searchType?: string;
   static names(): { [key: string]: string } {

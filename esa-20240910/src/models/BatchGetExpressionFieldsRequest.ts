@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetExpressionFieldsRequestExpressions extends $dara.Model {
   /**
    * @remarks
-   * Content of the expression.
+   * The content of the expression.
    * 
    * @example
    * ip.src eq 1.1.1.1
@@ -13,7 +13,7 @@ export class BatchGetExpressionFieldsRequestExpressions extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The sequence number of the expression.
+   * The ID of the expression. This ID is used to associate an expression in the request with its corresponding result in the response.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class BatchGetExpressionFieldsRequestExpressions extends $dara.Model {
 export class BatchGetExpressionFieldsRequest extends $dara.Model {
   /**
    * @remarks
-   * List of expressions.
+   * A list of expression objects to process.
    * 
    * @example
    * http_bot
@@ -55,7 +55,7 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * WAF Phase
+   * The WAF phase.
    * 
    * @example
    * http_bot
@@ -64,7 +64,7 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
   planNameEn?: string;
   /**
    * @remarks
-   * Site ID
+   * The ID of the site.
    * 
    * @example
    * 1

@@ -4,32 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomHostnamesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The SaaS domain name.
+   * 
    * @example
    * custom.site.com
    */
   hostname?: string;
   /**
+   * @remarks
+   * The search match mode for the SaaS domain name. Default value: exact. Valid values:
+   * - **prefix**: prefix match.
+   * - **suffix**: suffix match.
+   * - **exact**: exact match.
+   * - **fuzzy**: fuzzy match.
+   * 
    * @example
    * exact
    */
   nameMatchType?: string;
   /**
+   * @remarks
+   * The page number, starting from 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 100. Maximum value: 500.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The associated record ID. You can call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to obtain the record ID.
+   * 
    * @example
    * 1234567890123
    */
   recordId?: number;
   /**
    * @remarks
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +58,13 @@ export class ListCustomHostnamesRequest extends $dara.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The SaaS domain name status. Valid values:
+   * - **pending**: pending verification.
+   * - **active**: activated.
+   * - **conflicted**: occupied.
+   * - **offline**: offline.
+   * 
    * @example
    * active
    */

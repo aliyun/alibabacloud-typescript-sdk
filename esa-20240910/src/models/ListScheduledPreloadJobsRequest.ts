@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledPreloadJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for querying the task creation time range. Specify the timestamp in milliseconds.
+   * End of the time range for querying job creation time, in milliseconds since the UNIX epoch.
    * 
    * @example
    * 1717225277000
@@ -13,7 +13,7 @@ export class ListScheduledPreloadJobsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The page number.
+   * Page number to retrieve.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListScheduledPreloadJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Number of entries per page.
    * 
    * @example
    * 20
@@ -29,17 +29,17 @@ export class ListScheduledPreloadJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The website ID.
+   * Site ID
    * 
    * This parameter is required.
    * 
    * @example
-   * ListScheduledPreloadJobs
+   * 190007158391808
    */
   siteId?: number;
   /**
    * @remarks
-   * The beginning of the task creation time range to query. Specify the timestamp in milliseconds.
+   * Start of the time range for querying job creation time, in milliseconds since the UNIX epoch.
    * 
    * @example
    * 1717225276000

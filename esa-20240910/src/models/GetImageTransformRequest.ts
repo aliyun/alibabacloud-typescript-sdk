@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageTransformRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID. It can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) interface.
+   * The config ID. You can obtain the config ID by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetImageTransformRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

@@ -7,7 +7,15 @@ import { WafTimer } from "./WafTimer";
 export class ListWafRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The action corresponding to the rule.
+   * The action to take when a rule matches.
+   * 
+   * - `deny`: Block the request.
+   * 
+   * - `monitor`: Log the request without blocking it.
+   * 
+   * - `js`: Issue a JS challenge.
+   * 
+   * - `captcha`: Issue a CAPTCHA challenge.
    * 
    * @example
    * deny
@@ -15,22 +23,22 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * List of statistical objects for frequency control rules.
+   * A list of tracking characteristics for rate limit rules.
    */
   characteristicsFields?: string[];
   /**
    * @remarks
-   * Rule configuration.
+   * The rule configuration object.
    */
   config?: WafRuleConfig;
   /**
    * @remarks
-   * List of fields for rule matching
+   * An array of match fields for the rule.
    */
   fields?: string[];
   /**
    * @remarks
-   * Rule ID.
+   * The ID of the rule.
    * 
    * @example
    * 20000001
@@ -38,7 +46,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Rule name.
+   * The name of the rule.
    * 
    * @example
    * example
@@ -46,7 +54,23 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * WAF phase.
+   * The WAF rule\\"s execution phase.
+   * 
+   * - `http_whitelist`: Whitelist rule.
+   * 
+   * - `http_custom`: Custom rule.
+   * 
+   * - `http_managed`: Managed rule.
+   * 
+   * - `http_anti_scan`: Scan protection rule.
+   * 
+   * - `http_ratelimit`: Rate limit rule.
+   * 
+   * - `ip_access_rule`: IP access rule.
+   * 
+   * - `http_bot`: Advanced bot management rule.
+   * 
+   * - `http_security_level_rule`: Security level rule.
    * 
    * @example
    * http_custom
@@ -54,7 +78,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Position order of the rule in the corresponding ruleset.
+   * The position of the rule within the ruleset.
    * 
    * @example
    * 1
@@ -62,7 +86,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   position?: number;
   /**
    * @remarks
-   * Ruleset ID.
+   * The ID of the ruleset.
    * 
    * @example
    * 10000001
@@ -70,7 +94,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   rulesetId?: number;
   /**
    * @remarks
-   * Skip attribute for whitelist rules.
+   * The skip behavior for whitelist rules.
    * 
    * @example
    * part
@@ -78,7 +102,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   skip?: string;
   /**
    * @remarks
-   * Rule status.
+   * The status of the rule.
    * 
    * @example
    * on
@@ -86,17 +110,17 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * List of WAF phases to be skipped by whitelist rules.
+   * An array of WAF phases to skip when the whitelist rule matches.
    */
   tags?: string[];
   /**
    * @remarks
-   * Configuration for the effective time of the rule.
+   * The effective time configuration for the rule.
    */
   timer?: WafTimer;
   /**
    * @remarks
-   * Rule type.
+   * The type of the rule.
    * 
    * @example
    * http_custom
@@ -104,7 +128,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Modification time.
+   * When the rule was last updated.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -177,7 +201,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
 export class ListWafRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Number of rules used in this WAF phase for the corresponding instance of the site.
+   * The number of rules used in this WAF phase for the site\\"s instance.
    * 
    * @example
    * 10
@@ -185,7 +209,7 @@ export class ListWafRulesResponseBody extends $dara.Model {
   instanceUsage?: number;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -193,7 +217,7 @@ export class ListWafRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of items per page.
    * 
    * @example
    * 20
@@ -201,7 +225,7 @@ export class ListWafRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -209,12 +233,12 @@ export class ListWafRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned list of rules.
+   * An array of rule objects.
    */
   rules?: ListWafRulesResponseBodyRules[];
   /**
    * @remarks
-   * Site usage.
+   * The number of rules used by the site.
    * 
    * @example
    * 5
@@ -222,7 +246,7 @@ export class ListWafRulesResponseBody extends $dara.Model {
   siteUsage?: number;
   /**
    * @remarks
-   * Total number of rules after filtering.
+   * The total number of filtered rules.
    * 
    * @example
    * 20

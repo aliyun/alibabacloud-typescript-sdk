@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTraceDiagnoseReportRequest extends $dara.Model {
   /**
+   * @remarks
+   * Diagnostic task ID.
+   * 
    * @example
    * xxxxxxxxx-x-x-xxxxxxxxxxxxxxx
    */
   taskId?: string;
   /**
+   * @remarks
+   * Diagnostic trace ID.
+   * 
    * @example
    * 0000xxxxxxxxxxxxxxxxxxxxxx75e
    */

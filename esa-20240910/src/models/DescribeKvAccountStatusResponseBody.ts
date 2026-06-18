@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKvAccountStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -13,10 +13,11 @@ export class DescribeKvAccountStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether Edge KV is activated for the Alibaba Cloud account.
+   * Account status.
    * 
-   * *   **online**
-   * *   **offline**
+   * - **online**: Enabled.
+   * 
+   * - **offline**: Disabled.
    * 
    * @example
    * online

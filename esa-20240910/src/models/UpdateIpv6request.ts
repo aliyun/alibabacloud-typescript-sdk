@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIPv6Request extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable IPv6. Valid values:
+   * Whether to enable IPv6. Valid values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on**: Enables IPv6.
+   * 
+   * - **off**: Disables IPv6.
    * 
    * This parameter is required.
    * 
@@ -16,10 +17,21 @@ export class UpdateIPv6Request extends $dara.Model {
    * on
    */
   enable?: string;
+  /**
+   * @remarks
+   * The region in which to enable IPv6. The default value is x.x.
+   * 
+   * - x.x: global
+   * 
+   * - cn.cn: Chinese mainland
+   * 
+   * @example
+   * x.x
+   */
   region?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can get this ID by calling [ListSites](https://help.aliyun.com/document_detail/2850189.html).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The config ID.
    * 
    * @example
    * 35281609698****
@@ -13,11 +13,13 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Possible values:
-   * - global: Query global configuration.
-   * - rule: Query rule configuration.
+   * The type of configuration to query. Valid values:
    * 
-   * This parameter is optional. If not provided, it does not distinguish between global and rule configurations.
+   * - global: Returns only the global configuration.
+   * 
+   * - rule: Returns only the rule configuration.
+   * 
+   * If you do not specify this parameter, the operation returns both global and rule configurations.
    * 
    * @example
    * rule
@@ -25,7 +27,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   configType?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -33,7 +35,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, default is 500. The value range is any integer from 1 to 500.
+   * The number of entries to return on each page. Default value: 500. Valid values: an integer from 1 to 500.
    * 
    * @example
    * 20
@@ -41,7 +43,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter applies only when you query for a rule configuration.
    * 
    * @example
    * rule_example
@@ -49,7 +51,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -59,7 +61,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, with the default being version 0.
+   * The site version. For sites that have configuration versioning enabled, you can use this parameter to query a configuration from a specific version. The default value is 0.
    * 
    * @example
    * 0

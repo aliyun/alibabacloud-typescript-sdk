@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserWafRulesetsRequestQueryArgs extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to sort results in descending order.
+   */
   desc?: boolean;
   /**
+   * @remarks
+   * A string for a fuzzy search of ruleset names.
+   * 
    * @example
    * example
    */
   nameLike?: string;
   /**
+   * @remarks
+   * The field by which to sort results.
+   * 
    * @example
    * id
    */
@@ -42,6 +52,8 @@ export class ListUserWafRulesetsRequestQueryArgs extends $dara.Model {
 export class ListUserWafRulesetsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,23 +61,48 @@ export class ListUserWafRulesetsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Specifies the execution phase of the WAF rule.
+   * 
+   * - `http_whitelist`: whitelist rule
+   * 
+   * - `http_custom`: custom rule
+   * 
+   * - `http_managed`: managed rule
+   * 
+   * - `http_anti_scan`: anti-scan rule
+   * 
+   * - `http_ratelimit`: rate limit rule
+   * 
+   * - `ip_access_rule`: IP access rule
+   * 
+   * - `http_bot`: advanced mode bot
+   * 
+   * - `http_security_level_rule`: security rule
+   * 
    * @example
-   * http_bot
+   * http_custom
    */
   phase?: string;
   /**
-   * @example
-   * 1
+   * @remarks
+   * Parameters for filtering and sorting the results.
    */
   queryArgs?: ListUserWafRulesetsRequestQueryArgs;
   static names(): { [key: string]: string } {

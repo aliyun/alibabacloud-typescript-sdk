@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOriginProtectionIpWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to get this value.
    * 
    * This parameter is required.
    * 

@@ -14,7 +14,9 @@ export class ListHttpsBasicConfigurationsRequest extends $dara.Model {
   /**
    * @remarks
    * Configuration type, which can be used to query global or rule configurations. Value range:
+   * 
    * - global: Query global configuration.
+   * 
    * - rule: Query rule configuration.
    * 
    * This parameter is optional. If not provided, it does not distinguish between global and rule configurations.

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * Protection action of the managed rule.
+   * The managed rule\\"s action.
    * 
    * @example
    * deny
@@ -13,7 +13,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * ID of the managed rule.
+   * The managed rule ID.
    * 
    * @example
    * 100001
@@ -21,7 +21,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Name of the managed rule.
+   * The managed rule name.
    * 
    * @example
    * SQL injection
@@ -29,7 +29,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Protection level of the managed rule.
+   * The managed rule\\"s protection level.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   protectionLevel?: number;
   /**
    * @remarks
-   * Protection status of the managed rule.
+   * The managed rule\\"s status.
    * 
    * @example
    * on
@@ -75,7 +75,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
 export class ListWafManagedRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -91,7 +91,7 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -99,12 +99,12 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of managed rules.
+   * An array of managed rules.
    */
   rules?: ListWafManagedRulesResponseBodyRules[];
   /**
    * @remarks
-   * Total number of rules after filtering.
+   * The total number of rules after filtering.
    * 
    * @example
    * 20

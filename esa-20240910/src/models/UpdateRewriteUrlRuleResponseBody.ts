@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRewriteUrlRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 156A6B-677B1A-4297B7-9187B7-2B44792

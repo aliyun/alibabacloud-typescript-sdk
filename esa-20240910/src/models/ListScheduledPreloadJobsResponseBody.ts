@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * Alibaba Cloud account ID.
    * 
    * @example
    * 15685865xxx14622
@@ -13,7 +13,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The time when the task was created.
+   * Job creation time.
    * 
    * @example
    * 2024-06-01T08:53:13Z
@@ -21,7 +21,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The domain names to be prefetched.
+   * List of domains to prefetch.
    * 
    * @example
    * testurl.com
@@ -29,16 +29,23 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   domains?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * Error message.
    * 
    * @example
    * invalid domain:test.com
    */
   errorInfo?: string;
+  /**
+   * @remarks
+   * Number of prefetch schedules.
+   * 
+   * @example
+   * 1
+   */
   executionCount?: number;
   /**
    * @remarks
-   * The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+   * The OSS address of the failed file.
    * 
    * @example
    * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
@@ -46,7 +53,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   failedFileOss?: string;
   /**
    * @remarks
-   * The ID of the URL list file, which can be used during downloads.
+   * URL list file ID (used for downloading).
    * 
    * @example
    * 665d3b48621bccf3fe29e1a7
@@ -54,7 +61,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The ID of the prefetch task.
+   * Job ID.
    * 
    * @example
    * 665d3af3621bccf3fe29e1a4
@@ -62,7 +69,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The method to submit the URLs to be prefetched.
+   * URL insertion method.
    * 
    * @example
    * oss
@@ -70,7 +77,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   insertWay?: string;
   /**
    * @remarks
-   * The task name.
+   * Job name.
    * 
    * @example
    * example
@@ -78,7 +85,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The website ID.
+   * Site ID
    * 
    * @example
    * 190007158391808
@@ -86,7 +93,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The number of submitted prefetch tasks.
+   * Number of URLs submitted to the system for prefetching.
    * 
    * @example
    * 1
@@ -94,7 +101,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   taskSubmitted?: number;
   /**
    * @remarks
-   * The task type. Valid values: refresh and preload.
+   * Task type (refresh or prefetch).
    * 
    * @example
    * preload
@@ -102,7 +109,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of URLs.
+   * Total number of URLs.
    * 
    * @example
    * 2
@@ -110,7 +117,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   urlCount?: number;
   /**
    * @remarks
-   * The number of submitted URLs.
+   * Number of URLs submitted.
    * 
    * @example
    * 1
@@ -168,12 +175,12 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
 export class ListScheduledPreloadJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of the prefetch tasks.
+   * List of prefetch job details.
    */
   jobs?: ListScheduledPreloadJobsResponseBodyJobs[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
@@ -181,7 +188,7 @@ export class ListScheduledPreloadJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of tasks returned.
+   * Total number of records after filtering.
    * 
    * @example
    * 5

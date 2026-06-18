@@ -16,20 +16,24 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
    * 
    * @example
-   * Hello%20world!
+   * SGVsbG8gd29ybGQ=
    */
   customPageHtml?: string;
   /**
    * @remarks
    * The description of the waiting room.
+   * 
+   * @example
+   * Special event waiting room page
    */
   description?: string;
   /**
    * @remarks
    * Specifies whether to disable session renewal. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -39,8 +43,9 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the waiting room. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -55,8 +60,9 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable JSON response. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -66,9 +72,11 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * @remarks
    * The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
    * 
-   * *   enus: English.
-   * *   zhcn: Simplified Chinese.
-   * *   zhhk: Traditional Chinese.
+   * - enus: English.
+   * 
+   * - zhcn: Simplified Chinese.
+   * 
+   * - zhhk: Traditional Chinese.
    * 
    * @example
    * zhcn
@@ -77,6 +85,9 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the waiting room.
+   * 
+   * @example
+   * Holiday promotion waiting room
    */
   name?: string;
   /**
@@ -91,8 +102,9 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to queue all requests. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -102,10 +114,13 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * @remarks
    * The queuing method. Valid values:
    * 
-   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
-   * *   fifo: Users gain access to the origin in order of arrival.
-   * *   passthrough: Users pass through the waiting room and go straight to the origin.
-   * *   reject-all: Users are blocked from reaching the origin.
+   * - random: Users gain access to the origin randomly, regardless of the arrival time.
+   * 
+   * - fifo: Users gain access to the origin in order of arrival.
+   * 
+   * - passthrough: Users pass through the waiting room and go straight to the origin.
+   * 
+   * - reject-all: Users are blocked from reaching the origin.
    * 
    * @example
    * random
@@ -115,9 +130,11 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * @remarks
    * The HTTP status code to return while a user is in the queue. Valid values:
    * 
-   * *   200
-   * *   202
-   * *   429
+   * - 200
+   * 
+   * - 202
+   * 
+   * - 429
    * 
    * @example
    * 200
@@ -163,8 +180,9 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the waiting room. Valid values:
    * 
-   * *   default
-   * *   custom
+   * - default
+   * 
+   * - custom
    * 
    * @example
    * default

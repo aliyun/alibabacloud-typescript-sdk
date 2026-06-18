@@ -5,23 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWaitingRoomEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+   * The custom waiting room page content. This parameter is required when the waiting room type is custom. The content must use Base64 encoding.
    * 
    * @example
-   * Hello%20world!
+   * SGVsbG8gd29ybGQ=
    */
   customPageHtml?: string;
   /**
    * @remarks
    * The description of the waiting room.
+   * 
+   * @example
+   * 测试等候室
    */
   description?: string;
   /**
    * @remarks
    * Specifies whether to disable session renewal. Valid values:
    * 
-   * *   on
-   * *   off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -29,10 +32,10 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
-   * Specifies whether to enable the waiting room. Valid values:
+   * The waiting room switch. Valid values:
    * 
-   * *   on
-   * *   off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * This parameter is required.
    * 
@@ -42,7 +45,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The end time of the event. This value is a UNIX timestamp.
+   * The event end timestamp, such as 1705044735.
    * 
    * This parameter is required.
    * 
@@ -52,10 +55,10 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable JSON response. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * Specifies whether to enable JSON response. When enabled, requests with an Accept header containing "application/json" return JSON data. Valid values:
    * 
-   * *   on
-   * *   off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -63,11 +66,11 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   jsonResponseEnable?: string;
   /**
    * @remarks
-   * The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+   * The language of the waiting room page. This parameter is required when the waiting room type is default. Valid values:
    * 
-   * *   enus: English.
-   * *   zhcn: Simplified Chinese.
-   * *   zhhk: Traditional Chinese.
+   * - **enus**: English.
+   * - **zhcn**: Simplified Chinese.
+   * - **zhhk**: Traditional Chinese.
    * 
    * @example
    * zhcn
@@ -85,7 +88,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The maximum number of new users per minute.
+   * The number of new users per minute.
    * 
    * This parameter is required.
    * 
@@ -95,10 +98,10 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   newUsersPerMinute?: string;
   /**
    * @remarks
-   * Specifies whether to enable pre-queuing.
+   * Specifies whether to enable pre-queuing. Valid values:
    * 
-   * *   on
-   * *   off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -106,7 +109,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   preQueueEnable?: string;
   /**
    * @remarks
-   * The start time for pre-queuing.
+   * The pre-queuing start timestamp, which must be at least 5 minutes earlier than the event start timestamp, such as 1705044735.
    * 
    * @example
    * 1719763200
@@ -116,10 +119,10 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The queuing method. Valid values:
    * 
-   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
-   * *   fifo: Users gain access to the origin in order of arrival.
-   * *   passthrough: Users pass through the waiting room and go straight to the origin.
-   * *   reject-all: Users are blocked from reaching the origin.
+   * - **random**: random.
+   * - **fifo**: first-in, first-out.
+   * - **passthrough**: passthrough.
+   * - **reject-all**: reject all.
    * 
    * This parameter is required.
    * 
@@ -129,11 +132,11 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   queuingMethod?: string;
   /**
    * @remarks
-   * The HTTP status code to return while a user is in the queue. Valid values:
+   * The waiting room status code. Valid values:
    * 
-   * *   200
-   * *   202
-   * *   429
+   * - **200**
+   * - **202**
+   * - **429**.
    * 
    * This parameter is required.
    * 
@@ -143,10 +146,10 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   queuingStatusCode?: string;
   /**
    * @remarks
-   * Specifies whether to enable random queuing.
+   * Specifies whether to enable random pre-queuing. Valid values:
    * 
-   * *   on
-   * *   off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -154,7 +157,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   randomPreQueueEnable?: string;
   /**
    * @remarks
-   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * The session duration, in minutes.
    * 
    * This parameter is required.
    * 
@@ -164,7 +167,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   sessionDuration?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -174,7 +177,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The start time of the event. This value is a UNIX timestamp.
+   * The event start timestamp, such as 1705044735.
    * 
    * This parameter is required.
    * 
@@ -184,7 +187,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The maximum number of active users.
+   * The total number of active users.
    * 
    * This parameter is required.
    * 
@@ -194,7 +197,7 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   totalActiveUsers?: string;
   /**
    * @remarks
-   * The ID of the waiting room, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * The waiting room ID. You can call the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the waiting room ID. The waiting room must belong to the site specified by SiteId.
    * 
    * @example
    * 6a51d5bc6460887abd1291dc7d4db28b
@@ -202,10 +205,10 @@ export class CreateWaitingRoomEventRequest extends $dara.Model {
   waitingRoomId?: string;
   /**
    * @remarks
-   * The type of the waiting room. Valid values:
+   * The waiting room type. Valid values:
    * 
-   * *   default
-   * *   custom
+   * - **default**: default type.
+   * - **custom**: custom type.
    * 
    * This parameter is required.
    * 

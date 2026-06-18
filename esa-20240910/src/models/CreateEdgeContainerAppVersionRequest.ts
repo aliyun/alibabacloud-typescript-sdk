@@ -320,15 +320,20 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
    * The content of the container health probe.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * For details, see the definition of readiness probes in Kubernetes.
    */
   probeContent?: CreateEdgeContainerAppVersionRequestContainersProbeContent;
   /**
    * @remarks
    * The type of the probe. Valid values:
    * 
-   * *   exec: the command type.
-   * *   tcpSocket: the TCP probe type.
-   * *   httpGet: the HTTP access type.
+   * - exec: the command type.
+   * 
+   * - tcpSocket: the TCP probe type.
+   * 
+   * - httpGet: the HTTP access type.
    * 
    * This parameter is required.
    * 
@@ -420,8 +425,7 @@ export class CreateEdgeContainerAppVersionRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The container group to be deployed for this version, which contains information about images.\\
-   * The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
+   * The container group to be deployed for this version, which contains information about images.<br> The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
    * 
    * This parameter is required.
    * 

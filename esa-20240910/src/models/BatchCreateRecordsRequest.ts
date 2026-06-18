@@ -3,10 +3,59 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchCreateRecordsRequestRecordListAuthConf extends $dara.Model {
+  /**
+   * @remarks
+   * The access key ID of the account that owns the origin. This parameter is required when the origin type is `OSS` and the authentication type is `private_cross_account`, or when the origin type is `S3` and the authentication type is `private`.
+   * 
+   * @example
+   * u0Nkg5gBK*******QF5wvKMM504JUHt
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The type of origin authentication. Supported authentication types depend on the origin type, which is specified by the `SourceType` parameter. This parameter is required when the origin type is `OSS` or `S3`. Valid values:
+   * 
+   * - **public**: For OSS or S3 origins with public read access.
+   * 
+   * - **private**: For S3 origins with private read access.
+   * 
+   * - **private_same_account**: For OSS origins with private read access within the same Alibaba Cloud account.
+   * 
+   * - **private_cross_account**: For OSS origins with private read access from a different Alibaba Cloud account.
+   * 
+   * @example
+   * private
+   */
   authType?: string;
+  /**
+   * @remarks
+   * The region where the S3 origin is located. This parameter is required when the origin type is `S3`. For a list of valid region IDs, refer to the official S3 documentation.
+   * 
+   * @example
+   * us-east-1
+   */
   region?: string;
+  /**
+   * @remarks
+   * The secret key associated with the specified AccessKey. This parameter is required when the origin type is `OSS` and the authentication type is `private_cross_account`, or when the origin type is `S3` and the authentication type is `private`.
+   * 
+   * @example
+   * VIxuvJSA2S03f******kp208dy5w7
+   */
   secretKey?: string;
+  /**
+   * @remarks
+   * The signature algorithm version. This parameter is applicable when the origin type is `S3` and the authentication type is `private`. Supported versions:
+   * 
+   * - **v2**
+   * 
+   * - **v4**
+   * 
+   * If omitted, the default version is `v4`.
+   * 
+   * @example
+   * v4
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,7 +89,7 @@ export class BatchCreateRecordsRequestRecordListAuthConf extends $dara.Model {
 export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+   * The algorithm identifier for the record. Valid values range from **0-255**. This parameter applies to CERT and SSHFP records.
    * 
    * @example
    * 0
@@ -48,7 +97,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   algorithm?: number;
   /**
    * @remarks
-   * The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+   * The certificate or public key data for the record. This parameter applies to CERT, SMIMEA, and TLSA records.
    * 
    * @example
    * dGVzdGFkYWxrcw==
@@ -56,7 +105,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * The public key fingerprint of the record. Applicable to SSHFP records.
+   * The public key fingerprint for the record. This parameter applies to SSHFP records.
    * 
    * @example
    * abcdef1234567890
@@ -64,7 +113,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   fingerprint?: string;
   /**
    * @remarks
-   * The Flag for a CAA record indicates its priority and how it is processed. Valid values: 0 to 255.
+   * The flag for the CAA record, which specifies how a Certificate Authority must handle the record. Valid values range from **0-255**.
    * 
    * @example
    * 128
@@ -72,7 +121,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   flag?: number;
   /**
    * @remarks
-   * The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+   * The public key identifier for the record. Valid values range from **0-65535**. This parameter applies to CERT records.
    * 
    * @example
    * 0
@@ -80,7 +129,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   keyTag?: number;
   /**
    * @remarks
-   * The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA, and TLSA records.
+   * The algorithm policy used to match or validate a certificate. Valid values range from **0-255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * 0
@@ -88,7 +137,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   matchingType?: number;
   /**
    * @remarks
-   * The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
+   * The port number for the record. Valid values range from **0-65535**. This parameter applies only to SRV records.
    * 
    * @example
    * 0
@@ -96,7 +145,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
+   * The priority of the record. Valid values range from **0-65535**. A lower value indicates a higher priority. This parameter is required for MX, SRV, or URI records.
    * 
    * @example
    * 2
@@ -104,7 +153,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * The type of certificate or public key used by the record. Valid values range from **0-255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * 0
@@ -112,7 +161,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   selector?: number;
   /**
    * @remarks
-   * The tag of a CAA record, which indicates its specific type and purpose, such as issue, issuewild, and iodef.
+   * The tag for the CAA record, which specifies its type and purpose, such as `issue`, `issuewild`, or `iodef`.
    * 
    * @example
    * issue
@@ -120,7 +169,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+   * The certificate type for a CERT record or the public key type for an SSHFP record.
    * 
    * @example
    * 0
@@ -128,7 +177,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * The usage identifier for the record. Valid values range from **0-255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * 0
@@ -136,7 +185,21 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   usage?: number;
   /**
    * @remarks
-   * The record value or part of the record content. A/AAAA: the IP address being pointed to. CNAME: the target domain name being pointed to. MX: valid target mail server domain name. TXT: valid text string. CAA: valid certificate authority domain name. SRV: valid target host domain name. URI: valid URI string.
+   * The record value. The format depends on the record type.
+   * 
+   * - **A/AAAA**: An IP address.
+   * 
+   * - **CNAME**: The target domain name.
+   * 
+   * - **MX**: The domain name of the target mail server.
+   * 
+   * - **TXT**: A text string.
+   * 
+   * - **CAA**: The domain name of a Certificate Authority.
+   * 
+   * - **SRV**: The domain name of the target host.
+   * 
+   * - **URI**: A URI string.
    * 
    * @example
    * example.com
@@ -144,7 +207,7 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The weight of the record. Valid values: 0 to 65,535. Applicable to SRV and URI records.
+   * The weight of the record. Valid values range from **0-65535**. This parameter applies to SRV and URI records.
    * 
    * @example
    * 0
@@ -198,14 +261,20 @@ export class BatchCreateRecordsRequestRecordListData extends $dara.Model {
 }
 
 export class BatchCreateRecordsRequestRecordList extends $dara.Model {
+  /**
+   * @remarks
+   * The origin authentication information for the CNAME record.
+   */
   authConf?: BatchCreateRecordsRequestRecordListAuthConf;
   /**
    * @remarks
-   * The business scenario of the record for acceleration. Valid values:
+   * The use case for proxy acceleration. Valid values:
    * 
-   * *   **image_video**
-   * *   **api**
-   * *   **web**
+   * - **image_video**: Images and videos.
+   * 
+   * - **api**: APIs.
+   * 
+   * - **web**: Web pages.
    * 
    * @example
    * web
@@ -213,7 +282,7 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * The DNS information of the record. Enter fields based on the record type.
+   * The content of the DNS record. The required fields depend on the record type.
    * 
    * This parameter is required.
    * 
@@ -223,12 +292,15 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
    * }
    */
   data?: BatchCreateRecordsRequestRecordListData;
+  httpPorts?: string;
+  httpsPorts?: string;
   /**
    * @remarks
-   * Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * Specifies whether to enable proxy acceleration for the record. Only CNAME and A/AAAA records support proxy acceleration. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enables proxy acceleration.
+   * 
+   * - **false**: Disables proxy acceleration.
    * 
    * This parameter is required.
    * 
@@ -238,7 +310,7 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
   proxied?: boolean;
   /**
    * @remarks
-   * The record name.
+   * The name of the record.
    * 
    * This parameter is required.
    * 
@@ -250,13 +322,17 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
    * @remarks
    * The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
    * 
-   * *   **OSS**: OSS bucket.
-   * *   **S3**: S3 bucket.
-   * *   **LB**: load balancer.
-   * *   **OP**: origin pool.
-   * *   **Domain**: domain name.
+   * - **OSS**: An OSS origin.
    * 
-   * If you do not pass this parameter or if you leave its value empty, Domain is used by default.
+   * - **S3**: An S3 origin.
+   * 
+   * - **LB**: A load balancer origin.
+   * 
+   * - **OP**: An origin pool origin.
+   * 
+   * - **Domain**: A domain name origin.
+   * 
+   * If omitted or left empty, this parameter defaults to `Domain`.
    * 
    * @example
    * OSS
@@ -264,7 +340,7 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * The Time to Live (TTL) for the record, in seconds. A value of `1` indicates an automatic TTL.
    * 
    * This parameter is required.
    * 
@@ -274,7 +350,7 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
   ttl?: number;
   /**
    * @remarks
-   * The DNS type of the record.
+   * The type of the DNS record.
    * 
    * This parameter is required.
    * 
@@ -287,6 +363,8 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
       authConf: 'AuthConf',
       bizName: 'BizName',
       data: 'Data',
+      httpPorts: 'HttpPorts',
+      httpsPorts: 'HttpsPorts',
       proxied: 'Proxied',
       recordName: 'RecordName',
       sourceType: 'SourceType',
@@ -300,6 +378,8 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
       authConf: BatchCreateRecordsRequestRecordListAuthConf,
       bizName: 'string',
       data: BatchCreateRecordsRequestRecordListData,
+      httpPorts: 'string',
+      httpsPorts: 'string',
       proxied: 'boolean',
       recordName: 'string',
       sourceType: 'string',
@@ -326,14 +406,14 @@ export class BatchCreateRecordsRequestRecordList extends $dara.Model {
 export class BatchCreateRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of DNS records to be created.
+   * The list of DNS records to create.
    * 
    * This parameter is required.
    */
   recordList?: BatchCreateRecordsRequestRecordList[];
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

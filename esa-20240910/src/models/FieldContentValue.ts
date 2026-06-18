@@ -22,6 +22,9 @@ export class FieldContentValueFieldList extends $dara.Model {
   /**
    * @remarks
    * The description of the field in Chinese.
+   * 
+   * @example
+   * 客户端的IP地址
    */
   descriptionCn?: string;
   /**

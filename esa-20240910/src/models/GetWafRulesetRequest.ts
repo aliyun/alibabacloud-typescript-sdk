@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the ListWafRulesets interface.
+   * The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
    * 
    * @example
    * 10000001
@@ -13,7 +13,23 @@ export class GetWafRulesetRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The WAF operation phase, specifying the phase of the ruleset to query.
+   * The execution phase of the WAF ruleset. Valid values:
+   * 
+   * - `http_whitelist`: A whitelist rule
+   * 
+   * - `http_custom`: A custom rule
+   * 
+   * - `http_managed`: A managed rule
+   * 
+   * - `http_anti_scan`: A scan protection rule
+   * 
+   * - `http_ratelimit`: A rate limit rule
+   * 
+   * - `ip_access_rule`: An IP access rule
+   * 
+   * - `http_bot`: A bot rule
+   * 
+   * - `http_security_level_rule`: A security rule
    * 
    * @example
    * http_bot
@@ -21,7 +37,7 @@ export class GetWafRulesetRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 1

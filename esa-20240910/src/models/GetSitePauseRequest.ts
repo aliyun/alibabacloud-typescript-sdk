@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSitePauseRequest extends $dara.Model {
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. Call the [ListSites](~~ListSites~~) operation to obtain this ID.
    * 
    * This parameter is required.
    * 

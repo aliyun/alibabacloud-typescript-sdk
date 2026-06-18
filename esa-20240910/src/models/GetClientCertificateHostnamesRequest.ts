@@ -13,7 +13,7 @@ export class GetClientCertificateHostnamesRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * This parameter is required.
    * 

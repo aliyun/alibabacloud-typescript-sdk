@@ -15,7 +15,7 @@ export class DescribePurgeTasksRequest extends $dara.Model {
    * @remarks
    * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * >  The end time must be later than the start time.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 2022-11-18T15:59:59Z
@@ -57,9 +57,11 @@ export class DescribePurgeTasksRequest extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   **Complete**: The task is complete.
-   * *   **Refreshing**: The task is in progress.
-   * *   **Failed**: The task failed.
+   * - **Complete**: The task is complete.
+   * 
+   * - **Refreshing**: The task is in progress.
+   * 
+   * - **Failed**: The task failed.
    * 
    * @example
    * Complete
@@ -69,12 +71,17 @@ export class DescribePurgeTasksRequest extends $dara.Model {
    * @remarks
    * The task type. Valid values:
    * 
-   * *   **file** (default): purges the cache by file.
-   * *   **cachetag**: purges the cache by cache tag.
-   * *   **directory**: purges the cache by directory.
-   * *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
-   * *   **hostname**: purges the cache by hostname.
-   * *   **purgeall**: purges all cache.
+   * - **file** (default): purges the cache by file.
+   * 
+   * - **cachetag**: purges the cache by cache tag.
+   * 
+   * - **directory**: purges the cache by directory.
+   * 
+   * - **ignoreParams**: purges the cache by URL with specified parameters ignored.
+   * 
+   * - **hostname**: purges the cache by hostname.
+   * 
+   * - **purgeall**: purges all cache.
    * 
    * @example
    * file

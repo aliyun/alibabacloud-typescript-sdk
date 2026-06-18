@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetPerformanceDataCollectionRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is required.
+   * The Site ID.
    * 
-   * @example
-   * 123456****
+   * This parameter is required.
    */
   siteId?: number;
   static names(): { [key: string]: string } {

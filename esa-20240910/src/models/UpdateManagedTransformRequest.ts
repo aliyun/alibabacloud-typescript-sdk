@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateManagedTransformRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to include the header that indicates the geographical location of a client in an origin request. Valid values:
+   * Specifies whether to add a header that contains visitor geolocation information. Valid values:
    * 
-   * *   on
-   * *   off
+   * - `on`: Add the header.
+   * 
+   * - `off`: Do not add the header.
    * 
    * @example
    * on
@@ -16,19 +17,27 @@ export class UpdateManagedTransformRequest extends $dara.Model {
   addClientGeolocationHeader?: string;
   /**
    * @remarks
-   * Specifies whether to include the "ali-real-client-ip" header that indicates the client\\"s real IP address in an origin request. Valid values:
+   * Specifies whether to add the `ali-real-client-ip` header, which contains the real client IP. Valid values:
    * 
-   * *   on
-   * *   off
+   * - `on`: Add the header.
+   * 
+   * - `off`: Do not add the header.
    * 
    * @example
    * on
    */
   addRealClientIpHeader?: string;
+  /**
+   * @remarks
+   * The name of the header that contains the real client IP. The name must start with a letter and can contain letters, digits (0-9), and hyphens (-).
+   * 
+   * @example
+   * test-header
+   */
   realClientIpHeaderName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
    * 
    * This parameter is required.
    * 
@@ -38,7 +47,7 @@ export class UpdateManagedTransformRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the website. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * The version of the site. For sites with version management enabled, this parameter specifies the version to which the configuration applies. Default value: 0.
    * 
    * @example
    * 0

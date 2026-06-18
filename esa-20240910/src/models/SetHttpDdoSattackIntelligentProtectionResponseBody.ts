@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SetHttpDDoSAttackIntelligentProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The mode of smart HTTP DDoS protection. Valid values:
+   * The protection mode for the intelligent HTTP DDoS protection feature. Valid values:
    * 
-   * *   **observe**: alert.
-   * *   **defense**: block.
+   * - **observe**: The system generates warnings for attack traffic but does not block it.
+   * 
+   * - **defense**: The system blocks detected attack traffic.
    * 
    * @example
    * defense
@@ -16,12 +17,15 @@ export class SetHttpDDoSAttackIntelligentProtectionResponseBody extends $dara.Mo
   aiMode?: string;
   /**
    * @remarks
-   * The level of smart HTTP DDoS protection. Valid values:
+   * The sensitivity level for the intelligent HTTP DDoS protection feature. Valid values:
    * 
-   * *   **level0**: very loose.
-   * *   **level30**: loose.
-   * *   **level60**: normal.
-   * *   **level90**: strict.
+   * - **level0**: very loose
+   * 
+   * - **level30**: loose
+   * 
+   * - **level60**: normal
+   * 
+   * - **level90**: strict
    * 
    * @example
    * level60
@@ -37,7 +41,7 @@ export class SetHttpDDoSAttackIntelligentProtectionResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456****

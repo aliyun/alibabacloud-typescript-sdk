@@ -15,11 +15,13 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequestRequestHeader
   name?: string;
   /**
    * @remarks
-   * The action. Valid values:
+   * The Operation to perform. Valid values:
    * 
-   * *   add: adds a response header.
-   * *   del: deletes a response header.
-   * *   modify: modifies a response header.
+   * - `add`: Adds a header.
+   * 
+   * - `del`: Deletes a header.
+   * 
+   * - `modify`: Modifies a header.
    * 
    * This parameter is required.
    * 
@@ -29,10 +31,11 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequestRequestHeader
   operation?: string;
   /**
    * @remarks
-   * The type of the value. Valid values:
+   * The type of the header value. Valid values:
    * 
-   * *   static
-   * *   dynamic
+   * - `static`: Static mode.
+   * 
+   * - `dynamic`: Dynamic mode.
    * 
    * @example
    * static
@@ -40,7 +43,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequestRequestHeader
   type?: string;
   /**
    * @remarks
-   * The value of the request header.
+   * The value to set for the request header. This parameter is not required if the `Operation` is `del`.
    * 
    * @example
    * headvalue
@@ -76,17 +79,18 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequestRequestHeader
 export class CreateHttpIncomingRequestHeaderModificationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of modifying request headers. You can add, delete, or modify a request header.
+   * An array of objects, where each object defines a modification to a request header.
    * 
    * This parameter is required.
    */
   requestHeaderModification?: CreateHttpIncomingRequestHeaderModificationRuleRequestRequestHeaderModification[];
   /**
    * @remarks
-   * The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+   * The conditional expression that the Rule uses to match incoming requests. This parameter is not required for a Global configuration. There are two use cases:
    * 
-   * *   true: Match all incoming requests.
-   * *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, use a custom expression. For example: `(http.host eq "video.example.com")`
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -94,10 +98,11 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequest extends $dar
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+   * Specifies whether the Rule is enabled. This parameter is not required for a Global configuration. Valid values:
    * 
-   * *   on
-   * *   off
+   * - `on`: The Rule is enabled.
+   * 
+   * - `off`: The Rule is disabled.
    * 
    * @example
    * on
@@ -105,7 +110,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequest extends $dar
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. You do not need to set this parameter when you add global configuration.
+   * The name of the Rule. This parameter is not required for a Global configuration.
    * 
    * @example
    * rule_example
@@ -113,7 +118,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequest extends $dar
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed. A smaller value gives priority to the rule.
+   * The execution order of the Rule. A lower value indicates a higher priority.
    * 
    * @example
    * 1
@@ -121,7 +126,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequest extends $dar
   sequence?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the Site. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -131,7 +136,7 @@ export class CreateHttpIncomingRequestHeaderModificationRuleRequest extends $dar
   siteId?: number;
   /**
    * @remarks
-   * The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * The Version of the Site configuration. For Sites with configuration versioning enabled, this parameter specifies the Version to which the Rule applies. The default value is 0.
    * 
    * @example
    * 0

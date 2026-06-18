@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRedirectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Preserve query string. Value range:
+   * Specifies whether to preserve the query string from the original request. Valid values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - `on`: Preserves the query string.
+   * 
+   * - `off`: Discards the query string.
    * 
    * This parameter is required.
    * 
@@ -18,9 +19,11 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   reserveQueryString?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - To match all incoming requests: Set the value to true
-   * - To match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+   * The rule content, which is a conditional expression used to match user requests. Do not set this parameter when adding a global configuration. The following use cases are supported:
+   * 
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -28,9 +31,11 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Specifies whether to enable the rule. Do not set this parameter when adding a global configuration. Valid values:
+   * 
+   * - `on`: The rule is enabled.
+   * 
+   * - `off`: The rule is disabled.
    * 
    * @example
    * on
@@ -38,16 +43,23 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. Do not set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * The execution priority of the rule. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. To get this value, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -57,7 +69,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site for which the configuration will take effect. The default is version 0.
+   * For sites with configuration version management enabled, specify the version to which this configuration applies.
    * 
    * @example
    * 0
@@ -65,12 +77,16 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Response status code used by the node to respond to the client with the redirect address. Value range:
+   * The status code that the edge node returns to the client for the redirect. Valid values:
    * 
    * - 301
+   * 
    * - 302
+   * 
    * - 303
+   * 
    * - 307
+   * 
    * - 308
    * 
    * This parameter is required.
@@ -81,7 +97,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * Target URL after redirection.
+   * The target URL for the redirect.
    * 
    * This parameter is required.
    * 
@@ -91,10 +107,11 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   targetUrl?: string;
   /**
    * @remarks
-   * Redirect type. Value range:
+   * The redirect type. Valid values:
    * 
-   * - static: Static mode.
-   * - dynamic: Dynamic mode.
+   * - `static`: Static mode.
+   * 
+   * - `dynamic`: Dynamic mode.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKvAccountResponseBodyNamespaceList extends $dara.Model {
   /**
    * @remarks
-   * The available capacity of the namespace. Unit: bytes.
+   * The available capacity of the namespace, in bytes.
    * 
    * @example
    * 1073741824
@@ -21,7 +21,7 @@ export class GetKvAccountResponseBodyNamespaceList extends $dara.Model {
   capacityString?: string;
   /**
    * @remarks
-   * The used capacity of the namespace. Unit: bytes.
+   * The used capacity of the namespace, in bytes.
    * 
    * @example
    * 100048576
@@ -63,10 +63,13 @@ export class GetKvAccountResponseBodyNamespaceList extends $dara.Model {
    * @remarks
    * The status of the namespace. Valid values:
    * 
-   * *   **online**: normal.
-   * *   **delete**: pending deletion.
-   * *   **deleting**: being deleted.
-   * *   **deleted**: deleted.
+   * - **online**: Normal.
+   * 
+   * - **delete**: Pending deletion.
+   * 
+   * - **deleting**: Being deleted.
+   * 
+   * - **deleted**: Deleted.
    * 
    * @example
    * online
@@ -110,7 +113,7 @@ export class GetKvAccountResponseBodyNamespaceList extends $dara.Model {
 export class GetKvAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available capacity of all namespaces in the account. Unit: bytes.
+   * The total available capacity of all namespaces for the account, in bytes.
    * 
    * @example
    * 1073741824
@@ -118,7 +121,7 @@ export class GetKvAccountResponseBody extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The available capacity of all namespaces in the account.
+   * The total available capacity of all namespaces for the account.
    * 
    * @example
    * 1 GB
@@ -126,7 +129,7 @@ export class GetKvAccountResponseBody extends $dara.Model {
   capacityString?: string;
   /**
    * @remarks
-   * The used capacity of all namespaces in the account. Unit: bytes.
+   * The total used capacity of all namespaces for the account, in bytes.
    * 
    * @example
    * 10048576
@@ -134,7 +137,7 @@ export class GetKvAccountResponseBody extends $dara.Model {
   capacityUsed?: number;
   /**
    * @remarks
-   * The used capacity of all namespaces in the account.
+   * The total used capacity of all namespaces for the account.
    * 
    * @example
    * 100 MB
@@ -142,12 +145,12 @@ export class GetKvAccountResponseBody extends $dara.Model {
   capacityUsedString?: string;
   /**
    * @remarks
-   * The namespaces in the account.
+   * The list of namespaces for the account.
    */
   namespaceList?: GetKvAccountResponseBodyNamespaceList[];
   /**
    * @remarks
-   * The maximum number of namespaces that can be created in the account.
+   * The quota on the number of KV storage spaces that you can request for the account.
    * 
    * @example
    * 10
@@ -155,7 +158,7 @@ export class GetKvAccountResponseBody extends $dara.Model {
   namespaceQuota?: number;
   /**
    * @remarks
-   * The number of created namespaces that store key-value data in the account.
+   * The number of namespaces created for the account.
    * 
    * @example
    * 1
@@ -171,10 +174,11 @@ export class GetKvAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether Edge KV is activated for the Alibaba Cloud account.
+   * The status of the account.
    * 
-   * *   **online**
-   * *   **offline**
+   * - **online**: The account is active.
+   * 
+   * - **offline**: The account is shut down.
    * 
    * @example
    * online

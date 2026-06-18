@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKvNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available capacity of the namespace. Unit: bytes.
+   * The available capacity of the namespace, in bytes.
    * 
    * @example
    * 1073741824
@@ -13,7 +13,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The available capacity of the namespace.
+   * The available capacity of the namespace, formatted as a human-readable string.
    * 
    * @example
    * 1 GB
@@ -21,7 +21,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   capacityString?: string;
   /**
    * @remarks
-   * The used capacity of the namespace. Unit: bytes.
+   * The used capacity of the namespace, in bytes.
    * 
    * @example
    * 10048576
@@ -29,7 +29,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   capacityUsed?: number;
   /**
    * @remarks
-   * The used capacity of the namespace.
+   * The used capacity of the namespace, formatted as a human-readable string.
    * 
    * @example
    * 100 MB
@@ -61,7 +61,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -71,10 +71,13 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
    * @remarks
    * The status of the namespace. Valid values:
    * 
-   * *   **online**: working as expected.
-   * *   **delete**: pending deletion.
-   * *   **deleting**: being deleted.
-   * *   **deleted**: deleted.
+   * - **online**: The namespace is active.
+   * 
+   * - **delete**: The namespace is marked for deletion.
+   * 
+   * - **deleting**: The namespace is being deleted.
+   * 
+   * - **deleted**: The namespace has been deleted.
    * 
    * @example
    * online

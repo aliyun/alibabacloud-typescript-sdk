@@ -6,17 +6,25 @@ import { WafBatchRuleShared } from "./WafBatchRuleShared";
 
 export class UpdateUserWafRulesetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the WAF ruleset.
+   * 
    * @example
    * example
    */
   description?: string;
   /**
+   * @remarks
+   * The expression of the WAF ruleset.
+   * 
    * @example
    * ip.src == 1.1.1.1
    */
   expression?: string;
   /**
    * @remarks
+   * The WAF ruleset ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +33,8 @@ export class UpdateUserWafRulesetRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,16 +42,25 @@ export class UpdateUserWafRulesetRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the WAF ruleset.
+   * 
    * @example
    * example
    */
   name?: string;
   /**
+   * @remarks
+   * The position of the WAF ruleset.
+   * 
    * @example
    * 1
    */
   position?: number;
   /**
+   * @remarks
+   * A list of rule configurations in the WAF ruleset.
+   * 
    * @example
    * [
    *   {
@@ -52,8 +71,15 @@ export class UpdateUserWafRulesetRequest extends $dara.Model {
    *   }
    */
   rules?: WafRuleConfig[];
+  /**
+   * @remarks
+   * The shared configuration of the WAF ruleset.
+   */
   shared?: WafBatchRuleShared;
   /**
+   * @remarks
+   * The status of the WAF ruleset.
+   * 
    * @example
    * on
    */

@@ -3,13 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetClientCertificateHostnamesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of bound hostnames.
+   */
   hostnames?: string[];
   /**
    * @remarks
    * The ID of the client CA certificate.
    * 
    * @example
-   * babab9db65ee5efcca9f3d41d4b50d66
+   * babab9db65ee5efcca9f3d41d4b50d**
    */
   id?: string;
   /**
@@ -22,15 +26,15 @@ export class SetClientCertificateHostnamesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * @example
-   * 1234567890123
+   * 123456789****
    */
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com

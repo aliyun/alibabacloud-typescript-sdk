@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListLoadBalancersResponseBodyLoadBalancersAdaptiveRouting extends $dara.Model {
   /**
    * @remarks
-   * Whether to fail over across pools.
+   * Indicates whether to enable failover across pools.
    * 
-   * - true: Yes.
-   * - false: No.
+   * - `true`: Enabled.
+   * 
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -41,7 +42,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersAdaptiveRouting extends $
 export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Model {
   /**
    * @remarks
-   * The number of consecutive failed probes required to consider the target unhealthy, such as 5.
+   * The number of consecutive failed health checks required to consider a pool unhealthy. For example, `5`.
    * 
    * @example
    * 5
@@ -49,7 +50,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   consecutiveDown?: number;
   /**
    * @remarks
-   * The number of consecutive successful probes required to consider the target healthy, such as 3.
+   * The number of consecutive successful health checks required to consider a pool healthy. For example, `3`.
    * 
    * @example
    * 3
@@ -57,7 +58,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   consecutiveUp?: number;
   /**
    * @remarks
-   * The expected status codes, such as 200,202, indicating successful HTTP responses.
+   * The expected HTTP status codes that indicate a successful health check, such as `200` or `202`.
    * 
    * @example
    * 200,202
@@ -65,10 +66,11 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   expectedCodes?: string;
   /**
    * @remarks
-   * Whether to follow redirects.
+   * Indicates whether the health check should follow redirects.
    * 
-   * - true: Yes.
-   * - false: No.
+   * - `true`: Follows redirects.
+   * 
+   * - `false`: Does not follow redirects.
    * 
    * @example
    * true
@@ -76,7 +78,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   followRedirects?: boolean;
   /**
    * @remarks
-   * The header information included in the probe, such as HTTP headers.
+   * The HTTP headers to include in the health check probe.
    * 
    * @example
    * {
@@ -89,7 +91,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   header?: any;
   /**
    * @remarks
-   * The interval for the health check, in seconds.
+   * The interval between health checks, in seconds.
    * 
    * @example
    * 60
@@ -97,16 +99,29 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   interval?: number;
   /**
    * @remarks
-   * The method for the health check.
+   * The method used for the health check.
    * 
    * @example
    * GET
    */
   method?: string;
+  /**
+   * @remarks
+   * The probe locations for health checks. The default is `Global`. Valid values:
+   * 
+   * - `Global`: Sends probes from global locations.
+   * 
+   * - `ChineseMainland`: Sends probes from locations within the Chinese mainland.
+   * 
+   * - `OutsideChineseMainland`: Sends probes from global locations outside the Chinese mainland.
+   * 
+   * @example
+   * Global
+   */
   monitoringRegion?: string;
   /**
    * @remarks
-   * The path.
+   * The path to request for the health check.
    * 
    * @example
    * /
@@ -114,7 +129,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   path?: string;
   /**
    * @remarks
-   * The target port.
+   * The destination port for the health check.
    * 
    * @example
    * 80
@@ -122,7 +137,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   port?: number;
   /**
    * @remarks
-   * Application health check timeout, in seconds.
+   * The timeout for a single health check, in seconds.
    * 
    * @example
    * 5
@@ -130,7 +145,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   timeout?: number;
   /**
    * @remarks
-   * The type of monitor protocol, such as HTTP, used for health checks. When the value is `off`, it indicates that no check will be performed.
+   * The protocol for the health check, such as `HTTP`. Set to `off` to disable health checks.
    * 
    * @example
    * HTTP
@@ -182,7 +197,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
 export class ListLoadBalancersResponseBodyLoadBalancersRandomSteering extends $dara.Model {
   /**
    * @remarks
-   * Weight configuration for each backend server pool, where the key is the pool ID and the value is the weight coefficient. The weight coefficient represents the proportion of relative traffic distribution.
+   * The default weight applied to any pool not defined in `PoolWeights`. The weight determines the proportion of traffic sent to the pool.
    * 
    * @example
    * 50
@@ -190,7 +205,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRandomSteering extends $d
   defaultWeight?: number;
   /**
    * @remarks
-   * Weight configuration for each backend server pool, where the key is the pool ID and the value is the weight coefficient.
+   * The weight configuration for each backend pool, where the key is the pool ID and the value is the weight.
    */
   poolWeights?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -222,7 +237,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRandomSteering extends $d
 export class ListLoadBalancersResponseBodyLoadBalancersRulesFixedResponse extends $dara.Model {
   /**
    * @remarks
-   * The Content-Type field in the HTTP Header.
+   * The `Content-Type` header.
    * 
    * @example
    * application/json
@@ -230,7 +245,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRulesFixedResponse extend
   contentType?: string;
   /**
    * @remarks
-   * The location field in the HTTP response.
+   * The `Location` response header.
    * 
    * @example
    * http://www.example.com/index.html
@@ -238,7 +253,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRulesFixedResponse extend
   location?: string;
   /**
    * @remarks
-   * The response body value.
+   * The content of the response body.
    * 
    * @example
    * Hello World.
@@ -246,7 +261,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRulesFixedResponse extend
   messageBody?: string;
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -282,12 +297,12 @@ export class ListLoadBalancersResponseBodyLoadBalancersRulesFixedResponse extend
 export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model {
   /**
    * @remarks
-   * Executes a specified response after matching the rule.
+   * Specifies the response to return when a rule matches.
    */
   fixedResponse?: ListLoadBalancersResponseBodyLoadBalancersRulesFixedResponse;
   /**
    * @remarks
-   * Modifies the corresponding load balancer configuration after matching the rule. The fields in this configuration will override the corresponding fields in the load balancer configuration.
+   * The load balancer settings to override when a rule matches. Any field you specify overwrites the load balancer\\"s corresponding setting.
    * 
    * @example
    * {
@@ -344,9 +359,11 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   overrides?: any;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configurations. There are two usage scenarios: 
-   * - Match all incoming requests: set the value to true 
-   * - Match specific requests: set the value to a custom expression, for example: (http.host eq "video.example.com")
+   * The rule expression that matches user requests. This parameter is not required for global configurations. Use cases:
+   * 
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
    * 
    * @example
    * http.request.uri.path contains "/testing"
@@ -354,9 +371,11 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   rule?: string;
   /**
    * @remarks
-   * The switch for the rule. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Indicates whether the rule is enabled. This parameter is not required for global configurations. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -364,7 +383,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required when adding a global configuration.
+   * The name of the rule. This parameter is not required for global configurations.
    * 
    * @example
    * r2
@@ -372,7 +391,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule. The higher the value, the higher the priority.
+   * The execution priority of the rule. Higher values indicate higher priority.
    * 
    * @example
    * 1
@@ -380,10 +399,11 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   sequence?: number;
   /**
    * @remarks
-   * Whether to terminate the execution of subsequent rules.
+   * Specifies whether to stop executing subsequent rules after this rule matches.
    * 
-   * - true: Yes.
-   * - false: No, which is the default value.
+   * - `true`: Stops executing subsequent rules.
+   * 
+   * - `false`: Continues to execute subsequent rules. This is the default value.
    * 
    * @example
    * true
@@ -428,12 +448,12 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
 export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   /**
    * @remarks
-   * Cross-pool failover configuration.
+   * The configuration for failover across pools.
    */
   adaptiveRouting?: ListLoadBalancersResponseBodyLoadBalancersAdaptiveRouting;
   /**
    * @remarks
-   * List of default address pool IDs.
+   * A list of default pool IDs.
    */
   defaultPools?: number[];
   /**
@@ -446,10 +466,11 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether the load balancer is enabled.
+   * Indicates whether the load balancer is enabled.
    * 
-   * - true: Enabled.
-   * - false: Not enabled.
+   * - `true`: Enabled.
+   * 
+   * - `false`: Disabled.
    * 
    * @example
    * false
@@ -457,7 +478,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The fallback pool ID, to which traffic will be redirected if all other pools are unavailable.
+   * The ID of the fallback pool. The load balancer routes traffic to this pool when all other pools are unavailable.
    * 
    * @example
    * 96228666776****
@@ -465,7 +486,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * The unique identifier ID of the load balancer.
+   * The unique ID of the load balancer.
    * 
    * @example
    * 998676487607104
@@ -473,7 +494,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Monitor configuration.
+   * The health check configuration.
    */
   monitor?: ListLoadBalancersResponseBodyLoadBalancersMonitor;
   /**
@@ -486,12 +507,12 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Weighted round-robin configuration, used to control the traffic distribution weights among different pools.
+   * The configuration for weighted round robin, which controls traffic distribution among pools.
    */
   randomSteering?: ListLoadBalancersResponseBodyLoadBalancersRandomSteering;
   /**
    * @remarks
-   * Address pools corresponding to primary regions.
+   * The pools that correspond to regions.
    * 
    * @example
    * {
@@ -507,15 +528,18 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   regionPools?: any;
   /**
    * @remarks
-   * List of rule configurations, used to define behaviors under specific conditions.
+   * A list of rule configurations that define behavior for specific conditions.
    */
   rules?: ListLoadBalancersResponseBodyLoadBalancersRules[];
   /**
    * @remarks
-   * Session persistence, with possible values:
-   * - off: Not enabled.
-   * - ip: Session persistence by IP.
-   * - cookie: Session persistence by cookie.
+   * The session affinity setting. Valid values:
+   * 
+   * - `off`: Session affinity is disabled.
+   * 
+   * - `ip`: Enables session affinity based on the client\\"s IP address.
+   * 
+   * - `cookie`: Enables session affinity based on a cookie.
    * 
    * @example
    * ip
@@ -523,7 +547,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   sessionAffinity?: string;
   /**
    * @remarks
-   * The site ID to which the load balancer belongs.
+   * The site ID of the load balancer.
    * 
    * @example
    * 1159101787****
@@ -547,7 +571,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * Address pools corresponding to secondary regions. When multiple secondary regions share a set of address pools, the keys can be concatenated with commas.
+   * The pools that correspond to sub-regions. If multiple sub-regions share the same set of pools, you can use a comma-separated list of sub-region codes as the key.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -555,7 +579,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   subRegionPools?: any;
   /**
    * @remarks
-   * The TTL value, which is the DNS record\\"s time to live, with a default value of 30.
+   * The Time to Live (TTL) for the DNS record, in seconds. The default value is 30.
    * 
    * @example
    * 30
@@ -632,12 +656,12 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
 export class ListLoadBalancersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array format that returns the list of load balancers.
+   * An array of load balancers.
    */
   loadBalancers?: ListLoadBalancersResponseBodyLoadBalancers[];
   /**
    * @remarks
-   * Page number, same as the PageNumber in the request parameters.
+   * The page number. This value matches the `PageNumber` request parameter.
    * 
    * @example
    * 1
@@ -645,7 +669,7 @@ export class ListLoadBalancersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -661,7 +685,7 @@ export class ListLoadBalancersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries found.
    * 
    * @example
    * 100
@@ -669,7 +693,7 @@ export class ListLoadBalancersResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 10

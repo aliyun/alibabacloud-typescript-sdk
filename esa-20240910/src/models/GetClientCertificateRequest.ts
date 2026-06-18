@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClientCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetClientCertificateRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * This parameter is required.
    * 

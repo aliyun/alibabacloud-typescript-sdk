@@ -11,19 +11,21 @@ export class CommitRoutineStagingCodeRequest extends $dara.Model {
    * description of this code ver
    */
   codeDescription?: string;
+  deployEnv?: string;
   /**
    * @remarks
-   * The routine name.
+   * The name of the edge function (Routine).
    * 
    * This parameter is required.
    * 
    * @example
-   * CommitRoutineStagingCode
+   * test-routine1
    */
   name?: string;
   static names(): { [key: string]: string } {
     return {
       codeDescription: 'CodeDescription',
+      deployEnv: 'DeployEnv',
       name: 'Name',
     };
   }
@@ -31,6 +33,7 @@ export class CommitRoutineStagingCodeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       codeDescription: 'string',
+      deployEnv: 'string',
       name: 'string',
     };
   }

@@ -301,7 +301,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $da
    * The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`. If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
    * 
    * @example
-   * {\\"exec\\":{\\"command\\":[\\"touch\\",\\"/home/admin/checkpoststartV1\\"]}}
+   * sh poststart.sh "echo hello world"
    */
   postStart?: string;
   /**
@@ -336,6 +336,9 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $da
   /**
    * @remarks
    * The storage capacity of the container. Valid values: 0.5G, 10G, 20G, and 30G.
+   * 
+   * @example
+   * 0.5G, 标识存储空间，取值范围（0.5G | 10G | 20G | 30G）
    */
   storage?: string;
   static names(): { [key: string]: string } {
@@ -447,9 +450,11 @@ export class GetEdgeContainerAppVersionResponseBodyVersion extends $dara.Model {
    * @remarks
    * The status of the current version. Valid values:
    * 
-   * *   created: The version is created.
-   * *   failed: The version failed to be created.
-   * *   creating: The version is being created.
+   * - created: The version is created.
+   * 
+   * - failed: The version failed to be created.
+   * 
+   * - creating: The version is being created.
    * 
    * @example
    * created

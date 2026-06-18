@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOriginPoolResponseBodyOriginsAuthConf extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey required when AuthType is set to private_cross_account or private.
+   * The AccessKey ID. This parameter is required if `AuthType` is set to `private_cross_account` or `private`.
    * 
    * @example
    * yourAccessKeyID
@@ -13,12 +13,15 @@ export class GetOriginPoolResponseBodyOriginsAuthConf extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The type of authentication:
+   * The authentication type.
    * 
-   * - public: Public read/write, used when the origin is OSS or S3 and is publicly readable/writable;
-   * - private_same_account: Private same account, used when the origin is OSS and the authentication type is private within the same account;
-   * - private_cross_account: Private cross account, used when the origin is OSS and the authentication type is private across accounts;
-   * - private: Used when the origin is S3 and the authentication type is private.
+   * - public: Public access. For OSS or S3 origins with public read access.
+   * 
+   * - private_same_account: Private, same account. For private OSS origins in the same account.
+   * 
+   * - private_cross_account: Private, cross-account. For private OSS origins in a different account.
+   * 
+   * - private: Private. For private S3 origins.
    * 
    * @example
    * public
@@ -26,7 +29,7 @@ export class GetOriginPoolResponseBodyOriginsAuthConf extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * The source Region to be passed when the origin is AWS S3.
+   * The AWS Region of the origin. Required if the origin is an AWS S3 bucket.
    * 
    * @example
    * us-east-1
@@ -34,7 +37,7 @@ export class GetOriginPoolResponseBodyOriginsAuthConf extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The SecretKey required when AuthType is set to private_cross_account or private.
+   * The AccessKey secret. This parameter is required if `AuthType` is set to `private_cross_account` or `private`.
    * 
    * @example
    * yourAccessKeySecret
@@ -42,7 +45,7 @@ export class GetOriginPoolResponseBodyOriginsAuthConf extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * The signature version required when the origin is an AWS S3.
+   * The signature version. Required if the origin is an AWS S3 bucket.
    * 
    * @example
    * v4
@@ -80,7 +83,7 @@ export class GetOriginPoolResponseBodyOriginsAuthConf extends $dara.Model {
 export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
   /**
    * @remarks
-   * The address of the origin, e.g., www.example.com.
+   * The origin address. For example, www\\.example.com.
    * 
    * @example
    * www.example.com
@@ -88,15 +91,16 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * Authentication information. When the origin is an OSS or S3, and authentication is required, you need to provide the relevant configuration information.
+   * The authentication configuration. This parameter is required if the origin is an OSS or S3 bucket that requires authentication.
    */
   authConf?: GetOriginPoolResponseBodyOriginsAuthConf;
   /**
    * @remarks
-   * Whether the origin is enabled:
+   * Specifies if the origin is enabled.
    * 
-   * - true: Enabled;
-   * - false: Disabled.
+   * - true: The origin is enabled.
+   * 
+   * - false: The origin is disabled.
    * 
    * @example
    * true
@@ -104,7 +108,7 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The request header to be included when fetching from the origin, only supports Host.
+   * The request header to include in origin requests. Only the Host header is supported.
    * 
    * @example
    * {
@@ -116,16 +120,31 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
   header?: any;
   /**
    * @remarks
-   * The ID of the origin.
+   * The origin ID.
    * 
    * @example
    * 99750209487****
    */
   id?: number;
+  /**
+   * @remarks
+   * The IP version policy for origin requests.
+   * 
+   * - round_robin: Default policy. Routes requests to IPv4 and IPv6 origins on a round-robin basis.
+   * 
+   * - ipv4_first: Prioritizes IPv4. Routes requests to IPv4 origins first.
+   * 
+   * - ipv6_first: Prioritizes IPv6. Routes requests to IPv6 origins first.
+   * 
+   * - follow: Matches the client\\"s IP version. The origin request uses the same IP version as the incoming request.
+   * 
+   * @example
+   * round_robin
+   */
   ipVersionPolicy?: string;
   /**
    * @remarks
-   * The name of the origin.
+   * The origin name.
    * 
    * @example
    * origin1
@@ -133,11 +152,13 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the origin:
+   * The type of the origin.
    * 
-   * - ip_domain: IP or domain type origin;
-   * - OSS: OSS address origin;
-   * - S3: AWS S3 origin.
+   * - ip_domain: An IP address or a domain name.
+   * 
+   * - OSS: An OSS bucket.
+   * 
+   * - S3: An AWS S3 bucket.
    * 
    * @example
    * ip_domain
@@ -145,7 +166,7 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The weight, an integer between 0 and 100.
+   * The weight of the origin. Must be an integer from 0 to 100.
    * 
    * @example
    * 50
@@ -194,7 +215,7 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
 export class GetOriginPoolResponseBodyReferencesDnsRecords extends $dara.Model {
   /**
    * @remarks
-   * Record ID.
+   * The ID of the record.
    * 
    * @example
    * 104285288635****
@@ -202,7 +223,7 @@ export class GetOriginPoolResponseBodyReferencesDnsRecords extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Record name.
+   * The name of the record.
    * 
    * @example
    * www.example.com
@@ -234,7 +255,7 @@ export class GetOriginPoolResponseBodyReferencesDnsRecords extends $dara.Model {
 export class GetOriginPoolResponseBodyReferencesIPARecords extends $dara.Model {
   /**
    * @remarks
-   * 记录ID。
+   * The ID of the record.
    * 
    * @example
    * 104285288635****
@@ -242,7 +263,7 @@ export class GetOriginPoolResponseBodyReferencesIPARecords extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Record name.
+   * The name of the record.
    * 
    * @example
    * ipa.example.com
@@ -274,7 +295,7 @@ export class GetOriginPoolResponseBodyReferencesIPARecords extends $dara.Model {
 export class GetOriginPoolResponseBodyReferencesLoadBalancers extends $dara.Model {
   /**
    * @remarks
-   * ID of the load balancer.
+   * The ID of the load balancer.
    * 
    * @example
    * 99874066052****
@@ -282,7 +303,7 @@ export class GetOriginPoolResponseBodyReferencesLoadBalancers extends $dara.Mode
   id?: number;
   /**
    * @remarks
-   * Name of the load balancer.
+   * The name of the load balancer.
    * 
    * @example
    * lb1.example.com
@@ -314,17 +335,17 @@ export class GetOriginPoolResponseBodyReferencesLoadBalancers extends $dara.Mode
 export class GetOriginPoolResponseBodyReferences extends $dara.Model {
   /**
    * @remarks
-   * List of layer 7 records using this origin pool as the origin.
+   * The Layer 7 records that use this origin pool as their origin.
    */
   dnsRecords?: GetOriginPoolResponseBodyReferencesDnsRecords[];
   /**
    * @remarks
-   * List of layer 4 records using this origin pool as the origin.
+   * The Layer 4 records that use this origin pool as their origin.
    */
   IPARecords?: GetOriginPoolResponseBodyReferencesIPARecords[];
   /**
    * @remarks
-   * List of load balancers using this origin pool.
+   * The load balancers that use this origin pool.
    */
   loadBalancers?: GetOriginPoolResponseBodyReferencesLoadBalancers[];
   static names(): { [key: string]: string } {
@@ -364,10 +385,11 @@ export class GetOriginPoolResponseBodyReferences extends $dara.Model {
 export class GetOriginPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether the origin pool is enabled:
+   * Specifies if the origin pool is enabled.
    * 
-   * - true: Enabled;
-   * - false: Disabled.
+   * - true: The origin pool is enabled.
+   * 
+   * - false: The origin pool is disabled.
    * 
    * @example
    * true
@@ -375,7 +397,7 @@ export class GetOriginPoolResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Origin pool ID.
+   * The origin pool ID.
    * 
    * @example
    * 103852052519****
@@ -383,7 +405,7 @@ export class GetOriginPoolResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Name of the origin pool. The name is unique under a single site.
+   * The name of the origin pool. The name must be unique within a site.
    * 
    * @example
    * pool1
@@ -391,12 +413,12 @@ export class GetOriginPoolResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Information about the origins added to the origin pool.
+   * The origins in the origin pool.
    */
   origins?: GetOriginPoolResponseBodyOrigins[];
   /**
    * @remarks
-   * The domain name assigned to the origin pool, which can be used as the origin address for records under the site.
+   * The domain name assigned to the origin pool. It serves as the origin address for records within the site.
    * 
    * @example
    * pool1.example.com
@@ -412,12 +434,12 @@ export class GetOriginPoolResponseBody extends $dara.Model {
   referenceLBCount?: number;
   /**
    * @remarks
-   * Reference information for the origin pool. The origin pool is considered referenced when it is configured in a load balancer or set as the origin for a record.
+   * Resources that reference the origin pool. An origin pool is referenced if a load balancer or record uses it as an origin.
    */
   references?: GetOriginPoolResponseBodyReferences;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -425,7 +447,7 @@ export class GetOriginPoolResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * ID of the site to which the origin pool belongs.
+   * The ID of the site that contains the origin pool.
    * 
    * @example
    * 21655860979****

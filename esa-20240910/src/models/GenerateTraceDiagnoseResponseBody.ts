@@ -4,16 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateTraceDiagnoseResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 64D28B53-5902-409B-94F6-FD46680144FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * A diagnostic message.
+   * 
    * @example
-   * http://cdn.dns-detect.alicdn.com/diagnose/?id=xxxxxxx
+   * Origin IP x.x.x.x: Test URL returned HTTP 404 (non-2xx status).
+   * Origin IP x.x.x.x: DNS A record does not point to an ESA service IP.
    */
   tip?: string;
   /**
+   * @remarks
+   * The generated diagnostic link.
+   * 
    * @example
    * http://cdn.dns-detect.alicdn.com/diagnose_v2?id=5d97ac9b&token=WFji65gy2mGNM11bD929%2BCMoyI6mbk2deRR9hOC6INH%2FoYbccQZQcvEn4wc%2FDPHlTshxRSAa5HokX%2BabItBpJ0FdnteROssomXqgIdjHpM46L%2BbaIeweZfsWG6QnbXT5n7O5APMyc%2Fe8d1o9PwwB429Ccks1FU1AfjNZfvBcLeo%3D
    */

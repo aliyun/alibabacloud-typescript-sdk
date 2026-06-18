@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRatePlanSpecResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * xcdn-as23ds***
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 2223332122***
    */
   orderId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 30423A7F-A83D-1E24-B80E-86DD25790758

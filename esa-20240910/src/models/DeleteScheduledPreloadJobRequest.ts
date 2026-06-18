@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScheduledPreloadJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the scheduled prefetch task.
+   * The scheduled preload job ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * DeleteScheduledPreloadJob
+   * 665d3af3621bccf3fe29e1a4
    */
   id?: string;
   static names(): { [key: string]: string } {

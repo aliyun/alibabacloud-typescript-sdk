@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * esa-site-aud6ftk57ym8
+   */
   instanceId?: string;
   /**
    * @remarks
-   * WAF operation phase, used to filter template rules for a specific phase.
+   * The WAF running phase for filtering template rules.
    * 
    * @example
    * http_anti_scan
@@ -14,7 +21,7 @@ export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Query parameters, used to filter template rules based on conditions such as rule type.
+   * The query parameters for filtering template rules by criteria such as the rule type.
    * 
    * @example
    * http_anti_scan
@@ -22,7 +29,7 @@ export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
   queryArgsShrink?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. To obtain this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * @example
    * 1

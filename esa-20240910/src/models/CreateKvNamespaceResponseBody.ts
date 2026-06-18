@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKvNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the namespace.
+   * The description of the KV namespace.
    * 
    * @example
    * this is a test namespace.
@@ -13,7 +13,7 @@ export class CreateKvNamespaceResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The name of the KV namespace.
    * 
    * @example
    * test_namespace
@@ -21,7 +21,7 @@ export class CreateKvNamespaceResponseBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The ID of the KV namespace.
    * 
    * @example
    * 657717877171818496
@@ -37,12 +37,15 @@ export class CreateKvNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the namespace. Valid values:
+   * The status of the KV namespace. Valid values:
    * 
-   * *   **online**: working as expected.
-   * *   **delete**: pending deletion.
-   * *   **deleting**: being deleted.
-   * *   **deleted**: deleted.
+   * - **online**: The namespace is available.
+   * 
+   * - **delete**: The namespace is pending deletion.
+   * 
+   * - **deleting**: The namespace is being deleted.
+   * 
+   * - **deleted**: The namespace is deleted.
    * 
    * @example
    * online

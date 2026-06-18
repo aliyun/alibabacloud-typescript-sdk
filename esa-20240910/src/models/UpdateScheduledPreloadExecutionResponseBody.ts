@@ -13,7 +13,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The end time of the prefetch plan.
+   * The end time of the scheduled preload plan.
    * 
    * @example
    * 2024-05-31T18:10:48.849+08:00
@@ -21,7 +21,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the prefetch plan.
+   * The ID of the preload plan.
    * 
    * @example
    * 66599bd7397885b43804901c
@@ -29,7 +29,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The time interval between each batch execution. Unit: seconds.
+   * The execution interval for each batch in the scheduled preload plan, in seconds.
    * 
    * @example
    * 60
@@ -37,7 +37,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The ID of the prefetch task.
+   * The ID of the preload task.
    * 
    * @example
    * 665d3af3621bccf3fe29e1a4
@@ -53,7 +53,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of URLs prefetched in each batch.
+   * The number of URLs in each scheduled preload batch.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   sliceLen?: number;
   /**
    * @remarks
-   * The start time of the prefetch plan.
+   * The start time of the scheduled preload plan.
    * 
    * @example
    * 2024-05-31T17:10:48.849+08:00
@@ -69,13 +69,17 @@ export class UpdateScheduledPreloadExecutionResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the prefetch plan. Valid values:
+   * The status of the scheduled preload plan. Valid values:
    * 
-   * *   **waiting**
-   * *   **running**
-   * *   **finished**
-   * *   **failed**
-   * *   **stopped**
+   * - **waiting**: The plan is waiting to be executed.
+   * 
+   * - **running**: The plan is being executed.
+   * 
+   * - **finished**: The plan is executed.
+   * 
+   * - **failed**: The execution failed.
+   * 
+   * - **stopped**: The execution is paused.
    * 
    * @example
    * running

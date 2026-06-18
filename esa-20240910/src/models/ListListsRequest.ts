@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListListsRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort the returned data in descending order.
+   * If true, sorts the results in descending order.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   desc?: boolean;
   /**
    * @remarks
-   * The list description for fuzzy search.
+   * Filters by a partial match on the list description.
    * 
    * @example
    * a custom list
@@ -21,7 +21,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   descriptionLike?: string;
   /**
    * @remarks
-   * The list ID for fuzzy search.
+   * Filters by a partial match on the list ID.
    * 
    * @example
    * 40000001
@@ -29,7 +29,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   idLike?: string;
   /**
    * @remarks
-   * The list content for fuzzy search.
+   * Filters by a partial match on a list item.
    * 
    * @example
    * 10.1.1.1
@@ -37,7 +37,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   itemLike?: string;
   /**
    * @remarks
-   * The type of the custom list.
+   * Filters by the list kind.
    * 
    * @example
    * ip
@@ -45,7 +45,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The list name and content for fuzzy search.
+   * Filters by a partial match on both the list name and list items.
    * 
    * @example
    * 10.1.1.1
@@ -53,7 +53,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   nameItemLike?: string;
   /**
    * @remarks
-   * The list name for fuzzy search.
+   * Filters by a partial match on the list name.
    * 
    * @example
    * example
@@ -61,7 +61,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The column by which you want to sort the returned data.
+   * Specifies the sort field.
    * 
    * @example
    * id
@@ -105,7 +105,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
 export class ListListsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * Specifies the page number for paginated results.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class ListListsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Specifies the number of results to return per page.
    * 
    * @example
    * 20
@@ -121,7 +121,7 @@ export class ListListsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query arguments in the JSON format, which contain filter conditions.
+   * A JSON object containing query parameters to filter the results.
    * 
    * @example
    * ListLists

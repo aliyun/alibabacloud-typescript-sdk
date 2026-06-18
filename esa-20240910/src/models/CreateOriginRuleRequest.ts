@@ -5,20 +5,67 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOriginRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Rewrite the DNS resolution record for the origin request.
+   * Overrides the DNS Record for Origin requests.
    * 
    * @example
    * test.example.com
    */
   dnsRecord?: string;
+  /**
+   * @remarks
+   * Specifies whether to follow 302 redirects from the Origin. Valid values:
+   * 
+   * - `on`: Enables following redirects.
+   * 
+   * - `off`: Disables following redirects.
+   * 
+   * @example
+   * on
+   */
   follow302Enable?: string;
+  /**
+   * @remarks
+   * The maximum number of 302 redirects to follow. Valid range: 1 to 5.
+   * 
+   * @example
+   * 1
+   */
   follow302MaxTries?: string;
+  /**
+   * @remarks
+   * Specifies whether to retain the original request parameters when following a 302 redirect. Valid values:
+   * 
+   * - `on`: Retains the request parameters.
+   * 
+   * - `off`: Does not retain the request parameters.
+   * 
+   * @example
+   * on
+   */
   follow302RetainArgs?: string;
+  /**
+   * @remarks
+   * Specifies whether to retain the original request header when following a 302 redirect. Valid values:
+   * 
+   * - `on`: Retains the request header.
+   * 
+   * - `off`: Does not retain the request header.
+   * 
+   * @example
+   * on
+   */
   follow302RetainHeader?: string;
+  /**
+   * @remarks
+   * The Origin `Host` header to use after a 302 redirect.
+   * 
+   * @example
+   * test.com
+   */
   follow302TargetHost?: string;
   /**
    * @remarks
-   * The HOST carried in the origin request.
+   * The `Host` header to use in Origin requests.
    * 
    * @example
    * origin.example.com
@@ -26,7 +73,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
   originHost?: string;
   /**
    * @remarks
-   * Port of the origin server when using the HTTP protocol for origin requests.
+   * The Origin Port to use for HTTP Origin requests.
    * 
    * @example
    * 8080
@@ -34,7 +81,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
   originHttpPort?: string;
   /**
    * @remarks
-   * Port of the origin server when using the HTTPS protocol for origin requests.
+   * The Origin Port to use for HTTPS Origin requests.
    * 
    * @example
    * 4433
@@ -42,21 +89,33 @@ export class CreateOriginRuleRequest extends $dara.Model {
   originHttpsPort?: string;
   /**
    * @remarks
-   * mTLS switch. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to enable mutual Transport Layer Security (mTLS) for Origin connections. Valid values:
+   * 
+   * - `on`: Enables mTLS.
+   * 
+   * - `off`: Disables mTLS.
    * 
    * @example
    * on
    */
   originMtls?: string;
+  /**
+   * @remarks
+   * The Origin read timeout in seconds.
+   * 
+   * @example
+   * 10
+   */
   originReadTimeout?: string;
   /**
    * @remarks
-   * Protocol used for the origin request. Possible values:
-   * - http: Use HTTP protocol for origin requests.
-   * - https: Use HTTPS protocol for origin requests.
-   * - follow: Follow the client\\"s protocol for origin requests.
+   * The protocol for Origin requests. Valid values:
+   * 
+   * - `http`: Uses the HTTP protocol.
+   * 
+   * - `https`: Uses the HTTPS protocol.
+   * 
+   * - `follow`: Uses the same protocol as the client request.
    * 
    * @example
    * http
@@ -64,7 +123,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
   originScheme?: string;
   /**
    * @remarks
-   * SNI carried in the origin request.
+   * The Server Name Indication (SNI) to use in Origin requests.
    * 
    * @example
    * origin.example.com
@@ -72,9 +131,11 @@ export class CreateOriginRuleRequest extends $dara.Model {
   originSni?: string;
   /**
    * @remarks
-   * Origin certificate verification switch. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to enable Origin Certificate Verification. Valid values:
+   * 
+   * - `on`: Enables verification.
+   * 
+   * - `off`: Disables verification.
    * 
    * @example
    * on
@@ -82,21 +143,41 @@ export class CreateOriginRuleRequest extends $dara.Model {
   originVerify?: string;
   /**
    * @remarks
-   * Use range chunking for origin downloads. Possible values:
-   * - on: Enable
-   * - off: Disable
-   * - force: Force
+   * Specifies whether to use range requests to download files from the Origin. Valid values:
+   * 
+   * - `on`: Enables range requests.
+   * 
+   * - `off`: Disables range requests.
+   * 
+   * - `force`: Forces range requests.
    * 
    * @example
    * on
    */
   range?: string;
+  /**
+   * @remarks
+   * The size of each chunk for range requests. Valid values:
+   * 
+   * - `512KB`
+   * 
+   * - `1MB`
+   * 
+   * - `2MB`
+   * 
+   * - `4MB`
+   * 
+   * @example
+   * 1MB
+   */
   rangeChunkSize?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configurations. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The content of the rule, a Conditional Expression that matches user requests. Not required when creating a Global Configuration. There are two scenarios:
+   * 
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, set the value to a custom expression. Example: `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -104,9 +185,11 @@ export class CreateOriginRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding global configurations. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to enable the rule. Not required when creating a Global Configuration. Valid values:
+   * 
+   * - `on`: Enables the rule.
+   * 
+   * - `off`: Disables the rule.
    * 
    * @example
    * on
@@ -114,16 +197,23 @@ export class CreateOriginRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding global configurations.
+   * The rule name. Not required when creating a Global Configuration.
    * 
    * @example
    * rule_example
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * The priority of the rule. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The ID of the site. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -133,7 +223,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site where the configuration takes effect. The default is version 0.
+   * For sites with version management enabled, this specifies the version to which the configuration applies. The default value is 0.
    * 
    * @example
    * 1

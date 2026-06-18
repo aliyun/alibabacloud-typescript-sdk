@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHttpResponseHeaderModificationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID, which can be obtained by calling the [ListHttpResponseHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) interface.
+   * The configuration ID. You can obtain the configuration ID by calling the [ListHttpResponseHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetHttpResponseHeaderModificationRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

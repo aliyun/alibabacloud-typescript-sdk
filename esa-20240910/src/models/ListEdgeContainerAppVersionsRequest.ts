@@ -33,7 +33,7 @@ export class ListEdgeContainerAppVersionsRequest extends $dara.Model {
    * *   DESC: in descending order.
    * 
    * @example
-   * DESC
+   * Desc
    */
   orderType?: string;
   /**

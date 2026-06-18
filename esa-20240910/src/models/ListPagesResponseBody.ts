@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPagesResponseBodyPages extends $dara.Model {
   /**
    * @remarks
-   * The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
+   * The Base64-encoded content of the custom response page.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The Content-Type field in the HTTP header.
+   * The value of the Content-Type header in the HTTP response.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The description of the custom error page.
+   * A custom description for the response page.
    * 
    * @example
    * a custom deny page
@@ -33,7 +33,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom error page.[](~~2850223~~)
+   * The ID of the custom response page.[](~~2850223~~)
    * 
    * @example
    * 50000001
@@ -41,7 +41,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The type of the custom error page.
+   * The type of the custom response page.
    * 
    * @example
    * custom
@@ -49,7 +49,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The name of the custom error page.
+   * The name of the custom response page.
    * 
    * @example
    * example
@@ -57,7 +57,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the custom error page was last modified.
+   * The time the custom response page was last updated.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -99,7 +99,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
 export class ListPagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number returned.
+   * The current page number.
    * 
    * @example
    * 1
@@ -107,7 +107,7 @@ export class ListPagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 20
@@ -115,7 +115,7 @@ export class ListPagesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The custom error pages. Each element in the array contains error page-specific information.
+   * A list of custom response pages.
    */
   pages?: ListPagesResponseBodyPages[];
   /**
@@ -128,7 +128,7 @@ export class ListPagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of custom error pages after filtering.
+   * The total number of custom response pages that match the filter criteria.
    * 
    * @example
    * 10
@@ -136,7 +136,7 @@ export class ListPagesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The number of custom error pages that you created.
+   * The number of custom response pages that you have created.
    * 
    * @example
    * 10

@@ -48,7 +48,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
    * The CA that issued the certificate.
    * 
    * @example
-   * DCDN CA
+   * ESA CA
    */
   issuer?: string;
   /**

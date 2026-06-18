@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateWafRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
+   * An array of IDs for the newly created WAF rules. You can call the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation to obtain the details of a specific rule.
    */
   ids?: number[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -18,7 +18,7 @@ export class BatchCreateWafRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
+   * The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain this ID.
    * 
    * @example
    * 10000001

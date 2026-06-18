@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetExpressionFieldsResponseBodyFields extends $dara.Model {
   /**
    * @remarks
-   * List of match fields for a single expression.
+   * A list of match fields for the expression.
    */
   fields?: string[];
   /**
    * @remarks
-   * ID of the expression, corresponding to the ID in the input parameters.
+   * The ID of the expression. This value corresponds to the `Id` of an expression in the request.
    * 
    * @example
    * 1
@@ -45,12 +45,12 @@ export class BatchGetExpressionFieldsResponseBodyFields extends $dara.Model {
 export class BatchGetExpressionFieldsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of match fields.
+   * A list of objects, each containing the match fields for a corresponding expression.
    */
   fields?: BatchGetExpressionFieldsResponseBodyFields[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225

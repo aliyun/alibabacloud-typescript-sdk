@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WafRatelimitCharacteristicsCriteriaCriteriaCriteria extends $dara.Model {
   /**
    * @remarks
-   * The matching type.
+   * The field to match.
    * 
    * @example
    * ip.src
@@ -35,12 +35,12 @@ export class WafRatelimitCharacteristicsCriteriaCriteriaCriteria extends $dara.M
 export class WafRatelimitCharacteristicsCriteriaCriteria extends $dara.Model {
   /**
    * @remarks
-   * The details of logical databases.
+   * A list of match criteria.
    */
   criteria?: WafRatelimitCharacteristicsCriteriaCriteriaCriteria[];
   /**
    * @remarks
-   * The logical judgment.
+   * The logical relationship between the criteria.
    * 
    * @example
    * and
@@ -48,7 +48,7 @@ export class WafRatelimitCharacteristicsCriteriaCriteria extends $dara.Model {
   logic?: string;
   /**
    * @remarks
-   * The matching type.
+   * The field to match.
    * 
    * @example
    * ip.src
@@ -85,12 +85,12 @@ export class WafRatelimitCharacteristicsCriteriaCriteria extends $dara.Model {
 export class WafRatelimitCharacteristicsCriteria extends $dara.Model {
   /**
    * @remarks
-   * The details of logical databases.
+   * A list of match criteria.
    */
   criteria?: WafRatelimitCharacteristicsCriteriaCriteria[];
   /**
    * @remarks
-   * The logical judgment.
+   * The logical relationship between the criteria.
    * 
    * @example
    * and
@@ -98,7 +98,7 @@ export class WafRatelimitCharacteristicsCriteria extends $dara.Model {
   logic?: string;
   /**
    * @remarks
-   * The matching type.
+   * The field to match.
    * 
    * @example
    * ip.src
@@ -135,12 +135,12 @@ export class WafRatelimitCharacteristicsCriteria extends $dara.Model {
 export class WafRatelimitCharacteristics extends $dara.Model {
   /**
    * @remarks
-   * The details of logical databases.
+   * A list of match criteria.
    */
   criteria?: WafRatelimitCharacteristicsCriteria[];
   /**
    * @remarks
-   * The logical judgment.
+   * The logical relationship between the criteria.
    * 
    * @example
    * and
@@ -148,7 +148,7 @@ export class WafRatelimitCharacteristics extends $dara.Model {
   logic?: string;
   /**
    * @remarks
-   * The matching type.
+   * The field to match.
    * 
    * @example
    * ip.src

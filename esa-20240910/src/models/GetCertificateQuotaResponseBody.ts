@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCertificateQuotaResponseBodySiteUsage extends $dara.Model {
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * @example
    * 165929521496928
@@ -13,7 +13,7 @@ export class GetCertificateQuotaResponseBodySiteUsage extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * Site name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -21,7 +21,7 @@ export class GetCertificateQuotaResponseBodySiteUsage extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * Site usage.
+   * The number of certificates used by the site.
    * 
    * @example
    * 5
@@ -55,7 +55,7 @@ export class GetCertificateQuotaResponseBodySiteUsage extends $dara.Model {
 export class GetCertificateQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Free certificate quota.
+   * The free certificate quota.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class GetCertificateQuotaResponseBody extends $dara.Model {
   quota?: number;
   /**
    * @remarks
-   * Usage of free certificate quota.
+   * The number of used free certificates.
    * 
    * @example
    * 5
@@ -71,7 +71,7 @@ export class GetCertificateQuotaResponseBody extends $dara.Model {
   quotaUsage?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
@@ -79,7 +79,7 @@ export class GetCertificateQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Number of sites.
+   * The site count.
    * 
    * @example
    * 2
@@ -87,12 +87,12 @@ export class GetCertificateQuotaResponseBody extends $dara.Model {
   siteCount?: number;
   /**
    * @remarks
-   * List of site usage details.
+   * Details about the certificate usage for each site.
    */
   siteUsage?: GetCertificateQuotaResponseBodySiteUsage[];
   /**
    * @remarks
-   * Certificate Quota type.
+   * The certificate quota type.
    * 
    * @example
    * free

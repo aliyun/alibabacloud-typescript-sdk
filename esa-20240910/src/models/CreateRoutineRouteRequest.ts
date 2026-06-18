@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * Bypass mode Valid values:
-   * 
-   * *   on
-   * *   off
+   * The bypass mode. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -16,10 +15,9 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   bypass?: string;
   /**
    * @remarks
-   * The exception origin fetch switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent back to the origin. Valid values:
-   * 
-   * *   on
-   * *   off
+   * The fallback-to-origin switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request is forwarded to the origin server. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -27,10 +25,9 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   fallback?: string;
   /**
    * @remarks
-   * The routing switch. Valid values:
-   * 
-   * *   on
-   * *   off
+   * The route switch. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -38,7 +35,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   routeEnable?: string;
   /**
    * @remarks
-   * The name of the route.
+   * The route name.
    * 
    * @example
    * test_route
@@ -46,7 +43,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   routeName?: string;
   /**
    * @remarks
-   * The edge function name.
+   * The name of the edge function routine.
    * 
    * This parameter is required.
    * 
@@ -56,7 +53,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   routineName?: string;
   /**
    * @remarks
-   * The content of the rule.
+   * The rule content.
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -64,7 +61,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * The rule execution sequence.
    * 
    * @example
    * 1
@@ -72,7 +69,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -81,6 +78,9 @@ export class CreateRoutineRouteRequest extends $dara.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The edge routine timeout period. Valid values: 5 to 60. Unit: seconds.
+   * 
    * @example
    * 5
    */

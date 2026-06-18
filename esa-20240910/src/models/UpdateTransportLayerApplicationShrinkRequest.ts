@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Transport layer application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+   * The transport layer application ID. You can obtain this ID by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) operation.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   applicationId?: number;
   /**
    * @remarks
-   * Whether to enable China mainland network access optimization, default is disabled. Value range:
+   * Specifies whether to enable cross-border optimization for network access from the Chinese mainland. This feature is disabled by default. Valid values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enables the feature.
+   * 
+   * - off: Disables the feature.
    * 
    * @example
    * on
@@ -26,10 +27,11 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   crossBorderOptimization?: string;
   /**
    * @remarks
-   * IP access rule switch. When enabled, the IP access rules in WAF will take effect on the transport layer application.
+   * Specifies whether to enable IP access rules. If enabled, the IP access rules in WAF apply to the transport layer application. Valid values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enables the feature.
+   * 
+   * - off: Disables the feature.
    * 
    * @example
    * on
@@ -37,7 +39,7 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   ipAccessRule?: string;
   /**
    * @remarks
-   * IPv6 switch.
+   * Specifies whether to enable IPv6. Valid values: `on` and `off`.
    * 
    * @example
    * on
@@ -46,12 +48,12 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   keepAliveProtection?: string;
   /**
    * @remarks
-   * Forwarding rule list. Details of each rule. Except for the comment, all other parameters are required.
+   * A list of forwarding rules. For each rule, all parameters are required except for `Comment`.
    */
   rulesShrink?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

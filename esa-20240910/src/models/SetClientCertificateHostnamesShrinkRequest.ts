@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetClientCertificateHostnamesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain names to associate.
+   * The hostnames to bind.
    * 
    * This parameter is required.
    */
@@ -15,17 +15,17 @@ export class SetClientCertificateHostnamesShrinkRequest extends $dara.Model {
    * The ID of the client CA certificate.
    * 
    * @example
-   * babab9db65ee5efcca9f3d41d4b50d66
+   * babab9db65ee5efcca9f3d41d4b50d**
    */
   id?: string;
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1234567890123
+   * 123456789****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

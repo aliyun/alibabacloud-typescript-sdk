@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserWafRulesetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxx

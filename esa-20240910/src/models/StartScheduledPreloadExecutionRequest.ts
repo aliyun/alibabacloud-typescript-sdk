@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class StartScheduledPreloadExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the prefetch plan.
+   * Prefetch plan ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * StartScheduledPreloadExecution
+   * 665d3b48621bccf3fe29e1a7
    */
   id?: string;
   static names(): { [key: string]: string } {

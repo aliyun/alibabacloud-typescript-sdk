@@ -7,20 +7,36 @@ import { WafBatchRuleShared } from "./WafBatchRuleShared";
 export class BatchUpdateWafRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of rules.
+   * A list of configurations for individual rules.
    */
   configs?: WafRuleConfig[];
   /**
    * @remarks
-   * The WAF rule category.
+   * The WAF rule runtime phase.
+   * 
+   * - `http_whitelist`: whitelist rule
+   * 
+   * - `http_custom`: custom rule
+   * 
+   * - `http_managed`: managed rule
+   * 
+   * - `http_anti_scan`: scan protection rule
+   * 
+   * - `http_ratelimit`: rate limiting rule
+   * 
+   * - `ip_access_rule`: IP access rule
+   * 
+   * - `http_bot`: advanced bot rule
+   * 
+   * - `http_security_level_rule`: security rule
    * 
    * @example
-   * http_custom
+   * http_anti_scan
    */
   phase?: string;
   /**
    * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
+   * The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain this ID.
    * 
    * @example
    * 10000001
@@ -28,15 +44,12 @@ export class BatchUpdateWafRulesRequest extends $dara.Model {
   rulesetId?: number;
   /**
    * @remarks
-   * The configurations shared by multiple rules.
-   * 
-   * @example
-   * 10000001
+   * The configuration properties that are shared by all rules in this batch update.
    */
   shared?: WafBatchRuleShared;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
    * 
    * This parameter is required.
    * 
@@ -46,7 +59,7 @@ export class BatchUpdateWafRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the website.
+   * The version of the site configuration. For sites that have configuration version management enabled, this parameter specifies the version to which the configuration applies. The default value is 0.
    * 
    * @example
    * 0

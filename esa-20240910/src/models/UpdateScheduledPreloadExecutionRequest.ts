@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScheduledPreloadExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the prefetch plan.
+   * The end time of the scheduled preload plan.
    * 
    * @example
    * 2024-05-31T18:10:48.849+08:00
@@ -13,17 +13,17 @@ export class UpdateScheduledPreloadExecutionRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the prefetch plan.
+   * The ID of the preload plan.
    * 
    * This parameter is required.
    * 
    * @example
-   * UpdateScheduledPreloadExecution
+   * 66599bd7397885b43804901c
    */
   id?: string;
   /**
    * @remarks
-   * The time interval between each batch execution. Unit: seconds.
+   * The execution interval for each batch in the scheduled preload plan, in seconds.
    * 
    * @example
    * 60
@@ -31,7 +31,7 @@ export class UpdateScheduledPreloadExecutionRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The number of URLs prefetched in each batch.
+   * The number of URLs in each scheduled preload batch.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class UpdateScheduledPreloadExecutionRequest extends $dara.Model {
   sliceLen?: number;
   /**
    * @remarks
-   * The start time of the prefetch plan.
+   * The start time of the scheduled preload plan.
    * 
    * @example
    * 2024-05-31T17:10:48.849+08:00

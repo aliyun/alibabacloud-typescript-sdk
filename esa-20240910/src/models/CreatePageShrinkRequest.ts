@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The Base64-encoded page content. Example: "PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=", which indicates "hello page".
+   * The page content, which must be provided in BASE64 encoding. For example, the value PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4= decodes to \\<html>hello page\\</html>.
    * 
    * @example
    * PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=
@@ -13,10 +13,11 @@ export class CreatePageShrinkRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The Content-Type field in the HTTP header. Valid values:
+   * The `Content-Type` HTTP header. Examples:
    * 
-   * *   text/html
-   * *   application/json
+   * - text/html
+   * 
+   * - application/json
    * 
    * This parameter is required.
    * 

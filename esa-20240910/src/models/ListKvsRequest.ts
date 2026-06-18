@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKvsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the namespace that you specify when you call the [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * The name that you specified when you called [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListKvsRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The page number. The product of PageNumber and PageSize cannot exceed 50,000.
+   * The page number to return. The value of PageNumber \\* PageSize cannot exceed 50,000.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class ListKvsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 50. Maximum value: 100.
+   * The number of entries to return on each page. Default: **50**. Maximum: **100**.
    * 
    * @example
    * 50
@@ -31,7 +31,7 @@ export class ListKvsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The prefix to query.
+   * The prefix of the keys to return.
    * 
    * @example
    * prefix-

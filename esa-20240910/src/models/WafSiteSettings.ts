@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WafSiteSettingsAddBotProtectionHeaders extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameter is enabled.
+   * Specifies whether to add bot protection headers.
    */
   enable?: boolean;
   static names(): { [key: string]: string } {
@@ -32,7 +32,7 @@ export class WafSiteSettingsAddBotProtectionHeaders extends $dara.Model {
 export class WafSiteSettingsAddSecurityHeaders extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameter is enabled.
+   * Specifies whether to add security headers.
    */
   enable?: boolean;
   static names(): { [key: string]: string } {
@@ -57,8 +57,29 @@ export class WafSiteSettingsAddSecurityHeaders extends $dara.Model {
 }
 
 export class WafSiteSettingsBandwidthAbuseProtection extends $dara.Model {
+  /**
+   * @remarks
+   * The action to perform for the bandwidth abuse protection rule.
+   * 
+   * @example
+   * deny
+   */
   action?: string;
+  /**
+   * @remarks
+   * The rule ID for bandwidth abuse protection.
+   * 
+   * @example
+   * 10000001
+   */
   id?: number;
+  /**
+   * @remarks
+   * The status of the bandwidth abuse protection rule. Valid values: `on` and `off`.
+   * 
+   * @example
+   * on
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,7 +109,7 @@ export class WafSiteSettingsBandwidthAbuseProtection extends $dara.Model {
 export class WafSiteSettingsBotManagementDefiniteBots extends $dara.Model {
   /**
    * @remarks
-   * The action that you want to perform on requests that match the rule.
+   * The action to perform.
    * 
    * @example
    * captcha
@@ -128,7 +149,10 @@ export class WafSiteSettingsBotManagementDefiniteBots extends $dara.Model {
 export class WafSiteSettingsBotManagementEffectOnStatic extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameter is enabled.
+   * Specifies whether to apply bot management to static resource requests.
+   * 
+   * @example
+   * true
    */
   enable?: boolean;
   static names(): { [key: string]: string } {
@@ -155,7 +179,7 @@ export class WafSiteSettingsBotManagementEffectOnStatic extends $dara.Model {
 export class WafSiteSettingsBotManagementJSDetection extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameter is enabled.
+   * Specifies whether to enable JavaScript detection.
    */
   enable?: boolean;
   static names(): { [key: string]: string } {
@@ -182,7 +206,7 @@ export class WafSiteSettingsBotManagementJSDetection extends $dara.Model {
 export class WafSiteSettingsBotManagementLikelyBots extends $dara.Model {
   /**
    * @remarks
-   * The action that you want to perform on requests that match the rule.
+   * The action to perform.
    * 
    * @example
    * deny
@@ -222,7 +246,7 @@ export class WafSiteSettingsBotManagementLikelyBots extends $dara.Model {
 export class WafSiteSettingsBotManagementVerifiedBots extends $dara.Model {
   /**
    * @remarks
-   * The action that you want to perform on requests that match the rule.
+   * The action to perform.
    * 
    * @example
    * bypass
@@ -262,27 +286,27 @@ export class WafSiteSettingsBotManagementVerifiedBots extends $dara.Model {
 export class WafSiteSettingsBotManagement extends $dara.Model {
   /**
    * @remarks
-   * Definite Bots
+   * Configuration for traffic identified as a definite bot.
    */
   definiteBots?: WafSiteSettingsBotManagementDefiniteBots;
   /**
    * @remarks
-   * Takes effect on static resource requests.
+   * Configuration to apply bot management to static resource requests.
    */
   effectOnStatic?: WafSiteSettingsBotManagementEffectOnStatic;
   /**
    * @remarks
-   * JavaScript detection.
+   * The JavaScript detection settings.
    */
   JSDetection?: WafSiteSettingsBotManagementJSDetection;
   /**
    * @remarks
-   * Likely Bots
+   * Configuration for traffic identified as a likely bot.
    */
   likelyBots?: WafSiteSettingsBotManagementLikelyBots;
   /**
    * @remarks
-   * Verified Bots
+   * Configuration for traffic identified as a verified bot.
    */
   verifiedBots?: WafSiteSettingsBotManagementVerifiedBots;
   static names(): { [key: string]: string } {
@@ -332,17 +356,12 @@ export class WafSiteSettingsBotManagement extends $dara.Model {
 export class WafSiteSettingsClientIpIdentifier extends $dara.Model {
   /**
    * @remarks
-   * Specify headers.
+   * An array of headers to check for the client IP address.
    */
   headers?: string[];
   /**
    * @remarks
-   * Identifies the mode.
-   * 
-   * Enumerated values:
-   * 
-   * *   headers: specifies the headers.
-   * *   connection_ip: the IP address for establishing a connection.
+   * The identification mode.
    * 
    * @example
    * headers
@@ -375,6 +394,13 @@ export class WafSiteSettingsClientIpIdentifier extends $dara.Model {
 }
 
 export class WafSiteSettingsDisableSecurityModule extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to disable the security module. Set to `on` to disable.
+   * 
+   * @example
+   * on
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -398,8 +424,20 @@ export class WafSiteSettingsDisableSecurityModule extends $dara.Model {
 }
 
 export class WafSiteSettingsRequestBodyInspection extends $dara.Model {
+  /**
+   * @remarks
+   * The action to perform when the request body size exceeds the limit.
+   */
   action?: string;
+  /**
+   * @remarks
+   * The rule ID for request body inspection.
+   */
   id?: number;
+  /**
+   * @remarks
+   * The size limit, in bytes, for inspecting the request body.
+   */
   sizeLimit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -429,16 +467,7 @@ export class WafSiteSettingsRequestBodyInspection extends $dara.Model {
 export class WafSiteSettingsSecurityLevel extends $dara.Model {
   /**
    * @remarks
-   * The security level value.
-   * 
-   * Enumerated values:
-   * 
-   * *   high: high.
-   * *   low: low.
-   * *   under_attack: I am under attack.
-   * *   medium: medium.
-   * *   essentially_off: essentially off.
-   * *   off: completely off.
+   * The security level.
    * 
    * @example
    * low
@@ -468,30 +497,42 @@ export class WafSiteSettingsSecurityLevel extends $dara.Model {
 export class WafSiteSettings extends $dara.Model {
   /**
    * @remarks
-   * Adds a bot protection header.
+   * Configuration for adding bot protection headers.
    */
   addBotProtectionHeaders?: WafSiteSettingsAddBotProtectionHeaders;
   /**
    * @remarks
-   * Adds security request header.
+   * Configuration for adding security headers.
    */
   addSecurityHeaders?: WafSiteSettingsAddSecurityHeaders;
+  /**
+   * @remarks
+   * The bandwidth abuse protection settings.
+   */
   bandwidthAbuseProtection?: WafSiteSettingsBandwidthAbuseProtection;
   /**
    * @remarks
-   * Bot management.
+   * The bot management settings.
    */
   botManagement?: WafSiteSettingsBotManagement;
   /**
    * @remarks
-   * Identifies the IP address of the client.
+   * Configuration for client IP identification.
    */
   clientIpIdentifier?: WafSiteSettingsClientIpIdentifier;
+  /**
+   * @remarks
+   * Configuration for disabling the security module.
+   */
   disableSecurityModule?: WafSiteSettingsDisableSecurityModule;
+  /**
+   * @remarks
+   * Configuration for request body inspection.
+   */
   requestBodyInspection?: WafSiteSettingsRequestBodyInspection;
   /**
    * @remarks
-   * The security level.
+   * The security level settings.
    */
   securityLevel?: WafSiteSettingsSecurityLevel;
   static names(): { [key: string]: string } {

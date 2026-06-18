@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWafRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) API.
+   * The ID of the newly created WAF rule.
    * 
    * @example
    * 20000001
@@ -13,7 +13,7 @@ export class CreateWafRuleResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -21,7 +21,7 @@ export class CreateWafRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
+   * The ID of the ruleset to which the new rule belongs.
    * 
    * @example
    * 10000001

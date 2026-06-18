@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * List of domains, separated by commas.
+   * A comma-separated list of domain names.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ApplyCertificateRequest extends $dara.Model {
   domains?: string;
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ApplyCertificateRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The certificate type. Valid values: lets_encrypt, digicert_single, and digicert_wildcard.
+   * The certificate type. Valid values: `lets_encrypt` for a Let\\"s Encrypt certificate, `digicert_single` for a Digicert single-domain certificate, and `digicert_wildcard` for a Digicert wildcard certificate.
    * 
    * @example
    * lets_encrypt

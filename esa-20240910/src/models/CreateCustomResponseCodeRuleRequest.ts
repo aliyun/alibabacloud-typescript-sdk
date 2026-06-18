@@ -25,10 +25,11 @@ export class CreateCustomResponseCodeRuleRequest extends $dara.Model {
   returnCode?: string;
   /**
    * @remarks
-   * The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+   * Rule content. Use a conditional expression to match user requests. Do not set this parameter when adding a global configuration. There are two scenarios:
    * 
-   * *   true: Match all incoming requests.
-   * *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request.
+   * - Match all incoming requests: Set the value to true.
+   * 
+   * - Match specific requests: Set the value to a custom expression, such as: (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -36,10 +37,11 @@ export class CreateCustomResponseCodeRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+   * Rule switch. Do not set this parameter when adding a global configuration. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on: Enable.
+   * 
+   * - off: Disable.
    * 
    * @example
    * on
@@ -47,7 +49,7 @@ export class CreateCustomResponseCodeRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. You do not need to set this parameter when you add global configuration.
+   * Rule name. Do not set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -55,7 +57,7 @@ export class CreateCustomResponseCodeRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed. A smaller value gives priority to the rule.
+   * Rule execution order. A smaller value indicates higher priority.
    * 
    * @example
    * 1
@@ -63,7 +65,7 @@ export class CreateCustomResponseCodeRuleRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to get it.
    * 
    * This parameter is required.
    * 
@@ -73,7 +75,7 @@ export class CreateCustomResponseCodeRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * Site configuration version number. For sites with version management enabled, use this parameter to specify the site version where the configuration takes effect. The default is version 0.
    * 
    * @example
    * 0

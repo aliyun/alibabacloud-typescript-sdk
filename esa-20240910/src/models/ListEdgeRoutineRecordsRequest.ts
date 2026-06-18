@@ -23,10 +23,13 @@ export class ListEdgeRoutineRecordsRequest extends $dara.Model {
    * @remarks
    * The match mode to filter the record names.
    * 
-   * *   **fuzzy**: fuzzy match.
-   * *   **prefix**: match by prefix.
-   * *   **suffix**: match by suffix.
-   * *   **exact** (default): exact match .
+   * - **fuzzy**: fuzzy match.
+   * 
+   * - **prefix**: match by prefix.
+   * 
+   * - **suffix**: match by suffix.
+   * 
+   * - **exact** (default): exact match .
    * 
    * @example
    * fuzzy

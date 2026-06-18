@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Model {
   /**
+   * @remarks
+   * The SSL Certificates Service certificate ID.
+   * 
    * @example
    * 30000478
    */
   casId?: number;
   /**
    * @remarks
-   * 免费证书申请错误码
+   * The error code for the free certificate application.
    * 
    * @example
    * 2
@@ -18,7 +21,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certApplyCode?: number;
   /**
    * @remarks
-   * 免费证书申请错误说明
+   * The error description for the free certificate application.
    * 
    * @example
    * canceled
@@ -26,7 +29,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certApplyMessage?: string;
   /**
    * @remarks
-   * 证书校验HTTP名称
+   * The certificate verification HTTP address.
    * 
    * @example
    * http://custom.site.com/.well-known/acme-challenge/jLmMHlEaZ3jb352Qo3ciaSoAC8KZ5Hk0F-4_1xLQtgc
@@ -34,20 +37,23 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certHttpKey?: string;
   /**
    * @remarks
-   * 证书校验HTTP内容
+   * The certificate verification HTTP content.
    * 
    * @example
    * jLmMHlEaZ3jb352Qo3ciaSoAC8KZ5Hk0F-4_1xLQtgc.GridYdfJJB5PgFEL-t89XfaFvMPB4f2-I9fwLpKl6e0
    */
   certHttpValue?: string;
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * baba2c9e90e840b3b55698cedf02b308
    */
   certId?: string;
   /**
    * @remarks
-   * 证书过期时间
+   * The certificate expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -55,7 +61,12 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certNotAfter?: string;
   /**
    * @remarks
-   * 证书状态
+   * The certificate status. Valid values:
+   * - **OK**: Normal.
+   * - **Applying**: Being applied.
+   * - **ApplyFailed**: Application failed.
+   * - **Expiring**: About to expire.
+   * - **Expired**: Expired.
    * 
    * @example
    * OK
@@ -63,7 +74,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certStatus?: string;
   /**
    * @remarks
-   * 证书校验TXT名称
+   * The certificate verification TXT name.
    * 
    * @example
    * _acme-challenge.custom.site.com
@@ -71,7 +82,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certTxtKey?: string;
   /**
    * @remarks
-   * 证书校验TXT内容
+   * The certificate verification TXT content.
    * 
    * @example
    * lcKYad3UQXgrZLvMm_6TBUYKK4xTkGmninV0Mzx4gjM
@@ -79,7 +90,10 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certTxtValue?: string;
   /**
    * @remarks
-   * 证书类型
+   * The certificate type. Valid values:
+   * - **free**: Free certificate.
+   * - **upload**: Uploaded certificate.
+   * - **cas**: SSL Certificates Service certificate.
    * 
    * @example
    * free
@@ -87,20 +101,27 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   certType?: string;
   /**
    * @remarks
-   * 上传的证书公钥
+   * The certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
    */
   certificate?: string;
   /**
+   * @remarks
+   * The reason why the SaaS domain name is occupied. Valid values:
+   * - **existing_custom_hostname**: Conflicts with an existing SaaS domain name.
+   * - **existing_record**: Conflicts with an existing site record.
+   * - **existing_load_balancer**: Conflicts with an existing load balancing instance.
+   * - **existing_origin_pool**: Conflicts with an existing origin IPAM pool.
+   * 
    * @example
    * existing_custom_hostname
    */
   conflictWith?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the SaaS domain name was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -108,30 +129,44 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * 用户自定义的主机名
+   * The SaaS domain name.
    * 
    * @example
    * custom.site.com
    */
   hostname?: string;
   /**
+   * @remarks
+   * The ID of the SaaS domain name.
+   * 
    * @example
    * 1234567890123
    */
   hostnameId?: number;
   /**
+   * @remarks
+   * The reason why the SaaS domain name was taken offline. Valid values:
+   * - **expiration_arrears**: The subscription plan expired or the account has an overdue payment.
+   * - **internally_disabled**: Disabled by the system.
+   * - **missing_icp**: The domain name does not have an ICP filing.
+   * - **content_violation**: Content violation.
+   * - **proactively_disabled**: You proactively disabled the domain name or the usage cap that you configured was reached.
+   * 
    * @example
    * missing_icp
    */
   offlineReason?: string;
   /**
+   * @remarks
+   * The private key of the certificate.
+   * 
    * @example
    * -----BEGIN RSA PRIVATE KEY-----
    */
   privateKey?: string;
   /**
    * @remarks
-   * 绑定的源站记录ID
+   * The record ID.
    * 
    * @example
    * 4042843419650112
@@ -139,7 +174,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   recordId?: number;
   /**
    * @remarks
-   * 绑定的源站记录名
+   * The record name.
    * 
    * @example
    * origin.example.com
@@ -147,7 +182,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   recordName?: string;
   /**
    * @remarks
-   * 与主机名关联的站点ID
+   * The site ID.
    * 
    * @example
    * 890601022130656
@@ -155,7 +190,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   siteId?: number;
   /**
    * @remarks
-   * 关联站点名称
+   * The site name.
    * 
    * @example
    * example.com
@@ -163,7 +198,9 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   siteName?: string;
   /**
    * @remarks
-   * SSL开关的状态
+   * The SSL switch. Valid values:
+   * - **on**: SSL is enabled.
+   * - **off**: SSL is disabled.
    * 
    * @example
    * on
@@ -171,7 +208,12 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   sslFlag?: string;
   /**
    * @remarks
-   * 自定义主机名状态
+   * The status of the SaaS domain name. Valid values:
+   * - **pending**: Pending verification.
+   * - **active**: Activated.
+   * - **conflicted**: Occupied.
+   * - **offline**: Offline.
+   * - **configuring**: Being configured.
    * 
    * @example
    * active
@@ -179,7 +221,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * 更新时间
+   * The time when the SaaS domain name was last updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -187,7 +229,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   updateTime?: string;
   /**
    * @remarks
-   * 归属校验TXT内容
+   * The domain verification TXT content.
    * 
    * @example
    * verify_16ab7f4d389d4dff6655f995c6a997bd
@@ -195,7 +237,7 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
   verifyCode?: string;
   /**
    * @remarks
-   * 归属校验TXT名称
+   * The domain verification TXT name.
    * 
    * @example
    * _esa_custom_hostname.custom.site.com
@@ -275,10 +317,14 @@ export class GetCustomHostnameResponseBodyCustomHostnameModel extends $dara.Mode
 }
 
 export class GetCustomHostnameResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the queried SaaS domain name.
+   */
   customHostnameModel?: GetCustomHostnameResponseBodyCustomHostnameModel;
   /**
    * @remarks
-   * 本次请求的唯一标识
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request.
    * 
    * @example
    * 7C414690-9D7B-5D66-9CD9-AD0B3F25ED49

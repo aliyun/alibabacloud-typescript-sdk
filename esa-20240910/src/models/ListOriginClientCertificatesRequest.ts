@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOriginClientCertificatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number to return. The default value is **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListOriginClientCertificatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListOriginClientCertificatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The ID of the site. You can get this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * This parameter is required.
    * 

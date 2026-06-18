@@ -5,18 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCacheRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Enable caching on specified ports. Value range: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, 2096
+   * - Specifies additional ports on which caching is enabled.
+   * 
+   * - Valid values: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, and 2096.
+   * 
+   * - You can specify multiple ports, separated by commas (,).
    * 
    * @example
-   * 8880
+   * 8880,2052,2086
    */
   additionalCacheablePorts?: string;
   /**
    * @remarks
-   * Browser cache mode. Possible values:
-   * - no_cache: Do not cache.
-   * - follow_origin: Follow the origin server\\"s cache policy.
-   * - override_origin: Override the origin server\\"s cache policy.
+   * The browser cache mode. Valid values:
+   * 
+   * - `no_cache`: Disables browser caching.
+   * 
+   * - `follow_origin`: Follows the origin server cache policy.
+   * 
+   * - `override_origin`: Overrides the origin server cache policy.
    * 
    * @example
    * follow_origin
@@ -24,7 +31,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   browserCacheMode?: string;
   /**
    * @remarks
-   * Browser cache expiration time, in seconds.
+   * The browser cache TTL, in seconds.
    * 
    * @example
    * 300
@@ -32,9 +39,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   browserCacheTtl?: string;
   /**
    * @remarks
-   * Set the bypass cache mode. Possible values:
-   * - cache_all: Cache all requests.
-   * - bypass_all: Bypass cache for all requests.
+   * The bypass cache mode. Valid values:
+   * 
+   * - `cache_all`: Caches all requests.
+   * 
+   * - `bypass_all`: Bypasses the cache for all requests.
    * 
    * @example
    * cache_all
@@ -42,9 +51,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   bypassCache?: string;
   /**
    * @remarks
-   * Cache deception defense. Used to defend against web cache deception attacks; only the verified cache content will be cached. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to enable cache deception defense. This feature helps defend against web cache deception attacks. When this feature is enabled, only content that passes validation is cached. Valid values:
+   * 
+   * - `on`: Enables the defense.
+   * 
+   * - `off`: Disables the defense.
    * 
    * @example
    * on
@@ -52,9 +63,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   cacheDeceptionArmor?: string;
   /**
    * @remarks
-   * Cache retention eligibility. Used to control whether user requests bypass the cache retention node when returning to the origin. Possible values:
-   * - bypass_cache_reserve: Requests bypass cache retention.
-   * - eligible_for_cache_reserve: Eligible for cache retention.
+   * Specifies whether requests bypass cache reservation nodes during an origin fetch. Valid values:
+   * 
+   * - `bypass_cache_reserve`: The request bypasses cache reservation.
+   * 
+   * - `eligible_for_cache_reserve`: The request is eligible for cache reservation.
    * 
    * @example
    * bypass_cache_reserve
@@ -62,27 +75,45 @@ export class CreateCacheRuleRequest extends $dara.Model {
   cacheReserveEligibility?: string;
   /**
    * @remarks
-   * When generating the cache key, check if the cookie exists. If it does, add the cookie name (case-insensitive) to the cache key. Multiple cookie names are supported, separated by spaces.
+   * Specifies the cookies to check for presence when generating a cache key. If a specified cookie is present in the request, its name (case-insensitive) is included in the cache key. To specify multiple cookies, separate their names with spaces. The cookie names can contain the following characters:
+   * 
+   * - Symbols: ! # $ % & \\" \\* + - . ^ _ | \\~
+   * 
+   * - Digits: 0-9
+   * 
+   * - Letters: a-z (lowercase)
    * 
    * @example
-   * cookiename
+   * cookiename1 cookiename2
    */
   checkPresenceCookie?: string;
   /**
    * @remarks
-   * When generating the cache key, check if the header exists. If it does, add the header name (case-insensitive) to the cache key. Multiple header names are supported, separated by spaces.
+   * Specifies the headers to check for presence when generating a cache key. If a specified header is present in the request, its name (case-insensitive) is included in the cache key. To specify multiple headers, separate their names with spaces. The header names can contain the following characters:
+   * 
+   * - Symbols: ! # $ % & \\" \\* + - . ^ _ | \\~
+   * 
+   * - Digits: 0-9
+   * 
+   * - Letters: a-z (lowercase)
    * 
    * @example
-   * headername
+   * headername1 headername2
    */
   checkPresenceHeader?: string;
   /**
    * @remarks
-   * Edge cache mode. Possible values:
-   * - follow_origin: Follow the origin server\\"s cache policy (if it exists), otherwise use the default cache policy.
-   * - no_cache: Do not cache.
-   * - override_origin: Override the origin server\\"s cache policy.
-   * - follow_origin_bypass: Follow the origin server\\"s cache policy (if it exists), otherwise do not cache.
+   * The edge cache mode. Valid values:
+   * 
+   * - `follow_origin`: Follows the origin server cache policy if one exists; otherwise, uses the default cache policy.
+   * 
+   * - `no_cache`: Disables caching on the edge node.
+   * 
+   * - `override_origin`: Overrides the origin server cache policy.
+   * 
+   * - `follow_origin_bypass`: Follows the origin server cache policy if one exists; otherwise, the content is not cached.
+   * 
+   * - `follow_origin_override`: Follows the origin server cache policy if one exists; otherwise, uses a custom edge cache TTL.
    * 
    * @example
    * follow_origin
@@ -90,7 +121,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   edgeCacheMode?: string;
   /**
    * @remarks
-   * Edge cache expiration time, in seconds.
+   * The edge cache TTL, in seconds.
    * 
    * @example
    * 300
@@ -98,42 +129,77 @@ export class CreateCacheRuleRequest extends $dara.Model {
   edgeCacheTtl?: string;
   /**
    * @remarks
-   * Status code cache expiration time, in seconds.
+   * The status code cache TTL, in seconds.
+   * 
+   * - You can set the cache TTL for a specific status code. For example, `404=10` caches responses with a 404 status code for 10 seconds.
+   * 
+   * - You can set the cache TTL for a series of status codes, such as 4xx or 5xx. For example, `4xx=10` caches all responses that have a status code in the 4xx series for 10 seconds.
+   * 
+   * - You can specify multiple status code TTLs, separated by commas (,).
    * 
    * @example
-   * 300
+   * 5xx=0,404=10
    */
   edgeStatusCodeCacheTtl?: string;
   /**
    * @remarks
-   * When generating the cache key, add the specified cookie names and their values. Multiple values are supported, separated by spaces.
+   * The cookies to include in the cache key. Both the cookie names (case-insensitive) and their values are included. Separate multiple cookie names with spaces. The cookie names can contain the following characters:
+   * 
+   * - Symbols: ! # $ % & \\" \\* + - . ^ _ | \\~
+   * 
+   * - Digits: 0-9
+   * 
+   * - Letters: a-z (lowercase)
    * 
    * @example
-   * cookie_exapmle
+   * cookiename1 cookiename2
    */
   includeCookie?: string;
   /**
    * @remarks
-   * When generating the cache key, add the specified header names and their values. Multiple values are supported, separated by spaces.
+   * The headers to include in the cache key. Both the header names (case-insensitive) and their values are included. Separate multiple header names with spaces. The header names can contain the following characters:
+   * 
+   * - Symbols: ! # $ % & \\" \\* + - . ^ _ | \\~
+   * 
+   * - Digits: 0-9
+   * 
+   * - Letters: a-z (lowercase)
    * 
    * @example
-   * example
+   * headername1 headername2
    */
   includeHeader?: string;
   /**
+   * @remarks
+   * Specifies how to process the request body when generating a cache key for POST requests. The following modes are supported:
+   * 
+   * - `md5`: Calculates the MD5 hash of the request body and adds the hash value to the cache key.
+   * 
+   * - `ignore`: Ignores the request body when the cache key is generated.
+   * 
    * @example
    * ignore
    */
   postBodyCacheKey?: string;
+  /**
+   * @remarks
+   * The size limit for the request body when using POST request caching, in KB. Supported values range from 1 to 8. If unspecified, the default is 8 KB.
+   * 
+   * @example
+   * 1
+   */
   postBodySizeLimit?: string;
   /**
+   * @remarks
+   * Specifies whether to enable POST request caching.
+   * 
    * @example
    * on
    */
   postCache?: string;
   /**
    * @remarks
-   * Query strings to be reserved or excluded. Multiple values are supported, separated by spaces.
+   * The query strings to include in or exclude from the cache key. Separate multiple query strings with spaces.
    * 
    * @example
    * example
@@ -141,11 +207,15 @@ export class CreateCacheRuleRequest extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * The processing mode for query strings when generating the cache key. Possible values:
-   * - ignore_all: Ignore all.
-   * - exclude_query_string: Exclude specified query strings.
-   * - reserve_all: Default, reserve all.
-   * - include_query_string: Include specified query strings.
+   * The mode for processing query strings when generating a cache key. Valid values:
+   * 
+   * - `ignore_all`: Ignores all query strings.
+   * 
+   * - `exclude_query_string`: Excludes specified query strings.
+   * 
+   * - `reserve_all`: Includes all query strings (the default).
+   * 
+   * - `include_query_string`: Includes only specified query strings.
    * 
    * @example
    * reserve_all
@@ -153,9 +223,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   queryStringMode?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The content of the rule, which is a conditional expression used to match user requests. This parameter is not required for a global configuration.
+   * 
+   * - To match all requests, set the value to `true`.
+   * 
+   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -163,9 +235,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to enable the rule. This parameter is not required for a global configuration. Valid values:
+   * 
+   * - `on`: Enables the rule.
+   * 
+   * - `off`: Disables the rule.
    * 
    * @example
    * on
@@ -173,18 +247,27 @@ export class CreateCacheRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter is not required for a global configuration.
    * 
    * @example
    * rule_example
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * The execution order of the rule. A smaller number indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
   /**
    * @remarks
-   * Serve stale cache. When enabled, the node can still use the expired cached files to respond to user requests even if the origin server is unavailable. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to serve stale content. If enabled, an edge node can serve stale (expired) content when the origin server is unavailable. Valid values:
+   * 
+   * - `on`: Enables serving stale content.
+   * 
+   * - `off`: Disables serving stale content.
    * 
    * @example
    * on
@@ -192,7 +275,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   serveStale?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to get this ID.
    * 
    * This parameter is required.
    * 
@@ -202,7 +285,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version for the configuration to take effect. The default is version 0.
+   * The site configuration version. For sites with version management enabled, this parameter specifies the site version to which the configuration applies.
    * 
    * @example
    * 1
@@ -210,9 +293,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Query string sorting, disabled by default. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to sort query strings. This feature is disabled by default. Valid values:
+   * 
+   * - `on`: Enables sorting.
+   * 
+   * - `off`: Disables sorting.
    * 
    * @example
    * on
@@ -220,9 +305,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   sortQueryStringForCache?: string;
   /**
    * @remarks
-   * When generating the cache key, include the client device type. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to include the client device type in the cache key. Valid values:
+   * 
+   * - `on`: Includes the client device type.
+   * 
+   * - `off`: Does not include the client device type.
    * 
    * @example
    * on
@@ -230,9 +317,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   userDeviceType?: string;
   /**
    * @remarks
-   * Include the client\\"s geographical location when generating the cache key. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to include the client\\"s geographic location in the cache key. Valid values:
+   * 
+   * - `on`: Includes the geographic location.
+   * 
+   * - `off`: Does not include the geographic location.
    * 
    * @example
    * on
@@ -240,9 +329,11 @@ export class CreateCacheRuleRequest extends $dara.Model {
   userGeo?: string;
   /**
    * @remarks
-   * Include the client\\"s language type when generating the cache key. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to include the client\\"s language in the cache key. Valid values:
+   * 
+   * - `on`: Includes the language.
+   * 
+   * - `off`: Does not include the language.
    * 
    * @example
    * on

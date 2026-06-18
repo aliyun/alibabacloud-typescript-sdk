@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The business type. Valid values:
    * 
-   * *   **dcdn_log_access_l1** (default): access logs.
-   * *   **dcdn_log_er**: Edge Routine logs.
-   * *   **dcdn_log_waf**: firewall logs.
-   * *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1** (default): access log.
+   * 
+   * - **dcdn_log_er**: edge function log.
+   * 
+   * - **dcdn_log_waf**: WAF log.
+   * 
+   * - **dcdn_log_ipa**: Layer 4 acceleration log.
    * 
    * @example
    * dcdn_log_er
@@ -20,8 +23,9 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
    * @remarks
    * The data center. Valid values:
    * 
-   * *   cn: the Chinese mainland.
-   * *   sg: outside the Chinese mainland.
+   * - **cn**: Chinese mainland
+   * 
+   * - **sg**: Global (excluding the Chinese mainland)
    * 
    * @example
    * cn
@@ -29,14 +33,19 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The destination of the delivery. Valid values:
+   * The delivery type. Valid values:
    * 
-   * *   sls: Alibaba Cloud Simple Log Service (SLS).
-   * *   http: HTTP server.
-   * *   aws3: Amazon Simple Storage Service (S3).
-   * *   oss: Alibaba Cloud Object Storage Service (OSS).
-   * *   kafka: Kafka.
-   * *   aws3cmpt: S3-compatible storage service.
+   * - **sls**: Log Service
+   * 
+   * - **http**: HTTP service
+   * 
+   * - **aws3**: Amazon S3
+   * 
+   * - **oss**: OSS
+   * 
+   * - **kafka**: Kafka service
+   * 
+   * - **aws3cmpt**: Amazon S3-compatible service
    * 
    * @example
    * oss
@@ -53,7 +62,7 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The fields.
+   * A comma-separated list of fields.
    * 
    * @example
    * ClientRequestID,ClientRequestHost
@@ -61,7 +70,7 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   fieldList?: string;
   /**
    * @remarks
-   * The filtering rules.
+   * The filter rules.
    * 
    * @example
    * [{"ClientSSLProtocol": {"equals": ["TLSv1.3"]}}]
@@ -87,7 +96,7 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   sinkConfig?: any;
   /**
    * @remarks
-   * The status of the delivery task.
+   * The task status.
    * 
    * @example
    * online
@@ -95,7 +104,7 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * @example
    * testoss11

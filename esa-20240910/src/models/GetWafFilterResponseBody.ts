@@ -6,7 +6,7 @@ import { WafQuotaInteger } from "./WafQuotaInteger";
 export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.Model {
   /**
    * @remarks
-   * The error message when the validation fails.
+   * The error message returned when validation fails.
    * 
    * @example
    * Enter a valid expression
@@ -14,12 +14,12 @@ export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.M
   errMsg?: string;
   /**
    * @remarks
-   * The length of the value.
+   * The length limit for the value.
    */
   length?: WafQuotaInteger;
   /**
    * @remarks
-   * The regular expression pattern of the value, which is used to validate strings.
+   * The regular expression pattern for the value.
    * 
    * @example
    * ^example$
@@ -27,7 +27,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.M
   pattern?: string;
   /**
    * @remarks
-   * The range of the value, which is used to validate numbers.
+   * The value range for numeric validation.
    */
   range?: WafQuotaInteger;
   static names(): { [key: string]: string } {
@@ -66,35 +66,52 @@ export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.M
 export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   /**
    * @remarks
-   * A custom attribute. For example, this parameter can specify whether the value is case-sensitive.
+   * Configurable attributes, such as case sensitivity.
    * 
    * @example
    * 1
    */
   attributes?: number;
+  /**
+   * @remarks
+   * Indicates whether the current plan supports this operator.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
   /**
    * @remarks
-   * The type of the value input box. Valid values:
+   * The input type for the value. Valid values:
    * 
-   * *   select:single
-   * *   select:multi
-   * *   input:single
-   * *   input:multi
+   * - `select:single`: A single-select input.
+   * 
+   * - `select:multi`: A multi-select input.
+   * 
+   * - `input:single`: A single-value text input.
+   * 
+   * - `input:multi`: A multi-value text input.
    * 
    * @example
    * input:single
    */
   kind?: string;
+  /**
+   * @remarks
+   * The minimum plan that supports this operator, provided the current plan does not.
+   * 
+   * @example
+   * high
+   */
   minPlan?: string;
   /**
    * @remarks
-   * Indicates whether the match result is inverted.
+   * Indicates whether to negate the match result.
    */
   negative?: boolean;
   /**
    * @remarks
-   * The displayed matching characters.
+   * The label for the operator.
    * 
    * @example
    * Does not equal
@@ -102,7 +119,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The matching characters in the system.
+   * The internal identifier for the operator.
    * 
    * @example
    * eq
@@ -110,7 +127,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   symbol?: string;
   /**
    * @remarks
-   * The tip on how to enter a valid value that is required by the rules.
+   * A hint for entering a valid value.
    * 
    * @example
    * e.g. image/jpeg
@@ -120,10 +137,13 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
    * @remarks
    * The type of the value. Valid values:
    * 
-   * *   integer
-   * *   integer_slice
-   * *   string
-   * *   string_slice
+   * - `integer`: An integer.
+   * 
+   * - `integer_slice`: An integer array.
+   * 
+   * - `string`: A string.
+   * 
+   * - `string_slice`: A string array.
    * 
    * @example
    * string
@@ -131,7 +151,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The validator, which defines the validation rules for a value.
+   * The validator, which defines validation rules for the value.
    */
   validator?: GetWafFilterResponseBodyFilterFieldsLogicsValidator;
   static names(): { [key: string]: string } {
@@ -179,7 +199,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
 export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $dara.Model {
   /**
    * @remarks
-   * The label of the data.
+   * The label for the data option.
    * 
    * @example
    * China
@@ -187,7 +207,7 @@ export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $dara.Mode
   label?: string;
   /**
    * @remarks
-   * The value of the data.
+   * The value of the data option.
    * 
    * @example
    * CN
@@ -219,12 +239,12 @@ export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $dara.Mode
 export class GetWafFilterResponseBodyFilterFieldsSelector extends $dara.Model {
   /**
    * @remarks
-   * The data. This parameter is available only when the value of the Kind parameter is data.
+   * A list of data options available when the selector `Kind` is `data`.
    */
   data?: GetWafFilterResponseBodyFilterFieldsSelectorData[];
   /**
    * @remarks
-   * The type of selector. Valid values: data and others.
+   * The selector type, which indicates whether it targets data items or other entities.
    * 
    * @example
    * data
@@ -257,10 +277,17 @@ export class GetWafFilterResponseBodyFilterFieldsSelector extends $dara.Model {
 }
 
 export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the current plan supports this match object.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
   /**
    * @remarks
-   * The field for matched objects in the system.
+   * The internal key for the match object.
    * 
    * @example
    * http.request.headers
@@ -268,7 +295,7 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The label of the matched object.
+   * The label for the match object.
    * 
    * @example
    * Header
@@ -276,18 +303,25 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The logical conditions.
+   * A list of logical operators that define the matching conditions.
    */
   logics?: GetWafFilterResponseBodyFilterFieldsLogics[];
+  /**
+   * @remarks
+   * The minimum plan that supports this match object, provided the current plan does not.
+   * 
+   * @example
+   * high
+   */
   minPlan?: string;
   /**
    * @remarks
-   * The selector, which defines how to select a matched object.
+   * The selector, which defines how to select the match object.
    */
   selector?: GetWafFilterResponseBodyFilterFieldsSelector;
   /**
    * @remarks
-   * Indicates whether the matched object contains a subfield.
+   * Indicates whether the match object includes subfields.
    * 
    * @example
    * true
@@ -295,7 +329,7 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   sub?: boolean;
   /**
    * @remarks
-   * The tip on how to enter a subfield.
+   * A hint for entering the subfield value.
    * 
    * @example
    * e.g. Content-Type
@@ -345,12 +379,12 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
 export class GetWafFilterResponseBodyFilter extends $dara.Model {
   /**
    * @remarks
-   * The matched objects and related properties.
+   * A list of match objects and their properties.
    */
   fields?: GetWafFilterResponseBodyFilterFields[];
   /**
    * @remarks
-   * The WAF rule category.
+   * The phase at which the WAF processes requests.
    * 
    * @example
    * http_bot
@@ -358,7 +392,7 @@ export class GetWafFilterResponseBodyFilter extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The condition for matching incoming requests.
+   * The target of the matching engine.
    * 
    * @example
    * characteristics
@@ -405,7 +439,7 @@ export class GetWafFilterResponseBodyFilter extends $dara.Model {
 export class GetWafFilterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned match conditions.
+   * The returned matching engine configuration.
    */
   filter?: GetWafFilterResponseBodyFilter;
   /**

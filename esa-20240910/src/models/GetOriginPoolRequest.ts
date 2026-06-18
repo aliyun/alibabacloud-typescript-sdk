@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOriginPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the origin pool, which can be obtained by calling the [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html) interface.
+   * The origin pool ID. To get it, call [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetOriginPoolRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the site, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. To get it, call [ListSites](https://help.aliyun.com/document_detail/2850189.html).
    * 
    * This parameter is required.
    * 

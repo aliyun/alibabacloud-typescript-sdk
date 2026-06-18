@@ -6,12 +6,12 @@ import { WafRuleConfig } from "./WafRuleConfig";
 export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * Rule configuration.
+   * The rule configuration.
    */
   config?: WafRuleConfig;
   /**
    * @remarks
-   * Rule name.
+   * The rule name.
    * 
    * @example
    * HTTP Directory Traversal Rule [Template]
@@ -19,7 +19,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * WAF operation phase.
+   * The WAF running phase.
    * 
    * @example
    * http_anti_scan
@@ -27,7 +27,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Rule status.
+   * The rule status.
    * 
    * @example
    * on
@@ -35,7 +35,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Rule type.
+   * The rule type.
    * 
    * @example
    * http_directory_traversal
@@ -76,7 +76,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
 export class ListWafTemplateRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -84,7 +84,7 @@ export class ListWafTemplateRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of returned template rules.
+   * A list of template rules.
    */
   rules?: ListWafTemplateRulesResponseBodyRules[];
   static names(): { [key: string]: string } {

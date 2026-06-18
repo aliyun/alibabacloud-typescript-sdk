@@ -7,11 +7,15 @@ export class CheckSiteNameResponseBody extends $dara.Model {
    * @remarks
    * The description of the verification result. Valid values:
    * 
-   * *   **success**: The verification is successful.
-   * *   **Site.AlreadyExist**: The website domain name has already been added.
-   * *   **Site.InvalidName**: Invalid website domain name.
-   * *   **Site.SubSiteUnavailable**: Subdomains are not allowed.
-   * *   **Site.InternalError**: An internal error occurs.
+   * - **success**: The verification is successful.
+   * 
+   * - **Site.AlreadyExist**: The website domain name has already been added.
+   * 
+   * - **Site.InvalidName**: Invalid website domain name.
+   * 
+   * - **Site.SubSiteUnavailable**: Subdomains are not allowed.
+   * 
+   * - **Site.InternalError**: An internal error occurs.
    * 
    * @example
    * success
@@ -21,8 +25,9 @@ export class CheckSiteNameResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether a subdomain is specified. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -31,14 +36,18 @@ export class CheckSiteNameResponseBody extends $dara.Model {
   /**
    * @remarks
    * The verification message.
+   * 
+   * @example
+   * Site name is available.
    */
   messeage?: string;
   /**
    * @remarks
    * Indicates whether the verification passed.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

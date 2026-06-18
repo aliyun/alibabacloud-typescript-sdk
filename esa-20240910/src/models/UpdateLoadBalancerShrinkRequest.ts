@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration for fallback across pools.
+   * Configures origin-pull behavior across address pools.
    */
   adaptiveRoutingShrink?: string;
   /**
    * @remarks
-   * List of default pool IDs.
+   * A list of default address pool IDs.
    */
   defaultPoolsShrink?: string;
   /**
    * @remarks
-   * Detailed description of the load balancer, for easier management and identification.
+   * An optional description of the load balancer for easier identification and management.
    * 
    * @example
    * Load balancer description
@@ -23,10 +23,11 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether the load balancer is enabled.
+   * Specifies whether the load balancer is enabled.
    * 
-   * - true: Enabled.
-   * - false: Not enabled.
+   * - `true`: The load balancer is enabled.
+   * 
+   * - `false`: The load balancer is disabled.
    * 
    * @example
    * true
@@ -34,7 +35,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Fallback pool ID, where traffic will be directed when all other pools are unavailable.
+   * The ID of the fallback address pool. Traffic is routed to this pool when all other address pools are unavailable.
    * 
    * @example
    * 96228666776****
@@ -42,7 +43,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) API.
+   * The ID of the load balancer. You can obtain this ID by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) API operation.
    * 
    * This parameter is required.
    * 
@@ -52,17 +53,17 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Monitor configuration for health checks.
+   * The health check monitor configuration.
    */
   monitorShrink?: string;
   /**
    * @remarks
-   * Weighted round-robin configuration, used to control the traffic distribution weights among different pools.
+   * The configuration for weighted round-robin. This setting controls the weight of traffic distributed to different address pools.
    */
   randomSteeringShrink?: string;
   /**
    * @remarks
-   * Address pool corresponding to the primary region.
+   * A map of primary regions to their corresponding address pools.
    * 
    * @example
    * {
@@ -78,7 +79,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   regionPools?: any;
   /**
    * @remarks
-   * Rule configuration list, used to define behavior overrides under specific conditions.
+   * A list of rules that define behavior overrides for specific conditions.
    * 
    * **if can be null:**
    * false
@@ -86,10 +87,13 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   rulesShrink?: string;
   /**
    * @remarks
-   * Session persistence, with possible values:
-   * - off: Not enabled.
-   * - ip: Session persistence by IP.
-   * - cookie: Session persistence by cookie.
+   * The method for session affinity, which ensures that requests from the same client are routed to the same origin server. Valid values:
+   * 
+   * - `off`: Disables session affinity.
+   * 
+   * - `ip`: Enables session affinity based on the client IP address.
+   * 
+   * - `cookie`: Enables session affinity based on a cookie.
    * 
    * @example
    * ip
@@ -97,7 +101,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   sessionAffinity?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The ID of the Site. You can obtain this ID by calling the [ListSites](~~ListSites~~) API operation.
    * 
    * This parameter is required.
    * 
@@ -107,7 +111,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Load balancing policy.
+   * The traffic steering policy, which determines how traffic is distributed among the address pools.
    * 
    * @example
    * order
@@ -115,7 +119,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * Address pool corresponding to the secondary region. When multiple secondary regions share the same address pool, the regions can be concatenated with commas as the key.
+   * A map of secondary regions to their corresponding address pools. To assign the same address pools to multiple secondary regions, combine their codes into a single, comma-separated key.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -123,7 +127,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   subRegionPools?: any;
   /**
    * @remarks
-   * TTL value, the time-to-live for DNS records, with a default of 30 and a range of 10-600.
+   * The Time to Live (TTL) for the DNS record, in seconds. The default is 30. The value must be between 10 and 600, inclusive.
    * 
    * @example
    * 300

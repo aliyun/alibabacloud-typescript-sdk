@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerAppResourceCapacityRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * The ID of the application. To obtain the application ID, call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
    * 
    * This parameter is required.
    * 

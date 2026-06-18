@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineRequest extends $dara.Model {
   /**
    * @remarks
-   * The routine name.
+   * The name of the edge function Routine.
    * 
    * This parameter is required.
    * 
    * @example
-   * GetRoutine
+   * test-routine1
    */
   name?: string;
   static names(): { [key: string]: string } {

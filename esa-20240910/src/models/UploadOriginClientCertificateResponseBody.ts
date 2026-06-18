@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -21,7 +21,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   fingerprintSha256?: string;
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * @example
    * babaabcd****
@@ -29,7 +29,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The CA that issued the certificate.
+   * The issuer of the certificate.
    * 
    * @example
    * GlobalSign nv-sa
@@ -37,7 +37,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The end of the certificate\\"s validity period (`not after`). The timestamp is in UTC and formatted in ISO 8601.
    * 
    * @example
    * 2024-12-01T02:13:07Z
@@ -45,7 +45,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The start of the certificate\\"s validity period (`not before`). The timestamp is in UTC and formatted in ISO 8601.
    * 
    * @example
    * 2023-12-01T02:13:07Z
@@ -85,7 +85,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The validity period of the certificate. Unit: day.
+   * The validity period of the certificate in days.
    * 
    * @example
    * 365

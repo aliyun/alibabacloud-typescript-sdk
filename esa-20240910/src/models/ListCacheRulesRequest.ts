@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCacheRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -13,11 +13,13 @@ export class ListCacheRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule-based configurations. Possible values:
-   * - global: Query global configuration.
-   * - rule: Query rule-based configuration.
+   * The configuration type. You can use this parameter to retrieve the global configuration or rule configurations. Valid values:
    * 
-   * This parameter is optional; if not provided, it will not distinguish between global and rule-based configurations.
+   * - `global`: Returns the global configuration.
+   * 
+   * - `rule`: Returns rule configurations.
+   * 
+   * This parameter is optional. If you omit this parameter, both global and rule configurations are returned.
    * 
    * @example
    * global
@@ -25,7 +27,7 @@ export class ListCacheRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Page number, defaulting to 1 if not provided.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -33,7 +35,7 @@ export class ListCacheRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page, with a maximum of 500. Defaults to 500 if not provided.
+   * The number of entries per page. The maximum value is 500. The default value is 500.
    * 
    * @example
    * 20
@@ -41,7 +43,7 @@ export class ListCacheRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter is not required for a global configuration.
    * 
    * @example
    * test
@@ -49,7 +51,7 @@ export class ListCacheRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can get this ID by calling the [ListSites](~~ListSites~~) API.
    * 
    * This parameter is required.
    * 
@@ -59,7 +61,7 @@ export class ListCacheRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
+   * The site version. For a site with version management enabled, this parameter specifies the version to which the configuration applies. The default value is 0.
    * 
    * @example
    * 1

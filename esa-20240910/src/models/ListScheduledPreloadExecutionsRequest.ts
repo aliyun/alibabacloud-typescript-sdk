@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledPreloadExecutionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the scheduled prefetch task.
+   * The ID of the scheduled preload task.
    * 
    * This parameter is required.
    * 
    * @example
-   * ListScheduledPreloadExecutions
+   * 665d3af3621bccf3fe29e1a4
    */
   id?: string;
   static names(): { [key: string]: string } {

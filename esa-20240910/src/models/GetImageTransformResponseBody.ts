@@ -15,7 +15,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   autoWebp?: string;
   /**
    * @remarks
-   * Configuration ID.
+   * The config ID.
    * 
    * @example
    * 352816096987136
@@ -23,9 +23,11 @@ export class GetImageTransformResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - global: Global configuration;
-   * - rule: Rule-based configuration;
+   * The configuration type. Valid values:
+   * 
+   * - global: The global configuration.
+   * 
+   * - rule: A rule configuration.
    * 
    * @example
    * global
@@ -33,8 +35,10 @@ export class GetImageTransformResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Whether to enable image transformation. Possible values:
+   * Indicates whether image transformation is enabled. Valid values:
+   * 
    * - on: Enabled.
+   * 
    * - off: Disabled.
    * 
    * @example
@@ -43,7 +47,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -51,9 +55,11 @@ export class GetImageTransformResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The conditional expression of the rule, used to match user requests. This parameter is relevant only for a rule configuration.
+   * 
+   * - A value of true matches all incoming requests.
+   * 
+   * - A custom expression, such as (http.host eq "video.example.com"), matches specific requests.
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -61,8 +67,10 @@ export class GetImageTransformResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * The status of the rule. This parameter is relevant only for a rule configuration. Valid values:
+   * 
    * - on: Enabled.
+   * 
    * - off: Disabled.
    * 
    * @example
@@ -71,7 +79,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter does not need to be set when adding global configuration.
+   * The rule name. This parameter is relevant only for a rule configuration.
    * 
    * @example
    * test
@@ -79,7 +87,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The execution sequence of the rule. A smaller value indicates a higher execution priority.
    * 
    * @example
    * 2
@@ -87,7 +95,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, this parameter can specify the effective version of the site, defaulting to version 0.
+   * The version number of the site configuration. For a site that has configuration versioning enabled, this value indicates the version to which the configuration applies. The default value is 0.
    * 
    * @example
    * 0

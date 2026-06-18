@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCertificateQuotaRequest extends $dara.Model {
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain this ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCertificateQuotaRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Certificate Quota type.
+   * The certificate quota type.
    * 
    * This parameter is required.
    * 

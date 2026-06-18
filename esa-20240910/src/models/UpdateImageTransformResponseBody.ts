@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageTransformResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368

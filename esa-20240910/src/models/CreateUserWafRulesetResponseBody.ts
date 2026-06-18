@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUserWafRulesetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The WAF ruleset ID.
+   * 
    * @example
    * 665d3af3621bccf3fe29e1a4
    */
   id?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of rule IDs within the WAF ruleset.
+   */
   ruleIds?: number[];
   static names(): { [key: string]: string } {
     return {

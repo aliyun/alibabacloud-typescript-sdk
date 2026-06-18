@@ -20,7 +20,7 @@ export class GetRoutineCodeVersionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * GetRoutineCodeVersion
+   * test-routine1
    */
   name?: string;
   static names(): { [key: string]: string } {

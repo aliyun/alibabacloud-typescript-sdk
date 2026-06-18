@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   /**
    * @remarks
-   * Client IP pass-through protocol, supports:
-   * - **off**: No pass-through.
-   * - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
-   * - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
-   * - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
+   * Specifies the protocol for client IP pass-through. Valid values:
+   * 
+   * - **off**: Disables client IP pass-through.
+   * 
+   * - **PPv1**: PROXY Protocol v1. Supports client IP pass-through for the TCP protocol.
+   * 
+   * - **PPv2**: PROXY Protocol v2. Supports client IP pass-through for both TCP and UDP protocols.
+   * 
+   * - **SPP**: Simple Proxy Protocol. Supports client IP pass-through for the UDP protocol.
    * 
    * @example
    * SPP
@@ -17,7 +21,7 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   clientIPPassThroughMode?: string;
   /**
    * @remarks
-   * Comment information for the rule.
+   * An optional comment for the forwarding rule.
    * 
    * @example
    * 123
@@ -25,12 +29,15 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Edge port. Supports:
+   * The edge port. The following formats are supported:
    * 
-   * - A single port, e.g., 80.
-   * - Port range, e.g., 81-85, representing ports 81, 82, 83, 84, 85.
-   * - Combination of ports and port ranges, separated by commas, e.g., 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
-   * - Edge ports within a single rule and between multiple rules must not overlap.
+   * - A single port, for example, `80`.
+   * 
+   * - A port range, for example, `81-85`. This range includes ports 81, 82, 83, 84, and 85.
+   * 
+   * - A combination of ports and port ranges separated by commas, for example, `80,81-85,90`. This includes ports 80, 81, 82, 83, 84, 85, and 90.
+   * 
+   * - Edge ports cannot overlap within a single rule or across multiple rules.
    * 
    * @example
    * 80
@@ -38,10 +45,11 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   edgePort?: string;
   /**
    * @remarks
-   * Forwarding rule protocol, supports:
+   * The forwarding protocol. Valid values:
    * 
-   * - TCP: TCP protocol.
-   * - UDP: UDP protocol.
+   * - TCP: Transmission Control Protocol.
+   * 
+   * - UDP: User Datagram Protocol.
    * 
    * @example
    * TCP
@@ -49,7 +57,7 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Specific value of the source.
+   * The source, which must correspond to the specified `SourceType`. For example, if `SourceType` is `ip`, this parameter must be an IP address.
    * 
    * @example
    * 1.1.1.1
@@ -57,10 +65,11 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Source port. Supports:
+   * The source port. The following formats are supported:
    * 
-   * - A single port, when the source port is a single port, any valid edge port combination is supported.
-   * - Port range, only when the edge port is a port range, the source port can be set as a port range, and the size of the range must match that of the edge port. For example, if the edge port is 90-93, the source port cannot be set to 81-85 because the source port range is 5 and the edge port range is 3, which do not match.
+   * - A single port. When a single source port is used, any valid format can be used for the edge port.
+   * 
+   * - A port range. You can specify a port range for the source port only if the edge port is also a port range, and their sizes must match. For example, if `EdgePort` is `90-93`, you cannot set `SourcePort` to `81-85` because their sizes (4 and 5 ports, respectively) do not match.
    * 
    * @example
    * 80
@@ -68,11 +77,15 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   sourcePort?: string;
   /**
    * @remarks
-   * Source type, supports:
-   * - **ip**: IP address.
-   * - **domain**: Domain name.
-   * - **OP**: Origin pool.
-   * - **LB**: Load balancer.
+   * The type of the source. Valid values:
+   * 
+   * - **ip**: An IP address.
+   * 
+   * - **domain**: A domain name.
+   * 
+   * - **OP**: An origin pool.
+   * 
+   * - **LB**: A load balancer.
    * 
    * @example
    * ip
@@ -114,7 +127,7 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
 export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * Transport layer application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+   * The transport layer application ID. You can obtain this ID by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) operation.
    * 
    * This parameter is required.
    * 
@@ -124,10 +137,11 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   applicationId?: number;
   /**
    * @remarks
-   * Whether to enable China mainland network access optimization, default is disabled. Value range:
+   * Specifies whether to enable cross-border optimization for network access from the Chinese mainland. This feature is disabled by default. Valid values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enables the feature.
+   * 
+   * - off: Disables the feature.
    * 
    * @example
    * on
@@ -135,10 +149,11 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   crossBorderOptimization?: string;
   /**
    * @remarks
-   * IP access rule switch. When enabled, the IP access rules in WAF will take effect on the transport layer application.
+   * Specifies whether to enable IP access rules. If enabled, the IP access rules in WAF apply to the transport layer application. Valid values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enables the feature.
+   * 
+   * - off: Disables the feature.
    * 
    * @example
    * on
@@ -146,7 +161,7 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   ipAccessRule?: string;
   /**
    * @remarks
-   * IPv6 switch.
+   * Specifies whether to enable IPv6. Valid values: `on` and `off`.
    * 
    * @example
    * on
@@ -155,12 +170,12 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   keepAliveProtection?: string;
   /**
    * @remarks
-   * Forwarding rule list. Details of each rule. Except for the comment, all other parameters are required.
+   * A list of forwarding rules. For each rule, all parameters are required except for `Comment`.
    */
   rules?: UpdateTransportLayerApplicationRequestRules[];
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

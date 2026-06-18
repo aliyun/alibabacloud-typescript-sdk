@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the load balancer, used to uniquely identify the load balancer to be queried. This ID is returned directly when the load balancer is created, or it can be obtained through the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface for querying all load balancers under a site.
+   * The ID of the load balancer. This ID is returned when the load balancer is created. You can also call [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) to get the IDs of all load balancers in a site.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetLoadBalancerRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The ID of the site. Call [ListSites](~~ListSites~~) to get this ID.
    * 
    * This parameter is required.
    * 

@@ -8,7 +8,7 @@ export class ListUserRoutinesRequest extends $dara.Model {
    * The page number of the returned page. Default value: 1. Valid values: 1 to 10.
    * 
    * @example
-   * ListUserRoutines
+   * 1
    */
   pageNumber?: number;
   /**

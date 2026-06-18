@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHttpDDoSAttackRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The current page number. Default value: 1. Valid values: **1** to **65535**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class DescribeHttpDDoSAttackRulesRequest extends $dara.Model {
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The business type. Valid values:
    * 
-   * *   **dcdn_log_access_l1** (default): access logs.
-   * *   **dcdn_log_er**: Edge Routine logs.
-   * *   **dcdn_log_waf**: firewall logs.
-   * *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1** (default): access log.
+   * 
+   * - **dcdn_log_er**: edge function log.
+   * 
+   * - **dcdn_log_waf**: WAF protection log.
+   * 
+   * - **dcdn_log_ipa**: Layer-4 acceleration log.
    * 
    * This parameter is required.
    * 
@@ -22,8 +25,9 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The data center. Valid values:
    * 
-   * *   cn: the Chinese mainland.
-   * *   oversea: outside the Chinese mainland.
+   * - **cn**: Chinese mainland.
+   * 
+   * - **oversea**: regions outside the Chinese mainland.
    * 
    * @example
    * cn
@@ -31,14 +35,19 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The destination of the delivery. Valid values:
+   * The type of the delivery destination. Valid values:
    * 
-   * *   sls: Alibaba Cloud Simple Log Service (SLS).
-   * *   http: HTTP server.
-   * *   aws3: Amazon Simple Storage Service (S3).
-   * *   oss: Alibaba Cloud Object Storage Service (OSS).
-   * *   kafka: Kafka.
-   * *   aws3cmpt: S3-compatible storage service.
+   * - **sls**: Log Service.
+   * 
+   * - **http**: an HTTP service.
+   * 
+   * - **aws3**: Amazon S3.
+   * 
+   * - **oss**: Object Storage Service.
+   * 
+   * - **kafka**: a Kafka service.
+   * 
+   * - **aws3cmpt**: an Amazon S3-compatible service.
    * 
    * This parameter is required.
    * 
@@ -48,7 +57,7 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The discard rate. Default value: 0.
+   * The discard rate. If you do not specify this parameter, the default value 0 is used.
    * 
    * @example
    * 0.0
@@ -56,7 +65,7 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The log fields, which are separated by commas (,).
+   * The log fields for delivery. Separate multiple fields with a comma (,).
    * 
    * This parameter is required.
    * 
@@ -67,27 +76,27 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   filterVer?: string;
   /**
    * @remarks
-   * The configurations for delivery to an HTTP server.
+   * The parameters for delivering logs to an HTTP server.
    */
   httpDeliveryShrink?: string;
   /**
    * @remarks
-   * The configurations for delivery to Kafka.
+   * The parameters for delivering logs to a Kafka cluster.
    */
   kafkaDeliveryShrink?: string;
   /**
    * @remarks
-   * The configurations for delivery to OSS.
+   * The parameters for delivering logs to Object Storage Service (OSS).
    */
   ossDeliveryShrink?: string;
   /**
    * @remarks
-   * The configurations for delivery to Amazon S3 or an S3-compatible service.
+   * The parameters for delivering logs to an Amazon S3 bucket or an S3-compatible service.
    */
   s3DeliveryShrink?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -97,12 +106,12 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The configurations for delivery to SLS.
+   * The parameters for delivering logs to Log Service.
    */
   slsDeliveryShrink?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * This parameter is required.
    * 

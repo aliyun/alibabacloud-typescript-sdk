@@ -11,6 +11,13 @@ export class GetPurgeQuotaResponseBody extends $dara.Model {
    * 100000
    */
   quota?: string;
+  /**
+   * @remarks
+   * The total quota available in a 30-day period. A value of 0 indicates that this quota is not configured.
+   * 
+   * @example
+   * 200000
+   */
   quota30Day?: string;
   /**
    * @remarks
@@ -22,12 +29,19 @@ export class GetPurgeQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The quota usage.
+   * The used quota.
    * 
    * @example
    * 10
    */
   usage?: string;
+  /**
+   * @remarks
+   * The quota used within the 30-day period.
+   * 
+   * @example
+   * 20
+   */
   usage30Day?: string;
   static names(): { [key: string]: string } {
     return {

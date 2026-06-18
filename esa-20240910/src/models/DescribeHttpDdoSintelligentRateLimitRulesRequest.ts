@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHttpDDoSIntelligentRateLimitRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The current page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesRequest extends $dara.Mode
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The rule type.
+   * 
    * @example
    * cc
    */
   ruleType?: string;
   /**
    * @remarks
+   * The site ID. Obtain this by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

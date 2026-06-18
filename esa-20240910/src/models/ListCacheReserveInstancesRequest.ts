@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCacheReserveInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -13,7 +13,7 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size. Range: **1~500**, default is **500**.
+   * The number of entries per page. Valid values: **1 to 500**. The default value is **500**.
    * 
    * @example
    * 20
@@ -29,10 +29,11 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The criterion by which you want to sort the queried instances. Valid values:
+   * The field to sort the results by. Valid values:
    * 
-   * *   **ExpireTime**
-   * *   **CreateTime**
+   * - **ExpireTime**: Expiration time.
+   * 
+   * - **CreateTime**: Creation time.
    * 
    * @example
    * ExpireTime
@@ -40,10 +41,11 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The order by which you want to sort the queried instances. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   **asc**
-   * *   **desc**
+   * - **asc**: Ascending order.
+   * 
+   * - **desc**: Descending order.
    * 
    * @example
    * desc
@@ -53,10 +55,13 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
    * @remarks
    * The status of the cache reserve instance. Valid values:
    * 
-   * *   **online**: The instance is in service.
-   * *   **offline**: The instance has expired within an allowable period. In this state, it is unavailable.
-   * *   **disable**: The instance has been released.
-   * *   **overdue**: The instance has been stopped due to overdue payments.
+   * - **online**: The instance is running normally.
+   * 
+   * - **offline**: The instance has expired and is unavailable but remains within the grace period.
+   * 
+   * - **disable**: The instance is disabled.
+   * 
+   * - **overdue**: The instance is suspended due to an overdue payment.
    * 
    * @example
    * online

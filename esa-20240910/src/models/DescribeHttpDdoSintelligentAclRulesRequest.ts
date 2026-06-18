@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHttpDDoSIntelligentAclRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The current page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class DescribeHttpDDoSIntelligentAclRulesRequest extends $dara.Model {
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The rule type.
+   * 
    * @example
    * acl
    */
   ruleType?: string;
   /**
    * @remarks
+   * The site ID. To obtain the site ID, call the [ListSites](~~ListSites~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example

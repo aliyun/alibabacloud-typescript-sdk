@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineRequest extends $dara.Model {
   /**
    * @remarks
-   * The routine description.
+   * The description of the Edge Routine.
    * 
    * @example
    * the description of this routine
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether the Edge Routine contains asset files.
+   * 
+   * @example
+   * false
+   */
   hasAssets?: boolean;
   /**
    * @remarks
-   * The routine name, which must be unique in the same account.
+   * The name of the Edge Routine. The name must be unique within the same account.
    * 
    * This parameter is required.
    * 

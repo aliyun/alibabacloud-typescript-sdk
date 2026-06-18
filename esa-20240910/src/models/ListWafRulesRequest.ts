@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * Fuzzy search for values in IP access control.
+   * Performs a partial-match search for a value in an IP access control rule.
    * 
    * @example
    * 10.0.0.1
@@ -13,7 +13,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   configValueLike?: string;
   /**
    * @remarks
-   * Whether to reverse the sorting result.
+   * Specifies whether to sort the results in descending order.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   desc?: boolean;
   /**
    * @remarks
-   * Exact query for WAF rule ID.
+   * Filters results by the exact WAF rule ID.
    * 
    * @example
    * 20000001
@@ -29,7 +29,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Fuzzy query for WAF rule ID or name.
+   * Performs a partial-match search on the WAF rule ID or name.
    * 
    * @example
    * example
@@ -37,7 +37,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   idNameLike?: string;
   /**
    * @remarks
-   * Fuzzy query for WAF rule name.
+   * Performs a partial-match search on the WAF rule name.
    * 
    * @example
    * example
@@ -45,7 +45,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * Sort the returned list by the specified column.
+   * Sorts the results by the specified field.
    * 
    * @example
    * position
@@ -53,7 +53,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Exact query for WAF rule status.
+   * Filters results by the exact WAF rule status.
    * 
    * @example
    * on
@@ -95,7 +95,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
 export class ListWafRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Query page number, used for pagination.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class ListWafRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Query page size, used for pagination.
+   * The number of items to return per page.
    * 
    * @example
    * 20
@@ -111,10 +111,23 @@ export class ListWafRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * WAF rule type. Values:
+   * The WAF rule execution phase. Valid values are:
    * 
-   * - http_anti_scan: Scan protection
-   * - http_bot: Bots
+   * - `http_whitelist`: whitelist rule
+   * 
+   * - `http_custom`: custom rule
+   * 
+   * - `http_managed`: managed rule
+   * 
+   * - `http_anti_scan`: scan protection rule
+   * 
+   * - `http_ratelimit`: rate limiting rule
+   * 
+   * - `ip_access_rule`: IP access rule
+   * 
+   * - `http_bot`: Advanced bots
+   * 
+   * - `http_security_level_rule`: security rule
    * 
    * This parameter is required.
    * 
@@ -124,16 +137,23 @@ export class ListWafRulesRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Query filter conditions.
+   * Query filters.
    * 
    * @example
    * http_custom
    */
   queryArgs?: ListWafRulesRequestQueryArgs;
+  /**
+   * @remarks
+   * The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
+   * 
+   * @example
+   * 10000001
+   */
   rulesetId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -143,7 +163,7 @@ export class ListWafRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version.
+   * The site configuration version. For sites with configuration version management enabled, this parameter specifies the version to use. Defaults to 0.
    * 
    * @example
    * 0

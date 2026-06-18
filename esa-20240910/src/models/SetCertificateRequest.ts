@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID on Certificate Management Service.
+   * The cloud certificate ID. This parameter is required when Type is set to cas.
    * 
    * @example
    * 30000478
@@ -13,7 +13,7 @@ export class SetCertificateRequest extends $dara.Model {
   casId?: number;
   /**
    * @remarks
-   * The certificate content.
+   * The certificate content. This parameter is required when Type is set to upload.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -21,16 +21,23 @@ export class SetCertificateRequest extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * The certificate ID on ESA.
+   * The certificate ID. Certificates of the free type (created by calling the ApplyCertificate operation) are not supported. Certificates of the cas and upload types are supported.
    * 
    * @example
-   * 30001303
+   * babae7c40fef412d887688b91c9e****
    */
   id?: string;
+  /**
+   * @remarks
+   * The keyless server ID. This parameter takes effect only when Type is set to keyless.
+   * 
+   * @example
+   * 1233112****
+   */
   keyServerId?: string;
   /**
    * @remarks
-   * The certificate name.
+   * The certificate name. This parameter is required when Type is set to upload.
    * 
    * @example
    * yourCertName
@@ -38,7 +45,7 @@ export class SetCertificateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The private key of the certificate.
+   * The certificate private key. This parameter is required when Type is set to upload.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----
@@ -46,7 +53,11 @@ export class SetCertificateRequest extends $dara.Model {
   privateKey?: string;
   /**
    * @remarks
-   * The region.
+   * The region. This parameter is required when Type is set to cas. Valid values:
+   * 
+   * - China site accounts: cn-hangzhou.
+   * 
+   * - International site accounts: ap-southeast-1.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +66,7 @@ export class SetCertificateRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -67,8 +78,11 @@ export class SetCertificateRequest extends $dara.Model {
    * @remarks
    * The certificate type. Valid values:
    * 
-   * *   cas: a certificate purchased by using Certificate Management Service.
-   * *   upload: a custom certificate that you upload.
+   * - **cas**: certificate from SSL Certificates Service.
+   * 
+   * - **upload**: custom uploaded certificate.
+   * 
+   * - **keyless**: keyless certificate.
    * 
    * This parameter is required.
    * 

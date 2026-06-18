@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * The name of the request header.
+   * The header name.
    * 
    * @example
    * headerName
@@ -13,20 +13,33 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
   name?: string;
   /**
    * @remarks
-   * The operation type. The value range is as follows:
+   * The operation. Valid values:
    * 
-   * - add: Add.
-   * - del: Delete.
-   * - modify: Modify.
+   * - add: Add a header.
+   * 
+   * - del: Delete a header.
+   * 
+   * - modify: Modify a header.
    * 
    * @example
    * add
    */
   operation?: string;
+  /**
+   * @remarks
+   * The value type. Valid values:
+   * 
+   * - static: Static value.
+   * 
+   * - dynamic: Dynamic value.
+   * 
+   * @example
+   * static
+   */
   type?: string;
   /**
    * @remarks
-   * The value of the request header.
+   * The header value.
    * 
    * @example
    * headerValue
@@ -62,7 +75,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
 export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -70,9 +83,11 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   configId?: number;
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - global: Global configuration;
-   * - rule: Rule configuration;
+   * The configuration type. Valid values:
+   * 
+   * - global: Global configuration.
+   * 
+   * - rule: Rule configuration.
    * 
    * @example
    * global
@@ -80,14 +95,16 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   configType?: string;
   /**
    * @remarks
-   * Modify request headers, supporting add, delete, and modify operations.
+   * The modifications to apply to the request headers, such as adding, deleting, or modifying them.
    */
   requestHeaderModification?: ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHeaderModification[];
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The conditional expression that determines which requests this rule applies to. This parameter is not required for global configurations. There are two use cases:
+   * 
+   * - To match all incoming requests, set the value to true.
+   * 
+   * - To match specified requests, set the value to a custom expression, for example, (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -95,9 +112,11 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether the rule is enabled or disabled. This parameter is not required for global configurations. Valid values:
+   * 
+   * - on: Enabled.
+   * 
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -105,7 +124,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter is not required for global configurations.
    * 
    * @example
    * rule_example
@@ -113,7 +132,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The execution priority of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -121,7 +140,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   sequence?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
+   * The version number of the site configuration. For sites with version management enabled, this parameter specifies the version to which the configuration applies. The default is 0.
    * 
    * @example
    * 1
@@ -168,12 +187,12 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
 export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of HTTP request header modification configurations.
+   * The request header modification configurations.
    */
   configs?: ListHttpRequestHeaderModificationRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * Page number. Default value: **1**.
+   * The page number. Default: **1**.
    * 
    * @example
    * 1
@@ -181,7 +200,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, default **500**, with a range of **1~500**.
+   * The page size. Default: **500**. Range: **1 to 500**.
    * 
    * @example
    * 20
@@ -189,7 +208,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Mo
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 35C66C7B-671H-4297-9187-2C4477247A78
@@ -197,7 +216,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * Total number of items.
+   * The total count of entries.
    * 
    * @example
    * 10
@@ -205,7 +224,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Mo
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total count of pages.
    * 
    * @example
    * 1

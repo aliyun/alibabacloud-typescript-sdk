@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
+   * The Base64-encoded content of the custom response page.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetPageResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The Content-Type field in the HTTP header.
+   * The value for the page\\"s Content-Type HTTP header.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetPageResponseBody extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The description of the custom error page.
+   * The description of the custom response page.
    * 
    * @example
    * a custom deny page
@@ -33,7 +33,7 @@ export class GetPageResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom error page.[](~~2850223~~)
+   * The ID of the custom response page.
    * 
    * @example
    * 50000001
@@ -65,10 +65,14 @@ export class GetPageResponseBody extends $dara.Model {
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The sites to which the page is applied.
+   */
   siteIds?: number[];
   /**
    * @remarks
-   * The time when the custom error page was last modified.
+   * The time the custom response page was last modified.
    * 
    * @example
    * 2024-01-01T00:00:00Z

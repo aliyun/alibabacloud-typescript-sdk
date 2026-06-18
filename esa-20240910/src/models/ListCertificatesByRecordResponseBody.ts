@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertificatesByRecordResponseBodyResultCertificates extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID on Certificate Management Service.
+   * The ID of the Alibaba Cloud certificate.
    * 
    * @example
    * 30000137
@@ -13,7 +13,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   casId?: string;
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -21,7 +21,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   commonName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the certificate was created.
    * 
    * @example
    * 2023-02-28 06:17:11
@@ -45,7 +45,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   id?: string;
   /**
    * @remarks
-   * The certificate authority (CA) that issued the certificate.
+   * The issuer of the certificate.
    * 
    * @example
    * GlobalSign nv-sa
@@ -53,16 +53,23 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   issuer?: string;
   /**
    * @remarks
-   * The Common Name of the certificate issuer.
+   * The common name of the certificate issuer.
    * 
    * @example
    * GlobalSign Organization Validation CA - SHA256 - G3
    */
   issuerCN?: string;
+  /**
+   * @remarks
+   * The Keyless server ID. This parameter is valid only when `Type` is set to `keyless`.
+   * 
+   * @example
+   * baba39055622c008b90285a8838e****
+   */
   keyServerId?: string;
   /**
    * @remarks
-   * The certificate name.
+   * The name of the certificate.
    * 
    * @example
    * yourCertName
@@ -70,7 +77,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   name?: string;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The date and time when the certificate expires.
    * 
    * @example
    * 2024-02-28 06:17:11
@@ -78,7 +85,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The date and time when the certificate becomes valid.
    * 
    * @example
    * 2023-02-28 06:17:11
@@ -102,7 +109,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   region?: string;
   /**
    * @remarks
-   * The Subject Alternative Name (SAN) of the certificate.
+   * The Subject Alternative Names (SANs) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -134,7 +141,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   status?: string;
   /**
    * @remarks
-   * The type of the SSL certificate. Valid values:
+   * The type of the certificate. Valid values:
    * 
    * @example
    * free
@@ -142,7 +149,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
   type?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the certificate was last updated.
    * 
    * @example
    * 2023-02-28 06:17:11
@@ -208,7 +215,7 @@ export class ListCertificatesByRecordResponseBodyResultCertificates extends $dar
 export class ListCertificatesByRecordResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The number of certificates that are being requested.
+   * The number of certificate requests in progress.
    * 
    * @example
    * 1
@@ -216,12 +223,12 @@ export class ListCertificatesByRecordResponseBodyResult extends $dara.Model {
   applylingCount?: number;
   /**
    * @remarks
-   * The certificates that match the specified records.
+   * A list of certificates matching the record.
    */
   certificates?: ListCertificatesByRecordResponseBodyResultCertificates[];
   /**
    * @remarks
-   * The number of certificates that match the specified records.
+   * The number of certificates matching the record.
    * 
    * @example
    * 3
@@ -229,7 +236,7 @@ export class ListCertificatesByRecordResponseBodyResult extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The name of the record.
+   * The record name.
    * 
    * @example
    * www.example.com
@@ -237,7 +244,7 @@ export class ListCertificatesByRecordResponseBodyResult extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * Certificate configuration status. Possible values: none; configured; applying; failed.
+   * The certificate configuration status for the record. Valid values:
    * 
    * @example
    * none
@@ -286,12 +293,12 @@ export class ListCertificatesByRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried certificates.
+   * An array of record details.
    */
   result?: ListCertificatesByRecordResponseBodyResult[];
   /**
    * @remarks
-   * The website ID,
+   * The site ID.
    * 
    * @example
    * 1234567890123
@@ -299,7 +306,7 @@ export class ListCertificatesByRecordResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -307,7 +314,7 @@ export class ListCertificatesByRecordResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The total number of records that you specified.
+   * The total number of records.
    * 
    * @example
    * 12

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The resource ID.
+   * The resource ID. Enter a site ID or a DNS record ID.
    * 
    * @example
    * example.com
@@ -13,7 +13,10 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Valid values:
+   * 
+   * - site: site
+   * - record: DNS record.
    * 
    * @example
    * site
@@ -65,7 +68,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token for the next query. If NextToken is empty, all information has been displayed on the current page.
    * 
    * @example
    * AAAAAYwsxxxxxxx
@@ -81,15 +84,15 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tags of the resource.
+   * The resource tags.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
-   * 16
+   * 1
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

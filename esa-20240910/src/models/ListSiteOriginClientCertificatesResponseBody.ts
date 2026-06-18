@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -29,7 +29,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   fingerprintSha256?: string;
   /**
    * @remarks
-   * The certificate ID on ESA.
+   * The certificate ID.
    * 
    * @example
    * babaabcd****
@@ -37,7 +37,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The certificate authority (CA) that issued the certificate.
+   * The certification authority.
    * 
    * @example
    * DigiCert
@@ -53,7 +53,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The end time of the certificate validity period.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -61,7 +61,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The start time of the certificate validity period.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -69,7 +69,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   notBefore?: string;
   /**
    * @remarks
-   * The public key algorithm of the certificate.
+   * The public-key algorithm of the certificate.
    * 
    * @example
    * RSA
@@ -77,7 +77,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The Subject Alternative Name (SAN) of the certificate.
+   * The subject alternative name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -85,7 +85,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   SAN?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babaded901474b9693acf530e0fb1d**
@@ -117,7 +117,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was updated.
+   * The time when the certificate was last updated.
    * 
    * @example
    * 2022-09-22 05:33:13
@@ -175,7 +175,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
 export class ListSiteOriginClientCertificatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -199,12 +199,12 @@ export class ListSiteOriginClientCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the certificates.
+   * The list of certificate information.
    */
   result?: ListSiteOriginClientCertificatesResponseBodyResult[];
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID.
    * 
    * @example
    * 123456789****
@@ -212,7 +212,7 @@ export class ListSiteOriginClientCertificatesResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -220,7 +220,7 @@ export class ListSiteOriginClientCertificatesResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The total number of certificate.
+   * The total number of real-time log projects.
    * 
    * @example
    * 90

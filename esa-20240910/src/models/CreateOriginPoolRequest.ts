@@ -13,12 +13,15 @@ export class CreateOriginPoolRequestOriginsAuthConf extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The type of authentication.
+   * The authentication type. Valid values:
    * 
-   * - public: Public read/write, used when the origin is OSS or S3 and is set to public read/write;
-   * - private_same_account: Private same account, used when the origin is OSS and the authentication type is private within the same account;
-   * - private_cross_account: Private cross-account, used when the origin is OSS and the authentication type is private across accounts;
-   * - private: Used when the origin is S3 and the authentication type is private.
+   * - `public`: Public read/write. Use this for public OSS or AWS S3 buckets.
+   * 
+   * - `private_same_account`: Private authentication for an OSS bucket in the same Alibaba Cloud account.
+   * 
+   * - `private_cross_account`: Private authentication for an OSS bucket in a different Alibaba Cloud account.
+   * 
+   * - `private`: Private authentication for an AWS S3 bucket.
    * 
    * @example
    * public
@@ -26,7 +29,7 @@ export class CreateOriginPoolRequestOriginsAuthConf extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * The region of the origin required when the origin is AWS S3.
+   * The region of the origin. Required for AWS S3 origins.
    * 
    * @example
    * us-east-1
@@ -42,7 +45,7 @@ export class CreateOriginPoolRequestOriginsAuthConf extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * The signature version required when the origin is AWS S3.
+   * The signature version. Required for AWS S3 origins.
    * 
    * @example
    * v2
@@ -80,7 +83,7 @@ export class CreateOriginPoolRequestOriginsAuthConf extends $dara.Model {
 export class CreateOriginPoolRequestOrigins extends $dara.Model {
   /**
    * @remarks
-   * The address of the origin, e.g., www.example.com.
+   * The address of the origin. For example, www\\.example.com.
    * 
    * @example
    * www.example.com
@@ -88,15 +91,16 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * Authentication information, required when the origin is OSS or S3 and needs authentication, including related configuration details.
+   * The authentication configuration for the origin. Required if the origin is an OSS or AWS S3 bucket that requires authentication.
    */
   authConf?: CreateOriginPoolRequestOriginsAuthConf;
   /**
    * @remarks
-   * Whether the origin is enabled:
+   * Specifies whether the origin is enabled.
    * 
-   * - true: Enabled;
-   * - false: Disabled.
+   * - `true`: enabled
+   * 
+   * - `false`: disabled
    * 
    * @example
    * true
@@ -104,7 +108,7 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The request header to be included when fetching from the origin, only Host is supported.
+   * The request header to include in back-to-origin requests. Only the `Host` header is supported.
    * 
    * @example
    * {
@@ -114,10 +118,25 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
    *       }
    */
   header?: any;
+  /**
+   * @remarks
+   * The IP protocol version for back-to-origin requests. Valid values:
+   * 
+   * - `round_robin`: Default. Randomly selects an IPv4 or IPv6 origin.
+   * 
+   * - `ipv4_first`: Prioritizes IPv4 origins.
+   * 
+   * - `ipv6_first`: Prioritizes IPv6 origins.
+   * 
+   * - `follow`: Uses the same IP protocol version as the client\\"s request.
+   * 
+   * @example
+   * round_robin
+   */
   ipVersionPolicy?: string;
   /**
    * @remarks
-   * The name of the origin, which must be unique within an origin address.
+   * The name of the origin. The name must be unique within the origin pool.
    * 
    * @example
    * origin1
@@ -125,11 +144,13 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the origin:
+   * The type of the origin. Valid values:
    * 
-   * - ip_domain: IP or domain name type origin;
-   * - OSS: OSS address origin;
-   * - S3: AWS S3 origin.
+   * - `ip_domain`: An IP address or a domain name.
+   * 
+   * - `OSS`: An Alibaba Cloud OSS bucket.
+   * 
+   * - `S3`: An AWS S3 bucket.
    * 
    * @example
    * ip_domain
@@ -137,7 +158,7 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The weight, an integer between 0 and 100.
+   * The weight of the origin. The value must be an integer from 0 to 100.
    * 
    * @example
    * 50
@@ -184,10 +205,11 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
 export class CreateOriginPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether the origin address pool is enabled:
+   * Specifies whether the origin pool is enabled.
    * 
-   * - true: Enabled;
-   * - false: Disabled.
+   * - `true`: enabled
+   * 
+   * - `false`: disabled
    * 
    * @example
    * true
@@ -195,7 +217,7 @@ export class CreateOriginPoolRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The name of the origin address pool, which must be unique within a site.
+   * The name of the origin pool. The name must be unique within a site.
    * 
    * This parameter is required.
    * 
@@ -205,12 +227,12 @@ export class CreateOriginPoolRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Information about the origins added to the origin address pool, with multiple origins passed as an array.
+   * The list of origins to add to the origin pool. Use an array to specify multiple origins.
    */
   origins?: CreateOriginPoolRequestOrigins[];
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. To obtain this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

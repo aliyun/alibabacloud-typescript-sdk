@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name.
    * 
    * @example
    * www.example.com
@@ -37,7 +37,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The certificate authority (CA) that issued the certificate.
+   * The issuer of the certificate.
    * 
    * @example
    * GlobalSign nv-sa
@@ -61,7 +61,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The time when the certificate becomes valid.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -69,7 +69,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   notBefore?: string;
   /**
    * @remarks
-   * The public-key algorithm of the certificate.
+   * The algorithm used for the certificate\\"s public key.
    * 
    * @example
    * RSA
@@ -77,7 +77,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The Subject Alternative Name (SAN) of the certificate.
+   * The Subject Alternative Name (SAN), which lists the host names protected by the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -93,7 +93,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The signature algorithm of the certificate.
+   * The algorithm used to sign the certificate.
    * 
    * @example
    * SHA256-RSA
@@ -101,7 +101,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK
@@ -117,7 +117,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was updated.
+   * The time when the certificate was last updated.
    * 
    * @example
    * 2024-03-05 18:24:04
@@ -196,7 +196,7 @@ export class GetOriginCaCertificateResponseBody extends $dara.Model {
   result?: GetOriginCaCertificateResponseBodyResult;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456789****
@@ -204,7 +204,7 @@ export class GetOriginCaCertificateResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -212,7 +212,7 @@ export class GetOriginCaCertificateResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK

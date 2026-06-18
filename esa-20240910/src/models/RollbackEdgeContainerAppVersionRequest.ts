@@ -13,19 +13,33 @@ export class RollbackEdgeContainerAppVersionRequest extends $dara.Model {
    * app-88068867578379****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The deployment percentage for the target version after the rollback. Valid values: **1 to 100**. Default value: **0**.
+   * 
+   * @example
+   * 50
+   */
   percentage?: number;
   /**
    * @remarks
-   * The remarks.
+   * Additional information about the rollback.
    * 
    * @example
    * test rollback app
    */
   remarks?: string;
+  /**
+   * @remarks
+   * Specifies whether to use percentage rollback.
+   * 
+   * @example
+   * true
+   */
   usedPercent?: boolean;
   /**
    * @remarks
-   * The ID of version that you want to roll back.
+   * The ID of the version to roll back to.
    * 
    * This parameter is required.
    * 

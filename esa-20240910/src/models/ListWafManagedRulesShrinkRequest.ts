@@ -5,16 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Attack type of the vulnerability protection event. Values:
+   * The attack type to filter the results by. Valid values:
+   * 
    * - SQL injection
-   * - Cross-site scripting
-   * - Code execution
+   * 
+   * - cross-site scripting
+   * 
+   * - code execution
+   * 
    * - CRLF
-   * - Local file inclusion
-   * - Remote file inclusion
-   * - Webshell
-   * - Cross-site request forgery
+   * 
+   * - local file inclusion
+   * 
+   * - remote file inclusion
+   * 
+   * - webshell
+   * 
+   * - cross-site request forgery
+   * 
    * - Other
+   * 
    * - SEMA
    * 
    * This parameter is required.
@@ -25,7 +35,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   attackType?: number;
   /**
    * @remarks
-   * ID of the WAF rule.
+   * The ID of the WAF rule.
    * 
    * @example
    * 10000001
@@ -34,9 +44,10 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Language type, which will be used to return the response. Value range:
+   * The response language. Valid values:
    * 
    * - **en**: English.
+   * 
    * - **zh**: Chinese.
    * 
    * @example
@@ -46,7 +57,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   managedRulesetShrink?: string;
   /**
    * @remarks
-   * Query page number.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -54,7 +65,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Query page size.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -63,12 +74,12 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   protectionLevel?: number;
   /**
    * @remarks
-   * Query conditions.
+   * The query conditions.
    */
   queryArgsShrink?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
    * 
    * @example
    * 1

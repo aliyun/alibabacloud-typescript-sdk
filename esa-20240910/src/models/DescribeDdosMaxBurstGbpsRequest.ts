@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDdosMaxBurstGbpsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance. You can call the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation to obtain the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

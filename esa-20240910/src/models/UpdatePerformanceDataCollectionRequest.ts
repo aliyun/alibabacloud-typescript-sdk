@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePerformanceDataCollectionRequest extends $dara.Model {
   /**
    * @remarks
+   * Enables or disables Performance Data Collection. Valid values:
+   * 
+   * - `on`: Enables the Feature.
+   * 
+   * - `off`: Disables the Feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,8 @@ export class UpdatePerformanceDataCollectionRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
+   * The ID of the Site. You can get this ID by calling the [ListSites](~~ListSites~~) API.
+   * 
    * This parameter is required.
    * 
    * @example

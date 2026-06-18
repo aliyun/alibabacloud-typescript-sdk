@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRedirectRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The config ID.
    * 
    * @example
    * 35281609698****
@@ -13,7 +13,7 @@ export class CreateRedirectRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1FCB0DA6-9B6D-509D-B91C-B9B9F0780D0E

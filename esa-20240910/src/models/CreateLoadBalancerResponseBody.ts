@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoadBalancerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Load balancer ID.
+   * The ID of the Server Load Balancer.
    * 
    * @example
    * 99867648760****
@@ -13,7 +13,7 @@ export class CreateLoadBalancerResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F

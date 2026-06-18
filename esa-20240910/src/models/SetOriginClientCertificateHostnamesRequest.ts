@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SetOriginClientCertificateHostnamesRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain names to associate.
+   * The hostnames to associate with the certificate.
    * 
    * This parameter is required.
    */
   hostnames?: string[];
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class SetOriginClientCertificateHostnamesRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site.
    * 
    * This parameter is required.
    * 

@@ -10,7 +10,7 @@ export class DeleteRoutineRelatedRecordRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * DeleteRoutineRelatedRecord
+   * test-xxx
    */
   name?: string;
   /**

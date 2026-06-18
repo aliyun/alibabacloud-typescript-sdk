@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
+   * The WAF ruleset ID. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) API.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateWafRulesetRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The ID of the site. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class UpdateWafRulesetRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version.
+   * The version number of the site configuration. For a site with configuration version management enabled, this parameter specifies the version to update. The default value is 0.
    * 
    * @example
    * 0
@@ -31,7 +31,7 @@ export class UpdateWafRulesetRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The target status to change for the ruleset.
+   * The target status of the ruleset.
    * 
    * @example
    * on

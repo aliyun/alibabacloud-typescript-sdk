@@ -69,7 +69,7 @@ export class ListWafManagedRulesRequestManagedRuleset extends $dara.Model {
 export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * Action.
+   * The rule action to filter by.
    * 
    * @example
    * deny
@@ -77,7 +77,7 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * Fuzzy search for rule ID or rule name.
+   * The keyword for a fuzzy search on the rule ID or rule name.
    * 
    * @example
    * example
@@ -85,12 +85,12 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   idNameLike?: string;
   /**
    * @remarks
-   * List of rule protection levels.
+   * The rule protection levels to filter the results by.
    */
   protectionLevels?: number[];
   /**
    * @remarks
-   * Status.
+   * The rule status to filter by.
    * 
    * @example
    * on
@@ -129,16 +129,26 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
 export class ListWafManagedRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Attack type of the vulnerability protection event. Values:
+   * The attack type to filter the results by. Valid values:
+   * 
    * - SQL injection
-   * - Cross-site scripting
-   * - Code execution
+   * 
+   * - cross-site scripting
+   * 
+   * - code execution
+   * 
    * - CRLF
-   * - Local file inclusion
-   * - Remote file inclusion
-   * - Webshell
-   * - Cross-site request forgery
+   * 
+   * - local file inclusion
+   * 
+   * - remote file inclusion
+   * 
+   * - webshell
+   * 
+   * - cross-site request forgery
+   * 
    * - Other
+   * 
    * - SEMA
    * 
    * This parameter is required.
@@ -149,7 +159,7 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   attackType?: number;
   /**
    * @remarks
-   * ID of the WAF rule.
+   * The ID of the WAF rule.
    * 
    * @example
    * 10000001
@@ -158,9 +168,10 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Language type, which will be used to return the response. Value range:
+   * The response language. Valid values:
    * 
    * - **en**: English.
+   * 
    * - **zh**: Chinese.
    * 
    * @example
@@ -170,7 +181,7 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   managedRuleset?: ListWafManagedRulesRequestManagedRuleset;
   /**
    * @remarks
-   * Query page number.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -178,7 +189,7 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Query page size.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -187,12 +198,12 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   protectionLevel?: number;
   /**
    * @remarks
-   * Query conditions.
+   * The query conditions.
    */
   queryArgs?: ListWafManagedRulesRequestQueryArgs;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
    * 
    * @example
    * 1

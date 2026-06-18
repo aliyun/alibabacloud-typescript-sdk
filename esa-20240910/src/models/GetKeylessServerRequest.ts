@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKeylessServerRequest extends $dara.Model {
   /**
    * @remarks
-   * Keyless server ID。
+   * The keyless server ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class GetKeylessServerRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The site ID. To obtain this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOriginPoolShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether the origin pool is enabled:
+   * Specifies whether to enable the origin pool:
    * 
-   * - true: Enabled;
-   * - false: Disabled.
+   * - true: Enables the origin pool.
+   * 
+   * - false: Disables the origin pool.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class UpdateOriginPoolShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The ID of the origin pool, which can be obtained by calling the [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html) interface.
+   * The origin pool ID. Get this ID by calling the [ListOriginPools](~~ListOriginPools~~) operation.
    * 
    * This parameter is required.
    * 
@@ -26,12 +27,12 @@ export class UpdateOriginPoolShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Information about the origins added to the origin pool. Multiple origins are passed as an array.
+   * An array of origin configurations.
    */
   originsShrink?: string;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. Get this ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

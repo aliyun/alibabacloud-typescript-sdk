@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOriginProtectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to get the site ID.
    * 
    * This parameter is required.
    * 

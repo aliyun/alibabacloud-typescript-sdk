@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWaitingRoomRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -13,7 +13,7 @@ export class CreateWaitingRoomRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Waiting room bypass rule ID.
+   * The waiting room bypass rule ID.
    * 
    * @example
    * 420072638347264

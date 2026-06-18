@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class WafQuotaString extends $dara.Model {
   /**
+   * @remarks
+   * 正则表达式。
+   * 
    * @example
    * ^\\d+$
    */

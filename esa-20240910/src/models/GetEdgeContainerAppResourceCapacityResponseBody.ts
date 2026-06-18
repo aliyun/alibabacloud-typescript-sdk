@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerAppResourceCapacityResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * Supported ISPs are as follows. The parameter is left empty for regions outside the Chinese mainland. ISP:
+   * The carrier. This parameter is returned only for regions in the Chinese mainland. Valid values:
    * 
-   * *   China Mobile: cmcc
-   * *   China Telecom: chinanet
-   * *   China Unicom: unicom
+   * - cmcc: China Mobile
+   * 
+   * - chinanet: China Telecom
+   * 
+   * - unicom: China Unicom
    * 
    * @example
    * unicom
@@ -17,47 +19,81 @@ export class GetEdgeContainerAppResourceCapacityResponseBodyRegions extends $dar
   isp?: string;
   /**
    * @remarks
-   * Chinese mainland:
+   * The Chinese mainland:
    * 
-   * *   East China: huadong
-   * *   South China: huanan
-   * *   Central China: huazhong
-   * *   North China: huabei
-   * *   Northwest China: xibei
-   * *   Southwest China: xinan
-   * *   Northeast China: dongbei
+   * - huadong: East China
    * 
-   * Special Administrative Regions and Overseas:
+   * - huanan: South China
    * 
-   * *   Taiwan, China: tw
-   * *   Macau, China: mo
-   * *   Hong Kong, China: hk
-   * *   Japan: jp
-   * *   United States: us
-   * *   Thailand: th
-   * *   Korea: kr
-   * *   Russia: ru
-   * *   Singapore: sg
-   * *   France: fr
-   * *   Spain: es
-   * *   Italy: it
-   * *   Sweden: se
-   * *   UAE: ae
-   * *   Indonesia: id
-   * *   Chile: cl
-   * *   Philippines: ph
-   * *   Malaysia: my
-   * *   Vietnam: vn
-   * *   Argentina: AR
-   * *   Australia: au
-   * *   Brazil: br
-   * *   Colombia: co
-   * *   Germany: de
-   * *   UK: GB
-   * *   Peru: pe
-   * *   Saudi Arabia: sa
-   * *   Netherlands: nl
-   * *   South Africa: za
+   * - huazhong: Central China
+   * 
+   * - huabei: North China
+   * 
+   * - xibei: Northwest China
+   * 
+   * - xinan: Southwest China
+   * 
+   * - dongbei: Northeast China
+   * 
+   * Special administrative regions and regions outside the Chinese mainland:
+   * 
+   * - tw: Taiwan (China)
+   * 
+   * - mo: Macao (China)
+   * 
+   * - hk: Hong Kong (China)
+   * 
+   * - jp: Japan
+   * 
+   * - us: US
+   * 
+   * - th: Thailand
+   * 
+   * - kr: South Korea
+   * 
+   * - ru: Russia
+   * 
+   * - sg: Singapore
+   * 
+   * - fr: France
+   * 
+   * - es: Spain
+   * 
+   * - it: Italy
+   * 
+   * - se: Sweden
+   * 
+   * - ae: UAE
+   * 
+   * - id: Indonesia
+   * 
+   * - cl: Chile
+   * 
+   * - ph: Philippines
+   * 
+   * - my: Malaysia
+   * 
+   * - vn: Vietnam
+   * 
+   * - ar: Argentina
+   * 
+   * - au: Australia
+   * 
+   * - br: Brazil
+   * 
+   * - co: Colombia
+   * 
+   * - de: Germany
+   * 
+   * - gb: UK
+   * 
+   * - pe: Peru
+   * 
+   * - sa: Saudi Arabia
+   * 
+   * - nl: Netherlands
+   * 
+   * - za: South Africa
    * 
    * @example
    * huadong
@@ -99,12 +135,12 @@ export class GetEdgeContainerAppResourceCapacityResponseBodyRegions extends $dar
 export class GetEdgeContainerAppResourceCapacityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried region.
+   * The available regions.
    */
   regions?: GetEdgeContainerAppResourceCapacityResponseBodyRegions[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 50423A7F-A83D-1E24-B80E-86DD25790759

@@ -8,7 +8,7 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
    * 
    * @example
-   * html-yets-maqi1111
+   * SGVsbG8gd29ybGQ=
    */
   customPageHtml?: string;
   /**
@@ -23,8 +23,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to disable session renewal. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * off
@@ -34,8 +35,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the waiting room event. Valid values:
    * 
-   * *   `on`
-   * *   `off`
+   * - `on`
+   * 
+   * - `off`
    * 
    * @example
    * on
@@ -53,8 +55,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable JSON response. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * off
@@ -64,9 +67,11 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The default language. Valid values:
    * 
-   * *   `enus`: English.
-   * *   `zhcn`: Simplified Chinese.
-   * *   `zhhk`: Traditional Chinese.
+   * - `enus`: English.
+   * 
+   * - `zhcn`: Simplified Chinese.
+   * 
+   * - `zhhk`: Traditional Chinese.
    * 
    * @example
    * enus
@@ -75,6 +80,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the waiting room event.
+   * 
+   * @example
+   * Test event 2
    */
   name?: string;
   /**
@@ -89,8 +97,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable pre-queuing.
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -108,10 +117,13 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The queuing method. Valid values:
    * 
-   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
-   * *   fifo: Users gain access to the origin in order of arrival.
-   * *   passthrough: Users pass through the waiting room and go straight to the origin.
-   * *   reject-all: All requests are blocked from accessing the origin.
+   * - random: Users gain access to the origin randomly, regardless of the arrival time.
+   * 
+   * - fifo: Users gain access to the origin in order of arrival.
+   * 
+   * - passthrough: Users pass through the waiting room and go straight to the origin.
+   * 
+   * - reject-all: All requests are blocked from accessing the origin.
    * 
    * @example
    * fifo
@@ -121,9 +133,11 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The HTTP status code to return while a user is in the queue. Valid values:
    * 
-   * *   200
-   * *   202
-   * *   429
+   * - 200
+   * 
+   * - 202
+   * 
+   * - 429
    * 
    * @example
    * 200
@@ -133,8 +147,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable random queuing.
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -188,8 +203,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The type of the waiting room. Valid values:
    * 
-   * *   default
-   * *   custom
+   * - default
+   * 
+   * - custom
    * 
    * @example
    * custom

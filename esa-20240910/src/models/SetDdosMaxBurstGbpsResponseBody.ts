@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetDdosMaxBurstGbpsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request. Alibaba Cloud generates this unique ID for each request. Use the ID to troubleshoot issues.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */

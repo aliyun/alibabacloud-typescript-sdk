@@ -15,7 +15,7 @@ export class DeleteCustomResponseCodeRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. Obtain this by calling ListSites.
    * 
    * This parameter is required.
    * 

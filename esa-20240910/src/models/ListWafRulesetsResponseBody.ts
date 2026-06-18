@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   /**
    * @remarks
-   * List of match objects.
+   * A list of match fields.
    */
   fields?: string[];
   /**
    * @remarks
-   * ID of the WAF rule set.
+   * The ID of the WAF ruleset. This value is returned by the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
    * 
    * @example
    * 10000001
@@ -18,7 +18,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Name of the rule set.
+   * The ruleset name.
    * 
    * @example
    * example
@@ -26,7 +26,23 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * WAF operation phase.
+   * The execution phase of the ruleset. Valid values are:
+   * 
+   * - `http_whitelist`: whitelist rule
+   * 
+   * - `http_custom`: custom rule
+   * 
+   * - `http_managed`: managed rule
+   * 
+   * - `http_anti_scan`: scan protection rule
+   * 
+   * - `http_ratelimit`: rate limiting rule
+   * 
+   * - `ip_access_rule`: IP access rule
+   * 
+   * - `http_bot`: advanced bot protection
+   * 
+   * - `http_security_level_rule`: security rule
    * 
    * @example
    * http_bot
@@ -34,7 +50,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Status of the rule set.
+   * The ruleset status.
    * 
    * @example
    * on
@@ -42,7 +58,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Protection target type in http_bot.
+   * The protection target for the \\"http_bot\\" phase.
    * 
    * @example
    * web
@@ -50,12 +66,12 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * List of rule types.
+   * A list of rule types.
    */
   types?: string[];
   /**
    * @remarks
-   * Last modification time of the rule set.
+   * The time the ruleset was last modified.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -105,7 +121,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
 export class ListWafRulesetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Number of WAF rule sets used by the instance in this WAF operation phase.
+   * The number of WAF rulesets used by the instance in this WAF phase.
    * 
    * @example
    * 10
@@ -113,7 +129,7 @@ export class ListWafRulesetsResponseBody extends $dara.Model {
   instanceUsage?: number;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -121,7 +137,7 @@ export class ListWafRulesetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 20
@@ -129,7 +145,7 @@ export class ListWafRulesetsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -137,12 +153,12 @@ export class ListWafRulesetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of rule set information, containing detailed information about the rule sets.
+   * A list of rulesets.
    */
   rulesets?: ListWafRulesetsResponseBodyRulesets[];
   /**
    * @remarks
-   * Number of WAF rule sets used by the site in this WAF operation phase.
+   * The number of WAF rulesets used by the site in this WAF phase.
    * 
    * @example
    * 5
@@ -150,7 +166,7 @@ export class ListWafRulesetsResponseBody extends $dara.Model {
   siteUsage?: number;
   /**
    * @remarks
-   * Total number of filtered records.
+   * The total number of entries returned after filtering.
    * 
    * @example
    * 5

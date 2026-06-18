@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineCodeVersionsResponseBodyCodeVersionsConfOptions extends $dara.Model {
   /**
    * @remarks
-   * Code version configuration items NotFoundStrategy.
+   * The NotFoundStrategy configuration item of the code version.
    * 
    * @example
    * SinglePageApplication
@@ -35,7 +35,7 @@ export class ListRoutineCodeVersionsResponseBodyCodeVersionsConfOptions extends 
 export class ListRoutineCodeVersionsResponseBodyCodeVersions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the code version build.
+   * The build ID of the code version.
    * 
    * @example
    * 25801233
@@ -51,7 +51,7 @@ export class ListRoutineCodeVersionsResponseBodyCodeVersions extends $dara.Model
   codeDescription?: string;
   /**
    * @remarks
-   * The version of the code.
+   * The code version number.
    * 
    * @example
    * 1723599747213377175
@@ -59,7 +59,7 @@ export class ListRoutineCodeVersionsResponseBodyCodeVersions extends $dara.Model
   codeVersion?: string;
   /**
    * @remarks
-   * Code version configuration items.
+   * The configuration items of the code version.
    */
   confOptions?: ListRoutineCodeVersionsResponseBodyCodeVersionsConfOptions;
   /**
@@ -72,12 +72,27 @@ export class ListRoutineCodeVersionsResponseBodyCodeVersions extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * Additional information about the code version.
+   * The deployment environment. Valid values:
+   * - **staging**: staging environment.
+   * - **production**: production environment.
+   * 
+   * @example
+   * staging
+   */
+  deployEnv?: string;
+  /**
+   * @remarks
+   * The additional information about the code version.
    * 
    * @example
    * {\\"approver\\":[\\"348678\\",\\"111133\\",\\"411544\\"]}
    */
   extraInfo?: string;
+  /**
+   * @remarks
+   * Indicates whether environment variables exist.
+   */
+  hasEnvVars?: boolean;
   /**
    * @remarks
    * The status of the code version.
@@ -93,7 +108,9 @@ export class ListRoutineCodeVersionsResponseBodyCodeVersions extends $dara.Model
       codeVersion: 'CodeVersion',
       confOptions: 'ConfOptions',
       createTime: 'CreateTime',
+      deployEnv: 'DeployEnv',
       extraInfo: 'ExtraInfo',
+      hasEnvVars: 'HasEnvVars',
       status: 'Status',
     };
   }
@@ -105,7 +122,9 @@ export class ListRoutineCodeVersionsResponseBodyCodeVersions extends $dara.Model
       codeVersion: 'string',
       confOptions: ListRoutineCodeVersionsResponseBodyCodeVersionsConfOptions,
       createTime: 'string',
+      deployEnv: 'string',
       extraInfo: 'string',
+      hasEnvVars: 'boolean',
       status: 'string',
     };
   }
@@ -125,12 +144,12 @@ export class ListRoutineCodeVersionsResponseBodyCodeVersions extends $dara.Model
 export class ListRoutineCodeVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code versions of the routine.
+   * The list of Edge Routine code versions.
    */
   codeVersions?: ListRoutineCodeVersionsResponseBodyCodeVersions[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The current page number.
    * 
    * @example
    * 1
@@ -154,7 +173,7 @@ export class ListRoutineCodeVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of code versions returned.
+   * The total number of entries.
    * 
    * @example
    * 5

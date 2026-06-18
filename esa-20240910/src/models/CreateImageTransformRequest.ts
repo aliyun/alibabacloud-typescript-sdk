@@ -4,18 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateImageTransformRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable adaptive AVIF. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
    * @example
    * on
    */
   autoAvif?: string;
   /**
+   * @remarks
+   * Specifies whether to enable adaptive WebP. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
    * @example
    * on
    */
   autoWebp?: string;
   /**
    * @remarks
-   * Indicates whether image transformation is enabled. Possible values:
+   * Specifies whether to enable image transformation. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -25,9 +35,9 @@ export class CreateImageTransformRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - To match all incoming requests: Set the value to true
-   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
+   * The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -35,7 +45,7 @@ export class CreateImageTransformRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -45,16 +55,23 @@ export class CreateImageTransformRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * test
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * The execution order of the rule. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -64,7 +81,7 @@ export class CreateImageTransformRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
    * 
    * @example
    * 0

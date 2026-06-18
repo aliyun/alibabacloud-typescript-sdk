@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Bypass mode. Valid values:
+   * The bypass mode. Valid values:
    * 
-   * *   on
-   * *   off
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -24,10 +25,11 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type to query. Valid values:
+   * The configuration type. Valid values:
    * 
-   * *   global: global configurations.
-   * *   rule: queries rule configurations.
+   * - `global`: Queries the global configuration.
+   * 
+   * - `rule`: Queries the rule configuration.
    * 
    * @example
    * global
@@ -35,10 +37,11 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The exception origin fetch switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent back to the origin. Valid values:
+   * Specifies whether to enable fallback to origin. If this feature is enabled, requests are sent to the origin server when the function encounters an exception, such as exceeding its CPU limit. Valid values:
    * 
-   * *   on
-   * *   off
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -46,10 +49,11 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   fallback?: string;
   /**
    * @remarks
-   * The configuration mode. Valid values: Valid values:
+   * The configuration mode. Valid values:
    * 
-   * *   simple
-   * *   custom
+   * - `simple`: simple mode.
+   * 
+   * - `custom`: custom mode.
    * 
    * @example
    * simple
@@ -65,10 +69,11 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The routing switch. Valid values:
+   * The route status. Valid values:
    * 
-   * *   on
-   * *   off
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -84,7 +89,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   routeName?: string;
   /**
    * @remarks
-   * The function name.
+   * The name of the edge function routine.
    * 
    * @example
    * test-routine1
@@ -92,7 +97,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   routineName?: string;
   /**
    * @remarks
-   * The rule content.
+   * The rule expression.
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -100,7 +105,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * The rule execution order.
    * 
    * @example
    * 1
@@ -108,7 +113,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website.
+   * The version number of the site.
    * 
    * @example
    * 0

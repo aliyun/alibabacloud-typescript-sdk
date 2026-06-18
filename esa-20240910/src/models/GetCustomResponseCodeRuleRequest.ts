@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomResponseCodeRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * Configuration ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetCustomResponseCodeRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
+   * Site ID. For more information, see [ListSites](https://help.aliyun.com/document_detail/2850189.html).
+   * 
    * This parameter is required.
    * 
    * @example

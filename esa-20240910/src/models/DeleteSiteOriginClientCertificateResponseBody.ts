@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSiteOriginClientCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID on ESA.
+   * The certificate ID.
    * 
    * @example
    * babaabcd****
@@ -21,7 +21,7 @@ export class DeleteSiteOriginClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID.
    * 
    * @example
    * 123456789****
@@ -29,7 +29,7 @@ export class DeleteSiteOriginClientCertificateResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com

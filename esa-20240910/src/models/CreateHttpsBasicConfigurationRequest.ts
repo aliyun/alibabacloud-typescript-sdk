@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * Custom cipher suite, indicating the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
+   * Custom cipher suite, specifying the specific encryption algorithms selected when CiphersuiteGroup is set to custom.
    * 
    * @example
    * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
@@ -13,10 +13,10 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   ciphersuite?: string;
   /**
    * @remarks
-   * Cipher suite group. Default uses all cipher suites. Value range:
-   * - all: All cipher suites.
-   * - strict: Strong cipher suites.
-   * - custom: Custom cipher suites.
+   * Cipher suite group. All cipher suites are used by default. Valid values:
+   * - all: all cipher suites.
+   * - strict: strong cipher suites.
+   * - custom: custom cipher suites.
    * 
    * @example
    * all
@@ -24,9 +24,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   ciphersuiteGroup?: string;
   /**
    * @remarks
-   * Whether to enable HTTP2. Default is enabled. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable HTTP/2. Enabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -34,9 +34,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   http2?: string;
   /**
    * @remarks
-   * Whether to enable HTTP3. Default is enabled. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable HTTP/3. Enabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -44,9 +44,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   http3?: string;
   /**
    * @remarks
-   * Whether to enable HTTPS. Default is enabled. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable HTTPS. Enabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -54,9 +54,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   https?: string;
   /**
    * @remarks
-   * Whether to enable OCSP. Default is disabled. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable OCSP stapling. Disabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -64,9 +64,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   ocspStapling?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: set the value to true
+   * - Match specified requests: set the value to a custom expression, for example: (http.host eq "video.example.com")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -74,9 +74,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Rule switch. This parameter does not need to be set when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -84,12 +84,19 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * Rule name. This parameter does not need to be set when adding a global configuration.
    * 
    * @example
    * rule_example
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * Rule execution order. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
   /**
    * @remarks
@@ -103,9 +110,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Whether to enable TLS1.0. Default is disabled. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable TLS 1.0. Disabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -113,9 +120,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   tls10?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.1. Default is enabled. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable TLS 1.1. Enabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -123,9 +130,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   tls11?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.2. Default is enabled. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable TLS 1.2. Enabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -133,9 +140,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   tls12?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.3. Default is enabled. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable TLS 1.3. Enabled by default. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on

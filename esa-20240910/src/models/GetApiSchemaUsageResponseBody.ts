@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApiSchemaUsageResponseBodyUsages extends $dara.Model {
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 40000449
@@ -13,7 +13,7 @@ export class GetApiSchemaUsageResponseBodyUsages extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class GetApiSchemaUsageResponseBodyUsages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of files uploaded for the website.
+   * The number of API schema files uploaded for this site.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class GetApiSchemaUsageResponseBodyUsages extends $dara.Model {
 export class GetApiSchemaUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The plan ID.
+   * The plan\\"s instance ID.
    * 
    * @example
    * esa-site-agknce3n****
@@ -63,7 +63,7 @@ export class GetApiSchemaUsageResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of files uploaded for schema verification in the plan instance of the website.
+   * The total count of API schema files uploaded to the plan instance.
    * 
    * @example
    * 10
@@ -71,7 +71,7 @@ export class GetApiSchemaUsageResponseBody extends $dara.Model {
   instanceUsage?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 952ea16b-1f05-4a76-bb32-420282d8****
@@ -79,7 +79,7 @@ export class GetApiSchemaUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Usage details for websites.
+   * The usage details for each site.
    */
   usages?: GetApiSchemaUsageResponseBodyUsages[];
   static names(): { [key: string]: string } {

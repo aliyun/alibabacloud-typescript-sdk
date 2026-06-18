@@ -7,7 +7,7 @@ import { WafBatchRuleShared } from "./WafBatchRuleShared";
 export class GetWafRulesetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Ruleset ID.
+   * The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
    * 
    * @example
    * 10000001
@@ -15,7 +15,7 @@ export class GetWafRulesetResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Ruleset name.
+   * The ruleset name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,23 @@ export class GetWafRulesetResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The WAF operation phase applicable to the ruleset.
+   * The execution phase of the WAF ruleset. Valid values:
+   * 
+   * - `http_whitelist`: A whitelist rule
+   * 
+   * - `http_custom`: A custom rule
+   * 
+   * - `http_managed`: A managed rule
+   * 
+   * - `http_anti_scan`: A scan protection rule
+   * 
+   * - `http_ratelimit`: A rate limit rule
+   * 
+   * - `ip_access_rule`: An IP access rule
+   * 
+   * - `http_bot`: A bot rule
+   * 
+   * - `http_security_level_rule`: A security rule
    * 
    * This parameter is required.
    * 
@@ -35,7 +51,7 @@ export class GetWafRulesetResponseBody extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -43,17 +59,17 @@ export class GetWafRulesetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of rule configurations in the ruleset.
+   * The list of rule configurations in the ruleset.
    */
   rules?: WafRuleConfig[];
   /**
    * @remarks
-   * Shared configurations for the rules in the ruleset.
+   * The shared configuration for rules within the ruleset.
    */
   shared?: WafBatchRuleShared;
   /**
    * @remarks
-   * Ruleset status.
+   * The ruleset status.
    * 
    * @example
    * on
@@ -61,7 +77,7 @@ export class GetWafRulesetResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last modified time of the ruleset.
+   * The time when the ruleset was last updated.
    * 
    * @example
    * 2024-01-01T00:00:00Z

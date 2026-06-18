@@ -7,8 +7,9 @@ export class UpdateCacheTagRequest extends $dara.Model {
    * @remarks
    * Specifies whether to ignore case sensitivity. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on

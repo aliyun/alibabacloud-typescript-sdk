@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * Ruleset name.
+   * The name of the WAF ruleset.
    * 
    * @example
    * example
@@ -13,7 +13,23 @@ export class CreateWafRulesetRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * WAF operation phase.
+   * The WAF rule execution phase. Valid values:
+   * 
+   * - http_whitelist
+   * 
+   * - http_custom
+   * 
+   * - http_managed
+   * 
+   * - http_anti_scan
+   * 
+   * - http_ratelimit
+   * 
+   * - ip_access_rule
+   * 
+   * - http_bot
+   * 
+   * - http_security_level_rule
    * 
    * This parameter is required.
    * 
@@ -23,7 +39,7 @@ export class CreateWafRulesetRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. To get this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -33,7 +49,7 @@ export class CreateWafRulesetRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version.
+   * The site configuration version. This parameter applies only if versioning is enabled for the site. The default is 0.
    * 
    * @example
    * 0

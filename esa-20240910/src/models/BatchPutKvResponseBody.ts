@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchPutKvResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The keys that failed to be written.
+   * A list of keys that failed to be written.
    */
   failKeys?: string[];
   /**
@@ -18,7 +18,7 @@ export class BatchPutKvResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The keys that were written.
+   * A list of keys that were successfully written.
    */
   successKeys?: string[];
   static names(): { [key: string]: string } {

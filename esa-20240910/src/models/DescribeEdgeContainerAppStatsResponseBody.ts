@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEdgeContainerAppStatsResponseBodyPoints extends $dara.Model {
   /**
+   * @remarks
+   * The CPU usage as a percentage of the limit.
+   * 
    * @example
    * 0.1
    */
   containerCpuUsageSecondsQuotaRate?: number;
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 2
    */
   containerCpuUsageSecondsTotal?: number;
   /**
+   * @remarks
+   * The read IO.
+   * 
    * @example
    * 0
    */
   containerFsReadsBytesAvg?: number;
   /**
+   * @remarks
+   * The write IO.
+   * 
    * @example
    * 0
    */
   containerFsWritesBytesAvg?: number;
   /**
+   * @remarks
+   * The memory usage.
+   * 
    * @example
    * 0.1
    */
   containerMemoryRss?: number;
   /**
+   * @remarks
+   * The memory usage as a percentage of the limit.
+   * 
    * @example
    * 1
    */
   containerMemoryRssQuotaRate?: number;
   /**
+   * @remarks
+   * The pod ready rate.
+   * 
    * @example
    * 100
    */
   podReadyRate?: number;
   /**
+   * @remarks
+   * The time of the data point. The format is yyyy-MM-ddTHH:mm:ssZ in UTC.
+   * 
    * @example
    * 2024-01-18T15:04:05Z
    */
@@ -81,7 +105,7 @@ export class DescribeEdgeContainerAppStatsResponseBodyPoints extends $dara.Model
 export class DescribeEdgeContainerAppStatsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Average CPU limit ratio
+   * The average CPU usage as a percentage of the limit.
    * 
    * @example
    * 0.1
@@ -89,7 +113,7 @@ export class DescribeEdgeContainerAppStatsResponseBody extends $dara.Model {
   cpuUsageSecondsQuotaRateAvg?: number;
   /**
    * @remarks
-   * Average number of CPU cores
+   * Average CPU core usage, in seconds.
    * 
    * @example
    * 2
@@ -97,7 +121,7 @@ export class DescribeEdgeContainerAppStatsResponseBody extends $dara.Model {
   cpuUsageSecondsTotalAvg?: number;
   /**
    * @remarks
-   * Average read IO
+   * The average read IO.
    * 
    * @example
    * 0
@@ -105,7 +129,7 @@ export class DescribeEdgeContainerAppStatsResponseBody extends $dara.Model {
   fsReadsBytesAvgAvg?: number;
   /**
    * @remarks
-   * Average write IO
+   * The average write IO.
    * 
    * @example
    * 0
@@ -113,7 +137,7 @@ export class DescribeEdgeContainerAppStatsResponseBody extends $dara.Model {
   fsWritesBytesAvgAvg?: number;
   /**
    * @remarks
-   * Average memory usage
+   * The average memory usage.
    * 
    * @example
    * 0.1
@@ -121,7 +145,7 @@ export class DescribeEdgeContainerAppStatsResponseBody extends $dara.Model {
   memoryRssAvg?: number;
   /**
    * @remarks
-   * Average memory limit proportion
+   * The average memory usage as a percentage of the limit.
    * 
    * @example
    * 1
@@ -129,12 +153,16 @@ export class DescribeEdgeContainerAppStatsResponseBody extends $dara.Model {
   memoryRssQuotaRateAvg?: number;
   /**
    * @remarks
-   * Average PodReady rate
+   * The average pod ready rate.
    * 
    * @example
    * 100
    */
   podReadyRateAvg?: number;
+  /**
+   * @remarks
+   * The time and value of each data point for the chart.
+   */
   points?: DescribeEdgeContainerAppStatsResponseBodyPoints[];
   /**
    * @remarks

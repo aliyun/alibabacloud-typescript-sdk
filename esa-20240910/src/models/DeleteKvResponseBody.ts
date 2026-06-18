@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKvResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F

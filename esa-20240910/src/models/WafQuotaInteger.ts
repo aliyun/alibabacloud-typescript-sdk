@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WafQuotaInteger extends $dara.Model {
   /**
    * @remarks
-   * Is equal to
+   * 等于。
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class WafQuotaInteger extends $dara.Model {
   equal?: number;
   /**
    * @remarks
-   * Is greater than
+   * 大于。
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class WafQuotaInteger extends $dara.Model {
   greaterThan?: number;
   /**
    * @remarks
-   * Is greater than or equal to
+   * 大于等于。
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class WafQuotaInteger extends $dara.Model {
   greaterThanOrEqual?: number;
   /**
    * @remarks
-   * Is less than
+   * 小于。
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class WafQuotaInteger extends $dara.Model {
   lessThan?: number;
   /**
    * @remarks
-   * Is less than or equal to
+   * 小于等于。
    * 
    * @example
    * 1

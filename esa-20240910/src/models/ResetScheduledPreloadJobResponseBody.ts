@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 15685865xxx14622
@@ -13,7 +13,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The time when the SQL task was created.
+   * The time when the task was created.
    * 
    * @example
    * 2024-06-02T02:23:26Z
@@ -21,7 +21,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The domain names to be prefetched.
+   * The list of domain names to prefetch.
    * 
    * @example
    * testurl.com
@@ -29,7 +29,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   domains?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
    * @example
    * invalid domain:test.com
@@ -37,7 +37,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   errorInfo?: string;
   /**
    * @remarks
-   * The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+   * The OSS address of the failed file.
    * 
    * @example
    * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
@@ -45,7 +45,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   failedFileOss?: string;
   /**
    * @remarks
-   * The ID of the URL list file, which can be used during downloads.
+   * The ID of the URL list file, which is used for downloading.
    * 
    * @example
    * 665d3b48621bccf3fe29e1a7
@@ -53,7 +53,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The ID of the prefetch task.
+   * The task ID.
    * 
    * @example
    * 665d3af3621bccf3fe29e1a4
@@ -61,7 +61,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The method to submit the URLs to be prefetched.
+   * The URL insertion method.
    * 
    * @example
    * oss
@@ -69,7 +69,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   insertWay?: string;
   /**
    * @remarks
-   * The delivery project name.
+   * The task name.
    * 
    * @example
    * example
@@ -85,7 +85,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 190007158391808
@@ -93,7 +93,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The number of submitted prefetch tasks.
+   * The number of URLs that have been submitted to the system for prefetch.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class ResetScheduledPreloadJobResponseBody extends $dara.Model {
   taskSubmitted?: number;
   /**
    * @remarks
-   * The task type. Valid values: refresh and preload.
+   * The task type, such as refresh or prefetch.
    * 
    * @example
    * preload

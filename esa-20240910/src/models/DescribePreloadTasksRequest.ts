@@ -15,7 +15,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
    * @remarks
    * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * >  The end time must be later than the start time.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 2023-03-23T06:23:00Z
@@ -57,9 +57,11 @@ export class DescribePreloadTasksRequest extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   **Complete**: The task is complete.
-   * *   **Refreshing**: The task is running.
-   * *   **Failed**: The task failed.
+   * - **Complete**: The task is complete.
+   * 
+   * - **Refreshing**: The task is running.
+   * 
+   * - **Failed**: The task failed.
    * 
    * @example
    * Complete

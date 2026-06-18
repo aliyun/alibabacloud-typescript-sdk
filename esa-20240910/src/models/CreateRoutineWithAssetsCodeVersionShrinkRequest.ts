@@ -6,6 +6,7 @@ export class CreateRoutineWithAssetsCodeVersionShrinkRequest extends $dara.Model
   buildId?: number;
   codeDescription?: string;
   confOptionsShrink?: string;
+  deployEnv?: string;
   extraInfo?: string;
   /**
    * @remarks
@@ -17,6 +18,7 @@ export class CreateRoutineWithAssetsCodeVersionShrinkRequest extends $dara.Model
       buildId: 'BuildId',
       codeDescription: 'CodeDescription',
       confOptionsShrink: 'ConfOptions',
+      deployEnv: 'DeployEnv',
       extraInfo: 'ExtraInfo',
       name: 'Name',
     };
@@ -27,6 +29,7 @@ export class CreateRoutineWithAssetsCodeVersionShrinkRequest extends $dara.Model
       buildId: 'number',
       codeDescription: 'string',
       confOptionsShrink: 'string',
+      deployEnv: 'string',
       extraInfo: 'string',
       name: 'string',
     };

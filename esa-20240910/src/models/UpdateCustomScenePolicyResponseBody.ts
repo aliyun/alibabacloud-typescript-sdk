@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the policy expires.
+   * The end time of the policy.
    * 
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time is in UTC and in the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-04-03T19:00:00Z
@@ -15,7 +15,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The policy name.
+   * The name of the policy.
    * 
    * @example
    * test
@@ -23,12 +23,14 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The IDs of websites associated.
+   * A list of associated site IDs.
+   * 
+   * > This parameter is deprecated. We recommend that you use the `SiteIds` parameter instead.
    */
   objects?: string[];
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the policy.
    * 
    * @example
    * 1
@@ -42,12 +44,19 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The associated site IDs. Multiple IDs are separated by a comma (,).
+   * 
+   * @example
+   * 123456****,123457****
+   */
   siteIds?: string;
   /**
    * @remarks
-   * The time when the policy takes effect.
+   * The start time of the policy.
    * 
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time is in UTC and in the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-04-03T16:00:00Z
@@ -55,9 +64,9 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the policy template. Valid value:
+   * The name of the template. Valid value:
    * 
-   * *   **promotion**: major events.
+   * - **promotion**: major promotion
    * 
    * @example
    * promotion

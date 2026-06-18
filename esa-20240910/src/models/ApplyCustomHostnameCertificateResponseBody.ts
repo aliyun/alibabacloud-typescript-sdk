@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyCustomHostnameCertificateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the request. Alibaba Cloud generates this ID for each request.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */

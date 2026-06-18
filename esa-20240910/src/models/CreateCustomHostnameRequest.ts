@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomHostnameRequest extends $dara.Model {
   /**
    * @remarks
-   * 云盾证书ID，使用云盾证书时必填
+   * The ID of the CAS certificate. This parameter is required if `CertType` is set to `cas`.
    * 
    * @example
    * 30000478
@@ -13,7 +13,11 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   casId?: number;
   /**
    * @remarks
-   * 云盾证书所在地域，使用云盾证书时必填
+   * The region of the CAS certificate. This parameter is required if `CertType` is set to `cas`.
+   * 
+   * - For accounts on the China site, set this parameter to `cn-hangzhou`.
+   * 
+   * - For accounts on the International site, set this parameter to `ap-southeast-1`.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +25,13 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   casRegion?: string;
   /**
    * @remarks
-   * 证书类型，SSL 开启时必填
+   * The certificate type. This parameter is required if `SslFlag` is set to `on`. Valid values:
+   * 
+   * - **free**: A free certificate.
+   * 
+   * - **upload**: A user-uploaded certificate.
+   * 
+   * - **cas**: A CAS certificate.
    * 
    * @example
    * free
@@ -29,7 +39,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * 证书公钥，使用上传证书时必填
+   * The content of the certificate. This parameter is required if `CertType` is set to `upload`.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -37,7 +47,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * 自定义主机名
+   * The custom hostname.
    * 
    * This parameter is required.
    * 
@@ -47,7 +57,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * 证书私钥，使用上传证书时必填
+   * The private key of the certificate. This parameter is required if `CertType` is set to `upload`.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----
@@ -55,7 +65,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   privateKey?: string;
   /**
    * @remarks
-   * 绑定的源站记录ID
+   * The ID of the record to bind. Call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to get this ID.
    * 
    * This parameter is required.
    * 
@@ -65,7 +75,7 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * 关联站点ID
+   * The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to get this ID.
    * 
    * This parameter is required.
    * 
@@ -75,7 +85,11 @@ export class CreateCustomHostnameRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * SSL开关
+   * Specifies whether to enable SSL. Valid values:
+   * 
+   * - **on**: Enable SSL.
+   * 
+   * - **off**: Disable SSL.
    * 
    * This parameter is required.
    * 

@@ -3,23 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckAssumeSlrRoleResponseBody extends $dara.Model {
-  /**
-   * @example
-   * aliuid:xxx assumeOssRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
-   */
   errorMsg?: string;
-  /**
-   * @example
-   * true
-   */
   isExist?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 34DCBC8A-****-****-****-6DAA11D7DDBD
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

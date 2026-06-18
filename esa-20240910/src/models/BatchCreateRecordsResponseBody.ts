@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+   * The encryption algorithm used by the record. The value ranges from **0** to **255**. This parameter applies to CERT and SSHFP records.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   algorithm?: number;
   /**
    * @remarks
-   * The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+   * The public key certificate for the record. This parameter applies to CERT, SMIMEA, and TLSA records.
    * 
    * @example
    * dGVzdGFkYWxrcw==
@@ -21,7 +21,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   certificate?: string;
   /**
    * @remarks
-   * The public key fingerprint of the record. Applicable to SSHFP records.
+   * The public key fingerprint for the record. This parameter applies to SSHFP records.
    * 
    * @example
    * abcdef1234567890
@@ -29,7 +29,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   fingerprint?: string;
   /**
    * @remarks
-   * The flag bit of the record. Indicates its priority and handling method, used in CAA records.
+   * The flag for the record, which indicates its priority and processing method. This parameter applies to CAA records.
    * 
    * @example
    * 128
@@ -37,7 +37,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   flag?: number;
   /**
    * @remarks
-   * The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+   * The public key identifier for the record. The value ranges from **0** to **65535**. This parameter applies to CERT records.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   keyTag?: number;
   /**
    * @remarks
-   * The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * The algorithm policy used by the record to match or validate certificates. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * RSA
@@ -53,7 +53,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   matchingType?: number;
   /**
    * @remarks
-   * The port number of the record, associated with the SRV record. Exclusive to SRV records.
+   * The port for the record. The value ranges from 0 to 65535. This parameter applies only to SRV records.
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   port?: number;
   /**
    * @remarks
-   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. Applicable to MX, SRV, and URI records.
+   * The priority of the record. The value ranges from **0** to **65535**. A smaller value indicates a higher priority. This parameter applies to MX, SRV, and URI records.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   priority?: number;
   /**
    * @remarks
-   * The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * The type of certificate or public key used by the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   selector?: number;
   /**
    * @remarks
-   * Indicates its priority and handling method, used in CAA records.
+   * The tag for a CAA record, which specifies its type and purpose, such as `issue`, `issuewild`, or `iodef`.
    * 
    * @example
    * issue
@@ -85,7 +85,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   tag?: string;
   /**
    * @remarks
-   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+   * The certificate type for CERT records or the public key type for SSHFP records.
    * 
    * @example
    * 0
@@ -93,7 +93,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   type?: number;
   /**
    * @remarks
-   * The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * The usage identifier for the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * 0
@@ -101,16 +101,23 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   usage?: number;
   /**
    * @remarks
-   * The record value or part of the record content. This value is returned when the record is A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI. It has different meanings based on types of records:
+   * The record value. This parameter applies to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. The meaning of this parameter varies based on the record type:
    * 
-   * *   **A/AAAA**: the IP addresses. IP addresses are separated by commas (,). There is at least one IPv4 address.
-   * *   **CNAME**: the mapped domain name.
-   * *   **NS**: the nameservers for the domain name.
-   * *   **MX**: a valid domain name of the target mail server.
-   * *   **TXT**: a valid text string.
-   * *   **CAA**: a valid domain name of the certificate authority.
-   * *   **SRV**: a valid domain name of the target host.
-   * *   **URI**: a valid URI string.
+   * - **A/AAAA**: The IP address. To specify multiple addresses, separate them with a comma (,). At least one IPv4 address is required.
+   * 
+   * - **CNAME**: The target domain name.
+   * 
+   * - **NS**: The name server for the domain.
+   * 
+   * - **MX**: The domain name of a valid target mail server.
+   * 
+   * - **TXT**: A valid text string.
+   * 
+   * - **CAA**: The domain name of a valid certificate authority.
+   * 
+   * - **SRV**: The domain name of a valid target host.
+   * 
+   * - **URI**: A valid URI string.
    * 
    * @example
    * example.com
@@ -118,7 +125,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
   value?: string;
   /**
    * @remarks
-   * The weight of the record. Applicable to SRV and URI records.
+   * The weight of the record. The value ranges from 0 to 65535. This parameter applies to SRV and URI records.
    * 
    * @example
    * 0
@@ -174,11 +181,13 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $d
 export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.Model {
   /**
    * @remarks
-   * The business scenario of the record for acceleration. Valid values:
+   * The acceleration use case for the record. Valid values:
    * 
-   * *   **image_video**
-   * *   **api**
-   * *   **web**
+   * - **image_video**: Images and videos.
+   * 
+   * - **api**: APIs.
+   * 
+   * - **web**: Web pages.
    * 
    * @example
    * web
@@ -186,7 +195,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.
   bizName?: string;
   /**
    * @remarks
-   * The DNS information about the record, which contains various types of record values and their related attributes.
+   * The DNS information for the record.
    * 
    * @example
    * {"value":"2.2.2.2"}
@@ -195,14 +204,20 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.
   /**
    * @remarks
    * The result description.
+   * 
+   * @example
+   * 记录的名称非法
    */
   description?: string;
+  httpPorts?: string;
+  httpsPorts?: string;
   /**
    * @remarks
-   * Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * Specifies whether proxy acceleration is enabled for the record. This option is available only for CNAME, A, and AAAA records. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Proxy acceleration is enabled.
+   * 
+   * - **false**: Proxy acceleration is disabled.
    * 
    * @example
    * true
@@ -226,7 +241,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.
   recordName?: string;
   /**
    * @remarks
-   * The DNS type of the record, such as **A/AAAA, CNAME, and TXT**.
+   * The DNS type of the record, such as **A/AAAA**, **CNAME**, or **TXT**.
    * 
    * @example
    * A/AAAA
@@ -234,13 +249,17 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.
   recordType?: string;
   /**
    * @remarks
-   * The origin type of the CNAME record. This field is left empty for other types of records. The type of the origin server. Valid values:
+   * The type of origin for a CNAME record. This parameter is empty for other record types. Valid values:
    * 
-   * *   **OSS**: OSS bucket.
-   * *   **S3**: S3 bucket.
-   * *   **LB**: load balancer.
-   * *   **OP**: origin pool.
-   * *   **Domain**: domain name.
+   * - **OSS**: An OSS origin.
+   * 
+   * - **S3**: An S3 origin.
+   * 
+   * - **LB**: A load balancer origin.
+   * 
+   * - **OP**: An origin pool.
+   * 
+   * - **Domain**: A domain name origin.
    * 
    * @example
    * OSS
@@ -248,7 +267,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.
   sourceType?: string;
   /**
    * @remarks
-   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * The TTL of the record in seconds. A value of 1 sets the TTL to Automatic.
    * 
    * @example
    * 60
@@ -259,6 +278,8 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.
       bizName: 'BizName',
       data: 'Data',
       description: 'Description',
+      httpPorts: 'HttpPorts',
+      httpsPorts: 'HttpsPorts',
       proxied: 'Proxied',
       recordId: 'RecordId',
       recordName: 'RecordName',
@@ -273,6 +294,8 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.
       bizName: 'string',
       data: BatchCreateRecordsResponseBodyRecordResultListFailedData,
       description: 'string',
+      httpPorts: 'string',
+      httpsPorts: 'string',
       proxied: 'boolean',
       recordId: 'number',
       recordName: 'string',
@@ -297,7 +320,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $dara.
 export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+   * The encryption algorithm used by the record. The value ranges from **0** to **255**. This parameter applies to CERT and SSHFP records.
    * 
    * @example
    * 0
@@ -305,7 +328,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   algorithm?: number;
   /**
    * @remarks
-   * The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+   * The public key certificate for the record. This parameter applies to CERT, SMIMEA, and TLSA records.
    * 
    * @example
    * dGVzdGFkYWxrcw==
@@ -313,7 +336,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   certificate?: string;
   /**
    * @remarks
-   * The public key fingerprint of the record. Applicable to SSHFP records.
+   * The public key fingerprint for the record. This parameter applies to SSHFP records.
    * 
    * @example
    * abcdef1234567890
@@ -321,7 +344,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   fingerprint?: string;
   /**
    * @remarks
-   * The flag bit of the record. Indicates its priority and handling method, used in CAA records.
+   * The flag for the record, which indicates its priority and processing method. This parameter applies to CAA records.
    * 
    * @example
    * 128
@@ -329,7 +352,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   flag?: number;
   /**
    * @remarks
-   * The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+   * The public key identifier for the record. The value ranges from **0** to **65535**. This parameter applies to CERT records.
    * 
    * @example
    * 0
@@ -337,7 +360,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   keyTag?: number;
   /**
    * @remarks
-   * The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * The algorithm policy used by the record to match or validate certificates. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * 0
@@ -345,7 +368,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   matchingType?: number;
   /**
    * @remarks
-   * The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
+   * The port for the record. The value ranges from **0** to **65535**. This parameter applies only to SRV records.
    * 
    * @example
    * 0
@@ -353,7 +376,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   port?: number;
   /**
    * @remarks
-   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. Applicable to MX, SRV, and URI records.
+   * The priority of the record. The value ranges from **0** to **65535**. A smaller value indicates a higher priority. This parameter applies to MX, SRV, and URI records.
    * 
    * @example
    * 10
@@ -361,7 +384,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   priority?: number;
   /**
    * @remarks
-   * The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * The type of certificate or public key used by the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * 0
@@ -369,7 +392,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   selector?: number;
   /**
    * @remarks
-   * The label of a CAA record, which indicates its specific type and purpose, such as issue, issuewild, and iodef.
+   * The tag for a CAA record, which specifies its type and purpose, such as `issue`, `issuewild`, or `iodef`.
    * 
    * @example
    * issue
@@ -377,7 +400,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   tag?: string;
   /**
    * @remarks
-   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+   * The certificate type for CERT records or the public key type for SSHFP records.
    * 
    * @example
    * 0
@@ -385,7 +408,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   type?: number;
   /**
    * @remarks
-   * The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * The usage identifier for the record. The value ranges from **0** to **255**. This parameter applies to SMIMEA and TLSA records.
    * 
    * @example
    * 0
@@ -393,16 +416,23 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   usage?: number;
   /**
    * @remarks
-   * The record value or part of the record content. This value is returned when the record is A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI. It has different meanings based on types of records:
+   * The record value. This parameter applies to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. The meaning of this parameter varies based on the record type:
    * 
-   * *   **A/AAAA**: the IP addresses. Multiple IPs are separated by commas (,). There is at least one IPv4 address.
-   * *   **CNAME**: the mapped domain name.
-   * *   **NS**: the nameservers for the domain name.
-   * *   **MX**: a valid domain name of the target mail server.
-   * *   **TXT**: a valid text string.
-   * *   **CAA**: a valid domain name of the certificate authority.
-   * *   **SRV**: a valid domain name of the target host.
-   * *   **URI**: a valid URI string.
+   * - **A/AAAA**: The IP address. To specify multiple addresses, separate them with a comma (,). At least one IPv4 address is required.
+   * 
+   * - **CNAME**: The target domain name.
+   * 
+   * - **NS**: The name server for the domain.
+   * 
+   * - **MX**: The domain name of a valid target mail server.
+   * 
+   * - **TXT**: A valid text string.
+   * 
+   * - **CAA**: The domain name of a valid certificate authority.
+   * 
+   * - **SRV**: The domain name of a valid target host.
+   * 
+   * - **URI**: A valid URI string.
    * 
    * @example
    * example.com
@@ -410,7 +440,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
   value?: string;
   /**
    * @remarks
-   * The weight of the record. Valid values: 0 to 65535. Applicable to SRV and URI records.
+   * The weight of the record. The value ranges from **0** to **65535**. This parameter applies to SRV and URI records.
    * 
    * @example
    * 0
@@ -466,11 +496,13 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
 export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara.Model {
   /**
    * @remarks
-   * The business scenario of the record for acceleration. Valid values:
+   * The acceleration use case for the record. Valid values:
    * 
-   * *   **image_video**
-   * *   **api**
-   * *   **web**
+   * - **image_video**: Images and videos.
+   * 
+   * - **api**: APIs.
+   * 
+   * - **web**: Web pages.
    * 
    * @example
    * web
@@ -478,7 +510,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara
   bizName?: string;
   /**
    * @remarks
-   * The DNS record information.
+   * The DNS information for the record.
    * 
    * @example
    * {"value":"1.1.1.1"}
@@ -492,12 +524,15 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara
    * success
    */
   description?: string;
+  httpPorts?: string;
+  httpsPorts?: string;
   /**
    * @remarks
-   * Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * Specifies whether proxy acceleration is enabled for the record. This option is available only for CNAME, A, and AAAA records. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Proxy acceleration is enabled.
+   * 
+   * - **false**: Proxy acceleration is disabled.
    * 
    * @example
    * true
@@ -521,7 +556,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara
   recordName?: string;
   /**
    * @remarks
-   * The DNS type of the record, such as **A/AAAA, CNAME, and TXT**.
+   * The DNS type of the record, such as **A/AAAA**, **CNAME**, or **TXT**.
    * 
    * @example
    * A/AAAA
@@ -529,13 +564,17 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara
   recordType?: string;
   /**
    * @remarks
-   * The origin type of the CNAME record. This field is left empty for other types of records. The type of the origin server. Valid values:
+   * The type of origin for a CNAME record. This parameter is empty for other record types. Valid values:
    * 
-   * *   **OSS**: OSS bucket.
-   * *   **S3**: S3 bucket.
-   * *   **LB**: load balancer.
-   * *   **OP**: origin pool.
-   * *   **Domain**: domain name.
+   * - **OSS**: An OSS origin.
+   * 
+   * - **S3**: An S3 origin.
+   * 
+   * - **LB**: A load balancer origin.
+   * 
+   * - **OP**: An origin pool.
+   * 
+   * - **Domain**: A domain name origin.
    * 
    * @example
    * OSS
@@ -543,7 +582,7 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara
   sourceType?: string;
   /**
    * @remarks
-   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * The TTL of the record in seconds. A value of 1 sets the TTL to Automatic.
    * 
    * @example
    * 60
@@ -554,6 +593,8 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara
       bizName: 'BizName',
       data: 'Data',
       description: 'Description',
+      httpPorts: 'HttpPorts',
+      httpsPorts: 'HttpsPorts',
       proxied: 'Proxied',
       recordId: 'RecordId',
       recordName: 'RecordName',
@@ -568,6 +609,8 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara
       bizName: 'string',
       data: BatchCreateRecordsResponseBodyRecordResultListSuccessData,
       description: 'string',
+      httpPorts: 'string',
+      httpsPorts: 'string',
       proxied: 'boolean',
       recordId: 'number',
       recordName: 'string',
@@ -592,17 +635,17 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $dara
 export class BatchCreateRecordsResponseBodyRecordResultList extends $dara.Model {
   /**
    * @remarks
-   * The records that failed to be created.
+   * A list of records that failed to be created.
    */
   failed?: BatchCreateRecordsResponseBodyRecordResultListFailed[];
   /**
    * @remarks
-   * The records that have been created.
+   * A list of successfully created records.
    */
   success?: BatchCreateRecordsResponseBodyRecordResultListSuccess[];
   /**
    * @remarks
-   * The total number of returned records.
+   * The total number of records in the creation operation.
    * 
    * @example
    * 20
@@ -642,7 +685,7 @@ export class BatchCreateRecordsResponseBodyRecordResultList extends $dara.Model 
 export class BatchCreateRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The records that have been created and failed to be created.
+   * The results of the batch record creation, with details for both successful and failed records.
    */
   recordResultList?: BatchCreateRecordsResponseBodyRecordResultList;
   /**

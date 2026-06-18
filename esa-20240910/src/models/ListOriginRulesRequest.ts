@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOriginRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -13,11 +13,13 @@ export class ListOriginRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
-   * - global: Query global configuration.
-   * - rule: Query rule configuration.
+   * Filters the results by configuration type. Valid values:
    * 
-   * This parameter is optional; if not provided, it does not distinguish between global and rule configurations.
+   * - `global`: Queries the global configuration.
+   * 
+   * - `rule`: Queries rule configurations.
+   * 
+   * If you do not specify this parameter, the operation returns both global and rule configurations.
    * 
    * @example
    * global
@@ -25,7 +27,7 @@ export class ListOriginRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Page number, defaulting to 1 if not provided.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -33,7 +35,7 @@ export class ListOriginRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page, with a maximum of 500. Defaults to 500 if not provided.
+   * The number of entries to return on each page. The maximum value is 500, and the default value is 20.
    * 
    * @example
    * 20
@@ -41,7 +43,7 @@ export class ListOriginRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter is not required when querying the global configuration.
    * 
    * @example
    * test
@@ -49,7 +51,7 @@ export class ListOriginRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -59,7 +61,7 @@ export class ListOriginRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site. For sites with version management enabled, this parameter can specify the version of the site for which the configuration is effective, defaulting to version 0.
+   * Specifies the site version to query. This parameter applies only to sites that have version management enabled. The default value is 0.
    * 
    * @example
    * 1

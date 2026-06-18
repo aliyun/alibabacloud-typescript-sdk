@@ -51,6 +51,8 @@ export class CreateRecordShrinkRequest extends $dara.Model {
    * follow_origin_domain
    */
   hostPolicy?: string;
+  httpPorts?: string;
+  httpsPorts?: string;
   /**
    * @remarks
    * Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
@@ -125,6 +127,8 @@ export class CreateRecordShrinkRequest extends $dara.Model {
       comment: 'Comment',
       dataShrink: 'Data',
       hostPolicy: 'HostPolicy',
+      httpPorts: 'HttpPorts',
+      httpsPorts: 'HttpsPorts',
       proxied: 'Proxied',
       recordName: 'RecordName',
       siteId: 'SiteId',
@@ -141,6 +145,8 @@ export class CreateRecordShrinkRequest extends $dara.Model {
       comment: 'string',
       dataShrink: 'string',
       hostPolicy: 'string',
+      httpPorts: 'string',
+      httpsPorts: 'string',
       proxied: 'boolean',
       recordName: 'string',
       siteId: 'number',

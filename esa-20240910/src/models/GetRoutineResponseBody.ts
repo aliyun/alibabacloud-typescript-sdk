@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRoutineResponseBodyEnvsCodeDeployCodeVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The code version ID.
+   * 
+   * @example
+   * 1746583193971399525
+   */
   codeVersion?: string;
+  /**
+   * @remarks
+   * The creation time of the code version.
+   * 
+   * @example
+   * 2025-07-23T09:01:40Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the code version.
+   * 
+   * @example
+   * code version 1.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The percentage of traffic routed to this code version.
+   * 
+   * @example
+   * 100
+   */
   percentage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +63,34 @@ export class GetRoutineResponseBodyEnvsCodeDeployCodeVersions extends $dara.Mode
 }
 
 export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
+  /**
+   * @remarks
+   * A list of deployed code versions.
+   */
   codeVersions?: GetRoutineResponseBodyEnvsCodeDeployCodeVersions[];
+  /**
+   * @remarks
+   * The time the deployment was created.
+   * 
+   * @example
+   * 2023-05-11T09:21:36Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The deployment ID.
+   * 
+   * @example
+   * 589267
+   */
   deployId?: string;
+  /**
+   * @remarks
+   * The deployment strategy. The default value is `percentage`.
+   * 
+   * @example
+   * percentage
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,10 +123,14 @@ export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
 }
 
 export class GetRoutineResponseBodyEnvs extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the canary release for a code version.
+   */
   codeDeploy?: GetRoutineResponseBodyEnvsCodeDeploy;
   /**
    * @remarks
-   * The environment type.
+   * The environment name.
    * 
    * @example
    * production
@@ -108,7 +165,7 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
 export class GetRoutineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the routine was created.
+   * The creation time of the edge function Routine.
    * 
    * @example
    * 2024-03-11T01:23:21Z
@@ -116,7 +173,7 @@ export class GetRoutineResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The default record name to access.
+   * The default domain name for accessing the Routine.
    * 
    * @example
    * routine1.example.com
@@ -124,7 +181,7 @@ export class GetRoutineResponseBody extends $dara.Model {
   defaultRelatedRecord?: string;
   /**
    * @remarks
-   * The description of the routine.
+   * The description of the edge function Routine.
    * 
    * @example
    * ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
@@ -132,9 +189,16 @@ export class GetRoutineResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The information about the environments.
+   * A list of environments.
    */
   envs?: GetRoutineResponseBodyEnvs[];
+  /**
+   * @remarks
+   * Indicates whether the Routine includes Assets.
+   * 
+   * @example
+   * false
+   */
   hasAssets?: boolean;
   /**
    * @remarks

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The bypass mode. Valid values:
+   * Whether bypass mode is enabled. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on: Enabled.
+   * 
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -24,22 +25,35 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type to query. Valid values:
+   * The configuration type. Valid values:
    * 
-   * *   global: global configurations.
-   * *   rule: queries rule configurations.
+   * - global: Global configuration.
+   * 
+   * - rule: Rule-based configuration.
    * 
    * @example
    * global
    */
   configType?: string;
+  /**
+   * @remarks
+   * Whether CDN fallback is enabled. Valid values:
+   * 
+   * - on: Enabled.
+   * 
+   * - off: Disabled.
+   * 
+   * @example
+   * on
+   */
   fallback?: string;
   /**
    * @remarks
-   * The configuration mode. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+   * The configuration mode. Valid values:
    * 
-   * *   simple: Simple Mode
-   * *   custom: Custom Mode
+   * - simple: Simple mode.
+   * 
+   * - custom: Custom mode.
    * 
    * @example
    * simple
@@ -47,10 +61,11 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The route switch. Valid values:
+   * Whether the route is enabled. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on: Enabled.
+   * 
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -66,7 +81,7 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
   routeName?: string;
   /**
    * @remarks
-   * The function name.
+   * The routine name.
    * 
    * @example
    * test-routine1
@@ -82,7 +97,7 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * The rule execution sequence.
    * 
    * @example
    * 1
@@ -90,12 +105,19 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website.
+   * The site version.
    * 
    * @example
    * 1
    */
   siteVersion?: number;
+  /**
+   * @remarks
+   * The ER timeout.
+   * 
+   * @example
+   * 60
+   */
   timeout?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,12 +165,12 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
 export class ListSiteRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned configurations.
+   * The list of returned configs.
    */
   configs?: ListSiteRoutesResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -156,7 +178,7 @@ export class ListSiteRoutesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -172,7 +194,7 @@ export class ListSiteRoutesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 16
@@ -180,7 +202,7 @@ export class ListSiteRoutesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 10

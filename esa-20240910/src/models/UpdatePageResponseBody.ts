@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225

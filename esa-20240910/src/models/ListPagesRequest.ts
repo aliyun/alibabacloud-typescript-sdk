@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPagesRequestQueryArgs extends $dara.Model {
   /**
+   * @remarks
+   * Filters the custom response pages by content type.
+   * 
    * @example
    * application/json
    */
   contentType?: string;
+  /**
+   * @remarks
+   * A keyword for a fuzzy search on the name or description of custom response pages.
+   * 
+   * @example
+   * example
+   */
   nameDescriptionLike?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49,6 +59,10 @@ export class ListPagesRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The query filters, specified as a JSON object.
+   */
   queryArgs?: ListPagesRequestQueryArgs;
   static names(): { [key: string]: string } {
     return {

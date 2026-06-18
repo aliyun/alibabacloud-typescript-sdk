@@ -7,8 +7,9 @@ export class ListESAIPInfoResponseBodyContent extends $dara.Model {
    * @remarks
    * Whether the IP address in the parameter belongs to ESA POPs.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

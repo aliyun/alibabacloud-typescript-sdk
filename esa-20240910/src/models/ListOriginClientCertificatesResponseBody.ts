@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -29,12 +29,12 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   fingerprintSha256?: string;
   /**
    * @remarks
-   * The domain names to associate.
+   * The hostnames bound to the certificate.
    */
   hostnames?: string[];
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * @example
    * babaabcd****
@@ -42,7 +42,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   id?: string;
   /**
    * @remarks
-   * The certificate authority (CA) that issued the certificate.
+   * The issuer of the certificate.
    * 
    * @example
    * DigiCert
@@ -50,7 +50,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   issuer?: string;
   /**
    * @remarks
-   * The certificate name.
+   * The name of the certificate.
    * 
    * @example
    * yourCertName
@@ -58,7 +58,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The expiration date and time of the certificate.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -66,7 +66,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The beginning of the certificate\\"s validity period.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -74,7 +74,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   notBefore?: string;
   /**
    * @remarks
-   * The public-key algorithm of the certificate.
+   * The public key algorithm of the certificate.
    * 
    * @example
    * RSA
@@ -106,7 +106,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The certificate status.
+   * The status of the certificate.
    * 
    * @example
    * OK
@@ -114,8 +114,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The certificate type.
-   * *   upload: custom certificate that you upload
+   * The type of the certificate.
    * 
    * @example
    * upload
@@ -123,7 +122,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was updated.
+   * The time when the certificate was last updated.
    * 
    * @example
    * 2024-07-20 06:18:42
@@ -186,7 +185,7 @@ export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model 
 export class ListOriginClientCertificatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number. The default value is **1**.
    * 
    * @example
    * 1
@@ -210,12 +209,12 @@ export class ListOriginClientCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The certificate information.
+   * The list of certificate information.
    */
   result?: ListOriginClientCertificatesResponseBodyResult[];
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * @example
    * 123456789****
@@ -223,7 +222,7 @@ export class ListOriginClientCertificatesResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The name of the site.
    * 
    * @example
    * example.com

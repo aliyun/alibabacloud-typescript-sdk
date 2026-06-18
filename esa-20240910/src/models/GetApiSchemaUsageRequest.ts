@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApiSchemaUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 1159101787****
@@ -13,7 +13,7 @@ export class GetApiSchemaUsageRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the website.
+   * The site version.
    * 
    * @example
    * 0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * Cache reserve capacity. Unit: GB.
+   * The cache reserve capacity, in GB.
    * 
    * @example
    * 512000
@@ -13,7 +13,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   cacheReserveCapacity?: number;
   /**
    * @remarks
-   * Cache reserve usage region.
+   * The region where the cache reserve instance is used.
    * 
    * @example
    * HK
@@ -22,7 +22,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   chargeType?: string;
   /**
    * @remarks
-   * Instance purchase time.
+   * The time when the instance was created.
    * 
    * @example
    * 2024-04-12T05:41:51Z
@@ -30,7 +30,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * Duration of the instance purchase, unit: months.
+   * The purchase duration of the instance, in months.
    * 
    * @example
    * 3
@@ -38,7 +38,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   duration?: number;
   /**
    * @remarks
-   * Instance expiration time.
+   * The expiration time of the instance.
    * 
    * @example
    * 2024-10-05T16:00:00Z
@@ -46,7 +46,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   expireTime?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -54,12 +54,15 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * The status of the cache reserve instance. Valid values:
+   * The status of the instance. Valid values:
    * 
-   * *   **online**: The instance is in service.
-   * *   **offline**: The instance has expired within an allowable period. In this state, it is unavailable.
-   * *   **disable**: The instance has been released.
-   * *   **overdue**: The instance has been stopped due to overdue payments.
+   * - **online**: The instance is running normally.
+   * 
+   * - **offline**: The instance has expired and is unavailable but remains within the grace period.
+   * 
+   * - **disable**: The instance is disabled.
+   * 
+   * - **overdue**: The instance is suspended due to an overdue payment.
    * 
    * @example
    * online
@@ -103,12 +106,12 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
 export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cache reserve instances.
+   * A list of cache reserve instances.
    */
   instanceInfo?: ListCacheReserveInstancesResponseBodyInstanceInfo[];
   /**
    * @remarks
-   * Page number. Default value: **1**.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -116,7 +119,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, default **500**, range: **1~500**.
+   * The number of entries returned per page.
    * 
    * @example
    * 500
@@ -124,7 +127,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 65C66B7B-671A-8297-9187-2R5477247B76
@@ -132,7 +135,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 16
@@ -140,7 +143,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total pages.
+   * The total number of pages.
    * 
    * @example
    * 1

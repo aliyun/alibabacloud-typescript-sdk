@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOriginPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the newly created origin address pool.
+   * The origin pool ID.
    * 
    * @example
    * 103852052519****

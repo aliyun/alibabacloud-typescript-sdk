@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * Certificate ID.
+   * The certificate ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCertificateRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can get this ID by calling the [ListSites](~~ListSites~~) interface.
    * 
    * This parameter is required.
    * 

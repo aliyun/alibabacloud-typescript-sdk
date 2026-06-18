@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Site name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -21,7 +21,7 @@ export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Usage of WAF rules/WAF rule sets.
+   * The number of WAF rules or rule sets used by the site.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class ListWafUsageOfRulesResponseBody extends $dara.Model {
   instanceUsage?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -65,7 +65,7 @@ export class ListWafUsageOfRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of site usage.
+   * A list of sites and their respective WAF rule usage.
    */
   sites?: ListWafUsageOfRulesResponseBodySites[];
   static names(): { [key: string]: string } {

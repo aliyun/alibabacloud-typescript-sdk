@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom error page.[](~~2850223~~)
+   * The ID of the custom error page. Obtain this ID by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) API.
    * 
    * @example
    * 50000001

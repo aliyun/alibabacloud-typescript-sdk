@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 395386449776640
@@ -13,9 +13,11 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
-   * - global: Query global configuration.
-   * - rule: Query rule configuration.
+   * The configuration type. You can use this parameter to query for global or rule-specific configurations. Valid values:
+   * 
+   * - `global`: The global configuration.
+   * 
+   * - `rule`: A rule-specific configuration.
    * 
    * @example
    * global
@@ -23,20 +25,67 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Rewrite the DNS resolution record for the origin request.
+   * Overrides the DNS record for the origin request.
    * 
    * @example
    * test.example.com
    */
   dnsRecord?: string;
+  /**
+   * @remarks
+   * Specifies whether to follow 302 redirects from the origin. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
+   * 
+   * @example
+   * on
+   */
   follow302Enable?: string;
+  /**
+   * @remarks
+   * The maximum number of 302 redirects to follow. Valid range: 1 to 5.
+   * 
+   * @example
+   * 1
+   */
   follow302MaxTries?: string;
+  /**
+   * @remarks
+   * Specifies whether to retain the original request parameters when following a redirect. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
+   * 
+   * @example
+   * on
+   */
   follow302RetainArgs?: string;
+  /**
+   * @remarks
+   * Specifies whether to retain the original request header when following a redirect. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
+   * 
+   * @example
+   * on
+   */
   follow302RetainHeader?: string;
+  /**
+   * @remarks
+   * The host to use for the origin request after following a 302 redirect.
+   * 
+   * @example
+   * test.com
+   */
   follow302TargetHost?: string;
   /**
    * @remarks
-   * HOST carried in the origin request.
+   * The `Host` header carried in the origin request.
    * 
    * @example
    * origin.example.com
@@ -44,7 +93,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originHost?: string;
   /**
    * @remarks
-   * The port of the origin server to access when using the HTTP protocol for origin requests.
+   * The origin server port used for origin requests over HTTP.
    * 
    * @example
    * 8080
@@ -52,7 +101,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originHttpPort?: string;
   /**
    * @remarks
-   * The port of the origin server to access when using the HTTPS protocol for origin requests.
+   * The origin server port used for origin requests over HTTPS.
    * 
    * @example
    * 4433
@@ -60,21 +109,33 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originHttpsPort?: string;
   /**
    * @remarks
-   * mTLS switch. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether mTLS is enabled. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
    */
   originMtls?: string;
+  /**
+   * @remarks
+   * The read timeout, in seconds, for the origin server.
+   * 
+   * @example
+   * 10
+   */
   originReadTimeout?: string;
   /**
    * @remarks
-   * Protocol used for the origin request. Value range:
-   * - http: Use HTTP protocol for origin.
-   * - https: Use HTTPS protocol for origin.
-   * - follow: Follow the client\\"s protocol for origin.
+   * The protocol used for origin requests. Valid values:
+   * 
+   * - `http`: Use the HTTP protocol for origin requests.
+   * 
+   * - `https`: Use the HTTPS protocol for origin requests.
+   * 
+   * - `follow`: Use the same protocol as the client request.
    * 
    * @example
    * http
@@ -82,7 +143,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originScheme?: string;
   /**
    * @remarks
-   * SNI carried in the back-to-origin request.
+   * The SNI carried in the origin request.
    * 
    * @example
    * origin.example.com
@@ -90,9 +151,11 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originSni?: string;
   /**
    * @remarks
-   * Origin certificate verification switch. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to verify the origin server certificate. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -100,21 +163,33 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originVerify?: string;
   /**
    * @remarks
-   * Use range slicing to download files from the origin. Value range:
-   * - on: Enable
-   * - off: Disable
-   * - force: Force
+   * Specifies whether to use range-based requests to retrieve files from the origin. Valid values:
+   * 
+   * - `on`: Enables range requests.
+   * 
+   * - `off`: Disables range requests.
+   * 
+   * - `force`: Forces range requests.
    * 
    * @example
    * on
    */
   range?: string;
+  /**
+   * @remarks
+   * The size of each chunk for range requests.
+   * 
+   * @example
+   * 1MB
+   */
   rangeChunkSize?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+   * The rule content, which uses a conditional expression to match user requests. This parameter is not required for global configurations. It supports two use cases:
+   * 
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -122,9 +197,11 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Specifies whether the rule is enabled. This parameter is not required for global configurations. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -132,7 +209,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The rule name. This parameter is not required for global configurations.
    * 
    * @example
    * rule_example
@@ -140,7 +217,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The rule execution order. Lower values indicate higher priority.
    * 
    * @example
    * 1
@@ -148,7 +225,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, this parameter can specify the version of the site for which the configuration is effective, defaulting to version 0.
+   * The site configuration version. If versioning is enabled for the site, this parameter specifies which version to use. The default is 0.
    * 
    * @example
    * 1
@@ -222,12 +299,12 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
 export class ListOriginRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body configuration.
+   * A list of configurations.
    */
   configs?: ListOriginRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -235,7 +312,7 @@ export class ListOriginRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -243,7 +320,7 @@ export class ListOriginRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
@@ -251,7 +328,7 @@ export class ListOriginRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -259,7 +336,7 @@ export class ListOriginRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 2

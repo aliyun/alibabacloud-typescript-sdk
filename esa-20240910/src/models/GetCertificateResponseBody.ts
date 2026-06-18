@@ -13,7 +13,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The DCV name. It is a TXT record name if Type is DNS or URL if Type is HTTP.
+   * The DCV name. For DNS, this is the TXT record name. For HTTP, this is the URL.
    * 
    * @example
    * http://www.example.com/.well-known/acme-challenge/pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow
@@ -21,7 +21,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The verification status.
+   * The status of the DCV check.
    * 
    * @example
    * pending
@@ -29,7 +29,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The DCV type. Valid values: DNS and HTTP.
+   * The DCV type. Valid values: `DNS` and `HTTP`.
    * 
    * @example
    * HTTP
@@ -37,7 +37,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The DCV content.
+   * The value required for the DCV check. For a DNS check, this is the TXT record value. For an HTTP check, this is the content of the validation file.
    * 
    * @example
    * pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow.KfzYo4LH3EgOt7a73G-RqZkbR0eYtLfEUmtmqGmr4FQ
@@ -75,7 +75,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
 export class GetCertificateResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The error code returned for certificate application.
+   * The error code for the certificate application process.
    * 
    * @example
    * 2
@@ -83,7 +83,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   applyCode?: number;
   /**
    * @remarks
-   * The error message returned for certificate application.
+   * The error message for the certificate application process.
    * 
    * @example
    * canceled
@@ -91,7 +91,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   applyMessage?: string;
   /**
    * @remarks
-   * Cloud certificate ID.
+   * The ID of the CAS certificate.
    * 
    * @example
    * 30000478
@@ -99,7 +99,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   casId?: string;
   /**
    * @remarks
-   * Common Name (CN) field of the certificate.
+   * The Common Name (CN) field of the certificate.
    * 
    * @example
    * www.example.com
@@ -107,7 +107,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * Creation time.
+   * The time when the certificate record was created.
    * 
    * @example
    * 2020-05-12 02:00:53
@@ -120,7 +120,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   DCV?: GetCertificateResponseBodyResultDCV[];
   /**
    * @remarks
-   * SHA256 fingerprint of the certificate.
+   * The SHA-256 fingerprint of the certificate.
    * 
    * @example
    * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456aca66
@@ -128,7 +128,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   fingerprintSha256?: string;
   /**
    * @remarks
-   * Certificate ID.
+   * The certificate ID.
    * 
    * @example
    * babaded901474b9693acf530e0fb1d95
@@ -136,7 +136,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Certificate issuer.
+   * The certificate issuer.
    * 
    * @example
    * DigiCert
@@ -144,16 +144,23 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * Certificate issuing authority.
+   * The issuer\\"s Common Name (CN).
    * 
    * @example
    * DigiCert Global Root CA
    */
   issuerCN?: string;
+  /**
+   * @remarks
+   * The Keyless server ID. This parameter is returned only when the value of `Type` is `keyless`.
+   * 
+   * @example
+   * baba39055622c008b90285a8838e****
+   */
   keyServerId?: string;
   /**
    * @remarks
-   * Certificate name.
+   * The certificate name.
    * 
    * @example
    * yourCertName
@@ -161,7 +168,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * End time of the certificate validity period.
+   * The end of the certificate\\"s validity period.
    * 
    * @example
    * 2023-11-26T16:00:00Z
@@ -169,7 +176,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * Start time of the certificate validity period.
+   * The start of the certificate\\"s validity period.
    * 
    * @example
    * 2023-11-26T16:00:00Z
@@ -177,7 +184,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   notBefore?: string;
   /**
    * @remarks
-   * Certificate public key algorithm.
+   * The algorithm of the certificate\\"s public key.
    * 
    * @example
    * ECDSA
@@ -185,7 +192,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   pubAlg?: string;
   /**
    * @remarks
-   * Region.
+   * The region where the certificate is stored.
    * 
    * @example
    * cn-hangzhou
@@ -193,7 +200,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Subject Alternative Name (SAN) of the certificate.
+   * The Subject Alternative Name (SAN) field, which specifies the host names covered by the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -201,7 +208,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   SAN?: string;
   /**
    * @remarks
-   * Serial number of the certificate.
+   * The unique serial number assigned to the certificate by the issuer.
    * 
    * @example
    * babaded901474b9693acf530e0fb1daa
@@ -209,7 +216,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * Certificate signature algorithm.
+   * The algorithm used to sign the certificate.
    * 
    * @example
    * ECDSA-SHA1
@@ -217,7 +224,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   sigAlg?: string;
   /**
    * @remarks
-   * Certificate status.
+   * The certificate status.
    * 
    * @example
    * OK
@@ -225,7 +232,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Certificate type.
+   * The certificate type.
    * 
    * @example
    * free
@@ -233,7 +240,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Update time.
+   * The time when the certificate record was last updated.
    * 
    * @example
    * 2022-09-22 05:33:13
@@ -308,7 +315,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
 export class GetCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Certificate content.
+   * The certificate content in PEM format.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -316,7 +323,7 @@ export class GetCertificateResponseBody extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * Request ID.
+   * The unique ID for the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -324,12 +331,12 @@ export class GetCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The certificate information.
+   * Detailed certificate information.
    */
   result?: GetCertificateResponseBodyResult;
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * @example
    * 1234567890123
@@ -337,7 +344,7 @@ export class GetCertificateResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -345,7 +352,7 @@ export class GetCertificateResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * Certificate status.
+   * The certificate status.
    * 
    * @example
    * OK

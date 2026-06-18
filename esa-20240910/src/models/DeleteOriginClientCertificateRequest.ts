@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOriginClientCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteOriginClientCertificateRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The ID of the site.
    * 
    * This parameter is required.
    * 

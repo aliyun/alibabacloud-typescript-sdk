@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWafFilterRequest extends $dara.Model {
   /**
    * @remarks
-   * The WAF rule category to which the filter conditions to query belong.
+   * Specifies the WAF phase from which to retrieve the matching engine information.
    * 
    * @example
    * http_bot
@@ -13,7 +13,7 @@ export class GetWafFilterRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Specifies the ID of the site. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetWafFilterRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The condition for matching incoming requests.
+   * Specifies the application target of the matching engine.
    * 
    * @example
    * characteristics
@@ -29,7 +29,7 @@ export class GetWafFilterRequest extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The rule type.
+   * Specifies the rule type.
    * 
    * @example
    * http_custom_cc

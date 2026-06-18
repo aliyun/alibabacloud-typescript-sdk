@@ -39,9 +39,11 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
    * @remarks
    * The task status.
    * 
-   * *   **Complete**: The task is complete.
-   * *   **Refreshing**: The task is in progress.
-   * *   **Failed**: The task failed.
+   * - **Complete**: The task is complete.
+   * 
+   * - **Refreshing**: The task is in progress.
+   * 
+   * - **Failed**: The task failed.
    * 
    * @example
    * Complete
@@ -59,12 +61,17 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
    * @remarks
    * The type of the purge task. Valid values:
    * 
-   * *   **file** (default): purges the cache by file.
-   * *   **cachetag**: purges the cache by cache tag.
-   * *   **directory**: purges the cache by directory.
-   * *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
-   * *   **hostname**: purges the cache by hostname.
-   * *   **purgeall**: purges all cache.
+   * - **file** (default): purges the cache by file.
+   * 
+   * - **cachetag**: purges the cache by cache tag.
+   * 
+   * - **directory**: purges the cache by directory.
+   * 
+   * - **ignoreParams**: purges the cache by URL with specified parameters ignored.
+   * 
+   * - **hostname**: purges the cache by hostname.
+   * 
+   * - **purgeall**: purges all cache.
    * 
    * @example
    * file

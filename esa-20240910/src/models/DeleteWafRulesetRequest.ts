@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
+   * The ID of the WAF ruleset. Call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) API to obtain this ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteWafRulesetRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to obtain this ID.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DeleteWafRulesetRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version.
+   * If version management is enabled for the site, use this parameter to specify the version to modify. The default value is 0.
    * 
    * @example
    * 0

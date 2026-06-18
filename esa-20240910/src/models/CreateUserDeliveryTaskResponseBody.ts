@@ -7,8 +7,9 @@ export class CreateUserDeliveryTaskResponseBody extends $dara.Model {
    * @remarks
    * The data center. Valid values:
    * 
-   * *   cn: the Chinese mainland.
-   * *   sg: outside the Chinese mainland.
+   * - **cn**: Chinese mainland.
+   * 
+   * - **sg**: Global (excluding Chinese mainland).
    * 
    * @example
    * cn
@@ -16,7 +17,7 @@ export class CreateUserDeliveryTaskResponseBody extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The request ID.
+   * A unique identifier for the request.
    * 
    * @example
    * 2CCD40B1-3F20-5FF0-8A67-E3F34B87744F
@@ -24,7 +25,7 @@ export class CreateUserDeliveryTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the delivery task.
+   * The current status of the task.
    * 
    * @example
    * online
@@ -32,7 +33,7 @@ export class CreateUserDeliveryTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The name of the task.
    * 
    * @example
    * er-http

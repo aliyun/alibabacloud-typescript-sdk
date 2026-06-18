@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetDdosMaxBurstGbpsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance. You can call the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation to obtain the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SetDdosMaxBurstGbpsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The maximum burstable protection bandwidth for the DDoS instance in mainland China. The unit is Gbps.
+   * 
    * This parameter is required.
    * 
    * @example

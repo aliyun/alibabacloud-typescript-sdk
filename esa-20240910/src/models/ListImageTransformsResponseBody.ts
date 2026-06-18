@@ -15,7 +15,7 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   autoWebp?: string;
   /**
    * @remarks
-   * Configuration ID.
+   * The ID of the configuration.
    * 
    * @example
    * 395386449776640
@@ -23,9 +23,11 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - global: Global configuration;
-   * - rule: Rule configuration;
+   * The type of the configuration. Valid values:
+   * 
+   * - `global`: A global configuration.
+   * 
+   * - `rule`: A rule-based configuration.
    * 
    * @example
    * global
@@ -33,9 +35,10 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Switch. Possible values:
+   * Indicates whether the configuration is enabled. Valid values:
    * 
    * - **on**: Enabled.
+   * 
    * - **off**: Disabled.
    * 
    * @example
@@ -44,9 +47,11 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The conditional expression that defines the rule used to match user requests. This parameter is not applicable to global configurations.
+   * 
+   * - A value of `true` matches all incoming requests.
+   * 
+   * - A custom expression, such as `(http.host eq "video.example.com")`, matches specific requests.
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -54,9 +59,11 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Indicates whether the rule is enabled. This parameter is not applicable to global configurations. Valid values:
+   * 
+   * - **on**: Enabled.
+   * 
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -64,7 +71,7 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The name of the rule. This parameter is not applicable to global configurations.
    * 
    * @example
    * test
@@ -72,7 +79,7 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -80,7 +87,7 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Site configuration version number. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
+   * The version of the site configuration. For a site with version management enabled, this parameter specifies the site version to which the configuration applies. The default is 0.
    * 
    * @example
    * 1
@@ -128,12 +135,12 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
 export class ListImageTransformsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Configuration list.
+   * A list of configurations.
    */
   configs?: ListImageTransformsResponseBodyConfigs[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -141,7 +148,7 @@ export class ListImageTransformsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size. Range: **1~500**, default is **500**.
+   * The number of entries per page, ranging from **1 to 500**. The default is **500**.
    * 
    * @example
    * 10
@@ -149,7 +156,7 @@ export class ListImageTransformsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
@@ -157,7 +164,7 @@ export class ListImageTransformsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of entries.
    * 
    * @example
    * 16
@@ -165,7 +172,7 @@ export class ListImageTransformsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 2

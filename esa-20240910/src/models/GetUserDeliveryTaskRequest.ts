@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * This parameter is required.
    * 

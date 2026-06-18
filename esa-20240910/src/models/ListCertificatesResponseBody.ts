@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   /**
    * @remarks
-   * The DCV ID.
+   * The ID of the DCV record.
    * 
    * @example
    * bababf7cdd1546a2ad04c0def1f4****
@@ -13,7 +13,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The DCV name. It is a TXT record name if Type is DNS or URL if Type is HTTP.
+   * The DCV key. For the `DNS` method, this is the name of the TXT record. For the `HTTP` method, this is the URL.
    * 
    * @example
    * http://www.example.com/.well-known/acme-challenge/pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow
@@ -21,7 +21,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The verification status.
+   * The validation status.
    * 
    * @example
    * pending
@@ -29,7 +29,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The DCV type. Valid values: DNS and HTTP.
+   * The DCV method. Valid values: `DNS` and `HTTP`.
    * 
    * @example
    * HTTP
@@ -37,7 +37,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The DCV content.
+   * The DCV value.
    * 
    * @example
    * pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow.KfzYo4LH3EgOt7a73G-RqZkbR0eYtLfEUmtmqGmr4FQ
@@ -75,7 +75,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
 export class ListCertificatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The error code returned for certificate application.
+   * The error code returned when a certificate application fails.
    * 
    * @example
    * 2
@@ -83,7 +83,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   applyCode?: number;
   /**
    * @remarks
-   * The error message returned for certificate application.
+   * The error message returned when a certificate application fails.
    * 
    * @example
    * canceled
@@ -91,7 +91,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   applyMessage?: string;
   /**
    * @remarks
-   * The certificate ID on Certificate Management Service.
+   * The ID of the cloud certificate.
    * 
    * @example
    * 30000569
@@ -99,7 +99,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   casId?: string;
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -115,7 +115,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The Domain Control Validation (DCV) information.
+   * The domain control validation (DCV) information.
    */
   DCV?: ListCertificatesResponseBodyResultDCV[];
   /**
@@ -128,7 +128,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   fingerprintSha256?: string;
   /**
    * @remarks
-   * The certificate ID on ESA.
+   * The ID of the certificate.
    * 
    * @example
    * baba39055622c008b90285a8838e****
@@ -136,7 +136,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The certificate authority (CA) that issued the certificate.
+   * The issuer of the certificate.
    * 
    * @example
    * GlobalSign nv-sa
@@ -144,16 +144,23 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The Common Name of the certificate issuer.
+   * The common name of the certificate issuer.
    * 
    * @example
    * GlobalSign Organization Validation CA - SHA256 - G3
    */
   issuerCN?: string;
+  /**
+   * @remarks
+   * The ID of the keyless server. This parameter is valid only when `Type` is set to `keyless`.
+   * 
+   * @example
+   * baba39055622c008b90285a8838e****
+   */
   keyServerId?: string;
   /**
    * @remarks
-   * The certificate name.
+   * The name of the certificate.
    * 
    * @example
    * yourCertName
@@ -169,7 +176,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The time when the certificate becomes valid.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -185,7 +192,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   pubAlg?: string;
   /**
    * @remarks
-   * The region where the certificate is stored.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -193,7 +200,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The Subject Alternative Name (SAN) of the certificate.
+   * The subject alternative name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -217,15 +224,21 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   sigAlg?: string;
   /**
    * @remarks
-   * The certificate status.
+   * The status of the certificate. Valid values:
    * 
-   * *   OK
-   * *   Expired
-   * *   Expiring
-   * *   Issued
-   * *   Applying
-   * *   ApplyFailed
-   * *   Canceled
+   * - `OK`: The certificate is valid.
+   * 
+   * - `Expired`: The certificate has expired.
+   * 
+   * - `Expiring`: The certificate is due to expire within 30 days.
+   * 
+   * - `Issued`: The free certificate has been issued.
+   * 
+   * - `Applying`: The free certificate application is in progress.
+   * 
+   * - `ApplyFailed`: The free certificate application has failed.
+   * 
+   * - `Canceled`: The free certificate application has been canceled.
    * 
    * @example
    * OK
@@ -233,11 +246,15 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The certificate type.
+   * The type of the certificate. Valid values:
    * 
-   * *   cas: certificate that is purchased by using Certificate Management Service
-   * *   upload: custom certificate that you upload
-   * *   free: free certificate
+   * - `cas`: An Alibaba Cloud certificate.
+   * 
+   * - `upload`: A user-uploaded certificate.
+   * 
+   * - `free`: A free certificate.
+   * 
+   * - `keyless`: A keyless certificate.
    * 
    * @example
    * free
@@ -245,7 +262,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was updated.
+   * The time when the certificate was last updated.
    * 
    * @example
    * 2023-04-20 06:18:42
@@ -328,7 +345,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -344,12 +361,12 @@ export class ListCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried certificates.
+   * A list of certificate details.
    */
   result?: ListCertificatesResponseBodyResult[];
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * @example
    * 1234567890123
@@ -357,7 +374,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The name of the site.
    * 
    * @example
    * example.com
@@ -365,7 +382,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

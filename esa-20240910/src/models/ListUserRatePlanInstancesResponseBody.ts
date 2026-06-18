@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $dara.Model {
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456****
@@ -13,7 +13,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $dar
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -21,12 +21,15 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $dar
   siteName?: string;
   /**
    * @remarks
-   * The website status. Valid values:
+   * The site status. Valid values:
    * 
-   * *   pending: The website is to be configured.
-   * *   active: The website is active.
-   * *   offline: The website is suspended.
-   * *   moved: The website has been added and verified by another Alibaba Cloud account.
+   * - **pending**: The site is pending configuration.
+   * 
+   * - **active**: The site is active.
+   * 
+   * - **offline**: The site is offline.
+   * 
+   * - **moved**: The site has been replaced.
    * 
    * @example
    * pending
@@ -62,8 +65,9 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   PREPAY: subscription.
-   * *   POSTPAY: pay-as-you-go.
+   * - **PREPAY**: subscription.
+   * 
+   * - **POSTPAY**: pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -73,11 +77,13 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   botRequest?: string;
   /**
    * @remarks
-   * The service locations for the websites that can be associated with the plan. Multiple values are separated by commas (,). Valid values:
+   * The acceleration regions covered by the plan instance. Multiple values are separated by commas (,). Valid values:
    * 
-   * *   domestic: the Chinese mainland.
-   * *   overseas: outside the Chinese mainland.
-   * *   global: global.
+   * - **domestic**: The Chinese mainland.
+   * 
+   * - **overseas**: Regions outside the Chinese mainland.
+   * 
+   * - **global**: Global (including the Chinese mainland).
    * 
    * @example
    * domestic,overseas
@@ -85,7 +91,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   coverages?: string;
   /**
    * @remarks
-   * The time when the plan was purchased.
+   * The creation time.
    * 
    * @example
    * YYYY-MM-DDThh:mm:ssZ
@@ -97,7 +103,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   ddosInstanceLevel?: string;
   /**
    * @remarks
-   * The subscription duration of the plan. Unit: month.
+   * The duration in months.
    * 
    * @example
    * 3
@@ -107,7 +113,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   edgeWafRequest?: string;
   /**
    * @remarks
-   * The time when the plan expires.
+   * The expiration time.
    * 
    * @example
    * YYYY-MM-DDThh:mm:ssZ
@@ -115,7 +121,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   expireTime?: string;
   /**
    * @remarks
-   * The plan ID.
+   * The plan instance ID.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -136,16 +142,27 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
    * @remarks
    * The plan type. Valid values:
    * 
-   * *   normal
-   * *   enterprise
+   * - **normal**: The normal plan.
+   * 
+   * - **enterprise**: The enterprise plan.
    * 
    * @example
    * normal
    */
   planType?: string;
   /**
+   * @example
+   * 6
+   */
+  renewalDuration?: number;
+  /**
+   * @example
+   * nomal
+   */
+  renewalStatus?: string;
+  /**
    * @remarks
-   * The maximum number of websites that can be associated with the plan.
+   * The site quota.
    * 
    * @example
    * 1
@@ -153,18 +170,20 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   siteQuota?: string;
   /**
    * @remarks
-   * The websites that have been associated with the plan.
+   * The sites associated with this plan instance.
    */
   sites?: ListUserRatePlanInstancesResponseBodyInstanceInfoSites[];
   smartRoutingRequest?: string;
   staticRequest?: string;
   /**
    * @remarks
-   * The plan status. Valid values:
+   * The instance status. Valid values:
    * 
-   * *   online: The plan is in service.
-   * *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
-   * *   disable: The plan is released.
+   * - **online**: The plan instance is active.
+   * 
+   * - **offline**: The plan instance is unavailable because it has expired but is still within the grace period.
+   * 
+   * - **disable**: The plan instance is released.
    * 
    * @example
    * online
@@ -192,6 +211,8 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
       planName: 'PlanName',
       planTraffic: 'PlanTraffic',
       planType: 'PlanType',
+      renewalDuration: 'RenewalDuration',
+      renewalStatus: 'RenewalStatus',
       siteQuota: 'SiteQuota',
       sites: 'Sites',
       smartRoutingRequest: 'SmartRoutingRequest',
@@ -222,6 +243,8 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
       planName: 'string',
       planTraffic: 'string',
       planType: 'string',
+      renewalDuration: 'number',
+      renewalStatus: 'string',
       siteQuota: 'string',
       sites: { 'type': 'array', 'itemType': ListUserRatePlanInstancesResponseBodyInstanceInfoSites },
       smartRoutingRequest: 'string',
@@ -246,7 +269,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
 export class ListUserRatePlanInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried plans.
+   * An array of plan instances that meet the specified criteria.
    */
   instanceInfo?: ListUserRatePlanInstancesResponseBodyInstanceInfo[];
   /**
@@ -259,7 +282,7 @@ export class ListUserRatePlanInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -275,7 +298,7 @@ export class ListUserRatePlanInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count of entries.
    * 
    * @example
    * 68
@@ -283,7 +306,7 @@ export class ListUserRatePlanInstancesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

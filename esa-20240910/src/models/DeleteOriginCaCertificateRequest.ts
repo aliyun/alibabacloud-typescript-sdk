@@ -15,7 +15,7 @@ export class DeleteOriginCaCertificateRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID.
    * 
    * This parameter is required.
    * 

@@ -6,12 +6,28 @@ import { WafRuleConfig } from "./WafRuleConfig";
 export class CreateWafRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Rule configuration, specifying the detailed configuration for creating a rule.
+   * The detailed configuration of the WAF rule.
    */
   config?: WafRuleConfig;
   /**
    * @remarks
-   * WAF operation phase.
+   * The phase in which the WAF rule runs.
+   * 
+   * - `http_whitelist`: whitelist rule
+   * 
+   * - `http_custom`: custom rule
+   * 
+   * - `http_managed`: managed rule
+   * 
+   * - `http_anti_scan`: anti-scan rule
+   * 
+   * - `http_ratelimit`: rate limit rule
+   * 
+   * - `ip_access_rule`: IP access rule
+   * 
+   * - `http_bot`: Advanced Mode Bots
+   * 
+   * - `http_security_level_rule`: Security Rule
    * 
    * This parameter is required.
    * 
@@ -21,7 +37,7 @@ export class CreateWafRuleRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Ruleset ID.
+   * The ID of the WAF ruleset. You can obtain this ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
    * 
    * @example
    * 10000001
@@ -29,7 +45,7 @@ export class CreateWafRuleRequest extends $dara.Model {
   rulesetId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The ID of the site. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -39,7 +55,7 @@ export class CreateWafRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version.
+   * If version management is enabled for the site, use this parameter to specify the version to which the configuration applies. The default is 0.
    * 
    * @example
    * 0

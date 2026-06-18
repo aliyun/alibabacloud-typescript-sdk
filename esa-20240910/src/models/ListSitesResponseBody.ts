@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListSitesResponseBodySites extends $dara.Model {
   /**
    * @remarks
-   * The DNS setup for the website. Valid values:
+   * The access type. Valid values:
    * 
-   * *   **NS**
-   * *   **CNAME**
+   * - **NS**: The site connects via NS.
+   * 
+   * - **CNAME**: The site connects via a CNAME record.
    * 
    * @example
    * NS
@@ -16,7 +17,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The CNAME of the website domain. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * The CNAME suffix for the site. This suffix is required for CNAME record configuration.
    * 
    * @example
    * example.cname.com
@@ -24,11 +25,13 @@ export class ListSitesResponseBodySites extends $dara.Model {
   cnameZone?: string;
   /**
    * @remarks
-   * The service location for the website. Valid values:
+   * The acceleration region. Valid values:
    * 
-   * *   **domestic**: the Chinese mainland
-   * *   **global**: global
-   * *   **overseas**: outside the Chinese mainland
+   * - **domestic**: Chinese mainland only.
+   * 
+   * - **global**: Global.
+   * 
+   * - **overseas**: Global (excluding Chinese mainland).
    * 
    * @example
    * domestic
@@ -36,7 +39,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * The time when the website was added. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time (UTC) when the site was created, in `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -44,7 +47,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the plan associated with the website.
+   * The ID of the plan instance associated with the site.
    * 
    * @example
    * onBvtlmIyeXLbiDw81F9
@@ -52,16 +55,33 @@ export class ListSitesResponseBodySites extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The nameservers assigned to the website domain, which are separated by commas (,).
+   * The list of name servers (NS) assigned to the site. Multiple name servers are separated by commas.
    * 
    * @example
    * male1-1.ialicdn.com,female1-1.ialicdn.com
    */
   nameServerList?: string;
+  /**
+   * @remarks
+   * The reason the site was disabled. Valid values:
+   * 
+   * - **expiration_ arrears**: The plan has expired or payment is overdue.
+   * 
+   * - **internally_disabled**: Disabled by the system.
+   * 
+   * - **missing_icp**: The domain name is missing an ICP filing.
+   * 
+   * - **content_violation**: The site content violates regulations.
+   * 
+   * - **proactively_disabled**: The user disabled the site, or a usage cap was reached.
+   * 
+   * @example
+   * expiration_ arrears
+   */
   offlineReason?: string;
   /**
    * @remarks
-   * The plan name.
+   * The name of the plan.
    * 
    * @example
    * plan-168656498****
@@ -69,7 +89,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * The plan associated with the website.
+   * The name of the plan specification.
    * 
    * @example
    * normal
@@ -85,7 +105,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * @example
    * 123456789****
@@ -93,7 +113,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The domain name.
    * 
    * @example
    * example.com
@@ -101,12 +121,15 @@ export class ListSitesResponseBodySites extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The website status. Valid values:
+   * The status. Valid values:
    * 
-   * *   **pending**: The website is to be configured.
-   * *   **active**: The website is active.
-   * *   **offline**: The website is suspended.
-   * *   **moved**: The website has been added and verified by another Alibaba Cloud account.
+   * - **pending**: The site is awaiting configuration.
+   * 
+   * - **active**: The site is active.
+   * 
+   * - **offline**: The site is offline.
+   * 
+   * - **moved**: The site has moved to another instance.
    * 
    * @example
    * pending
@@ -114,7 +137,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the website.
+   * The tags associated with the site.
    * 
    * @example
    * {"tag1":"value1"}
@@ -122,7 +145,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the website was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time (UTC) when the site was last updated, in `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -130,7 +153,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The code that is used to verify the website domain ownership. As part of the verification TXT record, this parameter is returned for websites that use CNAME setup.
+   * The TXT verification code for site ownership. For sites that connect via CNAME, you must configure this code.
    * 
    * @example
    * verify_d516cb3740f81f0cef77d162edd1****
@@ -138,7 +161,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   verifyCode?: string;
   /**
    * @remarks
-   * The website visit time is represented in the ISO 8601 date format using UTC time, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The time (UTC) when the site was last accessed, in `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -211,7 +234,7 @@ export class ListSitesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of websites per page.
+   * The number of sites to return on each page.
    * 
    * @example
    * 20
@@ -227,12 +250,12 @@ export class ListSitesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried websites.
+   * A list of sites.
    */
   sites?: ListSitesResponseBodySites[];
   /**
    * @remarks
-   * The total number of websites.
+   * The total count of sites.
    * 
    * @example
    * 40

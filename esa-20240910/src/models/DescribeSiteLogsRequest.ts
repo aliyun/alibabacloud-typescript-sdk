@@ -9,7 +9,7 @@ export class DescribeSiteLogsRequest extends $dara.Model {
    * 
    * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
-   * >  The end time must be later than the start time.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 2022-11-06T17:00:00Z

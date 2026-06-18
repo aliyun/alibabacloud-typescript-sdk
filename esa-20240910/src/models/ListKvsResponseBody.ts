@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKvsResponseBodyKeys extends $dara.Model {
   /**
    * @remarks
-   * The key name.
+   * The name of the key.
    * 
    * @example
    * Key1
@@ -45,12 +45,12 @@ export class ListKvsResponseBodyKeys extends $dara.Model {
 export class ListKvsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The key-value pairs.
+   * The list of key-value pairs returned by this traversal.
    */
   keys?: ListKvsResponseBodyKeys[];
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 100
@@ -58,7 +58,7 @@ export class ListKvsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records on each page.
    * 
    * @example
    * 50
@@ -74,7 +74,7 @@ export class ListKvsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1024

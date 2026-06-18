@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineRelatedRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The routine name.
+   * The name of the edge function Routine.
    * 
    * This parameter is required.
    * 
    * @example
-   * CreateRoutineRelatedRecord
+   * test-routine1
    */
   name?: string;
   /**
@@ -25,7 +25,7 @@ export class CreateRoutineRelatedRecordRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * This parameter is required.
    * 

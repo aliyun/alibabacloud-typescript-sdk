@@ -23,8 +23,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * Indicates whether session renewal is disabled. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * off
@@ -34,8 +35,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * The event status. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -53,8 +55,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * Indicates whether JOSN response is enabled. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * off
@@ -64,9 +67,11 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
    * 
-   * *   enus: English.
-   * *   zhcn: Simplified Chinese.
-   * *   zhhk: Traditional Chinese.
+   * - enus: English.
+   * 
+   * - zhcn: Simplified Chinese.
+   * 
+   * - zhhk: Traditional Chinese.
    * 
    * @example
    * zhcn
@@ -75,6 +80,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   /**
    * @remarks
    * The custom event name.
+   * 
+   * @example
+   * Test event
    */
   name?: string;
   /**
@@ -89,8 +97,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * Indicates whether pre-queuing is enabled. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -108,10 +117,13 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * The queuing method. Valid values:
    * 
-   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
-   * *   fifo: Users gain access to the origin in order of arrival.
-   * *   passthrough: Users pass through the waiting room and go straight to the origin.
-   * *   reject-all: Users are blocked from reaching the origin.
+   * - random: Users gain access to the origin randomly, regardless of the arrival time.
+   * 
+   * - fifo: Users gain access to the origin in order of arrival.
+   * 
+   * - passthrough: Users pass through the waiting room and go straight to the origin.
+   * 
+   * - reject-all: Users are blocked from reaching the origin.
    * 
    * @example
    * fifo
@@ -121,9 +133,11 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * The HTTP status code to return while a user is in the queue. Valid values:
    * 
-   * *   200
-   * *   202
-   * *   429
+   * - 200
+   * 
+   * - 202
+   * 
+   * - 429
    * 
    * @example
    * 200
@@ -133,8 +147,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * Indicates whether random queuing is enabled. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on
+   * 
+   * - off
    * 
    * @example
    * on
@@ -184,8 +199,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * The type of the waiting room. Valid values:
    * 
-   * *   default
-   * *   custom
+   * - default
+   * 
+   * - custom
    * 
    * @example
    * custom

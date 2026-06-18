@@ -8,7 +8,7 @@ export class ResetScheduledPreloadJobRequest extends $dara.Model {
    * The ID of the scheduled prefetch task.
    * 
    * @example
-   * ResetScheduledPreloadJob
+   * 665d3af3621bccf3fe29e1a4
    */
   id?: string;
   static names(): { [key: string]: string } {

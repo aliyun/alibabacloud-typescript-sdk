@@ -13,7 +13,7 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
   aliUid?: string;
   /**
    * @remarks
-   * The end time of the prefetch plan.
+   * The end time of the execution plan.
    * 
    * @example
    * 2024-05-31T18:10:48.849+08:00
@@ -21,7 +21,7 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
   endTime?: string;
   /**
    * @remarks
-   * The ID of the prefetch plan.
+   * The ID of the execution plan.
    * 
    * @example
    * 66599bd7397885b43804901c
@@ -29,7 +29,7 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
   id?: string;
   /**
    * @remarks
-   * The time interval between each batch execution in the plan. Unit: seconds.
+   * The execution interval between batches, in seconds.
    * 
    * @example
    * 60
@@ -37,7 +37,7 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
   interval?: number;
   /**
    * @remarks
-   * The ID of the prefetch task.
+   * The ID of the scheduled preload task.
    * 
    * @example
    * 665d3af3621bccf3fe29e1a4
@@ -45,7 +45,7 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
   jobId?: string;
   /**
    * @remarks
-   * The number of URLs prefetched in each batch.
+   * The number of URLs to preload in each batch.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
   sliceLen?: number;
   /**
    * @remarks
-   * The start time of the prefetch plan.
+   * The start time of the execution plan.
    * 
    * @example
    * 2024-05-31T17:10:48.849+08:00
@@ -61,13 +61,17 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
   startTime?: string;
   /**
    * @remarks
-   * The status of the prefetch plan. Valid values:
+   * The status of the execution plan. Valid values:
    * 
-   * *   **waiting**
-   * *   **running**
-   * *   **finished**
-   * *   **failed**
-   * *   **stopped**
+   * - **waiting**: Pending execution.
+   * 
+   * - **running**: Executing.
+   * 
+   * - **finished**: Completed.
+   * 
+   * - **failed**: Failed.
+   * 
+   * - **stopped**: Paused.
    * 
    * @example
    * running
@@ -111,12 +115,12 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
 export class ListScheduledPreloadExecutionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about prefetch plans returned.
+   * A list of execution plans.
    */
   executions?: ListScheduledPreloadExecutionsResponseBodyExecutions[];
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * ET5BF670-09D5-4D0B-BEBY-D96A2A528000
@@ -124,7 +128,7 @@ export class ListScheduledPreloadExecutionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of execution plans.
    * 
    * @example
    * 2

@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The type of real-time log for Dynamic Route for CDN (DCDN). Valid values:
    * 
-   * *   dcdn_log_access_l1 (default): access logs.
-   * *   dcdn_log_er: Edge Routine logs.
-   * *   dcdn_log_waf: firewall logs.
-   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1** (default): access log.
+   * 
+   * - **dcdn_log_er**: edge function log.
+   * 
+   * - **dcdn_log_waf**: WAF log.
+   * 
+   * - **dcdn_log_ipa**: layer 4 acceleration log.
    * 
    * @example
    * dcdn_log_access_l1
@@ -20,8 +23,9 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
    * @remarks
    * The data center. Valid values:
    * 
-   * 1.  cn: the Chinese mainland.
-   * 2.  sg: outside the Chinese mainland.
+   * - **cn**: Chinese mainland.
+   * 
+   * - **sg**: Global (excluding Chinese mainland). Note that the value for this region is "sg".
    * 
    * @example
    * cn
@@ -29,14 +33,19 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The destination of the delivery. Valid values:
+   * The delivery type. Valid values:
    * 
-   * 1.  sls: Alibaba Cloud Simple Log Service (SLS).
-   * 2.  http: HTTP server.
-   * 3.  aws3: Amazon Simple Storage Service (S3).
-   * 4.  oss: Alibaba Cloud Object Storage Service (OSS).
-   * 5.  kafka: Kafka.
-   * 6.  aws3cmpt: S3-compatible storage service.
+   * - **sls**: Log Service.
+   * 
+   * - **http**: HTTP service.
+   * 
+   * - **aws3**: Amazon S3.
+   * 
+   * - **oss**: Object Storage Service.
+   * 
+   * - **kafka**: Kafka service.
+   * 
+   * - **aws3cmpt**: Amazon S3-compatible service.
    * 
    * @example
    * sls
@@ -52,7 +61,7 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The log fields.
+   * A comma-separated list of log fields to deliver.
    * 
    * @example
    * Client,UserAgent
@@ -60,7 +69,7 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   fieldList?: string;
   /**
    * @remarks
-   * The filtering rules.
+   * The filter rules.
    * 
    * @example
    * []
@@ -86,7 +95,7 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   sinkConfig?: any;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456****
@@ -94,7 +103,7 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * test.***.com
@@ -102,10 +111,11 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The status of the delivery task.
+   * The status of the task. Valid values:
    * 
-   * *   **online**
-   * *   **offline**
+   * - **online**: The task is delivering logs.
+   * 
+   * - **offline**: The task is paused.
    * 
    * @example
    * online
@@ -113,7 +123,7 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * @example
    * cdn-test-task

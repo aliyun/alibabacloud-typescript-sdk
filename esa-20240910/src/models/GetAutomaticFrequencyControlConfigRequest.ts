@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAutomaticFrequencyControlConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetAutomaticFrequencyControlConfigRequest extends $dara.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the site. If versioning is enabled, use this parameter to specify the site version. The default value is 0.
+   * 
    * @example
    * 0
    */

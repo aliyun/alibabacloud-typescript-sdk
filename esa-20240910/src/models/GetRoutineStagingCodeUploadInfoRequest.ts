@@ -18,7 +18,7 @@ export class GetRoutineStagingCodeUploadInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * GetRoutineStagingCodeUploadInfo
+   * test-routine1
    */
   name?: string;
   static names(): { [key: string]: string } {

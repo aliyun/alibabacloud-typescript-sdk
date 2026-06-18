@@ -10,10 +10,11 @@ export class UpdateOriginProtectionRequest extends $dara.Model {
   autoConfirmIPList?: string;
   /**
    * @remarks
-   * The IP convergence status.
+   * The origin fetch convergence switch.
    * 
-   * *   on
-   * *   off
+   * - on: Enable origin fetch convergence.
+   * 
+   * - off: Disable origin fetch convergence.
    * 
    * This parameter is required.
    * 
@@ -23,7 +24,7 @@ export class UpdateOriginProtectionRequest extends $dara.Model {
   originConverge?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to get it.
    * 
    * This parameter is required.
    * 

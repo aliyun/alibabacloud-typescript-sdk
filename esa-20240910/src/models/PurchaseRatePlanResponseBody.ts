@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PurchaseRatePlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * esa-site-ads11w
@@ -13,7 +13,7 @@ export class PurchaseRatePlanResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Order ID.
+   * The order ID.
    * 
    * @example
    * 123123
@@ -21,7 +21,7 @@ export class PurchaseRatePlanResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 30423A7F-A83D-1E24-B80E-86DD25790758

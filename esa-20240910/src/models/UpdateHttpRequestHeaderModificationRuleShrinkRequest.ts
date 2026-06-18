@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID. It can be obtained by calling the [ListHttpRequestHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) API.
+   * The configuration ID. Call the [ListHttpRequestHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) operation to obtain it.
    * 
    * This parameter is required.
    * 
@@ -15,14 +15,16 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   configId?: number;
   /**
    * @remarks
-   * Modify request headers, supporting add, delete, and modify operations.
+   * Specifies the modifications for the request header. Supported operations include `add`, `del`, and `modify`.
    */
   requestHeaderModificationShrink?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - To match all incoming requests: Set the value to true
-   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The Conditional Expression used to match User Requests. This parameter is not required for a Global Configuration. Use cases:
+   * 
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, use a custom expression, for example, `(http.host eq "video.example.com")`.
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -30,9 +32,11 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether the Rule is enabled. This parameter is not required for a Global Configuration. Valid values:
+   * 
+   * - `on`: Enable
+   * 
+   * - `off`: Disable
    * 
    * @example
    * on
@@ -40,16 +44,23 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The name of the Rule. This parameter is not required for a Global Configuration.
    * 
    * @example
    * rule_example
    */
   ruleName?: string;
+  /**
+   * @remarks
+   * The execution priority of the Rule. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain it.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class CreateScheduledPreloadExecutionsResponseBodyFailedExecutions extend
   aliUid?: string;
   /**
    * @remarks
-   * The end time of the prefetch plans.
+   * The end time of the scheduled prefetch plan.
    * 
    * @example
    * 2024-06-03T02:43:35Z
@@ -29,7 +29,7 @@ export class CreateScheduledPreloadExecutionsResponseBodyFailedExecutions extend
   id?: string;
   /**
    * @remarks
-   * The time interval between each batch execution. Unit: seconds.
+   * The interval at which batches of a scheduled prefetch plan are executed. Unit: seconds.
    * 
    * @example
    * 60
@@ -45,7 +45,7 @@ export class CreateScheduledPreloadExecutionsResponseBodyFailedExecutions extend
   jobId?: string;
   /**
    * @remarks
-   * The number of URLs prefetched in each batch.
+   * The number of URLs to prefetch in each batch.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class CreateScheduledPreloadExecutionsResponseBodyFailedExecutions extend
   sliceLen?: number;
   /**
    * @remarks
-   * The start time of the prefetch plans.
+   * The start time of the scheduled prefetch plan.
    * 
    * @example
    * 2024-06-02T02:43:35Z
@@ -61,13 +61,17 @@ export class CreateScheduledPreloadExecutionsResponseBodyFailedExecutions extend
   startTime?: string;
   /**
    * @remarks
-   * The status of the prefetch plan. Valid values:
+   * The status of the scheduled prefetch plan. Valid values:
    * 
-   * *   **waiting**
-   * *   **running**
-   * *   **finished**
-   * *   **failed**
-   * *   **stopped**
+   * - **waiting**: The plan is waiting to be executed.
+   * 
+   * - **running**: The plan is being executed.
+   * 
+   * - **finished**: The plan is executed.
+   * 
+   * - **failed**: The plan failed to be executed.
+   * 
+   * - **stopped**: The execution of the plan is paused.
    * 
    * @example
    * running
@@ -119,7 +123,7 @@ export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions exten
   aliUid?: string;
   /**
    * @remarks
-   * The end time of the prefetch plans.
+   * The end time of the scheduled prefetch plan.
    * 
    * @example
    * 2024-06-03T02:43:35Z
@@ -135,7 +139,7 @@ export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions exten
   id?: string;
   /**
    * @remarks
-   * The time interval between each batch execution. Unit: seconds.
+   * The interval at which batches of a scheduled prefetch plan are executed. Unit: seconds.
    * 
    * @example
    * 60
@@ -151,7 +155,7 @@ export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions exten
   jobId?: string;
   /**
    * @remarks
-   * The number of URLs prefetched in each batch.
+   * The number of URLs to prefetch in each batch.
    * 
    * @example
    * 10
@@ -159,7 +163,7 @@ export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions exten
   sliceLen?: number;
   /**
    * @remarks
-   * The start time of the prefetch plans.
+   * The start time of the scheduled prefetch plan.
    * 
    * @example
    * 2024-06-02T02:43:35Z
@@ -167,13 +171,17 @@ export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions exten
   startTime?: string;
   /**
    * @remarks
-   * The status of the prefetch plan. Valid values:
+   * The status of the scheduled prefetch plan. Valid values:
    * 
-   * *   **waiting**
-   * *   **running**
-   * *   **finished**
-   * *   **failed**
-   * *   **stopped**
+   * - **waiting**: The plan is waiting to be executed.
+   * 
+   * - **running**: The plan is being executed.
+   * 
+   * - **finished**: The plan is executed.
+   * 
+   * - **failed**: The plan failed to be executed.
+   * 
+   * - **stopped**: The execution of the plan is paused.
    * 
    * @example
    * failed
@@ -217,17 +225,17 @@ export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions exten
 export class CreateScheduledPreloadExecutionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about prefetch plans that failed to be created.
+   * The information about the prefetch plans that failed to be added.
    */
   failedExecutions?: CreateScheduledPreloadExecutionsResponseBodyFailedExecutions[];
   /**
    * @remarks
-   * The information about plan failures.
+   * The list of error messages for the plans that failed to be added.
    */
   failedMessages?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
@@ -235,7 +243,7 @@ export class CreateScheduledPreloadExecutionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of prefetch plans that are created.
+   * The number of prefetch plans that were successfully added.
    * 
    * @example
    * 12
@@ -243,12 +251,12 @@ export class CreateScheduledPreloadExecutionsResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The information about created prefetch plans.
+   * The information about the prefetch plans that were successfully added.
    */
   successExecutions?: CreateScheduledPreloadExecutionsResponseBodySuccessExecutions[];
   /**
    * @remarks
-   * The total number of new plans requested.
+   * The total number of plans that you requested to add.
    * 
    * @example
    * 2

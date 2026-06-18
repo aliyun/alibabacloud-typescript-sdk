@@ -33,8 +33,9 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
    * @remarks
    * The environment to which you want to release the version. Valid values:
    * 
-   * *   prod: the production environment.
-   * *   staging: the staging environment.
+   * - prod: the production environment.
+   * 
+   * - staging: the staging environment.
    * 
    * This parameter is required.
    * 
@@ -46,8 +47,9 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies how the version is released. Valid values:
    * 
-   * *   percentage: releases the version by percentage.
-   * *   region: releases the version by region.
+   * - percentage: releases the version by percentage.
+   * 
+   * - region: releases the version by region.
    * 
    * If you do not specify this parameter, the version is released by percentage by default.
    * 

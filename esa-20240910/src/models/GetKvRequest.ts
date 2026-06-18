@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKvRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to decode the value by using Base 64. If you call the [PutKv](https://help.aliyun.com/document_detail/2850482.html) operation and set the Base64 parameter to true, set this parameter to true to read the original content.
+   * Specifies whether to Base64-decode the value. If you set the base64 parameter to true when you called the [PutKv](https://help.aliyun.com/document_detail/2850482.html) operation, set this parameter to true to read the original content.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetKvRequest extends $dara.Model {
   base64?: boolean;
   /**
    * @remarks
-   * The key name for the query.
+   * The name of the key to query.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetKvRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * The name specified when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
    * 
    * This parameter is required.
    * 

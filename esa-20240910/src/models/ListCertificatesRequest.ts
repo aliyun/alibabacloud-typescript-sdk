@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertificatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword that is used for the search.
+   * The search keyword.
    * 
    * @example
    * example
@@ -13,7 +13,7 @@ export class ListCertificatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number to return.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class ListCertificatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListCertificatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. To get this ID, call the [ListSites](~~ListSites~~) API.
    * 
    * This parameter is required.
    * 

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineCodeVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The function name.
+   * The name of the Edge Routine program.
    * 
    * This parameter is required.
    * 
    * @example
-   * ListRoutineCodeVersions
+   * test
    */
   name?: string;
   /**
    * @remarks
-   * The page number of the returned page. Default value: 1. Valid values: 1 and 2.
+   * The page number. Default value: 1. Maximum value: 2.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListRoutineCodeVersionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keyword used for fuzzy search.
+   * The keyword for fuzzy match.
    * 
    * @example
    * hello

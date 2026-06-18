@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * Name of the response header.
+   * The response header name.
    * 
    * @example
    * headerName
@@ -13,19 +13,33 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
   name?: string;
   /**
    * @remarks
-   * Operation type. The value range is as follows:
-   * - add: Add.
-   * - del: Delete
-   * - modify: Modify.
+   * The modification operation. Valid values:
+   * 
+   * - `add`: Adds a header.
+   * 
+   * - `del`: Removes a header.
+   * 
+   * - `modify`: Modifies a header.
    * 
    * @example
    * add
    */
   operation?: string;
+  /**
+   * @remarks
+   * The value type. Valid values:
+   * 
+   * - `static`: Static mode.
+   * 
+   * - `dynamic`: Dynamic mode.
+   * 
+   * @example
+   * static
+   */
   type?: string;
   /**
    * @remarks
-   * Response header value.
+   * The response header value.
    * 
    * @example
    * headerValue
@@ -61,7 +75,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
 export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 35281609698****
@@ -69,9 +83,11 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   configId?: number;
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - global: Global configuration.
-   * - rule: Rule configuration.
+   * The type of configuration. Valid values:
+   * 
+   * - `global`: A global configuration.
+   * 
+   * - `rule`: A rule configuration.
    * 
    * @example
    * rule
@@ -79,14 +95,16 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   configType?: string;
   /**
    * @remarks
-   * Modify response headers, supporting add, delete, and modify operations.
+   * The response header modifications. You can add, remove, or modify headers.
    */
   responseHeaderModification?: ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification[];
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The conditional expression that matches user requests. This parameter is not required for a global configuration.
+   * 
+   * - To match all incoming requests, set the value to `true`.
+   * 
+   * - To match specific requests, set a custom expression. Example: `(http.host eq "video.example.com")`
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -94,9 +112,11 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether the rule is enabled. This parameter is not required for a global configuration. Valid values:
+   * 
+   * - `on`: Enabled.
+   * 
+   * - `off`: Disabled.
    * 
    * @example
    * on
@@ -104,7 +124,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The name of the rule. This parameter is not required for a global configuration.
    * 
    * @example
    * rule_example
@@ -112,7 +132,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The execution priority of the rule. Rules with smaller values have higher priority.
    * 
    * @example
    * 1
@@ -120,7 +140,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   sequence?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, with the default being version 0.
+   * The version number of the site configuration. For sites with version management enabled, this specifies the version to which the configuration applies. The default is 0.
    * 
    * @example
    * 0
@@ -167,12 +187,12 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
 export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of modified HTTP response headers.
+   * A list of HTTP response header modification rules.
    */
   configs?: ListHttpResponseHeaderModificationRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -180,7 +200,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.M
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 20
@@ -188,7 +208,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -196,7 +216,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 14
@@ -204,7 +224,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.M
   totalCount?: number;
   /**
    * @remarks
-   * Total pages.
+   * The total number of pages.
    * 
    * @example
    * 1

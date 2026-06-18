@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWafRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Rule configuration.
+   * The configuration of the rule.
    */
   configShrink?: string;
   /**
    * @remarks
-   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
+   * The ID of the WAF rule. To obtain the rule ID, call the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class UpdateWafRuleShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The position of the rule in the rule set.
+   * The position of the rule within the rule set.
    * 
    * @example
    * 1
@@ -28,7 +28,7 @@ export class UpdateWafRuleShrinkRequest extends $dara.Model {
   position?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The ID of the site. To obtain the site ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class UpdateWafRuleShrinkRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version.
+   * The version number of the site configuration. For sites with configuration version management enabled, use this parameter to specify the effective configuration version. The default is version 0.
    * 
    * @example
    * 0
@@ -46,7 +46,7 @@ export class UpdateWafRuleShrinkRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Rule status.
+   * The status of the rule.
    * 
    * @example
    * on

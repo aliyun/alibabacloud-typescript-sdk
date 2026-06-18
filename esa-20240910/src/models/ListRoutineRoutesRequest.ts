@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineRoutesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListRoutineRoutesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 500. Default value: 500.
+   * The number of entries per page. The maximum value is 500. The default value is 500.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListRoutineRoutesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The function name.
+   * The name of the Edge Function routine.
    * 
    * This parameter is required.
    * 

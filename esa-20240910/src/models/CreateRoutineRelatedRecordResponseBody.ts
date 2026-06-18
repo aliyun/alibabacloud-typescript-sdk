@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRoutineRelatedRecordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The record ID.
+   * 
+   * @example
+   * 3227405728754048
+   */
   recordId?: number;
   /**
    * @remarks
@@ -14,7 +21,7 @@ export class CreateRoutineRelatedRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * The status of the operation. A value of `OK` indicates that the operation was successful.
    * 
    * @example
    * OK

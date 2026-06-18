@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SetOriginClientCertificateHostnamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The domain name.
+   * The hostnames associated with the certificate.
    */
   hostnames?: string[];
   /**
    * @remarks
-   * The ID of the client certificate.
+   * The ID of the certificate.
    * 
    * @example
    * babaabcd****
@@ -26,7 +26,7 @@ export class SetOriginClientCertificateHostnamesResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * @example
    * 123456789****
@@ -34,7 +34,7 @@ export class SetOriginClientCertificateHostnamesResponseBody extends $dara.Model
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The name of the site.
    * 
    * @example
    * example.com

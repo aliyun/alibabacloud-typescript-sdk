@@ -5,19 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The business scenario of the record for acceleration. Valid values:
+   * The business scenario for acceleration. Use this parameter to filter results. Valid values:
    * 
-   * *   **image_video**: video and image.
-   * *   **api**: API.
-   * *   **web**: web page.
+   * - **image_video**: Images and videos.
+   * 
+   * - **api**: API.
+   * 
+   * - **web**: Web page.
    * 
    * @example
    * web
    */
   bizName?: string;
+  customPort?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number. Defaults to **1**.
    * 
    * @example
    * 1
@@ -25,7 +28,7 @@ export class ListRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **500**.
+   * The page size. Defaults to **500**.
    * 
    * @example
    * 10
@@ -33,10 +36,11 @@ export class ListRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by whether the record is proxied. Valid values:
+   * Filters the results based on whether the record is proxied. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The record is proxied.
+   * 
+   * - **false**: The record is not proxied.
    * 
    * @example
    * true
@@ -44,12 +48,15 @@ export class ListRecordsRequest extends $dara.Model {
   proxied?: boolean;
   /**
    * @remarks
-   * The match mode to search for the record name. Default value: exact. Valid values:
+   * The match type for the record name search. Defaults to **exact**. Valid values:
    * 
-   * *   **prefix**: match by prefix.
-   * *   **suffix**: match by suffix.
-   * *   **exact**: exact match.
-   * *   **fuzzy**: fuzzy match.
+   * - **prefix**: Prefix match.
+   * 
+   * - **suffix**: Suffix match.
+   * 
+   * - **exact**: Exact match.
+   * 
+   * - **fuzzy**: Fuzzy match.
    * 
    * @example
    * fuzzy
@@ -57,7 +64,7 @@ export class ListRecordsRequest extends $dara.Model {
   recordMatchType?: string;
   /**
    * @remarks
-   * The record name. This parameter specifies a filter condition for the query.
+   * The record name. Use this parameter to filter query results.
    * 
    * @example
    * www.example.com
@@ -65,7 +72,7 @@ export class ListRecordsRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -75,13 +82,17 @@ export class ListRecordsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The origin type of the record. Only CNAME records can be filtered by using this field. Valid values:
+   * Filters the results by the record\\"s origin type. This filter applies only to CNAME records. Valid values:
    * 
-   * *   **OSS**: OSS bucket.
-   * *   **S3**: S3 bucket.
-   * *   **LB**: load balancer.
-   * *   **OP**: origin pool.
-   * *   **Domain**: domain name.
+   * - **OSS**: OSS origin.
+   * 
+   * - **S3**: S3 origin.
+   * 
+   * - **LB**: Load balancer origin.
+   * 
+   * - **OP**: Origin pool.
+   * 
+   * - **Domain**: Domain origin.
    * 
    * @example
    * OSS
@@ -89,7 +100,7 @@ export class ListRecordsRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The DNS record type.
+   * The DNS record type. Use this parameter to filter results.
    * 
    * @example
    * CNAME
@@ -98,6 +109,7 @@ export class ListRecordsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizName: 'BizName',
+      customPort: 'CustomPort',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       proxied: 'Proxied',
@@ -112,6 +124,7 @@ export class ListRecordsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizName: 'string',
+      customPort: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       proxied: 'boolean',

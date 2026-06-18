@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends $dara.Model {
   /**
    * @remarks
-   * Client IP pass-through protocol, supports:
-   * - **off**: No pass-through.
-   * - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
-   * - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
-   * - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
+   * Specifies whether and how to pass the client\\"s IP address to the origin server. Valid values:
+   * 
+   * - **off**: Disables client IP pass-through.
+   * 
+   * - **PPv1**: The PROXY Protocol v1, which supports client IP pass-through for TCP traffic.
+   * 
+   * - **PPv2**: The PROXY Protocol v2, which supports client IP pass-through for both TCP and UDP traffic.
+   * 
+   * - **SPP**: The Simple Proxy Protocol, which supports client IP pass-through for UDP traffic.
    * 
    * @example
    * off
@@ -17,19 +21,21 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends
   clientIPPassThroughMode?: string;
   /**
    * @remarks
-   * Comment information for the rule.
+   * The comment for the rule.
    * 
    * @example
-   * test
+   * Test
    */
   comment?: string;
   /**
    * @remarks
-   * Edge port. Supports:
+   * The edge port. The following formats are supported:
    * 
-   * - A single port, e.g., 80.
-   * - Port range, e.g., 81-85, representing ports 81, 82, 83, 84, 85.
-   * - Combination of ports and port ranges, separated by commas, e.g., 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
+   * - A single port, for example, `80`.
+   * 
+   * - A port range, for example, `81-85`, which includes ports 81, 82, 83, 84, and 85.
+   * 
+   * - A combination of ports and port ranges separated by commas, for example, `80,81-85,90`, which includes ports 80, 81, 82, 83, 84, 85, and 90.
    * 
    * @example
    * 80
@@ -37,10 +43,11 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends
   edgePort?: string;
   /**
    * @remarks
-   * Forwarding rule protocol, with values:
+   * The protocol of the forwarding rule. Valid values:
    * 
-   * - TCP: TCP protocol.
-   * - UDP: UDP protocol.
+   * - **TCP**: The TCP protocol.
+   * 
+   * - **UDP**: The UDP protocol.
    * 
    * @example
    * TCP
@@ -48,7 +55,7 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends
   protocol?: string;
   /**
    * @remarks
-   * Layer 4 acceleration rule ID.
+   * The unique ID of the forwarding rule.
    * 
    * @example
    * 20258028****
@@ -56,7 +63,7 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends
   ruleId?: number;
   /**
    * @remarks
-   * Specific value of the source, which needs to match the source type.
+   * The origin address. The value of this parameter must match the `SourceType`.
    * 
    * @example
    * 1.1.1.1
@@ -64,10 +71,11 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends
   source?: string;
   /**
    * @remarks
-   * Source port. Supports:
+   * The origin port. The following formats are supported:
    * 
-   * - A single port, when the source port is a single port, any valid combination of edge ports is supported.
-   * - Port range, only when the edge port is a port range, the source port can be set to a port range, and the range size must be consistent with the edge port. For example, if the edge port is 90-93, the source port cannot be set to 81-85 because the source port range is 5 and the edge port range is 3, which are inconsistent.
+   * - A single port. If you specify a single origin port, you can use any valid combination of edge ports.
+   * 
+   * - A port range. The origin port can be a port range only if the edge port is also a port range. The number of ports in the origin port range must be the same as that in the edge port range. For example, if the edge port range is `90-93` (which contains 4 ports), you cannot set the origin port range to `81-85` (which contains 5 ports) because their sizes do not match.
    * 
    * @example
    * 80
@@ -75,11 +83,15 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends
   sourcePort?: string;
   /**
    * @remarks
-   * Source type, supports:
-   * - **ip**: IP.
-   * - **domain**: Domain name.
-   * - **OP**: Origin pool.
-   * - **LB**: Load balancer.
+   * The origin type. Valid values:
+   * 
+   * - **ip**: An IP address.
+   * 
+   * - **domain**: A domain name.
+   * 
+   * - **OP**: An origin pool.
+   * 
+   * - **LB**: A load balancer.
    * 
    * @example
    * ip
@@ -121,7 +133,27 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends
 }
 
 export class ListTransportLayerApplicationsResponseBodyApplicationsStaticIpV4List extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 1.1.1.2
+   */
   address?: string;
+  /**
+   * @remarks
+   * The health status of the IP address. Valid values:
+   * 
+   * - healthy: The IP address is passing health checks.
+   * 
+   * - unhealthy: The IP address is failing health checks.
+   * 
+   * - unknown: The IP address is being provisioned.
+   * 
+   * @example
+   * healthy
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,7 +181,7 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsStaticIpV4Lis
 export class ListTransportLayerApplicationsResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * Layer 4 application ID.
+   * The transport layer application ID.
    * 
    * @example
    * 170997271816****
@@ -157,7 +189,7 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
   applicationId?: number;
   /**
    * @remarks
-   * CNAME domain name corresponding to the Layer 4 acceleration application. This field is not empty only when the site is accessed via CNAME.
+   * The CNAME for the transport layer application. This parameter is returned only when the site is onboarded by using a CNAME record.
    * 
    * @example
    * example.com.ialicdn.com
@@ -165,9 +197,10 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
   cname?: string;
   /**
    * @remarks
-   * Whether to enable China mainland network access optimization. It is disabled by default. The value range is:
+   * Specifies whether cross-border optimization is enabled for Chinese mainland network access. By default, this feature is disabled. Valid values:
    * 
    * - on: Enabled.
+   * 
    * - off: Disabled.
    * 
    * @example
@@ -176,9 +209,10 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
   crossBorderOptimization?: string;
   /**
    * @remarks
-   * IP access rule switch. When enabled, the IP access rules in WAF take effect on the Layer 4 application.
+   * Specifies whether the IP access rule feature is enabled. When enabled, the IP access rules in WAF apply to this transport layer application.
    * 
    * - on: Enabled.
+   * 
    * - off: Disabled.
    * 
    * @example
@@ -187,16 +221,20 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
   ipAccessRule?: string;
   /**
    * @remarks
-   * IPv6 switch.
+   * Specifies whether IPv6 is enabled.
    * 
    * @example
    * on
    */
   ipv6?: string;
+  /**
+   * @remarks
+   * Specifies whether keep-alive protection is enabled.
+   */
   keepAliveProtection?: string;
   /**
    * @remarks
-   * Domain name of the Layer 4 application.
+   * The domain name of the transport layer application.
    * 
    * @example
    * test.example.com
@@ -204,12 +242,12 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
   recordName?: string;
   /**
    * @remarks
-   * List of forwarding rules.
+   * A list of forwarding rules.
    */
   rules?: ListTransportLayerApplicationsResponseBodyApplicationsRules[];
   /**
    * @remarks
-   * Number of forwarding rules contained in the Layer 4 acceleration application.
+   * The number of forwarding rules in the transport layer application.
    * 
    * @example
    * 1
@@ -217,24 +255,38 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
   rulesCount?: number;
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * @example
    * 36556540048****
    */
   siteId?: number;
+  /**
+   * @remarks
+   * Specifies whether the static IP feature is enabled. By default, this feature is disabled. Valid values:
+   * 
+   * - on: Enabled.
+   * 
+   * - off: Disabled.
+   * 
+   * @example
+   * on
+   */
   staticIp?: string;
   /**
    * @remarks
+   * A list of static IPv4 addresses assigned to the application when the static IP feature is enabled.
+   * 
    * This parameter is required.
    */
   staticIpV4List?: ListTransportLayerApplicationsResponseBodyApplicationsStaticIpV4List[];
   /**
    * @remarks
-   * Status of the Layer 4 application
+   * The status of the transport layer application. Valid values:
    * 
-   * - **deploying**: Deploying. In this state, modification and deletion are not allowed.
-   * - **active**: Active.
+   * - **deploying**: The application is being deployed. You cannot modify or delete the application in this state.
+   * 
+   * - **active**: The application is running.
    * 
    * @example
    * active
@@ -294,12 +346,12 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
 export class ListTransportLayerApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of transport layer applications.
+   * A list of transport layer applications.
    */
   applications?: ListTransportLayerApplicationsResponseBodyApplications[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -307,7 +359,7 @@ export class ListTransportLayerApplicationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 1
@@ -315,7 +367,7 @@ export class ListTransportLayerApplicationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
@@ -323,7 +375,7 @@ export class ListTransportLayerApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of transport layer applications.
+   * The total number of transport layer applications.
    * 
    * @example
    * 1

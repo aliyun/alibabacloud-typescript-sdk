@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKvNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the namespace.
+   * An optional description for the KV namespace.
    * 
    * @example
    * this is a test namespace.
@@ -13,7 +13,7 @@ export class CreateKvNamespaceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The name of the KV namespace.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class ListClientCaCertificatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * The number of entries to return per page. Valid values: 1 to 100. The default value is 20.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListClientCaCertificatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. Call the [ListSites](~~ListSites~~) operation to obtain this ID.
    * 
    * This parameter is required.
    * 

@@ -180,7 +180,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
    * If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
    * 
    * @example
-   * {\\"exec\\":{\\"command\\":[\\"bash\\",\\"-c\\",\\"cd /home/admin/
+   * sh poststart.sh "echo hello world"
    */
   postStart?: string;
   /**
@@ -188,7 +188,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
    * The command that is run before the container is stopped.
    * 
    * @example
-   * sh stop.sh
+   * sh prestop.sh "echo hello world"
    */
   preStop?: string;
   /**

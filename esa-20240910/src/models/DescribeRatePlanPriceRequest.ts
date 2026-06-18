@@ -3,12 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRatePlanPriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of plans.
+   * 
+   * @example
+   * 1
+   */
   amount?: number;
   /**
+   * @remarks
+   * The purchase duration, in months.
+   * 
    * @example
    * 1
    */
   period?: number;
+  /**
+   * @remarks
+   * The plan name.
+   * 
+   * @example
+   * basic
+   */
   planName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -29,6 +29,7 @@ export class CreateRoutineWithAssetsCodeVersionRequest extends $dara.Model {
   buildId?: number;
   codeDescription?: string;
   confOptions?: CreateRoutineWithAssetsCodeVersionRequestConfOptions;
+  deployEnv?: string;
   extraInfo?: string;
   /**
    * @remarks
@@ -40,6 +41,7 @@ export class CreateRoutineWithAssetsCodeVersionRequest extends $dara.Model {
       buildId: 'BuildId',
       codeDescription: 'CodeDescription',
       confOptions: 'ConfOptions',
+      deployEnv: 'DeployEnv',
       extraInfo: 'ExtraInfo',
       name: 'Name',
     };
@@ -50,6 +52,7 @@ export class CreateRoutineWithAssetsCodeVersionRequest extends $dara.Model {
       buildId: 'number',
       codeDescription: 'string',
       confOptions: CreateRoutineWithAssetsCodeVersionRequestConfOptions,
+      deployEnv: 'string',
       extraInfo: 'string',
       name: 'string',
     };

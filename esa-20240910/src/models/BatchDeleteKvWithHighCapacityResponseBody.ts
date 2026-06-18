@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteKvWithHighCapacityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The keys that failed to be deleted.
+   * The list of keys that failed to be deleted.
    */
   failKeys?: string[];
   /**
@@ -18,7 +18,7 @@ export class BatchDeleteKvWithHighCapacityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The keys that are deleted.
+   * The list of keys that were successfully deleted.
    */
   successKeys?: string[];
   static names(): { [key: string]: string } {

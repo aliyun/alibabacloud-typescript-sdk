@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHttpDDoSIntelligentRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Record name.
+   * The name of the record.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteHttpDDoSIntelligentRuleRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * Rule ID.
+   * The ID of the rule.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteHttpDDoSIntelligentRuleRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The ID of the site. Call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

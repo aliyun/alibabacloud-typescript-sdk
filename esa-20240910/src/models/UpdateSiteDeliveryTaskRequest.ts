@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The real-time log type. Valid values:
    * 
-   * *   dcdn_log_access_l1 (default): access logs.
-   * *   dcdn_log_er: Edge Routine logs.
-   * *   dcdn_log_waf: firewall logs.
-   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1** (default): access log.
+   * 
+   * - **dcdn_log_er**: Edge Routine log.
+   * 
+   * - **dcdn_log_waf**: WAF log.
+   * 
+   * - **dcdn_log_ipa**: Layer 4 acceleration log.
    * 
    * @example
    * dcdn_log_er
@@ -26,7 +29,7 @@ export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The log fields that you want to include in real-time logs to be delivered. Separate the log fields with commas (,).
+   * A comma-separated list of delivery fields.
    * 
    * This parameter is required.
    * 
@@ -37,7 +40,7 @@ export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
   filterVer?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 123456****
@@ -45,7 +48,7 @@ export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * This parameter is required.
    * 

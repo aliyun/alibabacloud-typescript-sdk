@@ -5,39 +5,77 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRatePlanSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto payment.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * true
    */
   autoPay?: boolean;
   /**
+   * @remarks
+   * The billing type. Valid values:
+   * - PREPAY: Subscription.
+   * - POSTPAY: Pay-as-you-go.
+   * 
    * @example
    * PREPAY
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * xcdn-91fknmb80f0g
    */
   instanceId?: string;
   /**
    * @remarks
-   * The specification update type. Valid values:
-   * 
-   * *   DOWNGRADE
-   * *   UPGRADE
+   * The type of specification change. Valid values:
+   * - UPGRADE: Upgrade.
    * 
    * @example
    * UPGRADE
    */
   orderType?: string;
   /**
+   * @remarks
+   * The code of the target plan.
+   * 
+   * Alibaba Cloud China Website (www.aliyun.com)
+   * 
+   * - Free Edition: entranceplan
+   * - Basic Edition: basicplan
+   * - Standard Edition: standardplan
+   * - Premium Edition: advancedplan
+   * 
+   * Alibaba Cloud International Website (www.alibabacloud.com)
+   * 
+   * - Entrance: entranceplan
+   * - Pro: standardplan
+   * - Premium: advancedpla.
+   * 
    * @example
    * entranceplan
    */
   targetPlanCode?: string;
   /**
+   * @remarks
+   * The name of the target plan.
+   * 
+   * Alibaba Cloud China Website (www.aliyun.com)
+   * 
+   * - Free Edition: entranceplan
+   * - Basic Edition: basic
+   * - Standard Edition: medium
+   * - Premium Edition: high
+   * 
+   * Alibaba Cloud International Website (www.alibabacloud.com)
+   * 
+   * - Entrance: entranceplan_intl
+   * - Pro: basicplan_intl
+   * - Premium: vipplan_intl.
+   * 
    * @example
    * basic
    */

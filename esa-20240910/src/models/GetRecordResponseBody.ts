@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecordResponseBodyRecordModelAuthConf extends $dara.Model {
   /**
    * @remarks
-   * The access key ID of the account to which the origin server belongs. This parameter is returned if the origin type is OSS and AuthType is set to private_cross_account, or the origin type is S3 and AuthType is set to private.
+   * The AccessKey ID of the account that owns the origin.
    * 
    * @example
    * VIxuvJSA2S03f******kp208dy5w7
@@ -13,12 +13,15 @@ export class GetRecordResponseBodyRecordModelAuthConf extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The authentication type of the origin server. Different origins support different authentication types. The origin type refers to the SourceType parameter in this operation. This parameter is returned if the origin type is OSS or S3Valid values:
+   * The origin authentication type. Valid values:
    * 
-   * *   **public**: public read. This value is returned when the origin is a public OSS or S3 bucket.
-   * *   **private**: private read. This value is returned when the origin is a private S3 bucket.
-   * *   **private_same_account**: private read in the same account. This value is returned when the origin is a private OSS bucket in your account.
-   * *   **private_cross_account**: private read across accounts. This value is returned when the origin is a private OSS bucket in a different Alibaba Cloud account.
+   * - **public**: Public read. Select this value when the origin is an OSS or S3 origin with public read access.
+   * 
+   * - **private**: Private read. Select this value when the origin is an S3 origin with private read access.
+   * 
+   * - **private_same_account**: Private read within the same account. Select this value when the origin is an OSS origin with private read access under the same Alibaba Cloud account.
+   * 
+   * - **private_cross_account**: Private read across accounts. Select this value when the origin is an OSS origin with private read access under a different Alibaba Cloud account.
    * 
    * @example
    * public
@@ -26,7 +29,7 @@ export class GetRecordResponseBodyRecordModelAuthConf extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * The region of the origin. If the origin type is S3, you must specify this value. You can obtain the region information from the official website of S3.
+   * The origin\\"s region. For S3 origins, you can find region codes on the official S3 website.
    * 
    * @example
    * us-east-1
@@ -34,7 +37,7 @@ export class GetRecordResponseBodyRecordModelAuthConf extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The secret access key of the account to which the origin server belongs. This parameter is returned if the origin type is OSS and AuthType is set to private_cross_account, or the origin type is S3 and AuthType is set to private.SecretKey
+   * The AccessKey secret of the account that owns the origin.
    * 
    * @example
    * u0Nkg5gBK*******QF5wvKMM504JUHt
@@ -42,12 +45,13 @@ export class GetRecordResponseBodyRecordModelAuthConf extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * The version of the signature algorithm. This parameter is returned when the origin type is S3 and AuthType is private. The following two types are supported:
+   * The version of the signature algorithm. Supported versions:
    * 
-   * *   **v2**
-   * *   **v4**
+   * - **v2**
    * 
-   * If this parameter is left empty, the default value v4 is used.
+   * - **v4**
+   * 
+   * If unspecified, the default is `v4`.
    * 
    * @example
    * v2
@@ -85,7 +89,7 @@ export class GetRecordResponseBodyRecordModelAuthConf extends $dara.Model {
 export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm used for the record, specified within the range from 0 to 255. This parameter is required when you add CERT or SSHFP records.
+   * The encryption algorithm of the record, from **0** to **255**.
    * 
    * @example
    * 1
@@ -93,7 +97,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   algorithm?: number;
   /**
    * @remarks
-   * The public key of the certificate. This parameter is required when you add CERT, SMIMEA, or TLSA records.
+   * The record\\"s public key certificate.
    * 
    * @example
    * dGVzdGFkYWxrcw==
@@ -101,7 +105,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * The public key fingerprint of the record. This parameter is required when you add a SSHFP record.
+   * The public key fingerprint of the record.
    * 
    * @example
    * abcdef1234567890
@@ -109,7 +113,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   fingerprint?: string;
   /**
    * @remarks
-   * The flag bit of the record. The Flag for a CAA record indicates its priority and how it is processed, specified within the range of 0 to 255. This parameter is required when you add a CAA record.
+   * The flag of the record. For CAA records, this flag indicates the priority and processing method. The value must be from **0** to **255**.
    * 
    * @example
    * 128
@@ -117,7 +121,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   flag?: number;
   /**
    * @remarks
-   * The public key identification for the record. Valid values: 0 to 65535. This parameter is required when you add a CAA record.
+   * The public key identifier of the record, from **0** to **65535**.
    * 
    * @example
    * 1
@@ -125,7 +129,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   keyTag?: number;
   /**
    * @remarks
-   * The algorithm policy used to match or validate the certificate, specified within the range 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * The algorithm policy for matching or verifying the certificate, from **0** to **255**.
    * 
    * @example
    * 1
@@ -133,7 +137,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   matchingType?: number;
   /**
    * @remarks
-   * The port of the record. Valid values: 0 to 65535. This parameter is required when you add an SRV record.
+   * The port of the record, from **0** to **65535**.
    * 
    * @example
    * 8707
@@ -141,7 +145,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
+   * The priority of the record, from **0** to **65535**. A lower value indicates a higher priority.
    * 
    * @example
    * 10
@@ -149,7 +153,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The type of the certificate or public key, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * The record\\"s certificate or public key type, from **0** to **255**.
    * 
    * @example
    * 1
@@ -157,7 +161,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   selector?: number;
   /**
    * @remarks
-   * The tag of the record. The Tag of a CAA record indicate its specific type and usage.
+   * The tag of the record. For CAA records, the tag indicates the specific type and purpose.
    * 
    * @example
    * issue
@@ -166,7 +170,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records). This parameter is required when you add CERT or SSHFP records.
+   * The certificate type for a CERT record, or the public key type for an SSHFP record.
    * 
    * @example
    * RSA
@@ -174,7 +178,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The usage identifier of the record, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * The usage identifier of the record, from **0** to **255**.
    * 
    * @example
    * 0
@@ -182,16 +186,23 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   usage?: number;
   /**
    * @remarks
-   * The record value or part of the record content. This parameter is returned when you add A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. It has different meanings based on types of records.
+   * The record value. The meaning of this parameter varies by the record type:
    * 
-   * *   **A/AAAA**: the IP address. Multiple IP addresses are separated with commas (,). There is at least one IPv4 address.
-   * *   **CNAME**: the target domain name.
-   * *   **NS**: the nameserver for the domain name.
-   * *   **MX**: a valid domain name of the target mail server.
-   * *   **TXT**: a valid text string.
-   * *   **CAA**: a valid domain name of the certificate authority.
-   * *   **SRV**: a valid domain name of the target host.
-   * *   **URI**: a valid URI string.
+   * - **A/AAAA**: The target IP address. Separate multiple IP addresses with a comma (`,`). Requires at least one IPv4 address.
+   * 
+   * - **CNAME**: The target domain name.
+   * 
+   * - **NS**: The name server for the specified domain.
+   * 
+   * - **MX**: A valid target mail server domain name.
+   * 
+   * - **TXT**: A valid text string.
+   * 
+   * - **CAA**: A valid Certificate Authority domain name.
+   * 
+   * - **SRV**: A valid target host domain name.
+   * 
+   * - **URI**: A valid URI string.
    * 
    * @example
    * example.com
@@ -199,7 +210,7 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The weight of the record, specified within the range of 0 to 65535. This parameter is required when you add SRV or URI records.
+   * The weight of the record, from **0** to **65535**.
    * 
    * @example
    * 0
@@ -260,16 +271,18 @@ export class GetRecordResponseBodyRecordModelData extends $dara.Model {
 export class GetRecordResponseBodyRecordModel extends $dara.Model {
   /**
    * @remarks
-   * The origin authentication information of the CNAME record.
+   * The origin authentication settings for the CNAME record.
    */
   authConf?: GetRecordResponseBodyRecordModelAuthConf;
   /**
    * @remarks
-   * The business scenario of the record for acceleration. Leave this parameter empty if your record is not proxied. Valid values:
+   * The business scenario for record acceleration. Valid values:
    * 
-   * *   **image_video**
-   * *   **api**
-   * *   **web**
+   * - **image_video**: Images and videos.
+   * 
+   * - **api**: APIs.
+   * 
+   * - **web**: Web pages.
    * 
    * @example
    * image_video
@@ -277,23 +290,24 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * The comments of the record.
+   * The comment for the record.
    * 
    * @example
-   * This is a comment.
+   * This is a remark.
    */
   comment?: string;
   /**
    * @remarks
-   * The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the record was created. The time is in UTC and follows the ISO 8601 standard. Format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2023-03-10T13:30:39Z
    */
   createTime?: string;
+  customPort?: string;
   /**
    * @remarks
-   * The DNS record information. The content returned by this parameter varies based on the record type.
+   * DNS information for the record. The content varies based on the record type.
    * 
    * @example
    * {"value":"1.1.1.1"}
@@ -301,21 +315,25 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   data?: GetRecordResponseBodyRecordModelData;
   /**
    * @remarks
-   * The origin host policy. This policy takes effect when the record type is CNAME. Valid values:
+   * Specifies the policy for the `Host` header during origin-pull. This parameter applies only to CNAME records. Valid values:
    * 
-   * *   follow_hostname: matches the requested domain name.
-   * *   follow_origin_domain: matches the origin\\"s domain name.
+   * - **follow_hostname**: Follows the host record.
+   * 
+   * - **follow_origin_domain**: Follows the origin domain.
    * 
    * @example
    * follow_origin_domain
    */
   hostPolicy?: string;
+  httpPorts?: string;
+  httpsPorts?: string;
   /**
    * @remarks
-   * Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * Indicates whether the proxy is enabled for the record. This feature is supported only for A, AAAA, and CNAME records. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The proxy is enabled.
+   * 
+   * - **false**: The proxy is disabled.
    * 
    * @example
    * true
@@ -323,7 +341,7 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   proxied?: boolean;
   /**
    * @remarks
-   * The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * The CNAME of the record.
    * 
    * @example
    * a.example.com.cnamezone.com
@@ -347,15 +365,19 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * The origin type for CNAME records. Valid values:
    * 
-   * *   **OSS**: OSS bucket.
-   * *   **S3**: S3 bucket.
-   * *   **LB**: load balancer.
-   * *   **OP**: origin pool.
-   * *   **Domain**: domain name.
+   * - **OSS**: OSS origin.
    * 
-   * If you do not pass this parameter or if you leave its value empty, Domain is returned by default.
+   * - **S3**: S3 origin.
+   * 
+   * - **LB**: A load balancer.
+   * 
+   * - **OP**: An origin pool.
+   * 
+   * - **Domain**: A standard domain.
+   * 
+   * If unspecified, the default is `Domain`.
    * 
    * @example
    * OSS
@@ -363,7 +385,7 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   recordSourceType?: string;
   /**
    * @remarks
-   * The type of the DNS record, such as **A/AAAA, CNAME, and TXT**.
+   * The DNS type of the record, such as **A/AAAA**, **CNAME**, or **TXT**.
    * 
    * @example
    * A/AAAA
@@ -371,7 +393,7 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   recordType?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 1234567890123
@@ -379,7 +401,7 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -387,7 +409,7 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * The record\\"s Time to Live (TTL) in seconds. A value of 1 indicates an automatic TTL.
    * 
    * @example
    * 20
@@ -395,7 +417,7 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   ttl?: number;
   /**
    * @remarks
-   * The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the record was last updated. The time is in UTC and follows the ISO 8601 standard. Format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2023-01-27T02:26:22Z
@@ -407,8 +429,11 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
       bizName: 'BizName',
       comment: 'Comment',
       createTime: 'CreateTime',
+      customPort: 'CustomPort',
       data: 'Data',
       hostPolicy: 'HostPolicy',
+      httpPorts: 'HttpPorts',
+      httpsPorts: 'HttpsPorts',
       proxied: 'Proxied',
       recordCname: 'RecordCname',
       recordId: 'RecordId',
@@ -428,8 +453,11 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
       bizName: 'string',
       comment: 'string',
       createTime: 'string',
+      customPort: 'string',
       data: GetRecordResponseBodyRecordModelData,
       hostPolicy: 'string',
+      httpPorts: 'string',
+      httpsPorts: 'string',
       proxied: 'boolean',
       recordCname: 'string',
       recordId: 'number',
@@ -461,7 +489,7 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
 export class GetRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the queried record.
+   * Details of the record.
    */
   recordModel?: GetRecordResponseBodyRecordModel;
   /**

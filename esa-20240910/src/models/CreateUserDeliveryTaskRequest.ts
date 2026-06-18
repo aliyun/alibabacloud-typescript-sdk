@@ -7,7 +7,7 @@ import { HttpDeliveryQueryParamValue } from "./HttpDeliveryQueryParamValue";
 export class CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam extends $dara.Model {
   /**
    * @remarks
-   * The validity period of the signature.
+   * The expiration time, in seconds.
    * 
    * @example
    * 300
@@ -65,7 +65,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   compress?: string;
   /**
    * @remarks
-   * The address of the HTTP server.
+   * The URL of the destination endpoint.
    * 
    * @example
    * http://xxx.aliyun.com/v1/log/upload
@@ -73,12 +73,12 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   destUrl?: string;
   /**
    * @remarks
-   * The custom headers.
+   * Custom HTTP headers.
    */
   headerParam?: { [key: string]: HttpDeliveryHeaderParamValue };
   /**
    * @remarks
-   * The ending separator.
+   * The trailing delimiter.
    * 
    * @example
    * \\n
@@ -86,7 +86,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   lastLogSplit?: boolean;
   /**
    * @remarks
-   * The prefix of the log delivery package.
+   * The prefix to add to the log delivery payload.
    * 
    * @example
    * cdnVersion:1.0
@@ -94,7 +94,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logBodyPrefix?: string;
   /**
    * @remarks
-   * The suffix of the log delivery package.
+   * The suffix to add to the log delivery payload.
    * 
    * @example
    * cdnVersion:1.0
@@ -102,7 +102,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logBodySuffix?: string;
   /**
    * @remarks
-   * Specifies whether to enable log splitting. Default value: true.
+   * Specifies whether to split log entries. Defaults to true.
    * 
    * @example
    * true
@@ -110,7 +110,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logSplit?: boolean;
   /**
    * @remarks
-   * The log separator.
+   * The delimiter for log entries.
    * 
    * @example
    * \\n
@@ -118,7 +118,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logSplitWords?: string;
   /**
    * @remarks
-   * The maximum size of data for each delivery. Unit: MB.
+   * The maximum size of a delivery batch, in MB.
    * 
    * @example
    * 5
@@ -126,7 +126,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   maxBatchMB?: number;
   /**
    * @remarks
-   * The maximum number of entries for each delivery.
+   * The maximum number of log entries per delivery request.
    * 
    * @example
    * 1000
@@ -134,7 +134,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   maxBatchSize?: number;
   /**
    * @remarks
-   * The maximum number of retries.
+   * The maximum number of retries if a delivery fails.
    * 
    * @example
    * 3
@@ -142,12 +142,12 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   maxRetry?: number;
   /**
    * @remarks
-   * The custom query parameters.
+   * Custom query parameters.
    */
   queryParam?: { [key: string]: HttpDeliveryQueryParamValue };
   /**
    * @remarks
-   * Specifies whether to use server authentication.
+   * Specifies whether to enable standard authentication.
    * 
    * @example
    * true
@@ -155,12 +155,12 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   standardAuthOn?: boolean;
   /**
    * @remarks
-   * The authentication configurations.
+   * Configuration for standard authentication.
    */
   standardAuthParam?: CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam;
   /**
    * @remarks
-   * The timeout period. Unit: seconds.
+   * The delivery timeout, in seconds.
    * 
    * @example
    * 10
@@ -235,20 +235,20 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $dara.Model {
   balancer?: string;
   /**
    * @remarks
-   * The brokers.
+   * A list of Kafka brokers.
    */
   brokers?: string[];
   /**
    * @remarks
-   * The compression method. By default, data is not compressed.
+   * The compression method. Disabled by default.
    * 
    * @example
-   * gzip
+   * lz4
    */
   compress?: string;
   /**
    * @remarks
-   * The encryption method.
+   * The authentication mechanism.
    * 
    * @example
    * plain
@@ -256,7 +256,7 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $dara.Model {
   machanismType?: string;
   /**
    * @remarks
-   * The password.
+   * The password for authentication.
    * 
    * @example
    * xxx
@@ -264,7 +264,7 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The topic.
+   * The Kafka topic.
    * 
    * @example
    * dqc_test2
@@ -272,7 +272,7 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $dara.Model {
   topic?: string;
   /**
    * @remarks
-   * Specifies whether to enable authentication.
+   * Specifies whether to enable user authentication.
    * 
    * @example
    * true
@@ -280,7 +280,7 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $dara.Model {
   userAuth?: boolean;
   /**
    * @remarks
-   * The username.
+   * The username for authentication.
    * 
    * @example
    * xxx
@@ -327,7 +327,7 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $dara.Model {
 export class CreateUserDeliveryTaskRequestOssDelivery extends $dara.Model {
   /**
    * @remarks
-   * The ID of your Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1234***
@@ -335,7 +335,7 @@ export class CreateUserDeliveryTaskRequestOssDelivery extends $dara.Model {
   aliuid?: string;
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The bucket name.
    * 
    * @example
    * test_rlog
@@ -343,18 +343,18 @@ export class CreateUserDeliveryTaskRequestOssDelivery extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The prefix of the path in which you want to store logs.
+   * The object key prefix.
    * 
    * @example
-   * logriver-test/log
+   * test/
    */
   prefixPath?: string;
   /**
    * @remarks
-   * The region in which the bucket is located.
+   * The region of the destination OSS bucket.
    * 
    * @example
-   * cn-shanghai
+   * cn-hangzhou
    */
   region?: string;
   static names(): { [key: string]: string } {
@@ -387,7 +387,7 @@ export class CreateUserDeliveryTaskRequestOssDelivery extends $dara.Model {
 export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   /**
    * @remarks
-   * The access key ID of your Amazon S3 account.
+   * The access key ID for the S3 account.
    * 
    * @example
    * g0f46623ll0g0
@@ -395,7 +395,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The directory in the bucket.
+   * The bucket path.
    * 
    * @example
    * logriver-test/log
@@ -403,7 +403,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   bucketPath?: string;
   /**
    * @remarks
-   * The endpoint.
+   * The S3 endpoint.
    * 
    * @example
    * https://s3.oss-cn-hangzhou.aliyuncs.com
@@ -411,7 +411,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The prefix of the path in which you want to store logs.
+   * The object key prefix.
    * 
    * @example
    * logriver-test/log
@@ -419,7 +419,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   prefixPath?: string;
   /**
    * @remarks
-   * The region ID of the service.
+   * The destination region.
    * 
    * @example
    * cn-shanghai
@@ -427,7 +427,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Specifies whether the service is compatible with Amazon S3.
+   * Specifies whether the destination is an S3-compatible service.
    * 
    * @example
    * true
@@ -435,7 +435,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   s3Cmpt?: boolean;
   /**
    * @remarks
-   * The secret access key of your Amazon S3 account.
+   * The secret access key for the S3 account.
    * 
    * @example
    * ***
@@ -483,7 +483,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
 export class CreateUserDeliveryTaskRequestSlsDelivery extends $dara.Model {
   /**
    * @remarks
-   * The name of the SLS Logstore.
+   * The name of the destination logstore.
    * 
    * @example
    * accesslog-test
@@ -491,7 +491,7 @@ export class CreateUserDeliveryTaskRequestSlsDelivery extends $dara.Model {
   SLSLogStore?: string;
   /**
    * @remarks
-   * The name of the SLS project.
+   * The name of the destination project.
    * 
    * @example
    * dcdn-test20240417
@@ -499,7 +499,7 @@ export class CreateUserDeliveryTaskRequestSlsDelivery extends $dara.Model {
   SLSProject?: string;
   /**
    * @remarks
-   * The region in which the SLS project resides.
+   * The region of the destination project.
    * 
    * @example
    * cn-hangzhou
@@ -533,12 +533,15 @@ export class CreateUserDeliveryTaskRequestSlsDelivery extends $dara.Model {
 export class CreateUserDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The real-time log type. Valid values:
    * 
-   * *   dcdn_log_access_l1 (default): access logs.
-   * *   dcdn_log_er: Edge Routine logs.
-   * *   dcdn_log_waf: firewall logs.
-   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1** (default): access log.
+   * 
+   * - **dcdn_log_er**: edge function log.
+   * 
+   * - **dcdn_log_waf**: WAF log.
+   * 
+   * - **dcdn_log_ipa**: Layer-4 acceleration log.
    * 
    * This parameter is required.
    * 
@@ -550,8 +553,9 @@ export class CreateUserDeliveryTaskRequest extends $dara.Model {
    * @remarks
    * The data center. Valid values:
    * 
-   * *   cn: the Chinese mainland.
-   * *   sg: outside the Chinese mainland.
+   * - **cn**: Chinese mainland.
+   * 
+   * - **sg**: global (excluding the Chinese mainland).
    * 
    * @example
    * cn
@@ -559,14 +563,19 @@ export class CreateUserDeliveryTaskRequest extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The destination of the delivery. Valid values:
+   * The log delivery destination. Valid values:
    * 
-   * 1.  sls: Alibaba Cloud SLS.
-   * 2.  http: HTTP server.
-   * 3.  aws3: Amazon S3.
-   * 4.  oss: Alibaba Cloud OSS.
-   * 5.  kafka: Kafka.
-   * 6.  aws3cmpt: S3-compatible storage service.
+   * - **sls**: Log Service (SLS).
+   * 
+   * - **http**: an HTTP service.
+   * 
+   * - **aws3**: Amazon S3.
+   * 
+   * - **oss**: Object Storage Service (OSS).
+   * 
+   * - **kafka**: Kafka.
+   * 
+   * - **aws3cmpt**: an S3-compatible service.
    * 
    * This parameter is required.
    * 
@@ -577,7 +586,7 @@ export class CreateUserDeliveryTaskRequest extends $dara.Model {
   details?: string;
   /**
    * @remarks
-   * The discard rate. Default value: 0.
+   * The log discard rate. Defaults to 0.
    * 
    * @example
    * 0
@@ -585,7 +594,7 @@ export class CreateUserDeliveryTaskRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The log field. If you specify multiple fields, separate them with commas (,).
+   * The fields to be delivered. Separate multiple fields with a comma.
    * 
    * This parameter is required.
    * 
@@ -596,27 +605,27 @@ export class CreateUserDeliveryTaskRequest extends $dara.Model {
   filterVer?: string;
   /**
    * @remarks
-   * The configurations for delivery to an HTTP server.
+   * Configuration for delivering logs to an HTTP or HTTPS endpoint.
    */
   httpDelivery?: CreateUserDeliveryTaskRequestHttpDelivery;
   /**
    * @remarks
-   * The configurations for delivery to Kafka.
+   * Configuration for delivering logs to Kafka.
    */
   kafkaDelivery?: CreateUserDeliveryTaskRequestKafkaDelivery;
   /**
    * @remarks
-   * The configurations for delivery to OSS.
+   * Configuration for delivering logs to Object Storage Service (OSS).
    */
   ossDelivery?: CreateUserDeliveryTaskRequestOssDelivery;
   /**
    * @remarks
-   * The configurations for delivery to Amazon S3 or an S3-compatible service.
+   * Configuration for delivering logs to Amazon S3 or an S3-compatible service.
    */
   s3Delivery?: CreateUserDeliveryTaskRequestS3Delivery;
   /**
    * @remarks
-   * The configurations for delivery to SLS.
+   * Configuration for delivering logs to Log Service (SLS).
    */
   slsDelivery?: CreateUserDeliveryTaskRequestSlsDelivery;
   /**

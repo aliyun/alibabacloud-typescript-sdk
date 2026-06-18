@@ -21,7 +21,7 @@ export class DeleteOriginCaCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456789****
@@ -29,7 +29,7 @@ export class DeleteOriginCaCertificateResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com

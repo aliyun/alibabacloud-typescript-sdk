@@ -5,6 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateTraceDiagnoseRequest extends $dara.Model {
   /**
    * @remarks
+   * The source of the request.
+   * 
+   * @example
+   * ai
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The URL to diagnose.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +23,14 @@ export class GenerateTraceDiagnoseRequest extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      source: 'Source',
       url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      source: 'string',
       url: 'string',
     };
   }

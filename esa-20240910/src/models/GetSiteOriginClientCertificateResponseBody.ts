@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The Common Name of the certificate.
+   * The common name of the certificate.
    * 
    * @example
    * www.example.com
@@ -13,7 +13,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate was created.
+   * The time when the certificate record was created.
    * 
    * @example
    * 2024-06-24 07:48:51
@@ -37,7 +37,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   id?: string;
   /**
    * @remarks
-   * The certificate authority (CA) that issued the certificate.
+   * The issuer of the certificate.
    * 
    * @example
    * DigiCert
@@ -53,7 +53,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The time after which the certificate is not valid.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -61,7 +61,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   notAfter?: string;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The time before which the certificate is not valid.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -69,7 +69,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   notBefore?: string;
   /**
    * @remarks
-   * The public-key algorithm of the certificate.
+   * The public key algorithm of the certificate.
    * 
    * @example
    * RSA
@@ -77,7 +77,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The Subject Alternative Name (SAN) of the certificate.
+   * The subject alternative name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -101,7 +101,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK
@@ -117,7 +117,7 @@ export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The time when the certificate was updated.
+   * The time when the certificate record was last updated.
    * 
    * @example
    * 2024-07-20 06:18:42
@@ -183,7 +183,7 @@ export class GetSiteOriginClientCertificateResponseBody extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
@@ -191,12 +191,12 @@ export class GetSiteOriginClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The certificate information.
+   * The certificate details.
    */
   result?: GetSiteOriginClientCertificateResponseBodyResult;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID.
    * 
    * @example
    * 123456789****
@@ -204,7 +204,7 @@ export class GetSiteOriginClientCertificateResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -212,7 +212,7 @@ export class GetSiteOriginClientCertificateResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK

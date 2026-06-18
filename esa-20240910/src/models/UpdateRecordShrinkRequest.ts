@@ -5,16 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRecordShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The origin authentication information of the CNAME record.
+   * The origin authentication settings for the CNAME record.
    */
   authConfShrink?: string;
   /**
    * @remarks
-   * The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
+   * The use case for proxy acceleration. Omit this parameter if proxy acceleration is disabled. Valid values:
    * 
-   * *   **video_image**: video and image.
-   * *   **api**: API.
-   * *   **web**: web page.
+   * - **video_image**: Video and images.
+   * 
+   * - **api**: APIs.
+   * 
+   * - **web**: Web pages.
    * 
    * @example
    * web
@@ -22,7 +24,7 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * The comments of the record.
+   * A comment for the record.
    * 
    * @example
    * This is a remark.
@@ -30,7 +32,7 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The DNS record information. The format of this field varies based on the record type. For more information, see [Add DNS records](https://www.alibabacloud.com/help/doc-detail/2708761.html).
+   * The DNS data for the record. The required content varies based on the record type. For more information, see <props="china">[Documentation](https://help.aliyun.com/document_detail/2708761.html)<props="intl">[Documentation](https://www.alibabacloud.com/help/doc-detail/2708761.html).
    * 
    * This parameter is required.
    * 
@@ -42,21 +44,25 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
   dataShrink?: string;
   /**
    * @remarks
-   * The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
+   * The origin HOST policy. This policy, which applies only to CNAME records, determines the value of the `HOST` header in requests sent to the origin. Valid values:
    * 
-   * *   **follow_hostname**: match the requested domain name.
-   * *   **follow_origin_domain**: match the origin\\"s domain name.
+   * - **follow_hostname**: Follows the host record.
+   * 
+   * - **follow_origin_domain**: Follows the origin domain name.
    * 
    * @example
    * follow_origin_domain
    */
   hostPolicy?: string;
+  httpPorts?: string;
+  httpsPorts?: string;
   /**
    * @remarks
-   * Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * Indicates whether to enable proxy acceleration for the record. Only CNAME and A/AAAA records support proxy acceleration. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enables proxy acceleration.
+   * 
+   * - **false**: Disables proxy acceleration.
    * 
    * @example
    * true
@@ -64,7 +70,7 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
   proxied?: boolean;
   /**
    * @remarks
-   * The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+   * The record ID. Call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to get this ID.
    * 
    * This parameter is required.
    * 
@@ -74,15 +80,19 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The type of the origin for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * The origin type for the CNAME record. This parameter is required for CNAME records. Valid values:
    * 
-   * *   **OSS** : OSS origin.
-   * *   **S3** : S3 origin.
-   * *   **LB**: Load Balancer origin.
-   * *   **OP**: origin in an origin pool.
-   * *   **Domain**: common domain name.
+   * - **OSS**: An OSS origin.
    * 
-   * If you leave the parameter empty or set its value as null, the default is Domain, which is common domain name.
+   * - **S3**: An S3 origin.
+   * 
+   * - **LB**: A load balancer origin.
+   * 
+   * - **OP**: An origin address pool origin.
+   * 
+   * - **Domain**: A standard domain name origin.
+   * 
+   * If this parameter is omitted or left empty, the default value is `Domain`.
    * 
    * @example
    * OSS
@@ -90,7 +100,7 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The TTL of the record. Unit: seconds. The range is 30 to 86,400, or 1. If the value is 1, the TTL of the record is determined by the system.
+   * The record\\"s time to live (TTL) in seconds. The value must be an integer from **30 to 86400** or 1. A value of 1 sets the TTL to automatic.
    * 
    * @example
    * 30
@@ -104,6 +114,8 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
       comment: 'Comment',
       dataShrink: 'Data',
       hostPolicy: 'HostPolicy',
+      httpPorts: 'HttpPorts',
+      httpsPorts: 'HttpsPorts',
       proxied: 'Proxied',
       recordId: 'RecordId',
       sourceType: 'SourceType',
@@ -119,6 +131,8 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
       comment: 'string',
       dataShrink: 'string',
       hostPolicy: 'string',
+      httpPorts: 'string',
+      httpsPorts: 'string',
       proxied: 'boolean',
       recordId: 'number',
       sourceType: 'string',

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListLoadBalancersRequest extends $dara.Model {
   /**
    * @remarks
-   * The name matching strategy when querying by name:
+   * The matching strategy to use when querying by name. Valid values:
    * 
-   * - fuzzy: Fuzzy match;
-   * - exact: Exact match, equivalent to an equality query.
+   * - `fuzzy`: Performs a fuzzy match.
+   * 
+   * - `exact`: Performs an exact match.
    * 
    * @example
    * fuzzy
@@ -16,7 +17,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   matchType?: string;
   /**
    * @remarks
-   * The name of the load balancer, which can be used to query by name.
+   * The name of the load balancer.
    * 
    * @example
    * lb.example.com
@@ -24,7 +25,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sorting field. Currently, only sorting by id is supported. \\"id\\" indicates ascending order by id, and \\"-id\\" indicates descending order by id. The id size is positively correlated with the creation time. If not provided, it defaults to descending order by id.
+   * The sort field. Only sorting by ID is supported. IDs are assigned chronologically. Specify `id` for ascending order or `-id` for descending order. If this parameter is omitted, the results are sorted by ID in descending order.
    * 
    * @example
    * id
@@ -32,7 +33,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number for paginated queries.
+   * The page number for pagination.
    * 
    * @example
    * 2
@@ -40,7 +41,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size for paginated queries, with a value range of 1-500.
+   * The number of entries to return on each page. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -48,7 +49,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
+   * The site ID. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

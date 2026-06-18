@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRoutineRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * Bypass mode. Valid values:
+   * Specifies whether to enable bypass mode. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on: Enabled
+   * 
+   * - off: Disabled
    * 
    * @example
    * on
@@ -16,7 +17,7 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
   bypass?: string;
   /**
    * @remarks
-   * The ID of the configuration.
+   * The configuration ID.
    * 
    * This parameter is required.
    * 
@@ -26,10 +27,11 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The exception origin switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent to the origin. Valid values:
+   * Specifies whether to enable fallback. If enabled, requests fall back to the origin server if the function encounters an exception, such as exceeding the CPU usage limit. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on: Enabled
+   * 
+   * - off: Disabled
    * 
    * @example
    * on
@@ -37,10 +39,11 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
   fallback?: string;
   /**
    * @remarks
-   * The routing switch. Valid values:
+   * Specifies whether to enable the route. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on: Enabled
+   * 
+   * - off: Disabled
    * 
    * @example
    * on
@@ -48,7 +51,7 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
   routeEnable?: string;
   /**
    * @remarks
-   * The name of the route.
+   * The route name.
    * 
    * @example
    * test_route
@@ -56,7 +59,7 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
   routeName?: string;
   /**
    * @remarks
-   * The name of the function.
+   * The name of the Routine.
    * 
    * @example
    * test-routine1
@@ -72,7 +75,7 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * The execution sequence of the rule.
    * 
    * @example
    * 1
@@ -80,7 +83,7 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The ID of the site. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

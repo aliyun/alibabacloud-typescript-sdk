@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetSitePauseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether ESA is paused on the website. Valid values:
+   * Indicates whether site acceleration is paused. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The site\\"s acceleration is paused.
+   * 
+   * - false: The site is accelerating normally.
    * 
    * @example
    * true

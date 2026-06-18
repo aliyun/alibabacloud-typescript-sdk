@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCustomHostnameCertificateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the SaaS domain name. Call the [ListCustomHostnames](https://help.aliyun.com/document_detail/3018667.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example

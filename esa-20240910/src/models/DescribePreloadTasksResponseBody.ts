@@ -23,9 +23,11 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
    * @remarks
    * The error message returned upon a prefetch task failure. Valid values:
    * 
-   * *   **Internal Error**
-   * *   **Origin Timeout**
-   * *   **Origin Return StatusCode 5XX**
+   * - **Internal Error**
+   * 
+   * - **Origin Timeout**
+   * 
+   * - **Origin Return StatusCode 5XX**
    * 
    * @example
    * Internal Error
@@ -43,9 +45,11 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
    * @remarks
    * The task status.
    * 
-   * *   **Complete**: The task is complete.
-   * *   **Refreshing**: The task is in progress.
-   * *   **Failed**: The task failed.
+   * - **Complete**: The task is complete.
+   * 
+   * - **Refreshing**: The task is in progress.
+   * 
+   * - **Failed**: The task failed.
    * 
    * @example
    * Complete
