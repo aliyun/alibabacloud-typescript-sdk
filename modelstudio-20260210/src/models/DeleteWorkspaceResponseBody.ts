@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteWorkspaceResponseBodyFailReasons extends $dara.Model {
   /**
+   * @remarks
+   * The specific reason.
+   * 
    * @example
    * API Key exists. Please clear them first.
    */
   reason?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * API Key
    */
@@ -38,22 +44,42 @@ export class DeleteWorkspaceResponseBodyFailReasons extends $dara.Model {
 
 export class DeleteWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of failure reasons.
+   */
   failReasons?: DeleteWorkspaceResponseBodyFailReasons[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Indicates whether the workspace is successfully deleted. Valid values:
+   * 
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
+   * 
    * @example
    * true
    */
   isDeleted?: boolean;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
@@ -67,6 +93,12 @@ export class DeleteWorkspaceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call is successful. Valid values:
+   * 
+   * - true: Succeeded.
+   * - false: Failed.
+   * 
    * @example
    * true
    */

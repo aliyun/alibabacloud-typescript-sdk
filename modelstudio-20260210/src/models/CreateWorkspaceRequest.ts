@@ -10,6 +10,8 @@ export class CreateWorkspaceRequest extends $dara.Model {
   serviceSite?: string;
   /**
    * @remarks
+   * The name of the business workspace.
+   * 
    * This parameter is required.
    * 
    * @example

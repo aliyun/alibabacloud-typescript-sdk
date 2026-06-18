@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteApiKeyResponseBody extends $dara.Model {
+export class BatchAssignSeatsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The error code. This parameter is empty if the request was successful.
    * 
    * @example
    * 200
@@ -13,52 +13,32 @@ export class DeleteApiKeyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The error message. This parameter is empty if the request was successful.
    * 
    * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The response message.
-   * 
-   * @example
-   * ok
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Indicates whether the request was successful.
    * 
    * @example
-   * 099A671E-FA21-5A36-8A73-918572DDEF53
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the API call was successful.
-   * 
-   * @example
-   * true
+   * True
    */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
+      code: 'Code',
+      message: 'Message',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      httpStatusCode: 'number',
       message: 'string',
-      requestId: 'string',
       success: 'boolean',
     };
   }

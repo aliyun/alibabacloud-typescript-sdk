@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetApiKeyResponseBodyApiKeyAuth extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address whitelist.
+   */
   accessIps?: string[];
   /**
+   * @remarks
+   * The permission type. Valid values: All: all permissions. Custom: custom permissions.
+   * 
    * @example
-   * All
+   * Custom
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -45,32 +52,57 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
    */
   apiKeyId?: number;
   /**
+   * @remarks
+   * The value of the API key.
+   * 
    * @example
    * sk-ws-djI.mhU0D****testtestest
    */
   apiKeyValue?: string;
+  /**
+   * @remarks
+   * The permission settings.
+   */
   auth?: GetApiKeyResponseBodyApiKeyAuth;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * 1378030599924858
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * v7
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the API key is disabled. Valid values:
+   * 
+   * - **0**: Active.
+   * - **1**: Disabled.
+   * 
    * @example
    * 0
    */
   disabled?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1774338222000
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-b2d30f148c236908
    */
@@ -114,18 +146,31 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
 }
 
 export class GetApiKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The API key information.
+   */
   apiKey?: GetApiKeyResponseBodyApiKey;
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
@@ -139,6 +184,11 @@ export class GetApiKeyResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

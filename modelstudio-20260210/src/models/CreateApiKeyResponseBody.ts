@@ -12,26 +12,42 @@ export class CreateApiKeyResponseBodyApiKey extends $dara.Model {
    */
   apiKeyId?: number;
   /**
+   * @remarks
+   * The value of the API key.
+   * >Notice: Copy your API key immediately. Keep it secure. Anyone who obtains this key can initiate service requests on your behalf and incur charges. If you lose the key, you can reset it or create a new one..
+   * 
    * @example
    * sk-ws-djI.8O7dkfkW2aICctnid4u4
    */
   apiKeyValue?: string;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * 1378030599924858
    */
   createdBy?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * desc
    */
   description?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1774338222000
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-3fa048e86117d91f
    */
@@ -68,18 +84,31 @@ export class CreateApiKeyResponseBodyApiKey extends $dara.Model {
 }
 
 export class CreateApiKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The API key information.
+   */
   apiKey?: CreateApiKeyResponseBodyApiKey;
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
@@ -93,6 +122,11 @@ export class CreateApiKeyResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */

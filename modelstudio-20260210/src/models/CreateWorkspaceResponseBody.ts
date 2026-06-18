@@ -12,26 +12,41 @@ export class CreateWorkspaceResponseBodyWorkspace extends $dara.Model {
    */
   apiHost?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1742785623772
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * The service deployment scope. For more information, see [documentation](https://www.alibabacloud.com/help/zh/model-studio/regions/).
+   * 
    * @example
    * global
    */
   serviceSite?: string;
   /**
+   * @remarks
+   * The business workspace ID.
+   * 
    * @example
    * ws-ac3ef438bec22dc5
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The name of the business workspace.
+   * 
    * @example
    * default
    */
@@ -69,16 +84,25 @@ export class CreateWorkspaceResponseBodyWorkspace extends $dara.Model {
 
 export class CreateWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
@@ -92,10 +116,19 @@ export class CreateWorkspaceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The business workspace information.
+   */
   workspace?: CreateWorkspaceResponseBodyWorkspace;
   static names(): { [key: string]: string } {
     return {

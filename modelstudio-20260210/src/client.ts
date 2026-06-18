@@ -11,7 +11,13 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'eu-central-1': "modelstudio.eu-central-1.aliyuncs.com",
+      'cn-hongkong': "modelstudio.cn-hongkong.aliyuncs.com",
+      'cn-beijing': "modelstudio.cn-beijing.aliyuncs.com",
+      'ap-southeast-1': "modelstudio.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("modelstudio", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +36,141 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建ApiKey
+   * Creates an account and directly adds it as a member.
+   * 
+   * @param request - AddOrganizationMemberRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddOrganizationMemberResponse
+   */
+  async addOrganizationMemberWithOptions(request: $_model.AddOrganizationMemberRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddOrganizationMemberResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.callerUacAccountId)) {
+      query["CallerUacAccountId"] = request.callerUacAccountId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.orgRoleCode)) {
+      query["OrgRoleCode"] = request.orgRoleCode;
+    }
+
+    if (!$dara.isNull(request.specType)) {
+      query["SpecType"] = request.specType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddOrganizationMember",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/tokenplan/organization/member-additions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddOrganizationMemberResponse>(await this.callApi(params, req, runtime), new $_model.AddOrganizationMemberResponse({}));
+  }
+
+  /**
+   * Creates an account and directly adds it as a member.
+   * 
+   * @param request - AddOrganizationMemberRequest
+   * @returns AddOrganizationMemberResponse
+   */
+  async addOrganizationMember(request: $_model.AddOrganizationMemberRequest): Promise<$_model.AddOrganizationMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addOrganizationMemberWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Assigns seats in bulk to the member level.
+   * 
+   * @param request - BatchAssignSeatsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchAssignSeatsResponse
+   */
+  async batchAssignSeatsWithOptions(request: $_model.BatchAssignSeatsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchAssignSeatsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountIds)) {
+      query["AccountIds"] = request.accountIds;
+    }
+
+    if (!$dara.isNull(request.accountIdsStr)) {
+      query["AccountIdsStr"] = request.accountIdsStr;
+    }
+
+    if (!$dara.isNull(request.callerUacAccountId)) {
+      query["CallerUacAccountId"] = request.callerUacAccountId;
+    }
+
+    if (!$dara.isNull(request.locale)) {
+      query["Locale"] = request.locale;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.seatType)) {
+      query["SeatType"] = request.seatType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchAssignSeats",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/tokenplan/subscription/seat-assignments`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchAssignSeatsResponse>(await this.callApi(params, req, runtime), new $_model.BatchAssignSeatsResponse({}));
+  }
+
+  /**
+   * Assigns seats in bulk to the member level.
+   * 
+   * @param request - BatchAssignSeatsRequest
+   * @returns BatchAssignSeatsResponse
+   */
+  async batchAssignSeats(request: $_model.BatchAssignSeatsRequest): Promise<$_model.BatchAssignSeatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchAssignSeatsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
    * 
    * @param request - CreateApiKeyRequest
    * @param headers - map
@@ -73,7 +213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建ApiKey
+   * Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
    * 
    * @param request - CreateApiKeyRequest
    * @returns CreateApiKeyResponse
@@ -85,7 +225,68 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建业务空间
+   * Creates a UAC API key.
+   * 
+   * @param request - CreateTokenPlanKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTokenPlanKeyResponse
+   */
+  async createTokenPlanKeyWithOptions(request: $_model.CreateTokenPlanKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTokenPlanKeyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!$dara.isNull(request.callerUacAccountId)) {
+      query["CallerUacAccountId"] = request.callerUacAccountId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTokenPlanKey",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/tokenplan/api-keys`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTokenPlanKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateTokenPlanKeyResponse({}));
+  }
+
+  /**
+   * Creates a UAC API key.
+   * 
+   * @param request - CreateTokenPlanKeyRequest
+   * @returns CreateTokenPlanKeyResponse
+   */
+  async createTokenPlanKey(request: $_model.CreateTokenPlanKeyRequest): Promise<$_model.CreateTokenPlanKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTokenPlanKeyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a business workspace.
    * 
    * @param request - CreateWorkspaceRequest
    * @param headers - map
@@ -122,7 +323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建业务空间
+   * Creates a business workspace.
    * 
    * @param request - CreateWorkspaceRequest
    * @returns CreateWorkspaceResponse
@@ -134,7 +335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除apiKey
+   * Deletes an authentication credential API key.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -159,7 +360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除apiKey
+   * Deletes an authentication credential API key.
    * @returns DeleteApiKeyResponse
    */
   async deleteApiKey(apiKeyId: string): Promise<$_model.DeleteApiKeyResponse> {
@@ -169,7 +370,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除业务空间
+   * Deletes a workspace.
+   * 
+   * @remarks
+   * A workspace can be deleted only if the following conditional requirements are met:
+   * 1. The workspace is not the default workspace.
+   * 2. The workspace is not used to purchase other products, such as AMB.
+   * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
+   * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
    * 
    * @param request - DeleteWorkspaceRequest
    * @param headers - map
@@ -196,7 +404,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除业务空间
+   * Deletes a workspace.
+   * 
+   * @remarks
+   * A workspace can be deleted only if the following conditional requirements are met:
+   * 1. The workspace is not the default workspace.
+   * 2. The workspace is not used to purchase other products, such as AMB.
+   * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
+   * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
    * 
    * @param request - DeleteWorkspaceRequest
    * @returns DeleteWorkspaceResponse
@@ -208,7 +423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用API Key
+   * Disables an API key.
+   * 
+   * @remarks
+   * An API key cannot be disabled if it is already disabled.
    * 
    * @param request - DisableApiKeyRequest
    * @param headers - map
@@ -235,7 +453,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用API Key
+   * Disables an API key.
+   * 
+   * @remarks
+   * An API key cannot be disabled if it is already disabled.
    * 
    * @param request - DisableApiKeyRequest
    * @returns DisableApiKeyResponse
@@ -247,7 +468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用API Key
+   * Enables an API key.
+   * 
+   * @remarks
+   * An API key that is already enabled cannot be enabled again.
    * 
    * @param request - EnableApiKeyRequest
    * @param headers - map
@@ -274,7 +498,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用API Key
+   * Enables an API key.
+   * 
+   * @remarks
+   * An API key that is already enabled cannot be enabled again.
    * 
    * @param request - EnableApiKeyRequest
    * @returns EnableApiKeyResponse
@@ -286,7 +513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ApiKey详情
+   * Retrieves the information of a specified authentication credential API key.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -311,7 +538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ApiKey详情
+   * Retrieves the information of a specified authentication credential API key.
    * @returns GetApiKeyResponse
    */
   async getApiKey(apiKeyId: string): Promise<$_model.GetApiKeyResponse> {
@@ -321,7 +548,84 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ApiKey列表
+   * Queries seat details by paging.
+   * 
+   * @param request - GetSubscriptionSeatDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubscriptionSeatDetailsResponse
+   */
+  async getSubscriptionSeatDetailsWithOptions(request: $_model.GetSubscriptionSeatDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSubscriptionSeatDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callerUacAccountId)) {
+      query["CallerUacAccountId"] = request.callerUacAccountId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryAssigned)) {
+      query["QueryAssigned"] = request.queryAssigned;
+    }
+
+    if (!$dara.isNull(request.seatId)) {
+      query["SeatId"] = request.seatId;
+    }
+
+    if (!$dara.isNull(request.seatType)) {
+      query["SeatType"] = request.seatType;
+    }
+
+    if (!$dara.isNull(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!$dara.isNull(request.statusListStr)) {
+      query["StatusListStr"] = request.statusListStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSubscriptionSeatDetails",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/tokenplan/subscription/seat-detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSubscriptionSeatDetailsResponse>(await this.callApi(params, req, runtime), new $_model.GetSubscriptionSeatDetailsResponse({}));
+  }
+
+  /**
+   * Queries seat details by paging.
+   * 
+   * @param request - GetSubscriptionSeatDetailsRequest
+   * @returns GetSubscriptionSeatDetailsResponse
+   */
+  async getSubscriptionSeatDetails(request: $_model.GetSubscriptionSeatDetailsRequest): Promise<$_model.GetSubscriptionSeatDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSubscriptionSeatDetailsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Obtain the list of authentication credential API Key information.
    * 
    * @param request - ListApiKeysRequest
    * @param headers - map
@@ -370,7 +674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ApiKey列表
+   * Obtain the list of authentication credential API Key information.
    * 
    * @param request - ListApiKeysRequest
    * @returns ListApiKeysResponse
@@ -382,7 +686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 业务空间列表
+   * Retrieves the list of business workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @param headers - map
@@ -427,7 +731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 业务空间列表
+   * Retrieves the list of business workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -439,7 +743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置API Key
+   * Resets an API key.
+   * 
+   * @remarks
+   * Only the API key value changes. The API key ID remains unchanged.
    * 
    * @param request - ResetApiKeyRequest
    * @param headers - map
@@ -466,7 +773,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置API Key
+   * Resets an API key.
+   * 
+   * @remarks
+   * Only the API key value changes. The API key ID remains unchanged.
    * 
    * @param request - ResetApiKeyRequest
    * @returns ResetApiKeyResponse
@@ -478,7 +788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑apiKey的描述
+   * Edits the information of an authentication credential API key.
    * 
    * @param request - UpdateApiKeyRequest
    * @param headers - map
@@ -517,7 +827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑apiKey的描述
+   * Edits the information of an authentication credential API key.
    * 
    * @param request - UpdateApiKeyRequest
    * @returns UpdateApiKeyResponse

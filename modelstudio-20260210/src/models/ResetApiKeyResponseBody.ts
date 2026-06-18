@@ -12,11 +12,17 @@ export class ResetApiKeyResponseBodyApiKey extends $dara.Model {
    */
   apiKeyId?: number;
   /**
+   * @remarks
+   * The value of the API key.
+   * 
    * @example
    * sk-ws-djI.8O7dkfkW2aICctnid4u4
    */
   apiKeyValue?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-b2d30f148c236908
    */
@@ -47,18 +53,31 @@ export class ResetApiKeyResponseBodyApiKey extends $dara.Model {
 }
 
 export class ResetApiKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The API key information.
+   */
   apiKey?: ResetApiKeyResponseBodyApiKey;
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * ok
    */
@@ -72,6 +91,11 @@ export class ResetApiKeyResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

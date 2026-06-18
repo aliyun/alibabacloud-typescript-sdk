@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableApiKeyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * ok
    */
@@ -27,6 +36,9 @@ export class EnableApiKeyResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful.
+   * 
    * @example
    * true
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWorkspacesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token used to retrieve more results. You do not need to specify this parameter for the first request. For subsequent requests, use the token returned in the previous response.
+   * 
    * @example
    * uwCwQ5FFCDo=
    */
@@ -19,6 +25,9 @@ export class ListWorkspacesRequest extends $dara.Model {
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The keyword for fuzzy match by business workspace name.
+   * 
    * @example
    * ws_test
    */

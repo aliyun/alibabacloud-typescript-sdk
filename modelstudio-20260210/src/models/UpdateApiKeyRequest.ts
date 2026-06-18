@@ -3,7 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateApiKeyRequestAuth extends $dara.Model {
+  /**
+   * @remarks
+   * The IP access whitelist.
+   * 
+   * > 
+   * > - When you set custom permissions and do not specify the IP access whitelist, the server sets the whitelist to IPv4 (0.0.0.0/0) and IPv6 (::/0) by default, which allows all traffic.
+   */
   accessIps?: string[];
+  /**
+   * @remarks
+   * Valid values:
+   * 
+   * - All: all permissions.
+   * - Custom: custom permissions.
+   * 
+   * @example
+   * Custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +49,15 @@ export class UpdateApiKeyRequestAuth extends $dara.Model {
 }
 
 export class UpdateApiKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The API key permission settings.
+   */
   auth?: UpdateApiKeyRequestAuth;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * update description.
    */
