@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
+export class CreateBranchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated order.
+   * The branch ID. This ID uniquely identifies a Supabase branch.
    * 
    * @example
-   * 278880417310796
+   * br-xxxx
    */
-  orderId?: string;
+  branchId?: string;
   /**
    * @remarks
-   * The instance ID of the Supabase project.
+   * The Supabase project ID that corresponds to the primary branch.
    * 
    * @example
    * spb-xxxx
@@ -24,12 +24,12 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+   * ABB39CC3-4488-4857-905D-2E4A051D****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
+      branchId: 'BranchId',
       projectId: 'ProjectId',
       requestId: 'RequestId',
     };
@@ -37,7 +37,7 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
+      branchId: 'string',
       projectId: 'string',
       requestId: 'string',
     };

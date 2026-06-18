@@ -7,57 +7,84 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * @remarks
    * The password of the initial account.
    * 
-   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * - The following special characters are supported: `!@#$%^&*()_+-=`
+   * Password rules:
+   * 
    * - The password must be 8 to 32 characters in length.
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - Supported special characters include !@#$%^&*()_+-=.
    * 
    * This parameter is required.
    * 
    * @example
-   * Pw123456
+   * TestPassword123!
    */
   accountPassword?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable auto start/stop. If this parameter is not specified, the default value is false.
+   * 
+   * @example
+   * false
+   */
   autoScale?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
+   * The idempotency token. This token ensures that duplicate requests do not trigger the same operation more than once.
    * 
    * @example
-   * 0c593ea1-3bea-11e9-b96b-88888888****
+   * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
-   * The performance level (PL) of the cloud disk. Default value: PL0. Valid values:
+   * The performance level (PL) of the cloud disk. If this parameter is not specified, the default value PL0 is used.
+   * 
+   * Valid values:
+   * 
    * - PL0
    * - PL1
+   * - PL2
+   * - PL3.
    * 
    * @example
    * PL0
    */
   diskPerformanceLevel?: string;
+  /**
+   * @remarks
+   * The DPI engine version. If this parameter is not specified, the default value PG15 is used.
+   * 
+   * Valid values:
+   * 
+   * - PG15: PostgreSQL 15.
+   * - PG17: PostgreSQL 17.
+   * 
+   * @example
+   * PG15
+   */
   engineVersion?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method. If this parameter is not specified, the default value Free is used.
    * 
-   * - **Postpaid**: pay-as-you-go.
-   * - **Prepaid**: subscription.
+   * Valid values:
    * 
-   * > - If you do not specify this parameter, an instance of the Free type is created by default.
-   * > - If you select the subscription billing method, you can receive discounts when you purchase a one-year or longer subscription. We recommend that you select a billing method based on your business requirements.
+   * - Free: free tier.
+   * - Postpaid: pay-as-you-go.
+   * - Prepaid: subscription.
    * 
    * @example
-   * Postpaid
+   * Free
    */
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
-   * - **Month**: month.
-   * - **Year**: year.
+   * The unit of the subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value Month is used.
    * 
-   * > This parameter is required when you create a subscription instance.
+   * Valid values:
+   * 
+   * - Month: month.
+   * - Year: year.
    * 
    * @example
    * Month
@@ -65,33 +92,33 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The project name. The naming rules are as follows:
+   * The name of the Supabase project.
+   * 
+   * Naming rules:
    * 
    * - The name must be 1 to 128 characters in length.
-   * 
-   * - The name can contain only letters, digits, hyphens (-), and underscores (_).
-   * 
+   * - The name can contain letters, digits, hyphens (-), and underscores (_).
    * - The name must start with a letter or an underscore (_).
    * 
    * This parameter is required.
    * 
    * @example
-   * saas_iot_x86_modbustcp_lqt01
+   * supabase_demo
    */
   projectName?: string;
   /**
    * @remarks
-   * The Supabase instance specification. The default specification for the Free type is 1C1G. The specifications for paid types are consistent with those available on the console.
+   * The specifications of the Supabase project. The Free billing type uses free-tier specifications. For paid billing types, the specifications must match those available on the console.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1C1G
+   * 2C4G
    */
   projectSpec?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) to view the available region IDs.
+   * The region ID. Specifies the region in which to create the project.
    * 
    * @example
    * cn-hangzhou
@@ -99,31 +126,25 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP address whitelist.
-   * 
-   * The value 127.0.0.1 indicates that no external IP addresses are allowed to access the instance. After the instance is created, you can call [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) to modify the IP address whitelist.
+   * The IP address whitelist. Separate multiple IP addresses or CIDR blocks with commas (,). If this parameter is not specified, the default value 0.0.0.0/0 is used.
    * 
    * This parameter is required.
    * 
    * @example
-   * 127.0.0.1
+   * 0.0.0.0/0
    */
   securityIPList?: string;
   /**
    * @remarks
-   * The storage size. Unit: GB. Default value: 1.
+   * The storage size. Unit: GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
    * 
    * @example
-   * 2
+   * 50
    */
   storageSize?: number;
   /**
    * @remarks
-   * The subscription duration. Valid values:
-   * - If **Period** is set to **Month**, the valid values are 1 to 11.
-   * - If **Period** is set to **Year**, the valid values are 1 to 3.
-   * 
-   * > This parameter is required when you create a subscription instance.
+   * The subscription duration of the resource. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
    * 
    * @example
    * 1
@@ -131,39 +152,32 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The vSwitch ID.
-   * 
-   * > - The **vSwitchId** parameter is required.
-   * > - The zone of the **vSwitch** must be the same as the value of **ZoneId**.
+   * The vSwitch ID. This parameter is required. The zone of the vSwitch must be the same as the value of ZoneId.
    * 
    * This parameter is required.
    * 
    * @example
-   * vsw-bp1cpq8mr64paltkb****
+   * vsw-bp1234567890
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
-   * >  - You can call [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) to view the available VPC IDs.
-   * > - This parameter is required.
+   * The ID of the virtual private cloud (VPC). This parameter is required.
    * 
    * This parameter is required.
    * 
    * @example
-   * vpc-bp*******************
+   * vpc-bp1234567890
    */
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID.
-   * 
-   * > You can call [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) to view the available zone IDs.
+   * The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as the value of this parameter.
    * 
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou-h
+   * cn-hangzhou-i
    */
   zoneId?: string;
   static names(): { [key: string]: string } {

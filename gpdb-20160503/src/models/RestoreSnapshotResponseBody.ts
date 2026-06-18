@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
+export class RestoreSnapshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated order.
+   * The ID of the restored branch.
    * 
    * @example
-   * 278880417310796
+   * br-restore
    */
-  orderId?: string;
+  branchId?: string;
   /**
    * @remarks
-   * The instance ID of the Supabase project.
+   * The Supabase project ID.
    * 
    * @example
    * spb-xxxx
@@ -29,7 +29,7 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
+      branchId: 'BranchId',
       projectId: 'ProjectId',
       requestId: 'RequestId',
     };
@@ -37,7 +37,7 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
+      branchId: 'string',
       projectId: 'string',
       requestId: 'string',
     };

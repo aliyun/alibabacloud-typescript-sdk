@@ -2,44 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
+export class DeleteSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated order.
+   * This parameter is required.
    * 
    * @example
-   * 278880417310796
+   * 0/3522648
    */
-  orderId?: string;
+  lsn?: string;
   /**
    * @remarks
-   * The instance ID of the Supabase project.
+   * This parameter is required.
    * 
    * @example
    * spb-xxxx
    */
   projectId?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+   * cn-hangzhou
    */
-  requestId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
+      lsn: 'Lsn',
       projectId: 'ProjectId',
-      requestId: 'RequestId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
+      lsn: 'string',
       projectId: 'string',
-      requestId: 'string',
+      regionId: 'string',
     };
   }
 

@@ -2,18 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSupabaseProjectResponseBody extends $dara.Model {
+export class RestartSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated order.
+   * The Supabase project ID.
    * 
-   * @example
-   * 278880417310796
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The instance ID of the Supabase project.
+   * This parameter is required.
    * 
    * @example
    * spb-xxxx
@@ -21,25 +15,23 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The region ID. Specifies the region in which to query or perform the operation.
    * 
    * @example
-   * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+   * cn-hangzhou
    */
-  requestId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
       projectId: 'ProjectId',
-      requestId: 'RequestId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
       projectId: 'string',
-      requestId: 'string',
+      regionId: 'string',
     };
   }
 

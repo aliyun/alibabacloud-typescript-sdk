@@ -1270,6 +1270,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a Supabase project branch.
+   * 
+   * @remarks
+   * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+   * 
+   * @param request - CreateBranchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBranchResponse
+   */
+  async createBranchWithOptions(request: $_model.CreateBranchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBranchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expiresAt)) {
+      query["ExpiresAt"] = request.expiresAt;
+    }
+
+    if (!$dara.isNull(request.initSource)) {
+      query["InitSource"] = request.initSource;
+    }
+
+    if (!$dara.isNull(request.parentBranchId)) {
+      query["ParentBranchId"] = request.parentBranchId;
+    }
+
+    if (!$dara.isNull(request.parentLsn)) {
+      query["ParentLsn"] = request.parentLsn;
+    }
+
+    if (!$dara.isNull(request.parentTimestamp)) {
+      query["ParentTimestamp"] = request.parentTimestamp;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.protected)) {
+      query["Protected"] = request.protected;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBranch",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBranchResponse>(await this.callApi(params, req, runtime), new $_model.CreateBranchResponse({}));
+  }
+
+  /**
+   * Creates a Supabase project branch.
+   * 
+   * @remarks
+   * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+   * 
+   * @param request - CreateBranchRequest
+   * @returns CreateBranchResponse
+   */
+  async createBranch(request: $_model.CreateBranchRequest): Promise<$_model.CreateBranchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBranchWithOptions(request, runtime);
+  }
+
+  /**
    * Create a vector dataset.
    * 
    * @param tmpReq - CreateCollectionRequest
@@ -2916,6 +3008,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a snapshot for a Supabase project.
+   * 
+   * @remarks
+   * Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+   * 
+   * @param request - CreateSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSnapshotResponse
+   */
+  async createSnapshotWithOptions(request: $_model.CreateSnapshotRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSnapshotResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.lsn)) {
+      query["Lsn"] = request.lsn;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.snapshotTimestamp)) {
+      query["SnapshotTimestamp"] = request.snapshotTimestamp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSnapshot",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.CreateSnapshotResponse({}));
+  }
+
+  /**
+   * Creates a snapshot for a Supabase project.
+   * 
+   * @remarks
+   * Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+   * 
+   * @param request - CreateSnapshotRequest
+   * @returns CreateSnapshotResponse
+   */
+  async createSnapshot(request: $_model.CreateSnapshotRequest): Promise<$_model.CreateSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSnapshotWithOptions(request, runtime);
+  }
+
+  /**
    * Create External Data Source Configuration
    * 
    * @param request - CreateStreamingDataServiceRequest
@@ -3187,7 +3343,7 @@ export default class Client extends OpenApi {
    * Creates a Supabase project.
    * 
    * @remarks
-   * - This operation is used to create a Supabase instance.
+   * Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
    * 
    * @param request - CreateSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3281,7 +3437,7 @@ export default class Client extends OpenApi {
    * Creates a Supabase project.
    * 
    * @remarks
-   * - This operation is used to create a Supabase instance.
+   * Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
    * 
    * @param request - CreateSupabaseProjectRequest
    * @returns CreateSupabaseProjectResponse
@@ -3651,6 +3807,58 @@ export default class Client extends OpenApi {
   async deleteBackup(request: $_model.DeleteBackupRequest): Promise<$_model.DeleteBackupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBackupWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a Supabase branch.
+   * 
+   * @remarks
+   * Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+   * 
+   * @param request - DeleteBranchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBranchResponse
+   */
+  async deleteBranchWithOptions(request: $_model.DeleteBranchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBranchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBranch",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBranchResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBranchResponse({}));
+  }
+
+  /**
+   * Deletes a Supabase branch.
+   * 
+   * @remarks
+   * Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+   * 
+   * @param request - DeleteBranchRequest
+   * @returns DeleteBranchResponse
+   */
+  async deleteBranch(request: $_model.DeleteBranchRequest): Promise<$_model.DeleteBranchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBranchWithOptions(request, runtime);
   }
 
   /**
@@ -4856,6 +5064,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除恢复点
+   * 
+   * @remarks
+   * 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+   * 
+   * @param request - DeleteSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSnapshotResponse
+   */
+  async deleteSnapshotWithOptions(request: $_model.DeleteSnapshotRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSnapshotResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lsn)) {
+      query["Lsn"] = request.lsn;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSnapshot",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSnapshotResponse({}));
+  }
+
+  /**
+   * 删除恢复点
+   * 
+   * @remarks
+   * 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+   * 
+   * @param request - DeleteSnapshotRequest
+   * @returns DeleteSnapshotResponse
+   */
+  async deleteSnapshot(request: $_model.DeleteSnapshotRequest): Promise<$_model.DeleteSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSnapshotWithOptions(request, runtime);
+  }
+
+  /**
    * Delete a real-time data service.
    * 
    * @param request - DeleteStreamingDataServiceRequest
@@ -5573,6 +5837,58 @@ export default class Client extends OpenApi {
   async describeBackupPolicy(request: $_model.DescribeBackupPolicyRequest): Promise<$_model.DescribeBackupPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a Supabase branch.
+   * 
+   * @remarks
+   * Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+   * 
+   * @param request - DescribeBranchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBranchResponse
+   */
+  async describeBranchWithOptions(request: $_model.DescribeBranchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBranchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBranch",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBranchResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBranchResponse({}));
+  }
+
+  /**
+   * Queries the details of a Supabase branch.
+   * 
+   * @remarks
+   * Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+   * 
+   * @param request - DescribeBranchRequest
+   * @returns DescribeBranchResponse
+   */
+  async describeBranch(request: $_model.DescribeBranchRequest): Promise<$_model.DescribeBranchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBranchWithOptions(request, runtime);
   }
 
   /**
@@ -10270,6 +10586,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the database schema of a Supabase branch.
+   * 
+   * @remarks
+   * Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+   * 
+   * @param request - GetBranchSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBranchSchemaResponse
+   */
+  async getBranchSchemaWithOptions(request: $_model.GetBranchSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBranchSchemaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBranchSchema",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBranchSchemaResponse>(await this.callApi(params, req, runtime), new $_model.GetBranchSchemaResponse({}));
+  }
+
+  /**
+   * Retrieves the database schema of a Supabase branch.
+   * 
+   * @remarks
+   * Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+   * 
+   * @param request - GetBranchSchemaRequest
+   * @returns GetBranchSchemaResponse
+   */
+  async getBranchSchema(request: $_model.GetBranchSchemaRequest): Promise<$_model.GetBranchSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBranchSchemaWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves a task to build a knowledge graph.
    * 
    * @param request - GetGraphRAGJobRequest
@@ -11219,6 +11595,86 @@ export default class Client extends OpenApi {
   async listBackupJobs(request: $_model.ListBackupJobsRequest): Promise<$_model.ListBackupJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBackupJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the branch list of a Supabase project.
+   * 
+   * @remarks
+   * This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+   * 
+   * @param request - ListBranchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBranchesResponse
+   */
+  async listBranchesWithOptions(request: $_model.ListBranchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBranchesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.parentBranchId)) {
+      query["ParentBranchId"] = request.parentBranchId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.search)) {
+      query["Search"] = request.search;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBranches",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBranchesResponse>(await this.callApi(params, req, runtime), new $_model.ListBranchesResponse({}));
+  }
+
+  /**
+   * Query the branch list of a Supabase project.
+   * 
+   * @remarks
+   * This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+   * 
+   * @param request - ListBranchesRequest
+   * @returns ListBranchesResponse
+   */
+  async listBranches(request: $_model.ListBranchesRequest): Promise<$_model.ListBranchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBranchesWithOptions(request, runtime);
   }
 
   /**
@@ -15847,6 +16303,130 @@ export default class Client extends OpenApi {
   async restartDBInstance(request: $_model.RestartDBInstanceRequest): Promise<$_model.RestartDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restartDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Restarts a Supabase project.
+   * 
+   * @remarks
+   * Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+   * 
+   * @param request - RestartSupabaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartSupabaseProjectResponse
+   */
+  async restartSupabaseProjectWithOptions(request: $_model.RestartSupabaseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartSupabaseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartSupabaseProject",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartSupabaseProjectResponse>(await this.callApi(params, req, runtime), new $_model.RestartSupabaseProjectResponse({}));
+  }
+
+  /**
+   * Restarts a Supabase project.
+   * 
+   * @remarks
+   * Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+   * 
+   * @param request - RestartSupabaseProjectRequest
+   * @returns RestartSupabaseProjectResponse
+   */
+  async restartSupabaseProject(request: $_model.RestartSupabaseProjectRequest): Promise<$_model.RestartSupabaseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartSupabaseProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Restores a Supabase project from a snapshot.
+   * 
+   * @remarks
+   * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+   * 
+   * @param request - RestoreSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestoreSnapshotResponse
+   */
+  async restoreSnapshotWithOptions(request: $_model.RestoreSnapshotRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestoreSnapshotResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.finalizeRestore)) {
+      query["FinalizeRestore"] = request.finalizeRestore;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.restoredBranchName)) {
+      query["RestoredBranchName"] = request.restoredBranchName;
+    }
+
+    if (!$dara.isNull(request.restoredLsn)) {
+      query["RestoredLsn"] = request.restoredLsn;
+    }
+
+    if (!$dara.isNull(request.targetBranchId)) {
+      query["TargetBranchId"] = request.targetBranchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestoreSnapshot",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestoreSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.RestoreSnapshotResponse({}));
+  }
+
+  /**
+   * Restores a Supabase project from a snapshot.
+   * 
+   * @remarks
+   * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+   * 
+   * @param request - RestoreSnapshotRequest
+   * @returns RestoreSnapshotResponse
+   */
+  async restoreSnapshot(request: $_model.RestoreSnapshotRequest): Promise<$_model.RestoreSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restoreSnapshotWithOptions(request, runtime);
   }
 
   /**
