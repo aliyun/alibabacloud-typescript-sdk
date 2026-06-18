@@ -11,6 +11,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
    * WS20250731233102000001
    */
   bizId?: string;
+  bizIdsShrink?: string;
   /**
    * @remarks
    * The start of the expiration time range.
@@ -47,7 +48,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token for the next query. This parameter is empty if no more results are available.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -55,7 +56,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The field used for sorting.
    * 
    * @example
    * gmtCreated
@@ -63,7 +64,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values: ASC and DESC.
+   * The sort type. Valid values: ASC and DESC.
    * 
    * @example
    * DOWNGRADE
@@ -101,6 +102,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
+      bizIdsShrink: 'BizIds',
       endTimeBegin: 'EndTimeBegin',
       endTimeEnd: 'EndTimeEnd',
       extend: 'Extend',
@@ -118,6 +120,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      bizIdsShrink: 'string',
       endTimeBegin: 'string',
       endTimeEnd: 'string',
       extend: 'string',

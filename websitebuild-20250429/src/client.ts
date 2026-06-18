@@ -4474,6 +4474,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListAppInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizIds)) {
+      request.bizIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizIds, "BizIds", "json");
+    }
+
     if (!$dara.isNull(tmpReq.statusList)) {
       request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
     }
@@ -4481,6 +4485,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.bizIdsShrink)) {
+      query["BizIds"] = request.bizIdsShrink;
     }
 
     if (!$dara.isNull(request.endTimeBegin)) {

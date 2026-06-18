@@ -14,7 +14,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -82,7 +82,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   nextPage?: boolean;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token for the next query. This parameter is empty if no more results are available.
    * 
    * @example
    * dw+qdTi1EjVSWX/INJdYNw==
@@ -114,7 +114,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the result limit is reached. The server processes up to 1000 recent records excluding pagination limits. If the results exceed 1000 records, **ResultLimit** is **true** and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to pagination limits, the server processes up to 1,000 recent records per query. If the result exceeds 1,000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
