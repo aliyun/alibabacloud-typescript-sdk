@@ -121,11 +121,11 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfos extends $
 export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * Currency unit.
+   * The currency unit.
    * 
-   * China site (aliyun.com): CNY.
+   * China site: CNY.
    * 
-   * International site (alibabacloud.com): USD.
+   * International site: USD.
    * 
    * @example
    * CNY
@@ -134,7 +134,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   detailInfos?: DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
-   * Discounted price.
+   * The discount.
    * 
    * @example
    * 655.2
@@ -142,7 +142,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   discountPrice?: number;
   /**
    * @remarks
-   * Original price.
+   * The original price.
    * 
    * @example
    * 4368
@@ -150,7 +150,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   originalPrice?: number;
   /**
    * @remarks
-   * Final price, calculated as the original price minus discounts.
+   * The transaction price, which is equal to the original price minus the discount.
    * 
    * @example
    * 3712.8
@@ -317,7 +317,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRules extends $dara.Model 
 export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * Price.
+   * The price.
    */
   price?: DescribeRenewalPriceResponseBodyPriceInfoPrice;
   relatedPrice?: DescribeRenewalPriceResponseBodyPriceInfoRelatedPrice;
@@ -359,12 +359,12 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
 export class DescribeRenewalPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A data type composed of price information (PriceInfo), including pricing and discount rule details.
+   * The price information, including the price and discount rule details.
    */
   priceInfo?: DescribeRenewalPriceResponseBodyPriceInfo;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

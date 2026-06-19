@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteForwardEntryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DNAT entry to delete.
-   * 
    * This parameter is required.
    */
   forwardEntryId?: string;
   /**
    * @remarks
-   * The ID of the DNAT table to which the DNAT entry belongs.
-   * 
    * This parameter is required.
    */
   forwardTableId?: string;
@@ -21,11 +17,6 @@ export class DeleteForwardEntryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the VPC is located.\\
-   * \\
-   * To obtain the latest list of regions, call the [DescribeRegions](~~DescribeRegions~~) operation.\\
-   * \\
-   * 
    * This parameter is required.
    */
   regionId?: string;

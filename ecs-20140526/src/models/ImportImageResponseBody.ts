@@ -29,7 +29,7 @@ export class ImportImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The image import task ID.
+   * The ID of the image import task.
    * 
    * @example
    * t-bp67acfmxazb4p****

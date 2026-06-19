@@ -201,7 +201,7 @@ export class DescribeImageComponentsResponseBody extends $dara.Model {
   imageComponent?: DescribeImageComponentsResponseBodyImageComponent;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page for paging.
    * 
    * @example
    * 50
@@ -209,7 +209,7 @@ export class DescribeImageComponentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. For information about how to use the returned value, see the "Usage notes" section of this topic.
+   * The pagination token returned in this call. For more information about how to use it, refer to the operation description.
    * 
    * @example
    * AAAAAdDWBF2****

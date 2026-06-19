@@ -3,22 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AssociateHaVipRequest extends $dara.Model {
-  /**
-   * @remarks
-   * A client-generated token that ensures request idempotency. This token must be unique across requests and can contain only ASCII characters.
-   */
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the HaVip.
-   * 
    * This parameter is required.
    */
   haVipId?: string;
   /**
    * @remarks
-   * The ID of the ECS instance to associate with the HaVip.
-   * 
    * This parameter is required.
    */
   instanceId?: string;
@@ -26,8 +18,6 @@ export class AssociateHaVipRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the HaVip is located. To obtain the latest list of regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation.
-   * 
    * This parameter is required.
    */
   regionId?: string;

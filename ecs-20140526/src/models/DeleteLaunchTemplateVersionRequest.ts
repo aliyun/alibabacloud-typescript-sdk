@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLaunchTemplateVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The version numbers of the launch template.
+   * The version numbers of the launch template to delete.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteLaunchTemplateVersionRequest extends $dara.Model {
   deleteVersion?: number[];
   /**
    * @remarks
-   * The ID of the launch template. For more information, call the [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html) operation.
+   * The ID of the launch template to delete. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
    * 
    * @example
    * lt-bp1apo0bbbkuy0rj****
@@ -33,7 +33,7 @@ export class DeleteLaunchTemplateVersionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the launch template. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list of Alibaba Cloud.
    * 
    * This parameter is required.
    * 

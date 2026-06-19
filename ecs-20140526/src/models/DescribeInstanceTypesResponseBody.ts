@@ -564,14 +564,10 @@ export class DescribeInstanceTypesResponseBodyInstanceTypes extends $dara.Model 
 }
 
 export class DescribeInstanceTypesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A collection of instance types.
-   */
   instanceTypes?: DescribeInstanceTypesResponseBodyInstanceTypes;
   /**
    * @remarks
-   * The token used to retrieve the next page of results.
+   * The pagination token returned by this call.
    * 
    * @example
    * e71d8a535bd9cc11

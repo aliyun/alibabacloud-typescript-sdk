@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePlanMaintenanceWindowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the maintenance window.
+   * The ID of the created O&M window.
    * 
    * @example
    * pw-bp1a9yavgq3dgttvowun

@@ -143,7 +143,7 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
   operationProgressSet?: DescribeTaskAttributeResponseBodyOperationProgressSet;
   /**
    * @remarks
-   * The region ID of the task.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -159,7 +159,7 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of completed tasks.
+   * The number of successful tasks.
    * 
    * @example
    * 1
@@ -167,11 +167,10 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * Indicates whether the task can be canceled by calling the [CancelTask](https://help.aliyun.com/document_detail/25624.html) operation. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the task can be canceled ([CancelTask](https://help.aliyun.com/document_detail/25624.html)). Valid values: 
+   *          
+   * - true: The task can be canceled. 
+   * - false: The task cannot be canceled.
    * 
    * @example
    * true
@@ -179,7 +178,7 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
   supportCancel?: string;
   /**
    * @remarks
-   * The name of the operation that generated the task.
+   * The name of the API operation associated with the task.
    * 
    * @example
    * ExportImage
@@ -187,7 +186,7 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
   taskAction?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * t-ce946ntx4wr****
@@ -195,7 +194,7 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The progress of the task.
+   * The task progress.
    * 
    * @example
    * 100%
@@ -203,7 +202,7 @@ export class DescribeTaskAttributeResponseBody extends $dara.Model {
   taskProcess?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * Finished

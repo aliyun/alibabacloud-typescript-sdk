@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLaunchTemplateDefaultVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The default version number of the instance launch template.
+   * The version number of the launch template to be set as the default version.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyLaunchTemplateDefaultVersionRequest extends $dara.Model {
   defaultVersionNumber?: number;
   /**
    * @remarks
-   * The ID of the launch template. You must specify the LaunchTemplateId or LaunchTemplateName parameter to determine an instance launch template.
+   * The ID of the launch template. You must specify LaunchTemplateId or LaunchTemplateName to determine the template.
    * 
    * @example
    * lt-s-bp177juajht6****
@@ -23,7 +23,7 @@ export class ModifyLaunchTemplateDefaultVersionRequest extends $dara.Model {
   launchTemplateId?: string;
   /**
    * @remarks
-   * The name of the instance launch template. You must specify the LaunchTemplateId or LaunchTemplateName parameter to determine an instance launch template.
+   * The name of the launch template. You must specify LaunchTemplateId or LaunchTemplateName to determine the template.
    * 
    * @example
    * testLaunchTemplateName

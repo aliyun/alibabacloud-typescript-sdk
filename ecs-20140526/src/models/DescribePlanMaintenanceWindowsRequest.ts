@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlanMaintenanceWindowsRequestTargetResourceTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The key of the tag to which the window applies.
    * 
    * @example
    * tagKey
@@ -13,7 +13,7 @@ export class DescribePlanMaintenanceWindowsRequestTargetResourceTags extends $da
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The value of the tag to which the window applies.
    * 
    * @example
    * tagValue
@@ -45,7 +45,7 @@ export class DescribePlanMaintenanceWindowsRequestTargetResourceTags extends $da
 export class DescribePlanMaintenanceWindowsRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the maintenance window is enabled.
+   * Specifies whether the window is enabled or disabled.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class DescribePlanMaintenanceWindowsRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page for a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class DescribePlanMaintenanceWindowsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the last query as the value of NextToken.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -69,7 +69,7 @@ export class DescribePlanMaintenanceWindowsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the maintenance window.
+   * The ID of the O&M window.
    * 
    * @example
    * pw-bp1jarob1aup7yvlrdt6
@@ -77,7 +77,7 @@ export class DescribePlanMaintenanceWindowsRequest extends $dara.Model {
   planWindowId?: string;
   /**
    * @remarks
-   * The name of the maintenance window.
+   * The name of the O&M window.
    * 
    * @example
    * WIndowName
@@ -85,7 +85,7 @@ export class DescribePlanMaintenanceWindowsRequest extends $dara.Model {
   planWindowName?: string;
   /**
    * @remarks
-   * The ID of the region where the ECS instance is located. You can call the DescribeRegions operation to query the latest list of Alibaba Cloud regions.
+   * The region ID of the instance. You can call DescribeRegions to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class DescribePlanMaintenanceWindowsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the maintenance window applies.
+   * The ID of the resource group to which the O&M window applies.
    * 
    * @example
    * rg-d85g5yocioezmdrll
@@ -103,7 +103,7 @@ export class DescribePlanMaintenanceWindowsRequest extends $dara.Model {
   targetResourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the resources to which the maintenance window applies.
+   * The tags to which the O&M window applies.
    */
   targetResourceTags?: DescribePlanMaintenanceWindowsRequestTargetResourceTags;
   static names(): { [key: string]: string } {

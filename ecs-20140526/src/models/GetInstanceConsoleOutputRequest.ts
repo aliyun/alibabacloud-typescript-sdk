@@ -17,7 +17,7 @@ export class GetInstanceConsoleOutputRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -27,11 +27,10 @@ export class GetInstanceConsoleOutputRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to remove formatting symbols from the returned command output. Valid values:
+   * Specifies whether to remove formatting symbols from the returned text. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: removes formatting symbols.
+   * - false: does not remove formatting symbols.
    * 
    * Default value: false.
    * 

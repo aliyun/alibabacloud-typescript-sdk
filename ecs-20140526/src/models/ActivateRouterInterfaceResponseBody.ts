@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ActivateRouterInterfaceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

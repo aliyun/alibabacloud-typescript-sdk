@@ -115,7 +115,7 @@ export class DescribeImageSharePermissionResponseBody extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -131,7 +131,7 @@ export class DescribeImageSharePermissionResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the custom image.
+   * The region ID of the image.
    * 
    * @example
    * cn-hangzhou
@@ -148,7 +148,7 @@ export class DescribeImageSharePermissionResponseBody extends $dara.Model {
   shareGroups?: DescribeImageSharePermissionResponseBodyShareGroups;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1

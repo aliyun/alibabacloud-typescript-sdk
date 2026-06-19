@@ -7,8 +7,6 @@ export class ModifyImageShareGroupPermissionRequest extends $dara.Model {
   removeGroup?: string[];
   /**
    * @remarks
-   * The ID of the custom image.
-   * 
    * This parameter is required.
    */
   imageId?: string;
@@ -16,8 +14,6 @@ export class ModifyImageShareGroupPermissionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the `DescribeRegions` operation to query the latest region list.
-   * 
    * This parameter is required.
    */
   regionId?: string;

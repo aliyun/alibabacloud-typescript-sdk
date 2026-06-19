@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePlanMaintenanceWindowRequestTargetResourceTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag on which the O&M window takes effect.
    * 
    * @example
    * vms_qualification_孙总身份证_e5590864-1fef-4db2-b2a7-bd2d657fed43.png
@@ -13,7 +13,7 @@ export class CreatePlanMaintenanceWindowRequestTargetResourceTags extends $dara.
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag on which the O&M window takes effect.
    * 
    * @example
    * 21.137.18.60
@@ -45,7 +45,7 @@ export class CreatePlanMaintenanceWindowRequestTargetResourceTags extends $dara.
 export class CreatePlanMaintenanceWindowRequestTargetResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource group. This parameter is required if `Scope` is set to `ResourceGroup`.
+   * The ID of the resource group. This parameter is required when Scope is set to ResourceGroup.
    * 
    * @example
    * rg-aekzhm7pmnvcbty
@@ -53,7 +53,7 @@ export class CreatePlanMaintenanceWindowRequestTargetResource extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The scope of resources to which the maintenance window applies.
+   * The type of resources for which the O&M window is configured.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class CreatePlanMaintenanceWindowRequestTargetResource extends $dara.Mode
   scope?: string;
   /**
    * @remarks
-   * The tags of the resources to which the maintenance window applies. This parameter is required if `Scope` is set to `Tag`.
+   * The tags on which the O&M window takes effect. This parameter is required when Scope is set to Tag.
    */
   tags?: CreatePlanMaintenanceWindowRequestTargetResourceTags[];
   static names(): { [key: string]: string } {
@@ -97,13 +97,11 @@ export class CreatePlanMaintenanceWindowRequestTargetResource extends $dara.Mode
 export class CreatePlanMaintenanceWindowRequestTimePeriodRangeList extends $dara.Model {
   /**
    * @remarks
-   * The end time of the maintenance window.
+   * The end time of the O&M window.
    * 
-   * - If `PeriodUnit` is set to `Weekly`, use the format `Day,HH:mm`. Valid values for `Day` are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
-   * 
-   * - If `PeriodUnit` is set to `Daily`, use the format `HH:mm`.
-   * 
-   * - The time is in `HH:mm` format, where `HH` is the hour (00-23) and `mm` is the minute. Only `00` is supported for the minute.
+   * - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
+   * - If PeriodUnit is set to Daily, the format is 22:00.
+   * - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute, which currently supports only 00.
    * 
    * @example
    * Tuesday,03:00
@@ -111,13 +109,10 @@ export class CreatePlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
   endTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window.
-   * 
-   * - If `PeriodUnit` is set to `Weekly`, use the format `Day,HH:mm`. Valid values for `Day` are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
-   * 
-   * - If `PeriodUnit` is set to `Daily`, use the format `HH:mm`.
-   * 
-   * - The time is in `HH:mm` format, where `HH` is the hour (00-23) and `mm` is the minute. Only `00` is supported for the minute.
+   * The start time of the O&M window.
+   * - If PeriodUnit is set to Weekly, the format is Monday,22:00. Monday can be replaced with Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday.
+   * - If PeriodUnit is set to Daily, the format is 22:00.
+   * - The comma (,) is used as a delimiter. The first part represents the hour, which ranges from 00 to 23. The second part represents the minute, which currently supports only 00.
    * 
    * @example
    * Monday,22:00
@@ -149,7 +144,7 @@ export class CreatePlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
 export class CreatePlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * Specifies how often the maintenance window recurs.
+   * The cycle type. Valid values: Daily and Weekly.
    * 
    * This parameter is required.
    * 
@@ -159,7 +154,7 @@ export class CreatePlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The time ranges of the recurring maintenance window. All times are in UTC.
+   * The time ranges of the recurring cycle of the O&M window (in UTC).
    * 
    * This parameter is required.
    */
@@ -193,11 +188,10 @@ export class CreatePlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
 export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the maintenance window.
+   * Specifies whether to enable or disable the O&M window.
    * 
-   * - **true**: Enables the maintenance window.
-   * 
-   * - **false**: Disables the maintenance window.
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * This parameter is required.
    * 
@@ -208,7 +202,7 @@ export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
   minMaintenanceInterval?: number;
   /**
    * @remarks
-   * The name of the maintenance window. The name can be up to 200 characters long.
+   * The name of the O&M window. You can specify a custom name. The name can be up to 200 characters in length.
    * 
    * This parameter is required.
    * 
@@ -218,7 +212,7 @@ export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
   planWindowName?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the DescribeRegions operation to query the latest list of Alibaba Cloud regions.
+   * The region ID. You can call DescribeRegions to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -228,7 +222,7 @@ export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The maintenance operation supported by the maintenance window.
+   * The O&M operations supported by the O&M window.
    * 
    * This parameter is required.
    * 
@@ -238,14 +232,14 @@ export class CreatePlanMaintenanceWindowRequest extends $dara.Model {
   supportMaintenanceAction?: string;
   /**
    * @remarks
-   * The resources to which the maintenance window applies.
+   * The resources on which the O&M window takes effect.
    * 
    * This parameter is required.
    */
   targetResource?: CreatePlanMaintenanceWindowRequestTargetResource;
   /**
    * @remarks
-   * The recurring schedule for the maintenance window.
+   * The recurring cycle of the O&M window.
    * 
    * This parameter is required.
    */

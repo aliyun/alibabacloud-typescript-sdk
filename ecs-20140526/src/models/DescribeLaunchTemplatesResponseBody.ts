@@ -134,7 +134,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   launchTemplateSets?: DescribeLaunchTemplatesResponseBodyLaunchTemplateSets;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

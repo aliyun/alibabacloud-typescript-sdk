@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPlanMaintenanceWindowShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the maintenance window. If this parameter is not specified, the enabled status remains unchanged.
+   * Specifies whether to enable or disable the O&M window. Leave this parameter empty if no modification is needed.
    * 
    * @example
    * false
@@ -14,7 +14,7 @@ export class ModifyPlanMaintenanceWindowShrinkRequest extends $dara.Model {
   minMaintenanceInterval?: number;
   /**
    * @remarks
-   * The ID of the maintenance window to modify.
+   * The ID of the O&M window to modify. This parameter is required.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class ModifyPlanMaintenanceWindowShrinkRequest extends $dara.Model {
   planWindowId?: string;
   /**
    * @remarks
-   * The new name of the maintenance window. If this parameter is not specified, the name remains unchanged.
+   * The name of the O&M window. Leave this parameter empty if no modification is needed.
    * 
    * @example
    * WIndowName
@@ -32,7 +32,7 @@ export class ModifyPlanMaintenanceWindowShrinkRequest extends $dara.Model {
   planWindowName?: string;
   /**
    * @remarks
-   * The ID of the region where the instance is located. You can call the DescribeRegions operation to query the most recent list of Alibaba Cloud regions.
+   * The region ID of the instance. You can call DescribeRegions to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class ModifyPlanMaintenanceWindowShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The maintenance action for the maintenance window. If this parameter is not specified, the action remains unchanged.
+   * The supported O&M actions. Leave this parameter empty if no modification is needed.
    * 
    * @example
    * Reboot
@@ -50,12 +50,12 @@ export class ModifyPlanMaintenanceWindowShrinkRequest extends $dara.Model {
   supportMaintenanceAction?: string;
   /**
    * @remarks
-   * The resources to which the maintenance window applies. If this parameter is not specified, the target resources remain unchanged.
+   * The resource to which the O&M window applies. Leave this parameter empty if no modification is needed.
    */
   targetResourceShrink?: string;
   /**
    * @remarks
-   * The recurrence schedule for the maintenance window. If this parameter is not specified, the schedule remains unchanged.
+   * The recurring cycle of the O&M window. Leave this parameter empty if no modification is needed.
    */
   timePeriodShrink?: string;
   static names(): { [key: string]: string } {

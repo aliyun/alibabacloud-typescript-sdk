@@ -17,7 +17,7 @@ export class DeleteImagePipelineRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the image template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 

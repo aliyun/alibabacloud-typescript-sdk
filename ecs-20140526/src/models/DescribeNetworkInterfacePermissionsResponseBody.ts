@@ -67,14 +67,10 @@ export class DescribeNetworkInterfacePermissionsResponseBodyNetworkInterfacePerm
 }
 
 export class DescribeNetworkInterfacePermissionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The elastic network interface permissions.
-   */
   networkInterfacePermissions?: DescribeNetworkInterfacePermissionsResponseBodyNetworkInterfacePermissions;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -82,7 +78,7 @@ export class DescribeNetworkInterfacePermissionsResponseBody extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -98,7 +94,7 @@ export class DescribeNetworkInterfacePermissionsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1

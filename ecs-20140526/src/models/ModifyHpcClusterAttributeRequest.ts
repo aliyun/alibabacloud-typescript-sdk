@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHpcClusterAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,9 +13,9 @@ export class ModifyHpcClusterAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the HPC cluster. The description must be 2 to 256 characters in length, and cannot start with http\\:// or https\\://.
+   * The description of the HPC cluster. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
    * 
-   * This parameter is empty by default.
+   * Default value: empty.
    * 
    * @example
    * testDescription
@@ -33,9 +33,9 @@ export class ModifyHpcClusterAttributeRequest extends $dara.Model {
   hpcClusterId?: string;
   /**
    * @remarks
-   * The name of the HPC cluster. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http\\:// or https\\://. The name can contain letters, digits, underscores (_), and hyphens (-).
+   * The name of the HPC cluster. The name must be 2 to 128 characters in length. The name must start with a letter or a Chinese character and cannot start with http:// or https://. The name can contain digits, underscores (_), or hyphens (-).
    * 
-   * This parameter is empty by default.
+   * Default value: empty.
    * 
    * @example
    * testName
@@ -45,7 +45,7 @@ export class ModifyHpcClusterAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

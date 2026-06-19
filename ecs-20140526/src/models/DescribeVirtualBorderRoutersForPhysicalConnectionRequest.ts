@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The filter key. The only supported value is `VbrId`.
-   */
   key?: string;
-  /**
-   * @remarks
-   * The VBR IDs. You can specify up to 20 IDs.
-   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -40,33 +32,17 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter exte
 }
 
 export class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The filter criteria.
-   */
   filter?: DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter[];
   ownerId?: number;
-  /**
-   * @remarks
-   * The page number. Default: 1.
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 50. Default: 10.
-   */
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the physical connection.
-   * 
    * This parameter is required.
    */
   physicalConnectionId?: string;
   /**
    * @remarks
-   * The ID of the region where the virtual border router (VBR) is deployed.
-   * 
    * This parameter is required.
    */
   regionId?: string;

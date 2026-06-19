@@ -69,7 +69,7 @@ export class DescribeHpcClustersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page that was set when the request was made.
+   * The number of entries per page.
    * 
    * @example
    * 10

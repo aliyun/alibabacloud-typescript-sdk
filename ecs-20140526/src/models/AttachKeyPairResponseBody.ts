@@ -63,7 +63,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
 export class AttachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances to which the SSH key pair fails to be bound.
+   * The number of instances to which the key pair failed to be bound.
    * 
    * @example
    * 0
@@ -71,7 +71,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   failCount?: string;
   /**
    * @remarks
-   * The name of the SSH key pair.
+   * The name of the key pair.
    * 
    * @example
    * testKeyPairName
@@ -88,7 +88,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   results?: AttachKeyPairResponseBodyResults;
   /**
    * @remarks
-   * The total number of instances to which the SSH key pair is bound.
+   * The total number of instances to which the key pair is bound.
    * 
    * @example
    * 2

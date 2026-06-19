@@ -293,6 +293,7 @@ export { DescribeDisksRequestFilter } from './DescribeDisksRequest';
 export { DescribeDisksRequestTag } from './DescribeDisksRequest';
 export { DescribeDisksResponseBodyDisksDiskAttachmentsAttachment } from './DescribeDisksResponseBody';
 export { DescribeDisksResponseBodyDisksDiskAttachments } from './DescribeDisksResponseBody';
+export { DescribeDisksResponseBodyDisksDiskDataSource } from './DescribeDisksResponseBody';
 export { DescribeDisksResponseBodyDisksDiskMountInstancesMountInstance } from './DescribeDisksResponseBody';
 export { DescribeDisksResponseBodyDisksDiskMountInstances } from './DescribeDisksResponseBody';
 export { DescribeDisksResponseBodyDisksDiskOperationLocksOperationLock } from './DescribeDisksResponseBody';

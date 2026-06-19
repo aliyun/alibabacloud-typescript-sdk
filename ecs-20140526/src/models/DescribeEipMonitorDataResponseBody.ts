@@ -67,15 +67,7 @@ export class DescribeEipMonitorDataResponseBodyEipMonitorDatas extends $dara.Mod
 }
 
 export class DescribeEipMonitorDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The EIP monitoring data.
-   */
   eipMonitorDatas?: DescribeEipMonitorDataResponseBodyEipMonitorDatas;
-  /**
-   * @remarks
-   * The request ID.
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

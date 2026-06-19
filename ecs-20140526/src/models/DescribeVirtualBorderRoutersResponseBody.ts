@@ -109,30 +109,10 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSet exte
 }
 
 export class DescribeVirtualBorderRoutersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The page number.
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries.
-   */
   totalCount?: number;
-  /**
-   * @remarks
-   * A collection of Virtual Border Router objects.
-   */
   virtualBorderRouterSet?: DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSet;
   static names(): { [key: string]: string } {
     return {

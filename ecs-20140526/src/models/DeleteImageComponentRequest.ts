@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageComponentRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image component.
+   * The ID of the image component to delete.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteImageComponentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the image component. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

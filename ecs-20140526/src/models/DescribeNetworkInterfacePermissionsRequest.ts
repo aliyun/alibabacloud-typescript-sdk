@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The network interface ID. You must specify either `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query scope.
+   * The ID of the network interface controller (NIC). You must specify NetworkInterfaceId or NetworkInterfacePermissionId.N to determine the query scope.
    * 
    * @example
    * eni-bp17pdijfczax****
@@ -13,7 +13,7 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * An array of network interface permission IDs. The array can contain 1 to 100 IDs.
+   * The list of network interface controller (NIC) permission IDs. Number of elements in the list: 1 to 100.
    * 
    * @example
    * eni-perm-bp1cs4lwn56lfb****
@@ -23,11 +23,11 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number to return.
+   * The page number of the network interface controller (NIC) permission list.
    * 
-   * Starting value: 1
+   * Minimum value: 1
    * 
-   * Default value: 1
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -35,11 +35,11 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
    * Maximum value: 100
    * 
-   * Default value: 10
+   * Default value: 10.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeNetworkInterfacePermissionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region for the network interface permission. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to obtain the latest list of Alibaba Cloud regions.
+   * The region of the network interface controller (NIC) permissions. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

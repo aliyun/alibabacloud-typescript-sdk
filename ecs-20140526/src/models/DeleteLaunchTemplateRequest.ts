@@ -7,7 +7,7 @@ export class DeleteLaunchTemplateRequest extends $dara.Model {
    * @remarks
    * The ID of the launch template. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
    * 
-   * You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+   * You must specify `LaunchTemplateId` or `LaunchTemplateName` to determine the launch template.
    * 
    * @example
    * lt-bp1apo0bbbkuy0rj****
@@ -17,7 +17,7 @@ export class DeleteLaunchTemplateRequest extends $dara.Model {
    * @remarks
    * The name of the launch template.
    * 
-   * You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+   * You must specify `LaunchTemplateId` or `LaunchTemplateName` to determine the launch template.
    * 
    * @example
    * testLaunchTemplateName
@@ -27,7 +27,7 @@ export class DeleteLaunchTemplateRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the launch template. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -67,15 +67,7 @@ export class DescribeNewProjectEipMonitorDataResponseBodyEipMonitorDatas extends
 }
 
 export class DescribeNewProjectEipMonitorDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The container for EIP monitoring data.
-   */
   eipMonitorDatas?: DescribeNewProjectEipMonitorDataResponseBodyEipMonitorDatas;
-  /**
-   * @remarks
-   * The request ID.
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

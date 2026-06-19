@@ -5,17 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVSwitchRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * The region ID of the VSwitch. You can call the ~~DescribeRegions~~ operation to query the most recent list of regions.
-   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the VSwitch that you want to delete.
-   * 
    * This parameter is required.
    */
   vSwitchId?: string;

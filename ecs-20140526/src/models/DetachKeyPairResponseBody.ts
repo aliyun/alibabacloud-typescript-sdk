@@ -63,7 +63,7 @@ export class DetachKeyPairResponseBodyResults extends $dara.Model {
 export class DetachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances from which the SSH key pair failed to be unbound.
+   * The number of instances from which the key pair failed to be unbound.
    * 
    * @example
    * 0
@@ -79,7 +79,7 @@ export class DetachKeyPairResponseBody extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -88,7 +88,7 @@ export class DetachKeyPairResponseBody extends $dara.Model {
   results?: DetachKeyPairResponseBodyResults;
   /**
    * @remarks
-   * The total number of instances from which you want to unbind the SSH key pair.
+   * The total number of instances from which the key pair is unbound.
    * 
    * @example
    * 2

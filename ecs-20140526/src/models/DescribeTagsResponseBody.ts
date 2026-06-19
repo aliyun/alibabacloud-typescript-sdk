@@ -119,7 +119,7 @@ export class DescribeTagsResponseBodyTags extends $dara.Model {
 export class DescribeTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the tag list.
    * 
    * @example
    * 1
@@ -127,7 +127,7 @@ export class DescribeTagsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page settings for the paged query. This is the paging size.
    * 
    * @example
    * 50

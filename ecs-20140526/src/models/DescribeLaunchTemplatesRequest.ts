@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLaunchTemplatesRequestTemplateTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the launch template. Valid values of N: 1 to 20.
+   * The tag key of the launch template. Valid values of N: 1 to 20.
    * 
-   * If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * If you use a single tag to filter resources, the number of resources with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the number of resources that are bound with all the specified tags cannot exceed 1000. If the number of resources exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query them.
    * 
    * @example
    * TestKey
@@ -15,7 +15,7 @@ export class DescribeLaunchTemplatesRequestTemplateTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the launch template. Valid values of N: 1 to 20.
+   * The tag value of the launch template. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -47,11 +47,11 @@ export class DescribeLaunchTemplatesRequestTemplateTag extends $dara.Model {
 export class DescribeLaunchTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of launch templates.
+   * An array of one or more launch template IDs.
    * 
-   * - You can query up to 100 launch templates.
+   * - You can query up to 100 launch templates at a time.
    * 
-   * - You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
+   * - You must specify LaunchTemplateId or LaunchTemplateName to determine the templates.
    * 
    * @example
    * lt-m5e3ofjr1zn1aw7q****
@@ -59,11 +59,11 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   launchTemplateId?: string[];
   /**
    * @remarks
-   * The names of launch templates.
+   * An array of one or more launch template names.
    * 
-   * - You can query up to 100 launch templates.
+   * - You can query up to 100 launch templates at a time.
    * 
-   * - You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
+   * - You must specify LaunchTemplateId or LaunchTemplateName to determine the templates.
    * 
    * @example
    * wd-152630748****
@@ -73,7 +73,7 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Page starts from page 1.
+   * The page number of the launch template list. Minimum value: 1.
    * 
    * Default value: 1.
    * 
@@ -83,7 +83,7 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paginated query.
    * 
    * Default value: 10.
    * 
@@ -93,7 +93,7 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -105,9 +105,9 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the launch template belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
+   * The ID of the resource group to which the launch template belongs. When you use this parameter to filter resources, the number of resources cannot exceed 1000.
    * 
-   * > The default resource group is not supported.
+   * > Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-acfmxazb4p****
@@ -115,9 +115,8 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   templateResourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the launch template.
-   * 
-   * > You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the ECS console.
+   * The list of tag key-value pairs of the launch template.
+   * > Currently, you can create and query launch template tags only by calling API operations. The console does not support creating or viewing launch template tags.
    */
   templateTag?: DescribeLaunchTemplatesRequestTemplateTag[];
   static names(): { [key: string]: string } {

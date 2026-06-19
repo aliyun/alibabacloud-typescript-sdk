@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageSupportInstanceTypesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * Filter N used to filter instance types.
+   * The filter condition key. Currently, only filtering by image ID is supported. Valid values:
+   * - imageId: filters by image ID.
+   * - filter: filters by image ID.
+   * 
+   * > This parameter is not effective and will be deprecated soon.
    * 
    * @example
    * imageId
@@ -13,7 +17,8 @@ export class DescribeImageSupportInstanceTypesRequestFilter extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The filter condition value.
+   * > This parameter is not effective and will be deprecated soon.
    * 
    * @example
    * m-o6w3gy99qf89rkga****
@@ -47,9 +52,8 @@ export class DescribeImageSupportInstanceTypesRequest extends $dara.Model {
    * @remarks
    * The scenario in which the image is used. Valid values:
    * 
-   * - CreateEcs (default): instance creation
-   * 
-   * - ChangeOS: replacement of the system disk or operating system
+   * - CreateEcs (default): instance creation.
+   * - ChangeOS: replacement of the system disk or operating system.
    * 
    * @example
    * CreateEcs
@@ -57,12 +61,12 @@ export class DescribeImageSupportInstanceTypesRequest extends $dara.Model {
   actionType?: string;
   /**
    * @remarks
-   * The number of vCPUs of the instance type.
+   * The list of filter conditions for querying resources.
    */
   filter?: DescribeImageSupportInstanceTypesRequestFilter[];
   /**
    * @remarks
-   * The region ID of the image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The image ID.
    * 
    * @example
    * m-o6w3gy99qf89rkga****
@@ -71,7 +75,7 @@ export class DescribeImageSupportInstanceTypesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Details about the instance types that are supported by the image.
+   * The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

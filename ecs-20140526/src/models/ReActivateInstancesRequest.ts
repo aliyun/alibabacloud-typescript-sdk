@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReActivateInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance that you want to reactivate.
+   * The instance ID of the instance that you want to restart.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ReActivateInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of regions.
    * 
    * @example
    * cn-hangzhou

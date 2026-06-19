@@ -5,20 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AddBandwidthPackageIpsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth package.
-   * 
    * This parameter is required.
    */
   bandwidthPackageId?: string;
-  /**
-   * @remarks
-   * A token that you can specify to ensure the idempotency of the request. The token must be unique across requests. It can contain only ASCII characters and cannot exceed 64 characters in length.
-   */
   clientToken?: string;
   /**
    * @remarks
-   * The number of public IP addresses to add to the bandwidth package. Valid values: 1 to 256.
-   * 
    * This parameter is required.
    */
   ipCount?: string;
@@ -26,8 +18,6 @@ export class AddBandwidthPackageIpsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the bandwidth package is located. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
-   * 
    * This parameter is required.
    */
   regionId?: string;

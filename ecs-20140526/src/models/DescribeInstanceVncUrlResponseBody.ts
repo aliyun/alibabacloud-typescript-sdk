@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceVncUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -13,9 +13,9 @@ export class DescribeInstanceVncUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The VNC logon address.
+   * The VNC logon URL.
    * 
-   * > The VNC logon address returned is valid only for 15 seconds. If a connection is not established within 15 seconds after a successful call, the VNC logon address expires and you must call the DescribeInstanceVncUrl operation to obtain a new logon address.
+   * >Notice: **The VNC logon URL is time-sensitive and valid for 15 seconds. If you do not use the URL within 15 seconds after a successful call, the URL expires and you must call this operation again to obtain a new one.**.
    * 
    * @example
    * wss%3A%2F%2Fhz01-vncproxy.aliyun.com%2Fwebsockify%2F%3Fs%3DDvh%252FIA%252BYc73gWO48cBx2gBxUDVzaAnSKr74pq30mzqUYgeUMcB%252FbkNixDxdEA996

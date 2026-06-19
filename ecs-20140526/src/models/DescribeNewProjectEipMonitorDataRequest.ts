@@ -5,36 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNewProjectEipMonitorDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP.
-   * 
    * This parameter is required.
    */
   allocationId?: string;
   /**
    * @remarks
-   * The end of the query time range. The time must be in UTC and formatted as `YYYY-MM-DDThh:mm:ssZ`.
-   * 
    * This parameter is required.
    */
   endTime?: string;
   ownerAccount?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * The aggregation period of the monitoring data. Unit: seconds. Valid values: 60, 300, and 900.
-   */
   period?: number;
-  /**
-   * @remarks
-   * The ID of the region where the Elastic IP address (EIP) is located.
-   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start of the query time range. The time must be in UTC and formatted as `YYYY-MM-DDThh:mm:ssZ`.
-   * 
    * This parameter is required.
    */
   startTime?: string;

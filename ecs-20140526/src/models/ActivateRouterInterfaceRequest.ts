@@ -6,10 +6,6 @@ export class ActivateRouterInterfaceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the router interface is deployed.
-   * 
-   * You can call the [DescribeRegions](~~DescribeRegions~~) operation to get the latest list of regions.
-   * 
    * This parameter is required.
    */
   regionId?: string;
@@ -17,8 +13,6 @@ export class ActivateRouterInterfaceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the router interface.
-   * 
    * This parameter is required.
    */
   routerInterfaceId?: string;

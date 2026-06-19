@@ -57,6 +57,32 @@ export class DescribeDisksResponseBodyDisksDiskAttachments extends $dara.Model {
   }
 }
 
+export class DescribeDisksResponseBodyDisksDiskDataSource extends $dara.Model {
+  id?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDisksResponseBodyDisksDiskMountInstancesMountInstance extends $dara.Model {
   attachedTime?: string;
   device?: string;
@@ -244,6 +270,11 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
   burstingEnabled?: boolean;
   category?: string;
   creationTime?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  dataSource?: DescribeDisksResponseBodyDisksDiskDataSource;
   deleteAutoSnapshot?: boolean;
   deleteWithInstance?: boolean;
   description?: string;
@@ -300,6 +331,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       creationTime: 'CreationTime',
+      dataSource: 'DataSource',
       deleteAutoSnapshot: 'DeleteAutoSnapshot',
       deleteWithInstance: 'DeleteWithInstance',
       description: 'Description',
@@ -355,6 +387,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
       burstingEnabled: 'boolean',
       category: 'string',
       creationTime: 'string',
+      dataSource: DescribeDisksResponseBodyDisksDiskDataSource,
       deleteAutoSnapshot: 'boolean',
       deleteWithInstance: 'boolean',
       description: 'string',
@@ -404,6 +437,9 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
   validate() {
     if(this.attachments && typeof (this.attachments as any).validate === 'function') {
       (this.attachments as any).validate();
+    }
+    if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
+      (this.dataSource as any).validate();
     }
     if(this.mountInstances && typeof (this.mountInstances as any).validate === 'function') {
       (this.mountInstances as any).validate();
@@ -455,7 +491,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   disks?: DescribeDisksResponseBodyDisks;
   /**
    * @remarks
-   * The token returned to retrieve the next page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -463,7 +499,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * > This parameter is deprecated. We recommend that you use the `NextToken `and `MaxResults `parameters for pagination.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
    * 
    * @example
    * 1
@@ -471,7 +507,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is deprecated. We recommend that you use the `NextToken `and `MaxResults `parameters for pagination.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
    * 
    * @example
    * 1
@@ -488,8 +524,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of entries returned.
-   * 
-   * > When you use the`MaxResults` and`NextToken` parameters for pagination, the value of `TotalCount` is invalid.
+   * > When you use MaxResults and NextToken parameters for paging query, the returned TotalCount parameter value is invalid.
    * 
    * @example
    * 15

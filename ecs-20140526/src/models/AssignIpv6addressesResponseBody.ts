@@ -59,7 +59,7 @@ export class AssignIpv6AddressesResponseBody extends $dara.Model {
   ipv6Sets?: AssignIpv6AddressesResponseBodyIpv6Sets;
   /**
    * @remarks
-   * The ENI ID.
+   * The ID of the ENI.
    * 
    * @example
    * eni-bp1iqejowblx6h8j****
