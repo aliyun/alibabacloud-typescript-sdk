@@ -16,7 +16,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
    * The EMR version.
    * 
    * @example
-   * EMR-5.3.0
+   * EMR-5.8.0
    */
   releaseVersion?: string;
   /**
@@ -24,7 +24,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
    * The version series.
    * 
    * @example
-   * EMR-6.X
+   * EMR-5.X
    */
   series?: string;
   static names(): { [key: string]: string } {

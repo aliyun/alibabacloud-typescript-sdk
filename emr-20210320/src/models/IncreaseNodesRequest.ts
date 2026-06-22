@@ -7,7 +7,7 @@ import { Promotion } from "./Promotion";
 export class IncreaseNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application configurations. Number of elements in the array: 1 to 1,000.
+   * The application configurations. The number of array elements can range from 1 to 1,000.
    * 
    * @example
    * Month
@@ -15,12 +15,13 @@ export class IncreaseNodesRequest extends $dara.Model {
   applicationConfigs?: ApplicationConfig[];
   /**
    * @remarks
-   * Indicates whether to automatically pay for the orders involved in the scale-out operation. This parameter takes effect only when the PaymentType parameter is set to Subscription. Valid values:
+   * Specifies whether to automatically pay for the order. This parameter is effective only when the PaymentType of the node group is Subscription. Valid values:
    * 
-   * *   true: automatically pays for the order involved in this operation.
-   * *   false: does not automatically pay for the orders involved in this operation.
+   * - true: Automatically pays for the order.
    * 
-   * Default value: false
+   * - false: Does not automatically pay for the order.
+   * 
+   * Default value: false.
    * 
    * @example
    * false
@@ -28,10 +29,11 @@ export class IncreaseNodesRequest extends $dara.Model {
   autoPayOrder?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for nodes. Valid values:
+   * Specifies whether to enable auto-renewal for the added nodes. The default value is false. Valid values:
    * 
-   * *   true
-   * *   false (default value)
+   * - true: Enables auto-renewal.
+   * 
+   * - false: Disables auto-renewal.
    * 
    * @example
    * false
@@ -39,7 +41,7 @@ export class IncreaseNodesRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +51,7 @@ export class IncreaseNodesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of nodes to add.Valid values: 1 to 500.
+   * The number of nodes to add. Valid values: 1 to 500.
    * 
    * This parameter is required.
    * 
@@ -59,15 +61,16 @@ export class IncreaseNodesRequest extends $dara.Model {
   increaseNodeCount?: number;
   /**
    * @remarks
-   * The minimum number of nodes that can be added. Valid values: 1 to 500.
+   * The minimum number of nodes to add in this scale-out operation. The value must be between 1 and 500.
    * 
-   * *   If you configure this parameter, and the number of available Elastic Compute Service (ECS) instances is less than the value of the IncreaseNodeCount parameter, the system tries to add nodes based on the number specified by the `MinIncreaseNodeCount` parameter. If the minimum number of nodes are added, the scale-out status is `PARTIAL_COMPLETED`.
-   * *   If you do not configure this parameter, and the number of available ECS instances is less than the value of the IncreaseNodeCount parameter, the scale-out process fails. The scale-out status is `FAILED`.
+   * - If you set this parameter and the available ECS inventory is less than IncreaseNodeCount, the system attempts to create at least the number of nodes specified by MinIncreaseNodeCount. The scale-out flow is then marked as `PARTIAL_COMPLETED`.
+   * 
+   * - If you do not set this parameter and the available ECS inventory is less than IncreaseNodeCount, the scale-out flow fails and is marked as `FAILED`.
    */
   minIncreaseNodeCount?: number;
   /**
    * @remarks
-   * The ID of the node group. The target node group to which you want to scale out the cluster.
+   * The ID of the node group to scale out.
    * 
    * This parameter is required.
    * 
@@ -77,7 +80,7 @@ export class IncreaseNodesRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The subscription duration. Valid values when the PaymentDurationUnit value is Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * The subscription duration. If PaymentDurationUnit is set to Month, valid values are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 12
@@ -87,7 +90,7 @@ export class IncreaseNodesRequest extends $dara.Model {
    * @remarks
    * The unit of the subscription duration. Valid values:
    * 
-   * *   Month
+   * - Month: The unit is month.
    * 
    * @example
    * Month
@@ -96,7 +99,7 @@ export class IncreaseNodesRequest extends $dara.Model {
   promotions?: Promotion[];
   /**
    * @remarks
-   * The ID of the region in which you want to create the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 

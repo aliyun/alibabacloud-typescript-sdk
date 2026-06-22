@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataDayGrowthSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth size of cold data
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * coldDataDayGrowthSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * -182636577752
    */
@@ -52,21 +64,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataDayGrowthSi
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Size of the cold data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * coldDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 5570958082267
    */
@@ -100,21 +124,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSize extend
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSizeDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of cold data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * coldDataSizeDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * -0.03
    */
@@ -148,21 +184,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSizeDayGrow
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Number of empty files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * emptyFileCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 15595897
    */
@@ -196,21 +244,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCount exte
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCountDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of empty files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * emptyFileCountDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 0.005
    */
@@ -244,21 +304,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCountDayGr
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileDayGrowthCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth count of empty files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * emptyFileDayGrowthCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 114
    */
@@ -292,21 +364,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileDayGrowthC
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataDayGrowthSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth size of freeze data
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * freezeDataDayGrowthSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * -167683929450
    */
@@ -340,21 +424,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataDayGrowth
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Size of the freeze data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * freezeDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 1231312431
    */
@@ -388,21 +484,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSize exte
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of freeze data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * freezeDataSizeDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * -0.09
    */
@@ -436,21 +544,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSizeDayGr
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataDayGrowthSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth size of hot data
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * hotDataDayGrowthSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 123154
    */
@@ -484,21 +604,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataDayGrowthSiz
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Size of the hot data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * hotDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 6701531944206
    */
@@ -532,21 +664,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSize extends
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSizeDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of hot data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * hotDataSizeDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 0.1114
    */
@@ -580,21 +724,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSizeDayGrowt
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Number of large files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * largeFileCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 123
    */
@@ -628,21 +784,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCount exte
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCountDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of large files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * largeFileCountDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 0.39
    */
@@ -676,21 +844,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCountDayGr
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileDayGrowthCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth count of large files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * largeFileDayGrowthCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 2
    */
@@ -724,21 +904,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileDayGrowthC
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Number of medium files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * mediumFileCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 323
    */
@@ -772,21 +964,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCount ext
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCountDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of medium files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * mediumFileCountDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 0.19
    */
@@ -820,21 +1024,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCountDayG
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileDayGrowthCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth count of medium files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * mediumFileDayGrowthCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 176
    */
@@ -868,21 +1084,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileDayGrowth
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Number of small files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * smallFileCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 12345
    */
@@ -916,21 +1144,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCount exte
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCountDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of small files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * smallFileCountDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 0.02
    */
@@ -964,21 +1204,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCountDayGr
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileDayGrowthCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth count of small files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * smallFileDayGrowthCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 12345
    */
@@ -1012,21 +1264,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileDayGrowthC
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Number of tiny files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * tinyFileCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ""
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 232131
    */
@@ -1060,21 +1324,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCount exten
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCountDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of tiny files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * tinyFileCountDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 0.003
    */
@@ -1108,21 +1384,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCountDayGro
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileDayGrowthCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth count of tiny files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * tinyFileDayGrowthCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * -123
    */
@@ -1156,21 +1444,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileDayGrowthCo
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataDayGrowthSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth size of total data
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * totalDataDayGrowthSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 256482228248
    */
@@ -1204,21 +1504,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataDayGrowthS
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Total data size in megabytes (MB)
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * totalDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 62086342083623
    */
@@ -1252,21 +1564,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSize exten
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSizeDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of total data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * totalDataSizeDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 0.14
    */
@@ -1300,21 +1624,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSizeDayGro
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Number of total files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * totalFileCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 51683279
    */
@@ -1348,21 +1684,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCount exte
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCountDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of total files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * totalFileCountDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 0.02
    */
@@ -1396,21 +1744,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCountDayGr
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileDayGrowthCount extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth count of total files
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * totalFileDayGrowthCount
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 27809
    */
@@ -1444,21 +1804,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileDayGrowthC
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataDayGrowthSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth size of warm data
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * warmDataDayGrowthSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * -64806998319
    */
@@ -1492,21 +1864,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataDayGrowthSi
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSize extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Size of the warm data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * warmDataSize
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * MB
    */
   unit?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 4062349775577
    */
@@ -1540,21 +1924,33 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSize extend
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSizeDayGrowthRatio extends $dara.Model {
   /**
+   * @remarks
+   * The description of the metric.
+   * 
    * @example
    * Day growth ratio of warm data size
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * warmDataSizeDayGrowthRatio
    */
   name?: string;
   /**
+   * @remarks
+   * The unit of the metric.
+   * 
    * @example
    * ”“
    */
   unit?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * -0.015
    */
@@ -1587,38 +1983,170 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSizeDayGrow
 }
 
 export class ListDoctorHDFSDirectoriesResponseBodyDataMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The daily growth in the size of cold data. Cold data is data that was last accessed between 30 and 90 days ago.
+   */
   coldDataDayGrowthSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataDayGrowthSize;
+  /**
+   * @remarks
+   * The size of the cold data. Cold data is data that was last accessed between 30 and 90 days ago.
+   */
   coldDataSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSize;
+  /**
+   * @remarks
+   * The day-over-day growth rate of the cold data size. Cold data refers to data last accessed between 30 and 90 days ago.
+   */
   coldDataSizeDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsColdDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The count of empty files. An empty file is a file with a size of 0 MB.
+   */
   emptyFileCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCount;
+  /**
+   * @remarks
+   * The day-over-day growth ratio of the empty file count. An empty file is a file with a size of 0 MB.
+   */
   emptyFileCountDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily growth in the number of empty files. An empty file has a size of 0 MB.
+   */
   emptyFileDayGrowthCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsEmptyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily growth in the size of freeze data. Freeze data is data that has not been accessed for 90 days.
+   */
   freezeDataDayGrowthSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataDayGrowthSize;
+  /**
+   * @remarks
+   * The size of the frozen data. Data is considered frozen if it has not been accessed in the last 90 days.
+   */
   freezeDataSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSize;
+  /**
+   * @remarks
+   * The daily growth rate of freeze data. Freeze data is data that has not been accessed in 90 days.
+   */
   freezeDataSizeDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsFreezeDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increase in hot data size. Hot data is data that has been accessed within the last 7 days.
+   */
   hotDataDayGrowthSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataDayGrowthSize;
+  /**
+   * @remarks
+   * The size of the hot data. Hot data is data accessed within the last 7 days.
+   */
   hotDataSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSize;
+  /**
+   * @remarks
+   * The daily growth rate of the hot data size. Hot data is any data accessed in the past 7 days.
+   */
   hotDataSizeDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsHotDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of large files. A large file is a file that is 1 GB or larger.
+   */
   largeFileCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCount;
+  /**
+   * @remarks
+   * The day-over-day growth ratio of the large file count. A large file is a file that is 1 GB or larger.
+   */
   largeFileCountDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increase in the number of large files. A large file is a file larger than 1 GB.
+   */
   largeFileDayGrowthCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsLargeFileDayGrowthCount;
+  /**
+   * @remarks
+   * The number of files larger than 128 MB and up to 1 GB.
+   */
   mediumFileCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCount;
+  /**
+   * @remarks
+   * The day-over-day growth ratio of the number of medium-sized files. A medium-sized file is larger than 128 MB and smaller than 1 GB.
+   */
   mediumFileCountDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily increase in the number of medium-sized files. A medium-sized file is larger than 128 MB and less than or equal to 1 GB.
+   */
   mediumFileDayGrowthCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsMediumFileDayGrowthCount;
+  /**
+   * @remarks
+   * The number of small files. A small file is a file with a size from 10 MB to 128 MB.
+   */
   smallFileCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCount;
+  /**
+   * @remarks
+   * The day-over-day growth ratio of the number of small files. A small file has a size greater than 10 MB and less than or equal to 128 MB.
+   */
   smallFileCountDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The number of new small files added each day. A small file is 10 MB to 128 MB.
+   */
   smallFileDayGrowthCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsSmallFileDayGrowthCount;
+  /**
+   * @remarks
+   * The number of tiny files. A tiny file is larger than 0 MB and up to 10 MB in size.
+   */
   tinyFileCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCount;
+  /**
+   * @remarks
+   * The daily growth rate of tiny files. A tiny file is larger than 0 MB and smaller than 10 MB.
+   */
   tinyFileCountDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily growth in the tiny file count. A tiny file is a file larger than 0 MB and smaller than 10 MB.
+   */
   tinyFileDayGrowthCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTinyFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily growth in the total data size.
+   */
   totalDataDayGrowthSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataDayGrowthSize;
+  /**
+   * @remarks
+   * The total data size.
+   */
   totalDataSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSize;
+  /**
+   * @remarks
+   * The day-over-day growth ratio of the total data size.
+   */
   totalDataSizeDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalDataSizeDayGrowthRatio;
+  /**
+   * @remarks
+   * The total number of files.
+   */
   totalFileCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCount;
+  /**
+   * @remarks
+   * The day-over-day growth ratio of the total file count.
+   */
   totalFileCountDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileCountDayGrowthRatio;
+  /**
+   * @remarks
+   * The daily growth in the total file count.
+   */
   totalFileDayGrowthCount?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsTotalFileDayGrowthCount;
+  /**
+   * @remarks
+   * The daily growth in the size of warm data. Warm data is data that has not been accessed in the last 7 days, but has been accessed in the last 30 days.
+   */
   warmDataDayGrowthSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataDayGrowthSize;
+  /**
+   * @remarks
+   * The size of the warm data. Warm data is data that has been accessed within the past 30 days, but not within the past 7 days.
+   */
   warmDataSize?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSize;
+  /**
+   * @remarks
+   * The day-over-day growth ratio of the warm data size. Warm data has not been accessed in the last 7 days but has been accessed in the last 30 days.
+   */
   warmDataSizeDayGrowthRatio?: ListDoctorHDFSDirectoriesResponseBodyDataMetricsWarmDataSizeDayGrowthRatio;
   static names(): { [key: string]: string } {
     return {
@@ -1806,22 +2334,38 @@ export class ListDoctorHDFSDirectoriesResponseBodyDataMetrics extends $dara.Mode
 
 export class ListDoctorHDFSDirectoriesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The directory level.
+   * 
    * @example
    * 2
    */
   depth?: number;
   /**
+   * @remarks
+   * The directory name.
+   * 
    * @example
    * /tmp/test
    */
   dirPath?: string;
   /**
+   * @remarks
+   * The group of the folder.
+   * 
    * @example
    * DW
    */
   group?: string;
+  /**
+   * @remarks
+   * The metric information.
+   */
   metrics?: ListDoctorHDFSDirectoriesResponseBodyDataMetrics;
   /**
+   * @remarks
+   * The owner of the directory.
+   * 
    * @example
    * DW
    */
@@ -1859,10 +2403,14 @@ export class ListDoctorHDFSDirectoriesResponseBodyData extends $dara.Model {
 }
 
 export class ListDoctorHDFSDirectoriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The analytical data for the batch analysis of HDFS directories.
+   */
   data?: ListDoctorHDFSDirectoriesResponseBodyData[];
   /**
    * @remarks
-   * 本次请求所返回的最大记录条数。
+   * The maximum number of records returned.
    * 
    * @example
    * 20
@@ -1870,7 +2418,7 @@ export class ListDoctorHDFSDirectoriesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * The starting position for the next read.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -1878,7 +2426,7 @@ export class ListDoctorHDFSDirectoriesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The ID of the request.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -1886,7 +2434,7 @@ export class ListDoctorHDFSDirectoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 本次请求条件下的数据总量。
+   * The total number of entries that match the request.
    * 
    * @example
    * 200

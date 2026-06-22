@@ -5,15 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class NodeGroupStateChangeReason extends $dara.Model {
   /**
    * @remarks
-   * 状态码。
+   * The status code for the state change. Valid values include:
+   * 
+   * - `UserRequest`: A user request triggered the change.
+   * 
+   * - `OutOfStock`: The requested ECS instance type is out of stock.
+   * 
+   * - `NotAuthorized`: The request lacks the required permissions.
+   * 
+   * - `QuotaExceeded`: The request exceeds the resource quota.
+   * 
+   * - `OperationDenied`: The system denied the operation.
+   * 
+   * - `AccountException`: An account exception occurred.
+   * 
+   * - `NodeFailure`: An ECS node failed.
+   * 
+   * - `BootstrapFailure`: The bootstrap process failed.
+   * 
+   * - `ValidationFail`: The request parameters failed validation.
+   * 
+   * - `ServiceFailure`: A dependent service failed.
+   * 
+   * - `InternalError`: An unexpected internal error occurred.
    * 
    * @example
-   * MissingParameter
+   * UserRequest
    */
   code?: string;
   /**
    * @remarks
-   * 描述信息。
+   * A human-readable message that provides details about the state change.
    * 
    * @example
    * The instance type is required.

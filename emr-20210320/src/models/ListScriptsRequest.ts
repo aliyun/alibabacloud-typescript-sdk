@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListScriptsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The maximum number of records to retrieve at once.
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class ListScriptsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Marks the current position to start reading from.
+   * The token that marks the position from which to start reading.
    * 
    * @example
    * dd6b1b2a-5837-5237-abe4-ff0c89568980
@@ -31,7 +31,7 @@ export class ListScriptsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -41,20 +41,21 @@ export class ListScriptsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The script ID. Only common scripts are supported.
+   * The ID of the cluster script. This parameter is valid only for NORMAL scripts.
    */
   scriptId?: string;
   /**
    * @remarks
-   * The name of the script. Only common scripts are supported. Fuzzy search is supported.
+   * The name of the cluster script. This parameter is valid only for NORMAL scripts and supports fuzzy search.
    */
   scriptName?: string;
   /**
    * @remarks
-   * Type of cluster script. Possible values:
+   * The type of the cluster script. Valid values:
    * 
-   * - BOOTSTRAP: Bootstrap script.
-   * - NORMAL: Regular cluster script.
+   * - BOOTSTRAP: a bootstrap script.
+   * 
+   * - NORMAL: a normal cluster script.
    * 
    * This parameter is required.
    * 
@@ -64,7 +65,7 @@ export class ListScriptsRequest extends $dara.Model {
   scriptType?: string;
   /**
    * @remarks
-   * The script status list.
+   * The list of script statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

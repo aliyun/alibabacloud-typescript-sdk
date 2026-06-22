@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetManagedScalingPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetManagedScalingPolicyRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 

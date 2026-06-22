@@ -5,7 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class OperationStateChangeReason extends $dara.Model {
   /**
    * @remarks
-   * 状态码。
+   * The operation status code. Valid values:
+   * 
+   * - `UserRequest`: The operation was initiated by a user.
+   * 
+   * - `OutOfStock`: The requested ECS instance type is out of stock.
+   * 
+   * - `NotAuthorized`: You are not authorized to perform the operation.
+   * 
+   * - `QuotaExceeded`: A resource quota was exceeded.
+   * 
+   * - `OperationDenied`: The operation was denied.
+   * 
+   * - `AccountException`: An account exception occurred.
+   * 
+   * - `NodeFailure`: An ECS node failed.
+   * 
+   * - `BootstrapFailure`: A bootstrap action failed.
+   * 
+   * - `ValidationFail`: The business logic validation failed.
+   * 
+   * - `ServiceFailure`: A dependent service failed.
+   * 
+   * - `InternalError`: An internal error occurred.
    * 
    * @example
    * OutOfStock
@@ -13,7 +35,7 @@ export class OperationStateChangeReason extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 状态变化信息。
+   * A human-readable message that provides details about the state change.
    * 
    * @example
    * The requested resource is sold out in the specified zone, try other types of resources or other regions and zones.

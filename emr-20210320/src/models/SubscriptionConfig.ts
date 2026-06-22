@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SubscriptionConfig extends $dara.Model {
   /**
    * @remarks
-   * 自动续费。取值范围：
-   * - true：开启启动续费。
-   * - false：不开启自动续费。
-   * 默认值：false。
+   * Specifies whether auto-renewal is enabled. Valid values:
+   * 
+   * - true: Auto-renewal is enabled.
+   * 
+   * - false: Auto-renewal is disabled (default).
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class SubscriptionConfig extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * 自动续费时长。当AutoRenew取值为true时生效。当AutoRenewDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
+   * The auto-renewal duration. This parameter takes effect only when AutoRenew is set to true. When AutoRenewDurationUnit is Month, valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 12
@@ -24,7 +25,9 @@ export class SubscriptionConfig extends $dara.Model {
   autoRenewDuration?: number;
   /**
    * @remarks
-   * - Month：月。
+   * The auto-renewal duration unit. Valid value:
+   * 
+   * - Month
    * 
    * @example
    * Month
@@ -32,7 +35,7 @@ export class SubscriptionConfig extends $dara.Model {
   autoRenewDurationUnit?: string;
   /**
    * @remarks
-   * 付费时长。PaymentDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
+   * The payment duration. When PaymentDurationUnit is Month, valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * This parameter is required.
    * 
@@ -42,8 +45,9 @@ export class SubscriptionConfig extends $dara.Model {
   paymentDuration?: number;
   /**
    * @remarks
-   * 付费时长单位。取值范围：
-   * - Month：月。
+   * The payment duration unit. Valid value:
+   * 
+   * - Month
    * 
    * This parameter is required.
    * 

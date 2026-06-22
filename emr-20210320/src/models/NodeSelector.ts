@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class NodeSelector extends $dara.Model {
   /**
    * @remarks
-   * 节点组ID。当NodeSelectType取值NodeGroup时，该参数生效。
+   * > This parameter is deprecated. Use `NodeGroupIds` instead.
    * 
    * @example
    * ng-869471354ecd****
@@ -13,10 +13,14 @@ export class NodeSelector extends $dara.Model {
    * @deprecated
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the node groups to select.
+   */
   nodeGroupIds?: string[];
   /**
    * @remarks
-   * 节点组名称。当NodeSelectType取值NodeGroup，且参数NodeGroupId为空时生效，该参数生效。
+   * > This parameter is deprecated. Use `NodeGroupNames` instead.
    * 
    * @example
    * master-1
@@ -24,10 +28,14 @@ export class NodeSelector extends $dara.Model {
    * @deprecated
    */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * The names of the node groups to select.
+   */
   nodeGroupNames?: string[];
   /**
    * @remarks
-   * 节点组类型。当NodeSelectType取值NodeGroup，且参数NodeGroupId为空时生效。数组元数个数N取值范围：0~10。
+   * The types of node groups to select. This parameter applies only when `NodeSelectType` is set to `NODE_GROUP` and `NodeGroupIds` is not specified. The array can contain up to 10 elements.
    * 
    * @example
    * ["CORE","TASK"]
@@ -35,7 +43,7 @@ export class NodeSelector extends $dara.Model {
   nodeGroupTypes?: string[];
   /**
    * @remarks
-   * 节点名称列表。当NodeSelectType取值Node时，该参数生效。
+   * The names of the nodes to select. This parameter applies only when `NodeSelectType` is set to `NODE`.
    * 
    * @example
    * ["core1-1"]
@@ -43,10 +51,13 @@ export class NodeSelector extends $dara.Model {
   nodeNames?: string[];
   /**
    * @remarks
-   * 节点选择类型。取值范围：
-   * - CLUSTER：集群。
-   * - NODE_GROUP：节点组。
-   * - NODE：节点。
+   * The node selection type. Valid values:
+   * 
+   * - `CLUSTER`: Selects all nodes in the cluster.
+   * 
+   * - `NODE_GROUP`: Selects nodes by their node group.
+   * 
+   * - `NODE`: Selects specific nodes by name.
    * 
    * This parameter is required.
    * 

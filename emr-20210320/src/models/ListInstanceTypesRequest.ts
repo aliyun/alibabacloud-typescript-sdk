@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of cluster.
+   * The cluster ID.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -13,7 +13,7 @@ export class ListInstanceTypesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster type.
+   * The cluster type.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListInstanceTypesRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Deployment mode.
+   * Specifies the deployment mode.
    * 
    * @example
    * HA
@@ -31,7 +31,7 @@ export class ListInstanceTypesRequest extends $dara.Model {
   deployMode?: string;
   /**
    * @remarks
-   * Instance Type
+   * The instance type.
    * 
    * @example
    * ecs.g6.xlarge
@@ -39,7 +39,7 @@ export class ListInstanceTypesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Whether to change the configuration.
+   * Specifies whether the instance type is for an instance type change. A value of true indicates an instance type change.
    * 
    * @example
    * false
@@ -47,7 +47,7 @@ export class ListInstanceTypesRequest extends $dara.Model {
   isModification?: boolean;
   /**
    * @remarks
-   * Node group ID.
+   * The node group ID.
    * 
    * @example
    * G-F06C4B47966A****
@@ -55,7 +55,7 @@ export class ListInstanceTypesRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * Node group type.
+   * The node group type.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class ListInstanceTypesRequest extends $dara.Model {
   nodeGroupType?: string;
   /**
    * @remarks
-   * Payment type.
+   * The billing method.
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class ListInstanceTypesRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The ID of the region in which you want to create the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -85,15 +85,15 @@ export class ListInstanceTypesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * EMR distribution.
+   * The EMR release version.
    * 
    * @example
-   * EMR-5.8.0
+   * Released version EMR-5.8.0
    */
   releaseVersion?: string;
   /**
    * @remarks
-   * Availability Zone ID
+   * The zone ID.
    * 
    * This parameter is required.
    * 

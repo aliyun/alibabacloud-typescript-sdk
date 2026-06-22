@@ -23,7 +23,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConst
   maxCapacity?: number;
   /**
    * @remarks
-   * The maximum number of pay-as-you-go nodes in the node group.
+   * The maximum number of pay-as-you-go instances.
    * 
    * @example
    * 200
@@ -65,10 +65,11 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConst
 export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules extends $dara.Model {
   /**
    * @remarks
-   * The scaling type. This parameter is required. Valid values:
+   * The type of the scaling activity. This parameter is required. Valid values:
    * 
-   * *   SCALE_OUT
-   * *   SCALE_IN
+   * - SCALE_OUT: scale-out.
+   * 
+   * - SCALE_IN: scale-in.
    * 
    * @example
    * SCALE_OUT
@@ -76,7 +77,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScali
   activityType?: string;
   /**
    * @remarks
-   * The adjustment value of the auto scaling rule. This parameter is required. The parameter value must be a positive integer, which indicates the number of instances to be added or removed.
+   * The adjustment value. This parameter is required. It must be a positive integer. It specifies the number of instances to add or remove.
    * 
    * @example
    * 100
@@ -84,12 +85,12 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScali
   adjustmentValue?: number;
   /**
    * @remarks
-   * The description of load-based scaling.
+   * The description of the metric-based scaling rule.
    */
   metricsTrigger?: MetricsTrigger;
   /**
    * @remarks
-   * The name of the auto scaling rule.
+   * The name of the scaling rule.
    * 
    * @example
    * scaling-out-memory
@@ -97,15 +98,16 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScali
   ruleName?: string;
   /**
    * @remarks
-   * The description of time-based scaling.
+   * The description of the time-based scaling rule.
    */
   timeTrigger?: TimeTrigger;
   /**
    * @remarks
-   * The trigger mode of the auto scaling rule. This parameter is required. Valid values:
+   * The type of the scaling rule. This parameter is required. Valid values:
    * 
-   * *   TIME_TRIGGER: time-based scaling.
-   * *   METRICS_TRIGGER: load-based scaling.
+   * - TIME_TRIGGER: time-based scaling.
+   * 
+   * - METRICS_TRIGGER: metric-based scaling.
    * 
    * @example
    * TIME_TRIGGER
@@ -159,7 +161,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
   clusterId?: string;
   /**
    * @remarks
-   * The maximum and minimum number of nodes in the node group.
+   * The constraints on the maximum and minimum number of nodes in the node group.
    */
   constraints?: GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints;
   /**
@@ -172,7 +174,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
   nodeGroupId?: string;
   /**
    * @remarks
-   * The name of the node group.
+   * The node group name.
    * 
    * @example
    * emr-etltask
@@ -180,7 +182,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
   nodeGroupName?: string;
   /**
    * @remarks
-   * The ID of the auto scaling policy.
+   * The scaling policy ID.
    * 
    * @example
    * asp-asduwe23znl***
@@ -188,12 +190,12 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
   scalingPolicyId?: string;
   /**
    * @remarks
-   * The type of the auto scaling policy.
+   * The type of the elastic policy.
    */
   scalingPolicyType?: string;
   /**
    * @remarks
-   * The auto scaling rules.
+   * The list of scaling rules.
    */
   scalingRules?: GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules[];
   static names(): { [key: string]: string } {
@@ -238,7 +240,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
 export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model {
   /**
    * @remarks
-   * The modified configuration items.
+   * The modified application configuration items.
    */
   applicationConfigs?: ApplicationConfig[];
   /**
@@ -248,7 +250,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   applications?: Application[];
   /**
    * @remarks
-   * An array of bootstrap scripts. The number of elements in the array: 1 to 10.
+   * An array of bootstrap scripts. The number of array elements N can be from 1 to 10.
    */
   bootstrapScripts?: Script[];
   /**
@@ -261,7 +263,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * emrtest
@@ -269,16 +271,23 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   clusterName?: string;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
+   * The state of the cluster. Valid values:
    * 
-   * *   STARTING
-   * *   START_FAILED
-   * *   BOOTSTRAPPING
-   * *   RUNNING
-   * *   TERMINATING
-   * *   TERMINATED
-   * *   TERMINATED_WITH_ERRORS
-   * *   TERMINATE_FAILED
+   * - STARTING: The cluster is starting.
+   * 
+   * - START_FAILED: The cluster failed to start.
+   * 
+   * - BOOTSTRAPPING: The cluster is performing bootstrap actions.
+   * 
+   * - RUNNING: The cluster is running.
+   * 
+   * - TERMINATING: The cluster is being terminated.
+   * 
+   * - TERMINATED: The cluster is terminated.
+   * 
+   * - TERMINATED_WITH_ERRORS: The cluster is terminated due to an exception.
+   * 
+   * - TERMINATE_FAILED: The cluster failed to be terminated.
    * 
    * @example
    * RUNNING
@@ -286,14 +295,19 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   clusterState?: string;
   /**
    * @remarks
-   * The cluster type. Valid values:
+   * The type of the cluster. Valid values:
    * 
-   * *   DATALAKE
-   * *   OLAP
-   * *   DATAFLOW
-   * *   DATASERVING
-   * *   CUSTOM
-   * *   HADOOP
+   * - DATALAKE: data lake.
+   * 
+   * - OLAP: data analytics.
+   * 
+   * - DATAFLOW: real-time data stream.
+   * 
+   * - DATASERVING: data service.
+   * 
+   * - CUSTOM: custom cluster.
+   * 
+   * - HADOOP: Hadoop.
    * 
    * @example
    * DATALAKE
@@ -302,10 +316,11 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   collationTimeZone?: CollationTimeZone;
   /**
    * @remarks
-   * Indicates whether release protection is enabled for the cluster. Valid values:
+   * Indicates whether deletion protection is enabled for the cluster. Valid values:
    * 
-   * *   true: Release protection is enabled for the cluster.
-   * *   false: Release protection is disabled for the cluster.
+   * - true: Deletion protection is enabled.
+   * 
+   * - false: Deletion protection is disabled.
    * 
    * Default value: false.
    * 
@@ -315,10 +330,11 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The deployment mode of master nodes in the cluster. Valid values:
+   * The deployment mode of applications in the cluster. Valid values:
    * 
-   * *   NORMAL: regular mode.
-   * *   HA: high availability mode.
+   * - NORMAL: standard deployment.
+   * 
+   * - HA: high-availability deployment.
    * 
    * @example
    * HA
@@ -326,7 +342,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   deployMode?: string;
   /**
    * @remarks
-   * The EMR service role.
+   * The EMR server role.
    * 
    * @example
    * AliyunEMRDefaultRole
@@ -334,10 +350,11 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   emrDefaultRole?: string;
   /**
    * @remarks
-   * Indicates whether the service configurations of a Hadoop cluster that you made during cluster creation can be cloned. Valid values:
+   * Indicates whether the application configurations can be passed in when you clone a HADOOP cluster. Valid values:
    * 
-   * *   False
-   * *   True
+   * - False: Not supported.
+   * 
+   * - True: Supported.
    * 
    * @example
    * True
@@ -350,15 +367,16 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   nodeAttributes?: NodeAttributes;
   /**
    * @remarks
-   * The node groups. The number of elements in the array: 1 to 100.
+   * An array of node group configurations. The number of array elements N can be from 1 to 100.
    */
   nodeGroups?: NodeGroup[];
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   PayAsYouGo
-   * *   Subscription
+   * - PayAsYouGo: pay-as-you-go.
+   * 
+   * - Subscription: subscription.
    * 
    * @example
    * PayAsYouGo
@@ -374,7 +392,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   regionId?: string;
   /**
    * @remarks
-   * The EMR version.
+   * The EMR release.
    * 
    * @example
    * EMR-5.6.0
@@ -390,15 +408,16 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   resourceGroupId?: string;
   /**
    * @remarks
-   * The auto scaling policies of each node group in the cluster.
+   * The Auto Scaling policies for each node group in the cluster.
    */
   scalingPolicies?: GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies[];
   /**
    * @remarks
-   * The security mode of the cluster. Valid values:
+   * The Kerberos security mode of the cluster. Valid values:
    * 
-   * *   NORMAL: regular mode. Kerberos is not enabled.
-   * *   KERBEROS: Kerberos mode. Kerberos is enabled.
+   * - NORMAL: The Kerberos mode is disabled.
+   * 
+   * - KERBEROS: The Kerberos mode is enabled.
    * 
    * @example
    * NORMAL
@@ -406,7 +425,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
   securityMode?: string;
   /**
    * @remarks
-   * The subscription configurations.
+   * The subscription configuration.
    */
   subscriptionConfig?: SubscriptionConfig;
   /**
@@ -507,7 +526,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
 export class GetClusterCloneMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster clone metadata.
+   * The clone metadata of the cluster.
    */
   clusterCloneMeta?: GetClusterCloneMetaResponseBodyClusterCloneMeta;
   /**

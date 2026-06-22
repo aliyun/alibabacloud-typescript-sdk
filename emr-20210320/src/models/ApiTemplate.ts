@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApiTemplate extends $dara.Model {
   /**
    * @remarks
-   * 接口名。
+   * The name of the API operation.
    * 
    * @example
    * CreateCluster
@@ -13,12 +13,15 @@ export class ApiTemplate extends $dara.Model {
   apiName?: string;
   /**
    * @remarks
-   * 模版接口参数。
+   * The parameters in the API operation template.
+   * 
+   * @example
+   * content
    */
   content?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +29,7 @@ export class ApiTemplate extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 资源组ID。
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -34,7 +37,7 @@ export class ApiTemplate extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 模板状态。
+   * The status of the template.
    * 
    * @example
    * READY
@@ -42,7 +45,7 @@ export class ApiTemplate extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 模板ID。
+   * The template ID.
    * 
    * @example
    * AT-Af***
@@ -50,10 +53,10 @@ export class ApiTemplate extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 模板ID。
+   * The name of the template.
    * 
    * @example
-   * AT-Af***
+   * datalakeTest1
    */
   templateName?: string;
   static names(): { [key: string]: string } {

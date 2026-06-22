@@ -6,12 +6,18 @@ import { AutoRenewInstance } from "./AutoRenewInstance";
 export class UpdateClusterAutoRenewRequest extends $dara.Model {
   /**
    * @remarks
-   * 自动续费ECS实例列表。
+   * The list of ECS instances for which to enable auto-renewal. This parameter takes effect only when RenewAllInstances is not set to true.
    */
   autoRenewInstances?: AutoRenewInstance[];
   /**
    * @remarks
-   * 集群是否自动续费。
+   * Specifies whether to enable auto-renewal for the cluster. Valid values:
+   * 
+   * - true: Enables auto-renewal.
+   * 
+   * - false: Disables auto-renewal.
+   * 
+   * Default value: false.
    * 
    * @example
    * true
@@ -19,7 +25,8 @@ export class UpdateClusterAutoRenewRequest extends $dara.Model {
   clusterAutoRenew?: boolean;
   /**
    * @remarks
-   * 集群自动续费时长。
+   * The auto-renewal duration for the cluster. This parameter takes effect only when ClusterAutoRenew is set to true.
+   * If ClusterAutoRenewDurationUnit is set to Month, the valid values are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, and 36. If ClusterAutoRenewDurationUnit is set to Year, the valid values are 1, 2, and 3.
    * 
    * @example
    * 1
@@ -27,7 +34,13 @@ export class UpdateClusterAutoRenewRequest extends $dara.Model {
   clusterAutoRenewDuration?: number;
   /**
    * @remarks
-   * 集群续费时长单位。
+   * The unit of the auto-renewal duration. Valid values:
+   * 
+   * - Month
+   * 
+   * - Year
+   * 
+   * Default value: Month.
    * 
    * @example
    * Monthly
@@ -35,7 +48,7 @@ export class UpdateClusterAutoRenewRequest extends $dara.Model {
   clusterAutoRenewDurationUnit?: string;
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -45,7 +58,7 @@ export class UpdateClusterAutoRenewRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +68,13 @@ export class UpdateClusterAutoRenewRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 续费所有ECS实例。
+   * Specifies whether to enable auto-renewal for all ECS instances in the cluster. Valid values:
+   * 
+   * - true: Enables auto-renewal for all ECS instances in the cluster. The default auto-renewal duration is one month.
+   * 
+   * - false: Does not enable auto-renewal for all ECS instances in the cluster. You can specify the ECS instances for which to enable auto-renewal in the AutoRenewInstances parameter.
+   * 
+   * Default value: false.
    */
   renewAllInstances?: boolean;
   static names(): { [key: string]: string } {

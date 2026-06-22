@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ScalingActivityResult extends $dara.Model {
   /**
    * @remarks
-   * 实例ID。
+   * The instance ID.
    * 
    * @example
    * i-bp1cudc25w2bfwl5****

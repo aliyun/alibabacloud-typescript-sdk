@@ -6,12 +6,12 @@ import { ApplicationConfigFile } from "./ApplicationConfigFile";
 export class ExportApplicationConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * 导出应用配置。
+   * The list of application configurations to export.
    */
   applicationConfigFiles?: ApplicationConfigFile[];
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -21,13 +21,24 @@ export class ExportApplicationConfigsRequest extends $dara.Model {
   clusterId?: string;
   configScope?: string;
   /**
+   * @remarks
+   * The mode for exporting service configurations. Valid values:
+   * 
+   * - MODIFICATION
+   * 
+   * - ALL
+   * 
    * @example
    * MODIFICATION
    */
   exportMode?: string;
   /**
    * @remarks
-   * 导出应用配置的文件格式。
+   * The file format of the exported application configurations. Valid values:
+   * 
+   * - JSON
+   * 
+   * - XML
    * 
    * @example
    * XML
@@ -37,7 +48,7 @@ export class ExportApplicationConfigsRequest extends $dara.Model {
   nodeIds?: string[];
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 

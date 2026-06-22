@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDoctorReportComponentSummaryRequest extends $dara.Model {
+export class DeleteNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,39 +15,25 @@ export class GetDoctorReportComponentSummaryRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Select component filter type. Values:
+   * The description.
    * 
-   * - compute
-   * 
-   * - hive
-   * 
-   * - hdfs
-   * 
-   * - yarn
-   * 
-   * - oss
-   * 
-   * - hbase
+   * @example
+   * 机器组不再需要
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The node group ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * compute
+   * ng-869471354ecd****
    */
-  componentType?: string;
+  nodeGroupId?: string;
   /**
    * @remarks
-   * Report date.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2023-01-01
-   */
-  dateTime?: string;
-  /**
-   * @remarks
-   * Region ID.
+   * The region ID. You can call [ListRegions](url) to query available regions.
    * 
    * This parameter is required.
    * 
@@ -58,8 +44,8 @@ export class GetDoctorReportComponentSummaryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
-      componentType: 'ComponentType',
-      dateTime: 'DateTime',
+      description: 'Description',
+      nodeGroupId: 'NodeGroupId',
       regionId: 'RegionId',
     };
   }
@@ -67,8 +53,8 @@ export class GetDoctorReportComponentSummaryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
-      componentType: 'string',
-      dateTime: 'string',
+      description: 'string',
+      nodeGroupId: 'string',
       regionId: 'string',
     };
   }

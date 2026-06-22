@@ -6,9 +6,12 @@ import { UpdateApplicationConfig } from "./UpdateApplicationConfig";
 export class UpdateApplicationConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用配置列表。
+   * The list of application configurations.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * CLUSTER
    */
   applicationConfigs?: UpdateApplicationConfig[];
   /**
@@ -33,11 +36,13 @@ export class UpdateApplicationConfigsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The operation performed on configuration items. Valid values:
+   * The operation on the configuration items. Valid values:
    * 
-   * *   ADD
-   * *   UPDATE
-   * *   DELETE
+   * - ADD: Adds configuration items.
+   * 
+   * - UPDATE: Updates configuration items.
+   * 
+   * - DELETE: Deletes configuration items.
    * 
    * @example
    * ADD
@@ -45,10 +50,11 @@ export class UpdateApplicationConfigsRequest extends $dara.Model {
   configAction?: string;
   /**
    * @remarks
-   * The operation scope. Valid values:
+   * The scope of the configuration operation. Valid values:
    * 
-   * *   CLUSTER
-   * *   NODE_GROUP
+   * - CLUSTER: The cluster level.
+   * 
+   * - NODE_GROUP: The node group level.
    * 
    * @example
    * CLUSTER
@@ -59,7 +65,7 @@ export class UpdateApplicationConfigsRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * 更新YARN内存配置。
+   * Description
    */
   description?: string;
   /**
@@ -80,7 +86,8 @@ export class UpdateApplicationConfigsRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Specifies whether to refresh the configurations. Default value: True.
+   * Specifies whether to refresh the configurations.
+   * The default value is true.
    * 
    * @example
    * true

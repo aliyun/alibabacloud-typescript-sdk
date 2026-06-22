@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class Application extends $dara.Model {
   /**
    * @remarks
-   * 应用名称。从EMR控制台集群创建页面可查看到指定发行版的应用名称列表。
+   * The application name. You can find the list of application names for each EMR distribution on the cluster creation page in the EMR console.
    * 
    * This parameter is required.
    * 
    * @example
-   * HDFS
+   * SPARK
    */
   applicationName?: string;
   static names(): { [key: string]: string } {

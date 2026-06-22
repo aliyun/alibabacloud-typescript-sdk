@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class StateChangeReason extends $dara.Model {
   /**
    * @remarks
-   * 状态码。
+   * The status code. Possible values:
+   * 
+   * - UserRequest: The state change was initiated by the user.
+   * 
+   * - QuotaExceeded: A service or resource quota was exceeded.
+   * 
+   * - InternalError: An internal error occurred.
    * 
    * @example
    * MissingParameter
@@ -13,7 +19,7 @@ export class StateChangeReason extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 描述信息。
+   * A message providing additional details about the status code.
    * 
    * @example
    * The instance type is required.

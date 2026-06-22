@@ -17,12 +17,12 @@ export class PutAutoScalingPolicyRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The constraints on the maximum and minimum numbers of nodes in a node group.
+   * The maximum and minimum size constraints for the node group.
    */
   constraints?: ScalingConstraints;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class PutAutoScalingPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The description list of auto scaling rules. Number of elements in the array: 0 to 100.
+   * The scaling rules. The number of elements in the array can be from 0 to 100.
    */
   scalingRules?: ScalingRule[];
   static names(): { [key: string]: string } {

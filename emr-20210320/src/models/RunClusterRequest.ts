@@ -13,24 +13,24 @@ import { Tag } from "./Tag";
 export class RunClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The application configurations. Number of elements in the array: 1 to 1000.
+   * The application configurations. The number of array elements N can range from 1 to 1000.
    */
   applicationConfigs?: ApplicationConfig[];
   /**
    * @remarks
-   * The list of services. Number of elements in the array: 1 to 100.
+   * The list of applications. The number of array elements N can range from 1 to 100.
    * 
    * This parameter is required.
    */
   applications?: Application[];
   /**
    * @remarks
-   * The array of bootstrap scripts. Number of elements in the array: 1 to 10.
+   * The array of bootstrap scripts. The number of array elements N can range from 1 to 10.
    */
   bootstrapScripts?: Script[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. The same ClientToken value for multiple calls to the RunCluster operation results in identical responses. Only one cluster can be created by using the same ClientToken value.
+   * A client token to ensure the idempotence of the request. Multiple calls with the same client token return the same result and create only one cluster.
    * 
    * @example
    * A7D960FA-6DBA-5E07-8746-A63E3E4D****
@@ -38,7 +38,7 @@ export class RunClusterRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The cluster name. The name must be 1 to 128 characters in length. The name must start with a letter but cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The cluster name. The name must be 1 to 128 characters in length. It must start with a letter or a Chinese character. It cannot start with http\\:// or https\\://. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -48,16 +48,21 @@ export class RunClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values:
+   * The cluster type. Valid values:
    * 
-   * *   DATALAKE
-   * *   OLAP
-   * *   DATAFLOW
-   * *   DATASERVING
-   * *   CUSTOM
-   * *   HADOOP: We recommend that you set this parameter to DATALAKE rather than HADOOP.
+   * - DATALAKE: new data lake.
    * 
-   * If the first time you create an EMR cluster is after 17:00 (UTC+8) on December 19, 2022, you cannot create a Hadoop, Data Science, Presto, or ZooKeeper cluster.
+   * - OLAP: data analytics.
+   * 
+   * - DATAFLOW: real-time data stream.
+   * 
+   * - DATASERVING: DataService Studio.
+   * 
+   * - CUSTOM: custom cluster.
+   * 
+   * - HADOOP: legacy data lake. This value is not recommended. Use the new data lake cluster type instead.
+   * 
+   * If you create an EMR cluster for the first time after 17:00 (UTC+8) on December 19, 2022, you cannot select HADOOP, DATA_SCIENCE, PRESTO, or ZOOKEEPER as the cluster type.
    * 
    * This parameter is required.
    * 
@@ -67,10 +72,11 @@ export class RunClusterRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Specifies whether to enable release protection for the cluster. Valid values:
+   * Specifies whether to enable deletion protection for the cluster. Valid values:
    * 
-   * *   true: enables release protection for the cluster.
-   * *   false: disables release protection for the cluster.
+   * - true: Enables deletion protection.
+   * 
+   * - false: Disables deletion protection.
    * 
    * Default value: false.
    * 
@@ -80,10 +86,11 @@ export class RunClusterRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The deployment mode of master nodes in the cluster. Valid values:
+   * The deployment mode of applications in the cluster. Valid values:
    * 
-   * *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
-   * *   HA: high availability mode. A cluster that contains at least three master nodes is created.
+   * - NORMAL (default): non-high availability deployment. The cluster has one master node.
+   * 
+   * - HA: high availability (HA) deployment. This deployment mode requires at least three master nodes.
    * 
    * @example
    * HA
@@ -91,7 +98,7 @@ export class RunClusterRequest extends $dara.Model {
   deployMode?: string;
   /**
    * @remarks
-   * The cluster description.
+   * The description of the cluster.
    * 
    * @example
    * Emr cluster for ETL
@@ -99,22 +106,23 @@ export class RunClusterRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The node attributes. The basic attributes of all ECS nodes in the cluster.
+   * The node attributes. These are the basic attributes of all ECS nodes in the cluster.
    */
   nodeAttributes?: NodeAttributes;
   /**
    * @remarks
-   * The array of configurations of the node groups. Number of elements in the array: 1 to 100.
+   * The array of node group configurations. The number of array elements N can range from 1 to 100.
    * 
    * This parameter is required.
    */
   nodeGroups?: NodeGroupConfig[];
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   PayAsYouGo
-   * *   Subscription
+   * - PayAsYouGo: pay-as-you-go.
+   * 
+   * - Subscription: subscription.
    * 
    * Default value: PayAsYouGo.
    * 
@@ -135,7 +143,7 @@ export class RunClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The EMR version. You can query available EMR versions in the EMR console.
+   * The EMR release version. You can find the EMR release version on the EMR cluster purchase page.
    * 
    * This parameter is required.
    * 
@@ -145,7 +153,7 @@ export class RunClusterRequest extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -153,10 +161,11 @@ export class RunClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security mode of the cluster. Valid values:
+   * The Kerberos security mode of the cluster. Valid values:
    * 
-   * *   NORMAL: regular mode. Kerberos authentication is disabled. This is the default value.
-   * *   KERBEROS: Kerberos mode. Kerberos authentication is enabled.
+   * - NORMAL (default): normal mode. Kerberos is disabled.
+   * 
+   * - KERBEROS: Kerberos mode. Kerberos is enabled.
    * 
    * @example
    * NORMAL
@@ -164,12 +173,12 @@ export class RunClusterRequest extends $dara.Model {
   securityMode?: string;
   /**
    * @remarks
-   * The subscription configurations. This parameter is required when the PaymentType parameter is set to Subscription.
+   * The subscription configurations. This parameter is required if you set PaymentType to Subscription.
    */
   subscriptionConfig?: SubscriptionConfig;
   /**
    * @remarks
-   * The tag. Number of elements in the array: 0 to 20.
+   * The tags. The number of array elements N can range from 0 to 20.
    */
   tags?: Tag[];
   static names(): { [key: string]: string } {

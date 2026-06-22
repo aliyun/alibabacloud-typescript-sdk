@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationConfig extends $dara.Model {
   /**
    * @remarks
-   * 修改描述。
+   * A description of the modification.
    * 
    * @example
    * dfs.namenode.checkpoint.period
@@ -13,7 +13,7 @@ export class UpdateApplicationConfig extends $dara.Model {
   configDescription?: string;
   /**
    * @remarks
-   * 应用配置文件名。
+   * The name of the application configuration file.
    * 
    * @example
    * hdfs-site.xml
@@ -21,7 +21,7 @@ export class UpdateApplicationConfig extends $dara.Model {
   configFileName?: string;
   /**
    * @remarks
-   * 配置项键。
+   * The configuration item key.
    * 
    * @example
    * dfs.namenode.checkpoint.period
@@ -29,7 +29,7 @@ export class UpdateApplicationConfig extends $dara.Model {
   configItemKey?: string;
   /**
    * @remarks
-   * 配置项值。
+   * The configuration item value.
    * 
    * @example
    * 3600s

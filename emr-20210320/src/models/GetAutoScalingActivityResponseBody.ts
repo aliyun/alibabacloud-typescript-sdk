@@ -15,17 +15,20 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $dara.Mod
   activityId?: string;
   /**
    * @remarks
-   * The instances that correspond to the scaling activity.
+   * The list of instances involved in the scaling activity.
    */
   activityResults?: ScalingActivityResult[];
   /**
    * @remarks
-   * The status of the scaling activity. Valid values:
+   * The state of the scaling activity. Valid values:
    * 
-   * *   REJECTED
-   * *   SUCCESSFUL
-   * *   FAILED
-   * *   IN_PROGRESS
+   * - REJECTED: rejected.
+   * 
+   * - SUCCESSFUL: successful.
+   * 
+   * - FAILED: failed.
+   * 
+   * - IN_PROGRESS: in progress.
    * 
    * @example
    * IN_PROGRESS
@@ -33,10 +36,11 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $dara.Mod
   activityState?: string;
   /**
    * @remarks
-   * The type of the scaling activity. Valid value:
+   * The type of the scaling activity. Valid values:
    * 
-   * *   SCALE_OUT
-   * *   SCALE_IN
+   * - SCALE_OUT: scale-out.
+   * 
+   * - SCALE_IN: scale-in.
    * 
    * @example
    * SCALE_OUT
@@ -60,7 +64,7 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The time when scaling ended.
+   * The end time of the scaling activity.
    * 
    * @example
    * 1639715634819
@@ -68,7 +72,7 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $dara.Mod
   endTime?: number;
   /**
    * @remarks
-   * The number of added or removed instances.
+   * The number of instances that are added or removed.
    * 
    * @example
    * 10
@@ -76,7 +80,7 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $dara.Mod
   expectNum?: number;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * @example
    * ng-869471354ecd****
@@ -108,7 +112,7 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $dara.Mod
   policyType?: string;
   /**
    * @remarks
-   * The description of the scaling rule.
+   * The details of the scaling rule.
    */
   ruleDetail?: ScalingRule;
   /**
@@ -121,7 +125,7 @@ export class GetAutoScalingActivityResponseBodyScalingActivity extends $dara.Mod
   ruleName?: string;
   /**
    * @remarks
-   * The time when scaling started.
+   * The start time of the scaling activity.
    * 
    * @example
    * 1639714634819
@@ -193,7 +197,7 @@ export class GetAutoScalingActivityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the scaling activity.
+   * The details of the scaling activity.
    */
   scalingActivity?: GetAutoScalingActivityResponseBodyScalingActivity;
   static names(): { [key: string]: string } {

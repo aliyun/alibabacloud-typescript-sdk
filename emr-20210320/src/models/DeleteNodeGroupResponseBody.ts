@@ -2,44 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateClusterResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * c-b933c5aac7f7***
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * The operation ID.
-   * 
-   * @example
-   * op-13c37a77c505****
-   */
-  operationId?: string;
+export class DeleteNodeGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   * 64EBE3F5-0498-1578-BEC0-6ACE364E912D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation to release the node group was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * - false: The operation failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      clusterId: 'ClusterId',
-      operationId: 'OperationId',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterId: 'string',
-      operationId: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

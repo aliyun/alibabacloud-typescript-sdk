@@ -20,7 +20,7 @@ export class UpdateApiTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * CreateCluster
+   * content
    */
   content?: string;
   /**
@@ -58,7 +58,7 @@ export class UpdateApiTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * datalakeTest1
+   * DATALAKE template
    */
   templateName?: string;
   static names(): { [key: string]: string } {

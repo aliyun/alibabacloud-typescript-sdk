@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunApiTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The content returned for the request.
+   * 
    * @example
    * {\\"clusterId\\":\\"c-b7be171f1928****\\",\\"operationId\\":\\"op-61126efe629d****\\"}
    */
   data?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****

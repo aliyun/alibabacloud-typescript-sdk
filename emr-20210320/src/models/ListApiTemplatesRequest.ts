@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * 接口名。
+   * The API operation name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListApiTemplatesRequest extends $dara.Model {
   apiName?: string;
   /**
    * @remarks
-   * 一次获取的最大记录数。
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListApiTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 标记当前开始读取的位置，置空表示从头开始。
+   * The starting position for the read operation.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -31,7 +31,7 @@ export class ListApiTemplatesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class ListApiTemplatesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 资源组ID。
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -49,7 +49,7 @@ export class ListApiTemplatesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 集群模板id。
+   * The cluster template ID.
    * 
    * @example
    * at-41b4c6a0fc63****
@@ -57,7 +57,7 @@ export class ListApiTemplatesRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 集群模板id列表。
+   * A list of API template IDs.
    * 
    * @example
    * ["AT-****"]
@@ -65,10 +65,10 @@ export class ListApiTemplatesRequest extends $dara.Model {
   templateIds?: string[];
   /**
    * @remarks
-   * 集群模板名字。
+   * The name of the cluster template.
    * 
    * @example
-   * DATALAKE模板
+   * DATALAKE template
    */
   templateName?: string;
   static names(): { [key: string]: string } {

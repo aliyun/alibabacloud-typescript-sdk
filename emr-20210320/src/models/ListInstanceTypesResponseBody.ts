@@ -11,7 +11,7 @@ export class ListInstanceTypesResponseBody extends $dara.Model {
   instanceTypes?: InstanceType[];
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of entries per page.
    * 
    * @example
    * 20
@@ -19,7 +19,7 @@ export class ListInstanceTypesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Returns the position of the read data.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -27,7 +27,7 @@ export class ListInstanceTypesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -35,7 +35,7 @@ export class ListInstanceTypesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total amount of data under the conditions of this request.
+   * The total number of entries returned.
    * 
    * @example
    * 200

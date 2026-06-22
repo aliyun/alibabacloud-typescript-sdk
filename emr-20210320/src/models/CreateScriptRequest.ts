@@ -26,10 +26,11 @@ export class CreateScriptRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the script. Valid values:
+   * The script type. Valid values:
    * 
-   * *   BOOTSTRAP: indicates a bootstrap action of the Elastic Compute Service (ECS) instance.
-   * *   NORMAL: indicates a common script.
+   * - BOOTSTRAP: an ECS instance bootstrap script.
+   * 
+   * - NORMAL: a normal script.
    * 
    * This parameter is required.
    * 
@@ -46,7 +47,7 @@ export class CreateScriptRequest extends $dara.Model {
   scripts?: Script[];
   /**
    * @remarks
-   * The timeout period for a manual execution script. You cannot specify a timeout period for a bootstrap action.
+   * The timeout period for manually executing the script. This parameter is not supported for bootstrap scripts.
    */
   timeoutSecs?: string;
   static names(): { [key: string]: string } {

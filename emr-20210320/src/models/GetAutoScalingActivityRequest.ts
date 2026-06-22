@@ -25,7 +25,7 @@ export class GetAutoScalingActivityRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the scaling activity.
+   * The scaling activity ID.
    * 
    * This parameter is required.
    * 

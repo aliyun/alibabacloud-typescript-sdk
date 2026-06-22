@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class NodeAttributes extends $dara.Model {
   /**
    * @remarks
-   * 是否启用云盘加密。取值范围：
-   * - true：启用加密。
-   * - false：不加密。
+   * Specifies whether to enable encryption for the data disk. For more information, see <props="china">[Encrypt a data disk](https://help.aliyun.com/zh/ecs/user-guide/encrypt-a-data-disk)<props="intl">[Encrypt a data disk](https://www.alibabacloud.com/help/en/ecs/user-guide/encryption-overview). Valid values:
    * 
-   * 默认值：false，不加密
+   * - true: Enables encryption.
+   * 
+   * - false (default): Disables encryption.
    * 
    * @example
    * false
@@ -17,7 +17,7 @@ export class NodeAttributes extends $dara.Model {
   dataDiskEncrypted?: boolean;
   /**
    * @remarks
-   * KMS加密秘钥ID。
+   * The ID of the KMS key for the data disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -25,7 +25,7 @@ export class NodeAttributes extends $dara.Model {
   dataDiskKMSKeyId?: string;
   /**
    * @remarks
-   * ECS ssh登录秘钥。
+   * The SSH key pair for logging on to the ECS instances.
    * 
    * @example
    * emr_login
@@ -33,15 +33,16 @@ export class NodeAttributes extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * MASTER节点root密码。
+   * The password of the root user for the master node. This parameter is left empty in the response of an API call.
    * 
    * @example
-   * Adxefswfd****
+   * EAQ#86****
    */
   masterRootPassword?: string;
   /**
    * @remarks
-   * ECS访问资源绑定的角色。
+   * The RAM role that is attached to the ECS instances to access other cloud resources.
+   * Default value: AliyunECSInstanceForEMRRole.
    * 
    * @example
    * AliyunECSInstanceForEMRRole
@@ -49,7 +50,7 @@ export class NodeAttributes extends $dara.Model {
   ramRole?: string;
   /**
    * @remarks
-   * 安全组ID。EMR只支持普通安全组，不支持企业安全组。
+   * The ID of the security group. EMR supports only basic security groups and does not support enterprise security groups.
    * 
    * This parameter is required.
    * 
@@ -59,11 +60,11 @@ export class NodeAttributes extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * 是否启用云盘加密。取值范围：
-   * - true：启用加密。
-   * - false：不加密。
+   * Specifies whether to enable disk encryption for the system disk. Valid values:
    * 
-   * 默认值：false，不加密
+   * - true: Enables encryption.
+   * 
+   * - false (default): Disables encryption.
    * 
    * @example
    * false
@@ -71,7 +72,7 @@ export class NodeAttributes extends $dara.Model {
   systemDiskEncrypted?: boolean;
   /**
    * @remarks
-   * KMS加密秘钥ID。
+   * The ID of the KMS key.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -79,7 +80,7 @@ export class NodeAttributes extends $dara.Model {
   systemDiskKMSKeyId?: string;
   /**
    * @remarks
-   * 专有网络ID。
+   * The ID of the VPC.
    * 
    * This parameter is required.
    * 
@@ -89,7 +90,7 @@ export class NodeAttributes extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * 可用区ID。
+   * The ID of the zone.
    * 
    * This parameter is required.
    * 

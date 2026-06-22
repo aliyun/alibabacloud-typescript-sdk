@@ -51,13 +51,19 @@ export class ListDoctorApplicationsRequest extends $dara.Model {
    * @remarks
    * The field that you use to sort the query results. Valid values:
    * 
-   * 1.  startTime: the time when the job starts
-   * 2.  endTime: the time when the job ends
-   * 3.  vcoreUtilization: the vCPU utilization of the job
-   * 4.  memUtilization: the memory usage of the job
-   * 5.  vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
-   * 6.  memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
-   * 7.  score: the score of the job
+   * 1. startTime: the time when the job starts
+   * 
+   * 2. endTime: the time when the job ends
+   * 
+   * 3. vcoreUtilization: the vCPU utilization of the job
+   * 
+   * 4. memUtilization: the memory usage of the job
+   * 
+   * 5. vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
+   * 
+   * 6. memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
+   * 
+   * 7. score: the score of the job
    * 
    * @example
    * score
@@ -67,8 +73,9 @@ export class ListDoctorApplicationsRequest extends $dara.Model {
    * @remarks
    * The order in which you want to sort the query results. Valid values:
    * 
-   * *   ASC: the ascending order
-   * *   DESC: the descending order
+   * - ASC: the ascending order
+   * 
+   * - DESC: the descending order
    * 
    * @example
    * ASC

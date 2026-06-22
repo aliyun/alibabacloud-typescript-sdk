@@ -13,7 +13,7 @@ export class ListApiTemplatesResponseBody extends $dara.Model {
   apiTemplates?: ApiTemplate[];
   /**
    * @remarks
-   * 本次请求所返回的最大记录条数。
+   * The maximum number of entries returned for the current request.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListApiTemplatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * The token to use to retrieve the next page of results. This value is empty when there are no more results to return.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -29,7 +29,7 @@ export class ListApiTemplatesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -37,7 +37,7 @@ export class ListApiTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 本次请求条件下的数据总量。
+   * The total number of entries that meet the filter criteria.
    * 
    * @example
    * 200

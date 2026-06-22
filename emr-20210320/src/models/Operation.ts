@@ -6,7 +6,7 @@ import { OperationStateChangeReason } from "./OperationStateChangeReason";
 export class Operation extends $dara.Model {
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -14,7 +14,7 @@ export class Operation extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 创建时间。
+   * The time when the operation was created. This value is a UNIX timestamp, measured in milliseconds.
    * 
    * @example
    * 1628589439114
@@ -22,7 +22,7 @@ export class Operation extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * 描述。
+   * The description of the operation.
    * 
    * @example
    * start
@@ -30,7 +30,7 @@ export class Operation extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 结束时间。
+   * The time when the operation ended. This value is a UNIX timestamp, measured in milliseconds.
    * 
    * @example
    * 1628589439114
@@ -38,7 +38,7 @@ export class Operation extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * 操作ID。
+   * The operation ID.
    * 
    * @example
    * op-13c37a77c505****
@@ -46,7 +46,15 @@ export class Operation extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * 操作状态。
+   * The operation state. Valid values:
+   * 
+   * - `IN_PROGRESS`: The operation is in progress.
+   * 
+   * - `COMPLETED`: The operation completed.
+   * 
+   * - `HUMAN_PROCESSING`: The operation requires manual intervention.
+   * 
+   * - `FAILED`: The operation failed.
    * 
    * @example
    * COMPLETED
@@ -54,15 +62,15 @@ export class Operation extends $dara.Model {
   operationState?: string;
   /**
    * @remarks
-   * 操作类型。
+   * The operation type.
    * 
    * @example
-   * CLUSTER
+   * CREATE_CLUSTER
    */
   operationType?: string;
   /**
    * @remarks
-   * 开始时间。
+   * The time when the operation started. This value is a UNIX timestamp, measured in milliseconds.
    * 
    * @example
    * 1628589439114
@@ -70,7 +78,7 @@ export class Operation extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * 状态转换原因。
+   * The reason for the state change.
    */
   stateChangeReason?: OperationStateChangeReason;
   static names(): { [key: string]: string } {

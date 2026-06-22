@@ -29,7 +29,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
    * The version of the application.
    * 
    * @example
-   * 2.8.1
+   * 2.8.5-20230620
    * 
    * @deprecated
    */

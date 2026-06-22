@@ -7,9 +7,11 @@ import { TimeTrigger } from "./TimeTrigger";
 export class ScalingRule extends $dara.Model {
   /**
    * @remarks
-   * 伸缩活动类型。取值范围：
-   * - SCALE_OUT：扩容。
-   * - SCALE_IN：缩容。
+   * The type of the scaling activity. This parameter is required. Valid values:
+   * 
+   * - SCALE_OUT: scale-out.
+   * 
+   * - SCALE_IN: scale-in.
    * 
    * This parameter is required.
    * 
@@ -19,7 +21,7 @@ export class ScalingRule extends $dara.Model {
   activityType?: string;
   /**
    * @remarks
-   * 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+   * The adjustment value. This parameter is required and must be a positive integer. It specifies the number of instances to add for a scale-out activity or remove for a scale-in activity.
    * 
    * This parameter is required.
    * 
@@ -29,36 +31,39 @@ export class ScalingRule extends $dara.Model {
   adjustmentValue?: number;
   /**
    * @remarks
-   * 按照负载伸缩描述。
-   * <p>
+   * The configurations for load-based scaling.
    */
   metricsTrigger?: MetricsTrigger;
   /**
+   * @remarks
+   * The minimum number of instances to add during a scale-out activity.
+   * 
    * @example
    * 1
    */
   minAdjustmentValue?: number;
   /**
    * @remarks
-   * 规则名称。
+   * The name of the rule. This parameter is required and cannot be an empty string.
    * 
    * This parameter is required.
    * 
    * @example
-   * scale-out-memory
+   * scalingByYarnMemory
    */
   ruleName?: string;
   /**
    * @remarks
-   * 按照时间伸缩描述。
-   * <p>
+   * The configurations for time-based scaling.
    */
   timeTrigger?: TimeTrigger;
   /**
    * @remarks
-   * 伸缩规则类型。 取值范围：
-   * - TIME_TRIGGER: 按时间伸缩。
-   * - METRICS_TRIGGER: 按负载伸缩。
+   * The type of the scaling rule. This parameter is required. Valid values:
+   * 
+   * - TIME_TRIGGER: time-based scaling.
+   * 
+   * - METRICS_TRIGGER: load-based scaling.
    * 
    * This parameter is required.
    * 

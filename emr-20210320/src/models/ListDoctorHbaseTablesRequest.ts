@@ -45,7 +45,7 @@ export class ListDoctorHBaseTablesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   tableSize
+   * - tableSize
    * 
    * @example
    * tableSize
@@ -55,8 +55,9 @@ export class ListDoctorHBaseTablesRequest extends $dara.Model {
    * @remarks
    * The order in which you want to sort the query results. Valid value:
    * 
-   * *   ASC: in ascending order
-   * *   DESC: in descending order
+   * - ASC: in ascending order
+   * 
+   * - DESC: in descending order
    * 
    * @example
    * ASC

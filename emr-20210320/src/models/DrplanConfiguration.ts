@@ -38,7 +38,7 @@ export class DRPlanConfigurationManagedScalingPolicy extends $dara.Model {
 export class DRPlanConfigurationTags extends $dara.Model {
   /**
    * @remarks
-   * 标签键。必填参数，不允许为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含http://或https://。
+   * The tag key. This parameter is required. The key can be up to 128 characters in length and cannot be an empty string. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,7 @@ export class DRPlanConfigurationTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * 标签值。非必填，可以为空字符串。最多支持128个字符，不能以acs:开头，不能包含http://或者https://。
+   * The tag value. This parameter is optional. The value can be up to 128 characters in length and can be an empty string. It cannot start with `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * IT

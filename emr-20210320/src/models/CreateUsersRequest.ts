@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUsersRequestUsers extends $dara.Model {
   /**
    * @remarks
-   * 用户密码。
+   * The password of the user.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * 用户名。
+   * The username.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
 export class CreateUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class CreateUsersRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateUsersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 用户列表。
+   * The list of users. The number of users must be from 0 to 10.
    * 
    * This parameter is required.
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result of the request. Valid values: true: The request was successful. false: The request failed.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */

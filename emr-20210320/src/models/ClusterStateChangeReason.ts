@@ -5,18 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class ClusterStateChangeReason extends $dara.Model {
   /**
    * @remarks
-   * 状态码。取值范围：
-   * - UserRequest：用户请求。
-   * - OutOfStock：请求的ECS实例类型无库存。
-   * - NotAuthorized：无权限。
-   * - QuotaExceeded：Quota超出。
-   * - OperationDenied：操作被拒绝。
-   * - AccountException：账号异常。
-   * - NodeFailure：ECS节点异常。
-   * - BootstrapFailure：引导失败。
-   * - ValidationFail：业务逻辑校验失败。
-   * - ServiceFailure：依赖的其他服务失败。
-   * - InternalError：内部错误。
+   * The status code for the state change. Valid values:
+   * 
+   * - UserRequest: A user request triggered the state change.
+   * 
+   * - OutOfStock: The requested ECS instance type is out of stock.
+   * 
+   * - NotAuthorized: The operation was denied due to insufficient permission.
+   * 
+   * - QuotaExceeded: The request exceeded a service quota.
+   * 
+   * - OperationDenied: The operation was denied.
+   * 
+   * - AccountException: An account-related exception occurred.
+   * 
+   * - NodeFailure: An ECS node failed.
+   * 
+   * - BootstrapFailure: A bootstrap action failed.
+   * 
+   * - ValidationFail: The request failed business logic validation.
+   * 
+   * - ServiceFailure: A dependent service failed.
+   * 
+   * - InternalError: An internal error occurred.
    * 
    * @example
    * OutOfStock
@@ -24,7 +35,7 @@ export class ClusterStateChangeReason extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 状态变化信息。
+   * A human-readable message detailing the cluster state change.
    * 
    * @example
    * The requested resource is sold out in the specified zone, try other types of resources or other regions and zones.

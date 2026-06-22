@@ -8,7 +8,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
    * Value description.
    * 
    * @example
-   * 描述
+   * Set timeout duration
    */
   description?: string;
   /**
@@ -48,7 +48,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
    * The unit of the value.
    * 
    * @example
-   * number
+   * Second
    */
   valueUnit?: string;
   static names(): { [key: string]: string } {
@@ -88,7 +88,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParams extends $d
    * Description
    * 
    * @example
-   * start
+   * Decommission action
    */
   description?: string;
   /**
@@ -167,16 +167,18 @@ export class GetApplicationResponseBodyApplicationActions extends $dara.Model {
    * The description of the action.
    * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
    * @remarks
    * The execution scope. Valid values:
    * 
-   * *   APPLICATION: the application scope.
-   * *   COMPONENT: the component scope.
-   * *   COMPONENT_INSTANCE: the component instance scope.
+   * - APPLICATION: the application scope.
+   * 
+   * - COMPONENT: the component scope.
+   * 
+   * - COMPONENT_INSTANCE: the component instance scope.
    * 
    * @example
    * COMPONENT_INSTANCE

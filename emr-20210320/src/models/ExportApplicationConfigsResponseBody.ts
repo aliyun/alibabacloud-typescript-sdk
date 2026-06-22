@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportApplicationConfigsResponseBodyApplicationConfigs extends $dara.Model {
   /**
    * @remarks
-   * 应用名称。
+   * The application name.
    * 
    * @example
    * YARN
@@ -13,7 +13,7 @@ export class ExportApplicationConfigsResponseBodyApplicationConfigs extends $dar
   applicationName?: string;
   /**
    * @remarks
-   * 文件名称。
+   * The file name.
    * 
    * @example
    * yarn-site.xml
@@ -21,7 +21,7 @@ export class ExportApplicationConfigsResponseBodyApplicationConfigs extends $dar
   configFileName?: string;
   /**
    * @remarks
-   * 文件内容，base64加密。
+   * The file content. The content is Base64-encoded.
    * 
    * @example
    * export key=value
@@ -53,10 +53,14 @@ export class ExportApplicationConfigsResponseBodyApplicationConfigs extends $dar
 }
 
 export class ExportApplicationConfigsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of exported application configurations.
+   */
   applicationConfigs?: ExportApplicationConfigsResponseBodyApplicationConfigs[];
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****

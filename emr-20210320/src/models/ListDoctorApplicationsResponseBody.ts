@@ -14,6 +14,14 @@ export class ListDoctorApplicationsResponseBodyDataAnalysis extends $dara.Model 
   /**
    * @remarks
    * The suggestion on executing the job.
+   * 
+   * @example
+   * ##### 当前节点：container
+   * ##### 存在问题：
+   * 最大内存利用率为7.75%，利用率较低
+   * 
+   * 
+   * 尝试减小Tez Container内存，可通过hive.tez.container.size进行设置
    */
   suggestion?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetManagedScalingPolicyResponseBodyScalingPolicyConstraints extends $dara.Model {
   /**
    * @remarks
-   * 最大值
+   * The maximum value.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class GetManagedScalingPolicyResponseBodyScalingPolicyConstraints extends
   maxCapacity?: number;
   /**
    * @remarks
-   * 最大按量数量
+   * The maximum number of pay-as-you-go task nodes.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class GetManagedScalingPolicyResponseBodyScalingPolicyConstraints extends
   maxOnDemandCapacity?: number;
   /**
    * @remarks
-   * 最小值
+   * The minimum value.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class GetManagedScalingPolicyResponseBodyScalingPolicyConstraints extends
 export class GetManagedScalingPolicyResponseBodyScalingPolicy extends $dara.Model {
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -63,12 +63,12 @@ export class GetManagedScalingPolicyResponseBodyScalingPolicy extends $dara.Mode
   clusterId?: string;
   /**
    * @remarks
-   * 最大最小值约束
+   * The constraints on the maximum and minimum values.
    */
   constraints?: GetManagedScalingPolicyResponseBodyScalingPolicyConstraints;
   /**
    * @remarks
-   * 伸缩策略ID。
+   * The scaling policy ID.
    * 
    * @example
    * asp-asduwe23znl***
@@ -105,12 +105,16 @@ export class GetManagedScalingPolicyResponseBodyScalingPolicy extends $dara.Mode
 export class GetManagedScalingPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The elastic scaling policy.
+   */
   scalingPolicy?: GetManagedScalingPolicyResponseBodyScalingPolicy;
   static names(): { [key: string]: string } {
     return {

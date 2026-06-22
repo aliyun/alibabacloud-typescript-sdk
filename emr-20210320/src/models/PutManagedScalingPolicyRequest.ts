@@ -16,7 +16,7 @@ export class PutManagedScalingPolicyRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The constrains on the maximum and minimum numbers of nodes in a node group.
+   * The maximum and minimum value constraints for the cluster.
    */
   constraints?: ManagedScalingConstraints;
   /**

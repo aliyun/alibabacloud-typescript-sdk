@@ -15,7 +15,7 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Unit: milliseconds.
+   * The end timestamp for querying the creation time of scaling activities. The unit is milliseconds.
    * 
    * @example
    * 1639718634819
@@ -23,11 +23,11 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * 实例付费类型枚举值：
-   * - ONDEMAND: 按量付费实例
-   * - SPOT: 竞价实例
-   * 默认为null代表全选
-   * 举例: ["ONDEMAND", "SPOT"]
+   * The billing method of the instance. Valid values:
+   * 
+   * - ONDEMAND: Pay-as-you-go instance.
+   * 
+   * - SPOT: Spot instance.The default value is null, which means all billing methods are selected.Example: ["ONDEMAND", "SPOT"]
    * 
    * @example
    * ONDEMAND
@@ -35,7 +35,7 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   instanceChargeTypes?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -43,7 +43,7 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results.
+   * The token that marks the position from which the query starts.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -51,7 +51,7 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * @example
    * ng-869471354ecd****
@@ -69,7 +69,7 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the scaling activity. Number of elements in the array: 1-20.
+   * The status of the scaling activity. The number of elements in the array can range from 1 to 20.
    * 
    * @example
    * ["REJECTED","SUCCESSFUL"]
@@ -79,8 +79,9 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
    * @remarks
    * The type of the scaling activity. Valid values:
    * 
-   * *   SCALE_OUT
-   * *   SCALE_IN
+   * - SCALE_OUT: Scale-out.
+   * 
+   * - SCALE_IN: Scale-in.
    * 
    * @example
    * SCALE_IN
@@ -101,7 +102,7 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   scalingRuleName?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Unit: milliseconds.
+   * The start timestamp for querying the creation time of scaling activities. The unit is milliseconds.
    * 
    * @example
    * 1639714634819

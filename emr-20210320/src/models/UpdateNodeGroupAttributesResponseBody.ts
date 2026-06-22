@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TimeConstraint extends $dara.Model {
+export class UpdateNodeGroupAttributesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end time. Valid values: 00:00 to 23:59.
+   * The request ID.
    * 
    * @example
-   * 23:59
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */
-  endTime?: string;
-  /**
-   * @remarks
-   * The start time. Valid values: 00:00 to 23:59.
-   * 
-   * @example
-   * 06:00
-   */
-  startTime?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'EndTime',
-      startTime: 'StartTime',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'string',
-      startTime: 'string',
+      requestId: 'string',
     };
   }
 

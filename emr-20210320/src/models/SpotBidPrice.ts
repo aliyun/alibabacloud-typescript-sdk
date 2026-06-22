@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SpotBidPrice extends $dara.Model {
   /**
    * @remarks
-   * 实例的每小时最高出价。支持最大3位小数，参数SpotStrategy=SpotWithPriceLimit时，该参数生效。
+   * The maximum hourly bid price for the instance, with up to three decimal places. This parameter applies only when `SpotStrategy` is set to `SpotWithPriceLimit`.
    * 
    * @example
    * 1000.0
@@ -13,7 +13,7 @@ export class SpotBidPrice extends $dara.Model {
   bidPrice?: number;
   /**
    * @remarks
-   * 实例类型。
+   * The ECS instance type.
    * 
    * @example
    * ecs.g7.2xlarge

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DecreaseNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Operation ID.
+   * The operation ID.
    * 
    * @example
    * op-13c37a77c505****
@@ -13,7 +13,7 @@ export class DecreaseNodesResponseBody extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 44430037-E59A-3E66-A2B0-97D155346F22

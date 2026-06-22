@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ScalingConstraints extends $dara.Model {
   /**
    * @remarks
-   * 最大值。
+   * The maximum number of nodes in the node group. Default value: 2000.
    * 
    * @example
    * 2000
@@ -13,7 +13,7 @@ export class ScalingConstraints extends $dara.Model {
   maxCapacity?: number;
   /**
    * @remarks
-   * 最小值。
+   * The minimum number of nodes in the node group. Default value: 0
    * 
    * @example
    * 0

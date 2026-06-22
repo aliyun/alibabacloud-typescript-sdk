@@ -12,37 +12,51 @@ import { SystemDisk } from "./SystemDisk";
 export class NodeGroupConfig extends $dara.Model {
   /**
    * @remarks
-   * 附加安全组。除集群设置的安全组外，为节点组单独设置的附加安全组。数组元数个数N的取值范围：0~2。
+   * The IDs of the additional security groups. In addition to the security group of the cluster, you can specify additional security groups for the node group. You can specify up to two security group IDs.
    * 
    * @example
    * ["sg-hp3abbae8lb6lmb1****"]
    */
   additionalSecurityGroupIds?: string[];
+  /**
+   * @remarks
+   * The auto scaling policy.
+   */
   autoScalingPolicy?: AutoScalingPolicy;
   /**
+   * @remarks
+   * Specifies whether to automatically create pay-as-you-go instances to meet the required capacity when the number of preemptible instances is insufficient. This parameter is effective only when `nodeResizeStrategy` is set to `COST_OPTIMIZED`.
+   * 
    * @example
    * true
    */
   compensateWithOnDemand?: boolean;
+  /**
+   * @remarks
+   * A list of custom component tags.
+   */
   componentTags?: string[];
   /**
    * @remarks
-   * 成本优化模式配置。
+   * The cost optimization settings.
    */
   costOptimizedConfig?: CostOptimizedConfig;
   /**
    * @remarks
-   * 数据盘。当前数据盘只支持一种磁盘类型，即数组元数个数N的取值范围：1~1。
+   * The data disks. Currently, the array can contain only one data disk.
    */
   dataDisks?: DataDisk[];
   /**
    * @remarks
-   * 部署集策略。取值范围：
-   * - NONE：不适用部署集。
-   * - CLUSTER：使用集群级别部署集。
-   * - NODE_GROUP：使用节点组级别部署集。
+   * The deployment set strategy. Valid values:
    * 
-   * 默认值：NONE。
+   * - `NONE`: No deployment sets are used.
+   * 
+   * - `CLUSTER`: The cluster-level deployment set is used.
+   * 
+   * - `NODE_GROUP`: The node group-level deployment set is used.
+   * 
+   * Default value: `NONE`.
    * 
    * @example
    * NONE
@@ -50,11 +64,13 @@ export class NodeGroupConfig extends $dara.Model {
   deploymentSetStrategy?: string;
   /**
    * @remarks
-   * 节点组上部署的组件是否开启优雅下线。取值范围：
-   * - true：开启优雅下线。
-   * - false：不开启优雅下线。
+   * Specifies whether to enable graceful shutdown for the components in the node group. Valid values:
    * 
-   * 默认值：false。
+   * - `true`: Enables graceful shutdown.
+   * 
+   * - `false`: Disables graceful shutdown.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * false
@@ -62,7 +78,7 @@ export class NodeGroupConfig extends $dara.Model {
   gracefulShutdown?: boolean;
   /**
    * @remarks
-   * 节点实例类型列表。数组元数个数N的取值范围：1~100。
+   * The instance types. You can specify 1 to 100 instance types.
    * 
    * @example
    * ["ecs.g6.xlarge"]
@@ -70,7 +86,7 @@ export class NodeGroupConfig extends $dara.Model {
   instanceTypes?: string[];
   /**
    * @remarks
-   * 节点数量。取值范围：1~1000。
+   * The number of nodes in the node group. Valid values: 1 to 1,000.
    * 
    * @example
    * 3
@@ -78,7 +94,7 @@ export class NodeGroupConfig extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * 节点组名称。最大长度128个字符。集群内要求节点组名称唯一。
+   * The name of the node group. The name can be up to 128 characters in length and must be unique within the cluster.
    * 
    * @example
    * core-1
@@ -86,10 +102,13 @@ export class NodeGroupConfig extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * 节点组类型。取值范围：
-   * - MASTER：管理类型节点组。
-   * - CORE：存储类型节点组。
-   * - TASK：计算类型节点组。
+   * The type of the node group. Valid values:
+   * 
+   * - `MASTER`: a master node group.
+   * 
+   * - `CORE`: a core node group.
+   * 
+   * - `TASK`: a task node group.
    * 
    * This parameter is required.
    * 
@@ -99,11 +118,13 @@ export class NodeGroupConfig extends $dara.Model {
   nodeGroupType?: string;
   /**
    * @remarks
-   * 节点扩容策略。取值范围：
-   * - COST_OPTIMIZED：成本优化策略。
-   * - PRIORITY：优先级策略。
+   * The node scale-out strategy. Valid values:
    * 
-   * 默认值：PRIORITY。
+   * - `COST_OPTIMIZED`: The cost-optimized strategy.
+   * 
+   * - `PRIORITY`: The priority-based strategy.
+   * 
+   * Default value: `PRIORITY`.
    * 
    * @example
    * PRIORITY
@@ -111,29 +132,37 @@ export class NodeGroupConfig extends $dara.Model {
   nodeResizeStrategy?: string;
   /**
    * @remarks
-   * 节点组付费类型。不传入时默认和集群付费类型一致。取值范围：
-   * - PayAsYouGo：后付费，按量付费。
-   * - Subscription：预付费，包年包月。
+   * The billing method of the node group. If you do not specify this parameter, the billing method of the cluster is used. Valid values:
    * 
-   * 默认值：PayAsYouGo。
+   * - `PayAsYouGo`: pay-as-you-go.
+   * 
+   * - `Subscription`: subscription.
+   * 
+   * Default value: `PayAsYouGo`.
    * 
    * @example
    * PayAsYouGo
    */
   paymentType?: string;
+  /**
+   * @remarks
+   * The private pool options. This parameter is effective only when you create pay-as-you-go instances.
+   */
   privatePoolOptions?: PrivatePoolOptions;
   /**
    * @remarks
-   * 抢占式Spot实例出价价格。参数SpotStrategy取值为SpotWithPriceLimit时生效。数组元数个数N的取值范围：0~100。
+   * The bid prices for the preemptible instances. This parameter is effective only when `SpotStrategy` is set to `SpotWithPriceLimit`. You can specify up to 100 bid prices.
    */
   spotBidPrices?: SpotBidPrice[];
   /**
    * @remarks
-   * 开启后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。取值范围：
-   * - true：开启补齐抢占式实例。
-   * - false：不开启补齐抢占式实例。
+   * If enabled, the auto scaling group attempts to create a new instance to replace a spot instance that is about to be reclaimed. This process is triggered when the auto scaling group receives a system message about the impending reclamation. Valid values:
    * 
-   * 默认值：false。
+   * - `true`: The auto scaling group attempts to replace a spot instance that is about to be reclaimed.
+   * 
+   * - `false`: The auto scaling group does not attempt to replace a spot instance that is about to be reclaimed.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -141,12 +170,15 @@ export class NodeGroupConfig extends $dara.Model {
   spotInstanceRemedy?: boolean;
   /**
    * @remarks
-   * 抢占式Spot实例策略。取值范围：
-   * - NoSpot：正常按量付费实例。
-   * - SpotWithPriceLimit：设置最高出价的抢占式实例。
-   * - SpotAsPriceGo：系统自动出价，最高按量付费价格的抢占式实例。
+   * The preemption strategy for preemptible instances. Valid values:
    * 
-   * 默认值：NoSpot。
+   * - `NoSpot`: pay-as-you-go instances.
+   * 
+   * - `SpotWithPriceLimit`: preemptible instances with a user-defined maximum hourly price.
+   * 
+   * - `SpotAsPriceGo`: preemptible instances that are automatically bid at the pay-as-you-go price.
+   * 
+   * Default value: `NoSpot`.
    * 
    * @example
    * NoSpot
@@ -154,17 +186,17 @@ export class NodeGroupConfig extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * 节点组预付费配置。不传入时默认和集群预付费配置一致。
+   * The subscription settings of the node group. If you do not specify this parameter, the subscription settings of the cluster are used.
    */
   subscriptionConfig?: SubscriptionConfig;
   /**
    * @remarks
-   * 系统盘。
+   * The system disk.
    */
   systemDisk?: SystemDisk;
   /**
    * @remarks
-   * 虚拟机交换机ID列表。数组元数个数N的取值范围：1~20。
+   * The vSwitch IDs. You can specify 1 to 20 vSwitch IDs.
    * 
    * @example
    * ["vsw-hp35g7ya5ymw68mmg****"]
@@ -172,11 +204,13 @@ export class NodeGroupConfig extends $dara.Model {
   vSwitchIds?: string[];
   /**
    * @remarks
-   * 是否开公网IP。取值范围：
-   * - true：开公网。
-   * - false：不开公网。
+   * Specifies whether to assign a public IP address to the instances. Valid values:
    * 
-   * 默认值：false。
+   * - `true`: Assigns a public IP address.
+   * 
+   * - `false`: Does not assign a public IP address.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * false

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * Indicates the ID of a resource.
+   * The resource ID.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key of the ENI.
+   * The tag key.
    * 
    * @example
    * Department
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the ENI.
+   * The tag value.
    * 
    * @example
    * Dev
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries returned in this request.
    * 
    * @example
    * 20
@@ -73,7 +73,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Returns the location of the data that was read. Empty indicates that the data has been read.
+   * The token that is used to start the next query. If this parameter is not returned, all results have been returned.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -81,7 +81,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 372D4E9B-2509-5EFA-846B-B34FBF143F56
@@ -89,12 +89,12 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details about the tag. Contains the resource ID, resource type, and tag key-value information.
+   * The list of tag resources. It contains the resource ID, resource type, tag key, and tag value.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the filter criteria.
    * 
    * @example
    * 200

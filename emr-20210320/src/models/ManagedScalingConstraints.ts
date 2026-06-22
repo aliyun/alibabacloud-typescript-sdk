@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ManagedScalingConstraints extends $dara.Model {
   /**
    * @remarks
-   * 最大值。
+   * The maximum number of nodes in a node group.
    * 
    * @example
    * 2000
@@ -13,7 +13,7 @@ export class ManagedScalingConstraints extends $dara.Model {
   maxCapacity?: number;
   /**
    * @remarks
-   * 最大按量节点数量
+   * The maximum number of pay-as-you-go task nodes.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ManagedScalingConstraints extends $dara.Model {
   maxOnDemandCapacity?: number;
   /**
    * @remarks
-   * 最小值。
+   * The minimum number of nodes in a node group.
    * 
    * @example
    * 0

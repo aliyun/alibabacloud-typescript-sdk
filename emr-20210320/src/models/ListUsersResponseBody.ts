@@ -16,7 +16,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
    * The remarks.
    * 
    * @example
-   * 添加test用户
+   * Add test user
    */
   description?: string;
   /**
@@ -87,8 +87,9 @@ export class ListUsersResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the user is an admin user. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * False

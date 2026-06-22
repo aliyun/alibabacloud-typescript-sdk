@@ -6,7 +6,11 @@ import { NodeSelector } from "./NodeSelector";
 export class Script extends $dara.Model {
   /**
    * @remarks
-   * 执行失败策略。
+   * The execution failure strategy. Valid values:
+   * 
+   * - `FAILED_CONTINUE`: If the script fails, cluster creation or scaling continues.
+   * 
+   * - `FAILED_BLOCK`: If the script fails, cluster creation or scaling is blocked.
    * 
    * @example
    * FAILED_CONTINUE
@@ -14,7 +18,11 @@ export class Script extends $dara.Model {
   executionFailStrategy?: string;
   /**
    * @remarks
-   * 脚本的执行时机。
+   * The execution timing for the script. Valid values:
+   * 
+   * - `BEFORE_INSTALL`: The script runs before applications are installed.
+   * 
+   * - `AFTER_STARTED`: The script runs after applications start.
    * 
    * @example
    * BEFORE_INSTALL
@@ -22,14 +30,14 @@ export class Script extends $dara.Model {
   executionMoment?: string;
   /**
    * @remarks
-   * 节点选择器。
+   * Specifies the nodes on which the script runs.
    * 
    * This parameter is required.
    */
   nodeSelector?: NodeSelector;
   /**
    * @remarks
-   * 脚本执行优先级。取值范围：1~100。
+   * > This parameter is deprecated. Scripts run in the order they are defined.
    * 
    * @example
    * 1
@@ -39,7 +47,7 @@ export class Script extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * 脚本执行参数。
+   * The optional script execution arguments.
    * 
    * @example
    * -host 10.0.10.5 -m 30
@@ -47,7 +55,7 @@ export class Script extends $dara.Model {
   scriptArgs?: string;
   /**
    * @remarks
-   * 脚本名称。长度为1~64个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、下划线（_）、或者短划线（-）
+   * The required script name. The name must be 1 to 64 characters long and start with a letter or a Chinese character. It cannot start with `http://` or `https://`. It can contain Chinese characters, letters, numbers, underscores (`_`), or hyphens (`-`).
    * 
    * This parameter is required.
    * 
@@ -57,7 +65,7 @@ export class Script extends $dara.Model {
   scriptName?: string;
   /**
    * @remarks
-   * 脚本所在OSS路径。
+   * The required path to the script in Object Storage Service (OSS). The path must start with `oss://`.
    * 
    * This parameter is required.
    * 

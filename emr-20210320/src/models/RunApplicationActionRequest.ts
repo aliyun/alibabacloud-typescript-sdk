@@ -8,12 +8,17 @@ export class RunApplicationActionRequest extends $dara.Model {
    * @remarks
    * The name of the action. Valid values:
    * 
-   * *   start
-   * *   stop
-   * *   config
-   * *   restart
-   * *   refresh_queues
-   * *   refresh_labels
+   * - start
+   * 
+   * - stop
+   * 
+   * - config
+   * 
+   * - restart
+   * 
+   * - refresh_queues
+   * 
+   * - refresh_labels
    * 
    * This parameter is required.
    * 
@@ -51,15 +56,16 @@ export class RunApplicationActionRequest extends $dara.Model {
    * The description of the execution.
    * 
    * @example
-   * 运行描述
+   * Running description
    */
   description?: string;
   /**
    * @remarks
    * The execution policy. Valid values:
    * 
-   * *   FAILED_BLOCK: The system stops the execution if the execution fails.
-   * *   FAILED_CONTINUE: The system continues the execution if the execution fails.
+   * - FAILED_BLOCK: The system stops the execution if the execution fails.
+   * 
+   * - FAILED_CONTINUE: The system continues the execution if the execution fails.
    * 
    * @example
    * FAILED_CONTINUE

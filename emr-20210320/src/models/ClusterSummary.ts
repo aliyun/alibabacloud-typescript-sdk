@@ -7,7 +7,7 @@ import { Tag } from "./Tag";
 export class ClusterSummary extends $dara.Model {
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -15,7 +15,7 @@ export class ClusterSummary extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 集群名称。
+   * The cluster name.
    * 
    * @example
    * emrtest
@@ -23,15 +23,23 @@ export class ClusterSummary extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * 集群状态。取值范围：
-   * - STARTING：启动中。
-   * - START_FAILED：启动失败。
-   * - BOOTSTRAPPING：引导操作初始化。
-   * - RUNNING：运行中。
-   * - TERMINATING：终止中。
-   * - TERMINATED：已终止。
-   * - TERMINATED_WITH_ERRORS：发生异常导致终止。
-   * - TERMINATE_FAILED：终止失败。
+   * The state of the cluster. Valid values:
+   * 
+   * - `STARTING`: The cluster is starting.
+   * 
+   * - `START_FAILED`: The cluster fails to be started.
+   * 
+   * - `BOOTSTRAPPING`: The cluster is being initialized.
+   * 
+   * - `RUNNING`: The cluster is running.
+   * 
+   * - `TERMINATING`: The cluster is being terminated.
+   * 
+   * - `TERMINATED`: The cluster is terminated.
+   * 
+   * - `TERMINATED_WITH_ERRORS`: The cluster is terminated with errors.
+   * 
+   * - `TERMINATE_FAILED`: The cluster fails to be terminated.
    * 
    * @example
    * RUNNING
@@ -39,11 +47,15 @@ export class ClusterSummary extends $dara.Model {
   clusterState?: string;
   /**
    * @remarks
-   * 集群类型。取值范围：
-   * - DATALAKE：新版数据湖。
-   * - OLAP：数据分析。
-   * - DATAFLOW：实时数据流。
-   * - DATASERVING：数据服务。
+   * The cluster type. Valid values:
+   * 
+   * - `DATALAKE`: data lake.
+   * 
+   * - `OLAP`: data analytics.
+   * 
+   * - `DATAFLOW`: real-time dataflow.
+   * 
+   * - `DATASERVING`: data serving.
    * 
    * @example
    * DATALAKE
@@ -51,40 +63,59 @@ export class ClusterSummary extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * 创建时间。
+   * The time when the cluster was created.
    * 
    * @example
-   * 1592837465784
+   * 1592837465788
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The release protection feature.
+   * 
+   * @example
+   * false
+   */
   deletionProtection?: boolean;
+  /**
+   * @remarks
+   * The description of the cluster.
+   * 
+   * @example
+   * EMR cluster
+   */
   description?: string;
   /**
    * @remarks
-   * EMR服务角色。
+   * The EMR service role.
+   * 
+   * @example
+   * AliyunEMRDefaultRole
    */
   emrDefaultRole?: string;
   /**
    * @remarks
-   * 删除时间。
+   * The time when the cluster was deleted.
    * 
    * @example
-   * 1592837465784
+   * 1592837485788
    */
   endTime?: number;
   /**
    * @remarks
-   * 过期时间。
+   * The expiration time.
    * 
    * @example
-   * 1592837465784
+   * 1592837475788
    */
   expireTime?: number;
   /**
    * @remarks
-   * 付费类型。取值范围：
-   * - PayAsYouGo：后付费。
-   * - Subscription：预付费。
+   * The billing method. Valid values:
+   * 
+   * - `PayAsYouGo`: pay-as-you-go.
+   * 
+   * - `Subscription`: subscription.
    * 
    * @example
    * PayAsYouGo
@@ -92,15 +123,15 @@ export class ClusterSummary extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * 可用时间。
+   * The time when the cluster is available.
    * 
    * @example
-   * 1592837465784
+   * 1592837465788
    */
   readyTime?: number;
   /**
    * @remarks
-   * EMR发行版。
+   * The E-MapReduce (EMR) release version.
    * 
    * @example
    * EMR-5.8.0
@@ -108,7 +139,7 @@ export class ClusterSummary extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * 资源组ID。
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -116,12 +147,12 @@ export class ClusterSummary extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 失败原因。
+   * The reason for the failure.
    */
   stateChangeReason?: ClusterStateChangeReason;
   /**
    * @remarks
-   * 标签列表。
+   * The list of tags.
    */
   tags?: Tag[];
   static names(): { [key: string]: string } {

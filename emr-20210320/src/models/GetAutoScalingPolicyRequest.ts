@@ -15,7 +15,7 @@ export class GetAutoScalingPolicyRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * This parameter is required.
    * 

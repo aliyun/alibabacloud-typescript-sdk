@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of maximum number of records to obtain at a time.
+   * The maximum number of entries to return on each page.
    * 
    * @example
    * 20
@@ -14,15 +14,15 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results. If NextToken is empty, the query starts from the beginning.
+   * The token to start the query. Leave this parameter empty to start the query from the beginning.
    * 
    * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   * 2
    */
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region in which you want to create the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of resource IDs. Number of array elements N Valid values: 1 to 1
+   * The list of resource IDs. The number of elements in the array N must be 1.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -40,7 +40,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceIds?: string[];
   /**
    * @remarks
-   * The type of the resource. Set the value to cluster.
+   * The resource type. Set the value to \\`cluster\\`.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * An array of tags. The number of elements in the array. Valid values: 1 to 20.
+   * The tags. The number of elements in the array N can be from 1 to 20.
    * 
    * @example
    * 20

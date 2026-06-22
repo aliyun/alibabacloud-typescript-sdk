@@ -6,13 +6,14 @@ import { Tag } from "./Tag";
 export class TriggerCondition extends $dara.Model {
   /**
    * @remarks
-   * 比较符。取值范围：
-   * - EQ:等于。
-   * - NE:不等于。
-   * - GT:大于。
-   * - LT:小于。
-   * - GE:大于等于。
-   * - LE:小于等于。
+   * The comparison operator. This parameter is required. Valid values:
+   * 
+   * *   EQ: equal to
+   * *   NE: not equal to
+   * *   GT: greater than
+   * *   LT: less than
+   * *   GE: greater than or equal to
+   * *   LE: less than or equal to
    * 
    * This parameter is required.
    * 
@@ -22,20 +23,21 @@ export class TriggerCondition extends $dara.Model {
   comparisonOperator?: string;
   /**
    * @remarks
-   * 指标名称。指标名称需要在 ListAutoScalingMetrics 接口返回的指标名称列表中。
+   * The name of the metric. This parameter is required and cannot be an empty string. You can view the metric name in [Add Auto Scaling Rules](https://help.aliyun.com/document_detail/445658.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * yarn_resourcemanager_root_availablememoryusage
+   * yarn_resourcemanager_queue_PendingVCores
    */
   metricName?: string;
   /**
    * @remarks
-   * 统计量名称。取值范围：
-   * - MAX：最大值。
-   * - MIN：最小值。
-   * - AVG：平均值。
+   * The name of the statistic. This parameter is required. Valid values:
+   * 
+   * *   MAX
+   * *   MIN
+   * *   AVG
    * 
    * This parameter is required.
    * 
@@ -45,12 +47,12 @@ export class TriggerCondition extends $dara.Model {
   statistics?: string;
   /**
    * @remarks
-   * 指标Tag。
+   * The tags for the metrics of a partition. This parameter is available for only metrics that contain ByPartition. For other metrics, leave this parameter empty.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * 阈值。
+   * The trigger threshold. This parameter is required.
    * 
    * This parameter is required.
    * 

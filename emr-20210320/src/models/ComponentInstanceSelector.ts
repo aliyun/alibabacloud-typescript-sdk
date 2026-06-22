@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ComponentInstanceSelectorComponentInstances extends $dara.Model {
   /**
    * @remarks
-   * 应用名称。
+   * The application name.
    * 
    * @example
    * HDFS
@@ -13,7 +13,7 @@ export class ComponentInstanceSelectorComponentInstances extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * 组件名称。
+   * The component name.
    * 
    * @example
    * DataNode
@@ -21,7 +21,7 @@ export class ComponentInstanceSelectorComponentInstances extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * 节点ID。
+   * The node ID.
    * 
    * @example
    * i-bp1cudc25w2bfwl5****
@@ -55,7 +55,7 @@ export class ComponentInstanceSelectorComponentInstances extends $dara.Model {
 export class ComponentInstanceSelectorComponents extends $dara.Model {
   /**
    * @remarks
-   * 应用名称。
+   * The application name.
    * 
    * @example
    * HDFS
@@ -63,7 +63,7 @@ export class ComponentInstanceSelectorComponents extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * 组件名称。
+   * The component name.
    * 
    * @example
    * DataNode
@@ -94,12 +94,24 @@ export class ComponentInstanceSelectorComponents extends $dara.Model {
 
 export class ComponentInstanceSelector extends $dara.Model {
   /**
+   * @remarks
+   * The action scope. Valid values:
+   * 
+   * - APPLICATION: The application level.
+   * 
+   * - COMPONENT: The component level.
+   * 
+   * - COMPONENT_INSTANCE: The component instance level.
+   * 
+   * @example
+   * APPLICATION
+   * 
    * @deprecated
    */
   actionScope?: string;
   /**
    * @remarks
-   * 应用名称。
+   * The application name.
    * 
    * @example
    * HDFS
@@ -107,21 +119,23 @@ export class ComponentInstanceSelector extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * 组件实例列表。actionScope为COPONENT_INSTANCE时使用。
+   * A list of component instances. This parameter is used when `RunActionScope` is set to `COMPONENT_INSTANCE`.
    */
   componentInstances?: ComponentInstanceSelectorComponentInstances[];
   /**
    * @remarks
-   * 组件列表。
-   * actionScope为COPONENT时使用。
+   * A list of components. This parameter is used when `RunActionScope` is set to `COMPONENT`.
    */
   components?: ComponentInstanceSelectorComponents[];
   /**
    * @remarks
-   * 动作执行范围。取值范围：
-   * - APPLICATION：应用级别。
-   * - COMPONENT：组件级别。
-   * - COMPONENT_INSTANCE：组件实例级别。
+   * The action scope. Valid values:
+   * 
+   * - APPLICATION: The application level.
+   * 
+   * - COMPONENT: The component level.
+   * 
+   * - COMPONENT_INSTANCE: The component instance level.
    * 
    * This parameter is required.
    * 

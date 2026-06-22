@@ -11,35 +11,41 @@ import { SystemDisk } from "./SystemDisk";
 export class NodeGroup extends $dara.Model {
   /**
    * @remarks
-   * 安全组ID。
+   * The additional security group IDs.
    * 
    * @example
    * ["sg-hp3abbae8lb6lmb1****"]
    */
   additionalSecurityGroupIds?: string[];
   /**
+   * @remarks
+   * Applies only when `NodeResizeStrategy` is set to `COST_OPTIMIZED`. If set to `true`, the system creates Pay-As-You-Go instances to meet the target capacity if it fails to create enough spot instances due to price or inventory constraints.
+   * 
    * @example
    * true
    */
   compensateWithOnDemand?: boolean;
   /**
    * @remarks
-   * 成本优化模式配置。
+   * The configurations of the cost-optimized mode.
    */
   costOptimizedConfig?: CostOptimizedConfig;
   /**
    * @remarks
-   * 数据盘列表。
+   * The data disks.
    */
   dataDisks?: DataDisk[];
   /**
    * @remarks
-   * 部署集策略。取值范围：
-   * - NONE：不适用部署集。
-   * - CLUSTER：使用集群级别部署集。
-   * - NODE_GROUP：使用节点组级别部署集。
+   * The Deployment Set strategy. Valid values:
    * 
-   * 默认值：NONE。
+   * - NONE: Does not use a Deployment Set.
+   * 
+   * - CLUSTER: Uses a cluster-level Deployment Set.
+   * 
+   * - NODE_GROUP: Uses a node group-level Deployment Set.
+   * 
+   * Default: `NONE`.
    * 
    * @example
    * NONE
@@ -47,9 +53,11 @@ export class NodeGroup extends $dara.Model {
   deploymentSetStrategy?: string;
   /**
    * @remarks
-   * 节点组上部署的组件是否开启优雅下线。取值范围：
-   * - true：开启优雅下线。
-   * - false：不开启优雅下线。
+   * Specifies whether to enable graceful shutdown for components deployed in the node group. Valid values:
+   * 
+   * - true: Enables graceful shutdown.
+   * 
+   * - false: Disables graceful shutdown.
    * 
    * @example
    * false
@@ -57,7 +65,7 @@ export class NodeGroup extends $dara.Model {
   gracefulShutdown?: boolean;
   /**
    * @remarks
-   * 实例类型列表。
+   * The instance types.
    * 
    * @example
    * ["ecs.g6.4xlarge"]
@@ -65,7 +73,7 @@ export class NodeGroup extends $dara.Model {
   instanceTypes?: string[];
   /**
    * @remarks
-   * 节点组ID。
+   * The node group ID.
    * 
    * @example
    * ng-869471354ecd****
@@ -73,7 +81,7 @@ export class NodeGroup extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * 节点组名称。最大长度128个字符。
+   * The node group name.
    * 
    * @example
    * core-1
@@ -81,27 +89,33 @@ export class NodeGroup extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * 节点组状态。
+   * The state of the node group.
    * 
    * @example
-   * CREATED
+   * RESIZING
    */
   nodeGroupState?: string;
   /**
    * @remarks
-   * 节点组类型。取值范围：
-   * - MASTER：管理类型节点组。
-   * - CORE：存储类型节点组。
-   * - TASK：计算类型节点组。
+   * The type of the node group. Valid values:
+   * 
+   * - MASTER: A master node.
+   * 
+   * - CORE: A core node.
+   * 
+   * - TASK: A task node.
+   * 
+   * - GATEWAY: A gateway node. This value is not applicable to DATALAKE, OLAP, or DATASERVING clusters.
    * 
    * @example
-   * CORE
+   * MASTER
    */
   nodeGroupType?: string;
   /**
    * @remarks
-   * - COST_OPTIMIZED：成本优化策略。
-   * - PRIORITY：优先级策略。
+   * - COST_OPTIMIZED: The cost-optimized strategy.
+   * 
+   * - PRIORITY: The priority-based strategy.
    * 
    * @example
    * PRIORITY
@@ -109,39 +123,55 @@ export class NodeGroup extends $dara.Model {
   nodeResizeStrategy?: string;
   /**
    * @remarks
-   * 节点组付费类型。取值范围：
-   * - PayAsYouGo：后付费，按量付费。
-   * - Subscription：预付费，包年包月。
+   * The payment type. Valid values are `Subscription` for the subscription billing method and `PayAsYouGo` for the Pay-As-You-Go billing method.
    * 
    * @example
-   * PayAsYouGo
+   * Subscription
    */
   paymentType?: string;
+  /**
+   * @remarks
+   * The private pool options.
+   */
   privatePoolOptions?: PrivatePoolOptions;
   /**
    * @remarks
-   * 存活节点数量。
+   * The number of running nodes.
    * 
    * @example
    * 3
    */
   runningNodeCount?: number;
+  /**
+   * @remarks
+   * The bid prices for the spot instances. This parameter is effective only when `SpotStrategy` is set to `SpotWithPriceLimit`. The array can contain 0 to 100 elements.
+   */
   spotBidPrices?: SpotBidPrice[];
   /**
    * @remarks
-   * 开启补齐抢占式实例后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。取值范围：
-   * - true：开启补齐抢占式实例。
-   * - false：不开启补齐抢占式实例。
+   * Specifies whether to enable spot instance remedy. If enabled, the scaling group attempts to create a new instance to replace a spot instance that is about to be reclaimed. Valid values:
    * 
-   * 默认值：false。
+   * - true: Enables spot instance remedy.
+   * 
+   * - false: Disables spot instance remedy.
+   * 
+   * Default: `false`.
    * 
    * @example
-   * true
+   * false
    */
   spotInstanceRemedy?: boolean;
   /**
    * @remarks
-   * 是否支持竞价实例。
+   * The policy for using spot instances. Valid values:
+   * 
+   * - NoSpot: No spot instances are used.
+   * 
+   * - SpotWithPriceLimit: Spot instances are created with a user-defined maximum bid price.
+   * 
+   * - SpotAsPriceGo: The system automatically bids for spot instances. The bid price does not exceed the price of a Pay-As-You-Go instance.
+   * 
+   * Default: `NoSpot`.
    * 
    * @example
    * NoSpot
@@ -149,22 +179,28 @@ export class NodeGroup extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * 状态变化原因。
+   * The reason for the state change.
+   * 
+   * @example
+   * 手动重启
    */
   stateChangeReason?: NodeGroupStateChangeReason;
   /**
+   * @remarks
+   * The node group state.
+   * 
    * @example
    * CREATED
    */
   status?: string;
   /**
    * @remarks
-   * 系统盘信息。
+   * The system disk.
    */
   systemDisk?: SystemDisk;
   /**
    * @remarks
-   * 虚拟机交换机ID列表。
+   * The VSwitch IDs.
    * 
    * @example
    * ["vsw-hp35g7ya5ymw68mmg****"]
@@ -172,20 +208,18 @@ export class NodeGroup extends $dara.Model {
   vSwitchIds?: string[];
   /**
    * @remarks
-   * 是否开公网IP。取值范围：
-   * - true：开公网。
-   * - false：不开公网。
+   * Specifies whether to assign a public IP address.
    * 
    * @example
-   * false
+   * true
    */
   withPublicIp?: boolean;
   /**
    * @remarks
-   * 可用区ID。
+   * The zone ID.
    * 
    * @example
-   * cn-beijing-h
+   * cn-hangzhou
    */
   zoneId?: string;
   static names(): { [key: string]: string } {

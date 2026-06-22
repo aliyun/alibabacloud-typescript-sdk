@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class Node extends $dara.Model {
   /**
    * @remarks
-   * 节点是否自动续费。
+   * Whether auto-renewal is enabled for the node. Valid values:
+   * 
+   * - true: Auto-renewal is enabled.
+   * 
+   * - false: Auto-renewal is disabled.
    * 
    * @example
    * false
@@ -13,7 +17,7 @@ export class Node extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * 节点自动续费时长。
+   * The auto-renewal duration for the node.
    * 
    * @example
    * 1
@@ -21,16 +25,23 @@ export class Node extends $dara.Model {
   autoRenewDuration?: number;
   /**
    * @remarks
-   * 节点自动续费时长单位。
+   * The unit of the auto-renewal duration.
    * 
    * @example
    * Month
    */
   autoRenewDurationUnit?: string;
+  /**
+   * @remarks
+   * The creation time of the node.
+   * 
+   * @example
+   * 1603728394857
+   */
   createTime?: number;
   /**
    * @remarks
-   * 节点过期时间。
+   * The expiration time of the node.
    * 
    * @example
    * 1603728394857
@@ -38,24 +49,26 @@ export class Node extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * 实例类型。
+   * The instance type of the node. This corresponds to an ECS instance type. You can call the ECS [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the available instance types.
    * 
    * @example
-   * ecs.g6e.xlarge
+   * ecs.g7.xlarge
    */
   instanceType?: string;
   /**
    * @remarks
-   * 运维模式状态。取值范围：
-   * - ON：处于运维模式。
-   * - OFF：处于非运维模式。
+   * The maintenance status of the node. Valid values:
    * 
-   * 为空表示处于非运维模式。
+   * - ON: The node is in maintenance mode.
+   * 
+   * - OFF: The node is not in maintenance mode.
+   * 
+   * If this parameter is empty, the node is not in maintenance mode.
    */
   maintenanceStatus?: string;
   /**
    * @remarks
-   * 节点组ID。
+   * The ID of the node group.
    * 
    * @example
    * ng-869471354ecd****
@@ -63,7 +76,13 @@ export class Node extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * 节点组类型。
+   * The type of the node group. Valid values:
+   * 
+   * - MASTER: A master node group.
+   * 
+   * - CORE: A core node group.
+   * 
+   * - TASK: A task node group.
    * 
    * @example
    * CORE
@@ -71,7 +90,7 @@ export class Node extends $dara.Model {
   nodeGroupType?: string;
   /**
    * @remarks
-   * 节点ID。
+   * The ID of the node.
    * 
    * @example
    * i-bp1cudc25w2bfwl5****
@@ -79,7 +98,7 @@ export class Node extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 节点名称。
+   * The name of the node.
    * 
    * @example
    * core1-1
@@ -87,13 +106,19 @@ export class Node extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * 节点状态。取值范围：
-   * - Pending：创建中。
-   * - Starting：启动中。
-   * - Running：运行中。
-   * - Stopping：停止中。
-   * - Stopped：已停止。
-   * - Terminated：已终止。
+   * The state of the node. Valid values:
+   * 
+   * - Pending: The node is being created.
+   * 
+   * - Starting: The node is starting up.
+   * 
+   * - Running: The node is operational and running services.
+   * 
+   * - Stopping: The node is shutting down.
+   * 
+   * - Stopped: The node is powered off.
+   * 
+   * - Terminated: The node has been permanently deleted.
    * 
    * @example
    * Running
@@ -101,23 +126,23 @@ export class Node extends $dara.Model {
   nodeState?: string;
   /**
    * @remarks
-   * 私网IP。
+   * The private IP address of the node.
    * 
    * @example
-   * 10.10.10.1
+   * ``10.10.**.**``
    */
   privateIp?: string;
   /**
    * @remarks
-   * 公网IP。
+   * The public IP address of the node.
    * 
    * @example
-   * 42.120.75.***
+   * 42.1.1.**
    */
   publicIp?: string;
   /**
    * @remarks
-   * 可用区ID。
+   * The ID of the zone.
    * 
    * @example
    * cn-beijing-h

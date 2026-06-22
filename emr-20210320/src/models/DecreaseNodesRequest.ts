@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DecreaseNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The cooldown interval between two batches.
+   * The cooldown time between batches.
    */
   batchInterval?: number;
   /**
    * @remarks
-   * The number of nodes to be removed in a single batch.
+   * The number of nodes to concurrently take offline in a single batch.
    */
   batchSize?: number;
   /**
@@ -25,7 +25,7 @@ export class DecreaseNodesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of nodes to scale out. The number of nodes to be scaled out. The value should be less than the number of surviving nodes in the current node group.
+   * The number of nodes to remove. The value must be less than the number of active nodes in the node group.
    * 
    * @example
    * 3
@@ -33,7 +33,7 @@ export class DecreaseNodesRequest extends $dara.Model {
   decreaseNodeCount?: number;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DecreaseNodesRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The array of node IDs. Valid values of array element N: 1 to 500.
+   * An array of node IDs. The array can contain from 1 to 500 elements.
    * 
    * @example
    * ["i-bp1cudc25w2bfwl5****"]
@@ -51,7 +51,7 @@ export class DecreaseNodesRequest extends $dara.Model {
   nodeIds?: string[];
   /**
    * @remarks
-   * The ID of the region in which you want to create the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 

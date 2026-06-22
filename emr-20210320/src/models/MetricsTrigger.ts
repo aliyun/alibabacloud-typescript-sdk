@@ -7,9 +7,10 @@ import { TimeConstraint } from "./TimeConstraint";
 export class MetricsTrigger extends $dara.Model {
   /**
    * @remarks
-   * 多指标逻辑关系。默认：Or。取值范围：
-   * - And:与
-   * - Or：或
+   * The logical relationship between multiple metrics. Valid values:
+   * 
+   * *   And
+   * *   Or (default)
    * 
    * @example
    * Or
@@ -17,12 +18,12 @@ export class MetricsTrigger extends $dara.Model {
   conditionLogicOperator?: string;
   /**
    * @remarks
-   * 指标触发条件列表。
+   * The trigger conditions for the metric.
    */
   conditions?: TriggerCondition[];
   /**
    * @remarks
-   * 冷却时间。 单位为秒
+   * The cooldown interval. Unit: seconds. Valid values: 0 to 10800.
    * 
    * @example
    * 300
@@ -30,7 +31,7 @@ export class MetricsTrigger extends $dara.Model {
   coolDownInterval?: number;
   /**
    * @remarks
-   * 统计次数。
+   * The number of times that the statistics are collected. This parameter is required. Valid values: 1 to 5.
    * 
    * This parameter is required.
    * 
@@ -40,12 +41,12 @@ export class MetricsTrigger extends $dara.Model {
   evaluationCount?: number;
   /**
    * @remarks
-   * 时间限制。
+   * The limits on time.
    */
   timeConstraints?: TimeConstraint[];
   /**
    * @remarks
-   * 统计窗口。单位为秒。
+   * The time window for statistics. This parameter is required. Unit: seconds. Valid values: 30 to 1800.
    * 
    * This parameter is required.
    * 

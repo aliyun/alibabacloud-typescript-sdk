@@ -9,7 +9,7 @@ import { Tag } from "./Tag";
 export class Cluster extends $dara.Model {
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -17,7 +17,7 @@ export class Cluster extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 集群名称。
+   * The cluster name.
    * 
    * @example
    * emrtest
@@ -25,7 +25,23 @@ export class Cluster extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * 集群状态。
+   * The cluster state. Valid values:
+   * 
+   * - `STARTING`: The cluster is starting.
+   * 
+   * - `START_FAILED`: The cluster failed to start.
+   * 
+   * - `BOOTSTRAPPING`: The cluster is running bootstrap actions.
+   * 
+   * - `RUNNING`: The cluster is running.
+   * 
+   * - `TERMINATING`: The cluster is terminating.
+   * 
+   * - `TERMINATED`: The cluster is terminated.
+   * 
+   * - `TERMINATED_WITH_ERRORS`: The cluster terminated due to errors.
+   * 
+   * - `TERMINATE_FAILED`: The cluster failed to terminate.
    * 
    * @example
    * RUNNING
@@ -33,7 +49,19 @@ export class Cluster extends $dara.Model {
   clusterState?: string;
   /**
    * @remarks
-   * 集群类型。
+   * The cluster type. Valid values:
+   * 
+   * - `DATALAKE`: New data lake.
+   * 
+   * - `OLAP`: Data analysis.
+   * 
+   * - `DATAFLOW`: Real-time data flow.
+   * 
+   * - `DATASERVING`: Data serving.
+   * 
+   * - `CUSTOM`: Custom cluster.
+   * 
+   * - `HADOOP`: Legacy data lake.
    * 
    * @example
    * DATALAKE
@@ -41,29 +69,43 @@ export class Cluster extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * 创建时间。
+   * The time when the cluster was created. The time is a Unix timestamp in milliseconds.
    * 
    * @example
    * 1592837465784
    */
   createTime?: number;
   /**
+   * @remarks
+   * Indicates whether deletion protection is enabled for the cluster.
+   * 
    * @example
    * false
    */
   deletionProtection?: boolean;
   /**
    * @remarks
-   * 部署模式。
+   * The application deployment mode. Valid values:
+   * 
+   * - `NORMAL`: Standard deployment.
+   * 
+   * - `HA`: High-availability deployment.
    * 
    * @example
    * HA
    */
   deployMode?: string;
+  /**
+   * @remarks
+   * The cluster description.
+   * 
+   * @example
+   * EMR cluster
+   */
   description?: string;
   /**
    * @remarks
-   * EMR默认角色。
+   * The default role for E-MapReduce.
    * 
    * @example
    * AliyunEMRDefaultRole
@@ -71,7 +113,7 @@ export class Cluster extends $dara.Model {
   emrDefaultRole?: string;
   /**
    * @remarks
-   * 删除时间。
+   * The time when the cluster was deleted. The time is a Unix timestamp in milliseconds.
    * 
    * @example
    * 1592837465784
@@ -79,7 +121,7 @@ export class Cluster extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * 过期时间。
+   * The time when the cluster is scheduled to expire. The time is a Unix timestamp in milliseconds.
    * 
    * @example
    * 1592837465784
@@ -87,12 +129,16 @@ export class Cluster extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * 节点属性。
+   * The node attributes.
    */
   nodeAttributes?: NodeAttributes;
   /**
    * @remarks
-   * 付费类型。
+   * The billing method. Valid values:
+   * 
+   * - `PayAsYouGo`: Pay-as-you-go.
+   * 
+   * - `Subscription`: Subscription.
    * 
    * @example
    * PayAsYouGo
@@ -100,7 +146,7 @@ export class Cluster extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * 可用时间。
+   * The time when the cluster became ready. The time is a Unix timestamp in milliseconds.
    * 
    * @example
    * 1592837465784
@@ -108,7 +154,7 @@ export class Cluster extends $dara.Model {
   readyTime?: number;
   /**
    * @remarks
-   * 地域ID。
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou
@@ -116,15 +162,15 @@ export class Cluster extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * EMR发行版。
+   * The release version of E-MapReduce.
    * 
    * @example
-   * EMR-5.3.0
+   * EMR-5.8.0
    */
   releaseVersion?: string;
   /**
    * @remarks
-   * 资源组ID。
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -132,21 +178,29 @@ export class Cluster extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Kerberos安全模式。
+   * The security mode of the cluster. Valid values:
+   * 
+   * - `NORMAL`: Kerberos is disabled.
+   * 
+   * - `KERBEROS`: Kerberos is enabled.
    * 
    * @example
    * NORMAL
    */
   securityMode?: string;
+  /**
+   * @remarks
+   * The reason for the cluster state change.
+   */
   stateChangeReason?: ClusterStateChangeReason;
   /**
    * @remarks
-   * 预付费配置。
+   * The subscription configuration.
    */
   subscriptionConfig?: SubscriptionConfig;
   /**
    * @remarks
-   * 集群标签。
+   * The cluster tags.
    */
   tags?: Tag[];
   static names(): { [key: string]: string } {

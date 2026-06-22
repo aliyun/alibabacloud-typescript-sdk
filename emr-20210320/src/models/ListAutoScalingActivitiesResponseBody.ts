@@ -54,10 +54,13 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
    * @remarks
    * The status of the scaling activity. Valid values:
    * 
-   * *   REJECTED
-   * *   SUCCESSFUL
-   * *   FAILED
-   * *   IN_PROGRESS
+   * - REJECTED: The scaling activity is rejected.
+   * 
+   * - SUCCESSFUL: The scaling activity is successful.
+   * 
+   * - FAILED: The scaling activity failed.
+   * 
+   * - IN_PROGRESS: The scaling activity is in progress.
    * 
    * @example
    * IN_PROGRESS
@@ -67,8 +70,9 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
    * @remarks
    * The type of the scaling activity. Valid values:
    * 
-   * *   SCALE_OUT
-   * *   SCALE_IN
+   * - SCALE_OUT: Scale-out.
+   * 
+   * - SCALE_IN: Scale-in.
    * 
    * @example
    * SCALE_OUT
@@ -92,7 +96,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
   description?: string;
   /**
    * @remarks
-   * The end time of the scaling. Unit: milliseconds.
+   * The end time of the scaling activity. The unit is milliseconds.
    * 
    * @example
    * 1639715634819
@@ -100,7 +104,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
   endTime?: number;
   /**
    * @remarks
-   * The number of added or removed instances.
+   * The number of instances to be added or removed in this scaling activity.
    * 
    * @example
    * 10
@@ -110,7 +114,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
   instanceTypeToNum?: { [key: string]: number };
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * @example
    * ng-869471354ecd****
@@ -147,7 +151,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
   ruleName?: string;
   /**
    * @remarks
-   * The start time of the scaling. Unit: milliseconds.
+   * The start time of the scaling activity. The unit is milliseconds.
    * 
    * @example
    * 1639714634819
@@ -211,7 +215,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
 export class ListAutoScalingActivitiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries returned for this request.
    * 
    * @example
    * 20
@@ -219,7 +223,7 @@ export class ListAutoScalingActivitiesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token that is used to start the next query.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -235,12 +239,12 @@ export class ListAutoScalingActivitiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scaling activities.
+   * The list of scaling activities.
    */
   scalingActivities?: ListAutoScalingActivitiesResponseBodyScalingActivities[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 200

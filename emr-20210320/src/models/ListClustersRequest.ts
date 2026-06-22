@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class ListClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster IDs. Number of elements in the array: 1 to 100.
+   * A list of cluster IDs. The number of array elements N can range from 1 to 100.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -22,7 +22,7 @@ export class ListClustersRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The states of the clusters. Number of elements in the array: 1 to 100.
+   * An array of cluster states. The number of array elements N can range from 1 to 100.
    * 
    * @example
    * ["HADOOP"]
@@ -30,7 +30,7 @@ export class ListClustersRequest extends $dara.Model {
   clusterStates?: string[];
   /**
    * @remarks
-   * The list of cluster types. Number of elements in the array: 1 to 100.
+   * A list of cluster types. The number of array elements N can range from 1 to 100.
    * 
    * @example
    * ["c-b933c5aac8fe****"]
@@ -38,7 +38,7 @@ export class ListClustersRequest extends $dara.Model {
   clusterTypes?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100.
+   * The maximum number of entries to return on each page. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -46,7 +46,7 @@ export class ListClustersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The starting point of the current query. If you do not configure this parameter, the query starts from the beginning.
+   * The token that specifies the position from which to start the query. If you leave this parameter empty, the query starts from the beginning.
    * 
    * @example
    * eyJlY21OZXh0VG9rZW4iOiIxIiwidGFpaGFvTmV4dFRva2VuIjoiNTYiLCJ0YWloYW9OZXh0VG9rZW5JbnQiOjU2LCJlY21OZXh0VG9rZW5JbnQiOjF9
@@ -54,7 +54,7 @@ export class ListClustersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The billing methods. You can specify a maximum of 2 items.
+   * The billing methods. The number of array elements N can be 1 or 2.
    * 
    * @example
    * ["ECS"]
@@ -80,7 +80,7 @@ export class ListClustersRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag list. Number of elements in the array: 1 to 20.
+   * A list of tags. The number of array elements N can range from 1 to 20.
    * 
    * @example
    * ["PayAsYouGo"]

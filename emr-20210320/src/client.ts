@@ -55,6 +55,21 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "emr.aliyuncs.com",
       'eu-west-1-oxs': "emr.aliyuncs.com",
       'rus-west-1-pop': "emr.aliyuncs.com",
+      'us-east-1': "emr.us-east-1.aliyuncs.com",
+      'me-east-1': "emr.me-east-1.aliyuncs.com",
+      'me-central-1': "emr.me-central-1.aliyuncs.com",
+      'eu-west-1': "emr.eu-west-1.aliyuncs.com",
+      'eu-central-1': "emr.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "emr.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "emr.cn-wulanchabu.aliyuncs.com",
+      'cn-qingdao': "emr.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "emr.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "emr.cn-hongkong.aliyuncs.com",
+      'cn-heyuan-acdr-1': "emr.cn-heyuan-acdr-1.aliyuncs.com",
+      'cn-chengdu': "emr.cn-chengdu.aliyuncs.com",
+      'ap-southeast-5': "emr.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "emr.ap-southeast-3.aliyuncs.com",
+      'ap-northeast-1': "emr.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("emr", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -298,7 +313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   * Creates a bootstrap script or a regular cluster script.
    * 
    * @param request - CreateScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -345,7 +360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   * Creates a bootstrap script or a regular cluster script.
    * 
    * @param request - CreateScriptRequest
    * @returns CreateScriptResponse
@@ -356,10 +371,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple users at a time.
+   * Creates users in a batch.
    * 
    * @remarks
-   * You can call this operation to create multiple users at a time.
+   * Creates users in a batch.
    * 
    * @param request - CreateUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -398,10 +413,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple users at a time.
+   * Creates users in a batch.
    * 
    * @remarks
-   * You can call this operation to create multiple users at a time.
+   * Creates users in a batch.
    * 
    * @param request - CreateUsersRequest
    * @returns CreateUsersResponse
@@ -412,7 +427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a scale-out operation on the target node group.
+   * Scales in a target node group.
    * 
    * @param request - DecreaseNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -467,7 +482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a scale-out operation on the target node group.
+   * Scales in a target node group.
    * 
    * @param request - DecreaseNodesRequest
    * @returns DecreaseNodesResponse
@@ -532,6 +547,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a pay-as-you-go cluster.
+   * 
    * @param request - DeleteClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteClusterResponse
@@ -565,12 +582,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a pay-as-you-go cluster.
+   * 
    * @param request - DeleteClusterRequest
    * @returns DeleteClusterResponse
    */
   async deleteCluster(request: $_model.DeleteClusterRequest): Promise<$_model.DeleteClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a created cluster node group.
+   * 
+   * @param request - DeleteNodeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNodeGroupResponse
+   */
+  async deleteNodeGroupWithOptions(request: $_model.DeleteNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNodeGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNodeGroup",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNodeGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNodeGroupResponse({}));
+  }
+
+  /**
+   * Deletes a created cluster node group.
+   * 
+   * @param request - DeleteNodeGroupRequest
+   * @returns DeleteNodeGroupResponse
+   */
+  async deleteNodeGroup(request: $_model.DeleteNodeGroupRequest): Promise<$_model.DeleteNodeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNodeGroupWithOptions(request, runtime);
   }
 
   /**
@@ -692,7 +765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出应用服务配置
+   * Exports the configurations of a specified service in a cluster.
    * 
    * @param request - ExportApplicationConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -751,7 +824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出应用服务配置
+   * Exports the configurations of a specified service in a cluster.
    * 
    * @param request - ExportApplicationConfigsRequest
    * @returns ExportApplicationConfigsResponse
@@ -811,7 +884,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of an application.
    * 
    * @remarks
-   * 查询应用详情。
+   * Queries the details of an application.
    * 
    * @param request - GetApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -853,7 +926,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of an application.
    * 
    * @remarks
-   * 查询应用详情。
+   * Queries the details of an application.
    * 
    * @param request - GetApplicationRequest
    * @returns GetApplicationResponse
@@ -864,7 +937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an auto scaling activity.
+   * Retrieves the details of an Auto Scaling activity.
    * 
    * @param request - GetAutoScalingActivityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -903,7 +976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an auto scaling activity.
+   * Retrieves the details of an Auto Scaling activity.
    * 
    * @param request - GetAutoScalingActivityRequest
    * @returns GetAutoScalingActivityResponse
@@ -914,7 +987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom auto scaling rules.
+   * Retrieves the details of a custom Auto Scaling policy.
    * 
    * @param request - GetAutoScalingPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -953,7 +1026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom auto scaling rules.
+   * Retrieves the details of a custom Auto Scaling policy.
    * 
    * @param request - GetAutoScalingPolicyRequest
    * @returns GetAutoScalingPolicyResponse
@@ -1010,7 +1083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+   * Retrieves the clone metadata of an E-MapReduce (EMR) cluster. You can use this metadata to quickly create a cluster by calling the CreateCluster operation.
    * 
    * @param request - GetClusterCloneMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1045,7 +1118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+   * Retrieves the clone metadata of an E-MapReduce (EMR) cluster. You can use this metadata to quickly create a cluster by calling the CreateCluster operation.
    * 
    * @param request - GetClusterCloneMetaRequest
    * @returns GetClusterCloneMetaResponse
@@ -1820,6 +1893,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a managed scaling policy.
+   * 
    * @param request - GetManagedScalingPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetManagedScalingPolicyResponse
@@ -1853,6 +1928,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a managed scaling policy.
+   * 
    * @param request - GetManagedScalingPolicyRequest
    * @returns GetManagedScalingPolicyResponse
    */
@@ -1862,10 +1939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to obtain the details of a node group.
+   * Queries the details of a node group.
    * 
    * @remarks
-   * 获取节点组详情。
+   * Queries the details of a node group.
    * 
    * @param request - GetNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1904,10 +1981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to obtain the details of a node group.
+   * Queries the details of a node group.
    * 
    * @remarks
-   * 获取节点组详情。
+   * Queries the details of a node group.
    * 
    * @param request - GetNodeGroupRequest
    * @returns GetNodeGroupResponse
@@ -1968,7 +2045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales out the node group.
+   * Scales out a target node group.
    * 
    * @param request - IncreaseNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2039,7 +2116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales out the node group.
+   * Scales out a target node group.
    * 
    * @param request - IncreaseNodesRequest
    * @returns IncreaseNodesResponse
@@ -2104,7 +2181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API模板
+   * Lists API templates.
    * 
    * @param request - ListApiTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2163,7 +2240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API模板
+   * Lists API templates.
    * 
    * @param request - ListApiTemplatesRequest
    * @returns ListApiTemplatesResponse
@@ -2177,7 +2254,7 @@ export default class Client extends OpenApi {
    * Queries the configurations of the application.
    * 
    * @remarks
-   * 查询应用配置。
+   * Queries application configurations.
    * 
    * @param request - ListApplicationConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2247,7 +2324,7 @@ export default class Client extends OpenApi {
    * Queries the configurations of the application.
    * 
    * @remarks
-   * 查询应用配置。
+   * Queries application configurations.
    * 
    * @param request - ListApplicationConfigsRequest
    * @returns ListApplicationConfigsResponse
@@ -2316,7 +2393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of auto scaling activities.
+   * Lists Auto Scaling activities.
    * 
    * @param request - ListAutoScalingActivitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2391,7 +2468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of auto scaling activities.
+   * Lists Auto Scaling activities.
    * 
    * @param request - ListAutoScalingActivitiesRequest
    * @returns ListAutoScalingActivitiesResponse
@@ -2402,7 +2479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries E-MapReduce (EMR) clusters.
+   * Lists EMR clusters.
    * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2469,7 +2546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries E-MapReduce (EMR) clusters.
+   * Lists EMR clusters.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -2940,8 +3017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves batch analysis results for specific directories using EMR Doctor. The directory depth cannot exceed five levels.
+   * 
    * @remarks
-   * list Doctor HDFSNodes
+   * Queries the analysis results for HDFS directories.
    * 
    * @param request - ListDoctorHDFSDirectoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3000,8 +3079,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves batch analysis results for specific directories using EMR Doctor. The directory depth cannot exceed five levels.
+   * 
    * @remarks
-   * list Doctor HDFSNodes
+   * Queries the analysis results for HDFS directories.
    * 
    * @param request - ListDoctorHDFSDirectoriesRequest
    * @returns ListDoctorHDFSDirectoriesResponse
@@ -3472,7 +3553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists instance types.
+   * Retrieves a list of EMR instance types.
    * 
    * @param request - ListInstanceTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3543,7 +3624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists instance types.
+   * Retrieves a list of EMR instance types.
    * 
    * @param request - ListInstanceTypesRequest
    * @returns ListInstanceTypesResponse
@@ -3554,7 +3635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of node groups in an EMR cluster.
+   * Queries the node groups in an EMR cluster.
    * 
    * @param request - ListNodeGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3617,7 +3698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of node groups in an EMR cluster.
+   * Queries the node groups in an EMR cluster.
    * 
    * @param request - ListNodeGroupsRequest
    * @returns ListNodeGroupsResponse
@@ -3713,7 +3794,7 @@ export default class Client extends OpenApi {
    * Queries the major E-MapReduce (EMR) versions.
    * 
    * @remarks
-   * 查询主版本。
+   * Queries release versions.
    * 
    * @param request - ListReleaseVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3755,7 +3836,7 @@ export default class Client extends OpenApi {
    * Queries the major E-MapReduce (EMR) versions.
    * 
    * @remarks
-   * 查询主版本。
+   * Queries release versions.
    * 
    * @param request - ListReleaseVersionsRequest
    * @returns ListReleaseVersionsResponse
@@ -3766,7 +3847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query EMR cluster bootstrap scripts or regular scripts.
+   * Queries the bootstrap or normal scripts of an EMR cluster.
    * 
    * @param request - ListScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3825,7 +3906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query EMR cluster bootstrap scripts or regular scripts.
+   * Queries the bootstrap or normal scripts of an EMR cluster.
    * 
    * @param request - ListScriptsRequest
    * @returns ListScriptsResponse
@@ -3836,7 +3917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are bound to an EMR cluster.
+   * Queries the tags attached to E-MapReduce (EMR) clusters.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3887,7 +3968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are bound to an EMR cluster.
+   * Queries the tags attached to E-MapReduce (EMR) clusters.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -3966,10 +4047,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a custom auto scaling rule.
+   * Creates a custom Auto Scaling policy.
    * 
    * @remarks
-   * You can call this operation to configure auto scaling policies.
+   * Configures an Auto Scaling policy.
    * 
    * @param request - PutAutoScalingPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4016,10 +4097,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a custom auto scaling rule.
+   * Creates a custom Auto Scaling policy.
    * 
    * @remarks
-   * You can call this operation to configure auto scaling policies.
+   * Configures an Auto Scaling policy.
    * 
    * @param request - PutAutoScalingPolicyRequest
    * @returns PutAutoScalingPolicyResponse
@@ -4126,6 +4207,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Runs an API template.
+   * 
    * @param request - RunApiTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunApiTemplateResponse
@@ -4167,6 +4250,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Runs an API template.
+   * 
    * @param request - RunApiTemplateRequest
    * @returns RunApiTemplateResponse
    */
@@ -4250,10 +4335,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+   * Creates a pay-as-you-go or subscription cluster.
    * 
    * @remarks
-   * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+   * RunCluster is an upgraded version of CreateCluster. It uses HTTPS POST requests and supports larger parameter values. For complex parameters, such as objects and arrays, RunCluster uses the JSON format. This improves compatibility with command-line interface (CLI) tools.
    * 
    * @param tmpReq - RunClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4392,10 +4477,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+   * Creates a pay-as-you-go or subscription cluster.
    * 
    * @remarks
-   * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+   * RunCluster is an upgraded version of CreateCluster. It uses HTTPS POST requests and supports larger parameter values. For complex parameters, such as objects and arrays, RunCluster uses the JSON format. This improves compatibility with command-line interface (CLI) tools.
    * 
    * @param request - RunClusterRequest
    * @returns RunClusterResponse
@@ -4521,7 +4606,7 @@ export default class Client extends OpenApi {
    * Updates an API operation template.
    * 
    * @remarks
-   * 修改集群模板
+   * Modifies a cluster template.
    * 
    * @param request - UpdateApiTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4575,7 +4660,7 @@ export default class Client extends OpenApi {
    * Updates an API operation template.
    * 
    * @remarks
-   * 修改集群模板
+   * Modifies a cluster template.
    * 
    * @param request - UpdateApiTemplateRequest
    * @returns UpdateApiTemplateResponse
@@ -4586,7 +4671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the application configurations.
+   * Updates the configurations of an application.
    * 
    * @param request - UpdateApplicationConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4660,7 +4745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the application configurations.
+   * Updates the configurations of an application.
    * 
    * @param request - UpdateApplicationConfigsRequest
    * @returns UpdateApplicationConfigsResponse
@@ -4729,6 +4814,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables or disables auto-renewal for an EMR cluster and its Elastic Compute Service (ECS) instances.
+   * 
+   * @remarks
+   * Before you call this operation, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.d54d281ftXTbvg#/emapreduce/detail/emrpre) of E-MapReduce. Note: Auto-renewal is different from manual renewal. If an instance has expired or will expire the next day, you must perform a manual renewal first.
+   * 
    * @param request - UpdateClusterAutoRenewRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateClusterAutoRenewResponse
@@ -4782,12 +4872,141 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables or disables auto-renewal for an EMR cluster and its Elastic Compute Service (ECS) instances.
+   * 
+   * @remarks
+   * Before you call this operation, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.d54d281ftXTbvg#/emapreduce/detail/emrpre) of E-MapReduce. Note: Auto-renewal is different from manual renewal. If an instance has expired or will expire the next day, you must perform a manual renewal first.
+   * 
    * @param request - UpdateClusterAutoRenewRequest
    * @returns UpdateClusterAutoRenewResponse
    */
   async updateClusterAutoRenew(request: $_model.UpdateClusterAutoRenewRequest): Promise<$_model.UpdateClusterAutoRenewResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateClusterAutoRenewWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the attributes of a node group.
+   * 
+   * @remarks
+   * 更新节点组基本属性。
+   * 
+   * @param request - UpdateNodeGroupAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNodeGroupAttributesResponse
+   */
+  async updateNodeGroupAttributesWithOptions(request: $_model.UpdateNodeGroupAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNodeGroupAttributesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ackConfig)) {
+      query["AckConfig"] = request.ackConfig;
+    }
+
+    if (!$dara.isNull(request.additionalSecurityGroupIds)) {
+      query["AdditionalSecurityGroupIds"] = request.additionalSecurityGroupIds;
+    }
+
+    if (!$dara.isNull(request.autoCompensateState)) {
+      query["AutoCompensateState"] = request.autoCompensateState;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.costOptimizedConfig)) {
+      query["CostOptimizedConfig"] = request.costOptimizedConfig;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.ecsSpotStrategy)) {
+      query["EcsSpotStrategy"] = request.ecsSpotStrategy;
+    }
+
+    if (!$dara.isNull(request.enableGracefulDecommission)) {
+      query["EnableGracefulDecommission"] = request.enableGracefulDecommission;
+    }
+
+    if (!$dara.isNull(request.instanceTypeList)) {
+      query["InstanceTypeList"] = request.instanceTypeList;
+    }
+
+    if (!$dara.isNull(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!$dara.isNull(request.maxSize)) {
+      query["MaxSize"] = request.maxSize;
+    }
+
+    if (!$dara.isNull(request.minSize)) {
+      query["MinSize"] = request.minSize;
+    }
+
+    if (!$dara.isNull(request.nodeCount)) {
+      query["NodeCount"] = request.nodeCount;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      query["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupName)) {
+      query["NodeGroupName"] = request.nodeGroupName;
+    }
+
+    if (!$dara.isNull(request.nodeResizeStrategy)) {
+      query["NodeResizeStrategy"] = request.nodeResizeStrategy;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.spotBidPrices)) {
+      query["SpotBidPrices"] = request.spotBidPrices;
+    }
+
+    if (!$dara.isNull(request.spotInstanceRemedy)) {
+      query["SpotInstanceRemedy"] = request.spotInstanceRemedy;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNodeGroupAttributes",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNodeGroupAttributesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNodeGroupAttributesResponse({}));
+  }
+
+  /**
+   * Updates the attributes of a node group.
+   * 
+   * @remarks
+   * 更新节点组基本属性。
+   * 
+   * @param request - UpdateNodeGroupAttributesRequest
+   * @returns UpdateNodeGroupAttributesResponse
+   */
+  async updateNodeGroupAttributes(request: $_model.UpdateNodeGroupAttributesRequest): Promise<$_model.UpdateNodeGroupAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNodeGroupAttributesWithOptions(request, runtime);
   }
 
   /**

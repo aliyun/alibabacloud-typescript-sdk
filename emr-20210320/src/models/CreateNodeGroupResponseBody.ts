@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the machine group.
+   * The node group ID.
    * 
    * @example
    * G-21E39B11837E****

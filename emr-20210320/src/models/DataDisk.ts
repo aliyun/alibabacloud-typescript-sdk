@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DataDisk extends $dara.Model {
   /**
    * @remarks
-   * 磁盘类型。
+   * The disk type. Valid values:
+   * 
+   * - `cloud_efficiency`: Ultra Disk.
+   * 
+   * - `cloud_ssd`: Standard SSD.
+   * 
+   * - `cloud_essd`: ESSD.
+   * 
+   * - `cloud`: Basic Disk.
    * 
    * This parameter is required.
    * 
@@ -15,7 +23,7 @@ export class DataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * 每个节点磁盘数量。
+   * The number of data disks.
    * 
    * @example
    * 5
@@ -23,13 +31,17 @@ export class DataDisk extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * 创建ESSD云盘作为数据盘使用时，设置云盘的性能等级。取值范围：
-   * - PL0：单盘最高随机读写IOPS 1万。
-   * - PL1（默认）：单盘最高随机读写IOPS 5万。
-   * - PL2：单盘最高随机读写IOPS 10万。
-   * - PL3：单盘最高随机读写IOPS 100万。
+   * The performance level of an ESSD. This parameter applies only when the `Category` parameter is set to `cloud_essd`. Valid values:
    * 
-   * 默认值：PL1。
+   * - PL0: A maximum of 10,000 random read/write IOPS per disk.
+   * 
+   * - PL1: A maximum of 50,000 random read/write IOPS per disk.
+   * 
+   * - PL2: A maximum of 100,000 random read/write IOPS per disk.
+   * 
+   * - PL3: A maximum of 1,000,000 random read/write IOPS per disk.
+   * 
+   * Default value: PL1.
    * 
    * @example
    * PL1
@@ -37,7 +49,7 @@ export class DataDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * 单位GB。
+   * The size of each data disk, in GB.
    * 
    * This parameter is required.
    * 

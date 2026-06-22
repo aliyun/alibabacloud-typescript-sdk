@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunApiTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * 接口名。
+   * The API name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RunApiTemplateRequest extends $dara.Model {
   apiName?: string;
   /**
    * @remarks
-   * 幂等客户端TOKEN。
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * A7D960FA-6DBA-5E07-8746-A63E3E4D****
@@ -23,7 +23,7 @@ export class RunApiTemplateRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 地域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RunApiTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 集群模板id。
+   * The cluster template ID.
    * 
    * This parameter is required.
    * 

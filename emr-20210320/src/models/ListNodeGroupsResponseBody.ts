@@ -6,7 +6,7 @@ import { NodeGroup } from "./NodeGroup";
 export class ListNodeGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries returned for the request.
    * 
    * @example
    * 20
@@ -14,7 +14,7 @@ export class ListNodeGroupsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Returns the location of the data that was read. Empty indicates that the data has been read.
+   * The token to retrieve the next page of results. An empty value indicates that all results have been returned.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -22,12 +22,12 @@ export class ListNodeGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The array of node groups.
+   * An array of node groups.
    */
   nodeGroups?: NodeGroup[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -35,7 +35,7 @@ export class ListNodeGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query conditions.
    * 
    * @example
    * 200

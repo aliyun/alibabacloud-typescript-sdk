@@ -6,7 +6,7 @@ import { NodeSelector } from "./NodeSelector";
 export class ListScriptsResponseBodyScripts extends $dara.Model {
   /**
    * @remarks
-   * API name.
+   * The name of the API.
    * 
    * @example
    * ListScripts
@@ -14,7 +14,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * End execution time. This value is returned only when `ScriptType` is `NORMAL`.
+   * The time when the execution ended. This parameter is returned only when ScriptType is set to NORMAL.
    * 
    * @example
    * 1639715635819
@@ -22,10 +22,11 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Execution failure strategy. Possible values:
+   * The policy used to handle an execution failure. Valid values:
    * 
-   * - FAILED_CONTINUE: Continue after failure.
-   * - FAILED_BLOCK: Block after failure.
+   * - FAILED_CONTINUE: Continue the execution.
+   * 
+   * - FAILED_BLOCK: Block the execution.
    * 
    * @example
    * FAILED_CONTINUE
@@ -33,10 +34,11 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   executionFailStrategy?: string;
   /**
    * @remarks
-   * Execution timing. Possible values:
+   * The time to execute the script. Valid values:
    * 
-   * - BEFORE_INSTALL: Before application installation.
-   * - AFTER_STARTED: After application startup.
+   * - BEFORE_INSTALL: before application installation.
+   * 
+   * - AFTER_STARTED: after application startup.
    * 
    * @example
    * BEFORE_INSTALL
@@ -44,11 +46,13 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   executionMoment?: string;
   /**
    * @remarks
-   * Script execution state. This value is returned only when `ScriptType` is `NORMAL`. Possible values:
+   * The execution status of the script. This parameter is returned only when `ScriptType` is set to `NORMAL`. Valid values:
    * 
-   * - SCRIPT_COMPLETED: Script executed successfully.
-   * - SCRIPT_SUBMISSION_FAILED: Script execution failed.
-   * - SCRIPT_RUNNING: Script is running.
+   * - SCRIPT_COMPLETED: The script is successfully executed.
+   * 
+   * - SCRIPT_SUBMISSION_FAILED: The script fails to be executed.
+   * 
+   * - SCRIPT_RUNNING: The script is being executed.
    * 
    * @example
    * SCRIPT_COMPLETED
@@ -56,7 +60,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   executionState?: string;
   /**
    * @remarks
-   * Time of the last update.
+   * The time when the script was last updated.
    * 
    * @example
    * 1639714634819
@@ -69,7 +73,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   nodeSelector?: NodeSelector;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -77,7 +81,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Script execution parameters.
+   * The runtime parameters of the script.
    * 
    * @example
    * --mode=client -h -p
@@ -85,7 +89,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   scriptArgs?: string;
   /**
    * @remarks
-   * Script ID.
+   * The script ID.
    * 
    * @example
    * cs-bf25219d103043a0820613e32781****
@@ -93,7 +97,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * Script name.
+   * The script name.
    * 
    * @example
    * check_env
@@ -101,7 +105,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   scriptName?: string;
   /**
    * @remarks
-   * Script path.
+   * The script path.
    * 
    * @example
    * oss://bucket1/check_evn.sh
@@ -109,7 +113,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   scriptPath?: string;
   /**
    * @remarks
-   * Start execution time. This value is returned only when `ScriptType` is `NORMAL`.
+   * The time when the execution started. This parameter is returned only when ScriptType is set to NORMAL.
    * 
    * @example
    * 1639714634000
@@ -166,7 +170,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
 export class ListScriptsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of entries returned in the request.
    * 
    * @example
    * 10
@@ -174,7 +178,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position of the data read.
+   * The token that is used to start the next query.
    * 
    * @example
    * dd6b1b2a-5837-5237-abe4-ff0c89568982
@@ -182,7 +186,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -190,12 +194,12 @@ export class ListScriptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scripts.
+   * The list of scripts.
    */
   scripts?: ListScriptsResponseBodyScripts[];
   /**
    * @remarks
-   * The total amount of data under the conditions of this request.
+   * The total number of entries that meet the request conditions.
    * 
    * @example
    * 200

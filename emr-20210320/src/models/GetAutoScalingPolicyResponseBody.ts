@@ -8,7 +8,8 @@ import { TimeTrigger } from "./TimeTrigger";
 export class GetAutoScalingPolicyResponseBodyScalingPolicyConstraints extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of nodes in the node group. Default value: 2000.
+   * The maximum number of nodes in the node group.
+   * Default value: 2000.
    * 
    * @example
    * 2000
@@ -16,7 +17,8 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyConstraints extends $d
   maxCapacity?: number;
   /**
    * @remarks
-   * The minimum number of nodes in the node group. Default value: 0.
+   * The minimum number of nodes in the node group.
+   * Default value: 0.
    * 
    * @example
    * 0
@@ -48,10 +50,11 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyConstraints extends $d
 export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $dara.Model {
   /**
    * @remarks
-   * The scaling type. Valid values:
+   * The type of the scaling activity. Valid values:
    * 
-   * *   SCALE_OUT
-   * *   SCALE_IN
+   * - SCALE_OUT: scale-out.
+   * 
+   * - SCALE_IN: scale-in.
    * 
    * @example
    * SCALE_OUT
@@ -67,7 +70,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
   adjustmentType?: string;
   /**
    * @remarks
-   * The adjustment value. The parameter value must be a positive integer, which indicates the number of instances that you want to add or remove.
+   * The adjustment value. The value must be a positive integer. It specifies the number of instances to add or remove.
    * 
    * @example
    * 100
@@ -76,12 +79,12 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
   collationTimeZone?: CollationTimeZone;
   /**
    * @remarks
-   * The description of load-based scaling.
+   * The description of the metric-based scaling rule.
    */
   metricsTrigger?: MetricsTrigger;
   /**
    * @remarks
-   * The name of the auto scaling rule.
+   * The name of the scaling rule.
    * 
    * @example
    * scaling-out-memory
@@ -89,15 +92,16 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
   ruleName?: string;
   /**
    * @remarks
-   * The description of time-based scaling.
+   * The description of the time-based scaling rule.
    */
   timeTrigger?: TimeTrigger;
   /**
    * @remarks
-   * The type of the auto scaling rule. Valid values:
+   * The type of the scaling rule. Valid values:
    * 
-   * *   TIME_TRIGGER: time-based scaling
-   * *   METRICS_TRIGGER: load-based scaling
+   * - TIME_TRIGGER: a time-based scaling rule.
+   * 
+   * - METRICS_TRIGGER: a metric-based scaling rule.
    * 
    * @example
    * TIME_TRIGGER
@@ -158,12 +162,12 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicy extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The maximum and minimum number of nodes in the node group.
+   * The constraints on the minimum and maximum number of nodes in the node group.
    */
   constraints?: GetAutoScalingPolicyResponseBodyScalingPolicyConstraints;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * @example
    * ng-869471354ecd****
@@ -171,7 +175,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicy extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The ID of the scaling policy.
+   * The scaling policy ID.
    * 
    * @example
    * asp-asduwe23znl***
@@ -179,7 +183,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicy extends $dara.Model {
   scalingPolicyId?: string;
   /**
    * @remarks
-   * The auto scaling rules.
+   * The list of scaling rules.
    */
   scalingRules?: GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules[];
   static names(): { [key: string]: string } {
@@ -228,7 +232,7 @@ export class GetAutoScalingPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The auto scaling policy.
+   * The Auto Scaling policy.
    */
   scalingPolicy?: GetAutoScalingPolicyResponseBodyScalingPolicy;
   static names(): { [key: string]: string } {

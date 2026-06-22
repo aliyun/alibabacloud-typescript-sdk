@@ -15,7 +15,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of maximum number of records to obtain at a time. Valid values: 1 to 100.
+   * The maximum number of records to return in a single request. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Marks the current position where reading starts. If you set this value to null, you can start from the beginning.
+   * The token that marks the start of the query. Leave this parameter empty to start from the beginning.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -31,7 +31,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The IDs of node groups. Valid values of the number of array elements N: 1 to 100.
+   * A list of node group IDs. The number of array elements N can range from 1 to 100.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -39,7 +39,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   nodeGroupIds?: string[];
   /**
    * @remarks
-   * The list of node group names. Valid values of the number of array elements N: 1 to 100.
+   * A list of node group names. The number of array elements N can range from 1 to 100.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -47,7 +47,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   nodeGroupNames?: string[];
   /**
    * @remarks
-   * The status of the node group. Valid values of the number of array elements N: 1 to 100.
+   * The state of the node group. The number of array elements N can range from 1 to 100.
    * 
    * @example
    * ["CORE"]
@@ -55,7 +55,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   nodeGroupStates?: string[];
   /**
    * @remarks
-   * The list of node group types. Valid values of the number of array elements N: 1 to 100.
+   * A list of node group types. The number of array elements N can range from 1 to 100.
    * 
    * @example
    * 20
@@ -63,7 +63,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   nodeGroupTypes?: string[];
   /**
    * @remarks
-   * The ID of the region in which you want to create the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 

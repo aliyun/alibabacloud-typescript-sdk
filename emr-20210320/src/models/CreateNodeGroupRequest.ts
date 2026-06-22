@@ -16,7 +16,7 @@ export class CreateNodeGroupRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The information about the node group.
+   * The information about the machine group.
    */
   nodeGroup?: NodeGroupConfig;
   /**

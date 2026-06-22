@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class InstanceType extends $dara.Model {
   /**
    * @remarks
-   * cpu架构。
+   * The CPU architecture. Valid values:
+   * 
+   * - `X86`: X86 architecture.
+   * 
+   * - `ARM`: ARM architecture.
    * 
    * @example
    * X86
@@ -13,7 +17,7 @@ export class InstanceType extends $dara.Model {
   cpuArchitecture?: string;
   /**
    * @remarks
-   * vCPU内核数目。
+   * The number of vCPUs.
    * 
    * @example
    * 4
@@ -21,22 +25,37 @@ export class InstanceType extends $dara.Model {
   cpuCore?: number;
   /**
    * @remarks
-   * 实例规格分类。取值范围：
-   * - General-purpose： 通用型。
-   * - Compute-optimized：计算型。
-   * - Memory-optimized：内存型。
-   * - Big data：大数据型。
-   * - Local SSDs ：本地SSD型。
-   * - High Clock Speed ：高主频型。
-   * - Enhanced ：增强型。
-   * - Shared：共享型。
-   * - Compute-optimized with GPU ：GPU计算型。
-   * - Visual Compute-optimized ：视觉计算型。
-   * - Heterogeneous Service ：异构服务型。
-   * - Compute-optimized with FPGA ：FPGA计算型。
-   * - Compute-optimized with NPU ：NPU计算型。
-   * - ECS Bare Metal ：弹性裸金属服务器。
-   * - Super Computing Cluster：超级计算集群。
+   * The instance category. Valid values:
+   * 
+   * - `General-purpose`: A general-purpose instance type.
+   * 
+   * - `Compute-optimized`: A compute-optimized instance type.
+   * 
+   * - `Memory-optimized`: A memory-optimized instance type.
+   * 
+   * - `Big data`: A big data instance type.
+   * 
+   * - `Local SSDs`: A local SSD instance type.
+   * 
+   * - `High Clock Speed`: A high clock speed instance type.
+   * 
+   * - `Enhanced`: An enhanced instance type.
+   * 
+   * - `Shared`: A shared instance type.
+   * 
+   * - `Compute-optimized with GPU`: A compute-optimized instance type with GPUs.
+   * 
+   * - `Visual Compute-optimized`: A visual compute-optimized instance type.
+   * 
+   * - `Heterogeneous Service`: A heterogeneous service instance type.
+   * 
+   * - `Compute-optimized with FPGA`: A compute-optimized instance type with FPGAs.
+   * 
+   * - `Compute-optimized with NPU`: A compute-optimized instance type with NPUs.
+   * 
+   * - `ECS Bare Metal`: An ECS Bare Metal instance.
+   * 
+   * - `Super Computing Cluster`: A supercomputing cluster instance type.
    * 
    * @example
    * Compute-optimized
@@ -44,7 +63,7 @@ export class InstanceType extends $dara.Model {
   instanceCategory?: string;
   /**
    * @remarks
-   * 实例规格。
+   * The ECS instance type. For more information, see [Instance type families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * ecs.g6.large
@@ -52,7 +71,7 @@ export class InstanceType extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * 实例规格所属的实例规格族。取值请参见DescribeInstanceTypeFamilies。
+   * The instance type family. For valid values, see the ECS documentation for [DescribeInstanceTypeFamilies](https://help.aliyun.com/document_detail/25621.html).
    * 
    * @example
    * ecs.g6
@@ -60,7 +79,7 @@ export class InstanceType extends $dara.Model {
   instanceTypeFamily?: string;
   /**
    * @remarks
-   * 实例挂载的本地盘的数量。
+   * The number of local disks attached to the instance.
    * 
    * @example
    * 8
@@ -68,7 +87,7 @@ export class InstanceType extends $dara.Model {
   localStorageAmount?: number;
   /**
    * @remarks
-   * 实例挂载的本地盘的单盘容量。单位：GiB
+   * The capacity of each local disk attached to the instance, in GiB.
    * 
    * @example
    * 40
@@ -77,7 +96,11 @@ export class InstanceType extends $dara.Model {
   modifyType?: string;
   /**
    * @remarks
-   * 是否IO优化类型。
+   * Specifies whether the instance type is I/O optimized. Valid values:
+   * 
+   * - `true`: The instance type is I/O optimized.
+   * 
+   * - `false`: The instance type is not I/O optimized.
    * 
    * @example
    * true

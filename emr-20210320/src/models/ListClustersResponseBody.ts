@@ -6,12 +6,12 @@ import { ClusterSummary } from "./ClusterSummary";
 export class ListClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The clusters.
+   * The list of clusters.
    */
   clusters?: ClusterSummary[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 20
@@ -19,7 +19,7 @@ export class ListClustersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The page number of the next page returned.
+   * The token for the next page of results.
    * 
    * @example
    * eyJlY21OZXh0VG9rZW4iOiIxIiwidGFpaGFvTmV4dFRva2VuIjoiNTYiLCJ0YWloYW9OZXh0VG9rZW5JbnQiOjU2LCJlY21OZXh0VG9rZW5JbnQiOjF9
@@ -27,7 +27,7 @@ export class ListClustersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9E3A7161-EB7B-172B-8D18-FFB06BA3896A
@@ -35,7 +35,7 @@ export class ListClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of pages.
+   * The total number of entries.
    * 
    * @example
    * 1000
