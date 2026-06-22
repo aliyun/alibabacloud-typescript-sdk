@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchContextResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
+   */
   requestId?: string;
   results?: { [key: string]: any }[];
   static names(): { [key: string]: string } {

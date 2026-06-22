@@ -2,21 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ValidateMem0APIKeyRequest extends $dara.Model {
+export class AddDatasetDataResponseBody extends $dara.Model {
   /**
    * @example
-   * my-agent-space
+   * 100
    */
-  agentSpace?: string;
+  affectedRows?: number;
+  /**
+   * @example
+   * D0173835-9E0F-508F-8BFA-9F556E59C302
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      agentSpace: 'agentSpace',
+      affectedRows: 'affectedRows',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agentSpace: 'string',
+      affectedRows: 'number',
+      requestId: 'string',
     };
   }
 

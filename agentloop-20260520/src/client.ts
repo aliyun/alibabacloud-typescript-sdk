@@ -11,7 +11,14 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-zhangjiakou': "agentloop.cn-zhangjiakou.aliyuncs.com",
+      'cn-shanghai': "agentloop.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "agentloop.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou': "agentloop.cn-hangzhou.aliyuncs.com",
+      'cn-beijing': "agentloop.cn-beijing.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("agentloop", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,23 +37,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给记忆库中增加数据
+   * 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
    * 
-   * @param request - AddMem0MemoriesRequest
+   * @param request - AddDatasetDataRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns AddMem0MemoriesResponse
+   * @returns AddDatasetDataResponse
    */
-  async addMem0MemoriesWithOptions(request: $_model.AddMem0MemoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddMem0MemoriesResponse> {
+  async addDatasetDataWithOptions(agentSpace: string, datasetName: string, request: $_model.AddDatasetDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddDatasetDataResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.agentSpace)) {
-      query["agentSpace"] = request.agentSpace;
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.body)) {
-      body["body"] = request.body;
+    if (!$dara.isNull(request.dataArray)) {
+      body["dataArray"] = request.dataArray;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -55,29 +62,29 @@ export default class Client extends OpenApi {
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
-      action: "AddMem0Memories",
+      action: "AddDatasetData",
       version: "2026-05-20",
       protocol: "HTTPS",
-      pathname: `/v1/memories`,
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/dataset/${$dara.URL.percentEncode(datasetName)}/rows`,
       method: "POST",
-      authType: "Anonymous",
+      authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<$_model.AddMem0MemoriesResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.AddMem0MemoriesResponse({}));
+    return $dara.cast<$_model.AddDatasetDataResponse>(await this.callApi(params, req, runtime), new $_model.AddDatasetDataResponse({}));
   }
 
   /**
-   * 给记忆库中增加数据
+   * 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
    * 
-   * @param request - AddMem0MemoriesRequest
-   * @returns AddMem0MemoriesResponse
+   * @param request - AddDatasetDataRequest
+   * @returns AddDatasetDataResponse
    */
-  async addMem0Memories(request: $_model.AddMem0MemoriesRequest): Promise<$_model.AddMem0MemoriesResponse> {
+  async addDatasetData(agentSpace: string, datasetName: string, request: $_model.AddDatasetDataRequest): Promise<$_model.AddDatasetDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addMem0MemoriesWithOptions(request, headers, runtime);
+    return await this.addDatasetDataWithOptions(agentSpace, datasetName, request, headers, runtime);
   }
 
   /**
@@ -483,146 +490,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除记忆
-   * 
-   * @param tmpReq - DeleteMem0MemoriesRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteMem0MemoriesResponse
-   */
-  async deleteMem0MemoriesWithOptions(tmpReq: $_model.DeleteMem0MemoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMem0MemoriesResponse> {
-    tmpReq.validate();
-    let request = new $_model.DeleteMem0MemoriesShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.metadata)) {
-      request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "metadata", "json");
-    }
-
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.agentSpace)) {
-      query["agentSpace"] = request.agentSpace;
-    }
-
-    if (!$dara.isNull(request.agentId)) {
-      query["agent_id"] = request.agentId;
-    }
-
-    if (!$dara.isNull(request.appId)) {
-      query["app_id"] = request.appId;
-    }
-
-    if (!$dara.isNull(request.contextStoreId)) {
-      query["context_store_id"] = request.contextStoreId;
-    }
-
-    if (!$dara.isNull(request.metadataShrink)) {
-      query["metadata"] = request.metadataShrink;
-    }
-
-    if (!$dara.isNull(request.orgId)) {
-      query["org_id"] = request.orgId;
-    }
-
-    if (!$dara.isNull(request.projectId)) {
-      query["project_id"] = request.projectId;
-    }
-
-    if (!$dara.isNull(request.runId)) {
-      query["run_id"] = request.runId;
-    }
-
-    if (!$dara.isNull(request.userId)) {
-      query["user_id"] = request.userId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DeleteMem0Memories",
-      version: "2026-05-20",
-      protocol: "HTTPS",
-      pathname: `/v1/memories`,
-      method: "DELETE",
-      authType: "Anonymous",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DeleteMem0MemoriesResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.DeleteMem0MemoriesResponse({}));
-  }
-
-  /**
-   * 批量删除记忆
-   * 
-   * @param request - DeleteMem0MemoriesRequest
-   * @returns DeleteMem0MemoriesResponse
-   */
-  async deleteMem0Memories(request: $_model.DeleteMem0MemoriesRequest): Promise<$_model.DeleteMem0MemoriesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteMem0MemoriesWithOptions(request, headers, runtime);
-  }
-
-  /**
-   * 删除记忆
-   * 
-   * @param request - DeleteMem0MemoryRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteMem0MemoryResponse
-   */
-  async deleteMem0MemoryWithOptions(memoryId: string, request: $_model.DeleteMem0MemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMem0MemoryResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.agentSpace)) {
-      query["agentSpace"] = request.agentSpace;
-    }
-
-    if (!$dara.isNull(request.contextStoreId)) {
-      query["context_store_id"] = request.contextStoreId;
-    }
-
-    if (!$dara.isNull(request.orgId)) {
-      query["org_id"] = request.orgId;
-    }
-
-    if (!$dara.isNull(request.projectId)) {
-      query["project_id"] = request.projectId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DeleteMem0Memory",
-      version: "2026-05-20",
-      protocol: "HTTPS",
-      pathname: `/v1/memories/${$dara.URL.percentEncode(memoryId)}`,
-      method: "DELETE",
-      authType: "Anonymous",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DeleteMem0MemoryResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.DeleteMem0MemoryResponse({}));
-  }
-
-  /**
-   * 删除记忆
-   * 
-   * @param request - DeleteMem0MemoryRequest
-   * @returns DeleteMem0MemoryResponse
-   */
-  async deleteMem0Memory(memoryId: string, request: $_model.DeleteMem0MemoryRequest): Promise<$_model.DeleteMem0MemoryResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteMem0MemoryWithOptions(memoryId, request, headers, runtime);
-  }
-
-  /**
    * 删除流水线
    * 
    * @param request - DeletePipelineRequest
@@ -917,130 +784,6 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDatasetWithOptions(agentSpace, datasetName, request, headers, runtime);
-  }
-
-  /**
-   * 查询记忆库数据
-   * 
-   * @param request - GetMem0MemoriesRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetMem0MemoriesResponse
-   */
-  async getMem0MemoriesWithOptions(request: $_model.GetMem0MemoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMem0MemoriesResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.agentSpace)) {
-      query["agentSpace"] = request.agentSpace;
-    }
-
-    if (!$dara.isNull(request.contextStoreId)) {
-      query["context_store_id"] = request.contextStoreId;
-    }
-
-    if (!$dara.isNull(request.enableGraph)) {
-      query["enable_graph"] = request.enableGraph;
-    }
-
-    if (!$dara.isNull(request.orgId)) {
-      query["org_id"] = request.orgId;
-    }
-
-    if (!$dara.isNull(request.projectId)) {
-      query["project_id"] = request.projectId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.body)) {
-      body["body"] = request.body;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetMem0Memories",
-      version: "2026-05-20",
-      protocol: "HTTPS",
-      pathname: `/v2/memories`,
-      method: "POST",
-      authType: "Anonymous",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "array",
-    });
-    return $dara.cast<$_model.GetMem0MemoriesResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.GetMem0MemoriesResponse({}));
-  }
-
-  /**
-   * 查询记忆库数据
-   * 
-   * @param request - GetMem0MemoriesRequest
-   * @returns GetMem0MemoriesResponse
-   */
-  async getMem0Memories(request: $_model.GetMem0MemoriesRequest): Promise<$_model.GetMem0MemoriesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getMem0MemoriesWithOptions(request, headers, runtime);
-  }
-
-  /**
-   * 查询记忆
-   * 
-   * @param request - GetMem0MemoryRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetMem0MemoryResponse
-   */
-  async getMem0MemoryWithOptions(memoryId: string, request: $_model.GetMem0MemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMem0MemoryResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.agentSpace)) {
-      query["agentSpace"] = request.agentSpace;
-    }
-
-    if (!$dara.isNull(request.contextStoreId)) {
-      query["context_store_id"] = request.contextStoreId;
-    }
-
-    if (!$dara.isNull(request.orgId)) {
-      query["org_id"] = request.orgId;
-    }
-
-    if (!$dara.isNull(request.projectId)) {
-      query["project_id"] = request.projectId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetMem0Memory",
-      version: "2026-05-20",
-      protocol: "HTTPS",
-      pathname: `/v1/memories/${$dara.URL.percentEncode(memoryId)}`,
-      method: "GET",
-      authType: "Anonymous",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GetMem0MemoryResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.GetMem0MemoryResponse({}));
-  }
-
-  /**
-   * 查询记忆
-   * 
-   * @param request - GetMem0MemoryRequest
-   * @returns GetMem0MemoryResponse
-   */
-  async getMem0Memory(memoryId: string, request: $_model.GetMem0MemoryRequest): Promise<$_model.GetMem0MemoryResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getMem0MemoryWithOptions(memoryId, request, headers, runtime);
   }
 
   /**
@@ -1413,73 +1156,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询记忆库内容
-   * 
-   * @param request - SearchMem0MemoriesRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns SearchMem0MemoriesResponse
-   */
-  async searchMem0MemoriesWithOptions(request: $_model.SearchMem0MemoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMem0MemoriesResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.agentSpace)) {
-      query["agentSpace"] = request.agentSpace;
-    }
-
-    if (!$dara.isNull(request.contextStoreId)) {
-      query["context_store_id"] = request.contextStoreId;
-    }
-
-    if (!$dara.isNull(request.enableGraph)) {
-      query["enable_graph"] = request.enableGraph;
-    }
-
-    if (!$dara.isNull(request.orgId)) {
-      query["org_id"] = request.orgId;
-    }
-
-    if (!$dara.isNull(request.projectId)) {
-      query["project_id"] = request.projectId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.body)) {
-      body["body"] = request.body;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "SearchMem0Memories",
-      version: "2026-05-20",
-      protocol: "HTTPS",
-      pathname: `/v2/memories/search`,
-      method: "POST",
-      authType: "Anonymous",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "array",
-    });
-    return $dara.cast<$_model.SearchMem0MemoriesResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.SearchMem0MemoriesResponse({}));
-  }
-
-  /**
-   * 查询记忆库内容
-   * 
-   * @param request - SearchMem0MemoriesRequest
-   * @returns SearchMem0MemoriesResponse
-   */
-  async searchMem0Memories(request: $_model.SearchMem0MemoriesRequest): Promise<$_model.SearchMem0MemoriesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.searchMem0MemoriesWithOptions(request, headers, runtime);
-  }
-
-  /**
    * 更新AgentSpace
    * 
    * @param request - UpdateAgentSpaceRequest
@@ -1649,69 +1325,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改记忆
-   * 
-   * @param request - UpdateMem0MemoryRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateMem0MemoryResponse
-   */
-  async updateMem0MemoryWithOptions(memoryId: string, request: $_model.UpdateMem0MemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMem0MemoryResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.agentSpace)) {
-      query["agentSpace"] = request.agentSpace;
-    }
-
-    if (!$dara.isNull(request.contextStoreId)) {
-      query["context_store_id"] = request.contextStoreId;
-    }
-
-    if (!$dara.isNull(request.orgId)) {
-      query["org_id"] = request.orgId;
-    }
-
-    if (!$dara.isNull(request.projectId)) {
-      query["project_id"] = request.projectId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.body)) {
-      body["body"] = request.body;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "UpdateMem0Memory",
-      version: "2026-05-20",
-      protocol: "HTTPS",
-      pathname: `/v1/memories/${$dara.URL.percentEncode(memoryId)}`,
-      method: "PUT",
-      authType: "Anonymous",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.UpdateMem0MemoryResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.UpdateMem0MemoryResponse({}));
-  }
-
-  /**
-   * 修改记忆
-   * 
-   * @param request - UpdateMem0MemoryRequest
-   * @returns UpdateMem0MemoryResponse
-   */
-  async updateMem0Memory(memoryId: string, request: $_model.UpdateMem0MemoryRequest): Promise<$_model.UpdateMem0MemoryResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateMem0MemoryWithOptions(memoryId, request, headers, runtime);
-  }
-
-  /**
    * 更新流水线
    * 
    * @param request - UpdatePipelineRequest
@@ -1776,51 +1389,6 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePipelineWithOptions(agentSpace, pipelineName, request, headers, runtime);
-  }
-
-  /**
-   * 校验 Mem0 / ContextStore API Key
-   * 
-   * @param request - ValidateMem0APIKeyRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ValidateMem0APIKeyResponse
-   */
-  async validateMem0APIKeyWithOptions(request: $_model.ValidateMem0APIKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateMem0APIKeyResponse> {
-    request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.agentSpace)) {
-      query["agentSpace"] = request.agentSpace;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ValidateMem0APIKey",
-      version: "2026-05-20",
-      protocol: "HTTPS",
-      pathname: `/v1/ping`,
-      method: "GET",
-      authType: "Anonymous",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ValidateMem0APIKeyResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ValidateMem0APIKeyResponse({}));
-  }
-
-  /**
-   * 校验 Mem0 / ContextStore API Key
-   * 
-   * @param request - ValidateMem0APIKeyRequest
-   * @returns ValidateMem0APIKeyResponse
-   */
-  async validateMem0APIKey(request: $_model.ValidateMem0APIKeyRequest): Promise<$_model.ValidateMem0APIKeyResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.validateMem0APIKeyWithOptions(request, headers, runtime);
   }
 
 }

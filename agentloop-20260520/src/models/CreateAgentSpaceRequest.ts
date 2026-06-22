@@ -6,9 +6,20 @@ export class CreateAgentSpaceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * test-agent-space
    */
   agentSpace?: string;
+  /**
+   * @example
+   * test-cms-workspace
+   */
   cmsWorkspace?: string;
+  /**
+   * @example
+   * test
+   */
   description?: string;
   /**
    * @example

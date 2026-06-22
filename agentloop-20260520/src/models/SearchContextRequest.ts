@@ -3,15 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchContextRequest extends $dara.Model {
+  /**
+   * @example
+   * {"userId":"alice"}
+   */
   filter?: { [key: string]: any };
+  /**
+   * @example
+   * true
+   */
   formatted?: boolean;
+  /**
+   * @example
+   * 10
+   */
   limit?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 用户最近的偏好设置
    */
   query?: string;
+  /**
+   * @example
+   * semantic
+   */
   retrievalOption?: string;
+  /**
+   * @example
+   * 0.5
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
