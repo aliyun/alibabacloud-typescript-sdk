@@ -7,7 +7,7 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
    * @remarks
    * The ID of the check item.
    * 
-   * >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of check items.
+   * > Call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.
    * 
    * @example
    * 16
@@ -15,10 +15,9 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -26,10 +25,10 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The reason why the check item is added to the whitelist.
+   * The reason for adding the whitelist entry.
    * 
    * @example
-   * AutoRun
+   * Manually processed.
    */
   reason?: string;
   /**
@@ -42,15 +41,14 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * A list of asset UUIDs from which container names need to be removed from the whitelist.
+   * The list of asset UUIDs for which container names are to be removed from the whitelist.
    */
   removeContainerUuids?: string[];
   /**
    * @remarks
    * The data source. Valid values:
-   * 
-   * *   **default**: server
-   * *   **agentless**: agentless detection
+   * - **default**: host
+   * - **agentless**: agentless.
    * 
    * @example
    * agentless
@@ -58,10 +56,9 @@ export class UpdateBaselineCheckWhiteRecordRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The type of the assets on which the whitelist rule takes effect. Valid values:
-   * 
-   * *   **all_instance**: all servers
-   * *   **instance**: specific servers
+   * The type of the target on which the whitelist takes effect. Valid values:
+   * - **all_instance**: all servers
+   * - **instance**: specific servers.
    * 
    * @example
    * all_instance

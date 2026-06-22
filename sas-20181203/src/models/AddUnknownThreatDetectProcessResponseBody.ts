@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddUnknownThreatDetectProcessResponseBodyIdList extends $dara.Model {
   /**
+   * @remarks
+   * The ID generated for the added process.
+   * 
    * @example
    * 92666883
    */
@@ -30,10 +33,14 @@ export class AddUnknownThreatDetectProcessResponseBodyIdList extends $dara.Model
 }
 
 export class AddUnknownThreatDetectProcessResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of results for the added processes.
+   */
   idList?: AddUnknownThreatDetectProcessResponseBodyIdList[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ADE57832-9666-511C-9A80-B87DE2E8****

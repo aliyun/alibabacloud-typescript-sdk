@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListSupportAttackPathAssetRequest extends $dara.Model {
   /**
    * @remarks
-   * Node type, with values:
-   * - **start**: Start point.
-   * - **end**: End point.
+   * The node type. Valid values:
+   * - **start**: start node.
+   * - **end**: end node.
    * 
    * @example
    * end
@@ -15,9 +15,9 @@ export class ListSupportAttackPathAssetRequest extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * Path name.
+   * The path name.
    * 
-   * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path names.
+   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path names.
    * 
    * @example
    * ecs_get_credential_by_create_login_profile
@@ -25,8 +25,8 @@ export class ListSupportAttackPathAssetRequest extends $dara.Model {
   pathName?: string;
   /**
    * @remarks
-   * Path type.
-   * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path types.
+   * The path type.
+   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
    * 
    * @example
    * role_escalation
@@ -34,10 +34,10 @@ export class ListSupportAttackPathAssetRequest extends $dara.Model {
   pathType?: string;
   /**
    * @remarks
-   * Support type, with values:
-   * - **event**: Attack path alert event.
-   * - **whitelist**: Attack path whitelist.
-   * - **sensitive**: Sensitive assets in the attack path.
+   * The support type. Valid values:
+   * - **event**: attack path alert event.
+   * - **whitelist**: attack path whitelist.
+   * - **sensitive**: attack path sensitive asset.
    * 
    * This parameter is required.
    * 

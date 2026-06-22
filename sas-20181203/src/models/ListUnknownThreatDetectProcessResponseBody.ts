@@ -4,6 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The analysis result. Valid values:
+   * 
+   * - **black**: A malicious process.
+   * 
+   * - **white**: A normal process.
+   * 
+   * - **abnormal**: An abnormal process.
+   * 
    * @example
    * white
    */
@@ -11,31 +20,49 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
   explanationEn?: string;
   explanationZh?: string;
   /**
+   * @remarks
+   * The timestamp of the first occurrence.
+   * 
    * @example
    * 1694576692000
    */
   firstTime?: number;
   /**
+   * @remarks
+   * The MD5 hash of the file.
+   * 
    * @example
    * 5b394b54ca632fe51c4ab4a6dbaf****
    */
   md5?: string;
   /**
+   * @remarks
+   * The process ID.
+   * 
    * @example
    * 2025031506350619216822625103151158982
    */
   processId?: string;
   /**
+   * @remarks
+   * The process path.
+   * 
    * @example
    * /usr/bin/tar
    */
   processPath?: string;
   /**
+   * @remarks
+   * Remarks about the process.
+   * 
    * @example
    * safe process
    */
   remark?: string;
   /**
+   * @remarks
+   * The SHA-256 hash of the file.
+   * 
    * @example
    * 3a6fed5fc11392b3ee9f81caf017b48640d7458766a8eb0382899a605b41****
    */
@@ -79,21 +106,33 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
 
 export class ListUnknownThreatDetectProcessResponseBodyPageInfo extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 2
    */
   count?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 83
    */
@@ -126,11 +165,19 @@ export class ListUnknownThreatDetectProcessResponseBodyPageInfo extends $dara.Mo
 }
 
 export class ListUnknownThreatDetectProcessResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of process details.
+   */
   data?: ListUnknownThreatDetectProcessResponseBodyData[];
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pageInfo?: ListUnknownThreatDetectProcessResponseBodyPageInfo;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 20456DD5-5CBF-5015-9173-12CA4246B***

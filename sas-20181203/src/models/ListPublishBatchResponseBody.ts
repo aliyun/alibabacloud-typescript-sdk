@@ -13,7 +13,7 @@ export class ListPublishBatchResponseBodyBatchList extends $dara.Model {
   batchId?: number;
   /**
    * @remarks
-   * The interval between two release batches. Unit: hours.
+   * The interval between the completion of the current batch and the start of the next batch. Unit: hours.
    * 
    * @example
    * 12
@@ -24,12 +24,12 @@ export class ListPublishBatchResponseBodyBatchList extends $dara.Model {
    * The name of the release batch.
    * 
    * @example
-   * test
+   * 发布批次1
    */
   batchName?: string;
   /**
    * @remarks
-   * The current batch number during a batch release.
+   * The number of the current batch in a phased release.
    * 
    * @example
    * 2147483647
@@ -37,7 +37,7 @@ export class ListPublishBatchResponseBodyBatchList extends $dara.Model {
   batchNo?: number;
   /**
    * @remarks
-   * The progress of the release batch. This parameter indicates the number of servers that are upgraded in the release batch.
+   * The release progress of the current batch, indicating the number of machines that have been released.
    * 
    * @example
    * 12
@@ -45,7 +45,7 @@ export class ListPublishBatchResponseBodyBatchList extends $dara.Model {
   batchProcess?: number;
   /**
    * @remarks
-   * The total number of batches.
+   * The total number of batches in the release.
    * 
    * @example
    * 3
@@ -53,11 +53,11 @@ export class ListPublishBatchResponseBodyBatchList extends $dara.Model {
   batchTotal?: number;
   /**
    * @remarks
-   * The asset selection dimension. Valid values:
+   * The dimension for asset selection. Valid values:
    * 
-   * *   **0**: instance.
-   * *   **1**: machine group.
-   * *   **2**: Virtual Private Cloud (VPC) ID.
+   * - **0**: machine instance
+   * - **1**: machine group
+   * - **2**: VPC-connected instance ID.
    * 
    * @example
    * 0
@@ -65,13 +65,12 @@ export class ListPublishBatchResponseBodyBatchList extends $dara.Model {
   operationBase?: number;
   /**
    * @remarks
-   * The publish status of the Security Center agent. Valid values:
-   * 
-   * *   **0**: not started.
-   * *   **1**: publishing.
-   * *   **2**: published.
-   * *   **3**: publish suspended.
-   * *   **4**: forcibly upgrading.
+   * The release status of the client. Valid values:
+   * - **0**: not started
+   * - **1**: releasing
+   * - **2**: release completed
+   * - **3**: release paused
+   * - **4**: force upgrading.
    * 
    * @example
    * 1
@@ -79,7 +78,7 @@ export class ListPublishBatchResponseBodyBatchList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The destination version of the Security Center agent.
+   * The target version to upgrade to.
    * 
    * @example
    * 0.0.9
@@ -125,7 +124,7 @@ export class ListPublishBatchResponseBodyBatchList extends $dara.Model {
 export class ListPublishBatchResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page when paging is used.
    * 
    * @example
    * 1
@@ -133,7 +132,7 @@ export class ListPublishBatchResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page when paging is used.
    * 
    * @example
    * 20
@@ -175,17 +174,17 @@ export class ListPublishBatchResponseBodyPageInfo extends $dara.Model {
 export class ListPublishBatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the release batches.
+   * The details of the batch release tasks.
    */
   batchList?: ListPublishBatchResponseBodyBatchList[];
   /**
    * @remarks
-   * The page information.
+   * The pagination information.
    */
   pageInfo?: ListPublishBatchResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. The China Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 7532B7EE-7CE7-5F4D-BF04-B12447DDCAE1

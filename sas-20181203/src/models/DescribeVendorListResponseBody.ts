@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVendorListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
    * 
    * @example
    * 340D7FC4-D575-1661-8ACD-CFA7BE57B795
@@ -13,7 +13,7 @@ export class DescribeVendorListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the service providers.
+   * The list of vendors.
    */
   vendorNameList?: string[];
   static names(): { [key: string]: string } {

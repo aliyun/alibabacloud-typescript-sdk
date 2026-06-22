@@ -21,13 +21,20 @@ export class UpdateMultiUserInstancesRequestMemberInstancesVersionSummary extend
   ecsCount?: number;
   /**
    * @remarks
-   * Version of the Cloud Security Center for the member account. Values:  
-   * - **1**: Free Edition 
+   * Version of the Cloud Security Center for the member account. Values:
+   * 
+   * - **1**: Free Edition
+   * 
    * - **3**: Enterprise Edition
+   * 
    * - **5**: Advanced Edition
-   * - **6**: Antivirus Edition    
-   * - **7**: Flagship Edition   
-   * - **8**: Multiple Versions   
+   * 
+   * - **6**: Antivirus Edition
+   * 
+   * - **7**: Flagship Edition
+   * 
+   * - **8**: Multiple Versions
+   * 
    * - **10**: Only Purchase Value-Added Services
    * 
    * @example
@@ -79,8 +86,10 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   /**
    * @remarks
    * Charge type, values:
-   * * **PREPAID**: Prepaid.
-   * * **POSTPAID** (default): Postpaid.
+   * 
+   * - **PREPAID**: Prepaid.
+   * 
+   * - **POSTPAID** (default): Postpaid.
    * 
    * @example
    * PREPAID
@@ -120,9 +129,12 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * Operation type. Values:  
-   * - **ADD**: Add 
+   * Operation type. Values:
+   * 
+   * - **ADD**: Add
+   * 
    * - **CHANGE**: Change
+   * 
    * - **DEL**: Delete
    * 
    * @example
@@ -155,8 +167,10 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   slsCapacity?: number;
   /**
    * @remarks
-   * Status of the member account instance. Values: 
-   * - **1**: Valid. 
+   * Status of the member account instance. Values:
+   * 
+   * - **1**: Valid.
+   * 
    * - **2**: Invalid.
    * 
    * @example
@@ -181,11 +195,16 @@ export class UpdateMultiUserInstancesRequestMemberInstances extends $dara.Model 
   threatAnalysisFlow?: number;
   /**
    * @remarks
-   * The version of Cloud Security Center protection to be bound. Values:  
-   * - **1**: Free Edition 
+   * The version of Cloud Security Center protection to be bound. Values:
+   * 
+   * - **1**: Free Edition
+   * 
    * - **3**: Enterprise Edition
+   * 
    * - **5**: Advanced Edition
-   * - **6**: Antivirus Edition    
+   * 
+   * - **6**: Antivirus Edition
+   * 
    * - **7**: Flagship Edition
    * 
    * @example

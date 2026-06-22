@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAntiBruteForceRuleRequestProtocolType extends $dara.Model {
   /**
    * @remarks
-   * Whether to modify the RDP interception method, which is enabled by default. Values:
-   *   - **on**: Enable
-   *   - **off**: Disable
+   * Specifies whether to enable RDP interception. This is enabled by default. Valid values:
+   *   - **on**: enabled
+   *   - **off**: disabled.
    * 
    * @example
    * on
@@ -15,9 +15,9 @@ export class ModifyAntiBruteForceRuleRequestProtocolType extends $dara.Model {
   rdp?: string;
   /**
    * @remarks
-   * Whether to modify the SQL Server interception method, which is disabled by default. Values:
-   *   - **on**: Enable
-   *   - **off**: Disable
+   * Specifies whether to enable SqlServer interception. This is disabled by default. Valid values:
+   *   - **on**: enabled
+   *   - **off**: disabled.
    * 
    * @example
    * off
@@ -25,9 +25,9 @@ export class ModifyAntiBruteForceRuleRequestProtocolType extends $dara.Model {
   sqlServer?: string;
   /**
    * @remarks
-   * Whether to modify the SSH interception method, which is enabled by default. Values:
-   *   - **on**: Enable
-   *   - **off**: Disable
+   * Specifies whether to enable SSH interception. This is enabled by default. Valid values:
+   *   - **on**: enabled
+   *   - **off**: disabled.
    * 
    * @example
    * on
@@ -61,10 +61,11 @@ export class ModifyAntiBruteForceRuleRequestProtocolType extends $dara.Model {
 export class ModifyAntiBruteForceRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to set the defense rule as the default rule. Valid values:
+   * Specifies whether the defense rule against brute-force attacks is set as the default policy in Settings. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The rule is set as the default policy.
+   * 
+   * - **false**: The rule is not set as the default policy.
    * 
    * @example
    * true
@@ -72,16 +73,16 @@ export class ModifyAntiBruteForceRuleRequest extends $dara.Model {
   defaultRule?: boolean;
   /**
    * @remarks
-   * The threshold of logon failures that you specify. Valid values:
+   * The threshold for the number of logon failures. Valid values:
    * 
-   * *   **2**
-   * *   **3**
-   * *   **4**
-   * *   **5**
-   * *   **10**
-   * *   **50**
-   * *   **80**
-   * *   **100**
+   * - **2**: 2 times
+   * - **3**: 3 times
+   * - **4**: 4 times
+   * - **5**: 5 times
+   * - **10**: 10 times
+   * - **50**: 50 times
+   * - **80**: 80 times
+   * - **100**: 100 times.
    * 
    * @example
    * 10
@@ -89,18 +90,18 @@ export class ModifyAntiBruteForceRuleRequest extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The period of time during which logons from an account are not allowed. Unit: minutes. Valid values:
+   * The duration for which logon is prohibited, in minutes. Valid values:
    * 
-   * *   **5**
-   * *   **15**
-   * *   **30**
-   * *   **60**
-   * *   **120**
-   * *   **360**
-   * *   **720**
-   * *   **1440**
-   * *   **10080**
-   * *   **52560000**: permanent
+   * - **5**: 5 minutes
+   * - **15**: 15 minutes
+   * - **30**: 30 minutes
+   * - **60**: 1 hour
+   * - **120**: 2 hours
+   * - **360**: 6 hours
+   * - **720**: 12 hours
+   * - **1440**: 24 hours
+   * - **10080**: 7 days
+   * - **52560000**: permanent (100 years).
    * 
    * @example
    * 5
@@ -108,7 +109,7 @@ export class ModifyAntiBruteForceRuleRequest extends $dara.Model {
   forbiddenTime?: number;
   /**
    * @remarks
-   * The ID of the defense rule.
+   * The ID of the defense rule against brute-force attacks.
    * 
    * This parameter is required.
    * 
@@ -118,7 +119,7 @@ export class ModifyAntiBruteForceRuleRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the defense rule.
+   * The name of the defense rule against brute-force attacks.
    * 
    * @example
    * TestRule
@@ -126,13 +127,13 @@ export class ModifyAntiBruteForceRuleRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol types supported by the anti-brute force rule for interception.
+   * The protocol types that the defense rule against brute-force attacks supports for interception.
    */
   protocolType?: ModifyAntiBruteForceRuleRequestProtocolType;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 1.2.XX.XX
@@ -140,13 +141,13 @@ export class ModifyAntiBruteForceRuleRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The period of time during which logon failures from an account are measured. Unit: minutes. Valid values:
+   * The threshold for the period of time during which logon failures are counted, in minutes. Valid values:
    * 
-   * *   **1**
-   * *   **2**
-   * *   **5**
-   * *   **10**
-   * *   **15**
+   * - **1**: 1 minute
+   * - **2**: 2 minutes
+   * - **5**: 5 minutes
+   * - **10**: 10 minutes
+   * - **15**: 15 minutes.
    * 
    * @example
    * 1
@@ -154,7 +155,7 @@ export class ModifyAntiBruteForceRuleRequest extends $dara.Model {
   span?: number;
   /**
    * @remarks
-   * An array consisting of the UUIDs of the servers to which the defense rule is applied.
+   * The list of servers to which the defense rule against brute-force attacks applies.
    * 
    * @example
    * uuid-13213-dasda

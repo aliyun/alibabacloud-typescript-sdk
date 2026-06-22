@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAutoTagRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -13,9 +13,8 @@ export class ListAutoTagRulesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -23,7 +22,7 @@ export class ListAutoTagRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * text-001

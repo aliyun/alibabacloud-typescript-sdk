@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListObjectScanEventResponseBodyDataDetails extends $dara.Model {
   /**
    * @remarks
-   * The name of the parameter in the file details.
+   * The name of the detail item.
    * 
    * @example
    * DownloadUrl
@@ -13,7 +13,7 @@ export class ListObjectScanEventResponseBodyDataDetails extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The display name of the alert.
+   * The display name of the alert event.
    * 
    * @example
    * DownloadUrl
@@ -21,7 +21,7 @@ export class ListObjectScanEventResponseBodyDataDetails extends $dara.Model {
   nameDisplay?: string;
   /**
    * @remarks
-   * The value type of the parameter in the file details.
+   * The type of the detail information.
    * 
    * @example
    * html
@@ -29,7 +29,7 @@ export class ListObjectScanEventResponseBodyDataDetails extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The value of the detail item.
    * 
    * @example
    * http://gcx.cn-hangzhou.aliyuncs.com/****
@@ -37,7 +37,7 @@ export class ListObjectScanEventResponseBodyDataDetails extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The display value of the detail item.
    * 
    * @example
    * http://gcx.cn-hangzhou.aliyuncs.com/****
@@ -75,7 +75,7 @@ export class ListObjectScanEventResponseBodyDataDetails extends $dara.Model {
 export class ListObjectScanEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The bucket name.
    * 
    * @example
    * hz-new01****
@@ -83,15 +83,15 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The details of the file.
+   * The detailed information of the check item.
    */
   details?: ListObjectScanEventResponseBodyDataDetails[];
   /**
    * @remarks
-   * Indicates whether the file can be detected by cloud sandbox. Valid values:
+   * Indicates whether cloud sandbox detection is supported. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -99,7 +99,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   displaySandboxResult?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * connect timed out
@@ -107,7 +107,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The ID of the alert.
+   * The event ID.
    * 
    * @example
    * 911273
@@ -115,7 +115,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * The name of the alert.
+   * The alert name.
    * 
    * @example
    * WebShell
@@ -123,7 +123,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The path to the file.
+   * The file path.
    * 
    * @example
    * /usr/local****
@@ -131,7 +131,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The timestamp at which the alert was first detected.
+   * The timestamp when the alert first occurred.
    * 
    * @example
    * 1694576692000
@@ -139,10 +139,9 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * Indicates whether an alert is generated for the file extracted from the package. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether alerts exist for sub-files within a compressed archive. Valid values:
+   * - **true**: Yes. You can obtain the corresponding **EventId** value and call this operation again with the **EventId** value passed to **ParentEventId** to view the alert events for the sub-files within the compressed archive.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -150,7 +149,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   hasSubEvent?: boolean;
   /**
    * @remarks
-   * The timestamp at which the alert was last detected.
+   * The timestamp when the alert was last detected.
    * 
    * @example
    * 1694576692000
@@ -158,7 +157,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   lastTime?: number;
   /**
    * @remarks
-   * Information on whitelisting rule hits.
+   * The information about the matched whitelist rule.
    * 
    * @example
    * <strong></strong>&nbsp&nbspmd5&nbsp&nbsp contains &nbsp&nbsp23&nbsp&nbsp
@@ -166,7 +165,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   matchedWhiteListRuleI18nStr?: string;
   /**
    * @remarks
-   * The MD5 hash value of the file.
+   * The MD5 hash of the file.
    * 
    * @example
    * 5b394b54ca632fe51c4ab4a6dbaf****
@@ -174,7 +173,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * Alarm handling result
+   * The alert handling result.
    * 
    * @example
    * fail
@@ -182,7 +181,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   operateResult?: string;
   /**
    * @remarks
-   * The key of the file that is stored in the OSS bucket.
+   * The storage key of the file in the OSS bucket.
    * 
    * @example
    * 1/2023/07/21/10/18/16899059356518bcf6c64-a04e-492d-a421-4ae8b888****
@@ -190,7 +189,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
-   * Remark.
+   * The remarks.
    * 
    * @example
    * test
@@ -198,11 +197,11 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The risk level of the alert. Valid values:
+   * The risk level of the scanned alert. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high risk.
+   * - **medium**: medium risk.
+   * - **low**: low risk.
    * 
    * @example
    * medium
@@ -210,7 +209,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The SHA-1 hash value of the file.
+   * The SHA-1 hash of the file.
    * 
    * @example
    * 3c01bdbb26f358bab27f267924aa2c9a03fc****
@@ -218,7 +217,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   sha1?: string;
   /**
    * @remarks
-   * The SHA-256 hash value of the file.
+   * The SHA-256 hash of the file.
    * 
    * @example
    * 3a6fed5fc11392b3ee9f81caf017b48640d7458766a8eb0382899a605b41****
@@ -226,10 +225,9 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   sha256?: string;
   /**
    * @remarks
-   * The method that is used to detect the malicious file. Valid values:
-   * 
-   * *   **API**: uses API operations.
-   * *   **OSS**: uses OSS file check.
+   * The data source. Valid values:
+   * - **API**: API detection
+   * - **OSS**: OSS detection.
    * 
    * @example
    * OSS
@@ -237,12 +235,13 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Event status. Valid values::
-   * - **0**: Unprocessed 
-   * - **1**: Processed manually 
-   * - **2**: Whitelisted 
-   * - **3**: Ignored 
-   * - **4**: Access denied
+   * The event status. Valid values:
+   * 
+   * - 0: unhandled 
+   * - 1: manually handled
+   * - 2: whitelisted
+   * - 3: ignored
+   * - 4: access denied.
    * 
    * @example
    * 0
@@ -313,7 +312,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
 export class ListObjectScanEventResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in the paged query.
    * 
    * @example
    * 1
@@ -321,7 +320,7 @@ export class ListObjectScanEventResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries displayed on each page in the paged query.
    * 
    * @example
    * 20
@@ -329,7 +328,7 @@ export class ListObjectScanEventResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 253
@@ -363,17 +362,17 @@ export class ListObjectScanEventResponseBodyPageInfo extends $dara.Model {
 export class ListObjectScanEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The data details.
    */
   data?: ListObjectScanEventResponseBodyData[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information for the paged query.
    */
   pageInfo?: ListObjectScanEventResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * 7BC55C8F-226E-5AF5-9A2C-2EC43864****

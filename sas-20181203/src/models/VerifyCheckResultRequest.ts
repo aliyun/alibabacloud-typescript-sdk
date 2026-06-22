@@ -5,17 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyCheckResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the check items.
+   * The list of check item IDs.
    */
   checkIds?: number[];
   /**
    * @remarks
-   * List of instance IDs for the check item assets.
+   * The list of instance IDs of the assets associated with the check items.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The source of task.
+   * The task source. Valid values:
+   * 
+   * - **YAO_CHI**: ApsaraDB console.
    * 
    * @example
    * YAO_CHI

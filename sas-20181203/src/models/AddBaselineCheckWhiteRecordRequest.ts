@@ -29,7 +29,7 @@ export class AddBaselineCheckWhiteRecordRequest extends $dara.Model {
    * The reason why the check item is added to the whitelist.
    * 
    * @example
-   * AutoRun
+   * 无效
    */
   reason?: string;
   /**

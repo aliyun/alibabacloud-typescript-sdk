@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppNetworkResponseBodyAppNetworkEdge extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination node.
+   * The destination node ID.
    * 
    * @example
    * 102
@@ -13,10 +13,9 @@ export class GetAppNetworkResponseBodyAppNetworkEdge extends $dara.Model {
   dstNodeId?: string;
   /**
    * @remarks
-   * The type of the destination node. Valid values:
-   * 
-   * *   **app**: an application
-   * *   **internet**: a network node in another cluster
+   * The destination node type. Valid values:
+   * - **app**: application.
+   * - **internet**: external network node.
    * 
    * @example
    * app
@@ -24,7 +23,7 @@ export class GetAppNetworkResponseBodyAppNetworkEdge extends $dara.Model {
   dstNodeType?: string;
   /**
    * @remarks
-   * The ID of the edge.
+   * The edge ID.
    * 
    * @example
    * 3534
@@ -32,7 +31,7 @@ export class GetAppNetworkResponseBodyAppNetworkEdge extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The number of the destination port.
+   * The destination port number.
    * 
    * @example
    * 8080
@@ -40,7 +39,7 @@ export class GetAppNetworkResponseBodyAppNetworkEdge extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The ID of the source node.
+   * The source node ID.
    * 
    * @example
    * 101
@@ -48,10 +47,9 @@ export class GetAppNetworkResponseBodyAppNetworkEdge extends $dara.Model {
   srcNodeId?: string;
   /**
    * @remarks
-   * The type of the source node. Valid values:
-   * 
-   * *   **app**: an application
-   * *   **internet**: a network node in another cluster
+   * The source node type. Valid values:
+   * - **app**: application.
+   * - **internet**: external network node.
    * 
    * @example
    * app
@@ -91,7 +89,7 @@ export class GetAppNetworkResponseBodyAppNetworkEdge extends $dara.Model {
 export class GetAppNetworkResponseBodyAppNetworkNamespace extends $dara.Model {
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * 1
@@ -99,7 +97,7 @@ export class GetAppNetworkResponseBodyAppNetworkNamespace extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the custom namespace.
+   * The namespace name.
    * 
    * @example
    * default
@@ -131,12 +129,12 @@ export class GetAppNetworkResponseBodyAppNetworkNamespace extends $dara.Model {
 export class GetAppNetworkResponseBodyAppNetworkNode extends $dara.Model {
   /**
    * @remarks
-   * The list of the container IDs.
+   * The list of container IDs.
    */
   containerIds?: string[];
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * 1274
@@ -144,7 +142,7 @@ export class GetAppNetworkResponseBodyAppNetworkNode extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * console
@@ -152,7 +150,7 @@ export class GetAppNetworkResponseBodyAppNetworkNode extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * 1
@@ -162,11 +160,11 @@ export class GetAppNetworkResponseBodyAppNetworkNode extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **3**: high
-   * *   **2**: medium
-   * *   **1**: low
-   * *   **0**: warning
-   * *   **-1**: unknown
+   * - **3**: High.
+   * - **2**: Medium.
+   * - **1**: Low.
+   * - **0**: Safe.
+   * - **-1**: Unknown.
    * 
    * @example
    * 0
@@ -174,10 +172,9 @@ export class GetAppNetworkResponseBodyAppNetworkNode extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The type of the node. Valid values:
-   * 
-   * *   **app**: an application
-   * *   **internet**: a network node in another cluster
+   * The node type. Valid values:
+   * - **app**: application
+   * - **internet**: external network node.
    * 
    * @example
    * app
@@ -220,7 +217,7 @@ export class GetAppNetworkResponseBodyAppNetworkNode extends $dara.Model {
 export class GetAppNetworkResponseBodyAppNetwork extends $dara.Model {
   /**
    * @remarks
-   * The information about the topology edge.
+   * The topology edge information.
    */
   edge?: GetAppNetworkResponseBodyAppNetworkEdge[];
   /**
@@ -230,7 +227,7 @@ export class GetAppNetworkResponseBodyAppNetwork extends $dara.Model {
   namespace?: GetAppNetworkResponseBodyAppNetworkNamespace[];
   /**
    * @remarks
-   * The information about the application node.
+   * The application node information.
    */
   node?: GetAppNetworkResponseBodyAppNetworkNode[];
   static names(): { [key: string]: string } {
@@ -270,12 +267,12 @@ export class GetAppNetworkResponseBodyAppNetwork extends $dara.Model {
 export class GetAppNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the application network topology.
+   * The application network topology information.
    */
   appNetwork?: GetAppNetworkResponseBodyAppNetwork;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 7D46EDB0-xxx

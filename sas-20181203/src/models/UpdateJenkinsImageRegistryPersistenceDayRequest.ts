@@ -13,9 +13,8 @@ export class UpdateJenkinsImageRegistryPersistenceDayRequest extends $dara.Model
   persistenceDay?: number;
   /**
    * @remarks
-   * The ID of the image repository.
-   * 
-   * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
+   * The image repository ID.
+   * >You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
    * 
    * @example
    * 25363
@@ -23,7 +22,7 @@ export class UpdateJenkinsImageRegistryPersistenceDayRequest extends $dara.Model
   registryId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 106.11.XXX.XXX

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the statistics of the check items, including the number of check items supported by the system and the number of check items available to you. Default value: **false**. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Specifies whether to return check item statistics information, including the number of check items published by the system and the number of check items currently owned by the user. Default value: **false**. Valid values:
+   * - **true**: Returns the statistics information.
+   * - **false**: Does not return the statistics information.
    * 
    * @example
    * false
@@ -16,10 +15,9 @@ export class GetCheckSummaryRequest extends $dara.Model {
   isItemStatistic?: boolean;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for requests and responses.
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -27,9 +25,8 @@ export class GetCheckSummaryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
+   * The ID of the member accounts in the resource directory.
+   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 000
@@ -37,12 +34,12 @@ export class GetCheckSummaryRequest extends $dara.Model {
   resourceDirectoryAccountId?: string;
   /**
    * @remarks
-   * List of task sources.
+   * The list of task sources.
    */
   taskSources?: string[];
   /**
    * @remarks
-   * The cloud service providers.
+   * The list of cloud service providers.
    */
   vendors?: string[];
   static names(): { [key: string]: string } {

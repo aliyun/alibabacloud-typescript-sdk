@@ -13,7 +13,7 @@ export class DescribeImageListByBuildRiskResponseBodyDataList extends $dara.Mode
   digest?: string;
   /**
    * @remarks
-   * The timestamp generated when the first scan was performed. Unit: milliseconds.
+   * The timestamp of the first scan. Unit: milliseconds.
    * 
    * @example
    * 1723710827000
@@ -29,7 +29,7 @@ export class DescribeImageListByBuildRiskResponseBodyDataList extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The timestamp generated when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the most recent scan. Unit: milliseconds.
    * 
    * @example
    * 1723710827999
@@ -37,7 +37,7 @@ export class DescribeImageListByBuildRiskResponseBodyDataList extends $dara.Mode
   lastScanTime?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +53,7 @@ export class DescribeImageListByBuildRiskResponseBodyDataList extends $dara.Mode
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * namespace
@@ -63,9 +63,9 @@ export class DescribeImageListByBuildRiskResponseBodyDataList extends $dara.Mode
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**
+   * - **medium**
+   * - **low**.
    * 
    * @example
    * medium
@@ -73,11 +73,10 @@ export class DescribeImageListByBuildRiskResponseBodyDataList extends $dara.Mode
   riskLevel?: string;
   /**
    * @remarks
-   * The status of the alert event. Valid values:
-   * 
-   * *   **0**: unhandled.
-   * *   **1**: ignored.
-   * *   **2**: false positive.
+   * The status of the alert event to query. Valid values:
+   * - **0**: Unhandled.
+   * - **1**: Ignored.
+   * - **2**: False positive.
    * 
    * @example
    * 1
@@ -143,7 +142,7 @@ export class DescribeImageListByBuildRiskResponseBodyDataList extends $dara.Mode
 export class DescribeImageListByBuildRiskResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page in paging query. Default value: **1**.
    * 
    * @example
    * 1
@@ -151,9 +150,8 @@ export class DescribeImageListByBuildRiskResponseBodyDataPageInfo extends $dara.
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -195,7 +193,7 @@ export class DescribeImageListByBuildRiskResponseBodyDataPageInfo extends $dara.
 export class DescribeImageListByBuildRiskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The images.
+   * The list of images.
    */
   list?: DescribeImageListByBuildRiskResponseBodyDataList[];
   /**
@@ -235,7 +233,7 @@ export class DescribeImageListByBuildRiskResponseBodyData extends $dara.Model {
 export class DescribeImageListByBuildRiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -248,7 +246,7 @@ export class DescribeImageListByBuildRiskResponseBody extends $dara.Model {
   data?: DescribeImageListByBuildRiskResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The detailed information about the error code.
    * 
    * @example
    * successful
@@ -264,10 +262,9 @@ export class DescribeImageListByBuildRiskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

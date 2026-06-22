@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHoneyPotAuthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total quota.
+   * The total number of authorizations.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeHoneyPotAuthResponseBody extends $dara.Model {
   honeyPotAuthCount?: number;
   /**
    * @remarks
-   * The quota that is consumed.
+   * The number of consumed authorizations.
    * 
    * @example
    * 4
@@ -21,7 +21,7 @@ export class DescribeHoneyPotAuthResponseBody extends $dara.Model {
   honeyPotCount?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0F5023B6-9C1F-459F-ACCC-8B4636804037

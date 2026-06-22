@@ -7,7 +7,7 @@ export class ListCheckItemsResponseBodyCheckItemsAssistInfo extends $dara.Model 
    * @remarks
    * The type of the help information for the check item risk. Values:
    * 
-   * - **text**：Text
+   * - **text**:Text
    * 
    * @example
    * text
@@ -96,11 +96,16 @@ export class ListCheckItemsResponseBodyCheckItemsCheckPolicies extends $dara.Mod
   /**
    * @remarks
    * The name of the associated policy category:
-   * - **AISPM**：AI Configuration Management (AI-SPM)
-   * - **KISPM**：Kubernetes Configuration Management (KSPM)
-   * - **IDENTITY_PERMISSION**：Identity and Permission Management (CIEM)
-   * - **RISK**：Security Risk
-   * - **COMPLIANCE**：Compliance Risk
+   * 
+   * - **AISPM**:AI Configuration Management (AI-SPM)
+   * 
+   * - **KISPM**:Kubernetes Configuration Management (KSPM)
+   * 
+   * - **IDENTITY_PERMISSION**:Identity and Permission Management (CIEM)
+   * 
+   * - **RISK**:Security Risk
+   * 
+   * - **COMPLIANCE**:Compliance Risk
    * 
    * @example
    * AISPM
@@ -144,7 +149,7 @@ export class ListCheckItemsResponseBodyCheckItemsDescription extends $dara.Model
    * @remarks
    * The type of the check description attribute. Values:
    * 
-   * - **text**：Text
+   * - **text**:Text
    * 
    * @example
    * text
@@ -186,7 +191,7 @@ export class ListCheckItemsResponseBodyCheckItemsSolution extends $dara.Model {
    * @remarks
    * The type of the check item solution information. Values:
    * 
-   * - **text**：Text
+   * - **text**:Text
    * 
    * @example
    * text
@@ -261,8 +266,10 @@ export class ListCheckItemsResponseBodyCheckItems extends $dara.Model {
   /**
    * @remarks
    * The source type of the Security Posture check item:
-   *  - **CUSTOM**: User-defined
-   *  - **SYSTEM**: Predefined by the Security Posture platform
+   * 
+   * - **CUSTOM**: User-defined
+   * 
+   * - **SYSTEM**: Predefined by the Security Posture platform
    * 
    * @example
    * SYSTEM
@@ -300,8 +307,11 @@ export class ListCheckItemsResponseBodyCheckItems extends $dara.Model {
   /**
    * @remarks
    * The risk level of the check item. Values:
+   * 
    * - **HIGH**: High risk
+   * 
    * - **MEDIUM**: Medium risk
+   * 
    * - **LOW**: Low risk
    * 
    * @example
@@ -316,7 +326,9 @@ export class ListCheckItemsResponseBodyCheckItems extends $dara.Model {
   /**
    * @remarks
    * The status of the check item. Values:
+   * 
    * - **EDIT**: In editing
+   * 
    * - **RELEASE**: Released
    * 
    * @example

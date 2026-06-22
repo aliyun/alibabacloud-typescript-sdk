@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDynamicDictUploadInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID that is used to access OSS.
+   * The AccessKey ID of OSS.
    * 
    * @example
    * yourAccessKeyID
@@ -13,7 +13,7 @@ export class DescribeDynamicDictUploadInfoResponseBody extends $dara.Model {
   accessid?: string;
   /**
    * @remarks
-   * The validity period of the signature. The value is a UNIX timestamp.
+   * The expiration time of the OSS authorization, in timestamp format.
    * 
    * @example
    * 1719919893
@@ -21,7 +21,7 @@ export class DescribeDynamicDictUploadInfoResponseBody extends $dara.Model {
   expire?: string;
   /**
    * @remarks
-   * The OSS endpoint.
+   * The OSS domain name.
    * 
    * @example
    * https://aegis-update-static-file.oss-cn-hangzhou.aliyuncs.com
@@ -29,7 +29,7 @@ export class DescribeDynamicDictUploadInfoResponseBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The name of the OSS object.
+   * The key of the OSS file name.
    * 
    * @example
    * DegradePool_Offset_****
@@ -45,7 +45,7 @@ export class DescribeDynamicDictUploadInfoResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * A3D7C47D-3F11-57BB-90E8-E5C20C61***
@@ -53,7 +53,7 @@ export class DescribeDynamicDictUploadInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The signature that is calculated based on **AccessKeySecret** and **Policy**. When you call an OSS API operation, OSS uses the signature information to check the validity of the POST request.
+   * The signature information calculated based on **AccessKeySecret** and **Policy**. When you call an OSS API operation, OSS verifies this signature information to confirm the validity of the POST request.
    * 
    * @example
    * wBiwkhd5LGcLzijtc3FhI****

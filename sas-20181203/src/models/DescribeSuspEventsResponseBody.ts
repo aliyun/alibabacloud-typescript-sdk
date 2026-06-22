@@ -333,7 +333,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
    * *   **604**: marked as a false positive by the system
    * 
    * @example
-   * 1
+   * 8
    */
   eventStatus?: number;
   /**
@@ -416,7 +416,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
    * The name of the Kubernetes cluster.
    * 
    * @example
-   * k8s-daily
+   * test-daily
    */
   k8sClusterName?: string;
   /**
@@ -511,7 +511,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
    * The advanced whitelist rule.
    * 
    * @example
-   * [{\\"uuid\\":\\"ALL\\",\\"field\\":\\"gmtModified\\",\\"operate\\":\\"contains\\",\\"fieldValue\\":\\"222\\"}]
+   * <strong>1.</strong>&nbsp&nbsppath&nbsp&nbspcontain&nbsp&nbsp232&nbsp&nbsp
    */
   markMisRules?: string;
   /**

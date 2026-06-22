@@ -79,7 +79,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
    * The policy name.
    * 
    * @example
-   * runtime
+   * testName
    */
   name?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageVulListRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias of the vulnerability.
+   * The alias of the vulnerability to query.
    * 
    * @example
    * High severity vulnerability that affects org.eclipse.jetty:jetty-server
@@ -13,7 +13,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The ID of the cluster to which the container belongs.
+   * The ID of the container cluster.
    * 
    * @example
    * cc20a1024011c44b6a8710d6f8b****
@@ -37,7 +37,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   containerId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -45,10 +45,9 @@ export class DescribeImageVulListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether the vulnerability is handled. Valid values:
-   * 
-   * *   **y**: yes
-   * *   **n**: no
+   * Specifies whether the vulnerability has been handled. Valid values:
+   * - **y**: handled
+   * - **n**: not handled.
    * 
    * @example
    * y
@@ -56,7 +55,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The digest of the image.
+   * The unique identifier of the container image.
    * 
    * @example
    * 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d507012
@@ -64,7 +63,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The name of the container image.
    * 
    * @example
    * registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
@@ -72,7 +71,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The ID of the asset instance.
    * 
    * @example
    * 1-qeqewqw****
@@ -80,10 +79,9 @@ export class DescribeImageVulListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -91,7 +89,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the vulnerability.
+   * The name of the vulnerability to query.
    * 
    * @example
    * debian:10:CVE-2019-9893
@@ -107,11 +105,10 @@ export class DescribeImageVulListRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The priority to fix the vulnerability. Valid values:
-   * 
-   * *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-   * *   **later**: medium. You can fix the vulnerability based on your business requirements.
-   * *   **nntf**: low. You can ignore the vulnerability.
+   * The priority level of vulnerability fixing. Valid values:
+   * - **asap**: high-priority vulnerability
+   * - **later**: medium-priority vulnerability
+   * - **nntf**: low-priority vulnerability.
    * 
    * @example
    * asap
@@ -119,7 +116,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * Settings for the number of vulnerabilities to display on each page in a paged query. Default value: **10**, which indicates that 10 vulnerabilities are displayed on each page.
    * 
    * @example
    * 10
@@ -143,7 +140,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The ID of the container image repository.
    * 
    * @example
    * qew****
@@ -151,7 +148,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The instance ID of the image repository.
+   * The instance ID of the container image repository.
    * 
    * @example
    * i-qewqrqcsadf****
@@ -159,7 +156,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   repoInstanceId?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The name of the container image repository.
    * 
    * @example
    * libssh2
@@ -167,7 +164,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the container image repository.
    * 
    * @example
    * libssh2
@@ -175,7 +172,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   repoNamespace?: string;
   /**
    * @remarks
-   * The region ID of the image repository.
+   * The region ID of the container image repository.
    * 
    * @example
    * cn-hangzhou
@@ -183,9 +180,9 @@ export class DescribeImageVulListRequest extends $dara.Model {
   repoRegionId?: string;
   /**
    * @remarks
-   * The tag of this vulnerability. Valid values:
+   * The vulnerability tag. Valid values:
    * 
-   * *   **AI**: AI-related components.
+   * - **AI**: vulnerability related to AI components.
    * 
    * @example
    * AI
@@ -193,16 +190,15 @@ export class DescribeImageVulListRequest extends $dara.Model {
   ruleTag?: string;
   /**
    * @remarks
-   * The types of the assets that you want to scan.
+   * The collection of scan ranges.
    */
   scanRange?: string[];
   /**
    * @remarks
-   * The status of the vulnerability. Valid values:
-   * 
-   * *   **1**: unfixed
-   * *   **4**: being fixed
-   * *   **7**: fixed
+   * The fix status of the vulnerability. Valid values:
+   * - **1**: unfixed
+   * - **4**: being fixed
+   * - **7**: fixed.
    * 
    * @example
    * 1
@@ -210,7 +206,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   statusList?: string;
   /**
    * @remarks
-   * The tag that is added to the image vulnerability.
+   * The tag of the container image.
    * 
    * @example
    * oval
@@ -218,7 +214,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The type of the vulnerability. Set the value to **cve**, which indicates image vulnerabilities.
+   * The type of vulnerability to query. Set the value to **cve**, which indicates container image vulnerabilities.
    * 
    * This parameter is required.
    * 
@@ -228,7 +224,7 @@ export class DescribeImageVulListRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUIDs of the assets. Separate multiple UUIDs with commas (,).
+   * The UUIDs of asset instances. Separate multiple UUIDs with commas (,).
    * 
    * @example
    * 0004a32a0305a7f6ab5ff9600d47****

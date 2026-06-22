@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageRepoCriteriaRequest extends $dara.Model {
   /**
    * @remarks
-   * The value of the filter condition.
+   * The search value for image repositories.
    * 
-   * > You can perform fuzzy search based on the image ID, image tag, image instance ID, image repository name, image repository namespace, image repository ID, image repository region, image digest, and image repository type.
+   * > This parameter supports fuzzy match for image IDs, tags, image instance IDs, repository names, repository namespaces, repository IDs, repository regions, digests, and repository types.
    * 
    * @example
    * 2.0.2

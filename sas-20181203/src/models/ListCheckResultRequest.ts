@@ -33,8 +33,9 @@ export class ListCheckResultRequest extends $dara.Model {
    * @remarks
    * Specifies whether the check item supports custom parameters. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -49,36 +50,58 @@ export class ListCheckResultRequest extends $dara.Model {
    * @remarks
    * The asset type of the cloud services. Valid values:
    * 
-   * *   **ECS**: Elastic Compute Service (ECS)
-   * *   **SLB**: Server Load Balancer (SLB)
-   * *   **RDS**: ApsaraDB RDS
-   * *   **MONGODB**: ApsaraDB for MongoDB (MongoDB)
-   * *   **KVSTORE**: ApsaraDB for Redis (Redis)
-   * *   **ACR**: Container Registry
-   * *   **CSK**: Container Service for Kubernetes (ACK)
-   * *   **VPC**: Virtual Private Cloud (VPC)
-   * *   **ACTIONTRAIL**: ActionTrail
-   * *   **CDN**: Alibaba Cloud CDN (CDN)
-   * *   **CAS**: Certificate Management Service (formerly SSL Certificates Service)
-   * *   **RDC**: Apsara Devops
-   * *   **RAM**: Resource Access Management (RAM)
-   * *   **DDOS**: Anti-DDoS
-   * *   **WAF**: Web Application Firewall (WAF)
-   * *   **OSS**: Object Storage Service (OSS)
-   * *   **POLARDB**: PolarDB
-   * *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
-   * *   **MSE**: Microservices Engine (MSE)
-   * *   **NAS**: File Storage NAS (NAS)
-   * *   **SDDP**: Sensitive Data Discovery and Protection (SDDP)
-   * *   **EIP**: Elastic IP Address (EIP)
+   * - **ECS**: Elastic Compute Service (ECS)
+   * 
+   * - **SLB**: Server Load Balancer (SLB)
+   * 
+   * - **RDS**: ApsaraDB RDS
+   * 
+   * - **MONGODB**: ApsaraDB for MongoDB (MongoDB)
+   * 
+   * - **KVSTORE**: ApsaraDB for Redis (Redis)
+   * 
+   * - **ACR**: Container Registry
+   * 
+   * - **CSK**: Container Service for Kubernetes (ACK)
+   * 
+   * - **VPC**: Virtual Private Cloud (VPC)
+   * 
+   * - **ACTIONTRAIL**: ActionTrail
+   * 
+   * - **CDN**: Alibaba Cloud CDN (CDN)
+   * 
+   * - **CAS**: Certificate Management Service (formerly SSL Certificates Service)
+   * 
+   * - **RDC**: Apsara Devops
+   * 
+   * - **RAM**: Resource Access Management (RAM)
+   * 
+   * - **DDOS**: Anti-DDoS
+   * 
+   * - **WAF**: Web Application Firewall (WAF)
+   * 
+   * - **OSS**: Object Storage Service (OSS)
+   * 
+   * - **POLARDB**: PolarDB
+   * 
+   * - **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
+   * 
+   * - **MSE**: Microservices Engine (MSE)
+   * 
+   * - **NAS**: File Storage NAS (NAS)
+   * 
+   * - **SDDP**: Sensitive Data Discovery and Protection (SDDP)
+   * 
+   * - **EIP**: Elastic IP Address (EIP)
    */
   instanceTypes?: string[];
   /**
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -88,8 +111,9 @@ export class ListCheckResultRequest extends $dara.Model {
    * @remarks
    * Specifies whether fixing is supported. Valid values:
    * 
-   * *   **SUPPORT_REPAIR**
-   * *   **NOT_SUPPORT_REPAIR**
+   * - **SUPPORT_REPAIR**
+   * 
+   * - **NOT_SUPPORT_REPAIR**
    */
   operationTypes?: string[];
   /**
@@ -104,8 +128,9 @@ export class ListCheckResultRequest extends $dara.Model {
    * @remarks
    * The region ID of the instance. Valid values:
    * 
-   * *   **cn-hangzhou**: International
-   * *   **ap-southeast-1**: Singapore
+   * - **cn-hangzhou**: International
+   * 
+   * - **ap-southeast-1**: Singapore
    * 
    * @example
    * cn-hangzhou
@@ -120,7 +145,7 @@ export class ListCheckResultRequest extends $dara.Model {
    * @remarks
    * The Alibaba Cloud account ID of the member in the resource directory.
    * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
    * 
    * @example
    * 127608589417****
@@ -130,17 +155,20 @@ export class ListCheckResultRequest extends $dara.Model {
    * @remarks
    * The risk levels of check items. Separate multiple risk levels with commas (,). Valid values:
    * 
-   * *   **HIGH**
-   * *   **MEDIUM**
-   * *   **LOW**
+   * - **HIGH**
+   * 
+   * - **MEDIUM**
+   * 
+   * - **LOW**
    */
   riskLevels?: string[];
   /**
    * @remarks
    * The types of the conditions based on which check items are sorted. Valid values:
    * 
-   * *   **RISK_LEVEL**: risk level
-   * *   **STATUS**: status
+   * - **RISK_LEVEL**: risk level
+   * 
+   * - **STATUS**: status
    */
   sortTypes?: string[];
   /**
@@ -152,11 +180,15 @@ export class ListCheckResultRequest extends $dara.Model {
    * @remarks
    * The statuses of check items. Separate multiple statuses with commas (,). Valid values:
    * 
-   * *   **PASS**
-   * *   **NOT_PASS**
-   * *   **CHECKING**
-   * *   **NOT_CHECK**
-   * *   **WHITELIST**
+   * - **PASS**
+   * 
+   * - **NOT_PASS**
+   * 
+   * - **CHECKING**
+   * 
+   * - **NOT_CHECK**
+   * 
+   * - **WHITELIST**
    */
   statuses?: string[];
   /**
@@ -173,10 +205,13 @@ export class ListCheckResultRequest extends $dara.Model {
    * @remarks
    * The cloud service providers. Valid values:
    * 
-   * *   **ALIYUN**: Alibaba Cloud
-   * *   **TENCENT**: Tencent Cloud
-   * *   **AWS**: Amazon Web Services (AWS)
-   * *   **MICROSOFT**: Microsoft Azure
+   * - **ALIYUN**: Alibaba Cloud
+   * 
+   * - **TENCENT**: Tencent Cloud
+   * 
+   * - **AWS**: Amazon Web Services (AWS)
+   * 
+   * - **MICROSOFT**: Microsoft Azure
    */
   vendors?: string[];
   static names(): { [key: string]: string } {

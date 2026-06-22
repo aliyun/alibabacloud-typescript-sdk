@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCheckEcsWarningsRequest extends $dara.Model {
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 1.2.3.4

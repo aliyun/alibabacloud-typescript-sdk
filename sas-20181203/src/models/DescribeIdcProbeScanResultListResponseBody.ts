@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The status of the client of the instance on which the probe is installed. Valid values:
+   * The online status of the probe instance client. Valid values:
    * 
-   * *   **online**: The Security Center agent on the asset is **enabled**.
-   * *   **offline**: The Security Center agent on the asset is **disabled**.
+   * - **online**: The Agent client on the asset is enabled.
+   * - **offline**: The Agent client on the asset is disabled.
    * 
    * @example
    * online
@@ -16,15 +16,15 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   clientStatus?: string;
   /**
    * @remarks
-   * The name of the IDC.
+   * The name of the IDC server room.
    * 
    * @example
-   * Test
+   * 3K机房广州
    */
   idcName?: string;
   /**
    * @remarks
-   * The CIDR blocks.
+   * The IP segment list.
    * 
    * @example
    * 192.168.2.0/24
@@ -32,7 +32,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   ipSegment?: string;
   /**
    * @remarks
-   * The timestamp when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the latest scan, in milliseconds.
    * 
    * @example
    * 1720006818000
@@ -41,9 +41,8 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   /**
    * @remarks
    * The operating system type of the asset. Valid values:
-   * 
-   * *   **windows**
-   * *   **linux**
+   * - **windows**
+   * - **linux**.
    * 
    * @example
    * Linux
@@ -51,7 +50,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   os?: string;
   /**
    * @remarks
-   * The private IP address of the associated instance.
+   * The public IP address of the associated machine instance.
    * 
    * @example
    * 42.121.*.*
@@ -59,7 +58,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   probeInternetIp?: string;
   /**
    * @remarks
-   * The private IP address of the associated instance.
+   * The private IP address of the associated machine instance.
    * 
    * @example
    * 192.168.*.*
@@ -67,7 +66,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   probeIntranetIp?: string;
   /**
    * @remarks
-   * The name of the associated instance.
+   * The name of the associated machine instance.
    * 
    * @example
    * i-xxxx
@@ -75,7 +74,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   probeMachineName?: string;
   /**
    * @remarks
-   * The UUID of the associated instance.
+   * The UUID of the associated machine instance.
    * 
    * @example
    * 11C96623-E106-59C9-866D-A6C82911****
@@ -83,7 +82,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   probeUuid?: string;
   /**
    * @remarks
-   * The ID of the scan result.
+   * The scan result ID.
    * 
    * @example
    * 1231
@@ -91,7 +90,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   scanResultId?: number;
   /**
    * @remarks
-   * The IP address that is scanned.
+   * The scanned IP address.
    * 
    * @example
    * 192.168.*.*
@@ -99,7 +98,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
   scannedIp?: string;
   /**
    * @remarks
-   * The port that is scanned.
+   * The scanned port.
    * 
    * @example
    * 22
@@ -151,7 +150,7 @@ export class DescribeIdcProbeScanResultListResponseBodyInstances extends $dara.M
 export class DescribeIdcProbeScanResultListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 9
@@ -159,7 +158,7 @@ export class DescribeIdcProbeScanResultListResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -175,7 +174,7 @@ export class DescribeIdcProbeScanResultListResponseBodyPageInfo extends $dara.Mo
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 69
@@ -211,7 +210,7 @@ export class DescribeIdcProbeScanResultListResponseBodyPageInfo extends $dara.Mo
 export class DescribeIdcProbeScanResultListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances.
+   * The list of instances.
    */
   instances?: DescribeIdcProbeScanResultListResponseBodyInstances[];
   /**
@@ -221,7 +220,7 @@ export class DescribeIdcProbeScanResultListResponseBody extends $dara.Model {
   pageInfo?: DescribeIdcProbeScanResultListResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * A3D7C47D-3F11-57BB-90E8-E5C20C61****

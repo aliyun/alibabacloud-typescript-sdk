@@ -6,8 +6,7 @@ export class DescribeCustomizedStrategyTargetsResponseBodyStartegyTargets extend
   /**
    * @remarks
    * The ID of the server group.
-   * 
-   * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query server group IDs.
    * 
    * @example
    * 14590457
@@ -26,14 +25,13 @@ export class DescribeCustomizedStrategyTargetsResponseBodyStartegyTargets extend
    * The name of the baseline check policy.
    * 
    * @example
-   * win
+   * 白名单
    */
   strategyName?: string;
   /**
    * @remarks
-   * The UUID of the server.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * The UUID of the asset.
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * @example
    * 2701ad2e-0e8f-428c-8812-ebb2686e****
@@ -69,7 +67,7 @@ export class DescribeCustomizedStrategyTargetsResponseBodyStartegyTargets extend
 export class DescribeCustomizedStrategyTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 1EE7B150-D67E-53FD-A52D-3E8E669A****
@@ -77,7 +75,7 @@ export class DescribeCustomizedStrategyTargetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the servers to which custom policies are applied.
+   * The list of target information for the custom policy.
    */
   startegyTargets?: DescribeCustomizedStrategyTargetsResponseBodyStartegyTargets[];
   static names(): { [key: string]: string } {

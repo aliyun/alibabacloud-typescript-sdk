@@ -62,7 +62,7 @@ export class AddClientUserDefineRuleResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 379a9b8f-107b-4630-9e95-2299a1ea****
+   * 32A73759-4C0F-4801-BE98-901223ACEE9A
    */
   requestId?: string;
   /**

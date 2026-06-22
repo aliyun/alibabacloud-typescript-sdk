@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileProtectClientEventDashboardResponseBodyDataFilePathStats extends $dara.Model {
   /**
+   * @remarks
+   * The file path.
+   * 
    * @example
    * /usr/a
    */
   key?: string;
   /**
+   * @remarks
+   * The total number of events.
+   * 
    * @example
    * 10
    */
@@ -38,11 +44,17 @@ export class GetFileProtectClientEventDashboardResponseBodyDataFilePathStats ext
 
 export class GetFileProtectClientEventDashboardResponseBodyDataFileTypeStats extends $dara.Model {
   /**
+   * @remarks
+   * The file type name.
+   * 
    * @example
    * txt
    */
   key?: string;
   /**
+   * @remarks
+   * The count.
+   * 
    * @example
    * 60
    */
@@ -72,11 +84,17 @@ export class GetFileProtectClientEventDashboardResponseBodyDataFileTypeStats ext
 
 export class GetFileProtectClientEventDashboardResponseBodyDataProcessNameStats extends $dara.Model {
   /**
+   * @remarks
+   * The process name.
+   * 
    * @example
    * test
    */
   key?: string;
   /**
+   * @remarks
+   * The number of events.
+   * 
    * @example
    * 50
    */
@@ -105,20 +123,41 @@ export class GetFileProtectClientEventDashboardResponseBodyDataProcessNameStats 
 }
 
 export class GetFileProtectClientEventDashboardResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The tamper-proofing event statistics grouped by file path.
+   */
   filePathStats?: GetFileProtectClientEventDashboardResponseBodyDataFilePathStats[];
+  /**
+   * @remarks
+   * The event statistics grouped by file type.
+   */
   fileTypeStats?: GetFileProtectClientEventDashboardResponseBodyDataFileTypeStats[];
   /**
+   * @remarks
+   * The number of file tamper-proofing events for today.
+   * 
    * @example
    * 12
    */
   oneDayFileChangeCount?: number;
+  /**
+   * @remarks
+   * The event statistics grouped by process name.
+   */
   processNameStats?: GetFileProtectClientEventDashboardResponseBodyDataProcessNameStats[];
   /**
+   * @remarks
+   * The number of file tamper-proofing events in the last 15 days.
+   * 
    * @example
    * 33
    */
   recentFileChangeCount?: number;
   /**
+   * @remarks
+   * The number of affected servers.
+   * 
    * @example
    * 4
    */
@@ -164,6 +203,10 @@ export class GetFileProtectClientEventDashboardResponseBodyData extends $dara.Mo
 }
 
 export class GetFileProtectClientEventDashboardResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetFileProtectClientEventDashboardResponseBodyData;
   /**
    * @remarks

@@ -5,15 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssBucketScanStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The names of the buckets.
+   * The list of bucket names.
    */
   bucketNameList?: string[];
   /**
    * @remarks
    * The data source. Valid values:
-   * 
-   * *   **API**: API operations.
-   * *   **OSS**: Object Storage Service (OSS) file check.
+   * - **API**: API-based scan.
+   * - **OSS**: OSS-based scan.
    * 
    * @example
    * API

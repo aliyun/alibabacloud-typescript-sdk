@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMachineCanRebootRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the vulnerabilities. Valid values:
-   * 
-   * *   cve: Linux software vulnerabilities
-   * *   sys: Windows system vulnerabilities
+   * The type of vulnerability that requires a restart to fix. Valid values:
+   * - cve: Linux software vulnerability
+   * - sys: Windows system vulnerability.
    * 
    * @example
    * sys
@@ -16,7 +15,7 @@ export class DescribeMachineCanRebootRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUID of the server.
+   * The UUID of the server to restart.
    * 
    * @example
    * 5b268326-273e-44fc-a0e3-9482435c****

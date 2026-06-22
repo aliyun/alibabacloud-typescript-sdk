@@ -16,7 +16,7 @@ export class GetObjectScanEventResponseBodyDataDetails extends $dara.Model {
    * The name of the item.
    * 
    * @example
-   * DownloadUrl
+   * DownloadUrl。
    */
   name?: string;
   /**
@@ -24,7 +24,7 @@ export class GetObjectScanEventResponseBodyDataDetails extends $dara.Model {
    * The display name of the item.
    * 
    * @example
-   * DownloadUrl
+   * DownloadUrl。
    */
   nameDisplay?: string;
   /**

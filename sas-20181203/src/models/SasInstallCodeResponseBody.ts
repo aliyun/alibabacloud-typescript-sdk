@@ -8,7 +8,7 @@ export class SasInstallCodeResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * B256A525-7E42-4BB9-A27C-9017FDDFF1A2
+   * B256A525-7E42-4BB9-A27C-9017FDDF****
    */
   requestId?: string;
   /**

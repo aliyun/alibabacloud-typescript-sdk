@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetLocalDefaultRegionRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud service provider. Valid values:
+   * The cloud asset vendor. Valid values:
    * 
-   * *   **Tencent**: Tencent Cloud.
-   * *   **HUAWEICLOUD**: Huawei Cloud.
-   * *   **Azure**: Microsoft Azure.
-   * *   **AWS**: Amazon Web Services (AWS).
+   * - **Tencent**: Tencent Cloud
+   * - **HUAWEICLOUD**: Huawei Cloud
+   * - **Azure**: Azure
+   * - **AWS**: AWS.
    * 
    * @example
    * Tencent

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
+   * The vulnerability type. Valid values:
    * 
-   * *   **cms**: Web CMS vulnerability
-   * *   **sys**: Windows system vulnerability
-   * *   **cve**: Linux software vulnerability
-   * *   **emg**: urgent vulnerability
+   * - **cms**: Web-CMS vulnerability
+   * - **sys**: Windows system vulnerability
+   * - **cve**: Linux software vulnerability
+   * - **emg**: emergency vulnerability.
    * 
    * @example
    * {"vulType":"cms"}
@@ -18,7 +18,7 @@ export class DescribeTargetRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The type of the query. Set the value to vul.
+   * The query type. Set this parameter to vul.
    * 
    * @example
    * vul

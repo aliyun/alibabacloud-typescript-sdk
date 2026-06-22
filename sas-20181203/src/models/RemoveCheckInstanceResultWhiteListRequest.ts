@@ -13,7 +13,7 @@ export class RemoveCheckInstanceResultWhiteListRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The IDs of instances. Separate multiple IDs with commas (,).
+   * The instance ID to query. Separate multiple instance IDs with commas (,).
    */
   instanceIds?: string[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateK8sAccessInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The aliuid of the user.
    * 
    * @example
    * 1766185894104***
@@ -13,7 +13,7 @@ export class GenerateK8sAccessInfoResponseBodyData extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The Simple Log Service Logstore that is used to store the audit logs.
+   * The SLS Logstore of the audit log.
    * 
    * @example
    * audit-cf6baf6afa106eca665296fdf68b65bf
@@ -21,7 +21,7 @@ export class GenerateK8sAccessInfoResponseBodyData extends $dara.Model {
   auditLogStore?: string;
   /**
    * @remarks
-   * The Simple Log Service project that is used to store the audit logs.
+   * The SLS project of the audit log.
    * 
    * @example
    * k8s-log-custom-your-project-sd89ehaaa
@@ -29,7 +29,7 @@ export class GenerateK8sAccessInfoResponseBodyData extends $dara.Model {
   auditProject?: string;
   /**
    * @remarks
-   * The ID of the region in which the server is deployed.
+   * The region ID of the server.
    * 
    * @example
    * cn-hangzhou
@@ -53,15 +53,18 @@ export class GenerateK8sAccessInfoResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * CPU architectures are divided into ARM architecture and x86 architecture.
+   * The CPU architecture, which can be ARM or x86. Valid values:
+   * - arm64
+   * 
+   * - x86
    * 
    * @example
-   * arm
+   * x86
    */
   cpuArch?: string;
   /**
    * @remarks
-   * The expiration time. Unit: milliseconds.
+   * The expiration time, in milliseconds.
    * 
    * @example
    * 1804230578566
@@ -125,12 +128,12 @@ export class GenerateK8sAccessInfoResponseBodyData extends $dara.Model {
 export class GenerateK8sAccessInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GenerateK8sAccessInfoResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier that Alibaba Cloud generates for the request.
    * 
    * @example
    * 061955B2-BC40-589F-AF63-C40A901EE279

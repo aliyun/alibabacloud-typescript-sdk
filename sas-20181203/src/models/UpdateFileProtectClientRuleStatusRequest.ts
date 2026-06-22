@@ -4,29 +4,68 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFileProtectClientRuleStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The alert notification level. Valid values:
+   * 
+   * - 0: no alert
+   * 
+   * - 1: reminder
+   * 
+   * - 2: suspicious
+   * 
+   * - 3: high-risk.
+   * 
    * @example
    * 0
    */
   alertLevel?: number;
+  /**
+   * @remarks
+   * The list of excluded rule IDs.
+   */
   excludeIdList?: number[];
+  /**
+   * @remarks
+   * The list of rule IDs.
+   */
   idList?: number[];
   /**
+   * @remarks
+   * The operating system type. Valid values:
+   * 
+   * - **windows**: Windows
+   * - **linux**: Linux.
+   * 
    * @example
    * linux
    */
   platform?: string;
   /**
+   * @remarks
+   * The rule action. Valid values:
+   * 
+   * - **block**: Block.
+   * 
+   * - **monitor**: Monitor.
+   * 
+   * - **pass**: Allow.
+   * 
    * @example
    * pass
    */
   ruleAction?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * test
    */
   ruleName?: string;
   /**
    * @remarks
+   * Specifies whether to select all rules.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +74,10 @@ export class UpdateFileProtectClientRuleStatusRequest extends $dara.Model {
   selectAll?: boolean;
   /**
    * @remarks
+   * The policy status. Valid values:
+   * - **0**: disabled.
+   * - **1**: enabled.
+   * 
    * This parameter is required.
    * 
    * @example

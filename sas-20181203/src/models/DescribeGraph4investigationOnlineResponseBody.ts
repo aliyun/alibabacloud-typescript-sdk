@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $dara.Model {
   /**
    * @remarks
-   * ID of the end point of the edge.
+   * The ID of the end vertex of the edge.
    * 
    * @example
    * f944c2362c7e111dee16f0e70ad2xxxx
@@ -13,12 +13,12 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
   endId?: string;
   /**
    * @remarks
-   * The type of the end point of the current edge. Possible values include but are not limited to:
-   * - **process**: Process
-   * - **file**: File
-   * - **alert**: Alert
+   * The type of the end vertex of the edge. Valid values include but are not limited to:
+   * - **process**: process
+   * - **file**: file
+   * - **alert**: alert
    * - **ip**: IP address
-   * - **domain**: Domain
+   * - **domain**: domain name.
    * 
    * @example
    * process
@@ -26,7 +26,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
   endType?: string;
   /**
    * @remarks
-   * Edge name.
+   * The name of the edge.
    * 
    * @example
    * bash->apt-get
@@ -34,7 +34,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
   name?: string;
   /**
    * @remarks
-   * Start vertex id of edge.
+   * The ID of the start vertex of the edge.
    * 
    * @example
    * f944c2362c7e111dee16f0e70ad2xxxx
@@ -42,12 +42,12 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
   startId?: string;
   /**
    * @remarks
-   * The type of the starting point of the edge. Possible values include, but are not limited to:
-   * - **process**： Process
-   * - **file**： File
-   * - **alert**： Alert
-   * - **ip**： IP address
-   * - **domain**： Domain
+   * The type of the start vertex of the edge. Valid values include but are not limited to:
+   * - **process**: process
+   * - **file**: file
+   * - **alert**: alert
+   * - **ip**: IP address
+   * - **domain**: domain name.
    * 
    * @example
    * file
@@ -55,7 +55,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
   startType?: string;
   /**
    * @remarks
-   * The time when the edge was established.
+   * The time when the edge was created.
    * 
    * @example
    * 2024-07-01 15:25:46
@@ -105,7 +105,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $
 export class DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList extends $dara.Model {
   /**
    * @remarks
-   * Vertex rendering color.
+   * The rendering color of the vertex.
    * 
    * @example
    * #fff
@@ -113,7 +113,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList ext
   displayColor?: string;
   /**
    * @remarks
-   * Vertex icon.
+   * The icon of the vertex.
    * 
    * @example
    * https://img.alicdn.com/tfs/TB176P5OgDqK1RjSZSyXXaxEVXa-49-48.png
@@ -121,7 +121,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList ext
   displayIcon?: string;
   /**
    * @remarks
-   * Display order
+   * The display order.
    * 
    * @example
    * 1
@@ -129,7 +129,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList ext
   displayOrder?: number;
   /**
    * @remarks
-   * Node type ID.
+   * The ID of the node type.
    * 
    * @example
    * 1
@@ -137,7 +137,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList ext
   id?: string;
   /**
    * @remarks
-   * Vertex name.
+   * The name of the vertex.
    * 
    * @example
    * alert
@@ -175,9 +175,9 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList ext
 export class DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList extends $dara.Model {
   /**
    * @remarks
-   * Direction of the edge. Possible values:
-   * - **1** ： Forward
-   * - **0**： Reverse
+   * The direction of the edge. Valid values:
+   * - **1**: forward
+   * - **0**: reverse.
    * 
    * @example
    * 1
@@ -185,7 +185,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList e
   directed?: number;
   /**
    * @remarks
-   * Render color of the edge.
+   * The rendering color of the edge.
    * 
    * @example
    * #fff
@@ -193,7 +193,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList e
   displayColor?: string;
   /**
    * @remarks
-   * Icon style of the edge
+   * The icon style of the edge.
    * 
    * @example
    * https://img.alicdn.com/imgextra/i4/O1CN01ft6rvQ22uUX2JsTmv_!!6000000007180-55-tps-12-12.svg
@@ -201,7 +201,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList e
   displayIcon?: string;
   /**
    * @remarks
-   * Name of the edge.
+   * The name of the edge.
    * 
    * @example
    * spawn process
@@ -237,7 +237,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList e
 export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexListNeighborList extends $dara.Model {
   /**
    * @remarks
-   * Number of neighboring nodes.
+   * The number of adjacent nodes.
    * 
    * @example
    * 1
@@ -245,7 +245,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexListNeighbor
   count?: number;
   /**
    * @remarks
-   * Indicates whether there are more neighboring vertices.
+   * Indicates whether more adjacent vertices exist.
    * 
    * @example
    * False
@@ -253,7 +253,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexListNeighbor
   hasMore?: boolean;
   /**
    * @remarks
-   * Neighbor node type.
+   * The type of the neighbor node.
    * 
    * @example
    * alert
@@ -287,7 +287,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexListNeighbor
 export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexList extends $dara.Model {
   /**
    * @remarks
-   * Vertex name.
+   * The name of the vertex.
    * 
    * @example
    * 1a79b3a10ad5e6cad090dd697a7axxxxx
@@ -295,12 +295,12 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexList extends
   name?: string;
   /**
    * @remarks
-   * List of neighboring vertices of the current vertex.
+   * The list of vertices adjacent to the current vertex.
    */
   neighborList?: DescribeGraph4InvestigationOnlineResponseBodyDataVertexListNeighborList[];
   /**
    * @remarks
-   * Properties.
+   * The properties.
    * 
    * @example
    * {\\"DomainName\\": {\\"SupportScratchDetection\\": False, \\"Description\\": \\"The name of the domain.\\", \\"Required\\": True, \\"UpdateAllowed\\": False, \\"Type\\": \\"string\\", \\"Immutable\\": False}}
@@ -308,7 +308,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexList extends
   properties?: string;
   /**
    * @remarks
-   * Time.
+   * The time.
    * 
    * @example
    * 2024-07-02 16:14:01
@@ -316,7 +316,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexList extends
   time?: string;
   /**
    * @remarks
-   * Vertex type.
+   * The type of the vertex.
    * 
    * @example
    * alert
@@ -324,7 +324,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexList extends
   type?: string;
   /**
    * @remarks
-   * Asset UUID.
+   * The UUID of the asset.
    * 
    * @example
    * 5c081b02-f66a-47a4-bd2f-79ee3eafxxxx
@@ -367,22 +367,22 @@ export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexList extends
 export class DescribeGraph4InvestigationOnlineResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of edges.
+   * The list of edges.
    */
   edgeList?: DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList[];
   /**
    * @remarks
-   * List of vertex types.
+   * The list of vertex types.
    */
   entityTypeList?: DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList[];
   /**
    * @remarks
-   * List of edge types.
+   * The list of edge types.
    */
   relationTypeList?: DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList[];
   /**
    * @remarks
-   * List of vertices.
+   * The list of vertices.
    */
   vertexList?: DescribeGraph4InvestigationOnlineResponseBodyDataVertexList[];
   static names(): { [key: string]: string } {
@@ -427,7 +427,7 @@ export class DescribeGraph4InvestigationOnlineResponseBodyData extends $dara.Mod
 export class DescribeGraph4InvestigationOnlineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Result code, where **200** indicates success. Any other value indicates failure, and the caller can use this field to determine the reason for the failure.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -435,12 +435,12 @@ export class DescribeGraph4InvestigationOnlineResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data
+   * The response data.
    */
   data?: DescribeGraph4InvestigationOnlineResponseBodyData;
   /**
    * @remarks
-   * The response message from the request.
+   * The returned message.
    * 
    * @example
    * successful
@@ -448,7 +448,7 @@ export class DescribeGraph4InvestigationOnlineResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A unique identifier generated by Alibaba Cloud for this request.
+   * The request ID.
    * 
    * @example
    * C699E4E4-F2F4-58FC-A949-457FFE59****
@@ -456,9 +456,9 @@ export class DescribeGraph4InvestigationOnlineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result status of the API call. Values:
-   * - **true**: The API call was successful.
-   * - **false**: The API call failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

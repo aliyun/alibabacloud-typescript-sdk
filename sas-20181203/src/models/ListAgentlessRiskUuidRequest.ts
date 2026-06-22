@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessRiskUuidRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page when using paging.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The ID of the asset instance.
    * 
    * @example
    * s-bp1g6wxdwps7s9dz****
@@ -21,7 +21,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name of the asset.
+   * The name of the asset instance.
    * 
    * @example
    * ca_cpm_****
@@ -29,7 +29,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the asset that you want to query.
+   * The public IP address of the asset to query.
    * 
    * @example
    * 1.1.XX.XX
@@ -37,7 +37,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the asset that you want to query.
+   * The private IP address of the asset to query.
    * 
    * @example
    * 172.26.XX.XX
@@ -45,7 +45,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * oracle-win-001****
@@ -53,7 +53,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   machineName?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page when using paging.
    * 
    * @example
    * 10
@@ -63,8 +63,8 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
    * @remarks
    * Specifies whether risks exist. Valid values:
    * 
-   * *   **true**: Risks exist.
-   * *   **false**: Risks do not exist.
+   * - **true**: Risks exist.
+   * - **false**: Risks do not exist.
    * 
    * @example
    * true
@@ -72,7 +72,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   risk?: boolean;
   /**
    * @remarks
-   * The name of the detection object.
+   * The name of the detection target.
    * 
    * @example
    * source-test-obj-0****
@@ -80,12 +80,12 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * Specifies the type of the object being inspected. Valid values:
+   * The object type of the detection target. Valid values:
    * 
-   * *   **1**: Host Snapshot.
-   * *   **2**: Host Image.
-   * *   **3**: User Snapshot.
-   * *   **4**: User Image.
+   * - **1**: host snapshot
+   * - **2**: host image
+   * - **3**: user snapshot
+   * - **4**: user custom image
    * 
    * @example
    * 3

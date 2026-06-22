@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeContainerServiceK8sClusterKritisStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c0e9efc6dea5f41db93b7e977123c****
@@ -14,7 +14,7 @@ export class DescribeContainerServiceK8sClusterKritisStatusRequest extends $dara
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The source IP address of the request.
    * 
    * @example
    * 119.145.XXX.XXX

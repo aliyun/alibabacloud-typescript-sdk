@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWebLockBindListRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number of the current page in a paging query. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -13,10 +13,9 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and the response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,7 +23,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The maximum number of entries per page in a paging query. Default value: 20.
    * 
    * @example
    * 20
@@ -32,7 +31,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The string that allows you to search for servers in fuzzy match mode. You can enter a server name or IP address.
+   * The fuzzy match field for the server. The value can be a server name or IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -40,7 +39,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 116.30.XX.XX
@@ -48,10 +47,9 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The protection status of the server that you want to query. Valid values:
-   * 
-   * *   **on**: protected
-   * *   **off**: unprotected
+   * The protection status of the servers that you want to query. Valid values:
+   * - **on**: Protection is enabled.
+   * - **off**: Protection is disabled.
    * 
    * @example
    * on
@@ -60,8 +58,7 @@ export class DescribeWebLockBindListRequest extends $dara.Model {
   /**
    * @remarks
    * The UUID of the asset that you want to query.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID.
+   * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * @example
    * 7151f27e-1d51-4e98-a540-8936a****

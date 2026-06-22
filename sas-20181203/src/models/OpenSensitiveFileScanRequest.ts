@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class OpenSensitiveFileScanRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable or disable sensitive file scan. Valid values:
+   * The switch operation. Valid values:
    * 
-   * *   **on**: enables sensitive file scan
-   * *   **off**: disables sensitive file scan
+   * - **on**: Enable.
+   * - **off**: Disable.
    * 
    * @example
    * on

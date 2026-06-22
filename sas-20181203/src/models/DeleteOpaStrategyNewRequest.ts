@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOpaStrategyNewRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of rules.
+   * The list of policy IDs.
    */
   strategyIds?: number[];
   static names(): { [key: string]: string } {

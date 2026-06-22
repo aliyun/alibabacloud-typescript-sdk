@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The prevention mode. Valid values:
+   * The defense mode. Valid values:
    * 
-   * *   **block**: Interception Mode
-   * *   **audit**: Alert Mode
+   * - **block**: Block.
+   * - **audit**: Alert.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   defenceMode?: string;
   /**
    * @remarks
-   * The directory for which you want to enable web tamper proofing.
+   * The full path of the directory that you want to protect.
    * 
    * This parameter is required.
    * 
@@ -28,9 +28,8 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   dir?: string;
   /**
    * @remarks
-   * The directory for which you want to disable web tamper proofing.
-   * 
-   * > If you set **Mode** to **blacklist**, you must specify this parameter.
+   * The directory that does not require web tamper-proofing protection (excluded directory).
+   * > This parameter is required when the protection pattern **Mode** is set to **blacklist**.
    * 
    * @example
    * /home/admin/test
@@ -38,9 +37,8 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   exclusiveDir?: string;
   /**
    * @remarks
-   * The file for which you want to disable web tamper proofing.
-   * 
-   * > If you set **Mode** to **blacklist**, you must specify this parameter.
+   * The file that does not require web tamper-proofing protection (excluded file).
+   * > This parameter is required when the protection pattern **Mode** is set to **blacklist**.
    * 
    * @example
    * /home/admin/apache.log
@@ -48,24 +46,23 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   exclusiveFile?: string;
   /**
    * @remarks
-   * The type of the file for which you want to disable web tamper proofing. Separate multiple types with semicolons (;). Valid values:
+   * The file types that do not require web tamper-proofing protection (excluded file types). Separate multiple file types with semicolons (;). Valid values:
+   * - php
+   * - jsp
+   * - asp
+   * - aspx
+   * - js
+   * - cgi
+   * - html
+   * - htm
+   * - xml
+   * - shtml
+   * - shtm
+   * - jpg
+   * - gif
+   * - png
    * 
-   * *   php
-   * *   jsp
-   * *   asp
-   * *   aspx
-   * *   js
-   * *   cgi
-   * *   html
-   * *   htm
-   * *   xml
-   * *   shtml
-   * *   shtm
-   * *   jpg
-   * *   gif
-   * *   png
-   * 
-   * > If you set **Mode** to **blacklist**, you must specify this parameter.
+   * > This parameter is required when the protection pattern **Mode** is set to **blacklist**.
    * 
    * @example
    * jpg
@@ -73,9 +70,8 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   exclusiveFileType?: string;
   /**
    * @remarks
-   * The ID of the protected directory for which you want to change the status of web tamper proofing.
-   * 
-   * > You can call the [DescribeWebLockConfigList](~~DescribeWebLockConfigList~~) operation to query the IDs of protected directories.
+   * The ID of the protected directory configuration that you want to modify.
+   * > You can call the [DescribeWebLockConfigList](~~DescribeWebLockConfigList~~) operation to obtain the ID of the protected directory.
    * 
    * This parameter is required.
    * 
@@ -85,9 +81,8 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The file for which you want to enable web tamper proofing.
-   * 
-   * > If you set **Mode** to **whitelist**, you must specify this parameter.
+   * The file that requires protection.
+   * > This parameter is required when the protection pattern **Mode** is set to **whitelist**.
    * 
    * @example
    * /home/admin/test.log
@@ -95,24 +90,23 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   inclusiveFile?: string;
   /**
    * @remarks
-   * The type of the file for which you want to enable web tamper proofing. Separate multiple types with semicolons (;). Valid values:
+   * The file types that require web tamper-proofing protection. Separate multiple file types with semicolons (;). Valid values:
+   * - php
+   * - jsp
+   * - asp
+   * - aspx
+   * - js
+   * - cgi
+   * - html
+   * - htm
+   * - xml
+   * - shtml
+   * - shtm
+   * - jpg
+   * - gif
+   * - png
    * 
-   * *   php
-   * *   jsp
-   * *   asp
-   * *   aspx
-   * *   js
-   * *   cgi
-   * *   html
-   * *   htm
-   * *   xml
-   * *   shtml
-   * *   shtm
-   * *   jpg
-   * *   gif
-   * *   png
-   * 
-   * > If you set **Mode** to **whitelist**, you must specify this parameter.
+   * > This parameter is required when the protection pattern **Mode** is set to **whitelist**.
    * 
    * @example
    * jpg
@@ -120,10 +114,9 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   inclusiveFileType?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -131,11 +124,10 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The local path to the backup files of the protected directory.\\
-   * The directory format of a Linux server is different from that of a Windows server. You must enter the directory in the required format based on your operating system. Examples:
-   * 
-   * *   Linux server: /usr/local/aegis/bak
-   * *   Windows server: C:\\Program Files (x86)\\Alibaba\\Aegis\\bak
+   * The local backup path for securely backing up the protected directory.  
+   * The format of the directory path may differ between Linux servers and Windows servers. Make sure that you enter the correct format. Refer to the following directory formats:
+   *  - Linux server: /usr/local/aegis/bak
+   *  - Windows server: C:\\Program Files (x86)\\Alibaba\\Aegis\\bak.
    * 
    * This parameter is required.
    * 
@@ -145,10 +137,9 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   localBackupDir?: string;
   /**
    * @remarks
-   * The protection mode of web tamper proofing. Valid values:
-   * 
-   * *   **whitelist**: In this mode, web tamper proofing is enabled for the specified directories and file types.
-   * *   **blacklist**: In this mode, web tamper proofing is enabled for the unspecified subdirectories, file types, and files in the protected directory.
+   * The protection pattern. Valid values:
+   * - **whitelist**: whitelist mode. Protects only the specified directories and file types.
+   * - **blacklist**: blacklist mode. Protects all subdirectories, file types, and files under the specified directory except those that are excluded.
    * 
    * @example
    * blacklist
@@ -156,7 +147,7 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 36.112.XX.XX
@@ -164,9 +155,8 @@ export class ModifyWebLockUpdateConfigRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The UUID of the server on which the protected directory is located.
-   * 
-   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * The UUID of the server whose protected directory you want to modify.
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUID of the server.
    * 
    * This parameter is required.
    * 

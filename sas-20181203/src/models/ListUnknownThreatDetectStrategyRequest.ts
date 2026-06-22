@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListUnknownThreatDetectStrategyRequest extends $dara.Model {
   /**
    * @remarks
+   * The page number for a paginated query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class ListUnknownThreatDetectStrategyRequest extends $dara.Model {
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The strategy ID.
+   * 
    * @example
    * 210****
    */
   id?: string;
   /**
+   * @remarks
+   * The strategy name.
+   * 
    * @example
    * strategy****
    */
   name?: string;
   /**
    * @remarks
+   * The number of entries to return per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +40,13 @@ export class ListUnknownThreatDetectStrategyRequest extends $dara.Model {
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The whitelist mode. Valid values:
+   * 
+   * - **hash**: process hash
+   * 
+   * - **path**: process path
+   * 
    * @example
    * hash
    */

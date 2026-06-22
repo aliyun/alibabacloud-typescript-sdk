@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageSecurityScanCountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of image baseline risks detected on the current asset.
+   * The number of image baseline risks in the current asset.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeImageSecurityScanCountResponseBodyData extends $dara.Model 
   imageBaselineCount?: number;
   /**
    * @remarks
-   * The number of image system vulnerabilities returned on the current page.
+   * The number of image system vulnerabilities on the current page.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeImageSecurityScanCountResponseBodyData extends $dara.Model 
   imageCveVulCount?: number;
   /**
    * @remarks
-   * The number of malicious image samples returned on the current page.
+   * The number of malicious image samples on the current page.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeImageSecurityScanCountResponseBodyData extends $dara.Model 
   imageMaliciousFileCount?: number;
   /**
    * @remarks
-   * The number of image application vulnerabilities returned on the current page.
+   * The number of image application vulnerabilities displayed on the current page.
    * 
    * @example
    * 0
@@ -65,12 +65,12 @@ export class DescribeImageSecurityScanCountResponseBodyData extends $dara.Model 
 export class DescribeImageSecurityScanCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeImageSecurityScanCountResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * C699E4E4-F2F4-58FC-A949-457FFE59****

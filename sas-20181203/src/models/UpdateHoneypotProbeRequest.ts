@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHoneypotProbeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether address resolution protocol (ARP) is enabled for the check type.
+   * The ARP check type.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class UpdateHoneypotProbeRequest extends $dara.Model {
   arp?: boolean;
   /**
    * @remarks
-   * The name of the probe.
+   * The probe name.
    * 
    * @example
    * svwsx-vpc-4430
@@ -21,10 +21,10 @@ export class UpdateHoneypotProbeRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -32,7 +32,7 @@ export class UpdateHoneypotProbeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether ping is enabled for the check type.
+   * The ping detection type.
    * 
    * @example
    * true
@@ -40,9 +40,8 @@ export class UpdateHoneypotProbeRequest extends $dara.Model {
   ping?: boolean;
   /**
    * @remarks
-   * The ID of the probe.
-   * 
-   * > You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+   * The probe ID.
+   * >You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -52,7 +51,7 @@ export class UpdateHoneypotProbeRequest extends $dara.Model {
   probeId?: string;
   /**
    * @remarks
-   * The IP addresses that are monitored.
+   * The list of listening IP addresses.
    */
   serviceIpList?: string[];
   static names(): { [key: string]: string } {

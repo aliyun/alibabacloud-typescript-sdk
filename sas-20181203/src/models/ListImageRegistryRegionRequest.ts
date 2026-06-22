@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListImageRegistryRegionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language type for requesting and receiving messages. Default value: zh. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {

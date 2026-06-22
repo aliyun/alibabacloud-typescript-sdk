@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConcernNecessityRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response messages. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh

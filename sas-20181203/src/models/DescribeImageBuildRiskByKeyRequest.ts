@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBuildRiskByKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -21,10 +21,9 @@ export class DescribeImageBuildRiskByKeyRequest extends $dara.Model {
   imageUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the content in the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -32,9 +31,8 @@ export class DescribeImageBuildRiskByKeyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -42,8 +40,8 @@ export class DescribeImageBuildRiskByKeyRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The key of the risk rule. 
-   * > You can call the [DescribeImageBuildRiskList](~~DescribeImageBuildRiskList~~) operation to obtain the value of **RiskKey**.
+   * The key of the build risk rule.
+   * >You can call the [DescribeImageBuildRiskList](~~DescribeImageBuildRiskList~~) operation to obtain this parameter.
    * 
    * @example
    * no_user
@@ -51,11 +49,10 @@ export class DescribeImageBuildRiskByKeyRequest extends $dara.Model {
   riskKey?: string;
   /**
    * @remarks
-   * The status of the alert event. Valid values:
-   * 
-   * *   **0**: unhandled.
-   * *   **1**: ignored.
-   * *   **2**: false positive.
+   * The status of the alert event to query. Valid values:
+   * - **0**: unhandled.
+   * - **1**: ignored.
+   * - **2**: false positive.
    * 
    * @example
    * 1

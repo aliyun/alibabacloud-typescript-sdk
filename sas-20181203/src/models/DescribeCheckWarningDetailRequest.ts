@@ -6,10 +6,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the check item.
-   * 
-   * >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of check items.
-   * 
-   * >  If you specify this parameter, you must also specify the Uuid parameter.
+   * > You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.>Notice: When this parameter is specified, the Uuid parameter is required..
    * 
    * @example
    * 1
@@ -17,11 +14,10 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   checkId?: string;
   /**
    * @remarks
-   * The ID of the alert triggered by the check item.
+   * The alert ID of the check item.
    * 
-   * >  To query the details of a check item, you must provide the ID of the alert that is triggered by the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts.
-   * 
-   * >  If the Uuid and CheckId parameters are not specified, this parameter is required.
+   * > To query the details of a specified check item, provide the alert ID of the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to obtain this ID.
+   * >Notice: This parameter is required when both Uuid and CheckId are empty..
    * 
    * @example
    * 98675301
@@ -29,7 +25,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   checkWarningId?: number;
   /**
    * @remarks
-   * Container name.
+   * The container name.
    * 
    * @example
    * test_container
@@ -37,10 +33,9 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   containerName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -48,12 +43,11 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
+   * The ID of the Alibaba Cloud account of the member accounts in the resource folder.
+   * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
-   * 1232428423234****
+   * 16670360956*****
    */
   resourceDirectoryAccountId?: number;
   /**
@@ -66,14 +60,11 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The UUID of the server.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-   * 
-   * >  If you specify this parameter, you must also specify the CheckId parameter.
+   * The UUID of the server to query.
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.>Notice: When this parameter is specified, the CheckId parameter is required..
    * 
    * @example
-   * 01aec2da-5b57-4f38-b221-da5a0b2f****
+   * 06125d19-6a02-4451-9f65-2083996e****
    */
   uuid?: string;
   static names(): { [key: string]: string } {

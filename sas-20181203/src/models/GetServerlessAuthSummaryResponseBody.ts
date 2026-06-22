@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Enable auto-binding. Values: 
+   * Indicates whether automatic binding is enabled. Valid values:
    * 
-   * - **0**: Disabled
-   * - **1**: Enabled
+   * - **0**: disabled
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -16,7 +16,9 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   autoBind?: number;
   /**
    * @remarks
-   * Indicates whether there is a pre-bound asset configuration. Pre-binding refers to the asset binding configuration selected in advance at the time of purchase. The values are: - **0**: No - **1**: Yes
+   * Indicates whether a pre-binding asset configuration exists. Pre-binding refers to the asset binding configuration that is selected in advance during purchase. Valid values:
+   * - **0**: does not exist
+   * - **1**: exists.
    * 
    * @example
    * 1
@@ -24,10 +26,10 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   hasPreBindSetting?: boolean;
   /**
    * @remarks
-   * Whether it is a post-paid instance. Values: 
+   * Indicates whether the instance is a pay-as-you-go instance. Valid values:
    * 
-   * - **true**: Yes
-   * - **false**: No
+   * - **true**: The instance is a pay-as-you-go instance.
+   * - **false**: The instance is not a pay-as-you-go instance.
    * 
    * @example
    * true
@@ -35,9 +37,9 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   isPostPaid?: boolean;
   /**
    * @remarks
-   * Serverless post-paid status. Values: 
-   * - **true**: Active
-   * - **false**: Expired
+   * The Serverless pay-as-you-go status. Valid values:
+   * - **true**: active
+   * - **false**: expired.
    * 
    * @example
    * true
@@ -45,13 +47,13 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   isServerlessPostPaidValid?: boolean;
   /**
    * @remarks
-   * Pay-as-you-go module switch. Values: 
+   * The pay-as-you-go module switch. Valid values:
    * 
-   * - **VUL**: Vulnerability Repair Module
-   * - **CSPM**: Cloud Security Posture Management Module
-   * - **AGENTLESS**: Agentless Detection Module
-   * - **SERVERLESS**: Serverless Security Module
-   * - **CTDR**: Threat Analysis and Response Module
+   * - **VUL**: vulnerability fix module
+   * - **CSPM**: Cloud Security Posture Management (CSPM) module
+   * - **AGENTLESS**: agentless detection module
+   * - **SERVERLESS**: Serverless security module
+   * - **CTDR**: Cloud Threat Detection and Response (CTDR) module.
    * 
    * @example
    * SERVERLESS
@@ -59,7 +61,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   postPaidModuleSwitch?: string;
   /**
    * @remarks
-   * Post-paid activation time. Unit: milliseconds.
+   * The time when pay-as-you-go billing was enabled. Unit: milliseconds.
    * 
    * @example
    * 1655432638000
@@ -67,9 +69,9 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   postPaidOpenTime?: number;
   /**
    * @remarks
-   * Post-paid instance status. Values: 
-   * - **1**: Active
-   * - **2**: Suspended due to unpaid bills
+   * The pay-as-you-go instance status. Valid values:
+   * - **1**: active
+   * - **2**: suspended due to overdue payment.
    * 
    * @example
    * 1
@@ -77,7 +79,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   postPaidStatus?: number;
   /**
    * @remarks
-   * Post-paid instance ID.
+   * The pay-as-you-go instance ID.
    * 
    * @example
    * sas-postpay-**
@@ -85,7 +87,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   postpaidInstanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -93,7 +95,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Total number of bound applications.
+   * The total number of bound applications.
    * 
    * @example
    * 10
@@ -101,7 +103,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   totalBindAppCount?: number;
   /**
    * @remarks
-   * Total number of bound cores.
+   * The total number of bound cores.
    * 
    * @example
    * 1
@@ -109,7 +111,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   totalBindCoreCount?: number;
   /**
    * @remarks
-   * Total number of bound instances.
+   * The total number of bound instances.
    * 
    * @example
    * 1
@@ -117,7 +119,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   totalBindInstanceCount?: number;
   /**
    * @remarks
-   * Total number of unbound applications.
+   * The total number of unbound applications.
    * 
    * @example
    * 1
@@ -125,7 +127,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   totalUnBindAppCount?: number;
   /**
    * @remarks
-   * Total number of unbound cores.
+   * The total number of unbound cores.
    * 
    * @example
    * 1
@@ -133,7 +135,7 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
   totalUnBindCoreCount?: number;
   /**
    * @remarks
-   * Total number of unbound instances.
+   * The total number of unbound instances.
    * 
    * @example
    * 2
@@ -191,12 +193,12 @@ export class GetServerlessAuthSummaryResponseBodyData extends $dara.Model {
 export class GetServerlessAuthSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data details.
+   * The returned data details.
    */
   data?: GetServerlessAuthSummaryResponseBodyData;
   /**
    * @remarks
-   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for this request. It can be used to troubleshoot and locate issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F8B6F758-BCD4-597A-8A2C-DA5A552C****
@@ -204,9 +206,9 @@ export class GetServerlessAuthSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Values:
-   * - **true**: Success
-   * - **false**: Failure
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

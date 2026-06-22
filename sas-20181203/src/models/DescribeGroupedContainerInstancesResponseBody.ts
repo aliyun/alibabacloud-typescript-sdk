@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts that are detected for the current pod, application, namespace, or cluster.
+   * The number of alerts detected in the current pod, application, namespace, or cluster.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   alarmCount?: number;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * oss-liveness-probe
@@ -38,10 +38,9 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   /**
    * @remarks
    * The type of the cluster. Valid values:
-   * 
-   * *   **Kubernetes**: dedicated Kubernetes cluster.
-   * *   **ManagedKubernetes**: standard managed cluster (edge cluster).
-   * *   **Ask**: serverless Kubernetes (ASK) cluster.
+   * - **Kubernetes**: dedicated Kubernetes cluster
+   * - **ManagedKubernetes**: standard managed cluster (edge cluster)
+   * - **Ask**: standard serverless cluster.
    * 
    * @example
    * ManagedKubernetes
@@ -49,7 +48,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   clusterType?: string;
   /**
    * @remarks
-   * The timestamp when the cluster was created. Unit: milliseconds.
+   * The timestamp when the cluster was created, in milliseconds.
    * 
    * @example
    * 1600076893000
@@ -57,13 +56,12 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   createTime?: number;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
-   * 
-   * *   **running**: The cluster is running.
-   * *   **stopped**: The cluster is stopped.
-   * *   **deleted**: The cluster is deleted.
-   * *   **delete_failed**: The cluster failed to be deleted.
-   * *   **failed**: The cluster failed to be created.
+   * The running status of the cluster. Valid values:
+   * - **running**: The cluster is running.
+   * - **stopped**: The cluster is stopped.
+   * - **deleted**: The cluster is deleted.
+   * - **delete_failed**: The cluster failed to be deleted.
+   * - **failed**: The cluster failed to be created.
    * 
    * @example
    * running
@@ -71,7 +69,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   custerState?: string;
   /**
    * @remarks
-   * The number of baseline risks that are detected for the current pod, application, namespace, or cluster.
+   * The total number of baseline checks detected in the current pod, application, namespace, or cluster.
    * 
    * @example
    * 20
@@ -79,7 +77,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   hcCount?: number;
   /**
    * @remarks
-   * The IP address of the host in the container cluster.
+   * The host IP address of the container cluster.
    * 
    * @example
    * 172.114.XX.XX
@@ -119,7 +117,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   imageRepoNamespace?: string;
   /**
    * @remarks
-   * The tag that is added to the image repository.
+   * The tag of the image repository.
    * 
    * @example
    * dev-20220512-2
@@ -135,7 +133,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   imageUuid?: string;
   /**
    * @remarks
-   * The number of pods, applications, clusters, or namespaces.
+   * The number of pods, applications, clusters, or namespaces returned.
    * 
    * @example
    * 9
@@ -143,7 +141,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   instanceCount?: number;
   /**
    * @remarks
-   * The ID of the server.
+   * The ID of the server instance.
    * 
    * @example
    * i-8vb9ul5xec4tua4q****
@@ -159,7 +157,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   namespace?: string;
   /**
    * @remarks
-   * The name of the pod.
+   * The pod name.
    * 
    * @example
    * csi-plugin-2n****
@@ -175,7 +173,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   podIp?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region in which the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -183,7 +181,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   regionId?: string;
   /**
    * @remarks
-   * The number of at-risk instances.
+   * The number of instances that are at risk.
    * 
    * @example
    * 1
@@ -193,9 +191,9 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high
+   * - **medium**: medium
+   * - **low**: low.
    * 
    * @example
    * low
@@ -203,10 +201,9 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   riskLevel?: string;
   /**
    * @remarks
-   * Indicates whether risks were detected. Valid values:
-   * 
-   * *   **NO**
-   * *   **YES**
+   * The risk status. Valid values:
+   * - **NO**: No risk.
+   * - **YES**: At risk.
    * 
    * @example
    * NO
@@ -214,10 +211,9 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   riskStatus?: string;
   /**
    * @remarks
-   * Indicates whether the synchronization of cluster audit logs is enabled. Valid values:
-   * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
+   * The log audit synchronization switch for the cluster. Valid values:
+   * - **0**: disabled
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -225,10 +221,9 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   syncOpen?: number;
   /**
    * @remarks
-   * The status of the synchronization of cluster audit logs. Valid values:
-   * 
-   * *   **0**: The synchronization failed.
-   * *   **1**: The synchronization is successful.
+   * The log audit synchronization status for the cluster. Valid values:
+   * - **0**: synchronization failed
+   * - **1**: synchronization succeeded.
    * 
    * @example
    * 1
@@ -236,7 +231,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   syncStatus?: number;
   /**
    * @remarks
-   * The number of vulnerabilities that are detected for the current pod, application, namespace, or cluster.
+   * The number of vulnerabilities detected in the current pod, application, namespace, or cluster.
    * 
    * @example
    * 1
@@ -318,7 +313,7 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
 export class DescribeGroupedContainerInstancesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of container assets returned on the current page.
+   * The number of container assets displayed on the current page in a paging query.
    * 
    * @example
    * 20
@@ -326,7 +321,7 @@ export class DescribeGroupedContainerInstancesResponseBodyPageInfo extends $dara
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -334,7 +329,7 @@ export class DescribeGroupedContainerInstancesResponseBodyPageInfo extends $dara
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**.
+   * The number of container assets displayed on each page in a paging query. Default value: **20**, which indicates that 20 container assets are displayed on each page.
    * 
    * @example
    * 20
@@ -378,7 +373,7 @@ export class DescribeGroupedContainerInstancesResponseBodyPageInfo extends $dara
 export class DescribeGroupedContainerInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the container.
+   * The list of container asset information returned.
    */
   groupedContainerInstanceList?: DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstanceList[];
   /**
@@ -388,7 +383,7 @@ export class DescribeGroupedContainerInstancesResponseBody extends $dara.Model {
   pageInfo?: DescribeGroupedContainerInstancesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D

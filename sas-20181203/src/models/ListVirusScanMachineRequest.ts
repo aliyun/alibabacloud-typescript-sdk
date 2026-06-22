@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVirusScanMachineRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListVirusScanMachineRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListVirusScanMachineRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The information about the server that you want to query. The value can be the name or the IP address of the server.
+   * The asset information to query. You can set this parameter to an asset name or IP address.
    * 
    * @example
    * 192.168.1****
@@ -33,7 +33,7 @@ export class ListVirusScanMachineRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The UUID of the server.
+   * The UUID of the asset instance.
    * 
    * @example
    * 7cc91747-2845-40d4-bb69-c077597f****

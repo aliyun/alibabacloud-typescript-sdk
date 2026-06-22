@@ -69,7 +69,7 @@ export class HandleSecurityEventsRequest extends $dara.Model {
    * >  If you set OperationCode to `kill_and_quara` or `block_ip`, you must specify OperationParams. If you set OperationCode to other values, you can leave OperationParams empty.
    * 
    * @example
-   * {}
+   * {\\"expireTime\\":1719588943551,\\"subOperation\\":\\"killAndQuaraFileByMd5andPath\\"}
    */
   operationParams?: string;
   /**
@@ -87,7 +87,7 @@ export class HandleSecurityEventsRequest extends $dara.Model {
    * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
    * 
    * @example
-   * 16670360956*****
+   * 127608589417****
    */
   resourceDirectoryAccountId?: number;
   /**

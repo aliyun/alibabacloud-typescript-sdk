@@ -7,8 +7,7 @@ export class DescribeSimilarEventScenariosRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the alert event.
-   * 
-   * >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the ID of the alert event.
+   * >You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -18,10 +17,10 @@ export class DescribeSimilarEventScenariosRequest extends $dara.Model {
   securityEventId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
-   * 1.2.XX.XX
+   * 112.214.XX.XX
    */
   sourceIp?: string;
   static names(): { [key: string]: string } {

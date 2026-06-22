@@ -5,18 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckSaleResponseBodyCheckSale extends $dara.Model {
   /**
    * @remarks
-   * The consumed quota.
+   * The number of consumed authorized quotas.
    * 
    * @example
    * 500
    */
   consumeCount?: number;
+  instanceConsumeCount?: number;
+  instanceHybridPostLatestCycledResourceCount?: number;
+  instancePostConsumeCount?: number;
+  instancePurchaseCount?: number;
   /**
    * @remarks
-   * Indicates whether the user is an existing user and whether the user uses the configuration assessment feature before the feature is released for sale on July 07, 2023. Valid values:
-   * 
-   * *   **true**: existing user
-   * *   **false**: new user
+   * Indicates whether the user is an existing user who used the cloud service configuration check feature before the sales feature was released on July 7, 2023. Valid values:
+   * - **true**: The user is an existing user.
+   * - **false**: The user is not an existing user.
    * 
    * @example
    * true
@@ -24,7 +27,7 @@ export class GetCheckSaleResponseBodyCheckSale extends $dara.Model {
   loyalUser?: boolean;
   /**
    * @remarks
-   * The purchased quota.
+   * The number of purchased authorized quotas.
    * 
    * @example
    * 1000
@@ -32,11 +35,10 @@ export class GetCheckSaleResponseBodyCheckSale extends $dara.Model {
   purchaseCount?: number;
   /**
    * @remarks
-   * The type of the user. Valid values:
-   * 
-   * *   **1**: a user who can use all check items.
-   * *   **2**: an user who can only use the check items before the release of the feature on July 07, 2023. This type of users must upgrade Security Center before the users can use all check items.
-   * *   **3**: a new user who cannot use the configuration assessment feature. This type of users must make a purchase before the users can use the feature.
+   * The type of the sales user. Valid values:
+   * - **1**: full-feature user who can use all check items.
+   * - **2**: user who needs to upgrade and can only use check items that were available before the sales feature was released on July 7, 2023.
+   * - **3**: user who needs to purchase the feature and cannot use the cloud service configuration check feature.
    * 
    * @example
    * 1
@@ -45,6 +47,10 @@ export class GetCheckSaleResponseBodyCheckSale extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       consumeCount: 'ConsumeCount',
+      instanceConsumeCount: 'InstanceConsumeCount',
+      instanceHybridPostLatestCycledResourceCount: 'InstanceHybridPostLatestCycledResourceCount',
+      instancePostConsumeCount: 'InstancePostConsumeCount',
+      instancePurchaseCount: 'InstancePurchaseCount',
       loyalUser: 'LoyalUser',
       purchaseCount: 'PurchaseCount',
       saleUserType: 'SaleUserType',
@@ -54,6 +60,10 @@ export class GetCheckSaleResponseBodyCheckSale extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       consumeCount: 'number',
+      instanceConsumeCount: 'number',
+      instanceHybridPostLatestCycledResourceCount: 'number',
+      instancePostConsumeCount: 'number',
+      instancePurchaseCount: 'number',
       loyalUser: 'boolean',
       purchaseCount: 'number',
       saleUserType: 'number',
@@ -72,12 +82,12 @@ export class GetCheckSaleResponseBodyCheckSale extends $dara.Model {
 export class GetCheckSaleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The sales information about the configuration assessment quota.
+   * The sales information of cloud service configuration check.
    */
   checkSale?: GetCheckSaleResponseBodyCheckSale;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * F5CF78A7-30AA-59DB-847F-13EE3AE7****

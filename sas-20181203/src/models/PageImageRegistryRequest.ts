@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PageImageRegistryRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class PageImageRegistryRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The maximum number of entries per page in a paged query. Default value: 20.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class PageImageRegistryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the image repository. Fuzzy match is supported.
+   * The image repository name. Fuzzy match is supported.
    * 
    * @example
    * asa
@@ -29,12 +29,12 @@ export class PageImageRegistryRequest extends $dara.Model {
   registryNameLike?: string;
   /**
    * @remarks
-   * The types of image repositories.
+   * The list of image repository types to include.
    */
   registryTypeInList?: string[];
   /**
    * @remarks
-   * The types of excluded image repositories.
+   * The list of image repository types to exclude.
    */
   registryTypeNotInList?: string[];
   /**

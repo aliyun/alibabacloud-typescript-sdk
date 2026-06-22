@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageEventOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule conditions. Specify a value in the JSON format. You can specify the following keys:
-   * 
-   * *   **condition**: the matching condition.
-   * *   **type**: the matching type.
-   * *   **value**: the matching value.
+   * The rule conditions. The value is in JSON format. The following keys are supported:
+   * - **condition**: the matching condition.
+   * - **type**: the matching type.
+   * - **value**: the matching value.
    * 
    * @example
    * [{\\"condition\\": \\"MD5\\", \\"type\\": \\"equals\\", \\"value\\": \\"0083a31cc0083a31ccf7c10367a6e****\\"}]
@@ -17,8 +16,8 @@ export class UpdateImageEventOperationRequest extends $dara.Model {
   conditions?: string;
   /**
    * @remarks
-   * The ID of the alert handling rule. 
-   * > You can call the [DescribeImageEventOperationPage](~~DescribeImageEventOperationPage~~) operation to query the ID.
+   * The ID of the alert handling rule.
+   * > You can call [DescribeImageEventOperationPage](~~DescribeImageEventOperationPage~~) to obtain this parameter.
    * 
    * @example
    * 814163
@@ -26,7 +25,7 @@ export class UpdateImageEventOperationRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The remarks that you want to add.
+   * The remarks to add.
    * 
    * @example
    * test
@@ -34,10 +33,10 @@ export class UpdateImageEventOperationRequest extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The application scope of the rule. The value is in the JSON format. Valid values:
-   * 
-   * *   **type**
-   * *   **value**
+   * The rule scope. The value is in JSON format. The following keys are supported:
+   * - **type**: the scope type.
+   * - **value**: the scope value.
+   * > This parameter and Source cannot both be empty. If Source is set to agentless, this parameter does not take effect.
    * 
    * @example
    * {\\"type\\": \\"repo\\", \\"value\\": \\"test-aaa/shenzhen-repo-01\\"}
@@ -45,10 +44,10 @@ export class UpdateImageEventOperationRequest extends $dara.Model {
   scenarios?: string;
   /**
    * @remarks
-   * The source of the whitelist. Valid values:
-   * 
-   * *   **image**: image.
-   * *   **agentless**: agentless detection.
+   * The whitelist source. Valid values:
+   * - **image**: image.
+   * - **agentless**: agentless detection.
+   * > This parameter and Scenarios cannot both be empty. If this parameter is set to agentless, the Scenarios parameter does not take effect.
    * 
    * @example
    * agentless

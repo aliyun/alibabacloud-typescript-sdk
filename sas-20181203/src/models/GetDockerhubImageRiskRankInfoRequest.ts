@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDockerhubImageRiskRankInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The dimension types.
+   * The image dimension types to query.
    */
   types?: string[];
   static names(): { [key: string]: string } {

@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefaultKeyInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The domain names.
+   * The list of domain names.
    */
   domainList?: string[];
   /**
    * @remarks
-   * The company name.
+   * The company names.
    * 
    * @example
-   * Test
+   * ****技术股份有限公司
    */
   names?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * BE120DAB-F4E7-4C53-ADC3-A97578A****

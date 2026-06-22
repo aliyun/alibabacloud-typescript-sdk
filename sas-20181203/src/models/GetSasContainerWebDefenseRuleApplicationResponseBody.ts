@@ -14,8 +14,7 @@ export class GetSasContainerWebDefenseRuleApplicationResponseBodyContainerWebDef
   /**
    * @remarks
    * The ID of the container cluster.
-   * 
-   * >  The IDs of clusters can be obtained by using the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation.
+   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
    * 
    * @example
    * cfb41a869c71e4678a97021582dd8****
@@ -23,7 +22,7 @@ export class GetSasContainerWebDefenseRuleApplicationResponseBodyContainerWebDef
   clusterId?: string;
   /**
    * @remarks
-   * The time when the application was created. Unit: milliseconds.
+   * The creation time of the application, in milliseconds.
    * 
    * @example
    * 1677839038000
@@ -31,7 +30,7 @@ export class GetSasContainerWebDefenseRuleApplicationResponseBodyContainerWebDef
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time. Unit: milliseconds.
+   * The most recent modification time, in milliseconds.
    * 
    * @example
    * 1667891185000
@@ -39,7 +38,7 @@ export class GetSasContainerWebDefenseRuleApplicationResponseBodyContainerWebDef
   gmtModified?: number;
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the current node.
    * 
    * @example
    * 143761
@@ -47,7 +46,7 @@ export class GetSasContainerWebDefenseRuleApplicationResponseBodyContainerWebDef
   id?: number;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 403327
@@ -55,7 +54,7 @@ export class GetSasContainerWebDefenseRuleApplicationResponseBodyContainerWebDef
   ruleId?: number;
   /**
    * @remarks
-   * The value of the application label.
+   * The application tag value.
    * 
    * @example
    * app:test
@@ -97,12 +96,12 @@ export class GetSasContainerWebDefenseRuleApplicationResponseBodyContainerWebDef
 export class GetSasContainerWebDefenseRuleApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The applications.
+   * The application list.
    */
   containerWebDefenseAppList?: GetSasContainerWebDefenseRuleApplicationResponseBodyContainerWebDefenseAppList[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 09969D2C-4FAD-429E-BFBF-9A60DEF8****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterScannerYamlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Base64 encoded CA certificate.
+   * The CA certificate in Base64 encoding.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   caCertBase64?: string;
   /**
    * @remarks
-   * Cluster environment information.
+   * The cluster environment context.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   clusterEnvInfo?: string;
   /**
    * @remarks
-   * The ID of the cluster that you want to scan.
+   * The ID of the container cluster.
    * 
    * @example
    * c7c190a82d9a048be9038d352840f****
@@ -29,7 +29,7 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The container image information.
    * 
    * @example
    * xxxx-registry.cn-shanghai.cr.aliyuncs.com/default/scanner:v1
@@ -37,7 +37,7 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E3322413BB68
@@ -45,7 +45,7 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Base64 encoded webhook certificate.
+   * The webhook certificate in Base64 encoding.
    * 
    * @example
    * xxx
@@ -53,7 +53,7 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   tlsCertBase64?: string;
   /**
    * @remarks
-   * Base64 encoded webhook private key.
+   * The webhook private key in Base64 encoding.
    * 
    * @example
    * xxx
@@ -61,9 +61,9 @@ export class GetClusterScannerYamlResponseBody extends $dara.Model {
   tlsKeyBase64?: string;
   /**
    * @remarks
-   * Indicates whether the incremental scan switch is enabled. Values:
-   * - **0**: Not enabled
-   * - **1**: Enabled
+   * Indicates whether incremental scanning is enabled. Valid values:
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 1

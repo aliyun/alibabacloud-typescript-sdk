@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * hz-new02****
@@ -13,19 +13,19 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * Configuration status, valid values:
-   * 
-   * - **0**: No Configuration.
-   * - **1**: Not Open.
-   * - **2**: Open.
+   * The enabling status of the bucket scan configuration. Valid values:
+   * - **0**: Not configured.
+   * - **1**: Configured and enabled.
+   * - **2**: Configured but not enabled.
    * 
    * @example
-   * 1
+   * 0
    */
   configStatus?: number;
   /**
    * @remarks
-   * Bucket decompression configuration status, valid values:
+   * The enabling status of the bucket decompression configuration. Valid values:
+   * 
    * - **0**: Decompression not configured.
    * - **1**: Decompression configured.
    * 
@@ -35,7 +35,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   decompressStatus?: number;
   /**
    * @remarks
-   * The number of high-risk objects.
+   * The number of high-risk files.
    * 
    * @example
    * 0
@@ -43,7 +43,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   highRisk?: number;
   /**
    * @remarks
-   * The time when the most recent check ended. Unit: milliseconds.
+   * The end timestamp of the latest scan, in milliseconds.
    * 
    * @example
    * 1698388233883
@@ -51,7 +51,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   lastScanEndTime?: number;
   /**
    * @remarks
-   * The time when the bucket was last checked. Unit: milliseconds.
+   * The timestamp of the latest scan, in milliseconds.
    * 
    * @example
    * 1698388233883
@@ -59,7 +59,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   lastScanTime?: number;
   /**
    * @remarks
-   * The number of low-risk objects.
+   * The number of low-risk files.
    * 
    * @example
    * 0
@@ -67,7 +67,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   lowRisk?: number;
   /**
    * @remarks
-   * The number of medium-risk objects.
+   * The number of medium-risk files.
    * 
    * @example
    * 0
@@ -75,10 +75,10 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   mediumRisk?: number;
   /**
    * @remarks
-   * The reason why the bucket cannot be checked.
+   * The reason why scanning is not supported.
    * 
    * @example
-   * Unsupported Region.
+   * Unsupported Region。
    */
   message?: string;
   /**
@@ -91,7 +91,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of objects that are checked.
+   * The number of scanned files.
    * 
    * @example
    * 100
@@ -99,10 +99,10 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   scanObject?: number;
   /**
    * @remarks
-   * Indicates whether the bucket is checked. Valid values:
+   * Indicates whether the bucket has been scanned. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Scanned.
+   * - **false**: Not scanned.
    * 
    * @example
    * false
@@ -110,12 +110,12 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   scanned?: boolean;
   /**
    * @remarks
-   * The check status of the bucket. Valid values:
+   * The detection status. Valid values:
    * 
-   * *   **1**: The bucket is not checked.
-   * *   **2**: All objects in the bucket are being checked.
-   * *   **3**: Only new objects are being checked.
-   * *   **4**: The bucket is checked.
+   * - **1**: Not scanned.
+   * - **2**: Full scan in progress.
+   * - **3**: Incremental scan in progress.
+   * - **4**: Scanned.
    * 
    * @example
    * 1
@@ -125,10 +125,10 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
    * @remarks
    * The storage class of the bucket. Valid values:
    * 
-   * *   **Standard**
-   * *   **IA**
-   * *   **Archive**
-   * *   **ColdArchive**
+   * - **Standard**: Standard LRS
+   * - **IA**: Infrequent Access LRS
+   * - **Archive**: Archive LRS
+   * - **ColdArchive**: Cold Archive LRS.
    * 
    * @example
    * Archive
@@ -136,10 +136,10 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   storageClass?: string;
   /**
    * @remarks
-   * Indicates whether the bucket can be checked. Valid values:
+   * Indicates whether scanning is supported. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Supported.
+   * - false: Not supported.
    * 
    * @example
    * true
@@ -147,7 +147,9 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
   support?: boolean;
   /**
    * @remarks
-   * The total number of objects in the bucket.
+   * The total number of files in the bucket.
+   * 
+   * >This parameter is obtained through the OSS GetBucketStat operation.
    * 
    * @example
    * 100
@@ -207,7 +209,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $dara.Model {
 export class ListOssBucketScanInfoResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -215,7 +217,7 @@ export class ListOssBucketScanInfoResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries returned per page in a paging query.
    * 
    * @example
    * 20
@@ -223,7 +225,7 @@ export class ListOssBucketScanInfoResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 165
@@ -257,17 +259,17 @@ export class ListOssBucketScanInfoResponseBodyPageInfo extends $dara.Model {
 export class ListOssBucketScanInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The data details.
    */
   data?: ListOssBucketScanInfoResponseBodyData[];
   /**
    * @remarks
-   * The page information.
+   * The paging information in a paging query.
    */
   pageInfo?: ListOssBucketScanInfoResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The China value is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * 6C578F36-92D2-552C-8AA0-86EB1AC2****

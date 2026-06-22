@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEmgVulItemRequest extends $dara.Model {
   /**
    * @remarks
-   * The check method. Valid values:
-   * *   **0**: proof of concept (POC) verification
-   * *   **1**: version comparison
+   * The check type. Valid values:
+   * 
+   * - **0**: POC verification
+   * - **1**: version comparison.
    * 
    * @example
    * 0
@@ -15,7 +16,7 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the first page to return. Default value: **1**, which indicates that query results are displayed starting from page 1.
    * 
    * @example
    * 1
@@ -23,10 +24,9 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -34,7 +34,7 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**, which indicates that 10 emergency vulnerability entries are displayed per page. Maximum value: 50.
    * 
    * @example
    * 10
@@ -42,9 +42,8 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The ID of the member accounts in the resource directory (Alibaba Cloud account).
+   * > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****
@@ -52,11 +51,9 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * Specifies whether the vulnerability poses risks.\\
-   * If you do not specify this parameter, all vulnerabilities are queried regardless of whether the vulnerabilities pose risks. Valid values:
-   * 
-   * *   **y**: yes
-   * *   **n**: no
+   * The risk status of the vulnerabilities to query. If this parameter is not specified, vulnerabilities of all risk statuses are returned, including those with risks and those without risks. Valid values:
+   * - **y**: at risk
+   * - **n**: not at risk.
    * 
    * @example
    * y
@@ -64,11 +61,9 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
   riskStatus?: string;
   /**
    * @remarks
-   * The method that is used to detect the vulnerability.\\
-   * If you do not specify this parameter, all vulnerabilities are queried regardless of which method is used. Valid values:
-   * 
-   * *   **python**: The Version method is used. Security Center checks the software versions of your server to check whether disclosed vulnerabilities exist on your server.
-   * *   **scan**: The Network Scan method is used. Security Center analyzes the access traffic to your server over the Internet to check whether vulnerabilities exist on your server.
+   * The detection method of the vulnerabilities to query. If this parameter is not specified, vulnerabilities detected by all methods are returned by default, including version detection and network scanning. Valid values:
+   * - **python**: version detection (server software version detection). Detects whether your server has disclosed software vulnerabilities.
+   * - **scan**: network scanning (network traffic detection). Detects whether your public assets (Internet-accessible servers) have vulnerabilities.
    * 
    * @example
    * python
@@ -76,7 +71,7 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * The name of the urgent vulnerability.
+   * The name of the emergency vulnerability to query.
    * 
    * @example
    * Changjietong T + SetupAccount/Upload.aspx file Upload vulnerability (CNVD-2022-60632)

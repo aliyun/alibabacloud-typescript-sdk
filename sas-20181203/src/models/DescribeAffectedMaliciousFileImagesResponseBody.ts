@@ -29,7 +29,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   containerId?: string;
   /**
    * @remarks
-   * The image digest.
+   * The digest of the image.
    * 
    * @example
    * 6a5e1031a5858617f7d8a179ead6****
@@ -37,7 +37,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   digest?: string;
   /**
    * @remarks
-   * The URL to download the malicious image sample.
+   * The download URL of the malicious sample.
    * 
    * @example
    * https://aegis-metadata-file.oss-cn-shanghai.aliyuncs.com/
@@ -45,7 +45,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   downloadUrl?: string;
   /**
    * @remarks
-   * The path to the image file.
+   * The file path of the image.
    * 
    * @example
    * /d836968041f7683b5605a****
@@ -61,7 +61,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   firstScanTimestamp?: number;
   /**
    * @remarks
-   * The text that is highlighted.
+   * The highlighted text.
    * 
    * @example
    * {"ruleVersion":"highlight_20210908","ruleId":600106,"events":[[2,54]]}
@@ -69,7 +69,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   highLight?: string;
   /**
    * @remarks
-   * The ID of alert event.
+   * The ID of the alert event.
    * 
    * @example
    * 1000040
@@ -93,7 +93,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   imageUuid?: string;
   /**
    * @remarks
-   * The name of the ECS instance.
+   * The name of the server instance.
    * 
    * @example
    * sql-test-001
@@ -117,7 +117,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp of the last scan.
+   * The timestamp of the latest scan.
    * 
    * @example
    * 1596522785000
@@ -125,7 +125,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   latestScanTimestamp?: number;
   /**
    * @remarks
-   * The timestamp of the last verification.
+   * The timestamp of the latest verification.
    * 
    * @example
    * 1596522711000
@@ -133,7 +133,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   latestVerifyTimestamp?: number;
   /**
    * @remarks
-   * The image layer.
+   * The layer of the image.
    * 
    * @example
    * 27213ad3447f0209dd152a5cadea****
@@ -141,11 +141,10 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   layer?: string;
   /**
    * @remarks
-   * The severity of the malicious image sample. Valid values:
-   * 
-   * *   **serious**
-   * *   **suspicious**
-   * *   **remind**
+   * The severity level of the malicious image sample. Valid values:
+   * - **serious**: urgent
+   * - **suspicious**: suspicious
+   * - **remind**: reminder.
    * 
    * @example
    * serious
@@ -153,7 +152,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   level?: string;
   /**
    * @remarks
-   * The MD5 hash value of the malicious image sample.
+   * The MD5 hash of the malicious file.
    * 
    * @example
    * d836968041f768300d9605a****
@@ -161,7 +160,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   maliciousMd5?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * hanghai-namespace
@@ -185,7 +184,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   repoId?: string;
   /**
    * @remarks
-   * The ID of the container image.
+   * The instance ID of the container image.
    * 
    * @example
    * cri-datvail3m****
@@ -209,12 +208,11 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   repoRegionId?: string;
   /**
    * @remarks
-   * The handling status of the malicious image sample. Valid values:
-   * 
-   * *   **0**: unhandled
-   * *   **1**: handled
-   * *   **2**: verifying
-   * *   **3**: added to the whitelist
+   * The processing status of the malicious image sample. Valid values:
+   * - **0**: unhandled
+   * - **1**: handled
+   * - **2**: verifying
+   * - **3**: added to whitelist.
    * 
    * @example
    * 1
@@ -222,7 +220,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   status?: number;
   /**
    * @remarks
-   * The tag that is added to the image.
+   * The tag of the image.
    * 
    * @example
    * 0.2
@@ -230,7 +228,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   tag?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The ID of the scan target.
    * 
    * @example
    * m-bp17m0pc0xprzbwo****
@@ -238,7 +236,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   targetId?: string;
   /**
    * @remarks
-   * The name of the task object.
+   * The name of the scan target.
    * 
    * @example
    * source-test-obj-9LaLJ
@@ -246,10 +244,10 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   targetName?: string;
   /**
    * @remarks
-   * The object type. Valid value:
+   * The object type of the scan target. Valid values:
    * 
-   * *   **ECS_IMAGE**
-   * *   **ECS_SNAPSHOT**
+   * - **ECS_IMAGE**: image.
+   * - **ECS_SNAPSHOT**: snapshot.
    * 
    * @example
    * ECS_IMAGE
@@ -347,7 +345,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
 export class DescribeAffectedMaliciousFileImagesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of images that have malicious image samples returned on the current page.
+   * The number of images with malicious samples returned on the current page.
    * 
    * @example
    * 2
@@ -355,7 +353,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyPageInfo extends $da
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page. Pages start from page **1**. Default value: **1**.
+   * The page number of the current page when using paging. Minimum value: **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -363,7 +361,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyPageInfo extends $da
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**.
+   * The maximum number of entries per page when using paging. Default value: **20**.
    * 
    * @example
    * 20
@@ -371,7 +369,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyPageInfo extends $da
   pageSize?: number;
   /**
    * @remarks
-   * The total number of images that have malicious image samples.
+   * The total number of images in which malicious samples are detected.
    * 
    * @example
    * 2
@@ -407,7 +405,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyPageInfo extends $da
 export class DescribeAffectedMaliciousFileImagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array consisting of the images that have malicious image samples.
+   * The list of images in which malicious samples are detected.
    */
   affectedMaliciousFileImagesResponse?: DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFileImagesResponse[];
   /**
@@ -417,7 +415,7 @@ export class DescribeAffectedMaliciousFileImagesResponseBody extends $dara.Model
   pageInfo?: DescribeAffectedMaliciousFileImagesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * ACF97412-FD09-4D1F-994F-34DF12BREF20

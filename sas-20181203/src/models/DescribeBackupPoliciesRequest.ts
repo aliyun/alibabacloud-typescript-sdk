@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number from which to start displaying the returned results. Default value: 1, which indicates that the display starts from page 1.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeBackupPoliciesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The information that you want to use to identify the servers protected by the anti-ransomware policy. You can enter the IP address or ID of a server.
+   * The identification information of the server protected by the anti-ransomware policy to query. You can enter the IP address or instance ID of the server.
    * 
    * @example
    * 1.1.XX.XX
@@ -23,7 +23,7 @@ export class DescribeBackupPoliciesRequest extends $dara.Model {
   machineRemark?: string;
   /**
    * @remarks
-   * The name of the anti-ransomware policy that you want to query.
+   * The name of the anti-ransomware protection policy to query.
    * 
    * @example
    * SecurityStrategy-20200303
@@ -31,7 +31,7 @@ export class DescribeBackupPoliciesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10.
+   * The number of backup policies on each page during paginated queries. Default value: 10, which indicates that each page contains 10 protection policies.
    * 
    * This parameter is required.
    * 
@@ -41,11 +41,13 @@ export class DescribeBackupPoliciesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the anti-ransomware policy. Valid values:
+   * The status of the anti-ransomware protection policy.
    * 
-   * *   **enabled**: The anti-ransomware policy is manually enabled.
-   * *   **disabled**: The anti-ransomware policy is manually disabled. After an anti-ransomware policy is disabled, the data backup task that is running based on the policy stops.
-   * *   **closed**: The anti-ransomware policy automatically stops because the anti-ransomware capacity is insufficient.
+   * - **enabled**: The policy is manually enabled.
+   * 
+   * - **disabled**: The policy is manually disabled. After the policy is disabled, running backup tasks will stop.
+   * 
+   * - **closed**: The anti-ransomware capacity is exceeded, and the system disables the policy.
    * 
    * @example
    * enabled

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWhiteListStrategyStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**. Pages start from page 1.
+   * The page number of the page to return. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -13,10 +13,10 @@ export class DescribeWhiteListStrategyStatisticsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,9 +24,9 @@ export class DescribeWhiteListStrategyStatisticsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 data entries are returned per page.
+   * The maximum number of entries per page for a paged query. Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 entries are returned.
    * 
-   * >  We recommend that you do not leave this parameter empty.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -34,7 +34,7 @@ export class DescribeWhiteListStrategyStatisticsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
+   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains this value.
    * 
    * @example
    * 183.63.XX.XX
@@ -42,9 +42,8 @@ export class DescribeWhiteListStrategyStatisticsRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The ID of the policy.
-   * 
-   * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+   * The policy ID.
+   * >You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain this parameter.
    * 
    * @example
    * 3645

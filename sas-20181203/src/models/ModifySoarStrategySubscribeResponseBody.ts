@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySoarStrategySubscribeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 8BF56229-7FF5-51ED-B958-00B8573E77CD

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChartDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the chart.
+   * The chart ID.
    * 
-   * >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID. This parameter is required if the report version is 1.0.0.
+   * > Call the [DescribeChartList](~~DescribeChartList~~) operation to obtain this parameter. This parameter is required if the report version is 1.0.0.
    * 
    * @example
    * CID_ASSET_RISK_TREND
@@ -15,9 +15,9 @@ export class DescribeChartDataRequest extends $dara.Model {
   charId?: string;
   /**
    * @remarks
-   * The ID of the chart.
+   * The chart ID.
    * 
-   * >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID. This parameter is required if the report version is 2.0.0.
+   * > Call the [DescribeChartList](~~DescribeChartList~~) operation to obtain this parameter. This parameter is required if the report version is 2.0.0.
    * 
    * @example
    * CID_VUL_SUMMARY
@@ -25,10 +25,10 @@ export class DescribeChartDataRequest extends $dara.Model {
   chartId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -36,9 +36,9 @@ export class DescribeChartDataRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the security report.
+   * The report ID.
    * 
-   * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+   * > Call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to obtain this parameter.
    * 
    * @example
    * 721734
@@ -46,7 +46,7 @@ export class DescribeChartDataRequest extends $dara.Model {
   reportId?: number;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * The end timestamp for statistics. Unit: milliseconds.
    * 
    * @example
    * 1683862286000
@@ -54,7 +54,7 @@ export class DescribeChartDataRequest extends $dara.Model {
   timeEnd?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * The start timestamp for statistics. Unit: milliseconds.
    * 
    * @example
    * 1683603086000

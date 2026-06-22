@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVersionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Number of agentless detections. 
-   * >Agentless detection is not yet available for sale, so there\\"s no need to pay attention to this field at the moment.
+   * The number of agentless detection quotas.
+   * > Agentless detection is not available for purchase. You can ignore this field.
    * 
    * @example
    * 10
@@ -14,9 +14,10 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   agentlessCapacity?: number;
   /**
    * @remarks
-   * Whether to allow pay-as-you-go purchases.
-   * - **0**: Not allowed 
-   * - **1**: Allowed
+   * Indicates whether pay-as-you-go purchasing is allowed.
+   * 
+   * - **0**: not allowed
+   * - **1**: allowed.
    * 
    * @example
    * 1
@@ -24,7 +25,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   allowPartialBuy?: number;
   /**
    * @remarks
-   * Ransomware protection backup capacity, in GB.
+   * The anti-ransomware backup capacity. Unit: GB.
    * 
    * @example
    * 160
@@ -32,9 +33,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   antiRansomwareCapacity?: number;
   /**
    * @remarks
-   * Ransomware Guardian Service. Values:
-   *  - **0**: Not activated
-   *  - **1**: Activated
+   * The status of the anti-ransomware managed service. Valid values:
+   * - **0**: not activated
+   * - **1**: activated.
    * 
    * @example
    * 1
@@ -42,9 +43,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   antiRansomwareService?: number;
   /**
    * @remarks
-   * Whether to enable the application whitelist. Values: 
-   * - **0**: Not enabled 
-   * - **2**: Enabled
+   * Indicates whether the application whitelist is enabled. Valid values:
+   * - **0**: disabled
+   * - **2**: enabled.
    * 
    * @example
    * 2
@@ -52,8 +53,8 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   appWhiteList?: number;
   /**
    * @remarks
-   * Number of application whitelist authorizations. 
-   * > One authorization allows the application of a whitelist policy to one server. After enabling the application whitelist function, the account will have 20 authorizations by default.
+   * The number of application whitelist authorizations.
+   * > One authorization allows you to apply an application whitelist policy to one server. After the application whitelist feature is enabled, the account has 20 authorizations by default.
    * 
    * @example
    * 20
@@ -61,7 +62,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   appWhiteListAuthCount?: number;
   /**
    * @remarks
-   * Number of purchased server licenses.
+   * The number of purchased server authorization quotas.
    * 
    * @example
    * 30
@@ -69,9 +70,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   assetLevel?: number;
   /**
    * @remarks
-   * Whether it supports the activation of a post-paid trial package. Values: 
-   * - **0**: Not supported
-   *  - **1**: Supported
+   * Indicates whether the pay-as-you-go trial plan can be activated. Valid values:
+   * - **0**: not supported
+   * - **1**: supported.
    * 
    * @example
    * 1
@@ -79,22 +80,27 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   canTryPostPaidPackage?: number;
   /**
    * @remarks
-   * Purchased cloud platform configuration check scan count. Unit: times/month.
+   * The number of purchased Cloud Security Posture Management (CSPM) scans. Unit: times per month.
    * 
    * @example
    * 10
    */
   cspmCapacity?: number;
   /**
+   * @example
+   * 100
+   */
+  cspmInstanceCapacity?: number;
+  /**
    * @remarks
-   * Purchase the highest version of the Security Center. Values:
-   *  - **1**: Free Edition 
-   * - **3**: Enterprise Edition 
-   * - **5**: Advanced Edition 
-   * - **6**: Anti-Virus Edition
-   *  - **7**: Flagship Edition 
-   * - **10**: Purchase Additional Services Only 
-   * > When purchasing a single version, it indicates the corresponding version. When purchasing multiple versions, this value represents the highest version among the purchased multi-versions of Cloud Security Center.
+   * The highest purchased edition of Security Center. Valid values:
+   * - **1**: Free Edition
+   * - **3**: Enterprise Edition
+   * - **5**: Pro Edition
+   * - **6**: Anti-virus Edition
+   * - **7**: Ultimate Edition
+   * - **10**: Value-added services only
+   * > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest edition among the purchased editions.
    * 
    * @example
    * 1
@@ -102,15 +108,26 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   highestVersion?: number;
   /**
    * @remarks
-   * Number of purchased honeypot licenses.
+   * The number of purchased honeypot authorization quotas.
    * 
    * @example
    * 20
    */
   honeypotCapacity?: number;
   /**
+   * @example
+   * 100
+   */
+  hybridPaidModuleSwitchMap?: number;
+  hybridPaidStatus?: number;
+  /**
+   * @example
+   * 100
+   */
+  hybridSwitch?: number;
+  /**
    * @remarks
-   * Number of purchased image scanning authorizations.
+   * The number of purchased image scan authorization quotas.
    * 
    * @example
    * 8954
@@ -118,9 +135,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   imageScanCapacity?: number;
   /**
    * @remarks
-   * Instance purchase type. Values: 
-   * - **0**: Self-purchased
-   *  - **1**: Allocated from multiple accounts
+   * The instance purchase type. Valid values:
+   * - **0**: self-purchased
+   * - **1**: allocated from a multi-account setup.
    * 
    * @example
    * 0
@@ -128,7 +145,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   instanceBuyType?: number;
   /**
    * @remarks
-   * ID of the purchased Cloud Security Center instance.
+   * The instance ID of the purchased Security Center instance.
    * 
    * @example
    * sas-vg6hafdsafs****
@@ -136,7 +153,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * AI digital human analyzes traffic
+   * The AI digital human analysis traffic.
    * 
    * @example
    * 100
@@ -144,9 +161,11 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   intelligentAnalysisFlow?: number;
   /**
    * @remarks
-   * Whether it is the new flagship version.
-   * - **true**: It is the latest version
-   * - **false**: It is not the latest version
+   * Indicates whether the instance is the new Ultimate Edition.
+   * 
+   * - **true**: The instance is the latest version.
+   * 
+   * - **false**: The instance is not the latest version.
    * 
    * @example
    * true
@@ -154,9 +173,11 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isNewContainerVersion?: boolean;
   /**
    * @remarks
-   * Whether it is the latest multi-version.
-   * - **true**: It is the latest multi-version 
-   * - **false**: It is not the latest multi-version
+   * Indicates whether the instance is the new Multi-version Edition.
+   * 
+   * - **true**: The instance is the latest multi-version.
+   * 
+   * - **false**: The instance is not the latest multi-version.
    * 
    * @example
    * true
@@ -164,10 +185,11 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isNewMultiVersion?: boolean;
   /**
    * @remarks
-   * Whether the number of existing servers exceeds the maximum authorized purchase quantity. Values: 
-   * - **false**: Not exceeded 
-   * - **true**: Exceeded
-   * >Notice: This parameter is deprecated, and you do not need to pay attention to it.
+   * Indicates whether the number of existing servers exceeds the maximum number of purchased authorizations. Valid values:
+   * - **false**: The number does not exceed the limit.
+   * - **true**: The number exceeds the limit.
+   * 
+   * >Notice: This parameter is deprecated. You can ignore it..
    * 
    * @example
    * false
@@ -175,9 +197,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isOverBalance?: boolean;
   /**
    * @remarks
-   * Whether to enable pay-as-you-go. Values: 
-   * - **false**: Not enabled 
-   * - **true**: Enabled
+   * Indicates whether pay-as-you-go billing is enabled. Valid values:
+   * - **false**: disabled
+   * - **true**: enabled.
    * 
    * @example
    * true
@@ -185,9 +207,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isPostpay?: boolean;
   /**
    * @remarks
-   * Indicates whether the current Cloud Security Center version is a trial version. Values: 
-   * - **0**: Not a trial version 
-   * - **1**: Trial version
+   * Indicates whether the current Security Center edition is a trial version. Valid values:
+   * - **0**: not a trial version
+   * - **1**: trial version.
    * 
    * @example
    * 0
@@ -195,7 +217,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isTrialVersion?: number;
   /**
    * @remarks
-   * The timestamp of the last trial expiration for Cloud Security Center, in milliseconds.
+   * The end timestamp of the last trial of Security Center. Unit: milliseconds.
    * 
    * @example
    * 1603934844000
@@ -203,7 +225,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   lastTrailEndTime?: number;
   /**
    * @remarks
-   * Total number of licenses when purchasing multiple versions.
+   * The total number of authorizations when multiple editions are purchased.
    * 
    * @example
    * 5000
@@ -211,7 +233,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   MVAuthCount?: number;
   /**
    * @remarks
-   * Total remaining licenses when purchasing multiple versions.
+   * The total number of remaining authorizations when multiple editions are purchased.
    * 
    * @example
    * 40
@@ -219,12 +241,12 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   MVUnusedAuthCount?: number;
   /**
    * @remarks
-   * When both the annual/monthly and pay-as-you-go services for Cloud Security Center\\"s host and container security are activated, the higher protection version of the two is selected. Values: 
+   * The higher protection edition between the subscription and pay-as-you-go host and container security services of Security Center when both are activated. Valid values:
    * - **1**: Free Edition
-   *  - **6**: Anti-Virus Edition 
-   * - **5**: Advanced Edition 
-   * - **3**: Enterprise Edition 
-   * - **7**: Ultimate Edition
+   * - **6**: Anti-virus Edition
+   * - **5**: Premium Edition
+   * - **3**: Enterprise Edition
+   * - **7**: Ultimate Edition.
    * 
    * @example
    * 7
@@ -232,17 +254,22 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   mergedVersion?: number;
   /**
    * @remarks
-   * Usage of multiple version numbers and license counts
+   * The multi-version edition numbers and authorization usage.
    * 
    * @example
    * null
    */
   multiVersion?: string;
   /**
+   * @example
+   * 100
+   */
+  newPostPaidCspm?: number;
+  /**
    * @remarks
-   * Whether to enable the new version of Threat Analysis and Response service. The new version of Threat Analysis and Response service refers to the one that supports purchasing access traffic and log storage capacity. Values: 
-   * - **0**: No 
-   * - **1**: Yes
+   * Indicates whether the new version of Cloud Threat Detection and Response (CTDR) is enabled. The new version supports purchasing ingestion traffic and log storage capacity for Cloud Threat Detection and Response (CTDR). Valid values:
+   * - **0**: disabled
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -250,7 +277,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   newThreatAnalysis?: number;
   /**
    * @remarks
-   * AI Digital Human Management Instance
+   * The number of AI digital human managed instances.
    * 
    * @example
    * 10
@@ -258,7 +285,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   onboardedAssets?: number;
   /**
    * @remarks
-   * Service activation timestamp, unit: milliseconds.
+   * The timestamp when the service was activated. Unit: milliseconds.
    * 
    * @example
    * 1657244824669
@@ -266,12 +293,12 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   openTime?: number;
   /**
    * @remarks
-   * When activating the pay-as-you-go service for host and container security, it represents the highest protection version of the already bound assets. Values: 
+   * The highest protection edition for bound assets when the pay-as-you-go host and container security service is activated. Valid values:
    * - **1**: Free Edition
-   *  - **3**: Enterprise Edition
-   *  - **5**: Advanced Edition
-   *  - **6**: Anti-Virus Edition 
-   * - **7**: Flagship Edition
+   * - **3**: Enterprise Edition
+   * - **5**: Pro Edition
+   * - **6**: Anti-virus Edition
+   * - **7**: Ultimate Edition.
    * 
    * @example
    * 7
@@ -279,7 +306,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayHostVersion?: number;
   /**
    * @remarks
-   * Pay-As-You-Go instance ID.
+   * The instance ID of the pay-as-you-go instance.
    * 
    * @example
    * postpay-sas-**
@@ -287,17 +314,17 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayInstanceId?: string;
   /**
    * @remarks
-   * Pay-as-you-go module switch status, in the format of JsonString, with values as follows:
-   *  - Key:
-   *    * **VUL**: Vulnerability Repair Module 
-   *    * **CSPM**: Cloud Security Posture Management Module 
-   *    * **AGENTLESS**: Agentless Detection Module 
-   *    * **SERVERLESS**: Serverless Security Module 
-   *    * **CTDR**: Threat Analysis and Response Module 
-   *    * **POST_HOST**: Host and Container Security Module 
-   *    *  **SDK**: Malicious File Detection SDK Module 
-   *    * **RASP**: Application Protection Module 
-   *  - Value: 0 indicates off, 1 indicates on
+   * The status of pay-as-you-go module switches, in JSON string format. Valid values:
+   * - Key:
+   *   - **VUL**: vulnerability fix module
+   *   - **CSPM**: Cloud Security Posture Management (CSPM) module
+   *   - **AGENTLESS**: agentless detection module
+   *   - **SERVERLESS**: serverless security module
+   *   - **CTDR**: threat detection and response module
+   *   - **POST_HOST**: host and container security module
+   *   - **SDK**: malicious file detection SDK module
+   *   - **RASP**: application protection module
+   * - Value: 0 indicates disabled, 1 indicates enabled.
    * 
    * @example
    * {"VUL":1}
@@ -305,7 +332,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayModuleSwitch?: string;
   /**
    * @remarks
-   * Pay-as-you-go activation time
+   * The time when pay-as-you-go billing was activated.
    * 
    * @example
    * 1698915219000
@@ -313,9 +340,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayOpenTime?: number;
   /**
    * @remarks
-   * Pay-As-You-Go instance status. Values: 
-   * - **1**: Normal 
-   * - **2**: Stopped due to unpaid bills
+   * The instance status of the pay-as-you-go instance. Valid values:
+   * - **1**: Normal.
+   * - **2**: Suspended due to overdue payment.
    * 
    * @example
    * 1
@@ -323,7 +350,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayStatus?: number;
   /**
    * @remarks
-   * Number of purchased application protections. Unit: per month.
+   * The number of purchased application protection quotas. Unit: per month.
    * 
    * @example
    * 10
@@ -331,8 +358,8 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   raspCapacity?: number;
   /**
    * @remarks
-   * The timestamp of when the Cloud Security Center instance will expire, in milliseconds.
-   * > If you do not renew the service within 7 days after it expires, your paid instance will be downgraded to a free version, and you will no longer be able to use the features of the paid version. Your previous Cloud Security Center configuration data and historical alert data (e.g., DDoS alerts) will become inaccessible. At this point, you can only re-enable the paid version of Cloud Security Center by repurchasing it. For more information, see [Purchasing Cloud Security Center](https://help.aliyun.com/document_detail/42308.html).
+   * The UNIX timestamp when the Security Center instance expires. Unit: milliseconds.
+   * > If you do not complete renewal within 7 days after the instance expires, your paid instance is downgraded to Free Edition. You can no longer use the features of the paid edition, and the Security Center configuration data and historical alerting data (such as DDoS alerts) become inaccessible. In this case, you must repurchase Security Center to enable the paid edition. For more information, see [Purchase Security Center](https://help.aliyun.com/document_detail/42308.html).
    * 
    * @example
    * 1625846400000
@@ -340,7 +367,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   releaseTime?: number;
   /**
    * @remarks
-   * The unique identifier generated by Alibaba Cloud for this request.
+   * The request ID.
    * 
    * @example
    * C2DC96D2-DD2E-49D9-A28E-85590475DF55
@@ -348,9 +375,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether log analysis has been purchased. Values: 
-   * - **0**: Not purchased 
-   * - **1**: Purchased
+   * Indicates whether log analysis is purchased. Valid values:
+   * - **0**: not purchased
+   * - **1**: purchased.
    * 
    * @example
    * 1
@@ -358,9 +385,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   sasLog?: number;
   /**
    * @remarks
-   * Whether the security dashboard has been purchased. Values: 
-   * - **0**: Not purchased 
-   * - **1**: Purchased
+   * Indicates whether the security dashboard is purchased. Valid values:
+   * - **0**: not purchased
+   * - **1**: purchased.
    * 
    * @example
    * 0
@@ -368,7 +395,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   sasScreen?: number;
   /**
    * @remarks
-   * Number of SDK authorizations for malicious file detection
+   * The number of malicious file detection SDK authorizations.
    * 
    * @example
    * 10
@@ -376,7 +403,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   sdkCapacity?: number;
   /**
    * @remarks
-   * Purchased log storage capacity in GB. Range: 0 to 200000.
+   * The purchased log storage capacity. Unit: GB. Valid values: 0 to 200000.
    * 
    * @example
    * 10240
@@ -384,7 +411,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   slsCapacity?: number;
   /**
    * @remarks
-   * Purchased threat analysis capacity. Unit: GB.
+   * The purchased threat analysis capacity. Unit: GB.
    * 
    * @example
    * 25
@@ -392,7 +419,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   threatAnalysisCapacity?: number;
   /**
    * @remarks
-   * Purchased threat analysis and response log access traffic. Unit is GB/day.
+   * The purchased log ingestion traffic for threat detection and response. Unit: GB per day.
    * 
    * @example
    * 10
@@ -400,9 +427,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   threatAnalysisFlow?: number;
   /**
    * @remarks
-   * Whether to enable the custom alarm function. Values:
-   *  - **0**: Not enabled 
-   * - **2**: Enabled
+   * Indicates whether the custom alerting feature is enabled. Valid values:
+   * - **0**: disabled
+   * - **2**: enabled.
    * 
    * @example
    * 0
@@ -410,14 +437,14 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   userDefinedAlarms?: number;
   /**
    * @remarks
-   * Purchased Cloud Security Center version. Values:   
+   * The purchased edition of Security Center. Valid values:  
    * - **1**: Free Edition 
-   *  - **3**: Enterprise Edition 
-   * - **5**: Advanced Edition 
-   * - **6**: Anti-Virus Edition     
-   * - **7**: Flagship Edition   
-   *  - **8**: Multi-Edition  
-   *   - **10**: Value-Added Services Only
+   * - **3**: Enterprise Edition
+   * - **5**: Pro Edition
+   * - **6**: Anti-virus Edition    
+   * - **7**: Ultimate Edition   
+   * - **8**: Multi-version Edition   
+   * - **10**: Value-added services only.
    * 
    * @example
    * 3
@@ -425,7 +452,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * Number of authorized cores purchased.
+   * The number of purchased authorized cores.
    * 
    * @example
    * 10
@@ -433,7 +460,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   vmCores?: number;
   /**
    * @remarks
-   * Number of purchased vulnerability fixes. Unit: times/month.
+   * The number of purchased vulnerability fixes. Unit: times per month.
    * 
    * @example
    * 10
@@ -441,9 +468,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   vulFixCapacity?: number;
   /**
    * @remarks
-   * Indicates whether the web tamper-proof service is enabled. Values: 
-   * - **0**: Not enabled 
-   * - **1**: Enabled
+   * Indicates whether web tamper-proofing is enabled. Valid values:
+   * - **0**: disabled
+   * - **1**: enabled.
    * 
    * @example
    * 0
@@ -451,8 +478,8 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   webLock?: number;
   /**
    * @remarks
-   * The number of purchased web tamper-proof licenses. One license can enable web tamper protection for one server. Value range: 0~N.
-   *  >N is the number of servers you have.
+   * The number of purchased web tamper-proofing authorizations. One authorization allows you to enable web tamper-proofing for one server. Valid values: 0 to N.
+   * > N is the number of servers that you own.
    * 
    * @example
    * 0
@@ -469,8 +496,12 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       assetLevel: 'AssetLevel',
       canTryPostPaidPackage: 'CanTryPostPaidPackage',
       cspmCapacity: 'CspmCapacity',
+      cspmInstanceCapacity: 'CspmInstanceCapacity',
       highestVersion: 'HighestVersion',
       honeypotCapacity: 'HoneypotCapacity',
+      hybridPaidModuleSwitchMap: 'HybridPaidModuleSwitchMap',
+      hybridPaidStatus: 'HybridPaidStatus',
+      hybridSwitch: 'HybridSwitch',
       imageScanCapacity: 'ImageScanCapacity',
       instanceBuyType: 'InstanceBuyType',
       instanceId: 'InstanceId',
@@ -485,6 +516,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       MVUnusedAuthCount: 'MVUnusedAuthCount',
       mergedVersion: 'MergedVersion',
       multiVersion: 'MultiVersion',
+      newPostPaidCspm: 'NewPostPaidCspm',
       newThreatAnalysis: 'NewThreatAnalysis',
       onboardedAssets: 'OnboardedAssets',
       openTime: 'OpenTime',
@@ -522,8 +554,12 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       assetLevel: 'number',
       canTryPostPaidPackage: 'number',
       cspmCapacity: 'number',
+      cspmInstanceCapacity: 'number',
       highestVersion: 'number',
       honeypotCapacity: 'number',
+      hybridPaidModuleSwitchMap: 'number',
+      hybridPaidStatus: 'number',
+      hybridSwitch: 'number',
       imageScanCapacity: 'number',
       instanceBuyType: 'number',
       instanceId: 'string',
@@ -538,6 +574,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       MVUnusedAuthCount: 'number',
       mergedVersion: 'number',
       multiVersion: 'string',
+      newPostPaidCspm: 'number',
       newThreatAnalysis: 'number',
       onboardedAssets: 'number',
       openTime: 'number',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlarmMachineCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source. Set the value to sas.
+   * The source identifier of the request. Set this parameter to sas.
    * 
    * @example
    * sas

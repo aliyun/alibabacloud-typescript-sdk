@@ -7,8 +7,8 @@ export class DescribeContainerServiceK8sClusterKritisStatusResponseBodyKritisSta
    * @remarks
    * Indicates whether Kritis is installed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Installed.
+   * - **false**: Not installed.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class DescribeContainerServiceK8sClusterKritisStatusResponseBodyKritisSta
 export class DescribeContainerServiceK8sClusterKritisStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Kritis status of the ACK cluster.
+   * The Kritis status information of the ACK cluster.
    */
   kritisStatus?: DescribeContainerServiceK8sClusterKritisStatusResponseBodyKritisStatus;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSasPmAgentListResponseBodySasPmAgentList extends $dara.Model {
   /**
    * @remarks
-   * The ID of Cloud Assistant.
+   * The globally unique ID of Cloud Assistant.
    * 
    * @example
    * mi-hz034jn***yxhc0
@@ -13,7 +13,7 @@ export class DescribeSasPmAgentListResponseBodySasPmAgentList extends $dara.Mode
   aliyunAssistId?: string;
   /**
    * @remarks
-   * The ID of the CloudMonitor agent.
+   * The globally unique ID of CloudMonitor.
    * 
    * @example
    * 5d5ef6be-54ff-11ed-82cf-8f01475e****
@@ -21,13 +21,12 @@ export class DescribeSasPmAgentListResponseBodySasPmAgentList extends $dara.Mode
   aliyunMonitorId?: string;
   /**
    * @remarks
-   * The installation result of Cloud Assistant. Valid values:
-   * 
-   * *   **0**: SUCCESS
-   * *   **1**: MISSING_PARAM
-   * *   **2**: UNKNOWN_SYSTEM
-   * *   **3**: DOWNLOAD_FAILED
-   * *   **4**: INSTALL_FAILED
+   * The installation execution result of Cloud Assistant. Valid values:
+   * - **0**: SUCCESS
+   * - **1**: MISSING_PARAM
+   * - **2**: UNKNOWN_SYSTEM
+   * - **3**: DOWNLOAD_FAILED
+   * - **4**: INSTALL_FAILED.
    * 
    * @example
    * 0
@@ -35,12 +34,11 @@ export class DescribeSasPmAgentListResponseBodySasPmAgentList extends $dara.Mode
   assistInstallResult?: number;
   /**
    * @remarks
-   * The status of Cloud Assistant. Valid values:
-   * 
-   * *   **0**: installing
-   * *   **1**: installed
-   * *   **2**: installation failed
-   * *   **3**: installation timed out
+   * The installation status of Cloud Assistant. Valid values:
+   * - **0**: Installing.
+   * - **1**: Installed.
+   * - **2**: Installation failed.
+   * - **3**: Installation timed out.
    * 
    * @example
    * 1
@@ -48,10 +46,9 @@ export class DescribeSasPmAgentListResponseBodySasPmAgentList extends $dara.Mode
   assistInstallStatus?: number;
   /**
    * @remarks
-   * The installation result of the CloudMonitor agent. Valid values:
-   * 
-   * *   **0**: failed
-   * *   **1**: successful
+   * The installation execution result of CloudMonitor. Valid values:
+   * - **0**: Failed.
+   * - **1**: Succeeded.
    * 
    * @example
    * 1
@@ -59,10 +56,9 @@ export class DescribeSasPmAgentListResponseBodySasPmAgentList extends $dara.Mode
   monitorInstallResult?: number;
   /**
    * @remarks
-   * The status of the CloudMonitor agent. Valid values:
-   * 
-   * *   **0**: installation failed
-   * *   **1**: installed
+   * The installation status of CloudMonitor. Valid values:
+   * - **0**: Failed.
+   * - **1**: Succeeded.
    * 
    * @example
    * 1
@@ -112,7 +108,7 @@ export class DescribeSasPmAgentListResponseBodySasPmAgentList extends $dara.Mode
 export class DescribeSasPmAgentListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8EF3ACC2-9400-5B64-B72D-4A1D35113750
@@ -120,7 +116,7 @@ export class DescribeSasPmAgentListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the information about servers.
+   * The query result list.
    */
   sasPmAgentList?: DescribeSasPmAgentListResponseBodySasPmAgentList[];
   static names(): { [key: string]: string } {

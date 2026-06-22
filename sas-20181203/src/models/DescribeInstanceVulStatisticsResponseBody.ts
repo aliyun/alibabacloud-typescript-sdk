@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceVulStatisticsResponseBodyVulStat extends $dara.Model {
   /**
    * @remarks
-   * The number of high-risk vulnerabilities.
+   * The number of high-priority vulnerabilities.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeInstanceVulStatisticsResponseBodyVulStat extends $dara.Mode
   asapCount?: string;
   /**
    * @remarks
-   * The number of medium-risk vulnerabilities.
+   * The number of medium-priority vulnerabilities.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeInstanceVulStatisticsResponseBodyVulStat extends $dara.Mode
   laterCount?: string;
   /**
    * @remarks
-   * The number of low-risk vulnerabilities.
+   * The number of low-priority vulnerabilities.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class DescribeInstanceVulStatisticsResponseBodyVulStat extends $dara.Mode
 export class DescribeInstanceVulStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 1EE7B150-D67E-53FD-A52D-3E8E669A****
@@ -63,7 +63,7 @@ export class DescribeInstanceVulStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistics of the vulnerabilities.
+   * The vulnerability statistics information.
    */
   vulStat?: DescribeInstanceVulStatisticsResponseBodyVulStat;
   static names(): { [key: string]: string } {

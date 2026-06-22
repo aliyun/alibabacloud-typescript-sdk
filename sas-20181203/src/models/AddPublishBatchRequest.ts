@@ -10,7 +10,7 @@ export class AddPublishBatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * 批次1
    */
   batchName?: string;
   /**

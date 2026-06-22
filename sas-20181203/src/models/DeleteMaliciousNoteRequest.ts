@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMaliciousNoteRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the remarks.
-   * 
-   * >  You can call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain the ID from the NoteId parameter.
+   * The ID of the note record.
+   * >Call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain this parameter from the NoteId field.
    * 
    * @example
    * 1

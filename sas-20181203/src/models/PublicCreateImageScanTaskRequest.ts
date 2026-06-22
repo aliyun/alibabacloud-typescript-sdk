@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublicCreateImageScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The SHA-256 value of the image digest. Separate multiple SHA-256 values with commas (,).
+   * The SHA256 digest values of the images. Separate multiple SHA256 values with commas (,).
    * 
    * @example
    * 6a5e103187b31a94592a47a5858617f7a6c
@@ -13,7 +13,7 @@ export class PublicCreateImageScanTaskRequest extends $dara.Model {
   digests?: string;
   /**
    * @remarks
-   * The ID of the Container Registry instance in which the image repository is created. Separate multiple IDs with commas (,).
+   * The IDs of the Container Registry (ACR) instances. Separate multiple IDs with commas (,).
    * 
    * @example
    * i-uf6j8vq9l4r5ntht****
@@ -21,7 +21,7 @@ export class PublicCreateImageScanTaskRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The region ID of the image. Separate multiple IDs with commas (,).
+   * The region IDs of the images. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-hangzhou
@@ -29,11 +29,11 @@ export class PublicCreateImageScanTaskRequest extends $dara.Model {
   regionIds?: string;
   /**
    * @remarks
-   * The type of the image repository. Separate multiple types with commas (,). Valid values:
+   * The types of image registries. Separate multiple types with commas (,). Valid values:
    * 
-   * *   **acr**
-   * *   **harbor**
-   * *   **quay**
+   * - **acr**
+   * - **harbor**
+   * - **quay**.
    * 
    * @example
    * acr
@@ -41,7 +41,7 @@ export class PublicCreateImageScanTaskRequest extends $dara.Model {
   registryTypes?: string;
   /**
    * @remarks
-   * The ID of the image repository. Separate multiple IDs with commas (,).
+   * The IDs of the image registries. Separate multiple IDs with commas (,).
    * 
    * @example
    * crr-vridcl4****
@@ -49,7 +49,7 @@ export class PublicCreateImageScanTaskRequest extends $dara.Model {
   repoIds?: string;
   /**
    * @remarks
-   * The name of the image repository. Separate multiple names with commas (,).
+   * The names of the image registries. Separate multiple names with commas (,).
    * 
    * @example
    * centos
@@ -57,7 +57,7 @@ export class PublicCreateImageScanTaskRequest extends $dara.Model {
   repoNames?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs. Separate multiple namespaces with commas (,).
+   * The namespaces of the image registries. Separate multiple namespaces with commas (,).
    * 
    * @example
    * hanghai-namespace
@@ -65,7 +65,7 @@ export class PublicCreateImageScanTaskRequest extends $dara.Model {
   repoNamespaces?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 192.168..XX.XX
@@ -73,7 +73,7 @@ export class PublicCreateImageScanTaskRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The tag that is added to the image. Separate multiple tags with commas (,).
+   * The tags of the images. Separate multiple tags with commas (,).
    * 
    * @example
    * 0.2

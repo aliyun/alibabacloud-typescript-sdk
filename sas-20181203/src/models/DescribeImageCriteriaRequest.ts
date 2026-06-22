@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageCriteriaRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword that you specify for fuzzy search when you query the image.
+   * The fuzzy match value that you enter when querying images.
    * 
-   * > The value of this parameter can be an image ID, image tag, image instance ID, image repository name, image repository ID, image repository namespace, image region, image digest, or image repository type.
+   * > This parameter supports fuzzy matching by image ID, image tag, image instance ID, image repository name, image repository ID, image repository namespace, image region, image digest, or image repository type.
    * 
    * @example
    * 525

@@ -15,10 +15,9 @@ export class DescribeHoneyPotSuspStatisticsRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -36,10 +35,9 @@ export class DescribeHoneyPotSuspStatisticsRequest extends $dara.Model {
   statisticsDays?: number;
   /**
    * @remarks
-   * The type of the asset to query. Valid values:
-   * 
-   * *   **vpcInstanceId**: VPC
-   * *   **uuid**: server
+   * The Asset Type to query. Valid values:
+   * - **vpcInstanceId**: VPC-connected instance
+   * - **uuid**: server
    * 
    * This parameter is required.
    * 

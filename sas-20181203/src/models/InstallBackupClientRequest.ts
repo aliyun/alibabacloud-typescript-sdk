@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class InstallBackupClientRequest extends $dara.Model {
   /**
    * @remarks
-   * The version of the anti-ransomware policy. Valid values:
+   * The version of the mitigation policies. Valid values:
    * 
-   * *   **1.0.0**
-   * *   **2.0.0**
+   * - **1.0.0**: The version of the mitigation policies is 1.0.0.
+   * - **2.0.0**: The version of the mitigation policies is 2.0.0.
    * 
    * This parameter is required.
    * 
@@ -18,9 +18,9 @@ export class InstallBackupClientRequest extends $dara.Model {
   policyVersion?: string;
   /**
    * @remarks
-   * The UUID of the server on which you want to install the anti-ransomware agent.
+   * The UUID of the server on which you want to install the anti-ransomware client.
    * 
-   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers. You must specify at least one of the UuidList and Uuid parameters.
+   * > > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this value. UuidList and Uuid cannot both be empty.
    * 
    * @example
    * inet-617eddab-7df4-4a51-b217-a3f59194****
@@ -28,9 +28,8 @@ export class InstallBackupClientRequest extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The UUIDs of servers on which you want to install the anti-ransomware agent.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * The list of UUIDs of the servers that you want to protect.
+   * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * @example
    * ["3bb30859-b3b5-4f28-868f-b0892c98****", "3bb30859-b3b5-4f28-868f-b0892c98****"]

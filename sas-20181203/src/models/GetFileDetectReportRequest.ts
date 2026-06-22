@@ -17,11 +17,15 @@ export class GetFileDetectReportRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   **ThreatTypes**: the type of the threat intelligence event
-   * *   **Intelligences**: the threat intelligence event
-   * *   **ThreatLevel**: the level of the threat intelligence event
-   * *   **Basic**: the basic information about the report (the scan result)
-   * *   **Sandbox**: the cloud sandbox check report
+   * - **ThreatTypes**: the type of the threat intelligence event
+   * 
+   * - **Intelligences**: the threat intelligence event
+   * 
+   * - **ThreatLevel**: the level of the threat intelligence event
+   * 
+   * - **Basic**: the basic information about the report (the scan result)
+   * 
+   * - **Sandbox**: the cloud sandbox check report
    * 
    * @example
    * Basic,,ThreatTypes,Intelligences,Sandbox
@@ -39,8 +43,9 @@ export class GetFileDetectReportRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -50,8 +55,9 @@ export class GetFileDetectReportRequest extends $dara.Model {
    * @remarks
    * The data source type. Valid values:
    * 
-   * *   **machine**: host alerts
-   * *   **object_scan**: file detection alerts
+   * - **machine**: host alerts
+   * 
+   * - **object_scan**: file detection alerts
    * 
    * @example
    * object_scan

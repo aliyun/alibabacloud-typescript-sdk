@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInterceptionTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
-   * 
-   * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+   * The application name.
+   * >You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain this parameter.
    * 
    * @example
    * yasintt-daemonst
@@ -15,16 +14,14 @@ export class ModifyInterceptionTargetRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * An array that consists of images.
-   * 
-   * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+   * The list of images.
+   * >You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain this parameter.
    */
   imageList?: string[];
   /**
    * @remarks
    * The namespace.
-   * 
-   * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+   * >You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -34,16 +31,14 @@ export class ModifyInterceptionTargetRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * An array that consists of tags.
-   * 
-   * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
+   * The list of labels.
+   * >You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain this parameter.
    */
   tagList?: string[];
   /**
    * @remarks
    * The ID of the network object.
-   * 
-   * > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain the value of this parameter.
+   * >You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -63,9 +58,8 @@ export class ModifyInterceptionTargetRequest extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The object type. Valid values:
-   * 
-   * *   **IMAGE**
+   * The target type. Valid values:
+   * - **IMAGE**: image.
    * 
    * This parameter is required.
    * 

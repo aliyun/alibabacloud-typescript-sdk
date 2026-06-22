@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class OperationSuspEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source.
+   * The request source identifier.
    * 
-   * Set the value to **sas**, which indicates that the request is sent from Security Center.
+   * Set this parameter to **sas**, which indicates a request from the Security Center client.
    * 
    * @example
    * sas
@@ -15,13 +15,13 @@ export class OperationSuspEventsRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The operation that you want to perform on alerts. Valid values:
+   * The operation to perform on the alert. Valid values:
    * 
-   * *   **deal**: quarantines the source file of the malicious process.
-   * *   **ignore**: ignores the alerts.
-   * *   **mark_mis_info**: marks the alerts as false positives by adding the alerts to the whitelist.
-   * *   **rm_mark_mis_info**: cancels false positives by removing the alerts from the whitelist.
-   * *   **offline_handled**: marks the alerts as handled.
+   * - **deal**: handles the alert (quarantine).
+   * - **ignore**: ignores the alert.
+   * - **mark_mis_info**: marks the alert as a false positive (adds it to the whitelist).
+   * - **rm_mark_mis_info**: unmarks the alert as a false positive (removes it from the whitelist).
+   * - **offline_handled**: marks the alert as handled.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class OperationSuspEventsRequest extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 1.2.XX.XX
@@ -39,11 +39,11 @@ export class OperationSuspEventsRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The suboperation that you want to perform when you quarantine the source file of the malicious process. Valid values:
+   * The sub-operation type to perform when quarantining the alert event. Valid values:
    * 
-   * *   **killAndQuaraFileByPidAndMd5andPath**: terminates the process based on its process ID (PID) and quarantines the source file of the process.
-   * *   **quaraFileByMd5andPath**: quarantines the source file of the process.
-   * *   **killAndQuaraFileByMd5andPath**: terminates the process and quarantines the source file of the process.
+   * - **killAndQuaraFileByPidAndMd5andPath**: terminates the process by PID and quarantines the source file of the process.
+   * - **quaraFileByMd5andPath**: quarantines the source file of the process.
+   * - **killAndQuaraFileByMd5andPath**: terminates the process and quarantines the source file of the process.
    * 
    * @example
    * killAndQuaraFileByPidAndMd5andPath
@@ -51,9 +51,9 @@ export class OperationSuspEventsRequest extends $dara.Model {
   subOperation?: string;
   /**
    * @remarks
-   * The IDs of alert events.
+   * The list of alert event IDs.
    * 
-   * > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the IDs of alert events from the SecurityEventIds response parameter.
+   * > You can call [DescribeSuspEvents](~~DescribeSuspEvents~~) to obtain alert event IDs from the SecurityEventIds response parameter.
    * 
    * This parameter is required.
    * 
@@ -63,10 +63,10 @@ export class OperationSuspEventsRequest extends $dara.Model {
   suspiciousEventIds?: string;
   /**
    * @remarks
-   * The type of the exceptions. Valid values:
+   * The type of the exception event to handle. Valid values:
    * 
-   * *   **alarm**: alerts
-   * *   **null**: exceptions
+   * - **alarm**: alert.
+   * - **Empty**: exception.
    * 
    * @example
    * alarm

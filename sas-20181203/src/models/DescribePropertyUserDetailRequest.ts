@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyUserDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Set which page of the returned results to start displaying the query results. The default value is **1**, indicating that the display starts from the first page.
+   * The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Whether the account name supports fuzzy search. To enable fuzzy search, set this parameter\\"s value to **1**; other values or an empty value indicate that fuzzy search is not supported.
+   * Specifies whether fuzzy match is supported for account names. Set this parameter to **1** to enable fuzzy match. Any other value or an empty value indicates that fuzzy match is not supported.
    * 
    * @example
    * 1
@@ -21,10 +21,10 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * Whether the queried account has ROOT privileges. Possible values include:
+   * Specifies whether the account to query has ROOT permissions. Valid values:
    * 
-   * - **0**: No
-   * - **1**: Yes
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -32,7 +32,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   isRoot?: string;
   /**
    * @remarks
-   * The end timestamp for the last login retrieval. The unit is milliseconds.
+   * The end timestamp for querying the last logon time of the account. Unit: milliseconds.
    * 
    * @example
    * 1651298836000
@@ -40,7 +40,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   lastLoginTimeEnd?: number;
   /**
    * @remarks
-   * The start timestamp for the last login retrieval. The unit is milliseconds.
+   * The start timestamp for querying the last logon time of the account. Unit: milliseconds.
    * 
    * @example
    * 164922523600
@@ -48,9 +48,9 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   lastLoginTimeStart?: number;
   /**
    * @remarks
-   * Used to mark the starting position for reading. Leave it empty to start from the beginning.
+   * The token that marks the current position from which to start reading. Leave this parameter empty to start from the beginning.
    * 
-   * > For the first call, you do not need to fill in this field. The response will include the NextToken for the second call, and each subsequent call will include the NextToken for the next call.
+   * > Do not specify this parameter for the first call. The response includes the NextToken value for the second call. Each subsequent response contains the NextToken value for the next call.
    * 
    * @example
    * E17B501887A2D3AA5E8360A6EFA3B***
@@ -58,7 +58,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Set the number of account asset fingerprint information items to display per page during pagination. The default value is **10**, indicating that 10 items of account asset fingerprint information are displayed per page.
+   * The number of account asset fingerprint entries per page in a paging query. Default value: **10**, which indicates 10 account asset fingerprint entries per page.
    * 
    * @example
    * 10
@@ -66,7 +66,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name or IP address of the server to be queried.
+   * The name or IP address of the server to query.
    * 
    * @example
    * 192.168.XX.XX
@@ -74,10 +74,10 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Whether to use the NextToken method to fetch vulnerability list data. If this parameter is used, TotalCount will no longer be returned. Possible values:
+   * Specifies whether to use the NextToken method to retrieve the vulnerability list data. If this parameter is used, TotalCount is no longer returned. Valid values:
    * 
-   * - **true**: Use the NextToken method.
-   * - **false**: Do not use the NextToken method.
+   * - **true**: Uses the NextToken method.
+   * - **false**: Does not use the NextToken method.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   useNextToken?: boolean;
   /**
    * @remarks
-   * The account name of the server to be queried.
+   * The account name on the server to query.
    * 
    * @example
    * bin
@@ -93,7 +93,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
   user?: string;
   /**
    * @remarks
-   * The UUID of the server to be queried.
+   * The UUID of the server to query.
    * 
    * @example
    * 50d213b4-3a35-427a-b8a5-04b0c7e1****

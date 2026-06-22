@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoginBaseConfigsResponseBodyBaseConfigsTargetList extends $dara.Model {
   /**
    * @remarks
-   * The UUID or group ID of the server.
+   * The UUID of the server or the ID of the server group on which the rule takes effect.
    * 
    * @example
    * 0011ea53-738c-4bff-93be-ce6a1cc9****
@@ -13,11 +13,11 @@ export class DescribeLoginBaseConfigsResponseBodyBaseConfigsTargetList extends $
   target?: string;
   /**
    * @remarks
-   * The type of the server to which the configuration is applied. Valid values:
+   * The selection mode for the assets on which the rule takes effect. Valid values:
    * 
-   * *   **uuid**: a server
-   * *   **groupId**: a server group
-   * *   **global**: all servers
+   * - **uuid**: added by individual asset.
+   * - **groupId**: added by server group.
+   * - **global**: all assets are selected.
    * 
    * @example
    * uuid
@@ -76,12 +76,12 @@ export class DescribeLoginBaseConfigsResponseBodyBaseConfigs extends $dara.Model
    * The common logon location.
    * 
    * @example
-   * Montenegro
+   * BeiJing
    */
   location?: string;
   /**
    * @remarks
-   * Corresponding configuration remark information.
+   * The remark information displayed for the corresponding configuration.
    * 
    * @example
    * test
@@ -97,7 +97,7 @@ export class DescribeLoginBaseConfigsResponseBodyBaseConfigs extends $dara.Model
   startTime?: string;
   /**
    * @remarks
-   * The details of the servers to which the configuration is applied.
+   * The list of details about the servers on which the rule takes effect.
    */
   targetList?: DescribeLoginBaseConfigsResponseBodyBaseConfigsTargetList[];
   /**
@@ -110,7 +110,7 @@ export class DescribeLoginBaseConfigsResponseBodyBaseConfigs extends $dara.Model
   totalCount?: number;
   /**
    * @remarks
-   * The number of servers to which the configuration is applied.
+   * The number of servers on which the rule takes effect.
    * 
    * @example
    * 13
@@ -159,12 +159,12 @@ export class DescribeLoginBaseConfigsResponseBodyBaseConfigs extends $dara.Model
 export class DescribeLoginBaseConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the configuration.
+   * The list of logon configuration details.
    */
   baseConfigs?: DescribeLoginBaseConfigsResponseBodyBaseConfigs[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number in the paging query result.
    * 
    * @example
    * 1
@@ -172,7 +172,7 @@ export class DescribeLoginBaseConfigsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**.
+   * The number of logon configuration entries displayed on each page in the paging query result. Default value: **20**.
    * 
    * @example
    * 20
@@ -180,7 +180,7 @@ export class DescribeLoginBaseConfigsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 2C2D4B3C-0524-17B1-93D2-DA50119F4E1E
@@ -188,7 +188,7 @@ export class DescribeLoginBaseConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of logon configuration entries returned.
    * 
    * @example
    * 200

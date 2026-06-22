@@ -76,6 +76,7 @@ export class ListOperationTaskRequest extends $dara.Model {
    * Set the language type for the request and response messages. The default value is **zh**. Values:
    * 
    * - **zh**: Chinese
+   * 
    * - **en**: English
    * 
    * @example
@@ -100,24 +101,43 @@ export class ListOperationTaskRequest extends $dara.Model {
    * A list of task statuses. Multiple statuses should be separated by commas (,). Values:
    * 
    * - **INIT**: Initialization
+   * 
    * - **FAIL**: Processing failed
+   * 
    * - **THROTTLING**: Repairing concurrently
+   * 
    * - **IN_BACKUP**: Backing up
+   * 
    * - **BACKED_UP**: Backed up
+   * 
    * - **BACKUP_FAIL**: Backup failed
+   * 
    * - **REPAIRING**: Repairing
+   * 
    * - **REPAIR_SUCCESS**: Repair succeeded
+   * 
    * - **REPAIR_FAIL**: Repair failed
+   * 
    * - **REPAIR_SUCCESS_VERIFYING**: Verifying repair success
+   * 
    * - **REPAIR_SUCCESS_UNVERIFIED**: Repair success verification failed
+   * 
    * - **REPAIR_SUCCESS_VERIFIED**: Repair success verified
+   * 
    * - **REPAIR_RE_EXECUTE**: Re-executing repair
+   * 
    * - **ROLL_BACKING**: Rolling back
+   * 
    * - **ROLL_BACKED**: Rolled back
+   * 
    * - **ROLL_BACK_FAIL**: Rollback failed
+   * 
    * - **ROLL_BACK_INIT**: Rollback initiated
+   * 
    * - **ROLL_BACK_VERIFYING**: Verifying rollback success
+   * 
    * - **ROLL_BACK_UNVERIFIED**: Rollback success verification failed
+   * 
    * - **ROLL_BACK_VERIFIED**: Rollback success verified
    */
   statuses?: string[];
@@ -132,7 +152,9 @@ export class ListOperationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The type of operation task to be queried:
+   * 
    * - REPAIR: Repair
+   * 
    * - ROLLBACK: Rollback
    * 
    * @example

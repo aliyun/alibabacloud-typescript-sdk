@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUnknownThreatDetectProcessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request.
    * 
    * @example
    * 3956048F-9D73-5EDB-834B-4827BB******

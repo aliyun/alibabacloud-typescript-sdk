@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListBaselineCheckWhiteRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of check items.
+   * The list of check item IDs.
    */
   checkIds?: number[];
   /**
    * @remarks
-   * The name of the check item. Fuzzy match is supported.
+   * The check item name for fuzzy match.
    * 
    * @example
    * redis
@@ -18,7 +18,7 @@ export class ListBaselineCheckWhiteRecordRequest extends $dara.Model {
   checkItemFuzzy?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number of the current page when using paging. The value starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -26,10 +26,9 @@ export class ListBaselineCheckWhiteRecordRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for requests and responses. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -37,7 +36,7 @@ export class ListBaselineCheckWhiteRecordRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page when using paging.
    * 
    * @example
    * 20
@@ -45,15 +44,14 @@ export class ListBaselineCheckWhiteRecordRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of the whitelist rules.
+   * The list of whitelist record IDs.
    */
   recordIds?: number[];
   /**
    * @remarks
-   * The data source. If you leave this parameter empty, the default value is used. Valid values:
-   * 
-   * *   **default**: server
-   * *   **agentless**: agentless detection
+   * The data source. If this parameter is left empty, host data is queried by default. Valid values:
+   * - **default**: host
+   * - **agentless**: agentless.
    * 
    * @example
    * agentless

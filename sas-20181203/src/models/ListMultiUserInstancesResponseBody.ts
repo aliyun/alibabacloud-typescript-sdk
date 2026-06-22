@@ -555,9 +555,12 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryEcsCount 
 export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummary extends $dara.Model {
   /**
    * @remarks
-   * The type of authorization consumed during binding. Values: 
+   * The type of authorization consumed during binding. Values:
+   * 
    * - ASSET: consumes the number of authorized instances
+   * 
    * - CORE: consumes the number of authorized cores
+   * 
    * - ASSET_AND_CORE: consumes both the number of authorized instances and cores
    * 
    * @example
@@ -576,13 +579,20 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummary extends 
   ecsCount?: ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryEcsCount;
   /**
    * @remarks
-   * Purchased version of Cloud Security Center. Values:  
-   * - **1**: Free Edition 
+   * Purchased version of Cloud Security Center. Values:
+   * 
+   * - **1**: Free Edition
+   * 
    * - **3**: Enterprise Edition
+   * 
    * - **5**: Advanced Edition
-   * - **6**: Antivirus Edition    
-   * - **7**: Flagship Edition   
-   * - **8**: Multiple Editions   
+   * 
+   * - **6**: Antivirus Edition
+   * 
+   * - **7**: Flagship Edition
+   * 
+   * - **8**: Multiple Editions
+   * 
    * - **10**: Only Value-Added Services Purchased
    * 
    * @example
@@ -712,8 +722,10 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   /**
    * @remarks
    * Instance purchase type. Values:
-   * - **0**：Self-purchased.
-   * - **1**：Allocated.
+   * 
+   * - **0**:Self-purchased.
+   * 
+   * - **1**:Allocated.
    * 
    * @example
    * 0
@@ -736,8 +748,10 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   slsCapacity?: ListMultiUserInstancesResponseBodyDaInstanceSlsCapacity;
   /**
    * @remarks
-   * Administrator account instance status. Values: 
+   * Administrator account instance status. Values:
+   * 
    * - **1**: Active.
+   * 
    * - **2**: Inactive.
    * 
    * @example
@@ -756,9 +770,11 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   threatAnalysisFlow?: ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisFlow;
   /**
    * @remarks
-   * User type. Values: 
-   * * **Administrator User**: 1
-   * * **Regular User**: 2
+   * User type. Values:
+   * 
+   * - **Administrator User**: 1
+   * 
+   * - **Regular User**: 2
    * 
    * @example
    * 1
@@ -766,14 +782,21 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   userType?: number;
   /**
    * @remarks
-   * Purchased version of Cloud Security Center. Values:  
-   * - **1**：Free Edition 
-   * - **3**：Enterprise Edition
-   * - **5**：Advanced Edition
-   * - **6**：Anti-Virus Edition    
-   * - **7**：Flagship Edition   
-   * - **8**：Multiple Editions   
-   * - **10**：Value-Added Services Only
+   * Purchased version of Cloud Security Center. Values:
+   * 
+   * - **1**:Free Edition
+   * 
+   * - **3**:Enterprise Edition
+   * 
+   * - **5**:Advanced Edition
+   * 
+   * - **6**:Anti-Virus Edition
+   * 
+   * - **7**:Flagship Edition
+   * 
+   * - **8**:Multiple Editions
+   * 
+   * - **10**:Value-Added Services Only
    * 
    * @example
    * 3
@@ -1409,9 +1432,12 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummary ex
   /**
    * @remarks
    * Authorization type consumed during binding, with values:
-   * - **ASSET**：Consumes the number of authorized instances
-   * - **CORE**：Consumes the number of authorized cores
-   * - **ASSET_AND_CORE**：Consumes both the number of authorized instances and cores.
+   * 
+   * - **ASSET**:Consumes the number of authorized instances
+   * 
+   * - **CORE**:Consumes the number of authorized cores
+   * 
+   * - **ASSET_AND_CORE**:Consumes both the number of authorized instances and cores.
    * 
    * @example
    * ASSET_AND_CORE
@@ -1429,13 +1455,20 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummary ex
   ecsCount?: ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryEcsCount;
   /**
    * @remarks
-   * Version of the Cloud Security Center for the member account. Values:  
-   * - **1**: Free Edition 
+   * Version of the Cloud Security Center for the member account. Values:
+   * 
+   * - **1**: Free Edition
+   * 
    * - **3**: Enterprise Edition
+   * 
    * - **5**: Advanced Edition
-   * - **6**: Anti-Virus Edition    
-   * - **7**: Flagship Edition   
-   * - **8**: Multiple Versions   
+   * 
+   * - **6**: Anti-Virus Edition
+   * 
+   * - **7**: Flagship Edition
+   * 
+   * - **8**: Multiple Versions
+   * 
    * - **10**: Value-Added Services Only
    * 
    * @example
@@ -1554,8 +1587,10 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * Instance purchase type. Values: 
+   * Instance purchase type. Values:
+   * 
    * - **0**: Self-purchased.
+   * 
    * - **1**: Allocated.
    * 
    * @example
@@ -1579,8 +1614,10 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   slsCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListSlsCapacity;
   /**
    * @remarks
-   * Status of the member account instance. Values: 
+   * Status of the member account instance. Values:
+   * 
    * - **1**: Active.
+   * 
    * - **2**: Inactive.
    * 
    * @example
@@ -1600,8 +1637,10 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   /**
    * @remarks
    * User type. Values:
-   * * **Administrator User**：1
-   * * **Regular User**：2
+   * 
+   * - **Administrator User**:1
+   * 
+   * - **Regular User**:2
    * 
    * @example
    * 2
@@ -1609,13 +1648,20 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   userType?: number;
   /**
    * @remarks
-   * Version of the Cloud Security Center for the member account. Values:  
-   * - **1**: Free Edition 
+   * Version of the Cloud Security Center for the member account. Values:
+   * 
+   * - **1**: Free Edition
+   * 
    * - **3**: Enterprise Edition
+   * 
    * - **5**: Advanced Edition
-   * - **6**: Anti-Virus Edition    
-   * - **7**: Flagship Edition   
-   * - **8**: Multiple Versions   
+   * 
+   * - **6**: Anti-Virus Edition
+   * 
+   * - **7**: Flagship Edition
+   * 
+   * - **8**: Multiple Versions
+   * 
    * - **10**: Only Purchased Value-Added Services
    * 
    * @example

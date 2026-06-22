@@ -65,7 +65,7 @@ export class ListUuidsByWebPathResponseBodyList extends $dara.Model {
 export class ListUuidsByWebPathResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries displayed on the current page in a paging query.
    * 
    * @example
    * 10
@@ -73,7 +73,7 @@ export class ListUuidsByWebPathResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class ListUuidsByWebPathResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries displayed on each page in a paging query.
    * 
    * @example
    * 20
@@ -125,7 +125,7 @@ export class ListUuidsByWebPathResponseBodyPageInfo extends $dara.Model {
 export class ListUuidsByWebPathResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the protected assets.
+   * The list of protected assets.
    */
   list?: ListUuidsByWebPathResponseBodyList[];
   /**
@@ -135,7 +135,7 @@ export class ListUuidsByWebPathResponseBody extends $dara.Model {
   pageInfo?: ListUuidsByWebPathResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * A3C1240F-9DAC-5EE8-ADF5-2F930A95****

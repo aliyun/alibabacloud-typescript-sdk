@@ -8,7 +8,7 @@ export class GenerateDynamicDictRequest extends $dara.Model {
    * The keyword of the dictionary.
    * 
    * @example
-   * keyword
+   * Admin
    */
   argKeywords?: string;
   /**

@@ -13,7 +13,7 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The number of vulnerabilities that have the **high** priority.
+   * The number of vulnerabilities with a fix priority of **high**.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   asapCount?: number;
   /**
    * @remarks
-   * The timestamp when the vulnerability was first detected. Unit: milliseconds.
+   * The timestamp when the vulnerability was first detected, in milliseconds.
    * 
    * @example
    * 1639371046000
@@ -29,7 +29,7 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   gmtFirst?: number;
   /**
    * @remarks
-   * The timestamp when the vulnerability was last detected. Unit: milliseconds.
+   * The timestamp when the vulnerability was last detected, in milliseconds.
    * 
    * @example
    * 1639371446000
@@ -46,11 +46,9 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   /**
    * @remarks
    * The language type associated with the vulnerability. Valid values:
-   * 
-   * *   **java**
-   * *   **php**
-   * 
-   * >  This parameter is valid only for a vulnerability of the sca type.
+   * - **java**
+   * - **php**
+   * > This parameter applies only to sca vulnerabilities.
    * 
    * @example
    * java
@@ -58,7 +56,7 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   languageType?: string;
   /**
    * @remarks
-   * The number of vulnerabilities that have the **medium** priority.
+   * The number of vulnerabilities with a fix priority of **medium**.
    * 
    * @example
    * 0
@@ -74,7 +72,7 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of vulnerabilities that have the **low** priority.
+   * The number of vulnerabilities with a fix priority of **low**.
    * 
    * @example
    * 59
@@ -82,12 +80,10 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   nntfCount?: number;
   /**
    * @remarks
-   * Indicates whether the application protection feature is supported. Valid values:
-   * 
-   * *   **0**: not supported
-   * *   **1**: supported
-   * 
-   * >  If this parameter is not returned, the application protection feature is not supported.
+   * Indicates whether RASP real-time protection is supported. Valid values:
+   * - **0**: Not supported.
+   * - **1**: Supported.
+   * > If this property is not present, RASP real-time protection is not supported.
    * 
    * @example
    * 1
@@ -95,7 +91,7 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   raspDefend?: number;
   /**
    * @remarks
-   * The IDs of the common vulnerabilities and exposures (CVEs) that are related to the vulnerability.
+   * The list of CVEs associated with the vulnerability.
    * 
    * @example
    * CVE-2023-24881,CVE-2023-24898
@@ -103,14 +99,14 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
   related?: string;
   /**
    * @remarks
-   * The tag of the vulnerability. Valid values:
+   * The vulnerability label. Valid values:
    * 
-   * *   **Restart required**
-   * *   **Remote utilization**
-   * *   **EXP exists**
-   * *   **Available**
-   * *   **Elevation of Privilege**
-   * *   **Code Execution**
+   * - **Restart required**
+   * - **Remote utilization**
+   * - **EXP exists**
+   * - **Available**
+   * - **Privilege escalation**
+   * - **Code execution**
    * 
    * @example
    * Code Execution
@@ -128,12 +124,12 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
    * @remarks
    * The type of the vulnerability. Valid values:
    * 
-   * *   **cve**: Linux software vulnerability
-   * *   **sys**: Windows system vulnerability
-   * *   **cms**: Web-CMS vulnerability
-   * *   **app**: application vulnerability
-   * *   **emg**: urgent vulnerability
-   * *   **sca**: vulnerability that is detected by software component analysis
+   * - **cve**: Linux software vulnerability
+   * - **sys**: Windows system vulnerability
+   * - **cms**: Web-CMS vulnerability
+   * - **app**: application vulnerability
+   * - **emg**: emergency vulnerability
+   * - **sca**: software constituency parsing.
    * 
    * @example
    * cve
@@ -189,7 +185,7 @@ export class DescribeGroupedVulResponseBodyGroupedVulItems extends $dara.Model {
 export class DescribeGroupedVulResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -197,12 +193,12 @@ export class DescribeGroupedVulResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The information about the vulnerability.
+   * The vulnerability information returned by the query.
    */
   groupedVulItems?: DescribeGroupedVulResponseBodyGroupedVulItems[];
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of vulnerability entries per page in a paged query. Default value: 10, which indicates that 10 vulnerability entries are displayed per page.
    * 
    * @example
    * 20
@@ -210,7 +206,7 @@ export class DescribeGroupedVulResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 9BFA6D78-07EA-5C0A-9358-E4434573507B
@@ -218,7 +214,7 @@ export class DescribeGroupedVulResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 1

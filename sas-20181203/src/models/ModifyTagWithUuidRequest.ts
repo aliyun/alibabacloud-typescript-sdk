@@ -53,7 +53,7 @@ export class ModifyTagWithUuidRequest extends $dara.Model {
    *     *   **add**: adds the tag to the server.
    * 
    * @example
-   * [{"target":"inet-7c676676-06fa-442e-90fb-b802e5d6****","targetType":"uuid","flag":"add"}]
+   * [{"target":"inet-7c676676-06fa-432e-90fb-b802e5d6****","targetType":"uuid","flag":"add"}]
    */
   target?: string;
   /**

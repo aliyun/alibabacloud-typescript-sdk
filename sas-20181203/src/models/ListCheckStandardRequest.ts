@@ -22,8 +22,9 @@ export class ListCheckStandardRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -38,11 +39,15 @@ export class ListCheckStandardRequest extends $dara.Model {
    * @remarks
    * The cloud service providers. Valid values:
    * 
-   * *   **ALIYUN**: Alibaba Cloud.
-   * *   **TENCENT**: Tencent Cloud.
-   * *   **HUAWEICLOUD**: Huawei Cloud.
-   * *   **MICROSOFT**: Microsoft Azure.
-   * *   **AWS**: Amazon Web Services (AWS).
+   * - **ALIYUN**: Alibaba Cloud.
+   * 
+   * - **TENCENT**: Tencent Cloud.
+   * 
+   * - **HUAWEICLOUD**: Huawei Cloud.
+   * 
+   * - **MICROSOFT**: Microsoft Azure.
+   * 
+   * - **AWS**: Amazon Web Services (AWS).
    */
   vendors?: string[];
   static names(): { [key: string]: string } {

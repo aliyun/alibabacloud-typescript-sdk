@@ -5,19 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataTrendResponseBodyDataItemList extends $dara.Model {
   /**
    * @remarks
-   * The statistical values of the trend data.
+   * The list of statistical values for the trend data.
    */
   countList?: number[];
   /**
    * @remarks
-   * The type of the security data. Valid values:
-   * 
-   * *   **HC_NEW**: the number of new baseline risks.
-   * *   **HC_OPERATE**: the number of handled baseline risks.
-   * *   **VUL_NEW**: the number of new vulnerabilities.
-   * *   **VUL_OPERATE**: the number of handled vulnerabilities.
-   * *   **SUSP_NEW**: the number of new alerts.
-   * *   **SUSP_OPERATE**: the number of handled alerts.
+   * The type of security data. Valid values:
+   * - **HC_NEW**: number of new baseline risks
+   * - **HC_OPERATE**: number of handled baseline risks
+   * - **VUL_NEW**: number of new vulnerability risks
+   * - **VUL_OPERATE**: number of handled vulnerability risks
+   * - **SUSP_NEW**: number of new alert risks
+   * - **SUSP_OPERATE**: number of handled alert risks.
    * 
    * @example
    * HC_NEW
@@ -52,17 +51,17 @@ export class GetDataTrendResponseBodyDataItemList extends $dara.Model {
 export class GetDataTrendResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The statistical timestamps of the trend data.
+   * The list of statistical timestamps for the trend data.
    */
   dateList?: number[];
   /**
    * @remarks
-   * The statistical dates and time for the trend data.
+   * The list of statistical date strings for the trend data.
    */
   dateStrList?: string[];
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   itemList?: GetDataTrendResponseBodyDataItemList[];
   static names(): { [key: string]: string } {
@@ -102,12 +101,12 @@ export class GetDataTrendResponseBodyData extends $dara.Model {
 export class GetDataTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: GetDataTrendResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 1383B0DB-D5D6-4B0C-9E6B-75939C8E****

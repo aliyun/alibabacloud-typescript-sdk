@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupRestoreCountResponseBodyBackupRestoreCount extends $dara.Model {
   /**
    * @remarks
-   * The number of the restoration tasks that are in the **being restored** state.
+   * The number of tasks in the **Restoring** state.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class DescribeBackupRestoreCountResponseBodyBackupRestoreCount extends $d
   recovering?: number;
   /**
    * @remarks
-   * The total number of the restoration tasks that you create.
+   * The total number of restoration tasks that have been created.
    * 
    * @example
    * 30
@@ -45,12 +45,12 @@ export class DescribeBackupRestoreCountResponseBodyBackupRestoreCount extends $d
 export class DescribeBackupRestoreCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics of restoration tasks.
+   * The statistics of anti-ransomware restoration tasks.
    */
   backupRestoreCount?: DescribeBackupRestoreCountResponseBodyBackupRestoreCount;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * ECC6B3E3-D496-512D-B46D-E6996A6B63EE

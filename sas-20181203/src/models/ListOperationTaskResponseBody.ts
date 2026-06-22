@@ -16,7 +16,7 @@ export class ListOperationTaskResponseBodyOperationTasks extends $dara.Model {
    * The name of the check item.
    * 
    * @example
-   * checkShowName
+   * 开启恶意主机行为防御功能
    */
   checkShowName?: string;
   /**
@@ -46,7 +46,9 @@ export class ListOperationTaskResponseBodyOperationTasks extends $dara.Model {
   /**
    * @remarks
    * Whether the instance is released:
+   * 
    * - true: Released
+   * 
    * - false: Not released
    * 
    * @example
@@ -81,9 +83,11 @@ export class ListOperationTaskResponseBodyOperationTasks extends $dara.Model {
    * @remarks
    * The type of repair supported by the check item:
    * 
-   * - **1**：Supports repair and rollback operations
-   * - **2**：Supports repair but not rollback
-   * - **3**：Redirect to a third-party platform for operation
+   * - **1**:Supports repair and rollback operations
+   * 
+   * - **2**:Supports repair but not rollback
+   * 
+   * - **3**:Redirect to a third-party platform for operation
    * 
    * @example
    * 1
@@ -92,8 +96,11 @@ export class ListOperationTaskResponseBodyOperationTasks extends $dara.Model {
   /**
    * @remarks
    * The risk level of the detected alert. Values:
+   * 
    * - **high**: High risk.
-   *  - **medium**: Medium risk. 
+   * 
+   * - **medium**: Medium risk.
+   * 
    * - **low**: Low risk.
    * 
    * @example
@@ -112,26 +119,45 @@ export class ListOperationTaskResponseBodyOperationTasks extends $dara.Model {
    * @remarks
    * The status of the task. Possible values:
    * 
-   * - **INIT**：Initialization
-   * - **FAIL**：Processing failed
-   * - **THROTTLING**：Repairing concurrently
-   * - **IN_BACKUP**：Backing up
-   * - **BACKED_UP**：Backed up
-   * - **BACKUP_FAIL**：Backup failed
-   * - **REPAIRING**：Repairing
-   * - **REPAIR_SUCCESS**：Repair succeeded
-   * - **REPAIR_FAIL**：Repair failed
-   * - **REPAIR_SUCCESS_VERIFYING**：Verifying repair success
-   * - **REPAIR_SUCCESS_UNVERIFIED**：Verification of repair success failed
-   * - **REPAIR_SUCCESS_VERIFIED**：Verification of repair success succeeded
-   * - **REPAIR_RE_EXECUTE**：Re-executing repair
-   * - **ROLL_BACKING**：Rolling back
-   * - **ROLL_BACKED**：Rolled back
-   * - **ROLL_BACK_FAIL**：Rollback failed
-   * - **ROLL_BACK_INIT**：Initiating rollback
-   * - **ROLL_BACK_VERIFYING**：Verifying rollback success
-   * - **ROLL_BACK_UNVERIFIED**：Verification of rollback success failed
-   * - **ROLL_BACK_VERIFIED**：Verification of rollback success succeeded
+   * - **INIT**:Initialization
+   * 
+   * - **FAIL**:Processing failed
+   * 
+   * - **THROTTLING**:Repairing concurrently
+   * 
+   * - **IN_BACKUP**:Backing up
+   * 
+   * - **BACKED_UP**:Backed up
+   * 
+   * - **BACKUP_FAIL**:Backup failed
+   * 
+   * - **REPAIRING**:Repairing
+   * 
+   * - **REPAIR_SUCCESS**:Repair succeeded
+   * 
+   * - **REPAIR_FAIL**:Repair failed
+   * 
+   * - **REPAIR_SUCCESS_VERIFYING**:Verifying repair success
+   * 
+   * - **REPAIR_SUCCESS_UNVERIFIED**:Verification of repair success failed
+   * 
+   * - **REPAIR_SUCCESS_VERIFIED**:Verification of repair success succeeded
+   * 
+   * - **REPAIR_RE_EXECUTE**:Re-executing repair
+   * 
+   * - **ROLL_BACKING**:Rolling back
+   * 
+   * - **ROLL_BACKED**:Rolled back
+   * 
+   * - **ROLL_BACK_FAIL**:Rollback failed
+   * 
+   * - **ROLL_BACK_INIT**:Initiating rollback
+   * 
+   * - **ROLL_BACK_VERIFYING**:Verifying rollback success
+   * 
+   * - **ROLL_BACK_UNVERIFIED**:Verification of rollback success failed
+   * 
+   * - **ROLL_BACK_VERIFIED**:Verification of rollback success succeeded
    * 
    * @example
    * REPAIRING
@@ -142,13 +168,15 @@ export class ListOperationTaskResponseBodyOperationTasks extends $dara.Model {
    * The display status of the repair task.
    * 
    * @example
-   * Verified After Repair Success
+   * 回滚已验证
    */
   statusShowName?: string;
   /**
    * @remarks
    * Whether rollback is supported:
+   * 
    * - true: Supported
+   * 
    * - false: Not supported
    * 
    * @example
@@ -166,7 +194,9 @@ export class ListOperationTaskResponseBodyOperationTasks extends $dara.Model {
   /**
    * @remarks
    * The type of the operation task being queried:
+   * 
    * - REPAIR: Repair
+   * 
    * - ROLLBACK: Rollback
    * 
    * @example

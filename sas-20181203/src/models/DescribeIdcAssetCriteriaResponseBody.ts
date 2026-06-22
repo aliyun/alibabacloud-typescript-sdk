@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIdcAssetCriteriaResponseBodyCriteriaList extends $dara.Model {
   /**
    * @remarks
-   * The name of the search condition.
+   * The name of the corresponding search condition.
    * 
    * @example
    * scannedIp
@@ -15,8 +15,8 @@ export class DescribeIdcAssetCriteriaResponseBodyCriteriaList extends $dara.Mode
    * @remarks
    * The type of the search condition. Valid values:
    * 
-   * *   **input**: The search condition needs to be specified.
-   * *   **select**: The search condition is an option that can be selected from the drop-down list.
+   * - **input**: You must manually enter the search field.
+   * - **select**: You must select a child class of the search condition from the drop-down list.
    * 
    * @example
    * select
@@ -24,7 +24,7 @@ export class DescribeIdcAssetCriteriaResponseBodyCriteriaList extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The attribute values of the assets that match the keyword.
+   * The specific asset property values that correspond to the entered fuzzy match value.
    * 
    * @example
    * 1.1.1.*
@@ -63,7 +63,7 @@ export class DescribeIdcAssetCriteriaResponseBody extends $dara.Model {
   criteriaList?: DescribeIdcAssetCriteriaResponseBodyCriteriaList[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 11C96623-E106-59C9-866D-A6C82911****

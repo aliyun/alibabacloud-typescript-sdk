@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCycleTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 1AA33E30-7192-5648-93CD-D0E476A2****

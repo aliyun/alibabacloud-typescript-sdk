@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationProcessDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListOperationProcessDetailResponseBodyPageInfo extends $dara.Model 
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListOperationProcessDetailResponseBodyPageInfo extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -105,7 +105,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetailsChecks extends 
 export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.Model {
   /**
    * @remarks
-   * The subtype of the asset associated with the operation subtask.
+   * The asset subtype associated with the operation subtask.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   assetSubType?: number;
   /**
    * @remarks
-   * The type of the asset associated with the operation subtask.
+   * The asset type associated with the operation subtask.
    * 
    * @example
    * 8
@@ -121,7 +121,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   assetType?: number;
   /**
    * @remarks
-   * The vendor of the asset associated with the operation subtask.
+   * The asset vendor associated with the operation subtask.
    * 
    * @example
    * 0
@@ -129,12 +129,12 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   assetVendor?: number;
   /**
    * @remarks
-   * The check items associated with the operation subtask.
+   * The list of check items associated with the operation subtask.
    */
   checks?: ListOperationProcessDetailResponseBodyProcessDetailsChecks[];
   /**
    * @remarks
-   * The timestamp when the task was created. Unit: milliseconds.
+   * The timestamp when the task was created, in milliseconds.
    * 
    * @example
    * 1706544199000
@@ -142,7 +142,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   createTime?: number;
   /**
    * @remarks
-   * The ID of the operation subtask.
+   * The operation subtask ID.
    * 
    * @example
    * fb4bcd41-a916-46bc-ab1a-65fd383be***
@@ -150,7 +150,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   detailTaskId?: string;
   /**
    * @remarks
-   * The end timestamp of the operation subtask. Unit: milliseconds.
+   * The timestamp when the operation subtask ended, in milliseconds.
    * 
    * @example
    * 1706544199000
@@ -158,7 +158,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   endTime?: number;
   /**
    * @remarks
-   * The start timestamp of the operation subtask. Unit: milliseconds.
+   * The timestamp when the operation subtask started, in milliseconds.
    * 
    * @example
    * 1730335622000
@@ -166,13 +166,12 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   startTime?: number;
   /**
    * @remarks
-   * The subtask status code. Enumerated values:
-   * 
-   * *   0: not started.
-   * *   1: running.
-   * *   2: successful.
-   * *   3: times out.
-   * *   4: failed.
+   * The operation subtask status code. Valid values:
+   * - 0: not started.
+   * - 1: checking.
+   * - 2: succeeded.
+   * - 3: timed out.
+   * - 4: failed.
    * 
    * @example
    * 0
@@ -180,7 +179,7 @@ export class ListOperationProcessDetailResponseBodyProcessDetails extends $dara.
   statusCode?: number;
   /**
    * @remarks
-   * The ID of the operation subtask.
+   * The operation subtask ID.
    * 
    * @example
    * v34578b8-e567-47ec-2345-3e5b077ca***
@@ -236,12 +235,12 @@ export class ListOperationProcessDetailResponseBody extends $dara.Model {
   pageInfo?: ListOperationProcessDetailResponseBodyPageInfo;
   /**
    * @remarks
-   * The information about the operation subtasks.
+   * The list of operation subtask information.
    */
   processDetails?: ListOperationProcessDetailResponseBodyProcessDetails[];
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * CE500770-42D3-442E-9DDD-156E0F9F3***

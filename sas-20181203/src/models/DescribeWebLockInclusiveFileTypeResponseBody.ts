@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWebLockInclusiveFileTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the types of files that can be protected by web tamper proofing.
+   * The list of file types supported by tamper-proofing protection.
    */
   inclusiveFileType?: string[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * CE500770-42D3-442E-9DDD-156E0F9F3B45
@@ -18,7 +18,7 @@ export class DescribeWebLockInclusiveFileTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the types of files that can be protected by web tamper proofing.
+   * The total number of file types supported by tamper-proofing protection.
    * 
    * @example
    * 15

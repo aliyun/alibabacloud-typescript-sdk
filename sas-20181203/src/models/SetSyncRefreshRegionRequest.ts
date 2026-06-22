@@ -6,9 +6,8 @@ export class SetSyncRefreshRegionRequest extends $dara.Model {
   /**
    * @remarks
    * The access type of the multi-cloud site. Valid values:
-   * 
-   * *   **0**: The current site is not the default site of multi-cloud site. You can specify the current site as the default site of the multi-cloud site.
-   * *   **1**: The current site is the default site of multi-cloud site.
+   * - **0**: no default site is configured, and you can select regions as needed.
+   * - **1**: the current site is already the default site.
    * 
    * @example
    * 0
@@ -16,17 +15,17 @@ export class SetSyncRefreshRegionRequest extends $dara.Model {
   defaultRegion?: number;
   /**
    * @remarks
-   * The regions from which you want to synchronize assets at the current site.
+   * The list of regions to be synchronized for the current site.
    */
   regionIds?: string[];
   /**
    * @remarks
-   * The cloud service provider. Valid values:
+   * The cloud asset vendor. Valid values:
    * 
-   * *   **Tencent**: Tencent Cloud
-   * *   **HUAWEICLOUD**: Huawei Cloud
-   * *   **Azure**: Microsoft Azure
-   * *   **AWS**: Amazon Web Services (AWS)
+   * - **Tencent**: Tencent Cloud.
+   * - **HUAWEICLOUD**: Huawei Cloud.
+   * - **Azure**: Azure.
+   * - **AWS**: AWS.
    * 
    * @example
    * Tencent

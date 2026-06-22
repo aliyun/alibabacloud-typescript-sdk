@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of machines on which the virus scan task is complete.
+   * The number of servers that completed the scan.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   completeMachine?: number;
   /**
    * @remarks
-   * The name of the machine.
+   * The name of the server.
    * 
    * @example
    * testMahine1
@@ -21,7 +21,7 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   machineName?: string;
   /**
    * @remarks
-   * The progress of the virus scan task in percentage.
+   * The progress percentage of the scan task.
    * 
    * @example
    * 92
@@ -29,11 +29,11 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   progress?: string;
   /**
    * @remarks
-   * The highest risk level of the detected alerts. Valid values:
+   * The highest risk level of the alerts detected by the scan. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high-risk.
+   * - **medium**: medium-risk.
+   * - **low**: low-risk.
    * 
    * @example
    * medium
@@ -41,7 +41,7 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   riskLevel?: string;
   /**
    * @remarks
-   * The number of safe machines that are detected.
+   * The number of servers on which no risks are detected.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   safeMachine?: number;
   /**
    * @remarks
-   * The number of machines that are scanned.
+   * The number of servers scanned in this virus scan.
    * 
    * @example
    * 3
@@ -57,12 +57,12 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   scanMachine?: number;
   /**
    * @remarks
-   * The paths of files that were scanned. This value is returned only when ScanType is set to user.
+   * The file paths specified for scanning when the scan type is user-defined.
    */
   scanPath?: string[];
   /**
    * @remarks
-   * The timestamp generated when the virus scan task was performed. Unit: milliseconds.
+   * The timestamp of the scan. Unit: milliseconds.
    * 
    * @example
    * 1681145862000
@@ -70,10 +70,9 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   scanTime?: number;
   /**
    * @remarks
-   * The type of the virus scan. Valid values:
-   * 
-   * *   **system**: automatic scan.
-   * *   **user**: custom scan.
+   * The scan type of this virus scan. Valid values:
+   * - **system**: automatic system scan.
+   * - **user**: user-defined scan.
    * 
    * @example
    * system
@@ -81,20 +80,18 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   scanType?: string;
   /**
    * @remarks
-   * The status of the virus scan task.
+   * The status of the scan task.
    * 
-   * **Valid values for a main task**:
+   * **Valid values for the main task:**
+   * - **0**: The task is pending.
+   * - **10**: The scan is in progress.
+   * - **100**: The scan is complete.
    * 
-   * *   **0**: The main task is to be started.
-   * *   **10**: The main task is running.
-   * *   **100**: The main task is complete.
-   * 
-   * **Valid values for a subtask**:
-   * 
-   * *   **0**: The subtask is to be started.
-   * *   **20**: The scan script is sent.
-   * *   **50**: The subtask is running.
-   * *   **100**: The subtask is complete.
+   * **Valid values for the subtask:**
+   * - **0**: The scan is pending.
+   * - **20**: The detection script is delivered.
+   * - **50**: The scan is running on the server.
+   * - **100**: The scan is complete.
    * 
    * @example
    * 0
@@ -102,7 +99,7 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   status?: number;
   /**
    * @remarks
-   * The number of alerts that are detected.
+   * The number of security alerts detected by the scan.
    * 
    * @example
    * 2
@@ -110,7 +107,7 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   suspiciousCount?: number;
   /**
    * @remarks
-   * The number of suspicious machines that are detected.
+   * The number of servers on which risks are detected.
    * 
    * @example
    * 2
@@ -118,7 +115,7 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   suspiciousMachine?: number;
   /**
    * @remarks
-   * The ID of the virus scan task.
+   * The ID of the scan task.
    * 
    * @example
    * fc98d58eb56f699d49bf7ebbd6d7****
@@ -126,7 +123,7 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
   taskId?: string;
   /**
    * @remarks
-   * The number of machines on which the virus scan task was not complete or failed.
+   * The number of servers that have not completed the scan or failed the scan.
    * 
    * @example
    * 1
@@ -185,12 +182,12 @@ export class GetVirusScanLatestTaskStatisticResponseBodyData extends $dara.Model
 export class GetVirusScanLatestTaskStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the virus scan task.
+   * The custom result data.
    */
   data?: GetVirusScanLatestTaskStatisticResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 7532B7EE-7CE7-5F4D-BF04-B12447DDCAE1

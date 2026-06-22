@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteK8sAccessInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and can be ignored.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class DeleteK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayApiName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and can be ignored.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class DeleteK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayPopName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and can be ignored.
    * 
    * @example
    * None
@@ -29,7 +29,7 @@ export class DeleteK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayProjectName?: string;
   /**
    * @remarks
-   * The ID generated when Kubernetes is connected. You can call the GenerateK8sAccessInfo operation to query the ID.
+   * The default value generated when accessing Kubernetes. You can obtain the ID by calling the [GenerateK8sAccessInfo](https://help.aliyun.com/document_detail/2623602.html) operation.
    * 
    * This parameter is required.
    * 

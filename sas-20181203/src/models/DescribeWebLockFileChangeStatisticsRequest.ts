@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWebLockFileChangeStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeWebLockFileChangeStatisticsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+   * The maximum number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
    * 
    * @example
    * 20

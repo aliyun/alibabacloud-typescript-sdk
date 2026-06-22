@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUninstallAegisMachinesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the first page to display in the query results. Default value: **1**, which indicates that the query results are displayed from page 1.
    * 
    * @example
    * 4
@@ -13,9 +13,8 @@ export class ListUninstallAegisMachinesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The operating system of the server.
-   * 
-   * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **osType**, the value of the **Values** parameter indicates an operating system.
+   * The operating system.
+   * > You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to obtain supported operating systems from the **Values** of the item whose **Name** is **osType**.
    * 
    * @example
    * linux
@@ -23,7 +22,7 @@ export class ListUninstallAegisMachinesRequest extends $dara.Model {
   os?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **5**.
+   * The number of entries per page in a paged query. Default value: **5**, which indicates that 5 entries are displayed per page.
    * 
    * @example
    * 5
@@ -31,9 +30,9 @@ export class ListUninstallAegisMachinesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the server resides.
+   * The region where the server resides.
    * 
-   * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **regionId**, the value of the **Values** parameter indicates a region ID.
+   * > You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to obtain supported regions from the **Values** of the item whose **Name** is **regionId**.
    * 
    * @example
    * cn-hangzhou
@@ -41,9 +40,9 @@ export class ListUninstallAegisMachinesRequest extends $dara.Model {
   regionIdStr?: string;
   /**
    * @remarks
-   * The region in which the server resides.
+   * The region where the server resides.
    * 
-   * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **regionId**, the value of the **Values** parameter indicates a region ID.
+   * > You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to obtain supported regions from the **Values** of the item whose **Name** is **regionId**.
    * 
    * @example
    * cn-hangzhou
@@ -51,7 +50,7 @@ export class ListUninstallAegisMachinesRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The information about the server that you want to query. The value can be the name or the public IP address of the server.
+   * The asset information to query. You can set this parameter to the asset name or public IP address.
    * 
    * @example
    * 172.20.XX.XX
@@ -59,7 +58,7 @@ export class ListUninstallAegisMachinesRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 180.113.XX.XX
@@ -67,13 +66,13 @@ export class ListUninstallAegisMachinesRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The source of the server. Valid values:
+   * The server vendor. Valid values:
    * 
-   * *   **0**: an asset provided by Alibaba Cloud.
-   * *   **1**: a third-party cloud server
-   * *   **2**: a server in a data center
-   * *   **3**, **4**, **5**, and **7**: other cloud asset
-   * *   **8**: a lightweight asset
+   * - **0**: Alibaba Cloud asset
+   * - **1**: non-cloud asset
+   * - **2**: IDC asset
+   * - **3**, **4**, **5**, **7**: third-party cloud asset
+   * - **8**: lightweight asset.
    * 
    * @example
    * 0

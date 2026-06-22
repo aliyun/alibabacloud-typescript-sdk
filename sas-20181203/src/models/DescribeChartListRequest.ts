@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChartListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response messages. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,9 +15,9 @@ export class DescribeChartListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The code of the report. Valid value:
+   * The project code. Valid values:
    * 
-   * *   **customize_report**
+   * - **customize_report**: custom report.
    * 
    * This parameter is required.
    * 
@@ -28,9 +27,9 @@ export class DescribeChartListRequest extends $dara.Model {
   projectCode?: string;
   /**
    * @remarks
-   * The ID of the report.
+   * The report ID.
    * 
-   * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+   * > Call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to obtain this parameter.
    * 
    * @example
    * 720549

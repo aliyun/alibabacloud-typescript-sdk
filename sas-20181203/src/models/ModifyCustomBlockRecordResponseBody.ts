@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustomBlockRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * A4EE4B1F-CEF8-5A75-86D3-D012CB3D****

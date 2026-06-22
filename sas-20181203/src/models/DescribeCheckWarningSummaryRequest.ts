@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+   * The ID of the container cluster to query.
+   * > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c80dae73bd1be442699766b14ffd0****
@@ -15,12 +14,12 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the container field. Valid values:
+   * The container field. Valid values:
    * 
-   * *   **clusterId**: the ID of the cluster
-   * *   **image**: the name of the image
-   * *   **imageId**: the ID of the image
-   * *   **namespace**: the namespace
+   * - **clusterId**: cluster ID
+   * - **image**: image name
+   * - **imageId**: image ID
+   * - **namespace**: namespace.
    * 
    * @example
    * namespace
@@ -36,7 +35,7 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number for a paged query.
    * 
    * @example
    * 1
@@ -44,9 +43,8 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the asset group.
-   * 
-   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+   * The group ID of the server to query.
+   * > Call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain the group ID of the server.
    * 
    * @example
    * 123
@@ -54,10 +52,9 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The language of the content within the request and the response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -65,7 +62,7 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -73,7 +70,7 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the risk item.
+   * The name of the baseline check risk item.
    * 
    * @example
    * Redis
@@ -82,9 +79,8 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the baseline check. Valid values:
-   * 
-   * *   **1**: failed
-   * *   **3**: passed
+   * - **1**: failed 
+   * - **3**: passed.
    * 
    * @example
    * 1
@@ -101,12 +97,11 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the check item. Valid values:
-   * 
-   * *   **1**: failed
-   * *   **2**: verifying
-   * *   **3**: passed
-   * *   **5**: expired
-   * *   **6**: ignored
+   * - **1**: failed
+   * - **2**: verifying 
+   * - **3**: passed 
+   * - **5**: expired 
+   * - **6**: ignored.
    * 
    * @example
    * 1
@@ -122,9 +117,8 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The type of the query condition. Valid values:
-   * 
-   * *   **uuid**: the ID of an asset
+   * The query type. Valid values:
+   * - **uuid**: asset ID.
    * 
    * @example
    * uuid
@@ -132,9 +126,8 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The level-1 type of check items.
-   * 
-   * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the level-1 types of check items.
+   * The level-1 type of the baseline.
+   * > Call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain this parameter.
    * 
    * @example
    * database
@@ -143,8 +136,7 @@ export class DescribeCheckWarningSummaryRequest extends $dara.Model {
   /**
    * @remarks
    * The UUID of the asset.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
+   * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * @example
    * f03259d8-1e81-4fae-bcbb-275fb5****

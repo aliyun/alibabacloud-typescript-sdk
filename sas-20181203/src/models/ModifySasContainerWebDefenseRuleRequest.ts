@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dara.Model {
   /**
    * @remarks
-   * The backup paths.
+   * The backup path.
    * 
    * @example
    * /tmp/test
@@ -13,10 +13,9 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   backupPath?: string;
   /**
    * @remarks
-   * The prevention mode. Valid values:
-   * 
-   * *   **block**
-   * *   **audit**
+   * The action to perform. Valid values:
+   * - **block**: Block.
+   * - **audit**: Alert.
    * 
    * This parameter is required.
    * 
@@ -26,7 +25,7 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   defenseMode?: string;
   /**
    * @remarks
-   * The path that is protected.
+   * The defense path.
    * 
    * This parameter is required.
    * 
@@ -36,7 +35,7 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   defensePath?: string;
   /**
    * @remarks
-   * The files that are excluded.
+   * The excluded file.
    * 
    * @example
    * /usr/test
@@ -44,7 +43,7 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   excludeFile?: string;
   /**
    * @remarks
-   * The paths to the files that are excluded.
+   * The excluded file path.
    * 
    * @example
    * /test/home/qq
@@ -52,7 +51,7 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   excludeFilePath?: string;
   /**
    * @remarks
-   * The types of the files that are excluded.
+   * The excluded file type.
    * 
    * @example
    * php
@@ -60,10 +59,9 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   excludeFileType?: string;
   /**
    * @remarks
-   * The protection mode. Valid values:
-   * 
-   * *   **0**: basic mode (whitelist)
-   * *   **1**: complex mode (blacklist)
+   * The Defense mode. Valid values:
+   * - **0**: Basic pattern (whitelist). 
+   * - **1**: Complex pattern (blacklist).
    * 
    * This parameter is required.
    * 
@@ -73,7 +71,7 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   guardType?: number;
   /**
    * @remarks
-   * The files that are included.
+   * The included file.
    * 
    * @example
    * /home/admin/test
@@ -81,7 +79,7 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   includeFile?: string;
   /**
    * @remarks
-   * The type of the files that are included.
+   * The included file type.
    * 
    * @example
    * jsp
@@ -97,7 +95,7 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
   pathConfId?: number;
   /**
    * @remarks
-   * The processes that are added to the whitelist.
+   * The list of whitelisted processes.
    */
   processPathList?: string[];
   static names(): { [key: string]: string } {
@@ -147,12 +145,12 @@ export class ModifySasContainerWebDefenseRuleRequestPathConfDTOList extends $dar
 export class ModifySasContainerWebDefenseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The paths that are protected.
+   * The list of defense paths for the rule.
    */
   pathConfDTOList?: ModifySasContainerWebDefenseRuleRequestPathConfDTOList[];
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * This parameter is required.
    * 
@@ -162,7 +160,7 @@ export class ModifySasContainerWebDefenseRuleRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * wwwwwww

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulExportInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of exported entries.
+   * The number of data entries that have been exported.
    * 
    * @example
    * 1
@@ -15,9 +15,9 @@ export class DescribeVulExportInfoResponseBody extends $dara.Model {
    * @remarks
    * The status of the export task. Valid values:
    * 
-   * *   **init**: The task is being initialized.
-   * *   **exporting**: The task is in progress.
-   * *   **success**: The task is complete.
+   * - **init**: initializing
+   * - **exporting**: exporting in progress
+   * - **success**: export successful.
    * 
    * @example
    * success
@@ -33,7 +33,7 @@ export class DescribeVulExportInfoResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The ID of the vulnerability export task.
    * 
    * @example
    * 14356
@@ -41,7 +41,7 @@ export class DescribeVulExportInfoResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The URL at which you can download the exported Excel file.
+   * The download link of the exported Excel file.
    * 
    * @example
    * http://www.aliyun.com
@@ -49,7 +49,7 @@ export class DescribeVulExportInfoResponseBody extends $dara.Model {
   link?: string;
   /**
    * @remarks
-   * The message that shows the results of the task. The value is fixed as **success**, which indicates that the task is complete.
+   * The message about the export result. Fixed value: **success**. This value indicates that the export is successful.
    * 
    * @example
    * success
@@ -57,7 +57,7 @@ export class DescribeVulExportInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The progress percentage of the task.
+   * The export progress percentage (%).
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class DescribeVulExportInfoResponseBody extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 4C1AE3F3-18FA-4108-BXXX-AFA1A032756C
@@ -73,7 +73,7 @@ export class DescribeVulExportInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the exported Excel file.
+   * The total number of data entries in the exported Excel file.
    * 
    * @example
    * 10

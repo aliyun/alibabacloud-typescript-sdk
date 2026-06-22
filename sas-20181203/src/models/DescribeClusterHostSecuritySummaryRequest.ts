@@ -13,20 +13,20 @@ export class DescribeClusterHostSecuritySummaryRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The key of the condition that is used to query containers. Valid values:
+   * The container search field. Valid values:
    * 
-   * *   **instanceId**: the instance ID
-   * *   **appName**: the name of the application
-   * *   **clusterId**: the ID of the cluster
-   * *   **regionId**: the region ID
-   * *   **nodeName**: the name of the node
-   * *   **namespace**: the namespace
-   * *   **clusterName**: the name of the cluster
-   * *   **image**: the name of the image
-   * *   **imageRepoName**: the name of the image repository
-   * *   **imageRepoNamespace**: the namespace to which the image repository belongs
-   * *   **imageRepoTag**: the tag that is added to the image repository
-   * *   **imageDigest**: the digest of the image
+   * - **instanceId**: instance ID.
+   * - **appName**: application name.
+   * - **clusterId**: cluster ID.
+   * - **regionId**: region.
+   * - **nodeName**: node name.
+   * - **namespace**: namespace.
+   * - **clusterName**: cluster name.
+   * - **image**: image name.
+   * - **imageRepoName**: image repository name.
+   * - **imageRepoNamespace**: image repository namespace.
+   * - **imageRepoTag**: image tag.
+   * - **imageDigest**: image digest.
    * 
    * @example
    * clusterId
@@ -34,7 +34,7 @@ export class DescribeClusterHostSecuritySummaryRequest extends $dara.Model {
   containerFieldName?: string;
   /**
    * @remarks
-   * The value of the condition that is used to query containers.
+   * The value of the container search field.
    * 
    * @example
    * c1fdb5fd8d42e425d88fd73eec7be****
@@ -43,7 +43,7 @@ export class DescribeClusterHostSecuritySummaryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 222.71.XXX.XXX
@@ -51,10 +51,10 @@ export class DescribeClusterHostSecuritySummaryRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The type of the query. Valid values:
+   * The query type. Valid values:
    * 
-   * *   **containerId**
-   * *   **uuid**
+   * - **containerId**: container ID.
+   * - **uuid**: asset ID.
    * 
    * @example
    * uuid

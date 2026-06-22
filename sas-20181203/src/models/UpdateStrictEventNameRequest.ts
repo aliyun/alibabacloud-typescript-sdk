@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateStrictEventNameRequest extends $dara.Model {
   /**
    * @remarks
-   * List of strict alarms to be operated on. This list is a complete list, and any strict alarms not included in this list will have the opposite operation performed.
-   * > You can call [DescribeStrictEventName](~~DescribeStrictEventName~~) to get the list of all strict mode alarms.
-   * > -
+   * The list of strict mode alerts to operate on. This is a full list. Strict mode alerts not included in this list will have the opposite action applied.
+   * > Call [DescribeStrictEventName](~~DescribeStrictEventName~~) to obtain the list of all strict mode alerts.
+   * > -.
    */
   eventNameList?: string[];
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -23,9 +23,9 @@ export class UpdateStrictEventNameRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Operation rule determination operator:
-   * - *on*: Turn on the alarm
-   * - *off*: Turn off the alarm
+   * The operator for the rule action. Valid values:
+   * - *on*: enables alerting
+   * - *off*: disables alerting.
    * 
    * This parameter is required.
    * 

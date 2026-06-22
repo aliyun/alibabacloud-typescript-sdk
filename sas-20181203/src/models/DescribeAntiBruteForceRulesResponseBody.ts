@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAntiBruteForceRulesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of data entries displayed on the current page during a paginated query.
+   * The number of entries returned on the current page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeAntiBruteForceRulesResponseBodyPageInfo extends $dara.Model
   count?: number;
   /**
    * @remarks
-   * The page number of the current page during a paginated query.
+   * The page number of the current page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeAntiBruteForceRulesResponseBodyPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of data entries displayed per page during a paginated query.
+   * The maximum number of entries returned per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeAntiBruteForceRulesResponseBodyPageInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of created anti-brute force rules.
+   * The total number of brute-force attacks prevention rules that have been created.
    * 
    * @example
    * 2
@@ -65,9 +65,9 @@ export class DescribeAntiBruteForceRulesResponseBodyPageInfo extends $dara.Model
 export class DescribeAntiBruteForceRulesResponseBodyRulesProtocolType extends $dara.Model {
   /**
    * @remarks
-   * RDP interception method, with values:
-   *   - **on**: Enabled
-   *   - **off**: Disabled
+   * The RDP interception mode. Valid values:
+   *   - **on**: enabled
+   *   - **off**: disabled.
    * 
    * @example
    * on
@@ -75,9 +75,9 @@ export class DescribeAntiBruteForceRulesResponseBodyRulesProtocolType extends $d
   rdp?: string;
   /**
    * @remarks
-   * SQL Server interception method, with values:
-   *   - **on**: Enabled
-   *   - **off**: Disabled
+   * The SqlServer interception mode. Valid values:
+   *   - **on**: enabled
+   *   - **off**: disabled.
    * 
    * @example
    * off
@@ -85,9 +85,9 @@ export class DescribeAntiBruteForceRulesResponseBodyRulesProtocolType extends $d
   sqlServer?: string;
   /**
    * @remarks
-   * SSH interception method, with values:
-   *   - **on**: Enabled
-   *   - **off**: Disabled
+   * The SSH interception mode. Valid values:
+   *   - **on**: enabled
+   *   - **off**: disabled.
    * 
    * @example
    * on
@@ -121,7 +121,7 @@ export class DescribeAntiBruteForceRulesResponseBodyRulesProtocolType extends $d
 export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the anti-brute force rule was created. Unit: milliseconds.
+   * The UNIX timestamp when the brute-force attacks prevention rule was created. Unit: milliseconds.
    * 
    * @example
    * 1669800181000
@@ -129,11 +129,11 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Whether the current rule is the default rule. Values:
-   * - **true**: It is the default rule.
-   * - **false**: It is not the default rule.
+   * Indicates whether the current rule is the default rule. Valid values:
+   * - **true**: The rule is the default rule.
+   * - **false**: The rule is not the default rule.
    * 
-   * > A default anti-brute force rule will apply to all servers that do not have a defense rule added.
+   * > A brute-force attacks prevention rule that is configured as the default rule takes effect on all servers that do not have a prevention rule configured. See Settings for more information.
    * 
    * @example
    * true
@@ -141,7 +141,7 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   defaultRule?: boolean;
   /**
    * @remarks
-   * This parameter is deprecated and does not need to be considered.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * false
@@ -149,7 +149,7 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   enableSmartRule?: boolean;
   /**
    * @remarks
-   * The threshold for the number of failed login attempts before the brute force defense rule takes effect.
+   * The threshold for the number of failed logon attempts that triggers the brute-force attacks prevention rule.
    * 
    * @example
    * 15
@@ -157,7 +157,7 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The duration (in minutes) for which the attacker\\"s IP is disabled after the brute force defense rule takes effect.
+   * The duration for which the attacker IP address is disabled after the brute-force attacks prevention rule is triggered. Unit: minutes.
    * 
    * @example
    * 360
@@ -165,7 +165,7 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   forbiddenTime?: number;
   /**
    * @remarks
-   * The ID of the anti-brute force rule.
+   * The ID of the brute-force attacks prevention rule.
    * 
    * @example
    * 1629
@@ -173,7 +173,7 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The number of servers configured with this brute force defense rule.
+   * The number of servers to which the brute-force attacks prevention rule is applied.
    * 
    * @example
    * 3
@@ -181,7 +181,7 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   machineCount?: number;
   /**
    * @remarks
-   * Name of the brute force attack defense rule.
+   * The name of the brute-force attacks prevention rule.
    * 
    * @example
    * AntiBruteForceRule01
@@ -189,12 +189,12 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The types of protocols supported by the anti-brute force rule for interception.
+   * The protocol types that the brute-force attacks prevention rule supports for interception.
    */
   protocolType?: DescribeAntiBruteForceRulesResponseBodyRulesProtocolType;
   /**
    * @remarks
-   * The time threshold (in minutes) for the brute force defense rule to take effect. For example, if **span** is 10, it means that if the number of failed login attempts exceeds the set threshold within 10 minutes, the anti-brute force rule will take effect and block logins for a specified period.
+   * The time threshold within which the brute-force attacks prevention rule takes effect. Unit: minutes. For example, if **Span** is set to 10, the brute-force attacks prevention rule is triggered and blocks logon attempts for the specified duration when the number of failed logon attempts within 10 minutes exceeds the settings threshold.
    * 
    * @example
    * 10
@@ -202,7 +202,7 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   span?: number;
   /**
    * @remarks
-   * A list of UUIDs for the servers that have this anti-brute force rule configured.
+   * The list of UUIDs of the servers to which the brute-force attacks prevention rule is applied.
    */
   uuidList?: string[];
   static names(): { [key: string]: string } {
@@ -255,12 +255,12 @@ export class DescribeAntiBruteForceRulesResponseBodyRules extends $dara.Model {
 export class DescribeAntiBruteForceRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Pagination information of the query result.
+   * The pagination information of the query result.
    */
   pageInfo?: DescribeAntiBruteForceRulesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for this request and can be used for troubleshooting and problem localization.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
@@ -268,7 +268,7 @@ export class DescribeAntiBruteForceRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of details of the anti-brute force rules.
+   * The details of brute-force attacks prevention rules.
    */
   rules?: DescribeAntiBruteForceRulesResponseBodyRules[];
   static names(): { [key: string]: string } {

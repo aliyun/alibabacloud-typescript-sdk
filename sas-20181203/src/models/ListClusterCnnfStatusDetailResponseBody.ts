@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterCnnfStatusDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c8ca91e0907d94efaba7fb0827eb9****
@@ -21,7 +21,7 @@ export class ListClusterCnnfStatusDetailResponseBodyData extends $dara.Model {
   installed?: boolean;
   /**
    * @remarks
-   * The ID of the server.
+   * The instance ID of the server.
    * 
    * @example
    * i-bp180bogui4fc0z4****
@@ -45,11 +45,10 @@ export class ListClusterCnnfStatusDetailResponseBodyData extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The cause why the plug-in is invalid. Valid values:
-   * 
-   * *   **PLUGIN_OFFLINE**: The plug-in is offline.
-   * *   **PLUGIN_NOT_INSTALLED**: The plug-in is not installed.
-   * *   **PLUGIN_INVALID_VERSION**: The version of the plug-in is invalid.
+   * The invalid type of the plug-in. Valid values:
+   * - **PLUGIN_OFFLINE**: offline
+   * - **PLUGIN_NOT_INSTALLED**: not installed
+   * - **PLUGIN_INVALID_VERSION**: invalid version.
    * 
    * @example
    * PLUGIN_OFFLINE
@@ -65,7 +64,7 @@ export class ListClusterCnnfStatusDetailResponseBodyData extends $dara.Model {
   machineName?: string;
   /**
    * @remarks
-   * The machine type of the instance. The value is fixed as **ecs**.
+   * The type of the instance. The value is fixed as **ecs**.
    * 
    * @example
    * ecs
@@ -73,7 +72,7 @@ export class ListClusterCnnfStatusDetailResponseBodyData extends $dara.Model {
   machineType?: number;
   /**
    * @remarks
-   * The name of the plug-in. The value is fixed as **alinet**.
+   * The name of the plug-in type. The value is fixed as **alinet**.
    * 
    * @example
    * alinet
@@ -90,9 +89,8 @@ export class ListClusterCnnfStatusDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The online status of the plug-in. Valid values:
-   * 
-   * *   **false**: The plug-in is offline.
-   * *   **true**: The plug-in is online.
+   * - **false**: offline
+   * - **true**: online.
    * 
    * @example
    * false
@@ -100,7 +98,7 @@ export class ListClusterCnnfStatusDetailResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The UUID of the asset.
+   * The UUID of the asset instance.
    * 
    * @example
    * 6690a46c-0edb-4663-a641-3629d1a9****
@@ -152,12 +150,12 @@ export class ListClusterCnnfStatusDetailResponseBodyData extends $dara.Model {
 export class ListClusterCnnfStatusDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the protection status of the container firewall.
+   * The list of container firewall statuses.
    */
   data?: ListClusterCnnfStatusDetailResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 64329F40-5C94-51D3-A400-37AA7BAC****

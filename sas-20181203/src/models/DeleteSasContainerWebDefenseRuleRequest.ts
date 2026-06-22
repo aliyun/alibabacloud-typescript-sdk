@@ -6,8 +6,7 @@ export class DeleteSasContainerWebDefenseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The rule ID.
-   * 
-   * >  You can call the ListContainerWebDefenseRule operation to query the rule ID.
+   * > You can call the ListContainerWebDefenseRule operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

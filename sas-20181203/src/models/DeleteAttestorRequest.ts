@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAttestorRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the witness.
+   * The name of the attestor.
    * 
    * @example
    * attestor
@@ -14,7 +14,7 @@ export class DeleteAttestorRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 221.214.XXX.XX

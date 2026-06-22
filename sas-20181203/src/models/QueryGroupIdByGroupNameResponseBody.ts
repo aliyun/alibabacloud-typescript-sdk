@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryGroupIdByGroupNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset group.
+   * The ID of the group.
    * 
    * @example
    * 9935302
@@ -13,7 +13,7 @@ export class QueryGroupIdByGroupNameResponseBody extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E3322413BB68

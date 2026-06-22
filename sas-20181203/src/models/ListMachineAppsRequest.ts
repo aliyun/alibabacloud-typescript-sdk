@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMachineAppsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SAE application.
+   * The SAE application ID.
    * 
    * @example
    * 5b41f4bf-349f-4263-89b1-9234c034****
@@ -13,7 +13,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the SAE application.
+   * The SAE application name.
    * 
    * @example
    * agent-commprice-shop
@@ -29,13 +29,12 @@ export class ListMachineAppsRequest extends $dara.Model {
   appRegionId?: string;
   /**
    * @remarks
-   * The edition of Security Center. Valid values:
-   * 
-   * *   **6**: Anti-virus.
-   * *   **5**: Advanced.
-   * *   **3**: Enterprise.
-   * *   **7**: Ultimate.
-   * *   **10**: Value-added Plan.
+   * The authorization version of the asset. Valid values:
+   * - **6**: Anti-virus Edition
+   * - **5**: Premium Edition
+   * - **3**: Enterprise Edition
+   * - **7**: Ultimate Edition
+   * - **10**: value-added service Edition.
    * 
    * @example
    * 7
@@ -43,7 +42,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   authVersion?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -51,10 +50,9 @@ export class ListMachineAppsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -62,7 +60,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dara.Model {
   /**
    * @remarks
-   * The number of check items.
+   * The number of baseline check items.
    * 
    * @example
    * 10
@@ -13,10 +13,9 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   checkCount?: number;
   /**
    * @remarks
-   * Indicates whether the risk item can be exploited. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Indicates whether the risk item is exploitable. Valid values:
+   * - **true**: exploitable
+   * - **false**: not exploitable.
    * 
    * @example
    * false
@@ -24,10 +23,9 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   checkExploit?: boolean;
   /**
    * @remarks
-   * Indicates  whether the risk item is a container runtime risk item. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Indicates whether the baseline belongs to the container runtime category. Valid values:
+   * - **true**: yes
+   * - **false**: no.
    * 
    * @example
    * false
@@ -35,10 +33,10 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   containerRisk?: boolean;
   /**
    * @remarks
-   * Indicates whether the risk item is a database risk item. Valid values:
+   * Indicates whether the risk item is a database risk. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes
+   * - **false**: no.
    * 
    * @example
    * false
@@ -46,7 +44,7 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   databaseRisk?: boolean;
   /**
    * @remarks
-   * The number of high-risk items.
+   * The number of high-risk check items.
    * 
    * @example
    * 1
@@ -62,11 +60,11 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   lastFoundTime?: string;
   /**
    * @remarks
-   * The risk level of the risk item. Valid values:
+   * The risk level of the baseline check risk item. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high
+   * - **medium**: medium
+   * - **low**: low.
    * 
    * @example
    * high
@@ -74,7 +72,7 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   level?: string;
   /**
    * @remarks
-   * The number of low-risk items.
+   * The number of low-risk check items.
    * 
    * @example
    * 3
@@ -82,7 +80,7 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   lowWarningCount?: number;
   /**
    * @remarks
-   * The number of medium-risk items.
+   * The number of medium-risk check items.
    * 
    * @example
    * 2
@@ -98,7 +96,7 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   riskId?: number;
   /**
    * @remarks
-   * The name of the risk item.
+   * The name of the baseline check risk item.
    * 
    * @example
    * Redis
@@ -106,7 +104,7 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   riskName?: string;
   /**
    * @remarks
-   * The level-2 type of the risk item.
+   * The level-2 category of the risk item.
    * 
    * @example
    * Redis
@@ -114,7 +112,7 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   subTypeAlias?: string;
   /**
    * @remarks
-   * The level-1 type of the check item. Examples: database, system, weak password, and middleware.
+   * The category of the baseline check item, such as database, system, weak password detection, and middleware.
    * 
    * @example
    * databases
@@ -122,7 +120,7 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
   typeAlias?: string;
   /**
    * @remarks
-   * The number of assets on which risk items are detected.
+   * The number of assets on which baseline risks are detected.
    * 
    * @example
    * 11
@@ -178,7 +176,7 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $dar
 export class DescribeCheckWarningSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of check items returned on the current page.
+   * The number of check items displayed on the current page.
    * 
    * @example
    * 10
@@ -186,7 +184,7 @@ export class DescribeCheckWarningSummaryResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the current page.
+   * The current page number of the returned results.
    * 
    * @example
    * 1
@@ -194,7 +192,7 @@ export class DescribeCheckWarningSummaryResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -202,7 +200,7 @@ export class DescribeCheckWarningSummaryResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot issues.
    * 
    * @example
    * 00BD7CE2-284A-4534-BD09-FB69836DD750
@@ -210,7 +208,7 @@ export class DescribeCheckWarningSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of check items.
+   * The total number of baseline check items.
    * 
    * @example
    * 100

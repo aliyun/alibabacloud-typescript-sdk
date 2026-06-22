@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallUniBackupAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 53ACA55D-0325-5056-A72D-D0EC0B9C****

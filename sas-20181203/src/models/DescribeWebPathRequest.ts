@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWebPathRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query. Paging is used to display results.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeWebPathRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page in a paged query. Paging is used to display results.
    * 
    * @example
    * 20
@@ -21,9 +21,9 @@ export class DescribeWebPathRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the alert configuration. Valid values:
+   * The alert configuration type. Valid values:
    * 
-   * *   **web_path**
+   * - **web_path**.
    * 
    * @example
    * web_path

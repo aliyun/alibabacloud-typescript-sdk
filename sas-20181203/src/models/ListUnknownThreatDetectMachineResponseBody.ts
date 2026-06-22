@@ -5,43 +5,77 @@ import * as $dara from '@darabonba/typescript';
 export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model {
   effectDays?: number;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * 12
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 172.16.XX.XX
    */
   internetIp?: string;
   /**
+   * @remarks
+   * The private IP address.
+   * 
    * @example
    * 10.42.XX.XX
    */
   intranetIp?: string;
   pluginStatus?: string;
   /**
+   * @remarks
+   * The process count.
+   * 
    * @example
    * 1
    */
   processCount?: number;
   /**
+   * @remarks
+   * The instance status. Valid values:
+   * 
+   * - **monitoring**: The instance is being monitored for threats.
+   * 
+   * - **blocking**: The instance is blocking unauthorized processes.
+   * 
+   * - **studying**: The instance is in a learning phase.
+   * 
    * @example
    * studying
    */
   status?: string;
   /**
+   * @remarks
+   * The whitelist mode. Valid values:
+   * 
+   * - **hash**: process hash
+   * 
+   * - **path**: process path
+   * 
    * @example
    * hash
    */
   studyMode?: string;
   studyRemainDays?: number;
   /**
+   * @remarks
+   * The timestamp when the learning phase started. Unit: seconds.
+   * 
    * @example
    * 1766988192
    */
   studyStartTime?: number;
   /**
+   * @remarks
+   * The UUID of the asset instance.
+   * 
    * @example
    * 6690a46c-0edb-4663-a641-3629d1a9****
    */
@@ -89,21 +123,33 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
 
 export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 10
    */
   count?: number;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 149
    */
@@ -136,11 +182,19 @@ export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Mo
 }
 
 export class ListUnknownThreatDetectMachineResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of instance details.
+   */
   data?: ListUnknownThreatDetectMachineResponseBodyData[];
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pageInfo?: ListUnknownThreatDetectMachineResponseBodyPageInfo;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * A4EB8B1C-1DEC-5E18-BCD0-XXXXXXXXX

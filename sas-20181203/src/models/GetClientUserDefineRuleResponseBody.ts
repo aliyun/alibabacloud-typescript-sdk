@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $dara.Model {
   /**
    * @remarks
-   * The action of the custom defense rule. Valid values:
+   * The action type. Valid values:
    * 
-   * *   **0**: allow
-   * *   **1**: block
+   * - **0**: added to the whitelist
+   * - **1**: added to the blacklist.
    * 
    * @example
    * 0
@@ -40,7 +40,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   filePath?: string;
   /**
    * @remarks
-   * The time when the custom defense rule was created.
+   * The creation time.
    * 
    * @example
    * 167118088****
@@ -48,7 +48,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the custom defense rule was last modified.
+   * The most recent modification time.
    * 
    * @example
    * 167118088****
@@ -64,7 +64,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   IP?: string;
   /**
    * @remarks
-   * The ID of the custom defense rule.
+   * The rule ID.
    * 
    * @example
    * 200****
@@ -72,7 +72,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   id?: number;
   /**
    * @remarks
-   * The hash values of processes.
+   * The list of process hashes.
    * 
    * @example
    * 0c9045b5bec90f9825f1f3f64dd4****
@@ -80,10 +80,10 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   md5List?: string;
   /**
    * @remarks
-   * The name of the custom defense rule.
+   * The rule name.
    * 
    * @example
-   * Rule\\*\\*\\*\\*
+   * 规则****
    */
   name?: string;
   /**
@@ -104,7 +104,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   parentCmdline?: string;
   /**
    * @remarks
-   * The path to the parent process.
+   * The parent process path.
    * 
    * @example
    * c:/windows/system32/i****
@@ -112,11 +112,11 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   parentProcPath?: string;
   /**
    * @remarks
-   * The type of the operating system. Valid values:
+   * The operating system type. Valid values:
    * 
-   * *   **linux**
-   * *   **windows**
-   * *   **all**
+   * - **linux**
+   * - **windows**
+   * - **all**.
    * 
    * @example
    * linux
@@ -140,7 +140,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   portStr?: string;
   /**
    * @remarks
-   * The path to the process.
+   * The process path.
    * 
    * @example
    * c:/windows/system32/i****
@@ -164,15 +164,15 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
   registryKey?: string;
   /**
    * @remarks
-   * The type of the custom defense rule. Valid values:
+   * The rule type. Valid values:
    * 
-   * *   **1**: Process hash
-   * *   **2**: Command line
-   * *   **3**: Process Network
-   * *   **4**: File Read and Write
-   * *   **5**: Operation on Registry
-   * *   **6**: Dynamic-link Library Loading
-   * *   **7**: File Renaming
+   * - **1**: process hash
+   * - **2**: command line
+   * - **3**: process network
+   * - **4**: file read/write
+   * - **5**: registry operation
+   * - **6**: dynamic-link library loading
+   * - **7**: file rename.
    * 
    * @example
    * 1
@@ -240,7 +240,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $da
 export class GetClientUserDefineRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF4****
@@ -248,7 +248,7 @@ export class GetClientUserDefineRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the custom defense rule.
+   * The rule details.
    */
   userDefineRuleDetail?: GetClientUserDefineRuleResponseBodyUserDefineRuleDetail;
   static names(): { [key: string]: string } {

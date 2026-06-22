@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end timestamp of the sub-task.
+   * The timestamp of the end time.
    * 
    * @example
    * 1668064495000
@@ -23,7 +23,7 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20
+   * The maximum number of entries per page in a paged query. Default value: 20.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether extension information is associated.
+   * Specifies whether to associate extended information.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   relateInfo?: boolean;
   /**
    * @remarks
-   * The source of the request.
+   * The request source.
    * 
    * @example
    * console_batch
@@ -51,7 +51,7 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The start timestamp of the sub-task.
+   * The timestamp of the start time.
    * 
    * @example
    * 1648438617000
@@ -59,12 +59,12 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status information.
+   * The list of statuses.
    */
   statusList?: string[];
   /**
    * @remarks
-   * The ID of the sub-task.
+   * The ID of the task to retrieve.
    * 
    * @example
    * 1471d8ebb96795b41ede090b9758****
@@ -72,10 +72,9 @@ export class DescribeOnceTaskLeafRecordPageRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the sub-task. Valid values:
-   * 
-   * *   **IMAGE_SCAN**: image scan task
-   * *   **IMAGE_REGISTRY_PULL**: image asset synchronization task
+   * The task type. Valid values:
+   * - **IMAGE_SCAN**: image scanning
+   * - **IMAGE_REGISTRY_PULL**: image asset synchronization.
    * 
    * This parameter is required.
    * 

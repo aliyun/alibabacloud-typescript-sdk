@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWebPathResponseBodyConfigListTargetList extends $dara.Model {
   /**
    * @remarks
-   * The object.
+   * The target object.
    * 
    * @example
    * 82048187-bb9b-4e19-8320-7b4ddb97****
@@ -13,9 +13,9 @@ export class DescribeWebPathResponseBodyConfigListTargetList extends $dara.Model
   target?: string;
   /**
    * @remarks
-   * The object type. Valid values:
+   * The target type. Valid values:
    * 
-   * *   **uuid**
+   * - **uuid**.
    * 
    * @example
    * uuid
@@ -47,12 +47,12 @@ export class DescribeWebPathResponseBodyConfigListTargetList extends $dara.Model
 export class DescribeWebPathResponseBodyConfigList extends $dara.Model {
   /**
    * @remarks
-   * An array consisting of the servers on which the web directories are scanned.
+   * The list of servers on which the web directory takes effect.
    */
   targetList?: DescribeWebPathResponseBodyConfigListTargetList[];
   /**
    * @remarks
-   * The path to the web directory.
+   * The web directory.
    * 
    * @example
    * /root/www****
@@ -60,10 +60,10 @@ export class DescribeWebPathResponseBodyConfigList extends $dara.Model {
   webPath?: string;
   /**
    * @remarks
-   * The path type of the web directory. Valid values:
+   * The type of the web path. Valid values:
    * 
-   * *   **def**: automatically identified
-   * *   **customize**: manually added
+   * - **def**: automatically identified by the system.
+   * - **customize**: manually added.
    * 
    * @example
    * def
@@ -100,12 +100,12 @@ export class DescribeWebPathResponseBodyConfigList extends $dara.Model {
 export class DescribeWebPathResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the paths to the web directories.
+   * The list of web paths.
    */
   configList?: DescribeWebPathResponseBodyConfigList[];
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 2
@@ -113,7 +113,7 @@ export class DescribeWebPathResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query. Paging is used to display results.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class DescribeWebPathResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query. Paging is used to display results.
    * 
    * @example
    * 20
@@ -129,7 +129,7 @@ export class DescribeWebPathResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The China Chinese Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
    * 
    * @example
    * B37C9052-A73E-4707-A024-92477028****

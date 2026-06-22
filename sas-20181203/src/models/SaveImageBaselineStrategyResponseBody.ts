@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveImageBaselineStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9AB5D3DE-6E0F-5633-AA71-4B90C724****

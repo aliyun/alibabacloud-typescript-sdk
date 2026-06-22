@@ -13,12 +13,12 @@ export class ListPrivateRegistryTypeResponseBodyRegistryTypeInfos extends $dara.
   count?: number;
   /**
    * @remarks
-   * The name of the image repository type. Valid values:
+   * The type of the image repository. Valid values:
    * 
-   * *   **acr**: Container Registry
-   * *   **harbor**: Harbor
-   * *   **quay**: Quay
-   * *   **CI/CD**: Jenkins
+   * - **acr**: ACR.
+   * - **harbor**: Harbor.
+   * - **quay**: Quay.
+   * - **CI/CD**: Jenkins.
    * 
    * @example
    * harbor
@@ -50,12 +50,12 @@ export class ListPrivateRegistryTypeResponseBodyRegistryTypeInfos extends $dara.
 export class ListPrivateRegistryTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of image repository types.
+   * The information about image repository types.
    */
   registryTypeInfos?: ListPrivateRegistryTypeResponseBodyRegistryTypeInfos[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The China Chinese Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E3322413****

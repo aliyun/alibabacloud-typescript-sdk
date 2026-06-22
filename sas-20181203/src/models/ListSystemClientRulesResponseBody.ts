@@ -66,7 +66,7 @@ export class ListSystemClientRulesResponseBodyRuleListPolicies extends $dara.Mod
    * The name of the policy.
    * 
    * @example
-   * System self-starting task\\*\\*\\*\\*
+   * 系统自启动任务****
    */
   policyName?: string;
   static names(): { [key: string]: string } {
@@ -98,7 +98,7 @@ export class ListSystemClientRulesResponseBodyRuleList extends $dara.Model {
    * The name of the aggregation type for the system defense rule.
    * 
    * @example
-   * Initial entry
+   * 初始入口
    */
   aggregationName?: string;
   /**
@@ -106,16 +106,18 @@ export class ListSystemClientRulesResponseBodyRuleList extends $dara.Model {
    * The description of the system defense rule.
    * 
    * @example
-   * Supports alerting or blocking of images that have high-risk vulnerabilities\\*\\*\\*\\*
+   * 支持告警或拦截存在高危漏洞的镜像在集****
    */
   description?: string;
   /**
    * @remarks
    * The type of the OS. Valid values:
    * 
-   * *   **windows**: Windows
-   * *   **linux**: Linux
-   * *   **all**: all types
+   * - **windows**: Windows
+   * 
+   * - **linux**: Linux
+   * 
+   * - **all**: all types
    * 
    * @example
    * linux
@@ -139,15 +141,16 @@ export class ListSystemClientRulesResponseBodyRuleList extends $dara.Model {
    * The name of the system defense rule.
    * 
    * @example
-   * Rule\\*\\*\\*\\*
+   * 规则****
    */
   ruleName?: string;
   /**
    * @remarks
    * The type of the system defense rule. Valid values:
    * 
-   * *   **1**: alihips, process-specific defense
-   * *   **2**: alinet, network-specific defense
+   * - **1**: alihips, process-specific defense
+   * 
+   * - **2**: alinet, network-specific defense
    * 
    * @example
    * alihips
@@ -157,8 +160,9 @@ export class ListSystemClientRulesResponseBodyRuleList extends $dara.Model {
    * @remarks
    * The status of the system defense rule. Valid values:
    * 
-   * *   **online**: enabled
-   * *   **offline**: disabled
+   * - **online**: enabled
+   * 
+   * - **offline**: disabled
    * 
    * @example
    * online
@@ -168,8 +172,9 @@ export class ListSystemClientRulesResponseBodyRuleList extends $dara.Model {
    * @remarks
    * Whether the current rule switch takes effect. Valid values:
    * 
-   * *   **true**: enabled
-   * *   **false**: disabled
+   * - **true**: enabled
+   * 
+   * - **false**: disabled
    * 
    * @example
    * true

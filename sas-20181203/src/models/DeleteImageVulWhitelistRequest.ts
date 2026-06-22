@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageVulWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the whitelist. Separate multiple IDs with commas (,).
+   * The vulnerability whitelist IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * 123
@@ -14,9 +14,8 @@ export class DeleteImageVulWhitelistRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh

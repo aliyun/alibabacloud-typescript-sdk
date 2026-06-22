@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHoneypotEventFlowsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,10 @@ export class ListHoneypotEventFlowsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The status of the event. Valid values: y, n, and a. The value y indicates handled. The value n indicates unhandled. The value a indicates all.
+   * Specifies whether the event has been handled. Valid values:
+   * - **y**: Handled. 
+   * - **n**: Unhandled. 
+   * - **a**: All.
    * 
    * @example
    * n
@@ -21,10 +24,9 @@ export class ListHoneypotEventFlowsRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -32,9 +34,8 @@ export class ListHoneypotEventFlowsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return per page in a paged query. Default value: 100. If the PageSize parameter is left empty, 100 entries are returned by default.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -42,17 +43,16 @@ export class ListHoneypotEventFlowsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Invalid parameter.
    * 
    * @example
-   * 20540822-520E-54F5-B7E6-236CF1EC987F
+   * 9F4E6157-9600-5588-86B9-38F09067****
    */
   requestId?: string;
   /**
    * @remarks
-   * The ID of the alert event. The ID of the management account of the ListHoneypotEvents resource directory.
-   * 
-   * >  You can call the [ListHoneypotEvents](~~ListHoneypotEvents~~) operation to query the IDs of alert events.
+   * The ID of the alert event.
+   * >You can call the [ListHoneypotEvents](~~ListHoneypotEvents~~) operation to obtain this parameter.
    * 
    * @example
    * 7455818

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterSuspEventStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+   * The ID of the container cluster that you want to query.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c6094b964bfc145fe9e418c869e7e****
@@ -15,7 +14,7 @@ export class GetClusterSuspEventStatisticsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the request source. Set the value to sas.
+   * The source of the request. Set this parameter to sas.
    * 
    * @example
    * sas

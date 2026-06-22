@@ -13,7 +13,7 @@ export class DescribeWebLockFileChangeStatisticsResponseBodyList extends $dara.M
   count?: number;
   /**
    * @remarks
-   * The file path.
+   * The path of the file.
    * 
    * @example
    * /tmp
@@ -45,7 +45,7 @@ export class DescribeWebLockFileChangeStatisticsResponseBodyList extends $dara.M
 export class DescribeWebLockFileChangeStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -53,12 +53,12 @@ export class DescribeWebLockFileChangeStatisticsResponseBody extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * An array consisting of the files that are changed.
+   * The list of web tamper-proofing events.
    */
   list?: DescribeWebLockFileChangeStatisticsResponseBodyList[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 20
@@ -66,7 +66,7 @@ export class DescribeWebLockFileChangeStatisticsResponseBody extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 709A8C3D-A543-5B79-AB75-361B206F71D9
@@ -74,7 +74,7 @@ export class DescribeWebLockFileChangeStatisticsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of files that are attempted to change.
+   * The total number of web tamper-proofing events.
    * 
    * @example
    * 200

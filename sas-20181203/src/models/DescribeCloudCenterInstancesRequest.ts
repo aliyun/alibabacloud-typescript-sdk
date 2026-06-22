@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The search conditions. The value of this parameter is in the JSON format and is case-sensitive.
-   * 
-   * >  You can search for an asset by using the search conditions, such as the instance ID, instance name, VPC ID, region, or public IP address. You can call the [DescribeCriteria](https://help.aliyun.com/document_detail/149773.html) operation to query the supported search conditions.
+   * The search conditions for assets. This parameter is in JSON format. Pay attention to the case sensitivity when you specify this parameter.
+   * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * [{"name":"riskStatus","value":"YES"},{"name":"internetIp","value":"1.2.XX.XX"}]
@@ -15,7 +14,7 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number to return from the query results. Default value: **1**, which indicates that query results are returned starting from page 1.
    * 
    * @example
    * 1
@@ -23,14 +22,15 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Asset vendor. Multiple asset vendors should be separated by a comma (,). Values:
-   * - **0**: an asset provided by Alibaba Cloud
-   * - **1**: an asset outside Alibaba Cloud
-   * - **2**: an asset in a data center
-   * - **3**, **4**, **5**, **7**, **14**, **16**: an asset from a third-party cloud service provider
-   * - **8**: a lightweight asset
-   * - **9**: a Serverless App Engine (SAE) instance
-   * - **10**: an instance in Platform for AI (PAI)
+   * The asset vendor. Separate multiple vendors with commas (,). Valid values:
+   * 
+   * - **0**: Alibaba Cloud asset
+   * - **1**: non-cloud asset
+   * - **2**: IDC asset
+   * - **3**, **4**, **5**, **7**, **14**, **16**: third-party cloud asset
+   * - **8**: lightweight asset
+   * - **9**: SAE
+   * - **10**: PAI
    * 
    * @example
    * 1,2,3
@@ -38,11 +38,10 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   flags?: string;
   /**
    * @remarks
-   * The importance of the asset. Valid values:
-   * 
-   * *   **2**: an important asset
-   * *   **1**: a common asset
-   * *   **0**: a test asset
+   * The importance level of the asset. Valid values:
+   * - **2**: important asset
+   * - **1**: normal asset
+   * - **0**: test asset
    * 
    * @example
    * 2
@@ -52,8 +51,8 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -61,10 +60,10 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The logical relationship among multiple search conditions. Valid values:
+   * The logical relationship between multiple search conditions. Default value: **OR**. Valid values:
    * 
-   * *   **OR**: The logical relationship among search conditions is **OR**.
-   * *   **AND**: The logical relationship among search conditions is **AND**.
+   * - **OR**: The search conditions are in the **OR** relationship.
+   * - **AND**: The search conditions are in the **AND** relationship.
    * 
    * @example
    * OR
@@ -72,12 +71,13 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The type of asset to be queried. Values:
-   * - **ecs**: Server 
-   * - **cloud_product**: Cloud Product 
-   * - **eci**: Elastic Container Instance 
-   * - **rund**: RunD Container Instance 
-   * - **runc**: RunC Container Instance
+   * The type of the asset that you want to query. Valid values:
+   * 
+   * - **ecs**: server
+   * - **cloud_product**: cloud product
+   * - **eci**: elastic container instance
+   * - **rund**: RunD container instance
+   * - **runc**: RunC container instance
    * 
    * @example
    * ecs
@@ -85,7 +85,7 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   machineTypes?: string;
   /**
    * @remarks
-   * The value of NextToken that is returned when the NextToken method is used. You do not need to specify this parameter for the first request.
+   * The NextToken value returned when the NextToken method is used. Leave this parameter empty for the first request.
    * 
    * @example
    * E17B501887A2D3AA5E8360A6EFA3B***
@@ -93,10 +93,10 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Specifies whether to internationalize the name of the default group. Valid values:
+   * Specifies whether to internationalize the default group name **Ungrouped**. Default value: **false**. Valid values:
    * 
-   * *   **true**: The system returns the Chinese name of the default group for the GroupTrace response parameter.
-   * *   **false**: The system returns default for the GroupTrace response parameter.
+   * - **true**: does not internationalize the group name. If the value of the GroupTrace response parameter is the default group **Ungrouped** in Security Center, the group name is still displayed as **Ungrouped** in Chinese.
+   * - **false**: internationalizes the group name. If the value of the GroupTrace response parameter is the default group **Ungrouped** in Security Center, the group name is displayed as **default**.
    * 
    * @example
    * false
@@ -104,7 +104,7 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   noGroupTrace?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The number of entries per page in a paginated query. Default value: **20**, which indicates that 20 entries of asset information are displayed per page.
    * 
    * @example
    * 100
@@ -112,7 +112,7 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region in which the asset resides.
+   * The ID of the region where the instance you want to query resides.
    * 
    * @example
    * cn-hangzhou
@@ -122,9 +122,8 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The Alibaba Cloud account ID of the member account in the resource directory.
+   * >You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 1232428423234****
@@ -132,10 +131,10 @@ export class DescribeCloudCenterInstancesRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * Specifies whether to use the NextToken method to retrieve a new page of results. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
+   * Specifies whether to use the NextToken method to retrieve asset list data. If this parameter is used, the TotalCount parameter is no longer returned. Valid values:
    * 
-   * - **true**: The NextToken method is used.
-   * - **false**: The NextToken method is not used.
+   * - **true**: uses the NextToken method.
+   * - **false**: does not use the NextToken method.
    * 
    * @example
    * false

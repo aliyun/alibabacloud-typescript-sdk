@@ -6,8 +6,7 @@ export class UpdateTargetListByBatchRequestOperationList extends $dara.Model {
   /**
    * @remarks
    * The ID of the server group.
-   * 
-   * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+   * > Call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the server group ID.
    * 
    * @example
    * 11883086
@@ -17,8 +16,8 @@ export class UpdateTargetListByBatchRequestOperationList extends $dara.Model {
    * @remarks
    * The operation type. Valid values:
    * 
-   * *   **add**: the add operation.
-   * *   **del**: the remove operation.
+   * - **add**: increase.
+   * - **del**: delete.
    * 
    * @example
    * add
@@ -27,8 +26,7 @@ export class UpdateTargetListByBatchRequestOperationList extends $dara.Model {
   /**
    * @remarks
    * The UUID of the server.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * @example
    * de393767-6fe1-4a8d-837d-927a2b******
@@ -82,7 +80,7 @@ export class UpdateTargetListByBatchRequest extends $dara.Model {
   batchId?: number;
   /**
    * @remarks
-   * The operations on assets.
+   * The list of asset operations.
    * 
    * This parameter is required.
    */

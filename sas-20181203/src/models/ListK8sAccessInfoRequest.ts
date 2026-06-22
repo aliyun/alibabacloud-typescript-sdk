@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListK8sAccessInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class ListK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayApiName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class ListK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayPopName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -29,10 +29,9 @@ export class ListK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayProjectName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for requests and responses. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * en

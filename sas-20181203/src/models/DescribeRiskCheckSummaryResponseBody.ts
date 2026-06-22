@@ -13,10 +13,11 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroupsCountBySt
   count?: number;
   /**
    * @remarks
-   * The status of the check item after the check is finished. Valid values:
+   * The status of the check item after the check is complete. Valid values:
    * 
-   * *   **pass**: The check item passed the check, which indicates that the check item is normal.
-   * *   **failed**: The check item failed the check, which indicates that risks are detected based on the check item.
+   * - **pass**: The check item passed the check, which indicates that the check item is normal.
+   * 
+   * - **failed**: The check item failed the check, which indicates that the check item has risks.
    * 
    * @example
    * pass
@@ -48,12 +49,12 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroupsCountBySt
 export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroups extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the statistics about check results.
+   * The list of check item result statistics.
    */
   countByStatus?: DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroupsCountByStatus[];
   /**
    * @remarks
-   * The ID of the check item type.
+   * The ID of the check item category.
    * 
    * @example
    * 1
@@ -61,7 +62,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroups extends 
   id?: number;
   /**
    * @remarks
-   * The remaining time before the check is complete.
+   * The estimated check time.
    * 
    * @example
    * 0
@@ -69,7 +70,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroups extends 
   remainingTime?: number;
   /**
    * @remarks
-   * The sequence number of the check item type in the **All Types** drop-down list in the Security Center console.
+   * The sort order of the check item type in the **All Types** drop-down list in the console.
    * 
    * @example
    * 1
@@ -77,12 +78,15 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroups extends 
   sort?: number;
   /**
    * @remarks
-   * The status of the check. Valid values:
+   * The check status. Valid values:
    * 
-   * *   **finish**: The check is finished.
-   * *   **running**: The check is in progress.
-   * *   **waiting**: The check is pending.
-   * *   **notStart**: The check is not started.
+   * - **finish**: The check is complete.
+   * 
+   * - **running**: The check is in progress.
+   * 
+   * - **waiting**: The check is waiting.
+   * 
+   * - **notStart**: The check has not started.
    * 
    * @example
    * finish
@@ -90,10 +94,10 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroups extends 
   status?: string;
   /**
    * @remarks
-   * The name of the check item type.
+   * The name of the check item category.
    * 
    * @example
-   * Identity authentication and permissions
+   * 身份认证及权限
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -141,11 +145,10 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryRiskLevelCount 
   count?: number;
   /**
    * @remarks
-   * The risk level of the check items. Valid values:
-   * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * The risk level of the check item. Valid values:
+   * - **high**: high risk
+   * - **medium**: medium risk
+   * - **low**: low risk.
    * 
    * @example
    * medium
@@ -177,7 +180,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryRiskLevelCount 
 export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of affected assets.
+   * The number of assets affected by risk items in the check results.
    * 
    * @example
    * 0
@@ -185,7 +188,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummary extends $dara.
   affectedAssetCount?: number;
   /**
    * @remarks
-   * The number of the check items that failed the check.
+   * The number of check items that failed the check.
    * 
    * @example
    * 0
@@ -193,7 +196,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummary extends $dara.
   disabledRiskCount?: number;
   /**
    * @remarks
-   * The number of the check items that passed the check.
+   * The number of check items that passed the check.
    * 
    * @example
    * 3
@@ -201,7 +204,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummary extends $dara.
   enabledRiskCount?: number;
   /**
    * @remarks
-   * An array that consists of the statistics for each type of check item.
+   * The statistics information list by check item type.
    */
   groups?: DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryGroups[];
   /**
@@ -214,7 +217,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummary extends $dara.
   itemCount?: number;
   /**
    * @remarks
-   * The number of risk items detected in the last check.
+   * The number of risk items detected in the previous check.
    * 
    * @example
    * 0
@@ -222,7 +225,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummary extends $dara.
   previousCount?: number;
   /**
    * @remarks
-   * The timestamp of the last check. Unit: milliseconds.
+   * The timestamp of the previous check. Unit: milliseconds.
    * 
    * @example
    * 1545012926000
@@ -238,12 +241,12 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummary extends $dara.
   riskCount?: number;
   /**
    * @remarks
-   * An array that consists of the number of check items at each risk level.
+   * The list of check item counts by risk level.
    */
   riskLevelCount?: DescribeRiskCheckSummaryResponseBodyRiskCheckSummaryRiskLevelCount[];
   /**
    * @remarks
-   * The proportion of risk items to all check items.
+   * The percentage of detected risk items in the total number of check items.
    * 
    * @example
    * 0.25
@@ -297,7 +300,7 @@ export class DescribeRiskCheckSummaryResponseBodyRiskCheckSummary extends $dara.
 export class DescribeRiskCheckSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot issues.
    * 
    * @example
    * 291B49F9-1685-4005-9D34-606B6F78740F
@@ -305,7 +308,7 @@ export class DescribeRiskCheckSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The summary information about the check results of cloud service configurations.
+   * The statistics of cloud service configuration check results.
    */
   riskCheckSummary?: DescribeRiskCheckSummaryResponseBodyRiskCheckSummary;
   static names(): { [key: string]: string } {

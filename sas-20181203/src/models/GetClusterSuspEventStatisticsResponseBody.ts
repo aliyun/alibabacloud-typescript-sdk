@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterSuspEventStatisticsResponseBodySuspStatistics extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts whose Emergency level is Reminder.
+   * The number of alerts with the reminder severity level.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetClusterSuspEventStatisticsResponseBodySuspStatistics extends $da
   remind?: number;
   /**
    * @remarks
-   * The number of alerts whose Emergency level is Urgent.
+   * The number of alerts with the urgent severity level.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetClusterSuspEventStatisticsResponseBodySuspStatistics extends $da
   serious?: number;
   /**
    * @remarks
-   * The number of alerts whose Emergency level is Suspicious.
+   * The number of alerts with the suspicious severity level.
    * 
    * @example
    * 2
@@ -55,7 +55,7 @@ export class GetClusterSuspEventStatisticsResponseBodySuspStatistics extends $da
 export class GetClusterSuspEventStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * ACF97412-FD09-4D1F-994F-34DF12BR****
@@ -63,7 +63,7 @@ export class GetClusterSuspEventStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of alerts by risk level.
+   * The number of alerts by severity level.
    */
   suspStatistics?: GetClusterSuspEventStatisticsResponseBodySuspStatistics;
   static names(): { [key: string]: string } {

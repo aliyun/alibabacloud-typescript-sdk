@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainSecureStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values: Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DescribeDomainSecureStatisticsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 113.87.*.*

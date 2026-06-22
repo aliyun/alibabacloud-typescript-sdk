@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomizedDictRequest extends $dara.Model {
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 123.103.9.***

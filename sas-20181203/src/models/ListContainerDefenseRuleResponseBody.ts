@@ -13,7 +13,7 @@ export class ListContainerDefenseRuleResponseBodyList extends $dara.Model {
   clusterCount?: number;
   /**
    * @remarks
-   * The clusters specified in the rule.
+   * The list of clusters associated with the rule.
    * 
    * @example
    * cfb41a8**8a106
@@ -21,7 +21,7 @@ export class ListContainerDefenseRuleResponseBodyList extends $dara.Model {
   clusterIdList?: string;
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
    * defense rule.
@@ -29,10 +29,11 @@ export class ListContainerDefenseRuleResponseBodyList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The action specified in the rule. Valid values:
+   * The rule action. Valid values:
    * 
-   * *   **1**: alert
-   * *   **2**: block
+   * - **1**: Alert.
+   * 
+   * - **2**: Block.
    * 
    * @example
    * 1
@@ -40,7 +41,7 @@ export class ListContainerDefenseRuleResponseBodyList extends $dara.Model {
   ruleAction?: number;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 181
@@ -48,7 +49,7 @@ export class ListContainerDefenseRuleResponseBodyList extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test-rule-01
@@ -56,10 +57,10 @@ export class ListContainerDefenseRuleResponseBodyList extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The switch status of the rule. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 0
@@ -67,10 +68,9 @@ export class ListContainerDefenseRuleResponseBodyList extends $dara.Model {
   ruleSwitch?: number;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * *   **1**: system rule
-   * *   **2**: custom rule
+   * The rule type. Valid values:
+   * - **1**: system rule.
+   * - **2**: user-defined rule.
    * 
    * @example
    * 1
@@ -114,7 +114,7 @@ export class ListContainerDefenseRuleResponseBodyList extends $dara.Model {
 export class ListContainerDefenseRuleResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 9
@@ -122,7 +122,7 @@ export class ListContainerDefenseRuleResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -130,7 +130,7 @@ export class ListContainerDefenseRuleResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The key of the last data entry.
+   * The key of the last entry.
    * 
    * @example
    * CAESGgo***jE2NDc4NjE=
@@ -138,7 +138,7 @@ export class ListContainerDefenseRuleResponseBodyPageInfo extends $dara.Model {
   lastRowKey?: string;
   /**
    * @remarks
-   * The query credential.
+   * The value of NextToken returned when the NextToken-based pagination method is used.
    * 
    * @example
    * B60***
@@ -146,7 +146,7 @@ export class ListContainerDefenseRuleResponseBodyPageInfo extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -194,7 +194,7 @@ export class ListContainerDefenseRuleResponseBodyPageInfo extends $dara.Model {
 export class ListContainerDefenseRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of a failure.
    * 
    * @example
    * 200
@@ -202,7 +202,7 @@ export class ListContainerDefenseRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code of the request.
    * 
    * @example
    * 200
@@ -210,7 +210,7 @@ export class ListContainerDefenseRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The rules.
+   * The list of rules.
    */
   list?: ListContainerDefenseRuleResponseBodyList[];
   /**
@@ -223,12 +223,12 @@ export class ListContainerDefenseRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: ListContainerDefenseRuleResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 5E3A63BA-***843
@@ -236,10 +236,9 @@ export class ListContainerDefenseRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: successful.
+   * - **false**: failed.
    * 
    * @example
    * true

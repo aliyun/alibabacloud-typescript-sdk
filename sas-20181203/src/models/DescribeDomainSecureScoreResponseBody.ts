@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainSecureScoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 11C96623-E106-59C9-866D-A6C82911****

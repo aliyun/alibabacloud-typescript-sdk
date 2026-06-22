@@ -5,26 +5,41 @@ import * as $dara from '@darabonba/typescript';
 export class GetUnknownThreatDetectStatisticResponseBodyData extends $dara.Model {
   blockEventMachineCount?: number;
   /**
+   * @remarks
+   * The number of servers under control.
+   * 
    * @example
    * 1
    */
   blockMachineCount?: number;
   /**
+   * @remarks
+   * The total number of servers.
+   * 
    * @example
    * 1
    */
   machineCount?: number;
   /**
+   * @remarks
+   * The number of servers in warning status.
+   * 
    * @example
    * 1
    */
   monitorMachineCount?: number;
   /**
+   * @remarks
+   * The number of servers with the service enabled.
+   * 
    * @example
    * 1
    */
   openMachineCount?: number;
   /**
+   * @remarks
+   * The number of servers in learning status.
+   * 
    * @example
    * 1
    */
@@ -61,6 +76,10 @@ export class GetUnknownThreatDetectStatisticResponseBodyData extends $dara.Model
 }
 
 export class GetUnknownThreatDetectStatisticResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetUnknownThreatDetectStatisticResponseBodyData;
   /**
    * @remarks

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAttackPathEventDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Event ID.
-   * > You can call [ListAttackPathEvent](~~ListAttackPathEvent~~) to query the event ID.
+   * The event ID.
+   * > You can call [ListAttackPathEvent](~~ListAttackPathEvent~~) to query event IDs.
    * 
    * @example
    * 123
@@ -14,9 +14,9 @@ export class GetAttackPathEventDetailRequest extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * Data source. The default value is **default**. Values:
-   *  - **caasm**: Attack surface
-   *  - **default**: Attack path
+   * The data source. Default value: **default**. Valid values:
+   * - **caasm**: attack surface
+   * - **default**: attack path.
    * 
    * @example
    * default
@@ -24,9 +24,9 @@ export class GetAttackPathEventDetailRequest extends $dara.Model {
   eventSource?: string;
   /**
    * @remarks
-   * The language type for request and response, default is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * en

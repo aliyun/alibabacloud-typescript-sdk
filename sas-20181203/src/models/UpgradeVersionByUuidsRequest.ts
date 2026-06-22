@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeVersionByUuidsRequest extends $dara.Model {
   /**
    * @remarks
-   * The version to which you want to upgrade the client.
+   * The target version to which you want to upgrade.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpgradeVersionByUuidsRequest extends $dara.Model {
   upgradeVersion?: string;
   /**
    * @remarks
-   * The UUIDs of the assets on which you want to run the detection task.
+   * The list of UUIDs of the assets to be checked.
    * 
    * This parameter is required.
    */

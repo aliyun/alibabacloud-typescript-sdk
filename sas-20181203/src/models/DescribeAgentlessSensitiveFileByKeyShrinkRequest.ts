@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends $dara.Mode
   currentPage?: number;
   /**
    * @remarks
-   * The UUID of the asset that is scanned. You can query the UUID on the Host or Cloud Product page. If you scan a host, set this parameter to the UUID of the scanned host. If you scan a snapshot or a custom image, set this parameter to the ID of the scanned snapshot or image.
+   * The UUID of the asset to scan. You can obtain this value from the Host Assets and Cloud Products page. In host security detection scenarios, this parameter specifies the UUID of the host to scan. In snapshot security detection and custom image security detection scenarios, this parameter specifies the ID of the image or snapshot to scan.
    * 
    * @example
    * 06293273b67d19516cfcc712194f****
@@ -21,7 +21,7 @@ export class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends $dara.Mode
   imageUuid?: string;
   /**
    * @remarks
-   * The instance ID of the asset that is scanned. To query the instance ID, go to the Task Management page, click Details of a task, and then view the value of Check On.
+   * The instance ID of the asset to query. You can obtain this value from Node Management > Details > Detection Objects.
    * 
    * @example
    * i-bp1fu4aqltf1huhc****
@@ -29,9 +29,8 @@ export class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 50
@@ -39,7 +38,7 @@ export class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The name or IP address of the asset.
+   * The asset name or IP address.
    * 
    * @example
    * 1.2.XX.XX
@@ -47,7 +46,7 @@ export class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends $dara.Mode
   remark?: string;
   /**
    * @remarks
-   * The types of the assets that are scanned.
+   * The collection of scan ranges.
    */
   scanRangeShrink?: string;
   /**
@@ -60,10 +59,9 @@ export class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends $dara.Mode
   sensitiveFileKey?: string;
   /**
    * @remarks
-   * The status of the baseline risk. Valid values:
-   * 
-   * *   **0**: unfixed.
-   * *   **1**: fixed.
+   * The fix status of the baseline risk. Valid values:
+   * - **0**: unfixed
+   * - **1**: fixed.
    * 
    * @example
    * 0

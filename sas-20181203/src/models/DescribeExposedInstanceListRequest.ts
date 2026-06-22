@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExposedInstanceListRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the asset. Valid values:
+   * The asset type. Valid values:
    * 
-   * *   **0**: an Elastic Compute Service (ECS) instance.
-   * *   **3**: an ApsaraDB RDS instance.
-   * *   **4**: an ApsaraDB for MongoDB instance.
-   * *   **5**: an ApsaraDB for Redis instance.
+   * - **0**: ECS
+   * 
+   * - **3**: RDS
+   * 
+   * - **4**: MONGODB
+   * 
+   * - **5**: RDS-Redis.
    * 
    * @example
    * 0
@@ -18,10 +21,10 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   assetType?: string;
   /**
    * @remarks
-   * Specifies whether the asset has Cloud Security Posture Management (CSPM) risks. Valid values:
+   * Specifies whether the asset that you want to query has Cloud Security Posture Management (CSPM) risks. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The asset has CSPM risks.
+   * - **false**: The asset does not have CSPM risks.
    * 
    * @example
    * true
@@ -29,7 +32,7 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   cspmStatus?: boolean;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -37,7 +40,7 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The server component that is exposed on the Internet.
+   * The name of the system component exposed on the Internet that you want to query.
    * 
    * @example
    * openssl
@@ -45,7 +48,7 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   exposureComponent?: string;
   /**
    * @remarks
-   * Expose component type.
+   * The type of the exposed component.
    * 
    * @example
    * system_service
@@ -53,7 +56,7 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   exposureComponentBizType?: string;
   /**
    * @remarks
-   * The public IP address of the server or the public endpoint of the database.
+   * The public IP address of the server type or the public network connection address of the database type that you want to query.
    * 
    * @example
    * 116.12.XX.XX
@@ -61,7 +64,7 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   exposureIp?: string;
   /**
    * @remarks
-   * The port that is exposed on the Internet.
+   * The exposed port that you want to query.
    * 
    * @example
    * 22
@@ -69,9 +72,8 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   exposurePort?: string;
   /**
    * @remarks
-   * The ID of the server group.
-   * 
-   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+   * The ID of the server group that you want to query.
+   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query server group IDs.
    * 
    * @example
    * 9535356
@@ -79,18 +81,18 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * Specifies whether the asset has weak password risks. Valid values:
+   * Specifies whether the asset that you want to query has baseline weak password risks. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The asset has baseline weak password risks.
+   * - **false**: The asset does not have baseline weak password risks.
    * 
    * @example
-   * Unhealthy
+   * true
    */
   healthStatus?: boolean;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The instance ID of the asset that you want to query.
    * 
    * @example
    * i-bp1g6wxdwps7s9dz****
@@ -98,7 +100,7 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the asset.
+   * The name of the asset that you want to query.
    * 
    * @example
    * abc_centos7.2_005
@@ -106,9 +108,8 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -116,9 +117,8 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the ID.
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 16670360956*****
@@ -126,10 +126,9 @@ export class DescribeExposedInstanceListRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * Specifies whether the asset has vulnerabilities. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Specifies whether the asset that you want to query has vulnerabilities. Valid values:
+   * - **true**: The asset has vulnerabilities.
+   * - **false**: The asset does not have vulnerabilities.
    * 
    * @example
    * true

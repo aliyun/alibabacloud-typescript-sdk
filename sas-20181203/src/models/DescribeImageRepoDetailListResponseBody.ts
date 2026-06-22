@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts that are generated for the image repository.
+   * The number of security alerts in the image repository.
    * 
    * @example
    * 0
@@ -13,10 +13,9 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   alarmCount?: number;
   /**
    * @remarks
-   * Indicates whether alerts are generated for the image repository. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether the image repository has security alerts. Valid values:
+   * - **YES**: Security alerts exist.
+   * - **NO**: No security alerts exist.
    * 
    * @example
    * NO
@@ -24,7 +23,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   alarmStatus?: string;
   /**
    * @remarks
-   * The address of the image repository.
+   * The endpoint of the image repository.
    * 
    * @example
    * [
@@ -51,7 +50,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   endpoints?: string;
   /**
    * @remarks
-   * The number of the images on which risks are detected.
+   * The number of images that have risks in the image repository.
    * 
    * @example
    * 2
@@ -59,7 +58,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   hasRiskImageCount?: number;
   /**
    * @remarks
-   * The number of baseline risk items on the image repository.
+   * The number of baseline risks in the image repository.
    * 
    * @example
    * 0
@@ -67,10 +66,10 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   hcCount?: number;
   /**
    * @remarks
-   * Indicates whether baseline risk items are detected on the image repository. Valid values:
+   * Indicates whether the image repository has baseline risks. Valid values:
    * 
-   * *   **NO**
-   * *   **YES**
+   * - **NO**: No baseline risks exist.
+   * - **YES**: Baseline risks exist.
    * 
    * @example
    * NO
@@ -86,7 +85,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   imageCount?: number;
   /**
    * @remarks
-   * The ID of the image.
+   * The instance ID of the image asset.
    * 
    * @example
    * i-uf6fsg6xlmorug5****
@@ -94,7 +93,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the image.
+   * The region ID of the image instance.
    * 
    * @example
    * cn-shanghai
@@ -103,11 +102,10 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   /**
    * @remarks
    * The type of the image repository. Valid values:
-   * 
-   * *   **acr**
-   * *   **harbor**
-   * *   **quay**
-   * *   **CI/CD**
+   * - **acr**: acr.
+   * - **harbor**: harbor.
+   * - **quay**: quay.
+   * - **CI/CD**: CI/CD repository.
    * 
    * @example
    * acr
@@ -131,7 +129,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * test-dev
@@ -139,10 +137,10 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   repoNamespace?: string;
   /**
    * @remarks
-   * Indicates whether the image repository is at risk. Valid values:
+   * Indicates whether the image repository has security risks. Valid values:
    * 
-   * *   **YES**
-   * *   **NO**
+   * - **YES**: Security risks exist.
+   * - **NO**: No security risks exist.
    * 
    * @example
    * NO
@@ -150,7 +148,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   riskStatus?: string;
   /**
    * @remarks
-   * The usage label of the image.
+   * The business purpose tag of the image.
    * 
    * @example
    * PAI
@@ -158,7 +156,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   sourceBizTag?: string;
   /**
    * @remarks
-   * The number of vulnerabilities detected on the image repository.
+   * The number of vulnerabilities in the image repository.
    * 
    * @example
    * 0
@@ -166,10 +164,9 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
   vulCount?: number;
   /**
    * @remarks
-   * Indicates whether vulnerabilities are detected on the image repository. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether the image repository has vulnerabilities. Valid values:
+   * - **YES**: Vulnerabilities exist.
+   * - **NO**: No vulnerabilities exist.
    * 
    * @example
    * NO
@@ -231,7 +228,7 @@ export class DescribeImageRepoDetailListResponseBodyImageRepoResponses extends $
 export class DescribeImageRepoDetailListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries returned on the current page in a paged query.
    * 
    * @example
    * 2
@@ -239,7 +236,7 @@ export class DescribeImageRepoDetailListResponseBodyPageInfo extends $dara.Model
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -247,7 +244,7 @@ export class DescribeImageRepoDetailListResponseBodyPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -291,7 +288,7 @@ export class DescribeImageRepoDetailListResponseBodyPageInfo extends $dara.Model
 export class DescribeImageRepoDetailListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about image repositories.
+   * The list of image repositories.
    */
   imageRepoResponses?: DescribeImageRepoDetailListResponseBodyImageRepoResponses[];
   /**
@@ -301,7 +298,7 @@ export class DescribeImageRepoDetailListResponseBody extends $dara.Model {
   pageInfo?: DescribeImageRepoDetailListResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF46038

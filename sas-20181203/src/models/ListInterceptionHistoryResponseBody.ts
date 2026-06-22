@@ -13,7 +13,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * opa-terway-nonet****
@@ -21,7 +21,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   clusterName?: string;
   /**
    * @remarks
-   * The name of the destination application.
+   * The destination application name configured in the rule.
    * 
    * @example
    * sas-web****
@@ -29,7 +29,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   dstAppName?: string;
   /**
    * @remarks
-   * The destination namespace.
+   * The destination namespace configured in the rule.
    * 
    * @example
    * service****
@@ -37,7 +37,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   dstNamespace?: string;
   /**
    * @remarks
-   * The destination port range configured for the defense rule.
+   * The destination port number configured in the rule.
    * 
    * @example
    * 33
@@ -45,7 +45,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   dstPort?: number;
   /**
    * @remarks
-   * The name of the destination network object.
+   * The destination target object name of the rule.
    * 
    * @example
    * sas-web****
@@ -53,7 +53,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   dstRuleTargetName?: string;
   /**
    * @remarks
-   * The timestamp when the alert was first generated on the current day.
+   * The timestamp of the first occurrence on the current day.
    * 
    * @example
    * 1639718858000
@@ -69,20 +69,20 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   id?: number;
   /**
    * @remarks
-   * The name of the alert.
+   * The alert name.
    * 
    * @example
-   * Abnormal access
+   * 异常访问。
    */
   interceptionName?: number;
   /**
    * @remarks
-   * The handling type. Valid values:
+   * The processing type. Valid values:
    * 
-   * *   **0**: monitor
-   * *   **1**: intercept
-   * *   **2**: generate alert
-   * *   **3**: allow
+   * - **0**: observe
+   * - **1**: block
+   * - **2**: alert
+   * - **3**: allow.
    * 
    * @example
    * 0
@@ -90,7 +90,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   interceptionType?: number;
   /**
    * @remarks
-   * The timestamp when the alert was last generated on the current day.
+   * The timestamp of the latest occurrence on the current day.
    * 
    * @example
    * 1639731078000
@@ -98,7 +98,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   lastTime?: number;
   /**
    * @remarks
-   * The name of the destination application.
+   * The destination application name.
    * 
    * @example
    * sas-service****
@@ -106,7 +106,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   realDstAppName?: string;
   /**
    * @remarks
-   * The name of the destination image.
+   * The destination image name.
    * 
    * @example
    * sas-servi****
@@ -130,12 +130,12 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   realDstPodName?: string;
   /**
    * @remarks
-   * The handling type of actual hits. Valid values:
+   * The actual processing type that was matched. Valid values:
    * 
-   * *   **0**: monitor
-   * *   **1**: intercept
-   * *   **2**: generate alert
-   * *   **3**: allow
+   * - **0**: observe
+   * - **1**: block
+   * - **2**: alert
+   * - **3**: allow.
    * 
    * @example
    * 0
@@ -143,7 +143,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   realInterceptionType?: number;
   /**
    * @remarks
-   * The name of the source application.
+   * The source application name.
    * 
    * @example
    * sas-service****
@@ -151,7 +151,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   realSrcAppName?: string;
   /**
    * @remarks
-   * The name of the source image.
+   * The source image name.
    * 
    * @example
    * sas-servi****
@@ -177,11 +177,11 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **-1**: unknown
-   * *   **0**: none
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
+   * - **-1**: unknown
+   * - **0**: none
+   * - **1**: low
+   * - **2**: medium
+   * - **3**: high.
    * 
    * @example
    * 1
@@ -189,7 +189,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   riskLevel?: number;
   /**
    * @remarks
-   * The ID of the defense rule based on which the alert was generated.
+   * The ID of the corresponding rule.
    * 
    * @example
    * 136
@@ -197,7 +197,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   ruleId?: number;
   /**
    * @remarks
-   * The name of the defense rule.
+   * The rule name.
    * 
    * @example
    * all****
@@ -205,7 +205,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   ruleName?: string;
   /**
    * @remarks
-   * The name of the source application.
+   * The source application name configured in the rule.
    * 
    * @example
    * sas-web****
@@ -213,7 +213,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   srcAppName?: string;
   /**
    * @remarks
-   * The source namespace.
+   * The namespace of the source instance.
    * 
    * @example
    * service****
@@ -221,7 +221,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   srcNamespace?: string;
   /**
    * @remarks
-   * The name of the source network object.
+   * The source target object name of the rule.
    * 
    * @example
    * sas-web****
@@ -229,12 +229,12 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
   srcRuleTargetName?: string;
   /**
    * @remarks
-   * The handling status. Valid values:
+   * The processing status. Valid values:
    * 
-   * *   **0**: unhandled
-   * *   **1**: handled
-   * *   **2**: manually handled
-   * *   **3**: ignored
+   * - **0**: unprocessed
+   * - **1**: processed
+   * - **2**: manually processed
+   * - **3**: ignored.
    * 
    * @example
    * 1
@@ -326,7 +326,7 @@ export class ListInterceptionHistoryResponseBodyInterceptionHistoryList extends 
 export class ListInterceptionHistoryResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of records on the current page in a paged query.
    * 
    * @example
    * 10
@@ -334,7 +334,7 @@ export class ListInterceptionHistoryResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -342,7 +342,7 @@ export class ListInterceptionHistoryResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -350,7 +350,7 @@ export class ListInterceptionHistoryResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records returned.
    * 
    * @example
    * 45
@@ -386,7 +386,7 @@ export class ListInterceptionHistoryResponseBodyPageInfo extends $dara.Model {
 export class ListInterceptionHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the alerts generated by defense rules.
+   * The container firewall interception records.
    */
   interceptionHistoryList?: ListInterceptionHistoryResponseBodyInterceptionHistoryList[];
   /**
@@ -396,7 +396,7 @@ export class ListInterceptionHistoryResponseBody extends $dara.Model {
   pageInfo?: ListInterceptionHistoryResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * D81DD78E-E006-5C65-A171-C8CB0904****

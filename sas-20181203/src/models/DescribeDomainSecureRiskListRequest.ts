@@ -13,10 +13,10 @@ export class DescribeDomainSecureRiskListRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,7 +24,7 @@ export class DescribeDomainSecureRiskListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 124.78.*.*

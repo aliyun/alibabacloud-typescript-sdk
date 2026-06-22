@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceAntiBruteForceRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the defense rule.
+   * The ID of the anti-brute-force attacks rule.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ModifyInstanceAntiBruteForceRuleRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 1.2.XX.XX
@@ -24,7 +24,8 @@ export class ModifyInstanceAntiBruteForceRuleRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The UUID of the server for which you want to modify the defense rule. You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+   * The UUID of the server for which you want to modify the anti-brute-force attacks rule.
+   * You can invoke the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUID of the server.
    * 
    * This parameter is required.
    * 

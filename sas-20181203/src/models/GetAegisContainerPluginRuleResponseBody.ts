@@ -21,11 +21,10 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The action mode of the rule. Valid values:
-   * 
-   * *   **0**: allows escape behavior.
-   * *   **1**: triggers alerts.
-   * *   **2**: blocks escape behavior.
+   * The rule action mode. Valid values:
+   * - **0**: allow
+   * - **1**: alert
+   * - **2**: block
    * 
    * @example
    * 1
@@ -33,7 +32,7 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   mode?: number;
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
    * autoTest
@@ -41,7 +40,7 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   ruleDescription?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 21**
@@ -49,7 +48,7 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * auto_test_rule-EmzIXZ
@@ -57,7 +56,7 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The template ID of the rule.
+   * The rule template ID.
    * 
    * @example
    * 100**
@@ -65,7 +64,7 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   ruleTemplateId?: string;
   /**
    * @remarks
-   * The template name of the rule.
+   * The rule template name.
    * 
    * @example
    * template01
@@ -73,12 +72,12 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   ruleTemplateName?: string;
   /**
    * @remarks
-   * The rule items.
+   * The list of selected rule items.
    */
   selectedPolicy?: string[];
   /**
    * @remarks
-   * The ID of the switch.
+   * The ID of the corresponding switch.
    * 
    * @example
    * USER-CONTAINER-RULE-SWITCH-TYPE_***
@@ -86,7 +85,7 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
   switchId?: string;
   /**
    * @remarks
-   * The images that are added to the whitelist.
+   * The list of whitelisted images.
    */
   whiteImages?: string[];
   static names(): { [key: string]: string } {
@@ -139,12 +138,12 @@ export class GetAegisContainerPluginRuleResponseBodyData extends $dara.Model {
 export class GetAegisContainerPluginRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetAegisContainerPluginRuleResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 09969D2C-***0DEF8BF6F

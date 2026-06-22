@@ -16,12 +16,12 @@ export class UpdatePublishBatchRequest extends $dara.Model {
    * The name of the release batch.
    * 
    * @example
-   * xxx
+   * 批次1
    */
   batchName?: string;
   /**
    * @remarks
-   * The interval between two release batches.
+   * The interval between release batches.
    * 
    * @example
    * 60
@@ -31,9 +31,9 @@ export class UpdatePublishBatchRequest extends $dara.Model {
    * @remarks
    * The asset selection dimension. Valid values:
    * 
-   * *   **0**: instance
-   * *   **1**: machine group
-   * *   **2**: VPC-based instance ID
+   * - **0**: machine instance
+   * - **1**: machine group
+   * - **2**: VPC-connected instance ID
    * 
    * @example
    * 0

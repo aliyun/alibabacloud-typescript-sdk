@@ -13,7 +13,7 @@ export class GetSwitchRegionDetailResponseBodyDataRegionStatus extends $dara.Mod
   ecsCount?: number;
   /**
    * @remarks
-   * The time when the migration is scheduled.
+   * The planned migration time.
    * 
    * @example
    * 1692858597000
@@ -21,7 +21,7 @@ export class GetSwitchRegionDetailResponseBodyDataRegionStatus extends $dara.Mod
   gmtPlanSwitchTime?: number;
   /**
    * @remarks
-   * The region in which the server resides.
+   * The region where the server resides.
    * 
    * @example
    * us-east-1
@@ -30,9 +30,8 @@ export class GetSwitchRegionDetailResponseBodyDataRegionStatus extends $dara.Mod
   /**
    * @remarks
    * The migration status. Valid values:
-   * 
-   * *   **0**: pending
-   * *   **1**: successful
+   * - **0**: waiting for migration
+   * - **1**: switchover succeeded.
    * 
    * @example
    * 0
@@ -68,7 +67,7 @@ export class GetSwitchRegionDetailResponseBodyDataRegionStatus extends $dara.Mod
 export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the permissions were modified.
+   * The time when the authorization operation was modified.
    * 
    * @example
    * 1692858597000
@@ -84,7 +83,7 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
   gmtNoticed?: number;
   /**
    * @remarks
-   * Indicates whether the migration is approved.
+   * Indicates whether the migration is agreed to.
    * 
    * @example
    * true
@@ -92,7 +91,7 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
   isAgree?: string;
   /**
    * @remarks
-   * Indicates whether the notification is sent.
+   * Indicates whether the notification has been sent.
    * 
    * @example
    * YES
@@ -100,15 +99,23 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
   isNoticed?: string;
   /**
    * @remarks
-   * Specifies whether to notify the account.
+   * Indicates whether a pop-up notification needs to be displayed to the user.
+   * 
+   * - **true**: A pop-up notification needs to be displayed.
+   * 
+   * - **false**: No pop-up notification needs to be displayed.
    * 
    * @example
-   * true
+   * false
    */
   needNotice?: boolean;
   /**
    * @remarks
-   * Specifies whether to switch.
+   * Indicates whether a switchover to the new console is required.
+   * 
+   * - **true**: A switchover to the new console is required.
+   * 
+   * - **false**: The legacy console is still in use.
    * 
    * @example
    * true
@@ -116,7 +123,7 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
   needSwitch?: boolean;
   /**
    * @remarks
-   * The status of the switching to the region.
+   * The switchover status of the region.
    */
   regionStatus?: GetSwitchRegionDetailResponseBodyDataRegionStatus[];
   static names(): { [key: string]: string } {
@@ -158,12 +165,12 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
 export class GetSwitchRegionDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The response data.
    */
   data?: GetSwitchRegionDetailResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The China Chinese mainland generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
    * 
    * @example
    * 30CBF632-109F-596F-97F2-451C8B2A****

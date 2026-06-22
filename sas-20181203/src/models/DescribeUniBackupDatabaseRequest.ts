@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUniBackupDatabaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -15,9 +15,9 @@ export class DescribeUniBackupDatabaseRequest extends $dara.Model {
    * @remarks
    * The type of the database. Valid values:
    * 
-   * *   **MYSQL**
-   * *   **MSSQL**
-   * *   **Oracle**
+   * - **MYSQL**
+   * - **MSSQL**
+   * - **Oracle**.
    * 
    * @example
    * MYSQL
@@ -25,7 +25,7 @@ export class DescribeUniBackupDatabaseRequest extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The name of the Elastic Compute Service (ECS) instance.
+   * The name of the ECS instance.
    * 
    * @example
    * test
@@ -33,9 +33,8 @@ export class DescribeUniBackupDatabaseRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by default.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -43,10 +42,10 @@ export class DescribeUniBackupDatabaseRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The condition that is used to query the database. Valid values:
+   * The query type for the database. Valid values:
    * 
-   * *   **create**: newly created
-   * *   **restore**: restored
+   * - **create**: create
+   * - **restore**: restore.
    * 
    * @example
    * create
@@ -54,7 +53,7 @@ export class DescribeUniBackupDatabaseRequest extends $dara.Model {
   queryType?: string;
   /**
    * @remarks
-   * The region ID of the server that hosts the database.
+   * The region ID of the database server.
    * 
    * @example
    * cn-hongkong

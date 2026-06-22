@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FixCheckWarningsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseline risk item that has been fixed by using the Batch Repair feature.
+   * The ID of the batch fix task for risk items.
    * 
    * @example
    * 52370
@@ -13,7 +13,7 @@ export class FixCheckWarningsResponseBody extends $dara.Model {
   batchId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 76C1D7FD-DB1E-45EA-B804-3FBD9A1DD9C0

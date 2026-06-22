@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSoarStrategyTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * C699E4E4-F2F4-58FC-A949-457FFE59****

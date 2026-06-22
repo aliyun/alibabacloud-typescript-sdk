@@ -7,7 +7,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
    * @remarks
    * The type of the asset.
    * 
-   * The value is fixed as **0**, which indicates ECS instances.
+   * The only valid value is **0**, which indicates an ECS instance.
    * 
    * @example
    * 0
@@ -15,7 +15,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   assetType?: string;
   /**
    * @remarks
-   * The timestamp when Security Center is authorized to protect the instance. Unit: milliseconds.
+   * The timestamp when the asset authorization was bound. Unit: milliseconds.
    * 
    * @example
    * 1627974044000
@@ -23,13 +23,13 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   authModifyTime?: number;
   /**
    * @remarks
-   * The edition of Security Center that is authorized to protect the instance. Valid values:
+   * The authorization version of the asset. Valid values:
    * 
-   * *   **1**: Basic edition (Unauthorized)
-   * *   **6**: Anti-virus edition
-   * *   **5**: Advanced edition
-   * *   **3**: Enterprise edition
-   * *   **7**: Ultimate edition
+   * - **1**: Free Edition (unauthorized)
+   * - **6**: Anti-virus Edition
+   * - **5**: Advanced Edition
+   * - **3**: Enterprise Edition
+   * - **7**: Ultimate Edition.
    * 
    * @example
    * 7
@@ -37,10 +37,10 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   authVersion?: number;
   /**
    * @remarks
-   * Indicates whether Security Center is authorized to protect the instance. Valid values:
+   * Indicates whether the asset is bound to an authorization. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: bound to an authorization
+   * - **false**: not bound to an authorization.
    * 
    * @example
    * true
@@ -48,10 +48,9 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   bind?: boolean;
   /**
    * @remarks
-   * The status of the Security Center agent. Valid values:
-   * 
-   * *   **online**
-   * *   **offline**
+   * The status of the China China China agent client. Valid values:
+   * - **online**: online
+   * - **offline**: offline.
    * 
    * @example
    * online
@@ -59,7 +58,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   clientStatus?: string;
   /**
    * @remarks
-   * The version of the Security Center agent.
+   * The version of the agent client.
    * 
    * @example
    * 2.0.0
@@ -75,7 +74,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   cpu?: number;
   /**
    * @remarks
-   * The details of the CPU.
+   * The CPU details.
    * 
    * @example
    * Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
@@ -83,7 +82,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   cpuInfo?: string;
   /**
    * @remarks
-   * The timestamp when Security Center records the details of the instance. Unit: milliseconds.
+   * The timestamp when Security Center recorded the asset information. Unit: milliseconds.
    * 
    * @example
    * 1603863599000
@@ -91,18 +90,18 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   createTime?: number;
   /**
    * @remarks
-   * An array that consists of the information about the disk.
+   * The list of disk information.
    */
   diskInfoList?: string[];
   /**
    * @remarks
-   * The type of the asset by source. Valid values:
+   * The asset vendor. Valid values:
    * 
-   * *   **0**: The asset is provided by Alibaba Cloud.
-   * *   **1**: The asset is not provided by Alibaba Cloud.
-   * *   **2**: The asset resides in a data center.
-   * *   **3**, **4**, **5**, and **7**: other cloud asset.
-   * *   **8**: light-weight assets.
+   * - **0**: Alibaba Cloud asset
+   * - **1**: asset outside the cloud
+   * - **2**: IDC asset
+   * - **3**, **4**, **5**, **7**: third-party cloud asset
+   * - **8**: lightweight asset.
    * 
    * @example
    * 0
@@ -110,7 +109,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   flag?: number;
   /**
    * @remarks
-   * The group to which the instance belongs. By default, the instances that are not grouped belong to the **Default** group.
+   * The group to which the server belongs. Servers that are not assigned to a group belong to the **Ungrouped** group by default.
    * 
    * @example
    * default
@@ -126,7 +125,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   hostName?: string;
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The instance ID of the asset.
    * 
    * @example
    * i-rj9gda4wolo0zixi****
@@ -134,7 +133,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The name of the ECS instance.
+   * The instance name of the asset.
    * 
    * @example
    * TestInstanceName
@@ -142,7 +141,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the ECS instance.
+   * The public IP address of the server.
    * 
    * @example
    * 10.10.XX.XX
@@ -150,7 +149,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the ECS instance.
+   * The private IP address of the server.
    * 
    * @example
    * 192.168.XX.XX
@@ -158,9 +157,9 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   intranetIp?: string;
   /**
    * @remarks
-   * The IP address of the ECS instance.
+   * The IP address of the server.
    * 
-   * >  If the ECS instance has a public IP address, the value of this parameter is the public IP address of the ECS instance. If the ECS instance does not have a public IP address, the value of this parameter is the private IP address of the ECS instance.
+   * > If a public IP address exists, this value is the public IP address. If no public IP address exists but a private IP address exists, this value is the private IP address.
    * 
    * @example
    * 10.10.XX.XX
@@ -168,12 +167,12 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   ip?: string;
   /**
    * @remarks
-   * The IP addresses of the instances.
+   * The list of IP addresses of the server.
    */
   ipList?: string[];
   /**
    * @remarks
-   * The kernel version of the operating system.
+   * The Milvus version of the operating system kernel.
    * 
    * @example
    * 4.18.0-80.11.2.el8_0.x86_64
@@ -181,12 +180,12 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   kernel?: string;
   /**
    * @remarks
-   * The media access control (MAC) addresses of the instances.
+   * The list of MAC addresses.
    */
   macList?: string[];
   /**
    * @remarks
-   * The memory size of the instance. Unit: GB.
+   * The memory size. Unit: GB.
    * 
    * @example
    * 4
@@ -194,7 +193,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   mem?: number;
   /**
    * @remarks
-   * The memory size of the instance. Unit: MB.
+   * The memory size. Unit: MB.
    * 
    * @example
    * 1024
@@ -202,7 +201,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   memory?: number;
   /**
    * @remarks
-   * The operating system of the ECS instance.
+   * The operating system type of the server.
    * 
    * @example
    * Linux
@@ -210,7 +209,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   os?: string;
   /**
    * @remarks
-   * The operating system version of the instance.
+   * The operating system version and architecture of the server.
    * 
    * @example
    * Linux 64bit
@@ -218,15 +217,15 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   osDetail?: string;
   /**
    * @remarks
-   * The name of the operating system run by the ECS instance.
+   * The name of the operating system of the server asset.
    * 
    * @example
-   * CentOS 7.6 64-bit
+   * CentOS  7.6 64位
    */
   osName?: string;
   /**
    * @remarks
-   * The region in which the ECS instance resides.
+   * The region in which the server resides.
    * 
    * @example
    * cn-guangzhou
@@ -234,9 +233,8 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   region?: string;
   /**
    * @remarks
-   * The region in which the ECS instance resides.
-   * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region in which the server resides.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-shanghai
@@ -244,7 +242,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   regionId?: string;
   /**
    * @remarks
-   * The name of the region in which the ECS instance resides.
+   * The name of the region in which the server resides.
    * 
    * @example
    * cn-shenzhen
@@ -252,7 +250,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   regionName?: string;
   /**
    * @remarks
-   * The operating system information about the instance.
+   * The operating system information of the server.
    * 
    * @example
    * CentOS Linux 8.0.1905
@@ -260,7 +258,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   sysInfo?: string;
   /**
    * @remarks
-   * The tag added to the instance.
+   * The tag of the server.
    * 
    * @example
    * test
@@ -268,7 +266,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   tag?: string;
   /**
    * @remarks
-   * The UUID of the ECS instance.
+   * The UUID of the asset.
    * 
    * @example
    * 2a98f149-0256-414c-a29a-a69f8a75****
@@ -276,7 +274,7 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
   uuid?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC-connected instance ID.
    * 
    * @example
    * 13231-331331
@@ -379,12 +377,12 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $dara.Model
 export class DescribeAssetDetailByUuidsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the details of the instances.
+   * The list of asset details.
    */
   assetList?: DescribeAssetDetailByUuidsResponseBodyAssetList[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 92016EC8-D52D-49D8-9FF7-9EA340A950B9

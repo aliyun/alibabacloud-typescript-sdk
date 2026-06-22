@@ -7,18 +7,17 @@ export class GetContainerDefenseRuleDetailRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
-   * en
+   * zh
    */
   lang?: string;
   /**
    * @remarks
    * The rule ID.
-   * 
-   * >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the rule ID.
+   * > You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to obtain this parameter.
    * 
    * @example
    * 156

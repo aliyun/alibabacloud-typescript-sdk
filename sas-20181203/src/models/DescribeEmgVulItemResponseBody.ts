@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   /**
    * @remarks
-   * The name of the urgent vulnerability.
+   * The name of the vulnerability.
    * 
    * @example
    * Changjietong T + SetupAccount/Upload.aspx file Upload vulnerability (CNVD-2022-60632)
@@ -13,7 +13,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The check method.
+   * The check type.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * The introduction to the vulnerability.
+   * The description of the vulnerability.
    * 
    * @example
    * Chanjet T-Plus is an Internet business management software. There is an unauthorized access vulnerability in one of its interfaces disclosed on the Internet. Attackers can construct malicious requests to upload malicious files to execute arbitrary code and control the server.
@@ -29,7 +29,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The timestamp when the urgent vulnerability was last detected. Unit: milliseconds.
+   * The timestamp of the most recent vulnerability detection. Unit: milliseconds.
    * 
    * @example
    * 1619286031000
@@ -37,7 +37,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   gmtLastCheck?: number;
   /**
    * @remarks
-   * The timestamp when the urgent vulnerability was last disclosed. Unit: milliseconds.
+   * The timestamp when the vulnerability was published. Unit: milliseconds.
    * 
    * @example
    * 1618887687000
@@ -45,7 +45,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   gmtPublish?: number;
   /**
    * @remarks
-   * The name of the detection rule.
+   * The name of the scan rule.
    * 
    * @example
    * scan:AVD-2021-179344
@@ -53,7 +53,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of unhandled urgent vulnerabilities.
+   * The number of unfixed vulnerabilities.
    * 
    * @example
    * 0
@@ -61,9 +61,8 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   pendingCount?: number;
   /**
    * @remarks
-   * The progress of the urgent vulnerability detection task. Valid values: 0 to 100.
-   * 
-   * >  This parameter is returned only when an urgent vulnerability is being detected.
+   * The detection progress of the vulnerability. Value range: 0 to 100.
+   * > This parameter is displayed only for emergency vulnerabilities that are in the detecting state.
    * 
    * @example
    * 50
@@ -71,10 +70,10 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * Indicates whether the application protection feature is supported. Valid values:
-   * *   **0**: no
-   * *   **1**: yes
-   * >  If this parameter is not returned, the application protection is not supported.
+   * Indicates whether Runtime Application Self-Protection (RASP) real-time protection is supported. Valid values:
+   * - **0**: Not supported.
+   * - **1**: Supported.
+   * > If this property is not present, RASP real-time protection is not supported.
    * 
    * @example
    * 1
@@ -82,11 +81,10 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   raspDefend?: number;
   /**
    * @remarks
-   * The detection status of the urgent vulnerability. Valid values:
-   * 
-   * *   **10**: The urgent vulnerability is not detected.
-   * *   **20**: The urgent vulnerability is being detected.
-   * *   **30**: The urgent vulnerability detection is complete.
+   * The detection status of the vulnerability. Valid values:
+   * - **10**: not detected
+   * - **20**: detecting
+   * - **30**: detection completed.
    * 
    * @example
    * 30
@@ -94,10 +92,9 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The method that is used to detect the urgent vulnerability. Valid values:
-   * 
-   * *   **python**: The Version method is used. Security Center checks the software versions of your server to check whether disclosed vulnerabilities exist on your server.
-   * *   **scan**: The Network Scan method is used. Security Center analyzes the access traffic to your server over the Internet to check whether vulnerabilities exist on your server.
+   * The detection method of the vulnerability. Valid values:
+   * - **python**: version detection (server software version detection). Detects whether your server has disclosed software vulnerabilities.
+   * - **scan**: network scanning (network traffic detection). Detects whether your public assets (Internet-accessible servers) have vulnerabilities.
    * 
    * @example
    * scan
@@ -147,7 +144,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $dara.Model {
 export class DescribeEmgVulItemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page. Pages start from page **1**. Default value: **1**.
+   * The page number of the returned page. The value starts from **1**. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -155,12 +152,12 @@ export class DescribeEmgVulItemResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * An array that consists of the urgent vulnerabilities returned.
+   * The information about the emergency vulnerabilities.
    */
   groupedVulItems?: DescribeEmgVulItemResponseBodyGroupedVulItems[];
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **10**.
+   * The number of emergency vulnerability entries per page in a paged query. Default value: **10**, which indicates that 10 emergency vulnerability entries are displayed per page. Paging is used to display the results.
    * 
    * @example
    * 10
@@ -168,7 +165,7 @@ export class DescribeEmgVulItemResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * BC1868ED-A0E1-4D1C-BF7E-10DC0C34B3C3
@@ -176,7 +173,7 @@ export class DescribeEmgVulItemResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the urgent vulnerabilities returned.
+   * The total number of emergency vulnerabilities returned.
    * 
    * @example
    * 1

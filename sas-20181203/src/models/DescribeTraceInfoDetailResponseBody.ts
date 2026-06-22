@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEdgeList extends $dara.Model {
   /**
    * @remarks
-   * The number of times.
+   * The number of occurrences.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEdgeList extends 
   count?: number;
   /**
    * @remarks
-   * The ending vertex ID of the edge of the tracing diagram.
+   * The end vertex ID of the edge in the trace graph.
    * 
    * @example
    * a1d1fa39e5345dcef3f9712172cxxxxx
@@ -21,7 +21,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEdgeList extends 
   endId?: string;
   /**
    * @remarks
-   * The starting vertex ID of the edge of the tracing diagram.
+   * The start vertex ID of the edge in the trace graph.
    * 
    * @example
    * 02b4bf933c8e3bb8b9465eee502xxxxx
@@ -37,7 +37,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEdgeList extends 
   time?: string;
   /**
    * @remarks
-   * The type of the edge of the tracing diagram.
+   * The type of the edge in the trace graph.
    * 
    * @example
    * trigger_file_alert
@@ -75,7 +75,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEdgeList extends 
 export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * Deprecated
@@ -99,7 +99,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList ex
   displayIcon?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * [{"name":"${logtime}","value":"$!{time}"}]
@@ -107,7 +107,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList ex
   displayTemplate?: string;
   /**
    * @remarks
-   * The timestamp when the vertex was created.
+   * The creation time.
    * 
    * @example
    * 2022-10-09T11:47Z
@@ -115,7 +115,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList ex
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the vertex was last modified.
+   * The last modification time.
    * 
    * @example
    * 2022-10-09T11:47Z
@@ -123,7 +123,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList ex
   gmtModified?: number;
   /**
    * @remarks
-   * The ID of the vertex type.
+   * The ID of the vertex type record.
    * 
    * @example
    * Alert
@@ -131,7 +131,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList ex
   id?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * Deprecated
@@ -155,7 +155,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList ex
   namespace?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * Deprecated
@@ -205,10 +205,10 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList ex
 export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailRelationTypeList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the edge is a directional edge. Valid values:
+   * Indicates whether the edge is directed. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: yes
+   * - **0**: no.
    * 
    * @example
    * 1
@@ -240,7 +240,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailRelationTypeList 
   relationTypeId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * Deprecated
@@ -286,7 +286,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailVertexListNeighbo
   count?: number;
   /**
    * @remarks
-   * Indicates whether one more page is returned.
+   * Indicates whether there is a next page.
    * 
    * @example
    * False
@@ -328,7 +328,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailVertexListNeighbo
 export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailVertexList extends $dara.Model {
   /**
    * @remarks
-   * The number of times.
+   * The number of occurrences.
    * 
    * @example
    * 1
@@ -336,7 +336,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailVertexList extend
   count?: number;
   /**
    * @remarks
-   * The ID of the vertex.
+   * The vertex ID.
    * 
    * @example
    * a1d1fa39e5345dcef3f9712172xxxxxx
@@ -352,7 +352,7 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailVertexList extend
   name?: string;
   /**
    * @remarks
-   * An array that consists of the neighbor nodes.
+   * The information about neighbor nodes.
    */
   neighborList?: DescribeTraceInfoDetailResponseBodyTraceInfoDetailVertexListNeighborList[];
   /**
@@ -408,22 +408,22 @@ export class DescribeTraceInfoDetailResponseBodyTraceInfoDetailVertexList extend
 export class DescribeTraceInfoDetailResponseBodyTraceInfoDetail extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the edges of the tracing diagram.
+   * The edge information in the trace graph.
    */
   edgeList?: DescribeTraceInfoDetailResponseBodyTraceInfoDetailEdgeList[];
   /**
    * @remarks
-   * An array that consists of the metadata configurations of the vertex type.
+   * The metadata configuration of vertex types.
    */
   entityTypeList?: DescribeTraceInfoDetailResponseBodyTraceInfoDetailEntityTypeList[];
   /**
    * @remarks
-   * An array that consists of the metadata configurations of the edge type.
+   * The metadata configuration of edge types.
    */
   relationTypeList?: DescribeTraceInfoDetailResponseBodyTraceInfoDetailRelationTypeList[];
   /**
    * @remarks
-   * An array that consists of all vertexes of the tracing diagram.
+   * The information about all vertices in the trace graph.
    */
   vertexList?: DescribeTraceInfoDetailResponseBodyTraceInfoDetailVertexList[];
   static names(): { [key: string]: string } {
@@ -476,10 +476,9 @@ export class DescribeTraceInfoDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true
@@ -487,7 +486,7 @@ export class DescribeTraceInfoDetailResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The details of the tracing diagram.
+   * The details of the trace graph.
    */
   traceInfoDetail?: DescribeTraceInfoDetailResponseBodyTraceInfoDetail;
   static names(): { [key: string]: string } {

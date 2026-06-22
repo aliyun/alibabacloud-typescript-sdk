@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScreenScoreThreadRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+   * The end time as a timestamp. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,11 @@ export class DescribeScreenScoreThreadRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Source of security score, default is Cloud Security Center if left empty. Enum values: 
-   * - 0:Cloud Security Center. 
-   * - 1:Yaochi Console.
+   * The source of the security score. If left empty, the default value is Security Center. Valid values:
+   * 
+   * 0: Security Center.
+   * 
+   * 1: Alibaba Cloud ApsaraDB console.
    * 
    * @example
    * 0
@@ -25,7 +27,7 @@ export class DescribeScreenScoreThreadRequest extends $dara.Model {
   source?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+   * The start time as a timestamp. Unit: milliseconds.
    * 
    * This parameter is required.
    * 

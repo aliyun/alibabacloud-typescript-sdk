@@ -14,9 +14,8 @@ export class DescribeGroupStructResponseBody extends $dara.Model {
   /**
    * @remarks
    * The type of the server group. Valid values:
-   * 
-   * *   **0**: the default group
-   * *   **1**: other groups
+   * - **0**: default group
+   * - **1**: other group.
    * 
    * @example
    * 0
@@ -24,7 +23,7 @@ export class DescribeGroupStructResponseBody extends $dara.Model {
   groupFlag?: number;
   /**
    * @remarks
-   * The ID of the server group.
+   * The ID of the asset group.
    * 
    * @example
    * 958****
@@ -32,7 +31,7 @@ export class DescribeGroupStructResponseBody extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The sequence number.
+   * The sort order number.
    * 
    * @example
    * 1
@@ -56,12 +55,12 @@ export class DescribeGroupStructResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * An array that consists of child groups.
+   * The collection of child groups.
    */
   groups?: string[];
   /**
    * @remarks
-   * The number of servers in the group.
+   * The number of servers.
    * 
    * @example
    * 30
@@ -69,7 +68,7 @@ export class DescribeGroupStructResponseBody extends $dara.Model {
   machineNum?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 9FBC6E47-7508-58C9-9E76-528E118C****

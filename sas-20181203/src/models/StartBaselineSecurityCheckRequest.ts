@@ -14,8 +14,9 @@ export class StartBaselineSecurityCheckRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -34,8 +35,9 @@ export class StartBaselineSecurityCheckRequest extends $dara.Model {
    * @remarks
    * The type of the check task. Valid values:
    * 
-   * *   **check**
-   * *   **verify**
+   * - **check**
+   * 
+   * - **verify**
    * 
    * This parameter is required.
    * 

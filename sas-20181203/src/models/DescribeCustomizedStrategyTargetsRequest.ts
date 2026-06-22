@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizedStrategyTargetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for requests and responses. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * en
@@ -16,7 +15,7 @@ export class DescribeCustomizedStrategyTargetsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 39.170.43.**

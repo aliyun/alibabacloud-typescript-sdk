@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserVpcRequest extends $dara.Model {
   /**
    * @remarks
-   * Region.
+   * The region.
    * 
    * This parameter is required.
    * 

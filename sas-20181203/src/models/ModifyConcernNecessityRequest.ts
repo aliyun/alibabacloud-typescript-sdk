@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyConcernNecessityRequest extends $dara.Model {
   /**
    * @remarks
-   * The priorities to fix the vulnerabilities. Valid values:
+   * The list of vulnerability fix necessity levels.
    * 
-   * *   asap: high
-   * *   later: medium
-   * *   nntf: low
+   * - asap: High
+   * 
+   * - later: Medium
+   * 
+   * - nntf: Low
    * 
    * @example
    * asap,nntf

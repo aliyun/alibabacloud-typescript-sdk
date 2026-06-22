@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAttackEventDashboardRequest extends $dara.Model {
   /**
    * @remarks
-   * Timestamp of the end time.
+   * The timestamp of the end time.
    * 
    * @example
    * 1753153137284
@@ -13,10 +13,10 @@ export class GetAttackEventDashboardRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Language type for request and response messages. Default value is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,7 +24,7 @@ export class GetAttackEventDashboardRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Timestamp of the start time.
+   * The timestamp of the start time.
    * 
    * @example
    * 1752548337284

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The suggestion on how to handle the risk.
+   * The remediation suggestion.
    * 
    * @example
    * do not use root user
@@ -13,7 +13,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   advice?: string;
   /**
    * @remarks
-   * The description of the suggestion on how to handle the risk.
+   * The description of the build risk remediation suggestion.
    * 
    * @example
    * the root user has excessive permissions
@@ -21,7 +21,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The image build command.
+   * The build command of the image layer.
    * 
    * @example
    * user root
@@ -29,7 +29,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   layerCmd?: string;
   /**
    * @remarks
-   * The digest of the image.
+   * The digest of the image layer.
    * 
    * @example
    * 6ec898e6274f942e0e4a053eff1c3119026a6704e56cff206b2cec71f636****
@@ -37,7 +37,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   layerDigest?: string;
   /**
    * @remarks
-   * The prompt message on the risk.
+   * The risk prompt.
    * 
    * @example
    * the root user has excessive permissions
@@ -45,7 +45,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   promt?: string;
   /**
    * @remarks
-   * The type key of the risk rule.
+   * The category key of the build risk rule.
    * 
    * @example
    * other
@@ -53,7 +53,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   riskClass?: string;
   /**
    * @remarks
-   * The type name of the risk rule.
+   * The category name of the build risk rule.
    * 
    * @example
    * other
@@ -61,7 +61,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   riskClassName?: string;
   /**
    * @remarks
-   * The key of the risk rule.
+   * The key of the build risk rule.
    * 
    * @example
    * no_user
@@ -69,7 +69,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   riskKey?: string;
   /**
    * @remarks
-   * The name of the risk rule.
+   * The name of the build risk rule.
    * 
    * @example
    * no_user
@@ -78,10 +78,9 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
   /**
    * @remarks
    * The risk level. Valid values:
-   * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high.
+   * - **medium**: medium.
+   * - **low**: low.
    * 
    * @example
    * medium
@@ -129,7 +128,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataList extends $dara.Model
 export class DescribeImageBuildRiskByKeyResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -137,9 +136,8 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataPageInfo extends $dara.M
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -181,12 +179,12 @@ export class DescribeImageBuildRiskByKeyResponseBodyDataPageInfo extends $dara.M
 export class DescribeImageBuildRiskByKeyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The risks.
+   * The list of build risks.
    */
   list?: DescribeImageBuildRiskByKeyResponseBodyDataList[];
   /**
    * @remarks
-   * The pagination information.
+   * The paging query parameters.
    */
   pageInfo?: DescribeImageBuildRiskByKeyResponseBodyDataPageInfo;
   static names(): { [key: string]: string } {
@@ -221,7 +219,7 @@ export class DescribeImageBuildRiskByKeyResponseBodyData extends $dara.Model {
 export class DescribeImageBuildRiskByKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code of the API call.
    * 
    * @example
    * 200
@@ -234,7 +232,7 @@ export class DescribeImageBuildRiskByKeyResponseBody extends $dara.Model {
   data?: DescribeImageBuildRiskByKeyResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The detailed information about the error code.
    * 
    * @example
    * successful
@@ -242,7 +240,7 @@ export class DescribeImageBuildRiskByKeyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 52870893-48A7-5A9E-9E05-6253E5B6****
@@ -250,10 +248,9 @@ export class DescribeImageBuildRiskByKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

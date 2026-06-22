@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogMetaRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source. Default value: **aegis**. Valid values:
+   * The source identifier of the request. Default value: **aegis**. Valid values:
    * 
-   * *   **aegis**: Server Guard
-   * *   **sas**: Security Center
+   * - **aegis**: Server Guard edition.
+   * - **sas**: Security Center edition.
    * 
-   * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
+   * > Server Guard users should use **aegis**, and Security Center users should use **sas**.
    * 
    * @example
    * sas
@@ -18,10 +18,10 @@ export class DescribeLogMetaRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -29,9 +29,8 @@ export class DescribeLogMetaRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The ID of the member accounts in the resource directory (Alibaba Cloud account).
+   * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****
@@ -39,7 +38,7 @@ export class DescribeLogMetaRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 123.168.XX.XX

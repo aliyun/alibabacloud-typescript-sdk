@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAttackEventDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier ID for the alert event.
+   * The unique ID of the alert event.
    * 
    * @example
    * 18825544674********
@@ -13,7 +13,7 @@ export class GetAttackEventDetailRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The language type for requesting and receiving messages. Values:
+   * The language of the request and response. Valid values:
    * - **zh**: Chinese.
    * - **en**: English.
    * 

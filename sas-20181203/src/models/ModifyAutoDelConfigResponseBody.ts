@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAutoDelConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3BFA659D-F44F-5703-8FD1-33AB596BEACA

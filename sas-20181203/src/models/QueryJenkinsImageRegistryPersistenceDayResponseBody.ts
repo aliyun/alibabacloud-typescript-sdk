@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryJenkinsImageRegistryPersistenceDayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The retention period. Unit: days.
+   * The repository retention duration. Unit: days.
    * 
    * @example
    * 30
@@ -13,7 +13,7 @@ export class QueryJenkinsImageRegistryPersistenceDayResponseBody extends $dara.M
   data?: number;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class QueryJenkinsImageRegistryPersistenceDayResponseBody extends $dara.M
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * EA4AC8B7-0C18-5BC1-9DA4-798B3BE4****
@@ -29,7 +29,7 @@ export class QueryJenkinsImageRegistryPersistenceDayResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * The time consumed. Unit: seconds.
+   * The time consumed for the execution. Unit: seconds.
    * 
    * @example
    * 1

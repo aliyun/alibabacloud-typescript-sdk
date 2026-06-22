@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainSecureAlarmListRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the request source. Set the value to sas.
+   * The identifier of the request source. Set this parameter to sas.
    * 
    * @example
    * sas
@@ -13,10 +13,9 @@ export class DescribeDomainSecureAlarmListRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response messages. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,7 +23,7 @@ export class DescribeDomainSecureAlarmListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 139.227.*.*

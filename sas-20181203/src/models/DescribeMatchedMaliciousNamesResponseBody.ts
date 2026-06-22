@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMatchedMaliciousNamesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The display name of the malicious image sample type.
+   * The display name of the malicious sample type.
    * 
    * @example
    * displayname
@@ -13,7 +13,7 @@ export class DescribeMatchedMaliciousNamesResponseBodyData extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The key of the malicious image sample type.
+   * The key of the malicious sample type.
    * 
    * @example
    * key
@@ -45,7 +45,7 @@ export class DescribeMatchedMaliciousNamesResponseBodyData extends $dara.Model {
 export class DescribeMatchedMaliciousNamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries returned on the current page in a paged query. If paging is not used, this value indicates the total number of entries.
    * 
    * @example
    * 1
@@ -53,12 +53,12 @@ export class DescribeMatchedMaliciousNamesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: DescribeMatchedMaliciousNamesResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * C7CD1BE6-97A2-5524-A529-B55C63E55D59

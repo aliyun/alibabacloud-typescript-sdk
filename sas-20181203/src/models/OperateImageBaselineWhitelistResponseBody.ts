@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateImageBaselineWhitelistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 75AD186B-B46A-56CC-BE35-987ADDF6****

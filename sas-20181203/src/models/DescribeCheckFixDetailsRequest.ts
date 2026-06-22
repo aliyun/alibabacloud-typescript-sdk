@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCheckFixDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the risk item.
+   * The ID of the check item.
    * 
-   * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the IDs of risk items.
+   * > You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain the check item ID.
    * 
    * @example
    * 58
@@ -15,10 +15,9 @@ export class DescribeCheckFixDetailsRequest extends $dara.Model {
   checkIds?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -28,7 +27,7 @@ export class DescribeCheckFixDetailsRequest extends $dara.Model {
    * @remarks
    * The ID of the baseline.
    * 
-   * >  You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of baselines.
+   * > You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to obtain the baseline ID.
    * 
    * @example
    * 51

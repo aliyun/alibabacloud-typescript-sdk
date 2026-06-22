@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterInterceptionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the container firewall feature. Valid values:
-   * 
-   * *   **-1**: unknown
-   * *   **0**: abnormal
-   * *   **1**: normal
-   * *   **2**: normal to be confirmed
+   * The container firewall status of the cluster. Valid values:
+   * - **-1**: unknown
+   * - **0**: abnormal
+   * - **1**: normal
+   * - **2**: normal pending confirmation.
    * 
    * @example
    * 1
@@ -18,9 +17,8 @@ export class ListClusterInterceptionConfigRequest extends $dara.Model {
   clusterCNNFStatus?: number;
   /**
    * @remarks
-   * The ID of the cluster.
-   * 
-   * > You can call the [DescribeContainerInstances](~~DescribeContainerInstances~~) operation to query the IDs of clusters.
+   * The ID of the container cluster.
+   * >You can call the [DescribeContainerInstances](~~DescribeContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c22143730ab6e40b09ec7c1c51d4d****
@@ -28,7 +26,7 @@ export class ListClusterInterceptionConfigRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * sas
@@ -36,7 +34,7 @@ export class ListClusterInterceptionConfigRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number of the page to return. Default value: 1, which indicates the first page.
    * 
    * @example
    * 1
@@ -44,7 +42,7 @@ export class ListClusterInterceptionConfigRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The maximum number of entries per page in a paged query. Default value: 20.
    * 
    * @example
    * 20

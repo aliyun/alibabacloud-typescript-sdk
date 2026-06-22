@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFileProtectBindMachineResponseBodyPageInfo extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries on the current page for a paged query.
+   * 
    * @example
    * 10
    */
   count?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 69
    */
@@ -37,7 +43,15 @@ export class ListFileProtectBindMachineResponseBodyPageInfo extends $dara.Model 
 }
 
 export class ListFileProtectBindMachineResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of servers. The UUID of each server is returned.
+   */
   list?: string[];
+  /**
+   * @remarks
+   * The paging information for the paged query.
+   */
   pageInfo?: ListFileProtectBindMachineResponseBodyPageInfo;
   /**
    * @remarks

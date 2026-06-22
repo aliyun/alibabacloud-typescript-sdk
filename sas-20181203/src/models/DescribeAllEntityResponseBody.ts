@@ -13,7 +13,7 @@ export class DescribeAllEntityResponseBodyEntityList extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The name of the server.
+   * The name of the server instance.
    * 
    * @example
    * abc
@@ -21,7 +21,7 @@ export class DescribeAllEntityResponseBodyEntityList extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the server.
+   * The public IP address.
    * 
    * @example
    * 172.19.XX.XX
@@ -29,7 +29,7 @@ export class DescribeAllEntityResponseBodyEntityList extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the server.
+   * The private IP address.
    * 
    * @example
    * 100.104.XX.XX
@@ -46,9 +46,8 @@ export class DescribeAllEntityResponseBodyEntityList extends $dara.Model {
   /**
    * @remarks
    * The operating system of the server. Valid values:
-   * 
-   * *   **linux**
-   * *   **windows**
+   * - **linux**
+   * - **windows**.
    * 
    * @example
    * windows
@@ -98,12 +97,12 @@ export class DescribeAllEntityResponseBodyEntityList extends $dara.Model {
 export class DescribeAllEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of servers.
+   * The list of instances.
    */
   entityList?: DescribeAllEntityResponseBodyEntityList[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92719F

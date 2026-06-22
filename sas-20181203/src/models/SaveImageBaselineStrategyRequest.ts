@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SaveImageBaselineStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The baseline check items.
+   * The baseline items.
    * 
-   * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query baseline check items.
+   * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) API to obtain the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,21 @@ export class SaveImageBaselineStrategyRequest extends $dara.Model {
    * ak_leak
    */
   baselineItemList?: string;
+  /**
+   * @remarks
+   * The baseline risk retention period, in days.
+   * 
+   * @example
+   * 90
+   */
   imageVulClean?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -29,10 +37,11 @@ export class SaveImageBaselineStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The data source. If this parameter is left empty, the baseline check policy for images is queried. Valid values:
+   * The data source. If you do not specify this parameter, the operation queries image baseline strategies by default. Valid values:
    * 
-   * *   **default**: the baseline check policy for images
-   * *   **agentless**: agentless detection
+   * - **default**: image
+   * 
+   * - **agentless**: agentless
    * 
    * @example
    * agentless
@@ -40,9 +49,9 @@ export class SaveImageBaselineStrategyRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the baseline check policy.
+   * The ID of the baseline check strategy.
    * 
-   * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query the IDs of baseline check policies.
+   * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) API to obtain the value of this parameter.
    * 
    * @example
    * 8639
@@ -50,7 +59,7 @@ export class SaveImageBaselineStrategyRequest extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The name of the baseline check policy.
+   * The name of the baseline check strategy.
    * 
    * @example
    * default

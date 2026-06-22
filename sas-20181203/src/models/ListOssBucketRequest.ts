@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOssBucketRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * iboxpublic****
@@ -13,10 +13,10 @@ export class ListOssBucketRequest extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The language of the content in the request and response. Default value: **zh**. Valid values:
+   * The language type for requests and responses. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * en

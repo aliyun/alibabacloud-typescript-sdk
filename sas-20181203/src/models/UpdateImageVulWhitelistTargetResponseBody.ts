@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageVulWhitelistTargetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of a failure.
    * 
    * @example
    * 200
@@ -13,10 +13,10 @@ export class UpdateImageVulWhitelistTargetResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the image vulnerability is added to the whitelist. Valid values:
+   * The processing result. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Succeeded.
+   * - **false**: Failed.
    * 
    * @example
    * true
@@ -24,7 +24,7 @@ export class UpdateImageVulWhitelistTargetResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -32,7 +32,7 @@ export class UpdateImageVulWhitelistTargetResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The returned message of the request result.
    * 
    * @example
    * successful
@@ -40,7 +40,7 @@ export class UpdateImageVulWhitelistTargetResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 9F4E6157-9600-5588-86B9-38F09067****
@@ -48,10 +48,10 @@ export class UpdateImageVulWhitelistTargetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The API call was successful.
+   * - **false**: The API call failed.
    * 
    * @example
    * true

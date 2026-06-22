@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * ack-jenkins-****
@@ -13,7 +13,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * a765ba1435e7f9446065370e9a41****
@@ -29,18 +29,17 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   clusterName?: string;
   /**
    * @remarks
-   * The time consumed. The value is in the JSON format. The end time of each item is displayed.
-   * 
-   * *   **vul**: system vulnerabilities
-   * *   **scaVul**: application vulnerabilities
-   * *   **scaVul**: baseline
-   * *   **binary**: binary
-   * *   **forbiddenPackageInfo**: information about the prohibited package
-   * *   **identificationInfo**: identity authentication
-   * *   **script**: malicious scripts
-   * *   **sensitiveFile**: sensitive files
-   * *   **sensitiveInfo**: AccessKey pair leaks
-   * *   **webshell**: website scripts
+   * The time consumption statistics in JSON format, showing the end time of each item. Valid values:
+   * - **vul**: System vulnerability.
+   * - **scaVul**: Application vulnerability.
+   * - **baseline**: Baseline.
+   * - **binary**: Binary.
+   * - **forbiddenPackageInfo**: Forbidden installation.
+   * - **identificationInfo**: Identity authentication.
+   * - **script**: Malicious script.
+   * - **sensitiveFile**: Sensitive file.
+   * - **sensitiveInfo**: AK detection.
+   * - **webshell**: Web shell.
    * 
    * @example
    * {"scaVul":"2023-09-04 09:37:21","identificationInfo":"2023-09-04 09:37:30","forbiddenPackageInfo":"2023-09-04 09:37:16","binary":"2023-09-04 09:37:25","baseline":"2023-09-04 09:37:19","sensitiveFile":"2023-09-04 09:38:34","vul":"2023-09-04 09:37:31","webshell":"2023-09-04 09:38:27","sensitiveInfo":"2023-09-04 09:37:16","script":"2023-09-04 09:39:44"}
@@ -48,7 +47,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   costTimeInfo?: string;
   /**
    * @remarks
-   * The digest of the image.
+   * The image digest.
    * 
    * @example
    * 9e0dc29d872d2e386cc5c0c92b529a84e3acfade16f5cb1d054a2ee3c99****
@@ -56,7 +55,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   digest?: string;
   /**
    * @remarks
-   * The image of the container.
+   * The container image.
    * 
    * @example
    * ***s.com/sas_test/baseli***
@@ -64,7 +63,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   image?: string;
   /**
    * @remarks
-   * The instance ID of the node.
+   * The node instance ID.
    * 
    * @example
    * i-0xi5mxvtmfw9****
@@ -72,7 +71,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   nodeInstanceId?: string;
   /**
    * @remarks
-   * The IP address of the node.
+   * The node IP address.
    * 
    * @example
    * 172.18.XXX.XXX
@@ -80,7 +79,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   nodeIp?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * pztest****
@@ -88,7 +87,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   nodeName?: string;
   /**
    * @remarks
-   * The pod of the image.
+   * The image pod information.
    * 
    * @example
    * expoit-law-****
@@ -96,7 +95,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   pod?: string;
   /**
    * @remarks
-   * The region ID of the server image.
+   * The region where the server image is located.
    * 
    * @example
    * cn-hangzhou
@@ -105,11 +104,10 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   /**
    * @remarks
    * The type of the image repository. Valid values:
-   * 
-   * *   **acr**
-   * *   **harbor**
-   * *   **quay**
-   * *   **CI/CD**
+   * - **acr**: acr.
+   * - **harbor**: harbor.
+   * - **quay**: quay.
+   * - **CI/CD**: CI/CD repository type.
    * 
    * @example
    * acr
@@ -117,7 +115,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   registryType?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * @example
    * crr-r88w2vryp8m****
@@ -125,7 +123,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   repoId?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The image repository name.
    * 
    * @example
    * testyyy
@@ -133,7 +131,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the image repository belongs.
+   * The image namespace.
    * 
    * @example
    * bitn***
@@ -149,7 +147,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
   repoRegionId?: string;
   /**
    * @remarks
-   * The tag that is added to the image.
+   * The image tag.
    * 
    * @example
    * v1.20-002-a2*****
@@ -211,7 +209,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo ex
 export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.Model {
   /**
    * @remarks
-   * The time when the sub-task ends.
+   * The end time.
    * 
    * @example
    * 1670307567000
@@ -219,10 +217,9 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   endTime?: number;
   /**
    * @remarks
-   * Indicates whether the sub-task is complete.
-   * 
-   * *   **0**: no
-   * *   **1**: yes
+   * Indicates whether the task is completed. Valid values:
+   * - **0**: Not completed.
+   * - **1**: Completed.
    * 
    * @example
    * 1
@@ -230,7 +227,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   finish?: number;
   /**
    * @remarks
-   * The number of the assets that are scanned.
+   * The number of completed records.
    * 
    * @example
    * 67
@@ -238,7 +235,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   finishCount?: string;
   /**
    * @remarks
-   * The progress percentage of the sub-task.
+   * The export progress percentage (%).
    * 
    * @example
    * 75
@@ -246,7 +243,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   progress?: number;
   /**
    * @remarks
-   * The execution duration of the sub-task.
+   * The task execution time.
    * 
    * @example
    * 1670307567000
@@ -262,7 +259,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   resultInfo?: string;
   /**
    * @remarks
-   * The time when the sub-task starts.
+   * The start execution time.
    * 
    * @example
    * 1640102400000
@@ -278,12 +275,11 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The sub-task status. Valid values:
-   * 
-   * *   **INIT**: The sub-task is not started.
-   * *   **START**: The sub-task is started.
-   * *   **SUCCESS**: The sub-task is complete.
-   * *   **TIMEOUT**: The sub-task timed out.
+   * The running status of the task. Valid values:
+   * - **INIT**: Pending.
+   * - **START**: Started.
+   * - **SUCCESS**: Completed.
+   * - **TIMEOUT**: Timed out.
    * 
    * @example
    * SUCCESS
@@ -291,7 +287,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   statusText?: string;
   /**
    * @remarks
-   * The objective of the sub-task.
+   * The task target.
    * 
    * @example
    * 238cf050a7270dd6940602e70f1e5a11eeaf4e02035f445b7f613ff5e064****
@@ -299,10 +295,9 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   target?: string;
   /**
    * @remarks
-   * The type of the assets that are scanned. Valid values:
-   * 
-   * *   **IMAGE_REPO**: image repository
-   * *   **IMAGE**: image
+   * The scan object type. Valid values:
+   * - **IMAGE_REPO**: Image repository.
+   * - **IMAGE**: Image.
    * 
    * @example
    * IMAGE
@@ -310,7 +305,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   targetType?: string;
   /**
    * @remarks
-   * The sub-task ID.
+   * The task ID.
    * 
    * @example
    * 9fb50f2af8bb67c9fdb684194c83****
@@ -318,12 +313,12 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   taskId?: string;
   /**
    * @remarks
-   * The information about the image scan.
+   * The image scan-related information.
    */
   taskImageInfo?: DescribeOnceTaskLeafRecordPageResponseBodyOnceTasksTaskImageInfo;
   /**
    * @remarks
-   * The name of the sub-task.
+   * The task name.
    * 
    * @example
    * IMAGE_SCAN
@@ -331,7 +326,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   taskName?: string;
   /**
    * @remarks
-   * The type of the sub-task.
+   * The task type.
    * 
    * @example
    * IMAGE_SCAN
@@ -339,7 +334,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
   taskType?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records. This parameter takes effect in a paged query with paging enabled.
    * 
    * @example
    * 30
@@ -402,7 +397,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks extends $dara.M
 export class DescribeOnceTaskLeafRecordPageResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of records on the current page in a paged query.
    * 
    * @example
    * 6
@@ -410,7 +405,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -418,7 +413,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -426,7 +421,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyPageInfo extends $dara.Mo
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records in the query result.
    * 
    * @example
    * 16
@@ -462,7 +457,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBodyPageInfo extends $dara.Mo
 export class DescribeOnceTaskLeafRecordPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of tasks.
+   * The list of task details.
    */
   onceTasks?: DescribeOnceTaskLeafRecordPageResponseBodyOnceTasks[];
   /**
@@ -472,7 +467,7 @@ export class DescribeOnceTaskLeafRecordPageResponseBody extends $dara.Model {
   pageInfo?: DescribeOnceTaskLeafRecordPageResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****

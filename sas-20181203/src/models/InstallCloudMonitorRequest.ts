@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class InstallCloudMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey ID.
+   * The AccessKey required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to obtain this parameter.
    * 
-   * > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
+   * > This parameter is required only when you install the CloudMonitor agent on a non-Alibaba Cloud server.
    * 
    * @example
    * usY*****R_U
@@ -15,9 +15,8 @@ export class InstallCloudMonitorRequest extends $dara.Model {
   agentAccessKey?: string;
   /**
    * @remarks
-   * The AccessKey secret that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey secret.
-   * 
-   * > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
+   * The AccessSecret required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to obtain this parameter.
+   * > This parameter is required only when you install the CloudMonitor agent on a non-Alibaba Cloud server.
    * 
    * @example
    * UCxF2R1sIO90XlU9****
@@ -25,7 +24,7 @@ export class InstallCloudMonitorRequest extends $dara.Model {
   agentSecretKey?: string;
   /**
    * @remarks
-   * The version of the CloudMonitor agent that you want to install on the servers. For more information about the latest version of the CloudMonitor agent, see [Overview](https://help.aliyun.com/document_detail/183431.html).
+   * The version of the CloudMonitor agent to install. You can obtain the latest CloudMonitor agent version from [Plugin overview](https://help.aliyun.com/document_detail/183431.html).
    * 
    * This parameter is required.
    * 
@@ -35,12 +34,12 @@ export class InstallCloudMonitorRequest extends $dara.Model {
   argusVersion?: string;
   /**
    * @remarks
-   * The IDs of the servers on which you want to install the CloudMonitor agent. Separate multiple IDs with commas (,).
+   * The list of instance IDs of the servers on which you want to install the CloudMonitor agent. Separate multiple IDs with commas (,).
    */
   instanceIdList?: string[];
   /**
    * @remarks
-   * The UUIDs of the servers on which you want to install the CloudMonitor agent. Separate multiple UUIDs with commas (,).
+   * The list of UUIDs of the servers on which you want to install the CloudMonitor agent. Separate multiple UUIDs with commas (,).
    */
   uuidList?: string[];
   static names(): { [key: string]: string } {

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
-   * 58.248.87.10
+   * 112.94.XX.XX
    */
   sourceIp?: string;
   static names(): { [key: string]: string } {

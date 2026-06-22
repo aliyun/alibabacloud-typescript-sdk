@@ -6,22 +6,39 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   /**
    * @remarks
    * Attack type. Values:
+   * 
    * - 9: SQL Server brute force attack
+   * 
    * - 5: SSH brute force attack
+   * 
    * - 6: RDP brute force attack
+   * 
    * - 101: Java Struts2 attack interception
+   * 
    * - 102: Redis attack interception
+   * 
    * - 103: Chinese AntSword WebShell communication
+   * 
    * - 104: Chinese Chopper WebShell communication
+   * 
    * - 133: XISE WebShell communication
+   * 
    * - 161: WebShell upload
+   * 
    * - 209: PHP WebShell upload
+   * 
    * - 210: JSP WebShell upload
+   * 
    * - 211: ASP WebShell upload
+   * 
    * - 215: Special suffix WebShell upload
+   * 
    * - ai_webshell: Intelligent defense for WebShell upload
+   * 
    * - java_common_rce: Java common RCE vulnerability interception
+   * 
    * - alinet_webrce: Adaptive web attack defense
+   * 
    * - other: Other
    * 
    * @example
@@ -31,22 +48,39 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   /**
    * @remarks
    * Mapped name of the attack type. Values:
+   * 
    * - 9: SQL Server brute force
+   * 
    * - 5: SSH brute force
+   * 
    * - 6: RDP brute force
+   * 
    * - 101: Java Struts2 attack interception
+   * 
    * - 102: Redis attack interception
+   * 
    * - 103: Chinese AntSword WebShell communication
+   * 
    * - 104: Chinese Chopper WebShell communication
+   * 
    * - 133: XISE WebShell communication
+   * 
    * - 161: WebShell upload
+   * 
    * - 209: PHP WebShell upload
+   * 
    * - 210: JSP WebShell upload
+   * 
    * - 211: ASP WebShell upload
+   * 
    * - 215: Special suffix WebShell upload
+   * 
    * - ai_webshell: Intelligent defense for WebShell upload
+   * 
    * - java_common_rce: Java common RCE vulnerability interception
+   * 
    * - alinet_webrce: Adaptive web attack defense
+   * 
    * - other: Other
    * 
    * @example
@@ -152,6 +186,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   /**
    * @remarks
    * Attack status. Values:
+   * 
    * - block: Blocked (defended)
    * 
    * @example
@@ -323,7 +358,9 @@ export class ListAttackEventInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the API call was successful. Values:
+   * 
    * - **true**: Success
+   * 
    * - **false**: Failure
    * 
    * @example

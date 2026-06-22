@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyContainerPluginRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 600640
@@ -13,7 +13,7 @@ export class ModifyContainerPluginRuleResponseBodyData extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test555
@@ -21,7 +21,7 @@ export class ModifyContainerPluginRuleResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The switch ID.
+   * The corresponding switch ID.
    * 
    * @example
    * USER-CONTAINER-RULE-SWITCH-TYPE_xxx
@@ -55,7 +55,7 @@ export class ModifyContainerPluginRuleResponseBodyData extends $dara.Model {
 export class ModifyContainerPluginRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The defense rule against container escapes.
+   * The list of container escape prevention rules.
    */
   data?: ModifyContainerPluginRuleResponseBodyData;
   /**

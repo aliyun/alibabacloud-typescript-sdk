@@ -13,7 +13,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoBaseline exten
   digest?: string;
   /**
    * @remarks
-   * The number of baseline risks detected on the image repository.
+   * The number of baseline risks in the image repository.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoBaseline exten
   imageSize?: number;
   /**
    * @remarks
-   * The name of the Container Registry repository.
+   * The name of the container image repository.
    * 
    * @example
    * glz123
@@ -45,7 +45,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoBaseline exten
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the repository belongs.
+   * The repository namespace.
    * 
    * @example
    * namespace-01
@@ -53,7 +53,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoBaseline exten
   repoNamespace?: string;
   /**
    * @remarks
-   * The risk statistics of all hosts, images, and containers.
+   * The risk statistics information for all hosts, images, and containers.
    * 
    * @example
    * {\\"account\\":0,\\"agentlessAll\\":0,\\"agentlessBaseline\\":0,\\"agentlessMalicious\\":0,\\"agentlessSensitiveFile\\":0,\\"agentlessVulCve\\":0,\\"agentlessVulSca\\":0,\\"agentlessVulSys\\":0,\\"appNum\\":0,\\"asapVulCount\\":0,\\"baselineHigh\\":0,\\"baselineLow\\":0,\\"baselineMedium\\":0,\\"baselineNum\\":0,\\"cmsNum\\":0,\\"containerAsap\\":0,\\"containerLater\\":0,\\"containerNntf\\":0,\\"containerRemind\\":0,\\"containerSerious\\":0,\\"containerSuspicious\\":0,\\"cveNum\\":0,\\"emgNum\\":0,\\"health\\":0,\\"imageBaselineHigh\\":1,\\"imageBaselineLow\\":0,\\"imageBaselineMedium\\":0,\\"imageBaselineNum\\":1,\\"imageMaliciousFileRemind\\":0,\\"imageMaliciousFileSerious\\":0,\\"imageMaliciousFileSuspicious\\":0,\\"imageVulAsap\\":0,\\"imageVulLater\\":0,\\"imageVulNntf\\":0,\\"laterVulCount\\":0,\\"newSuspicious\\":0,\\"nntfVulCount\\":0,\\"remindNum\\":0,\\"scaNum\\":0,\\"seriousNum\\":0,\\"suspNum\\":0,\\"suspicious\\":0,\\"sysNum\\":0,\\"trojan\\":0,\\"uuid\\":\\"009635bf00c0585e3122ab92f5449919\\",\\"vul\\":0,\\"weakPWNum\\":0}
@@ -61,7 +61,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoBaseline exten
   riskLevelDetail?: string;
   /**
    * @remarks
-   * The tag of the image.
+   * The image tag.
    * 
    * @example
    * machineResource
@@ -69,7 +69,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoBaseline exten
   tag?: string;
   /**
    * @remarks
-   * The UUID of the record.
+   * The unique identifier of the record.
    * 
    * @example
    * 5583aa03-922e-4709-a888-389f2489****
@@ -133,7 +133,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoVulAsap extend
   digest?: string;
   /**
    * @remarks
-   * The number of risks detected on the image repository.
+   * The number of risks in the image repository.
    * 
    * @example
    * 0
@@ -165,7 +165,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoVulAsap extend
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * namespace-01
@@ -173,7 +173,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoVulAsap extend
   repoNamespace?: string;
   /**
    * @remarks
-   * The risk statistics of all hosts, images, and containers.
+   * The risk statistics information for all hosts, images, and containers.
    * 
    * @example
    * {\\"account\\":0,\\"agentlessAll\\":0,\\"agentlessBaseline\\":0,\\"agentlessMalicious\\":0,\\"agentlessSensitiveFile\\":0,\\"agentlessVulCve\\":0,\\"agentlessVulSca\\":0,\\"agentlessVulSys\\":0,\\"appNum\\":0,\\"asapVulCount\\":0,\\"baselineHigh\\":0,\\"baselineLow\\":0,\\"baselineMedium\\":0,\\"baselineNum\\":0,\\"cmsNum\\":0,\\"containerAsap\\":0,\\"containerLater\\":0,\\"containerNntf\\":0,\\"containerRemind\\":0,\\"containerSerious\\":0,\\"containerSuspicious\\":0,\\"cveNum\\":513,\\"emgNum\\":0,\\"health\\":0,\\"imageBaselineHigh\\":0,\\"imageBaselineLow\\":0,\\"imageBaselineMedium\\":0,\\"imageBaselineNum\\":0,\\"imageMaliciousFileRemind\\":0,\\"imageMaliciousFileSerious\\":0,\\"imageMaliciousFileSuspicious\\":0,\\"imageVulAsap\\":3,\\"imageVulLater\\":182,\\"imageVulNntf\\":328,\\"laterVulCount\\":0,\\"newSuspicious\\":0,\\"nntfVulCount\\":0,\\"remindNum\\":0,\\"scaNum\\":0,\\"seriousNum\\":0,\\"suspNum\\":0,\\"suspicious\\":0,\\"sysNum\\":0,\\"trojan\\":0,\\"uuid\\":\\"44ffb29d6f66d8509598bcdfa660a21d\\",\\"vul\\":513,\\"weakPWNum\\":0}
@@ -189,7 +189,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoVulAsap extend
   tag?: string;
   /**
    * @remarks
-   * The UUID of the record.
+   * The unique identifier of the record.
    * 
    * @example
    * 6636c286-8063-4c97-8508-6aaf16a8****
@@ -245,12 +245,12 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoVulAsap extend
 export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfo extends $dara.Model {
   /**
    * @remarks
-   * The baseline risks.
+   * The baseline risk information.
    */
   baseline?: GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoBaseline[];
   /**
    * @remarks
-   * The risk information of high-risk vulnerabilities.
+   * The risk information about high-priority vulnerabilities.
    */
   vulAsap?: GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfoVulAsap[];
   static names(): { [key: string]: string } {
@@ -285,7 +285,7 @@ export class GetDockerhubImageRiskRankInfoResponseBodyRiskRankInfo extends $dara
 export class GetDockerhubImageRiskRankInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 30CBF632-109F-596F-97F2-451C8B2A****

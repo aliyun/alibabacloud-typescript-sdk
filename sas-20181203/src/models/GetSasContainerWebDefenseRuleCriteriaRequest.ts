@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSasContainerWebDefenseRuleCriteriaRequest extends $dara.Model {
   /**
    * @remarks
-   * The value of the search condition. Fuzzy match is supported.
+   * The value of the query criterion. Fuzzy match is supported.
    * 
    * @example
    * 525

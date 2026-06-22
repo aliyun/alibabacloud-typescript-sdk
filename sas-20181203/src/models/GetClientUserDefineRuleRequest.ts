@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClientUserDefineRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom defense rule.
+   * The ID of the custom rule.
    * 
    * This parameter is required.
    * 

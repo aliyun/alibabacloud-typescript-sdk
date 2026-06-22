@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterCheckSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the queried cluster
+   * The ID of the cluster to query.
    * 
    * This parameter is required.
    * 

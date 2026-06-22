@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationProcessResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 4
@@ -13,7 +13,7 @@ export class ListOperationProcessResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page to display in a paged query. This parameter is used for paging.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class ListOperationProcessResponseBodyPageInfo extends $dara.Model {
 export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. Unit: milliseconds.
+   * The creation time of the task. Unit: milliseconds.
    * 
    * @example
    * 1674388824000
@@ -73,7 +73,7 @@ export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Number of completed subtasks
+   * The number of completed subtasks.
    * 
    * @example
    * 5
@@ -81,7 +81,7 @@ export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
   detailTaskReadyCount?: number;
   /**
    * @remarks
-   * Total number of subtasks.
+   * The total number of subtasks.
    * 
    * @example
    * 10
@@ -97,7 +97,7 @@ export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of tasks that are complete.
+   * The number of completed items.
    * 
    * @example
    * 197
@@ -113,12 +113,12 @@ export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The task status code. Valid values:
+   * The check task status code. Valid values:
    * 
-   * *   0: not started.
-   * *   1: running.
-   * *   2: complete.
-   * *   3: times out.
+   * - 0: not started.
+   * - 1: checking.
+   * - 2: check completed.
+   * - 3: timed out.
    * 
    * @example
    * 1
@@ -134,8 +134,9 @@ export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task source. Values: 
-   * - **YAO_CHI**: YaoChi.
+   * The task source. Valid values:
+   * 
+   * - **YAO_CHI**: ApsaraDB.
    * 
    * @example
    * YAO_CHI
@@ -144,12 +145,11 @@ export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * 
-   * *   CHECK_ALL: full check.
-   * *   CHECK_POLICY: policy-based check for which check items are configured.
-   * *   CHECK_SCHEDULE: scheduled check.
-   * *   CHECK_ITEM: specific check item-based check.
-   * *   CHECK_INSTANCE: specific check item-based check on specific instances.
+   * - CHECK_ALL: full check.
+   * - CHECK_POLICY: check performed based on check items in the configured policy.
+   * - CHECK_SCHEDULE: scheduled check.
+   * - CHECK_ITEM: check performed based on specified check items.
+   * - CHECK_INSTANCE: check performed based on specified check items and instances.
    * 
    * @example
    * CHECK_POLICY
@@ -212,12 +212,12 @@ export class ListOperationProcessResponseBody extends $dara.Model {
   pageInfo?: ListOperationProcessResponseBodyPageInfo;
   /**
    * @remarks
-   * The information about the operation tasks.
+   * The list of operation task information.
    */
   processes?: ListOperationProcessResponseBodyProcesses[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F8B6F758-BCD4-597A-8A2C-DA5A552C****

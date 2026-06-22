@@ -8,8 +8,6 @@ export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
    * @remarks
    * The ID of the alert event.
    * 
-   * >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -18,9 +16,7 @@ export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
   securityEventId?: number;
   /**
    * @remarks
-   * The codes of alert events that are triggered by the same rule or of the same alert type.
-   * 
-   * >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
+   * The code of the alerting event that has the same type or rule hits.
    * 
    * @example
    * default
@@ -28,7 +24,7 @@ export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
   similarEventScenarioCode?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 1.2.XX.XX

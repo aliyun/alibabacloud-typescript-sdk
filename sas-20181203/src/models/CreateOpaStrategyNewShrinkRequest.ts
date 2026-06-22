@@ -17,8 +17,9 @@ export class CreateOpaStrategyNewShrinkRequestScopes extends $dara.Model {
    * @remarks
    * Specifies whether to include all namespaces. Valid values:
    * 
-   * *   **1**: includes all namespaces.
-   * *   **0**: does not include all namespaces.
+   * - **1**: includes all namespaces.
+   * 
+   * - **0**: does not include all namespaces.
    * 
    * @example
    * 1
@@ -28,7 +29,7 @@ export class CreateOpaStrategyNewShrinkRequestScopes extends $dara.Model {
    * @remarks
    * The ID of the cluster that is specified in the rule.
    * 
-   * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
+   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
    * 
    * @example
    * cc50d***015d2
@@ -119,8 +120,9 @@ export class CreateOpaStrategyNewShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether the rule supports malicious Internet images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -130,9 +132,11 @@ export class CreateOpaStrategyNewShrinkRequest extends $dara.Model {
    * @remarks
    * The action that is performed when the rule is hit. Valid values:
    * 
-   * *   **1**: trigger alerts
-   * *   **2**: block
-   * *   **3**: allow
+   * - **1**: trigger alerts
+   * 
+   * - **2**: block
+   * 
+   * - **3**: allow
    * 
    * @example
    * 1
@@ -147,7 +151,7 @@ export class CreateOpaStrategyNewShrinkRequest extends $dara.Model {
    * @remarks
    * The rule ID.
    * 
-   * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+   * > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
    * 
    * > This parameter is invalid when you create a rule.
    * 
@@ -167,7 +171,7 @@ export class CreateOpaStrategyNewShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the rule template.
    * 
-   * >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+   * > You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
    * 
    * @example
    * 109
@@ -177,8 +181,9 @@ export class CreateOpaStrategyNewShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether the rule supports unscanned images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

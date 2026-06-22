@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAntiBruteForceRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * FBBEB173-1F43-505F-A876-C03ECDF6CE4C

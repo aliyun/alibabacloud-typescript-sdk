@@ -8,7 +8,7 @@ export class ListHoneypotAlarmEventsRequest extends $dara.Model {
    * The page number. Default value: **1**.
    * 
    * @example
-   * 10
+   * 1
    */
   currentPage?: number;
   /**
@@ -20,7 +20,7 @@ export class ListHoneypotAlarmEventsRequest extends $dara.Model {
    * *   **n**: unhandled
    * 
    * @example
-   * n
+   * a
    */
   dealed?: string;
   /**
@@ -28,7 +28,7 @@ export class ListHoneypotAlarmEventsRequest extends $dara.Model {
    * The destination IP address.
    * 
    * @example
-   * 172.20.XX.XX
+   * 183.224.XX.XX
    */
   dstIp?: string;
   /**
@@ -38,7 +38,7 @@ export class ListHoneypotAlarmEventsRequest extends $dara.Model {
    * >  We recommend that you do not leave this parameter empty. We recommend that you set the value to a value no greater than 100.
    * 
    * @example
-   * 10
+   * 100
    */
   pageSize?: number;
   /**
@@ -51,7 +51,7 @@ export class ListHoneypotAlarmEventsRequest extends $dara.Model {
    * The source IP address.
    * 
    * @example
-   * 101.132.XX.XX
+   * 185.224.XX.XX
    */
   srcIp?: string;
   static names(): { [key: string]: string } {

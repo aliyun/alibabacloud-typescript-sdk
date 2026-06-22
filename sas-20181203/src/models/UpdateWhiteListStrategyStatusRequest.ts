@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWhiteListStrategyStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class UpdateWhiteListStrategyStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
+   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains this value.
    * 
    * @example
    * 219.143.XX.XX
@@ -24,21 +24,16 @@ export class UpdateWhiteListStrategyStatusRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The policy status. Valid values:
+   * - **0**: Deleted.
+   * - **1**: Learning.
+   * - **2**: Paused.
+   * - **3**: Learning complete.
+   * - **4**: Active.
    * 
-   * *   **0**: deleted
-   * *   **1**: learning
-   * *   **2**: paused
-   * *   **3**: learning completed
-   * *   **4**: enabled
-   * 
-   * > 
-   * 
-   * *   You can change the status to **paused** only if the policy status is **learning**.
-   * 
-   * *   You can change the status to **learning** only if the policy status is **paused**.
-   * 
-   * *   You can change the status to **enabled** only if the policy status is **learning completed**.
+   * > - Only a policy in the **Learning** state can be changed to the **Paused** state.
+   * > - Only a policy in the **Paused** state can be changed to the **Learning** state.
+   * > - Only a policy in the **Learning complete** state can be changed to the **Active** state.
    * 
    * This parameter is required.
    * 
@@ -48,9 +43,8 @@ export class UpdateWhiteListStrategyStatusRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The ID of the policy.
-   * 
-   * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+   * The policy ID.
+   * >Call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

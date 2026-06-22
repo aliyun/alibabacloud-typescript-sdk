@@ -44,16 +44,18 @@ export class DescribeVulListPageRequest extends $dara.Model {
    * The name of the vulnerability.
    * 
    * @example
-   * RCE vulnerability
+   * 远程代码执行漏洞
    */
   vulNameLike?: string;
   /**
    * @remarks
    * The type of the vulnerabilities. Valid values:
    * 
-   * *   **cve**: Linux software vulnerability.
-   * *   **sys**: Windows system vulnerability.
-   * *   **app**: Application vulnerability that is detected by using web scanner.
+   * - **cve**: Linux software vulnerability.
+   * 
+   * - **sys**: Windows system vulnerability.
+   * 
+   * - **app**: Application vulnerability that is detected by using web scanner.
    * 
    * @example
    * cve

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWebLockUnbindRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the server for which you want to disable web tamper proofing.
-   * 
-   * > You can call the [DescribeWebLockBindList](~~DescribeWebLockBindList~~) operation to query the UUIDs of servers.
+   * The UUID of the server from which you want to remove the protection directories.
+   * > Call [DescribeWebLockBindList](~~DescribeWebLockBindList~~) to obtain the UUID of the server.
    * 
    * @example
    * 8d217d3f-6999-43a6-a435-c7a6854180e9

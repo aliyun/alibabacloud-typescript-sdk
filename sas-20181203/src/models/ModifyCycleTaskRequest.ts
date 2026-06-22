@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCycleTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task configuration.
-   * 
-   * >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
+   * The ID of the configuration.
+   * >Call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -18,9 +17,8 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the task. Valid values:
-   * 
-   * *   **1**: enables the task.
-   * *   **0**: disables the task.
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -28,7 +26,7 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The time when the task first started.
+   * The first execution time.
    * 
    * @example
    * 1664380800000
@@ -36,7 +34,7 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   firstDateStr?: number;
   /**
    * @remarks
-   * The interval at which the task is run.
+   * The interval period.
    * 
    * @example
    * 14
@@ -44,7 +42,7 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   intervalPeriod?: number;
   /**
    * @remarks
-   * The additional information.
+   * The extended information field.
    * 
    * @example
    * {
@@ -65,10 +63,9 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   param?: string;
   /**
    * @remarks
-   * The unit of the scan interval. Valid values:
-   * 
-   * *   **day**
-   * *   **hour**
+   * The unit of the scan cycle. Valid values:
+   * - **day**: day.
+   * - **hour**: hour.
    * 
    * @example
    * day
@@ -76,7 +73,7 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The end time of the task. The time must be a time frame.
+   * The task end time, in hours.
    * 
    * @example
    * 6
@@ -84,7 +81,7 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   targetEndTime?: number;
   /**
    * @remarks
-   * The start time of the task. The start time must be a time frame.
+   * The task start time, in hours.
    * 
    * @example
    * 0
@@ -92,49 +89,10 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   targetStartTime?: number;
   /**
    * @remarks
-   * The name of the task. Valid values:
-   * 
-   * *   **VIRUS_VUL_SCHEDULE_SCAN**: virus detection task
-   * *   **IMAGE_SCAN**: image scan task
-   * *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
-   * 
-   * Valid values:
-   * 
-   * *   VIRUS_VUL_SCHEDULE_SCAN
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     virus detection task
-   * 
-   *     <!-- -->
-   * 
-   * *   IMAGE_SCAN
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     image scan task
-   * 
-   *     <!-- -->
-   * 
-   * *   EMG_VUL_SCHEDULE_SCAN
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     urgent vulnerability scan task
-   * 
-   *     <!-- -->
+   * The node name. Valid values:
+   * - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
+   * - **IMAGE_SCAN**: image scan.
+   * - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
    * 
    * @example
    * EMG_VUL_SCHEDULE_SCAN
@@ -142,49 +100,10 @@ export class ModifyCycleTaskRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
-   * 
-   * *   **VIRUS_VUL_SCHEDULE_SCAN**: virus detection task
-   * *   **IMAGE_SCAN**: image scan task
-   * *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
-   * 
-   * Valid values:
-   * 
-   * *   VIRUS_VUL_SCHEDULE_SCAN
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     virus detection task
-   * 
-   *     <!-- -->
-   * 
-   * *   IMAGE_SCAN
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     image scan task
-   * 
-   *     <!-- -->
-   * 
-   * *   EMG_VUL_SCHEDULE_SCAN
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     urgent vulnerability scan task
-   * 
-   *     <!-- -->
+   * The node type. Valid values:
+   * - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
+   * - **IMAGE_SCAN**: image scan.
+   * - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
    * 
    * @example
    * VIRUS_VUL_SCHEDULE_SCAN

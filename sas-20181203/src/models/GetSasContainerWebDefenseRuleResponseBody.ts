@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePathConfDTOList extends $dara.Model {
   /**
    * @remarks
-   * Backup path.
+   * The backup path.
    * 
    * @example
    * /usr/path/
@@ -13,9 +13,9 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   backupPath?: string;
   /**
    * @remarks
-   * Action to be executed.
-   * - **block** : Block
-   * - **audit** : Alert
+   * The action to take. Valid values:
+   * - **block**: Block.
+   * - **audit**: Alert.
    * 
    * @example
    * audit
@@ -23,7 +23,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   defenseMode?: string;
   /**
    * @remarks
-   * Defense path
+   * The defense path.
    * 
    * @example
    * /test11*
@@ -31,7 +31,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   defensePath?: string;
   /**
    * @remarks
-   * Excluded files.
+   * The excluded file.
    * 
    * @example
    * file1
@@ -39,7 +39,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   excludeFile?: string;
   /**
    * @remarks
-   * Excluded file path.
+   * The excluded file path.
    * 
    * @example
    * /test2/sub1,/test2/sub2
@@ -47,7 +47,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   excludeFilePath?: string;
   /**
    * @remarks
-   * Exclude file types.
+   * The excluded file type.
    * 
    * @example
    * doc
@@ -55,9 +55,9 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   excludeFileType?: string;
   /**
    * @remarks
-   * Protection mode.
-   * - **0**: Basic mode (whitelist)
-   * - **1**: Advanced mode (blacklist)
+   * The defense mode. Valid values:
+   * - **0**: Basic pattern (whitelist).
+   * - **1**: Advanced pattern (blacklist).
    * 
    * @example
    * 0
@@ -65,7 +65,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   guardType?: number;
   /**
    * @remarks
-   * Included files.
+   * The included file.
    * 
    * @example
    * webapp
@@ -73,7 +73,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   includeFile?: string;
   /**
    * @remarks
-   * Type of included files.
+   * The included file type.
    * 
    * @example
    * doc
@@ -81,7 +81,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
   includeFileType?: string;
   /**
    * @remarks
-   * Whitelist process list.
+   * The list of whitelisted processes.
    */
   processPathList?: string[];
   static names(): { [key: string]: string } {
@@ -129,7 +129,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePat
 export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule extends $dara.Model {
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 1000**0002
@@ -137,7 +137,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule ex
   aliUid?: number;
   /**
    * @remarks
-   * Total number of applications.
+   * The total number of applications.
    * 
    * @example
    * 1
@@ -145,7 +145,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule ex
   appTotalCount?: number;
   /**
    * @remarks
-   * Timestamp when the rule was created. Unit: milliseconds.
+   * The timestamp when the rule was created. Unit: milliseconds.
    * 
    * @example
    * 1709173360000
@@ -153,7 +153,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule ex
   gmtCreate?: number;
   /**
    * @remarks
-   * Timestamp when the rule was last modified. Unit: milliseconds.
+   * The timestamp when the rule was modified. Unit: milliseconds.
    * 
    * @example
    * 1655432638000
@@ -161,7 +161,7 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule ex
   gmtModified?: number;
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * @example
    * 100
@@ -169,23 +169,23 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule ex
   id?: number;
   /**
    * @remarks
-   * List of configured file paths.
+   * The list of configured file paths.
    */
   pathConfDTOList?: GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePathConfDTOList[];
   /**
    * @remarks
-   * Rule name.
+   * The rule name.
    * 
    * @example
-   * FiledefenseRule.
+   * 防篡改规则
    */
   ruleName?: string;
   /**
    * @remarks
-   * Rule status. The value descriptions are as follows:
+   * The rule status. Valid values:
    * 
-   * - **1**: Enabled
-   * - **0**: Disabled
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -232,12 +232,12 @@ export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule ex
 export class GetSasContainerWebDefenseRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the container file defense rule.
+   * The details of the container file defense rule.
    */
   containerWebDefenseRule?: GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule;
   /**
    * @remarks
-   * The ID of the current request, which is a unique identifier generated by Alibaba Cloud for this request and can be used for troubleshooting and issue localization.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * BA674E4**62FB5133

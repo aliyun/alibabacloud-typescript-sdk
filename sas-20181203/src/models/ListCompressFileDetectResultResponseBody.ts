@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCompressFileDetectResultResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListCompressFileDetectResultResponseBodyPageInfo extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 55
@@ -55,7 +55,7 @@ export class ListCompressFileDetectResultResponseBodyPageInfo extends $dara.Mode
 export class ListCompressFileDetectResultResponseBodyResultList extends $dara.Model {
   /**
    * @remarks
-   * The extended information about the file detection result.
+   * Additional information about the detection result.
    * 
    * @example
    * {
@@ -78,7 +78,7 @@ export class ListCompressFileDetectResultResponseBodyResultList extends $dara.Mo
   ext?: string;
   /**
    * @remarks
-   * The identifier of the file.
+   * The unique identifier for the file.
    * 
    * @example
    * 0a212417e65c26ff133cfff28f6c****
@@ -86,7 +86,7 @@ export class ListCompressFileDetectResultResponseBodyResultList extends $dara.Mo
   hashKey?: string;
   /**
    * @remarks
-   * The path to the file within the package.
+   * The file path within the archive.
    * 
    * @example
    * /root/1.zip/test****
@@ -94,11 +94,13 @@ export class ListCompressFileDetectResultResponseBodyResultList extends $dara.Mo
   path?: string;
   /**
    * @remarks
-   * The file detection result. Valid values:
+   * The detection result of the file. Valid values:
    * 
-   * *   **0**: The file is normal.
-   * *   **1**: The file is suspicious.
-   * *   **3**: The detection is in progress.
+   * - **0**: safe file
+   * 
+   * - **1**: suspicious file
+   * 
+   * - **3**: detection in progress
    * 
    * @example
    * 0
@@ -106,14 +108,23 @@ export class ListCompressFileDetectResultResponseBodyResultList extends $dara.Mo
   result?: number;
   /**
    * @remarks
-   * The score of the file detection result. The following list describes mappings between the score ranges and risk levels:
+   * The detection score for the file. The following list describes the score ranges and corresponding risk levels:
    * 
-   * *   0 to 60: normal
-   * *   61 to 70: risky
-   * *   71 to 80: suspicious
-   * *   81 to 100: malicious
+   * - 0–60: Safe
    * 
-   * >  A higher score indicates a more suspicious file.
+   * - 61–70: Risky
+   * 
+   * - 71–80: Suspicious
+   * 
+   * - 81–100: Malicious
+   * 
+   * >Notice: 
+   * 
+   * A higher score indicates a greater risk.
+   * 
+   * 
+   * 
+   * > This parameter is not returned when `Type` is `6`.
    * 
    * @example
    * 100
@@ -121,30 +132,53 @@ export class ListCompressFileDetectResultResponseBodyResultList extends $dara.Mo
   score?: number;
   /**
    * @remarks
-   * The type of the virus. Valid values:
+   * The threat type. Valid values:
    * 
-   * *   **Trojan**: self-mutating trojan
-   * *   **WebShell**: webshell
-   * *   **Backdoor**: backdoor program
-   * *   **RansomWare**: ransomware
-   * *   **Scanner**: scanner
-   * *   **Stealer**: tool that is used to steal information
-   * *   **Malbaseware**: tainted basic software
-   * *   **Hacktool**: attacker tool
-   * *   **Engtest**: engine test program
-   * *   **Downloader**: trojan downloader
-   * *   **Virus**: infectious virus
-   * *   **Miner**: mining program
-   * *   **Worm**: worm
-   * *   **DDoS**: DDoS trojan
-   * *   **Malware**: malicious program
-   * *   **Backdoor**: reverse shell
-   * *   **RiskWare**: software that has risks
-   * *   **Proxytool**: proxy
-   * *   **Suspicious**: suspicious program
-   * *   **MalScript**: malicious script
-   * *   **Rootkit**: rootkit
-   * *   **Exploit**: exploit
+   * - **Trojan**: trojan
+   * 
+   * - **WebShell**: A website backdoor
+   * 
+   * - **Backdoor**: A generic backdoor
+   * 
+   * - **RansomWare**: ransomware
+   * 
+   * - **Scanner**: scanner
+   * 
+   * - **Stealer**: stealer
+   * 
+   * - **Malbaseware**: Contaminated base software
+   * 
+   * - **Hacktool**: hacktool
+   * 
+   * - **Engtest**: Engine test program
+   * 
+   * - **Downloader**: downloader
+   * 
+   * - **Virus**: virus
+   * 
+   * - **Miner**: miner
+   * 
+   * - **Worm**: worm
+   * 
+   * - **DDoS**: DDoS trojan
+   * 
+   * - **Malware**: malware
+   * 
+   * - **Backdoor**: reverse shell backdoor
+   * 
+   * - **RiskWare**: riskware
+   * 
+   * - **Proxytool**: proxy tool
+   * 
+   * - **Suspicious**: suspicious program
+   * 
+   * - **MalScript**: malicious script
+   * 
+   * - **Rootkit**: rootkit
+   * 
+   * - **Exploit**: exploit
+   * 
+   * > This parameter is not returned when `Result` is `0` or `3`.
    * 
    * @example
    * WebShell
@@ -189,7 +223,7 @@ export class ListCompressFileDetectResultResponseBody extends $dara.Model {
   pageInfo?: ListCompressFileDetectResultResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request, generated by Alibaba Cloud. Use this ID for troubleshooting.
    * 
    * @example
    * E10BAF1C-A6C5-51E2-866C-76D5922E****
@@ -197,7 +231,7 @@ export class ListCompressFileDetectResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The detection results of files.
+   * A list of detection results for the files in the archive.
    */
   resultList?: ListCompressFileDetectResultResponseBodyResultList[];
   static names(): { [key: string]: string } {

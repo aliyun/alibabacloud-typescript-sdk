@@ -6,9 +6,8 @@ export class DescribeAllGroupsResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
    * The type of the server group. Valid values:
-   * 
-   * *   **0**: default group
-   * *   **1**: other groups
+   * - **0**: default group
+   * - **1**: other group.
    * 
    * @example
    * 1
@@ -66,12 +65,12 @@ export class DescribeAllGroupsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The grouping information about the servers.
+   * The server group information.
    */
   groups?: DescribeAllGroupsResponseBodyGroups[];
   /**
    * @remarks
-   * The ID of the request.
+   * The unique identifier that Alibaba Cloud generated for the request.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92719F

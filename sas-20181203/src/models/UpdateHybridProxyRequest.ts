@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHybridProxyRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the Security Center agent.
+   * The UUID of the proxy client.
    * 
    * This parameter is required.
    * 

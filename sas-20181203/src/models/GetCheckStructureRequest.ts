@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckStructureRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -13,10 +13,10 @@ export class GetCheckStructureRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for requests and responses. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,7 +24,7 @@ export class GetCheckStructureRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -32,10 +32,10 @@ export class GetCheckStructureRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the asset. Valid values:
+   * The region where the asset resides. Valid values:
    * 
-   * *   cn-hangzhou: China.
-   * *   ap-southeast-1: outside China.
+   * - cn-hangzhou: China
+   * - ap-southeast-1: outside China.
    * 
    * @example
    * cn-hangzhou
@@ -43,7 +43,7 @@ export class GetCheckStructureRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * List of task sources.
+   * The list of task sources.
    */
   taskSources?: string[];
   static names(): { [key: string]: string } {

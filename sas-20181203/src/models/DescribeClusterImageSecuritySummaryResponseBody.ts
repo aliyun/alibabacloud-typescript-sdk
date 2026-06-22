@@ -15,9 +15,9 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: High.
+   * - **medium**: Medium.
+   * - **low**: Low.
    * 
    * @example
    * medium
@@ -57,11 +57,11 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
   count?: number;
   /**
    * @remarks
-   * The alert level. Valid values:
+   * The warning level. Valid values:
    * 
-   * *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-   * *   **nntf**: medium. You can fix the vulnerability based on your business requirements.
-   * *   **later**: low. You can ignore the vulnerability.
+   * - **asap**: High. Fix the vulnerability at the earliest opportunity.
+   * - **nntf**: Medium. The vulnerability can be temporarily left unfixed.
+   * - **later**: Low. The vulnerability can be left unfixed.
    * 
    * @example
    * later
@@ -103,9 +103,9 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: High.
+   * - **medium**: Medium.
+   * - **low**: Low.
    * 
    * @example
    * medium
@@ -137,7 +137,7 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
 export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventImageScaVul extends $dara.Model {
   /**
    * @remarks
-   * The number of image application vulnerabilities.
+   * The number of application vulnerabilities.
    * 
    * @example
    * 0
@@ -145,11 +145,11 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
   count?: number;
   /**
    * @remarks
-   * The alert level. Valid values:
+   * The warning level. Valid values:
    * 
-   * *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-   * *   **nntf**: medium. You can fix the vulnerability based on your business requirements.
-   * *   **later**: low. You can ignore the vulnerability.
+   * - **asap**: High. Fix the vulnerability at the earliest opportunity.
+   * - **nntf**: Medium. The vulnerability can be temporarily left unfixed.
+   * - **later**: Low. The vulnerability can be left unfixed.
    * 
    * @example
    * later
@@ -181,22 +181,22 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventIma
 export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEvent extends $dara.Model {
   /**
    * @remarks
-   * The information about image baseline risks.
+   * The image baseline check information.
    */
   imageBaseline?: DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventImageBaseline[];
   /**
    * @remarks
-   * The information about image system vulnerabilities.
+   * The image system vulnerability information.
    */
   imageCveVul?: DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventImageCveVul[];
   /**
    * @remarks
-   * The information about malicious image samples.
+   * The image malicious sample information.
    */
   imageMaliciousFile?: DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventImageMaliciousFile[];
   /**
    * @remarks
-   * The information about image application vulnerabilities.
+   * The image application vulnerability information.
    */
   imageScaVul?: DescribeClusterImageSecuritySummaryResponseBodyClusterImageEventImageScaVul[];
   static names(): { [key: string]: string } {
@@ -241,7 +241,7 @@ export class DescribeClusterImageSecuritySummaryResponseBodyClusterImageEvent ex
 export class DescribeClusterImageSecuritySummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the image-related security events.
+   * The image security event information.
    */
   clusterImageEvent?: DescribeClusterImageSecuritySummaryResponseBodyClusterImageEvent;
   /**

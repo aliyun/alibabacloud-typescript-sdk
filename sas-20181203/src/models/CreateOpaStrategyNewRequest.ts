@@ -7,7 +7,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailBaselineItem extends $dara.Mo
    * @remarks
    * The ID of the baseline check item.
    * 
-   * >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the ID.
+   * > You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the ID.
    * 
    * @example
    * hc.image.checklist.identify.hc_exploit_couchdb_linux.item
@@ -17,7 +17,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailBaselineItem extends $dara.Mo
    * @remarks
    * The name of the baseline check item.
    * 
-   * >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the name.
+   * > You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the name.
    * 
    * @example
    * Unauthorized access to CouchDB configuration risk
@@ -91,7 +91,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailBuildRiskItem extends $dara.M
    * @remarks
    * The ID of the image build risk.
    * 
-   * >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+   * > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
    * 
    * @example
    * key
@@ -101,7 +101,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailBuildRiskItem extends $dara.M
    * @remarks
    * The name of the image build risk.
    * 
-   * >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+   * > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
    * 
    * @example
    * name
@@ -175,7 +175,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $da
    * @remarks
    * The ID of the malicious sample.
    * 
-   * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the ID.
+   * > You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the ID.
    * 
    * @example
    * 3685699
@@ -185,7 +185,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $da
    * @remarks
    * The name of the malicious sample.
    * 
-   * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the name.
+   * > You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the name.
    * 
    * @example
    * abnormal binary file
@@ -259,7 +259,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailSensitiveFileItem extends $da
    * @remarks
    * The ID of the sensitive files.
    * 
-   * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+   * > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
    * 
    * @example
    * key
@@ -269,7 +269,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailSensitiveFileItem extends $da
    * @remarks
    * The name of the sensitive files.
    * 
-   * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+   * > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
    * 
    * @example
    * name
@@ -343,7 +343,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailVulItem extends $dara.Model {
    * @remarks
    * The ID of the vulnerability.
    * 
-   * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the ID.
+   * > You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the ID.
    * 
    * @example
    * CVE-2023-36034
@@ -353,7 +353,7 @@ export class CreateOpaStrategyNewRequestAlarmDetailVulItem extends $dara.Model {
    * @remarks
    * The name of the vulnerability.
    * 
-   * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the name.
+   * > You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the name.
    * 
    * @example
    * Microsoft Edge vul
@@ -387,8 +387,9 @@ export class CreateOpaStrategyNewRequestAlarmDetailVulRiskClass extends $dara.Mo
    * @remarks
    * The ID of the vulnerability types. Valid values:
    * 
-   * *   **cve**: system vulnerability
-   * *   **app**: application vulnerability
+   * - **cve**: system vulnerability
+   * 
+   * - **app**: application vulnerability
    * 
    * @example
    * cve
@@ -398,11 +399,12 @@ export class CreateOpaStrategyNewRequestAlarmDetailVulRiskClass extends $dara.Mo
    * @remarks
    * The name of the vulnerability. Valid values:
    * 
-   * *   **system vulnerability**
-   * *   **application vulnerability**
+   * - **system vulnerability**
+   * 
+   * - **application vulnerability**
    * 
    * @example
-   * system vulnerability
+   * 系统漏洞
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -563,8 +565,9 @@ export class CreateOpaStrategyNewRequestScopes extends $dara.Model {
    * @remarks
    * Specifies whether to include all namespaces. Valid values:
    * 
-   * *   **1**: includes all namespaces.
-   * *   **0**: does not include all namespaces.
+   * - **1**: includes all namespaces.
+   * 
+   * - **0**: does not include all namespaces.
    * 
    * @example
    * 1
@@ -574,7 +577,7 @@ export class CreateOpaStrategyNewRequestScopes extends $dara.Model {
    * @remarks
    * The ID of the cluster that is specified in the rule.
    * 
-   * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
+   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
    * 
    * @example
    * cc50d***015d2
@@ -665,8 +668,9 @@ export class CreateOpaStrategyNewRequest extends $dara.Model {
    * @remarks
    * Specifies whether the rule supports malicious Internet images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -676,9 +680,11 @@ export class CreateOpaStrategyNewRequest extends $dara.Model {
    * @remarks
    * The action that is performed when the rule is hit. Valid values:
    * 
-   * *   **1**: trigger alerts
-   * *   **2**: block
-   * *   **3**: allow
+   * - **1**: trigger alerts
+   * 
+   * - **2**: block
+   * 
+   * - **3**: allow
    * 
    * @example
    * 1
@@ -693,7 +699,7 @@ export class CreateOpaStrategyNewRequest extends $dara.Model {
    * @remarks
    * The rule ID.
    * 
-   * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+   * > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
    * 
    * > This parameter is invalid when you create a rule.
    * 
@@ -713,7 +719,7 @@ export class CreateOpaStrategyNewRequest extends $dara.Model {
    * @remarks
    * The ID of the rule template.
    * 
-   * >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+   * > You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
    * 
    * @example
    * 109
@@ -723,8 +729,9 @@ export class CreateOpaStrategyNewRequest extends $dara.Model {
    * @remarks
    * Specifies whether the rule supports unscanned images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

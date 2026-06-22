@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSimilarSecurityEventsQueryTaskResponseBodyCreateSimilarSecurityEventsQueryTaskResponse extends $dara.Model {
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **New**: The task is created.
-   * *   **RetrievingData**: Data is being retrieved.
-   * *   **DataRetrieved**: Data is retrieved.
-   * *   **Processing**: The task is running.
-   * *   **Success**: The task is successful.
-   * *   **Failed**: The task failed.
-   * *   **PartialFailed**: The task partially failed.
+   * - **New**: The task is created.
+   * - **RetrievingData**: Data is being retrieved.
+   * - **DataRetrieved**: Data is retrieved.
+   * - **Processing**: The task is being processed.
+   * - **Success**: The task is successful.
+   * - **Failed**: The task failed.
+   * - **PartialFailed**: The task partially failed.
    * 
    * @example
    * New
@@ -53,12 +53,12 @@ export class CreateSimilarSecurityEventsQueryTaskResponseBodyCreateSimilarSecuri
 export class CreateSimilarSecurityEventsQueryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the task that queries alert events of the same alert type.
+   * The response for creating a task to query similar alert events.
    */
   createSimilarSecurityEventsQueryTaskResponse?: CreateSimilarSecurityEventsQueryTaskResponseBodyCreateSimilarSecurityEventsQueryTaskResponse;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 5861EE3E-F0B3-48B8-A5DC-A5080BFBE052

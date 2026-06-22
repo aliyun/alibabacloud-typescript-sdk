@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MarkMonitorAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the members.
+   * The list of member account IDs.
    * 
    * This parameter is required.
    * 

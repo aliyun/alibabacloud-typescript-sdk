@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineItemListResponseBodyBaselineItemInfos extends $dara.Model {
   /**
    * @remarks
-   * The alias of the baseline type.
+   * The alias of the baseline category.
    * 
    * @example
-   * AccessKey pair leak
+   * Access Key泄漏
    */
   baselineClassAlias?: string;
   /**
    * @remarks
-   * The key of the baseline type.
+   * The key of the baseline category.
    * 
    * @example
    * ak_leak
@@ -21,15 +21,15 @@ export class DescribeImageBaselineItemListResponseBodyBaselineItemInfos extends 
   baselineClassKey?: string;
   /**
    * @remarks
-   * The alias of the baseline check item.
+   * The alias of the baseline sub-item.
    * 
    * @example
-   * AccessKey pair leak
+   * Access Key泄漏
    */
   baselineItemAlias?: string;
   /**
    * @remarks
-   * The key of the baseline check item.
+   * The key of the baseline sub-item.
    * 
    * @example
    * ak_leak
@@ -37,10 +37,10 @@ export class DescribeImageBaselineItemListResponseBodyBaselineItemInfos extends 
   baselineItemKey?: string;
   /**
    * @remarks
-   * The alias of the baseline.
+   * The alias of the baseline name.
    * 
    * @example
-   * AccessKey pair leak
+   * Access Key泄漏
    */
   baselineNameAlias?: string;
   /**
@@ -53,12 +53,11 @@ export class DescribeImageBaselineItemListResponseBodyBaselineItemInfos extends 
   baselineNameKey?: string;
   /**
    * @remarks
-   * The status of the baseline risks. Valid values:
-   * 
-   * *   **0**: unfixed
-   * *   **1**: fixed
-   * *   **2**: pending verification
-   * *   **3**: fixing failed
+   * The fix status of the baseline risk. Valid values:
+   * - **0**: unfixed
+   * - **1**: fixed
+   * - **2**: pending verification
+   * - **3**: fix failed.
    * 
    * @example
    * 0
@@ -66,10 +65,9 @@ export class DescribeImageBaselineItemListResponseBodyBaselineItemInfos extends 
   status?: number;
   /**
    * @remarks
-   * Indicates whether the baseline check item is added to the whitelist. Valid values:
-   * 
-   * *   **0**: The baseline check item is not added to the whitelist.
-   * *   **1**: The baseline check item is added to the whitelist.
+   * The whitelist status of the baseline check item. Valid values:
+   * - **0**: not whitelisted
+   * - **1**: whitelisted.
    * 
    * @example
    * 0
@@ -113,7 +111,7 @@ export class DescribeImageBaselineItemListResponseBodyBaselineItemInfos extends 
 export class DescribeImageBaselineItemListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paged query.
    * 
    * @example
    * 20
@@ -121,7 +119,7 @@ export class DescribeImageBaselineItemListResponseBodyPageInfo extends $dara.Mod
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -129,7 +127,7 @@ export class DescribeImageBaselineItemListResponseBodyPageInfo extends $dara.Mod
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -173,12 +171,12 @@ export class DescribeImageBaselineItemListResponseBodyPageInfo extends $dara.Mod
 export class DescribeImageBaselineItemListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of baseline check items.
+   * The list of image baseline data.
    */
   baselineItemInfos?: DescribeImageBaselineItemListResponseBodyBaselineItemInfos[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query results.
    */
   pageInfo?: DescribeImageBaselineItemListResponseBodyPageInfo;
   /**

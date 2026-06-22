@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridProxyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the proxy cluster. You can query the name of the proxy cluster in the Security Center console.
+   * The name of the proxy cluster. You can view the cluster name in the console.
    * 
    * This parameter is required.
    * 

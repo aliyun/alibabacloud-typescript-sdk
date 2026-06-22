@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateVulsRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation on the vulnerabilities. Set the value to **vul_fix**, which indicates vulnerability fixing.
+   * The method to handle the vulnerability. Set the value to **vul_fix**, which indicates fixing the vulnerability.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class OperateVulsRequest extends $dara.Model {
   operateType?: string;
   /**
    * @remarks
-   * The type of the vulnerabilities that you want to fix. Set the value to **cve**, which indicates Linux software vulnerabilities.
+   * The type of vulnerability to fix. Set the value to **cve**, which indicates a Linux software vulnerability.
    * 
    * This parameter is required.
    * 
@@ -25,14 +25,14 @@ export class OperateVulsRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUIDs of servers for which you want to fix vulnerabilities.
+   * The UUIDs of the servers on which you want to fix the vulnerabilities.
    * 
    * This parameter is required.
    */
   uuids?: string[];
   /**
    * @remarks
-   * The names of the vulnerabilities that you want to fix.
+   * The names of the vulnerabilities to fix.
    * 
    * This parameter is required.
    */

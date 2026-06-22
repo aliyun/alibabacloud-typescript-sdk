@@ -29,9 +29,11 @@ export class UpdateMultiUserInstancesResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Update status. Values:  
-   * - **1**：Success 
-   * - **2**：Failure
+   * Update status. Values:
+   * 
+   * - **1**:Success
+   * 
+   * - **2**:Failure
    * 
    * @example
    * 1

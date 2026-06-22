@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAssetGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new server group to which the servers belong.
-   * 
-   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+   * The ID of the new group to which you want to assign the servers.
+   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the group IDs of servers.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class ModifyAssetGroupRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 10.12.XX.XX
@@ -25,8 +24,7 @@ export class ModifyAssetGroupRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The UUIDs of the servers for which you want to change the server group. Separate multiple UUIDs with commas (,).
-   * 
+   * The UUIDs of the servers whose group you want to modify. Separate multiple UUIDs with commas (,).
    * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
    * 
    * This parameter is required.

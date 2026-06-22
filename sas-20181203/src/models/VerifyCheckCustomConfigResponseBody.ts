@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigsLinkErrorConfigs extends $dara.Model {
   /**
    * @remarks
-   * Name of the check item configuration, unique within the same check item.
+   * The name of the check item configuration. The name is unique within the check item.
    * 
    * @example
    * IpLists
@@ -13,7 +13,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigsLinkErrorConfig
   name?: string;
   /**
    * @remarks
-   * Display name of the user\\"s check configuration.
+   * The display name of the user check configuration.
    * 
    * @example
    * IP Lists
@@ -21,9 +21,9 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigsLinkErrorConfig
   showName?: string;
   /**
    * @remarks
-   * The type of the parameter that caused the error:
-   * - repair: Repair parameter
-   * - custom: Custom configuration parameter
+   * The type of the parameter that has an error. Valid values:
+   * - repair: repair parameter
+   * - custom: custom configuration parameter.
    * 
    * @example
    * repair
@@ -57,7 +57,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigsLinkErrorConfig
 export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigs extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * ConfigEqualIllegal
@@ -65,7 +65,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigs extends $dara.
   errorCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Custom parameter is not equal to corresponding check parameter
@@ -73,12 +73,12 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigs extends $dara.
   errorMsg?: string;
   /**
    * @remarks
-   * Related configurations causing this error.
+   * The related configurations that caused this error.
    */
   linkErrorConfigs?: VerifyCheckCustomConfigResponseBodyErrorCheckConfigsLinkErrorConfigs[];
   /**
    * @remarks
-   * Name of the custom configuration item for the check item, unique within the same check item.
+   * The name of the custom configuration item for the check item. The name is unique within the check item.
    * 
    * @example
    * IpList
@@ -86,8 +86,8 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigs extends $dara.
   name?: string;
   /**
    * @remarks
-   * Type of the erroneous parameter:
-   * - custom: Custom configuration parameter
+   * The type of the parameter that has an error. Valid values:
+   * - custom: custom configuration parameter.
    * 
    * @example
    * custom
@@ -95,7 +95,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigs extends $dara.
   type?: string;
   /**
    * @remarks
-   * User-configured value string for the custom configuration item of the check item.
+   * The user-configured value string of the custom configuration item for the check item.
    * 
    * @example
    * 10.12.4.XX
@@ -138,9 +138,9 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckConfigs extends $dara.
 export class VerifyCheckCustomConfigResponseBodyErrorCheckCustomConfig extends $dara.Model {
   /**
    * @remarks
-   * Error code when failed. This parameter is not returned upon success. 
-   * - **CspmVerifyCheckCustomItemNoPass**: The asset did not pass the set custom rules. 
-   * - **CspmVerifyCheckCustomItemError**: Verification error, there is an issue with the input rule.
+   * The error code returned upon failure. This parameter is not returned upon success. Valid values:
+   * - **CspmVerifyCheckCustomItemNoPass**: The asset did not pass the custom rule that was configured.
+   * - **CspmVerifyCheckCustomItemError**: A validation error occurred because the input rule has issues.
    * 
    * @example
    * CspmVerifyCheckCustomItemNoPass
@@ -148,7 +148,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckCustomConfig extends $
   errorCode?: string;
   /**
    * @remarks
-   * Error message
+   * The exception information.
    * 
    * @example
    * Creation verification failed.
@@ -180,7 +180,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorCheckCustomConfig extends $
 export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigsLinkErrorConfigs extends $dara.Model {
   /**
    * @remarks
-   * Name of the check item\\"s configuration, unique within the same check item.
+   * The name of the check item configuration. The name is unique within the check item.
    * 
    * @example
    * IpList
@@ -188,7 +188,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigsLinkErrorConfi
   name?: string;
   /**
    * @remarks
-   * Display name of the user\\"s check configuration.
+   * The display name of the user check configuration.
    * 
    * @example
    * Ip List
@@ -196,9 +196,9 @@ export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigsLinkErrorConfi
   showName?: string;
   /**
    * @remarks
-   * The type of the parameter that caused the error:
-   * - repair: Repair parameter
-   * - custom: Custom configuration parameter
+   * The type of the parameter that has an error. Valid values:
+   * - repair: repair parameter
+   * - custom: custom configuration parameter.
    * 
    * @example
    * custom
@@ -232,7 +232,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigsLinkErrorConfi
 export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigs extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * ConfigEqualIllegal
@@ -240,7 +240,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigs extends $dara
   errorCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Repair parameter is not equal to corresponding check parameter
@@ -248,12 +248,12 @@ export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigs extends $dara
   errorMsg?: string;
   /**
    * @remarks
-   * Related configurations causing this error.
+   * The related configurations that caused this error.
    */
   linkErrorConfigs?: VerifyCheckCustomConfigResponseBodyErrorRepairConfigsLinkErrorConfigs[];
   /**
    * @remarks
-   * Name of the check item\\"s repair configuration, unique within the same check item.
+   * The name of the repair configuration item for the check item. The name is unique within the check item.
    * 
    * @example
    * IpLists
@@ -261,8 +261,8 @@ export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigs extends $dara
   name?: string;
   /**
    * @remarks
-   * The type of the parameter that caused the error:
-   * - repair: Repair parameter
+   * The type of the parameter that has an error. Valid values:
+   * - repair: repair parameter.
    * 
    * @example
    * repair
@@ -270,7 +270,7 @@ export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigs extends $dara
   type?: string;
   /**
    * @remarks
-   * Name of the check item\\"s repair parameter, unique within the same check item.
+   * The name of the repair parameter for the check item. The name is unique within the check item.
    * 
    * @example
    * 172.26.49.XX
@@ -313,22 +313,22 @@ export class VerifyCheckCustomConfigResponseBodyErrorRepairConfigs extends $dara
 export class VerifyCheckCustomConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of check parameters with configuration errors.
+   * The list of check parameters that have configuration check errors.
    */
   errorCheckConfigs?: VerifyCheckCustomConfigResponseBodyErrorCheckConfigs[];
   /**
    * @remarks
-   * Check the error code returned by the custom check item.
+   * The error code returned for the custom check item validation.
    */
   errorCheckCustomConfig?: VerifyCheckCustomConfigResponseBodyErrorCheckCustomConfig;
   /**
    * @remarks
-   * List of repair parameters with configuration check errors.
+   * The list of repair parameters that have configuration check errors.
    */
   errorRepairConfigs?: VerifyCheckCustomConfigResponseBodyErrorRepairConfigs[];
   /**
    * @remarks
-   * The ID of this call request, a unique identifier generated by Alibaba Cloud for the request, which can be used for troubleshooting and problem localization.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 7532B7EE-7CE7-5F4D-BF04-B12447DD****

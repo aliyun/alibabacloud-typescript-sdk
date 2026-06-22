@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileDetectResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifiers of files. Only MD5 hash values are supported.
+   * An array of up to 100 unique file identifiers.
    * 
    * This parameter is required.
    */
@@ -20,14 +20,11 @@ export class GetFileDetectResultRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The type of the file. Valid values:
+   * The type of file to detect. Valid values:
    * 
-   * *   **0**: unknown file
-   * *   **1**: binary file
-   * *   **2**: webshell file
-   * *   **4**: script file
+   * - **0**: malicious file detection
    * 
-   * > If you do not know the type of the file, set this parameter to 0.
+   * - **6**: Skill compressed package detection
    * 
    * This parameter is required.
    * 

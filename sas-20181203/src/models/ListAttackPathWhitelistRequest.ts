@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAttackPathWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * When performing a paginated query, set the current page number. The default value is **1**.
+   * The page number when using paging. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,9 +13,9 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language type for requests and responses. The default value is **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * en
@@ -23,7 +23,7 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * When performing a paginated query, set the maximum number of items per page. The default value is 20.
+   * The maximum number of entries per page when using paging. Default value: 20.
    * 
    * @example
    * 20
@@ -31,8 +31,8 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Path name description.
-   * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path name descriptions.
+   * The path name description.
+   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path name descriptions.
    * 
    * @example
    * ECS Instance Can Obtain Long-term Access Credential by Enabling Console Logon for RAM User
@@ -40,8 +40,8 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
   pathNameDesc?: string;
   /**
    * @remarks
-   * Path type.
-   * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path types.
+   * The path type.
+   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
    * 
    * @example
    * role_escalation
@@ -49,7 +49,7 @@ export class ListAttackPathWhitelistRequest extends $dara.Model {
   pathType?: string;
   /**
    * @remarks
-   * Whitelist name.
+   * The whitelist name.
    * 
    * @example
    * test

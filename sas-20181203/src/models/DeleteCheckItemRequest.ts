@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCheckItemRequest extends $dara.Model {
   /**
    * @remarks
-   * List of check item IDs.
+   * The list of check item IDs.
    * 
    * This parameter is required.
    */

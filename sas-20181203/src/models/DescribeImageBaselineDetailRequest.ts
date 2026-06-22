@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the baseline.
+   * The baseline data information.
    * 
    * @example
-   * Valid values include but are not limited to ak_leak, duplicate_uid, duplicate_pwd_hash, and non_pwd_user.
+   * 取值包括但不限于以下内容：ak_leak, duplicate_uid,duplicate_pwd_hash,non_pwd_user
    */
   baselineItemKey?: string;
   /**
@@ -21,10 +21,10 @@ export class DescribeImageBaselineDetailRequest extends $dara.Model {
   imageUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh

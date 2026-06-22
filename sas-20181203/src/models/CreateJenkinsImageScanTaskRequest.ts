@@ -8,7 +8,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
    * The digest of the image.
    * 
    * @example
-   * a8c9f3765684cd8d9053db9523eab58878e99a199217500efd9ae2a860a7e01e
+   * a8c9f3765684cd8d9053db9523eab58878e99a199217500efd9ae2a860a7****
    */
   digest?: string;
   /**
@@ -24,7 +24,7 @@ export class CreateJenkinsImageScanTaskRequest extends $dara.Model {
    * The ID of the image.
    * 
    * @example
-   * b10ef7b245c34a0822055c74fc4a0e8b5baf0279306316b2c517a501ed250b1e
+   * b10ef7b245c34a0822055c74fc4a0e8b5baf0279306316b2c517a501ed25****
    */
   imageId?: string;
   /**

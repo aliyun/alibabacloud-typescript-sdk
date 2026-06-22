@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each API request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7

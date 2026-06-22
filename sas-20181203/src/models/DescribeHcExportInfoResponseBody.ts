@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHcExportInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of exported entries.
+   * The number of data entries that have been exported.
    * 
    * @example
    * 148
@@ -21,7 +21,7 @@ export class DescribeHcExportInfoResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The time when the export task was created.
+   * The time when the task was created.
    * 
    * @example
    * 2022-11-03T15:15Z
@@ -37,7 +37,7 @@ export class DescribeHcExportInfoResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The download URL for the exported file.
+   * The download link of the exported file.
    * 
    * @example
    * https://hc-export.oss-cn-shanghai.aliyuncs.com/export_hc/health_check_export_20221222_1671699255808.zip?Expires=1672304056&OSSAccessKeyId=****&Signature=****
@@ -45,7 +45,7 @@ export class DescribeHcExportInfoResponseBody extends $dara.Model {
   link?: string;
   /**
    * @remarks
-   * The progress percentage of the export task.
+   * The export progress in percentage (%).
    * 
    * @example
    * 89
@@ -53,7 +53,7 @@ export class DescribeHcExportInfoResponseBody extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 3C2C94CF-ED08-50C0-BC72-C5029251****
@@ -63,8 +63,9 @@ export class DescribeHcExportInfoResponseBody extends $dara.Model {
    * @remarks
    * The status of the export task. Valid values:
    * 
-   * *   **exporting**: The task is in progress.
-   * *   **success**: The task is complete.
+   * - **exporting**: The export is in progress.
+   * 
+   * - **success**: The export is successful.
    * 
    * @example
    * exporting
@@ -72,7 +73,7 @@ export class DescribeHcExportInfoResponseBody extends $dara.Model {
   resultStatus?: string;
   /**
    * @remarks
-   * The total number of exported entries.
+   * The total number of data entries to be exported.
    * 
    * @example
    * 624

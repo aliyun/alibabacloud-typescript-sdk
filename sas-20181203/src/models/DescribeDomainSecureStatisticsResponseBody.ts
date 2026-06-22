@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainSecureStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of domain names that trigger security alerts.
+   * The number of domain names that have security alerts.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeDomainSecureStatisticsResponseBody extends $dara.Model {
   alarmCount?: number;
   /**
    * @remarks
-   * The number of the websites for which no certificates are installed.
+   * The number of websites without certificates.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeDomainSecureStatisticsResponseBody extends $dara.Model {
   noSslCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 1EE7B150-D67E-53FD-A52D-3E8E669A****
@@ -29,7 +29,7 @@ export class DescribeDomainSecureStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of the domain names that have security risks.
+   * The number of domain names that have security risks.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeDomainSecureStatisticsResponseBody extends $dara.Model {
   totalDomainCount?: number;
   /**
    * @remarks
-   * The number of the domain names that have vulnerabilities.
+   * The number of domain names that have vulnerabilities.
    * 
    * @example
    * 2

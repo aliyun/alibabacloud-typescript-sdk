@@ -13,7 +13,7 @@ export class DescribeImageBuildRiskListResponseBodyDataList extends $dara.Model 
   count?: number;
   /**
    * @remarks
-   * The timestamp generated when the first scan was performed. Unit: milliseconds.
+   * The timestamp of the first scan. Unit: milliseconds.
    * 
    * @example
    * 1723710827000
@@ -21,7 +21,7 @@ export class DescribeImageBuildRiskListResponseBodyDataList extends $dara.Model 
   firstScanTime?: number;
   /**
    * @remarks
-   * The timestamp generated when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the most recent scan. Unit: milliseconds.
    * 
    * @example
    * 1723710827999
@@ -29,7 +29,7 @@ export class DescribeImageBuildRiskListResponseBodyDataList extends $dara.Model 
   lastScanTime?: number;
   /**
    * @remarks
-   * The type key of the risk.
+   * The key of the build risk rule category.
    * 
    * @example
    * other
@@ -37,7 +37,7 @@ export class DescribeImageBuildRiskListResponseBodyDataList extends $dara.Model 
   riskClass?: string;
   /**
    * @remarks
-   * The type name of the risk.
+   * The category name of the build risk rule.
    * 
    * @example
    * other
@@ -45,7 +45,7 @@ export class DescribeImageBuildRiskListResponseBodyDataList extends $dara.Model 
   riskClassName?: string;
   /**
    * @remarks
-   * The key of the risk. You can call the [DescribeImageBuildRiskList](~~~~) operation to obtain the value of **RiskKey**.
+   * The key of the build risk rule. You can call the [DescribeImageBuildRiskList](~~~~) operation to obtain the value of **RiskKey**.
    * 
    * @example
    * no_user
@@ -53,7 +53,7 @@ export class DescribeImageBuildRiskListResponseBodyDataList extends $dara.Model 
   riskKey?: string;
   /**
    * @remarks
-   * The rule name of the risk.
+   * The name of the build risk rule.
    * 
    * @example
    * no_user
@@ -63,9 +63,11 @@ export class DescribeImageBuildRiskListResponseBodyDataList extends $dara.Model 
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: High.
+   * 
+   * - **medium**: Medium.
+   * 
+   * - **low**: Low.
    * 
    * @example
    * medium
@@ -119,7 +121,7 @@ export class DescribeImageBuildRiskListResponseBodyDataList extends $dara.Model 
 export class DescribeImageBuildRiskListResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page when paging is used. Default value: **1**.
    * 
    * @example
    * 1
@@ -127,9 +129,8 @@ export class DescribeImageBuildRiskListResponseBodyDataPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page when paging is used. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -171,12 +172,12 @@ export class DescribeImageBuildRiskListResponseBodyDataPageInfo extends $dara.Mo
 export class DescribeImageBuildRiskListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The risks.
+   * The summary list of build risks.
    */
   list?: DescribeImageBuildRiskListResponseBodyDataList[];
   /**
    * @remarks
-   * The pagination information.
+   * The paging parameters.
    */
   pageInfo?: DescribeImageBuildRiskListResponseBodyDataPageInfo;
   static names(): { [key: string]: string } {
@@ -211,7 +212,7 @@ export class DescribeImageBuildRiskListResponseBodyData extends $dara.Model {
 export class DescribeImageBuildRiskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -224,7 +225,7 @@ export class DescribeImageBuildRiskListResponseBody extends $dara.Model {
   data?: DescribeImageBuildRiskListResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The detailed information about the error code.
    * 
    * @example
    * successful
@@ -232,7 +233,7 @@ export class DescribeImageBuildRiskListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BE120DAB-F4E7-4C53-ADC3-A97578AB****
@@ -240,10 +241,9 @@ export class DescribeImageBuildRiskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyContainerScanConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The processing result.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Succeeded.
+   * - **false**: Failed.
    * 
    * @example
    * true

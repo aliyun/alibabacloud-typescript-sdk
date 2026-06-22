@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of application vulnerabilities that are detected on the asset by using the web scanner.
+   * The number of application vulnerability entries detected by the scanner on your assets.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   appCnt?: number;
   /**
    * @remarks
-   * The number of application vulnerabilities that are detected on the asset by using the web scanner.
+   * The number of application vulnerabilities detected by the scanner on your assets.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   appNum?: number;
   /**
    * @remarks
-   * The number of Web-CMS vulnerabilities that are handled.
+   * The total number of handled CMS vulnerabilities.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   cmsDealedTotalNum?: number;
   /**
    * @remarks
-   * The number of Web-CMS vulnerabilities that are detected on the asset.
+   * The number of Web-CMS vulnerabilities on your assets.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   cmsNum?: number;
   /**
    * @remarks
-   * The number of Linux software vulnerabilities that are detected on the asset.
+   * The number of Linux software vulnerabilities on your assets.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   cveNum?: number;
   /**
    * @remarks
-   * The number of urgent vulnerabilities that are detected on the asset.
+   * The number of urgent vulnerabilities on your assets.
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of middleware vulnerabilities that are detected on the asset.
+   * The number of middleware vulnerabilities on your assets.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   scaNum?: number;
   /**
    * @remarks
-   * The number of Windows system vulnerabilities that are detected on the asset.
+   * The number of Windows system vulnerabilities on your assets.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   sysNum?: number;
   /**
    * @remarks
-   * The number of vulnerabilities that have the high priority.
+   * The number of vulnerabilities with a high fix priority.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   vulAsapSum?: number;
   /**
    * @remarks
-   * The number of vulnerabilities that are handled.
+   * This field is deprecated.
    * 
    * @example
    * 0
@@ -93,7 +93,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   vulDealedTotalNum?: number;
   /**
    * @remarks
-   * The number of vulnerabilities that have the medium priority.
+   * The number of vulnerabilities with a medium fix priority.
    * 
    * @example
    * 0
@@ -101,7 +101,7 @@ export class DescribeVulNumStatisticsResponseBody extends $dara.Model {
   vulLaterSum?: number;
   /**
    * @remarks
-   * The number of vulnerabilities that have the low priority.
+   * The number of vulnerabilities with a low fix priority.
    * 
    * @example
    * 0

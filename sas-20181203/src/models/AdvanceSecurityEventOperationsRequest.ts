@@ -8,7 +8,7 @@ export class AdvanceSecurityEventOperationsRequest extends $dara.Model {
    * The alert name.
    * 
    * @example
-   * Execution of malicious script code
+   * 恶意脚本代码执行
    */
   eventName?: string;
   /**
@@ -42,7 +42,7 @@ export class AdvanceSecurityEventOperationsRequest extends $dara.Model {
    * For more information about alert types, see [Alerts](https://help.aliyun.com/document_detail/68388.html).
    * 
    * @example
-   * Malicious script
+   * 恶意脚本
    */
   eventType?: string;
   resourceOwnerId?: number;

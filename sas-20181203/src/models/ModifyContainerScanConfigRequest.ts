@@ -13,9 +13,8 @@ export class ModifyContainerScanConfigRequest extends $dara.Model {
   appNames?: string;
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+   * The ID of the container cluster.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * cfb7a55a81f7246b5ac18845ea79a****
@@ -25,8 +24,8 @@ export class ModifyContainerScanConfigRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh

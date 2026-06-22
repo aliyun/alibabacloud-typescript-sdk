@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRegistryScanDayNumResponseBodyScanDayNumConfig extends $dara.Model {
   /**
    * @remarks
-   * The selectable day options.
+   * The list of available day options.
    * 
    * @example
    * 1,3,7,15,30,90,180,365
@@ -13,7 +13,7 @@ export class GetRegistryScanDayNumResponseBodyScanDayNumConfig extends $dara.Mod
   dayNumList?: string;
   /**
    * @remarks
-   * The scan period. Unit: days.
+   * The scan time range. Unit: days.
    * 
    * @example
    * 7
@@ -45,7 +45,7 @@ export class GetRegistryScanDayNumResponseBodyScanDayNumConfig extends $dara.Mod
 export class GetRegistryScanDayNumResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 09969D2C-4FAD-429E-BFBF-9A60DEF8****
@@ -53,7 +53,7 @@ export class GetRegistryScanDayNumResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configuration of the scan period.
+   * The scan day configuration.
    */
   scanDayNumConfig?: GetRegistryScanDayNumResponseBodyScanDayNumConfig;
   static names(): { [key: string]: string } {

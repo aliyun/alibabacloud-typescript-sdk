@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainListResponseBodyDomainListResponseList extends $dara.Model {
   /**
    * @remarks
-   * The name of the domain or website.
+   * The domain name or website name.
    * 
    * @example
    * example.com
@@ -13,7 +13,7 @@ export class DescribeDomainListResponseBodyDomainListResponseList extends $dara.
   domain?: string;
   /**
    * @remarks
-   * The IP addresses of the domain name.
+   * The IP address information associated with the domain name.
    * 
    * @example
    * 1.2.XX.XX,1.0.XX.XX
@@ -45,7 +45,7 @@ export class DescribeDomainListResponseBodyDomainListResponseList extends $dara.
 export class DescribeDomainListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of domain names displayed on the current page in a paged query.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class DescribeDomainListResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class DescribeDomainListResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **10**.
+   * The number of domain names displayed on each page in a paged query. Default value: **10**, which indicates that 10 domain names are displayed on each page.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class DescribeDomainListResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of domain names returned.
    * 
    * @example
    * 27
@@ -105,17 +105,17 @@ export class DescribeDomainListResponseBodyPageInfo extends $dara.Model {
 export class DescribeDomainListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the information about domain names.
+   * The list of domain name asset information.
    */
   domainListResponseList?: DescribeDomainListResponseBodyDomainListResponseList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: DescribeDomainListResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF46038

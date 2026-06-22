@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetAegisContainerPluginRuleCriteriaRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for requesting and receiving messages. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class GetAegisContainerPluginRuleCriteriaRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The value of the search condition.
+   * The matching condition value of the plugin.
    * 
    * @example
    * ss

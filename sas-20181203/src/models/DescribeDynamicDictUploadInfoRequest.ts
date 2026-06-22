@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDynamicDictUploadInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 123.103.XX.XX

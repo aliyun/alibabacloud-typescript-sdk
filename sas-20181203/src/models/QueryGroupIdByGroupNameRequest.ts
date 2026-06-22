@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryGroupIdByGroupNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the asset group.
+   * The name of the group to query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryGroupIdByGroupNameRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 10.12.XX.XX

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListVirusScanMachineEventResponseBodyDataDetails extends $dara.Model {
   /**
    * @remarks
-   * The display type of the value for ValueDisplay. Valid value:
-   * 
-   * *   **download_url**, which indicates a download URL.
+   * The display type of valueDisplay.
+   * Valid values:
+   * - **download_url**: download link.
    * 
    * @example
    * download_url
@@ -23,12 +23,12 @@ export class ListVirusScanMachineEventResponseBodyDataDetails extends $dara.Mode
   nameDisplay?: string;
   /**
    * @remarks
-   * The format in which the details of the exception are displayed.
+   * The display format of the exception event details.
    * 
    * Valid values:
    * 
-   * *   **text**
-   * *   **html**
+   * - **text**: plain text
+   * - **html**: rich text.
    * 
    * @example
    * html
@@ -36,7 +36,8 @@ export class ListVirusScanMachineEventResponseBodyDataDetails extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The attribute information about the exception. The information includes the logon time or location of an alert triggered by an unusual logon, and the trojan file path or trojan type of an alert.
+   * The additional attribute information of the exception event.
+   * For example, the logon time or logon location of an unusual logon alert, or the trojan file path or trojan type of an alert.
    * 
    * @example
    * getopt
@@ -72,7 +73,7 @@ export class ListVirusScanMachineEventResponseBodyDataDetails extends $dara.Mode
 export class ListVirusScanMachineEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the exception.
+   * The details of the exception event.
    */
   details?: ListVirusScanMachineEventResponseBodyDataDetails[];
   /**
@@ -85,15 +86,15 @@ export class ListVirusScanMachineEventResponseBodyData extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * The name of the alert event. The value indicates a subtype.
+   * The name (subtype) of the alert event.
    * 
    * @example
-   * Unusual Logon
+   * 恶意脚本代码执行
    */
   eventName?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * i-wz92q7m5hsbgfhdss***
@@ -117,7 +118,7 @@ export class ListVirusScanMachineEventResponseBodyData extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp when the alert event was last generated. Unit: milliseconds.
+   * The timestamp of the last occurrence, in milliseconds.
    * 
    * @example
    * 1682046733628
@@ -126,10 +127,9 @@ export class ListVirusScanMachineEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The risk level of the alert event. Valid values:
-   * 
-   * *   **serious**
-   * *   **suspicious**
-   * *   **remind**
+   * - **serious**: Critical.
+   * - **suspicious**: Suspicious.
+   * - **remind**: Reminder.
    * 
    * @example
    * serious
@@ -176,7 +176,7 @@ export class ListVirusScanMachineEventResponseBodyData extends $dara.Model {
 export class ListVirusScanMachineEventResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -184,7 +184,7 @@ export class ListVirusScanMachineEventResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -192,7 +192,7 @@ export class ListVirusScanMachineEventResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of alert events returned.
    * 
    * @example
    * 149
@@ -226,7 +226,7 @@ export class ListVirusScanMachineEventResponseBodyPageInfo extends $dara.Model {
 export class ListVirusScanMachineEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the alert event.
+   * The details of the alert events.
    */
   data?: ListVirusScanMachineEventResponseBodyData[];
   /**
@@ -236,7 +236,7 @@ export class ListVirusScanMachineEventResponseBody extends $dara.Model {
   pageInfo?: ListVirusScanMachineEventResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 2DAEF40F-8E1A-550D-8793-99C61C401DD0

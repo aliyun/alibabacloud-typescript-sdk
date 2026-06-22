@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the backup task ended. Unit: milliseconds.
+   * The backup end time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1699600611000
@@ -29,7 +29,7 @@ export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The timestamp when the backup task started. Unit: milliseconds.
+   * The backup start time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1699514211000
@@ -37,11 +37,10 @@ export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
   backupStartTime?: number;
   /**
    * @remarks
-   * The backup task status. Valid value:
-   * 
-   * *   **BACKUP_COMPLETE**: The backup task is successful.
-   * *   **BACKUP_FAILED**: The backup task failed.
-   * *   **PARTIAL_COMPLETE**: The backup task is partially successful.
+   * The backup task status. Valid values:
+   * - **BACKUP_COMPLETE**: backup succeeded
+   * - **BACKUP_FAILED**: backup failed
+   * - **PARTIAL_COMPLETE**: partial backup succeeded.
    * 
    * @example
    * BACKUP_COMPLETE
@@ -49,7 +48,7 @@ export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The ID of the anti-ransomware agent.
+   * The anti-ransomware client ID.
    * 
    * @example
    * c-0002bgagelj3d2sc****
@@ -65,7 +64,7 @@ export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message of the backup task.
+   * The error details of the backup task.
    * 
    * @example
    * FILE_CACHE_NO_SPACE
@@ -73,7 +72,7 @@ export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The instance ID of the server.
+   * The ID of the server instance.
    * 
    * @example
    * i-wz9ikn44p46krnic****
@@ -113,7 +112,7 @@ export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The ID of the region in which the backup is stored.
+   * The region ID of the backup service.
    * 
    * @example
    * cn-hangzhou
@@ -121,7 +120,7 @@ export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The UUID of the server whose data is backed up based on the anti-ransomware policy.
+   * The UUID of the server backed up by database anti-ransomware.
    * 
    * @example
    * b93cccb9-f19f-4886-97fe-47df26ba****
@@ -179,7 +178,7 @@ export class ListBackupRecordResponseBodyBackupRecordList extends $dara.Model {
 export class ListBackupRecordResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paged query.
    * 
    * @example
    * 20
@@ -187,7 +186,7 @@ export class ListBackupRecordResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 2
@@ -195,7 +194,7 @@ export class ListBackupRecordResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -239,7 +238,7 @@ export class ListBackupRecordResponseBodyPageInfo extends $dara.Model {
 export class ListBackupRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the backup record.
+   * The list of backup records.
    */
   backupRecordList?: ListBackupRecordResponseBodyBackupRecordList[];
   /**
@@ -249,7 +248,7 @@ export class ListBackupRecordResponseBody extends $dara.Model {
   pageInfo?: ListBackupRecordResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 3956048F-9D73-5EDB-834B-4827BB48****

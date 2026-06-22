@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePrivateRegistryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image repository.
-   * 
-   * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
+   * The image repository ID.
+   * >Call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

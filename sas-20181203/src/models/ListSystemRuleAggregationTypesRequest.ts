@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListSystemRuleAggregationTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: zh. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: zh. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh

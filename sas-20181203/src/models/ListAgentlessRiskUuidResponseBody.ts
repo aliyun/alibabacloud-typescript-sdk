@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The number of baseline risks.
+   * The number of baseline risk items.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
   baselineCount?: number;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The ID of the asset instance.
    * 
    * @example
    * s-bp1g6wxdwps7s9dz****
@@ -53,7 +53,7 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
   maliciousCount?: number;
   /**
    * @remarks
-   * The timestamp of the detection. Unit: milliseconds.
+   * The timestamp of the scan. Unit: milliseconds.
    * 
    * @example
    * 168257753****
@@ -61,7 +61,7 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
   scanTime?: number;
   /**
    * @remarks
-   * The ID of the asset that is detected.
+   * The ID of the scan target.
    * 
    * @example
    * 30****
@@ -69,7 +69,7 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the asset that is detected.
+   * The name of the scan target.
    * 
    * @example
    * test****
@@ -135,7 +135,7 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
 export class ListAgentlessRiskUuidResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page when using paging.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class ListAgentlessRiskUuidResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page when using paging.
    * 
    * @example
    * 20
@@ -185,17 +185,17 @@ export class ListAgentlessRiskUuidResponseBodyPageInfo extends $dara.Model {
 export class ListAgentlessRiskUuidResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the hosts.
+   * The list of servers.
    */
   list?: ListAgentlessRiskUuidResponseBodyList[];
   /**
    * @remarks
-   * The pagination information.
+   * The paging information for the query.
    */
   pageInfo?: ListAgentlessRiskUuidResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 05AE6B16-741A-5A75-9BF0-BC747DD9****

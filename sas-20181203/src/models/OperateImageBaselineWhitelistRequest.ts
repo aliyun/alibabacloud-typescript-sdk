@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateImageBaselineWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The keys of baseline check items.
+   * The list of baseline sub-item keys.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class OperateImageBaselineWhitelistRequest extends $dara.Model {
   baselineItemKeyList?: string;
   /**
    * @remarks
-   * The UUID of the image.
+   * The image UUID.
    * 
    * @example
    * a5250ebca765dc9eb1a84b790b0e****
@@ -23,10 +23,9 @@ export class OperateImageBaselineWhitelistRequest extends $dara.Model {
   imageUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -34,10 +33,10 @@ export class OperateImageBaselineWhitelistRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The operation that you want to perform on the check items. Valid values:
+   * The operation type. Valid values:
    * 
-   * *   **add**: adds the check items to the whitelist
-   * *   **del**: removes the check items from the whitelist
+   * - **add**: increase.
+   * - **del**: delete.
    * 
    * This parameter is required.
    * 
@@ -47,7 +46,7 @@ export class OperateImageBaselineWhitelistRequest extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The types of the assets that you want to scan.
+   * The collection of scan ranges.
    */
   scanRange?: string[];
   static names(): { [key: string]: string } {

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeReportRecipientStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DescribeReportRecipientStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The email address of the recipient. Separate multiple email addresses with commas (,).
+   * The email addresses of the contacts. Separate multiple email addresses with commas (,).
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class DescribeReportRecipientStatusRequest extends $dara.Model {
   recipients?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 39.174.xxx.xxx

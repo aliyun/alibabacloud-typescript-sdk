@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The attribute value of the condition parameter.
+   * The value of the condition parameter.
    * 
    * @example
    * sas
@@ -13,9 +13,9 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The property name of the condition parameters. Values:
-   *  - **RepoNamespace**: Namespace.
-   *  - **RepoName**: Repository name.
+   * The name of the condition parameter. Valid values:
+   * - **RepoNamespace**: namespace.
+   * - **RepoName**: repository name.
    * 
    * @example
    * RepoNamespace
@@ -23,7 +23,7 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   criteriaType?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page in paging query. Default value: **1**.
    * 
    * @example
    * 1
@@ -32,9 +32,8 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -42,9 +41,8 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -52,7 +50,7 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The key of the risk. You can call the [DescribeImageBuildRiskList](~~~~) operation to obtain the value of RiskKey.
+   * The key of the build risk rule. You can call the [DescribeImageBuildRiskList](~~~~) operation to obtain the RiskKey.
    * 
    * @example
    * no_user
@@ -61,10 +59,9 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   /**
    * @remarks
    * The risk level. Valid values:
-   * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**
+   * - **medium**
+   * - **low**.
    * 
    * @example
    * medium
@@ -72,11 +69,10 @@ export class DescribeImageListByBuildRiskRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The status of the alert event. Valid values:
-   * 
-   * *   **0**: unhandled.
-   * *   **1**: ignored.
-   * *   **2**: false positive.
+   * The status of the alert event to query. Valid values:
+   * - **0**: Unhandled.
+   * - **1**: Ignored.
+   * - **2**: False positive.
    * 
    * @example
    * 1

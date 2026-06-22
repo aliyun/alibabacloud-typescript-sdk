@@ -6,9 +6,8 @@ export class UpgradeHoneypotNodeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to allow the honeypot to access the Internet. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Allowed.
+   * - **false**: Not allowed.
    * 
    * @example
    * true
@@ -16,10 +15,9 @@ export class UpgradeHoneypotNodeRequest extends $dara.Model {
   allowHoneypotAccessInternet?: boolean;
   /**
    * @remarks
-   * The language of the content within the request and response.
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -27,9 +25,8 @@ export class UpgradeHoneypotNodeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the management node that you want to upgrade.
-   * 
-   * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
+   * The ID of the management node to upgrade.
+   * >You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this parameter.
    * 
    * @example
    * a882e590-b87b-45a6-87b9-d0a3e5a0****

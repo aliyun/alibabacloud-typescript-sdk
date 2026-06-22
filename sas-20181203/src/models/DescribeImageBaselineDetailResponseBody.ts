@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineDetailResponseBodyBaselineDetail extends $dara.Model {
   /**
    * @remarks
-   * The suggestion for the management of the risk item.
+   * The remediation suggestion for the baseline check risk item.
    * 
    * @example
-   * Delete the leaked AccessKey pairs.
+   * 删除泄漏的AK信息。
    */
   advice?: string;
   /**
    * @remarks
-   * The alias of the baseline type.
+   * The alias of the baseline classification.
    * 
    * @example
    * ak_leak
@@ -21,15 +21,15 @@ export class DescribeImageBaselineDetailResponseBodyBaselineDetail extends $dara
   baselineClassAlias?: string;
   /**
    * @remarks
-   * The alias of the baseline check item.
+   * The alias of the baseline sub-item.
    * 
    * @example
-   * AccessKey pair leak
+   * Access Key泄露
    */
   baselineItemAlias?: string;
   /**
    * @remarks
-   * The key of the baseline check item.
+   * The key of the baseline sub-item.
    * 
    * @example
    * ak_leak
@@ -37,27 +37,29 @@ export class DescribeImageBaselineDetailResponseBodyBaselineDetail extends $dara
   baselineItemKey?: string;
   /**
    * @remarks
-   * The alias of the baseline.
+   * The alias of the baseline name.
    * 
    * @example
-   * AccessKey pair leak
+   * Access Key泄露
    */
   baselineNameAlias?: string;
   /**
    * @remarks
-   * The description of the risk item.
+   * The description of the baseline risk item.
    * 
    * @example
-   * If an AccessKey pair is leaked, the AccessKey pair may be fraudulently used.
+   * Access Key泄露，会导致Access Key被冒用的风险。
    */
   description?: string;
   /**
    * @remarks
-   * The risk level of the baseline check item. Valid values:
+   * The risk level of the check item. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: High risk level.
+   * 
+   * - **medium**: Medium risk level.
+   * 
+   * - **low**: Low risk level.
    * 
    * @example
    * high
@@ -65,7 +67,7 @@ export class DescribeImageBaselineDetailResponseBodyBaselineDetail extends $dara
   level?: string;
   /**
    * @remarks
-   * The issue that is detected by using the baseline.
+   * The baseline issue prompt.
    * 
    * @example
    * /usr/aksk.txt:yourAccessKeyID
@@ -73,7 +75,7 @@ export class DescribeImageBaselineDetailResponseBodyBaselineDetail extends $dara
   prompt?: string;
   /**
    * @remarks
-   * The ID of the asynchronous request.
+   * The asynchronous request ID.
    * 
    * @example
    * async__c6f3b0b54613383b40bdce593ffe****
@@ -119,7 +121,7 @@ export class DescribeImageBaselineDetailResponseBodyBaselineDetail extends $dara
 export class DescribeImageBaselineDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the image baseline.
+   * The image baseline details.
    */
   baselineDetail?: DescribeImageBaselineDetailResponseBodyBaselineDetail;
   /**

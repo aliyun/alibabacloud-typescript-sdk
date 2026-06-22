@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExposedCheckWarningRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,9 +15,8 @@ export class DescribeExposedCheckWarningRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of the baseline.
-   * 
-   * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain the types of baselines from the response parameter **TypeName**.
+   * The type to which the baseline belongs.
+   * > The **TypeName** field returned by calling the [DescribeRiskType](~~DescribeRiskType~~) operation.
    * 
    * @example
    * weak_password
@@ -26,9 +24,8 @@ export class DescribeExposedCheckWarningRequest extends $dara.Model {
   typeName?: string;
   /**
    * @remarks
-   * The UUID of the server. Separate multiple UUIDs with commas (,).
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * The UUID of the server to query. Separate multiple UUIDs with commas (,).
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUID of a server.
    * 
    * @example
    * 6541631a-7d47-41fd-9fef-9518113f****

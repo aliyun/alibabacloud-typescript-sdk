@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUuidsByAppIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SAE application.
+   * The SAE application ID.
    * 
    * @example
    * 5b41f4bf-349f-4263-89b1-9234c034****
@@ -21,7 +21,7 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   appRegionId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query. Paging starts from page 1.
    * 
    * @example
    * 1
@@ -29,10 +29,9 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -40,7 +39,7 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query. Paging is performed based on this value.
    * 
    * @example
    * 20

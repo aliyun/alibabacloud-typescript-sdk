@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationProcessRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page to display in a paged query. This parameter is used for paging.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListOperationProcessRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end of the time range to query. Unit: milliseconds.
+   * The end time of the query based on the task completion time. Unit: milliseconds.
    * 
    * @example
    * 1635575219000
@@ -29,7 +29,7 @@ export class ListOperationProcessRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Unit: milliseconds.
+   * The start time of the query based on the task creation time. Unit: milliseconds.
    * 
    * @example
    * 1680919232000
@@ -37,28 +37,27 @@ export class ListOperationProcessRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The task status codes.
+   * The list of task status codes.
    */
   statusCodes?: number[];
   /**
    * @remarks
-   * The task IDs.
+   * The list of task IDs.
    */
   taskIds?: string[];
   /**
    * @remarks
-   * List of task sources.
+   * The list of task sources.
    */
   taskSources?: string[];
   /**
    * @remarks
-   * The task types. Valid values:
-   * 
-   * *   CHECK_ALL: full check.
-   * *   CHECK_POLICY: policy-based check for which check items are configured.
-   * *   CHECK_SCHEDULE: scheduled check.
-   * *   CHECK_ITEM: specific check item-based check.
-   * *   CHECK_INSTANCE: specific check item-based check on specific instances.
+   * The task type. Valid values:
+   * - CHECK_ALL: full check.
+   * - CHECK_POLICY: check performed based on check items in the configured policy.
+   * - CHECK_SCHEDULE: scheduled check.
+   * - CHECK_ITEM: check performed based on specified check items.
+   * - CHECK_INSTANCE: check performed based on specified check items and instances.
    */
   taskTypes?: string[];
   static names(): { [key: string]: string } {

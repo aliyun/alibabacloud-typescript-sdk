@@ -13,10 +13,9 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   alarmCount?: number;
   /**
    * @remarks
-   * Indicates whether alerts are generated for the container. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether security alerts exist for the container. Valid values:
+   * - **YES**: Security alerts exist.
+   * - **NO**: No security alerts exist.
    * 
    * @example
    * YES
@@ -24,7 +23,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   alarmStatus?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * alibaba-log-controller
@@ -32,7 +31,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * cfb41a869c71e4678a97021582dd8a****
@@ -48,7 +47,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   clusterName?: string;
   /**
    * @remarks
-   * The ID of the container.
+   * The container ID.
    * 
    * @example
    * 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f92155709d****
@@ -56,7 +55,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   containerId?: string;
   /**
    * @remarks
-   * The timestamp when the cluster was created. Unit: milliseconds.
+   * The timestamp when the cluster was created, in milliseconds.
    * 
    * @example
    * 1670368337000
@@ -64,10 +63,9 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   createTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether the asset is exposed to the Internet.
-   * 
-   * *   **1**: exposed
-   * *   **0**: not exposed
+   * Indicates whether the container is exposed to the Internet. Valid values:
+   * - **1**: exposed.
+   * - **0**: not exposed.
    * 
    * @example
    * 1
@@ -75,10 +73,10 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   exposed?: number;
   /**
    * @remarks
-   * The exposure details. The value is a JSON string.
+   * The exposure details in JSON format.
    * 
    * @example
-   * [{}]
+   * [{\\"exposedName\\":\\"nginx-ingress-lb\\",\\"exposedType\\":\\"LoadBalancer\\",\\"portDOList\\":[{\\"name\\":\\"http\\",\\"nodePort\\":32268,\\"port\\":80,\\"targetPort\\":80},{\\"name\\":\\"https\\",\\"nodePort\\":32376,\\"port\\":443,\\"targetPort\\":443}]}]
    */
   exposedDetail?: string;
   /**
@@ -91,10 +89,10 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   hcCount?: number;
   /**
    * @remarks
-   * Indicates whether baseline risks are detected. Valid values:
+   * The baseline risk status. Valid values:
    * 
-   * *   **NO**
-   * *   **YES**
+   * - **NO**: No baseline risks exist. 
+   * - **YES**: Baseline risks exist.
    * 
    * @example
    * YES
@@ -102,7 +100,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   hcStatus?: string;
   /**
    * @remarks
-   * The IP address of the host.
+   * The host IP address.
    * 
    * @example
    * 172.24.XX.XX
@@ -110,7 +108,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   hostIp?: string;
   /**
    * @remarks
-   * The image of the container.
+   * The container image.
    * 
    * @example
    * docker.io/library/nginx:latest
@@ -150,7 +148,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   imageRepoNamespace?: string;
   /**
    * @remarks
-   * The tag that is added to the image.
+   * The tag of the image.
    * 
    * @example
    * 0.3.1.0-dfa2010-aliyun
@@ -166,7 +164,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   imageUuid?: string;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The asset instance ID.
    * 
    * @example
    * i-2zegzjyotydfkz9****
@@ -190,7 +188,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   nodeInfo?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * test
@@ -198,7 +196,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   nodeName?: string;
   /**
    * @remarks
-   * The pod.
+   * The pod name.
    * 
    * @example
    * alibaba-log-controller-6f847f8786-mk2mg
@@ -206,7 +204,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   pod?: string;
   /**
    * @remarks
-   * The IP address of the pod.
+   * The pod IP address.
    * 
    * @example
    * 172.24.XX.XX
@@ -232,8 +230,8 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
    * @remarks
    * Indicates whether risks exist. Valid values:
    * 
-   * *   **NO**
-   * *   **YES**
+   * - **NO**: No risks exist.
+   * - **YES**: Risks exist.
    * 
    * @example
    * YES
@@ -241,7 +239,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   riskStatus?: string;
   /**
    * @remarks
-   * The update identifier of the container.
+   * The update identifier of the container asset.
    * 
    * @example
    * 79cff74d-e967-5407-8a78-ee03b9****
@@ -249,7 +247,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   updateMark?: string;
   /**
    * @remarks
-   * The number of vulnerabilities that are detected in the container cluster.
+   * The number of vulnerabilities in the container cluster.
    * 
    * @example
    * 15
@@ -257,10 +255,9 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
   vulCount?: number;
   /**
    * @remarks
-   * Indicates whether vulnerabilities are detected in the container. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether vulnerabilities exist in the container asset. Valid values:
+   * - **YES**: Vulnerabilities exist.
+   * - **NO**: No vulnerabilities exist.
    * 
    * @example
    * YES
@@ -350,7 +347,7 @@ export class DescribeContainerInstancesResponseBodyContainerInstanceList extends
 export class DescribeContainerInstancesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paging query.
    * 
    * @example
    * 3
@@ -358,7 +355,7 @@ export class DescribeContainerInstancesResponseBodyPageInfo extends $dara.Model 
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -366,7 +363,7 @@ export class DescribeContainerInstancesResponseBodyPageInfo extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -410,7 +407,7 @@ export class DescribeContainerInstancesResponseBodyPageInfo extends $dara.Model 
 export class DescribeContainerInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the container asset.
+   * The list of container asset information.
    */
   containerInstanceList?: DescribeContainerInstancesResponseBodyContainerInstanceList[];
   /**
@@ -420,7 +417,7 @@ export class DescribeContainerInstancesResponseBody extends $dara.Model {
   pageInfo?: DescribeContainerInstancesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it for troubleshooting.
    * 
    * @example
    * 79CFF74D-E967-5407-8A78-EE03B925FDAA

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceTrailResponseBodyServiceTrail extends $dara.Model {
   /**
    * @remarks
-   * The status of the service trail. Valid values:
+   * The enabling status of the service trail. Valid values:
    * 
-   * *   **on:**
-   * *   **off:**
+   * - **on**: Enabled.
+   * - **off**: Shutdown.
    * 
    * @example
    * on
@@ -16,7 +16,7 @@ export class GetServiceTrailResponseBodyServiceTrail extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The timestamp generated when the service trail was created. Unit: milliseconds.
+   * The timestamp when the service trail was created. Unit: milliseconds.
    * 
    * @example
    * 1687250241000
@@ -24,7 +24,7 @@ export class GetServiceTrailResponseBodyServiceTrail extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The timestamp generated when the service trail was last updated. Unit: milliseconds.
+   * The timestamp when the service trail was last updated. Unit: milliseconds.
    * 
    * @example
    * 1687250241000
@@ -58,7 +58,7 @@ export class GetServiceTrailResponseBodyServiceTrail extends $dara.Model {
 export class GetServiceTrailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The system generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * C699E4E4-F2F4-58FC-A949-457FFE59****
@@ -66,7 +66,7 @@ export class GetServiceTrailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configurations of the service trail.
+   * The service trail configuration.
    */
   serviceTrail?: GetServiceTrailResponseBodyServiceTrail;
   static names(): { [key: string]: string } {

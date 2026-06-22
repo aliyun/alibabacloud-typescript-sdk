@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChartDataResponseBodyAllChartSubTypeList extends $dara.Model {
   /**
    * @remarks
-   * The subtype of the chart.
+   * The chart subtype.
    * 
    * @example
    * CID_SUSPICIOUS_TREND-ALL
@@ -13,7 +13,7 @@ export class DescribeChartDataResponseBodyAllChartSubTypeList extends $dara.Mode
   subType?: string;
   /**
    * @remarks
-   * The name of the chart subtype.
+   * The chart subtype name.
    * 
    * @example
    * All Alerts
@@ -45,7 +45,7 @@ export class DescribeChartDataResponseBodyAllChartSubTypeList extends $dara.Mode
 export class DescribeChartDataResponseBodyCoordinateDataYAxisList extends $dara.Model {
   /**
    * @remarks
-   * The name of the data type.
+   * The data type name.
    * 
    * @example
    * Port
@@ -53,7 +53,7 @@ export class DescribeChartDataResponseBodyCoordinateDataYAxisList extends $dara.
   name?: string;
   /**
    * @remarks
-   * The subtype data of the chart.
+   * The chart subtype data.
    * 
    * @example
    * CID_SUSPICIOUS_TREND-AL
@@ -61,7 +61,7 @@ export class DescribeChartDataResponseBodyCoordinateDataYAxisList extends $dara.
   subType?: string;
   /**
    * @remarks
-   * The type of the data.
+   * The data type.
    * 
    * @example
    * high
@@ -69,7 +69,7 @@ export class DescribeChartDataResponseBodyCoordinateDataYAxisList extends $dara.
   type?: string;
   /**
    * @remarks
-   * The values of the y-axis that corresponds to x-axis points.
+   * The Y-axis values corresponding to each X-axis point.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -105,12 +105,12 @@ export class DescribeChartDataResponseBodyCoordinateDataYAxisList extends $dara.
 export class DescribeChartDataResponseBodyCoordinateData extends $dara.Model {
   /**
    * @remarks
-   * The x-axis values.
+   * The list of X-axis values.
    */
   XAxis?: string[];
   /**
    * @remarks
-   * The y-axis values.
+   * The list of Y-axis values.
    */
   YAxisList?: DescribeChartDataResponseBodyCoordinateDataYAxisList[];
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class DescribeChartDataResponseBodyCoordinateData extends $dara.Model {
 export class DescribeChartDataResponseBodyMultipleData extends $dara.Model {
   /**
    * @remarks
-   * The font color, which is an RGBA value.
+   * The font color in RGBA hexadecimal color code.
    * 
    * @example
    * #FFA800
@@ -153,7 +153,7 @@ export class DescribeChartDataResponseBodyMultipleData extends $dara.Model {
   color?: string;
   /**
    * @remarks
-   * The name of the data type.
+   * The data type name.
    * 
    * @example
    * Safety
@@ -161,7 +161,7 @@ export class DescribeChartDataResponseBodyMultipleData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the data.
+   * The data type.
    * 
    * @example
    * safe
@@ -169,7 +169,7 @@ export class DescribeChartDataResponseBodyMultipleData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The attribute value.
+   * The property value.
    * 
    * @example
    * 0
@@ -205,7 +205,7 @@ export class DescribeChartDataResponseBodyMultipleData extends $dara.Model {
 export class DescribeChartDataResponseBodySingleData extends $dara.Model {
   /**
    * @remarks
-   * The name of the data type.
+   * The data type name.
    * 
    * @example
    * suspicious
@@ -213,7 +213,7 @@ export class DescribeChartDataResponseBodySingleData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the data.
+   * The data type.
    * 
    * @example
    * suspicious
@@ -221,7 +221,7 @@ export class DescribeChartDataResponseBodySingleData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value in the single value chart.
+   * The data value of the single-value chart.
    * 
    * @example
    * 172
@@ -255,19 +255,18 @@ export class DescribeChartDataResponseBodySingleData extends $dara.Model {
 export class DescribeChartDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The valid values for all subtypes of the chart.
+   * The available values for all subtypes of the chart.
    */
   allChartSubTypeList?: DescribeChartDataResponseBodyAllChartSubTypeList[];
   /**
    * @remarks
-   * The data type of the chart. Valid values:
-   * 
-   * *   **commonCoordinate**
-   * *   **timeCoordinate**
-   * *   **multipleValue**
-   * *   **singleValue**
-   * *   **propertyValue**
-   * *   **propertyArrayValue**
+   * The chart data type. Valid values:
+   * - **commonCoordinate**: common coordinate
+   * - **timeCoordinate**: time-axis coordinate
+   * - **multipleValue**: multiple values
+   * - **singleValue**: single value
+   * - **propertyValue**: property value
+   * - **propertyArrayValue**: array property value.
    * 
    * @example
    * propertyArrayValue
@@ -275,21 +274,20 @@ export class DescribeChartDataResponseBody extends $dara.Model {
   chartDataType?: string;
   /**
    * @remarks
-   * The subtype values in which the chart is selected.
+   * The list of selected chart subtype values.
    */
   chartSubTypeList?: string[];
   /**
    * @remarks
-   * The type of the chart. Valid values:
-   * 
-   * *   **timeLine**
-   * *   **timeBar**
-   * *   **bar**
-   * *   **line**
-   * *   **pie**
-   * *   **gauge**
-   * *   **table**
-   * *   **text**
+   * The chart type. Valid values:
+   * - **timeLine**: timeline chart
+   * - **timeBar**: time-axis bar chart
+   * - **bar**: bar chart
+   * - **line**: line chart
+   * - **pie**: pie chart
+   * - **gauge**: gauge chart
+   * - **table**: table
+   * - **text**: text.
    * 
    * @example
    * timeBar
@@ -302,12 +300,12 @@ export class DescribeChartDataResponseBody extends $dara.Model {
   coordinateData?: DescribeChartDataResponseBodyCoordinateData;
   /**
    * @remarks
-   * The values in the multi-value charts.
+   * The multiple-value chart data.
    */
   multipleData?: DescribeChartDataResponseBodyMultipleData[];
   /**
    * @remarks
-   * The attribute value of the array chart.
+   * The array chart property values.
    * 
    * @example
    * []
@@ -315,7 +313,7 @@ export class DescribeChartDataResponseBody extends $dara.Model {
   propertyArrayValue?: string;
   /**
    * @remarks
-   * The data of the chart.
+   * The property value in the chart.
    * 
    * @example
    * {\\"totalCount\\": \\"0\\"}
@@ -323,7 +321,7 @@ export class DescribeChartDataResponseBody extends $dara.Model {
   propertyValue?: string;
   /**
    * @remarks
-   * The array data of the chart.
+   * The property array of the chart.
    * 
    * @example
    * []
@@ -331,7 +329,7 @@ export class DescribeChartDataResponseBody extends $dara.Model {
   properyArrayValue?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * 50CCE62A-2BC4-5CF8-B976-E4F62A31****
@@ -339,7 +337,7 @@ export class DescribeChartDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data of the single value chart.
+   * The single-value chart data.
    */
   singleData?: DescribeChartDataResponseBodySingleData;
   static names(): { [key: string]: string } {

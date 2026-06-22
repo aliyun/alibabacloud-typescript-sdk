@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessRelateMaliciousRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListAgentlessRelateMaliciousRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the event.
+   * The event ID.
    * 
    * @example
    * 80****
@@ -23,10 +23,9 @@ export class ListAgentlessRelateMaliciousRequest extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -34,7 +33,7 @@ export class ListAgentlessRelateMaliciousRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -44,10 +43,9 @@ export class ListAgentlessRelateMaliciousRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The scenarios of batch handling. Valid values:
-   * 
-   * *   same_file_md5: the same MD5 hash value.
-   * *   default: the same alert type. This is the default value.
+   * The scenario for batch processing. Valid values:
+   * - same_file_md5: same file MD5.
+   * - default (default value): same alerting type.
    * 
    * @example
    * default

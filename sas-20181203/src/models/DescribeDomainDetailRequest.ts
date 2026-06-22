@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name or the name of website that you want to query.
+   * The name of the domain name or website to query.
    * 
-   * >  Fuzzy match is not supported. You must enter a complete domain name or a website.
+   * > Fuzzy match is not supported. Enter the complete domain name or website name.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeDomainDetailRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 1.2.XX.XX

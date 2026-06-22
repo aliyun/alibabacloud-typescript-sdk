@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateHcWarningsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of check items that you want to verify. Separate multiple IDs with commas (,).
-   * > You can use [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) to get IDs of check items.
+   * The IDs of the check items. Separate multiple check item IDs with commas (,).
+   * 
+   * > You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to obtain check item IDs.
    * 
    * @example
    * 695,234
@@ -14,7 +15,8 @@ export class ValidateHcWarningsRequest extends $dara.Model {
   checkIds?: string;
   /**
    * @remarks
-   * The IDs of risk items that you want to verify. Separate multiple IDs with commas (,).
+   * The IDs of the risk items to verify. Separate multiple IDs with commas (,).
+   * >  You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to obtain this parameter.
    * 
    * @example
    * 43
@@ -22,11 +24,11 @@ export class ValidateHcWarningsRequest extends $dara.Model {
   riskIds?: string;
   /**
    * @remarks
-   * The status of the check item that you want to verify.
+   * The status of the check item to verify. Valid values:
    * 
-   * *   1: failed
-   * *   3: passed
-   * *   5: expired
+   * - 1: not passed
+   * - 3: passed
+   * - 5: expired.
    * 
    * @example
    * 1
@@ -34,12 +36,12 @@ export class ValidateHcWarningsRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The UUIDs of the servers on which you want to verify the risk items. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the servers to verify. Separate multiple UUIDs with commas (,).
    * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain server UUIDs.
    * 
    * @example
-   * 78645c8e-2e89-441b-8eb,a9622a6b-adb5-4dd3-929e,0136460a-1cb5-44e8-****
+   * 78645c8e-2e89-441b-8eb***,a9622a6b-adb5-4dd3-929e,0136460a-1cb5-44e8-****
    */
   uuids?: string;
   static names(): { [key: string]: string } {

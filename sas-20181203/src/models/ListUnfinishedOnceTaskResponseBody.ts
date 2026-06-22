@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * ack-jenkins-****
@@ -13,7 +13,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * a765ba1435e7f9446065370e9a41****
@@ -21,7 +21,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name used to query the instance list of a specific cluster under the service.
    * 
    * @example
    * ACK-test-****
@@ -45,7 +45,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   image?: string;
   /**
    * @remarks
-   * The instance ID of the node.
+   * The node instance ID.
    * 
    * @example
    * i-0xi5mxvtmfw9****
@@ -61,7 +61,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   nodeIp?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * pztest****
@@ -69,7 +69,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   nodeName?: string;
   /**
    * @remarks
-   * The pod of the image.
+   * The image pod information.
    * 
    * @example
    * expoit-law-****
@@ -77,7 +77,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   pod?: string;
   /**
    * @remarks
-   * The region ID of the server image.
+   * The region where the server image resides.
    * 
    * @example
    * cn-hangzhou
@@ -85,7 +85,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   regionId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * @example
    * crr-r88w2vryp8m****
@@ -93,7 +93,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   repoId?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The image repository name.
    * 
    * @example
    * testyyy
@@ -101,7 +101,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The image namespace.
    * 
    * @example
    * bitn***
@@ -175,7 +175,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo extends $d
 export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   /**
    * @remarks
-   * The time when the task ends.
+   * The end time.
    * 
    * @example
    * 1670307567000
@@ -183,10 +183,9 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Indicates whether the task is complete. Valid values:
-   * 
-   * *   **0**: no
-   * *   **1**: yes
+   * Indicates whether the task is completed. Valid values:
+   * - **0**: not completed
+   * - **1**: completed.
    * 
    * @example
    * 1
@@ -194,7 +193,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   finish?: number;
   /**
    * @remarks
-   * The number of assets on which the task is complete.
+   * The number of completed records.
    * 
    * @example
    * 67
@@ -202,7 +201,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   finishCount?: number;
   /**
    * @remarks
-   * The progress percentage of the task.
+   * The export progress percentage (%).
    * 
    * @example
    * 75
@@ -210,7 +209,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The execution duration of the task.
+   * The task execution time.
    * 
    * @example
    * 1670307567000
@@ -218,7 +217,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   realRunTime?: number;
   /**
    * @remarks
-   * The execution result of the task.
+   * The execution result.
    * 
    * @example
    * TASK_NOT_SUPPORT_REGION
@@ -226,7 +225,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   resultInfo?: string;
   /**
    * @remarks
-   * The time when the task is started.
+   * The start time of the task execution.
    * 
    * @example
    * 1640102400000
@@ -242,12 +241,11 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * 
-   * *   **INIT**: The task is not started.
-   * *   **START**: The task is started.
-   * *   **SUCCESS**: The task is complete.
-   * *   **TIMEOUT**: The task timed out.
+   * The running status of the task. Valid values:
+   * - **INIT**: pending
+   * - **START**: started
+   * - **SUCCESS**: completed
+   * - **TIMEOUT**: timed out.
    * 
    * @example
    * SUCCESS
@@ -255,7 +253,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   statusText?: string;
   /**
    * @remarks
-   * The objective of the task.
+   * The task target.
    * 
    * @example
    * 238cf050a7270dd6940602e70f1e5a11eeaf4e02035f445b7f613ff5e064****
@@ -263,10 +261,9 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The type of the assets that are scanned. Valid values:
-   * 
-   * *   **IMAGE_REPO**: image repository
-   * *   **IMAGE**: image
+   * The scan object type. Valid values:
+   * - **IMAGE_REPO**: image repository.
+   * - **IMAGE**: image.
    * 
    * @example
    * IMAGE
@@ -274,7 +271,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 9fb50f2af8bb67c9fdb684194c83****
@@ -282,12 +279,12 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The information about the image scan task.
+   * The image scan information.
    */
   taskImageInfo?: ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * IMAGE_SCAN
@@ -295,7 +292,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * IMAGE_SCAN
@@ -303,7 +300,7 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries. This parameter takes effect for paged query and paging.
    * 
    * @example
    * 30
@@ -366,12 +363,12 @@ export class ListUnfinishedOnceTaskResponseBodyOnceTasks extends $dara.Model {
 export class ListUnfinishedOnceTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the tasks.
+   * The task details.
    */
   onceTasks?: ListUnfinishedOnceTaskResponseBodyOnceTasks[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F5CF78A7-30AA-59DB-847F-13EE3AE7****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyUserItemResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paged query.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribePropertyUserItemResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page to display in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyUserItemResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries displayed on each page in a paged query.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class DescribePropertyUserItemResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 114
@@ -65,7 +65,7 @@ export class DescribePropertyUserItemResponseBodyPageInfo extends $dara.Model {
 export class DescribePropertyUserItemResponseBodyPropertyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of servers that belong to the account.
+   * The number of servers associated with the account.
    * 
    * @example
    * 384
@@ -73,7 +73,7 @@ export class DescribePropertyUserItemResponseBodyPropertyItems extends $dara.Mod
   count?: number;
   /**
    * @remarks
-   * The name of the account.
+   * The account name.
    * 
    * @example
    * adm
@@ -110,12 +110,12 @@ export class DescribePropertyUserItemResponseBody extends $dara.Model {
   pageInfo?: DescribePropertyUserItemResponseBodyPageInfo;
   /**
    * @remarks
-   * An array that consists of the account information returned.
+   * The account information.
    */
   propertyItems?: DescribePropertyUserItemResponseBodyPropertyItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * The unique identifier that Alibaba Cloud generated for the request.
    * 
    * @example
    * 76068BE2-F9C4-4EDD-967B-F503B8CCDD3D

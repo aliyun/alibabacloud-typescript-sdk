@@ -22,8 +22,9 @@ export class ListSystemClientRulesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query only container images. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: no
+   * 
+   * - **1**: yes
    * 
    * @example
    * 1
@@ -33,8 +34,9 @@ export class ListSystemClientRulesRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -55,7 +57,7 @@ export class ListSystemClientRulesRequest extends $dara.Model {
    * The name of the system defense rule.
    * 
    * @example
-   * Rule\\*\\*\\*\\*
+   * 规则****
    */
   ruleName?: string;
   /**
@@ -67,9 +69,11 @@ export class ListSystemClientRulesRequest extends $dara.Model {
    * @remarks
    * The type of the OS. Valid values:
    * 
-   * *   **2**: Windows
-   * *   **1**: Linux
-   * *   **0**: all types
+   * - **2**: Windows
+   * 
+   * - **1**: Linux
+   * 
+   * - **0**: all types
    * 
    * @example
    * 0

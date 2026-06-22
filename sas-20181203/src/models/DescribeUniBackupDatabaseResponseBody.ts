@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Model {
   /**
    * @remarks
-   * The status of the anti-ransomware agent. Valid values:
-   * 
-   * *   **UNKNOWN**: unknown
-   * *   **INSTALLED**: installed
-   * *   **INSTALL_FAILED**: installation failed
-   * *   **UNINSTALL_FAILED**: uninstallation failed
+   * The status of the database client agent. Valid values:
+   * - **UNKNOWN**: unknown.
+   * - **INSTALLED**: installed.
+   * - **INSTALL_FAILED**: installation failed.
+   * - **UNINSTALL_FAILED**: uninstallation failed.
    * 
    * @example
    * INSTALLED
@@ -18,10 +17,9 @@ export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Mod
   agentStatus?: string;
   /**
    * @remarks
-   * The service from which the database is created. Valid values:
-   * 
-   * *   **HBR**: HBR
-   * *   **AEGIS**: Security Center
+   * The method used to create the database. Valid values:
+   * - **HBR**: Cloud Backup.
+   * - **AEGIS**: Security Center.
    * 
    * @example
    * AEGIS
@@ -39,9 +37,9 @@ export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Mod
    * @remarks
    * The type of the database. Valid values:
    * 
-   * *   **MYSQL**
-   * *   **MSSQL**
-   * *   **Oracle**
+   * - **MYSQL**
+   * - **MSSQL**
+   * - **Oracle**.
    * 
    * @example
    * MYSQL
@@ -49,7 +47,7 @@ export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Mod
   databaseType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The version of the database.
    * 
    * @example
    * 12.0.4100.1
@@ -57,7 +55,7 @@ export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Mod
   databaseVersion?: string;
   /**
    * @remarks
-   * The ID of the server.
+   * The instance ID of the server.
    * 
    * @example
    * i-bp15aho9hhftvmhw****
@@ -73,7 +71,7 @@ export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Mod
   instanceName?: string;
   /**
    * @remarks
-   * The UUID of the Hybrid Backup Recovery (HBR) agent that is used to back up the data of the database.
+   * The unique identifier of the database backup client on the server.
    * 
    * @example
    * 85878b284df911ec800000163e19****
@@ -81,7 +79,7 @@ export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Mod
   instanceUuid?: string;
   /**
    * @remarks
-   * The ID of the anti-ransomware policy.
+   * The ID of the anti-ransomware backup policy for the database.
    * 
    * @example
    * 123
@@ -89,10 +87,10 @@ export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Mod
   policyId?: number;
   /**
    * @remarks
-   * The status of the ECS instance. Valid values:
+   * The instance status of the ECS instance. Valid values:
    * 
-   * *   **Stopped**
-   * *   **Running**
+   * - **Stopped**: stopped.
+   * - **Running**: running.
    * 
    * @example
    * Running
@@ -140,7 +138,7 @@ export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $dara.Mod
 export class DescribeUniBackupDatabaseResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of databases on the current page.
    * 
    * @example
    * 20
@@ -148,7 +146,7 @@ export class DescribeUniBackupDatabaseResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -156,7 +154,7 @@ export class DescribeUniBackupDatabaseResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of databases per page in a paging query.
    * 
    * @example
    * 20
@@ -164,7 +162,7 @@ export class DescribeUniBackupDatabaseResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of databases.
    * 
    * @example
    * 25
@@ -200,7 +198,7 @@ export class DescribeUniBackupDatabaseResponseBodyPageInfo extends $dara.Model {
 export class DescribeUniBackupDatabaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the information about the databases.
+   * The list of database details.
    */
   databaseList?: DescribeUniBackupDatabaseResponseBodyDatabaseList[];
   /**
@@ -210,7 +208,7 @@ export class DescribeUniBackupDatabaseResponseBody extends $dara.Model {
   pageInfo?: DescribeUniBackupDatabaseResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 09969D2C-4FAD-429E-BFBF-9A60DEF8****

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceTrailRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the instance. Valid values:
+   * The region ID of the instance to query. Valid values:
    * 
-   * *   **cn-hangzhou**: International
-   * *   **ap-southeast-1**: Singapore
+   * - **cn-hangzhou** (default): Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

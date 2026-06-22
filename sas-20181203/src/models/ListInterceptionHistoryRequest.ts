@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInterceptionHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the container cluster.
+   * The ID of the container cluster to query.
    * 
    * @example
    * c7c190a82d9a048be9038d352840f****
@@ -13,7 +13,7 @@ export class ListInterceptionHistoryRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListInterceptionHistoryRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp.
+   * The end timestamp of the query.
    * 
    * @example
    * 1635575219000
@@ -29,23 +29,23 @@ export class ListInterceptionHistoryRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The name of the alert.
+   * The alert name.
    * 
    * @example
-   * Abnormal access
+   * 异常访问。
    */
   historyName?: string;
   /**
    * @remarks
-   * The types of exceptions.
+   * The types of exception events.
    */
   interceptionTypes?: number[];
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -53,7 +53,7 @@ export class ListInterceptionHistoryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -61,7 +61,7 @@ export class ListInterceptionHistoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start of the time range to query. The value is a UNIX timestamp.
+   * The start timestamp of the query.
    * 
    * @example
    * 1651290987000

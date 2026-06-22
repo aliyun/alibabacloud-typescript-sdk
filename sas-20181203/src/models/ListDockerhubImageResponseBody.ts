@@ -29,7 +29,7 @@ export class ListDockerhubImageResponseBodyImageList extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The size of the image. Unit: bytes.
+   * The image size, in bytes.
    * 
    * @example
    * 1024
@@ -37,7 +37,7 @@ export class ListDockerhubImageResponseBodyImageList extends $dara.Model {
   imageSize?: number;
   /**
    * @remarks
-   * The name of the image repository.
+   * The image repository name.
    * 
    * @example
    * python
@@ -45,7 +45,7 @@ export class ListDockerhubImageResponseBodyImageList extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The image namespace.
    * 
    * @example
    * python
@@ -61,7 +61,7 @@ export class ListDockerhubImageResponseBodyImageList extends $dara.Model {
   riskLevelDetail?: string;
   /**
    * @remarks
-   * The tag of the image.
+   * The image tag.
    * 
    * @example
    * 3.9
@@ -125,12 +125,12 @@ export class ListDockerhubImageResponseBodyImageList extends $dara.Model {
 export class ListDockerhubImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the images.
+   * The list of image information.
    */
   imageList?: ListDockerhubImageResponseBodyImageList[];
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier that Alibaba Cloud generates for the request.
    * 
    * @example
    * F8B6F758-BCD4-597A-8A2C-DA5A552C****

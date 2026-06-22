@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the purchased quota.
+   * The timestamp when the authorization expires.
    * 
    * @example
    * 1714442403000
@@ -13,7 +13,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The number of high-risk objects.
+   * The number of high-risk files.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   highRisk?: number;
   /**
    * @remarks
-   * The number of low-risk objects.
+   * The number of low-risk files.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   lowRisk?: number;
   /**
    * @remarks
-   * The number of medium-risk objects.
+   * The number of medium-risk files.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   mediumRisk?: number;
   /**
    * @remarks
-   * The number of buckets that are not checked.
+   * The number of buckets that have not been scanned.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   noScanBucket?: number;
   /**
    * @remarks
-   * Postpaid usage count.
+   * The number of pay-as-you-go invocations used.
    * 
    * @example
    * 1000
@@ -53,7 +53,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   postPayInvokeCount?: number;
   /**
    * @remarks
-   * Prepaid authorized count.
+   * The number of prepaid authorization times.
    * 
    * @example
    * 10000
@@ -61,7 +61,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   prePayAuthCount?: number;
   /**
    * @remarks
-   * Prepaid usage count.
+   * The number of prepaid invocations used.
    * 
    * @example
    * 100
@@ -69,7 +69,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   prePayInvokeCount?: number;
   /**
    * @remarks
-   * The remaining quota.
+   * The remaining number of authorizations.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   remainAuth?: number;
   /**
    * @remarks
-   * The number of buckets in which at-risk objects exist.
+   * The number of buckets that contain risky files.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   riskBucket?: number;
   /**
    * @remarks
-   * The number of objects that are checked.
+   * The number of scanned files.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
   totalBucket?: number;
   /**
    * @remarks
-   * The total number of objects in the bucket.
+   * The total number of files in the buckets.
    * 
    * @example
    * 1
@@ -155,12 +155,12 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
 export class GetOssBucketScanStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: GetOssBucketScanStatisticResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The China Chinese system generates a unique identifier for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * FAC50208-E56B-5CC8-8738-2B219D1A****

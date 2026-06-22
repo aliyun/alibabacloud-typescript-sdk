@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizeReportConfigDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,8 +15,8 @@ export class DescribeCustomizeReportConfigDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the report.\\
-   * You can call the [DescribeCustomizeReportList](https://help.aliyun.com/document_detail/271655.html) operation to query the ID.
+   * The report ID.\\
+   * The ReportId returned by calling the [DescribeCustomizeReportList](https://help.aliyun.com/document_detail/271655.html) operation.
    * 
    * This parameter is required.
    * 
@@ -27,7 +26,7 @@ export class DescribeCustomizeReportConfigDetailRequest extends $dara.Model {
   reportId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 202.104.XXX.XXX

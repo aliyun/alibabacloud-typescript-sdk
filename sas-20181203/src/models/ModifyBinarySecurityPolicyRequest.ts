@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBinarySecurityPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster information.
+   * The cluster information.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyBinarySecurityPolicyRequest extends $dara.Model {
   clusters?: string;
   /**
    * @remarks
-   * Policy name.
+   * The policy name.
    * 
    * @example
    * test-policy-04-11
@@ -23,19 +23,19 @@ export class ModifyBinarySecurityPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Policy content. JSON format, Key values:
-   * - **policyMode**: Type of policy, default is requireAttestor.
-   * - **requiredAttestors**: Required attestors.
+   * The policy content in JSON format. Valid keys:
+   * - **policyMode**: The policy type. Default value: requireAttestor.
+   * - **requiredAttestors**: The required attestors.
    * 
    * This parameter is required.
    * 
    * @example
-   * {\\"PolicyMode\\":\\"requireAttestor\\",\\"RequiredAttestors\\":[\\"test-xcs-04-11-hhht\\"]}
+   * {\\"PolicyMode\\":\\"requireAttestor\\",\\"RequiredAttestors\\":[\\"test-xcs-04-11-****\\"]}
    */
   policy?: string;
   /**
    * @remarks
-   * Remark.
+   * The remarks.
    * 
    * @example
    * Remark
@@ -47,15 +47,15 @@ export class ModifyBinarySecurityPolicyRequest extends $dara.Model {
    * The IP address of the access source.
    * 
    * @example
-   * 1.2.3.4
+   * 115.213.XX.XX
    */
   sourceIp?: string;
   /**
    * @remarks
-   * Set to enable or disable the policy. Values:
+   * Settings to enable or disable the policy. Valid values:
    * 
-   * - **enabled**: Enable the protection policy.
-   * - **disabled**: Disable the protection policy.
+   * - **enabled**: Enables the mitigation policies.
+   * - **disabled**: Disables the mitigation policies.
    * 
    * @example
    * enabled

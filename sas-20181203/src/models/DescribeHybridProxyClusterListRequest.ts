@@ -13,7 +13,7 @@ export class DescribeHybridProxyClusterListRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page to display in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeHybridProxyClusterListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to display on each page in a paged query.
    * 
    * @example
    * 20

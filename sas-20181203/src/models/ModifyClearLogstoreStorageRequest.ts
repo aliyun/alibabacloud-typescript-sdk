@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClearLogstoreStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source. Set the value to **sas**.
+   * The identifier of the request source. Set the value to **sas**.
    * 
    * @example
    * sas
@@ -13,10 +13,10 @@ export class ModifyClearLogstoreStorageRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,7 +24,7 @@ export class ModifyClearLogstoreStorageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the Logstore that stores logs.
+   * The name of the user LogStore.
    * 
    * @example
    * sas_sls_storage
@@ -32,7 +32,7 @@ export class ModifyClearLogstoreStorageRequest extends $dara.Model {
   userLogStore?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The user project.
    * 
    * @example
    * sas-log-1234(uid)-cn-hangzhou

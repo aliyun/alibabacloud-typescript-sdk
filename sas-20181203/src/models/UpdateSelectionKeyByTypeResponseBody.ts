@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSelectionKeyByTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * DBABBC2E-26DF-5586-BF7C-4FC846EF****

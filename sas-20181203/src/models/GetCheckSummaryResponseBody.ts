@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckSummaryResponseBodyOverallItemStatistic extends $dara.Model {
   /**
    * @remarks
-   * The number of check items supported by the system.
+   * The number of check items published by the system.
    * 
    * @example
    * 620
@@ -13,7 +13,7 @@ export class GetCheckSummaryResponseBodyOverallItemStatistic extends $dara.Model
   releaseCount?: number;
   /**
    * @remarks
-   * The number of check items available to you.
+   * The number of check items currently owned by the user.
    * 
    * @example
    * 25
@@ -53,7 +53,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   notCheckCount?: number;
   /**
    * @remarks
-   * The number of unchecked high-risk check items.
+   * The number of unchecked check items with a high risk level.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   notCheckHighCount?: number;
   /**
    * @remarks
-   * The number of unchecked low-risk check items.
+   * The number of unchecked check items with a low risk level.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   notCheckLowCount?: number;
   /**
    * @remarks
-   * The number of unchecked medium-risk check items.
+   * The number of unchecked check items with a medium risk level.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   notCheckMediumCount?: number;
   /**
    * @remarks
-   * The number of check items that failed to pass the check.
+   * The number of check items that failed.
    * 
    * @example
    * 3
@@ -85,7 +85,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   notPassCount?: number;
   /**
    * @remarks
-   * The number of high-risk check items that failed to pass the check.
+   * The number of failed check items with a high risk level.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   notPassHighCount?: number;
   /**
    * @remarks
-   * The number of low-risk check items that failed to pass the check.
+   * The number of failed check items with a low risk level.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   notPassLowCount?: number;
   /**
    * @remarks
-   * The number of medium-risk check items that failed to pass the check.
+   * The number of failed check items with a medium risk level.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   notPassMediumCount?: number;
   /**
    * @remarks
-   * The number of check items that pass the check.
+   * The number of check items that passed.
    * 
    * @example
    * 3
@@ -117,7 +117,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   passCount?: number;
   /**
    * @remarks
-   * The number of high-risk check items that pass the check.
+   * The number of passed check items with a high risk level.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   passHighCount?: number;
   /**
    * @remarks
-   * The number of low-risk check items that pass the check.
+   * The number of passed check items with a low risk level.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class GetCheckSummaryResponseBodyOverallStatistic extends $dara.Model {
   passLowCount?: number;
   /**
    * @remarks
-   * The number of medium-risk check items that pass the check.
+   * The number of passed check items with a medium risk level.
    * 
    * @example
    * 1
@@ -193,7 +193,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   notCheckCount?: number;
   /**
    * @remarks
-   * The number of unchecked high-risk check items.
+   * The number of unchecked check items with a high risk level.
    * 
    * @example
    * 1
@@ -201,7 +201,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   notCheckHighCount?: number;
   /**
    * @remarks
-   * The number of unchecked low-risk check items.
+   * The number of unchecked check items with a low risk level.
    * 
    * @example
    * 1
@@ -209,7 +209,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   notCheckLowCount?: number;
   /**
    * @remarks
-   * The number of unchecked medium-risk check items.
+   * The number of unchecked check items with a medium risk level.
    * 
    * @example
    * 1
@@ -217,7 +217,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   notCheckMediumCount?: number;
   /**
    * @remarks
-   * The number of check items that failed to pass the check.
+   * The number of check items that failed.
    * 
    * @example
    * 3
@@ -225,7 +225,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   notPassCount?: number;
   /**
    * @remarks
-   * The number of high-risk check items that failed to pass the check.
+   * The number of failed check items with a high risk level.
    * 
    * @example
    * 1
@@ -233,7 +233,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   notPassHighCount?: number;
   /**
    * @remarks
-   * The number of low-risk check items that failed to pass the check.
+   * The number of failed check items with a low risk level.
    * 
    * @example
    * 1
@@ -241,7 +241,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   notPassLowCount?: number;
   /**
    * @remarks
-   * The number of medium-risk check items that failed to pass the check.
+   * The number of failed check items with a medium risk level.
    * 
    * @example
    * 1
@@ -249,7 +249,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   notPassMediumCount?: number;
   /**
    * @remarks
-   * The number of check items that pass the check.
+   * The number of check items that passed.
    * 
    * @example
    * 3
@@ -257,7 +257,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   passCount?: number;
   /**
    * @remarks
-   * The number of high-risk check items that pass the check.
+   * The number of passed check items with a high risk level.
    * 
    * @example
    * 1
@@ -265,7 +265,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   passHighCount?: number;
   /**
    * @remarks
-   * The number of low-risk check items that pass the check.
+   * The number of passed check items with a low risk level.
    * 
    * @example
    * 1
@@ -273,7 +273,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
   passLowCount?: number;
   /**
    * @remarks
-   * The number of medium-risk check items that pass the check.
+   * The number of passed check items with a medium risk level.
    * 
    * @example
    * 1
@@ -325,7 +325,7 @@ export class GetCheckSummaryResponseBodySummarysStandardsStandardStatistic exten
 export class GetCheckSummaryResponseBodySummarysStandards extends $dara.Model {
   /**
    * @remarks
-   * The number of check items that failed to pass the check.
+   * The number of check items that failed.
    * 
    * @example
    * 1
@@ -333,7 +333,7 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The ID of the check item.
+   * The check item ID.
    * 
    * @example
    * 1
@@ -341,7 +341,7 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The number of check items that pass the check.
+   * The number of check items that passed.
    * 
    * @example
    * 1
@@ -349,7 +349,7 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $dara.Model {
   passCount?: number;
   /**
    * @remarks
-   * The number of **high-risk** items.
+   * The number of check items with a **high** risk level.
    * 
    * @example
    * 1
@@ -357,7 +357,7 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $dara.Model {
   riskLevelHighCount?: number;
   /**
    * @remarks
-   * The number of **low-risk** items.
+   * The number of check items with a **low** risk level.
    * 
    * @example
    * 1
@@ -365,7 +365,7 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $dara.Model {
   riskLevelLowCount?: number;
   /**
    * @remarks
-   * The number of **medium-risk** items.
+   * The number of check items with a **medium** risk level.
    * 
    * @example
    * 1
@@ -373,15 +373,15 @@ export class GetCheckSummaryResponseBodySummarysStandards extends $dara.Model {
   riskLevelMediumCount?: number;
   /**
    * @remarks
-   * The name of the check item.
+   * The check item name.
    * 
    * @example
-   * Identity and permission management
+   * 身份权限管理
    */
   showName?: string;
   /**
    * @remarks
-   * The standard statistics of the check items.
+   * The risk statistics information for the standard.
    */
   standardStatistic?: GetCheckSummaryResponseBodySummarysStandardsStandardStatistic;
   static names(): { [key: string]: string } {
@@ -433,7 +433,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   notCheckCount?: number;
   /**
    * @remarks
-   * The number of unchecked high-risk check items.
+   * The number of unchecked check items with a high risk level.
    * 
    * @example
    * 1
@@ -441,7 +441,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   notCheckHighCount?: number;
   /**
    * @remarks
-   * The number of unchecked low-risk check items.
+   * The number of unchecked check items with a low risk level.
    * 
    * @example
    * 1
@@ -449,7 +449,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   notCheckLowCount?: number;
   /**
    * @remarks
-   * The number of unchecked medium-risk check items.
+   * The number of unchecked check items with a medium risk level.
    * 
    * @example
    * 1
@@ -457,7 +457,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   notCheckMediumCount?: number;
   /**
    * @remarks
-   * The number of check items that failed to pass the check.
+   * The number of check items that failed.
    * 
    * @example
    * 3
@@ -465,7 +465,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   notPassCount?: number;
   /**
    * @remarks
-   * The number of high-risk check items that failed to pass the check.
+   * The number of failed check items with a high risk level.
    * 
    * @example
    * 1
@@ -473,7 +473,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   notPassHighCount?: number;
   /**
    * @remarks
-   * The number of low-risk check items that failed to pass the check.
+   * The number of failed check items with a low risk level.
    * 
    * @example
    * 1
@@ -481,7 +481,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   notPassLowCount?: number;
   /**
    * @remarks
-   * The number of medium-risk check items that failed to pass the check.
+   * The number of failed check items with a medium risk level.
    * 
    * @example
    * 1
@@ -489,7 +489,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   notPassMediumCount?: number;
   /**
    * @remarks
-   * The number of check items that pass the check.
+   * The number of check items that passed.
    * 
    * @example
    * 3
@@ -497,7 +497,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   passCount?: number;
   /**
    * @remarks
-   * The number of high-risk check items that pass the check.
+   * The number of passed check items with a high risk level.
    * 
    * @example
    * 1
@@ -505,7 +505,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   passHighCount?: number;
   /**
    * @remarks
-   * The number of low-risk check items that pass the check.
+   * The number of passed check items with a low risk level.
    * 
    * @example
    * 1
@@ -513,7 +513,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
   passLowCount?: number;
   /**
    * @remarks
-   * The number of medium-risk check items that pass the check.
+   * The number of passed check items with a medium risk level.
    * 
    * @example
    * 1
@@ -565,7 +565,7 @@ export class GetCheckSummaryResponseBodySummarysTypeStatistic extends $dara.Mode
 export class GetCheckSummaryResponseBodySummarys extends $dara.Model {
   /**
    * @remarks
-   * The number of detected risk items.
+   * The number of risk items detected.
    * 
    * @example
    * 5
@@ -573,7 +573,7 @@ export class GetCheckSummaryResponseBodySummarys extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The number of check items that pass the check.
+   * The number of check items that passed the check.
    * 
    * @example
    * 10
@@ -581,16 +581,16 @@ export class GetCheckSummaryResponseBodySummarys extends $dara.Model {
   passCount?: number;
   /**
    * @remarks
-   * The information about the check items.
+   * The standard output of check items.
    */
   standards?: GetCheckSummaryResponseBodySummarysStandards[];
   /**
    * @remarks
-   * The type of the check item. Valid values:
+   * The check item type. Valid values:
    * 
-   * *   **COMPLIANCE**
-   * *   **RISK**
-   * *   **IDENTITY_PERMISSION**
+   * - **COMPLIANCE**: Compliance.
+   * - **RISK**: Security risk.
+   * - **IDENTITY_PERMISSION**: Identity and access management.
    * 
    * @example
    * IDENTITY_PERMISSION
@@ -598,7 +598,7 @@ export class GetCheckSummaryResponseBodySummarys extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The risk statistics by type.
+   * The risk statistics information for the risk category.
    */
   typeStatistic?: GetCheckSummaryResponseBodySummarysTypeStatistic;
   static names(): { [key: string]: string } {
@@ -639,17 +639,17 @@ export class GetCheckSummaryResponseBodySummarys extends $dara.Model {
 export class GetCheckSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics about the number of check items.
+   * The statistics information related to the number of check items.
    */
   overallItemStatistic?: GetCheckSummaryResponseBodyOverallItemStatistic;
   /**
    * @remarks
-   * The overall risk statistics.
+   * The overall risk statistics information.
    */
   overallStatistic?: GetCheckSummaryResponseBodyOverallStatistic;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 843E4805-****-7EE12FA8DBFD
@@ -657,7 +657,7 @@ export class GetCheckSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The summary information about the configuration checks on cloud services.
+   * The overview results.
    */
   summarys?: GetCheckSummaryResponseBodySummarys[];
   static names(): { [key: string]: string } {

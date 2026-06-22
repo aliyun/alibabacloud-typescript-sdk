@@ -13,9 +13,8 @@ export class FindContainerNetworkConnectRequestDstNode extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+   * The ID of the container cluster to query.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * f5x833820xx
@@ -31,14 +30,13 @@ export class FindContainerNetworkConnectRequestDstNode extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The node IDs.
+   * The list of node IDs.
    */
   nodeIds?: string[];
   /**
    * @remarks
-   * The type of the node. Valid values:
-   * 
-   * *   **app**: application, which indicates that the node type is application.
+   * The node type. Valid values:
+   * - **app**: application. The node type is application.
    * 
    * @example
    * app
@@ -97,9 +95,8 @@ export class FindContainerNetworkConnectRequestSrcNode extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+   * The ID of the container cluster to query.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c56xxx1775dea0
@@ -115,14 +112,13 @@ export class FindContainerNetworkConnectRequestSrcNode extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The node IDs.
+   * The list of node IDs.
    */
   nodeIds?: string[];
   /**
    * @remarks
-   * The type of the node. Valid values:
-   * 
-   * *   **app**: application, which indicates that the node type is application.
+   * The node type. Valid values:
+   * - **app**: application. The node type is application.
    * 
    * @example
    * app
@@ -173,9 +169,9 @@ export class FindContainerNetworkConnectRequestSrcNode extends $dara.Model {
 export class FindContainerNetworkConnectRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the information that you want to query. Valid values:
+   * The query type of the element to query. Valid values:
    * 
-   * *   **EDGE**: connection information
+   * - **EDGE**: connection information.
    * 
    * @example
    * EDGE
@@ -183,7 +179,7 @@ export class FindContainerNetworkConnectRequest extends $dara.Model {
   criteriaType?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -191,12 +187,12 @@ export class FindContainerNetworkConnectRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The information about the destination node.
+   * The destination node information, which is used to filter destination nodes.
    */
   dstNode?: FindContainerNetworkConnectRequestDstNode;
   /**
    * @remarks
-   * The end time of the network connection.
+   * The end time of the network connectivity.
    * 
    * @example
    * 1649260799999
@@ -204,9 +200,8 @@ export class FindContainerNetworkConnectRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paged query. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -214,12 +209,12 @@ export class FindContainerNetworkConnectRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The information about the source node.
+   * The source node information, which is used to filter source nodes.
    */
   srcNode?: FindContainerNetworkConnectRequestSrcNode;
   /**
    * @remarks
-   * The start time of the network connection.
+   * The start time of the network connectivity.
    * 
    * @example
    * 1666886400000

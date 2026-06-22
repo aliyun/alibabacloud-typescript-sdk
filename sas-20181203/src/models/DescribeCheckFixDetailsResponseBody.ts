@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRulesParamList extends $dara.Model {
   /**
    * @remarks
-   * The options that can be selected for the rule parameter if the value of the ParamType parameter is 2.
+   * The options of the rule parameter when the parameter type is selection.
    * 
    * @example
    * 0,1,2,3
@@ -55,8 +55,8 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRulesParamList ex
    * @remarks
    * The type of the rule parameter. Valid values:
    * 
-   * *   **1**: input
-   * *   **2**: selection
+   * - **1**: input
+   * - **2**: selection.
    * 
    * @example
    * 1
@@ -64,7 +64,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRulesParamList ex
   paramType?: number;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * pwd_reuse.system_auth
@@ -72,7 +72,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRulesParamList ex
   ruleId?: string;
   /**
    * @remarks
-   * The specified value of the rule parameter.
+   * The configured value of the rule parameter.
    * 
    * @example
    * 18
@@ -118,7 +118,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRulesParamList ex
 export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRules extends $dara.Model {
   /**
    * @remarks
-   * The ID of the risk item.
+   * The ID of the check item.
    * 
    * @example
    * 58
@@ -136,8 +136,8 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRules extends $da
    * @remarks
    * Indicates whether the rule is optional. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: yes
+   * - **0**: no.
    * 
    * @example
    * 1
@@ -145,7 +145,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRules extends $da
   optional?: number;
   /**
    * @remarks
-   * An array that consists of the rule parameters.
+   * The list of rule parameters.
    */
   paramList?: DescribeCheckFixDetailsResponseBodyCheckFixDetailsRulesParamList[];
   /**
@@ -158,7 +158,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRules extends $da
   ruleDesc?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * pwd_reuse.system_auth
@@ -166,7 +166,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRules extends $da
   ruleId?: string;
   /**
    * @remarks
-   * The specified value of the rule parameter.
+   * The configured value of the rule parameter.
    * 
    * @example
    * 5
@@ -174,7 +174,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRules extends $da
   value?: number;
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * open
@@ -221,7 +221,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetailsRules extends $da
 export class DescribeCheckFixDetailsResponseBodyCheckFixDetails extends $dara.Model {
   /**
    * @remarks
-   * The detailed description of the risk item.
+   * The detailed description of the check item.
    * 
    * @example
    * Force users not to reuse recently used passwords to reduce the risk of password guessing attacks
@@ -229,7 +229,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetails extends $dara.Mo
   checkDesc?: string;
   /**
    * @remarks
-   * The ID of the risk item.
+   * The ID of the check item.
    * 
    * @example
    * 58
@@ -237,7 +237,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetails extends $dara.Mo
   checkId?: number;
   /**
    * @remarks
-   * The description of the risk item.
+   * The description of the check item.
    * 
    * @example
    * Ensure password reuse is limited
@@ -245,7 +245,7 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetails extends $dara.Mo
   checkItem?: string;
   /**
    * @remarks
-   * An array consisting of the rules that are supported by the risk item.
+   * The list of rules supported by the check item.
    */
   rules?: DescribeCheckFixDetailsResponseBodyCheckFixDetailsRules[];
   static names(): { [key: string]: string } {
@@ -281,12 +281,12 @@ export class DescribeCheckFixDetailsResponseBodyCheckFixDetails extends $dara.Mo
 export class DescribeCheckFixDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the parameters.
+   * The list of check item fix parameters.
    */
   checkFixDetails?: DescribeCheckFixDetailsResponseBodyCheckFixDetails[];
   /**
    * @remarks
-   * The number of risk items that can be fixed.
+   * The number of check items that support fixing.
    * 
    * @example
    * 20
@@ -294,7 +294,7 @@ export class DescribeCheckFixDetailsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 0DBF1E27-98D8-5EC2-9CF3-4A2E26F6****

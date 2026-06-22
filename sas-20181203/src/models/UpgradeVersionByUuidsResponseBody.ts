@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeVersionByUuidsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 7BC55C8F-226E-5AF5-9A2C-2EC43864****

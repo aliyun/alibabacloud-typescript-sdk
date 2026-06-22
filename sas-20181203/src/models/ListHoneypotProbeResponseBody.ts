@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHoneypotProbeResponseBodyListControlNode extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Elastic Compute Service (ECS) instance.
+   * The ECS instance ID.
    * 
    * @example
    * i-uf6eq0rlvu1mkh0p****
@@ -13,7 +13,7 @@ export class ListHoneypotProbeResponseBodyListControlNode extends $dara.Model {
   ecsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * 8ec9da17-c0e7-4642-aad6-defc9722****
@@ -21,7 +21,7 @@ export class ListHoneypotProbeResponseBodyListControlNode extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * HoneypotNode1
@@ -55,12 +55,12 @@ export class ListHoneypotProbeResponseBodyListControlNode extends $dara.Model {
 export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The information about the management node.
+   * The management node data.
    */
   controlNode?: ListHoneypotProbeResponseBodyListControlNode;
   /**
    * @remarks
-   * The time when the probe was deployed.
+   * The deployment time.
    * 
    * @example
    * 1669363825000
@@ -68,7 +68,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   deployTime?: number;
   /**
    * @remarks
-   * The name of the probe.
+   * The probe name.
    * 
    * @example
    * prod-pinpoint-hd1b
@@ -76,7 +76,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The IP address of the server on which the probe is installed.
+   * The local IP address bound to the probe.
    * 
    * @example
    * 33.53.XX.XX
@@ -84,10 +84,10 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   hostIp?: string;
   /**
    * @remarks
-   * The operating system of the server on which the probe is deployed. Valid values:
+   * The operating system type of the probe instance. Valid values:
    * 
-   * *   windows
-   * *   linux
+   * - windows: Windows.
+   * - linux: Linux.
    * 
    * @example
    * windows
@@ -95,7 +95,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The ID of the probe.
+   * The probe ID.
    * 
    * @example
    * 4d167bb3-dd09-4a6a-a179-d5d6a5b0****
@@ -103,10 +103,10 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   probeId?: string;
   /**
    * @remarks
-   * The type of the probe. Valid values:
+   * The probe type. Valid values:
    * 
-   * *   **host_probe**: host probe
-   * *   **vpc_black_hole_probe**: VPC probe
+   * - **host_probe**: host probe
+   * - **vpc_black_hole_probe**: VPC blackhole probe.
    * 
    * @example
    * host_probe
@@ -114,7 +114,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   probeType?: string;
   /**
    * @remarks
-   * The version of the probe.
+   * The probe version.
    * 
    * @example
    * 18060096
@@ -122,18 +122,17 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   probeVersion?: string;
   /**
    * @remarks
-   * The status of the probe. Valid values:
-   * 
-   * *   **installed**: installed
-   * *   **install_failed**: installation failed
-   * *   **online**: online
-   * *   **offline**: offline
-   * *   **unnormal**: abnormal
-   * *   **unprobe**: unauthorized
-   * *   **uninstalling**: being uninstalled
-   * *   **uninstalled**: uninstalled
-   * *   **uninstall_failed**: uninstallation failed
-   * *   **not_exist**: not installed
+   * The probe status. Valid values:
+   * - **installed**: Installation succeeded.
+   * - **install_failed**: Installation failed.
+   * - **online**: Normal.
+   * - **offline**: Offline.
+   * - **unnormal**: Service exception.
+   * - **unprobe**: Unauthorized.
+   * - **uninstalling**: Uninstalling.
+   * - **uninstalled**: Uninstallation succeeded.
+   * - **uninstall_failed**: Uninstallation failed.
+   * - **not_exist**: Not installed.
    * 
    * @example
    * online
@@ -141,7 +140,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The UUID of the server to which the host probe is deployed.
+   * The UUID of the asset instance where the host probe is deployed.
    * 
    * @example
    * 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
@@ -149,7 +148,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the VPC probe is deployed.
+   * The ID of the VPC-connected instance where the VPC probe is deployed.
    * 
    * @example
    * vpc-5gu8iu68w9b472jbb****
@@ -202,7 +201,7 @@ export class ListHoneypotProbeResponseBodyList extends $dara.Model {
 export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of honeypot probes displayed on the current page.
    * 
    * @example
    * 20
@@ -210,7 +209,7 @@ export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number returned in the paged query during paging.
    * 
    * @example
    * 1
@@ -218,7 +217,7 @@ export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**.
+   * The number of honeypot probes displayed per page in the paged query during paging. Default value: **20**.
    * 
    * @example
    * 20
@@ -226,7 +225,7 @@ export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of honeypot probes returned.
    * 
    * @example
    * 30
@@ -262,7 +261,7 @@ export class ListHoneypotProbeResponseBodyPageInfo extends $dara.Model {
 export class ListHoneypotProbeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code that is returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of a failure.
    * 
    * @example
    * 200
@@ -270,7 +269,7 @@ export class ListHoneypotProbeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code of the response.
    * 
    * @example
    * 200
@@ -278,12 +277,12 @@ export class ListHoneypotProbeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * An array that consists of the details about the probe.
+   * The list of honeypot probe data.
    */
   list?: ListHoneypotProbeResponseBodyList[];
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * successful
@@ -296,7 +295,7 @@ export class ListHoneypotProbeResponseBody extends $dara.Model {
   pageInfo?: ListHoneypotProbeResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 4BC9E610-21BE-537F-82EF-144A60D5A970
@@ -304,10 +303,9 @@ export class ListHoneypotProbeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

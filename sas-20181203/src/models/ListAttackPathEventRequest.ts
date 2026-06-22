@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
   /**
    * @remarks
-   * Subtype of the cloud product asset.
+   * The subtype of the cloud service asset.
    * 
-   * > You can call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the subtype of the cloud product asset.
+   * > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the subtypes of cloud service assets.
    * 
    * @example
    * 2
@@ -15,9 +15,9 @@ export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
   assetSubType?: number;
   /**
    * @remarks
-   * Type of the cloud product asset.
+   * The type of the cloud service asset.
    * 
-   * > You can call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the type of the cloud product asset.
+   * > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the types of cloud service assets.
    * 
    * @example
    * 17
@@ -25,9 +25,9 @@ export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
   assetType?: number;
   /**
    * @remarks
-   * Node type, values:
-   * - **start**: start point.
-   * - **end**: end point.
+   * The node type. Valid values:
+   * - **start**: start node.
+   * - **end**: end node.
    * 
    * @example
    * start
@@ -35,8 +35,8 @@ export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * Vendor of the cloud product asset.
-   * > You can call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the vendor of the cloud product asset.
+   * The vendor of the cloud service asset.
+   * > Call [ListSupportAttackPathAsset](~~ListSupportAttackPathAsset~~) to query the vendors of cloud service assets.
    * 
    * @example
    * 0
@@ -72,12 +72,12 @@ export class ListAttackPathEventRequestAttackPathAssetList extends $dara.Model {
 export class ListAttackPathEventRequest extends $dara.Model {
   /**
    * @remarks
-   * List of cloud product assets in the attack path.
+   * The list of cloud service assets in the attack path.
    */
   attackPathAssetList?: ListAttackPathEventRequestAttackPathAssetList[];
   /**
    * @remarks
-   * Specifies from which page of the returned results the query results should be displayed. The default value is 1, indicating that the display starts from the first page.
+   * The page number of the results to return. Default value: 1, which indicates the first page.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListAttackPathEventRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Timestamp of the end time. Unit: milliseconds.
+   * The end time as a timestamp. Unit: milliseconds.
    * 
    * @example
    * 1668064495000
@@ -93,10 +93,10 @@ export class ListAttackPathEventRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Sets the language type for requests and received messages, with the default being **zh**. Values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * en
@@ -104,7 +104,7 @@ export class ListAttackPathEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of data entries displayed per page in a paginated query. The default value is **20**.
+   * The maximum number of entries per page in a paged query. Default value: **20**.
    * 
    * @example
    * 20
@@ -112,8 +112,8 @@ export class ListAttackPathEventRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Description of the path name.
-   * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path name description.
+   * The path name description.
+   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path name descriptions.
    * 
    * @example
    * ECS Instance Can Obtain Long-term Access Credential by Enabling Console Logon for RAM User
@@ -121,8 +121,8 @@ export class ListAttackPathEventRequest extends $dara.Model {
   pathNameDesc?: string;
   /**
    * @remarks
-   * Path type.
-   * > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path type.
+   * The path type.
+   * > Call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query path types.
    * 
    * @example
    * role_escalation
@@ -130,12 +130,12 @@ export class ListAttackPathEventRequest extends $dara.Model {
   pathType?: string;
   /**
    * @remarks
-   * List of risk level information.
+   * The list of risk levels.
    */
   riskLevelList?: string[];
   /**
    * @remarks
-   * Timestamp of the start time. Unit: milliseconds.
+   * The start time as a timestamp. Unit: milliseconds.
    * 
    * @example
    * 1666886400000

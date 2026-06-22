@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAssetSelectionSelectedTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the asset.
+   * The unique identifier of the asset selection.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListAssetSelectionSelectedTargetRequest extends $dara.Model {
   selectionKey?: string;
   /**
    * @remarks
-   * The details of queries.
+   * The query list.
    */
   targetList?: string[];
   static names(): { [key: string]: string } {

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateSwitchStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the rule.
-   * 
-   * >  You can call the ListContainerWebDefenseRule operation to query the IDs of rules.
+   * The rule ID.
+   * > You can call the [ListSasContainerWebDefenseRule](https://help.aliyun.com/document_detail/2623606.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,9 @@ export class OperateSwitchStatusRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The status of the rule. Valid values: on and off.
+   * The status of the container tamper-proofing rule. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * This parameter is required.
    * 

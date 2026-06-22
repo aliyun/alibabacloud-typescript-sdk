@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AccessKey pair that is leaked.
+   * The leaked AccessKey ID.
    * 
    * @example
    * yourAccessKeyID
@@ -13,7 +13,7 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
   accesskeyId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account that is affected.
+   * The name of the affected Alibaba Cloud account.
    * 
    * @example
    * testAccountName
@@ -21,15 +21,15 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
   aliUserName?: string;
   /**
    * @remarks
-   * The platform to which the asset belongs. The value is fixed as **Cloud platform**.
+   * The platform where the asset resides. The value is fixed as **Cloud Platform**.
    * 
    * @example
-   * Cloud platform
+   * 云平台
    */
   asset?: string;
   /**
    * @remarks
-   * The time when the AccessKey pair leak is handled.
+   * The time when the AccessKey leak information was processed.
    * 
    * @example
    * 2020-12-03 21:23:38
@@ -37,12 +37,11 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
   dealTime?: string;
   /**
    * @remarks
-   * The method to handle the AccessKey pair leak. Valid values:
-   * 
-   * *   **pending**: The AccessKey pair leak is unhandled.
-   * *   **manual**: The AccessKey pair leak is manually handled.
-   * *   **disable**: The AccessKey pair leak is disabled.
-   * *   **add-whitelist**: The AccessKey pair leak is added to the whitelist.
+   * The method used to handle the AccessKey leak information. Valid values:
+   * - **pending**: unprocessed
+   * - **manual**: manually processed
+   * - **disable**: disabled
+   * - **add-whitelist**: added to the whitelist.
    * 
    * @example
    * pending
@@ -50,7 +49,7 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
   dealType?: string;
   /**
    * @remarks
-   * The time when the AccessKey pair leak is first detected. The value of this parameter is a UNIX timestamp. Unit: milliseconds.
+   * The time when the AccessKey leak was first discovered. This parameter is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1612357897000
@@ -58,7 +57,7 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
   gmtModified?: number;
   /**
    * @remarks
-   * The primary key ID of the database.
+   * The primary key ID in the database.
    * 
    * @example
    * 389357
@@ -66,10 +65,9 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
   id?: number;
   /**
    * @remarks
-   * Indicates whether the AccessKey pair leak is handled. Valid values:
-   * 
-   * *   **pending**: unhandled
-   * *   **dealed**: handled
+   * The processing status of the leaked AccessKey information. Valid values:
+   * - **pending**: unprocessed
+   * - **dealed**: processed.
    * 
    * @example
    * pending
@@ -77,7 +75,7 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
   status?: string;
   /**
    * @remarks
-   * The type of the leak. The value is fixed as **AccessKey**.
+   * The type of the leak information. The value is fixed as **AccessKey**.
    * 
    * @example
    * AccessKey
@@ -85,15 +83,14 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
   type?: string;
   /**
    * @remarks
-   * The URL of the platform on which the AccessKey pair leak is detected.
+   * The URL of the external platform where the AccessKey leak was discovered.
    */
   url?: string;
   /**
    * @remarks
    * The type of the account to which the leaked AccessKey pair belongs. Valid values:
-   * 
-   * *   **master**: Alibaba Cloud account
-   * *   **ram**: RAM user
+   * - **master**: Alibaba Cloud account
+   * - **ram**: Resource Access Management (RAM) user.
    * 
    * @example
    * master
@@ -143,12 +140,12 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $dar
 export class DescribeAccesskeyLeakListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the details about AccessKey pair leaks.
+   * The list of detailed information about leaked AccessKey pairs.
    */
   accessKeyLeakList?: DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList[];
   /**
    * @remarks
-   * The number of AccessKey pair leaks that are unhandled.
+   * The number of unprocessed AccessKey leak entries.
    * 
    * @example
    * 1
@@ -156,7 +153,7 @@ export class DescribeAccesskeyLeakListResponseBody extends $dara.Model {
   akLeakCount?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -164,7 +161,7 @@ export class DescribeAccesskeyLeakListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and can be ignored.
    * 
    * @example
    * 1612357897000
@@ -172,7 +169,7 @@ export class DescribeAccesskeyLeakListResponseBody extends $dara.Model {
   gmtLast?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -180,7 +177,7 @@ export class DescribeAccesskeyLeakListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID generated by Alibaba Cloud for the request.
    * 
    * @example
    * B37C9052-A73E-4707-A024-9247702852BE
@@ -188,7 +185,7 @@ export class DescribeAccesskeyLeakListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of AccessKey pair leaks.
+   * The total number of AccessKey leak entries returned.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckStructureResponseBodyCheckStructureResponseStandardsRequirementsSections extends $dara.Model {
   /**
    * @remarks
-   * The ID of the section for the check item.
+   * The ID of the check item section.
    * 
    * @example
    * 177
@@ -13,7 +13,7 @@ export class GetCheckStructureResponseBodyCheckStructureResponseStandardsRequire
   id?: number;
   /**
    * @remarks
-   * The display name of the section for the check item.
+   * The name of the check item section.
    * 
    * @example
    * Access Control
@@ -45,7 +45,7 @@ export class GetCheckStructureResponseBodyCheckStructureResponseStandardsRequire
 export class GetCheckStructureResponseBodyCheckStructureResponseStandardsRequirements extends $dara.Model {
   /**
    * @remarks
-   * The ID of the requirement item for the check item.
+   * The ID of the cloud platform configuration check item requirement.
    * 
    * @example
    * 46
@@ -53,12 +53,12 @@ export class GetCheckStructureResponseBodyCheckStructureResponseStandardsRequire
   id?: number;
   /**
    * @remarks
-   * The information about the sections of check items.
+   * The sections of the check items.
    */
   sections?: GetCheckStructureResponseBodyCheckStructureResponseStandardsRequirementsSections[];
   /**
    * @remarks
-   * The display name of the requirement item for the check item.
+   * The name of the cloud platform configuration check item requirement.
    * 
    * @example
    * Networking
@@ -66,7 +66,7 @@ export class GetCheckStructureResponseBodyCheckStructureResponseStandardsRequire
   showName?: string;
   /**
    * @remarks
-   * The total number of check items for the requirement.
+   * The total number of check items under the requirement.
    * 
    * @example
    * 36
@@ -105,7 +105,7 @@ export class GetCheckStructureResponseBodyCheckStructureResponseStandardsRequire
 export class GetCheckStructureResponseBodyCheckStructureResponseStandards extends $dara.Model {
   /**
    * @remarks
-   * The standard ID of the check item.
+   * The ID of the cloud platform configuration check item standard.
    * 
    * @example
    * 8
@@ -113,12 +113,12 @@ export class GetCheckStructureResponseBodyCheckStructureResponseStandards extend
   id?: number;
   /**
    * @remarks
-   * The standards of the check items.
+   * The standards of the cloud platform configuration check items.
    */
   requirements?: GetCheckStructureResponseBodyCheckStructureResponseStandardsRequirements[];
   /**
    * @remarks
-   * The display name of the standard for the check item.
+   * The name of the cloud platform configuration check item standard.
    * 
    * @example
    * Alibaba Cloud best security practices
@@ -126,11 +126,12 @@ export class GetCheckStructureResponseBodyCheckStructureResponseStandards extend
   showName?: string;
   /**
    * @remarks
-   * The standard type of the check item. Valid values:
+   * The business type corresponding to the cloud platform configuration check item standard. Valid values:
+   * - RISK: security risk
    * 
-   * *   RISK: security risk.
-   * *   IDENTITY_PERMISSION: CIEM.
-   * *   COMPLIANCE: security compliance.
+   * - IDENTITY_PERMISSION: permission management CIEM
+   * 
+   * - COMPLIANCE: security compliance.
    * 
    * @example
    * IDENTITY_PERMISSION
@@ -169,11 +170,13 @@ export class GetCheckStructureResponseBodyCheckStructureResponseStandards extend
 export class GetCheckStructureResponseBodyCheckStructureResponse extends $dara.Model {
   /**
    * @remarks
-   * The type of the check item.
+   * The business type of the cloud platform configuration check item. Valid values:
    * 
-   * *   RISK: security risk.
-   * *   IDENTITY_PERMISSION: Cloud Infrastructure Entitlement Management (CIEM).
-   * *   COMPLIANCE: security compliance.
+   * - RISK: security risk
+   * 
+   * - IDENTITY_PERMISSION: permission management CIEM
+   * 
+   * - COMPLIANCE: security compliance.
    * 
    * @example
    * RISK
@@ -181,7 +184,7 @@ export class GetCheckStructureResponseBodyCheckStructureResponse extends $dara.M
   standardType?: string;
   /**
    * @remarks
-   * The structure information about the check items of the business type.
+   * The structure information of check items under the business type.
    */
   standards?: GetCheckStructureResponseBodyCheckStructureResponseStandards[];
   static names(): { [key: string]: string } {
@@ -213,12 +216,12 @@ export class GetCheckStructureResponseBodyCheckStructureResponse extends $dara.M
 export class GetCheckStructureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The structure information about check items provided by the configuration assessment feature.
+   * The structure information of cloud platform configuration check items.
    */
   checkStructureResponse?: GetCheckStructureResponseBodyCheckStructureResponse[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 379a9b8f-107b-4630-9e95-2299a1ea****

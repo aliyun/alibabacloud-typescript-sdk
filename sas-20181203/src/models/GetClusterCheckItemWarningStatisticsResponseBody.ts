@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterCheckItemWarningStatisticsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of high-risk items.
+   * The number of high-risk check items.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class GetClusterCheckItemWarningStatisticsResponseBodyData extends $dara.
   highWarningCount?: number;
   /**
    * @remarks
-   * The number of low-risk items.
+   * The number of low-risk check items.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetClusterCheckItemWarningStatisticsResponseBodyData extends $dara.
   lowWarningCount?: number;
   /**
    * @remarks
-   * The number of medium-risk items.
+   * The number of medium-risk check items.
    * 
    * @example
    * 2
@@ -55,12 +55,12 @@ export class GetClusterCheckItemWarningStatisticsResponseBodyData extends $dara.
 export class GetClusterCheckItemWarningStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics on risk items by risk level.
+   * The baseline check statistics grouped by risk level (high, medium, and low).
    */
   data?: GetClusterCheckItemWarningStatisticsResponseBodyData;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * C2B285A3-3493-5C5F-A224-4CCE4BFC****

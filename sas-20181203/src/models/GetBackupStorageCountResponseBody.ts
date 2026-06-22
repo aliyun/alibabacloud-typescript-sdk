@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBackupStorageCountResponseBodyBackupStorageCount extends $dara.Model {
   /**
    * @remarks
-   * The anti-ransomware capacity that you purchased. Unit: bytes.
+   * The purchased anti-ransomware capacity. Unit: bytes.
    * 
    * @example
    * 2276332666880
@@ -13,7 +13,7 @@ export class GetBackupStorageCountResponseBodyBackupStorageCount extends $dara.M
   buyStorageByte?: number;
   /**
    * @remarks
-   * The storage capacity that is occupied by the backup data of your servers. Unit: bytes.
+   * The storage capacity occupied by server backups in the backup data. Unit: bytes.
    * 
    * @example
    * 817262417803
@@ -21,10 +21,10 @@ export class GetBackupStorageCountResponseBodyBackupStorageCount extends $dara.M
   ecsUsageStorageByte?: number;
   /**
    * @remarks
-   * Indicates whether the anti-ransomware capacity that is used exceeds the anti-ransomware capacity that you purchased. Valid values:
+   * Indicates whether the anti-ransomware usage exceeds the purchased capacity. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: not exceeded
+   * - **1**: exceeded.
    * 
    * @example
    * 0
@@ -32,7 +32,7 @@ export class GetBackupStorageCountResponseBodyBackupStorageCount extends $dara.M
   overflow?: number;
   /**
    * @remarks
-   * The storage capacity that is occupied by the backup data of your databases. Unit: bytes.
+   * The storage capacity occupied by database backups in the backup data. Unit: bytes.
    * 
    * @example
    * 7453049350
@@ -40,7 +40,7 @@ export class GetBackupStorageCountResponseBodyBackupStorageCount extends $dara.M
   uniUsageStorageByte?: number;
   /**
    * @remarks
-   * The total anti-ransomware capacity that is used. Unit: bytes.
+   * The total used anti-ransomware storage capacity. Unit: bytes.
    * 
    * @example
    * 839621565853
@@ -78,12 +78,12 @@ export class GetBackupStorageCountResponseBodyBackupStorageCount extends $dara.M
 export class GetBackupStorageCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the anti-ransomware capacity.
+   * The details of the anti-ransomware storage capacity.
    */
   backupStorageCount?: GetBackupStorageCountResponseBodyBackupStorageCount;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 33C2CCFF-4BF8-5F88-9B5C-22F932F80E5A

@@ -13,7 +13,7 @@ export class DescribeUniBackupStatisticsResponseBodyRegionCountList extends $dar
   automaticCount?: string;
   /**
    * @remarks
-   * The ID of the region in which the database instance resides.
+   * The region ID of the database instance.
    * 
    * @example
    * cn-shanghai
@@ -53,12 +53,12 @@ export class DescribeUniBackupStatisticsResponseBody extends $dara.Model {
   protectedDatabaseCount?: number;
   /**
    * @remarks
-   * The regions of the database instances.
+   * The list of regions in which database instances can be configured.
    */
   regionCountList?: DescribeUniBackupStatisticsResponseBodyRegionCountList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 7532B7EE-7CE7-5F4D-BF04-B12447DD****
@@ -66,7 +66,7 @@ export class DescribeUniBackupStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of the restoration tasks that are running.
+   * The number of tasks that are being restored.
    * 
    * @example
    * 0
@@ -74,7 +74,7 @@ export class DescribeUniBackupStatisticsResponseBody extends $dara.Model {
   restoringTaskCount?: number;
   /**
    * @remarks
-   * The total number of database instances that can be restored.
+   * The number of recoverable database instances.
    * 
    * @example
    * 3
@@ -82,7 +82,7 @@ export class DescribeUniBackupStatisticsResponseBody extends $dara.Model {
   totalRecoverableCount?: number;
   /**
    * @remarks
-   * The total number of the restoration tasks.
+   * The total number of restoration records.
    * 
    * @example
    * 10

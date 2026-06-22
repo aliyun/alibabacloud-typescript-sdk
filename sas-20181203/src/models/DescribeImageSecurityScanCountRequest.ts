@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageSecurityScanCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster that you want to scan.
+   * The ID of the cluster for image security scanning.
    * 
    * @example
    * cdbbe7aa56cbf4b8f830f83718d26****
@@ -13,11 +13,10 @@ export class DescribeImageSecurityScanCountRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The handling status. Valid values:
-   * 
-   * *   **Y**: handled.
-   * *   **N**: unhandled.
-   * *   **A**: all.
+   * Specifies whether the event is handled. Valid values:
+   * - **Y**: Handled. 
+   * - **N**: Not handled. 
+   * - **A**: All.
    * 
    * @example
    * N
@@ -25,7 +24,7 @@ export class DescribeImageSecurityScanCountRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The SHA-256 value of the image digest.
+   * The SHA256 value of the image digest.
    * 
    * @example
    * a7978d51f5eddf7612ab15ae46bd4b4257bf59da77c2aafc9d9d8ab41bb3****
@@ -33,7 +32,7 @@ export class DescribeImageSecurityScanCountRequest extends $dara.Model {
   imageDigest?: string;
   /**
    * @remarks
-   * The tag of the image.
+   * The image tag.
    * 
    * @example
    * c958b80f-prd_default-9bb0****
@@ -49,7 +48,7 @@ export class DescribeImageSecurityScanCountRequest extends $dara.Model {
   imageUuid?: string;
   /**
    * @remarks
-   * The ID of the Container Registry repository.
+   * The ID of the container image repository.
    * 
    * @example
    * 3df5b5a1f2339eb7ebc7d474b8d4****
@@ -57,9 +56,9 @@ export class DescribeImageSecurityScanCountRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The instance ID of the container image.
    * 
-   * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain the ID.
+   * > Invoke the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
    * 
    * @example
    * cri-p2jahwuuwuk7****
@@ -67,7 +66,7 @@ export class DescribeImageSecurityScanCountRequest extends $dara.Model {
   repoInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the Container Registry repository.
+   * The region ID of the container image repository.
    * 
    * @example
    * cn-beijing
@@ -75,12 +74,12 @@ export class DescribeImageSecurityScanCountRequest extends $dara.Model {
   repoRegionId?: string;
   /**
    * @remarks
-   * The assets that you want to scan.
+   * The scan scope.
    */
   scanRange?: string[];
   /**
    * @remarks
-   * The IDs of the instances that you want to scan.
+   * The instance ID for image security scanning.
    */
   uuids?: string[];
   static names(): { [key: string]: string } {

@@ -7,8 +7,8 @@ export class GetContainerDefenseRuleDetailResponseBodyDataScope extends $dara.Mo
    * @remarks
    * Indicates whether all namespaces are included. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: no.
+   * - **1**: yes.
    * 
    * @example
    * 1
@@ -24,7 +24,7 @@ export class GetContainerDefenseRuleDetailResponseBodyDataScope extends $dara.Mo
   clusterId?: string;
   /**
    * @remarks
-   * An array that consists of queried namespaces.
+   * The list of namespaces.
    */
   namespaces?: string[];
   static names(): { [key: string]: string } {
@@ -58,21 +58,19 @@ export class GetContainerDefenseRuleDetailResponseBodyDataScope extends $dara.Mo
 export class GetContainerDefenseRuleDetailResponseBodyDataWhitelist extends $dara.Model {
   /**
    * @remarks
-   * The hash values of the files that are added to the whitelist.
-   * 
-   * >  This parameter is not supported.
+   * The list of file hashes.<notice>This parameter is not supported.</notice>.
    * 
    * @deprecated
    */
   hash?: string[];
   /**
    * @remarks
-   * An array consisting of images that are added to the whitelist.
+   * The list of images added to the whitelist.
    */
   image?: string[];
   /**
    * @remarks
-   * The paths to the files that are added to the whitelist.
+   * The list of file paths added to the whitelist.
    */
   path?: string[];
   static names(): { [key: string]: string } {
@@ -120,17 +118,17 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The description of the rule.
+   * The description.
    * 
    * @example
-   * Custom defense configuration
+   * 防御规则。
    */
   description?: string;
   /**
    * @remarks
    * The alert name. Valid values:
    * 
-   * *   **Non-image Program Startup**
+   * - **Non-image Process Startup**.
    * 
    * @example
    * EventName
@@ -138,9 +136,9 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The alert type. Valid values:
+   * The alerting type. Valid values:
    * 
-   * *   **Proactive Defense for Containers**
+   * - **Container Active Defense**.
    * 
    * @example
    * EventType
@@ -148,7 +146,7 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 1948
@@ -156,10 +154,11 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The action specified in the rule. Valid values:
+   * The rule action. Valid values:
    * 
-   * *   **1**: alert
-   * *   **2**: block
+   * - **1**: alert.
+   * 
+   * - **2**: block.
    * 
    * @example
    * 1
@@ -167,7 +166,7 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
   ruleAction?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test-000
@@ -175,10 +174,10 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The switch status of the rule. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 0
@@ -186,10 +185,10 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
   ruleSwitch?: number;
   /**
    * @remarks
-   * The type of the rule. Valid values:
+   * The rule type. Valid values:
+   * - **1**: system rule.
    * 
-   * *   **1**: system rule
-   * *   **2**: custom rule
+   * - **2**: custom rule.
    * 
    * @example
    * 1
@@ -197,7 +196,7 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The effective scope of the rule.
+   * The scope in which the rule takes effect.
    */
   scope?: GetContainerDefenseRuleDetailResponseBodyDataScope[];
   /**
@@ -255,7 +254,7 @@ export class GetContainerDefenseRuleDetailResponseBodyData extends $dara.Model {
 export class GetContainerDefenseRuleDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -263,12 +262,12 @@ export class GetContainerDefenseRuleDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the rule.
+   * The rule details.
    */
   data?: GetContainerDefenseRuleDetailResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * The HTTP status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -284,7 +283,7 @@ export class GetContainerDefenseRuleDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 77546BF4-CCE8-5F8D-B42B-5FD3306B43B4
@@ -292,10 +291,9 @@ export class GetContainerDefenseRuleDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: successful.
+   * - **false**: failed.
    * 
    * @example
    * true

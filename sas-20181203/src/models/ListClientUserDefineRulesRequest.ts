@@ -18,7 +18,7 @@ export class ListClientUserDefineRulesRequest extends $dara.Model {
    * The name of the rule.
    * 
    * @example
-   * Rule\\*\\*\\*\\*
+   * 规则****
    */
   name?: string;
   /**

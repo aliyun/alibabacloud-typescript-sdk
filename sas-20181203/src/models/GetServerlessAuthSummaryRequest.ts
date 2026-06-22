@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServerlessAuthSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * Application region ID.
+   * The region ID of the application.
    * 
    * @example
    * cn-hangzhou
@@ -13,9 +13,9 @@ export class GetServerlessAuthSummaryRequest extends $dara.Model {
   appRegionId?: string;
   /**
    * @remarks
-   * Server type: 
+   * The server type. Valid values:
    * - **RunD**
-   * - **ECI**
+   * - **ECI**.
    * 
    * @example
    * RunD
@@ -23,10 +23,10 @@ export class GetServerlessAuthSummaryRequest extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Cloud product: 
+   * The cloud service to which the resource belongs. Valid values:
    * - **ASK**
    * - **SAE**
-   * - **ACS**
+   * - **ACS**.
    * 
    * @example
    * SAE

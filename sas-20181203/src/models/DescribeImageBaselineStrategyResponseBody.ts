@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList extends $dara.Model {
   /**
    * @remarks
-   * The key of the baseline type.
+   * The classification key of the baseline main item.
    * 
    * @example
    * identification
@@ -13,7 +13,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList e
   classKey?: string;
   /**
    * @remarks
-   * The key of the baseline check item.
+   * The key of the baseline subitem.
    * 
    * @example
    * duplicate_pwd_hash
@@ -21,7 +21,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList e
   itemKey?: string;
   /**
    * @remarks
-   * The key of the name for the baseline.
+   * The name key of the baseline main item.
    * 
    * @example
    * identification
@@ -55,7 +55,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList e
 export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Model {
   /**
    * @remarks
-   * The baseline check policy for agentless detection.
+   * The agentless baseline check policy.
    * 
    * @example
    * hc_win2008_cis_rules
@@ -63,9 +63,16 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
   baselineItem?: string;
   /**
    * @remarks
-   * An array that contains the baselines.
+   * The list of baseline items.
    */
   baselineItemList?: DescribeImageBaselineStrategyResponseBodyStrategyBaselineItemList[];
+  /**
+   * @remarks
+   * The retention period of baseline risks. Unit: days.
+   * 
+   * @example
+   * 90
+   */
   imageVulClean?: number;
   /**
    * @remarks
@@ -85,7 +92,7 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
   strategyId?: number;
   /**
    * @remarks
-   * The name of the baseline check policy.
+   * The Policy Name.
    * 
    * @example
    * default
@@ -103,9 +110,9 @@ export class DescribeImageBaselineStrategyResponseBodyStrategy extends $dara.Mod
    * @remarks
    * The type of the baseline check policy. Valid values:
    * 
-   * *   **default**: the default policy
-   * *   **full**: a policy that uses all baselines
-   * *   **normal**: a policy that uses general baselines
+   * - **default**: default policy
+   * - **full**: full baseline item policy
+   * - **normal**: common baseline item policy.
    * 
    * @example
    * default
@@ -160,7 +167,7 @@ export class DescribeImageBaselineStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the baseline check policy.
+   * The baseline check policy information.
    */
   strategy?: DescribeImageBaselineStrategyResponseBodyStrategy;
   static names(): { [key: string]: string } {

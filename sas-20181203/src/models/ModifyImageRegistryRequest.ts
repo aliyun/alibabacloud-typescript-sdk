@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyImageRegistryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * 114.55.xxx.xxx
+   */
   domainName?: string;
   /**
    * @remarks
-   * The ID of the image repository. You can call the listImageRegistry operation to query the ID of the image repository.
+   * The image registry ID. Call the [ListImageRegistry](https://help.aliyun.com/document_detail/471986.html) operation to obtain this ID.
    * 
    * @example
    * 390103286
@@ -20,11 +27,25 @@ export class ModifyImageRegistryRequest extends $dara.Model {
    * ********************
    */
   password?: string;
+  /**
+   * @remarks
+   * The port number.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @remarks
+   * The registry IP address.
+   * 
+   * @example
+   * 192.168.0.1
+   */
   registryHostIp?: string;
   /**
    * @remarks
-   * The number of images that are scanned per hour.
+   * The number of images to scan per hour.
    * 
    * @example
    * 10

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteUnknownThreatDetectStrategyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The list of policy IDs.
+   * 
    * @example
    * 123
    */

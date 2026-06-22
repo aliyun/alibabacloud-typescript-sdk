@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAvailableHoneypotRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management node to which the honeypot is deployed.
+   * The ID of the honeypot management node.
    * 
    * @example
    * 4341018b-8e01-43f6-b1d2-af29a2a4****

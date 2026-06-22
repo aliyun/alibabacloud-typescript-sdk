@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeContainerStatisticsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts whose risk level is **Reminder**.
+   * The number of alerts with the **Reminder** risk level.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeContainerStatisticsResponseBodyData extends $dara.Model {
   remindAlarmCount?: number;
   /**
    * @remarks
-   * The number of alerts whose risk level is **Urgent**.
+   * The number of alerts with the **Urgent** risk level.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class DescribeContainerStatisticsResponseBodyData extends $dara.Model {
   seriousAlarmCount?: number;
   /**
    * @remarks
-   * The number of alerts whose risk level is **Suspicious**.
+   * The number of alerts with the **Suspicious** risk level.
    * 
    * @example
    * 3
@@ -29,7 +29,7 @@ export class DescribeContainerStatisticsResponseBodyData extends $dara.Model {
   suspiciousAlarmCount?: number;
   /**
    * @remarks
-   * The total number of alerts that are generated in the current container cluster.
+   * The total number of security alerts in the container cluster.
    * 
    * @example
    * 6
@@ -37,7 +37,7 @@ export class DescribeContainerStatisticsResponseBodyData extends $dara.Model {
   totalAlarmCount?: number;
   /**
    * @remarks
-   * The total number of nodes in the current container cluster.
+   * The total number of nodes in the container cluster.
    * 
    * @example
    * 12
@@ -45,7 +45,7 @@ export class DescribeContainerStatisticsResponseBodyData extends $dara.Model {
   totalNode?: number;
   /**
    * @remarks
-   * The number of nodes on which alerts are generated in the current container cluster.
+   * The number of nodes that have alerts in the container cluster.
    * 
    * @example
    * 4
@@ -85,12 +85,12 @@ export class DescribeContainerStatisticsResponseBodyData extends $dara.Model {
 export class DescribeContainerStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The alert statistics of container assets.
+   * The detailed alert statistics of container assets.
    */
   data?: DescribeContainerStatisticsResponseBodyData;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
    * 
    * @example
    * 21DA46CA-2DCE-4FF6-907D-D5DBBB7518C8

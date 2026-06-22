@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeContainerScanConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of container applications in the cluster.
+   * The total number of applications in the cluster.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class DescribeContainerScanConfigResponseBodyData extends $dara.Model {
   allCount?: number;
   /**
    * @remarks
-   * The names of the container applications.
+   * The container application name.
    * 
    * @example
    * [\\"alicloud-monitor-controller\\"]
@@ -21,7 +21,7 @@ export class DescribeContainerScanConfigResponseBodyData extends $dara.Model {
   appNames?: string;
   /**
    * @remarks
-   * The number of selected container applications.
+   * The number of selected applications.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeContainerScanConfigResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * hhht-cluster-02
@@ -75,7 +75,7 @@ export class DescribeContainerScanConfigResponseBodyData extends $dara.Model {
 export class DescribeContainerScanConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: DescribeContainerScanConfigResponseBodyData;
   /**

@@ -45,16 +45,16 @@ export class GetStrategyTemplateDetailResponseBodyDataAlarmDetailBaselineItem ex
 export class GetStrategyTemplateDetailResponseBodyDataAlarmDetailBaseline extends $dara.Model {
   /**
    * @remarks
-   * The baseline items.
+   * The list of baseline check items.
    */
   item?: GetStrategyTemplateDetailResponseBodyDataAlarmDetailBaselineItem[];
   /**
    * @remarks
-   * The severities of the baselines. Valid values:
+   * The list of baseline risk levels. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: High.
+   * - **medium**: Medium.
+   * - **low**: Low.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -129,12 +129,12 @@ export class GetStrategyTemplateDetailResponseBodyDataAlarmDetailMaliciousFileIt
 export class GetStrategyTemplateDetailResponseBodyDataAlarmDetailMaliciousFile extends $dara.Model {
   /**
    * @remarks
-   * The items on which malicious samples are detected.
+   * The list of malicious sample items.
    */
   item?: GetStrategyTemplateDetailResponseBodyDataAlarmDetailMaliciousFileItem[];
   /**
    * @remarks
-   * The severities of the malicious samples.
+   * The list of malicious sample risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -177,7 +177,7 @@ export class GetStrategyTemplateDetailResponseBodyDataAlarmDetailVulItem extends
   id?: string;
   /**
    * @remarks
-   * The alias of the vulnerability.
+   * The name of the vulnerability.
    * 
    * @example
    * ezOffice evoInterfaceServlet Info Leak
@@ -209,12 +209,12 @@ export class GetStrategyTemplateDetailResponseBodyDataAlarmDetailVulItem extends
 export class GetStrategyTemplateDetailResponseBodyDataAlarmDetailVul extends $dara.Model {
   /**
    * @remarks
-   * The items on which vulnerabilities are detected.
+   * The list of vulnerability items.
    */
   item?: GetStrategyTemplateDetailResponseBodyDataAlarmDetailVulItem[];
   /**
    * @remarks
-   * The severities of the vulnerabilities.
+   * The list of vulnerability severity levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -249,17 +249,17 @@ export class GetStrategyTemplateDetailResponseBodyDataAlarmDetailVul extends $da
 export class GetStrategyTemplateDetailResponseBodyDataAlarmDetail extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the baseline.
+   * The baseline rule configuration information.
    */
   baseline?: GetStrategyTemplateDetailResponseBodyDataAlarmDetailBaseline;
   /**
    * @remarks
-   * The configuration of the alert rule for the malicious sample.
+   * The malicious sample rule configuration information.
    */
   maliciousFile?: GetStrategyTemplateDetailResponseBodyDataAlarmDetailMaliciousFile;
   /**
    * @remarks
-   * The configuration of the vulnerability detection rule.
+   * The vulnerability rule configuration information.
    */
   vul?: GetStrategyTemplateDetailResponseBodyDataAlarmDetailVul;
   static names(): { [key: string]: string } {
@@ -299,12 +299,12 @@ export class GetStrategyTemplateDetailResponseBodyDataAlarmDetail extends $dara.
 export class GetStrategyTemplateDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the rule.
+   * The rule configuration information.
    */
   alarmDetail?: GetStrategyTemplateDetailResponseBodyDataAlarmDetail;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * c8ca91e0907d94efaba7fb0827eb9****
@@ -328,20 +328,20 @@ export class GetStrategyTemplateDetailResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The names of images.
+   * The list of image names.
    */
   imageName?: string[];
   /**
    * @remarks
-   * The tags that are added to the containers.
+   * The list of container labels.
    */
   label?: string[];
   /**
    * @remarks
-   * Indicates whether the rule supports malicious Internet images. Valid values:
+   * Specifies whether the rule supports Internet malicious images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * false
@@ -349,16 +349,15 @@ export class GetStrategyTemplateDetailResponseBodyData extends $dara.Model {
   maliciousImage?: boolean;
   /**
    * @remarks
-   * The namespaces.
+   * The list of namespaces.
    */
   namespace?: string[];
   /**
    * @remarks
-   * The action on requests. Valid values:
-   * 
-   * *   **1**: trigger alerts
-   * *   **2**: block
-   * *   **3**: allow
+   * The rule action. Valid values:
+   * - **1**: alert
+   * - **2**: block
+   * - **3**: allow.
    * 
    * @example
    * 1
@@ -382,7 +381,7 @@ export class GetStrategyTemplateDetailResponseBodyData extends $dara.Model {
   strategyName?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The ID of the template used by the rule.
    * 
    * @example
    * 1204
@@ -390,10 +389,10 @@ export class GetStrategyTemplateDetailResponseBodyData extends $dara.Model {
   strategyTemplateId?: number;
   /**
    * @remarks
-   * Indicates whether the rule supports unscanned images. Valid values:
+   * Specifies whether the rule supports unscanned images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * false
@@ -401,7 +400,7 @@ export class GetStrategyTemplateDetailResponseBodyData extends $dara.Model {
   unScanedImage?: boolean;
   /**
    * @remarks
-   * The whitelists of tags that are added to images.
+   * The list of image tag whitelists.
    */
   whiteList?: string[];
   static names(): { [key: string]: string } {
@@ -469,7 +468,7 @@ export class GetStrategyTemplateDetailResponseBodyData extends $dara.Model {
 export class GetStrategyTemplateDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -477,12 +476,12 @@ export class GetStrategyTemplateDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the template.
+   * The template details.
    */
   data?: GetStrategyTemplateDetailResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The detailed information about the error code.
    * 
    * @example
    * successful
@@ -490,7 +489,7 @@ export class GetStrategyTemplateDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 1E36BEEA-0B27-58CC-8319-50279203B048
@@ -498,10 +497,9 @@ export class GetStrategyTemplateDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

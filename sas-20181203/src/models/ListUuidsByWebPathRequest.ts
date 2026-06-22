@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUuidsByWebPathRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page to display in a paging query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListUuidsByWebPathRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to display on each page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,10 @@ export class ListUuidsByWebPathRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The path type of the web directory. Valid values:
+   * The type of the web path. Valid values:
    * 
-   * *   **def**: automatically identified
-   * *   **customize**: manually added
+   * - **def**: automatically identified by the system
+   * - **customize**: manually added.
    * 
    * @example
    * def
@@ -36,7 +36,7 @@ export class ListUuidsByWebPathRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The path to the web directory.
+   * The web path.
    * 
    * @example
    * /root/www****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyImageRegistryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned.
    * 
    * @example
    * 200
@@ -13,10 +13,10 @@ export class ModifyImageRegistryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * N/A
+   * The data returned. This parameter is not used.
    * 
    * @example
-   * N/A
+   * 无
    */
   data?: any;
   /**
@@ -29,7 +29,7 @@ export class ModifyImageRegistryResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * success
@@ -47,8 +47,9 @@ export class ModifyImageRegistryResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -56,7 +57,7 @@ export class ModifyImageRegistryResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The execution duration.
+   * The time consumed to call the API.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateK8sAccessInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayApiName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayPopName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * None
@@ -29,7 +29,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   aliyunYundunGatewayProjectName?: string;
   /**
    * @remarks
-   * The Simple Log Service Logstore that is used to store the audit logs.
+   * The SLS Logstore of the audit log.
    * 
    * @example
    * audit-cf6baf6afa106eca665296fdf68b65bf
@@ -37,7 +37,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   auditLogStore?: string;
   /**
    * @remarks
-   * The Simple Log Service project that is used to store the audit logs.
+   * The SLS project of the audit log.
    * 
    * @example
    * k8s-log-custom-huxintest1018-2
@@ -45,7 +45,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   auditProject?: string;
   /**
    * @remarks
-   * The ID of the region in which the audit logs are stored.
+   * The region of the audit log.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +63,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * CPU architectures are divided into ARM architecture and x86 architecture.
+   * The CPU architecture, which can be ARM or x86.
    * 
    * @example
    * arm
@@ -71,7 +71,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   cpuArch?: string;
   /**
    * @remarks
-   * The time at which the container ends to be added.
+   * The expiration time for container access.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   expireDate?: number;
   /**
    * @remarks
-   * The group ID.
+   * The queried group ID.
    * 
    * This parameter is required.
    * 
@@ -91,13 +91,12 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The service provider of the cloud asset. Valid values:
-   * 
-   * *   **Tencent**
-   * *   **HUAWEICLOUD**
-   * *   **Azure**
-   * *   **AWS**
-   * *   **Others**
+   * The cloud asset vendor. Valid values:
+   * - **Tencent**
+   * - **HUAWEICLOUD**
+   * - **Azure**
+   * - **AWS** 
+   * - **Other cloud assets**
    * 
    * This parameter is required.
    * 

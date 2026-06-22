@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPodRiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * nginx1
@@ -13,9 +13,8 @@ export class ListPodRiskRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
+   * The ID of the container cluster to query.
+   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
    * 
    * @example
    * c314aa5b2f208461dad821cdfed82****
@@ -23,7 +22,7 @@ export class ListPodRiskRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page when paging is used.
    * 
    * @example
    * 1
@@ -31,7 +30,7 @@ export class ListPodRiskRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The namespace of the Kubernetes cluster.
+   * The Kubernetes cluster namespace.
    * 
    * @example
    * taas
@@ -39,7 +38,7 @@ export class ListPodRiskRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of entries per page when paging is used. Default value: 20.
    * 
    * @example
    * 20
@@ -47,7 +46,7 @@ export class ListPodRiskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the pod.
+   * The pod name.
    * 
    * @example
    * abcd-84898334227-p****

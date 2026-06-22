@@ -639,7 +639,7 @@ export class DescribeVulListResponseBodyVulRecords extends $dara.Model {
    * The name of the operating system for your asset.
    * 
    * @example
-   * CentOS 7.2 64-bit
+   * CentOS  7.2 64位
    */
   osName?: string;
   /**

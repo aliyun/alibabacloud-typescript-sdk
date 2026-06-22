@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara.Model {
   /**
    * @remarks
-   * The error message of the module.
+   * The exception information of the module.
    * 
    * @example
    * ak_domain_error
@@ -13,12 +13,11 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
   message?: string;
   /**
    * @remarks
-   * The code of the module. Valid values:
-   * 
-   * *   **HOST**: host.
-   * *   **CSPM**: configuration assessment.
-   * *   **SIEM**: CTDR.
-   * *   **TRIAL**: log audit.
+   * The module code. Valid values:
+   * - **HOST**: host
+   * - **CSPM**: cloud product configuration check
+   * - **SIEM**: Cloud Threat Detection and Response (CTDR)
+   * - **TRIAL**: log audit.
    * 
    * @example
    * HOST
@@ -26,10 +25,10 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
   module?: string;
   /**
    * @remarks
-   * The type of the cloud asset that is associated with the module.
+   * The description of cloud assets associated with the module.
    * 
    * @example
-   * Module.
+   * Cloud server or virtual machine
    */
   moduleAssetType?: string;
   /**
@@ -37,17 +36,16 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
    * The display name of the module.
    * 
    * @example
-   * Host
+   * Host Assets
    */
   moduleDisp?: string;
   /**
    * @remarks
-   * The service status of the module. Valid values:
-   * 
-   * *   **0**: being used.
-   * *   **1**: exception occurred.
-   * *   **2**: being validated.
-   * *   **3**: validation timed out.
+   * The module status. Valid values:
+   * - **0**: in use
+   * - **1**: abnormal
+   * - **2**: validity verification in progress
+   * - **3**: validity verification timed out.
    * 
    * @example
    * 0
@@ -55,10 +53,10 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
   moduleServiceStatus?: number;
   /**
    * @remarks
-   * The permission description of the module.
+   * The description of permissions associated with the module.
    * 
    * @example
-   * Host
+   * Read permission of the cloud server or virtual machine
    */
   moduleStatement?: string;
   static names(): { [key: string]: string } {
@@ -95,10 +93,10 @@ export class ModifyCloudVendorAccountAKResponseBodyDataAuthModules extends $dara
 export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the account to which the AccessKey pair belongs. Valid values:
+   * The type of the AccessKey account. Valid values:
    * 
-   * *   **primary**
-   * *   **sub**
+   * - **primary**: primary account
+   * - **sub**: RAM user.
    * 
    * @example
    * sub
@@ -114,13 +112,13 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   authId?: number;
   /**
    * @remarks
-   * The modules that are associated with the AccessKey pair.
+   * The list of modules associated with the AccessKey pair.
    */
   authModules?: ModifyCloudVendorAccountAKResponseBodyDataAuthModules[];
   /**
    * @remarks
-   * Account ID. 
-   * >The account ID of the cloud provider being connected.
+   * The account ID.
+   * >The account ID of the connected cloud vendor.
    * 
    * @example
    * azure_demo_1
@@ -128,7 +126,7 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   ctdrCloudUserId?: string;
   /**
    * @remarks
-   * The error message of the AccessKey pair.
+   * The exception information of the AccessKey pair.
    * 
    * @example
    * The IAM user is forbidden in the currently selected region
@@ -136,9 +134,8 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The AccessKey ID.
-   * 
-   * >  If AkType is set to **primary**, the value of SecretId is AccessKey ID of the third-party master account. If AkType is set to **sub**, the value of SecretId is the AccessKey ID of the third-party sub-account. This parameter value does not change for a **Microsoft Azure account**. For an Azure account, this parameter value is the **app ID** that is used for authentication.
+   * The AccessKey parameter ID.
+   * > If AkType is set to **primary**, this value is the SecretID of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Access Key ID of the RAM user on the third-party cloud. For **Azure**, no distinction is made, and this value is the **appId** of the authentication information.
    * 
    * @example
    * AE6SLd****
@@ -146,12 +143,11 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   secretId?: string;
   /**
    * @remarks
-   * The service status of the AccessKey pair. Valid values:
-   * 
-   * *   **0**: being used.
-   * *   **1**: exception occurred.
-   * *   **2**: being validated.
-   * *   **3**: validation timed out.
+   * The availability status of the AccessKey pair. Valid values:
+   * - **0**: in use
+   * - **1**: abnormal
+   * - **2**: validity verification in progress
+   * - **3**: validity verification timed out.
    * 
    * @example
    * 0
@@ -159,10 +155,9 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   serviceStatus?: number;
   /**
    * @remarks
-   * The status of the AccessKey pair. Valid values:
-   * 
-   * *   **0**: enabled.
-   * *   **1**: disabled.
+   * The usage status of the AccessKey pair. Valid values:
+   * - **0**: enabled
+   * - **1**: disabled.
    * 
    * @example
    * 0
@@ -170,17 +165,16 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of the cloud asset. Valid values:
-   * 
-   * *   **Tencent**: Tencent Cloud.
-   * *   **HUAWEICLOUD**: Huawei Cloud.
-   * *   **Azure**: Microsoft Azure.
-   * *   **AWS**: Amazon Web Services (AWS).
-   * *  **VOLCENGINE**: Volcengine 
-   * *  **google**: Google Cloud 
-   * *  **CHAITIN**: Chaitin Tech 
-   * *  **FORTINET**: Fortinet 
-   * *  **THREATBOOK**: ThreatBook
+   * The cloud asset vendor. Valid values:
+   * - **Tencent**: Tencent Cloud
+   * - **HUAWEICLOUD**: Huawei Cloud
+   * - **Azure**: Azure
+   * - **AWS**: AWS
+   * - **VOLCENGINE**: Volcengine
+   * - **google**: Google Cloud
+   * - **CHAITIN**: Chaitin Tech
+   * - **FORTINET**: Fortinet
+   * - **THREATBOOK**: ThreatBook.
    * 
    * @example
    * Tencent
@@ -188,9 +182,8 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
   vendor?: string;
   /**
    * @remarks
-   * The name of the AccessKey pair.
-   * 
-   * >  The account information of the third-party cloud servers.
+   * The name of the AccessKey account.
+   * >Used to identify the account to which third-party host assets belong.
    * 
    * @example
    * test
@@ -241,12 +234,12 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
 export class ModifyCloudVendorAccountAKResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the AccessKey pair that is added.
+   * The authorization and authentication information that is added.
    */
   data?: ModifyCloudVendorAccountAKResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * 6635CED5-4B20-5D2D-94EC-A1C8F9C****

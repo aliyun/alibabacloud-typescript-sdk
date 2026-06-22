@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDingTalkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.Default value: 1.
+   * The page number of the current page to display in a paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeDingTalkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.Default value: 20.
+   * The maximum number of notifications to display per page in a paged query. Default value: **20**, which indicates that up to 20 entries are displayed per page.
    * 
    * @example
    * 20
@@ -21,10 +21,10 @@ export class DescribeDingTalkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the notification.
+   * The notification name.
    * 
    * @example
-   * Vulnerability notification
+   * TestRuleAction
    */
   ruleActionName?: string;
   static names(): { [key: string]: string } {

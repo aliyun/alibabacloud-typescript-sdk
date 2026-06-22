@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTagWithUuidRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the tag.
+   * The label name.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,8 @@ export class DeleteTagWithUuidRequest extends $dara.Model {
   tagName?: string;
   /**
    * @remarks
-   * The UUIDs of servers.
-   * 
-   * > If the UuidList parameter is specified, Security Center removes the tag only from the servers whose UUIDs are specified by UuidList. If the UuidList parameter is not specified, Security Center removes the tag from all servers.
+   * The list of server UUIDs.
+   * > If UuidList is specified, Security Center deletes the label only from the servers included in UuidList. If UuidList is empty, Security Center deletes the label from all servers.
    * 
    * @example
    * 111-xx,aa-bb

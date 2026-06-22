@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJenkinsImageRegistryNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image repository.
-   * 
-   * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
+   * The image repository ID.
+   * >You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
    * 
    * @example
    * 25090
@@ -15,7 +14,7 @@ export class UpdateJenkinsImageRegistryNameRequest extends $dara.Model {
   registryId?: number;
   /**
    * @remarks
-   * The name of the image repository.
+   * The image repository name.
    * 
    * @example
    * a0603tk1
@@ -23,7 +22,7 @@ export class UpdateJenkinsImageRegistryNameRequest extends $dara.Model {
   registryName?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 121.33.XXX.XXX

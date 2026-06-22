@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUniBackupPoliciesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of database anti-ransomware policies displayed on the current page.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeUniBackupPoliciesResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paginated query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeUniBackupPoliciesResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of database anti-ransomware policies displayed per page in a paginated query.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeUniBackupPoliciesResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of database anti-ransomware policies.
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class DescribeUniBackupPoliciesResponseBodyPageInfo extends $dara.Model {
 export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dara.Model {
   /**
    * @remarks
-   * The error message for the anti-ransomware agent.
+   * The error message of the client exception.
    * 
    * @example
    * INSTALL_TIMEOUT
@@ -73,12 +73,11 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   agentErrorMessage?: string;
   /**
    * @remarks
-   * The status of the agent. Valid values:
-   * 
-   * *   **UNKNOWN**
-   * *   **INSTALLED**
-   * *   **INSTALL_FAILED**
-   * *   **UNINSTALL_FAILED**
+   * The status of the database client agent. Valid values:
+   * - **UNKNOWN**: Unknown.
+   * - **INSTALLED**: Installed.
+   * - **INSTALL_FAILED**: Installation failed.
+   * - **UNINSTALL_FAILED**: Uninstallation failed.
    * 
    * @example
    * INSTALLED
@@ -96,9 +95,9 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
    * @remarks
    * The type of the database. Valid values:
    * 
-   * *   **MYSQL**
-   * *   **MSSQL**
-   * *   **Oracle**
+   * - **MYSQL**
+   * - **MSSQL**
+   * - **Oracle**
    * 
    * @example
    * MYSQL
@@ -106,7 +105,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   databaseType?: string;
   /**
    * @remarks
-   * The error code returned when the backup task fails.
+   * The error code returned when the backup plan execution fails.
    * 
    * @example
    * EXPIRED
@@ -114,7 +113,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   errorCode?: string;
   /**
    * @remarks
-   * The error message for the anti-ransomware policy.
+   * The error message of the backup policy.
    * 
    * @example
    * AttachRamRoleError
@@ -122,7 +121,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the server.
+   * The instance ID of the server.
    * 
    * @example
    * i-9dp7mubt5wit6g0h****
@@ -130,7 +129,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The name of the server instance.
    * 
    * @example
    * sql-test-001
@@ -138,10 +137,10 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   instanceName?: string;
   /**
    * @remarks
-   * The status of the Elastic Compute Service (ECS) instance. Valid values:
+   * The status of the ECS instance. Valid values:
    * 
-   * *   **Stopped**
-   * *   **Running**
+   * - **Stopped**: Stopped.
+   * - **Running**: Running.
    * 
    * @example
    * Running
@@ -149,7 +148,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   instanceStatus?: string;
   /**
    * @remarks
-   * The UUID of the agent that is used to back up the data of the database.
+   * The unique identifier of the server database backup client.
    * 
    * @example
    * cf1bcad4063f11ed800000163e0e****
@@ -157,7 +156,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   instanceUuid?: string;
   /**
    * @remarks
-   * The execution result of the last backup task.
+   * The result of the latest backup plan execution.
    * 
    * @example
    * completed
@@ -165,7 +164,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   latestBackResult?: string;
   /**
    * @remarks
-   * The time when the last backup task was executed.
+   * The time when the latest backup plan was executed.
    * 
    * @example
    * 2022-01-01 00:00:11
@@ -173,14 +172,14 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   latestBackupTime?: string;
   /**
    * @remarks
-   * The status of the backup task. Valid values:
+   * The status of the backup plan. Valid values:
    * 
-   * *   **init**
-   * *   **running**
-   * *   **completed**
-   * *   **restoring**
-   * *   **creating**
-   * *   **created**
+   * - **init**: Being initialized.
+   * - **running**: Running.
+   * - **completed**: Completed.
+   * - **restoring**: Being restored.
+   * - **creating**: Being created.
+   * - **created**: Created.
    * 
    * @example
    * creating
@@ -188,7 +187,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   planStatus?: string;
   /**
    * @remarks
-   * The ID of the anti-ransomware policy.
+   * The ID of the database anti-ransomware backup policy.
    * 
    * @example
    * 123
@@ -196,7 +195,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   policyId?: number;
   /**
    * @remarks
-   * The name of the anti-ransomware policy.
+   * The name of the database anti-ransomware backup policy.
    * 
    * @example
    * auto_oracle_37f
@@ -204,14 +203,14 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   policyName?: string;
   /**
    * @remarks
-   * The status of the anti-ransomware policy. Valid values:
+   * The status of the database anti-ransomware backup policy. Valid values:
    * 
-   * *   **initiating**
-   * *   **opening**
-   * *   **closing**
-   * *   **deleting**
-   * *   **enabled**
-   * *   **disabled**
+   * - **initiating**: Being initialized.
+   * - **opening**: Being enabled.
+   * - **closing**: Being disabled.
+   * - **deleting**: Being deleted.
+   * - **enabled**: Enabled.
+   * - **disabled**: Disabled.
    * 
    * @example
    * opening
@@ -219,7 +218,7 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $dar
   policyStatus?: string;
   /**
    * @remarks
-   * The region ID of the server that hosts the database.
+   * The region ID of the database server.
    * 
    * @example
    * cn-hangzhou
@@ -286,7 +285,7 @@ export class DescribeUniBackupPoliciesResponseBody extends $dara.Model {
   pageInfo?: DescribeUniBackupPoliciesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * ACF97412-FD09-4D1F-994F-34DF12BR****
@@ -294,7 +293,7 @@ export class DescribeUniBackupPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the anti-ransomware policies.
+   * The collection of database anti-ransomware backup policies.
    */
   uniBackupPolicies?: DescribeUniBackupPoliciesResponseBodyUniBackupPolicies[];
   static names(): { [key: string]: string } {

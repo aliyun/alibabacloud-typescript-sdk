@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientConfSetupRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag that is added to the server.
+   * The resource tag of the client to query.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,10 @@ export class DescribeClientConfSetupRequest extends $dara.Model {
   strategyTag?: string;
   /**
    * @remarks
-   * The value of the tag. Valid values:
-   * 
-   * *   major
-   * *   advanced
-   * *   basic
+   * The policy value. Valid values:
+   * - major
+   * - advanced
+   * - basic.
    * 
    * This parameter is required.
    * 

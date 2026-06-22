@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task.
+   * The ID of the image repair task.
    * 
    * @example
    * ivf-939536b5-c3ca-427b-8183-91007756
@@ -13,7 +13,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   buildTaskId?: string;
   /**
    * @remarks
-   * The timestamp when the task starts. Unit: milliseconds.
+   * The timestamp when the repair task started. Unit: milliseconds.
    * 
    * @example
    * 2021-10-14 20:34:07
@@ -21,7 +21,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The timestamp when the task ends. Unit: milliseconds.
+   * The timestamp when the repair task ended. Unit: milliseconds.
    * 
    * @example
    * 2021-10-14 20:32:05
@@ -29,7 +29,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   fixTime?: string;
   /**
    * @remarks
-   * The version of the image after image risks are fixed.
+   * The tag of the repaired image.
    * 
    * @example
    * redhat8-vault
@@ -37,7 +37,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   newTag?: string;
   /**
    * @remarks
-   * The UUID of the image after image risks are fixed.
+   * The UUID of the repaired image.
    * 
    * @example
    * 2fa731681911ae8d1b5f11893ace****
@@ -45,7 +45,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   newUuid?: string;
   /**
    * @remarks
-   * The version of the image.
+   * The tag of the original image.
    * 
    * @example
    * centos8.1-ja
@@ -53,7 +53,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   oldTag?: string;
   /**
    * @remarks
-   * The UUID of the image.
+   * The UUID of the original image.
    * 
    * @example
    * 2fa731681911ae8d1b5f11893ace****
@@ -61,7 +61,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   oldUuid?: string;
   /**
    * @remarks
-   * The region of the image.
+   * The region ID of the image.
    * 
    * @example
    * cn-hangzhou
@@ -85,11 +85,11 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   repoNamespace?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The status of the image repair task. Valid values:
    * 
-   * *   **1**: The task is running.
-   * *   **2**: The task is successful.
-   * *   **3**: The task failed.
+   * - **1**: Repairing
+   * - **2**: Repaired
+   * - **3**: Repair failed
    * 
    * @example
    * 2
@@ -97,7 +97,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of the task. The value is fixed as IMAGE_REPAIR. The value indicates a task that fixes image risks.
+   * The type of the image repair task. The value is fixed as IMAGE_REPAIR, which indicates image repair.
    * 
    * @example
    * IMAGE_REPAIR
@@ -105,7 +105,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The alias of the fixed vulnerability.
+   * The name of the vulnerability that was repaired.
    * 
    * @example
    * CVE-2007-5686:rpath_linux Information Disclosure
@@ -159,7 +159,7 @@ export class DescribeImageFixTaskResponseBodyBuildTasks extends $dara.Model {
 export class DescribeImageFixTaskResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of tasks returned on the current page.
+   * The number of image repair tasks on the current page.
    * 
    * @example
    * 12
@@ -167,7 +167,7 @@ export class DescribeImageFixTaskResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page. Default value: **1**
+   * The page number of the results returned. Default value: **1**, which indicates that the results start from page 1.
    * 
    * @example
    * 1
@@ -175,7 +175,7 @@ export class DescribeImageFixTaskResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**
+   * The number of entries per page in a paginated query. Default value: **20**, which indicates that up to 20 entries are returned per page.
    * 
    * @example
    * 20
@@ -183,7 +183,7 @@ export class DescribeImageFixTaskResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of tasks returned.
+   * The total number of image repair tasks.
    * 
    * @example
    * 12
@@ -219,7 +219,7 @@ export class DescribeImageFixTaskResponseBodyPageInfo extends $dara.Model {
 export class DescribeImageFixTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tasks returned.
+   * The details of the image repair tasks.
    */
   buildTasks?: DescribeImageFixTaskResponseBodyBuildTasks[];
   /**
@@ -229,7 +229,7 @@ export class DescribeImageFixTaskResponseBody extends $dara.Model {
   pageInfo?: DescribeImageFixTaskResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 8AC52BBA-85D3-5F64-9B48-D08437CAF916

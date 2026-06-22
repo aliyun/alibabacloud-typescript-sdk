@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWebLockStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total quota that you purchase for web tamper proofing.
+   * The total number of purchased tamper-proofing authorizations.
    * 
    * @example
    * 32
@@ -13,7 +13,7 @@ export class DescribeWebLockStatusResponseBody extends $dara.Model {
   authCount?: number;
   /**
    * @remarks
-   * The associated tamper proofing quota.
+   * The number of bound tamper-proofing authorizations.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeWebLockStatusResponseBody extends $dara.Model {
   dirCount?: number;
   /**
    * @remarks
-   * The timestamp generated when the quota for tamper proofing expires. Unit: millisecond.
+   * The timestamp when the tamper-proofing authorization expires. Unit: milliseconds.
    * 
    * @example
    * 1688090851000
@@ -45,7 +45,7 @@ export class DescribeWebLockStatusResponseBody extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF46038

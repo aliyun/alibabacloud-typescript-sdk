@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallAegisForLingjunShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * List of unique UUIDs for Lingjun bare metal.
+   * The list of unique UUIDs for Lingjun bare metal servers.
    */
   uuidsShrink?: string;
   static names(): { [key: string]: string } {

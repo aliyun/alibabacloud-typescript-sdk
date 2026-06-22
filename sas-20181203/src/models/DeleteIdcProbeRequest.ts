@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIdcProbeRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the server.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * The UUID of the asset.
+   * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

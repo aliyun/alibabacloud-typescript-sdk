@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyEmgVulSubmitRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the vulnerability.
+   * The name of the vulnerability to query.
    * 
    * This parameter is required.
    * 
@@ -26,20 +26,19 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The ID of the member accounts in the resource folder (Alibaba Cloud account).
+   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
-   * 1232428423234****
+   * 16670360956*****
    */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * Specifies whether to scan for urgent vulnerabilities. Valid values:
+   * Specifies whether to perform vulnerability detection. Valid values:
    * 
-   * *   **yes**
-   * *   **no**
+   * - **yes**: Perform vulnerability detection.
+   * - **no**: Do not perform vulnerability detection.
    * 
    * This parameter is required.
    * 

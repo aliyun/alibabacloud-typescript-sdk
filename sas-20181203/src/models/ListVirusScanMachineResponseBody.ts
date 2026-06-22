@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVirusScanMachineResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of times that the alert is triggered.
+   * The number of security alert occurrences.
    * 
    * @example
    * 28
@@ -21,7 +21,7 @@ export class ListVirusScanMachineResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The instance name.
    * 
    * @example
    * centos****
@@ -29,7 +29,7 @@ export class ListVirusScanMachineResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the associated server.
+   * The public IP address of the associated instance.
    * 
    * @example
    * 172.16.XX.XX
@@ -37,7 +37,7 @@ export class ListVirusScanMachineResponseBodyData extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the associated server.
+   * The private IP address of the associated instance.
    * 
    * @example
    * 10.42.XX.XX
@@ -45,7 +45,7 @@ export class ListVirusScanMachineResponseBodyData extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The UUID of the server.
+   * The UUID of the asset instance.
    * 
    * @example
    * 6690a46c-0edb-4663-a641-3629d1a9****
@@ -85,7 +85,7 @@ export class ListVirusScanMachineResponseBodyData extends $dara.Model {
 export class ListVirusScanMachineResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class ListVirusScanMachineResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries returned per page in a paging query.
    * 
    * @example
    * 20
@@ -101,7 +101,7 @@ export class ListVirusScanMachineResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 168
@@ -135,7 +135,7 @@ export class ListVirusScanMachineResponseBodyPageInfo extends $dara.Model {
 export class ListVirusScanMachineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The data details.
    */
   data?: ListVirusScanMachineResponseBodyData[];
   /**
@@ -145,7 +145,7 @@ export class ListVirusScanMachineResponseBody extends $dara.Model {
   pageInfo?: ListVirusScanMachineResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * A27C1C09-828B-5CB8-9203-F55423BE****

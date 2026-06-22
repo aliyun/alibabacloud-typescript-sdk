@@ -35,10 +35,13 @@ export class DescribeContainerTagsRequest extends $dara.Model {
    * @remarks
    * The name of the attribute that is used for the query. Valid values:
    * 
-   * *   **namespace**: the namespace
-   * *   **appName**: the application name
-   * *   **image**: the image
-   * *   **tag**: the tag
+   * - **namespace**: the namespace
+   * 
+   * - **appName**: the application name
+   * 
+   * - **image**: the image
+   * 
+   * - **tag**: the tag
    * 
    * This parameter is required.
    * 

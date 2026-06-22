@@ -7,8 +7,9 @@ export class ModifyImageFixCycleConfigResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the configurations of the scheduled image fix are modified.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientConfSetupResponseBodyClientConf extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the usage for the Security Center agent.
+   * The resource configuration information used by the client.
    * 
    * @example
    * {"mem":"200","cpu":"10","cpu_all":"0"}
@@ -13,7 +13,7 @@ export class DescribeClientConfSetupResponseBodyClientConf extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The tag that is added to the configuration.
+   * The policy tag.
    * 
    * @example
    * machineResource
@@ -21,11 +21,10 @@ export class DescribeClientConfSetupResponseBodyClientConf extends $dara.Model {
   strategyTag?: string;
   /**
    * @remarks
-   * The value of the tag. Valid values:
-   * 
-   * *   major
-   * *   advanced
-   * *   basic
+   * The policy value. Valid values:
+   * - major
+   * - advanced
+   * - basic.
    * 
    * @example
    * major
@@ -59,12 +58,12 @@ export class DescribeClientConfSetupResponseBodyClientConf extends $dara.Model {
 export class DescribeClientConfSetupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the Security Center agent.
+   * The resource configuration information of the client.
    */
   clientConf?: DescribeClientConfSetupResponseBodyClientConf;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 151F6EB6-D5F3-417A-AF7B-4D84975D****

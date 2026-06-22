@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainDetailResponseBodyDomainDetailItems extends $dara.Model {
   /**
    * @remarks
-   * The type of the domain asset. Valid values:
+   * The Asset Type of the asset under the domain name. Valid values:
    * 
-   * *   **0**: an Elastic Compute Service (ECS) instance
-   * *   **1**: a Server Load Balancer (SLB) instance
-   * *   **2**: a Network Address Translation (NAT) gateway
-   * *   **3**: an ApsaraDB RDS instance
-   * *   **4**: an ApsaraDB for MongoDB instance
+   * - **0**: ECS
+   * - **1**: load balancing
+   * - **2**: NAT gateway
+   * - **3**: RDS database
+   * - **4**: MongoDB database
    * 
    * @example
    * 0
@@ -51,7 +51,7 @@ export class DescribeDomainDetailResponseBodyDomainDetailItems extends $dara.Mod
   intranetIp?: string;
   /**
    * @remarks
-   * The instance UUID of the domain asset.
+   * The UUID of the asset instance.
    * 
    * @example
    * lb-bp1g9dohoyin9cjhn6****
@@ -107,12 +107,12 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * An array that consists of the details about the domain asset.
+   * The asset information related to the domain name.
    */
   domainDetailItems?: DescribeDomainDetailResponseBodyDomainDetailItems[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. The China value is a unique identifier that Alibaba Cloud generates for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 3A85CFCF-05C8-451A-9E41-C0D5E96BA407
@@ -120,7 +120,7 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the root domain that corresponds to the domain.
+   * The root domain name that corresponds to the domain name.
    * 
    * @example
    * example.com

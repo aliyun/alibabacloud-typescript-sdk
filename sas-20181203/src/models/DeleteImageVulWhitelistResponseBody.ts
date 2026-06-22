@@ -13,10 +13,9 @@ export class DeleteImageVulWhitelistResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the image vulnerability whitelist is deleted. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the operation is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true
@@ -48,10 +47,9 @@ export class DeleteImageVulWhitelistResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

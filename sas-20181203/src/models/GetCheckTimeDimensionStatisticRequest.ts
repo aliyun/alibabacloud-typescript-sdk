@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckTimeDimensionStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * End time, in timestamp format.
+   * The end time in timestamp format.
    * 
    * @example
    * 1672285044000
@@ -13,7 +13,7 @@ export class GetCheckTimeDimensionStatisticRequest extends $dara.Model {
   endTimeStamp?: number;
   /**
    * @remarks
-   * Start time, in timestamp format.
+   * The start time in timestamp format.
    * 
    * @example
    * 1672385044000
@@ -21,7 +21,7 @@ export class GetCheckTimeDimensionStatisticRequest extends $dara.Model {
   startTimeStamp?: number;
   /**
    * @remarks
-   * Type of statistical data. Values:
+   * The type of data statistics. Valid values:
    * - **CheckPassRate**: Check item pass rate.
    * - **AssetPassRate**: Asset pass rate.
    * 
@@ -31,7 +31,7 @@ export class GetCheckTimeDimensionStatisticRequest extends $dara.Model {
   statisticType?: string;
   /**
    * @remarks
-   * List of cloud vendors.
+   * The list of cloud service providers.
    */
   vendors?: string[];
   static names(): { [key: string]: string } {

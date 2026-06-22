@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The action of the rule. Valid values:
+   * The action type. Valid values:
    * 
-   * *   **0**: allow
-   * *   **1**: block
+   * - **0**: allow
+   * - **1**: block.
    * 
    * This parameter is required.
    * 
@@ -50,9 +50,9 @@ export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The ID of the custom rule.
    * 
-   * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) operation to query the IDs of rules.
+   * >Call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The hash values of processes.
+   * The list of process hashes.
    * 
    * @example
    * aa5ee3ed4363c9d195a591a70281****,3e522d6f3bf5cf88bb77e9ff3d13****
@@ -70,15 +70,15 @@ export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   md5List?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
-   * Rule\\*\\*\\*\\*
+   * 规则****
    */
   name?: string;
   /**
    * @remarks
-   * The new file path after the file is renamed.
+   * The new file path for file rename.
    * 
    * @example
    * /etc/pam****
@@ -86,7 +86,7 @@ export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   newFilePath?: string;
   /**
    * @remarks
-   * The parent command line.
+   * The parent process command line.
    * 
    * @example
    * /usr/sbin/s****
@@ -94,7 +94,7 @@ export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   parentCmdline?: string;
   /**
    * @remarks
-   * The path to the parent process.
+   * The parent process path.
    * 
    * @example
    * C:/Windows/System32/cmd****
@@ -102,11 +102,11 @@ export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   parentProcPath?: string;
   /**
    * @remarks
-   * The type of the operating system. Valid values:
+   * The operating system type. Valid values:
    * 
-   * *   **windows**: Windows
-   * *   **linux**: Linux
-   * *   **all**: all types
+   * - **windows**: Windows
+   * - **linux**: Linux
+   * - **all**: all.
    * 
    * @example
    * linux
@@ -130,7 +130,7 @@ export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   portStr?: string;
   /**
    * @remarks
-   * The path to the process.
+   * The process path.
    * 
    * @example
    * /root/1111/****
@@ -157,15 +157,15 @@ export class ModifyClientUserDefineRuleRequest extends $dara.Model {
   registryKey?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
+   * The rule type. Valid values:
    * 
-   * *   **1**: Process hash
-   * *   **2**: Command line
-   * *   **3**: Process Network
-   * *   **4**: File Read and Write
-   * *   **5**: Operation on Registry
-   * *   **6**: Dynamic-link Library Loading
-   * *   **7**: File Renaming
+   * - **1**: process hash
+   * - **2**: command line
+   * - **3**: process network
+   * - **4**: file read/write
+   * - **5**: registry operation
+   * - **6**: dynamic-link library loading
+   * - **7**: file rename.
    * 
    * @example
    * 2

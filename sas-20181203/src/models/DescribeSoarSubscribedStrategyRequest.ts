@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSoarSubscribedStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeSoarSubscribedStrategyRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * This parameter is required.
    * 

@@ -214,7 +214,7 @@ export class DescribeSuspEventsShrinkRequest extends $dara.Model {
    * *   **Others**
    * 
    * @example
-   * Webshell
+   * other
    */
   parentEventTypes?: string;
   /**

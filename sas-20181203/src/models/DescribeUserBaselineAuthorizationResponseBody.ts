@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserBaselineAuthorizationResponseBodyUserBaselineAuthorization extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Security Center is authorized to run configuration checks on cloud services.
-   * 
-   * *   **0**: no. Security Center is not authorized to run configuration checks on cloud services.
-   * *   **1**: yes. Security Center is authorized to run configuration checks on cloud services.
+   * The authorization status of the cloud platform configuration check. Valid values:
+   * - **0**: Authorization is disabled. If authorization is disabled, you cannot use the cloud platform configuration check feature.
+   * - **1**: Authorization is enabled. If authorization is enabled, you can use the cloud platform configuration check feature.
    * 
    * @example
    * 1
@@ -38,7 +37,7 @@ export class DescribeUserBaselineAuthorizationResponseBodyUserBaselineAuthorizat
 export class DescribeUserBaselineAuthorizationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0AF20EB0-EBBC-4B94-9B84-F3BAFAC53EDE
@@ -46,7 +45,7 @@ export class DescribeUserBaselineAuthorizationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about whether Security Center is authorized to run configuration checks on cloud services.
+   * The authorization information for cloud baseline configuration check.
    */
   userBaselineAuthorization?: DescribeUserBaselineAuthorizationResponseBodyUserBaselineAuthorization;
   static names(): { [key: string]: string } {

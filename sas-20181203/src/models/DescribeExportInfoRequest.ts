@@ -6,8 +6,7 @@ export class DescribeExportInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the export task.
-   * 
-   * > You can call the [ExportRecord](~~ExportRecord~~) operation to query the IDs of export tasks.
+   * > You can obtain this parameter by calling the [ExportRecord](~~ExportRecord~~) operation to initiate an export.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class DescribeExportInfoRequest extends $dara.Model {
   exportId?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The ID of the member account in the resource directory.
+   * > You can obtain this parameter by invoking the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation.
    * 
    * @example
    * 16670360956*****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallCloudMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code returned when the operation failed.
    * 
    * @example
    * IllegalParam
@@ -13,7 +13,7 @@ export class InstallCloudMonitorResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 400
@@ -21,7 +21,7 @@ export class InstallCloudMonitorResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The detailed information about the error code.
    * 
    * @example
    * There was an error with your request.
@@ -29,7 +29,7 @@ export class InstallCloudMonitorResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F92AFB96-FACC-57E7-928E-678D04B94CAE
@@ -37,10 +37,10 @@ export class InstallCloudMonitorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The operation was successful.
+   * - **false**: The operation failed.
    * 
    * @example
    * false

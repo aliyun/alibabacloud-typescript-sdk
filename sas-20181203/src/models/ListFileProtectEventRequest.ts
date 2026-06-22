@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListFileProtectEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The severities of alerts.
+   * The list of alert notification levels.
    */
   alertLevels?: number[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -18,23 +18,23 @@ export class ListFileProtectEventRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end timestamp of the query.
+   * The timestamp of the end time.
    * 
    * @example
-   * 1683195595204
+   * 1683257937775
    */
   endTime?: number;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The ID of the asset instance.
    * 
    * @example
-   * i-bp1fu4aqltf1huhc****
+   * i-bp1g6wxdwps7s9dz****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The name of the server to query.
    * 
    * @example
    * ca_cpm_****
@@ -42,7 +42,7 @@ export class ListFileProtectEventRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the server.
+   * The public IP address of the asset to query.
    * 
    * @example
    * 120.27.XX.XX
@@ -50,7 +50,7 @@ export class ListFileProtectEventRequest extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the server.
+   * The private IP address of the asset to query.
    * 
    * @example
    * 172.26.XX.XX
@@ -58,13 +58,13 @@ export class ListFileProtectEventRequest extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * Type of operation on a file. eg:
+   * The type of operation performed on the file. Valid values:
    * 
-   * - **DELETE**: delete the file.
-   * - **WRITE**: write the file.
-   * - **READ**: read the file.
-   * - **RENAME**: rename the file.
-   * - **CHOWN**: set the file owner and file association group operations.
+   * - **DELETE**: deletes the file.
+   * - **WRITE**: writes to the file.
+   * - **READ**: reads the file.
+   * - **RENAME**: renames the file.
+   * - **CHOWN**: changes the file owner and associated group.
    * 
    * @example
    * READ
@@ -72,7 +72,7 @@ export class ListFileProtectEventRequest extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to return on each page in a paging query.
    * 
    * @example
    * 20
@@ -80,7 +80,7 @@ export class ListFileProtectEventRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test-rule-1
@@ -88,20 +88,20 @@ export class ListFileProtectEventRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The start timestamp of the query.
+   * The timestamp of the start time.
    * 
    * @example
-   * 1683080489594
+   * 1656038740435
    */
   startTime?: number;
   /**
    * @remarks
-   * The status of the event. Valid values:
+   * The event status. Valid values:
    * 
-   * *   0: unhandled
-   * *   1: handled
-   * *   2: added to the whitelist
-   * *   3: ignored
+   * - 0: Unhandled. 
+   * - 1: Manually handled.
+   * - 2: Whitelisted.
+   * - 3: Ignored.
    * 
    * @example
    * 2
@@ -109,12 +109,11 @@ export class ListFileProtectEventRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The UUID of the server.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID of the server.
+   * The UUID of the server to query.
+   * >You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * @example
-   * inet-ecs-4e876cb0-09f7-43b8-82ef-4bc7a937***
+   * 4fe8e1cd-3c37-4851-b9de-124da32c****
    */
   uuid?: string;
   static names(): { [key: string]: string } {

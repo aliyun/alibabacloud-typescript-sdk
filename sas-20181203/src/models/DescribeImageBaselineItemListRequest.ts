@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineItemListRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the baseline type.
+   * The key of the baseline category.
    * 
    * @example
    * ak_leak
@@ -16,12 +16,12 @@ export class DescribeImageBaselineItemListRequest extends $dara.Model {
    * The key of the baseline name.
    * 
    * @example
-   * AccessKey pair leak
+   * Access Key泄露
    */
   baselineNameKey?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -39,10 +39,9 @@ export class DescribeImageBaselineItemListRequest extends $dara.Model {
   imageUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -50,7 +49,7 @@ export class DescribeImageBaselineItemListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -58,17 +57,16 @@ export class DescribeImageBaselineItemListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The types of the assets that are scanned.
+   * The scan scope collection.
    */
   scanRange?: string[];
   /**
    * @remarks
-   * The status of the baseline risk item. Valid values:
-   * 
-   * *   **0**: unfixed
-   * *   **1**: fixed
-   * *   **2**: pending verification
-   * *   **3**: fixing failed
+   * The fix status of the baseline risk. Valid values:
+   * - **0**: unfixed
+   * - **1**: fixed
+   * - **2**: pending verification
+   * - **3**: fix failed.
    * 
    * @example
    * 0
@@ -76,7 +74,7 @@ export class DescribeImageBaselineItemListRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The UUIDs of images.
+   * The list of image UUIDs.
    */
   uuids?: string[];
   static names(): { [key: string]: string } {

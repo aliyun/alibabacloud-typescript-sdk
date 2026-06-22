@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the image.
-   * 
-   * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of instances.
+   * The image instance ID.
+   * > You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -18,8 +17,7 @@ export class DescribeImageRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the image.
-   * 
-   * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of regions.
+   * > You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,8 @@ export class DescribeImageRequest extends $dara.Model {
   imageRegionId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
-   * 
-   * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the IDs of image repositories.
+   * The image repository ID.
+   * > You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -41,9 +38,8 @@ export class DescribeImageRequest extends $dara.Model {
   imageRepoId?: string;
   /**
    * @remarks
-   * The tag that is added to the image.
-   * 
-   * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query tags.
+   * The image tag.
+   * > You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

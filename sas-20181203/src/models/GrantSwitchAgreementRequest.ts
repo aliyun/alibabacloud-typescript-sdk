@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GrantSwitchAgreementRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to agree to migrate the client connections from overseas servers to the Singapore center.
+   * Specifies whether you agree to the data migration from the Hong Kong (China) region to the Singapore data center. Valid values:
+   * 
+   * - **true**: Agree.
+   * 
+   * - **false**: Disagree.
    * 
    * @example
    * true
@@ -13,21 +17,19 @@ export class GrantSwitchAgreementRequest extends $dara.Model {
   isAgree?: boolean;
   /**
    * @remarks
-   * Has the user confirmed the migration of Hong Kong region data to Singapore data center
+   * Specifies whether the user confirms that the data migration from the Hong Kong (China) region to the Singapore data center has been completed.
    * 
-   * - **true:** The user has confirmed that Hong Kong region data has been migrated to the Singapore data center. No notification popup needs to be displayed subsequently.
-   * 
-   * - **false**:The user has not confirmed that Hong Kong region data has been migrated to the Singapore data center. Notification popup still needs to be displayed subsequently.
-   * 
-   * @example
-   * true
+   * - **true**: Confirmed. The user has confirmed that the data migration from the Hong Kong (China) region to the Singapore data center has been completed, and the notification pop-up window no longer needs to be displayed.
+   * - **false**: Not confirmed. The user has not confirmed that the data migration from the Hong Kong (China) region to the Singapore data center has been completed, and the notification pop-up window still needs to be displayed.
    */
   isConfirmed?: boolean;
   /**
    * @remarks
-   * Whether to schedule the migration of data from the Hong Kong region to the Singapore data center within 24 hours. Values:
+   * Specifies whether to schedule data migration of data from the Hong Kong (China) region to the Singapore data center within 24 hours. Valid values:
+   * 
    * - **true**: Schedule the switch within 24 hours.
-   * - **false**: Do not schedule. Users with cloud products in the Hong Kong region will be automatically migrated on March 5, 2026; users without cloud products in the Hong Kong region will be automatically migrated on November 17, 2025.
+   * 
+   * - **false**: Do not schedule. For users who have cloud services in the Hong Kong (China) region, data migration will be automatically completed on March 5, 2026. For users who do not have cloud services in the Hong Kong (China) region, data migration will be automatically completed on November 17, 2025.
    * 
    * @example
    * true
@@ -35,10 +37,10 @@ export class GrantSwitchAgreementRequest extends $dara.Model {
   isImmediate?: boolean;
   /**
    * @remarks
-   * The language type for requests and responses. The default value is **zh**. Possible values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -46,9 +48,9 @@ export class GrantSwitchAgreementRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Switching type. Possible values:
+   * The switch type. Valid values:
    * 
-   * - **sg_switch**: Migrate client connections from overseas servers to Singapore
+   * - **sg_switch**: data migration from the Hong Kong (China) region to the Singapore data center.
    * 
    * @example
    * sg_switch

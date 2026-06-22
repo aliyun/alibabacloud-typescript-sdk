@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEmgUserAgreementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Security Center is authorized to scan for urgent vulnerabilities. Valid values:
+   * Indicates whether the emergency vulnerability scan is authorized. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: Authorized.
+   * - **false**: Not authorized.
    * 
    * @example
    * true

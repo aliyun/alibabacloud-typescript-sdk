@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSoarStrategyTaskDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -17,8 +16,7 @@ export class DescribeSoarStrategyTaskDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the policy task.
-   * 
-   * >  You can call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain the ID.
+   * >Call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

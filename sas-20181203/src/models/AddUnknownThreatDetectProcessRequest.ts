@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model {
   /**
+   * @remarks
+   * The MD5 hash of the process file.
+   * 
    * @example
    * e59b63ae983377f131ab20ec0d******
    */
   md5?: string;
   /**
+   * @remarks
+   * The path to the process executable.
+   * 
    * @example
    * /bin/rm
    */
   processPath?: string;
   /**
+   * @remarks
+   * A remark for the process.
+   * 
    * @example
    * 1330
    */
   remark?: string;
   /**
+   * @remarks
+   * The SHA-256 hash of the process file.
+   * 
    * @example
    * f204693a7d2ce99d6c4434e550d985ee1c7be7cb5dd9a76094369af0d2******
    */
@@ -51,8 +63,20 @@ export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model
 }
 
 export class AddUnknownThreatDetectProcessRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of associated event IDs.
+   */
   eventIdList?: number[];
+  /**
+   * @remarks
+   * The list of processes to add.
+   */
   processList?: AddUnknownThreatDetectProcessRequestProcessList[];
+  /**
+   * @remarks
+   * The UUIDs of assets on which the processes are located.
+   */
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {

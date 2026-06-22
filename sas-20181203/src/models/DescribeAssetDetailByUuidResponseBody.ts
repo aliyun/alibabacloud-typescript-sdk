@@ -5,16 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Model {
   /**
    * @remarks
-   * The type of the asset. Valid values:
-   * 
-   * *   **0**: ECS instance
-   * *   **1**: Server Load Balancer (SLB) instance
-   * *   **2**: NAT gateway
-   * *   **3**: ApsaraDB RDS database
-   * *   **4**: ApsaraDB for MongoDB database
-   * *   **5**: ApsaraDB for Redis database
-   * *   **6**: image
-   * *   **7**: container
+   * The asset type. Valid values:  
+   * - **0**: Elastic Compute Service (ECS) server.
+   * - **1**: Server Load Balancer (SLB).
+   * - **2**: NAT gateway.
+   * - **3**: ApsaraDB RDS database.
+   * - **4**: MongoDB database.
+   * - **5**: Redis database.
+   * - **6**: container image.
+   * - **7**: container.
    * 
    * @example
    * 0
@@ -22,7 +21,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   assetType?: string;
   /**
    * @remarks
-   * The timestamp when Security Center is authorized to protect the asset. Unit: milliseconds.
+   * The timestamp when the asset authorization was bound, in milliseconds.
    * 
    * @example
    * 1627974044000
@@ -30,13 +29,13 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   authModifyTime?: number;
   /**
    * @remarks
-   * The edition of Security Center that is authorized to protect the asset. Valid values:
+   * The authorization version of the asset. Valid values:
    * 
-   * *   **1**: Basic edition (Unauthorized)
-   * *   **6**: Anti-virus edition
-   * *   **5**: Advanced edition
-   * *   **3**: Enterprise edition
-   * *   **7**: Ultimate edition
+   * - **1**: Free Edition (unauthorized).
+   * - **6**: Anti-virus Edition.
+   * - **5**: Advanced Edition.
+   * - **3**: Enterprise Edition.
+   * - **7**: Ultimate Edition.
    * 
    * @example
    * 7
@@ -44,10 +43,10 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   authVersion?: number;
   /**
    * @remarks
-   * Indicates whether Security Center is authorized to protect the asset. Valid values:
+   * Indicates whether the asset is bound to an authorization. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The asset is bound to an authorization.
+   * - **false**: The asset is not bound to an authorization.
    * 
    * @example
    * true
@@ -55,11 +54,10 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   bind?: boolean;
   /**
    * @remarks
-   * The status of the Security Center agent. Valid values:
-   * 
-   * *   **pause**: The Security Center agent suspends protection for your server.
-   * *   **online**: The Security Center agent is protecting your server.
-   * *   **offline**: The Security Center agent does not protect your server.
+   * The status of the China China agent client. Valid values:  
+   * - **pause**: Protection paused.
+   * - **online**: Protected.
+   * - **offline**: Not protected.
    * 
    * @example
    * online
@@ -67,7 +65,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   clientStatus?: string;
   /**
    * @remarks
-   * The version of the Security Center agent.
+   * The version of the agent client.
    * 
    * @example
    * 2.0.0
@@ -83,7 +81,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   cpu?: number;
   /**
    * @remarks
-   * The details of the CPU.
+   * The CPU details.
    * 
    * @example
    * Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
@@ -91,7 +89,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   cpuInfo?: string;
   /**
    * @remarks
-   * The timestamp when Security Center records the details of the server. Unit: milliseconds.
+   * The timestamp when Security Center recorded the asset information, in milliseconds.
    * 
    * @example
    * 1603863599000
@@ -99,15 +97,15 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   createTime?: number;
   /**
    * @remarks
-   * An array that consists of the information about the disk.
+   * The collection of disk information.
    */
   diskInfoList?: string[];
   /**
    * @remarks
-   * Indicates whether the asset is provided by Alibaba Cloud. Valid values:
+   * Indicates whether the asset is an Alibaba Cloud asset. Valid values:
    * 
-   * *   **0**: yes
-   * *   **1**: no
+   * - **0**: Alibaba Cloud asset.
+   * - **1**: Non-Alibaba Cloud asset.
    * 
    * @example
    * 0
@@ -115,7 +113,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   flag?: number;
   /**
    * @remarks
-   * The group to which the server belongs. By default, the servers that are not grouped belong to the **Default** group.
+   * The group to which the server belongs. Servers that are not assigned to a group belong to the **Ungrouped** group by default.
    * 
    * @example
    * default
@@ -123,7 +121,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   groupTrace?: string;
   /**
    * @remarks
-   * The name of the host.
+   * The hostname.
    * 
    * @example
    * qewrqwerqs****
@@ -163,7 +161,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   intranetIp?: string;
   /**
    * @remarks
-   * The IP address that is assigned to the Elastic Compute Service (ECS) instance.
+   * The IP address assigned by ECS.
    * 
    * @example
    * 192.168.XX.XX
@@ -171,7 +169,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   ip?: string;
   /**
    * @remarks
-   * The IP addresses of the server.
+   * The list of IP addresses of the server.
    */
   ipList?: string[];
   /**
@@ -184,12 +182,12 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   kernel?: string;
   /**
    * @remarks
-   * The media access control (MAC) addresses of the server.
+   * The MAC addresses.
    */
   macList?: string[];
   /**
    * @remarks
-   * The memory size of the server. Unit: GB.
+   * The memory size, in GB.
    * 
    * @example
    * 32
@@ -197,7 +195,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   mem?: number;
   /**
    * @remarks
-   * The memory size of the server. Unit: MB.
+   * The memory size, in MB.
    * 
    * @example
    * 512
@@ -213,7 +211,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   os?: string;
   /**
    * @remarks
-   * The operating system version of the server.
+   * The operating system version and architecture of the server.
    * 
    * @example
    * Linux 64bit
@@ -221,7 +219,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   osDetail?: string;
   /**
    * @remarks
-   * The name of the operating system.
+   * The operating system name of the server.
    * 
    * @example
    * -
@@ -229,7 +227,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   osName?: string;
   /**
    * @remarks
-   * The region in which the server resides.
+   * The region where the server resides.
    * 
    * @example
    * cn-hangzhou-dg-a01
@@ -237,7 +235,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   region?: string;
   /**
    * @remarks
-   * The ID of the region in which the asset resides.
+   * The region ID of the asset.
    * 
    * @example
    * cn-hanghzou
@@ -245,7 +243,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The name of the region in which the server resides.
+   * The name of the region where the server resides.
    * 
    * @example
    * China (Hohhot)
@@ -253,7 +251,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   regionName?: string;
   /**
    * @remarks
-   * The operating system information about the server.
+   * The operating system information of the server.
    * 
    * @example
    * CentOS Linux 8.0.1905
@@ -261,7 +259,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   sysInfo?: string;
   /**
    * @remarks
-   * The tag that is added to the server.
+   * The tag of the server.
    * 
    * @example
    * InternetIp
@@ -277,7 +275,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
   uuid?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the server resides.
+   * The ID of the VPC instance where the server resides.
    * 
    * @example
    * vpc-bp1fs3bwonlfq503w****
@@ -380,12 +378,12 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $dara.Mode
 export class DescribeAssetDetailByUuidResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the server.
+   * The asset details.
    */
   assetDetail?: DescribeAssetDetailByUuidResponseBodyAssetDetail;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 39031E31-6BBA-5C99-A870-D807E78918CD

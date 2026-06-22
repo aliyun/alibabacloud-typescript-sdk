@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUnknownThreatDetectStrategyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The strategy ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * F8B6F758-BCD4-597A-8A2C-DA5A552C****

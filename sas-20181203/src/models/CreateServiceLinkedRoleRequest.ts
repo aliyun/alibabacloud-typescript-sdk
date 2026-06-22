@@ -7,8 +7,8 @@ export class CreateServiceLinkedRoleRequest extends $dara.Model {
    * @remarks
    * The service-linked role. Default value: **AliyunServiceRoleForSas**. Valid values:
    * 
-   * *   **AliyunServiceRoleForSas**: the service-linked role of Security Center. Security Center assumes this role to access the resources of other cloud services within your account.
-   * *   **AliyunServiceRoleForSasCspm**: the service-linked role of Security Center-CSPM. Security Center-CSPM assumes this role to access the resources of other cloud services within your account.
+   * - **AliyunServiceRoleForSas**: the service-linked role for Security Center (SAS). Security Center uses this role to access your resources in other Alibaba Cloud services.
+   * - **AliyunServiceRoleForSasCspm**: the service-linked role for Security Center - Cloud Security Posture Management (CSPM) (sas-cspm). sas-cspm uses this role to access your resources in other Alibaba Cloud services.
    * 
    * @example
    * AliyunServiceRoleForSas

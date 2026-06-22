@@ -13,7 +13,7 @@ export class DescribeImageSensitiveFileListResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -21,10 +21,10 @@ export class DescribeImageSensitiveFileListResponseBodyPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The key of the last data entry.
+   * The key of the last entry.
    * 
    * @example
-   * CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAGYXFWIAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM1Mzc3Njc4MzA2ODY5NmI2YTY1Nzg2NTcxNjE2NDc4NjE=
+   * CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAGYXFWIAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM1Mzc3Njc4MzA2ODY5NmI2YTY1Nzg2NTcxNjE2N******
    */
   lastRowKey?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribeImageSensitiveFileListResponseBodyPageInfo extends $dara.Mo
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 149
@@ -75,15 +75,15 @@ export class DescribeImageSensitiveFileListResponseBodyPageInfo extends $dara.Mo
 export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends $dara.Model {
   /**
    * @remarks
-   * The suggestion.
+   * The hardening suggestion for the sensitive file check item.
    * 
    * @example
-   * Assess risks based on business conditions, remove risky content.
+   * PEM (Privacy Enhanced Mail) format is a common format for digital certificates. PEM files can contain certificates, public keys, private keys, and other sensitive information. When a PEM file is either unencrypted or protected with a weak password, or if the password has been compromise, it poses a significantly higher security risk. This detection rule aims to identify such PEM files.
    */
   advice?: string;
   /**
    * @remarks
-   * The key of the sensitive file type.
+   * The classification key of the sensitive file.
    * 
    * @example
    * password
@@ -91,7 +91,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   classKey?: string;
   /**
    * @remarks
-   * The name of the sensitive file type.
+   * The classification name of the sensitive file.
    * 
    * @example
    * password
@@ -99,7 +99,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   className?: string;
   /**
    * @remarks
-   * The number of scans that are performed on the sensitive file.
+   * The number of times the sensitive file was detected by scans.
    * 
    * @example
    * 9
@@ -107,15 +107,15 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   count?: number;
   /**
    * @remarks
-   * The description of the sensitive file.
+   * The description of the sensitive file check item.
    * 
    * @example
-   * Verify the validity of the leaked AK.
+   * Assess the risk based on business context and promptly remove any risky content.
    */
   description?: string;
   /**
    * @remarks
-   * The timestamp generated when the first scan was performed. Unit: milliseconds.
+   * The timestamp of the first scan. Unit: milliseconds.
    * 
    * @example
    * 1663321552000
@@ -123,7 +123,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   firstScanTime?: number;
   /**
    * @remarks
-   * The timestamp generated when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the most recent scan. Unit: milliseconds.
    * 
    * @example
    * 1663321552000
@@ -133,9 +133,11 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high
+   * 
+   * - **medium**: medium
+   * 
+   * - **low**: low.
    * 
    * @example
    * high
@@ -143,120 +145,120 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   riskLevel?: string;
   /**
    * @remarks
-   * The type of the alert for the sensitive file. Valid values:
+   * The sensitive file alerting type. Valid values:
    * 
-   * *   **npm_token**: Node Package Manager (NPM) access token.
-   * *   **ftp_cfg**: FTP configuration.
-   * *   **google_oauth_key**: Google OAuth key.
-   * *   **planetscale_passwd**: PlanetScale password.
-   * *   **github_ssh_key**: GitHub SSH key.
-   * *   **msbuild_publish_profile**: MSBuild publish profile.
-   * *   **fastly_cdn_token**: Fastly CDN token.
-   * *   **ssh_private_key**: SSH private key.
-   * *   **aws_cli**: Amazon Web Services (AWS) CLI credential.
-   * *   **cpanel_proftpd**: cPanel ProFTPD credential.
-   * *   **postgresql_passwd**: PostgreSQL password file.
-   * *   **discord_client_cred**: Discord client credential.
-   * *   **rails_database**: Rails database configuration.
-   * *   **aws_access_key**: AWS access key.
-   * *   **esmtp_cfg**: Extended Simple Mail Transfer Protocol (ESMTP) configuration.
-   * *   **docker_registry_cfg**: Docker image repository configuration.
-   * *   **pem**: Privacy-Enhanced Mail (PEM).
-   * *   **common_cred**: common credential.
-   * *   **sftp_cfg**: Secure File Transfer Protocol (SFTP) connection configuration.
-   * *   **grafana_token**: Grafana token.
-   * *   **slack_token**: Slack token.
-   * *   **ec_private_key**: EC private key.
-   * *   **pypi_token**: upload token for the Python Package Index (PyPI).
-   * *   **finicity_token**: Finicity token.
-   * *   **k8s_client_key**: Kubernetes client private key.
-   * *   **git_cfg**: Git configuration.
-   * *   **django_key**: Django key.
-   * *   **jenkins_ssh**: Jenkins SSH configuration file.
-   * *   **openssh_private_key**: OpenSSH private key.
-   * *   **square_oauth**: OAuth credential for Square.
-   * *   **typeform_token**: Typeform token.
-   * *   **common_database_cfg**: general database connection configuration.
-   * *   **wordpress_database_cfg**: WordPress database configuration.
-   * *   **googlecloud_api_key**: API key for Google Cloud.
-   * *   **vscode_sftp**: VS Code SFTP configuration.
-   * *   **apache_htpasswd**: Apache htpasswd.
-   * *   **planetscale_token**: PlanetScale token.
-   * *   **contentful_preview_token**: preview token for Contentful.
-   * *   **php_database_cfg**: database password for a PHP application.
-   * *   **atom_remote_sync**: Atom remote synchronization configuration.
-   * *   **aws_session_token**: AWS session token.
-   * *   **atom_sftp_cfg**: Atom SFTP configuration.
-   * *   **asana_client_private_key**: Asana client key.
-   * *   **tencentcloud_ak**: secret ID of a third-party cloud.
-   * *   **rsa_private_key**: Rivest-Shamir-Adleman (RSA) private key.
-   * *   **github_personal_token**: personal access token for GitHub.
-   * *   **pgp**: Pretty Good Privacy (PGP) encrypted file.
-   * *   **stripe_skpk**: Stripe secret key.
-   * *   **square_token**: Square access token.
-   * *   **rails_carrierwave**: file upload credential for Rails Carrierwave.
-   * *   **dbeaver_database_cfg**: DBeaver database configuration.
-   * *   **robomongo_cred**: Robomongo credential.
-   * *   **github_oauth_token**: OAuth access token for GitHub.
-   * *   **pulumi_token**: Pulumi token.
-   * *   **ventrilo_voip**: Ventrilo VoIP server configuration.
-   * *   **macos_keychain**: macOS keychain.
-   * *   **amazon_mws_token**: Amazon MWS token.
-   * *   **dynatrace_token**: Dynatrace token.
-   * *   **java_keystore**: Java KeyStore (JKS).
-   * *   **microsoft_sdf**: Microsoft SQL Server Compact Edition (CE) database.
-   * *   **kubernetes_dashboard_cred**: user credential for Kubernetes Dashboard.
-   * *   **atlassian_token**: Atlassian token.
-   * *   **rdp**: remote desktop protocol (RDP).
-   * *   **mailgun_key**: Mailgun webhook signing key.
-   * *   **mailchimp_api_key**: API key for Mailchimp.
-   * *   **netrc_cfg**: .netrc configuration file.
-   * *   **openvpn_cfg**: OpenVPN client configuration.
-   * *   **github_refresh_token**: GitHub refresh token.
-   * *   **salesforce**: Salesforce credential.
-   * *   **sendinblue**: Sendinblue token.
-   * *   **pkcs_private_key**: PKCS#12 key.
-   * *   **rubyonrails_passwd**: Ruby on Rails password file.
-   * *   **filezilla_ftp**: FileZilla FTP configuration.
-   * *   **databricks_token**: Databricks token.
-   * *   **gitLab_personal_token**: personal access token for GitLab.
-   * *   **rails_master_key**: Rails master key.
-   * *   **sqlite**: SQLite3 or SQLite database.
-   * *   **firefox_logins**: Firefox logon configuration.
-   * *   **mailgun_private_token**: Mailgun private token.
-   * *   **joomla_cfg**: Joomla configuration.
-   * *   **hashicorp_terraform_token**: HashiCorp Terraform token.
-   * *   **jetbrains_ides**: JetBrains IDEs configuration.
-   * *   **heroku_api_key**: Heroku API key.
-   * *   **messagebird_token**: MessageBird token.
-   * *   **github_app_token**: GitHub app token.
-   * *   **hashicorp_vault_token**: HashiCorp Vault token.
-   * *   **pgp_private_key**: PGP private key.
-   * *   **sshpasswd**: SSH password.
-   * *   **huaweicloud_ak**: secret access key of a third-party cloud.
-   * *   **aws_s3cmd**: AWS S3cmd configuration.
-   * *   **php_config**: PHP configuration.
-   * *   **common_private_key**: private key of a common type.
-   * *   **microsoft_mdf**: Microsoft SQL Server database.
-   * *   **mediawiki_cfg**: MediaWiki configuration.
-   * *   **jenkins_cred**: Jenkins credential.
-   * *   **rubygems_cred**: RubyGems credential.
-   * *   **clojars_token**: Clojars token.
-   * *   **phoenix_web_passwd**: Phoenix web credential.
-   * *   **puttygen_private_key**: PuTTYgen private key.
-   * *   **google_oauth_token**: Google OAuth access token.
-   * *   **rubyonrails_cfg**: Ruby on Rails database configuration.
-   * *   **lob_api_key**: Lob API key.
-   * *   **pkcs_cred**: PKCS#12 certificate.
-   * *   **otr_private_key**: Off-the-Record Messaging (OTR) private key.
-   * *   **contentful_delivery_token**: delivery token for Contentful.
-   * *   **digital_ocean_tugboat**: DigitalOcean Tugboat configuration.
-   * *   **dsa_private_key**: Digital Signature Algorithm (DSA) private key.
-   * *   **rails_app_token**: Rails app token.
-   * *   **git_cred**: Git user credential.
-   * *   **newrelic_api_key**: user API key for New Relic.
-   * *   **github_hub**: hub configuration for storing GitHub tokens.
-   * *   **rubygem**: RubyGems token.
+   * - **npm_token**: NPM access token
+   * - **ftp_cfg**: FTP configuration
+   * - **google_oauth_key**: Google OAuth Key
+   * - **planetscale_passwd**: Planetscale password
+   * - **github_ssh_key**: Github SSH key
+   * - **msbuild_publish_profile**: MSBuild publish profile
+   * - **fastly_cdn_token**: Fastly CDN token
+   * - **ssh_private_key**: SSH private key
+   * - **aws_cli**: AWS CLI credentials
+   * - **cpanel_proftpd**: cPanel ProFTPd credentials
+   * - **postgresql_passwd**: PostgreSQL password file
+   * - **discord_client_cred**: Discord client credentials
+   * - **rails_database**: Rails database configuration
+   * - **aws_access_key**: AWS Access Key
+   * - **esmtp_cfg**: ESMTP mail server configuration
+   * - **docker_registry_cfg**: Docker image repository configuration
+   * - **pem**: PEM
+   * - **common_cred**: common credentials
+   * - **sftp_cfg**: SFTP connection configuration
+   * - **grafana_token**: Grafana token
+   * - **slack_token**: Slack Token
+   * - **ec_private_key**: EC private key
+   * - **pypi_token**: PyPI upload token
+   * - **finicity_token**: Finicity platform token
+   * - **k8s_client_key**: Kubernetes client private key
+   * - **git_cfg**: Git configuration
+   * - **django_key**: Django key
+   * - **jenkins_ssh**: Jenkins SSH configuration file
+   * - **openssh_private_key**: OPENSSH private key
+   * - **square_oauth**: Square OAuth credentials
+   * - **typeform_token**: Typeform token
+   * - **common_database_cfg**: common database connection configuration
+   * - **wordpress_database_cfg**: WordPress database configuration
+   * - **googlecloud_api_key**: Google Cloud API Key
+   * - **vscode_sftp**: VSCode SFTP configuration
+   * - **apache_htpasswd**: Apache htpasswd
+   * - **planetscale_token**: Planetscale token
+   * - **contentful_preview_token**: Contentful Preview token
+   * - **php_database_cfg**: PHP application database password
+   * - **atom_remote_sync**: Atom remote synchronization configuration
+   * - **aws_session_token**: AWS session token
+   * - **atom_sftp_cfg**: Atom SFTP configuration
+   * - **asana_client_private_key**: Asana client private key
+   * - **tencentcloud_ak**: third-party cloud SecretId
+   * - **rsa_private_key**: RSA private key
+   * - **github_personal_token**: Github Personal access token
+   * - **pgp**: PGP encrypt file
+   * - **stripe_skpk**: Stripe Secret Key
+   * - **square_token**: Square access token
+   * - **rails_carrierwave**: Rails Carrierwave file upload credentials
+   * - **dbeaver_database_cfg**: DBeaver database configuration
+   * - **robomongo_cred**: Robomongo credentials
+   * - **github_oauth_token**: Github OAuth access token
+   * - **pulumi_token**: Pulumi token
+   * - **ventrilo_voip**: Ventrilo VoIP Server configuration
+   * - **macos_keychain**: macOS Keychain
+   * - **amazon_mws_token**: Amazon MWS Token
+   * - **dynatrace_token**: Dynatrace token
+   * - **java_keystore**: Java KeyStore
+   * - **microsoft_sdf**: Microsoft SQL CE database
+   * - **kubernetes_dashboard_cred**: Kubernetes Dashboard user credentials
+   * - **atlassian_token**: Atlassian token
+   * - **rdp**: Remote Desktop Protocol (RDP) connection
+   * - **mailgun_key**: Mailgun Webhook Signing Key
+   * - **mailchimp_api_key**: Mailchimp API Key
+   * - **netrc_cfg**: .netrc configuration file
+   * - **openvpn_cfg**: OpenVPN client configuration
+   * - **github_refresh_token**: Github Refresh Token
+   * - **salesforce**: Salesforce credentials
+   * - **sendinblue**: Sendinblue token
+   * - **pkcs_private_key**: PKCS#12 key
+   * - **rubyonrails_passwd**: Ruby on Rails password file
+   * - **filezilla_ftp**: FileZilla FTP configuration
+   * - **databricks_token**: Databricks token
+   * - **gitLab_personal_token**: GitLab Personal access token
+   * - **rails_master_key**: Rails Master Key
+   * - **sqlite**: SQLite3/SQLite database
+   * - **firefox_logins**: Firefox logon configuration
+   * - **mailgun_private_token**: Mailgun Private token
+   * - **joomla_cfg**: Joomla configuration
+   * - **hashicorp_terraform_token**: Hashicorp Terraform Token
+   * - **jetbrains_ides**: Jetbrains IDEs configuration
+   * - **heroku_api_key**: Heroku API key
+   * - **messagebird_token**: MessageBird token
+   * - **github_app_token**: Github App Token
+   * - **hashicorp_vault_token**: Hashicorp Vault Token
+   * - **pgp_private_key**: PGP private key
+   * - **sshpasswd**: SSH password
+   * - **huaweicloud_ak**: third-party cloud Secret Access Key
+   * - **aws_s3cmd**: AWS S3cmd configuration
+   * - **php_config**: PHP configuration
+   * - **common_private_key**: common private key types
+   * - **microsoft_mdf**: Microsoft SQL database
+   * - **mediawiki_cfg**: MediaWiki configuration
+   * - **jenkins_cred**: Jenkins credentials
+   * - **rubygems_cred**: Rubygems credentials
+   * - **clojars_token**: Clojars token
+   * - **phoenix_web_passwd**: Phoenix Web credentials
+   * - **puttygen_private_key**: PuTTYgen private key
+   * - **google_oauth_token**: Google OAuth access token
+   * - **rubyonrails_cfg**: Ruby On Rails database configuration
+   * - **lob_api_key**: Lob API Key
+   * - **pkcs_cred**: PKCS#12 certificate
+   * - **otr_private_key**: OTR private key
+   * - **contentful_delivery_token**: Contentful Delivery token
+   * - **digital_ocean_tugboat**: Digital Ocean Tugboat configuration
+   * - **dsa_private_key**: DSA private key
+   * - **rails_app_token**: Rails App token
+   * - **git_cred**: Git user credentials
+   * - **newrelic_api_key**: New Relic User API Key
+   * - **github_hub**: hub configuration that stores Github tokens
+   * - **rubygem**: Rubygem token.
    * 
    * @example
    * google_oauth_key
@@ -264,7 +266,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   sensitiveFileKey?: string;
   /**
    * @remarks
-   * The name of the alert type for the sensitive file.
+   * The name of the sensitive file alerting type.
    * 
    * @example
    * AccessKeyLeak
@@ -272,10 +274,9 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   sensitiveFileName?: string;
   /**
    * @remarks
-   * The status of the sensitive file. Valid values:
-   * 
-   * *   **0**: unhandled.
-   * *   **1**: handled.
+   * The status of the sensitive file check item. Valid values:
+   * - **0**: Unprocessed.
+   * - **1**: Processed.
    * 
    * @example
    * 0
@@ -283,7 +284,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
   status?: number;
   /**
    * @remarks
-   * The number of unprocessed mirrors.
+   * The number of unprocessed images.
    * 
    * @example
    * 2
@@ -335,7 +336,7 @@ export class DescribeImageSensitiveFileListResponseBodySensitiveFileList extends
 export class DescribeImageSensitiveFileListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -351,7 +352,7 @@ export class DescribeImageSensitiveFileListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The detailed information about the error code.
    * 
    * @example
    * successful
@@ -364,7 +365,7 @@ export class DescribeImageSensitiveFileListResponseBody extends $dara.Model {
   pageInfo?: DescribeImageSensitiveFileListResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 8D19A089-E6BC-5244-800C-7E590D50487F
@@ -372,15 +373,14 @@ export class DescribeImageSensitiveFileListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the information about the sensitive files.
+   * The list of sensitive files.
    */
   sensitiveFileList?: DescribeImageSensitiveFileListResponseBodySensitiveFileList[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * Indicates whether the query was successful. Valid values:
+   * - **true**: successful
+   * - **false**: failed.
    * 
    * @example
    * true

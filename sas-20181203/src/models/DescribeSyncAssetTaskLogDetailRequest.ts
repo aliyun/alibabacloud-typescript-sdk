@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSyncAssetTaskLogDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1. Pages start from page 1.
+   * The page number from which to start displaying query results. Default value: 1, which indicates that query results are displayed starting from page 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeSyncAssetTaskLogDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end timestamp of the task.
+   * The timestamp of the end time.
    * 
    * @example
    * 1668064495000
@@ -21,9 +21,8 @@ export class DescribeSyncAssetTaskLogDetailRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to display on each page when you perform a paginated query. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > We recommend that you do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -31,7 +30,7 @@ export class DescribeSyncAssetTaskLogDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the IDC scan task. You can call the [DescribeSyncAssetTaskList](https://help.aliyun.com/document_detail/141932.html) operation to obtain the ID.
+   * The ID of the IDC scan task that you want to query. You can call the [DescribeSyncAssetTaskList](https://help.aliyun.com/document_detail/141932.html) operation to obtain the ID of an abnormal task.
    * 
    * @example
    * 7e9565f537146fdf6bfb4e01f6f08818
@@ -39,7 +38,7 @@ export class DescribeSyncAssetTaskLogDetailRequest extends $dara.Model {
   rootTaskId?: string;
   /**
    * @remarks
-   * The start timestamp of the task.
+   * The timestamp of the start time.
    * 
    * @example
    * 1644027670
@@ -47,7 +46,7 @@ export class DescribeSyncAssetTaskLogDetailRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The name of the IDC scan task.
+   * The task name.
    * 
    * @example
    * IDC_PROBE_SCAN-TEST_001

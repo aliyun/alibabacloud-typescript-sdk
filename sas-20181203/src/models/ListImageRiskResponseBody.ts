@@ -5,15 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageRiskResponseBodyImageRiskListEndPointList extends $dara.Model {
   /**
    * @remarks
-   * An array that consists the details of the domain name in the endpoint.
+   * The list of endpoint domain names.
    */
   domains?: string[];
   /**
    * @remarks
-   * The type of the domain name in the endpoint. Valid values:
-   * 
-   * *   **internet**: Internet
-   * *   **intranet**: internal network
+   * The type of the endpoint domain name. Valid values:
+   * - **internet**: public network
+   * - **intranet**: private network.
    * 
    * @example
    * internet
@@ -56,12 +55,12 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * An array that consists of the details of the endpoint.
+   * The list of endpoint information.
    */
   endPointList?: ListImageRiskResponseBodyImageRiskListEndPointList[];
   /**
    * @remarks
-   * The endpoint of Container Registry.
+   * The list of endpoints for the image service.
    * 
    * @example
    * https://172.20.XXX.XXX/test
@@ -69,7 +68,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   endpoints?: string;
   /**
    * @remarks
-   * The image of the container.
+   * The image.
    * 
    * @example
    * .aliyuncs.com/sas_test/baseline:exploit
@@ -79,8 +78,8 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
    * @remarks
    * The registration status of the image repository. Valid values:
    * 
-   * *   **IN_SAS**: The image repository is registered with Security Center.
-   * *   **NOT_IN_SAS**: The image repository is not registered with Security Center.
+   * - **IN_SAS**: The repository is registered in Security Center.
+   * - **NOT_IN_SAS**: The repository is not registered in Security Center.
    * 
    * @example
    * IN_SAS
@@ -88,7 +87,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   imageAccessType?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * f922bfeb6960436fe3f0e7b62fc6b9a0b47980986669c367c22433269404****
@@ -96,7 +95,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The public endpoint of the image repository.
+   * The public network access URL of the image repository.
    * 
    * @example
    * ****registry-registry.cn-shenzhen-finance-1.cr.aliyuncs.com/xxxx/docker-****
@@ -104,7 +103,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   internetURLs?: string;
   /**
    * @remarks
-   * The region of the image repository.
+   * The region where the image repository resides.
    * 
    * @example
    * cn-hangzhou
@@ -112,12 +111,12 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the image repository. Valid values:
+   * The type of the image registry. Valid values:
    * 
-   * *   **acr**
-   * *   **harbor**
-   * *   **quay**
-   * *   **CI/CD**: Jenkins
+   * - **acr**: ACR
+   * - **harbor**: Harbor
+   * - **quay**: Quay
+   * - **CI/CD**: Jenkins.
    * 
    * @example
    * harbor
@@ -141,7 +140,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The image namespace.
    * 
    * @example
    * vultar***
@@ -149,10 +148,11 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   repoNamespace?: string;
   /**
    * @remarks
-   * The type of the repository. Valid values:
+   * The repository type. Valid values:
    * 
-   * *   `PUBLIC`
-   * *   `PRIVATE`
+   * - `PUBLIC`: public
+   * 
+   * - `PRIVATE`: private.
    * 
    * @example
    * PRIVATE
@@ -160,7 +160,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   repoType?: string;
   /**
    * @remarks
-   * The statistics on a security event.
+   * The statistics of security events.
    * 
    * @example
    * {
@@ -172,7 +172,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   statistics?: string;
   /**
    * @remarks
-   * The tag that is added to the image.
+   * The image tag.
    * 
    * @example
    * 0.1.0
@@ -180,10 +180,9 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * Indicates whether the image version is immutable. If the image version is immutable, only the image of the latest version in the image repository can be overwritten. Valid values:
-   * 
-   * *   **0**: The image version is mutable.
-   * *   **1**: The image version is immutable.
+   * The tag immutability setting. If immutability is enabled, image versions other than latest cannot be used to overwrite existing versions in this repository. Valid values:
+   * - **0**: Mutable.
+   * - **1**: Immutable.
    * 
    * @example
    * 0
@@ -191,7 +190,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   tagImmutable?: number;
   /**
    * @remarks
-   * The UUID of the image.
+   * The unique identifier of the image.
    * 
    * @example
    * 624778f3-5bf2-423c-ac0c-47a62c05****
@@ -199,7 +198,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The endpoint of the image repository in the VPC.
+   * The VPC access URL of the image repository.
    * 
    * @example
    * ****-registry-registry-vpc.cn-shenzhen-finance-1.cr.aliyuncs.com/xxxx/docker-****
@@ -266,7 +265,7 @@ export class ListImageRiskResponseBodyImageRiskList extends $dara.Model {
 export class ListImageRiskResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries returned on the current page in a paging query.
    * 
    * @example
    * 3
@@ -274,7 +273,7 @@ export class ListImageRiskResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -282,7 +281,7 @@ export class ListImageRiskResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -326,7 +325,7 @@ export class ListImageRiskResponseBodyPageInfo extends $dara.Model {
 export class ListImageRiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of security information about the image.
+   * The list of image risk information.
    */
   imageRiskList?: ListImageRiskResponseBodyImageRiskList[];
   /**
@@ -336,7 +335,7 @@ export class ListImageRiskResponseBody extends $dara.Model {
   pageInfo?: ListImageRiskResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 050ACC7A-D4FD-55C6-B861-BA9569C1****

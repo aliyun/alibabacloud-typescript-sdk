@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number of the current page to return. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -13,9 +13,8 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the alert.
-   * 
-   * *   Set the value to ALL, which indicates all alert types.
+   * The alerting name. Valid values:
+   * - ALL: all Alarm Metric values.
    * 
    * @example
    * ALL
@@ -23,7 +22,9 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * Event ID. <notice>Field is deprecated.</notice>
+   * The event ID.
+   * 
+   * >Notice: This field is deprecated..
    * 
    * @example
    * 123
@@ -33,10 +34,9 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
   idList?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -44,7 +44,7 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The maximum number of entries to return per page in a paging query. Default value: 20.
    * 
    * @example
    * 20
@@ -52,7 +52,7 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The feature to which this operation belongs. If you leave this parameter empty, the default value agentless is used.
+   * The business source. This parameter can be left empty. Default value: agentless.
    * 
    * @example
    * agentless

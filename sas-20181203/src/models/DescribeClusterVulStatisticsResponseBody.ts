@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterVulStatisticsResponseBodyVulStat extends $dara.Model {
   /**
    * @remarks
-   * The number of high-risk vulnerabilities.
+   * The number of high-severity vulnerabilities.
    * 
    * @example
    * 13
@@ -13,7 +13,7 @@ export class DescribeClusterVulStatisticsResponseBodyVulStat extends $dara.Model
   asapCount?: string;
   /**
    * @remarks
-   * The number of medium-risk vulnerabilities.
+   * The number of medium-severity vulnerabilities.
    * 
    * @example
    * 21
@@ -21,7 +21,7 @@ export class DescribeClusterVulStatisticsResponseBodyVulStat extends $dara.Model
   laterCount?: string;
   /**
    * @remarks
-   * The number of low-risk vulnerabilities.
+   * The number of low-severity vulnerabilities.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class DescribeClusterVulStatisticsResponseBodyVulStat extends $dara.Model
 export class DescribeClusterVulStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF46038
@@ -63,7 +63,7 @@ export class DescribeClusterVulStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistics of the vulnerabilities.
+   * The vulnerability statistics.
    */
   vulStat?: DescribeClusterVulStatisticsResponseBodyVulStat;
   static names(): { [key: string]: string } {

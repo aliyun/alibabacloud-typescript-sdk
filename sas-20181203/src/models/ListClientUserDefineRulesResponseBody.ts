@@ -57,8 +57,9 @@ export class ListClientUserDefineRulesResponseBodyUserDefineRuleList extends $da
    * @remarks
    * The action of the rule. Valid values:
    * 
-   * *   **0**: allow
-   * *   **1**: block
+   * - **0**: allow
+   * 
+   * - **1**: block
    * 
    * @example
    * 0
@@ -77,16 +78,18 @@ export class ListClientUserDefineRulesResponseBodyUserDefineRuleList extends $da
    * The name of the rule.
    * 
    * @example
-   * Rule\\*\\*\\*\\*
+   * 规则****
    */
   name?: string;
   /**
    * @remarks
    * The type of the operating system. Valid values:
    * 
-   * *   **windows**: Windows
-   * *   **linux**: Linux
-   * *   **all**: all types
+   * - **windows**: Windows
+   * 
+   * - **linux**: Linux
+   * 
+   * - **all**: all types
    * 
    * @example
    * linux
@@ -104,13 +107,19 @@ export class ListClientUserDefineRulesResponseBodyUserDefineRuleList extends $da
    * @remarks
    * The type of the rule. Valid values:
    * 
-   * *   **1**: Process hash
-   * *   **2**: Command line
-   * *   **3**: Process Network
-   * *   **4**: File Read and Write
-   * *   **5**: Operation on Registry
-   * *   **6**: Dynamic-link Library Loading
-   * *   **7**: File Renaming
+   * - **1**: Process hash
+   * 
+   * - **2**: Command line
+   * 
+   * - **3**: Process Network
+   * 
+   * - **4**: File Read and Write
+   * 
+   * - **5**: Operation on Registry
+   * 
+   * - **6**: Dynamic-link Library Loading
+   * 
+   * - **7**: File Renaming
    * 
    * @example
    * 1

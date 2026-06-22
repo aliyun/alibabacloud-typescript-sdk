@@ -14,21 +14,37 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   /**
    * @remarks
    * Attack type. Values:
+   * 
    * - 9: SQL Server brute force attack
+   * 
    * - 5: SSH brute force attack
+   * 
    * - 6: RDP brute force attack
+   * 
    * - 101: Java Struts2 attack interception
+   * 
    * - 102: Redis attack interception
+   * 
    * - 103: Chinese AntSword WebShell communication
+   * 
    * - 104: Chinese Chopper WebShell communication
+   * 
    * - 133: XISE WebShell communication
+   * 
    * - 161: WebShell upload
+   * 
    * - 209: PHP WebShell upload
+   * 
    * - 210: JSP WebShell upload
+   * 
    * - 211: ASP WebShell upload
+   * 
    * - 215: Special suffix WebShell upload
+   * 
    * - ai_webshell: Intelligent defense for WebShell upload
+   * 
    * - java_common_rce: Java common RCE vulnerability interception
+   * 
    * - alinet_webrce: Adaptive web attack defense
    * 
    * @example
@@ -64,6 +80,7 @@ export class ListAttackEventInfoRequest extends $dara.Model {
    * Set the language type for request and response messages. Default is **zh**. Values:
    * 
    * - **zh**: Chinese
+   * 
    * - **en**: English
    * 
    * @example

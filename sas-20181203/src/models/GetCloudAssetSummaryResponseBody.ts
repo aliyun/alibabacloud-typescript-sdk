@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas extends $dara.Model {
   /**
    * @remarks
-   * Subtype of the cloud product
+   * The subtype of the cloud service.
    * 
    * @example
    * 0
@@ -13,32 +13,33 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
   assetSubType?: number;
   /**
    * @remarks
-   * The type of cloud product. Values:
-   * - **0**: Elastic Compute Service (ECS) 
-   * - **1**: Load Balancer 
-   * - **3**: ApsaraDB for RDS 
-   * - **4**: ApsaraDB for MongoDB 
-   * - **5**: ApsaraDB for Tair (compatible with Redis) 
-   * - **6**: Container Registry 
-   * - **8**: Container Service for Kubernetes 
-   * - **9**: Virtual Private Cloud (VPC) 
-   * - **11**: ActionTrail 
-   * - **12**: Content Delivery Network (CDN) 
-   * - **13**: SSL Certificates (now known as Certificate Management Service) 
-   * - **14**: DevOps
-   *  - **15**: Access Control 
-   * - **16**: DDoS Protection
-   *  - **17**: Web Application Firewall
-   *  - **18**: Object Storage Service (OSS)
-   *  - **19**: PolarDB 
-   * - **20**: ApsaraDB for PostgreSQL 
-   * - **21**: Microservices Engine 
-   * - **22**: NAS File Storage
-   *  - **23**: Data Security Center
-   *  - **24**: Elastic IP Address 
-   * - **25**: Cloud Identity Service - EIAM 
+   * The type of cloud service. Valid values:
+   * 
+   * - **0**: Elastic Compute Service (ECS)
+   * - **1**: Server Load Balancer (SLB)
+   * - **3**: ApsaraDB RDS
+   * - **4**: ApsaraDB for MongoDB
+   * - **5**: ApsaraDB for Tair (compatible with Redis)
+   * - **6**: Container Registry
+   * - **8**: Container Service for Kubernetes (ACK)
+   * - **9**: Virtual Private Cloud (VPC)
+   * - **11**: ActionTrail
+   * - **12**: Alibaba Cloud CDN
+   * - **13**: Certificate Management Service (formerly SSL Certificates Service)
+   * - **14**: Apsara Devops
+   * - **15**: Resource Access Management (RAM)
+   * - **16**: Anti-DDoS
+   * - **17**: Web Application Firewall (WAF)
+   * - **18**: Object Storage Service (OSS)
+   * - **19**: PolarDB
+   * - **20**: ApsaraDB RDS for PostgreSQL
+   * - **21**: Microservices Engine (MSE)
+   * - **22**: Apsara File Storage NAS
+   * - **23**: Data Security Center (DSC)
+   * - **24**: Elastic IP Address (EIP)
+   * - **25**: Identity as a Service - EIAM
    * - **26**: PolarDB-X
-   *  - **27**: Elasticsearch
+   * - **27**: Elasticsearch
    * 
    * @example
    * 16
@@ -46,7 +47,7 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
   assetType?: number;
   /**
    * @remarks
-   * Total number of this type of cloud product instances.
+   * The total number of instances of cloud services of this type.
    * 
    * @example
    * 16
@@ -54,20 +55,23 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
   instanceCount?: number;
   /**
    * @remarks
-   * Total number of risky instances for this type of cloud product.
+   * The total number of risky instances of cloud services of this type.
    * 
    * @example
    * 5
    */
   instanceRiskCount?: number;
+  instanceSaleCount?: number;
+  isInstanceSale?: boolean;
   /**
    * @remarks
-   * Server vendor. Values:
-   * - **0**: Alibaba Cloud Asset 
-   * - **1**: Non-cloud Asset
-   *  - **2**: IDC Asset
-   *  - **3**, **4**, **5**, **7**: Other Cloud Assets 
-   * - **8**: Lightweight Asset
+   * Server vendor. Valid values:
+   * 
+   * - **0**: Alibaba Cloud assets
+   * - **1**: Off-cloud assets
+   * - **2**: IDC assets
+   * - **3**, **4**, **5**, **7**: Other cloud assets
+   * - **8**: Lightweight assets
    * 
    * @example
    * 3
@@ -79,6 +83,8 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
       assetType: 'AssetType',
       instanceCount: 'InstanceCount',
       instanceRiskCount: 'InstanceRiskCount',
+      instanceSaleCount: 'InstanceSaleCount',
+      isInstanceSale: 'IsInstanceSale',
       vendor: 'Vendor',
     };
   }
@@ -89,6 +95,8 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
       assetType: 'number',
       instanceCount: 'number',
       instanceRiskCount: 'number',
+      instanceSaleCount: 'number',
+      isInstanceSale: 'boolean',
       vendor: 'number',
     };
   }
@@ -105,12 +113,12 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
 export class GetCloudAssetSummaryResponseBodyGroupedFields extends $dara.Model {
   /**
    * @remarks
-   * List of cloud product statistics
+   * The list of cloud service statistics.
    */
   cloudAssetSummaryMetas?: GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas[];
   /**
    * @remarks
-   * Total number of cloud product instances.
+   * The total number of cloud service instances.
    * 
    * @example
    * 919
@@ -118,17 +126,19 @@ export class GetCloudAssetSummaryResponseBodyGroupedFields extends $dara.Model {
   instanceCountTotal?: number;
   /**
    * @remarks
-   * Total number of cloud product instances at risk
+   * The total number of risky cloud service instances.
    * 
    * @example
    * 544
    */
   instanceRiskCountTotal?: number;
+  instanceSaleCountTotal?: number;
   static names(): { [key: string]: string } {
     return {
       cloudAssetSummaryMetas: 'CloudAssetSummaryMetas',
       instanceCountTotal: 'InstanceCountTotal',
       instanceRiskCountTotal: 'InstanceRiskCountTotal',
+      instanceSaleCountTotal: 'InstanceSaleCountTotal',
     };
   }
 
@@ -137,6 +147,7 @@ export class GetCloudAssetSummaryResponseBodyGroupedFields extends $dara.Model {
       cloudAssetSummaryMetas: { 'type': 'array', 'itemType': GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas },
       instanceCountTotal: 'number',
       instanceRiskCountTotal: 'number',
+      instanceSaleCountTotal: 'number',
     };
   }
 
@@ -155,12 +166,12 @@ export class GetCloudAssetSummaryResponseBodyGroupedFields extends $dara.Model {
 export class GetCloudAssetSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Summary information of cloud assets.
+   * The summary information of cloud assets.
    */
   groupedFields?: GetCloudAssetSummaryResponseBodyGroupedFields;
   /**
    * @remarks
-   * The ID of this call request, a unique identifier generated by Alibaba Cloud for the request, which can be used to troubleshoot and pinpoint issues.
+   * The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and diagnose issues.
    * 
    * @example
    * F5CF78A7-30AA-59DB-847F-13EE3AE7****

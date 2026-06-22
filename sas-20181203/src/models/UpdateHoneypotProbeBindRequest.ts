@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to bind a port. Valid values:
+   * Specifies whether to bind the port. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -16,7 +16,7 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   bindPort?: boolean;
   /**
    * @remarks
-   * The end port on which the probe monitors.
+   * The end port that the probe listens on.
    * 
    * @example
    * 81
@@ -26,8 +26,8 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
    * @remarks
    * Specifies whether the port is fixed. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -35,7 +35,7 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   fixed?: boolean;
   /**
    * @remarks
-   * The UUID of the port.
+   * The unique identifier of the bound port.
    * 
    * @example
    * 3183
@@ -43,10 +43,10 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The protocol type. Valid values:
    * 
-   * *   **tcp**
-   * *   **udp**
+   * - **tcp**
+   * - **udp**.
    * 
    * @example
    * tcp
@@ -54,7 +54,7 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
   proto?: string;
   /**
    * @remarks
-   * The start port on which the probe monitors.
+   * The start port that the probe listens on.
    * 
    * @example
    * 81
@@ -104,7 +104,7 @@ export class UpdateHoneypotProbeBindRequestBindPortList extends $dara.Model {
 export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the honeypot to which the probe is bound.
+   * The unique ID of the bound service.
    * 
    * @example
    * f52e8624-e43c-473c-8312-e0fed384****
@@ -112,15 +112,15 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   bindId?: string;
   /**
    * @remarks
-   * The ports that are bound to the probe.
+   * The list of bound ports.
    */
   bindPortList?: UpdateHoneypotProbeBindRequestBindPortList[];
   /**
    * @remarks
-   * The operation that the probe performs. Valid values:
+   * The service binding type. Valid values:
    * 
-   * *   **forward_honey**: forward traffic to a honeypot
-   * *   **scan_port**: monitor and scan
+   * - **forward_honey**: forward to honeypot
+   * - **scan_port**: listen for scans.
    * 
    * @example
    * forward_honey
@@ -128,7 +128,7 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   bindType?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number of the page to return. Minimum value: **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -137,8 +137,7 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   /**
    * @remarks
    * The honeypot ID.
-   * 
-   * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain the IDs of honeypots.
+   * > You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain this value.
    * 
    * @example
    * dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
@@ -146,7 +145,7 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   honeypotId?: string;
   /**
    * @remarks
-   * The port ID of the probe service.
+   * The probe service port ID.
    * 
    * @example
    * 1906
@@ -154,10 +153,9 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -165,9 +163,8 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page when using paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by paging.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -175,7 +172,7 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ports that are monitored.
+   * The listening port range.
    * 
    * @example
    * {\\"tcp\\":\\"1-65535\\",\\"udp\\":\\"1-65535\\"}
@@ -184,8 +181,7 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   /**
    * @remarks
    * The probe ID.
-   * 
-   * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+   * >You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to obtain this parameter.
    * 
    * @example
    * 36bad711-d1ac-4419-ac68-c1aa280f****
@@ -193,12 +189,12 @@ export class UpdateHoneypotProbeBindRequest extends $dara.Model {
   probeId?: string;
   /**
    * @remarks
-   * The IP addresses that are monitored.
+   * The list of listening IP addresses.
    */
   serviceIpList?: string[];
   /**
    * @remarks
-   * The status of the port.
+   * The listening port status setting.
    * 
    * @example
    * 0

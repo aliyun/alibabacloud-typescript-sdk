@@ -24,7 +24,7 @@ export class ListCheckStandardResponseBodyStandardsRequirements extends $dara.Mo
    * The display name of the search condition.
    * 
    * @example
-   * RAM identity authentication
+   * RAM身份认证
    */
   showName?: string;
   /**
@@ -67,11 +67,15 @@ export class ListCheckStandardResponseBodyStandards extends $dara.Model {
    * @remarks
    * The cloud service provider that uses the standard. Valid values:
    * 
-   * *   **0**: Alibaba Cloud.
-   * *   **3**: Tencent Cloud.
-   * *   **4**: Huawei Cloud.
-   * *   **5**: Microsoft Azure.
-   * *   **7**: AWS.
+   * - **0**: Alibaba Cloud.
+   * 
+   * - **3**: Tencent Cloud.
+   * 
+   * - **4**: Huawei Cloud.
+   * 
+   * - **5**: Microsoft Azure.
+   * 
+   * - **7**: AWS.
    * 
    * @example
    * 3
@@ -95,7 +99,7 @@ export class ListCheckStandardResponseBodyStandards extends $dara.Model {
    * The display name of the check item.
    * 
    * @example
-   * Identity and permission management
+   * 身份权限管理
    */
   showName?: string;
   /**

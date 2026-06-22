@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHoneypotPresetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the honeypot template.
-   * 
-   * > You can call the [ListHoneypotPreset](~~ListHoneypotPreset~~) operation to query the IDs of honeypot templates.
+   * The unique ID of the honeypot template.
+   * >Call the [ListHoneypotPreset](~~ListHoneypotPreset~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,10 +16,9 @@ export class DeleteHoneypotPresetRequest extends $dara.Model {
   honeypotPresetId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * The language of the content in the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh

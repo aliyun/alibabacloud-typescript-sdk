@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulDetailsResponseBodyCvesClassifys extends $dara.Model {
   /**
    * @remarks
-   * The type of the vulnerability.
+   * The classification of the vulnerability.
    * 
    * @example
    * remote_code_execution
@@ -13,7 +13,7 @@ export class DescribeVulDetailsResponseBodyCvesClassifys extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * The URL of the demo video for the vulnerability.
+   * The URL of the vulnerability demo video.
    * 
    * @example
    * https://example.com
@@ -21,10 +21,10 @@ export class DescribeVulDetailsResponseBodyCvesClassifys extends $dara.Model {
   demoVideoUrl?: string;
   /**
    * @remarks
-   * The description of the vulnerability type.
+   * The description of the vulnerability classification.
    * 
    * @example
-   * Remote code execution
+   * privilege escalation
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class DescribeVulDetailsResponseBodyCvesClassifys extends $dara.Model {
 export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   /**
    * @remarks
-   * The type of the vulnerability.
+   * The classification of the vulnerability.
    * 
    * @example
    * remote_code_execution
@@ -63,7 +63,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * The vulnerability types.
+   * The list of vulnerability classifications.
    */
   classifys?: DescribeVulDetailsResponseBodyCvesClassifys[];
   /**
@@ -78,11 +78,11 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   cnvdId?: string;
   /**
    * @remarks
-   * The difficulty level of exploiting the vulnerability. Valid values:
+   * The difficulty of exploiting the vulnerability. Valid values:
    * 
-   * *   **LOW**
-   * *   **MEDIUM**
-   * *   **HIGH**
+   * - **LOW**: low
+   * - **MEDIUM**: medium
+   * - **HIGH**: high.
    * 
    * @example
    * LOW
@@ -92,7 +92,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   complexity?: string;
   /**
    * @remarks
-   * The CVE content.
+   * The content of the CVE.
    * 
    * @example
    * Apache Shiro is a user authentication and authorization framework for a wide range of rights management applications.↵Recently, Apache Shiro released version 1.7.0, which fixes the Apache Shiro authentication bypass vulnerability (CVE-2020-17510).↵Attackers can bypass Shiro\\"s authentication using malicious requests containing payloads.↵↵Related bugs:↵CVE-2020-17510 Shiro < 1.7.0 Validation Bypass Vulnerability↵CVE-2020-13933 Shiro < 1.6.0 Validation Bypass Vulnerability↵CVE-2020-11989 Shiro < 1.5.3 Validation Bypass Vulnerability↵CVE-2020-1957 Shiro < 1.5.2 Validation Bypass Vulnerability↵CVE-2016-6802 Shiro < 1.3.2 Validation Bypass Vulnerability
@@ -103,7 +103,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The Common Vulnerabilities and Exposures (CVE) ID.
+   * The CVE ID.
    * 
    * @example
    * CVE-2019-9167
@@ -111,7 +111,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   cveId?: string;
   /**
    * @remarks
-   * The link to the CVE details.
+   * The link to the CVE vulnerability details.
    * 
    * @example
    * https://avd.aliyun.com/detail/CVE-2022-1184
@@ -119,7 +119,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   cveLink?: string;
   /**
    * @remarks
-   * The Common Vulnerability Scoring System (CVSS) score of the vulnerability in the Alibaba Cloud vulnerability library.
+   * The CVSS score of the vulnerability in the Alibaba Cloud vulnerability database.
    * 
    * @example
    * 10.0
@@ -127,7 +127,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   cvssScore?: string;
   /**
    * @remarks
-   * The vector that is used to calculate the CVSS score.
+   * The CVSS score vector.
    * 
    * @example
    * AV:N/AC:L/Au:N/C:C/I:C/A:C
@@ -135,9 +135,8 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   cvssVector?: string;
   /**
    * @remarks
-   * The name of the instance.
-   * 
-   * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+   * The name of the server instance.
+   * > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
    * 
    * @example
    * sql-test-001
@@ -148,8 +147,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   /**
    * @remarks
    * The public IP address of the server.
-   * 
-   * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+   * > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
    * 
    * @example
    * 47.114.XX.XX
@@ -160,8 +158,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   /**
    * @remarks
    * The private IP address of the server.
-   * 
-   * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+   * > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
    * 
    * @example
    * 172.19.XX.XX
@@ -171,7 +168,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The ID of the vulnerability.
+   * The vulnerability ID.
    * 
    * @example
    * CVE-2020-8597
@@ -179,14 +176,14 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   otherId?: string;
   /**
    * @remarks
-   * The POC content.
+   * The content of the POC.
    * 
    * @deprecated
    */
   poc?: string;
   /**
    * @remarks
-   * The UNIX timestamp when the proof of concept (POC) was created. Unit: milliseconds.
+   * The timestamp when the proof of concept (POC) was created. Unit: milliseconds.
    * 
    * @example
    * 1554189334000
@@ -196,7 +193,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   pocCreateTime?: number;
   /**
    * @remarks
-   * The UNIX timestamp when the POC was disclosed. Unit: milliseconds.
+   * The timestamp when the POC was disclosed. Unit: milliseconds.
    * 
    * @example
    * 1554189334000
@@ -206,7 +203,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   pocDisclosureTime?: number;
   /**
    * @remarks
-   * The service that is affected by the vulnerability.
+   * The product affected by the vulnerability.
    * 
    * @example
    * Log4j2
@@ -216,7 +213,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The reference of the vulnerability in the Alibaba Cloud vulnerability library. The value is a URL.
+   * The reference link for the vulnerability in the Alibaba Cloud vulnerability database.
    * 
    * @example
    * https://example.com
@@ -224,7 +221,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   reference?: string;
   /**
    * @remarks
-   * The disclosure time that is displayed for the vulnerability in the Alibaba Cloud vulnerability library. The value is a UNIX timestamp. Unit: milliseconds.
+   * The timestamp when the vulnerability was disclosed in the Alibaba Cloud vulnerability database. Unit: milliseconds.
    * 
    * @example
    * 1554189334000
@@ -232,7 +229,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   releaseTime?: number;
   /**
    * @remarks
-   * The fixing suggestions of the vulnerability.
+   * The remediation suggestion for the vulnerability.
    * 
    * @example
    * <p>At present, Chanjet has urgently released a vulnerability patch to fix the vulnerability. CNVD recommends affected units and users to upgrade to the latest version immediately:</p>↵<p>https://www.chanjetvip.com/product/goods/goods-detail?id=53aaa40295d458e44f5d3ce5</p>↵<p>At the same time, organizations and users affected by the vulnerability are requested to immediately follow the steps below to conduct self-inspection and repair work:</p>↵<ol>↵<li><p>User self-check steps:↵<br  />Check whether website/bin/load.aspx.cdcab7d2.compiled, website/bin/App_Web_load.aspx.cdcab7d2.dll, and tplus/Load.aspx files exist locally. If they exist, it means that they have been poisoned, and you must reinstall the system and install the product. patch.</p>↵</li>↵<li><p>Non-poisoned users please:↵<br  />1) Update the latest product patch.↵<br  />2) Install anti-virus software and update the virus database in time.↵<br  />3) Upgrade the lower version of IIS and Nginx to IIS10.0 and Windows 2016.↵<br  />4) Local installation customers need to confirm whether the backup file is complete as soon as possible, and do off-site backup. Customers on the cloud should enable the mirroring function in time.↵<br  />5) Users who fail to update the patch in time can contact Chanjet technical support and take temporary preventive measures such as deleting files.</p>↵</li>↵<li><p>Poisoned users please:↵<br  />1) Check whether the server has taken regular snapshots or backups. If so, you can restore data through snapshots or backups.↵<br  />2) Contact Chanjet technical support to confirm whether it has the conditions and operation methods to restore data from backup files.</p>↵</li>↵</ol>↵<p>If you have any technical problems, please contact Chanjet technical support: 4006600566-9</p>
@@ -240,7 +237,7 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   solution?: string;
   /**
    * @remarks
-   * The introduction to the vulnerability.
+   * The summary of the vulnerability.
    * 
    * @example
    * Chanjet T-Plus is an Internet business management software. There is an unauthorized access vulnerability in one of its interfaces disclosed on the Internet. Attackers can construct malicious requests to upload malicious files to execute arbitrary code and control the server.
@@ -248,9 +245,8 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * The ID of the asset that is scanned.
-   * 
-   * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+   * The ID of the scan target.
+   * > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
    * 
    * @example
    * m-bp17m0pc0xprzbwo****
@@ -260,9 +256,8 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the asset that is scanned.
-   * 
-   * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+   * The name of the scan target.
+   * > This field is deprecated. To query instances affected by the vulnerability, call [DescribeVulList](~~DescribeVulList~~).
    * 
    * @example
    * frontend
@@ -290,12 +285,12 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
   vendor?: string;
   /**
    * @remarks
-   * The severity of the vulnerability. Valid values:
+   * The severity level of the vulnerability. Valid values:
    * 
-   * *   **serious**
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **serious**: critical
+   * - **high**: high
+   * - **medium**: medium
+   * - **low**: low.
    * 
    * @example
    * serious
@@ -378,12 +373,12 @@ export class DescribeVulDetailsResponseBodyCves extends $dara.Model {
 export class DescribeVulDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the vulnerability.
+   * The list of vulnerability details.
    */
   cves?: DescribeVulDetailsResponseBodyCves[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot issues.
    * 
    * @example
    * EDA40EA3-6265-5900-AD99-C83E4F109CA8

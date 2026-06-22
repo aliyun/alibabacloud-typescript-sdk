@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyPortItemResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paged query.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribePropertyPortItemResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page to display in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyPortItemResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries to display on each page in a paged query.
    * 
    * @example
    * 5
@@ -29,7 +29,7 @@ export class DescribePropertyPortItemResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 163
@@ -65,7 +65,7 @@ export class DescribePropertyPortItemResponseBodyPageInfo extends $dara.Model {
 export class DescribePropertyPortItemResponseBodyPropertyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of servers that use the port.
+   * The number of servers associated with the port.
    * 
    * @example
    * 495
@@ -73,7 +73,7 @@ export class DescribePropertyPortItemResponseBodyPropertyItems extends $dara.Mod
   count?: number;
   /**
    * @remarks
-   * The number of the listening port.
+   * The listening port number.
    * 
    * @example
    * 22
@@ -81,7 +81,7 @@ export class DescribePropertyPortItemResponseBodyPropertyItems extends $dara.Mod
   port?: string;
   /**
    * @remarks
-   * The network protocol of the port.
+   * The network protocol associated with the port.
    * 
    * @example
    * tcp
@@ -120,12 +120,12 @@ export class DescribePropertyPortItemResponseBody extends $dara.Model {
   pageInfo?: DescribePropertyPortItemResponseBodyPageInfo;
   /**
    * @remarks
-   * An array that consists of the ports returned.
+   * The port information.
    */
   propertyItems?: DescribePropertyPortItemResponseBodyPropertyItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92719F

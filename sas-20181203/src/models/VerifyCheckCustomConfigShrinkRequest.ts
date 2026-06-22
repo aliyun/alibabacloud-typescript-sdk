@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyCheckCustomConfigShrinkRequestCustomConfigs extends $dara.Model {
   /**
    * @remarks
-   * Name of the custom configuration item for the check item, unique within the same check item.
+   * The name of the custom configuration item for the check item. The name is unique within the check item.
    * 
    * @example
    * IPList
@@ -13,7 +13,7 @@ export class VerifyCheckCustomConfigShrinkRequestCustomConfigs extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * Operation type for the custom configuration item of the check item. Only pass DELETE when deleting; no need to pass for creation or update.
+   * The operation type of the custom configuration item for the check item. Set this parameter to DELETE only for deletion operations. You do not need to specify this parameter for creation or update operations.
    * 
    * @example
    * DELETE
@@ -21,7 +21,7 @@ export class VerifyCheckCustomConfigShrinkRequestCustomConfigs extends $dara.Mod
   operation?: string;
   /**
    * @remarks
-   * User-configured value string for the custom configuration item of the check item.
+   * The user-configured value string of the custom configuration item for the check item.
    * 
    * @example
    * 10.12.4.XX
@@ -55,7 +55,7 @@ export class VerifyCheckCustomConfigShrinkRequestCustomConfigs extends $dara.Mod
 export class VerifyCheckCustomConfigShrinkRequestRepairConfigs extends $dara.Model {
   /**
    * @remarks
-   * ID of the repair process during the repair.
+   * The ID of the repair flow that corresponds to the repair operation.
    * 
    * @example
    * 7fec0a3395b345c18f108ffc9fc0****
@@ -63,7 +63,7 @@ export class VerifyCheckCustomConfigShrinkRequestRepairConfigs extends $dara.Mod
   flowId?: string;
   /**
    * @remarks
-   * Name of the repair parameter for the check item, unique within the same check item.
+   * The name of the repair parameter for the check item. The name is unique within the check item.
    * 
    * @example
    * IPLists
@@ -71,7 +71,7 @@ export class VerifyCheckCustomConfigShrinkRequestRepairConfigs extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * Operation type for the custom configuration item of the check item. Only pass DELETE when deleting; no need to pass for creation or update.
+   * The operation type of the custom configuration item for the check item. Set this parameter to DELETE only for deletion operations. You do not need to specify this parameter for creation or update operations.
    * 
    * @example
    * DELETE
@@ -79,7 +79,7 @@ export class VerifyCheckCustomConfigShrinkRequestRepairConfigs extends $dara.Mod
   operation?: string;
   /**
    * @remarks
-   * User-configured value string for the repair parameter of the check item.
+   * The user-configured value string of the repair configuration item for the check item.
    * 
    * @example
    * 172.26.49.XX
@@ -115,7 +115,7 @@ export class VerifyCheckCustomConfigShrinkRequestRepairConfigs extends $dara.Mod
 export class VerifyCheckCustomConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Check item ID.
+   * The ID of the check item.
    * 
    * @example
    * 76
@@ -123,24 +123,24 @@ export class VerifyCheckCustomConfigShrinkRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * Custom check item to validate input parameters.
+   * The input parameters for custom check item validation.
    */
   customCheckConfigShrink?: string;
   /**
    * @remarks
-   * List of custom configuration items for the check item.
+   * The list of custom parameter configuration items for the check item.
    */
   customConfigs?: VerifyCheckCustomConfigShrinkRequestCustomConfigs[];
   /**
    * @remarks
-   * Repair parameters supported by the check item\\"s repair function.
+   * The repair parameters supported by the repair feature of the check item.
    */
   repairConfigs?: VerifyCheckCustomConfigShrinkRequestRepairConfigs[];
   /**
    * @remarks
-   * Situation Awareness parameter validation types: 
-   * - **REPAIR_CONFIG**: Repair and custom parameter validation (default) 
-   * - **CHECK_ITEM_CONFIG**: Custom check item validation
+   * The validation type for Threat Detection Service parameters. Valid values:
+   * - **REPAIR_CONFIG**: repair and custom parameter validation (default).
+   * - **CHECK_ITEM_CONFIG**: custom check item validation.
    * 
    * @example
    * REPAIR_CONFIG

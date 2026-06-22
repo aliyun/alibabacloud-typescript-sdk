@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPushAllTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 1.2.XX.XX
@@ -13,23 +13,22 @@ export class ModifyPushAllTaskRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The check items. Separate multiple check items with commas (,). Valid values:
-   * 
-   * *   **OVAL_ENTITY**: Common Vulnerabilities and Exposures (CVE) vulnerabilities.
-   * *   **CMS**: Web-CMS vulnerabilities.
-   * *   **SYSVUL**: Windows system vulnerabilities.
-   * *   **SCA**: application vulnerabilities.
-   * *   **HEALTH_CHECK**: baselines.
-   * *   **WEBSHELL**: webshells.
-   * *   **PROC_SNAPSHOT**: processes.
-   * *   **PORT_SNAPSHOT**: ports.
-   * *   **ACCOUNT_SNAPSHOT**: accounts.
-   * *   **SOFTWARE_SNAPSHOT**: software assets.
-   * *   **SCA_SNAPSHOT**: middleware, databases, and web services.
-   * *   **CROND_SNAPSHOT**: scheduled tasks.
-   * *   **AUTORUN_SNAPSHOT**: startup items.
-   * *   **LKM_SNAPSHOT**: kernel modules.
-   * *   **SCA_PROXY_SNAPSHOT**: websites.
+   * The check items to include in the security check. Separate multiple check items with commas (,). Valid values:
+   * - **OVAL_ENTITY**: CVE vulnerabilities
+   * - **CMS**: Web-CMS vulnerabilities
+   * - **SYSVUL**: system vulnerabilities
+   * - **SCA**: application vulnerabilities
+   * - **HEALTH_CHECK**: baselines
+   * - **WEBSHELL**: web shells
+   * - **PROC_SNAPSHOT**: processes
+   * - **PORT_SNAPSHOT**: ports
+   * - **ACCOUNT_SNAPSHOT**: accounts
+   * - **SOFTWARE_SNAPSHOT**: software
+   * - **SCA_SNAPSHOT**: middleware, databases, and web services
+   * - **CROND_SNAPSHOT**: scheduled tasks
+   * - **AUTORUN_SNAPSHOT**: startup items
+   * - **LKM_SNAPSHOT**: kernel modules
+   * - **SCA_PROXY_SNAPSHOT**: websites.
    * 
    * This parameter is required.
    * 
@@ -39,7 +38,7 @@ export class ModifyPushAllTaskRequest extends $dara.Model {
   tasks?: string;
   /**
    * @remarks
-   * The UUIDs of servers on which you want to perform security check tasks. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the servers on which you want to perform security checks. Separate multiple UUIDs with commas (,).
    * 
    * This parameter is required.
    * 

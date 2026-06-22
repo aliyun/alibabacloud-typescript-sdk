@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseline check policy that you want to delete.
+   * The ID of the policy to delete.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class DeleteStrategyRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -26,7 +26,7 @@ export class DeleteStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 192.0.XX.XX

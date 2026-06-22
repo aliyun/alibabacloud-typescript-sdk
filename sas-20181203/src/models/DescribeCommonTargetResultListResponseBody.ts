@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCommonTargetResultListResponseBodyTargetConfig extends $dara.Model {
   /**
    * @remarks
-   * The identifier that indicates whether the configuration item is applied to the server. Valid values:
+   * The asset configuration flag. Valid values:
    * 
-   * *   **add**: applied
-   * *   **del**: not applied
+   * - **add**: The configuration takes effect on the asset.
+   * - **del**: The configuration does not take effect on the asset.
    * 
    * @example
    * del
@@ -16,7 +16,7 @@ export class DescribeCommonTargetResultListResponseBodyTargetConfig extends $dar
   flag?: string;
   /**
    * @remarks
-   * The default identifier.
+   * The default flag for asset configuration.
    * 
    * @example
    * add
@@ -24,17 +24,16 @@ export class DescribeCommonTargetResultListResponseBodyTargetConfig extends $dar
   targetDefault?: string;
   /**
    * @remarks
-   * An array that consists of the IDs of the server groups or the UUIDs of the servers.
-   * 
-   * >  If **uuid** is returned for the **TargetType** parameter, **UUIDs** of the servers are returned. If **groupId** is returned for the **TargetType** parameter, IDs of the server groups are returned.
+   * The group ID or asset UUID on which the configuration takes effect.
+   * > If **TargetType** returns **uuid**, this field indicates the **UUID** of the asset. If **TargetType** returns **groupId**, this field indicates the group ID.
    */
   targetList?: string[];
   /**
    * @remarks
-   * The type of the server to which the configuration item is applied. Valid values:
+   * The selection mode for the assets on which the configuration takes effect. Valid values:
    * 
-   * *   **uuid**: a server
-   * *   **groupId**: a server group
+   * - **uuid**: Added by individual asset.
+   * - **groupId**: Added by server group.
    * 
    * @example
    * uuid
@@ -50,12 +49,12 @@ export class DescribeCommonTargetResultListResponseBodyTargetConfig extends $dar
   totalCount?: string;
   /**
    * @remarks
-   * The type of the configuration item. Valid values:
+   * The configuration type. Valid values:
    * 
-   * *   **webshell_timescan**: webshell detection and removal
-   * *   **aliscriptengine**: in-depth detection engine
-   * *   **alidetect**: installation scope of local file detection
-   * *   **alidetect-scan-enable**: detection scope of local file detection
+   * - **webshell_timescan**: web shell scan.
+   * - **aliscriptengine**: deep detection engine.
+   * - **alidetect**: installation scope of the local file detection engine.
+   * - **alidetect-scan-enable**: detection scope of the local file detection engine.
    * 
    * @example
    * webshell_timescan
@@ -98,7 +97,7 @@ export class DescribeCommonTargetResultListResponseBodyTargetConfig extends $dar
 export class DescribeCommonTargetResultListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 6673D49C-A9AB-40DD-B4A2-B92306701AE7
@@ -106,7 +105,7 @@ export class DescribeCommonTargetResultListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the configuration item.
+   * The configuration information.
    */
   targetConfig?: DescribeCommonTargetResultListResponseBodyTargetConfig;
   static names(): { [key: string]: string } {

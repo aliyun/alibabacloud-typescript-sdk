@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSystemClientRuleTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 79CFF74D-E967-5407-8A78-EE03B925****
@@ -13,7 +13,7 @@ export class ListSystemClientRuleTypesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the rule types.
+   * The list of rule types.
    */
   ruleTypes?: string[];
   static names(): { [key: string]: string } {

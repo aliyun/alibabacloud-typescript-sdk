@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigListAegisSuspiciousConfigList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the plug-in is enabled. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Indicates whether the plugin is enabled. Valid values:
+   * - **true**: enabled
+   * - **false**: disabled
    * 
    * @example
    * true
@@ -16,12 +15,12 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigListAegisSu
   config?: boolean;
   /**
    * @remarks
-   * The message that indicates whether you are authorized to install the plug-in on your server or whether the plug-in is installed on your server. Valid values:
+   * The authorization binding information of the plugin. Valid values:
    * 
-   * *   **authorized**: authorized
-   * *   **unauthorized**: unauthorized
-   * *   **unbind**: not installed
-   * *   **nonsupport**: not supported
+   * - **authorized**: authorized
+   * - **unauthorized**: unauthorized
+   * - **unbind**: unbound
+   * - **nonsupport**: not supported
    * 
    * @example
    * authorized
@@ -29,10 +28,9 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigListAegisSu
   msg?: string;
   /**
    * @remarks
-   * Indicates whether the plug-in is globally configured. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Indicates whether this is a global configuration. Valid values:
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * true
@@ -40,11 +38,11 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigListAegisSu
   overallConfig?: boolean;
   /**
    * @remarks
-   * The name of the plug-in. Valid values:
+   * The name of the plugin type. Valid values:
    * 
-   * *   **alihips**: trojan-specific prevention
-   * *   **alisecguard**: attack-specific prevention
-   * *   **alinet**: defense against attacks on servers
+   * - **alihips**: performs virus and trojan protection
+   * - **alisecguard**: performs attack protection
+   * - **alinet**: protects against network-side attacks on the server
    * 
    * @example
    * alisecguard
@@ -80,12 +78,12 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigListAegisSu
 export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigList extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the configurations of plug-ins.
+   * The list of plugin configuration information.
    */
   aegisSuspiciousConfigList?: ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigListAegisSuspiciousConfigList[];
   /**
    * @remarks
-   * The installation code of the plug-in.
+   * The installation code of the plugin instance.
    * 
    * @example
    * k5O5nd
@@ -93,11 +91,11 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigList extend
   pluginInstallCode?: string;
   /**
    * @remarks
-   * The name of the plug-in. Valid values:
+   * The name of the plugin type. Valid values:
    * 
-   * *   **alihips**: trojan-specific prevention
-   * *   **alisecguard**: attack-specific prevention
-   * *   **alinet**: defense against attacks on servers
+   * - **alihips**: performs virus and trojan protection
+   * - **alisecguard**: performs attack protection
+   * - **alinet**: protects against network-side attacks on the server
    * 
    * @example
    * alisecguard
@@ -105,10 +103,9 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigList extend
   pluginName?: string;
   /**
    * @remarks
-   * Indicates whether the plug-in is installed. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Indicates whether the plugin is installed. Valid values:
+   * - **true**: installed
+   * - **false**: not installed
    * 
    * @example
    * true
@@ -116,10 +113,9 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigList extend
   pluginOnlineInstalled?: boolean;
   /**
    * @remarks
-   * Indicates whether the plug-in is online. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Indicates whether the plugin is online. Valid values:
+   * - **true**: online
+   * - **false**: offline
    * 
    * @example
    * true
@@ -127,7 +123,7 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigList extend
   pluginOnlineStatus?: boolean;
   /**
    * @remarks
-   * The version of the plug-in.
+   * The plugin version.
    * 
    * @example
    * 00_10
@@ -170,12 +166,12 @@ export class ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigList extend
 export class ListPluginForUuidResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the information about the plug-ins.
+   * The list of plugin information.
    */
   aegisUuidTargetPluginConfigList?: ListPluginForUuidResponseBodyAegisUuidTargetPluginConfigList[];
   /**
    * @remarks
-   * The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -183,7 +179,7 @@ export class ListPluginForUuidResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The detailed information of the error code.
    * 
    * @example
    * successful
@@ -191,7 +187,7 @@ export class ListPluginForUuidResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request. It can be used for troubleshooting and problem locating.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92719F

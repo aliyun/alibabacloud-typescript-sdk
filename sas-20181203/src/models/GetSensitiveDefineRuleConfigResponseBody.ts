@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTreeRuleList extends $dara.Model {
   /**
    * @remarks
-   * The keyword of the check rule.
+   * The rule keyword.
    * 
    * @example
    * huaweicloud_ak
@@ -13,7 +13,7 @@ export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTreeRuleList extend
   ruleKey?: string;
   /**
    * @remarks
-   * The name of the check rule.
+   * The rule name.
    * 
    * @example
    * huaweicloud_ak
@@ -21,10 +21,9 @@ export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTreeRuleList extend
   ruleName?: string;
   /**
    * @remarks
-   * Indicates whether the check rule is selected. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the rule is selected. Valid values:
+   * - **true**: Selected.
+   * - **false**: Not selected.
    * 
    * @example
    * true
@@ -58,7 +57,7 @@ export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTreeRuleList extend
 export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTree extends $dara.Model {
   /**
    * @remarks
-   * The category keyword of the check rule.
+   * The classification keyword of the check item.
    * 
    * @example
    * password
@@ -66,7 +65,7 @@ export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTree extends $dara.
   classKey?: string;
   /**
    * @remarks
-   * The category name of the check rule.
+   * The classification name of the check item.
    * 
    * @example
    * password
@@ -74,7 +73,7 @@ export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTree extends $dara.
   className?: string;
   /**
    * @remarks
-   * The list of check rules.
+   * The list of check item rules.
    */
   ruleList?: GetSensitiveDefineRuleConfigResponseBodyDataRuleTreeRuleList[];
   static names(): { [key: string]: string } {
@@ -108,10 +107,11 @@ export class GetSensitiveDefineRuleConfigResponseBodyDataRuleTree extends $dara.
 export class GetSensitiveDefineRuleConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the new rule is enabled for automatic check only on agentless detection. Valid values:
+   * Indicates whether automatic check is enabled for new rules. This parameter takes effect only for agentless checks. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled.
    * 
    * @example
    * 0
@@ -127,7 +127,7 @@ export class GetSensitiveDefineRuleConfigResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The total number of check rules.
+   * The total number of check items.
    * 
    * @example
    * 100
@@ -135,12 +135,12 @@ export class GetSensitiveDefineRuleConfigResponseBodyData extends $dara.Model {
   ruleCount?: number;
   /**
    * @remarks
-   * The tree of the check rules.
+   * The check item rule tree.
    */
   ruleTree?: GetSensitiveDefineRuleConfigResponseBodyDataRuleTree[];
   /**
    * @remarks
-   * The number of selected check rules.
+   * The number of selected check items.
    * 
    * @example
    * 99
@@ -181,7 +181,7 @@ export class GetSensitiveDefineRuleConfigResponseBodyData extends $dara.Model {
 export class GetSensitiveDefineRuleConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned by the API request.
    * 
    * @example
    * 200
@@ -189,12 +189,12 @@ export class GetSensitiveDefineRuleConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The returned data details.
    */
   data?: GetSensitiveDefineRuleConfigResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * successful
@@ -210,10 +210,9 @@ export class GetSensitiveDefineRuleConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the query was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

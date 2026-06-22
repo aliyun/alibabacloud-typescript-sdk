@@ -23,8 +23,9 @@ export class ListHoneypotAttackerPortraitRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -34,7 +35,7 @@ export class ListHoneypotAttackerPortraitRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
    * 
-   * >  We recommend that you do not leave this parameter empty.
+   * > We recommend that you do not leave this parameter empty.
    * 
    * @example
    * 20

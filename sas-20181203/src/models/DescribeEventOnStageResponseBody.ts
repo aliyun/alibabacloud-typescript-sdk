@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventOnStageResponseBodySecurityEventStageResponse extends $dara.Model {
   /**
    * @remarks
-   * The platform that is supported by the feature of container threat detection. Valid values:
+   * The platforms supported by threat detection.
    * 
-   * *   **container**
-   * *   **linux**
-   * *   **windows**
+   * - **container**: container
+   * - **linux**: linux
+   * - **windows**: windows.
    */
   securityEventOnStag?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -39,7 +39,7 @@ export class DescribeEventOnStageResponseBodySecurityEventStageResponse extends 
 export class DescribeEventOnStageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique identifier that Alibaba Cloud generated for the request.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E332241XXXXX
@@ -47,7 +47,7 @@ export class DescribeEventOnStageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The platforms that are supported by the feature of container threat detection.
+   * The platforms supported by threat detection.
    */
   securityEventStageResponse?: DescribeEventOnStageResponseBodySecurityEventStageResponse;
   static names(): { [key: string]: string } {

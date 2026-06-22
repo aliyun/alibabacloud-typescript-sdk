@@ -16,8 +16,7 @@ export class UpdateHoneypotNodeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the management node.
-   * 
-   * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+   * >You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -37,7 +36,7 @@ export class UpdateHoneypotNodeRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The CIDR blocks that are allowed to access the management node.
+   * The collection of allowed CIDR blocks.
    */
   securityGroupProbeIpList?: string[];
   static names(): { [key: string]: string } {

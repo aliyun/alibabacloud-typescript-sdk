@@ -15,7 +15,7 @@ export class DescribeClusterNetworkResponseBodyClusterNetworkEdge extends $dara.
    * @remarks
    * The type of the destination node. Valid values:
    * 
-   * *   Set the value to **cluster**.
+   * - Set the value to **cluster**.
    * 
    * @example
    * cluster
@@ -49,8 +49,9 @@ export class DescribeClusterNetworkResponseBodyClusterNetworkEdge extends $dara.
    * @remarks
    * The type of the source node. Valid values:
    * 
-   * *   **cluster**: a cluster.
-   * *   **internet**: a network node outside the cluster
+   * - **cluster**: a cluster.
+   * 
+   * - **internet**: a network node outside the cluster
    * 
    * @example
    * cluster
@@ -92,8 +93,9 @@ export class DescribeClusterNetworkResponseBodyClusterNetworkNode extends $dara.
    * @remarks
    * The status of the microsegmentation switch. Valid values:
    * 
-   * *   **0**: off.
-   * *   **1**: on.
+   * - **0**: off.
+   * 
+   * - **1**: on.
    * 
    * @example
    * 1
@@ -111,8 +113,9 @@ export class DescribeClusterNetworkResponseBodyClusterNetworkNode extends $dara.
    * @remarks
    * The network type. Valid values:
    * 
-   * *   **0**: classic network.
-   * *   **1**: virtual private cloud (VPC).
+   * - **0**: classic network.
+   * 
+   * - **1**: virtual private cloud (VPC).
    * 
    * @example
    * 1
@@ -130,8 +133,9 @@ export class DescribeClusterNetworkResponseBodyClusterNetworkNode extends $dara.
    * @remarks
    * The status of the network topology switch. Valid values:
    * 
-   * *   **ON**
-   * *   **OFF**
+   * - **ON**
+   * 
+   * - **OFF**
    * 
    * @example
    * ON
@@ -141,11 +145,15 @@ export class DescribeClusterNetworkResponseBodyClusterNetworkNode extends $dara.
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **3**: high.
-   * *   **2**: medium.
-   * *   **1**: low.
-   * *   **0**: secure.
-   * *   **-1**: unknown.
+   * - **3**: high.
+   * 
+   * - **2**: medium.
+   * 
+   * - **1**: low.
+   * 
+   * - **0**: secure.
+   * 
+   * - **-1**: unknown.
    * 
    * @example
    * 3
@@ -155,8 +163,9 @@ export class DescribeClusterNetworkResponseBodyClusterNetworkNode extends $dara.
    * @remarks
    * The type of the node. Valid values:
    * 
-   * *   **cluster**: a cluster.
-   * *   **internet**: a network node outside the cluster.
+   * - **cluster**: a cluster.
+   * 
+   * - **internet**: a network node outside the cluster.
    * 
    * @example
    * cluster

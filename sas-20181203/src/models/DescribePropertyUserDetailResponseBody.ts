@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyUserDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of fingerprint information of account assets displayed on the current page.
+   * The number of account asset fingerprint entries on the current page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePropertyUserDetailResponseBodyPageInfo extends $dara.Model 
   count?: number;
   /**
    * @remarks
-   * The page number of the current page during pagination.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribePropertyUserDetailResponseBodyPageInfo extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * The NextToken value returned using the NextToken method.
+   * The NextToken value returned when the NextToken method is used.
    * 
    * @example
    * B604532DEF982B875E8360A6EFA3B***
@@ -29,7 +29,7 @@ export class DescribePropertyUserDetailResponseBodyPageInfo extends $dara.Model 
   nextToken?: string;
   /**
    * @remarks
-   * The number of account asset fingerprint information items to display per page during pagination. The default value is **10**, indicating that 10 items of account asset fingerprint information are displayed per page.
+   * The number of account asset fingerprint entries per page in a paging query. Default value: **10**, which indicates 10 account asset fingerprint entries per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribePropertyUserDetailResponseBodyPageInfo extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The total number of account asset fingerprint information items queried.
+   * The total number of account asset fingerprint entries returned.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribePropertyUserDetailResponseBodyPageInfo extends $dara.Model 
 export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model {
   /**
    * @remarks
-   * The expiration date of the account.
+   * The expiration time of the account.
    * 
    * @example
    * never
@@ -83,7 +83,7 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   accountsExpirationDate?: string;
   /**
    * @remarks
-   * The timestamp of the latest scan of the asset fingerprint. The unit is milliseconds.
+   * The timestamp of the latest Asset Fingerprints scan. Unit: milliseconds.
    * 
    * @example
    * 1649149566000
@@ -91,7 +91,7 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   createTimestamp?: number;
   /**
    * @remarks
-   * Detailed information about the user groups of the queried account.
+   * The details of the user groups to which the account belongs.
    */
   groupNames?: string[];
   /**
@@ -136,9 +136,10 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   ip?: string;
   /**
    * @remarks
-   * Whether it is an interactive login account. Values:
-   * - **0**: No
-   *  - **1**: Yes
+   * Indicates whether the account is an interactive logon account. Valid values:
+   * 
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -146,10 +147,10 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   isCouldLogin?: number;
   /**
    * @remarks
-   * Whether the password has expired. The values are:
+   * Indicates whether the password has expired. Valid values:
    * 
-   * - **0**: Expired
-   * - **1**: Not expired
+   * - **0**: Expired.
+   * - **1**: Not expired.
    * 
    * @example
    * 1
@@ -157,9 +158,10 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   isPasswdExpired?: number;
   /**
    * @remarks
-   * Whether the password is locked. Values:
-   * - **0**: Locked 
-   * - **1**: Not locked
+   * Indicates whether the password is locked. Valid values:
+   * 
+   * - **0**: Locked.
+   * - **1**: Not locked.
    * 
    * @example
    * 1
@@ -167,10 +169,10 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   isPasswdLocked?: number;
   /**
    * @remarks
-   * Whether the account has ROOT permissions. The values include:
+   * Indicates whether the account has ROOT permissions. Valid values:
    * 
-   * - **0**: No
-   * - **1**: Yes
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -178,9 +180,10 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   isRoot?: string;
   /**
    * @remarks
-   * Whether it is a sudo account. Values:
-   * - **0**: No 
-   * - **1**: Yes
+   * Indicates whether the account is a sudo account. Valid values:
+   * 
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -188,9 +191,10 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   isSudoer?: number;
   /**
    * @remarks
-   * Whether the user has expired. Values:
-   * - **0**: Expired
-   *  - **1**: Not expired
+   * Indicates whether the user has expired. Valid values:
+   * 
+   * - **0**: Expired.
+   * - **1**: Not expired.
    * 
    * @example
    * 1
@@ -198,7 +202,7 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   isUserExpired?: number;
   /**
    * @remarks
-   * The source IP from which the account last logged in.
+   * The source IP address of the last logon of the account.
    * 
    * @example
    * 192.168.XX.XX
@@ -206,7 +210,7 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   lastLoginIp?: string;
   /**
    * @remarks
-   * The last login time of the account.
+   * The time of the last logon of the account.
    * 
    * @example
    * 2022-04-04 18:07:06
@@ -214,7 +218,7 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   lastLoginTime?: string;
   /**
    * @remarks
-   * The timestamp of the last login of the account. The unit is milliseconds.
+   * The timestamp of the last logon of the account. Unit: milliseconds.
    * 
    * @example
    * 1649066826000
@@ -222,7 +226,7 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   lastLoginTimeDt?: number;
   /**
    * @remarks
-   * The timestamp of the last login of the account. The unit is milliseconds.
+   * The timestamp of the last logon of the account. Unit: milliseconds.
    * 
    * @example
    * 1649066826000
@@ -230,7 +234,7 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   lastLoginTimestamp?: number;
   /**
    * @remarks
-   * The expiration date of the account password.
+   * The expiration time of the account password.
    * 
    * @example
    * never
@@ -238,7 +242,7 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
   passwordExpirationDate?: string;
   /**
    * @remarks
-   * This parameter is deprecated and should be ignored.
+   * This parameter is deprecated and can be ignored.
    * 
    * @example
    * **
@@ -329,17 +333,17 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $dara.Model
 export class DescribePropertyUserDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information displayed on the query result page.
+   * The pagination information of the query result.
    */
   pageInfo?: DescribePropertyUserDetailResponseBodyPageInfo;
   /**
    * @remarks
-   * Details list of the queried account asset fingerprint information.
+   * The details of the account asset fingerprint entries returned.
    */
   propertys?: DescribePropertyUserDetailResponseBodyPropertys[];
   /**
    * @remarks
-   * The ID of the current request, which is a unique identifier generated by Alibaba Cloud for the request, and can be used for troubleshooting and problem localization.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 33A71BE3-2CC2-14CB-B460-33A1DD82953A

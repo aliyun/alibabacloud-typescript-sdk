@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperationCustomizeReportChartResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 432B2D4E-C8D3-52E4-9F68-35E0C05F****

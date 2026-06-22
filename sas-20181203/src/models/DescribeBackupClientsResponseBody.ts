@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   /**
    * @remarks
-   * The ID of the anti-ransomware agent.
+   * The anti-ransomware client ID.
    * 
    * @example
    * c-000az2f537r73dyh****
@@ -13,16 +13,21 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The status of the anti-ransomware agent.
+   * The status of the anti-ransomware client.
    * 
    * Valid values:
    * 
-   * *   **INSTALLING**: The agent is being installed.
-   * *   **ONLINE**: The agent is online.
-   * *   **UNINSTALLING**: The agent is being uninstalled.
-   * *   **NOT_INSTALLED**: The agent is not installed.
-   * *   **ACTIVATED**: The agent is enabled.
-   * *   **CLIENT_CONNECTION_ERROR**: A connection error occurs on the agent.
+   * - **INSTALLING**: The client is being installed.
+   * 
+   * - **ONLINE**: The client is online.
+   * 
+   * - **UNINSTALLING**: The client is being uninstalled.
+   * 
+   * - **NOT_INSTALLED**: The client is not installed.
+   * 
+   * - **ACTIVATED**: The client is activated.
+   * 
+   * - **CLIENT_CONNECTION_ERROR**: A client connection error occurred.
    * 
    * @example
    * ONLINE
@@ -30,7 +35,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   clientStatus?: string;
   /**
    * @remarks
-   * The version of the anti-ransomware agent.
+   * The version number of the anti-ransomware client.
    * 
    * @example
    * 2.0.0
@@ -38,7 +43,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   clientVersion?: string;
   /**
    * @remarks
-   * The ID of the ECS instance on which the anti-ransomware agent is installed.
+   * The instance ID of the ECS instance that has the anti-ransomware client installed.
    * 
    * @example
    * i-bp15hyph4aci99dv****
@@ -46,7 +51,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The UUID of the Elastic Compute Service (ECS) instance on which the anti-ransomware agent is installed.
+   * The UUID of the ECS instance that has the anti-ransomware client installed.
    * 
    * @example
    * 22f6550d-f294-449b-b6e6-90638fd1****
@@ -84,12 +89,12 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
 export class DescribeBackupClientsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the information about the anti-ransomware agent.
+   * The anti-ransomware client information.
    */
   clients?: DescribeBackupClientsResponseBodyClients[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * E3ED094C-9EB7-4239-962B-D0FB3D5F23C7

@@ -13,7 +13,7 @@ export class ListClientAlertModeResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The UUIDs of the assets.
+   * The list of asset UUIDs.
    */
   uuids?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class ListClientAlertModeResponseBodyData extends $dara.Model {
 export class ListClientAlertModeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The data returned by the request.
    */
   data?: ListClientAlertModeResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInterceptionRuleSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * DE725A60-95F2-50E8-8F5D-81055215E7DA

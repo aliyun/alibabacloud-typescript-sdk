@@ -23,12 +23,17 @@ export class DescribeRiskCheckResultRequest extends $dara.Model {
    * @remarks
    * The type of the check item that you want to query. Valid values:
    * 
-   * *   **1**: identity authentication and permissions
-   * *   **2**: network access control
-   * *   **3**: log audit
-   * *   **4**: data security
-   * *   **5**: monitoring and alerting
-   * *   **6**: basic security protection
+   * - **1**: identity authentication and permissions
+   * 
+   * - **2**: network access control
+   * 
+   * - **3**: log audit
+   * 
+   * - **4**: data security
+   * 
+   * - **5**: monitoring and alerting
+   * 
+   * - **6**: basic security protection
    * 
    * > If you do not specify this parameter, all types of check items are queried.
    * 
@@ -48,8 +53,9 @@ export class DescribeRiskCheckResultRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -75,8 +81,9 @@ export class DescribeRiskCheckResultRequest extends $dara.Model {
    * @remarks
    * Specifies whether the check item is supported by the edition of Security Center that you purchase. Valid values:
    * 
-   * *   **enabled**: yes
-   * *   **disabled**: no
+   * - **enabled**: yes
+   * 
+   * - **disabled**: no
    * 
    * @example
    * enabled
@@ -87,9 +94,11 @@ export class DescribeRiskCheckResultRequest extends $dara.Model {
    * @remarks
    * The risk level of the check item that you want to query. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**
+   * 
+   * - **medium**
+   * 
+   * - **low**
    * 
    * @example
    * high
@@ -107,12 +116,17 @@ export class DescribeRiskCheckResultRequest extends $dara.Model {
    * @remarks
    * The status of the check results. Valid values:
    * 
-   * *   **pass**
-   * *   **failed**
-   * *   **running**
-   * *   **waiting**
-   * *   **ignored**
-   * *   **falsePositive**
+   * - **pass**
+   * 
+   * - **failed**
+   * 
+   * - **running**
+   * 
+   * - **waiting**
+   * 
+   * - **ignored**
+   * 
+   * - **falsePositive**
    * 
    * @example
    * pass

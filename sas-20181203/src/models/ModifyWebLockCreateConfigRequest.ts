@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The prevention mode. Valid values:
+   * The defense mode. Valid values:
    * 
-   * *   **block**: Interception Mode
-   * *   **audit**: Alert Mode
+   * - **block**: Block mode.
+   * - **audit**: Alert mode.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   defenceMode?: string;
   /**
    * @remarks
-   * The directory that you want to protect.
+   * The protected directory.
    * 
    * This parameter is required.
    * 
@@ -28,9 +28,8 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   dir?: string;
   /**
    * @remarks
-   * The directory for which you want to disable web tamper proofing.
-   * 
-   * > If you set **Mode** to **blacklist**, you must specify this parameter.
+   * The folder to exclude from web tamper proofing protection.
+   * > This parameter is required when the Defense mode **Mode** is set to **blacklist** pattern.
    * 
    * @example
    * /home/admin/test
@@ -38,9 +37,8 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   exclusiveDir?: string;
   /**
    * @remarks
-   * The file for which you want to disable web tamper proofing.
-   * 
-   * > If you set **Mode** to **blacklist**, you must specify this parameter.
+   * The file to exclude from web tamper proofing protection.
+   * > This parameter is required when the Defense mode **Mode** is set to **blacklist** pattern.
    * 
    * @example
    * /home/admin/apache.log
@@ -48,24 +46,23 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   exclusiveFile?: string;
   /**
    * @remarks
-   * The type of file for which you want to disable web tamper proofing. Separate multiple types with semicolons (;). Valid values:
+   * The file types to exclude from web tamper proofing protection. Separate multiple file types with semicolons (;). Valid values:
+   * - php
+   * - jsp
+   * - asp
+   * - aspx
+   * - js
+   * - cgi
+   * - html
+   * - htm
+   * - xml
+   * - shtml
+   * - shtm
+   * - jpg
+   * - gif
+   * - png
    * 
-   * *   php
-   * *   jsp
-   * *   asp
-   * *   aspx
-   * *   js
-   * *   cgi
-   * *   html
-   * *   htm
-   * *   xml
-   * *   shtml
-   * *   shtm
-   * *   jpg
-   * *   gif
-   * *   png
-   * 
-   * > If you set **Mode** to **blacklist**, you must specify this parameter.
+   * > This parameter is required when the Defense mode **Mode** is set to **blacklist** pattern.
    * 
    * @example
    * jpg
@@ -73,9 +70,8 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   exclusiveFileType?: string;
   /**
    * @remarks
-   * The file for which you want to enable web tamper proofing.
-   * 
-   * > If you set **Mode** to **whitelist**, you must specify this parameter.
+   * The file to protect.
+   * > This parameter is required when the Defense mode **Mode** is set to **whitelist** pattern.
    * 
    * @example
    * /home/admin/test.log
@@ -83,24 +79,23 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   inclusiveFile?: string;
   /**
    * @remarks
-   * The type of file for which you want to enable web tamper proofing. Separate multiple types with semicolons (;). Valid values:
+   * The file types to protect with web tamper proofing. Separate multiple file types with semicolons (;). Valid values:
+   * - php
+   * - jsp
+   * - asp
+   * - aspx
+   * - js
+   * - cgi
+   * - html
+   * - htm
+   * - xml
+   * - shtml
+   * - shtm
+   * - jpg
+   * - gif
+   * - png
    * 
-   * *   php
-   * *   jsp
-   * *   asp
-   * *   aspx
-   * *   js
-   * *   cgi
-   * *   html
-   * *   htm
-   * *   xml
-   * *   shtml
-   * *   shtm
-   * *   jpg
-   * *   gif
-   * *   png
-   * 
-   * > If you set **Mode** to **whitelist**, you must specify this parameter.
+   * > This parameter is required when the Defense mode **Mode** is set to **whitelist** pattern.
    * 
    * @example
    * jpg
@@ -108,10 +103,9 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   inclusiveFileType?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -119,7 +113,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The local path to the backup files of the protected directory.
+   * The local backup path used for secure backup of the protected directory.
    * 
    * This parameter is required.
    * 
@@ -129,10 +123,9 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   localBackupDir?: string;
   /**
    * @remarks
-   * The protection mode of web tamper proofing. Valid values:
-   * 
-   * *   **whitelist**: In this mode, web tamper proofing is enabled for the specified directories and file types.
-   * *   **blacklist**: In this mode, web tamper proofing is enabled for the unspecified sub-directories, file types, and files in the protected directories.
+   * The protection directory mode. Valid values:
+   * - **whitelist**: whitelist mode. Protects only the specified directories and file types.
+   * - **blacklist**: blacklist mode. Protects all subdirectories, file types, and specified files under the protected directory that are not excluded.
    * 
    * @example
    * whitelist
@@ -140,7 +133,7 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 39.170.XX.XX
@@ -148,9 +141,8 @@ export class ModifyWebLockCreateConfigRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The UUID of the server for which you want to add a directory to protect.
-   * 
-   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * The UUID of the server for which you want to add a protected directory.
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUID of the server.
    * 
    * This parameter is required.
    * 

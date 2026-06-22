@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListCheckRuleInstanceRequestInstanceList extends $dara.Model {
   /**
    * @remarks
-   * Asset instance ID.
-   * > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) interface to get this parameter.
+   * The instance ID of the asset.
+   * > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
    * 
    * @example
    * i-wz9fdluqx20mp2x7****
@@ -14,8 +14,8 @@ export class ListCheckRuleInstanceRequestInstanceList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the asset is located.
-   * > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) interface to get this parameter.
+   * The region where the asset resides.
+   * > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
    * 
    * @example
    * cn-hongkong
@@ -47,7 +47,7 @@ export class ListCheckRuleInstanceRequestInstanceList extends $dara.Model {
 export class ListCheckRuleInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page when performing a paginated query.
+   * The page number to return when paging is used.
    * 
    * @example
    * 1
@@ -55,12 +55,12 @@ export class ListCheckRuleInstanceRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Instance list.
+   * The list of instances.
    */
   instanceList?: ListCheckRuleInstanceRequestInstanceList[];
   /**
    * @remarks
-   * The maximum number of items per page in a paginated query. The default value is **20**.
+   * The maximum number of entries to return per page when paging is used. Default value: **20**.
    * 
    * @example
    * 20
@@ -68,8 +68,8 @@ export class ListCheckRuleInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule ID.
-   * > You can call the [LisCheckRule](https://help.aliyun.com/document_detail/2590599.html) interface to get this parameter.
+   * The rule ID.
+   * > Call the [LisCheckRule](https://help.aliyun.com/document_detail/2590599.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

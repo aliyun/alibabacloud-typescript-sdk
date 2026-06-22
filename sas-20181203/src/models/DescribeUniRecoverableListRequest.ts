@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUniRecoverableListRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeUniRecoverableListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * msdb
@@ -21,9 +21,8 @@ export class DescribeUniRecoverableListRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page when using paging. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by default.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -31,9 +30,8 @@ export class DescribeUniRecoverableListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the anti-ransomware policy.
-   * 
-   * > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+   * The ID of the anti-ransomware backup policy for the database.
+   * >You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

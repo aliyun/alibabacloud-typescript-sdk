@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssScanConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * iboxpublic****

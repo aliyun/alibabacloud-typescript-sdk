@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageFixCycleConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The cycle of the scheduled fix. Unit: day.
+   * The scheduled fix cycle. Unit: days.
    * 
    * @example
    * 7
@@ -13,10 +13,10 @@ export class DescribeImageFixCycleConfigResponseBodyData extends $dara.Model {
   imageFixCycle?: number;
   /**
    * @remarks
-   * Indicates whether the scheduled fix of image risks is enabled.
+   * The scheduled image fix switch. Valid values:
    * 
-   * *   **on**: enabled
-   * *   **off**: disabled
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -24,10 +24,10 @@ export class DescribeImageFixCycleConfigResponseBodyData extends $dara.Model {
   imageFixSwitch?: string;
   /**
    * @remarks
-   * The range of the scheduled fix. The value of this parameter is in the JSON format and contains the following fields:
+   * The scope of the scheduled image fix. This parameter is in JSON format and contains the following fields:
    * 
-   * *   **type**: The type of the image risk. The value is fixed to repo.
-   * *   **target**: The content of the image risk. The value is in the format of Namespace/Image repository.
+   * - **type**: The target type. The value is fixed as repo.
+   * - **target**: The target content. Format: namespace/image repository.
    * 
    * @example
    * {\\"type\\":\\"repo\\",\\"target\\":[\\"qa-dac/yyuan9\\",\\"cdp-uat/zentao\\",\\"cafdms-qa/xxl-job-admin\\",\\"cafdms-qa/utils/jdk\\",\\"cafmfbi/ui\\",\\"cdp-uat/tradingdesk-webapp\\"]}
@@ -35,7 +35,7 @@ export class DescribeImageFixCycleConfigResponseBodyData extends $dara.Model {
   imageFixTarget?: string;
   /**
    * @remarks
-   * The time range during which the image was modified. Unit: day.
+   * The time range during which the image was modified. Unit: days.
    * 
    * @example
    * 30
@@ -71,7 +71,7 @@ export class DescribeImageFixCycleConfigResponseBodyData extends $dara.Model {
 export class DescribeImageFixCycleConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The response data.
    */
   data?: DescribeImageFixCycleConfigResponseBodyData;
   /**

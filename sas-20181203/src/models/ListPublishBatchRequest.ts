@@ -8,12 +8,12 @@ export class ListPublishBatchRequest extends $dara.Model {
    * The name of the release batch.
    * 
    * @example
-   * test
+   * 批次1
    */
   batchName?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page when paging is used.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListPublishBatchRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page when paging is used.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListPublishBatchRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The destination version of the Security Center agent.
+   * The target version to upgrade to.
    * 
    * This parameter is required.
    * 

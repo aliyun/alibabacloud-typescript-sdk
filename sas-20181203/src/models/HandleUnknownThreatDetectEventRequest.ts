@@ -3,8 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HandleUnknownThreatDetectEventRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of event IDs.
+   */
   eventIdList?: string[];
   /**
+   * @remarks
+   * The event handling status. Valid values:
+   * 
+   * - **1**: Unhandled.
+   * - **2**: Blocked.
+   * - **3**: Ignored.
+   * 
    * @example
    * 3
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileDetectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the file.
+   * The unique identifier of the file.
    * 
    * @example
    * 0a212417e65c26ff133cfff28f6c****
@@ -13,7 +13,7 @@ export class CreateFileDetectResponseBody extends $dara.Model {
   hashKey?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92719F

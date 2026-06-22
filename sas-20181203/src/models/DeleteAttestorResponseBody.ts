@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAttestorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CD380235-A0B8-540D-A0D5-D6288446****

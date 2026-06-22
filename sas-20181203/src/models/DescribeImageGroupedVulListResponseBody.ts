@@ -13,7 +13,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   aliasName?: string;
   /**
    * @remarks
-   * The number of vulnerabilities that have the high priority.
+   * The number of high-risk vulnerabilities.
    * 
    * @example
    * 26
@@ -21,10 +21,9 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   asapCount?: number;
   /**
    * @remarks
-   * Indicates whether the vulnerability can be fixed in the Security Center console. Valid values:
-   * 
-   * *   **yes**
-   * *   **no**
+   * Indicates whether the vulnerability can be fixed. Valid values:
+   * - **yes**: The vulnerability can be fixed.
+   * - **no**: The vulnerability cannot be fixed.
    * 
    * @example
    * yes
@@ -32,7 +31,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   canFix?: string;
   /**
    * @remarks
-   * The timestamp when the first scan was performed. Unit: milliseconds.
+   * The timestamp of the first scan, in milliseconds.
    * 
    * @example
    * 1611201274000
@@ -40,7 +39,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   gmtLast?: number;
   /**
    * @remarks
-   * The timestamp when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the latest scan, in milliseconds.
    * 
    * @example
    * 1611201274000
@@ -48,7 +47,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   lastScanTime?: number;
   /**
    * @remarks
-   * The number of vulnerabilities that have the medium priority.
+   * The number of medium-risk vulnerabilities.
    * 
    * @example
    * 26
@@ -64,7 +63,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   name?: string;
   /**
    * @remarks
-   * The number of vulnerabilities that have the low priority.
+   * The number of low-risk vulnerabilities.
    * 
    * @example
    * 29
@@ -72,9 +71,9 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   nntfCount?: number;
   /**
    * @remarks
-   * The tag of this vulnerability. Valid values:
+   * The vulnerability tag. Valid values:
    * 
-   * *   **AI**: AI-related components.
+   *  - **AI**: vulnerabilities related to AI components.
    * 
    * @example
    * AI
@@ -82,12 +81,12 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   ruleTag?: string;
   /**
    * @remarks
-   * The status of the vulnerability. Valid values:
+   * The processing status of the vulnerability. Valid values:
    * 
-   * *   **0**: unhandled
-   * *   **1**: handled
-   * *   **2**: verifying
-   * *   **3**: added to the whitelist
+   * - **0**: Unhandled.
+   * - **1**: Handled.
+   * - **2**: Verifying.
+   * - **3**: Added to the whitelist.
    * 
    * @example
    * 0
@@ -95,14 +94,14 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   status?: number;
   /**
    * @remarks
-   * The tag of the vulnerability. Valid values:
+   * The label of the vulnerability. Valid values:
    * 
-   * *   Restart required
-   * *   Remote exploitation
-   * *   Exploit exists
-   * *   Exploitable
-   * *   Privilege escalation
-   * *   Code execution
+   * - Restart required
+   * - Remote utilization
+   * - EXP exists
+   * - Available
+   * - Privilege escalation
+   * - Code execution
    * 
    * @example
    * EXP exists
@@ -110,10 +109,9 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
   tags?: string;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
-   * 
-   * *   **cve**: image system vulnerability
-   * *   **sca**: image application vulnerability
+   * The type of vulnerability to query. Valid values:
+   * - **cve**: image system vulnerability
+   * - **sca**: image application vulnerability.
    * 
    * @example
    * cve
@@ -165,7 +163,7 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $dar
 export class DescribeImageGroupedVulListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in the paging query.
    * 
    * @example
    * 2
@@ -173,12 +171,12 @@ export class DescribeImageGroupedVulListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * An array that consists of the image vulnerabilities.
+   * The list of image vulnerabilities.
    */
   groupedVulItems?: DescribeImageGroupedVulListResponseBodyGroupedVulItems[];
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**.
+   * The number of image vulnerabilities returned on each page in the paging query. Default value: **20**, which indicates that 20 image vulnerability records are returned on each page.
    * 
    * @example
    * 20
@@ -186,7 +184,7 @@ export class DescribeImageGroupedVulListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 5E244439-UJND-8BF7-26F36E21B9AA

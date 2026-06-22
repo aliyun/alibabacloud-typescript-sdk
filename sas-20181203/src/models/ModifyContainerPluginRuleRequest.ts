@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyContainerPluginRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for requests and responses. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -17,9 +16,8 @@ export class ModifyContainerPluginRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The action mode of the rule. Valid values:
-   * 
-   * *   **1**: alerts
-   * *   **2**: block
+   * - **1**: Alert.
+   * - **2**: Block.
    * 
    * @example
    * 1
@@ -27,7 +25,8 @@ export class ModifyContainerPluginRuleRequest extends $dara.Model {
   mode?: number;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
+   * > You can call the [ListSasContainerWebDefenseRule](https://help.aliyun.com/document_detail/2623606.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -37,7 +36,7 @@ export class ModifyContainerPluginRuleRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test
@@ -45,10 +44,9 @@ export class ModifyContainerPluginRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * *   **0**: user-defined rule
-   * *   **1**: built-in rule
+   * The rule type. Valid values:
+   * - **0**: User-defined.
+   * - **1**: System built-in.
    * 
    * @example
    * 0
@@ -56,12 +54,12 @@ export class ModifyContainerPluginRuleRequest extends $dara.Model {
   ruleType?: number;
   /**
    * @remarks
-   * The rule items.
+   * The list of rule items.
    */
   selectedPolicy?: string[];
   /**
    * @remarks
-   * The images that are added to the whitelist.
+   * The list of whitelisted images.
    */
   whiteImages?: string[];
   static names(): { [key: string]: string } {

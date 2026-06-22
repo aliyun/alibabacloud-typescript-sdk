@@ -3,41 +3,77 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateFileProtectClientEventRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of alert notification levels.
+   */
   alertLevels?: number[];
   /**
+   * @remarks
+   * The timestamp of the end time.
+   * 
    * @example
    * 1650470399999
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The list of excluded event IDs.
+   */
   excludeIdList?: number[];
   /**
+   * @remarks
+   * The file path.
+   * 
    * @example
    * /etc/pam****
    */
   filePath?: string;
+  /**
+   * @remarks
+   * The list of event IDs.
+   */
   idList?: number[];
   /**
+   * @remarks
+   * The ID of the asset instance.
+   * 
    * @example
    * i-bp1fu4aqltf1huhc****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the asset instance.
+   * 
    * @example
    * test
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 120.27.XX.XX
    */
   internetIp?: string;
   /**
+   * @remarks
+   * The internal IP address.
+   * 
    * @example
    * 172.26.XX.XX
    */
   intranetIp?: string;
   /**
    * @remarks
+   * The new status. Valid values:
+   * 
+   * - **0**: Unhandled.
+   * - **1**: Handled.
+   * - **2**: Whitelisted.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,23 +81,38 @@ export class UpdateFileProtectClientEventRequest extends $dara.Model {
    */
   newStatus?: number;
   /**
+   * @remarks
+   * The type of the operation.
+   * 
    * @example
    * READ
    */
   operation?: string;
   /**
+   * @remarks
+   * The process path.
+   * 
    * @example
    * /root/1111/****
    */
   procPath?: string;
+  /**
+   * @remarks
+   * The remarks.
+   */
   remark?: string[];
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * tetsRule
    */
   ruleName?: string;
   /**
    * @remarks
+   * Specifies whether to select all.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,16 +120,28 @@ export class UpdateFileProtectClientEventRequest extends $dara.Model {
    */
   selectAll?: boolean;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 1649260800000
    */
   startTime?: number;
   /**
+   * @remarks
+   * The event status. Valid values:
+   * - **0**: Unhandled.
+   * - **1**: Handled.
+   * - **2**: Whitelisted.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The UUID of the protected server.
+   * 
    * @example
    * ae1527a9-2308-46ab-b10a-48ae7ff7****
    */

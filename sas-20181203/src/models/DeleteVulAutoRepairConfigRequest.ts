@@ -13,17 +13,15 @@ export class DeleteVulAutoRepairConfigRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The IDs of the configurations.
-   * 
-   * >  You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to query the IDs.
+   * The list of configuration IDs to delete.
+   * > You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to obtain configuration IDs.
    */
   configIdList?: number[];
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
-   * 
-   * *   cve: Linux software vulnerability
-   * *   sys: Windows system vulnerability
+   * The type of the vulnerability. Valid values: 
+   * - cve: Linux software vulnerability 
+   * - sys: Windows system vulnerability.
    * 
    * @example
    * cve

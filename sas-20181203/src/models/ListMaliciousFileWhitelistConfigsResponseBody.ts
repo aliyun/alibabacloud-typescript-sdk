@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The number of the assets on which the rule takes effect.
-   * 
-   * >  The value of this parameter is returned only if the value of TargetType is SELECTION_KEY.
+   * The number of assets for which the rule takes effect.
+   * >This field has a value only when targetType is set to SELECTION_KEY.
    * 
    * @example
    * ALL
@@ -15,9 +14,8 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   count?: string;
   /**
    * @remarks
-   * The name of the alert.
-   * 
-   * *   The value is fixed as ALL, which indicates all alert types.
+   * The alerting name. Valid values:
+   * - ALL: all Alarm Metric values.
    * 
    * @example
    * ALL
@@ -25,7 +23,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   eventName?: string;
   /**
    * @remarks
-   * The field that is used in the whitelist rule.
+   * The field added to the allowlist.
    * 
    * @example
    * fileMd5
@@ -33,7 +31,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   field?: string;
   /**
    * @remarks
-   * The value of the field that is used in the whitelist rule.
+   * The value of the field added to the allowlist.
    * 
    * @example
    * b2cf9747ee49d8d9b105cf16e078cc16
@@ -41,7 +39,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   fieldValue?: string;
   /**
    * @remarks
-   * The time when the rule was created.
+   * The creation time.
    * 
    * @example
    * 1691719662000
@@ -49,7 +47,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the rule was modified.
+   * The modification time.
    * 
    * @example
    * 1691719662000
@@ -57,7 +55,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The ID of the alert allowlist rule.
    * 
    * @example
    * 1
@@ -65,9 +63,8 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * The logical operator of the whitelist rule.
-   * 
-   * *   The value is fixed as strEqual, which indicates the equality operator (=).
+   * The operator used for rule evaluation. Valid values:
+   * - strEqual: string equals.
    * 
    * @example
    * strEqual
@@ -75,7 +72,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   operator?: string;
   /**
    * @remarks
-   * Remark
+   * The remarks.
    * 
    * @example
    * test
@@ -83,9 +80,8 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   remark?: string;
   /**
    * @remarks
-   * The feature to which this operation belongs.
-   * 
-   * *   The value is fixed as agentless, which indicates the agentless detection feature.
+   * The business source. Valid values:
+   * - agentless: agentless detection.
    * 
    * @example
    * agentless
@@ -93,10 +89,9 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   source?: string;
   /**
    * @remarks
-   * The type of the assets on which the rule takes effect. Valid values:
-   * 
-   * *   ALL: all assets
-   * *   SELECTION_KEY: selected assets
+   * The target type. Valid values:
+   * - ALL: all assets
+   * - SELECTION_KEY: assets selected by the asset selection component.
    * 
    * @example
    * ALL
@@ -104,10 +99,9 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
   targetType?: string;
   /**
    * @remarks
-   * The assets on which the rule takes effect. Valid values:
-   * 
-   * *   ALL: all assets
-   * *   Others: selected assets
+   * The target scope. Valid values:
+   * - ALL: all assets
+   * - Other values: the asset scope key selected by the asset selection component.
    * 
    * @example
    * ALL
@@ -159,7 +153,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
 export class ListMaliciousFileWhitelistConfigsResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 9
@@ -167,7 +161,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyPageInfo extends $dara
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -175,7 +169,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyPageInfo extends $dara
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -183,7 +177,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyPageInfo extends $dara
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 29
@@ -219,7 +213,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyPageInfo extends $dara
 export class ListMaliciousFileWhitelistConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -227,7 +221,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code of the request.
    * 
    * @example
    * 200
@@ -235,12 +229,12 @@ export class ListMaliciousFileWhitelistConfigsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The alert whitelist rules of sensitive files that are detected by using the agentless detection feature.
+   * The list of allowlist rules for agentless file detection alerts.
    */
   list?: ListMaliciousFileWhitelistConfigsResponseBodyList[];
   /**
    * @remarks
-   * The returned message.
+   * The additional information.
    * 
    * @example
    * successful
@@ -253,7 +247,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBody extends $dara.Model {
   pageInfo?: ListMaliciousFileWhitelistConfigsResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F5CF78A7-30AA-59DB-847F-13EE3AE7****
@@ -261,10 +255,10 @@ export class ListMaliciousFileWhitelistConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

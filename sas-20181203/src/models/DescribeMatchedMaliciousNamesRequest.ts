@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMatchedMaliciousNamesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,11 +16,10 @@ export class DescribeMatchedMaliciousNamesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The severity of the malicious image sample that you want to query. You can enter multiple severities. Separate the severities with commas (,). Valid values:
-   * 
-   * *   **serious**
-   * *   **suspicious**
-   * *   **remind**
+   * The risk levels of the malicious samples in images to query. You can specify multiple values. Separate multiple values with commas (,). Valid values:
+   * - **serious**: urgent
+   * - **suspicious**: suspicious
+   * - **remind**: reminder.
    * 
    * @example
    * serious

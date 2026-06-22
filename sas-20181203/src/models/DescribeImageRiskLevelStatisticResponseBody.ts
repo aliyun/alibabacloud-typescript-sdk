@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageRiskLevelStatisticResponseBodyImageRiskLevelList extends $dara.Model {
   /**
    * @remarks
-   * The number of images at the risk level.
+   * The number of images at the specified risk level.
    * 
    * @example
    * 12
@@ -13,12 +13,11 @@ export class DescribeImageRiskLevelStatisticResponseBodyImageRiskLevelList exten
   cnt?: number;
   /**
    * @remarks
-   * The risk level of the image. Valid values:
-   * 
-   * *   **3**: high risk.
-   * *   **2**: medium risk.
-   * *   **1**: low risk.
-   * *   **0**: no risk.
+   * The image risk level. Valid values:
+   *  - **3**: high risk
+   * - **2**: medium risk
+   * - **1**: low risk
+   * - **0**: no risk.
    * 
    * @example
    * 0
@@ -50,12 +49,12 @@ export class DescribeImageRiskLevelStatisticResponseBodyImageRiskLevelList exten
 export class DescribeImageRiskLevelStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about risks at the image level. The risks include vulnerabilities, baselines risks, and malicious file risks.
+   * The risk information at the image level, including risks from vulnerability, baseline, and malicious file detection.
    */
   imageRiskLevelList?: DescribeImageRiskLevelStatisticResponseBodyImageRiskLevelList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * A60DA4EC-7CD8-577D-AD73-******

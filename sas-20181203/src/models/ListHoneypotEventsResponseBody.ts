@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHoneypotEventsResponseBodyHoneypotEventsMergeFieldList extends $dara.Model {
   /**
    * @remarks
-   * The supplementary information about the field.
+   * The supplementary information of the field.
    * 
    * @example
    * data
@@ -21,7 +21,7 @@ export class ListHoneypotEventsResponseBodyHoneypotEventsMergeFieldList extends 
   fieldKey?: string;
   /**
    * @remarks
-   * The type of the field.
+   * The field type.
    * 
    * @example
    * level2_item1
@@ -97,7 +97,7 @@ export class ListHoneypotEventsResponseBodyHoneypotEvents extends $dara.Model {
   dstIp?: string;
   /**
    * @remarks
-   * The timestamp at which the event was first detected.
+   * The timestamp of the first occurrence.
    * 
    * @example
    * 1692670297
@@ -108,12 +108,12 @@ export class ListHoneypotEventsResponseBodyHoneypotEvents extends $dara.Model {
    * The name of the honeypot.
    * 
    * @example
-   * honeypot-2
+   * 主机 tcp监听****
    */
   honeypotName?: string;
   /**
    * @remarks
-   * The timestamp at which the event was last detected.
+   * The timestamp of the most recent occurrence.
    * 
    * @example
    * 1676558664
@@ -124,20 +124,20 @@ export class ListHoneypotEventsResponseBodyHoneypotEvents extends $dara.Model {
    * The region.
    * 
    * @example
-   * China Beijing
+   * 北京市
    */
   location?: string;
   /**
    * @remarks
-   * The extended values that correspond to the field key.
+   * The list of extended field key-value pairs.
    */
   mergeFieldList?: ListHoneypotEventsResponseBodyHoneypotEventsMergeFieldList[];
   /**
    * @remarks
    * The protocol. Valid values:
    * 
-   * *   **tcp**
-   * *   **udp**
+   * - **tcp**.
+   * - **udp**.
    * 
    * @example
    * tcp
@@ -147,9 +147,9 @@ export class ListHoneypotEventsResponseBodyHoneypotEvents extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **2**: low
-   * *   **3**: medium
-   * *   **4**: high
+   * - **2**: Low risk.
+   * - **3**: Medium risk.
+   * - **4**: High risk.
    * 
    * @example
    * 4
@@ -157,7 +157,7 @@ export class ListHoneypotEventsResponseBodyHoneypotEvents extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The ID of the intrusion event.
+   * The unique ID of the attack event.
    * 
    * @example
    * 70427821
@@ -222,7 +222,7 @@ export class ListHoneypotEventsResponseBodyHoneypotEvents extends $dara.Model {
 export class ListHoneypotEventsResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paging query.
    * 
    * @example
    * 20
@@ -230,7 +230,7 @@ export class ListHoneypotEventsResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -238,7 +238,7 @@ export class ListHoneypotEventsResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The key of the last data entry.
+   * The key of the last entry.
    * 
    * @example
    * CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAGYXFWIAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM1Mzc3Njc4MzA2ODY5NmI2YTY*********
@@ -246,7 +246,7 @@ export class ListHoneypotEventsResponseBodyPageInfo extends $dara.Model {
   lastRowKey?: string;
   /**
    * @remarks
-   * The value of the NextToken parameter that is returned by using the NextToken method.
+   * The NextToken value returned when the NextToken-based pagination method is used.
    * 
    * @example
    * B604532DEF982B875E8360A6EFA3B***
@@ -254,7 +254,7 @@ export class ListHoneypotEventsResponseBodyPageInfo extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -262,7 +262,7 @@ export class ListHoneypotEventsResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 30
@@ -302,17 +302,17 @@ export class ListHoneypotEventsResponseBodyPageInfo extends $dara.Model {
 export class ListHoneypotEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The intrusion events.
+   * The list of honeypot attack events.
    */
   honeypotEvents?: ListHoneypotEventsResponseBodyHoneypotEvents[];
   /**
    * @remarks
-   * The pagination information.
+   * The paging information.
    */
   pageInfo?: ListHoneypotEventsResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * FBD28009-6096-5E90-BFE6-62CCD67*****

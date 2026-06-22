@@ -29,7 +29,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   alarmEventType?: string;
   /**
    * @remarks
-   * The unique ID of the alert event.
+   * The unique identifier of the alert event.
    * 
    * @example
    * 8df914418f4211fbf756efe7a6f4****
@@ -45,10 +45,10 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   autoBreaking?: boolean;
   /**
    * @remarks
-   * Indicates whether the alert event can be handled online, such as quarantining the source file of the malicious process, adding the alert event to the whitelist, and ignoring the alert event. Valid values:
+   * Indicates whether the alert event can be handled online, such as blocking, adding to a whitelist, or ignoring. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Can be handled online.
+   * - **false**: Cannot be handled online.
    * 
    * @example
    * true
@@ -56,10 +56,10 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   canBeDealOnLine?: boolean;
   /**
    * @remarks
-   * Indicates whether you can cancel marking the alert event as a false positive. Valid values:
+   * Indicates whether the alert event can be unmarked as a false positive. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Can be unmarked.
+   * - **false**: Cannot be unmarked.
    * 
    * @example
    * false
@@ -67,7 +67,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   canCancelFault?: boolean;
   /**
    * @remarks
-   * Indicates whether the safeguard mode for major activities is supported.
+   * Indicates whether the alert event contains the critical event protection mode.
    * 
    * @example
    * true
@@ -83,10 +83,9 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   dataSource?: string;
   /**
    * @remarks
-   * Indicates whether the alert event is handled. Valid values:
-   * 
-   * *   **N**: unhandled
-   * *   **Y**: handled
+   * Indicates whether the alert event has been handled. Valid values:
+   * - **N**: Pending.
+   * - **Y**: Handled.
    * 
    * @example
    * y
@@ -102,7 +101,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The timestamp generated when the alert event was last detected. Unit: milliseconds.
+   * The timestamp of the most recent occurrence of the alert event. Unit: milliseconds.
    * 
    * @example
    * 1543740301000
@@ -110,7 +109,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   endTime?: number;
   /**
    * @remarks
-   * The time of the last modification.
+   * The time when the alert event was last modified.
    * 
    * @example
    * 1656901794000
@@ -120,8 +119,8 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
    * @remarks
    * Indicates whether the alert event has tracing information. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Has tracing information.
+   * - **false**: Does not have tracing information.
    * 
    * @example
    * true
@@ -129,7 +128,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   hasTraceInfo?: boolean;
   /**
    * @remarks
-   * The instance ID of the affected asset.
+   * The ID of the asset instance affected by the alert event.
    * 
    * @example
    * i-e****
@@ -137,7 +136,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The instance name of the affected asset.
+   * The name of the asset instance affected by the alert event.
    * 
    * @example
    * TestInstance
@@ -153,7 +152,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the affected instance.
+   * The private IP address of the asset instance affected by the alert event.
    * 
    * @example
    * 192.168.XX.XX
@@ -162,10 +161,9 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   /**
    * @remarks
    * The risk level of the alert event. Valid values:
-   * 
-   * *   **serious**
-   * *   **suspicious**
-   * *   **remind**
+   * - **serious**: Critical.
+   * - **suspicious**: Suspicious.
+   * - **remind**: Reminder.
    * 
    * @example
    * serious
@@ -173,7 +171,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   level?: string;
   /**
    * @remarks
-   * The handling result code of the alert event.
+   * The result code of the alert event handling.
    * 
    * @example
    * kill_and_quara.Success
@@ -181,7 +179,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   operateErrorCode?: string;
   /**
    * @remarks
-   * The timestamp generated when the alert event was handled. Unit: milliseconds.
+   * The timestamp when the alert event was handled. Unit: milliseconds.
    * 
    * @example
    * 1631699497000
@@ -189,11 +187,10 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   operateTime?: number;
   /**
    * @remarks
-   * The edition of Security Center in which the alert event can be detected. Valid values:
-   * 
-   * *   **0**: Basic edition.
-   * *   **1**: Advanced edition.
-   * *   **2**: Enterprise edition.
+   * The edition of Security Center that supports the detection of the alert event. Valid values:
+   * - **0**: Basic edition.
+   * - **1**: Advanced edition.
+   * - **2**: Enterprise edition.
    * 
    * @example
    * 1
@@ -201,7 +198,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   saleVersion?: string;
   /**
    * @remarks
-   * The ID of the associated alert event.
+   * The IDs of the alert events associated with the alert event.
    * 
    * @example
    * 270789
@@ -209,7 +206,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   securityEventIds?: string;
   /**
    * @remarks
-   * The solution to the alert event.
+   * The solution for the alert event.
    * 
    * @example
    * A malicious program implanted by hacker after intrusion will occupy your bandwidth and attack other servers, and may affect you own service. The malicious process may also have self-deleting behavior or disguise as a system service to evade detection.
@@ -217,7 +214,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   solution?: string;
   /**
    * @remarks
-   * The stage at which the attack or intrusion is detected.
+   * The stage of the attack or intrusion.
    * 
    * @example
    * [\\"authority_maintenance\\"]
@@ -225,7 +222,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   stages?: string;
   /**
    * @remarks
-   * The timestamp generated when the alert event was first detected. Unit: milliseconds.
+   * The start timestamp of the alert event. Unit: milliseconds.
    * 
    * @example
    * 1543740301000
@@ -233,7 +230,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   startTime?: number;
   /**
    * @remarks
-   * The total number of security alerts in your website assets.
+   * The total number of security alerts for your website assets.
    * 
    * @example
    * 1
@@ -241,7 +238,7 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
   suspiciousEventCount?: number;
   /**
    * @remarks
-   * The unique ID of the associated instance.
+   * The unique identifier of the instance associated with the alert event.
    * 
    * @example
    * 47900178-885d-4fa4-9d77-****
@@ -325,12 +322,12 @@ export class DescribeDomainSecureAlarmListResponseBodyAlarmList extends $dara.Mo
 export class DescribeDomainSecureAlarmListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The security alerts in your website assets.
+   * The list of security alerts for website assets.
    */
   alarmList?: DescribeDomainSecureAlarmListResponseBodyAlarmList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * D03DD0FD-6041-5107-AC00-383E28F1****

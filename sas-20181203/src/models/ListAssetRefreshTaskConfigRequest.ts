@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListAssetRefreshTaskConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   **0**: server synchronization task
-   * *   **1**: cloud service synchronization task
-   * *   **2**: scheduled AccessKey pair verification task
+   * The configuration type. Valid values:
+   * - **0**: host refresh task
+   * - **1**: cloud service refresh task
+   * - **2**: AccessKey scheduled verification task.
    * 
    * @example
    * 2
@@ -17,7 +16,7 @@ export class ListAssetRefreshTaskConfigRequest extends $dara.Model {
   refreshConfigType?: number;
   /**
    * @remarks
-   * The region where the Security Center instance is deployed.
+   * The region of the Security Center instance.
    * 
    * @example
    * cn-hangzhou
@@ -25,7 +24,7 @@ export class ListAssetRefreshTaskConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the data entry containing the AccessKey pair that you specify when you configure the scheduled AccessKey pair verification task.
+   * The ID of the AccessKey record specified when querying an AccessKey scheduled verification task.
    * 
    * @example
    * 2295

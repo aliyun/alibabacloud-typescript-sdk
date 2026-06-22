@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstallCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The installation command.
-   * 
-   * >  You can call the [DescribeInstallCodes](~~DescribeInstallCodes~~) operation to query installation commands.
+   * The installation code.
+   * >You can call the [DescribeInstallCodes](~~DescribeInstallCodes~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

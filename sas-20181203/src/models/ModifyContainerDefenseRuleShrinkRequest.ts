@@ -7,8 +7,9 @@ export class ModifyContainerDefenseRuleShrinkRequestScope extends $dara.Model {
    * @remarks
    * Specifies whether to include all namespaces. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: no
+   * 
+   * - **1**: yes
    * 
    * @example
    * 1
@@ -18,7 +19,7 @@ export class ModifyContainerDefenseRuleShrinkRequestScope extends $dara.Model {
    * @remarks
    * The ID of the cluster on which the rule takes effect.
    * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
    * 
    * @example
    * c54b***1501
@@ -63,15 +64,16 @@ export class ModifyContainerDefenseRuleShrinkRequest extends $dara.Model {
    * The description of the rule.
    * 
    * @example
-   * Prevent non-mirror programs from starting in containers
+   * 防御规则。
    */
   description?: string;
   /**
    * @remarks
    * The action specified in the rule. Valid values:
    * 
-   * *   **1**: alert
-   * *   **2**: block
+   * - **1**: alert
+   * 
+   * - **2**: block
    * 
    * @example
    * 1
@@ -81,7 +83,7 @@ export class ModifyContainerDefenseRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the rule.
    * 
-   * >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
+   * > You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
    * 
    * @example
    * 123
@@ -99,8 +101,9 @@ export class ModifyContainerDefenseRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: enabled
+   * 
+   * - **0**: disabled
    * 
    * @example
    * 1
@@ -110,8 +113,9 @@ export class ModifyContainerDefenseRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the rule. Valid values:
    * 
-   * *   1: system rule
-   * *   2: custom rule
+   * - 1: system rule
+   * 
+   * - 2: custom rule
    * 
    * @example
    * 1

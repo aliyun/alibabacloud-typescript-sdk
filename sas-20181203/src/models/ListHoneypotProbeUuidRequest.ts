@@ -6,8 +6,7 @@ export class ListHoneypotProbeUuidRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the management node.
-   * 
-   * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
+   * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this value.
    * 
    * @example
    * a882e590-b87b-45a6-87b9-d0a3e5a0****
@@ -15,10 +14,10 @@ export class ListHoneypotProbeUuidRequest extends $dara.Model {
   controlNodeId?: string;
   /**
    * @remarks
-   * The language of the content within the request and the response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -26,10 +25,11 @@ export class ListHoneypotProbeUuidRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of the probe. Valid values:
+   * The probe type. Valid values:
    * 
-   * *   **host_probe**: host probe
-   * *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
+   * - **host_probe**: host probe
+   * 
+   * - **vpc_black_hole_probe**: VPC blackhole probe.
    * 
    * @example
    * host_probe

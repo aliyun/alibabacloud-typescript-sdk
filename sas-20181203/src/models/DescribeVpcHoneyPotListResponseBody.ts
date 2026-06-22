@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcHoneyPotListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeVpcHoneyPotListResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeVpcHoneyPotListResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeVpcHoneyPotListResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -123,7 +123,7 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   cidrBlock?: string;
   /**
    * @remarks
-   * The time at which the VPC was created. Unit: milliseconds.
+   * The time when the VPC was created. Unit: milliseconds.
    * 
    * @example
    * 1607365213000
@@ -131,13 +131,12 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   createTime?: number;
   /**
    * @remarks
-   * The status of the server on which the honeypot is deployed. Valid values:
-   * 
-   * *   **Pending**: The server is being created.
-   * *   **Running**: The server is running.
-   * *   **Starting**: The server is being started.
-   * *   **Stopping**: The server is being stopped.
-   * *   **Stopped**: The server is stopped.
+   * The status of the Elastic Compute Service (ECS) instance that corresponds to the cloud honeypot instance. Valid values:
+   * - **Pending**: being created
+   * - **Running**: running
+   * - **Starting**: starting
+   * - **Stopping**: stopping
+   * - **Stopped**: stopped
    * 
    * @example
    * Running
@@ -145,7 +144,7 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   honeyPotEcsInstanceStatus?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI) used by the honeypot in the VPC.
+   * The ID of the elastic network interface (ENI) that the cloud honeypot created in the VPC.
    * 
    * @example
    * eni-p0whwgg7bing8b80****
@@ -153,10 +152,9 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   honeyPotEniInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether the cloud honeypot feature is enabled for the VPC. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Indicates whether the VPC has cloud honeypot enabled. Valid values:
+   * - **true**: enabled
+   * - **false**: disabled
    * 
    * @example
    * true
@@ -164,13 +162,12 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   honeyPotExistence?: boolean;
   /**
    * @remarks
-   * The status of the honeypot. Valid values:
-   * 
-   * *   **pending**: The honeypot is being created.
-   * *   **deleting**: The honeypot is being deleted.
-   * *   **off**: The honeypot is disabled.
-   * *   **suspending**: The honeypot is suspended.
-   * *   **on**: The honeypot is enabled.
+   * The status of the cloud honeypot instance. Valid values:
+   * - **pending**: being created
+   * - **deleting**: being deleted
+   * - **off**: disabled
+   * - **suspending**: being suspended
+   * - **on**: enabled
    * 
    * @example
    * on
@@ -178,7 +175,7 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   honeyPotInstanceStatus?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the ENI used by the honeypot is connected.
+   * The ID of the vSwitch to which the ENI used by the cloud honeypot belongs.
    * 
    * @example
    * vsw-p0w7gdcfvn20tvdul****
@@ -186,7 +183,7 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   honeyPotVpcSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the VPC in which the cloud honeypot instance resides.
    * 
    * @example
    * vpc-p0w223apdl49sr5zv****
@@ -194,7 +191,7 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The name of the VPC in which the cloud honeypot instance resides.
    * 
    * @example
    * abc-vpcname
@@ -202,9 +199,8 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   vpcName?: string;
   /**
    * @remarks
-   * The region ID of the VPC.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the VPC in which the cloud honeypot instance resides.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * ap-southeast-2
@@ -213,9 +209,8 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   /**
    * @remarks
    * The status of the VPC. Valid values:
-   * 
-   * *   **Available**: The VPC is normal and available.
-   * *   **Pending**: The VPC is being configured.
+   * - **Available**: normal
+   * - **Pending**: being configured
    * 
    * @example
    * Available
@@ -223,7 +218,7 @@ export class DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList extends $dara
   vpcStatus?: string;
   /**
    * @remarks
-   * An array that consists of the vSwitches in the VPC.
+   * The information about vSwitches in the VPC.
    */
   vpcSwitchIdList?: DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOListVpcSwitchIdList[];
   static names(): { [key: string]: string } {
@@ -280,7 +275,7 @@ export class DescribeVpcHoneyPotListResponseBody extends $dara.Model {
   pageInfo?: DescribeVpcHoneyPotListResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4FEC7F58-FCDA-415F-AE25-CD8BC0931DF2
@@ -288,7 +283,7 @@ export class DescribeVpcHoneyPotListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the honeypots.
+   * The information about cloud honeypot instances.
    */
   vpcHoneyPotDTOList?: DescribeVpcHoneyPotListResponseBodyVpcHoneyPotDTOList[];
   static names(): { [key: string]: string } {

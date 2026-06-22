@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAssetSelectionSelectedTargetResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset.
+   * The asset ID. When selecting by machine, the value is the UUID of the machine. When selecting by group, the value is the group ID. When selecting by VPC, the value is the VPC ID.
    * 
    * @example
    * 30****
@@ -13,7 +13,7 @@ export class ListAssetSelectionSelectedTargetResponseBodyData extends $dara.Mode
   targetId?: string;
   /**
    * @remarks
-   * The name of the asset.
+   * The asset name.
    * 
    * @example
    * jen****
@@ -45,12 +45,12 @@ export class ListAssetSelectionSelectedTargetResponseBodyData extends $dara.Mode
 export class ListAssetSelectionSelectedTargetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The data details.
    */
   data?: ListAssetSelectionSelectedTargetResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 1EB12F73-6828-59D2-9FBF-F3713FD55128

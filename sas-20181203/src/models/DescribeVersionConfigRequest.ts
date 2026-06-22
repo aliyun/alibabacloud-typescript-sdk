@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVersionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID using the Cloud Security Center service.   
-   * > Call the [GetUser](https://help.aliyun.com/document_detail/28681.html) API to obtain this parameter.
+   * The Alibaba Cloud account ID that uses the Security Center service.  
+   * > Call the [GetUser](https://help.aliyun.com/document_detail/28681.html) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****

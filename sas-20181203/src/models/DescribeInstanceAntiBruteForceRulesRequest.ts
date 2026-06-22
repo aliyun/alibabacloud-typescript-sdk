@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAntiBruteForceRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeInstanceAntiBruteForceRulesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10000**.
+   * The number of assets to display per page in a paging query. Default value: **10000**, which indicates that up to 10,000 entries of asset information are returned per page.
    * 
    * @example
    * 20
@@ -22,7 +22,7 @@ export class DescribeInstanceAntiBruteForceRulesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 115.238.XX.XX
@@ -30,9 +30,8 @@ export class DescribeInstanceAntiBruteForceRulesRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The UUIDs of the servers.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * The list of server UUIDs to query.
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUIDs of servers.
    */
   uuidList?: string[];
   static names(): { [key: string]: string } {

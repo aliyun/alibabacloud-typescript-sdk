@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAntiBruteForceRulesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of servers returned on the current page.
+   * The number of servers on which brute-force attacks defense rules take effect on the current page.
    * 
    * @example
    * 4
@@ -13,7 +13,7 @@ export class DescribeInstanceAntiBruteForceRulesResponseBodyPageInfo extends $da
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeInstanceAntiBruteForceRulesResponseBodyPageInfo extends $da
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeInstanceAntiBruteForceRulesResponseBodyPageInfo extends $da
   pageSize?: number;
   /**
    * @remarks
-   * The total number of servers returned.
+   * The total number of servers on which brute-force attacks defense rules take effect.
    * 
    * @example
    * 4
@@ -65,7 +65,7 @@ export class DescribeInstanceAntiBruteForceRulesResponseBodyPageInfo extends $da
 export class DescribeInstanceAntiBruteForceRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The ID of the defense rule.
+   * The ID of the brute-force attacks defense rule.
    * 
    * @example
    * 215779601
@@ -73,7 +73,7 @@ export class DescribeInstanceAntiBruteForceRulesResponseBodyRules extends $dara.
   id?: number;
   /**
    * @remarks
-   * The name of the defense rule.
+   * The name of the brute-force attacks defense rule.
    * 
    * @example
    * TestRule
@@ -81,7 +81,7 @@ export class DescribeInstanceAntiBruteForceRulesResponseBodyRules extends $dara.
   name?: string;
   /**
    * @remarks
-   * The UUID of the server to which the defense rule is applied.
+   * The UUID of the server on which the brute-force attacks defense rule takes effect.
    * 
    * @example
    * 4fe8e1cd-3c37-4851-b9de-124da32c****
@@ -120,7 +120,7 @@ export class DescribeInstanceAntiBruteForceRulesResponseBody extends $dara.Model
   pageInfo?: DescribeInstanceAntiBruteForceRulesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 97286A-4A6B-4A4-95FA-EC7E3E2451
@@ -128,7 +128,7 @@ export class DescribeInstanceAntiBruteForceRulesResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * An array consisting of the servers to which a defense rule is applied.
+   * The list of servers on which brute-force attacks defense rules take effect.
    */
   rules?: DescribeInstanceAntiBruteForceRulesResponseBodyRules[];
   static names(): { [key: string]: string } {

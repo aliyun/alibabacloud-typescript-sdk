@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ReceiveFunctionTrialRewardByAliUidRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the feature for which you want to apply for a free trial. Valid values:
-   * 
-   * *   **trail_honeypot_reward**: cloud honeypot
-   * *   **trail_file_detect_api_reward**: SDK for malicious file detection
+   * The name of the trial feature. Valid values:
+   * - **trail_honeypot_reward**: cloud honeypot
+   * - **trail_file_detect_api_reward**: malicious file detection SDK.
    * 
    * @example
    * trail_honeypot_reward
@@ -16,10 +15,10 @@ export class ReceiveFunctionTrialRewardByAliUidRequest extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh

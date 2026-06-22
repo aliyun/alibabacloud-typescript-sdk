@@ -24,7 +24,7 @@ export class ListCheckItemResponseBodyCheckItemsCustomConfigs extends $dara.Mode
    * The display name of the check item.
    * 
    * @example
-   * Ensure RAM password policy prevents password reuse
+   * IP列表
    */
   showName?: string;
   /**
@@ -77,7 +77,7 @@ export class ListCheckItemResponseBodyCheckItemsDescription extends $dara.Model 
    * @remarks
    * The type of the description of the check item. Valid value:
    * 
-   * *   **text**
+   * - **text**
    * 
    * @example
    * text
@@ -88,7 +88,7 @@ export class ListCheckItemResponseBodyCheckItemsDescription extends $dara.Model 
    * The content of the description for the check item when the Type parameter is text.
    * 
    * @example
-   * The download of query results that are returned by SELECT statements in DataStudio must be prohibited at the MaxCompute level.
+   * Checks whether strict access control policies are configured. Requirements: 1. If no blacklists and whitelist are configured, configure a whitelist first. 2. If a blacklist is configured, find the blacklist in the list of access control policies. We recommend that you do not configure an empty blacklist. 3. If a whitelist is configured, find the whitelist in the list of access control policies. We recommend that you do not configure an empty whitelist. Make sure that the whitelist does not contain 0.0.0.0. You can add the following IP addresses to the whitelist: ${IPList}.
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -128,13 +128,15 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
    * The name of the check item.
    * 
    * @example
-   * Enable deletion protection
+   * IPv4 Access Control
    */
   checkShowName?: string;
   /**
    * @remarks
-   * The source type of the Situation Awareness check item: 
-   * - **CUSTOM**: User-defined 
+   * The source type of the Situation Awareness check item:
+   * 
+   * - **CUSTOM**: User-defined
+   * 
    * - **SYSTEM**: Predefined by the Situation Awareness platform
    * 
    * @example
@@ -163,74 +165,103 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
    * @remarks
    * The asset subtype of the cloud service. Valid values:
    * 
-   * *   If **InstanceType** is set to **ECS**, this parameter supports the following valid values:
+   * - If **InstanceType** is set to **ECS**, this parameter supports the following valid values:
    * 
-   *     *   **INSTANCE**
-   *     *   **DISK**
-   *     *   **SECURITY_GROUP**
+   *   - **INSTANCE**
    * 
-   * *   If **InstanceType** is set to **ACR**, this parameter supports the following valid values:
+   *   - **DISK**
    * 
-   *     *   **REPOSITORY_ENTERPRISE**
-   *     *   **REPOSITORY_PERSON**
+   *   - **SECURITY_GROUP**
    * 
-   * *   If **InstanceType** is set to **RAM**, this parameter supports the following valid values:
+   * - If **InstanceType** is set to **ACR**, this parameter supports the following valid values:
    * 
-   *     *   **ALIAS**
-   *     *   **USER**
-   *     *   **POLICY**
-   *     *   **GROUP**
+   *   - **REPOSITORY_ENTERPRISE**
    * 
-   * *   If **InstanceType** is set to **WAF**, this parameter supports the following valid value:
+   *   - **REPOSITORY_PERSON**
    * 
-   *     *   **DOMAIN**
+   * - If **InstanceType** is set to **RAM**, this parameter supports the following valid values:
    * 
-   * *   If **InstanceType** is set to other values, this parameter supports the following valid values:
+   *   - **ALIAS**
    * 
-   *     *   **INSTANCE**
+   *   - **USER**
+   * 
+   *   - **POLICY**
+   * 
+   *   - **GROUP**
+   * 
+   * - If **InstanceType** is set to **WAF**, this parameter supports the following valid value:
+   * 
+   *   - **DOMAIN**
+   * 
+   * - If **InstanceType** is set to other values, this parameter supports the following valid values:
+   * 
+   *   - **INSTANCE**
    * 
    * @example
-   * ECS
+   * INSTANCE
    */
   instanceSubType?: string;
   /**
    * @remarks
    * The asset type of the cloud service. Valid values:
    * 
-   * *   **ECS**: Elastic Compute Service (ECS).
-   * *   **SLB**: Server Load Balancer (SLB).
-   * *   **RDS**: ApsaraDB RDS.
-   * *   **MONGODB**: ApsaraDB for MongoDB (MongoDB).
-   * *   **KVSTORE**: ApsaraDB for Redis (Redis).
-   * *   **ACR**: Container Registry.
-   * *   **CSK**: Container Service for Kubernetes (ACK).
-   * *   **VPC**: Virtual Private Cloud (VPC).
-   * *   **ACTIONTRAIL**: ActionTrail.
-   * *   **CDN**: Alibaba Cloud CDN (CDN).
-   * *   **CAS**: Certificate Management Service (formerly SSL Certificates Service).
-   * *   **RDC**: Apsara Devops.
-   * *   **RAM**: Resource Access Management (RAM).
-   * *   **DDOS**: Anti-DDoS.
-   * *   **WAF**: Web Application Firewall (WAF).
-   * *   **OSS**: Object Storage Service (OSS).
-   * *   **POLARDB**: PolarDB.
-   * *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL.
-   * *   **MSE**: Microservices Engine (MSE).
-   * *   **NAS**: File Storage NAS (NAS).
-   * *   **SDDP**: Sensitive Data Discovery and Protection (SDDP).
-   * *   **EIP**: Elastic IP Address (EIP).
+   * - **ECS**: Elastic Compute Service (ECS).
+   * 
+   * - **SLB**: Server Load Balancer (SLB).
+   * 
+   * - **RDS**: ApsaraDB RDS.
+   * 
+   * - **MONGODB**: ApsaraDB for MongoDB (MongoDB).
+   * 
+   * - **KVSTORE**: ApsaraDB for Redis (Redis).
+   * 
+   * - **ACR**: Container Registry.
+   * 
+   * - **CSK**: Container Service for Kubernetes (ACK).
+   * 
+   * - **VPC**: Virtual Private Cloud (VPC).
+   * 
+   * - **ACTIONTRAIL**: ActionTrail.
+   * 
+   * - **CDN**: Alibaba Cloud CDN (CDN).
+   * 
+   * - **CAS**: Certificate Management Service (formerly SSL Certificates Service).
+   * 
+   * - **RDC**: Apsara Devops.
+   * 
+   * - **RAM**: Resource Access Management (RAM).
+   * 
+   * - **DDOS**: Anti-DDoS.
+   * 
+   * - **WAF**: Web Application Firewall (WAF).
+   * 
+   * - **OSS**: Object Storage Service (OSS).
+   * 
+   * - **POLARDB**: PolarDB.
+   * 
+   * - **POSTGRESQL**: ApsaraDB RDS for PostgreSQL.
+   * 
+   * - **MSE**: Microservices Engine (MSE).
+   * 
+   * - **NAS**: File Storage NAS (NAS).
+   * 
+   * - **SDDP**: Sensitive Data Discovery and Protection (SDDP).
+   * 
+   * - **EIP**: Elastic IP Address (EIP).
    * 
    * @example
-   * OSS
+   * API_GATEWAY
    */
   instanceType?: string;
   /**
    * @remarks
    * The risk level of the check item. Valid values:
    * 
-   * *   **HIGH**
-   * *   **MEDIUM**
-   * *   **LOW**
+   * - **HIGH**
+   * 
+   * - **MEDIUM**
+   * 
+   * - **LOW**
    * 
    * @example
    * HIGH
@@ -245,11 +276,15 @@ export class ListCheckItemResponseBodyCheckItems extends $dara.Model {
    * @remarks
    * The type of the cloud asset. Valid values:
    * 
-   * *   **0**: an asset provided by Alibaba Cloud.
-   * *   **1**: an asset outside Alibaba Cloud.
-   * *   **2**: an asset in a data center.
-   * *   **3**, **4**, **5**, and **7**: other cloud asset.
-   * *   **8**: a simple application server.
+   * - **0**: an asset provided by Alibaba Cloud.
+   * 
+   * - **1**: an asset outside Alibaba Cloud.
+   * 
+   * - **2**: an asset in a data center.
+   * 
+   * - **3**, **4**, **5**, and **7**: other cloud asset.
+   * 
+   * - **8**: a simple application server.
    * 
    * @example
    * 0

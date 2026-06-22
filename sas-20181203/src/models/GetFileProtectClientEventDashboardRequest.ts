@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileProtectClientEventDashboardRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the current page to return.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
   /**
+   * @remarks
+   * The end timestamp of the query.
+   * 
    * @example
    * 1656038940435
    */
   endTime?: number;
   /**
+   * @remarks
+   * The maximum number of entries per page for a paged query.
+   * 
    * @example
    * 20
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The start timestamp of the query.
+   * 
    * @example
    * 1648438617000
    */

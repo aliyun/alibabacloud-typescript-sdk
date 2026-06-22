@@ -4,106 +4,194 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFileProtectClientEventResponseBodyEventList extends $dara.Model {
   /**
+   * @remarks
+   * The alert notification level. Valid values:
+   * 
+   * - 0: no alert
+   * 
+   * - 1: reminder
+   * 
+   * - 2: suspicious
+   * 
+   * - 3: high-risk.
+   * 
    * @example
    * 1
    */
   alertLevel?: number;
   /**
+   * @remarks
+   * The command line of the event.
+   * 
    * @example
    * ["touch","/test/aaaa"]
    */
   cmdLine?: string;
   /**
+   * @remarks
+   * The number of times the event occurred.
+   * 
    * @example
    * 3
    */
   count?: number;
   /**
+   * @remarks
+   * The file path.
+   * 
    * @example
    * /data/*
    */
   filePath?: string;
   /**
+   * @remarks
+   * The timestamp when the event was first detected. Unit: milliseconds.
+   * 
    * @example
    * 1694576692000
    */
   firstTime?: number;
   /**
+   * @remarks
+   * The time when the event was handled.
+   * 
    * @example
    * 1694576692000
    */
   handleTime?: number;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 3719
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the server instance.
+   * 
    * @example
    * kyy-admin-01
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The public IP address of the instance.
+   * 
    * @example
    * 121.40.XX.XX
    */
   internetIp?: string;
   /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
    * @example
    * 172.22.XX.XX
    */
   intranetIp?: string;
   /**
+   * @remarks
+   * The most recent time the event occurred.
+   * 
    * @example
    * 1694576692000
    */
   latestTime?: number;
   /**
+   * @remarks
+   * The type of operation performed on the file. Valid values:
+   * 
+   * - **DELETE**: deletes the file.
+   * - **WRITE**: writes to the file.
+   * - **READ**: reads the file.
+   * - **RENAME**: renames the file.
+   * - **CHOWN**: changes the file owner and associated group.
+   * 
    * @example
    * DELETE
    */
   operation?: string;
   /**
+   * @remarks
+   * The operating system type. Valid values:
+   * 
+   * - **windows**: Windows
+   * - **linux**: Linux.
+   * 
    * @example
    * linux
    */
   platform?: string;
   /**
+   * @remarks
+   * The process path.
+   * 
    * @example
    * c:/*Unity*
    */
   procPath?: string;
   /**
+   * @remarks
+   * The process permission.
+   * 
    * @example
    * rwxr-xr-x
    */
   procPermission?: string;
   /**
+   * @remarks
+   * The process ID of the event.
+   * 
    * @example
    * 52636
    */
   processId?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The rule action. Valid values:
+   * 
+   * - **block**: Block.
+   * 
+   * - **monitor**: Monitor.
+   * 
    * @example
    * block
    */
   ruleAction?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * test-rule-1
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The event status. Valid values:
+   * 
+   * - 0: unhandled 
+   * - 1: handled
+   * - 2: whitelisted.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The UUID of the server.
+   * 
    * @example
    * 94b44720-d982-4d20-a4e1-80a1a57b****
    */
@@ -171,16 +259,25 @@ export class ListFileProtectClientEventResponseBodyEventList extends $dara.Model
 
 export class ListFileProtectClientEventResponseBodyPageInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the current page when paging is used in a paged query.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The maximum number of entries per page when paging is used in a paged query.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 263
    */
@@ -211,7 +308,15 @@ export class ListFileProtectClientEventResponseBodyPageInfo extends $dara.Model 
 }
 
 export class ListFileProtectClientEventResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The file monitoring events.
+   */
   eventList?: ListFileProtectClientEventResponseBodyEventList[];
+  /**
+   * @remarks
+   * The pagination information of the query result.
+   */
   pageInfo?: ListFileProtectClientEventResponseBodyPageInfo;
   /**
    * @remarks

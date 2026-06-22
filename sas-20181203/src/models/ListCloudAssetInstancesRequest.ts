@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAssetInstancesRequestCloudAssetQueryData extends $dara.Model {
   /**
    * @remarks
-   * Query content.
+   * The query content.
    * 
    * @example
    * 163.8.8.9
@@ -13,7 +13,7 @@ export class ListCloudAssetInstancesRequestCloudAssetQueryData extends $dara.Mod
   data?: string;
   /**
    * @remarks
-   * Query operator, currently only supports: INCLUDE.
+   * The query operator. Currently, only INCLUDE is supported.
    * 
    * @example
    * INCLUDE
@@ -45,9 +45,9 @@ export class ListCloudAssetInstancesRequestCloudAssetQueryData extends $dara.Mod
 export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
   /**
    * @remarks
-   * The subtype of the cloud asset.
+   * The subtype of the cloud service.
    * 
-   * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the subtype of the cloud asset.
+   * > For details, refer to AssetSubType in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
    * 
    * @example
    * 0
@@ -57,7 +57,7 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
    * @remarks
    * The type of the cloud asset.
    * 
-   * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the cloud asset type.
+   * > For details, refer to AssetType in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
    * 
    * @example
    * 18
@@ -65,13 +65,13 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
   assetType?: number;
   /**
    * @remarks
-   * The server type. Valid values:
+   * The server vendor. Valid values:
    * 
-   * *   **0**: a cloud asset provided by Alibaba Cloud
-   * *   **1**: a cloud asset outside Alibaba Cloud
-   * *   **2**: a cloud asset in a data center
-   * *   **3**, **4**, **5**, and **7**: a cloud asset provided by a third-party service provider
-   * *   **8**: a lightweight cloud asset
+   * - **0**: Alibaba Cloud asset
+   * - **1**: Off-cloud asset
+   * - **2**: IDC asset
+   * - **3**, **4**, **5**, **7**: Other cloud assets
+   * - **8**: Lightweight asset
    * 
    * @example
    * 0
@@ -105,28 +105,23 @@ export class ListCloudAssetInstancesRequestCloudAssetTypes extends $dara.Model {
 export class ListCloudAssetInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Query data list based on keywords.
+   * The data list queried by keyword.
    */
   cloudAssetQueryData?: ListCloudAssetInstancesRequestCloudAssetQueryData[];
   /**
    * @remarks
-   * The details of the cloud asset.
+   * The list of assets of the cloud asset instance.
    */
   cloudAssetTypes?: ListCloudAssetInstancesRequestCloudAssetTypes[];
   /**
    * @remarks
-   * The search conditions for assets. The value of this parameter is in the JSON format and contains the following fields:
-   * 
-   * *   **name**: the name of the search condition.
-   * 
-   * *   **value**: the value of the search condition.
-   * 
-   * *   **logicalExp**: the logical relation for multiple search conditions. Valid values:
-   * 
-   *     *   **OR**: The search conditions use a logical **OR**.
-   *     *   **AND**: The search conditions use a logical **AND**.
-   * 
-   * > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query supported search conditions.
+   * The conditions used to search for assets. This parameter is in JSON format and contains the following fields:
+   * - **name**: the search item.
+   * - **value**: the value of the search item.
+   * - **logicalExp**: the logical relationship between multiple search item values. Valid values:
+   *     - **OR**: indicates that multiple search item values have an **OR** relationship.
+   *     - **AND**: indicates that multiple search item values have an **AND** relationship.
+   * > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * [{\\"name\\":\\"internetIp\\",\\"value\\":\\"192.168\\",\\"logicalExp\\":\\"OR\\"}]
@@ -134,18 +129,19 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of the current page to return in paginated queries.
    * 
    * @example
    * 2
    */
   currentPage?: number;
+  isSaleData?: boolean;
   /**
    * @remarks
-   * The logical relation for multiple search conditions. Valid values:
+   * The logical relationship between multiple search conditions. Valid values:
    * 
-   * *   **OR**: The search conditions use a logical **OR**.
-   * *   **AND**: The search conditions use a logical **AND**.
+   * - **OR**: indicates that multiple search conditions have an **OR** relationship.
+   * - **AND**: indicates that multiple search conditions have an **AND** relationship.
    * 
    * @example
    * OR
@@ -153,7 +149,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * The maximum number of rows that can be displayed per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -161,7 +157,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -173,6 +169,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
       cloudAssetTypes: 'CloudAssetTypes',
       criteria: 'Criteria',
       currentPage: 'CurrentPage',
+      isSaleData: 'IsSaleData',
       logicalExp: 'LogicalExp',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -185,6 +182,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
       cloudAssetTypes: { 'type': 'array', 'itemType': ListCloudAssetInstancesRequestCloudAssetTypes },
       criteria: 'string',
       currentPage: 'number',
+      isSaleData: 'boolean',
       logicalExp: 'string',
       pageSize: 'number',
       regionId: 'string',

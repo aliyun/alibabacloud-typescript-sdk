@@ -13,11 +13,11 @@ export class DescribeClusterVulStatisticsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the vulnerabilities. Valid values:
+   * The type of vulnerability that you want to query. Valid values:
    * 
-   * *   **cve**: Linux software vulnerabilities
-   * *   **app**: application vulnerabilities
-   * *   **sca**: vulnerabilities that are detected based on software component analysis
+   * - **cve**: Linux software vulnerabilities
+   * - **app**: application vulnerabilities
+   * - **sca**: software composition analysis (SCA) vulnerabilities
    * 
    * @example
    * cve,app,sca

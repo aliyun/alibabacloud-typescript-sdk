@@ -4,36 +4,61 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The asset selection identifier.
+   * 
    * @example
    * UNKNOWN_THREAT_DETECT_CONFIG_****
    */
   assetSelectionType?: string;
   /**
+   * @remarks
+   * The duration, in days, of the learning phase after model creation.
+   * 
    * @example
    * 1
    */
   durationDaysAfterInit?: number;
   /**
+   * @remarks
+   * The number of consecutive days without new process detections before the learning phase automatically ends.
+   * 
    * @example
    * 1
    */
   durationDaysAfterStop?: number;
   /**
+   * @remarks
+   * The strategy ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The number of servers.
+   * 
    * @example
    * 1
    */
   machineCount?: number;
   /**
+   * @remarks
+   * The strategy name.
+   * 
    * @example
    * test****
    */
   name?: string;
   /**
+   * @remarks
+   * The whitelist mode. Valid values:
+   * 
+   * - **hash**: process hash
+   * 
+   * - **path**: process path
+   * 
    * @example
    * hash
    */
@@ -73,21 +98,33 @@ export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model
 
 export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries returned on the current page.
+   * 
    * @example
    * 20
    */
   count?: number;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of matching entries.
+   * 
    * @example
    * 69
    */
@@ -120,11 +157,19 @@ export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.M
 }
 
 export class ListUnknownThreatDetectStrategyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of strategies.
+   */
   data?: ListUnknownThreatDetectStrategyResponseBodyData[];
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pageInfo?: ListUnknownThreatDetectStrategyResponseBodyPageInfo;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 898F7AA7-CECD-5EC7-AF4D-664C601B****

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserLangResponseBodySasUserLang extends $dara.Model {
   /**
    * @remarks
-   * The language specified for log analysis. Valid values:
+   * The language configured for log analysis. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English.
    * 
    * @example
    * zh
@@ -38,7 +38,7 @@ export class GetUserLangResponseBodySasUserLang extends $dara.Model {
 export class GetUserLangResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 23AD0BD2-8771-5647-819E-6BA51E21****
@@ -46,7 +46,7 @@ export class GetUserLangResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The language settings.
+   * The language settings data.
    */
   sasUserLang?: GetUserLangResponseBodySasUserLang;
   static names(): { [key: string]: string } {

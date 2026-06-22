@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOpaClusterStrategyNewRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -13,17 +13,17 @@ export class ListOpaClusterStrategyNewRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The image names.
+   * The list of image names.
    */
   imageName?: string[];
   /**
    * @remarks
-   * The tags that are added to the container.
+   * The list of labels.
    */
   label?: string[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -31,7 +31,7 @@ export class ListOpaClusterStrategyNewRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule names.
+   * The policy name.
    */
   strategyName?: string[];
   static names(): { [key: string]: string } {

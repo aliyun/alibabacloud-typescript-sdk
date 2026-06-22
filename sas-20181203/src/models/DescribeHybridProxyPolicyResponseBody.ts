@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridProxyPolicyResponseBodyPolicyListInfo extends $dara.Model {
   /**
    * @remarks
-   * The value of the policy configurations.
+   * The specific value of the policy configuration.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeHybridProxyPolicyResponseBodyPolicyListInfo extends $dara.M
   config?: string;
   /**
    * @remarks
-   * The name of the file. After you configure a blocking policy, the blocked data is written to the file.
+   * The file to which the data intercepted by the proxy cluster policy is written.
    * 
    * @example
    * test
@@ -21,11 +21,11 @@ export class DescribeHybridProxyPolicyResponseBodyPolicyListInfo extends $dara.M
   fileName?: string;
   /**
    * @remarks
-   * The type of the policy that you configured. Valid values:
+   * The configured policy type. Valid values:
    * 
-   * *   **file**
-   * *   **net**
-   * *   **process**
+   * - **file**: file data collection
+   * - **net**: network data collection
+   * - **process**: process data collection.
    * 
    * @example
    * file
@@ -59,15 +59,15 @@ export class DescribeHybridProxyPolicyResponseBodyPolicyListInfo extends $dara.M
 export class DescribeHybridProxyPolicyResponseBodyPolicyList extends $dara.Model {
   /**
    * @remarks
-   * The information about the policy.
+   * The policy information.
    */
   info?: DescribeHybridProxyPolicyResponseBodyPolicyListInfo[];
   /**
    * @remarks
-   * The type of the policy. Valid values:
+   * The policy type. Valid values:
    * 
-   * *   **limitFrequency**
-   * *   **limitBandWidth**
+   * - **limitFrequency**: collection frequency control
+   * - **limitBandWidth**: collection bandwidth control.
    * 
    * @example
    * limitBandWidth
@@ -102,7 +102,7 @@ export class DescribeHybridProxyPolicyResponseBodyPolicyList extends $dara.Model
 export class DescribeHybridProxyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries returned on the current page in a paged query.
    * 
    * @example
    * 1
@@ -110,12 +110,12 @@ export class DescribeHybridProxyPolicyResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The data collection configurations of the proxy cluster.
+   * The list of data collection configurations for the proxy cluster.
    */
   policyList?: DescribeHybridProxyPolicyResponseBodyPolicyList[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F7A1B40A-7EED-55A0-BCBC-2F83A486F0AB

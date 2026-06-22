@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVpcHoneyPotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 4347E985-6E64-467B-96EC-30D4EA9E32FB

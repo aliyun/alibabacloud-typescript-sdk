@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileProtectClientRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * 123
    */

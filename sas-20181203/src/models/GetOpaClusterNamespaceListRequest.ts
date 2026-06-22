@@ -7,7 +7,7 @@ export class GetOpaClusterNamespaceListRequest extends $dara.Model {
    * @remarks
    * The ID of the cluster that you want to query.
    * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
    * 
    * @example
    * ca0faf43e33904ecbb6c695df7906****

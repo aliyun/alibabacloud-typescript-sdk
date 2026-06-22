@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSasContainerWebDefenseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Rule ID.
-   * > You can call the [ListSasContainerWebDefenseRule](~~ListSasContainerWebDefenseRule~~) API to get this parameter.
+   * The rule ID.
+   * > You can call the [ListSasContainerWebDefenseRule](~~ListSasContainerWebDefenseRule~~) operation to obtain this parameter.
    * 
    * @example
    * 1600009

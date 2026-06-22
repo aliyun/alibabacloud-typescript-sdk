@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomizeReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 90593A3B-85CE-5D87-A430-726D0B87****

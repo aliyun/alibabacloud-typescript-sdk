@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageRepoListRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,12 +13,12 @@ export class DescribeImageRepoListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the field that is used for the query. Valid values:
+   * The search field. Valid values:
    * 
-   * *   **repoName**: the name of the image repository
-   * *   **repoNamespace**: the namespace to which the image repository belongs
+   * - **repoName**: image repository name
+   * - **repoNamespace**: image repository namespace
    * 
-   * >  This parameter takes effect only when the **OperateType** parameter is set to **other**.
+   * > This parameter takes effect only when **OperateType** is set to **other**.
    * 
    * @example
    * repoName
@@ -26,9 +26,8 @@ export class DescribeImageRepoListRequest extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The value of the field that is used for the query.
-   * 
-   * >  This parameter takes effect only when the **OperateType** parameter is set to **other**.
+   * The value of the search field.
+   * > This parameter takes effect only when **OperateType** is set to **other**.
    * 
    * @example
    * zeus
@@ -36,10 +35,10 @@ export class DescribeImageRepoListRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The type of the operation. Valid values:
+   * The operation type. Valid values:
    * 
-   * *   **count**: counts statistics
-   * *   **other**: others
+   * - **count**: statistics
+   * - **other**: other.
    * 
    * @example
    * count
@@ -47,9 +46,8 @@ export class DescribeImageRepoListRequest extends $dara.Model {
   operateType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page during paging.
+   * > Set PageSize to a non-empty value.
    * 
    * @example
    * 20
@@ -65,7 +63,7 @@ export class DescribeImageRepoListRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the container image repository.
    * 
    * @example
    * libssh2
@@ -73,10 +71,9 @@ export class DescribeImageRepoListRequest extends $dara.Model {
   repoNamespace?: string;
   /**
    * @remarks
-   * Whether it is selected. Values:
-   * 
-   * *   **0**: NO
-   * *   **1**: YES
+   * Specifies whether the item is selected. Valid values:
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 1
@@ -84,9 +81,8 @@ export class DescribeImageRepoListRequest extends $dara.Model {
   selected?: number;
   /**
    * @remarks
-   * The condition by which the feature is applied. Valid values:
-   * 
-   * *   **image_repo**: the ID of the image repository
+   * The dimension of the defense switch configuration. Valid values:
+   * - **image_repo**: image repository ID.
    * 
    * This parameter is required.
    * 
@@ -96,9 +92,8 @@ export class DescribeImageRepoListRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The type of the feature. Valid values:
-   * 
-   * *   **image_repo**: image repository protection
+   * The type of the defense switch. Valid values:
+   * - **image_repo**: image repository defense.
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulTargetStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
+   * The type of vulnerability to query. Valid values:
    * 
-   * *   **cve**: Linux software vulnerability
-   * *   **sys**: Windows system vulnerability
-   * *   **cms**: Web-CMS vulnerability
-   * *   **emg**: urgent vulnerability
+   * - **cve**: Linux software vulnerability
+   * - **sys**: Windows system vulnerability
+   * - **cms**: Web-CMS vulnerability
+   * - **emg**: emergency vulnerability.
    * 
    * @example
    * cve

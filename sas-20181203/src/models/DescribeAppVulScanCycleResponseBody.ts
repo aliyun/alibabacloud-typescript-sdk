@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppVulScanCycleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The scan cycle for application vulnerabilities.
+   * The application vulnerability scanning epoch. Valid values:
    * 
-   * *   1week
-   * *   2weeks
-   * *   3days
+   * - 1week
+   * - 2weeks
+   * - 3days
    * 
    * @example
    * 1week

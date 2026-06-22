@@ -45,7 +45,7 @@ export class ListVulGlobalConfigResponseBodyVulGlobalConfigList extends $dara.Mo
 export class ListVulGlobalConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92719F

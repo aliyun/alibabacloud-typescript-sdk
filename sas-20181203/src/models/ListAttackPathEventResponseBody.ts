@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAttackPathEventResponseBodyAttackPathEventListDstAsset extends $dara.Model {
   /**
    * @remarks
-   * Subtype of the cloud product asset.
+   * The subtype of the cloud service asset.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListDstAsset extends 
   assetSubType?: number;
   /**
    * @remarks
-   * Type of the cloud product asset.
+   * The type of the cloud service asset.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListDstAsset extends 
   assetType?: number;
   /**
    * @remarks
-   * ID of the cloud product asset instance.
+   * The ID of the cloud service asset instance.
    * 
    * @example
    * i-uf6a1tt9umxwoxqn****
@@ -29,7 +29,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListDstAsset extends 
   instanceId?: string;
   /**
    * @remarks
-   * Instance name.
+   * The instance name.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListDstAsset extends 
   instanceName?: string;
   /**
    * @remarks
-   * ID of the region where the cloud product asset instance is located.
+   * The region ID of the cloud service asset instance.
    * 
    * @example
    * cn-hangzhou
@@ -45,9 +45,9 @@ export class ListAttackPathEventResponseBodyAttackPathEventListDstAsset extends 
   regionId?: string;
   /**
    * @remarks
-   * Sensitive asset flag. Values:
-   * - **0**: Non-sensitive asset.
-   * - **1**: Sensitive asset.
+   * The sensitive asset flag. Valid values:
+   * - **0**: Not a sensitive asset.
+   * - **1**: A sensitive asset.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListDstAsset extends 
   sensitiveAssetFlag?: number;
   /**
    * @remarks
-   * Vendor of the cloud product asset.
+   * The vendor of the cloud service asset.
    * 
    * @example
    * 0
@@ -97,7 +97,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListDstAsset extends 
 export class ListAttackPathEventResponseBodyAttackPathEventListSrcAsset extends $dara.Model {
   /**
    * @remarks
-   * Subtype of the cloud product asset.
+   * The subtype of the cloud service asset.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListSrcAsset extends 
   assetSubType?: number;
   /**
    * @remarks
-   * Type of the cloud product asset.
+   * The type of the cloud service asset.
    * 
    * @example
    * 0
@@ -113,7 +113,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListSrcAsset extends 
   assetType?: number;
   /**
    * @remarks
-   * ID of the cloud product asset instance.
+   * The ID of the cloud service asset instance.
    * 
    * @example
    * i-bp18ifsr1tu1dx39****
@@ -121,7 +121,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListSrcAsset extends 
   instanceId?: string;
   /**
    * @remarks
-   * Instance name.
+   * The instance name.
    * 
    * @example
    * test
@@ -129,7 +129,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListSrcAsset extends 
   instanceName?: string;
   /**
    * @remarks
-   * ID of the region where the cloud product asset instance is located.
+   * The region ID of the cloud service asset instance.
    * 
    * @example
    * cn-hangzhou
@@ -137,9 +137,9 @@ export class ListAttackPathEventResponseBodyAttackPathEventListSrcAsset extends 
   regionId?: string;
   /**
    * @remarks
-   * Sensitive asset flag. Values:
-   * - **0**: Non-sensitive asset.
-   * - **1**: Sensitive asset.
+   * The sensitive asset flag. Valid values:
+   * - **0**: Not a sensitive asset.
+   * - **1**: A sensitive asset.
    * 
    * @example
    * 0
@@ -147,7 +147,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListSrcAsset extends 
   sensitiveAssetFlag?: number;
   /**
    * @remarks
-   * Vendor of the cloud product asset.
+   * The vendor of the cloud service asset.
    * 
    * @example
    * 0
@@ -189,7 +189,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventListSrcAsset extends 
 export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Model {
   /**
    * @remarks
-   * Destination asset.
+   * The destination asset.
    */
   dstAsset?: ListAttackPathEventResponseBodyAttackPathEventListDstAsset;
   /**
@@ -202,7 +202,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Mo
   eventId?: number;
   /**
    * @remarks
-   * Timestamp of the latest discovery. Unit: milliseconds.
+   * The timestamp of the most recent detection. Unit: milliseconds.
    * 
    * @example
    * 1742869699000
@@ -210,7 +210,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Mo
   lastTime?: number;
   /**
    * @remarks
-   * Path name.
+   * The path name.
    * 
    * @example
    * ecs_get_credential_by_create_login_profile
@@ -218,7 +218,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Mo
   pathName?: string;
   /**
    * @remarks
-   * Description of the path name.
+   * The path name description.
    * 
    * @example
    * ECS Instance Can Obtain Long-term Access Credential by Enabling Console Logon for RAM User
@@ -226,7 +226,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Mo
   pathNameDesc?: string;
   /**
    * @remarks
-   * Path type.
+   * The path type.
    * 
    * @example
    * role_escalation
@@ -234,7 +234,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Mo
   pathType?: string;
   /**
    * @remarks
-   * Description of the path type.
+   * The path type description.
    * 
    * @example
    * Privilege Escalation by Role
@@ -242,7 +242,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Mo
   pathTypeDesc?: string;
   /**
    * @remarks
-   * Risk level.
+   * The risk level.
    * 
    * @example
    * suspicious
@@ -250,7 +250,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Mo
   riskLevel?: string;
   /**
    * @remarks
-   * Source asset.
+   * The source asset.
    */
   srcAsset?: ListAttackPathEventResponseBodyAttackPathEventListSrcAsset;
   static names(): { [key: string]: string } {
@@ -299,7 +299,7 @@ export class ListAttackPathEventResponseBodyAttackPathEventList extends $dara.Mo
 export class ListAttackPathEventResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of data entries displayed on the current page when performing a paginated query.
+   * The number of entries on the current page in a paged query.
    * 
    * @example
    * 20
@@ -307,7 +307,7 @@ export class ListAttackPathEventResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number displayed in the pagination query.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -315,7 +315,7 @@ export class ListAttackPathEventResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of data items displayed per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -323,7 +323,7 @@ export class ListAttackPathEventResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of data items.
+   * The total number of entries.
    * 
    * @example
    * 30
@@ -359,17 +359,17 @@ export class ListAttackPathEventResponseBodyPageInfo extends $dara.Model {
 export class ListAttackPathEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of attack path events.
+   * The list of attack path events.
    */
   attackPathEventList?: ListAttackPathEventResponseBodyAttackPathEventList[];
   /**
    * @remarks
-   * Pagination information.
+   * The pagination information.
    */
   pageInfo?: ListAttackPathEventResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request. It can be used for troubleshooting and problem localization.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 3956048F-9D73-5EDB-834B-4827BB48****

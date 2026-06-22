@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridProxyListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries returned on the current page in a paged query.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeHybridProxyListResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The number of the page to return in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeHybridProxyListResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries returned on each page in a paged query.
    * 
    * @example
    * 20
@@ -65,7 +65,7 @@ export class DescribeHybridProxyListResponseBodyPageInfo extends $dara.Model {
 export class DescribeHybridProxyListResponseBodyProxyList extends $dara.Model {
   /**
    * @remarks
-   * The number of servers that are connected to the proxy instance.
+   * The number of Security Center agents connected to the proxy instance.
    * 
    * @example
    * 10
@@ -81,7 +81,7 @@ export class DescribeHybridProxyListResponseBodyProxyList extends $dara.Model {
   currentVersion?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID of the asset.
    * 
    * @example
    * i-uf61q03boqhhmeai1XXX
@@ -89,7 +89,7 @@ export class DescribeHybridProxyListResponseBodyProxyList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the asset instance.
    * 
    * @example
    * dev
@@ -113,7 +113,7 @@ export class DescribeHybridProxyListResponseBodyProxyList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The UUID of the proxy node.
+   * The unique key that identifies the proxy node.
    * 
    * @example
    * inet-proxy-3bb11fad-37d6-4aee-9c37-b0ad1612a18e
@@ -121,10 +121,10 @@ export class DescribeHybridProxyListResponseBodyProxyList extends $dara.Model {
   proxyUuid?: string;
   /**
    * @remarks
-   * The status of the proxy server. Valid values:
+   * The running status of the proxy machine. Valid values:
    * 
-   * *   **online**
-   * *   **offline**
+   * - **online**: online
+   * - **offline**: offline.
    * 
    * @example
    * online
@@ -132,10 +132,10 @@ export class DescribeHybridProxyListResponseBodyProxyList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The UUID of the server that is connected to the proxy instance.
+   * The UUID of the Security Center agent deployed on the proxy instance.
    * 
    * @example
-   * 59a9d158-b2f0-4766-a893-ae67b943XXXX
+   * 59a9d158-b2f0-4766-a893-ae67b9432721
    */
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -183,12 +183,12 @@ export class DescribeHybridProxyListResponseBody extends $dara.Model {
   pageInfo?: DescribeHybridProxyListResponseBodyPageInfo;
   /**
    * @remarks
-   * The information about the proxy clusters.
+   * The proxy cluster list.
    */
   proxyList?: DescribeHybridProxyListResponseBodyProxyList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 75801E5D-E2EB-5C1D-B65D-2F7D2B00EF93

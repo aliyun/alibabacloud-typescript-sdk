@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogstoreStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the dedicated Logstore that is used to store full logs of Security Center. The value is fixed as **sas-log**.
+   * The name of the dedicated Logstore in which full logs of Security Center are stored. The value is fixed as **sas-log**.
    * 
    * @example
    * sas-log
@@ -13,7 +13,7 @@ export class DescribeLogstoreStorageResponseBody extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The purchased log storage capacity, in GB.
+   * The purchased log analysis storage capacity. Unit: GB.
    * 
    * @example
    * 12240
@@ -21,7 +21,7 @@ export class DescribeLogstoreStorageResponseBody extends $dara.Model {
   preserve?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 25EC270F-5783-4416-AD7C-1EDF063A039C
@@ -29,9 +29,8 @@ export class DescribeLogstoreStorageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of days during which logs can be retained. The value is fixed as **180**, which indicates that logs can be retained for 180 days.
-   * 
-   * >  You are not allowed to change the value of this parameter.
+   * The number of days for which logs are retained. The value is fixed as **180**, which indicates that logs can be retained for 180 days.
+   * > Security Center does not support adjusting the log retention period.
    * 
    * @example
    * 180
@@ -39,7 +38,7 @@ export class DescribeLogstoreStorageResponseBody extends $dara.Model {
   ttl?: number;
   /**
    * @remarks
-   * The used log storage capacity, in GB.
+   * The used log analysis storage capacity. Unit: GB.
    * 
    * @example
    * 335
@@ -47,7 +46,7 @@ export class DescribeLogstoreStorageResponseBody extends $dara.Model {
   used?: number;
   /**
    * @remarks
-   * The name of the dedicated Project that is used to store full logs of Security Center.
+   * The name of the dedicated Project in which full logs of Security Center are stored.
    * 
    * @example
    * sas-log-XXXX-cn-hangzhou

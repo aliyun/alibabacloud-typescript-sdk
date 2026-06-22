@@ -56,7 +56,7 @@ export class DescribeSuspEventQuaraFilesResponseBodyQuaraFiles extends $dara.Mod
    * The private IP address of the server on which the quarantined file is located.
    * 
    * @example
-   * 172.16.XX.XX
+   * 192.168.XX.XX
    */
   intranetIp?: string;
   /**

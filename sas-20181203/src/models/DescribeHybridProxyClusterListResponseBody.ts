@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the credential that is used for cluster authentication.
+   * The credential ID for cluster authentication.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara
   authKey?: string;
   /**
    * @remarks
-   * The key of the credential that is used for cluster authentication.
+   * The credential key for cluster authentication.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara
   authKeySecret?: string;
   /**
    * @remarks
-   * The number of servers that are connected to the proxy cluster.
+   * The number of Security Center clients connected to the current cluster.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara
   clusterName?: string;
   /**
    * @remarks
-   * The installation command for the node of the proxy cluster.
+   * The installation command for the current proxy cluster node.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara
   installCommand?: string;
   /**
    * @remarks
-   * The endpoint of the cluster. An IP address or a domain name is specified.
+   * The access address of the cluster, which can be an IP address or a domain name.
    * 
    * @example
    * 114.115.XXX.XXX
@@ -53,7 +53,7 @@ export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara
   ip?: string;
   /**
    * @remarks
-   * The timestamp when the cluster last sent a heartbeat message. Unit: milliseconds.
+   * The timestamp of the last heartbeat from the cluster. Unit: milliseconds.
    * 
    * @example
    * 1608304654000
@@ -69,7 +69,7 @@ export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara
   proxyCount?: number;
   /**
    * @remarks
-   * The description of the proxy cluster.
+   * The remarks of the proxy cluster.
    * 
    * @example
    * test
@@ -77,7 +77,7 @@ export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara
   remark?: string;
   /**
    * @remarks
-   * The status of the cluster.
+   * The running status of the cluster.
    * 
    * @example
    * offline
@@ -125,7 +125,7 @@ export class DescribeHybridProxyClusterListResponseBodyClusterList extends $dara
 export class DescribeHybridProxyClusterListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries displayed on the current page.
    * 
    * @example
    * 20
@@ -133,7 +133,7 @@ export class DescribeHybridProxyClusterListResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class DescribeHybridProxyClusterListResponseBodyPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries displayed on each page in a paged query.
    * 
    * @example
    * 20
@@ -185,7 +185,7 @@ export class DescribeHybridProxyClusterListResponseBodyPageInfo extends $dara.Mo
 export class DescribeHybridProxyClusterListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The proxy clusters.
+   * The list of clusters.
    */
   clusterList?: DescribeHybridProxyClusterListResponseBodyClusterList[];
   /**
@@ -195,7 +195,7 @@ export class DescribeHybridProxyClusterListResponseBody extends $dara.Model {
   pageInfo?: DescribeHybridProxyClusterListResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * C1A36413-50B2-5B2F-843F-EB14C582713F

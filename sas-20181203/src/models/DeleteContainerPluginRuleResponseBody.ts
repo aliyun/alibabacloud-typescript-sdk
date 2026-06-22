@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContainerPluginRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the container plug-in is manually deleted. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the container escape prevention rule is deleted. Valid values:
+   * - **true**: The rule is deleted.
+   * - **false**: The rule failed to be deleted.
    * 
    * @example
    * true
@@ -16,7 +15,7 @@ export class DeleteContainerPluginRuleResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier that Alibaba Cloud generates for the request.
    * 
    * @example
    * A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7

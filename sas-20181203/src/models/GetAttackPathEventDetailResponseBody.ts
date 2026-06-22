@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends $dara.Model {
   /**
    * @remarks
-   * Subtype of the cloud product asset.
+   * The subtype of the cloud service asset.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   assetSubType?: number;
   /**
    * @remarks
-   * Type of the cloud product asset.
+   * The type of the cloud service asset.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   assetType?: number;
   /**
    * @remarks
-   * ID of the cloud product asset instance.
+   * The ID of the cloud service asset instance.
    * 
    * @example
    * i-bp18ifsr1tu1dx39****
@@ -29,7 +29,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   instanceId?: string;
   /**
    * @remarks
-   * Instance name.
+   * The instance name.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   instanceName?: string;
   /**
    * @remarks
-   * ID of the region where the cloud product asset instance is located.
+   * The region ID of the cloud service asset instance.
    * 
    * @example
    * cn-shanghai
@@ -45,9 +45,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   regionId?: string;
   /**
    * @remarks
-   * Sensitive asset flag. Values:
-   * - **0**: Non-sensitive asset.
-   * - **1**: Sensitive asset.
+   * The sensitive asset flag. Valid values:
+   * - **0**: Not a sensitive asset.
+   * - **1**: A sensitive asset.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
   sensitiveAssetFlag?: number;
   /**
    * @remarks
-   * Vendor of the cloud product asset.
+   * The vendor of the cloud service asset.
    * 
    * @example
    * 0
@@ -97,7 +97,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset extends
 export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeList extends $dara.Model {
   /**
    * @remarks
-   * Edge ID.
+   * The edge ID.
    * 
    * @example
    * 123
@@ -105,7 +105,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
   edgeId?: number;
   /**
    * @remarks
-   * Edge type.
+   * The edge type.
    * 
    * @example
    * role_trust_user
@@ -113,7 +113,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
   edgeType?: string;
   /**
    * @remarks
-   * Edge element type.
+   * The element type of the edge.
    * 
    * @example
    * branch
@@ -121,7 +121,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
   elementType?: string;
   /**
    * @remarks
-   * UUID of the end node of the edge.
+   * The UUID of the end node of the edge.
    * 
    * @example
    * 52d59cca9d1768bab5fe081317637990
@@ -129,7 +129,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
   endNodeUuid?: string;
   /**
    * @remarks
-   * Description of the repair suggestion.
+   * The description of the remediation suggestion.
    * 
    * @example
    * The RAM role is granted the administrator permissions and trusts the user of another Alibaba Cloud account. In this case, the current Alibaba Cloud account may be fully controlled by the trusted Alibaba Cloud account. We recommend that you delete the trust relationship. If you need to trust another Alibaba Cloud account, we recommend that you split your business requirements and follow the principle of least privilege to grant permissions across accounts in a fine-grained manner. You can also use RAM.\\n\\nIf you confirm that the role does not need to trust an Alibaba Cloud account, perform the following operations: In the RAM console, click the required RAM role. On the page that appears, view the trust policy of the role. Then, edit the Service field to delete the trust relationship. If you confirm that permissions can be reduced, perform the following operations: In the RAM console, click the required RAM role. On the page that appears, view the permissions of the role. Then, find the policy that defines the administrator permissions and revoke the policy. Attach another policy to the role based on your business requirements.
@@ -137,7 +137,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
   repairSuggestionDisplay?: string;
   /**
    * @remarks
-   * UUID of the start node of the edge.
+   * The UUID of the start node of the edge.
    * 
    * @example
    * b7e1bd42c4ca47f69020f4a27b47d2b4
@@ -177,9 +177,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
 export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList extends $dara.Model {
   /**
    * @remarks
-   * AI asset identifier. Values: 
-   * - **0**: Not an AI asset. 
-   * - **1**: AI asset.
+   * The AI asset flag. Valid values:
+   * - **0**: Not an AI asset.
+   * - **1**: An AI asset.
    * 
    * @example
    * 1
@@ -187,7 +187,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   aiAssetFlag?: number;
   /**
    * @remarks
-   * Node element type.
+   * The element type of the node.
    * 
    * @example
    * branch
@@ -195,7 +195,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   elementType?: string;
   /**
    * @remarks
-   * Details of the node.
+   * The node details.
    * 
    * @example
    * {"assetId":0}
@@ -203,7 +203,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   nodeDetail?: string;
   /**
    * @remarks
-   * Name of the node.
+   * The node name.
    * 
    * @example
    * hypermatch_uploader
@@ -211,7 +211,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   nodeName?: string;
   /**
    * @remarks
-   * Type of the node.
+   * The node type.
    * 
    * @example
    * user
@@ -219,7 +219,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   nodeType?: string;
   /**
    * @remarks
-   * UUID of the node.
+   * The node UUID.
    * 
    * @example
    * 52d59cca9d1768bab5fe081317637990
@@ -227,9 +227,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   nodeUuid?: string;
   /**
    * @remarks
-   * Sensitive asset flag. Values:
-   * - **0**: Non-sensitive asset.
-   * - **1**: Sensitive asset.
+   * The sensitive asset flag. Valid values:
+   * - **0**: Not a sensitive asset.
+   * - **1**: A sensitive asset.
    * 
    * @example
    * 0
@@ -271,7 +271,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
 export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends $dara.Model {
   /**
    * @remarks
-   * Subtype of the cloud product asset
+   * The subtype of the cloud service asset.
    * 
    * @example
    * 4
@@ -279,7 +279,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   assetSubType?: number;
   /**
    * @remarks
-   * The type of the cloud product asset.
+   * The type of the cloud service asset.
    * 
    * @example
    * 14
@@ -287,7 +287,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   assetType?: number;
   /**
    * @remarks
-   * The ID of the cloud product asset instance.
+   * The ID of the cloud service asset instance.
    * 
    * @example
    * i-25b24****
@@ -295,7 +295,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   instanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * test
@@ -303,7 +303,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   instanceName?: string;
   /**
    * @remarks
-   * The ID of the region where the cloud product asset instance is located.
+   * The region ID of the cloud service asset instance.
    * 
    * @example
    * cn-hangzhou
@@ -311,9 +311,9 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   regionId?: string;
   /**
    * @remarks
-   * Sensitive asset flag. Values:
-   * - **0**: Non-sensitive asset.
-   * - **1**: Sensitive asset.
+   * The sensitive asset flag. Valid values:
+   * - **0**: Not a sensitive asset.
+   * - **1**: A sensitive asset.
    * 
    * @example
    * 0
@@ -321,7 +321,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
   sensitiveAssetFlag?: number;
   /**
    * @remarks
-   * The vendor of the cloud product asset.
+   * The vendor of the cloud service asset.
    * 
    * @example
    * 0
@@ -363,12 +363,12 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset extends
 export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.Model {
   /**
    * @remarks
-   * Destination asset.
+   * The destination asset.
    */
   dstAsset?: GetAttackPathEventDetailResponseBodyAttackPathEventDstAsset;
   /**
    * @remarks
-   * Timestamp of the first occurrence, in milliseconds.
+   * The timestamp when the event first occurred. Unit: milliseconds.
    * 
    * @example
    * 1735956726000
@@ -376,7 +376,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   firstTime?: number;
   /**
    * @remarks
-   * Timestamp of the latest discovery, in milliseconds.
+   * The timestamp when the event was last detected. Unit: milliseconds.
    * 
    * @example
    * 1741832168000
@@ -384,7 +384,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   lastTime?: number;
   /**
    * @remarks
-   * Detailed description of the path.
+   * The description of the path details.
    * 
    * @example
    * The system detects that the role that trusts another Alibaba Cloud account has administrator permissions. This can cause the system to be fully controlled. We recommend that you delete the trust relationship and review the permissions of the role.
@@ -392,17 +392,17 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   pathDetailDesc?: string;
   /**
    * @remarks
-   * List of path event edges.
+   * The list of path event edges.
    */
   pathEventEdgeList?: GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeList[];
   /**
    * @remarks
-   * List of path nodes.
+   * The list of path nodes.
    */
   pathEventNodeList?: GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList[];
   /**
    * @remarks
-   * Name of the path.
+   * The path name.
    * 
    * @example
    * ecs_get_credential_by_create_login_profile
@@ -410,7 +410,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   pathName?: string;
   /**
    * @remarks
-   * Description of the path name.
+   * The description of the path name.
    * 
    * @example
    * ECS Instance Can Obtain Long-term Access Credential by Enabling Console Logon for RAM User
@@ -418,7 +418,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   pathNameDesc?: string;
   /**
    * @remarks
-   * Type of the path.
+   * The path type.
    * 
    * @example
    * role_escalation
@@ -426,7 +426,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   pathType?: string;
   /**
    * @remarks
-   * Description of the path type.
+   * The description of the path type.
    * 
    * @example
    * Privilege Escalation by Role
@@ -434,7 +434,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   pathTypeDesc?: string;
   /**
    * @remarks
-   * Risk level.
+   * The risk level.
    * 
    * @example
    * suspicious
@@ -442,7 +442,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
   riskLevel?: string;
   /**
    * @remarks
-   * Source asset.
+   * The source asset.
    */
   srcAsset?: GetAttackPathEventDetailResponseBodyAttackPathEventSrcAsset;
   static names(): { [key: string]: string } {
@@ -503,12 +503,12 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
 export class GetAttackPathEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the attack path event.
+   * The details of the attack path event.
    */
   attackPathEvent?: GetAttackPathEventDetailResponseBodyAttackPathEvent;
   /**
    * @remarks
-   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request, and can be used for troubleshooting and problem localization.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 7BC55C8F-226E-5AF5-9A2C-2EC43864****

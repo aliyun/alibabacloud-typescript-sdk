@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class PublicCreateImageScanTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether you can create more image scan tasks. Valid values:
+   * Indicates whether more scan tasks can be created. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: More scan tasks can be created.
+   * - **false**: No more scan tasks can be created.
    * 
-   * > By default, a maximum of 10 image scan tasks can be running at the same time. If 10 image scan tasks are running, you cannot create an image scan task by calling this operation. You must wait for at least one of the 10 existing image scan tasks to complete before you can create an image scan task.
+   * > By default, up to 10 scan tasks can exist at the same time. If the number of scan tasks exceeds 10, creating a scan task by calling this operation fails. Wait until an existing scan task is completed before creating a new scan task.
    * 
    * @example
    * true
@@ -18,7 +18,7 @@ export class PublicCreateImageScanTaskResponseBodyData extends $dara.Model {
   canCreate?: boolean;
   /**
    * @remarks
-   * The timestamp when the image information was collected. Unit: milliseconds.
+   * The timestamp when image information was collected, in milliseconds.
    * 
    * @example
    * 1644286364150
@@ -26,7 +26,7 @@ export class PublicCreateImageScanTaskResponseBodyData extends $dara.Model {
   collectTime?: number;
   /**
    * @remarks
-   * The timestamp when the image scan task started to run. Unit: milliseconds.
+   * The timestamp when the scan task started running, in milliseconds.
    * 
    * @example
    * 1644286364150
@@ -42,7 +42,7 @@ export class PublicCreateImageScanTaskResponseBodyData extends $dara.Model {
   finishCount?: number;
   /**
    * @remarks
-   * The progress of the image scan task in percentage.
+   * The progress percentage of the scan task.
    * 
    * @example
    * 100
@@ -50,12 +50,12 @@ export class PublicCreateImageScanTaskResponseBodyData extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The result of the image scan task. Valid values:
+   * The execution result of the scan task. Valid values:
    * 
-   * *   **SUCCESS**: The task is successful.
-   * *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
+   * - **SUCCESS**: The scan task succeeded.
+   * - **TASK_NOT_SUPPORT_REGION**: The image is in a region that does not support scanning.
    * 
-   * > For more information about the regions supported by container image scan, see the "Regions supported by container image scan" section in this topic.
+   * > For the regions that support image security scanning, see the table of supported regions after the response parameters table in this topic.
    * 
    * @example
    * SUCCESS
@@ -63,12 +63,12 @@ export class PublicCreateImageScanTaskResponseBodyData extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The status of the image scan task. Valid values:
+   * The status of the scan task. Valid values:
    * 
-   * *   **INIT**: The task is being initialized.
-   * *   **PRE_ANALYZER**: The task is being pre-processed.
-   * *   **SUCCESS**: The task is successful.
-   * *   **FAIL**: The task fails.
+   * - **INIT**: Initializing.
+   * - **PRE_ANALYZER**: Pre-analyzing.
+   * - **SUCCESS**: Succeeded.
+   * - **FAIL**: Failed.
    * 
    * @example
    * SUCCESS
@@ -76,7 +76,7 @@ export class PublicCreateImageScanTaskResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the image scan task.
+   * The ID of the scan task.
    * 
    * @example
    * a410bb3e68c217a3368bc0238c66886d
@@ -130,12 +130,12 @@ export class PublicCreateImageScanTaskResponseBodyData extends $dara.Model {
 export class PublicCreateImageScanTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned if the call is successful.
+   * The data returned when the operation is successful.
    */
   data?: PublicCreateImageScanTaskResponseBodyData;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * F9353221-40F4-5F98-B73C-2803DC804033

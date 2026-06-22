@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckCountStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * 语言参数
+   * Language parameter
    * 
    * @example
    * zh
@@ -15,10 +15,13 @@ export class GetCheckCountStatisticRequest extends $dara.Model {
    * @remarks
    * The type of the statistics. Valid values:
    * 
-   * *   **user**: the top five users that are granted excessive permissions.
-   * *   **role**: the top five roles that are granted excessive permissions.
-   * *   **instance**: the top five cloud services on which risks are detected.
-   * *   **host**: the top five servers on which baseline risks are detected.
+   * - **user**: the top five users that are granted excessive permissions.
+   * 
+   * - **role**: the top five roles that are granted excessive permissions.
+   * 
+   * - **instance**: the top five cloud services on which risks are detected.
+   * 
+   * - **host**: the top five servers on which baseline risks are detected.
    * 
    * @example
    * instance

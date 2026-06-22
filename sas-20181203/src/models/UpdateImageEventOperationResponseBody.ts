@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageEventOperationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert handling rule, which is the same as the value of the Id request parameter.
+   * The ID of the alert handling rule, which is the same as the alert handling rule ID in the request parameters.
    * 
    * @example
    * 67429
@@ -35,7 +35,7 @@ export class UpdateImageEventOperationResponseBodyData extends $dara.Model {
 export class UpdateImageEventOperationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned by the API request.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class UpdateImageEventOperationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: UpdateImageEventOperationResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * successful
@@ -56,7 +56,7 @@ export class UpdateImageEventOperationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 7532B7EE-7CE7-5F4D-BF04-B12447DD****
@@ -64,10 +64,10 @@ export class UpdateImageEventOperationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The status of the request response. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

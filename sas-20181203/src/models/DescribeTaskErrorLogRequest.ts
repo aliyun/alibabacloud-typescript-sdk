@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskErrorLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task.
+   * The ID of the image fix task.
    * 
-   * >  You can call the DescribeImageFixTask operation to query the IDs of tasks.
+   * > Call the [DescribeImageFixTask](~~DescribeImageFixTask~~) operation to query image vulnerability fix tasks and obtain the BuildTaskId.
    * 
    * This parameter is required.
    * 

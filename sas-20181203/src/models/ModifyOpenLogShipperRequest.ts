@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOpenLogShipperRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source. Default value: **aegis**. Valid values:
+   * The identifier of the request source. Default value: **aegis**. Valid values:
    * 
-   * *   **aegis**: Server Guard
-   * *   **sas**: Security Center
+   * - **aegis**: Server Guard edition.
+   * - **sas**: Security Center edition.
    * 
-   * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
+   * > Server Guard users must use **aegis**, and Security Center users must use **sas**.
    * 
    * @example
    * sas
@@ -18,9 +18,8 @@ export class ModifyOpenLogShipperRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The ID of the member accounts in the resource directory (Alibaba Cloud account).
+   * > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****

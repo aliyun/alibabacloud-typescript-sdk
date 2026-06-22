@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileProtectClientEventRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the alert event.
+   * 
    * @example
    * 131231
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HandleSimilarMaliciousFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * Target alert ID
+   * The ID of the target alert.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class HandleSimilarMaliciousFilesRequest extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * Language type for request and response messages. Values include:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -25,12 +25,12 @@ export class HandleSimilarMaliciousFilesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Handling action:
-   * - addWhitelist: Add to whitelist;
-   * - offWhitelist: Remove from whitelist;
-   * - offline_handled: Handled offline;
-   * - mark_mis_info: Report as false positive;
-   * - ignore: Ignore.
+   * The handling action. Valid values:
+   * - addWhitelist: adds to the whitelist.
+   * - offWhitelist: removes from the whitelist.
+   * - offline_handled: handled offline.
+   * - mark_mis_info: submits as a false positive.
+   * - ignore: ignores the alert.
    * 
    * This parameter is required.
    * 
@@ -40,10 +40,10 @@ export class HandleSimilarMaliciousFilesRequest extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * File source. Values include:
-   * - agentless: Host detection;
-   * - ecs_snapshot: User snapshot detection;
-   * - ecs_image: User-defined image detection.
+   * The file source. Valid values:
+   * - agentless: host detection.
+   * - ecs_snapshot: user snapshot detection.
+   * - ecs_image: user custom image detection.
    * 
    * @example
    * agentless
@@ -51,9 +51,9 @@ export class HandleSimilarMaliciousFilesRequest extends $dara.Model {
   scanRange?: string;
   /**
    * @remarks
-   * Batch processing scenario:
-   * - same_file_md5: Same file MD5;
-   * - default (default value): Same alert type.
+   * The batch processing scenario. Valid values:
+   * - same_file_md5: same file MD5.
+   * - default (default value): same alerting type.
    * 
    * @example
    * same_file_md5

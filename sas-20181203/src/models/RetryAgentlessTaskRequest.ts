@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetryAgentlessTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task. You can call the [ListAgentlessTask](~~ListAgentlessTask~~) operation to obtain the IDs of tasks.
+   * The task ID. Call [ListAgentlessTask](~~ListAgentlessTask~~) to obtain the task ID.
    * 
    * @example
    * 5347c7b6-c85c-4070-846a-3029e08e****

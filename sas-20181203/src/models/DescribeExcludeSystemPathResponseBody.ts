@@ -6,9 +6,8 @@ export class DescribeExcludeSystemPathResponseBodyExcludePaths extends $dara.Mod
   /**
    * @remarks
    * The operating system of the server. Valid values:
-   * 
-   * *   **linux**: Linux
-   * *   **windows**: Windows
+   * - **linux**: Linux.
+   * - **windows**: Windows.
    * 
    * @example
    * linux
@@ -16,7 +15,7 @@ export class DescribeExcludeSystemPathResponseBodyExcludePaths extends $dara.Mod
   os?: string;
   /**
    * @remarks
-   * The absolute path to the directory.
+   * The absolute path of the directory.
    * 
    * @example
    * /bin/
@@ -48,7 +47,7 @@ export class DescribeExcludeSystemPathResponseBodyExcludePaths extends $dara.Mod
 export class DescribeExcludeSystemPathResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of system excluded directories on the current page.
    * 
    * @example
    * 20
@@ -56,7 +55,7 @@ export class DescribeExcludeSystemPathResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in the paged query when paging is used.
    * 
    * @example
    * 1
@@ -64,7 +63,7 @@ export class DescribeExcludeSystemPathResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of system excluded folders returned per page in the paged query when paging is used.
    * 
    * @example
    * 20
@@ -72,7 +71,7 @@ export class DescribeExcludeSystemPathResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of system excluded directories.
    * 
    * @example
    * 55
@@ -108,7 +107,7 @@ export class DescribeExcludeSystemPathResponseBodyPageInfo extends $dara.Model {
 export class DescribeExcludeSystemPathResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array consisting of the directories that are excluded.
+   * The list of system excluded directories.
    */
   excludePaths?: DescribeExcludeSystemPathResponseBodyExcludePaths[];
   /**
@@ -118,7 +117,7 @@ export class DescribeExcludeSystemPathResponseBody extends $dara.Model {
   pageInfo?: DescribeExcludeSystemPathResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * FBBEB173-1F43-505F-A876-C03ECDF6****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVulTargetConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 1FF908BA-ADD8-5138-8595-614C6E3C6658

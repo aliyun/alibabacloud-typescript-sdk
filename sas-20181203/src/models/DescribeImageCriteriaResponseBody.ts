@@ -5,13 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageCriteriaResponseBodyCriteriaList extends $dara.Model {
   /**
    * @remarks
-   * The name of the search condition.
-   * - **tag**: the tag of the image
-   * - **digest**: the digest of the image
-   * - **vulStatus**: the status of the vulnerability
-   * - **alarmStatus**: the status of the alert
-   * - **riskStatus**: the status of the risk
-   * - **registryType**: the type of the image repository
+   * The name of the query criterion.
+   * 
+   * - **tag**: image tag.
+   * - **digest**: image digest.
+   * - **vulStatus**: vulnerability status.
+   * - **alarmStatus**: security alert status.
+   * - **riskStatus**: risk status.
+   * - **registryType**: image repository type.
    * 
    * @example
    * vulStatus
@@ -19,9 +20,10 @@ export class DescribeImageCriteriaResponseBodyCriteriaList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the search condition. Valid values:
-   * - **input**: The search condition needs to be specified.
-   * - **select**: The search condition is an option that can be selected from the drop-down list.
+   * The type of the query criterion. Valid values:
+   * 
+   * - **input**: requires manual input of the query field.
+   * - **select**: requires selecting a subtype from a drop-down list.
    * 
    * @example
    * input
@@ -29,8 +31,8 @@ export class DescribeImageCriteriaResponseBodyCriteriaList extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The values of the search condition. This parameter is returned only if the value of Type is select.
-   * > If the value of **Type** is **input**, the value of this parameter is an empty string.
+   * The available option values when **Type** (the type of the query criterion) is **select**.
+   * > When **Type** (the type of the query criterion) is **input**, this parameter returns an empty value.
    * 
    * @example
    * NO,YES
@@ -64,12 +66,12 @@ export class DescribeImageCriteriaResponseBodyCriteriaList extends $dara.Model {
 export class DescribeImageCriteriaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of the search conditions.
+   * The list of image query criteria.
    */
   criteriaList?: DescribeImageCriteriaResponseBodyCriteriaList[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E3322413BB68

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCanFixVulListRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias of the vulnerability that is specified in Common Vulnerabilities and Exposures (CVE).
+   * The alias in the vulnerability advisory.
    * 
    * @example
    * RHSA-2017:0184-Important: mysql security update
@@ -13,9 +13,8 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+   * The ID of the container cluster.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c80f79959fd724a888e1187779b13****
@@ -23,7 +22,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The name of the container cluster.
    * 
    * @example
    * sas-test-cnnf
@@ -39,7 +38,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   containerId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number of the current page in a paging query. The value starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -49,7 +48,8 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
    * @remarks
    * Specifies whether the vulnerability is handled. Valid values:
    * 
-   * **y**: The vulnerability is handled. **n**: The vulnerability is not handled.
+   * **y**: Handled.
+   * **n**: Not handled.
    * 
    * @example
    * n
@@ -57,7 +57,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The unique identifier of the image.
+   * The unique identifier of the container image.
    * 
    * @example
    * 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d50****
@@ -65,7 +65,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The name of the container image.
    * 
    * @example
    * registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
@@ -73,9 +73,8 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The ID of the container image.
-   * 
-   * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
+   * The container image instance ID.
+   * > Invoke the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the container image instance ID from the **InstanceId** response parameter.
    * 
    * @example
    * cri-rv4nvbv8iju4****
@@ -91,9 +90,8 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace of the cluster.
-   * 
-   * >  You can call the [GetOpaClusterNamespaceList](~~GetOpaClusterNamespaceList~~) operation to query the namespaces of clusters.
+   * The cluster namespace.
+   * > You can call the [GetOpaClusterNamespaceList](~~GetOpaClusterNamespaceList~~) operation to query this value.
    * 
    * @example
    * default
@@ -101,11 +99,11 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The priority to fix the vulnerability. Separate multiple priorities with commas (,). Valid values:
+   * The priority levels of vulnerabilities to query. Separate multiple levels with commas (,). Valid values:
    * 
-   * *   **asap**: high
-   * *   **later**: medium
-   * *   **nntf**: low
+   * - **asap**: high
+   * - **later**: medium
+   * - **nntf**: low.
    * 
    * @example
    * asap,later,nntf
@@ -113,7 +111,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The maximum number of entries per page in a paging query. Default value: 20.
    * 
    * @example
    * 20
@@ -121,7 +119,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the container group.
+   * The name of the pod.
    * 
    * @example
    * 22222-7xsqq
@@ -130,19 +128,18 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the image repository. Valid values:
-   * 
-   * *   **cn-beijing**: China (Beijing)
-   * *   **cn-zhangjiakou**: China (Zhangjiakou)
-   * *   **cn-hangzhou**: China (Hangzhou)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **cn-hongkong**: China (Hong Kong)
-   * *   **ap-southeast-1**: Singapore
-   * *   **ap-southeast-5**: Indonesia (Jakarta)
-   * *   **us-east-1**: US (Virginia)
-   * *   **us-west-1**: US (Silicon Valley)
-   * *   **eu-central-1**: Germany (Frankfurt)
-   * *   **eu-west-1**: UK (London)
+   * - **cn-beijing**: China (Beijing)
+   * - **cn-zhangjiakou**: China (Zhangjiakou)
+   * - **cn-hangzhou**: China (Hangzhou)
+   * - **cn-shanghai**: China (Shanghai)
+   * - **cn-shenzhen**: China (Shenzhen)
+   * - **cn-hongkong**: Hong Kong (China)
+   * - **ap-southeast-1**: Singapore
+   * - **ap-southeast-5**: Indonesia (Jakarta)
+   * - **us-east-1**: US (Virginia)
+   * - **us-west-1**: US (Silicon Valley)
+   * - **eu-central-1**: Germany (Frankfurt)
+   * - **eu-west-1**: UK (London).
    * 
    * @example
    * cn-hangzhou
@@ -151,8 +148,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the image repository.
-   * 
-   * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry and obtain the ID of the image repository from **RepoId** in the response.
+   * > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry and obtain the value of the **RepoId** response parameter.
    * 
    * @example
    * crr-avo7qp02simz2njo
@@ -160,9 +156,8 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The ID of the container image.
-   * 
-   * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
+   * The container image instance ID.
+   * > Invoke the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the container image instance ID from the **InstanceId** response parameter.
    * 
    * @example
    * cri-rv4nvbv8iju4****
@@ -171,8 +166,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the image repository.
-   * 
-   * >  Fuzzy match is supported.
+   * > Fuzzy match is supported.
    * 
    * @example
    * digital-account
@@ -180,9 +174,8 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
-   * 
-   * >  Fuzzy match is supported.
+   * The namespace of the image repository.
+   * > Fuzzy match is supported.
    * 
    * @example
    * ns-digital-dev
@@ -191,19 +184,18 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the image repository. Valid values:
-   * 
-   * *   **cn-beijing**: China (Beijing)
-   * *   **cn-zhangjiakou**: China (Zhangjiakou)
-   * *   **cn-hangzhou**: China (Hangzhou)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **cn-hongkong**: China (Hong Kong)
-   * *   **ap-southeast-1**: Singapore
-   * *   **ap-southeast-5**: Indonesia (Jakarta)
-   * *   **us-east-1**: US (Virginia)
-   * *   **us-west-1**: US (Silicon Valley)
-   * *   **eu-central-1**: Germany (Frankfurt)
-   * *   **eu-west-1**: UK (London)
+   * - **cn-beijing**: China (Beijing)
+   * - **cn-zhangjiakou**: China (Zhangjiakou)
+   * - **cn-hangzhou**: China (Hangzhou)
+   * - **cn-shanghai**: China (Shanghai)
+   * - **cn-shenzhen**: China (Shenzhen)
+   * - **cn-hongkong**: Hong Kong (China)
+   * - **ap-southeast-1**: Singapore
+   * - **ap-southeast-5**: Indonesia (Jakarta)
+   * - **us-east-1**: US (Virginia)
+   * - **us-west-1**: US (Silicon Valley)
+   * - **eu-central-1**: Germany (Frankfurt)
+   * - **eu-west-1**: UK (London).
    * 
    * @example
    * cn-hangzhou
@@ -211,19 +203,18 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   repoRegionId?: string;
   /**
    * @remarks
-   * The type of the asset that you want to scan. Valid values:
+   * The scan scope. Valid values:
    * 
-   * *   **image**
-   * *   **container**
+   * - **image**: Image.
+   * - **container**: Container.
    */
   scanRange?: string[];
   /**
    * @remarks
-   * The status of the vulnerability. Valid values:
-   * 
-   * *   **1**: The vulnerability is unfixed.
-   * *   **4**: The vulnerability is being fixed.
-   * *   **7**:The vulnerability is fixed.
+   * The fix status of the vulnerability. Valid values:
+   * - **1**: Unfixed.
+   * - **4**: Being fixed.
+   * - **7**: Fixed.
    * 
    * @example
    * 1
@@ -231,7 +222,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   statusList?: string;
   /**
    * @remarks
-   * The tag to add to the image.
+   * The tag of the container image.
    * 
    * @example
    * 0.1.0
@@ -239,10 +230,9 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
-   * 
-   * *   **cve**: system vulnerability
-   * *   **sca**: application vulnerability
+   * The vulnerability type. Valid values:
+   * - **cve**: system vulnerability
+   * - **sca**: application vulnerability.
    * 
    * This parameter is required.
    * 
@@ -252,7 +242,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUID of the image. Separate multiple UUIDs with commas (,).
+   * The UUIDs of images. Separate multiple UUIDs with commas (,).
    * 
    * @example
    * d15df12472809c1c3b158606c0f1****

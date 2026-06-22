@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids extends $dara.Model {
   /**
    * @remarks
-   * Key to detect content.
+   * The key of the check content.
    * 
    * @example
    * Username
@@ -13,7 +13,7 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids exten
   key?: string;
   /**
    * @remarks
-   * The detection content key corresponds to the display name.
+   * The display name that corresponds to the key of the check content.
    * 
    * @example
    * UserName
@@ -21,9 +21,9 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids exten
   showName?: string;
   /**
    * @remarks
-   * Display type. Value:
-   * - **grid**: Detection grid
-   * - **text**: text
+   * The display type. Valid values:
+   * - **grid**: grid
+   * - **text**: text.
    * 
    * @example
    * text
@@ -57,12 +57,12 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids exten
 export class DescribeCheckWarningDetailResponseBodyCheckDetailColumns extends $dara.Model {
   /**
    * @remarks
-   * Detection content list.
+   * The list of check content.
    */
   grids?: DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids[];
   /**
    * @remarks
-   * Key to detect content.
+   * The key of the check content.
    * 
    * @example
    * Containername
@@ -70,7 +70,7 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumns extends $d
   key?: string;
   /**
    * @remarks
-   * The detection content key corresponds to the display name.
+   * The display name that corresponds to the key of the check content.
    * 
    * @example
    * ContainerName
@@ -78,9 +78,9 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumns extends $d
   showName?: string;
   /**
    * @remarks
-   * Display type. Value:
-   * - **grid**: Detection grid
-   * - **text**: text
+   * The display type. Valid values:
+   * - **grid**: grid
+   * - **text**: text.
    * 
    * @example
    * text
@@ -119,7 +119,7 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumns extends $d
 export class DescribeCheckWarningDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The suggestion for the management of the risk item.
+   * The hardening suggestion for the baseline check risk item.
    * 
    * @example
    * You can fix it in the following ways:↵1. To configure authentication for redis service, click the redis.conf Configure complex password in requirepass, and then restart redis.↵2. In redis configuration file redis.conf The configuration is as follows: bind 127.0.0.1, only allow local access, and then restart redis
@@ -127,12 +127,12 @@ export class DescribeCheckWarningDetailResponseBody extends $dara.Model {
   advice?: string;
   /**
    * @remarks
-   * List of asset details to check.
+   * The list of checked asset details.
    */
   checkDetailAssetInfo?: { [key: string]: string }[];
   /**
    * @remarks
-   * Detection content details.
+   * The details of the check content.
    */
   checkDetailColumns?: DescribeCheckWarningDetailResponseBodyCheckDetailColumns[];
   /**
@@ -145,7 +145,7 @@ export class DescribeCheckWarningDetailResponseBody extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The additional information about the risk item.
+   * The supplementary description of the baseline check risk item.
    * 
    * @example
    * The redis port is open to the outside world and there is no authentication option configured. In addition to directly obtaining all the information in the database, unauthorized users can also attack the system through unauthorized access vulnerability.
@@ -163,9 +163,11 @@ export class DescribeCheckWarningDetailResponseBody extends $dara.Model {
    * @remarks
    * The risk level of the check item. Valid values:
    * 
-   * *   **high**: The item is a high-risk item and is highlighted in red.
-   * *   **medium**: The item is a medium-risk item and is highlighted in orange.
-   * *   **low**: The item is a low-risk item and is highlighted in gray.
+   * - **high**: High risk, highlighted in red.
+   * 
+   * - **medium**: Medium risk, highlighted in orange.
+   * 
+   * - **low**: Low risk, highlighted in gray.
    * 
    * @example
    * high
@@ -173,12 +175,12 @@ export class DescribeCheckWarningDetailResponseBody extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The prompt for the risk item.
+   * The check prompt for the baseline check risk item.
    */
   prompt?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * BE120DAB-F4E7-4C53-ADC3-A97578ABF384
@@ -186,18 +188,11 @@ export class DescribeCheckWarningDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the check item. Valid values:
-   * 
-   * *   **hc_exploit**: unauthorized access
-   * *   **hc_djbh**: classified protection compliance
-   * *   **hc_best_secruity**: best security practice
-   * *   **hc_container**: container security
-   * *   **hc_custom**: custom baseline
-   * *   **cis**: Center for Internet Security (CIS) compliance
-   * *   **weak_password**: weak password
+   * The type of the baseline check item.
+   * > You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to view all baseline types.
    * 
    * @example
-   * hc_exploit
+   * Security audit
    */
   type?: string;
   static names(): { [key: string]: string } {

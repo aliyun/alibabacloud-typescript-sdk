@@ -13,9 +13,8 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
+   * The ID of the container cluster to query.
+   * > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c60b77fe62093480db6164a3c2fa5****
@@ -23,7 +22,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return in the query results. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -31,7 +30,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
+   * The CVE ID of the vulnerability.
    * 
    * @example
    * CVE-2017-15420
@@ -47,7 +46,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The SHA-256 value of the image digest.
+   * The SHA256 value of the image digest.
    * 
    * @example
    * w213412341dfsfasdfafadfasfasf
@@ -71,10 +70,10 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * Specifies whether to query the vulnerabilities in the latest images. If you do not specify this parameter, the vulnerabilities in all images are queried. Valid values:
+   * Specifies whether to query vulnerabilities of only the latest image. If this parameter is not set, vulnerabilities of all images are queried. Valid values:
    * 
-   * *   **0**: does not query the vulnerabilities in the latest images.
-   * *   **1**: queries the vulnerabilities in the latest images.
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -82,10 +81,9 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   isLatest?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -101,11 +99,10 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The priority to fix the vulnerability. Valid values:
-   * 
-   * *   **asap**: high. You must fix the vulnerability at the earliest opportunity.
-   * *   **later**: medium. You can fix the vulnerability based on your business requirements.
-   * *   **nntf**: low. You can ignore the vulnerability.
+   * The priority level for fixing the vulnerability. Valid values:
+   * - **asap**: high-priority vulnerability (typically a high-risk vulnerability)
+   * - **later**: medium-priority vulnerability (typically a medium-risk vulnerability)
+   * - **nntf**: low-priority vulnerability (typically a low-risk vulnerability).
    * 
    * @example
    * asap
@@ -113,7 +110,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The number of image vulnerabilities to display on each page during a paging query. Default value: **20**, which indicates that 20 image vulnerabilities are displayed on each page.
    * 
    * @example
    * 20
@@ -121,7 +118,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the patch that is used to fix the vulnerability.
+   * The ID of the vulnerability patch.
    * 
    * @example
    * 1341512412
@@ -153,7 +150,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * libssh2
@@ -169,9 +166,9 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   repoRegionId?: string;
   /**
    * @remarks
-   * The tag of this vulnerability. Valid values:
+   * The vulnerability tag. Valid values:
    * 
-   * *   **AI**: AI-related components.
+   *  - **AI**: vulnerabilities related to AI components.
    * 
    * @example
    * AI
@@ -179,15 +176,14 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   ruleTag?: string;
   /**
    * @remarks
-   * An array consisting of the types of the assets that you want to scan.
+   * The collection of scan ranges.
    */
   scanRange?: string[];
   /**
    * @remarks
-   * The type of the vulnerability that you want to query. Valid values:
-   * 
-   * *   **cve**: image system vulnerability
-   * *   **sca**: image application vulnerability
+   * The type of vulnerability to query. Valid values:
+   * - **cve**: image system vulnerability
+   * - **sca**: image application vulnerability.
    * 
    * @example
    * cve
@@ -195,7 +191,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUID of the asset. Separate multiple UUIDs with commas (,).
+   * The list of unique IDs of asset instances. Separate multiple IDs with commas (,).
    * 
    * @example
    * uuid-13134124****

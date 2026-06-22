@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTargetByBatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the release batch.
+   * The publish batch ID.
    * 
    * @example
    * 1371
@@ -13,7 +13,7 @@ export class ListTargetByBatchRequest extends $dara.Model {
   batchId?: number;
   /**
    * @remarks
-   * The page number of the current page in a paginated query.
+   * The page number of the current page to display in a paged query.
    * 
    * This parameter is required.
    * 
@@ -23,11 +23,11 @@ export class ListTargetByBatchRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Asset selection dimension. Values:
+   * The asset selection dimension. Valid values:
    * 
-   * - **0**: Machine instance
-   * - **1**: Machine group
-   * - **2**: VPC instance ID
+   * - **0**: machine instance
+   * - **1**: machine group
+   * - **2**: VPC-connected instance ID
    * 
    * @example
    * 0
@@ -35,7 +35,7 @@ export class ListTargetByBatchRequest extends $dara.Model {
   operationBase?: number;
   /**
    * @remarks
-   * The maximum number of items to return per page in a paginated query.
+   * The maximum number of entries to display per page in a paged query.
    * 
    * This parameter is required.
    * 

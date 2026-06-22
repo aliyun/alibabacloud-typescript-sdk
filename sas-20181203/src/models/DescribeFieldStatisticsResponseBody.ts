@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Model {
   /**
    * @remarks
-   * The number of assets that are deployed on Alibaba Cloud.
+   * The number of assets that belong to Alibaba Cloud server groups.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   aliYunInstanceCount?: number;
   /**
    * @remarks
-   * The number of servers.
+   * The number of third-party cloud servers.
    * 
    * @example
    * 100
@@ -28,13 +28,16 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
    */
   azureInstanceCount?: number;
   /**
+   * @remarks
+   * The number of third-party cloud servers.
+   * 
    * @example
    * 5
    */
   baiduInstanceCount?: number;
   /**
    * @remarks
-   * The number of cores of exposed assets.
+   * The number of compute cores of exposed assets.
    * 
    * @example
    * 30
@@ -42,7 +45,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   exposedInstanceCoreCount?: number;
   /**
    * @remarks
-   * The number of exposed servers.
+   * The number of exposed assets.
    * 
    * @example
    * 1
@@ -50,7 +53,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   exposedInstanceCount?: number;
   /**
    * @remarks
-   * The number of assets whose importance is common.
+   * The number of general assets.
    * 
    * @example
    * 10
@@ -58,7 +61,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   generalAssetCount?: number;
   /**
    * @remarks
-   * The number of instances that are provisioned by third-party providers.
+   * The number of third-party cloud servers.
    * 
    * @example
    * 10
@@ -74,7 +77,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   groupCount?: number;
   /**
    * @remarks
-   * The number of instances that are provisioned by third-party providers.
+   * The number of third-party cloud servers.
    * 
    * @example
    * 0
@@ -82,7 +85,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   huaweiInstanceCount?: number;
   /**
    * @remarks
-   * The number of assets that can be protected by Security Center.
+   * The number of assets that Security Center can detect.
    * 
    * @example
    * 100
@@ -90,7 +93,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   idcInstanceCount?: number;
   /**
    * @remarks
-   * The number of assets whose importance is important.
+   * The number of important assets.
    * 
    * @example
    * 10
@@ -98,7 +101,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   importantAssetCount?: number;
   /**
    * @remarks
-   * The number of cores of assets in the specified asset type. If the asset type is not specified, the value of this parameter indicates the total number of cores of servers and Alibaba Cloud services within your account.
+   * The total number of compute cores of all assets under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of compute cores of all servers and cloud products in your assets.
    * 
    * @example
    * 301
@@ -106,7 +109,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   instanceCoreCount?: number;
   /**
    * @remarks
-   * The total number of assets of the specified type. If no asset types are specified, this parameter indicates the total number of all servers and Alibaba Cloud services within your account.
+   * The total number of assets under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of all servers and cloud products in your assets.
    * 
    * @example
    * 100
@@ -114,20 +117,23 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   instanceCount?: number;
   /**
    * @remarks
-   * The total number of tasks for the specified type of assets. If no asset types are specified, this parameter indicates the total number of all servers and Alibaba Cloud services within your account.
+   * The number of tasks under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of all servers and cloud products in your assets.
    * 
    * @example
    * 10
    */
   instanceSyncTaskCount?: number;
   /**
+   * @remarks
+   * The number of third-party cloud servers.
+   * 
    * @example
    * 5
    */
   kingsoftInstanceCount?: number;
   /**
    * @remarks
-   * The number of cores of new servers.
+   * The number of compute cores of newly added servers.
    * 
    * @example
    * 30
@@ -143,7 +149,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   newInstanceCount?: number;
   /**
    * @remarks
-   * The number of servers on which no risks are detected.
+   * The number of assets without risky asset issues.
    * 
    * @example
    * 10
@@ -151,7 +157,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   noRiskInstanceCount?: number;
   /**
    * @remarks
-   * The number of assets that are not added to Security Center of the specified asset type.
+   * The number of asset types without bound authorization under the asset type that you specified in the query.
    * 
    * @example
    * 10
@@ -159,7 +165,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   notBindMachineInstanceCount?: number;
   /**
    * @remarks
-   * The number of cores of servers that are not started.
+   * The number of compute cores of servers that are not started (powered off).
    * 
    * @example
    * 30
@@ -167,7 +173,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   notRunningStatusCoreCount?: number;
   /**
    * @remarks
-   * The number of servers that are shut down.
+   * The number of servers that are not started (powered off).
    * 
    * @example
    * 10
@@ -175,7 +181,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   notRunningStatusCount?: number;
   /**
    * @remarks
-   * The number of servers whose Security Center agent status is Offline.
+   * The number of offline servers.
    * 
    * @example
    * 21
@@ -183,7 +189,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   offlineInstanceCount?: number;
   /**
    * @remarks
-   * The number of servers outside the cloud.
+   * The number of instances outside the cloud.
    * 
    * @example
    * 20
@@ -191,7 +197,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   outMachineInstanceCount?: number;
   /**
    * @remarks
-   * The number of servers for which the Security Center agent suspends protection.
+   * The number of paused servers.
    * 
    * @example
    * 10
@@ -207,7 +213,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   regionCount?: number;
   /**
    * @remarks
-   * The number of cores of vulnerable assets.
+   * The number of compute cores of assets at risk.
    * 
    * @example
    * 201
@@ -215,20 +221,23 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   riskInstanceCoreCount?: number;
   /**
    * @remarks
-   * The number of assets that are at risk.
+   * The number of assets at risk.
    * 
    * @example
    * 90
    */
   riskInstanceCount?: number;
   /**
+   * @remarks
+   * The number of third-party cloud servers.
+   * 
    * @example
    * 5
    */
   stateCloudInstanceCount?: number;
   /**
    * @remarks
-   * The total number of cloud services that are protected by Security Center.
+   * The number of third-party cloud servers.
    * 
    * @example
    * 10
@@ -236,7 +245,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   tencentInstanceCount?: number;
   /**
    * @remarks
-   * The number of assets whose importance is test.
+   * The number of test assets.
    * 
    * @example
    * 10
@@ -251,13 +260,16 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
    */
   tripartiteInstanceCount?: number;
   /**
+   * @remarks
+   * The number of third-party cloud servers.
+   * 
    * @example
    * 5
    */
   ucloudInstanceCount?: number;
   /**
    * @remarks
-   * The number of servers that are in the Unknown state.
+   * The number of assets with an unknown enabling status.
    * 
    * @example
    * 1
@@ -265,7 +277,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   unKnowStatusInstanceCount?: number;
   /**
    * @remarks
-   * The number of cores of unprotected assets.
+   * The number of compute cores of unprotected assets.
    * 
    * @example
    * 30
@@ -281,10 +293,10 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
   unprotectedInstanceCount?: number;
   /**
    * @remarks
-   * The number of instances that are provisioned by third-party providers.
+   * The number of third-party cloud servers.
    * 
    * @example
-   * 20
+   * 10
    */
   volcengineInstanceCount?: number;
   /**
@@ -393,12 +405,12 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
 export class DescribeFieldStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about servers that are returned.
+   * The statistics of server assets.
    */
   groupedFields?: DescribeFieldStatisticsResponseBodyGroupedFields;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92719F

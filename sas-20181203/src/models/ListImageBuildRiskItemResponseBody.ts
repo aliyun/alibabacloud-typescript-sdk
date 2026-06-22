@@ -16,7 +16,7 @@ export class ListImageBuildRiskItemResponseBodyData extends $dara.Model {
    * The type name of the risky build command.
    * 
    * @example
-   * itemName.
+   * itemName
    */
   itemName?: string;
   static names(): { [key: string]: string } {

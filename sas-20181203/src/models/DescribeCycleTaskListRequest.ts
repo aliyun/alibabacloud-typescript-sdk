@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCycleTaskListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task configuration.
-   * 
-   * >  You can call the [CreateCycleTask](~~CreateCycleTask~~) operation to query the IDs of task configurations.
+   * The ID of the configuration.
+   * >Call the [CreateCycleTask](~~CreateCycleTask~~) operation to obtain this parameter.
    * 
    * @example
    * f93b6ee24cfd0aad44b897ad5051****
@@ -15,7 +14,7 @@ export class DescribeCycleTaskListRequest extends $dara.Model {
   configId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page when using paging.
    * 
    * @example
    * 1
@@ -23,7 +22,7 @@ export class DescribeCycleTaskListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page when using paging. Default value: 20.
    * 
    * @example
    * 20
@@ -31,11 +30,10 @@ export class DescribeCycleTaskListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the task. Valid values:
-   * 
-   * *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
-   * *   **IMAGE_SCAN**: image scan task
-   * *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+   * The node name. Valid values:
+   * - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
+   * - **IMAGE_SCAN**: image scan.
+   * - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
    * 
    * @example
    * IMAGE_SCAN
@@ -43,11 +41,10 @@ export class DescribeCycleTaskListRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
-   * 
-   * *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
-   * *   **IMAGE_SCAN**: image scan task
-   * *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+   * The node type. Valid values:
+   * - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
+   * - **IMAGE_SCAN**: image scan.
+   * - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
    * 
    * @example
    * IMAGE_SCAN

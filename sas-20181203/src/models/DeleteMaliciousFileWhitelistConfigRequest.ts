@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMaliciousFileWhitelistConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert whitelist rule of sensitive files that are detected by using the agentless detection feature. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of alert whitelist rules.
+   * The ID of the whitelist rule for agentless detection of sensitive file alerts. You can call [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) to obtain the ID.
    * 
    * @example
    * 1

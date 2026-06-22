@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteUnknownThreatDetectProcessRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the processes to delete.
+   */
   processIdList?: string[];
   static names(): { [key: string]: string } {
     return {

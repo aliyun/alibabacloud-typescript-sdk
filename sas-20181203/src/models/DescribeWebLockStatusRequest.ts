@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWebLockStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source. Set the value to sas.
+   * The identifier of the request source. Set this parameter to sas.
    * 
    * @example
    * sas
@@ -13,10 +13,10 @@ export class DescribeWebLockStatusRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,7 +24,7 @@ export class DescribeWebLockStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 221.214.XXX.XX

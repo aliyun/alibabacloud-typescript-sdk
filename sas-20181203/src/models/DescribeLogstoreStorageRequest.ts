@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogstoreStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source. Set the value to **sas**.
+   * The identifier of the request source. Set this parameter to **sas**.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,9 @@ export class DescribeLogstoreStorageRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh

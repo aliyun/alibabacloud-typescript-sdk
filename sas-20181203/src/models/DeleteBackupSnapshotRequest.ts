@@ -5,33 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBackupSnapshotRequestBackupSnapshotList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Backup client.
+   * The ID of the backup client.
    * 
-   * >  You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to query the ID.
+   * > You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
    * @example
-   * c-000a4h33w14ka8xagb2s
+   * c-000a4h33w14ka8xa****
    */
   clientId?: string;
   /**
    * @remarks
-   * The ID of the server.
+   * The ID of the server instance.
    * 
    * This parameter is required.
    * 
    * @example
-   * i-j6cj8vyajp1fo4atxkae
+   * i-j6cj8vyajp1fo4at****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The region in which Security Center is deployed. Valid values:
+   * The region of the Security Center instance. Valid values:
    * 
-   * *   **cn-hangzhou**: China (Hangzhou).
-   * *   **ap-southeast-1**: Singapore.
-   * *   **cn-beijing**: China (Beijing).
+   * - **cn-hangzhou**: China (Hangzhou).
+   * - **ap-southeast-1**: Singapore.
+   * - **cn-beijing**: China (Beijing).
    * 
    * This parameter is required.
    * 
@@ -41,24 +41,23 @@ export class DeleteBackupSnapshotRequestBackupSnapshotList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the snapshot that you want to delete.
-   * 
-   * >  You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to query the ID.
+   * The ID of the snapshot to delete.
+   * >You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
    * @example
-   * s-000f9p6r5trm6u4dc1iq
+   * s-000f9p6r5trm6u4d****
    */
   snapshotId?: string;
   /**
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   **ECS_FILE**: Elastic Compute Service (ECS) files.
-   * *   **OSS**: Object Storage Service (OSS) buckets.
-   * *   **NAS**: File Storage NAS (NAS) file systems.
-   * *   **OTS_TABLE**: Tablestore instances.
+   * - **ECS_FILE**: backup snapshot of ECS files.
+   * - **OSS**: backup snapshot of Alibaba Cloud OSS.
+   * - **NAS**: backup snapshot of Alibaba Cloud NAS.
+   * - **OTS_TABLE**: backup snapshot of Alibaba Cloud Tablestore.
    * 
    * This parameter is required.
    * 
@@ -68,14 +67,13 @@ export class DeleteBackupSnapshotRequestBackupSnapshotList extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The ID of the backup vault that is used in the restoration task.
-   * 
-   * >  You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to query the ID.
+   * The ID of the backup vault for the restoration task.
+   * >You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
    * @example
-   * v-0004vhwcs2pmacfzrzt5
+   * v-0004vhwcs2pmacfz****
    */
   vaultId?: string;
   static names(): { [key: string]: string } {
@@ -112,7 +110,7 @@ export class DeleteBackupSnapshotRequestBackupSnapshotList extends $dara.Model {
 export class DeleteBackupSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The regions for backup.
+   * The backup regions.
    */
   backupRegionIdList?: string[];
   /**
@@ -123,9 +121,8 @@ export class DeleteBackupSnapshotRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to retain the latest snapshot. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * - **true**: retains the latest snapshot.
+   * - **false**: does not retain the latest snapshot.
    * 
    * @example
    * true

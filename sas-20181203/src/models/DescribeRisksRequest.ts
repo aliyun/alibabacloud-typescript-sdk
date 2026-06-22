@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRisksRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:  
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class DescribeRisksRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return. Default value: 20.
+   * The maximum number of baselines to return. Default value: 20.
    * 
    * @example
    * 10
@@ -24,9 +23,8 @@ export class DescribeRisksRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****
@@ -34,9 +32,9 @@ export class DescribeRisksRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The baseline ID.
+   * The ID of the baseline.
    * 
-   * >  You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the baseline IDs.
+   * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to obtain the baseline ID.
    * 
    * @example
    * 75

@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends $dara.Model {
   /**
    * @remarks
-   * The status of the container firewall feature. Valid values:
-   * 
-   * *   **-1**: unknown
-   * *   **0**: abnormal
-   * *   **1**: normal
-   * *   **2**: normal to be confirmed
+   * The container firewall status of the cluster. Valid values:
+   * - **-1**: unknown
+   * - **0**: abnormal
+   * - **1**: normal
+   * - **2**: normal pending confirmation.
    * 
    * @example
    * 0
@@ -18,7 +17,7 @@ export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends 
   clusterCNNFStatus?: number;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c9051d30d8a044b4d99e1cb5d25ac****
@@ -26,7 +25,7 @@ export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends 
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * container-opa-kill-02
@@ -34,13 +33,13 @@ export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends 
   clusterName?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values:
+   * The cluster type. Valid values:
    * 
-   * *   **ManagedKubernetes**: managed Kubernetes cluster
-   * *   **NotManagedKubernetes**: non-managed Kubernetes cluster
-   * *   **PrivateKubernetes**: private cluster
-   * *   **kubernetes**: dedicated Kubernetes cluster
-   * *   **ask**: dedicated serverless Kubernetes (ASK) cluster
+   * - **ManagedKubernetes**: managed Kubernetes
+   * - **NotManagedKubernetes**: non-managed Kubernetes
+   * - **PrivateKubernetes**: private cluster
+   * - **kubernetes**: dedicated Kubernetes
+   * - **ask**: dedicated ASK.
    * 
    * @example
    * ManagedKubernetes
@@ -48,10 +47,9 @@ export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends 
   clusterType?: string;
   /**
    * @remarks
-   * The status of the defense rule. Valid values:
-   * 
-   * *   **0**: disabled
-   * *   **1**: enabled
+   * The status of the rule interception switch. Valid values:
+   * - **0**: disabled
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -59,7 +57,7 @@ export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends 
   interceptionSwitch?: number;
   /**
    * @remarks
-   * The number of defense rules that are in effect.
+   * The number of active rules.
    * 
    * @example
    * 12
@@ -67,7 +65,7 @@ export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends 
   openRuleCount?: number;
   /**
    * @remarks
-   * Indicates whether the container firewall feature is supported.
+   * Indicates whether the container firewall is supported.
    * 
    * @example
    * false
@@ -75,7 +73,7 @@ export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends 
   supportCNNF?: boolean;
   /**
    * @remarks
-   * The total number of defense rules.
+   * The total number of rules.
    * 
    * @example
    * 123
@@ -119,7 +117,7 @@ export class ListClusterInterceptionConfigResponseBodyClusterConfigList extends 
 export class ListClusterInterceptionConfigResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of cluster interception rules on the current page.
    * 
    * @example
    * 11
@@ -127,7 +125,7 @@ export class ListClusterInterceptionConfigResponseBodyPageInfo extends $dara.Mod
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -135,7 +133,7 @@ export class ListClusterInterceptionConfigResponseBodyPageInfo extends $dara.Mod
   currrentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of cluster interception rules per page in a paged query.
    * 
    * @example
    * 20
@@ -143,7 +141,7 @@ export class ListClusterInterceptionConfigResponseBodyPageInfo extends $dara.Mod
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of cluster interception rules.
    * 
    * @example
    * 11
@@ -179,17 +177,17 @@ export class ListClusterInterceptionConfigResponseBodyPageInfo extends $dara.Mod
 export class ListClusterInterceptionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the configurations of the cluster.
+   * The list of cluster configuration information.
    */
   clusterConfigList?: ListClusterInterceptionConfigResponseBodyClusterConfigList[];
   /**
    * @remarks
-   * The pagination information.
+   * The paging information for a paged query.
    */
   pageInfo?: ListClusterInterceptionConfigResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 49FDE92F-A0B8-56CC-B7A8-23B17646****

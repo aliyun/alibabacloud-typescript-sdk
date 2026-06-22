@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulDefendCountStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the vulnerabilities. Valid values:
+   * The type of vulnerability to query. Valid values:
    * 
-   * *   app: application vulnerabilities
-   * *   emg: urgent vulnerabilities
+   * - app: application vulnerability
+   * - emg: emergency vulnerability.
    * 
    * @example
    * emg

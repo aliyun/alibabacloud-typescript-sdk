@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyContainerDefenseRuleSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the rules.
+   * The IDs of the rules that you want to modify.
    */
   ruleIds?: number[];
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The switch status of the rule. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 0

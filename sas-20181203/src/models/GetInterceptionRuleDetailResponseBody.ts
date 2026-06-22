@@ -222,10 +222,13 @@ export class GetInterceptionRuleDetailResponseBodyInterceptionRuleDetail extends
    * @remarks
    * The interception mode. Valid values:
    * 
-   * *   **0**: monitor
-   * *   **1**: block
-   * *   **2**: alert
-   * *   **3**: allow
+   * - **0**: monitor
+   * 
+   * - **1**: block
+   * 
+   * - **2**: alert
+   * 
+   * - **3**: allow
    * 
    * @example
    * 1
@@ -259,8 +262,9 @@ export class GetInterceptionRuleDetailResponseBodyInterceptionRuleDetail extends
    * @remarks
    * The status of the defense rule. Valid values:
    * 
-   * *   **1**: The rule is enabled.
-   * *   **0**: The rule is disabled.
+   * - **1**: The rule is enabled.
+   * 
+   * - **0**: The rule is disabled.
    * 
    * @example
    * 1
@@ -270,8 +274,9 @@ export class GetInterceptionRuleDetailResponseBodyInterceptionRuleDetail extends
    * @remarks
    * The type of the rule. Valid values:
    * 
-   * *   **suggest**: a suggestion rule
-   * *   **customize**: a custom rule
+   * - **suggest**: a suggestion rule
+   * 
+   * - **customize**: a custom rule
    * 
    * @example
    * customize

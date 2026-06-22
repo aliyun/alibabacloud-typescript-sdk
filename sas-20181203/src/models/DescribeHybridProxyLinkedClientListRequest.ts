@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridProxyLinkedClientListRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the proxy cluster. You can query the name of the proxy cluster in the Security Center console.
+   * The name of the proxy cluster. You can view the proxy cluster name in the console.
    * 
    * @example
    * office-proxy
@@ -13,7 +13,7 @@ export class DescribeHybridProxyLinkedClientListRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page when paging is used.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeHybridProxyLinkedClientListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page when paging is used.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeHybridProxyLinkedClientListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The UUID of the proxy node. You can call the DescribeHybridProxyList operation to query the UUID of the proxy node.
+   * The UUID of the proxy node. You can call the DescribeHybridProxyList operation to obtain this value.
    * 
    * @example
    * inet-proxy-3bb11fad-37d6-4aee-9c37-b0ad1612XXXX
@@ -37,7 +37,7 @@ export class DescribeHybridProxyLinkedClientListRequest extends $dara.Model {
   proxyUuid?: string;
   /**
    * @remarks
-   * The description of the proxy cluster.
+   * The remarks.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeHybridProxyLinkedClientListRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The UUID of the server on which the Security Center agent is installed. You can query the UUID by querying asset information.
+   * The unique key of the Security Center agent. You can call an asset query operation to obtain the UUID of the Security Center agent installed on the server.
    * 
    * @example
    * 80d2f7d6-31a9-4d7f-8ff4-7ecc42f89ca****

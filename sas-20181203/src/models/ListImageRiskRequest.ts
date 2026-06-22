@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageRiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * e****
@@ -13,9 +13,8 @@ export class ListImageRiskRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
+   * The ID of the container cluster to query.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * c80f79959fd724a888e1187779b13****
@@ -23,7 +22,7 @@ export class ListImageRiskRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -31,7 +30,7 @@ export class ListImageRiskRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * container-***:****
@@ -39,7 +38,7 @@ export class ListImageRiskRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The image namespace.
    * 
    * @example
    * kube-sy****
@@ -47,7 +46,7 @@ export class ListImageRiskRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The maximum number of entries per page in a paging query. Default value: 20.
    * 
    * @example
    * 20

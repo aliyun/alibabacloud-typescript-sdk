@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDynamicDictResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of weak password rules that are added.
+   * The number of weak password rules that have been added.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeDynamicDictResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The name of the OSS object that contains custom weak passwords.
+   * The name of the weak password file in OSS.
    * 
    * @example
    * test_dict.plain
@@ -21,7 +21,7 @@ export class DescribeDynamicDictResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The size of the OSS object. Unit: bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 40
@@ -37,7 +37,7 @@ export class DescribeDynamicDictResponseBody extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The IP address of the Object Storage Service (OSS) object.
+   * The OSS object URL.
    * 
    * @example
    * cloudtest01/661767e1-5ae3-4ec5-865f-03039436893a/sacc2*****
@@ -45,7 +45,7 @@ export class DescribeDynamicDictResponseBody extends $dara.Model {
   ossUrl?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier that Alibaba Cloud generated for the request.
    * 
    * @example
    * A3D7C47D-3F11-57BB-90E8-E5C20C61****
@@ -53,7 +53,7 @@ export class DescribeDynamicDictResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The timestamp when the OSS object was uploaded. Unit: milliseconds.
+   * The upload timestamp, in milliseconds.
    * 
    * @example
    * 1719919421

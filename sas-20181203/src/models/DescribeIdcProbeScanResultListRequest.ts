@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   /**
    * @remarks
-   * The search conditions for assets. This parameter is in the JSON format. The value is case-sensitive.
-   * 
-   * >  A search condition can be the instance ID, instance name, VPC ID, region, or public IP address. You can call the [DescribeIdcAssetCriteria](https://help.aliyun.com/document_detail/2842671.html) operation to query supported search conditions.
+   * The search conditions for assets. This parameter is in JSON format. Parameter names are case-sensitive.
+   * > You can search for assets by instance ID, instance name, VPC ID, region, or public IP address.
    * 
    * @example
    * [{\\"name\\":\\"scannedIp\\",\\"value\\":\\"192.168.2.11\\"}]
@@ -15,7 +14,7 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -23,7 +22,7 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the scan.
+   * The end time of the scan discovery period.
    * 
    * @example
    * 1720006819000
@@ -31,7 +30,7 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   foundEndTime?: number;
   /**
    * @remarks
-   * The start time of the scan.
+   * The start time of the scan discovery period.
    * 
    * @example
    * 1720006818000
@@ -39,10 +38,10 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   foundStartTime?: number;
   /**
    * @remarks
-   * The logical operator that combines multiple search conditions. Valid values:
+   * The logical relationship between multiple search conditions. Valid values:
    * 
-   * *   **OR******
-   * *   **AND******
+   * - **OR**: The search conditions are in a logical **OR** relationship.
+   * - **AND**: The search conditions are in a logical **AND** relationship.
    * 
    * @example
    * OR
@@ -50,9 +49,8 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -60,13 +58,12 @@ export class DescribeIdcProbeScanResultListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The statuses of the corresponding probes. Separate multiple values with commas (,). Valid values:
-   * 
-   * *   **0**: The probe is valid.
-   * *   **1**: The probe is ignored.
-   * *   **2**: The probe is invalid.
-   * *   **3**: The probe expired.
-   * *   **4**: The probe does not exist.
+   * The status list of the corresponding probes. Separate multiple values with commas. Valid values:
+   * - **0**: active
+   * - **1**: ignored
+   * - **2**: invalid
+   * - **3**: expired
+   * - **4**: probe does not exist.
    * 
    * @example
    * 0,1

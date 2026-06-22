@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   /**
    * @remarks
-   * The severity of the alert. Valid values:
+   * The alert notification level. Valid values:
    * 
-   * *   0: no alerts
-   * *   1: reminder
-   * *   2: suspicious
-   * *   3: high-risk
+   * - 0: no alert
+   * 
+   * - 1: reminder
+   * 
+   * - 2: suspicious
+   * 
+   * - 3: high-risk.
    * 
    * @example
    * 1
@@ -26,7 +29,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   cmdLine?: string;
   /**
    * @remarks
-   * The path to the file that is managed by the process.
+   * The file path on which the process operates.
    * 
    * @example
    * /etc/pam.d/su
@@ -42,7 +45,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   handleTime?: number;
   /**
    * @remarks
-   * The ID of the event.
+   * The event ID.
    * 
    * @example
    * 161757
@@ -50,7 +53,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The instance name of the server.
+   * The name of the server instance.
    * 
    * @example
    * kyy-admin-01
@@ -61,20 +64,20 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
    * The public IP address of the server.
    * 
    * @example
-   * 121.40.211.194
+   * 121.40.XX.XX
    */
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the server.
+   * The private IP address of the asset.
    * 
    * @example
-   * 172.22.5.36
+   * 172.22.XX.XX
    */
   intranetIp?: string;
   /**
    * @remarks
-   * The time when the event last occurred.
+   * The most recent time when the event occurred.
    * 
    * @example
    * 1694576692000
@@ -90,10 +93,10 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The type of the operating system. Valid values:
+   * The operating system type. Valid values:
    * 
-   * *   **windows**: Windows
-   * *   **linux**: Linux
+   * - **windows**: Windows
+   * - **linux**: Linux.
    * 
    * @example
    * linux
@@ -101,7 +104,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The path to the process.
+   * The process path.
    * 
    * @example
    * /usr/bin/sshpass
@@ -109,7 +112,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   procPath?: string;
   /**
    * @remarks
-   * The permissions required to start the process.
+   * The process permission.
    * 
    * @example
    * rwxr-xr-x
@@ -117,7 +120,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   procPermission?: string;
   /**
    * @remarks
-   * The ID of the process.
+   * The process ID of the event.
    * 
    * @example
    * 52636
@@ -125,7 +128,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The description.
+   * The remarks.
    * 
    * @example
    * test
@@ -133,7 +136,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test-rule-1
@@ -141,12 +144,12 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the event. Valid values:
+   * The event status. Valid values:
    * 
-   * *   0: unhandled
-   * *   1: handled
-   * *   2: added to the whitelist
-   * *   3: ignored
+   * - 0: Unhandled. 
+   * - 1: Manually handled.
+   * - 2: Whitelisted.
+   * - 3: Ignored.
    * 
    * @example
    * 1
@@ -154,10 +157,10 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The UUID of the server that is associated with the process.
+   * The UUID of the server associated with the process.
    * 
    * @example
-   * 94b44720-d982-4d20-a4e1-80a1a57b5a8e
+   * 94b44720-d982-4d20-a4e1-80a1a57b****
    */
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -218,7 +221,7 @@ export class ListFileProtectEventResponseBodyEventList extends $dara.Model {
 export class ListFileProtectEventResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -226,7 +229,7 @@ export class ListFileProtectEventResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries returned per page in a paging query.
    * 
    * @example
    * 20
@@ -234,7 +237,7 @@ export class ListFileProtectEventResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 149
@@ -268,17 +271,17 @@ export class ListFileProtectEventResponseBodyPageInfo extends $dara.Model {
 export class ListFileProtectEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The events.
+   * The list of events.
    */
   eventList?: ListFileProtectEventResponseBodyEventList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: ListFileProtectEventResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 23AD0BD2-8771-5647-819E-6BA51E212F80

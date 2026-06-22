@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessRegionResponseBodyVendorRegionList extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region in which the server resides.
    * 
    * @example
    * cn-shanghai
@@ -13,13 +13,13 @@ export class ListAgentlessRegionResponseBodyVendorRegionList extends $dara.Model
   regionId?: string;
   /**
    * @remarks
-   * The type of the server. Valid values:
+   * The server vendor. Valid values:
    * 
-   * - **0**: Alibaba Cloud
-   * - **3**: Tencent Cloud
-   * - **4**: Huawei Cloud
-   * - **5**: Azure
-   * - **7**: AWS
+   * - **0**: Alibaba Cloud.
+   * - **3**: Tencent Cloud.
+   * - **4**: Huawei Cloud.
+   * - **5**: Azure.
+   * - **7**: AWS.
    * 
    * @example
    * 0
@@ -51,12 +51,12 @@ export class ListAgentlessRegionResponseBodyVendorRegionList extends $dara.Model
 export class ListAgentlessRegionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the regions.
+   * The region list information.
    */
   regionList?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92****
@@ -64,7 +64,7 @@ export class ListAgentlessRegionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the regions.
+   * The region list information.
    */
   vendorRegionList?: ListAgentlessRegionResponseBodyVendorRegionList[];
   static names(): { [key: string]: string } {

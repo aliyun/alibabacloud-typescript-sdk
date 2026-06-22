@@ -5,27 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySearchConditionRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter condition. The value of this parameter is in the JSON format and is case-sensitive. The value contains the following fields:
+   * The filter conditions. This parameter is in JSON format. Pay attention to the letter case when you specify this parameter. The following fields are included:
    * 
-   * *   **filterParams**: the filter-related parameters. The value is in the JSON format. Valid values:
+   * - **filterParams**: The filter parameters. This parameter is in JSON format. The following fields are included:
+   *   - **label**: The display name for the search in the console.
+   *   - **value**: The filter parameter condition. This parameter is in JSON format. The following fields are included:
    * 
-   *     *   **label**: the display name of the filter condition in the console.
+   *      - **name**: The filter condition field. For more information about the valid values of this field, see the description below.
+   *      - **value**: The value that corresponds to the filter condition field.
    * 
-   *     *   **value**: the settings of the filter condition. The value is in the JSON format. The value contains the following fields:
-   * 
-   *         *   **name**: the name of the field for filtering. For more information, see the value description of name.
-   *         *   **value**: the value of the field for filtering.
-   * 
-   * *   **LogicalExp**: the logical relationship among multiple filter conditions. Valid values:
-   * 
-   *     *   **OR**
-   *     *   **AND**
-   * 
-   * >  Value description of **name**:
-   * 
-   * *   If **Type** is set to **ecs**, you can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported filter conditions.
-   * 
-   * *   If **Type** is set to **cloud_product**, you can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported filter conditions.
+   * - **LogicalExp**: The logical relationship between multiple filter conditions. Valid values:
+   *   - **OR**: or
+   *   - **AND**: and
+   * > Valid values of **name**:
+   * > - If **Type** is set to **ecs**, call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+   * > - If **Type** is set to **cloud_product**, call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * {
@@ -51,7 +45,7 @@ export class ModifySearchConditionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
+   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
    * 
    * @example
    * 27.223.XX.XX
@@ -59,10 +53,9 @@ export class ModifySearchConditionRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The type of the asset. Default value: **ecs**. Valid values:
-   * 
-   * *   **ecs**: host
-   * *   **cloud_product**: Alibaba Cloud service
+   * The asset type. Default value: **ecs**. Valid values:
+   * - **ecs**: host asset
+   * - **cloud_product**: cloud service.
    * 
    * @example
    * ecs

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSystemRuleAggregationTypesResponseBodyAggregationTypeList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the aggregation type.
+   * The rule aggregation ID.
    * 
    * @example
    * 1
@@ -13,10 +13,10 @@ export class ListSystemRuleAggregationTypesResponseBodyAggregationTypeList exten
   id?: number;
   /**
    * @remarks
-   * The name of the aggregation type.
+   * The rule aggregation name.
    * 
    * @example
-   * Remote control\\*\\*\\*\\*
+   * 远程控制****
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class ListSystemRuleAggregationTypesResponseBodyAggregationTypeList exten
 export class ListSystemRuleAggregationTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the aggregation types.
+   * The list of rule aggregation types.
    */
   aggregationTypeList?: ListSystemRuleAggregationTypesResponseBodyAggregationTypeList[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 1427F3BE-8A7E-57F9-BD4E-590B00D2****

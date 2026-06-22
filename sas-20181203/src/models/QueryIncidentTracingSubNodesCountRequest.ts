@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryIncidentTracingSubNodesCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The key-value pairs that consist of node IDs and node types. A key-value pair is an array.
+   * List of key-value pairs composed of node IDs and types, where key-value pairs exist in the form of arrays
    */
   vertexIdAndTypeList?: string[][];
   static names(): { [key: string]: string } {

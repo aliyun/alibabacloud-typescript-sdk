@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   /**
    * @remarks
-   * IDC data center name.
+   * The IDC name.
    * 
    * @example
    * 3K IDC
@@ -13,7 +13,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   idcName?: string;
   /**
    * @remarks
-   * Region.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   idcRegion?: string;
   /**
    * @remarks
-   * Instance ID of the asset.
+   * The instance ID of the asset.
    * 
    * @example
    * i-xxxxx
@@ -29,7 +29,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instance name.
+   * The instance name.
    * 
    * @example
    * oraclexxx
@@ -37,7 +37,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Public IP address.
+   * The public IP address.
    * 
    * @example
    * 47.98.*.*
@@ -45,7 +45,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * Scan period.
+   * The scan interval.
    * 
    * @example
    * 16
@@ -53,7 +53,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   intervalPeriod?: number;
   /**
    * @remarks
-   * Private IP of the instance.
+   * The private IP address of the instance.
    * 
    * @example
    * 10.68.*.*
@@ -61,7 +61,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * IP segment range.
+   * The IP address range.
    * 
    * @example
    * 192.168.1.0/24
@@ -69,7 +69,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   ipSegments?: string;
   /**
    * @remarks
-   * Linux port.
+   * The Linux port.
    * 
    * @example
    * 22
@@ -77,7 +77,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   linuxPort?: string;
   /**
    * @remarks
-   * The unit of the scan period, with values:
+   * The unit of the scan interval. Valid values:
    * - **day**: day.
    * - **hour**: hour.
    * 
@@ -87,10 +87,10 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * Probe service status. Values:
+   * The service status of the probe. Valid values:
    * 
-   * - **0**: Active
-   * - **1**: Inactive
+   * - **0**: Normal
+   * - **1**: abnormal.
    * 
    * @example
    * 0
@@ -98,10 +98,10 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   serviceStatus?: number;
   /**
    * @remarks
-   * Probe status. Values:
+   * The usage status of the probe. Valid values:
    * 
-   * - **0**: Enabled
-   * - **1**: Disabled
+   * - **0**: enabled
+   * - **1**: disabled.
    * 
    * @example
    * 0
@@ -109,7 +109,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Server UUID.
+   * The UUID of the server.
    * 
    * @example
    * inet-eae02b9a-1dbd-44a6-844c-69072b27****
@@ -117,7 +117,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * Windows port.
+   * The Windows port.
    * 
    * @example
    * 3389
@@ -173,7 +173,7 @@ export class DescribeIdcProbeListResponseBodyIdcProbes extends $dara.Model {
 export class DescribeIdcProbeListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of data entries displayed on the current page in a paginated query.
+   * The number of entries on the current page when paging.
    * 
    * @example
    * 17
@@ -181,7 +181,7 @@ export class DescribeIdcProbeListResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number in a paginated query.
+   * The page number of the current page when paging.
    * 
    * @example
    * 1
@@ -189,7 +189,7 @@ export class DescribeIdcProbeListResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of data entries to display per page in a paginated query.
+   * The maximum number of entries per page when paging.
    * 
    * @example
    * 20
@@ -197,7 +197,7 @@ export class DescribeIdcProbeListResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of entries.
    * 
    * @example
    * 30
@@ -233,17 +233,17 @@ export class DescribeIdcProbeListResponseBodyPageInfo extends $dara.Model {
 export class DescribeIdcProbeListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * IDC probe list.
+   * The list of IDC probes.
    */
   idcProbes?: DescribeIdcProbeListResponseBodyIdcProbes[];
   /**
    * @remarks
-   * Pagination information.
+   * The pagination information.
    */
   pageInfo?: DescribeIdcProbeListResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting and problem localization.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0C8487EF-50C2-54BB-8634-10F8C35D****

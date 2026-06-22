@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SendCustomizeReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the security report.
-   * 
-   * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+   * The report ID.
+   * >Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain this parameter.
    * 
    * This parameter is required.
    * 

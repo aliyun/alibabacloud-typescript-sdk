@@ -53,7 +53,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyList extends $dara.M
   os?: string;
   /**
    * @remarks
-   * The name of the operating system for your asset.
+   * The operating system name of the asset.
    * 
    * @example
    * centos
@@ -61,7 +61,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyList extends $dara.M
   osName?: string;
   /**
    * @remarks
-   * The ID of the region in which the server resides.
+   * The region ID of the server.
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +69,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyList extends $dara.M
   regionId?: string;
   /**
    * @remarks
-   * The name of the region in which the server resides.
+   * The region name of the server.
    * 
    * @example
    * cn-qingdao
@@ -77,7 +77,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyList extends $dara.M
   regionName?: string;
   /**
    * @remarks
-   * The status of the Security Center agent.
+   * The status of the client.
    * 
    * @example
    * online
@@ -85,7 +85,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyList extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The name of the tag added to the server.
+   * The tag name of the asset.
    * 
    * @example
    * latest
@@ -155,7 +155,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyList extends $dara.M
 export class DescribeHybridProxyLinkedClientListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries on the current page when paging is used.
    * 
    * @example
    * 10
@@ -163,7 +163,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyPageInfo extends $da
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page when paging is used.
    * 
    * @example
    * 1
@@ -171,7 +171,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyPageInfo extends $da
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page when paging is used.
    * 
    * @example
    * 20
@@ -179,7 +179,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyPageInfo extends $da
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 149
@@ -215,7 +215,7 @@ export class DescribeHybridProxyLinkedClientListResponseBodyPageInfo extends $da
 export class DescribeHybridProxyLinkedClientListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned list.
    */
   list?: DescribeHybridProxyLinkedClientListResponseBodyList[];
   /**
@@ -225,7 +225,7 @@ export class DescribeHybridProxyLinkedClientListResponseBody extends $dara.Model
   pageInfo?: DescribeHybridProxyLinkedClientListResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * B01B804F-947C-5623-B050-1C8FDFA796CF

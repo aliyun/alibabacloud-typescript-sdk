@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The server group type. Valid values:
-   * 
-   * *   **0**: default group
-   * *   **1**: other group
+   * The type of the server group. Valid values:
+   * - **0**: default group
+   * - **1**: other group.
    * 
    * @example
    * 1
@@ -16,7 +15,7 @@ export class ListGroupsResponseBodyList extends $dara.Model {
   groupFlag?: number;
   /**
    * @remarks
-   * The server group ID.
+   * The ID of the server group.
    * 
    * @example
    * 11028542
@@ -24,7 +23,7 @@ export class ListGroupsResponseBodyList extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The server group name.
+   * The name of the server group.
    * 
    * @example
    * cn-shenzhen+dir-1440978***
@@ -66,7 +65,7 @@ export class ListGroupsResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -74,7 +73,7 @@ export class ListGroupsResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The NextToken value returned when the NextToken method is used.
    * 
    * @example
    * B604532DEF982B875E8360A6EFA3B***
@@ -128,7 +127,7 @@ export class ListGroupsResponseBodyPageInfo extends $dara.Model {
 export class ListGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The status code returned by the API request.
    * 
    * @example
    * 200
@@ -144,12 +143,12 @@ export class ListGroupsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The groups.
+   * The list of server groups.
    */
   list?: ListGroupsResponseBodyList[];
   /**
    * @remarks
-   * The error message.
+   * The detailed information of the error code.
    * 
    * @example
    * successful
@@ -157,12 +156,12 @@ export class ListGroupsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query results.
    */
   pageInfo?: ListGroupsResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
    * 
    * @example
    * CB414DB5-F692-5DAB-9F0F-975C060AF***
@@ -170,10 +169,10 @@ export class ListGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether exceptions are handled. Valid values:
+   * Indicates whether the exception event was processed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Processed.
+   * - **false**: Not processed.
    * 
    * @example
    * true

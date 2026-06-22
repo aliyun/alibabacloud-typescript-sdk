@@ -35,12 +35,12 @@ export class DescribeTaskErrorLogResponseBodyLogs extends $dara.Model {
 export class DescribeTaskErrorLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the error logs.
+   * The list of error logs.
    */
   logs?: DescribeTaskErrorLogResponseBodyLogs[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F929E952-EBFC-56C3-BD35-BF8B59024C69

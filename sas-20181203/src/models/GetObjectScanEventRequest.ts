@@ -15,8 +15,9 @@ export class GetObjectScanEventRequest extends $dara.Model {
    * @remarks
    * The language of the content in the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh

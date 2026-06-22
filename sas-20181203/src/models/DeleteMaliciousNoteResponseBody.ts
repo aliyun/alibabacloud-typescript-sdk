@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMaliciousNoteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * D65AADFC-1D20-5A6A-8F6A-9FA53CXXXXX

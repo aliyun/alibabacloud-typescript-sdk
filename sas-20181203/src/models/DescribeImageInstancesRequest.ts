@@ -5,18 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The search condition that is used to filter the server. The value of this parameter is in the JSON format and contains the following fields:
-   * 
-   * *   **name**: the search condition
-   * 
-   * *   **name**: the value of the search condition
-   * 
-   * *   **logicalExp**: the logical relation for multiple search conditions Valid values:
-   * 
-   *     *   **OR**: The search conditions use a logical **OR**.
-   *     *   **AND**: The search conditions use a logical **AND**.
-   * 
-   * > You can call the [DescribeImageCriteria](https://help.aliyun.com/document_detail/471822.html) operation to query the supported search conditions.
+   * Sets the conditions for searching assets. This parameter is in JSON format and contains the following fields:
+   * - **name**: The search item.
+   * - **value**: The value of the search item.
+   * - **logicalExp**: The logical relationship between multiple search item values. Valid values:
+   *     - **OR**: The multiple search item values are in an **OR** relationship.
+   *     - **AND**: The multiple search item values are in an **AND** relationship.
+   * > You can call the [DescribeImageRepoCriteria](~~DescribeImageRepoCriteria~~) operation to query supported search conditions.
    * 
    * @example
    * [{"name":"instanceId","value":"390100182","logicalExp":"AND"}]
@@ -24,7 +19,7 @@ export class DescribeImageInstancesRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number of the returned results to start displaying. The starting value is **1**. Default value: **1**, which indicates that page 1 is displayed.
    * 
    * @example
    * 1
@@ -32,10 +27,10 @@ export class DescribeImageInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The logical relationship that you want to use to evaluate multiple search conditions. Valid values:
+   * Sets the logical relationship between multiple search conditions. Valid values:
    * 
-   * *   **OR**: The search conditions are evaluated by using a logical **OR**.
-   * *   **AND**: The search conditions are evaluated by using a logical **AND**.
+   * - **OR**: The multiple search conditions are in an **OR** relationship.
+   * - **AND**: The multiple search conditions are in an **AND** relationship.
    * 
    * @example
    * OR
@@ -43,9 +38,8 @@ export class DescribeImageInstancesRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > : We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page during a paged query. The default number of entries per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > We recommend that you do not leave the PageSize parameter empty.
    * 
    * @example
    * 20
@@ -53,10 +47,9 @@ export class DescribeImageInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether the image is scanned. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the image has been scanned. Valid values:
+   * - **true**: processed.
+   * - **false**: not processed.
    * 
    * @example
    * true

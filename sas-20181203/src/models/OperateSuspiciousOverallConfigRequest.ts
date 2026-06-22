@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class OperateSuspiciousOverallConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the feature. Valid values:
+   * The switch status. Valid values:
    * 
-   * *   **on**: yes
-   * *   **off**: no
+   * - **on**: Enable
+   * - **off**: Disable
    * 
    * This parameter is required.
    * 
@@ -18,10 +18,10 @@ export class OperateSuspiciousOverallConfigRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -29,12 +29,10 @@ export class OperateSuspiciousOverallConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to configure assets for the feature. Default value: **false**. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * >  This parameter takes effect only when you set **Config** to **on**.
+   * Specifies whether asset configuration is required. Default value: **false**. Valid values:
+   * - **true**: Required
+   * - **false**: Not required
+   * > This value takes effect only when **config** is set to **on**.
    * 
    * @example
    * true
@@ -42,7 +40,7 @@ export class OperateSuspiciousOverallConfigRequest extends $dara.Model {
   noTargetAsOn?: boolean;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 222.178.XX.XX
@@ -50,14 +48,14 @@ export class OperateSuspiciousOverallConfigRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The type of the feature. Valid values:
+   * The switch type. Valid values:
    * 
-   * *   **auto_breaking**: Anti-Virus
-   * *   **ransomware_breaking**: Anti-ransomware (Bait Capture)
-   * *   **webshell_cloud_breaking**: Webshell Protection
-   * *   **alinet**: Behavior prevention
-   * *   **k8s_log_analysis**: K8s Threat Detection
-   * *   **alisecguard**: Defense mode for Client Protection
+   * - **auto_breaking**: Anti-virus
+   * - **ransomware_breaking**: Anti-ransomware (bait capture)
+   * - **webshell_cloud_breaking**: Website backdoor connection defense
+   * - **alinet**: Malicious network behavior defense
+   * - **k8s_log_analysis**: Container K8s threat detection
+   * - **alisecguard**: Client self-protection defense mode
    * 
    * This parameter is required.
    * 

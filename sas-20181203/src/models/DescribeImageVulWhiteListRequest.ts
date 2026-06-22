@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageVulWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias of the vulnerability that you want to query.
+   * The alias of the vulnerability to query.
    * 
    * @example
    * CVE-2007-5686:rpath_linux
@@ -13,7 +13,7 @@ export class DescribeImageVulWhiteListRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query. Paging is used to display results.
    * 
    * @example
    * 1
@@ -21,10 +21,9 @@ export class DescribeImageVulWhiteListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -32,7 +31,7 @@ export class DescribeImageVulWhiteListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The maximum number of entries per page in a paged query. Paging is used to display results. Default value: 20.
    * 
    * @example
    * 20
@@ -41,8 +40,8 @@ export class DescribeImageVulWhiteListRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the whitelist. Valid values:
-   * - **image**
-   * - **agentless**
+   * - **image**: image
+   * - **agentless**: agentless.
    * 
    * @example
    * image

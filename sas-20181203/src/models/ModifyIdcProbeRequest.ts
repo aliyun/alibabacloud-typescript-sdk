@@ -47,8 +47,9 @@ export class ModifyIdcProbeRequest extends $dara.Model {
    * @remarks
    * The unit of the scan interval. Valid values:
    * 
-   * *   **day**
-   * *   **hour**
+   * - **day**
+   * 
+   * - **hour**
    * 
    * @example
    * day
@@ -58,8 +59,9 @@ export class ModifyIdcProbeRequest extends $dara.Model {
    * @remarks
    * The usage status. Valid values:
    * 
-   * *   **0**: enabled.
-   * *   **1**: disabled.
+   * - **0**: enabled.
+   * 
+   * - **1**: disabled.
    * 
    * @example
    * 1

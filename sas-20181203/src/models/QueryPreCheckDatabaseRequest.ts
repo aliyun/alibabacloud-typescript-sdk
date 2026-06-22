@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPreCheckDatabaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the agent that is used to back up the data of the database.
-   * 
-   * > You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the UUID.
+   * The unique identifier of the server database backup client.
+   * > You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to obtain this parameter.
    * 
    * @example
    * ebc895506c6911ed800000163e0e****
@@ -15,9 +14,8 @@ export class QueryPreCheckDatabaseRequest extends $dara.Model {
   instanceUuid?: string;
   /**
    * @remarks
-   * The ID of the database precheck task.
-   * 
-   * > You can call the [StartPreCheckDatabase](~~StartPreCheckDatabase~~) operation to query the ID of the database precheck task.
+   * The ID of the database pre-check task.
+   * > You can call the [StartPreCheckDatabase](~~StartPreCheckDatabase~~) operation to obtain this parameter.
    * 
    * @example
    * t-000bc9nqwxsbyvod****
@@ -25,7 +23,7 @@ export class QueryPreCheckDatabaseRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The region ID of the server that hosts the database.
+   * The region ID of the database server.
    * 
    * This parameter is required.
    * 

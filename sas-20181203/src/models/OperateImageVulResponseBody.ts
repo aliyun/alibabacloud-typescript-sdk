@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateImageVulResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 486F2228-438A-544A-A533-433F943C15CD

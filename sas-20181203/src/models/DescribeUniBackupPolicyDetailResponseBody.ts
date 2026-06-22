@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOFullPlan extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the days of a week on which the backup is performed.
+   * The days of the week on which the backup is performed.
    */
   days?: string[];
   /**
    * @remarks
-   * The interval of backup tasks.
+   * The interval cycle.
    * 
    * @example
    * 2
@@ -18,11 +18,11 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOFullPlan
   interval?: number;
   /**
    * @remarks
-   * The unit of the interval. Valid values:
+   * The unit of the interval cycle. Valid values:
    * 
-   * *   **hourly**: hour
-   * *   **daily**: day
-   * *   **weekly**: week
+   * - **hourly**: hour
+   * - **daily**: day
+   * - **weekly**: week.
    * 
    * @example
    * daily
@@ -30,7 +30,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOFullPlan
   planType?: string;
   /**
    * @remarks
-   * The time when the full backup started. The time is in the HH:mm:ss format.
+   * The start time of the full backup. Format: hh:mm:ss.
    * 
    * @example
    * 00:10:00
@@ -69,12 +69,12 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOFullPlan
 export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOIncPlan extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the days of a week on which the backup is performed.
+   * The days of the week on which the backup is performed.
    */
   days?: string[];
   /**
    * @remarks
-   * The interval of backup tasks.
+   * The interval cycle.
    * 
    * @example
    * 2
@@ -82,11 +82,11 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOIncPlan 
   interval?: number;
   /**
    * @remarks
-   * The unit of the interval. Valid values:
+   * The unit of the interval cycle. Valid values:
    * 
-   * *   **hourly**: hour
-   * *   **daily**: day
-   * *   **weekly**: week
+   * - **hourly**: hour
+   * - **daily**: day
+   * - **weekly**: week.
    * 
    * @example
    * daily
@@ -94,7 +94,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOIncPlan 
   planType?: string;
   /**
    * @remarks
-   * The time when the incremental data backup starts. The time is in the hh:mm:ss format.
+   * The start time of the incremental backup. Format: hh:mm:ss.
    * 
    * @example
    * 00:10:00
@@ -133,7 +133,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOIncPlan 
 export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The database account name.
    * 
    * @example
    * admin
@@ -141,12 +141,11 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   accountName?: string;
   /**
    * @remarks
-   * The status of the database client. Valid values:
-   * 
-   * *   **UNKNOWN**: unknown
-   * *   **INSTALLED**: installed
-   * *   **INSTALL_FAILED**: installation failed
-   * *   **UNINSTALL_FAILED**: uninstallation failed
+   * The status of the database client agent. Valid values:
+   * - **UNKNOWN**: Unknown.
+   * - **INSTALLED**: Installed.
+   * - **INSTALL_FAILED**: Installation failed.
+   * - **UNINSTALL_FAILED**: Uninstallation failed.
    * 
    * @example
    * INSTALLED
@@ -154,11 +153,11 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   agentStatus?: string;
   /**
    * @remarks
-   * The type of the database. Valid values:
+   * The database type. Valid values:
    * 
-   * *   **MYSQL**
-   * *   **MSSQL**
-   * *   **Oracle**
+   * - **MYSQL**
+   * - **MSSQL**
+   * - **Oracle**.
    * 
    * @example
    * ORACLE
@@ -166,17 +165,17 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   databaseType?: string;
   /**
    * @remarks
-   * The details of the policy for full backup.
+   * The details of the full backup policy.
    */
   fullPlan?: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOFullPlan;
   /**
    * @remarks
-   * The policy for incremental data backup.
+   * The incremental backup policy.
    */
   incPlan?: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOIncPlan;
   /**
    * @remarks
-   * The ID of the server.
+   * The ID of the server instance.
    * 
    * @example
    * i-2zefcy2id5d60m9t****
@@ -184,7 +183,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The name of the server instance.
    * 
    * @example
    * sql-test-01
@@ -192,7 +191,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   instanceName?: string;
   /**
    * @remarks
-   * The ID of the anti-ransomware policy.
+   * The ID of the anti-ransomware backup policy for databases.
    * 
    * @example
    * 123
@@ -200,7 +199,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   policyId?: number;
   /**
    * @remarks
-   * The name of the anti-ransomware policy.
+   * The name of the anti-ransomware backup policy for databases.
    * 
    * @example
    * auto_test_sql
@@ -208,12 +207,12 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   policyName?: string;
   /**
    * @remarks
-   * The status of the anti-ransomware policy. Valid values:
+   * The status of the anti-ransomware backup policy for databases. Valid values:
    * 
-   * *   **initiating**: initializing
-   * *   **opening**: enabled
-   * *   **closing**: disabled
-   * *   **deleting**: deleting
+   * - **initiating**: Initializing.
+   * - **opening**: Enabled.
+   * - **closing**: Disabled.
+   * - **deleting**: Being deleted.
    * 
    * @example
    * opening
@@ -221,7 +220,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   policyStatus?: string;
   /**
    * @remarks
-   * The retention period of the backup snapshot.
+   * The number of days for which backup snapshots are retained.
    * 
    * @example
    * 7
@@ -229,7 +228,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
   retention?: number;
   /**
    * @remarks
-   * The maximum network bandwidth that is allowed during data backup. Unit: bytes.
+   * The network bandwidth throttling for backup. Unit: bytes.
    * 
    * @example
    * 5242880
@@ -287,7 +286,7 @@ export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends
 export class DescribeUniBackupPolicyDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. It is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
    * 
    * @example
    * F35F45B0-5D6B-4238-BE02-A62D0760****
@@ -295,7 +294,7 @@ export class DescribeUniBackupPolicyDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the anti-ransomware policy.
+   * The details of the anti-ransomware backup policy for databases.
    */
   uniBackupPolicyDTO?: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO;
   static names(): { [key: string]: string } {

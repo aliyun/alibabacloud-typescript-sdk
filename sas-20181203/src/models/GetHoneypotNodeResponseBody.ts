@@ -7,8 +7,9 @@ export class GetHoneypotNodeResponseBodyHoneypotNode extends $dara.Model {
    * @remarks
    * Indicates whether a honeypot is allowed to access the Internet. Valid values:
    * 
-   * *   **true**: The honeypot is allowed to access the Internet.
-   * *   **false**: The honeypot is not allowed to access the Internet.
+   * - **true**: The honeypot is allowed to access the Internet.
+   * 
+   * - **false**: The honeypot is not allowed to access the Internet.
    * 
    * @example
    * true
@@ -95,11 +96,15 @@ export class GetHoneypotNodeResponseBodyHoneypotNode extends $dara.Model {
    * @remarks
    * The status of the management node. Valid values:
    * 
-   * *   **0**: preparing
-   * *   **1**: normal
-   * *   **2**: abnormal
-   * *   **4**: starting
-   * *   **5**: upgrading
+   * - **0**: preparing
+   * 
+   * - **1**: normal
+   * 
+   * - **2**: abnormal
+   * 
+   * - **4**: starting
+   * 
+   * - **5**: upgrading
    * 
    * @example
    * 2
@@ -109,8 +114,9 @@ export class GetHoneypotNodeResponseBodyHoneypotNode extends $dara.Model {
    * @remarks
    * Indicates whether the management node can be upgraded. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * true
@@ -206,8 +212,9 @@ export class GetHoneypotNodeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

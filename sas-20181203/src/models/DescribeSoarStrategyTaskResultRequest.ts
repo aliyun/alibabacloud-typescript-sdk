@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSoarStrategyTaskResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Condition parameters for task scheduling.
+   * The condition parameter for task scheduling.
    * 
    * @example
    * {"status":1}
@@ -13,7 +13,7 @@ export class DescribeSoarStrategyTaskResultRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The current page number during paginated queries.
+   * The page number of the current page for a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeSoarStrategyTaskResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries to display per page during paginated queries.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -29,8 +29,8 @@ export class DescribeSoarStrategyTaskResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Strategy task ID.
-   * > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+   * The ID of the policy task.
+   * >Call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain this parameter.
    * 
    * @example
    * 100

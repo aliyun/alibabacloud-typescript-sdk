@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetServerlessAppAuthDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * SAE application ID.
+   * The SAE application ID.
    * 
-   * > Obtain through the [ListMachineApps](~~ListMachineApps~~) interface.
+   * > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain the ID.
    * 
    * @example
    * 3de9f2ac-f***769226df
@@ -15,7 +15,7 @@ export class GetServerlessAppAuthDetailRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Application region ID.
+   * The region ID of the application.
    * 
    * @example
    * cn-hangzhou
@@ -23,9 +23,9 @@ export class GetServerlessAppAuthDetailRequest extends $dara.Model {
   appRegionId?: string;
   /**
    * @remarks
-   * Server type: 
+   * The server type. Valid values:
    * - **RunD**
-   * - **ECI**
+   * - **ECI**.
    * 
    * @example
    * RunD
@@ -33,10 +33,10 @@ export class GetServerlessAppAuthDetailRequest extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Cloud product: 
+   * The cloud service to which the application belongs. Valid values:
    * - **ASK**
    * - **SAE**
-   * - **ACS**
+   * - **ACS**.
    * 
    * @example
    * SAE

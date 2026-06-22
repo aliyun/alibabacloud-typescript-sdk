@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWebLockUnbindResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. It is a unique identifier that Alibaba Cloud generates for the request. You can use it to troubleshoot issues.
    * 
    * @example
    * F0A8A039-930D-5EC1-97C8-43F05776188A

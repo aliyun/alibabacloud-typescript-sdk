@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupedInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number from which query results start to be displayed. Default value: **1**, indicating that query results are displayed starting from page 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the group to which the assets belong. Fuzzy search is supported.
+   * The name of the asset group to query. Fuzzy search is supported.
    * 
    * @example
    * test-01
@@ -21,11 +21,11 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The filter condition that you want to use to query the assets. Valid values:
+   * The filter condition for querying assets. Valid values:
    * 
-   * *   **groupId**: the group to which the assets belong
-   * *   **regionId**: the region in which the assets reside
-   * *   **vpcInstanceId**: the virtual private cloud (VPC) in which the assets reside
+   * - **groupId**: queries assets by group.
+   * - **regionId**: queries assets by region.
+   * - **vpcInstanceId**: queries assets by Virtual Private Cloud (VPC).
    * 
    * This parameter is required.
    * 
@@ -35,10 +35,9 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   groupField?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for requests and responses. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -46,7 +45,7 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of the assets that you want to query. Set the value to **ecs**, which indicates Elastic Compute Service (ECS) instances.
+   * The type of assets to query. Fixed value: **ecs**, indicating Elastic Compute Service (ECS) instances.
    * 
    * @example
    * ecs
@@ -54,10 +53,9 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   machineTypes?: string;
   /**
    * @remarks
-   * Specifies whether to enable paged query. Default value: **true**. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Specifies whether to enable paginated queries. Default value: **true**. Valid values:
+   * - **true**: enables paginated queries.
+   * - **false**: disables paginated queries.
    * 
    * @example
    * true
@@ -65,7 +63,7 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   noPage?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The number of entries per page in a paginated query. Default value: **20**, indicating that 20 entries of asset information are displayed per page.
    * 
    * @example
    * 20
@@ -73,13 +71,13 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The edition of Security Center that protects the asset. Valid values:
+   * The edition filter for querying assets. Valid values:
    * 
-   * * **sas_gte_advanced**: the Advanced edition or higher
-   * * **sas_gte_enterprise**: the Enterprise edition or higher
-   * * **sas_gt_basic:** a paid edition
-   * * **sas_eq_advanced:** the Advanced edition
-   * * **sas_gt_anti_virus:** an edition higher than the Anti-virus edition
+   * - **sas_gte_advanced**: Advanced edition or higher
+   * - **sas_gte_enterprise**: Enterprise edition or higher
+   * - **sas_gt_basic**: paid editions
+   * - **sas_eq_advanced**: Advanced edition only
+   * - **sas_gt_anti_virus**: editions higher than Anti-virus edition
    * 
    * @example
    * sas_gt_basic
@@ -87,13 +85,13 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   saleVersionCheckCode?: string;
   /**
    * @remarks
-   * The source of the server. Valid values:
+   * The server vendor. Valid values:
    * 
-   * *   **0**: an asset provided by Alibaba Cloud.
-   * *   **1**: a third-party cloud server
-   * *   **2**: a server in a data center
-   * *   **3**, **4**, **5**, and **7**: other cloud asset
-   * *   **8**: a lightweight asset
+   * - **0**: Alibaba Cloud assets
+   * - **1**: non-cloud assets
+   * - **2**: IDC assets
+   * - **3**, **4**, **5**, **7**: assets from other cloud providers
+   * - **8**: lightweight assets
    * 
    * @example
    * 0
@@ -101,13 +99,13 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
   vendor?: number;
   /**
    * @remarks
-   * The source of the server. Separate multiple sources with commas (,).Valid values:
+   * The server vendors. Separate multiple vendors with commas (,). Valid values:
    * 
-   * *   **0**: an asset provided by Alibaba Cloud.
-   * *   **1**: a third-party cloud server
-   * *   **2**: a server in a data center
-   * *   **3**, **4**, **5**, and **7**: other cloud asset
-   * *   **8**: a lightweight asset
+   * - **0**: Alibaba Cloud assets
+   * - **1**: non-cloud assets
+   * - **2**: IDC assets
+   * - **3**, **4**, **5**, **7**: assets from other cloud providers
+   * - **8**: lightweight assets
    * 
    * @example
    * 0,8

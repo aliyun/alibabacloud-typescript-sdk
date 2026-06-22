@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ProcessSoarStrategyTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the strategy task.
-   * > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+   * The ID of the policy task.
+   * >Call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,9 +16,9 @@ export class ProcessSoarStrategyTaskRequest extends $dara.Model {
   strategyTaskId?: number;
   /**
    * @remarks
-   * Task action status. Values:
-   * - SCHEDULE: Schedule
-   * - PAUSE: Pause
+   * The action status of the task. Valid values:
+   * - SCHEDULE: scheduling
+   * - PAUSE: pause.
    * 
    * This parameter is required.
    * 

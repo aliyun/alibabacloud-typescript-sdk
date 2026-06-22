@@ -27,7 +27,7 @@ export class DescribeCheckWarningMachinesResponseBodyMachines extends $dara.Mode
    * The instance name of the server.
    * 
    * @example
-   * win-oracl****
+   * test****
    */
   instanceName?: string;
   /**

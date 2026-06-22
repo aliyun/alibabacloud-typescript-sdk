@@ -31,8 +31,9 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the vulnerability was detected based on version comparison. Valid values:
    * 
-   * *   1: The vulnerability was detected based on version comparison.
-   * *   0: The vulnerability was not detected based on version comparison.
+   * - 1: The vulnerability was detected based on version comparison.
+   * 
+   * - 0: The vulnerability was not detected based on version comparison.
    * 
    * @example
    * 1
@@ -42,8 +43,9 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the vulnerability was detected based on proof of concept (POC) verification. Valid values:
    * 
-   * *   1: The vulnerability was detected based on POC verification.
-   * *   0: The vulnerability was not detected based on POC verification.
+   * - 1: The vulnerability was detected based on POC verification.
+   * 
+   * - 0: The vulnerability was not detected based on POC verification.
    * 
    * @example
    * 0
@@ -70,7 +72,7 @@ export class DescribeVulListPageResponseBodyData extends $dara.Model {
    * The name of the vulnerability.
    * 
    * @example
-   * Windows RCE vulnerability
+   * Windows 终端远程代码执行漏洞
    */
   title?: string;
   static names(): { [key: string]: string } {

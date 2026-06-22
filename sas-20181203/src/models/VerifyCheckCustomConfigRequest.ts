@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyCheckCustomConfigRequestCustomCheckConfigCloudAssetInstance extends $dara.Model {
   /**
    * @remarks
-   * Instance ID of the asset.
+   * The instance ID of the asset.
    * 
    * @example
    * i-0jl4mjgl261cfrz5****
@@ -45,7 +45,7 @@ export class VerifyCheckCustomConfigRequestCustomCheckConfigCloudAssetInstance e
 export class VerifyCheckCustomConfigRequestCustomCheckConfig extends $dara.Model {
   /**
    * @remarks
-   * Define rules for custom inspection items.
+   * The definition rule of the custom check item.
    * 
    * @example
    * {"AssociatedData":{"ToDataList":[{"DataName":"ACS_ECS_Instance","PropertyPath":"InstanceId","FromPropertyPath":"InstanceId"}]},"MatchProperty":{"Operator":"AND","MatchProperties":[{"DataName":"ACS_ECS_Disk","PropertyPath":"DiskId","MatchOperator":"EQ","MatchPropertyValue":"testId"}]}}
@@ -53,12 +53,12 @@ export class VerifyCheckCustomConfigRequestCustomCheckConfig extends $dara.Model
   checkRule?: string;
   /**
    * @remarks
-   * Asset instance that requires testing rules
+   * The asset instance on which you want to test the rule.
    */
   cloudAssetInstance?: VerifyCheckCustomConfigRequestCustomCheckConfigCloudAssetInstance;
   /**
    * @remarks
-   * Asset subtype of the cloud product
+   * The asset subtype of the cloud service.
    * 
    * @example
    * DISK
@@ -66,29 +66,30 @@ export class VerifyCheckCustomConfigRequestCustomCheckConfig extends $dara.Model
   instanceSubType?: string;
   /**
    * @remarks
-   * Asset types of cloud products. Values:
-   * - **ECS**: Elastic Compute Service 
-   * - **SLB**: Server Load Balancer 
-   * - **RDS**: Relational Database Service 
-   * - **MONGODB**: MongoDB Database 
-   * - **KVSTORE**: Redis Database 
-   * - **ACR**: Container Registry 
-   * - **CSK**: CSK 
-   * - **VPC**: Virtual Private Cloud 
-   * - **ACTIONTRAIL**: Action Trail 
-   * - **CDN**: Content Delivery Network 
-   * - **CAS**: Digital Certificate Management Service [formerly SSL Certificates] 
-   * - **RDC**: DevOps 
-   * - **RAM**: Resource Access Management 
-   * - **DDOS**: Distributed Denial of Service 
-   * - **WAF**: Web Application Firewall 
-   * - **OSS**: Object Storage Service 
-   * - **POLARDB**: POLARDB 
-   * - **POSTGRESQL**: PostgreSQL 
-   * - **MSE**: MSE 
-   * - **NAS**: Network Attached Storage 
-   * - **SDDP**: Sensitive Data Discovery and Protection 
-   * - **EIP**: Elastic IP
+   * The asset type of the cloud service. Valid values:
+   * 
+   * - **ECS**: server
+   * - **SLB**: load balancing
+   * - **RDS**: ApsaraDB RDS database
+   * - **MONGODB**: ApsaraDB for MongoDB database
+   * - **KVSTORE**: ApsaraDB for Redis database
+   * - **ACR**: ACR
+   * - **CSK**: CSK
+   * - **VPC**: VPC
+   * - **ACTIONTRAIL**: ActionTrail
+   * - **CDN**: CDN
+   * - **CAS**: Certificate Management Service (formerly SSL Certificates Service)
+   * - **RDC**: Apsara Devops
+   * - **RAM**: RAM
+   * - **DDOS**: distributed deny of service
+   * - **WAF**: WAF
+   * - **OSS**: access control
+   * - **POLARDB**: POLARDB
+   * - **POSTGRESQL**: PostgreSQL
+   * - **MSE**: MSE
+   * - **NAS**: NAS
+   * - **SDDP**: SDDP
+   * - **EIP**: EIP.
    * 
    * @example
    * ECS
@@ -96,12 +97,12 @@ export class VerifyCheckCustomConfigRequestCustomCheckConfig extends $dara.Model
   instanceType?: string;
   /**
    * @remarks
-   * Cloud asset vendor. Values: 
-   * - **ALIYUN**: Alibaba Cloud 
-   * - **Tencent**: Tencent Cloud 
-   * - **HUAWEICLOUD**: Huawei Cloud 
-   * - **Azure**: Microsoft 
-   * - **AWS**: Amazon Web Services (AWS)
+   * The cloud asset vendor. Valid values:
+   * - **ALIYUN**: Alibaba Cloud
+   * - **Tencent**: Tencent Cloud
+   * - **HUAWEICLOUD**: Huawei Cloud
+   * - **Azure**: Microsoft Azure
+   * - **AWS**: Amazon Web Services (AWS).
    * 
    * @example
    * ALIYUN
@@ -142,7 +143,7 @@ export class VerifyCheckCustomConfigRequestCustomCheckConfig extends $dara.Model
 export class VerifyCheckCustomConfigRequestCustomConfigs extends $dara.Model {
   /**
    * @remarks
-   * Name of the custom configuration item for the check item, unique within the same check item.
+   * The name of the custom configuration item for the check item. The name is unique within the check item.
    * 
    * @example
    * IPList
@@ -150,7 +151,7 @@ export class VerifyCheckCustomConfigRequestCustomConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Operation type for the custom configuration item of the check item. Only pass DELETE when deleting; no need to pass for creation or update.
+   * The operation type of the custom configuration item for the check item. Set this parameter to DELETE only for deletion operations. You do not need to specify this parameter for creation or update operations.
    * 
    * @example
    * DELETE
@@ -158,7 +159,7 @@ export class VerifyCheckCustomConfigRequestCustomConfigs extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * User-configured value string for the custom configuration item of the check item.
+   * The user-configured value string of the custom configuration item for the check item.
    * 
    * @example
    * 10.12.4.XX
@@ -192,7 +193,7 @@ export class VerifyCheckCustomConfigRequestCustomConfigs extends $dara.Model {
 export class VerifyCheckCustomConfigRequestRepairConfigs extends $dara.Model {
   /**
    * @remarks
-   * ID of the repair process during the repair.
+   * The ID of the repair flow that corresponds to the repair operation.
    * 
    * @example
    * 7fec0a3395b345c18f108ffc9fc0****
@@ -200,7 +201,7 @@ export class VerifyCheckCustomConfigRequestRepairConfigs extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Name of the repair parameter for the check item, unique within the same check item.
+   * The name of the repair parameter for the check item. The name is unique within the check item.
    * 
    * @example
    * IPLists
@@ -208,7 +209,7 @@ export class VerifyCheckCustomConfigRequestRepairConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Operation type for the custom configuration item of the check item. Only pass DELETE when deleting; no need to pass for creation or update.
+   * The operation type of the custom configuration item for the check item. Set this parameter to DELETE only for deletion operations. You do not need to specify this parameter for creation or update operations.
    * 
    * @example
    * DELETE
@@ -216,7 +217,7 @@ export class VerifyCheckCustomConfigRequestRepairConfigs extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * User-configured value string for the repair parameter of the check item.
+   * The user-configured value string of the repair configuration item for the check item.
    * 
    * @example
    * 172.26.49.XX
@@ -252,7 +253,7 @@ export class VerifyCheckCustomConfigRequestRepairConfigs extends $dara.Model {
 export class VerifyCheckCustomConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Check item ID.
+   * The ID of the check item.
    * 
    * @example
    * 76
@@ -260,24 +261,24 @@ export class VerifyCheckCustomConfigRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * Custom check item to validate input parameters.
+   * The input parameters for custom check item validation.
    */
   customCheckConfig?: VerifyCheckCustomConfigRequestCustomCheckConfig;
   /**
    * @remarks
-   * List of custom configuration items for the check item.
+   * The list of custom parameter configuration items for the check item.
    */
   customConfigs?: VerifyCheckCustomConfigRequestCustomConfigs[];
   /**
    * @remarks
-   * Repair parameters supported by the check item\\"s repair function.
+   * The repair parameters supported by the repair feature of the check item.
    */
   repairConfigs?: VerifyCheckCustomConfigRequestRepairConfigs[];
   /**
    * @remarks
-   * Situation Awareness parameter validation types: 
-   * - **REPAIR_CONFIG**: Repair and custom parameter validation (default) 
-   * - **CHECK_ITEM_CONFIG**: Custom check item validation
+   * The validation type for Threat Detection Service parameters. Valid values:
+   * - **REPAIR_CONFIG**: repair and custom parameter validation (default).
+   * - **CHECK_ITEM_CONFIG**: custom check item validation.
    * 
    * @example
    * REPAIR_CONFIG

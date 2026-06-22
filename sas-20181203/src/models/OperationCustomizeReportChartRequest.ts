@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperationCustomizeReportChartRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the chart that is included in the report. Separate multiple IDs with commas (,).
-   * 
-   * >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID.
+   * The IDs of report chart configurations. Separate multiple IDs with commas (,).
+   * >Call [DescribeChartList](~~DescribeChartList~~) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class OperationCustomizeReportChartRequest extends $dara.Model {
   chartIds?: string;
   /**
    * @remarks
-   * The ID of the report.
-   * 
-   * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+   * The report ID.
+   * >Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain this parameter.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the task was created. Format: yyyy-MM-ddTHH:mm:ss.
    * 
    * @example
    * 2022-12-20 11:59:05
@@ -13,7 +13,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   create?: string;
   /**
    * @remarks
-   * The number of images that are scanned.
+   * The number of completed image tasks.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   finish?: number;
   /**
    * @remarks
-   * The end time of the task. A value is returned only when the task is in the Finished state. Otherwise, the returned value is empty.
+   * The time when the task ended. This parameter is returned only when the task status is Finished. Otherwise, an empty value is returned.
    * 
    * @example
    * 1669693430977
@@ -37,7 +37,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The time when the task was last modified. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the task was last modified. Format: yyyy-MM-ddTHH:mm:ss.
    * 
    * @example
    * 2022-12-20 12:00:05
@@ -45,7 +45,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   modified?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * IMAGE_SCAN
@@ -53,10 +53,10 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The method in which the task was created. A task can be created in the Security Center console or by calling an API operation. Valid values:
+   * The creation method. Valid values:
    * 
-   * *   **console_batch**: The task was created in the Security Center console.
-   * *   **openapi**: The task was created by calling an API operation.
+   * - **console_batch**: console
+   * - **openapi**: API.
    * 
    * @example
    * console_batch
@@ -64,7 +64,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The time when the task started.
    * 
    * @example
    * 1668614400000
@@ -72,15 +72,15 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the task. Valid value:
+   * The task status. Valid values:
    * 
-   * *   **PROCESSING**: The task is running.
-   * *   **START**: The task is being started.
-   * *   **MESSAGE_SEND**: The scan task is sent.
-   * *   **PRE_ANALYZER**: The image is in precheck.
-   * *   **SUCCESS**: The task was successful.
-   * *   **FAIL**: The task failed.
-   * *   **TIMOUT**: The task timed out.
+   * - **PROCESSING**: The task is being executed.
+   * - **START**: The task is starting.
+   * - **MESSAGE_SEND**: The scan is being distributed.
+   * - **PRE_ANALYZER**: The image is being pre-checked.
+   * - **SUCCESS**: The task is executed.
+   * - **FAIL**: The task failed.
+   * - **TIMOUT**: The task timed out.
    * 
    * @example
    * SUCCESS
@@ -88,7 +88,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The digest value of the image.
+   * The digest of the target image.
    * 
    * @example
    * 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d50****
@@ -96,9 +96,9 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The type of the scanned asset. Valid value:
+   * The scan target type. Valid values:
    * 
-   * *   **IMAGE**
+   * - **IMAGE**: image.
    * 
    * @example
    * IMAGE
@@ -114,9 +114,8 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the task. Valid value:
-   * 
-   * *   **IMAGE_SCAN**
+   * The task type. Valid values:
+   * - **IMAGE_SCAN**: image scan.
    * 
    * @example
    * IMAGE_SCAN
@@ -170,7 +169,7 @@ export class DescribeImageLatestScanTaskResponseBodyTask extends $dara.Model {
 export class DescribeImageLatestScanTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF4****
@@ -178,7 +177,7 @@ export class DescribeImageLatestScanTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the information about the task.
+   * The task information.
    */
   task?: DescribeImageLatestScanTaskResponseBodyTask[];
   static names(): { [key: string]: string } {

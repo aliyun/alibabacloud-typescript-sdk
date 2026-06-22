@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyUserItemRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page to display in a paged query.
    * 
    * @example
    * 1
@@ -13,10 +13,9 @@ export class DescribePropertyUserItemRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether to forcefully refresh the data that you want to query. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Specifies whether to forcefully refresh the data to be queried. Valid values:
+   * - **true**: Forcefully refresh.
+   * - **false**: Do not forcefully refresh.
    * 
    * @example
    * true
@@ -24,7 +23,7 @@ export class DescribePropertyUserItemRequest extends $dara.Model {
   forceFlush?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to display on each page in a paged query.
    * 
    * @example
    * 2
@@ -32,7 +31,7 @@ export class DescribePropertyUserItemRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The information about the account.
+   * The account information of Asset Fingerprints.
    * 
    * @example
    * adm

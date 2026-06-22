@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTraceInfoDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source. Set the value to **sas**.
+   * The identifier of the request source. Set the value to **sas**.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeTraceInfoDetailRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The timestamp of the detection. Unit: milliseconds.
+   * The detection timestamp. Unit: milliseconds.
    * 
    * @example
    * 1670555392000
@@ -23,10 +23,9 @@ export class DescribeTraceInfoDetailRequest extends $dara.Model {
   incidentTime?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -34,7 +33,7 @@ export class DescribeTraceInfoDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request. The value of this parameter is specified by the system.
+   * The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
    * 
    * @example
    * 127.0.0.1
@@ -42,7 +41,7 @@ export class DescribeTraceInfoDetailRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The type of the vertex. Set the value to **SAS_INCIDENT**.
+   * The vertex type. Set the value to **SAS_INCIDENT** for security alerts.
    * 
    * This parameter is required.
    * 
@@ -52,7 +51,7 @@ export class DescribeTraceInfoDetailRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The UUID of the server.
+   * The UUID of the server to query.
    * 
    * This parameter is required.
    * 
@@ -62,7 +61,7 @@ export class DescribeTraceInfoDetailRequest extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * Vertex ID, which can be obtained from the AlarmUniqueInfo in the response of the [DescribeSuspEvents](~~DescribeSuspEvents~~) interface.
+   * The vertex ID. You can obtain this value from the AlarmUniqueInfo parameter returned by the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation.
    * 
    * This parameter is required.
    * 

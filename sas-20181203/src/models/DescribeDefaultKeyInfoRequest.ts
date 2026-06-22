@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefaultKeyInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 58.246.73.***

@@ -15,10 +15,10 @@ export class DescribeStrategyDetailRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -26,7 +26,7 @@ export class DescribeStrategyDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 192.168.XX.XX

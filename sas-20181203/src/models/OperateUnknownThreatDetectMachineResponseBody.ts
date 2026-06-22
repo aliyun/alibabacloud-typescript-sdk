@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateUnknownThreatDetectMachineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 20456DD5-5CBF-5015-9173-12CA4246B***

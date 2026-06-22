@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePublishCronResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 1052B989-305B-50A5-B5F5-998450******

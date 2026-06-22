@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRdTreeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The subfolder.
+   * The child folders.
    */
   children?: any[];
   /**
@@ -18,7 +18,7 @@ export class GetRdTreeResponseBodyData extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The name of the folder.
+   * The folder name.
    * 
    * @example
    * Root
@@ -60,7 +60,7 @@ export class GetRdTreeResponseBody extends $dara.Model {
   data?: GetRdTreeResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 30CBF632-109F-596F-97F2-451C8B2A****

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJenkinsImageRegistryNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the operation. Valid values:
-   * 
-   * *   **true**: successful
-   * *   **false**: failed
+   * The returned result. Valid values:
+   * - **true**: Processing succeeded.
+   * - **false**: Processing failed.
    * 
    * @example
    * true
@@ -16,7 +15,7 @@ export class UpdateJenkinsImageRegistryNameResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -24,7 +23,7 @@ export class UpdateJenkinsImageRegistryNameResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 4347E985-6E64-467B-96EC-30D4EA9E****
@@ -32,7 +31,7 @@ export class UpdateJenkinsImageRegistryNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time consumed. Unit: seconds.
+   * The time consumed for the execution. Unit: seconds.
    * 
    * @example
    * 1

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetStrategyTemplateDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the template.
-   * 
-   * >  You can call the [GetOpaStrategyTemplateSummary](~~GetOpaStrategyTemplateSummary~~) operation to query the IDs of templates.
+   * The ID of the rule template.
+   * >You can call the [GetOpaStrategyTemplateSummary](~~GetOpaStrategyTemplateSummary~~) operation to obtain this parameter.
    * 
    * @example
    * 2

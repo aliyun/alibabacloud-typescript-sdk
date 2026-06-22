@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Security Center is authorized to access Log Service. Valid values:
+   * The service authorization status of the log analysis feature. Valid values:
    * 
-   * *   **yes**
-   * *   **no**
+   * - **yes**: authorized
+   * - **no**: not authorized.
    * 
    * @example
    * yes
@@ -16,10 +16,10 @@ export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.
   authStatus?: string;
   /**
    * @remarks
-   * Indicates whether the log analysis feature is purchased. Valid values:
+   * The purchase status of the log analysis feature. Valid values:
    * 
-   * *   **yes**
-   * *   **no**
+   * - **yes**: purchased
+   * - **no**: not purchased.
    * 
    * @example
    * yes
@@ -27,9 +27,10 @@ export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.
   buyStatus?: string;
   /**
    * @remarks
-   * The version of the log analysis field. Valid values:
-   * - SAS_V1
-   * - SAS_V2
+   * The version of the log delivery fields for log analysis. Valid values:
+   * 
+   * - **SAS_V1**
+   * - **SAS_V2**.
    * 
    * @example
    * SAS_V1
@@ -37,10 +38,10 @@ export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.
   etlMetaVersion?: string;
   /**
    * @remarks
-   * The status of the log analysis feature. Valid values:
+   * The enabling status of log analysis. Valid values:
    * 
-   * *   **yes**: enabled
-   * *   **no**: disabled
+   * - **yes**: enabled
+   * - **no**: not enabled.
    * 
    * @example
    * yes
@@ -48,10 +49,10 @@ export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.
   openStatus?: string;
   /**
    * @remarks
-   * Indicates whether the pay-as-you-go billing method is used. Valid values:
+   * The pay-as-you-go activation status of the log analysis feature. Valid values:
    * 
-   * *   **yes**
-   * *   **no**
+   * - **yes**: activated
+   * - **no**: not activated.
    * 
    * @example
    * no
@@ -59,10 +60,10 @@ export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.
   postPaidOpenStatus?: string;
   /**
    * @remarks
-   * Indicates whether the log analysis feature supports the pay-as-you-go billing method. Valid values:
+   * The pay-as-you-go support status of the log analysis feature. Valid values:
    * 
-   * *   **yes**
-   * *   **no**
+   * - **yes**: supported
+   * - **no**: not supported.
    * 
    * @example
    * yes
@@ -70,10 +71,10 @@ export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.
   postPaidSupportStatus?: string;
   /**
    * @remarks
-   * The status of the dedicated Log Service project. Valid values:
+   * The status of the log project used by the log analysis feature. Valid values:
    * 
-   * *   **Normal**: normal
-   * *   **Disable**: disabled
+   * - **Normal**: Normal.
+   * - **Disable**: Disabled.
    * 
    * @example
    * Normal
@@ -81,10 +82,10 @@ export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.
   slsProjectStatus?: string;
   /**
    * @remarks
-   * Indicates whether Log Service is activated. Valid values:
+   * The activation status of Simple Log Service (SLS). Valid values:
    * 
-   * *   **yes**
-   * *   **no**
+   * - **yes**: activated
+   * - **no**: not activated.
    * 
    * @example
    * yes
@@ -128,12 +129,12 @@ export class DescribeLogShipperStatusResponseBodyLogShipperStatus extends $dara.
 export class DescribeLogShipperStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status information.
+   * The log delivery status collection.
    */
   logShipperStatus?: DescribeLogShipperStatusResponseBodyLogShipperStatus;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E3322413****

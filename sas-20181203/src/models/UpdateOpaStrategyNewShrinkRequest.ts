@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOpaStrategyNewShrinkRequestScopes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster node to which the rule is applied.
-   * 
-   * >  You can call the [GetOpaStrategyDetailNew](~~GetOpaStrategyDetailNew~~) operation to query the ID of the cluster node to which the rule is applied.
+   * The policy instance ID in the cluster.
+   * > Call the [GetOpaStrategyDetailNew](~~GetOpaStrategyDetailNew~~) operation to obtain this parameter.
    * 
    * @example
    * ack-1
@@ -17,8 +16,8 @@ export class UpdateOpaStrategyNewShrinkRequestScopes extends $dara.Model {
    * @remarks
    * Specifies whether all namespaces are included. Valid values:
    * 
-   * *   **0**: Not all namespaces are included.
-   * *   **1**: All namespaces are included.
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 1
@@ -26,9 +25,8 @@ export class UpdateOpaStrategyNewShrinkRequestScopes extends $dara.Model {
   allNamespace?: number;
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the cluster ID.
+   * The ID of the container cluster.
+   * > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * cdcb56a931c**
@@ -36,9 +34,9 @@ export class UpdateOpaStrategyNewShrinkRequestScopes extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The namespaces.
+   * The list of namespaces.
    * 
-   * > This parameter is valid only when the AllNamespace parameter is set to 0.
+   * >Notice: This parameter takes effect only when AllNamespace is set to 0..
    */
   namespaceList?: string[];
   static names(): { [key: string]: string } {
@@ -74,14 +72,14 @@ export class UpdateOpaStrategyNewShrinkRequestScopes extends $dara.Model {
 export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The risks that you want to detect by using the rule.
+   * The alert content details included in the policy.
    */
   alarmDetailShrink?: string;
   /**
    * @remarks
    * The cluster ID.
    * 
-   * > This parameter is deprecated. You can use the Scopes parameter to specify a scope in which cluster parameters take effect.
+   * >Notice: This parameter is deprecated. Use the Scopes parameter to specify the scope of clusters to which the policy applies..
    * 
    * @example
    * c870ec78ecbcb41d2a35c679823ef****
@@ -90,8 +88,7 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
-   * 
-   * > This parameter is deprecated.
+   * >Notice: This parameter is deprecated..
    * 
    * @example
    * docker-law
@@ -99,7 +96,7 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The rule description.
+   * The policy description.
    * 
    * @example
    * 4566
@@ -107,20 +104,20 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The image names.
+   * The list of image names included in the policy.
    */
   imageName?: string[];
   /**
    * @remarks
-   * The image tags.
+   * The list of image tags included in the policy.
    */
   label?: string[];
   /**
    * @remarks
-   * Specifies whether the rule supports malicious Internet images. Valid values:
+   * Specifies whether the policy supports Internet malicious images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -128,11 +125,11 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   maliciousImage?: boolean;
   /**
    * @remarks
-   * The action that is performed when the rule is hit. Valid values:
+   * The action to take when the policy is hit. Valid values:
    * 
-   * *   **1**: alert
-   * *   **2**: block
-   * *   **3**: allow
+   * - **1**: Alert.
+   * - **2**: Block.
+   * - **3**: Allow.
    * 
    * @example
    * 1
@@ -140,14 +137,13 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   ruleAction?: number;
   /**
    * @remarks
-   * The application scope.
+   * The scope of the policy.
    */
   scopes?: UpdateOpaStrategyNewShrinkRequestScopes[];
   /**
    * @remarks
-   * The ID of the rule.
-   * 
-   * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the ID.
+   * The policy ID.
+   * >Call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
    * 
    * @example
    * 1003
@@ -155,7 +151,7 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The rule name.
+   * The policy name.
    * 
    * @example
    * test
@@ -163,9 +159,8 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   strategyName?: string;
   /**
    * @remarks
-   * The ID of the rule template.
-   * 
-   * >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+   * The policy template ID.
+   * >Call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to obtain this parameter.
    * 
    * @example
    * 109
@@ -173,10 +168,10 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   strategyTemplateId?: number;
   /**
    * @remarks
-   * Specifies whether the rule supports unscanned images. Valid values:
+   * Specifies whether the policy supports unscanned images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -184,7 +179,7 @@ export class UpdateOpaStrategyNewShrinkRequest extends $dara.Model {
   unScanedImage?: boolean;
   /**
    * @remarks
-   * The whitelists.
+   * The whitelist.
    */
   whiteList?: string[];
   static names(): { [key: string]: string } {

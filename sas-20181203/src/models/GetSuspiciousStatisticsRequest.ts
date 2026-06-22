@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSuspiciousStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset group. Separate multiple IDs with commas (,).
-   * 
-   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+   * The IDs of the asset groups that you want to query. Separate multiple asset group IDs with commas (,).
+   * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class GetSuspiciousStatisticsRequest extends $dara.Model {
   groupIdList?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 10.12.XX.XX

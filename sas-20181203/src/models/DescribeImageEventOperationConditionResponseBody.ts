@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageEventOperationConditionResponseBodyDataOperationsConditions extends $dara.Model {
   /**
    * @remarks
-   * The keyword of the condition. Valid values:
-   * 
-   * *   **MD5**
-   * *   **PATH**
+   * The condition key. Valid values:
+   * - **MD5**: MD5.
+   * - **PATH**: path.
    * 
    * @example
    * MD5
@@ -16,7 +15,7 @@ export class DescribeImageEventOperationConditionResponseBodyDataOperationsCondi
   conditionKey?: string;
   /**
    * @remarks
-   * The name of the condition.
+   * The condition name.
    * 
    * @example
    * MD5
@@ -24,7 +23,7 @@ export class DescribeImageEventOperationConditionResponseBodyDataOperationsCondi
   conditionName?: string;
   /**
    * @remarks
-   * The matching types.
+   * The match type.
    */
   supportedMisType?: string[];
   static names(): { [key: string]: string } {
@@ -63,9 +62,8 @@ export class DescribeImageEventOperationConditionResponseBodyDataOperations exte
   conditions?: DescribeImageEventOperationConditionResponseBodyDataOperationsConditions[];
   /**
    * @remarks
-   * The operation code.
-   * 
-   * *   Only **whitelist** may be returned, which indicates that the alert event is added to the whitelist.
+   * The operation code. Valid values:
+   * - **whitelist**: whitelist.
    * 
    * @example
    * whitelist
@@ -73,7 +71,7 @@ export class DescribeImageEventOperationConditionResponseBodyDataOperations exte
   operationCode?: string;
   /**
    * @remarks
-   * The name of the operation.
+   * The operation name.
    * 
    * @example
    * whitelist
@@ -110,9 +108,8 @@ export class DescribeImageEventOperationConditionResponseBodyDataOperations exte
 export class DescribeImageEventOperationConditionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The alert type.
-   * 
-   * *   Only **sensitiveFile** may be returned.
+   * The alerting type. Valid values:
+   * - **sensitiveFile**: sensitive file.
    * 
    * @example
    * sensitiveFile
@@ -120,12 +117,12 @@ export class DescribeImageEventOperationConditionResponseBodyData extends $dara.
   eventType?: string;
   /**
    * @remarks
-   * The operations.
+   * The list of operations.
    */
   operations?: DescribeImageEventOperationConditionResponseBodyDataOperations[];
   /**
    * @remarks
-   * The application scopes of the rules.
+   * The rule scope.
    */
   scenarios?: string[];
   static names(): { [key: string]: string } {
@@ -162,7 +159,7 @@ export class DescribeImageEventOperationConditionResponseBodyData extends $dara.
 export class DescribeImageEventOperationConditionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code of the call.
    * 
    * @example
    * 200
@@ -191,10 +188,9 @@ export class DescribeImageEventOperationConditionResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

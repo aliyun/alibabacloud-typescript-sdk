@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeBackupPolicyVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the anti-ransomware policy.
-   * 
-   * > You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+   * The ID of the anti-ransomware protection policy.
+   * >You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
   digest?: string;
   /**
    * @remarks
-   * The timestamp generated when the first scan was performed. Unit: milliseconds.
+   * The timestamp of the first scan, in milliseconds.
    * 
    * @example
    * 1649814050000
@@ -21,16 +21,23 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
   firstScanTime?: number;
   /**
    * @remarks
-   * The image instance ID.
+   * The ID of the image instance.
    * 
    * @example
    * cri-a595qp31knh9****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * sec-NessusSc
+   */
   instanceName?: string;
   /**
    * @remarks
-   * The timestamp when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the most recent scan, in milliseconds.
    * 
    * @example
    * 1649814050000
@@ -38,7 +45,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
   lastScanTime?: number;
   /**
    * @remarks
-   * The ID of the region in which the image instance resides.
+   * The region ID of the image instance.
    * 
    * @example
    * cn-hangzhou
@@ -46,7 +53,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The image repository name.
+   * The name of the image repository.
    * 
    * @example
    * opa-test
@@ -54,7 +61,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * libssh2
@@ -64,9 +71,9 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: High risk.
+   * - **medium**: Medium risk.
+   * - **low**: Low risk.
    * 
    * @example
    * low
@@ -74,11 +81,10 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
   riskLevel?: string;
   /**
    * @remarks
-   * The sensitive file status. Valid values:
-   * 
-   * *   **0**: unhandled
-   * *   **1**: ignored
-   * *   **2**: false positive
+   * The status of the sensitive file. Valid values:
+   * - **0**: Unhandled.
+   * - **1**: Ignored.
+   * - **2**: False positive.
    * 
    * @example
    * 0
@@ -86,7 +92,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
   status?: string;
   /**
    * @remarks
-   * The tag that is added to the image.
+   * The image tag.
    * 
    * @example
    * nuxeo6
@@ -94,7 +100,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
   tag?: string;
   /**
    * @remarks
-   * The image UUID.
+   * The unique identifier of the image.
    * 
    * @example
    * f58681174f944623345379e23b7b****
@@ -146,7 +152,7 @@ export class DescribeImageListBySensitiveFileResponseBodyImageInfos extends $dar
 export class DescribeImageListBySensitiveFileResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries displayed on the current page in a paginated query.
    * 
    * @example
    * 4
@@ -154,7 +160,7 @@ export class DescribeImageListBySensitiveFileResponseBodyPageInfo extends $dara.
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paginated query.
    * 
    * @example
    * 1
@@ -162,7 +168,7 @@ export class DescribeImageListBySensitiveFileResponseBodyPageInfo extends $dara.
   currentPage?: number;
   /**
    * @remarks
-   * The key of the last data entry.
+   * The key of the last entry.
    * 
    * @example
    * CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAGYXFWIAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM1Mzc3Njc4MzA2ODY5NmI2YTY1Nzg2NTcxNjE2NDc4NjE=
@@ -170,7 +176,7 @@ export class DescribeImageListBySensitiveFileResponseBodyPageInfo extends $dara.
   lastRowKey?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 20.
+   * The number of alert events displayed per page in a paginated query. Default value: **20**, indicating that 20 alert events are displayed per page.
    * 
    * @example
    * 20
@@ -178,7 +184,7 @@ export class DescribeImageListBySensitiveFileResponseBodyPageInfo extends $dara.
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 83
@@ -216,7 +222,7 @@ export class DescribeImageListBySensitiveFileResponseBodyPageInfo extends $dara.
 export class DescribeImageListBySensitiveFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of failure.
    * 
    * @example
    * 200
@@ -232,12 +238,12 @@ export class DescribeImageListBySensitiveFileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The information about the images.
+   * The list of image information.
    */
   imageInfos?: DescribeImageListBySensitiveFileResponseBodyImageInfos[];
   /**
    * @remarks
-   * The error message returned.
+   * The detailed information of the error code.
    * 
    * @example
    * successful
@@ -250,7 +256,7 @@ export class DescribeImageListBySensitiveFileResponseBody extends $dara.Model {
   pageInfo?: DescribeImageListBySensitiveFileResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. It can be used to troubleshoot issues.
    * 
    * @example
    * E0C5C07F-1576-509A-AE44-1C36B8445B37
@@ -258,9 +264,9 @@ export class DescribeImageListBySensitiveFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * The result status of the API call. Valid values:
+   * - **true**: The API call was successful.
+   * - **false**: The API call failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterCheckSummaryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Total number of items that failed the check.
+   * The total number of check items that failed the check.
    * 
    * @example
    * 6
@@ -13,7 +13,7 @@ export class GetClusterCheckSummaryResponseBodyData extends $dara.Model {
   notPassCount?: number;
   /**
    * @remarks
-   * Number of high-risk inspection items that have not passed.
+   * The number of check items with a high-risk level that failed the check.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetClusterCheckSummaryResponseBodyData extends $dara.Model {
   notPassHighCount?: number;
   /**
    * @remarks
-   * Number of low-risk inspection items that have not passed.
+   * The number of check items with a low-risk level that failed the check.
    * 
    * @example
    * 3
@@ -29,7 +29,7 @@ export class GetClusterCheckSummaryResponseBodyData extends $dara.Model {
   notPassLowCount?: number;
   /**
    * @remarks
-   * Number of medium-risk failed inspection items.
+   * The number of check items with a medium-risk level that failed the check.
    * 
    * @example
    * 2
@@ -65,12 +65,12 @@ export class GetClusterCheckSummaryResponseBodyData extends $dara.Model {
 export class GetClusterCheckSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return data.
+   * The returned data.
    */
   data?: GetClusterCheckSummaryResponseBodyData;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF46038

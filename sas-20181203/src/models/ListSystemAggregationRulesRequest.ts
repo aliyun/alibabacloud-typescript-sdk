@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListSystemAggregationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the aggregation types.
+   * The rule cluster ID.
    */
   aggregationIds?: number[];
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -20,10 +20,9 @@ export class ListSystemAggregationRulesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -31,7 +30,7 @@ export class ListSystemAggregationRulesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -41,24 +40,24 @@ export class ListSystemAggregationRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
-   * Rule\\*\\*\\*\\*
+   * 规则****
    */
   ruleName?: string;
   /**
    * @remarks
-   * The types of the rules.
+   * The list of rule types.
    */
   ruleTypes?: number[];
   /**
    * @remarks
-   * The type of the operating system. Valid values:
+   * The operating system type. Valid values:
    * 
-   * *   **2**: Windows
-   * *   **1**: Linux
-   * *   **0**: all
+   * - **2**: Windows
+   * - **1**: Linux
+   * - **0**: all.
    * 
    * @example
    * 0

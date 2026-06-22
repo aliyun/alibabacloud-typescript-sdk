@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDefenceCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of handled alerts of the precise defense type in the last 15 days.
+   * The number of alerts handled by accurate access control in the last 15 days.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetDefenceCountResponseBody extends $dara.Model {
   defenceCount15Days?: number;
   /**
    * @remarks
-   * The number of handled alerts of the precision defense type.
+   * The total number of alerts handled by accurate access control.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetDefenceCountResponseBody extends $dara.Model {
   defenceCountTotal?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 89AD16CC-97EE-50F3-9B12-9E28E5C8****
@@ -29,15 +29,15 @@ export class GetDefenceCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of handled security alerts of Cloud Security Center.
+   * The number of security alerts that have been handled in Security Center.
    * 
    * @example
-   * 10
+   * 3
    */
   suspiciousDealtCount?: number;
   /**
    * @remarks
-   * The number of handled alerts of the web tamper proofing type in the last 15 days.
+   * The number of alerting events handled by web tamper-proofing in the last 15 days.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class GetDefenceCountResponseBody extends $dara.Model {
   tamperProof15Days?: number;
   /**
    * @remarks
-   * The number of handled alerts of the web tamper proofing type.
+   * The total number of alerting events handled by web tamper-proofing.
    * 
    * @example
    * 1

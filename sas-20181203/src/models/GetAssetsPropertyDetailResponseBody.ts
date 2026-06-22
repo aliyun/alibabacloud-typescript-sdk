@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAssetsPropertyDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of asset fingerprint details displayed on the current page.
+   * The number of Asset Fingerprints detail entries on the current page.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class GetAssetsPropertyDetailResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the current page when performing a paginated query.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetAssetsPropertyDetailResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The NextToken value returned when using the NextToken method.
+   * The NextToken value returned when the NextToken method is used.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6k+AtdhNE3kgQEK36GujZ5on+tWdc+4WoaoMP/kUNxxxx
@@ -29,7 +29,7 @@ export class GetAssetsPropertyDetailResponseBodyPageInfo extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of asset fingerprint details displayed per page when performing a paginated query.
+   * The number of Asset Fingerprints details displayed per page in a paging query.
    * 
    * @example
    * 20
@@ -37,7 +37,7 @@ export class GetAssetsPropertyDetailResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of detailed asset fingerprint information queried.
+   * The total number of Asset Fingerprints detail entries returned.
    * 
    * @example
    * 23
@@ -75,7 +75,7 @@ export class GetAssetsPropertyDetailResponseBodyPageInfo extends $dara.Model {
 export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   /**
    * @remarks
-   * Agent
+   * The agent.
    * 
    * @example
    * Mozilla/5.0 (Windows NT 10.0%3B Win64%3B x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0
@@ -83,7 +83,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   agent?: string;
   /**
    * @remarks
-   * Container name.
+   * The container name.
    * 
    * @example
    * 5-rce_web_1
@@ -91,7 +91,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   containerName?: string;
   /**
    * @remarks
-   * The timestamp of the latest asset fingerprint scan, in milliseconds.
+   * The timestamp of the latest Asset Fingerprints scan, in milliseconds.
    * 
    * @example
    * 1649149566000
@@ -99,7 +99,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Asset description.
+   * The asset description.
    * 
    * @example
    * {\\"Type\\": \\"text\\", \\"Value\\": u\\"\\u786e\\u4fdd\\u7f51\\u5173\\u5b89\\u5168\\u9632\\u62a4\\u3002\\u8981\\u6c42\\uff1a\\u5f00\\u542fWAF\\u9632\\u706b\\u5899\\u9632\\u62a4\\u529f\\u80fd\\u3002\\"}
@@ -107,8 +107,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Web site domain. 
-   * > Only returned when **Biz** is **web_server**.
+   * The domain name of the web site.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * localhost
@@ -116,7 +116,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Large model service request interface address.
+   * The endpoint address of the large language model service.
    * 
    * @example
    * dashscope.aliyuncs.com
@@ -124,7 +124,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   endPoint?: string;
   /**
    * @remarks
-   * File path for requesting the large model service.
+   * The file path for requesting the large language model service.
    * 
    * @example
    * /root/llm.py
@@ -132,8 +132,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   file?: string;
   /**
    * @remarks
-   * Kernel module file path.
-   * > Returned only when **Biz** is **lkm**.
+   * The file path of the kernel module.
+   * > This parameter is returned only when **Biz** is set to **lkm**.
    * 
    * @example
    * /lib/modules/4****
@@ -141,7 +141,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   filepath?: string;
   /**
    * @remarks
-   * 镜像Digest
+   * The digest of the image.
    * 
    * @example
    * ImageDigest
@@ -149,7 +149,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   imageDigest?: string;
   /**
    * @remarks
-   * Image name.
+   * The image name.
    * 
    * @example
    * registry-vpc.cn-beijing.aliyuncs.com/acs/aliyun-ingress-controller****
@@ -157,7 +157,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * AI tool installation path
+   * The installation path of the AI tool.
    * 
    * @example
    * /etc/pip3/env/vllm
@@ -205,8 +205,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * Web site process listening protocol. 
-   * >Only returned when **Biz** is **web_server**.
+   * The listening protocol of the web site process.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * tcp
@@ -214,7 +214,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   listenProtocol?: string;
   /**
    * @remarks
-   * MCP name.
+   * The MCP name.
    * 
    * @example
    * @modelcontextprotocol/server-github
@@ -222,7 +222,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   mcpName?: string;
   /**
    * @remarks
-   * AI tool name
+   * The name of the AI tool.
    * 
    * @example
    * vllm
@@ -230,7 +230,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   middlewareName?: string;
   /**
    * @remarks
-   * AI tool version.
+   * The version of the AI tool.
    * 
    * @example
    * 1.0.1
@@ -238,16 +238,16 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   middlewareVersion?: string;
   /**
    * @remarks
-   * Name of the large model vendor
+   * The name of the large language model provider.
    * 
    * @example
-   * OpenAI
+   * 阿里云百炼
    */
   modelName?: string;
   /**
    * @remarks
-   * Module name.
-   * > Returned only when **Biz** is **lkm**.
+   * The module name.
+   * > This parameter is returned only when **Biz** is set to **lkm**.
    * 
    * @example
    * alihids
@@ -255,9 +255,9 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   moduleName?: string;
   /**
    * @remarks
-   * The meaning varies based on the value of **Biz**:
-   * - When **Biz** is **web_server**, it represents the Web root path
-   * - When **Biz** is **autorun**, it represents the startup item path
+   * The meaning of this parameter varies based on the value of **Biz**:
+   * - When **Biz** is set to **web_server**, this parameter indicates the web root path.
+   * - When **Biz** is set to **autorun**, this parameter indicates the startup item path.
    * 
    * @example
    * /lib/systemd/system****
@@ -265,8 +265,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * Web site directory permissions. 
-   * > Only returned when **Biz** is **web_server**.
+   * The directory permissions of the web site.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * 755
@@ -274,8 +274,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   pathMode?: string;
   /**
    * @remarks
-   * Web site process Pid. 
-   * > Only returned when **Biz** is **web_server**.
+   * The PID of the web site process.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * 813
@@ -283,8 +283,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   pid?: string;
   /**
    * @remarks
-   * Web site port.
-   * > Returned only when **Biz** is **web_server**.
+   * The port of the web site.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * 80
@@ -292,8 +292,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * Timestamp of the web site process startup, in milliseconds.  
-   * > Only returned when **Biz** is **web_server**.
+   * The timestamp when the web site process started, in milliseconds.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * 1671186801000
@@ -301,7 +301,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   processStarted?: number;
   /**
    * @remarks
-   * The ID of the region where the instance is located.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -309,7 +309,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 镜像的RepoName
+   * The RepoName of the image.
    * 
    * @example
    * ACR-Example
@@ -317,7 +317,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * 镜像Repo命名空间
+   * The repo namespace of the image.
    * 
    * @example
    * Default
@@ -325,8 +325,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   repoNamespace?: string;
   /**
    * @remarks
-   * Web site type.
-   * > Returned only when **Biz** is **web_server**.
+   * The type of the web site.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * nginx
@@ -334,8 +334,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   serverType?: string;
   /**
    * @remarks
-   * Kernel module size.
-   * > Returned only when **Biz** is **lkm**.
+   * The size of the kernel module.
+   * > This parameter is returned only when **Biz** is set to **lkm**.
    * 
    * @example
    * 10
@@ -343,7 +343,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Skill name
+   * The skill name.
    * 
    * @example
    * Analytics and Data Analysis
@@ -351,7 +351,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   skillsName?: string;
   /**
    * @remarks
-   * 标签
+   * The tag.
    * 
    * @example
    * AI
@@ -359,7 +359,7 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * Transmission name.
+   * The transport name.
    * 
    * @example
    * test
@@ -367,8 +367,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   transportName?: string;
   /**
    * @remarks
-   * Number of dependencies for the kernel module.
-   * > Returned only when **Biz** is **lkm**.
+   * The number of dependencies on the kernel module.
+   * > This parameter is returned only when **Biz** is set to **lkm**.
    * 
    * @example
    * 0
@@ -376,8 +376,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   usedByCount?: number;
   /**
    * @remarks
-   * Web site user. 
-   * > Only returned when **Biz** is **web_server**.
+   * The user of the web site.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * root
@@ -393,8 +393,8 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * Web site web path. 
-   * > Only returned when **Biz** is **web_server**.
+   * The web path of the web site.
+   * > This parameter is returned only when **Biz** is set to **web_server**.
    * 
    * @example
    * /usr/share/nginx/html
@@ -500,17 +500,17 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
 export class GetAssetsPropertyDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information displayed on the page when performing a paginated query.
+   * The paging information displayed on the page.
    */
   pageInfo?: GetAssetsPropertyDetailResponseBodyPageInfo;
   /**
    * @remarks
-   * Collection of asset fingerprint details.
+   * The collection of Asset Fingerprints details.
    */
   propertys?: GetAssetsPropertyDetailResponseBodyPropertys[];
   /**
    * @remarks
-   * The ID of this call request, a unique identifier generated by Alibaba Cloud for the request, which can be used to troubleshoot and locate issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 4C1AE3F3-18FA-4108-BBB9-AFA1A032****

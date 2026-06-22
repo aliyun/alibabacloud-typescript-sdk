@@ -7,8 +7,8 @@ export class UpdatePublishAutoUpgradeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic upgrade. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: enabled
+   * - **0**: disabled.
    * 
    * @example
    * 1

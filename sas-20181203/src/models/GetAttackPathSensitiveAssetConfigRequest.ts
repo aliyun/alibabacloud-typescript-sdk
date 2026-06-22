@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAttackPathSensitiveAssetConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the created attack path sensitive asset setting.
+   * The ID of the attack path sensitive asset configuration.
    * 
    * @example
    * apsac-123
@@ -13,8 +13,8 @@ export class GetAttackPathSensitiveAssetConfigRequest extends $dara.Model {
   attackPathSensitiveAssetConfigId?: string;
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - asset_instance: Asset.
+   * The configuration type. Valid values:
+   * - asset_instance: asset.
    * 
    * This parameter is required.
    * 

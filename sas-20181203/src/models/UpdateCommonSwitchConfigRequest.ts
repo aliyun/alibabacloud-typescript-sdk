@@ -7,8 +7,9 @@ export class UpdateCommonSwitchConfigRequest extends $dara.Model {
    * @remarks
    * Specifies whether to turn on the switch for newly added servers. Valid values:
    * 
-   * *   **add**: yes
-   * *   **del**: no
+   * - **add**: yes
+   * 
+   * - **del**: no
    * 
    * @example
    * add
@@ -18,7 +19,7 @@ export class UpdateCommonSwitchConfigRequest extends $dara.Model {
    * @remarks
    * The type of the switch.
    * 
-   * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) or [ListSystemClientRules](~~ListSystemClientRules~~) operation to obtain the type from the response parameter SwitchId.
+   * > You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) or [ListSystemClientRules](~~ListSystemClientRules~~) operation to obtain the type from the response parameter SwitchId.
    * 
    * @example
    * USER-DEFINE-RULE-SWITCH-TYPE_190****

@@ -87,7 +87,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem ext
    * @remarks
    * The ID of the image build risk.
    * 
-   * >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+   * > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
    * 
    * @example
    * key
@@ -97,7 +97,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailBuildRiskItem ext
    * @remarks
    * The name of the image build risk.
    * 
-   * >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+   * > You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
    * 
    * @example
    * name
@@ -251,7 +251,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem
    * @remarks
    * The ID of the sensitive files.
    * 
-   * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+   * > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
    * 
    * @example
    * key
@@ -261,7 +261,7 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailSensitiveFileItem
    * @remarks
    * The name of the sensitive files.
    * 
-   * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+   * > You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
    * 
    * @example
    * name
@@ -375,8 +375,9 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass exte
    * @remarks
    * The ID of the vulnerability types. Valid values:
    * 
-   * *   **cve**: system vulnerability
-   * *   **app**: application vulnerability
+   * - **cve**: system vulnerability
+   * 
+   * - **app**: application vulnerability
    * 
    * @example
    * cve
@@ -386,11 +387,12 @@ export class GetOpaStrategyDetailNewResponseBodyDataAlarmDetailVulRiskClass exte
    * @remarks
    * The name of the vulnerability. Valid values:
    * 
-   * *   **system vulnerability**
-   * *   **application vulnerability**
+   * - **system vulnerability**
+   * 
+   * - **application vulnerability**
    * 
    * @example
-   * system vulnerability
+   * 系统漏洞
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -549,8 +551,9 @@ export class GetOpaStrategyDetailNewResponseBodyDataScopes extends $dara.Model {
    * @remarks
    * Indicates whether all namespaces are included. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: yes
+   * 
+   * - **0**: no
    * 
    * @example
    * 1
@@ -651,8 +654,9 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -662,8 +666,9 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the rule supports malicious Internet images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -681,9 +686,11 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
    * @remarks
    * The action that is performed when the rule is hit. Valid values:
    * 
-   * *   **1**: trigger alerts
-   * *   **2**: block
-   * *   **3**: allow
+   * - **1**: trigger alerts
+   * 
+   * - **2**: block
+   * 
+   * - **3**: allow
    * 
    * @example
    * 1
@@ -722,8 +729,9 @@ export class GetOpaStrategyDetailNewResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the rule supports unscanned images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -844,8 +852,9 @@ export class GetOpaStrategyDetailNewResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

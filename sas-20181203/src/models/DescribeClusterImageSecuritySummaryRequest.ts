@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterImageSecuritySummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c3aaf6c8085f84791882eef200cd2****
@@ -13,27 +13,27 @@ export class DescribeClusterImageSecuritySummaryRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The key of the condition that is used to query containers. Valid values:
+   * The container search field. Valid values:
    * 
-   * *   **instanceId**: the instance ID of the container
-   * *   **clusterId**: the ID of the cluster
-   * *   **regionId**: the region ID of the container
-   * *   **clusterName**: the name of the cluster
-   * *   **image**: the name of the image
-   * *   **imageRepoName**: the name of the image repository
-   * *   **imageRepoNamespace**: the namespace to which the image repository belongs
-   * *   **imageRepoTag**: the tag that is added to the image repository
-   * *   **imageDigest**: the digest of the image
-   * *   **clusterType**: the type of the cluster
-   * *   **hostIp**: the public IP address
-   * *   **pod**: the pod
-   * *   **podIp**: the IP address of the pod
-   * *   **containerId**: the ID of the container
-   * *   **vulStatus**: whether vulnerabilities are detected on the container
-   * *   **alarmStatus**: whether alerts are generated for the container
-   * *   **riskStatus**: whether risks are detected on the container
-   * *   **riskLevel**: the risk level of the container
-   * *   **containerScope**: the type of the container
+   * - **instanceId**: container instance ID
+   * - **clusterId**: cluster ID
+   * - **regionId**: container region
+   * - **clusterName**: cluster name
+   * - **image**: image name
+   * - **imageRepoName**: image repository name
+   * - **imageRepoNamespace**: image repository namespace
+   * - **imageRepoTag**: image repository tag
+   * - **imageDigest**: image digest
+   * - **clusterType**: cluster type
+   * - **hostIp**: public IP address
+   * - **pod**: pod
+   * - **podIp**: pod IP address
+   * - **containerId**: container ID
+   * - **vulStatus**: whether the container has vulnerabilities
+   * - **alarmStatus**: whether the container has security alerts
+   * - **riskStatus**: whether the container has risks
+   * - **riskLevel**: container risk level
+   * - **containerScope**: container type.
    * 
    * @example
    * clusterId
@@ -41,7 +41,7 @@ export class DescribeClusterImageSecuritySummaryRequest extends $dara.Model {
   containerFieldName?: string;
   /**
    * @remarks
-   * The value of the condition that is used to query containers.
+   * The value of the container search field.
    * 
    * @example
    * c2ac28b2d0c734df29a21d29f18ac****
@@ -49,7 +49,7 @@ export class DescribeClusterImageSecuritySummaryRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The digest of the image.
+   * The image digest.
    * 
    * @example
    * 402902de6480a020b9f29e7105e77b8a218bc1cccbc3935d3b38c8ea9ba2****
@@ -57,7 +57,7 @@ export class DescribeClusterImageSecuritySummaryRequest extends $dara.Model {
   imageDigest?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The image repository name.
    * 
    * @example
    * repo
@@ -65,7 +65,7 @@ export class DescribeClusterImageSecuritySummaryRequest extends $dara.Model {
   imageRepoName?: string;
   /**
    * @remarks
-   * The namespace of the image repository.
+   * The image repository namespace.
    * 
    * @example
    * namespace
@@ -73,7 +73,7 @@ export class DescribeClusterImageSecuritySummaryRequest extends $dara.Model {
   imageRepoNamespace?: string;
   /**
    * @remarks
-   * The tag of the image.
+   * The image tag.
    * 
    * @example
    * 3.54.0.1
@@ -82,7 +82,7 @@ export class DescribeClusterImageSecuritySummaryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 60.190.XXX.XXX

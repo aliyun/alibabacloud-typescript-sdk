@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * The ID of the configuration.
    * 
    * @example
    * 2cdbdeba8dd70586d5814d4cbf21****
@@ -13,10 +13,9 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   configId?: string;
   /**
    * @remarks
-   * Indicates whether the configuration for the task interval was enabled. Valid values:
-   * 
-   * *   **1**: enabled.
-   * *   **0**: disabled.
+   * Indicates whether the task is enabled. Valid values:
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -24,7 +23,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   enable?: number;
   /**
    * @remarks
-   * The time when the task first started.
+   * The first execution time.
    * 
    * @example
    * 1667491200000
@@ -32,7 +31,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   firstDateStr?: number;
   /**
    * @remarks
-   * The interval between which two consecutive tasks are run.
+   * The interval period.
    * 
    * @example
    * 3
@@ -48,7 +47,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   lastTaskId?: string;
   /**
    * @remarks
-   * The time when the next task starts. The value is a UNIX timestamp. Unit: milliseconds.
+   * The next execution time. The value is a millisecond-level timestamp.
    * 
    * @example
    * 1671184531000
@@ -56,7 +55,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   nextStartTimeStr?: number;
   /**
    * @remarks
-   * The extended information.
+   * The extended information field.
    * 
    * @example
    * {"userAgreement":"yes","lang":"zh"}
@@ -64,10 +63,9 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   param?: string;
   /**
    * @remarks
-   * The unit of the scan interval. Valid values:
-   * 
-   * *   **day**
-   * *   **hour**
+   * The unit of the scan period. Valid values:
+   * - **day**: day.
+   * - **hour**: hour.
    * 
    * @example
    * day
@@ -75,7 +73,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   periodUnit?: string;
   /**
    * @remarks
-   * The end time of the task. The time must be a time frame.
+   * The task end time, in hours.
    * 
    * @example
    * 7
@@ -83,7 +81,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   targetEndTime?: number;
   /**
    * @remarks
-   * The start time of the task. The start time must be a time frame.
+   * The task start time, in hours.
    * 
    * @example
    * 0
@@ -91,7 +89,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   targetStartTime?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * IMAGE_SCAN
@@ -99,7 +97,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
   taskName?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * IMAGE_SCAN
@@ -151,7 +149,7 @@ export class DescribeCycleTaskListResponseBodyCycleScheduleResponseList extends 
 export class DescribeCycleTaskListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page when using paging.
    * 
    * @example
    * 9
@@ -159,7 +157,7 @@ export class DescribeCycleTaskListResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page when using paging.
    * 
    * @example
    * 1
@@ -167,7 +165,7 @@ export class DescribeCycleTaskListResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page when using paging.
    * 
    * @example
    * 20
@@ -175,7 +173,7 @@ export class DescribeCycleTaskListResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 149
@@ -211,7 +209,7 @@ export class DescribeCycleTaskListResponseBodyPageInfo extends $dara.Model {
 export class DescribeCycleTaskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of periodic scan tasks.
+   * The list of cyclic scan tasks.
    */
   cycleScheduleResponseList?: DescribeCycleTaskListResponseBodyCycleScheduleResponseList[];
   /**
@@ -221,7 +219,7 @@ export class DescribeCycleTaskListResponseBody extends $dara.Model {
   pageInfo?: DescribeCycleTaskListResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****

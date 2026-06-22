@@ -35,7 +35,9 @@ export class ListCheckItemsRequest extends $dara.Model {
   /**
    * @remarks
    * The language type for requests and responses. The default value is **zh**. Values:
+   * 
    * - **zh**: Chinese
+   * 
    * - **en**: English
    * 
    * @example
@@ -45,6 +47,7 @@ export class ListCheckItemsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies the maximum number of data entries to display per page when performing a paginated query. The default number of data entries displayed per page is 20, and if the PageSize parameter is empty, it will default to returning 20 data entries.
+   * 
    * > It is recommended that the PageSize value is not left empty.
    * 
    * @example

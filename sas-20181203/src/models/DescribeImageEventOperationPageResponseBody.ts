@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageEventOperationPageResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The rule conditions. The value is in the JSON format. Valid values of keys:
-   * 
-   * *   **condition**: the matching condition.
-   * *   **type**: the matching type.
-   * *   **value**: the matching value.
+   * The rule conditions in JSON format. Valid keys:
+   * - **condition**: the matching condition.
+   * - **type**: the matching type.
+   * - **value**: the matching value.
    * 
    * @example
    * [{\\"condition\\": \\"MD5\\", \\"type\\": \\"equals\\", \\"value\\": \\"0083a31cc0083a31ccf7c10367a6e783e\\"}]
@@ -17,7 +16,7 @@ export class DescribeImageEventOperationPageResponseBodyDataList extends $dara.M
   conditions?: string;
   /**
    * @remarks
-   * The keyword of the alert item.
+   * The keyword of the alert metric.
    * 
    * @example
    * PEM
@@ -25,7 +24,7 @@ export class DescribeImageEventOperationPageResponseBodyDataList extends $dara.M
   eventKey?: string;
   /**
    * @remarks
-   * The name of the alert item.
+   * The name of the alert metric.
    * 
    * @example
    * PEM
@@ -33,9 +32,8 @@ export class DescribeImageEventOperationPageResponseBodyDataList extends $dara.M
   eventName?: string;
   /**
    * @remarks
-   * The alert type.
-   * 
-   * *   Only **sensitiveFile** may be returned.
+   * The alerting type. Valid values:
+   * - **sensitiveFile**: sensitive file tampering.
    * 
    * @example
    * sensitiveFile
@@ -59,9 +57,8 @@ export class DescribeImageEventOperationPageResponseBodyDataList extends $dara.M
   note?: string;
   /**
    * @remarks
-   * The operation code.
-   * 
-   * *   Only **whitelist** may be returned, which means that the alert item is added to the whitelist.
+   * The operation code. Valid values:
+   * - **whitelist**: whitelist.
    * 
    * @example
    * whitelist
@@ -69,10 +66,9 @@ export class DescribeImageEventOperationPageResponseBodyDataList extends $dara.M
   operationCode?: string;
   /**
    * @remarks
-   * The application scope of the rule. The value is in the JSON format. Valid values of keys:
-   * 
-   * *   **type**
-   * *   **value**
+   * The rule scope in JSON format. Valid keys:
+   * - **type**: the scope type.
+   * - **value**: the scope value.
    * 
    * @example
    * {\\"type\\": \\"repo\\", \\"value\\": \\"test-aaa/shenzhen-repo-01\\"}
@@ -80,13 +76,12 @@ export class DescribeImageEventOperationPageResponseBodyDataList extends $dara.M
   scenarios?: string;
   /**
    * @remarks
-   * The source of the whitelist. Valid values:
-   * 
-   * *   **image**: image.
-   * *   **agentless**: agentless detection.
+   * The source of the alert handling rule. Valid values:
+   * - **default**: image
+   * - **agentless**: agentless.
    * 
    * @example
-   * agentless
+   * default
    */
   source?: string;
   static names(): { [key: string]: string } {
@@ -129,7 +124,7 @@ export class DescribeImageEventOperationPageResponseBodyDataList extends $dara.M
 export class DescribeImageEventOperationPageResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The number of the page to return in a paged query.
    * 
    * @example
    * 1
@@ -137,7 +132,7 @@ export class DescribeImageEventOperationPageResponseBodyDataPageInfo extends $da
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to return on each page in a paged query.
    * 
    * @example
    * 20
@@ -179,12 +174,12 @@ export class DescribeImageEventOperationPageResponseBodyDataPageInfo extends $da
 export class DescribeImageEventOperationPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The alert handling rules.
+   * The list of alert handling rules.
    */
   list?: DescribeImageEventOperationPageResponseBodyDataList[];
   /**
    * @remarks
-   * The pagination information.
+   * The paged query parameters.
    */
   pageInfo?: DescribeImageEventOperationPageResponseBodyDataPageInfo;
   static names(): { [key: string]: string } {
@@ -219,7 +214,7 @@ export class DescribeImageEventOperationPageResponseBodyData extends $dara.Model
 export class DescribeImageEventOperationPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned.
    * 
    * @example
    * 200
@@ -227,12 +222,12 @@ export class DescribeImageEventOperationPageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeImageEventOperationPageResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * successful
@@ -248,10 +243,10 @@ export class DescribeImageEventOperationPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The API call was successful.
+   * - **false**: The API call failed.
    * 
    * @example
    * true

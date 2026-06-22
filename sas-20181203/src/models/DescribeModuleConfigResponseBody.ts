@@ -13,7 +13,7 @@ export class DescribeModuleConfigResponseBodyModuleConfigListItems extends $dara
   groupId?: number;
   /**
    * @remarks
-   * The ID of the server.
+   * The ID of the server instance.
    * 
    * @example
    * i-uf6435dn4t59b9av****
@@ -21,7 +21,7 @@ export class DescribeModuleConfigResponseBodyModuleConfigListItems extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The name of the server instance.
    * 
    * @example
    * inStanceName****
@@ -85,7 +85,7 @@ export class DescribeModuleConfigResponseBodyModuleConfigListItems extends $dara
 export class DescribeModuleConfigResponseBodyModuleConfigList extends $dara.Model {
   /**
    * @remarks
-   * The name of the configuration.
+   * The configuration name.
    * 
    * @example
    * timescan
@@ -93,12 +93,12 @@ export class DescribeModuleConfigResponseBodyModuleConfigList extends $dara.Mode
   configName?: string;
   /**
    * @remarks
-   * An array that consists of the configuration items.
+   * The list of configuration items.
    */
   items?: DescribeModuleConfigResponseBodyModuleConfigListItems[];
   /**
    * @remarks
-   * The name of the module.
+   * The module name.
    * 
    * @example
    * alihids
@@ -135,7 +135,7 @@ export class DescribeModuleConfigResponseBodyModuleConfigList extends $dara.Mode
 export class DescribeModuleConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of configurations for the module.
+   * The number of module settings.
    * 
    * @example
    * 2
@@ -151,12 +151,12 @@ export class DescribeModuleConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * An array that consists of the configurations of the module.
+   * The list of module settings.
    */
   moduleConfigList?: DescribeModuleConfigResponseBodyModuleConfigList[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID. It is a unique identifier that Alibaba Cloud generates for the request. You can use it to troubleshoot issues.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42B5E92719F
@@ -166,8 +166,8 @@ export class DescribeModuleConfigResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

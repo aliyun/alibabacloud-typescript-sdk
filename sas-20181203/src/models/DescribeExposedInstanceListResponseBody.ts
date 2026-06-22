@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExposedInstanceListResponseBodyExposedInstancesExposureComponentList extends $dara.Model {
   /**
    * @remarks
-   * Expose component type.
+   * The type of the exposed component.
    * 
    * @example
    * system_service
@@ -13,7 +13,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstancesExposureComp
   componentBizType?: string;
   /**
    * @remarks
-   * Expose components.
+   * The exposed component.
    * 
    * @example
    * openssh
@@ -21,7 +21,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstancesExposureComp
   componentName?: string;
   /**
    * @remarks
-   * Expose component version.
+   * The version of the exposed component.
    * 
    * @example
    * 8.7p1
@@ -29,7 +29,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstancesExposureComp
   componentVersion?: string;
   /**
    * @remarks
-   * Exposed port.
+   * The exposed port.
    * 
    * @example
    * 22
@@ -65,7 +65,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstancesExposureComp
 export class DescribeExposedInstanceListResponseBodyExposedInstances extends $dara.Model {
   /**
    * @remarks
-   * The number of high-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+   * The number of high-severity vulnerabilities exposed on the Internet that can be exploited by attackers.
    * 
    * @example
    * 0
@@ -73,16 +73,15 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   asapVulCount?: number;
   /**
    * @remarks
-   * The type of the asset. Valid values:
-   * 
-   * *   **0**: an ECS instance.
-   * *   **1**: a SLB instance.
-   * *   **2**: a NAT gateway.
-   * *   **3**: an ApsaraDB RDS instance.
-   * *   **4**: an ApsaraDB for MongoDB instance.
-   * *   **5**: an ApsaraDB for Redis instance.
-   * *   **6**: a container image.
-   * *   **7**: a container.
+   * The asset type. Valid values:  
+   * - **0**: Elastic Computing Service (ECS) server
+   * - **1**: load balancing (SLB)
+   * - **2**: NAT gateway
+   * - **3**: ApsaraDB RDS database
+   * - **4**: MongoDB database
+   * - **5**: Redis database
+   * - **6**: container image (IMAGE)
+   * - **7**: container (CONTAINER).
    * 
    * @example
    * 0
@@ -90,13 +89,13 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   assetType?: number;
   /**
    * @remarks
-   * The JSON string that specifies the information about a database asset, which contains the following fields.
+   * The JSON string of cloud service information for database-type assets. The fields include:
    * 
-   * *   assetSubType: the asset subtype.
-   * *   assetSubTypeName: the name of the asset subtype.
-   * *   assetType: the type of the asset.
-   * *   assetTypeName: the name of the asset type.
-   * *   vendor: the service provider of the asset.
+   * - assetSubType: the asset subtype
+   * - assetSubTypeName: the name of the asset subtype
+   * - assetType: the asset type
+   * - assetTypeName: the name of the asset type
+   * - vendor: the asset vendor.
    * 
    * @example
    * {assetSubTypeName":"INSTANCE","assetType":3,"assetTypeName":"RDS","vendor":0}
@@ -112,7 +111,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   cspmAlarmCount?: number;
   /**
    * @remarks
-   * The number of weak password risks.
+   * The number of baseline weak password risks.
    * 
    * @example
    * 0
@@ -120,7 +119,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   exploitHealthCount?: number;
   /**
    * @remarks
-   * The server component that is exposed on the Internet.
+   * The system component exposed on the Internet.
    * 
    * @example
    * openssl,openssh
@@ -128,12 +127,12 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   exposureComponent?: string;
   /**
    * @remarks
-   * Expose component information list.
+   * The list of exposed component information.
    */
   exposureComponentList?: DescribeExposedInstanceListResponseBodyExposedInstancesExposureComponentList[];
   /**
    * @remarks
-   * The public IP address that is exposed on the Internet.
+   * The public IP address exposed on the Internet.
    * 
    * @example
    * 116.12.XX.XX
@@ -141,7 +140,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   exposureIp?: string;
   /**
    * @remarks
-   * The port that is exposed on the Internet.
+   * The port exposed on the Internet.
    * 
    * @example
    * 22
@@ -149,13 +148,13 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   exposurePort?: string;
   /**
    * @remarks
-   * The resource from which the asset is exposed. Valid values:
+   * The expose type. Valid values:
+   * - **INTERNET_IP**: public IP addresses of Elastic Compute Service (ECS) instances
+   * - **SLB**: public IP address of a load balancing SLB instance
+   * - **EIP**: elastic IP address (EIP)
+   * - **DNAT**: NAT gateway that uses the DNAT feature to connect to the Internet
    * 
-   * *   **INTERNET_IP**: the public IP address of an ECS instance.
-   * *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance.
-   * *   **EIP**: an elastic IP address (EIP).
-   * *   **DNAT**: the NAT gateway that connects to the Internet by using the Destination Network Address Translation (DNAT) feature.
-   * *   **DB_CONNECTION**: the public endpoint of a database.
+   * - **DB_CONNECTION**: public network connection of a database.
    * 
    * @example
    * INTERNET_IP
@@ -163,13 +162,12 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   exposureType?: string;
   /**
    * @remarks
-   * The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
-   * 
-   * *   If the value of the ExposureType parameter is **INTERNET_IP**, this parameter is empty.
-   * *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the SLB instance.
-   * *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
-   * *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
-   * *   If the value of the ExposureType parameter is **DB_CONNECTION**, the value of this parameter is the ID of the database.
+   * The instance ID that corresponds to the expose type. Different expose types correspond to different instance IDs. Valid values:
+   * - If ExposureType is **INTERNET_IP**: the value is empty.
+   * - If ExposureType is **SLB**: the value is the ID of the load balancing public instance.
+   * - If ExposureType is **EIP**: the value is the ID of the EIP instance.
+   * - If ExposureType is **DNAT**: the value is the ID of the NAT gateway instance.
+   * - If ExposureType is **DB_CONNECTION**: the value is the ID of the database instance.
    * 
    * @example
    * i-ew11313a****
@@ -225,7 +223,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   intranetIp?: string;
   /**
    * @remarks
-   * The number of medium-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+   * The number of medium-severity vulnerabilities exposed on the Internet that can be exploited by attackers.
    * 
    * @example
    * 0
@@ -233,7 +231,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   laterVulCount?: number;
   /**
    * @remarks
-   * The number of low-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+   * The number of low-severity vulnerabilities exposed on the Internet that can be exploited by attackers.
    * 
    * @example
    * 0
@@ -241,9 +239,8 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   nntfVulCount?: number;
   /**
    * @remarks
-   * The ID of the region in which the asset resides.
-   * 
-   * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The ID of the region where the asset resides.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -251,7 +248,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
   regionId?: string;
   /**
    * @remarks
-   * The total number of vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+   * The total number of vulnerabilities exposed on the Internet that can be exploited by attackers.
    * 
    * @example
    * 0
@@ -334,7 +331,7 @@ export class DescribeExposedInstanceListResponseBodyExposedInstances extends $da
 export class DescribeExposedInstanceListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries returned on the current page in a paged query.
    * 
    * @example
    * 2
@@ -342,7 +339,7 @@ export class DescribeExposedInstanceListResponseBodyPageInfo extends $dara.Model
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -350,7 +347,7 @@ export class DescribeExposedInstanceListResponseBodyPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -358,7 +355,7 @@ export class DescribeExposedInstanceListResponseBodyPageInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of Internet-exposed assets.
    * 
    * @example
    * 2
@@ -394,7 +391,7 @@ export class DescribeExposedInstanceListResponseBodyPageInfo extends $dara.Model
 export class DescribeExposedInstanceListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the exposures.
+   * The list of asset exposure analysis results.
    */
   exposedInstances?: DescribeExposedInstanceListResponseBodyExposedInstances[];
   /**
@@ -404,7 +401,7 @@ export class DescribeExposedInstanceListResponseBody extends $dara.Model {
   pageInfo?: DescribeExposedInstanceListResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 598A4A61-ABA7-456B-8725-7378258276D9

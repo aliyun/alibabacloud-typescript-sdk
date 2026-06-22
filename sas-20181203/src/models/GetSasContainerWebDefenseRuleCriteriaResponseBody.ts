@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSasContainerWebDefenseRuleCriteriaResponseBodyCriteriaList extends $dara.Model {
   /**
    * @remarks
-   * The name of the search condition.
+   * The name of the query criterion.
    * 
    * @example
    * name
@@ -13,10 +13,9 @@ export class GetSasContainerWebDefenseRuleCriteriaResponseBodyCriteriaList exten
   name?: string;
   /**
    * @remarks
-   * The type of the search condition. Valid values:
-   * 
-   * *   **input**: You must manually enter the search condition.
-   * *   **select**: You must select a search condition from the **Values** drop-down list.
+   * The type of the query criterion. Valid values:
+   * - **input**: Input type. You must manually enter the query content when using this query criterion.
+   * - **select**: Selection type. You must select a value from the options list (the **Values** field) when using this query criterion.
    * 
    * @example
    * select
@@ -24,9 +23,8 @@ export class GetSasContainerWebDefenseRuleCriteriaResponseBodyCriteriaList exten
   type?: string;
   /**
    * @remarks
-   * The values of the search condition. This parameter is returned only if the value of **Type** is **select**.
-   * 
-   * >  If the value of **Type** is **input**, the value of this parameter is empty.
+   * The available options when **Type** (the type of the query criterion) is set to **select** (selection type).
+   * > When **Type** (the type of the query criterion) is set to **input** (input type), this parameter returns an empty value.
    * 
    * @example
    * athor_bid
@@ -60,7 +58,7 @@ export class GetSasContainerWebDefenseRuleCriteriaResponseBodyCriteriaList exten
 export class GetSasContainerWebDefenseRuleCriteriaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The search conditions.
+   * The list of query criteria.
    */
   criteriaList?: GetSasContainerWebDefenseRuleCriteriaResponseBodyCriteriaList[];
   /**

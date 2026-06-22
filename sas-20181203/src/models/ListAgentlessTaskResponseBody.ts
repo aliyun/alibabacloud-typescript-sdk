@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The end timestamp of the task. Unit: milliseconds.
+   * The end timestamp of the task, in milliseconds.
    * 
    * @example
    * 1678895999999
@@ -21,7 +21,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the asset.
+   * The name of the asset instance.
    * 
    * @example
    * sql-test-0****
@@ -45,7 +45,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The amount of data detected. Unit: MB.
+   * The amount of detected data, in MB.
    * 
    * @example
    * 154.11
@@ -53,7 +53,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   measureSpace?: number;
   /**
    * @remarks
-   * The progress of the task.
+   * The task progress.
    * 
    * @example
    * 60
@@ -61,7 +61,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The execution progress of the check items.
+   * The execution progress of the check item.
    * 
    * @example
    * "{\\"scaVul\\":100,\\"binary\\":100,\\"baseline\\":100,\\"vul\\":100,\\"webshell\\":100,\\"script\\":100,\\"sensitiveInfo\\":100}"
@@ -77,13 +77,12 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   reportDownloadUrl?: string;
   /**
    * @remarks
-   * The status of the report. Valid values:
-   * 
-   * *   **PREPARED**: preparing
-   * *   **RUNNING**: running
-   * *   **SUCCESS**: succeeded
-   * *   **TIMEOUT**: timed out
-   * *   **FAILED**: failed
+   * The report status. Valid values:
+   *  - **PREPARED**: Preparing.
+   *  - **RUNNING**: Running.
+   *  - **SUCCESS**: Succeeded.
+   *  - **TIMEOUT**: Timed out.
+   *  - **FAILED**: Failed.
    * 
    * @example
    * SUCCESS
@@ -91,7 +90,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   reportStatus?: string;
   /**
    * @remarks
-   * The result of the detection.
+   * The detection result.
    * 
    * @example
    * True
@@ -99,7 +98,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The start timestamp of the task. Unit: milliseconds.
+   * The start timestamp of the task, in milliseconds.
    * 
    * @example
    * 1672741657897
@@ -107,12 +106,12 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the detection task.
+   * The detection status. Valid values:
    * 
-   * *   **1**: The detection task is in progress.
-   * *   **2**: The detection task is complete.
-   * *   **3**: The detection task fails.
-   * *   **4**: The detection task times out.
+   * - **1**: Detecting.
+   * - **2**: Completed.
+   * - **3**: Failed.
+   * - **4**: Timed out.
    * 
    * @example
    * 1
@@ -120,7 +119,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The name of the asset that is detected.
+   * The name of the scan target.
    * 
    * @example
    * hkdevt****
@@ -128,10 +127,10 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The type of the asset that is detected. Valid values:
+   * The object type. Valid values:
    * 
-   * *   **1**: snapshot
-   * *   **2**: image
+   * - **1**: snapshot
+   * - **2**: image.
    * 
    * @example
    * 2
@@ -139,7 +138,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   targetType?: number;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 1538****
@@ -155,7 +154,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The UUID of the asset.
+   * The UUID of the asset instance.
    * 
    * @example
    * 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
@@ -219,7 +218,7 @@ export class ListAgentlessTaskResponseBodyList extends $dara.Model {
 export class ListAgentlessTaskResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query. Paging starts from page 1.
    * 
    * @example
    * 1
@@ -227,7 +226,7 @@ export class ListAgentlessTaskResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query. Paging is performed based on this value.
    * 
    * @example
    * 20
@@ -235,7 +234,7 @@ export class ListAgentlessTaskResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 55
@@ -269,7 +268,7 @@ export class ListAgentlessTaskResponseBodyPageInfo extends $dara.Model {
 export class ListAgentlessTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tasks.
+   * The task list.
    */
   list?: ListAgentlessTaskResponseBodyList[];
   /**
@@ -279,7 +278,7 @@ export class ListAgentlessTaskResponseBody extends $dara.Model {
   pageInfo?: ListAgentlessTaskResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 1A975D03-5F49-5354-B2CB-3918D5DA****

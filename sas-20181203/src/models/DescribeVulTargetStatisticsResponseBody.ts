@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulTargetStatisticsResponseBodyTargetStatsTargets extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the configurations are applied to the server. Valid values:
+   * The type of configuration effect. Valid values:
    * 
-   * *   **add**: yes
-   * *   **del**: no
+   * - **add**: The configuration takes effect on the server.
+   * - **del**: The configuration does not take effect on the server.
    * 
    * @example
    * add
@@ -16,7 +16,7 @@ export class DescribeVulTargetStatisticsResponseBodyTargetStatsTargets extends $
   flag?: string;
   /**
    * @remarks
-   * The group ID or UUID of the server to which the configurations are applied.
+   * The group ID or UUID of the asset on which the configuration takes effect.
    * 
    * @example
    * 0011ea53-738c-4bff-93be-ce6a1cc9****
@@ -24,10 +24,10 @@ export class DescribeVulTargetStatisticsResponseBodyTargetStatsTargets extends $
   target?: string;
   /**
    * @remarks
-   * The condition by which the configurations are applied to the server. Valid values:
+   * The target type. Valid values:
    * 
-   * *   **uuid**: the UUID of the server
-   * *   **groupId**: the ID of the server group
+   * - **uuid**: asset.
+   * - **groupId**: server group.
    * 
    * @example
    * uuid
@@ -61,12 +61,12 @@ export class DescribeVulTargetStatisticsResponseBodyTargetStatsTargets extends $
 export class DescribeVulTargetStatisticsResponseBodyTargetStats extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of available servers.
+   * The list of target servers for the assets.
    */
   targets?: DescribeVulTargetStatisticsResponseBodyTargetStatsTargets[];
   /**
    * @remarks
-   * The total number of servers.
+   * The total number of assets returned.
    * 
    * @example
    * 1
@@ -74,7 +74,7 @@ export class DescribeVulTargetStatisticsResponseBodyTargetStats extends $dara.Mo
   totalCount?: number;
   /**
    * @remarks
-   * The number of servers to which the configurations are applied.
+   * The number of servers on which the configuration takes effect.
    * 
    * @example
    * 1
@@ -82,12 +82,12 @@ export class DescribeVulTargetStatisticsResponseBodyTargetStats extends $dara.Mo
   uuidCount?: number;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
+   * The type of vulnerability to query. Valid values:
    * 
-   * *   cve: Linux software vulnerabilities
-   * *   sys: Windows system vulnerabilities
-   * *   cms: Web-CMS vulnerabilities
-   * *   emg: urgent vulnerabilities
+   * - cve: Linux software vulnerability
+   * - sys: Windows system vulnerability
+   * - cms: Web-CMS vulnerability
+   * - emg: emergency vulnerability.
    * 
    * @example
    * cve
@@ -126,7 +126,7 @@ export class DescribeVulTargetStatisticsResponseBodyTargetStats extends $dara.Mo
 export class DescribeVulTargetStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page when paging is used in a paged query.
    * 
    * @example
    * 1
@@ -134,7 +134,7 @@ export class DescribeVulTargetStatisticsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page when paging is used in a paged query.
    * 
    * @example
    * 10
@@ -142,7 +142,7 @@ export class DescribeVulTargetStatisticsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 23AD0BD2-8771-5647-819E-6BA51E212F80
@@ -150,7 +150,7 @@ export class DescribeVulTargetStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the configurations of the vulnerability scan feature.
+   * The statistics of vulnerability configurations.
    */
   targetStats?: DescribeVulTargetStatisticsResponseBodyTargetStats[];
   /**

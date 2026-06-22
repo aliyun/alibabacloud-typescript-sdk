@@ -4,41 +4,102 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileProtectClientRuleResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The alert notification level. Valid values:
+   * 
+   * - 0: no alert
+   * 
+   * - 1: reminder
+   * 
+   * - 2: suspicious
+   * 
+   * - 3: high-risk.
+   * 
    * @example
    * 1
    */
   alertLevel?: number;
+  /**
+   * @remarks
+   * The list of excluded users.
+   */
   excludeUsers?: string[];
+  /**
+   * @remarks
+   * The operations performed on files.
+   */
   fileOps?: string[];
+  /**
+   * @remarks
+   * The monitored file paths. Wildcards are supported.
+   */
   filePaths?: string[];
+  /**
+   * @remarks
+   * The protected file types.
+   */
   fileTypes?: string[];
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 3119
    */
   id?: number;
   /**
+   * @remarks
+   * The operating system type. Valid values:
+   * 
+   * - **windows**: Windows
+   * - **linux**: Linux.
+   * 
    * @example
    * linux
    */
   platform?: string;
+  /**
+   * @remarks
+   * The process paths. Wildcards are supported.
+   */
   procPaths?: string[];
   /**
+   * @remarks
+   * The action that the rule takes on the client. Valid values:
+   * 
+   * - monitor: alert
+   * 
+   * - block: block
+   * 
+   * - pass: allow.
+   * 
    * @example
    * pass
    */
   ruleAction?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * test
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The rule status. Valid values:
+   * 
+   * - **0**: disabled.
+   * - **1**: enabled.
+   * 
    * @example
    * 0
    */
   status?: number;
   /**
+   * @remarks
+   * The switch ID that corresponds to the rule.
+   * 
    * @example
    * USER-CONTAINER-RULE-SWITCH-TYPE_***
    */
@@ -102,6 +163,10 @@ export class GetFileProtectClientRuleResponseBodyData extends $dara.Model {
 }
 
 export class GetFileProtectClientRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetFileProtectClientRuleResponseBodyData;
   /**
    * @remarks

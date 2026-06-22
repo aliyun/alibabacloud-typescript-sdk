@@ -13,7 +13,7 @@ export class DescribeDomainSecureVulListResponseBodyVulList extends $dara.Model 
   aliasName?: string;
   /**
    * @remarks
-   * The number of the vulnerabilities that have the **high** priority.
+   * The number of high-priority vulnerabilities.
    * 
    * @example
    * 50
@@ -21,7 +21,7 @@ export class DescribeDomainSecureVulListResponseBodyVulList extends $dara.Model 
   asapCount?: number;
   /**
    * @remarks
-   * The timestamp when the vulnerability was last detected. Unit: milliseconds.
+   * The timestamp when the vulnerability was last detected, in milliseconds.
    * 
    * @example
    * 1639371446000
@@ -37,7 +37,7 @@ export class DescribeDomainSecureVulListResponseBodyVulList extends $dara.Model 
   handledCount?: number;
   /**
    * @remarks
-   * The number of the vulnerabilities that have the **medium** priority.
+   * The number of medium-priority vulnerabilities.
    * 
    * @example
    * 30
@@ -53,7 +53,7 @@ export class DescribeDomainSecureVulListResponseBodyVulList extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The number of the vulnerabilities that have the **low** priority.
+   * The number of low-priority vulnerabilities.
    * 
    * @example
    * 20
@@ -61,14 +61,24 @@ export class DescribeDomainSecureVulListResponseBodyVulList extends $dara.Model 
   nntfCount?: number;
   /**
    * @remarks
-   * The tag that is added to the vulnerability. Valid values:
+   * The label of the vulnerability. Valid values:
    * 
-   * *   Restart required
-   * *   Remote utilization
-   * *   EXP exists
-   * *   Available
-   * *   Elevation of Privilege
-   * *   Code Execution
+   * <props="china">
+   * - Restart required
+   * - Remote utilization
+   * - EXP exists
+   * - Available
+   * - Privilege escalation
+   * - Code execution
+   * 
+   * 
+   * <props="intl">
+   * - Restart required
+   * - Remote utilization
+   * - EXP exists
+   * - Available
+   * - Privilege escalation
+   * - Code execution
    * 
    * @example
    * Code Execution
@@ -76,13 +86,13 @@ export class DescribeDomainSecureVulListResponseBodyVulList extends $dara.Model 
   tags?: string;
   /**
    * @remarks
-   * The type of the vulnerability. Default value: cve. Valid values:
+   * The type of the vulnerability to query. Default value: cve. Valid values:
    * 
-   * *   **cve**: Linux software vulnerability.
-   * *   **sys**: Windows system vulnerability.
-   * *   **cms**: Web-CMS vulnerability.
-   * *   **app**: application vulnerability that is detected by network scanning.
-   * *   **sca**: application vulnerability that is detected by using software component analysis.
+   * - **cve**: Linux software vulnerability
+   * - **sys**: Windows system vulnerability
+   * - **cms**: Web-CMS vulnerability
+   * - **app**: application vulnerability (network scan)
+   * - **sca**: application vulnerability (software constituency parsing)
    * 
    * @example
    * app
@@ -128,7 +138,7 @@ export class DescribeDomainSecureVulListResponseBodyVulList extends $dara.Model 
 export class DescribeDomainSecureVulListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 7532B7EE-7CE7-5F4D-BF04-B12447DD****
@@ -144,7 +154,7 @@ export class DescribeDomainSecureVulListResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The domain name-related vulnerabilities.
+   * The list of vulnerabilities associated with the domain name.
    */
   vulList?: DescribeDomainSecureVulListResponseBodyVulList[];
   static names(): { [key: string]: string } {

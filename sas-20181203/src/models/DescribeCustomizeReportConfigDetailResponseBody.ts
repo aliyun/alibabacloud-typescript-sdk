@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the chart that is included in the report. Multiple IDs are separated by commas (,).
+   * The report chart configuration IDs, separated by commas.
    * 
    * @example
    * BIZ_STAT_QUERY_KEY_ATTACK,CUSTOM_VUL_CVE_LIST,CUSTOM_VUL_SYS_LIST,CUSTOM_VUL_WEBCMS_LIST,CUSTOM_AUTO_BREAKING_PIE,CUSTOM_AK_LEAK_LIST,KEY_HP_TAMPERPROOF,KEY_HP_DEFENCE
@@ -13,10 +13,9 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   chartIds?: string;
   /**
    * @remarks
-   * The grouping type. Valid values:
-   * 
-   * *   **ALIYUN_RG**
-   * *   **SAS_GROUP**
+   * The group type. Valid values:
+   * - **ALIYUN_RG**: ALIYUN_RG.
+   * - **SAS_GROUP**: SAS_GROUP.
    * 
    * @example
    * SAS_GROUP
@@ -24,10 +23,9 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   groupType?: string;
   /**
    * @remarks
-   * Indicates whether the report is the default report. Valid values:
-   * 
-   * *   **0**: no.
-   * *   **1**: yes.
+   * Indicates whether the report is a default report. Valid values:
+   * - **0**: Not a default report.
+   * - **1**: A default report.
    * 
    * @example
    * 1
@@ -35,10 +33,11 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   isDefault?: number;
   /**
    * @remarks
-   * Whether the new account is connected by default. Values:
-   * - **true**: Yes.
-   * - **false**: No.
-   * > Only supported in version 2.0.0.
+   * Specifies whether newly added accounts are included by default. Valid values:
+   * 
+   * - **true**: Included.
+   * - **false**: Not included.
+   * > Only version 2.0.0 supports this parameter.
    * 
    * @example
    * true
@@ -46,7 +45,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   memberAccountSyncFlag?: boolean;
   /**
    * @remarks
-   * The time when the report is pinned.
+   * The pinned time.
    * 
    * @example
    * 1717430400000
@@ -54,7 +53,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   pinnedTime?: number;
   /**
    * @remarks
-   * The email address of the recipient. Multiple email addresses are separated by commas (,).
+   * The recipient email addresses, separated by commas.
    * 
    * @example
    * PengZheng@eaton.com,ZhongJi@Eaton.com
@@ -62,7 +61,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   recipients?: string;
   /**
    * @remarks
-   * The most recent days for report statistics.
+   * The number of recent days covered by the report statistics.
    * 
    * @example
    * 30
@@ -70,7 +69,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportDays?: number;
   /**
    * @remarks
-   * The end date on which the report is sent.
+   * The end date for report delivery.
    * 
    * @example
    * 1720022399999
@@ -78,7 +77,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportEndDate?: string;
   /**
    * @remarks
-   * The ID of the report.
+   * The report ID.
    * 
    * @example
    * 663434
@@ -86,10 +85,9 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportId?: number;
   /**
    * @remarks
-   * The language of the report. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -97,12 +95,11 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportLang?: string;
   /**
    * @remarks
-   * The time range in which the report is sent. Valid values:
-   * 
-   * *   **1**: 00:00 to 06:00.
-   * *   **2**: 06:00 to 12:00.
-   * *   **3**: 12:00 to 18:00.
-   * *   **4**: 18:00 to 24:00.
+   * The report delivery time range. Valid values:
+   * - **1**: 0:00 to 6:00.
+   * - **2**: 6:00 to 12:00.
+   * - **3**: 12:00 to 18:00.
+   * - **4**: 18:00 to 24:00.
    * 
    * @example
    * 2
@@ -110,7 +107,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportSendType?: string;
   /**
    * @remarks
-   * The start date on which the report is sent.
+   * The start date for report delivery.
    * 
    * @example
    * 1717430400000
@@ -118,10 +115,9 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportStartDate?: string;
   /**
    * @remarks
-   * The status of the report. Valid values:
-   * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
+   * The report status. Valid values:
+   *  - **0**: Disabled.
+   *  - **1**: Enabled.
    * 
    * @example
    * 1
@@ -129,12 +125,12 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   reportStatus?: string;
   /**
    * @remarks
-   * The type of the report. Valid values:
+   * The report type. Valid values:
    * 
-   * *   **0**: daily report.
-   * *   **1**: weekly report.
-   * *   **2**: monthly report.
-   * *   **3**: report whose statistics are collected in a custom time range.
+   * - **0**: Daily report.
+   * - **1**: Weekly report.
+   * - **2**: Monthly report.
+   * - **3**: Custom period.
    * 
    * @example
    * 3
@@ -150,7 +146,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The end time at which the report is sent. The value is in the HH:mm:ss format.
+   * The delivery end time, in the format of HH:mm:ss.
    * 
    * @example
    * 10:00:00
@@ -158,7 +154,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendEndTime?: string;
   /**
    * @remarks
-   * The exact day within the sending period.
+   * The specific execution dates within the delivery period.
    * 
    * @example
    * 12
@@ -166,11 +162,10 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendPeriodDays?: number;
   /**
    * @remarks
-   * The interval at which the report is sent. Valid values:
-   * 
-   * *   **DAY**
-   * *   **WEEK**
-   * *   **MONTH**
+   * The delivery period type. Valid values:
+   * - **DAY**: day.
+   * - **WEEK**: week.
+   * - **MONTH**: month.
    * 
    * @example
    * MONTH
@@ -178,7 +173,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendPeriodType?: string;
   /**
    * @remarks
-   * The start time at which the report is sent. The value is in the HH:mm:ss format.
+   * The delivery start time, in the format of HH:mm:ss.
    * 
    * @example
    * 09:00:00
@@ -186,7 +181,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendStartTime?: string;
   /**
    * @remarks
-   * The time at which the report is sent. The value is in the HH:mm:ss format.
+   * The delivery time, in the format of HH:mm:ss.
    * 
    * @example
    * 09:00:00
@@ -194,7 +189,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   sendTime?: string;
   /**
    * @remarks
-   * The groups.
+   * The targets within the group.
    * 
    * @example
    * 12125884,12140191
@@ -202,7 +197,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   targetGroups?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. Multiple IDs are separated by commas (,).
+   * The list of target UIDs, separated by commas.
    * 
    * @example
    * 1457515594445744,1600011353839072,1766185894104675,1674080148055995,1627510829033157
@@ -210,7 +205,7 @@ export class DescribeCustomizeReportConfigDetailResponseBody extends $dara.Model
   targetUids?: string;
   /**
    * @remarks
-   * The title of the report.
+   * The title.
    * 
    * @example
    * marketing report

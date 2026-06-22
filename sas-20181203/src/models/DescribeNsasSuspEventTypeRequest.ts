@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the container field. Valid values:
+   * The container field. Valid values:
    * 
-   * *   **clusterId**: the ID of the cluster
+   * - **clusterId**: cluster ID.
    * 
    * @example
    * clusterId
@@ -23,7 +23,7 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
   containerFieldValue?: string;
   /**
    * @remarks
-   * The ID of the request source. Set the value to **sas**, which indicates that the request is sent from Security Center.
+   * The source of the request. Set the value to **sas**, which indicates that the request is sent from Security Center.
    * 
    * @example
    * sas
@@ -31,10 +31,10 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -42,10 +42,9 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of the accounts that you want to query. Default value: **0**. Valid values:
-   * 
-   * *   **0**: the current account.
-   * *   **1**: all accounts.
+   * The multi-account query type. Default value: **0**. Valid values:
+   * - **0**: queries data of the current account.
+   * - **1**: queries data of all accounts.
    * 
    * @example
    * 0
@@ -53,7 +52,7 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
   multiAccountActionType?: number;
   /**
    * @remarks
-   * The name of the alert type.
+   * The name of the security alerting Alarm Metric.
    * 
    * @example
    * Unusual Logon
@@ -69,7 +68,7 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source.
    * 
    * @example
    * 180.212.XX.XX
@@ -77,14 +76,13 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * List of supported alarm operation types.
+   * The list of operation types supported by the alert.
    */
   supportOperateCodeList?: string[];
   /**
    * @remarks
-   * The UUIDs of servers. Separate multiple UUIDs with commas (,).
-   * 
-   * > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+   * The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+   * > Call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to obtain this parameter.
    * 
    * @example
    * f56406cb-916d-42db-b6f7-2ff79e34****

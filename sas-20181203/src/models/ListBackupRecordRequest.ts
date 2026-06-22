@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBackupRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the backup task ended. Unit: milliseconds.
+   * The backup end time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1699600611000
@@ -13,7 +13,7 @@ export class ListBackupRecordRequest extends $dara.Model {
   backupEndTime?: number;
   /**
    * @remarks
-   * The timestamp when the backup task started. Unit: milliseconds.
+   * The backup start time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1699514211000
@@ -21,7 +21,7 @@ export class ListBackupRecordRequest extends $dara.Model {
   backupStartTime?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**. Pages start from page 1.
+   * The page number of the page to return. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListBackupRecordRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The information that you want to use to identify the servers protected by the anti-ransomware policy. You can enter the IP address or ID of a server.
+   * The identification information of the server protected by the anti-ransomware policy that you want to query. You can enter the IP address or instance ID of the server.
    * 
    * @example
    * 192.168.XX.XX
@@ -37,9 +37,8 @@ export class ListBackupRecordRequest extends $dara.Model {
   machineRemark?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -47,11 +46,10 @@ export class ListBackupRecordRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The backup task status. Valid values:
-   * 
-   * *   **BACKUP_COMPLETE**: The backup task is successful.
-   * *   **BACKUP_FAILED**: The backup task failed.
-   * *   **PARTIAL_COMPLETE**: The backup task is partially successful.
+   * The list of backup task statuses. Valid values:
+   * - **BACKUP_COMPLETE**: backup succeeded
+   * - **BACKUP_FAILED**: backup failed
+   * - **PARTIAL_COMPLETE**: partial backup succeeded.
    */
   statusList?: string[];
   static names(): { [key: string]: string } {

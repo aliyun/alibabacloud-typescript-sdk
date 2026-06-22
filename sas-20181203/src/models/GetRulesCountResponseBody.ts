@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRulesCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The China Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * BE120DAB-F4E7-4C53-ADC3-A97578AB****
@@ -21,7 +21,7 @@ export class GetRulesCountResponseBody extends $dara.Model {
   totalSystemClientRuleCount?: number;
   /**
    * @remarks
-   * The total number of custom defense rules.
+   * The total number of user-defined rules.
    * 
    * @example
    * 10

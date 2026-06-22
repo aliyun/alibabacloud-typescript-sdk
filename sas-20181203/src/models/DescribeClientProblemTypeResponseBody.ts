@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientProblemTypeResponseBodyProblemTypes extends $dara.Model {
   /**
    * @remarks
-   * The description of the issue type.
+   * The description of the diagnostic issue category.
    * 
    * @example
-   * other
+   * Server Guard Agent Offline
    */
   problemDetail?: string;
   /**
    * @remarks
-   * The ID of the issue type.
+   * The ID of the diagnostic issue category.
    * 
    * @example
    * 4
@@ -21,7 +21,7 @@ export class DescribeClientProblemTypeResponseBodyProblemTypes extends $dara.Mod
   problemId?: string;
   /**
    * @remarks
-   * The name of the issue type.
+   * The name of the diagnostic issue category.
    * 
    * @example
    * high_cpu
@@ -55,7 +55,7 @@ export class DescribeClientProblemTypeResponseBodyProblemTypes extends $dara.Mod
 export class DescribeClientProblemTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 4
@@ -63,7 +63,7 @@ export class DescribeClientProblemTypeResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The current page number displayed in the returned results.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class DescribeClientProblemTypeResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **20**.
+   * The maximum number of entries per page in a paged query. Default value: **20**.
    * 
    * @example
    * 20
@@ -79,12 +79,12 @@ export class DescribeClientProblemTypeResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The issue types.
+   * The list of diagnostic types.
    */
   problemTypes?: DescribeClientProblemTypeResponseBodyProblemTypes[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * D65AADFC-1D20-5A6A-8F6A-9FA53CXXXXX
@@ -92,7 +92,7 @@ export class DescribeClientProblemTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the client issue list.
    * 
    * @example
    * 21

@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAssetMatchOperatorsRequest extends $dara.Model {
   /**
    * @remarks
-   * Sets the language type for requests and received messages, default is **zh**. Values:
-   * - **zh**: Chinese 
-   * - **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * 
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh

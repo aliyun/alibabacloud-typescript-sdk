@@ -25,7 +25,7 @@ export class RollbackSuspEventQuaraFileRequest extends $dara.Model {
    * The source IP address of the request.
    * 
    * @example
-   * 1.2.3.4
+   * 192.168.XX.XX
    */
   sourceIp?: string;
   static names(): { [key: string]: string } {

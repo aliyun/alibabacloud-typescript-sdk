@@ -27,7 +27,7 @@ export class DescribeWebLockConfigListRequest extends $dara.Model {
    * The source IP address of the request.
    * 
    * @example
-   * 1.2.3.4
+   * 123.24.XX.XX
    */
   sourceIp?: string;
   /**

@@ -15,7 +15,7 @@ export class ListCompressFileDetectResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The identifier of the file. Only MD5 hash values are supported.
+   * The unique identifier for the file.
    * 
    * @example
    * 0a212417e65c26ff133cfff28f6c****

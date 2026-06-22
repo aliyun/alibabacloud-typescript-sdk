@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterCnnfStatusDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the ID of the cluster.
+   * The list of cluster IDs.
    */
   clusterIds?: string[];
   static names(): { [key: string]: string } {

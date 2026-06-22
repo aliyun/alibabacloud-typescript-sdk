@@ -79,7 +79,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
    * The ID of the asset group.
    * 
    * @example
-   * 8076980
+   * 9454789
    */
   groupId?: number;
   /**

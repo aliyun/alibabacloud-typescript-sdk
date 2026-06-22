@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFileProtectBindMachineRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the current page for a paged query.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The maximum number of entries per page for a paged query.
+   * 
    * @example
    * 10
    */

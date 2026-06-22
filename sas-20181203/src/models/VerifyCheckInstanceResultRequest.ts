@@ -7,7 +7,7 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
    * @remarks
    * The ID of the check item.
    * 
-   * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
+   * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the ID of the check item.
    * 
    * @example
    * 16
@@ -15,17 +15,19 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * List of item IDs to be checked.
+   * The list of IDs of the check items.
    */
   checkIds?: number[];
   /**
    * @remarks
-   * The instance IDs of the assets on which risks are detected based on the check item.
+   * The list of instance IDs of the assets affected by the check item.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The source of task.
+   * The source of the task. Valid values:
+   * 
+   * - **YAO_CHI**: YaoChi console.
    * 
    * @example
    * YAO_CHI

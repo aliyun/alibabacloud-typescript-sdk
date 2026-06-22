@@ -56,15 +56,15 @@ export class GetCheckConfigResponseBodyStandards extends $dara.Model {
    * The name of the check item.
    * 
    * @example
-   * Cloud service configuration management
+   * 云产品配置管理
    */
   showName?: string;
   /**
    * @remarks
-   * The status of the check item. Valid values:
+   * The enabling status of the check item. Valid values:
    * 
-   * *   **ON**: The check item is enabled.
-   * *   **OFF**: The check item is disabled.
+   * - **ON:** Enabled.
+   * - **OFF:** Shutdown.
    * 
    * @example
    * ON
@@ -74,9 +74,9 @@ export class GetCheckConfigResponseBodyStandards extends $dara.Model {
    * @remarks
    * The type of the check item. Valid values:
    * 
-   * *   **RISK**: cloud service configuration management
-   * *   **IDENTITY_PERMISSION**: identity and permission management
-   * *   **COMPLIANCE**: compliance
+   * - **RISK:** cloud service configuration management
+   * - **IDENTITY_PERMISSION:** permission management
+   * - **COMPLIANCE:** compliance.
    * 
    * @example
    * RISK
@@ -112,15 +112,15 @@ export class GetCheckConfigResponseBodyStandards extends $dara.Model {
 export class GetCheckConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The days in a week on which an automatic check is performed.
+   * The periodic check schedule.
    */
   cycleDays?: number[];
   /**
    * @remarks
-   * Indicates whether the check for new check items in the selected requirement item is enabled by default. Valid values:
+   * Indicates whether new check items added to the selected standards are checked by default. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true:** Enabled.
+   * - **false:** Disabled.
    * 
    * @example
    * false
@@ -128,10 +128,10 @@ export class GetCheckConfigResponseBody extends $dara.Model {
   enableAddCheck?: boolean;
   /**
    * @remarks
-   * Indicates whether the automatic check is enabled. Valid values:
+   * Indicates whether automatic periodic checks are enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true:** Enabled.
+   * - **false:** Disabled.
    * 
    * @example
    * true
@@ -139,12 +139,12 @@ export class GetCheckConfigResponseBody extends $dara.Model {
   enableAutoCheck?: boolean;
   /**
    * @remarks
-   * The end time of the check. The value indicates a point in time. The time period that is specified by the start time and end time must be one of the following time periods:
+   * The end time of the check period, indicating the hour of the day. The start time and end time must fall within one of the following time ranges:
    * 
-   * *   **00:00 to 06:00**: If StartTime is set to 00:00, EndTime must be set to 06:00.
-   * *   **06:00 to 12:00**: If StartTime is set to 06:00, EndTime must be set to 12:00.
-   * *   **12:00 to 18:00**: If StartTime is set to 12:00, EndTime must be set to 18:00.
-   * *   **18:00 to 24:00**: If StartTime is set to 18:00, EndTime must be set to 24:00.
+   * - **0~6**: If the start time is 0, the end time must be set to 6.
+   * - **6~12**: If the start time is 6, the end time must be set to 12.
+   * - **12~18**: If the start time is 12, the end time must be set to 18.
+   * - **18~24**: If the start time is 18, the end time must be set to 24.
    * 
    * @example
    * 6
@@ -152,7 +152,7 @@ export class GetCheckConfigResponseBody extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 5A3D5C8F-2A42-5477-BDD8-27E64B5F1739
@@ -165,12 +165,12 @@ export class GetCheckConfigResponseBody extends $dara.Model {
   selectedChecks?: GetCheckConfigResponseBodySelectedChecks[];
   /**
    * @remarks
-   * The information about the check items.
+   * The list of check item information.
    */
   standards?: GetCheckConfigResponseBodyStandards[];
   /**
    * @remarks
-   * The start time of the check. The value indicates a point in time.
+   * The start time of the check period, indicating the hour of the day.
    * 
    * @example
    * 0

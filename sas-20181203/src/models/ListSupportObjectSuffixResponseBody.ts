@@ -10,7 +10,7 @@ export class ListSupportObjectSuffixResponseBody extends $dara.Model {
   data?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The system generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 571B2642-BF51-5BDD-906B-D2340DB9****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageVulWhitelistTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The whitelist ID.
+   * The ID of the vulnerability whitelist.
    * 
    * @example
    * 2000083
@@ -14,9 +14,8 @@ export class UpdateImageVulWhitelistTargetRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -24,7 +23,7 @@ export class UpdateImageVulWhitelistTargetRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The reason why you add the vulnerability to the whitelist.
+   * The reason for adding the whitelist.
    * 
    * @example
    * ignore
@@ -33,9 +32,8 @@ export class UpdateImageVulWhitelistTargetRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the whitelist. Valid values:
-   * 
-   * *   **image**
-   * *   **agentless**
+   * - **image**: image
+   * - **agentless**: agentless.
    * 
    * @example
    * image
@@ -43,10 +41,10 @@ export class UpdateImageVulWhitelistTargetRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The vulnerability that you want to add to the whitelist. The value of this parameter is in the JSON format and contains the following fields:
+   * The operation target. This parameter is in JSON format and contains the following fields:
    * 
-   * *   **type**: The type of the vulnerability. The value is fixed to repo.
-   * *   **target**: The content of the vulnerability. The value is in the format of Namespace/Image repository.
+   * - **type**: The target type. Set to repo.
+   * - **target**: The target content. Format: namespace/image repository.
    * 
    * @example
    * {\\"type\\":\\"repo\\",\\"target\\":[\\"sas_test/script_0209\\",\\"sas_test/script\\"]}

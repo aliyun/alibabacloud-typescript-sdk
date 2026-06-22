@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceTrailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 20456DD5-5CBF-5015-9173-12CA4246B***

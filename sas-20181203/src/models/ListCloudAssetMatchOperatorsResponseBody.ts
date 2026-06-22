@@ -128,7 +128,8 @@ export class ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperatorsMatchOper
   name?: string;
   /**
    * @remarks
-   * Operator display name. Values: - For LIST type: 
+   * Operator display name. Values: 
+   * - For LIST type: 
    * 1. Contains: includes 
    * 2. SizeGreaterThan: size greater than 
    * 3. SizeLessThan: size less than 
@@ -148,8 +149,8 @@ export class ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperatorsMatchOper
    * 2. Equals: equals 
    * 3. In: in the list 
    * 4. NotEquals: does not equal 
-   * 5. >: greater than 
-   * 6. >=: greater than or equal to 
+   * 5. `>`: greater than 
+   * 6. `>=`: greater than or equal to 
    * 7. <: less than 
    * 8. <=: less than or equal to
    * - For DOUBLE type: 
@@ -157,8 +158,8 @@ export class ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperatorsMatchOper
    * 2. Equals: equals 
    * 3. In: in the list 
    * 4. NotEquals: does not equal 
-   * 5. >: greater than 
-   * 6. >=: greater than or equal to 
+   * 5. `>`: greater than 
+   * 6. `>=`: greater than or equal to 
    * 7. <: less than 
    * 8. <=: less than or equal to (Note: There seems to be a repetition here, likely meant to be \\"<=\\" for \\"less than or equal to\\")
    * - For INTEGER type: 
@@ -166,8 +167,8 @@ export class ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperatorsMatchOper
    * 2. Equals: equals 
    * 3. In: in the list 
    * 4. NotEquals: does not equal 
-   * 5. >: greater than 
-   * 6. >=: greater than or equal to 
+   * 5. `>`: greater than 
+   * 6. `>=`: greater than or equal to 
    * 7. <: less than 
    * 8. <=: less than or equal to
    * - For LONG type: 
@@ -184,8 +185,8 @@ export class ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperatorsMatchOper
    * 2. Equals: equals 
    * 3. In: in the list 
    * 4. NotEquals: does not equal 
-   * 5. >: greater than 
-   * 6. >=: greater than or equal to 
+   * 5. `>`: greater than 
+   * 6. `>=`: greater than or equal to 
    * 7. <: less than 
    * 8. <=: less than or equal to
    * 
@@ -281,7 +282,7 @@ export class ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperatorsMatchOper
 export class ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperators extends $dara.Model {
   /**
    * @remarks
-   * List of operators
+   * The list of operators.
    */
   matchOperators?: ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperatorsMatchOperators[];
   /**
@@ -329,7 +330,7 @@ export class ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperators extends 
 export class ListCloudAssetMatchOperatorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of operator types
+   * The operator type.
    */
   matchTypeOperators?: ListCloudAssetMatchOperatorsResponseBodyMatchTypeOperators[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyUniBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The username of the database account.
    * 
    * @example
    * sa
@@ -21,12 +21,12 @@ export class ModifyUniBackupPolicyRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * The policy for full backup. The value of this parameter is a JSON string that contains the following fields:
+   * The full backup policy. The value is in JSON format and contains the following fields:
    * 
-   * *   **start**: the start time of a backup task
-   * *   **interval**: the interval of backup tasks
-   * *   **type**: the unit of the interval
-   * *   **days**: the days of a week on which a backup task is performed
+   * - **start**: the backup start time.
+   * - **interval**: the interval.
+   * - **type**: the unit of the interval.
+   * - **days**: the days of the week on which the backup is performed.
    * 
    * @example
    * {"days":[4],"interval":1,"planType":"weekly","startTime":"22:00:00"}
@@ -34,12 +34,11 @@ export class ModifyUniBackupPolicyRequest extends $dara.Model {
   fullPlan?: { [key: string]: any };
   /**
    * @remarks
-   * The policy for incremental backup. The value of this parameter is a JSON string that contains the following fields:
-   * 
-   * *   **start**: the start time of a backup task
-   * *   **interval**: the interval of backup tasks
-   * *   **type**: the unit of the interval
-   * *   **days**: the days of a week on which a backup task is performed
+   * The incremental backup policy. The value is in JSON format and contains the following fields:
+   * - **start**: the backup start time.
+   * - **interval**: the interval.
+   * - **type**: the unit of the interval.
+   * - **days**: the days of the week on which the backup is performed.
    * 
    * @example
    * {"interval":1,"planType":"daily","startTime":"23:30:00"}
@@ -47,9 +46,8 @@ export class ModifyUniBackupPolicyRequest extends $dara.Model {
   incPlan?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the anti-ransomware policy.
-   * 
-   * > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+   * The ID of the anti-ransomware backup policy for databases.
+   * >You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -59,7 +57,7 @@ export class ModifyUniBackupPolicyRequest extends $dara.Model {
   policyId?: number;
   /**
    * @remarks
-   * The name of the anti-ransomware policy.
+   * The name of the anti-ransomware backup policy for databases.
    * 
    * @example
    * databak
@@ -67,10 +65,9 @@ export class ModifyUniBackupPolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The status of the anti-ransomware policy. Valid values:
-   * 
-   * *   **enabled**
-   * *   **disabled**
+   * The status of the policy. Valid values:
+   * - **enabled**: The policy is enabled.
+   * - **disabled**: The policy is disabled.
    * 
    * @example
    * enabled
@@ -78,7 +75,7 @@ export class ModifyUniBackupPolicyRequest extends $dara.Model {
   policyStatus?: string;
   /**
    * @remarks
-   * The retention period of the backup snapshot.
+   * The number of days for which backup snapshots are retained.
    * 
    * @example
    * 7
@@ -86,7 +83,7 @@ export class ModifyUniBackupPolicyRequest extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * The maximum network bandwidth that is allowed during data backup. Unit: bytes.
+   * The network bandwidth throttling for backup network bandwidth. Unit: bytes.
    * 
    * @example
    * 1048576

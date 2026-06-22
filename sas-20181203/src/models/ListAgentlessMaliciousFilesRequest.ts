@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specifies whether the vulnerability is handled. Valid values:
+   * Specifies whether the alert has been handled. Valid values:
    * 
-   * *   Y: The vulnerability is handled.
-   * *   N: The vulnerability is not handled.
+   * - Y: handled
+   * - N: not handled.
    * 
    * @example
    * Y
@@ -34,8 +34,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   eventId?: number;
   /**
    * @remarks
-   * The name of the malicious file that you want to query.
-   * 
+   * The name of the malicious file to query.
    * > Fuzzy match is supported.
    * 
    * @example
@@ -44,10 +43,9 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   fuzzyMaliciousName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -55,11 +53,11 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The severities of the malicious files. Separate multiple values with commas (,). Valid values:
+   * The severity levels. Separate multiple values with commas (,). Valid values:
    * 
-   * *   serious
-   * *   suspicious
-   * *   remind
+   * - serious: urgent
+   * - suspicious: suspicious
+   * - remind: reminder.
    * 
    * @example
    * remind,suspicious
@@ -67,7 +65,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   levels?: string;
   /**
    * @remarks
-   * The MD5 hash value of the malicious file.
+   * The MD5 hash of the malicious file.
    * 
    * @example
    * d836968041f7683b5459****
@@ -77,17 +75,17 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
    * @remarks
    * The alert type.
    * 
-   * Valid values when Lang is set to zh:
+   * If Lang is set to zh, valid values:
    * 
-   * *   WebShell
-   * *   Malicious Software
-   * *   Malicious Script
+   * - WebShell: WebShell
+   * - 恶意软件: malware
+   * - 恶意脚本: malicious script
    * 
-   * Valid values when Lang is set to en:
+   * If Lang is set to en, valid values:
    * 
-   * *   WebShell
-   * *   Malicious Software
-   * *   Malicious Script
+   * - WebShell: WebShell
+   * - Malicious Software: malware
+   * - Malicious Script: malicious script.
    * 
    * @example
    * WebShell
@@ -95,7 +93,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   maliciousType?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -105,7 +103,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The remarks for the asset affected by the vulnerability. The value can be the private IP address, public IP address, or name of the asset. Fuzzy match is supported.
+   * The asset information for the vulnerability query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
    * 
    * @example
    * 192.168.XX.XX
@@ -113,12 +111,12 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The source of the malicious file.
+   * The file source.
    */
   scanRange?: string[];
   /**
    * @remarks
-   * The UUID of the asset.
+   * The unique identifier of the asset.
    * 
    * @example
    * d2d94e8b-bb25-4744-8004-1e08a53c****

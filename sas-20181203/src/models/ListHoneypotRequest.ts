@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHoneypotRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListHoneypotRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The IDs of the honeypots.
+   * The list of honeypot IDs.
    */
   honeypotIds?: string[];
   /**
@@ -26,7 +26,7 @@ export class ListHoneypotRequest extends $dara.Model {
   honeypotName?: string;
   /**
    * @remarks
-   * The ID of the management node.
+   * The ID of the honeypot management node.
    * 
    * @example
    * a882e590-b87b-45a6-87b9-d0a3e5a0****
@@ -34,7 +34,7 @@ export class ListHoneypotRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The name of the management node.
+   * The name of the honeypot management node.
    * 
    * @example
    * honeypot_master
@@ -42,7 +42,7 @@ export class ListHoneypotRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to return per page in a paged query.
    * 
    * @example
    * 20

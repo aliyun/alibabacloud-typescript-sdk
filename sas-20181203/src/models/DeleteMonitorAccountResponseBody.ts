@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMonitorAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. China Chinese Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E3322413BB68

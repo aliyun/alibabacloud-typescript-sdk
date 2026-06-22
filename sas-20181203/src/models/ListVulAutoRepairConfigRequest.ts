@@ -13,7 +13,7 @@ export class ListVulAutoRepairConfigRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -21,10 +21,9 @@ export class ListVulAutoRepairConfigRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -32,7 +31,7 @@ export class ListVulAutoRepairConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**, which indicates that 10 auto-fix vulnerability configurations are displayed per page.
    * 
    * @example
    * 10
@@ -42,8 +41,8 @@ export class ListVulAutoRepairConfigRequest extends $dara.Model {
    * @remarks
    * The type of the vulnerability. Valid values:
    * 
-   * *   **cve**: Linux software vulnerability
-   * *   **sys**: Windows system vulnerability
+   * - **cve**: Linux software vulnerability
+   * - **sys**: Windows system vulnerability.
    * 
    * @example
    * cve

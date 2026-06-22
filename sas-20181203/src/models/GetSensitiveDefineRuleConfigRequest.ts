@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetSensitiveDefineRuleConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * 
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,10 +17,9 @@ export class GetSensitiveDefineRuleConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source of the check rules. Valid values:
-   * 
-   * *   **image**: image.
-   * *   **agentless**: agentless detection.
+   * The source of the sensitive file check item. Valid values:
+   * - **image**: image
+   * - **agentless**: agentless.
    * 
    * @example
    * image

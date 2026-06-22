@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileUploadLimitRequest extends $dara.Model {
   /**
    * @remarks
-   * The QPS limit on the files uploaded from the client. Valid values: 100 to 10000.
+   * The QPS throttling threshold for file uploads from the client. Valid values: 100 to 10000.
    * 
    * This parameter is required.
    * 

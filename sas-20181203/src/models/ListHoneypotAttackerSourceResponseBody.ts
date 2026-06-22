@@ -16,7 +16,7 @@ export class ListHoneypotAttackerSourceResponseBodyList extends $dara.Model {
    * The most recent honeypot that was attacked.
    * 
    * @example
-   * vpc tcp honeypot
+   * vpc tcp 蜜罐
    */
   lastTargetHoneypot?: string;
   /**
@@ -39,9 +39,11 @@ export class ListHoneypotAttackerSourceResponseBodyList extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **2**: low
-   * *   **3**: medium
-   * *   **4**: high
+   * - **2**: low
+   * 
+   * - **3**: medium
+   * 
+   * - **4**: high
    * 
    * @example
    * 2
@@ -193,8 +195,9 @@ export class ListHoneypotAttackerSourceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

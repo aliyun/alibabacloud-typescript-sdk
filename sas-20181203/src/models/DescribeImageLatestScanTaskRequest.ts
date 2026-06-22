@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageLatestScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The digest value of the image.
+   * The digest of the image.
    * 
    * This parameter is required.
    * 

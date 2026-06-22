@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image repository.
-   * 
-   * >  You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain the ID.
+   * The image repository ID.
+   * >You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class UpdateWhiteListRequest extends $dara.Model {
   registryId?: number;
   /**
    * @remarks
-   * The IP address whitelist. Separate multiple IP addresses with commas (,).
+   * The whitelist. Separate multiple whitelisted addresses with commas (,).
    * 
    * This parameter is required.
    * 

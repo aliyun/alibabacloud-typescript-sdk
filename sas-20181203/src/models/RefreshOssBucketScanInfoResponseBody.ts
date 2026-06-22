@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshOssBucketScanInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The system generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * CE290C1F-4B7D-5024-9D2F-E26D7B08****

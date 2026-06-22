@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserBaselineAuthorizationRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for requests and responses. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class DescribeUserBaselineAuthorizationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the asset owner.
+   * The IP address of the access source.
    * 
    * @example
    * 1.2.3.4

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetImageBuildRiskStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUIDs of images. Separate multiple UUIDs with commas (,).
-   * 
-   * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the UUIDs of images.
+   * The image UUIDs. Separate multiple UUIDs with commas (,).
+   * >Call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to obtain this parameter.
    * 
    * @example
    * f382fccd88b94c5c8c864def681*****,ac32fccd88b94c5c8c864def681*****
@@ -15,7 +14,7 @@ export class SetImageBuildRiskStatusRequest extends $dara.Model {
   imageUuids?: string;
   /**
    * @remarks
-   * The keyword of the image build command risk.
+   * The risk keyword.
    * 
    * @example
    * risk.type
@@ -23,11 +22,10 @@ export class SetImageBuildRiskStatusRequest extends $dara.Model {
   riskKey?: string;
   /**
    * @remarks
-   * The status of the image build command risk. Valid values:
-   * 
-   * *   **0**: unhandled.
-   * *   **1**: ignored.
-   * *   **2**: false positive.
+   * The status. Valid values:
+   * - **0**: Unhandled.
+   * - **1**: Ignored.
+   * - **2**: False positive.
    * 
    * @example
    * 0

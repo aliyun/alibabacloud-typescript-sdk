@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAffectedAssetsResponseBodyAssetList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the server.
+   * The instance ID of the server.
    * 
    * @example
    * 11
@@ -13,7 +13,7 @@ export class DescribeAffectedAssetsResponseBodyAssetList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the server.
+   * The instance name of the server.
    * 
    * @example
    * 11
@@ -37,7 +37,7 @@ export class DescribeAffectedAssetsResponseBodyAssetList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The number of viruses detected on the server.
+   * The number of virus detection risks on the server.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeAffectedAssetsResponseBodyAssetList extends $dara.Model {
   riskNum?: number;
   /**
    * @remarks
-   * The UUID of the server.
+   * The unique identifier of the server.
    * 
    * @example
    * 947d7514-258a-4b47-9dde-9dxxxxxxxxxx
@@ -85,7 +85,7 @@ export class DescribeAffectedAssetsResponseBodyAssetList extends $dara.Model {
 export class DescribeAffectedAssetsResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paginated query.
    * 
    * @example
    * 10
@@ -93,7 +93,7 @@ export class DescribeAffectedAssetsResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paginated query.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeAffectedAssetsResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -109,7 +109,7 @@ export class DescribeAffectedAssetsResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -145,7 +145,7 @@ export class DescribeAffectedAssetsResponseBodyPageInfo extends $dara.Model {
 export class DescribeAffectedAssetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the affected servers.
+   * The queried server asset information.
    */
   assetList?: DescribeAffectedAssetsResponseBodyAssetList[];
   /**
@@ -155,7 +155,7 @@ export class DescribeAffectedAssetsResponseBody extends $dara.Model {
   pageInfo?: DescribeAffectedAssetsResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7E0618A9-D5EF-4220-9471-C42XXXXXXXX

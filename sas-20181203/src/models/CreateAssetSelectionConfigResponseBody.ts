@@ -22,7 +22,7 @@ export class CreateAssetSelectionConfigResponseBodyData extends $dara.Model {
    * *   **linux**: the Linux operating system
    * 
    * @example
-   * all
+   * linux
    */
   platform?: string;
   /**

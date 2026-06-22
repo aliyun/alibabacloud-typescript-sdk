@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupedContainerInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The search conditions for assets. Specify the value in the JSON format. Separate multiple search conditions with commas (,). Example: `[{"name":"riskStatus","value":"YES"},{"name":"riskLevel","value":"2"}]`.
-   * 
-   * >  Supported search conditions include the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+   * The conditions for searching assets. This parameter is in JSON format. Separate multiple conditions with commas (,). Example: `[{"name":"riskStatus","value":"YES"},{"name":"riskLevel","value":"2"}]`.
+   * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call [DescribeCriteria](~~DescribeCriteria~~) to query the supported search conditions.
    * 
    * @example
    * [{"name":"riskStatus","value":"YES"},{"name":"riskLevel","value":"2"}]
@@ -15,7 +14,7 @@ export class DescribeGroupedContainerInstancesRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -23,15 +22,13 @@ export class DescribeGroupedContainerInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The keyword that you want to use to query containers. This parameter depends on the value of the GroupField parameter.
-   * 
-   * *   If the **GroupField** parameter is set to **pod**, set this parameter to the name of the pod that you want to query.
-   * *   If the **GroupField** parameter is set to **appName**, set this parameter to the name of the application that you want to query.
-   * *   If the **GroupField** parameter is set to **namespace**, set this parameter to the namespace that you want to query.
-   * *   If the **GroupField** parameter is set to **clusterId**, set this parameter to the ID of the cluster that you want to query.
-   * *   If the **GroupField** parameter is set to **image**, set this parameter to the name of the image that you want to query.
-   * 
-   * >  Fuzzy match is supported.
+   * The search condition for the specified group type. Set the search condition based on the type specified by GroupField:
+   * - If **GroupField** is set to **pod**: specify the pod name to query.
+   * - If **GroupField** is set to **appName**: specify the application name to query.
+   * - If **GroupField** is set to **namespace**: specify the namespace to query.
+   * - If **GroupField** is set to **clusterId**: specify the cluster ID to query.
+   * - If **GroupField** is set to **image**: specify the image name to query.
+   * > All the preceding search conditions support fuzzy match.
    * 
    * @example
    * cas-adad-qeqwe
@@ -39,13 +36,12 @@ export class DescribeGroupedContainerInstancesRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The group type that you want to use to query containers. Valid values:
-   * 
-   * *   **pod**
-   * *   **appName**
-   * *   **namespace**
-   * *   **clusterId**
-   * *   **image**
+   * The group type to query. Valid values:
+   * - **pod**: pod
+   * - **appName**: application name
+   * - **namespace**: namespace
+   * - **clusterId**: cluster ID
+   * - **image**: image.
    * 
    * This parameter is required.
    * 
@@ -55,10 +51,9 @@ export class DescribeGroupedContainerInstancesRequest extends $dara.Model {
   groupField?: string;
   /**
    * @remarks
-   * The logical relationship that you want to use to evaluate multiple search conditions. Valid values:
-   * 
-   * *   **OR**: Search conditions are evaluated by using a logical **OR**.
-   * *   **AND**: Search conditions are evaluated by using a logical **AND**.
+   * The logical relationship among multiple search conditions. Valid values:
+   * - **OR**: The search conditions are evaluated with a logical OR.
+   * - **AND**: The search conditions are evaluated with a logical AND.
    * 
    * @example
    * OR
@@ -66,9 +61,8 @@ export class DescribeGroupedContainerInstancesRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The number of container assets to display on each page when paging is used. Default value: **20**, which indicates that 20 container assets are displayed on each page.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20

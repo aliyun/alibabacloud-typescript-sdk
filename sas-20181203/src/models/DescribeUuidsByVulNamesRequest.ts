@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the vulnerability is fixed. Valid values:
-   * 
-   * *   **y**: the vulnerability is fixed.
-   * *   **n**: the vulnerability is not fixed.
+   * Specifies whether the vulnerability has been handled. Valid values:
+   * - **y**: handled
+   * - **n**: not handled.
    * 
    * @example
    * n
@@ -16,7 +15,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   dealed?: string;
   /**
    * @remarks
-   * The name of the search field that is used to query containers.
+   * The container search field name.
    * 
    * @example
    * namespace
@@ -24,7 +23,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The value of the search field that is used to query containers.
+   * The container search field value.
    * 
    * @example
    * cas-adad-qeqwe
@@ -40,10 +39,9 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -51,11 +49,11 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The severity of the vulnerability. Separate multiple severities with commas (,). Valid values:
+   * The vulnerability level. Separate multiple levels with commas (,). Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high
+   * - **medium**: medium
+   * - **low**: low.
    * 
    * @example
    * high,low
@@ -63,11 +61,11 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The priority based on which the vulnerability is fixed. Separate multiple priorities with commas (,). Valid values:
+   * The priority level of vulnerability fixing. Separate multiple levels with commas (,). Valid values:
    * 
-   * *   **asap**: high
-   * *   **later**: medium
-   * *   **nntf**: low
+   * - **asap**: high
+   * - **later**: medium
+   * - **nntf**: low.
    * 
    * @example
    * asap,later,nntf
@@ -75,7 +73,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   necessity?: string;
   /**
    * @remarks
-   * The remarks for the asset affected by the vulnerability. The value can be the private IP address, public IP address, or name of the asset. Fuzzy match is supported.
+   * The asset information for the vulnerability query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
    * 
    * @example
    * 10.7.
@@ -83,7 +81,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The tags that are used to search for the vulnerability.
+   * The tag for querying vulnerabilities.
    * 
    * @example
    * oval
@@ -91,18 +89,18 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   searchTags?: string;
   /**
    * @remarks
-   * The status of the vulnerability. Separate multiple states with commas (,). Valid values:
+   * The fix status of the vulnerability. Separate multiple statuses with commas (,). Valid values:
    * 
-   * *   **1**: unfixed
-   * *   **2**: fix failed
+   * - **1**: unfixed
+   * - **2**: fix failed.
    * 
    * @example
-   * 1,4
+   * 1,2
    */
   statusList?: string;
   /**
    * @remarks
-   * The tag of the vulnerability.
+   * The vulnerability tag.
    * 
    * @example
    * oval
@@ -110,10 +108,10 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The type of the query condition. Valid values:
+   * The query type. Valid values:
    * 
-   * *   **containerId**: the ID of the container
-   * *   **uuid**: the ID of the asset
+   * - **containerId**: container ID
+   * - **uuid**: asset ID.
    * 
    * @example
    * uuid
@@ -121,10 +119,10 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
+   * The type of vulnerability to query. Valid values:
    * 
-   * *   **cve**: Linux software vulnerability
-   * *   **sys**: Windows system vulnerability
+   * - **cve**: Linux software vulnerability
+   * - **sys**: Windows system vulnerability.
    * 
    * This parameter is required.
    * 
@@ -134,7 +132,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the vulnerability is detected. Separate multiple IDs with commas (,).
+   * The instance IDs of VPC-connected instances to query for vulnerabilities. Separate multiple instance IDs with commas (,).
    * 
    * @example
    * vpc-uf6ssrvbrwe37ekw****,vpc-bp1aevy8sofi8mh1q****
@@ -142,9 +140,8 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
   vpcInstanceIds?: string;
   /**
    * @remarks
-   * An array that consists of the names of vulnerabilities.
-   * 
-   * >  You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain the names of vulnerabilities.
+   * The collection of vulnerability names.
+   * > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    */

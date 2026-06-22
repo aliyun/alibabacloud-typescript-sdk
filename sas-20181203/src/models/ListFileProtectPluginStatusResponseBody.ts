@@ -15,8 +15,9 @@ export class ListFileProtectPluginStatusResponseBodyData extends $dara.Model {
    * @remarks
    * The returned code after you install the Security Center agent. Valid values:
    * 
-   * 1.  0: The installation is successful.
-   * 2.  \\-2: The kernel does not support the installation.
+   * 1. 0: The installation is successful.
+   * 
+   * 2. -2: The kernel does not support the installation.
    * 
    * @example
    * -2
@@ -66,8 +67,9 @@ export class ListFileProtectPluginStatusResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the Security Center agent is online. Valid value:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -77,8 +79,9 @@ export class ListFileProtectPluginStatusResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the operating system. Valid values:
    * 
-   * *   **windows**: Windows
-   * *   **linux**: Linux
+   * - **windows**: Windows
+   * 
+   * - **linux**: Linux
    * 
    * @example
    * linux

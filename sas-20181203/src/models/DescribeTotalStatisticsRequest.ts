@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTotalStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of data. Default value: **aqs**. Valid values:
-   * 
-   * *   **sas**: Security Center
-   * *   **aqs**: Server Guard
+   * The source of the data request. Default value: **aqs**. Valid values:
+   * - **sas**: The data request comes from Security Center.
+   * - **aqs**: The data request comes from Server Guard.
    * 
    * @example
    * sas
@@ -16,9 +15,8 @@ export class DescribeTotalStatisticsRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The ID of the asset group.
-   * 
-   * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the IDs of asset groups.
+   * The ID of the asset group to query.
+   * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to obtain this parameter.
    * 
    * @example
    * 8076980
@@ -26,7 +24,7 @@ export class DescribeTotalStatisticsRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The name or public IP address of the asset.
+   * The asset name or public IP address.
    * 
    * @example
    * 222.185.XX.XX

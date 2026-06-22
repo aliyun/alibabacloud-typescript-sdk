@@ -110,7 +110,7 @@ export class ListCheckItemWarningSummaryRequest extends $dara.Model {
    * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
    * 
    * @example
-   * 127608589417****
+   * 1232428423234****
    */
   resourceDirectoryAccountId?: number;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateHcWarningsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 722C4F88-7867-4E7B-8ADE-7451053

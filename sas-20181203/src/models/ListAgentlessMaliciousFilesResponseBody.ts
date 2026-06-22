@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentlessMaliciousFilesResponseBodyListDetails extends $dara.Model {
   /**
    * @remarks
-   * The name of the detailed item.
+   * The name of the alert event detail item.
    * 
    * @example
    * MD5
@@ -13,7 +13,7 @@ export class ListAgentlessMaliciousFilesResponseBodyListDetails extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The name key of the detailed item.
+   * The name key of the alert event detail item.
    * 
    * @example
    * ${suspicious.mp.db.maliciousfilemd5}
@@ -21,7 +21,7 @@ export class ListAgentlessMaliciousFilesResponseBodyListDetails extends $dara.Mo
   nameKey?: string;
   /**
    * @remarks
-   * The type of the detailed item.
+   * The type of the alert event detail item.
    * 
    * @example
    * text
@@ -29,7 +29,7 @@ export class ListAgentlessMaliciousFilesResponseBodyListDetails extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The value of the detailed item.
+   * The value of the alert event detail item.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class ListAgentlessMaliciousFilesResponseBodyListDetails extends $dara.Mo
 export class ListAgentlessMaliciousFilesResponseBodyListNotes extends $dara.Model {
   /**
    * @remarks
-   * The remark.
+   * The remarks.
    * 
    * @example
    * Serious***
@@ -73,7 +73,7 @@ export class ListAgentlessMaliciousFilesResponseBodyListNotes extends $dara.Mode
   note?: string;
   /**
    * @remarks
-   * The ID of the remark.
+   * The ID of the remark record.
    * 
    * @example
    * 50****
@@ -81,7 +81,7 @@ export class ListAgentlessMaliciousFilesResponseBodyListNotes extends $dara.Mode
   noteId?: string;
   /**
    * @remarks
-   * The time when the remark was created.
+   * The time of the remark record.
    * 
    * @example
    * 2023-04-27 14:49:21
@@ -115,12 +115,12 @@ export class ListAgentlessMaliciousFilesResponseBodyListNotes extends $dara.Mode
 export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The details of the alert event.
+   * The alert event details.
    */
   details?: ListAgentlessMaliciousFilesResponseBodyListDetails[];
   /**
    * @remarks
-   * The URL to download the malicious image sample.
+   * The download URL of the malicious sample.
    * 
    * @example
    * https://upgrade-rule-pkg.oss-cn-beijing.aliyuncs.com/totalpackage/rule/V3.166.2/totalpackage_rule_V3.16_6.2_tip_20230220110****
@@ -136,7 +136,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   filePath?: number;
   /**
    * @remarks
-   * The timestamp generated when the first scan was performed. Unit: milliseconds.
+   * The timestamp of the first scan, in milliseconds.
    * 
    * @example
    * 168257753****
@@ -144,7 +144,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   firstScanTimestamp?: number;
   /**
    * @remarks
-   * The highlighted JSON string.
+   * The highlighted text, in JSON string format.
    * 
    * @example
    * {\\"highlight\\":{\\"ruleVersion\\":\\"20230223\\",\\"ruleId\\":600139,\\"events\\":[[207,284]]}}
@@ -160,7 +160,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the asset.
+   * The name of the asset instance.
    * 
    * @example
    * sql-test-001****
@@ -184,7 +184,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp generated when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the latest scan, in milliseconds.
    * 
    * @example
    * 168257753****
@@ -192,11 +192,11 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   latestScanTimestamp?: number;
   /**
    * @remarks
-   * The severity of the malicious file. Valid values:
+   * The severity level. Valid values:
    * 
-   * *   serious
-   * *   suspicious
-   * *   remind
+   * - serious: urgent
+   * - suspicious: suspicious
+   * - remind: reminder.
    * 
    * @example
    * serious
@@ -204,7 +204,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The MD5 hash value of the malicious file.
+   * The MD5 hash of the malicious file.
    * 
    * @example
    * 1f2e13a7c51ee89316ae50066515****
@@ -220,7 +220,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   maliciousName?: string;
   /**
    * @remarks
-   * The type of the virus.
+   * The virus type.
    * 
    * @example
    * WebShell
@@ -233,7 +233,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   notes?: ListAgentlessMaliciousFilesResponseBodyListNotes[];
   /**
    * @remarks
-   * The handling result of the alert.
+   * The alert handling result.
    * 
    * @example
    * addWhitelist.USER.Success
@@ -241,7 +241,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   operateResult?: string;
   /**
    * @remarks
-   * The timestamp generated when the alert is handled. Unit: milliseconds.
+   * The timestamp when the alert was handled, in milliseconds.
    * 
    * @example
    * 168257753****
@@ -249,7 +249,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   operateTimestamp?: string;
   /**
    * @remarks
-   * The partition of the disk.
+   * The disk partition.
    * 
    * @example
    * /dev/xvda1
@@ -257,7 +257,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   partition?: string;
   /**
    * @remarks
-   * The ID of the asset that is scanned.
+   * The ID of the scan target.
    * 
    * @example
    * m-****
@@ -265,7 +265,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the asset that is scanned.
+   * The name of the scan target.
    * 
    * @example
    * jenkins****
@@ -273,9 +273,9 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The type of the asset that is scanned. Valid values:
+   * The object type of the scan target. Valid values:
    * 
-   * *   2: The scanned asset is an image.
+   * - 2: image.
    * 
    * @example
    * 2
@@ -283,7 +283,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The UUID of the asset.
+   * The UUID of the asset instance.
    * 
    * @example
    * 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
@@ -361,7 +361,7 @@ export class ListAgentlessMaliciousFilesResponseBodyList extends $dara.Model {
 export class ListAgentlessMaliciousFilesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of malicious files displayed on the current page in a paging query.
    * 
    * @example
    * 20
@@ -369,7 +369,7 @@ export class ListAgentlessMaliciousFilesResponseBodyPageInfo extends $dara.Model
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The current page number in the returned results.
    * 
    * @example
    * 1
@@ -377,7 +377,7 @@ export class ListAgentlessMaliciousFilesResponseBodyPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries returned per page in a paging query.
    * 
    * @example
    * 20
@@ -385,7 +385,7 @@ export class ListAgentlessMaliciousFilesResponseBodyPageInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of malicious files found.
    * 
    * @example
    * 23
@@ -421,7 +421,7 @@ export class ListAgentlessMaliciousFilesResponseBodyPageInfo extends $dara.Model
 export class ListAgentlessMaliciousFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The malicious files.
+   * The list of malicious files.
    */
   list?: ListAgentlessMaliciousFilesResponseBodyList[];
   /**
@@ -431,7 +431,7 @@ export class ListAgentlessMaliciousFilesResponseBody extends $dara.Model {
   pageInfo?: ListAgentlessMaliciousFilesResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * CE343162-35BF-565E-B85E-8E3B7A2B****

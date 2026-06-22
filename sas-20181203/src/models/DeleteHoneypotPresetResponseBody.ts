@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHoneypotPresetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of a failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteHoneypotPresetResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code of the request.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeleteHoneypotPresetResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class DeleteHoneypotPresetResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 1A975D03-5F49-5354-B2CB-3918D5DA431A
@@ -39,8 +39,8 @@ export class DeleteHoneypotPresetResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

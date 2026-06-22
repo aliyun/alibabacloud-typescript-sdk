@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PageImageRegistryResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The IP address blacklist.
+   * The blacklist.
    * 
    * @example
    * 129.211.XXX.XXX
@@ -13,7 +13,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   blackList?: string;
   /**
    * @remarks
-   * The domain name of the image repository.
+   * The domain name of the repository.
    * 
    * @example
    * sinochem.com
@@ -21,7 +21,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The time when the image repository was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The creation time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2022-08-30 10:23:30
@@ -29,7 +29,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the image repository was updated. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The update time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2022-09-30 10:23:30
@@ -37,7 +37,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The unique ID of the image repository.
    * 
    * @example
    * 1078312
@@ -45,7 +45,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The number of images that are stored in the image repository.
+   * The number of images in the repository.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   imageCount?: number;
   /**
    * @remarks
-   * The information about the Jenkins environment.
+   * The Jenkins environment context.
    * 
    * @example
    * projectInfo
@@ -62,9 +62,8 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   /**
    * @remarks
    * The network type. Valid values:
-   * 
-   * *   **1**: Internet.
-   * *   **2**: virtual private cloud (VPC).
+   * - **1**: public network
+   * - **2**: VPC.
    * 
    * @example
    * 1
@@ -80,7 +79,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The number of days for which assets are retained.
+   * The number of days that assets are retained.
    * 
    * @example
    * 30
@@ -88,10 +87,9 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   persistenceDay?: number;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
-   * 
-   * *   **1**: HTTP.
-   * *   **2**: HTTPS.
+   * The protocol type. Valid values:
+   * - **1**: HTTP
+   * - **2**: HTTPS.
    * 
    * @example
    * 1
@@ -99,7 +97,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   protocolType?: number;
   /**
    * @remarks
-   * The region ID of the image repository.
+   * The region ID of the repository.
    * 
    * @example
    * cn-hangzhou
@@ -107,7 +105,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP address of the image repository.
+   * The IP address of the repository.
    * 
    * @example
    * 39.104.XXX.XXX
@@ -123,12 +121,12 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   registryName?: string;
   /**
    * @remarks
-   * The type of the image repository. Valid values:
+   * The image repository type. Valid values:
    * 
-   * *   **acr**: Container Registry.
-   * *   **harbor**: Harbor.
-   * *   **quay**: Quay.
-   * *   **CI/CD**: Jenkins.
+   * - **acr**: ACR
+   * - **harbor**: Harbor
+   * - **quay**: Quay
+   * - **CI/CD**: Jenkins.
    * 
    * @example
    * harbor
@@ -144,7 +142,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The number of scan tasks that are performed per hour.
+   * The number of scan tasks per hour.
    * 
    * @example
    * 30
@@ -160,7 +158,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The instance ID of the VPC.
    * 
    * @example
    * vpc-5gu8iu68w9b472jbb****
@@ -168,7 +166,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The whitelist.
    * 
    * @example
    * 192.168.XXX.XXX
@@ -236,7 +234,7 @@ export class PageImageRegistryResponseBodyList extends $dara.Model {
 export class PageImageRegistryResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 20
@@ -244,7 +242,7 @@ export class PageImageRegistryResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -252,7 +250,7 @@ export class PageImageRegistryResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -296,17 +294,17 @@ export class PageImageRegistryResponseBodyPageInfo extends $dara.Model {
 export class PageImageRegistryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of image repositories.
+   * The image repository list data.
    */
   list?: PageImageRegistryResponseBodyList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information for the paged query.
    */
   pageInfo?: PageImageRegistryResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * FDA9E37C-6114-5945-8FF1-E3D4D397****

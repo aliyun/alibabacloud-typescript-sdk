@@ -7,7 +7,7 @@ export class GetOpaClusterLabelListRequest extends $dara.Model {
    * @remarks
    * The ID of the cluster to which the container belongs.
    * 
-   * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
+   * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
    * 
    * @example
    * c556c8133b5ad4378b7fc533ddbda****
@@ -25,7 +25,7 @@ export class GetOpaClusterLabelListRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Default value: 200. If you leave the PageSize parameter empty, 200 entries are returned by default. Maximum value: 200.
    * 
-   * >  We recommend that you do not leave this parameter empty.
+   * > We recommend that you do not leave this parameter empty.
    * 
    * @example
    * 20

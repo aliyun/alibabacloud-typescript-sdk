@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether alerts are generated on the asset. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether security alerts exist on the asset. Valid values:
+   * - **YES**: Security alerts exist.
+   * - **NO**: No security alerts exist.
    * 
    * @example
    * NO
@@ -16,9 +15,8 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   alarmStatus?: string;
   /**
    * @remarks
-   * The ID of the application.
-   * 
-   * >  This parameter is available only when the **Vendor** parameter is set to 9.
+   * The application ID.
+   * > This parameter is returned only when **Vendor** is set to 9.
    * 
    * @example
    * test
@@ -26,9 +24,8 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
-   * 
-   * >  This parameter is available only when the **Vendor** parameter is set to 9.
+   * The application name.
+   * > This parameter is returned only when **Vendor** is set to 9.
    * 
    * @example
    * testAppName
@@ -38,22 +35,22 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
    * @remarks
    * The type of the asset. Valid values:
    * 
-   * *   **0**: an ECS instance
-   * *   **1**: a Server Load Balancer (SLB) instance
-   * *   **2**: a Network Address Translation (NAT) gateway
-   * *   **3**: an ApsaraDB RDS instance
-   * *   **4**: an ApsaraDB for MongoDB instance
-   * *   **5**: an ApsaraDB for Redis instance
-   * *   **6**: a container image
-   * *   **7**: a container
+   * - **0**: ECS instance
+   * - **1**: SLB instance
+   * - **2**: NAT gateway
+   * - **3**: ApsaraDB RDS instance
+   * - **4**: ApsaraDB for MongoDB instance
+   * - **5**: ApsaraDB for Redis instance
+   * - **6**: container image
+   * - **7**: container
    * 
    * @example
-   * ecs
+   * 0
    */
   assetType?: string;
   /**
    * @remarks
-   * The name of the asset type.
+   * The type name of the asset.
    * 
    * @example
    * Elastic Compute Service
@@ -61,7 +58,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   assetTypeName?: string;
   /**
    * @remarks
-   * The timestamp when Security Center is authorized to scan the asset.
+   * The timestamp when the asset authorization was bound. Unit: milliseconds.
    * 
    * @example
    * 1627974044000
@@ -69,28 +66,35 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   authModifyTime?: number;
   /**
    * @remarks
-   * The edition of Security Center that is authorized to scan the asset. Valid values:
+   * The authorization version of the asset. Valid values:
+   * <props="china">
+   * - **1**: Free Edition
+   * - **6**: Anti-virus Edition
+   * - **5**: Advanced Edition
+   * - **3**: Enterprise Edition
+   * - **7**: Ultimate Edition
    * 
-   * *   **1**: Basic edition
-   * *   **6**: Anti-virus edition
-   * *   **5**: Advanced edition
-   * *   **3**: Enterprise edition
-   * *   **7**: Ultimate edition
-   * *   **10**: Value-added Plan edition
+   * 
+   * <props="intl">
+   * - **1**: Free Edition
+   * - **6**: Anti-virus Edition
+   * - **5**: Advanced Edition
+   * - **3**: Enterprise Edition
+   * - **7**: Ultimate Edition
    * 
    * @example
-   * 3
+   * 1
    */
   authVersion?: number;
   /**
    * @remarks
-   * The name of the Security Center edition that is authorized to protect the asset. Valid values:
+   * The name of the authorization version of the asset. Valid values:
    * 
-   * *   Basic edition
-   * *   Anti-virus edition
-   * *   Advanced edition
-   * *   Enterprise edition
-   * *   Ultimate edition
+   * - Free Edition
+   * - Anti-virus Edition
+   * - Advanced Edition
+   * - Enterprise Edition
+   * - Ultimate Edition
    * 
    * @example
    * Ultimate Edition
@@ -98,10 +102,10 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   authVersionName?: string;
   /**
    * @remarks
-   * Indicates whether Security Center is authorized to scan the asset. Valid values:
+   * Indicates whether the asset is bound to an authorization. Valid values:
    * 
-   * *   **true**: Security Center is authorized to scan the asset.
-   * *   **false**: Security Center is not authorized to scan the asset.
+   * - **true**: The asset is bound to an authorization.
+   * - **false**: The asset is not bound to an authorization.
    * 
    * @example
    * true
@@ -109,9 +113,10 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   bind?: boolean;
   /**
    * @remarks
-   * Whether to bind tamper-proof authorization. Values:
-   * - **block**: Yes
-   * - **none**: No
+   * Indicates whether tamper-proof authorization is bound to the asset. Valid values:
+   * 
+   * - **block**: Tamper-proof authorization is bound.
+   * - **none**: Tamper-proof authorization is not bound.
    * 
    * @example
    * block
@@ -119,11 +124,11 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   bindFileProtectType?: string;
   /**
    * @remarks
-   * The status of the Security Center agent installed on the asset. Valid values:
+   * The online status of the client on the instance. Valid values:
    * 
-   * *   **online**: The Security Center agent is **enabled**.
-   * *   **offline**: The Security Center agent is **disabled**.
-   * *   **pause**: The Security Center agent is **suspended**.
+   * - **online**: online. The Agent client on the asset is **enabled**.
+   * - **offline**: offline. The Agent client on the asset is **disabled**.
+   * - **pause**: paused. The Agent client on the asset is in **paused protection** status.
    * 
    * @example
    * online
@@ -131,13 +136,13 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   clientStatus?: string;
   /**
    * @remarks
-   * The sub-status of the Security Center agent installed on the asset. Valid values:
+   * The sub-status of the client on the instance. Valid values:
    * 
-   * *   **online**: The Security Center agent is **enabled**.
-   * *   **offline**: The Security Center agent is **disabled**.
-   * *   **pause**: The Security Center agent is **suspended**.
-   * *   **uninstalled**: The Security Center agent is **uninstalled**.
-   * *   **stopped**: The Security Center agent is **stopped**.
+   * - **online**: online. The Agent client on the asset is **enabled**.
+   * - **offline**: offline. The Agent client on the asset is **disabled**.
+   * - **pause**: paused. The Agent client on the asset is in **paused protection** status.
+   * - **uninstalled**: not installed. The Agent client is **not installed** on the asset.
+   * - **stopped**: The server is shut down.
    * 
    * @example
    * online
@@ -145,7 +150,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   clientSubStatus?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c690a0789419f4284a4e0a29e12fe****
@@ -153,7 +158,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * cluster1
@@ -161,7 +166,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   clusterName?: string;
   /**
    * @remarks
-   * The number of the CPU cores used by the asset.
+   * The number of CPU cores of the asset.
    * 
    * @example
    * 4
@@ -169,7 +174,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   cores?: number;
   /**
    * @remarks
-   * The CPU information about the asset.
+   * The CPU information of the asset.
    * 
    * @example
    * Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz
@@ -185,10 +190,10 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   createdTime?: number;
   /**
    * @remarks
-   * Indicates whether the asset is exposed. Valid values:
+   * The exposure status of the asset. Valid values:
    * 
-   * *   **0**: The asset is not exposed.
-   * *   **1**: The asset is exposed.
+   * - **0**: not exposed
+   * - **1**: exposed
    * 
    * @example
    * 0
@@ -196,10 +201,10 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   exposedStatus?: number;
   /**
    * @remarks
-   * Indicates whether the asset is an Alibaba Cloud asset. Valid values:
+   * Indicates whether the instance is an Alibaba Cloud asset. Valid values:
    * 
-   * *   **0**: The asset is an Alibaba Cloud asset.
-   * *   **1**: The asset is not an Alibaba Cloud asset.
+   * - **0**: Alibaba Cloud asset
+   * - **1**: non-Alibaba Cloud asset
    * 
    * @example
    * 0
@@ -207,19 +212,19 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   flag?: number;
   /**
    * @remarks
-   * Asset vendor. Values: 
-   * - **ALIYUN** 
+   * The asset vendor. Valid values:
+   * - **ALIYUN**
    * - **OUT**
-   * - **IDC** 
-   * - **Tencent** 
-   * - **HUAWEICLOUD** 
-   * - **Azure** 
-   * - **AWS** 
-   * - **ASK** 
-   * - **TRIPARTITE** 
-   * - **SAE** 
-   * - **PAI** 
-   * - **google** 
+   * - **IDC**
+   * - **Tencent**
+   * - **HUAWEICLOUD**
+   * - **Azure**
+   * - **AWS**
+   * - **ASK**
+   * - **TRIPARTITE**
+   * - **SAE**
+   * - **PAI**
+   * - **google**
    * - **VOLCENGINE**
    * 
    * @example
@@ -228,7 +233,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   flagName?: string;
   /**
    * @remarks
-   * The ID of the asset group to which the asset belongs.
+   * The ID of the group to which the instance belongs.
    * 
    * @example
    * 4120080
@@ -244,10 +249,10 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   groupTrace?: string;
   /**
    * @remarks
-   * Indicates if containers are included. Valid values:
+   * Indicates whether the asset contains containers. Valid values:
    * 
-   * *   **YES**: yes.
-   * *   **NO**: no.
+   * - **YES**: The asset contains containers.
+   * - **NO**: The asset does not contain containers.
    * 
    * @example
    * YES
@@ -255,10 +260,9 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   hasContainer?: string;
   /**
    * @remarks
-   * Indicates whether baseline risks are detected on the asset. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether baseline risks are detected on the instance. Valid values:
+   * - **YES**: Baseline risks are detected.
+   * - **NO**: No baseline risks are detected.
    * 
    * @example
    * YES
@@ -266,7 +270,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   hcStatus?: string;
   /**
    * @remarks
-   * The number of baseline risks that are detected on the asset.
+   * The number of baseline risks on the instance.
    * 
    * @example
    * 1
@@ -274,11 +278,10 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   healthCheckCount?: number;
   /**
    * @remarks
-   * The importance of the asset. Valid values:
-   * 
-   * *   **2**: an important asset
-   * *   **1**: a common asset
-   * *   **0**: a test asset
+   * The importance level of the asset. Valid values:
+   * - **2**: important asset
+   * - **1**: normal asset
+   * - **0**: test asset
    * 
    * @example
    * 2
@@ -286,7 +289,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   importance?: number;
   /**
    * @remarks
-   * The ID of the asset.
+   * The instance ID.
    * 
    * @example
    * i-m5***
@@ -294,7 +297,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * The name of the asset.
+   * The instance name.
    * 
    * @example
    * yztest-l***
@@ -302,7 +305,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   instanceName?: string;
   /**
    * @remarks
-   * The public IP address of the asset.
+   * The public IP address of the instance.
    * 
    * @example
    * 1.2.XX.XX
@@ -310,7 +313,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the asset.
+   * The private IP address of the instance.
    * 
    * @example
    * 1.2.XX.XX
@@ -318,7 +321,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   intranetIp?: string;
   /**
    * @remarks
-   * The public IP address of the asset.
+   * The public IP address of the instance.
    * 
    * @example
    * 1.2.XX.XX
@@ -326,7 +329,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   ip?: string;
   /**
    * @remarks
-   * The IP addresses of the system.
+   * The IP address list of the system.
    * 
    * @example
    * 172.31.XX.XX,172.171.XX.XX
@@ -334,7 +337,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   ipListString?: string;
   /**
    * @remarks
-   * The version of the kernel.
+   * The kernel version.
    * 
    * @example
    * 3.10.0-1127.19.1.el7.x86_64
@@ -342,7 +345,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   kernel?: string;
   /**
    * @remarks
-   * The timestamp when the Security Center agent was last online. Unit: milliseconds.
+   * The timestamp when the client was last online. Unit: milliseconds.
    * 
    * @example
    * 1637592907000
@@ -358,7 +361,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   macListString?: string;
   /**
    * @remarks
-   * The size of the memory. Unit: MB.
+   * The memory size. Unit: MB.
    * 
    * @example
    * 1024
@@ -374,7 +377,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   namespace?: string;
   /**
    * @remarks
-   * The operating system of the asset.
+   * The operating system of the instance.
    * 
    * @example
    * Linux
@@ -382,7 +385,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   os?: string;
   /**
    * @remarks
-   * The kernel version of the asset.
+   * The operating system version of the instance.
    * 
    * @example
    * -
@@ -398,7 +401,9 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   podCount?: number;
   /**
    * @remarks
-   * The billing method of the protection version currently bound to the asset. Values: - **0**: Subscription - **1**: Pay-as-you-go
+   * The billing method of the protection plan bound to the asset. Valid values:
+   * - **0**: subscription
+   * - **1**: pay-as-you-go
    * 
    * @example
    * 0
@@ -406,7 +411,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   postPaidFlag?: number;
   /**
    * @remarks
-   * The region ID of the asset.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou-cm***-***
@@ -414,7 +419,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   region?: string;
   /**
    * @remarks
-   * The ID of the region in which the asset resides.
+   * The ID of the region where the asset resides.
    * 
    * @example
    * cn-hanghzou
@@ -422,7 +427,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The name of the region in which the asset resides.
+   * The name of the region where the asset resides.
    * 
    * @example
    * China (Hangzhou)
@@ -430,59 +435,99 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   regionName?: string;
   /**
    * @remarks
-   * The total number of baseline risks that are detected on the asset. The value of this parameter is in the JSON format and contains the following fields:
+   * The statistics of risk items on the asset. The value is in JSON format and contains the following fields:
    * 
-   * *   **account**: the number of accounts that are used to log on from unapproved logon locations and whose passwords are cracked
-   * *   **appNum**: the number of scanners
-   * *   **asapVulCount**: the total number of high-severity vulnerabilities
-   * *   **baselineHigh**: the number of high-risk baseline risks
-   * *   **baselineLow**: the number of low-risk baseline risks
-   * *   **baselineMedium**: the number of medium-risk baseline risks
-   * *   **baselineNum**: the total number of baseline risks
-   * *   **cmsNum**: the number of Web-CMS vulnerabilities
-   * *   **containerAsap**: the number of high-severity vulnerabilities that are detected on containers
-   * *   **containerLater**: the number of medium-severity vulnerabilities that are detected on containers
-   * *   **containerNntf**: the number of low-severity vulnerabilities that are detected on containers
-   * *   **containerRemind**: the number of alerts whose Emergency level is Reminder on containers
-   * *   **containerSerious**: the number of alerts Emergency level is Urgent on containers
-   * *   **containerSuspicious**: the number of alerts whose Emergency level is Suspicious on containers
-   * *   **cveNum**: the number of Linux software vulnerabilities
-   * *   **emgNum**: the number of urgent vulnerabilities
-   * *   **health**: the number of baseline alerts that are unhandled
-   * *   **imageBaselineHigh**: the number of high-risk baseline risks that are detected on images
-   * *   **imageBaselineLow**: the number of low-risk baseline risks that are detected on images
-   * *   **imageBaselineMedium**: the number of medium-risk baseline risks that are detected on images
-   * *   **imageBaselineNum**: the total number of baseline risks that are detected on images
-   * *   **imageMaliciousFileRemind**: the number of malicious files that are detected on images and have the Emergency level of Reminder
-   * *   **imageMaliciousFileSerious**: the number of malicious files that are detected on images and have the Emergency level of Urgent
-   * *   **imageMaliciousFileSuspicious**: the number of malicious files that are detected on images and have the Emergency level of Suspicious
-   * *   **imageVulAsap**: the number of high-severity vulnerabilities that are detected on images
-   * *   **imageVulLater**: the number of medium-severity vulnerabilities that are detected on an image
-   * *   **imageVulNntf**: the number of low-severity vulnerabilities that are detected on an image
-   * *   **laterVulCount**: the number of medium-severity vulnerabilities
-   * *   **newSuspicious**: the number of alerts
-   * *   **nntfVulCount**: the number of low-severity vulnerabilities.
-   * *   **remindNum**: the number of alerts whose Emergency level is Reminder
-   * *   **scaNum**: the number of vulnerabilities that are detected based on software component analysis
-   * *   **seriousNum**: the number of alerts whose Emergency level is Urgent
-   * *   **suspNum**: the number of alerts whose Emergency level is Suspicious
-   * *   **suspicious**: the total number of alerts
-   * *   **sysNum**: the number of Windows system vulnerabilities
-   * *   **trojan**: the number of trojans
-   * *   **uuid**: the UUIDs of assets
-   * *   **vul**: the number of vulnerabilities
-   * *   **weakPWNum**: the number of weak passwords
+   * - **account**: the number of accounts with remote logons and successful brute-force attacks
+   * - **appNum**: the number of scanner vulnerabilities
+   * - **asapVulCount**: the total number of high-severity vulnerabilities
+   * - **baselineHigh**: the number of high-risk baseline risks
+   * - **baselineLow**: the number of low-risk baseline risks
+   * - **baselineMedium**: the number of medium-risk baseline risks
+   * - **baselineNum**: the total number of cloud product configuration risks
+   * - **cmsNum**: the number of Web-CMS vulnerabilities
+   * - **containerAsap**: the number of high-severity container vulnerabilities
+   * - **containerLater**: the number of medium-severity container vulnerabilities
+   * - **containerNntf**: the number of low-severity container vulnerabilities
+   * - **containerRemind**: the number of reminder-level container alerts
+   * - **containerSerious**: the number of urgent container alerts
+   * - **containerSuspicious**: the number of suspicious container alerts
+   * - **cveNum**: the number of Linux vulnerabilities
+   * - **emgNum**: the number of emergency vulnerabilities
+   * - **health**: the number of unhandled baseline alerts
+   * - **imageBaselineHigh**: the number of high-risk image baseline risks
+   * - **imageBaselineLow**: the number of low-risk image baseline risks
+   * - **imageBaselineMedium**: the number of medium-risk image baseline risks
+   * - **imageBaselineNum**: the total number of image baseline risks
+   * - **imageMaliciousFileRemind**: the number of reminder-level malicious image files
+   * - **imageMaliciousFileSerious**: the number of urgent malicious image files
+   * - **imageMaliciousFileSuspicious**: the number of suspicious malicious image files
+   * - **imageVulAsap**: the number of high-severity image vulnerabilities
+   * - **imageVulLater**: the number of medium-severity image vulnerabilities
+   * - **imageVulNntf**: the number of low-severity image vulnerabilities
+   * - **laterVulCount**: the number of medium-severity vulnerabilities
+   * - **newSuspicious**: the number of alerts
+   * - **nntfVulCount**: the number of low-severity vulnerabilities
+   * - **remindNum**: the number of reminder-level alerts
+   * - **scaNum**: the number of software composition analysis vulnerabilities
+   * - **seriousNum**: the number of urgent alerts
+   * - **suspNum**: the number of suspicious alerts
+   * - **suspicious**: the total number of alerts
+   * - **sysNum**: the number of Windows vulnerabilities
+   * - **trojan**: the number of trojans
+   * - **uuid**: the UUID of the asset
+   * - **vul**: the number of vulnerabilities
+   * - **weakPWNum**: the number of weak passwords
    * 
    * @example
-   * {"account":0,"appNum":0,"asapVulCount":0,"baselineHigh":0,"baselineLow":0,"baselineMedium":0,"baselineNum":0,"cmsNum":0,"containerAsap":0,"containerLater":0,"containerNntf":0,"containerRemind":0,"containerSerious":0,"containerSuspicious":0,"cveNum":0,"emgNum":0,"health":0,"imageBaselineHigh":0,"imageBaselineLow":0,"imageBaselineMedium":0,"imageBaselineNum":0,"imageMaliciousFileRemind":0,"imageMaliciousFileSerious":0,"imageMaliciousFileSuspicious":0,"imageVulAsap":0,"imageVulLater":0,"imageVulNntf":0,"laterVulCount":0,"newSuspicious":0,"nntfVulCount":0,"remindNum":0,"scaNum":0,"seriousNum":0,"suspNum":0,"suspicious":0,"sysNum":0,"trojan":0,"uuid":"inet-37316411-37fe-4b72-b245-346a2721d4b6","vul":0,"weakPWNum":0}
+   * {
+   *       "account": 0,
+   *       "appNum": 0,
+   *       "asapVulCount": 0,
+   *       "baselineHigh": 0,
+   *       "baselineLow": 0,
+   *       "baselineMedium": 0,
+   *       "baselineNum": 0,
+   *       "cmsNum": 0,
+   *       "containerAsap": 0,
+   *       "containerLater": 0,
+   *       "containerNntf": 0,
+   *       "containerRemind": 0,
+   *       "containerSerious": 0,
+   *       "containerSuspicious": 0,
+   *       "cveNum": 0,
+   *       "emgNum": 0,
+   *       "health": 0,
+   *       "imageBaselineHigh": 0,
+   *       "imageBaselineLow": 0,
+   *       "imageBaselineMedium": 0,
+   *       "imageBaselineNum": 0,
+   *       "imageMaliciousFileRemind": 0,
+   *       "imageMaliciousFileSerious": 0,
+   *       "imageMaliciousFileSuspicious": 0,
+   *       "imageVulAsap": 0,
+   *       "imageVulLater": 0,
+   *       "imageVulNntf": 0,
+   *       "laterVulCount": 0,
+   *       "newSuspicious": 0,
+   *       "nntfVulCount": 0,
+   *       "remindNum": 0,
+   *       "scaNum": 0,
+   *       "seriousNum": 0,
+   *       "suspNum": 0,
+   *       "suspicious": 0,
+   *       "sysNum": 0,
+   *       "trojan": 0,
+   *       "uuid": "inet-37316411-37fe-4b72-b245-346a2721****",
+   *       "vul": 0,
+   *       "weakPWNum": 0
+   * }
    */
   riskCount?: string;
   /**
    * @remarks
-   * Indicates whether risks are detected on the asset. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether security risks exist on the asset. Valid values:
+   * - **YES**: Security risks exist.
+   * - **NO**: No security risks exist.
    * 
    * @example
    * NO
@@ -490,7 +535,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   riskStatus?: string;
   /**
    * @remarks
-   * The number of alerts that are generated on the asset.
+   * The number of security alerts on the asset.
    * 
    * @example
    * 5
@@ -498,7 +543,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   safeEventCount?: number;
   /**
    * @remarks
-   * Service ID. Only available for PAI instances.
+   * The service ID. This parameter has a value only when the instance is a Serverless instance and belongs to the PAI platform.
    * 
    * @example
    * dsw-76jlywunsif09bp15p
@@ -506,10 +551,10 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   serviceId?: string;
   /**
    * @remarks
-   * The status of the asset. Valid values:
+   * The running status of the instance. Valid values:
    * 
-   * *   **Running**: running
-   * *   **notRunning**: stopped
+   * - **Running**: The instance is running.
+   * - **notRunning**: The instance is stopped.
    * 
    * @example
    * Running
@@ -517,7 +562,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The name of the asset tag.
+   * The tag name of the asset instance.
    * 
    * @example
    * InternetIp,test
@@ -525,7 +570,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   tag?: string;
   /**
    * @remarks
-   * The ID of the asset tag.
+   * The tag ID of the asset.
    * 
    * @example
    * 121313,41412
@@ -533,7 +578,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   tagId?: string;
   /**
    * @remarks
-   * The custom tag added to the Lingjun node. This parameter is returned only for LINGJUN GPU-accelerated instances.
+   * The custom tags of Lingjun nodes. This parameter is returned only when the machine is a Lingjun machine.
    * 
    * @example
    * app:test,type:lingjun
@@ -541,7 +586,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   tagResources?: string;
   /**
    * @remarks
-   * The UUID of the asset.
+   * The UUID of the instance.
    * 
    * @example
    * c9107c04-942f-40c1-981a-f1c1***
@@ -549,14 +594,15 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   uuid?: string;
   /**
    * @remarks
-   * Asset vendor. Values:
-   * - **0**: an asset provided by Alibaba Cloud
-   * - **1**: an asset outside Alibaba Cloud
-   * - **2**: an asset in a data center
-   * - **3**, **4**, **5**, **7**, **14**, **16**: an asset from a third-party cloud service provider
-   * - **8**: a lightweight asset
-   * - **9**: a Serverless App Engine (SAE) instance
-   * - **10**: an instance in Platform for AI (PAI)
+   * The asset vendor. Valid values:
+   * 
+   * - **0**: Alibaba Cloud asset
+   * - **1**: non-cloud asset
+   * - **2**: IDC asset
+   * - **3**, **4**, **5**, **7**, **14**, **16**: third-party cloud asset
+   * - **8**: lightweight asset
+   * - **9**: SAE
+   * - **10**: PAI
    * 
    * @example
    * 0
@@ -564,28 +610,29 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   vendor?: number;
   /**
    * @remarks
-   * The name of the service provider for the asset.
-   * Values:
-   *  - **ALIYUN**: Alibaba Cloud 
-   * - **OUT**: a third-party service provider
-   * - **IDC**: an asset in a data center
-   * - **TENCENT**: Tencent Cloud
-   * - **HUAWEICLOUD**: Huawei Cloud
-   * - **Microsoft**: Microsoft Azure
-   * - **AWS**: Amazon Web Services (AWS)
-   * - **TRIPARTITE**: a lightweight server
-   * - **SAE**: a Serverless App Engine (SAE) instance
-   * - **PAI**: an instance in Platform for AI (PAI)
-   * - **VOLCENGINE**: VOLCENGINE Cloud
-   * - **google**: GOOGLE Cloud
+   * The name of the asset vendor.
+   * 
+   * Valid values:
+   * - **ALIYUN**: Alibaba Cloud
+   * - **OUT**: non-cloud asset
+   * - **IDC**: IDC
+   * - **TENCENT**: third-party cloud
+   * - **HUAWEICLOUD**: third-party cloud
+   * - **Microsoft**: third-party cloud
+   * - **AWS**: third-party cloud
+   * - **TRIPARTITE**: lightweight server
+   * - **SAE**: SAE
+   * - **PAI**: PAI
+   * - **VOLCENGINE**: third-party cloud
+   * - **google**: third-party cloud
    * 
    * @example
-   * Tencent
+   * IDC
    */
   vendorName?: string;
   /**
    * @remarks
-   * Account ID of the multi-cloud instance.
+   * The account ID of the multi-cloud instance.
    * 
    * @example
    * 123
@@ -593,7 +640,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   vendorUid?: string;
   /**
    * @remarks
-   * Account name of the multi-cloud instance.
+   * The account name of the multi-cloud instance.
    * 
    * @example
    * VendorUserName
@@ -601,7 +648,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   vendorUserName?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the asset belongs.
+   * The ID of the VPC to which the instance belongs.
    * 
    * @example
    * vpc-uf60agqq65bs98zoo****
@@ -609,7 +656,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   vpcInstanceId?: string;
   /**
    * @remarks
-   * The number of vulnerabilities that are detected on the asset.
+   * The number of vulnerabilities on the instance.
    * 
    * @example
    * 2
@@ -617,10 +664,9 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
   vulCount?: number;
   /**
    * @remarks
-   * Indicates whether vulnerabilities are detected on the asset. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether vulnerabilities exist on the instance. Valid values:
+   * - **YES**: Vulnerabilities exist.
+   * - **NO**: No vulnerabilities exist.
    * 
    * @example
    * YES
@@ -768,7 +814,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
 export class DescribeCloudCenterInstancesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of assets displayed on the current page.
    * 
    * @example
    * 10
@@ -776,7 +822,7 @@ export class DescribeCloudCenterInstancesResponseBodyPageInfo extends $dara.Mode
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paginated query.
    * 
    * @example
    * 1
@@ -784,7 +830,7 @@ export class DescribeCloudCenterInstancesResponseBodyPageInfo extends $dara.Mode
   currentPage?: number;
   /**
    * @remarks
-   * The value of NextToken that is returned when the NextToken method is used.
+   * The NextToken value returned when the NextToken method is used.
    * 
    * @example
    * B604532DEF982B875E8360A6EFA3B***
@@ -792,7 +838,7 @@ export class DescribeCloudCenterInstancesResponseBodyPageInfo extends $dara.Mode
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**.
+   * The number of entries per page in a paginated query. Default value: **20**, which indicates that 20 entries of asset information are displayed per page.
    * 
    * @example
    * 20
@@ -800,7 +846,7 @@ export class DescribeCloudCenterInstancesResponseBodyPageInfo extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of assets returned.
    * 
    * @example
    * 50
@@ -838,7 +884,7 @@ export class DescribeCloudCenterInstancesResponseBodyPageInfo extends $dara.Mode
 export class DescribeCloudCenterInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the assets.
+   * The list of asset details.
    */
   instances?: DescribeCloudCenterInstancesResponseBodyInstances[];
   /**
@@ -848,7 +894,7 @@ export class DescribeCloudCenterInstancesResponseBody extends $dara.Model {
   pageInfo?: DescribeCloudCenterInstancesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 32A73759-4C0F-4801-BE98-901223ACEE9A
@@ -856,10 +902,9 @@ export class DescribeCloudCenterInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * 
-   * *   **true**: The call is successful.
-   * *   **false**: The call fails.
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: The API call was successful.
+   * - **false**: The API call failed.
    * 
    * @example
    * true

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessKeyLeakDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AccessKey pair leak event.
+   * The ID of the AccessKey pair leak event to query.
    * 
-   * > You can call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain the event ID.
+   * > Call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,8 @@ export class DescribeAccessKeyLeakDetailRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+   * The ID of the member account in the resource directory (Alibaba Cloud account).
+   * > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****

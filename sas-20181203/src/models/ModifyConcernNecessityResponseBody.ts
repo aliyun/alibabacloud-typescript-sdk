@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyConcernNecessityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F059E190-A65B-5DF8-8709-2CC7791A5B65

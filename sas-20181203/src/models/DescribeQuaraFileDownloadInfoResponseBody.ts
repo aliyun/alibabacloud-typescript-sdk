@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQuaraFileDownloadInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The URL that is used to download the file. The URL is valid for five minutes.
+   * The download URL. The URL is valid for 5 minutes.
    * 
    * @example
    * https://xxxxxxxx.oss-cn-hangzhou-1.aliyuncs.com/xxxxx/xxxxxxxxxxxxxx?Expires=1671448125&OSSAccessKeyId=xxx
@@ -13,7 +13,7 @@ export class DescribeQuaraFileDownloadInfoResponseBody extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The MD5 hash value of the quarantined file.
+   * The MD5 hash of the file.
    * 
    * @example
    * bb62ef1311bc564377a0378d3axxxxxx
@@ -37,7 +37,7 @@ export class DescribeQuaraFileDownloadInfoResponseBody extends $dara.Model {
   quaraFileId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 29874225-EAAC-5415-8501-32DD20FXXXXX
@@ -45,7 +45,7 @@ export class DescribeQuaraFileDownloadInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tag that is added to the related alert.
+   * The tag of the alert record.
    * 
    * @example
    * 6d4ff40a22b15c86adecf2aa48xxxxx
@@ -53,7 +53,7 @@ export class DescribeQuaraFileDownloadInfoResponseBody extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The UUID of the server.
+   * The unique identifier of the asset.
    * 
    * @example
    * 4fe8e1cd-3c37-4851-b9de-124da32c****

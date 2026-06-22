@@ -144,11 +144,15 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
    * @remarks
    * The states of check items. Multiple states are separated with commas (,). Valid values:
    * 
-   * *   **PASS**: passed
-   * *   **NOT_PASS**: failed
-   * *   **CHECKING**: being checked
-   * *   **NOT_CHECK**: not checked
-   * *   **WHITELIST**: added to the whitelist
+   * - **PASS**: passed
+   * 
+   * - **NOT_PASS**: failed
+   * 
+   * - **CHECKING**: being checked
+   * 
+   * - **NOT_CHECK**: not checked
+   * 
+   * - **WHITELIST**: added to the whitelist
    * 
    * @example
    * NOT_PASS
@@ -159,7 +163,7 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
    * The exception message of the check item.
    * 
    * @example
-   * Task is failed.
+   * 检查任务失败。
    */
   statusMessage?: string;
   /**
@@ -229,8 +233,9 @@ export class ListCheckInstanceResultResponseBodyColumnsGrids extends $dara.Model
    * @remarks
    * The format of the check result for the instance. Valid values:
    * 
-   * *   **text**
-   * *   **link**
+   * - **text**
+   * 
+   * - **link**
    * 
    * @example
    * text
@@ -279,8 +284,9 @@ export class ListCheckInstanceResultResponseBodyColumns extends $dara.Model {
    * @remarks
    * Indicates whether the search condition is used. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -306,8 +312,9 @@ export class ListCheckInstanceResultResponseBodyColumns extends $dara.Model {
    * @remarks
    * The type of the check result for the instance. Valid values:
    * 
-   * *   **text**
-   * *   **link**
+   * - **text**
+   * 
+   * - **link**
    * 
    * @example
    * text

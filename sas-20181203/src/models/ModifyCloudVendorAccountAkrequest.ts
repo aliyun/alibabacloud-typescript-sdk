@@ -6,8 +6,7 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   /**
    * @remarks
    * The unique ID of the AccessKey pair.
-   * 
-   * >  You can call the [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) operation to query the unique ID.
+   * >Call the [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,20 +16,18 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   authIds?: string;
   /**
    * @remarks
-   * The modules that are associated with the AccessKey pair. Valid values:
-   * 
-   * *   **HOST**: host.
-   * *   **CSPM**: configuration assessment.
-   * *   **SIEM**: Cloud Threat Detection and Response (CTDR).
-   * *   **TRIAL**: log audit.
-   * 
-   * >  You can call the [GetSupportedModules](~~GetSupportedModules~~) operation to query the supported modules.
+   * The list of module codes associated with the AccessKey pair. Valid values:
+   * - **HOST**: host
+   * - **CSPM**: cloud product configuration check
+   * - **SIEM**: Cloud Threat Detection and Response (CTDR)
+   * - **TRIAL**: log audit
+   * > Call the [GetSupportedModules](~~GetSupportedModules~~) operation to obtain the supported modules.
    */
   authModules?: string[];
   /**
    * @remarks
-   * Account ID.
-   * > The account ID of the connected cloud vendor, required when the permission description includes threat analysis and response.
+   * The account ID.
+   * >The account ID of the connected cloud vendor. This parameter is required when the permission description includes Cloud Threat Detection and Response (CTDR).
    * 
    * @example
    * azure_demo_1
@@ -38,11 +35,12 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   ctdrCloudUserId?: string;
   /**
    * @remarks
-   * Access account domain. Values: 
-   * -  **china**: China
-   * -  **global**: Global 
-   * -  **europe**: Huawei Europe
-   * > This parameter is only valid and required for **Vendor** being **HUAWEICLOUD**, **Azure**, **AWS**, or **VOLCENGINE**.
+   * The domain of the connected account. Valid values:
+   * - **china**: China
+   * - **global**: global
+   * - **europe**: Huawei Cloud Europe
+   * 
+   * > This parameter is valid only when **Vendor** is set to **HUAWEICLOUD**, **Azure**, **AWS**, or **VOLCENGINE**, and is required.
    * 
    * @example
    * global
@@ -50,10 +48,10 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Extended information.
+   * The extended information.
    * 
-   * > Used to record extended information from different vendors.
-   * > For Google Cloud, which is accessed through a service account, ExtendInfo stores a JSON-formatted service key file, excluding the private_key_id and zprivate_key fields. The file includes the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, universe_domain.
+   * > Used to store extended information for different vendors.
+   * >Google Cloud is accessed through a service account. ExtendInfo stores the JSON-formatted service key file, excluding the private_key_id and zprivate_key fields. The file contains the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, and universe_domain.
    * 
    * @example
    * {\\"product\\":\\"webFirewall\\",\\"remark\\":\\"remark\\"}
@@ -61,10 +59,10 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   extendInfo?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -72,29 +70,29 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The regions that are examined during AccessKey pair authentication.
+   * The list of regions used for AccessKey information verification.
    */
   regions?: string[];
   /**
    * @remarks
-   * ID of the AK parameter. Values:
+   * The AccessKey parameter ID. Valid values:
    * 
-   * 1. When AkType is primary:
-   * - **Tencent**: AccessKeyId of the main account
-   * - **HUAWEICLOUD**: AccessKeyId of the main account
+   * 1. If AkType is set to primary:
+   * - **Tencent**: AccessKeyId of the primary account
+   * - **HUAWEICLOUD**: AccessKeyId of the primary account
    * - **Azure**: ClientId
-   * - **AWS**: AccessKeyId of the main account
-   * - **VOLCENGINE**: AccessKeyId of the main account
+   * - **AWS**: AccessKeyId of the primary account
+   * - **VOLCENGINE**: AccessKeyId of the primary account
    * 
-   * 2. When AkType is sub:
-   * - **Tencent**: AccessKeyId of the sub-account
-   * - **HUAWEICLOUD**: AccessKeyId of the sub-account
+   * 2. If AkType is set to sub:
+   * - **Tencent**: AccessKeyId of the RAM user
+   * - **HUAWEICLOUD**: AccessKeyId of the RAM user
    * - **Azure**: ClientId
-   * - **AWS**: AccessKeyId of the sub-account
-   * - **VOLCENGINE**: AccessKeyId of the sub-account
+   * - **AWS**: AccessKeyId of the RAM user
+   * - **VOLCENGINE**: AccessKeyId of the RAM user
    * - **google**: private_key_id
    * 
-   * > If AkType is **primary**, this value is the SecretID of the main account from another cloud. If AkType is **sub**, this value is the Access Key ID of the sub-account from another cloud. For **Azure**, there is no distinction, and this value is the **appId** of the authentication information. Google Cloud is accessed through a service account, with AkType defaulting to sub, and this value is taken from the private_key_id attribute in the JSON format service key file.
+   * >If AkType is set to **primary**, this value is the SecretID of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Access Key ID of the RAM user on the third-party cloud. For **Azure**, no distinction is made, and this value is the **appId** of the authentication information. Google Cloud is accessed through a service account. AkType is set to sub by default, and this value is the private_key_id property value from the JSON-formatted service key file.
    * 
    * @example
    * S3D6c4O***
@@ -102,9 +100,8 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   secretId?: string;
   /**
    * @remarks
-   * The AccessKey secret.
-   * 
-   * >  If AkType is set to **primary**, you must set SecretKey to the AccessKey secret of the third-party master account. If AkType is set to **sub**, you must set SecretKey to the AccessKey secret of the third-party sub-account. This parameter value does not change for a **Microsoft Azure account**. For an Azure account, set this parameter to the **password** that is used for authentication.
+   * The AccessKey parameter secret.
+   * > If AkType is set to **primary**, this value is the Secret Access Key of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Secret Access Key of the RAM user on the third-party cloud. For **Azure**, no distinction is made, and this value is the **password** of the authentication information. Google Cloud is accessed through a service account. AkType is set to sub by default, and this value is the private_key property value from the JSON-formatted service key file.
    * 
    * @example
    * AE6SLd****
@@ -112,10 +109,9 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * The status of the AccessKey pair. Valid values:
-   * 
-   * *   **0**: enabled.
-   * *   **1**: disabled.
+   * The usage status of the AccessKey pair. Valid values:
+   * - **0**: enabled
+   * - **1**: disabled.
    * 
    * @example
    * 0
@@ -123,16 +119,14 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The IDs of subscriptions.
-   * 
-   * >  This parameter takes effect only when Vendor is set to Azure.
+   * The list of subscription IDs.
+   * > This parameter is no longer valid.
    */
   subscriptionIds?: string[];
   /**
    * @remarks
    * The tenant ID.
-   * 
-   * >  This parameter takes effect only when Vendor is set to Azure.
+   * >This parameter is valid only when Vendor is set to Azure.
    * 
    * @example
    * 95304a97-339b-4de5-9a7d-cdbffaf****
@@ -140,9 +134,8 @@ export class ModifyCloudVendorAccountAKRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The name of the AccessKey pair.
-   * 
-   * >  The account information of the third-party cloud servers.
+   * The name of the AccessKey account.
+   * >Used to identify the account to which third-party host assets belong.
    * 
    * @example
    * test

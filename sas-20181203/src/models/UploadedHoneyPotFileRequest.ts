@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UploadedHoneyPotFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The file key that you use to upload the file.
-   * 
-   * >  The key is in the format of HONEYPOT_FILE/{Timestamp}_{Custom file name}.
+   * The FileKey used to upload the file.
+   * > Format: HONEYPOT_FILE/{timestamp}_{custom_file_name}.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class UploadedHoneyPotFileRequest extends $dara.Model {
   fileKey?: string;
   /**
    * @remarks
-   * The name of the file that you want to upload.
+   * The name of the uploaded file.
    * 
    * This parameter is required.
    * 
@@ -47,10 +46,10 @@ export class UploadedHoneyPotFileRequest extends $dara.Model {
   honeypotImageName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -58,9 +57,8 @@ export class UploadedHoneyPotFileRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the management node to which the honeypot belongs.
-   * 
-   * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the IDs of management nodes. operation to query the management node ID.
+   * The ID of the honeypot management node.
+   * > Call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this value.
    * 
    * @example
    * cc427e14-f257-4670-9d2b-d83bbbe*****
@@ -68,7 +66,7 @@ export class UploadedHoneyPotFileRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The prompt template that corresponds to the file.
+   * The template prompt corresponding to the uploaded file.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineCheckResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The search condition for the image baseline.
+   * The query condition for the baseline.
    * 
    * @example
    * ak_leak
@@ -13,10 +13,11 @@ export class DescribeImageBaselineCheckResultRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The type of the search condition. Valid values:
+   * The query type of the baseline to query. Valid values:
    * 
-   * *   **BaselineNameAlias**: baseline name
-   * *   **BaselineClassAlias**: baseline category
+   * - **BaselineNameAlias**: baseline name
+   * 
+   * - **BaselineClassAlias**: baseline category.
    * 
    * @example
    * BaselineNameAlias
@@ -24,7 +25,7 @@ export class DescribeImageBaselineCheckResultRequest extends $dara.Model {
   criteriaType?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number of the current page when using paging. Default value: 20, which indicates the first page.
    * 
    * @example
    * 1
@@ -42,10 +43,9 @@ export class DescribeImageBaselineCheckResultRequest extends $dara.Model {
   imageUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language type for the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -53,7 +53,7 @@ export class DescribeImageBaselineCheckResultRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The number of entries per page when using paging. Default value: **20**, which indicates that 20 logon configuration entries are displayed per page.
    * 
    * @example
    * 20
@@ -61,11 +61,13 @@ export class DescribeImageBaselineCheckResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The severity of the image baseline that you want to query. Separate multiple severities with commas (,). By default, all valid values are used. Valid values:
+   * The risk level of the baseline to query. Separate multiple levels with commas (,). By default, all levels are included. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**: high risk
+   * 
+   * - **medium**: medium risk
+   * 
+   * - **low**: low risk.
    * 
    * @example
    * high,medium,low
@@ -73,7 +75,7 @@ export class DescribeImageBaselineCheckResultRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The types of the assets that you want to scan.
+   * The scan scope.
    */
   scanRange?: string[];
   static names(): { [key: string]: string } {

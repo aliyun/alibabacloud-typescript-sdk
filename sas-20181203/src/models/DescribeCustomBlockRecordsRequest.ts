@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomBlockRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address that you want to block by using the defense rule.
+   * The IP address to be blocked for brute-force attacks prevention.
    * 
    * @example
    * 117.66.XX.XX
@@ -13,7 +13,7 @@ export class DescribeCustomBlockRecordsRequest extends $dara.Model {
   blockIp?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeCustomBlockRecordsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * Settings for paged query. The number of records to return on each page during paging. Default value: **20**, which indicates that 20 records are displayed per page.
    * 
    * @example
    * 20
@@ -30,11 +30,10 @@ export class DescribeCustomBlockRecordsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the defense rule. Valid values:
-   * 
-   * *   **0**: invalid
-   * *   **1**: enabled
-   * *   **2**: failed
+   * The status of the brute-force attacks defense rule. Valid values:
+   * - **0**: Invalid.
+   * - **1**: Enabled.
+   * - **2**: Failed.
    * 
    * @example
    * 1

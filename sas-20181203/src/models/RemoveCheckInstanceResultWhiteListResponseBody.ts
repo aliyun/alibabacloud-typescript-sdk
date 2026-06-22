@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveCheckInstanceResultWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * F156EA41-8EEF-54B2-908B-EAE071XXXXXX

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * The severities of alerts.
+   * The list of alert notification levels.
    * 
    * @example
    * high,low
@@ -13,7 +13,7 @@ export class CreateUserSettingRequest extends $dara.Model {
   alertLevels?: string;
   /**
    * @remarks
-   * The number of days during which you want to retain invalid alerts.
+   * The number of days to retain false positive alerts.
    * 
    * @example
    * 7
@@ -21,7 +21,7 @@ export class CreateUserSettingRequest extends $dara.Model {
   invalidWarningKeepDays?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 112.48.16.***

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExposedStatisticsDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paged query.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeExposedStatisticsDetailResponseBodyPageInfo extends $dara.M
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeExposedStatisticsDetailResponseBodyPageInfo extends $dara.M
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -65,7 +65,7 @@ export class DescribeExposedStatisticsDetailResponseBodyPageInfo extends $dara.M
 export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extends $dara.Model {
   /**
    * @remarks
-   * The total number of system vulnerabilities that are detected on your server and are exposed on the Internet.
+   * The number of system vulnerability instances on your servers that are exposed on the Internet.
    * 
    * @example
    * 0
@@ -73,7 +73,7 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
   exposedCount?: number;
   /**
    * @remarks
-   * The system component that is exposed on the Internet.
+   * The system component exposed on the Internet.
    * 
    * @example
    * tomcat
@@ -81,7 +81,7 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
   exposureComponent?: string;
   /**
    * @remarks
-   * The public IP address that is exposed on the Internet.
+   * The public IP address exposed on the Internet.
    * 
    * @example
    * 123.57.XX.XX
@@ -89,7 +89,7 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
   exposureIp?: string;
   /**
    * @remarks
-   * The port that is exposed on the Internet.
+   * The port exposed on the Internet.
    * 
    * @example
    * 22
@@ -97,12 +97,11 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
   exposurePort?: string;
   /**
    * @remarks
-   * The resource from which the asset is exposed. Valid values:
-   * 
-   * *   **INTERNET_IP**: the IP address of the Elastic Compute Service (ECS) instance
-   * *   **SLB**: the public IP address of the SLB instance
-   * *   **EIP**: the elastic IP address (EIP)
-   * *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+   * The expose type. Valid values:
+   * - **INTERNET_IP**: public IP addresses of Elastic Compute Service (ECS) instances.
+   * - **SLB**: public IP address of a load balancing SLB instance.
+   * - **EIP**: elastic IP address (EIP).
+   * - **DNAT**: NAT gateway that uses the DNAT feature to connect to the Internet.
    * 
    * @example
    * SLB
@@ -110,12 +109,11 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
   exposureType?: string;
   /**
    * @remarks
-   * The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
-   * 
-   * *   If the value of the **ExposureType** parameter is **INTERNET_IP**, the value of this parameter is an empty string.
-   * *   If the value of the **ExposureType** parameter is **SLB**, the value of this parameter is the ID of the Internet-facing SLB instance.
-   * *   If the value of the **ExposureType** parameter is **EIP**, the value of this parameter is the ID of the EIP.
-   * *   If the value of the **ExposureType** parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
+   * The instance ID that corresponds to the expose type. Different expose types correspond to different instance IDs. Valid values:
+   * - If **ExposureType** is **INTERNET_IP**: the value is empty.
+   * - If **ExposureType** is **SLB**: the value is the ID of the load balancing public-facing instance.
+   * - If **ExposureType** is **EIP**: the value is the ID of the EIP instance.
+   * - If **ExposureType** is **DNAT**: the value is the ID of the NAT gateway instance.
    * 
    * @example
    * lb-2ze4rso39h4nczcqs****
@@ -123,7 +121,7 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
   exposureTypeId?: string;
   /**
    * @remarks
-   * The name of the gateway asset that is exposed on the Internet.
+   * The name of the gateway asset exposed on the Internet.
    * 
    * @example
    * ngw-bp1vkbju8f3w87c9v****
@@ -131,7 +129,7 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
   exposureTypeInstanceName?: string;
   /**
    * @remarks
-   * The listener port that is used to redirect HTTP requests.
+   * The redirection port.
    * 
    * @example
    * 80
@@ -190,7 +188,7 @@ export class DescribeExposedStatisticsDetailResponseBody extends $dara.Model {
   pageInfo?: DescribeExposedStatisticsDetailResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * 7CBAFB3F-1ED7-4A23-986A-6F67F0466BD1
@@ -198,7 +196,7 @@ export class DescribeExposedStatisticsDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array consisting of the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet and are returned.
+   * The list of gateway assets, exposed ports, exposed components, or public IP addresses.
    */
   statisticsDetails?: DescribeExposedStatisticsDetailResponseBodyStatisticsDetails[];
   static names(): { [key: string]: string } {

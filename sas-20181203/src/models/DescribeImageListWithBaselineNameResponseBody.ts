@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c08d5fc1a329a4b88950a253d082f1****
@@ -13,7 +13,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * docker-law
@@ -21,7 +21,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   clusterName?: string;
   /**
    * @remarks
-   * The ID of the container.
+   * The container ID.
    * 
    * @example
    * 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
@@ -29,7 +29,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   containerId?: string;
   /**
    * @remarks
-   * The SHA-256 value of the image digest.
+   * The SHA256 value of the image digest.
    * 
    * @example
    * 2e6daffce524ffeae66cccaa90c8fc47de912346dcec295c27395b6d66db6423
@@ -37,7 +37,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   digest?: string;
   /**
    * @remarks
-   * The timestamp generated when the first scan was performed. Unit: milliseconds.
+   * The timestamp of the first scan, in milliseconds.
    * 
    * @example
    * 1649814050000
@@ -45,7 +45,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   firstScanTime?: number;
   /**
    * @remarks
-   * The number of images on which **high** baseline risks are detected.
+   * The number of images with a **high** risk level that have baseline risk issues.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   highRiskImage?: number;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
@@ -61,7 +61,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   image?: string;
   /**
    * @remarks
-   * The timestamp when the image was created. Unit: milliseconds.
+   * The timestamp when the image was created, in milliseconds.
    * 
    * @example
    * 1636962328000
@@ -85,7 +85,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   imageSize?: number;
   /**
    * @remarks
-   * The timestamp when the image was updated. Unit: milliseconds.
+   * The timestamp when the image was updated, in milliseconds.
    * 
    * @example
    * 1636974116000
@@ -101,7 +101,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   instanceId?: string;
   /**
    * @remarks
-   * The instance name of the server.
+   * The name of the server instance.
    * 
    * @example
    * pre.mongo-196
@@ -125,7 +125,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp when the last baseline check was performed. Unit: milliseconds.
+   * The timestamp of the most recent scan, in milliseconds.
    * 
    * @example
    * 1649814050000
@@ -133,7 +133,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   lastScanTime?: number;
   /**
    * @remarks
-   * The number of images on which **low** baseline risks are detected.
+   * The number of images with a **low** risk level that have baseline risk issues.
    * 
    * @example
    * 0
@@ -141,7 +141,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   lowRiskImage?: number;
   /**
    * @remarks
-   * The number of images on which **medium** baseline risks are detected.
+   * The number of images with a **medium** risk level that have baseline risk issues.
    * 
    * @example
    * 0
@@ -157,7 +157,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   namespace?: string;
   /**
    * @remarks
-   * The number of images that do not have baseline risks.
+   * The number of images that do not have baseline risk issues.
    * 
    * @example
    * 0
@@ -197,7 +197,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * libssh2
@@ -213,10 +213,10 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   repoType?: string;
   /**
    * @remarks
-   * Indicates whether the image is at risk. Valid values:
+   * Indicates whether the image has security risks. Valid values:
    * 
-   * *   **YES**
-   * *   **NO**
+   * - **YES**: The image has risks.
+   * - **NO**: The image does not have risks.
    * 
    * @example
    * YES
@@ -232,7 +232,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   tag?: string;
   /**
    * @remarks
-   * The ID of the asset on which the baseline check is performed.
+   * The ID of the scan target.
    * 
    * @example
    * m-bp17m0pc0xprzbwo****
@@ -240,7 +240,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   targetId?: string;
   /**
    * @remarks
-   * The name of the asset on which the baseline check is performed.
+   * The name of the scan target.
    * 
    * @example
    * spod
@@ -248,10 +248,10 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   targetName?: string;
   /**
    * @remarks
-   * The type of the asset on which the baseline check is performed. Valid values:
+   * The object type of the scan target. Valid values:
    * 
-   * *   ECS_IMAGE
-   * *   ECS_SNAPSHOT
+   * - ** ECS_IMAGE**: image.
+   * - ** ECS_SNAPSHOT**: snapshot.
    * 
    * @example
    * ECS_IMAGE
@@ -259,7 +259,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   targetType?: string;
   /**
    * @remarks
-   * The total number of risk items that are detected on the image by using the baseline.
+   * The total number of baseline risk items in the image.
    * 
    * @example
    * 3
@@ -267,7 +267,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
   totalItemCount?: number;
   /**
    * @remarks
-   * The UUID of the image.
+   * The unique identifier of the image.
    * 
    * @example
    * f58681174f944623345379e23b7b****
@@ -361,7 +361,7 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $da
 export class DescribeImageListWithBaselineNameResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of the images returned on the current page.
+   * The number of images that have baseline risks on the current page.
    * 
    * @example
    * 1
@@ -369,7 +369,7 @@ export class DescribeImageListWithBaselineNameResponseBodyPageInfo extends $dara
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -377,7 +377,7 @@ export class DescribeImageListWithBaselineNameResponseBodyPageInfo extends $dara
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **10**.
+   * Settings for paging in a paged query. The number of image baseline check results to display per page. Default value: **10**, which indicates that 10 image baseline check results are displayed per page.
    * 
    * @example
    * 10
@@ -385,7 +385,7 @@ export class DescribeImageListWithBaselineNameResponseBodyPageInfo extends $dara
   pageSize?: number;
   /**
    * @remarks
-   * The total number of images on which baseline risks are detected.
+   * The total number of images that have baseline risks in the image baseline check.
    * 
    * @example
    * 1
@@ -421,17 +421,17 @@ export class DescribeImageListWithBaselineNameResponseBodyPageInfo extends $dara
 export class DescribeImageListWithBaselineNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the images.
+   * The list of image information.
    */
   imageInfos?: DescribeImageListWithBaselineNameResponseBodyImageInfos[];
   /**
    * @remarks
-   * The pagination information.
+   * The paging information for the paged query results.
    */
   pageInfo?: DescribeImageListWithBaselineNameResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 5B8C2156-2DB9-5A42-99E7-F2ED5AE9EA1F

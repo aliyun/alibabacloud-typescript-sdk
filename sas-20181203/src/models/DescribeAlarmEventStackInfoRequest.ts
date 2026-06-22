@@ -12,7 +12,7 @@ export class DescribeAlarmEventStackInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Mining program
+   * Variable Trojan
    */
   eventName?: string;
   /**

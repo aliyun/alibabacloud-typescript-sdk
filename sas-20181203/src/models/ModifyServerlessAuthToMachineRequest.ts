@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
-   * Application query condition.
+   * The application query conditions.
    * 
    * @example
    * **7ad7e3a
@@ -13,8 +13,8 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   appCriteria?: string;
   /**
    * @remarks
-   * Instance type. Values:
-   * - **SERVERLESS**: Serverless asset
+   * The instance type. Valid values:
+   * - **SERVERLESS**: Serverless asset.
    * 
    * @example
    * SERVERLESS
@@ -22,10 +22,10 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   authItem?: string;
   /**
    * @remarks
-   * Enable auto-binding. Values:
+   * Specifies whether to enable automatic binding. Valid values:
    * 
-   * - **0**: Off
-   * - **1**: On
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 1
@@ -33,10 +33,10 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   autoBind?: number;
   /**
    * @remarks
-   * Whether to bind all. Default is **false**. Values:
+   * Specifies whether to bind all assets. Default value: **false**. Valid values:
    * 
-   * - **true**: Yes
-   * - **false**: No
+   * - **true**: Bind all assets.
+   * - **false**: Do not bind all assets.
    * 
    * @example
    * false
@@ -44,16 +44,16 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   bindAll?: boolean;
   /**
    * @remarks
-   * List of application IDs to be bound.
+   * The list of application IDs to bind.
    * 
-   * > Obtained through the [ListMachineApps](~~ListMachineApps~~) interface.
+   * > Retrieve the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
    */
   bindAppList?: string[];
   /**
    * @remarks
-   * Type of asset to operate on. Values:
-   * - **INSTANCE**: Instance
-   * - **APP**: Application
+   * The Asset Type for the operation. Valid values:
+   * - **INSTANCE**: instance.
+   * - **APP**: application.
    * 
    * @example
    * APP
@@ -61,13 +61,13 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   bindAssetType?: string;
   /**
    * @remarks
-   * List of asset UUIDs to be bound.
+   * The list of asset UUIDs to bind.
    */
   bindUuidList?: string[];
   /**
    * @remarks
-   * Set the conditions for searching assets. This parameter is in JSON format, and case sensitivity should be noted when entering parameters.
-   * > Supports searching assets using instance ID, instance name, VPC ID, region, public IP address, etc. You can call the [DescribeCriteria](~~DescribeCriteria~~) interface to query supported search conditions.
+   * The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when specifying this parameter.
+   * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query supported search conditions.
    * 
    * @example
    * [{"name":"vulStatus","value":"YES","logicalExp":"AND"}]
@@ -75,9 +75,9 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * Set the logical relationship between multiple search conditions. Values:
-   * - **OR**: Indicates an **or** relationship between multiple conditions.
-   * - **AND**: Indicates an **and** relationship between multiple conditions.
+   * The logical relationship among multiple search conditions. Valid values:
+   * - **OR**: The search conditions are evaluated with a logical OR.
+   * - **AND**: The search conditions are evaluated with a logical AND.
    * 
    * @example
    * OR
@@ -85,7 +85,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * NTM version code, used for pre-binding.
+   * The NTM version code for pre-binding.
    * 
    * @example
    * level2
@@ -93,13 +93,13 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   ntmVersion?: string;
   /**
    * @remarks
-   * Whether it is a pre-bind operation. Values:
+   * Specifies whether to perform a pre-binding operation. Valid values:
    * 
-   * - **0**: No
-   * - **1**: Yes
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * 
-   * > After enabling pre-binding, the specified server will automatically bind the corresponding version\\"s authorization count after the purchase is completed.
+   * > After pre-binding is enabled, the corresponding edition authorization quota is automatically bound to the specified servers after the purchase is completed.
    * 
    * @example
    * 1
@@ -107,7 +107,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   preBind?: number;
   /**
    * @remarks
-   * Pre-bind order ID.
+   * The pre-binding order ID.
    * 
    * @example
    * 233016**0482
@@ -115,7 +115,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   preBindOrderId?: number;
   /**
    * @remarks
-   * UID of the associated resource directory.
+   * The UID of the resource directory.
    * 
    * @example
    * 123456
@@ -123,14 +123,14 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   resourceDirectoryUid?: number;
   /**
    * @remarks
-   * List of application IDs to be unbound.
+   * The list of application IDs to unbind.
    * 
-   * > Obtained through the [ListMachineApps](~~ListMachineApps~~) interface.
+   * > Retrieve the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
    */
   unBindAppList?: string[];
   /**
    * @remarks
-   * List of asset UUIDs to be unbound.
+   * The list of asset UUIDs to unbind.
    */
   unBindUuidList?: string[];
   static names(): { [key: string]: string } {

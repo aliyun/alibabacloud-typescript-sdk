@@ -32,7 +32,9 @@ export class ListClusterCheckResultRequest extends $dara.Model {
   /**
    * @remarks
    * Language type for requests and responses. The default value is **zh**. Values:
+   * 
    * - **zh**: Chinese
+   * 
    * - **en**: English
    * 
    * This parameter is required.
@@ -59,6 +61,7 @@ export class ListClusterCheckResultRequest extends $dara.Model {
    * Custom sorting type. Values:
    * 
    * - **RISK_LEVEL**: Risk level.
+   * 
    * - **STATUS**: Check item status.
    * 
    * @example

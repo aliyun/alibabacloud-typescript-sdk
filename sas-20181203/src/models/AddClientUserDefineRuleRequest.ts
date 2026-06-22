@@ -63,7 +63,7 @@ export class AddClientUserDefineRuleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Rule 1
+   * 规则1
    */
   name?: string;
   /**
@@ -142,6 +142,16 @@ export class AddClientUserDefineRuleRequest extends $dara.Model {
    * HKEY_DYN_****
    */
   registryKey?: string;
+  /**
+   * @remarks
+   * Whether machines are automatically added to the rule. Default value: add. Valid values:  
+   * 
+   * - **add**: Added by default  
+   * - **del**: Not added by default
+   * 
+   * @example
+   * add
+   */
   targetDefault?: string;
   /**
    * @remarks

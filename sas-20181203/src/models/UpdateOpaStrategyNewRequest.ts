@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOpaStrategyNewRequestAlarmDetailBaselineItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseline check item.
-   * 
-   * >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the ID.
+   * The baseline check item ID.
+   * > Call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query this value.
    * 
    * @example
    * hc.image.checklist.identify.hc_exploit_couchdb_linux.item
@@ -15,9 +14,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailBaselineItem extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The name of the baseline check item.
-   * 
-   * >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the name.
+   * The baseline check item name.
+   * > Call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query this value.
    * 
    * @example
    * passwd
@@ -49,12 +47,12 @@ export class UpdateOpaStrategyNewRequestAlarmDetailBaselineItem extends $dara.Mo
 export class UpdateOpaStrategyNewRequestAlarmDetailBaseline extends $dara.Model {
   /**
    * @remarks
-   * The baseline check items.
+   * The baseline item information.
    */
   item?: UpdateOpaStrategyNewRequestAlarmDetailBaselineItem[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -89,9 +87,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailBaseline extends $dara.Model 
 export class UpdateOpaStrategyNewRequestAlarmDetailBuildRiskItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image build risk.
-   * 
-   * >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+   * The risky image build command type ID.
+   * > Call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query this value.
    * 
    * @example
    * key
@@ -99,9 +96,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailBuildRiskItem extends $dara.M
   id?: string;
   /**
    * @remarks
-   * The name of the image build risk.
-   * 
-   * >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+   * The risky image build command type name.
+   * > Call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query this value.
    * 
    * @example
    * name
@@ -133,12 +129,12 @@ export class UpdateOpaStrategyNewRequestAlarmDetailBuildRiskItem extends $dara.M
 export class UpdateOpaStrategyNewRequestAlarmDetailBuildRisk extends $dara.Model {
   /**
    * @remarks
-   * The configuration of image build risk.
+   * The list of risk items.
    */
   item?: UpdateOpaStrategyNewRequestAlarmDetailBuildRiskItem[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -173,9 +169,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailBuildRisk extends $dara.Model
 export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the malicious sample.
-   * 
-   * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the ID.
+   * The malicious sample ID.
+   * > Call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query this value.
    * 
    * @example
    * 65201
@@ -183,9 +178,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $da
   id?: string;
   /**
    * @remarks
-   * The name of the malicious sample.
-   * 
-   * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the name.
+   * The malicious sample name.
+   * > Call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query this value.
    * 
    * @example
    * abnormal binary file
@@ -217,12 +211,12 @@ export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFileItem extends $da
 export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile extends $dara.Model {
   /**
    * @remarks
-   * The malicious samples.
+   * The malicious sample list.
    */
   item?: UpdateOpaStrategyNewRequestAlarmDetailMaliciousFileItem[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -257,9 +251,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile extends $dara.M
 export class UpdateOpaStrategyNewRequestAlarmDetailSensitiveFileItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the sensitive files.
-   * 
-   * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+   * The sensitive file type ID.
+   * > Call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query this value.
    * 
    * @example
    * key
@@ -267,9 +260,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailSensitiveFileItem extends $da
   id?: string;
   /**
    * @remarks
-   * The name of the sensitive files.
-   * 
-   * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+   * The sensitive file type name.
+   * > Call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query this value.
    * 
    * @example
    * name
@@ -301,12 +293,12 @@ export class UpdateOpaStrategyNewRequestAlarmDetailSensitiveFileItem extends $da
 export class UpdateOpaStrategyNewRequestAlarmDetailSensitiveFile extends $dara.Model {
   /**
    * @remarks
-   * The configuration of sensitive file.
+   * The list of sensitive file check items.
    */
   item?: UpdateOpaStrategyNewRequestAlarmDetailSensitiveFileItem[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -341,9 +333,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailSensitiveFile extends $dara.M
 export class UpdateOpaStrategyNewRequestAlarmDetailVulItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vulnerability.
-   * 
-   * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the ID.
+   * The vulnerability ID.
+   * > Call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query this value.
    * 
    * @example
    * CVE-2023-36034
@@ -351,9 +342,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetailVulItem extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the vulnerability.
-   * 
-   * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the name.
+   * The vulnerability name.
+   * > Call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query this value.
    * 
    * @example
    * oval:com.redhat.rhsa:def:20227002
@@ -385,10 +375,9 @@ export class UpdateOpaStrategyNewRequestAlarmDetailVulItem extends $dara.Model {
 export class UpdateOpaStrategyNewRequestAlarmDetailVulRiskClass extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vulnerability types. Valid values:
-   * 
-   * *   **cve**: system vulnerability
-   * *   **app**: application vulnerability
+   * The vulnerability type ID. Valid values:
+   * - **cve**: system vulnerability
+   * - **app**: application vulnerability.
    * 
    * @example
    * cve
@@ -396,13 +385,12 @@ export class UpdateOpaStrategyNewRequestAlarmDetailVulRiskClass extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The name of the vulnerability. Valid values:
-   * 
-   * *   **system vulnerability**
-   * *   **application vulnerability**
+   * The vulnerability type name. Valid values:
+   * - **system vulnerability**
+   * - **application vulnerability**
    * 
    * @example
-   * system vulnerability
+   * 系统漏洞
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -431,17 +419,17 @@ export class UpdateOpaStrategyNewRequestAlarmDetailVulRiskClass extends $dara.Mo
 export class UpdateOpaStrategyNewRequestAlarmDetailVul extends $dara.Model {
   /**
    * @remarks
-   * The vulnerabilities.
+   * The vulnerability list.
    */
   item?: UpdateOpaStrategyNewRequestAlarmDetailVulItem[];
   /**
    * @remarks
-   * Risk type of vulnerability.
+   * The list of vulnerability types.
    */
   riskClass?: UpdateOpaStrategyNewRequestAlarmDetailVulRiskClass[];
   /**
    * @remarks
-   * The risk levels.
+   * The list of risk levels.
    */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
@@ -481,27 +469,27 @@ export class UpdateOpaStrategyNewRequestAlarmDetailVul extends $dara.Model {
 export class UpdateOpaStrategyNewRequestAlarmDetail extends $dara.Model {
   /**
    * @remarks
-   * The baseline risks.
+   * The baseline risk information.
    */
   baseline?: UpdateOpaStrategyNewRequestAlarmDetailBaseline;
   /**
    * @remarks
-   * The configuration of image build risk.
+   * The risky image build command information.
    */
   buildRisk?: UpdateOpaStrategyNewRequestAlarmDetailBuildRisk;
   /**
    * @remarks
-   * The malicious sample risks.
+   * The malicious sample information.
    */
   maliciousFile?: UpdateOpaStrategyNewRequestAlarmDetailMaliciousFile;
   /**
    * @remarks
-   * The configuration of sensitive file.
+   * The sensitive file information.
    */
   sensitiveFile?: UpdateOpaStrategyNewRequestAlarmDetailSensitiveFile;
   /**
    * @remarks
-   * The vulnerability risks.
+   * The vulnerability item information.
    */
   vul?: UpdateOpaStrategyNewRequestAlarmDetailVul;
   static names(): { [key: string]: string } {
@@ -551,9 +539,8 @@ export class UpdateOpaStrategyNewRequestAlarmDetail extends $dara.Model {
 export class UpdateOpaStrategyNewRequestScopes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster node to which the rule is applied.
-   * 
-   * >  You can call the [GetOpaStrategyDetailNew](~~GetOpaStrategyDetailNew~~) operation to query the ID of the cluster node to which the rule is applied.
+   * The policy instance ID in the cluster.
+   * > Call the [GetOpaStrategyDetailNew](~~GetOpaStrategyDetailNew~~) operation to obtain this parameter.
    * 
    * @example
    * ack-1
@@ -563,8 +550,8 @@ export class UpdateOpaStrategyNewRequestScopes extends $dara.Model {
    * @remarks
    * Specifies whether all namespaces are included. Valid values:
    * 
-   * *   **0**: Not all namespaces are included.
-   * *   **1**: All namespaces are included.
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 1
@@ -572,9 +559,8 @@ export class UpdateOpaStrategyNewRequestScopes extends $dara.Model {
   allNamespace?: number;
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the cluster ID.
+   * The ID of the container cluster.
+   * > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * cdcb56a931c**
@@ -582,9 +568,9 @@ export class UpdateOpaStrategyNewRequestScopes extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The namespaces.
+   * The list of namespaces.
    * 
-   * > This parameter is valid only when the AllNamespace parameter is set to 0.
+   * >Notice: This parameter takes effect only when AllNamespace is set to 0..
    */
   namespaceList?: string[];
   static names(): { [key: string]: string } {
@@ -620,14 +606,14 @@ export class UpdateOpaStrategyNewRequestScopes extends $dara.Model {
 export class UpdateOpaStrategyNewRequest extends $dara.Model {
   /**
    * @remarks
-   * The risks that you want to detect by using the rule.
+   * The alert content details included in the policy.
    */
   alarmDetail?: UpdateOpaStrategyNewRequestAlarmDetail;
   /**
    * @remarks
    * The cluster ID.
    * 
-   * > This parameter is deprecated. You can use the Scopes parameter to specify a scope in which cluster parameters take effect.
+   * >Notice: This parameter is deprecated. Use the Scopes parameter to specify the scope of clusters to which the policy applies..
    * 
    * @example
    * c870ec78ecbcb41d2a35c679823ef****
@@ -636,8 +622,7 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
-   * 
-   * > This parameter is deprecated.
+   * >Notice: This parameter is deprecated..
    * 
    * @example
    * docker-law
@@ -645,7 +630,7 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The rule description.
+   * The policy description.
    * 
    * @example
    * 4566
@@ -653,20 +638,20 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The image names.
+   * The list of image names included in the policy.
    */
   imageName?: string[];
   /**
    * @remarks
-   * The image tags.
+   * The list of image tags included in the policy.
    */
   label?: string[];
   /**
    * @remarks
-   * Specifies whether the rule supports malicious Internet images. Valid values:
+   * Specifies whether the policy supports Internet malicious images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -674,11 +659,11 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   maliciousImage?: boolean;
   /**
    * @remarks
-   * The action that is performed when the rule is hit. Valid values:
+   * The action to take when the policy is hit. Valid values:
    * 
-   * *   **1**: alert
-   * *   **2**: block
-   * *   **3**: allow
+   * - **1**: Alert.
+   * - **2**: Block.
+   * - **3**: Allow.
    * 
    * @example
    * 1
@@ -686,14 +671,13 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   ruleAction?: number;
   /**
    * @remarks
-   * The application scope.
+   * The scope of the policy.
    */
   scopes?: UpdateOpaStrategyNewRequestScopes[];
   /**
    * @remarks
-   * The ID of the rule.
-   * 
-   * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the ID.
+   * The policy ID.
+   * >Call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
    * 
    * @example
    * 1003
@@ -701,7 +685,7 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The rule name.
+   * The policy name.
    * 
    * @example
    * test
@@ -709,9 +693,8 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   strategyName?: string;
   /**
    * @remarks
-   * The ID of the rule template.
-   * 
-   * >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+   * The policy template ID.
+   * >Call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to obtain this parameter.
    * 
    * @example
    * 109
@@ -719,10 +702,10 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   strategyTemplateId?: number;
   /**
    * @remarks
-   * Specifies whether the rule supports unscanned images. Valid values:
+   * Specifies whether the policy supports unscanned images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -730,7 +713,7 @@ export class UpdateOpaStrategyNewRequest extends $dara.Model {
   unScanedImage?: boolean;
   /**
    * @remarks
-   * The whitelists.
+   * The whitelist.
    */
   whiteList?: string[];
   static names(): { [key: string]: string } {

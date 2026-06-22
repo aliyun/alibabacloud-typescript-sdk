@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileProtectClientRuleDashboardResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The total number of web tamper-proofing licenses.
+   * 
    * @example
    * 5
    */
   authTotal?: string;
   /**
+   * @remarks
+   * The number of bound tamper-proofing licenses.
+   * 
    * @example
    * 4
    */
   bindCount?: number;
   /**
+   * @remarks
+   * The total number of web tamper-proofing rules.
+   * 
    * @example
    * 3
    */
   protectedDirectoriesCount?: number;
   /**
+   * @remarks
+   * The total number of online web tamper-proofing clients.
+   * 
    * @example
    * 12
    */
@@ -51,6 +63,10 @@ export class GetFileProtectClientRuleDashboardResponseBodyData extends $dara.Mod
 }
 
 export class GetFileProtectClientRuleDashboardResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned when the API call is successful.
+   */
   data?: GetFileProtectClientRuleDashboardResponseBodyData;
   /**
    * @remarks

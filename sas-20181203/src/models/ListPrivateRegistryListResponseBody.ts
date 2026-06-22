@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * 1766185894******
@@ -13,7 +13,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   aliUid?: number;
   /**
    * @remarks
-   * The domain name of the image repository.
+   * The domain name of the image registry.
    * 
    * @example
    * example.com
@@ -21,7 +21,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   domainName?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The unique ID of the image registry.
    * 
    * @example
    * 66485
@@ -29,7 +29,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   id?: number;
   /**
    * @remarks
-   * The information about the Jenkins environment.
+   * The Jenkins environment information.
    * 
    * @example
    * JenkinsInfo
@@ -39,8 +39,9 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
    * @remarks
    * The network type. Valid values:
    * 
-   * *   **1**: Internet
-   * *   **2**: VPC
+   * - **1**: public network
+   * 
+   * - **2**: VPC
    * 
    * @example
    * 1
@@ -48,7 +49,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   netType?: number;
   /**
    * @remarks
-   * The password used to log on to the image repository.
+   * The password for the image registry.
    * 
    * @example
    * Harbor******
@@ -56,19 +57,27 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   password?: string;
   /**
    * @remarks
-   * The number of days during which assets can be retained.
+   * The asset retention period in days.
    * 
    * @example
    * 90
    */
   persistenceDay?: number;
+  /**
+   * @remarks
+   * The port number.
+   * 
+   * @example
+   * 80
+   */
   port?: number;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The protocol type. Valid values:
    * 
-   * *   **1**: HTTP
-   * *   **2**: HTTPS
+   * - **1**: http
+   * 
+   * - **2**: https
    * 
    * @example
    * 1
@@ -76,7 +85,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   protocolType?: number;
   /**
    * @remarks
-   * The region ID of the server.
+   * The region ID of the image registry.
    * 
    * @example
    * cn-hangzhou
@@ -84,7 +93,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   regionId?: string;
   /**
    * @remarks
-   * The IP address of the image repository.
+   * The IP address of the image registry.
    * 
    * @example
    * 114.55.XXX.XXX
@@ -92,7 +101,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   registryHostIp?: string;
   /**
    * @remarks
-   * The alias of the image repository.
+   * The alias of the image registry.
    * 
    * @example
    * test1
@@ -100,12 +109,15 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   registryName?: string;
   /**
    * @remarks
-   * The type of the image repository. Valid values:
+   * The image registry type. Valid values:
    * 
-   * *   **acr**: Container Registry
-   * *   **harbor**: Harbor
-   * *   **quay**: Quay
-   * *   **CI/CD**: Jenkins
+   * - **acr**: ACR
+   * 
+   * - **harbor**: Harbor
+   * 
+   * - **quay**: Quay
+   * 
+   * - **CI/CD**: a CI/CD registry
    * 
    * @example
    * harbor
@@ -113,10 +125,11 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   registryType?: string;
   /**
    * @remarks
-   * The version of the image repository. Valid values:
+   * The version of the image registry. Valid values:
    * 
-   * *   **V1**: V1.0
-   * *   **V2**: V2.0
+   * - **V1**: Version 1.0
+   * 
+   * - **V2**: Version 2.0
    * 
    * @example
    * V1
@@ -124,7 +137,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   registryVersion?: string;
   /**
    * @remarks
-   * The authentication token of the user.
+   * The user authentication token.
    * 
    * @example
    * 0da12bce-cc36-4c48-b3e6-2215fc3a****
@@ -132,7 +145,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   token?: string;
   /**
    * @remarks
-   * The number of images that can be scanned per hour.
+   * The number of scan tasks per hour.
    * 
    * @example
    * 30
@@ -140,7 +153,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   transPerHour?: number;
   /**
    * @remarks
-   * The username used to log on to the image repository.
+   * The username for the image registry.
    * 
    * @example
    * RegistryUser
@@ -148,7 +161,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   userName?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The ID of the VPC instance.
    * 
    * @example
    * vpc-bp12897gqrex01zn0****
@@ -156,7 +169,7 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
   vpcId?: string;
   /**
    * @remarks
-   * The whitelist of IP addresses.
+   * The IP whitelist.
    * 
    * @example
    * 100.104.XXX.XXX
@@ -222,12 +235,12 @@ export class ListPrivateRegistryListResponseBodyImageRegistryInfos extends $dara
 export class ListPrivateRegistryListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the image repositories.
+   * An array of private image registries.
    */
   imageRegistryInfos?: ListPrivateRegistryListResponseBodyImageRegistryInfos[];
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The unique ID generated by Alibaba Cloud for the request. Use this ID to troubleshoot issues.
    * 
    * @example
    * BE120DAB-F4E7-4C53-ADC3-A97578AB****

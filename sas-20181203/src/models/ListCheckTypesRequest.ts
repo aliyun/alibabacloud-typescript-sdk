@@ -50,7 +50,7 @@ export class ListCheckTypesRequest extends $dara.Model {
    * - **true**: Query
    * 
    * @example
-   * false
+   * true
    */
   showChecks?: boolean;
   /**

@@ -45,7 +45,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   dstPort?: number;
   /**
    * @remarks
-   * The UUID of the connection in the attack.
+   * The unique ID of the connection during the attack.
    * 
    * @example
    * fd7f1ff4-0c4b-41cb-99ad-0724349d****
@@ -53,15 +53,15 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   eventConnection?: string;
   /**
    * @remarks
-   * The extended information about the attack payload.
+   * The extended information of the attack payload.
    * 
    * @example
-   * {\\"payload\\":{\\"format\\":\\"line\\",\\"name\\":{\\"cn\\":\\"payload\\",\\"en\\":\\"payload\\"},\\"value\\":\\"\\"},\\"uid\\":{\\"format\\":\\"line\\",\\"name\\":{\\"cn\\":\\"\\",\\"en\\":\\"\\"},\\"uid\\":\\"5fa2ece9-aa08-4bbd-a272-5d27*********\\",\\"value\\":\\"\\"}}
+   * {\\"payload\\":{\\"format\\":\\"line\\",\\"name\\":{\\"cn\\":\\"\\",\\"en\\":\\"payload\\"},\\"value\\":\\"\\"},\\"uid\\":{\\"format\\":\\"line\\",\\"name\\":{\\"cn\\":\\"\\",\\"en\\":\\"\\"},\\"uid\\":\\"5fa2ece9-aa08-4bbd-a272-5d27*********\\",\\"value\\":\\"\\"}}
    */
   extra?: string;
   /**
    * @remarks
-   * The extension information about the virtual private cloud (VPC).
+   * The VPC extended information.
    * 
    * @example
    * {\\"vpc_id\\":\\"\\",\\"vpc_dest_port\\":\\"\\",\\"vpc_dest_ip\\":\\"\\"}
@@ -69,7 +69,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   extra1?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL of the file.
+   * The OSS URL of the file.
    * 
    * @example
    * https://pop-test-file-upload.oss-cn-beijing.aliyuncs.com/5626_26331*****
@@ -77,7 +77,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   fileOssUrl?: string;
   /**
    * @remarks
-   * The timestamp when the intrusion event was first occurred.
+   * The first time when the attack event occurred, in UNIX timestamp format.
    * 
    * @example
    * 1686621122000
@@ -85,7 +85,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   firstTime?: number;
   /**
    * @remarks
-   * The ID of the intrusion event. The value is a string.
+   * The attack event ID in string format.
    * 
    * @example
    * 19bec028-d98b-45c4-a4d9-cc3d593f****
@@ -109,7 +109,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   honeypotName?: string;
   /**
    * @remarks
-   * The timestamp when the intrusion event was last occurred.
+   * The most recent time when the attack event occurred, in UNIX timestamp format.
    * 
    * @example
    * 1686622222000
@@ -119,9 +119,9 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
    * @remarks
    * The risk level. Valid values:
    * 
-   * *   **2**: low
-   * *   **3**: medium
-   * *   **4**: high
+   * - **2**: Low.
+   * - **3**: Medium.
+   * - **4**: High.
    * 
    * @example
    * 4
@@ -129,7 +129,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   riskLevel?: string;
   /**
    * @remarks
-   * The ID of the intrusion event.
+   * The unique ID of the attack event.
    * 
    * @example
    * 306527555
@@ -137,7 +137,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   securityEventId?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The attack source IP address.
    * 
    * @example
    * 121.41.48.***
@@ -145,7 +145,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   srcIp?: string;
   /**
    * @remarks
-   * The source media access control (MAC) address.
+   * The source MAC address of the attack.
    * 
    * @example
    * 00:0C:29:CA:**:**
@@ -161,11 +161,11 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   srcPort?: number;
   /**
    * @remarks
-   * The handling status of the intrusion event. Valid values:
+   * The handling status of the attack event. Valid values:
    * 
-   * *   **1**: pending handling
-   * *   **2**: ignored
-   * *   **4**: confirmed
+   * - **1**: Pending.
+   * - **2**: Ignored.
+   * - **4**: Confirmed.
    * 
    * @example
    * 1
@@ -181,7 +181,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
   typeId?: string;
   /**
    * @remarks
-   * The UUID of an attack in the intrusion event.
+   * The unique ID of a single attack action within the attack event.
    * 
    * @example
    * 5fa2ece9-aa08-4bbd-a272-5d27d1c6*****
@@ -253,7 +253,7 @@ export class ListHoneypotEventFlowsResponseBodyHoneypotEventFlows extends $dara.
 export class ListHoneypotEventFlowsResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 20
@@ -261,7 +261,7 @@ export class ListHoneypotEventFlowsResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in the paged query.
    * 
    * @example
    * 1
@@ -269,7 +269,7 @@ export class ListHoneypotEventFlowsResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries displayed per page in the paged query.
    * 
    * @example
    * 20
@@ -277,7 +277,7 @@ export class ListHoneypotEventFlowsResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 78
@@ -313,7 +313,7 @@ export class ListHoneypotEventFlowsResponseBodyPageInfo extends $dara.Model {
 export class ListHoneypotEventFlowsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -321,7 +321,7 @@ export class ListHoneypotEventFlowsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The attack timelines.
+   * The list of attack timeline entries.
    */
   honeypotEventFlows?: ListHoneypotEventFlowsResponseBodyHoneypotEventFlows[];
   /**
@@ -334,7 +334,7 @@ export class ListHoneypotEventFlowsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * successful
@@ -342,12 +342,12 @@ export class ListHoneypotEventFlowsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination information.
+   * The paging information for the query.
    */
   pageInfo?: ListHoneypotEventFlowsResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 9F4E6157-9600-5588-86B9-38F09067****
@@ -355,10 +355,9 @@ export class ListHoneypotEventFlowsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

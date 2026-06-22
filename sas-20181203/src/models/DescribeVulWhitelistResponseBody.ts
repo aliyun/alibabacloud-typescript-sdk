@@ -13,7 +13,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 1275
@@ -29,7 +29,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The reason why the vulnerability is added to the whitelist.
+   * The reason for adding the vulnerability to the whitelist.
    * 
    * @example
    * ignore
@@ -37,18 +37,17 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The application scope of the rule. The value is a JSON string that contains the following fields:
+   * The scope of the rule. The value is a JSON string that contains the following fields:
    * 
-   * *   **type**: the type of the assets to which the rule is applied. Valid values:
+   * - **type**: The applicable type. Valid values:
    * 
-   *     *   **Uuid**: server
-   *     *   **GroupId**: server group
+   *      - **Uuid**: host
+   *      - **GroupId**: group
    * 
-   * *   **groupIds**: the ID of the server group
+   * - **groupIds**: The IDs of the applicable asset groups.
+   * - **uuids**: The UUIDs of the applicable assets.
    * 
-   * *   **uuids**: the UUID of the server
-   * 
-   * > If this field is empty, the rule is applied to all assets.
+   * > If this value is empty, the rule applies to all assets.
    * 
    * @example
    * {"type":"GroupId","groupIds":[916****],"uuids":[]}
@@ -56,7 +55,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $dara.Model {
   targetInfo?: string;
   /**
    * @remarks
-   * The type of the vulnerability.
+   * The vulnerability type.
    * 
    * @example
    * cve
@@ -64,11 +63,11 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The information about the vulnerability. The value of this parameter is in the JSON format. Valid values:
+   * The vulnerability information. The value is in JSON format.
    * 
-   * *   **name**: the name of the vulnerability
-   * *   **type**: the type of the vulnerability.
-   * *   **aliasName**: the alias of the vulnerability
+   * - **name**: The name of the vulnerability.
+   * - **type**: The type of the vulnerability.
+   * - **aliasName**: The alias of the vulnerability.
    * 
    * @example
    * [{
@@ -114,7 +113,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $dara.Model {
 export class DescribeVulWhitelistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in paging.
    * 
    * @example
    * 2
@@ -122,7 +121,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in paging.
    * 
    * @example
    * 1
@@ -130,7 +129,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in paging.
    * 
    * @example
    * 10
@@ -138,7 +137,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 74F97EF7-B543-43FD-A4E9-18456731F9C5
@@ -146,7 +145,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -154,7 +153,7 @@ export class DescribeVulWhitelistResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * An array that consists of information about the whitelist of vulnerabilities.
+   * The list of whitelisted vulnerabilities.
    */
   vulWhitelists?: DescribeVulWhitelistResponseBodyVulWhitelists[];
   static names(): { [key: string]: string } {

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListOpaClusterStrategyNewResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * The action of the rule. Valid values:
+   * The action performed by the policy. Valid values:
    * 
-   * *   **1**: trigger alerts
-   * *   **2**: block
-   * *   **3**: allow
+   * - **1**: alert
+   * - **2**: block
+   * - **3**: allow.
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class ListOpaClusterStrategyNewResponseBodyList extends $dara.Model {
   action?: number;
   /**
    * @remarks
-   * The number of clusters on which the rule takes effect.
+   * The number of clusters to which the policy applies.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class ListOpaClusterStrategyNewResponseBodyList extends $dara.Model {
   clusterCount?: number;
   /**
    * @remarks
-   * The clusters on which the rule takes effect.
+   * The list of clusters to which the policy applies.
    */
   clusterIdList?: string[];
   /**
@@ -38,20 +38,20 @@ export class ListOpaClusterStrategyNewResponseBodyList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The image names.
+   * The image name.
    */
   imageName?: string[];
   /**
    * @remarks
-   * The tags that are added to the container.
+   * The container label.
    */
   label?: string[];
   /**
    * @remarks
-   * Indicates whether the rule supports malicious Internet images. Valid values:
+   * Specifies whether the rule supports Internet malicious images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -59,7 +59,7 @@ export class ListOpaClusterStrategyNewResponseBodyList extends $dara.Model {
   maliciousImage?: boolean;
   /**
    * @remarks
-   * The rule ID.
+   * The policy ID.
    * 
    * @example
    * 1
@@ -67,7 +67,7 @@ export class ListOpaClusterStrategyNewResponseBodyList extends $dara.Model {
   strategyId?: number;
   /**
    * @remarks
-   * The rule name.
+   * The policy name.
    * 
    * @example
    * auto-strategy-vohuiq
@@ -75,10 +75,10 @@ export class ListOpaClusterStrategyNewResponseBodyList extends $dara.Model {
   strategyName?: string;
   /**
    * @remarks
-   * Indicates whether the rule supports unscanned images. Valid values:
+   * Specifies whether the rule supports unscanned images. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -135,7 +135,7 @@ export class ListOpaClusterStrategyNewResponseBodyList extends $dara.Model {
 export class ListOpaClusterStrategyNewResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 20
@@ -143,7 +143,7 @@ export class ListOpaClusterStrategyNewResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -151,7 +151,7 @@ export class ListOpaClusterStrategyNewResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -159,7 +159,7 @@ export class ListOpaClusterStrategyNewResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 45
@@ -195,7 +195,7 @@ export class ListOpaClusterStrategyNewResponseBodyPageInfo extends $dara.Model {
 export class ListOpaClusterStrategyNewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -211,12 +211,12 @@ export class ListOpaClusterStrategyNewResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The rules.
+   * The list of policies.
    */
   list?: ListOpaClusterStrategyNewResponseBodyList[];
   /**
    * @remarks
-   * The message that shows the export task result. The value is fixed as **success**, which indicates that the export task is successful.
+   * The result message. Fixed value: **success**. This indicates that the export was successful.
    * 
    * @example
    * success
@@ -224,12 +224,12 @@ export class ListOpaClusterStrategyNewResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: ListOpaClusterStrategyNewResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 7DFD947C-9172-5129-B783-DD14C55191D2
@@ -237,10 +237,10 @@ export class ListOpaClusterStrategyNewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

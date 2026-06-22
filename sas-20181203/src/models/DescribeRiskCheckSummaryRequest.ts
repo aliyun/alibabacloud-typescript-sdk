@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRiskCheckSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class DescribeRiskCheckSummaryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is added as a member by using the multi-account control feature.
+   * The Alibaba Cloud account ID of the member account in the resource directory for multi-account security management.
    * 
    * @example
    * 1232428423234****
@@ -25,7 +24,7 @@ export class DescribeRiskCheckSummaryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the access source that you want to query.
    * 
    * @example
    * 1.2.XX.XX

@@ -13,7 +13,7 @@ export class GenerateDynamicDictResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 00E9B912-6066-5E4E-9F24-35EA09F2****
+   * 09969D2C-4FAD-429E-BFBF-9A60DEF8****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

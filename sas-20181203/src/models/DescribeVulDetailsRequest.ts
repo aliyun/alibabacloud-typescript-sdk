@@ -13,10 +13,10 @@ export class DescribeVulDetailsRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language type for the request and response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * This parameter is required.
    * 
@@ -26,9 +26,8 @@ export class DescribeVulDetailsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the vulnerability.
-   * 
-   * > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) or [DescribeVulList](~~DescribeVulList~~) operation to query the names of vulnerabilities.
+   * The vulnerability name.
+   * > You can call [DescribeGroupedVul](~~DescribeGroupedVul~~) or [DescribeVulList](~~DescribeVulList~~) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -38,9 +37,8 @@ export class DescribeVulDetailsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * The Alibaba Cloud account ID of the member accounts in the resource directory folder.
+   * > You can invoke [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
    * 
    * @example
    * 127608589417****
@@ -48,14 +46,14 @@ export class DescribeVulDetailsRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
+   * The type of vulnerability to query. Valid values:
    * 
-   * *   **cve**: Linux software vulnerability
-   * *   **sys**: Windows system vulnerability
-   * *   **cms**: Web-CMS vulnerability
-   * *   **app**: application vulnerabilitiy
-   * *   **emg**: urgent vulnerability
-   * *   **sca**: vulnerability that is detected based on software component analysis
+   * - **cve**: Linux software vulnerability
+   * - **sys**: Windows system vulnerability
+   * - **cms**: Web-CMS vulnerability
+   * - **app**: application vulnerability
+   * - **emg**: emergency vulnerability
+   * - **sca**: software constituency parsing vulnerability.
    * 
    * This parameter is required.
    * 

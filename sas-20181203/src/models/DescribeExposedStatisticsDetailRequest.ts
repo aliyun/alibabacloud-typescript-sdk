@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The search condition for components.
+   * The query condition.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The public IP address of the server or the cloud asset.
+   * The public IP address that is exposed on the Internet for the asset to query.
    * 
    * @example
    * 116.12.XX.XX
@@ -29,7 +29,7 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   exposureIp?: string;
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The instance ID of the asset to query.
    * 
    * @example
    * s-bp1g6wxdwps7s9dz****
@@ -37,9 +37,8 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+   * > Set PageSize to a non-empty value.
    * 
    * @example
    * 20
@@ -47,22 +46,20 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member in the resource directory.
-   * 
-   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the ID.
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
+   * > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
-   * 127608589417****
+   * 1232428423234****
    */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The type of the exposed asset. Valid values:
-   * 
-   * *   **exposureType**: gateway assets
-   * *   **exposurePort**: ports
-   * *   **exposureComponent**: system components
-   * *   **exposureIp**: IP addresses
+   * The type of statistics to query. Valid values:
+   * - **exposureType**: gateway assets exposed on the Internet.
+   * - **exposurePort**: ports exposed on the Internet.
+   * - **exposureComponent**: system components exposed on the Internet.
+   * - **exposureIp**: IP addresses exposed on the Internet.
    * 
    * This parameter is required.
    * 
@@ -72,10 +69,9 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   statisticsType?: string;
   /**
    * @remarks
-   * The type of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**. Valid values:
-   * 
-   * *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
-   * *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+   * The Asset Type of the gateway to query. This parameter takes effect only when **StatisticsType** is set to **exposureType**. Valid values:
+   * - **SLB**: public IP address of a load balancing SLB instance.
+   * - **DNAT**: NAT gateway that uses the DNAT feature to connect to the Internet.
    * 
    * @example
    * SLB
@@ -83,7 +79,7 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   statisticsTypeGatewayType?: string;
   /**
    * @remarks
-   * The ID of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**.
+   * The instance ID of the gateway to query. This parameter takes effect only when **StatisticsType** is set to **exposureType**.
    * 
    * @example
    * lb-2ze4rso39h4nczcqs****
@@ -91,7 +87,7 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   statisticsTypeInstanceValue?: string;
   /**
    * @remarks
-   * The UUID of the server.
+   * The UUID of the server to query.
    * 
    * @example
    * c9107c04-942f-40c1-981a-f1c1***

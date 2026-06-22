@@ -7,8 +7,9 @@ export class UpdatePublishGraySwitchRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the canary release feature. Valid values:
    * 
-   * *   **1**: enabled.
-   * *   **0**: disabled.
+   * - **1**: enabled.
+   * 
+   * - **0**: disabled.
    * 
    * This parameter is required.
    * 

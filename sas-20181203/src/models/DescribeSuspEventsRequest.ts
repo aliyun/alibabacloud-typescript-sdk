@@ -214,7 +214,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * *   **Others**
    * 
    * @example
-   * Webshell
+   * other
    */
   parentEventTypes?: string;
   /**

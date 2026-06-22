@@ -4,116 +4,194 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The alert notification level. Valid values:
+   * 
+   * - 0: no alert
+   * - 1: reminder
+   * - 2: suspicious
+   * - 3: high-risk.
+   * 
    * @example
    * 0
    */
   alertLevel?: number;
   /**
+   * @remarks
+   * The command line of the event.
+   * 
    * @example
    * ["touch","/usr/local/aaaa"]
    */
   cmdLine?: string;
   /**
+   * @remarks
+   * The number of times the alert occurred.
+   * 
    * @example
    * 2
    */
   count?: number;
   /**
+   * @remarks
+   * The file path.
+   * 
    * @example
    * /usr/local
    */
   filePath?: string;
   /**
+   * @remarks
+   * The process permissions.
+   * 
    * @example
    * rwxr-xr-x
    */
   filePermission?: string;
   /**
+   * @remarks
+   * The timestamp when the event first occurred.
+   * 
    * @example
    * 1694576692000
    */
   firstTime?: number;
   /**
+   * @remarks
+   * The time when the event was handled.
+   * 
    * @example
    * 1694576692000
    */
   handleTime?: number;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 3454
    */
   id?: number;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * i-wz92q7m5hsbgfhdss***
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The public IP address of the associated instance.
+   * 
    * @example
    * 17.16.XX.XX
    */
   internetIp?: string;
   /**
+   * @remarks
+   * The private IP address of the associated instance.
+   * 
    * @example
    * 10.42.XX.XX
    */
   intranetIp?: string;
   /**
+   * @remarks
+   * The time when the event most recently occurred.
+   * 
    * @example
    * 1694576692000
    */
   latestTime?: number;
   /**
+   * @remarks
+   * The operation that the process performed on the file.
+   * 
    * @example
    * DELETE
    */
   operation?: string;
   /**
+   * @remarks
+   * The operating system type.
+   * 
    * @example
    * linux
    */
   platform?: string;
   /**
+   * @remarks
+   * The process path.
+   * 
    * @example
    * /bin/bash33
    */
   procPath?: string;
   /**
+   * @remarks
+   * The process ID of the event.
+   * 
    * @example
    * 3453
    */
   processId?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The action of the blocking rule.
+   * 
    * @example
    * block
    */
   ruleAction?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * test-000
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The event status. Valid values:
+   * 
+   * - 0: unhandled 
+   * - 1: handled
+   * - 2: whitelisted.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The user ID of the event.
+   * 
    * @example
    * 12
    */
   userId?: string;
   /**
+   * @remarks
+   * The username of the event.
+   * 
    * @example
    * root
    */
   userName?: string;
   /**
+   * @remarks
+   * The UUID of the asset instance.
+   * 
    * @example
    * 6690a46c-0edb-4663-a641-3629d1a9****
    */
@@ -184,6 +262,10 @@ export class GetFileProtectClientEventResponseBodyData extends $dara.Model {
 }
 
 export class GetFileProtectClientEventResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data details.
+   */
   data?: GetFileProtectClientEventResponseBodyData;
   /**
    * @remarks

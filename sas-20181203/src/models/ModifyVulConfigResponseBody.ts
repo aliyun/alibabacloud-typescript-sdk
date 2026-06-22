@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVulConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 24DDBE06-58FF-5E5E-9241-D2010D7913C1

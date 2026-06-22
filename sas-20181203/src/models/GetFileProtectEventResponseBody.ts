@@ -7,10 +7,13 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
    * @remarks
    * The severity of alerts. Valid values:
    * 
-   * *   0: does not generate alerts
-   * *   1: sends notifications
-   * *   2: suspicious
-   * *   3: high-risk
+   * - 0: does not generate alerts
+   * 
+   * - 1: sends notifications
+   * 
+   * - 2: suspicious
+   * 
+   * - 3: high-risk
    * 
    * @example
    * 1
@@ -108,8 +111,9 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the operating system. Valid values:
    * 
-   * *   **windows**: Windows
-   * *   **linux**: Linux
+   * - **windows**: Windows
+   * 
+   * - **linux**: Linux
    * 
    * @example
    * linux
@@ -151,9 +155,11 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the event. Valid values:
    * 
-   * *   0: not handled
-   * *   1: handled
-   * *   2: added to the whitelist
+   * - 0: not handled
+   * 
+   * - 1: handled
+   * 
+   * - 2: added to the whitelist
    * 
    * @example
    * 1

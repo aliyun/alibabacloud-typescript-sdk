@@ -10,12 +10,12 @@ export class DeleteHybridProxyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * IDC-代理
    */
   clusterName?: string;
   /**
    * @remarks
-   * The UUID of the proxy node that you want to remove. The value starts with inet-proxy.
+   * The UUID of the proxy server to delete. The value starts with inet-proxy-.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the whitelist rule. If you do not specify this parameter, a whitelist rule is created.
+   * The rule ID. This parameter is optional. If you do not specify this parameter, a whitelist rule is created.
    * 
    * @example
    * 1
@@ -13,9 +13,8 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The name of the alert.
-   * 
-   * *   Set the value to ALL, which indicates all alert types.
+   * The alerting name. Valid values:
+   * - ALL: all Alarm Metric.
    * 
    * @example
    * ALL
@@ -23,7 +22,7 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The field that you want to use in the whitelist rule.
+   * The field to be whitelisted.
    * 
    * @example
    * fileMd5
@@ -31,7 +30,7 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   field?: string;
   /**
    * @remarks
-   * The value of the field that you want to use in the whitelist rule.
+   * The value of the field to be whitelisted.
    * 
    * @example
    * b2cf9747ee49d8d9b105cf16e078cc16
@@ -39,9 +38,8 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The logical operator that you want to use in the whitelist rule.
-   * 
-   * *   Set the value to strEqual, which indicates the equality operator (=).
+   * The operator used for rule matching. Valid values:
+   * - strEqual: string equals.
    * 
    * @example
    * strEqual
@@ -49,7 +47,7 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * Remark.
+   * The remarks.
    * 
    * @example
    * test
@@ -57,9 +55,8 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The feature to which this operation belongs.
-   * 
-   * *   Set the value to agentless, which indicates the agentless detection feature.
+   * The business source. Valid values:
+   * - agentless: agentless detection.
    * 
    * @example
    * agentless
@@ -67,10 +64,9 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The type of the assets on which you want the whitelist rule to take effect. Valid values:
-   * 
-   * *   ALL: all assets
-   * *   SELECTION_KEY: selected assets
+   * The type of the target scope. Valid values:
+   * - ALL: all assets
+   * - SELECTION_KEY: assets selected by using the asset selection component.
    * 
    * @example
    * ALL
@@ -78,10 +74,9 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The assets on which you want the whitelist rule to take effect. Valid values:
-   * 
-   * *   ALL: all assets
-   * *   Others: selected assets
+   * The target scope. Valid values:
+   * - ALL: all assets
+   * - Other values: the key of the asset scope selected by using the asset selection component.
    * 
    * @example
    * ALL

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassListBaselineNameListBaselineItemList extends $dara.Model {
   /**
    * @remarks
-   * The alias of the baseline check item.
+   * The alias of the baseline sub-item.
    * 
    * @example
-   * Ensure that no accounts use the same Hash password.
+   * 确保不存在相同密码Hash的账户
    */
   alias?: string;
   /**
    * @remarks
-   * The key of the type for the baseline.
+   * The type key of the baseline main item.
    * 
    * @example
    * identification
@@ -21,7 +21,7 @@ export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassList
   classKey?: string;
   /**
    * @remarks
-   * The key of the name for the baseline check item.
+   * The name key of the baseline sub-item.
    * 
    * @example
    * duplicate_pwd_hash
@@ -29,7 +29,7 @@ export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassList
   itemKey?: string;
   /**
    * @remarks
-   * The key of the name for the baseline.
+   * The name key of the baseline main item.
    * 
    * @example
    * identification
@@ -65,20 +65,20 @@ export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassList
 export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassListBaselineNameList extends $dara.Model {
   /**
    * @remarks
-   * The alias of the baseline.
+   * The alias of the baseline main item.
    * 
    * @example
-   * Identity authentication
+   * 身份鉴别
    */
   alias?: string;
   /**
    * @remarks
-   * The information about the baseline check item.
+   * The list of baseline sub-items.
    */
   baselineItemList?: DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassListBaselineNameListBaselineItemList[];
   /**
    * @remarks
-   * The key of the type for the baseline.
+   * The type key of the baseline main item.
    * 
    * @example
    * identification
@@ -86,7 +86,7 @@ export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassList
   classKey?: string;
   /**
    * @remarks
-   * The key of the name for the baseline.
+   * The name key of the baseline main item.
    * 
    * @example
    * identification
@@ -125,20 +125,20 @@ export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassList
 export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassList extends $dara.Model {
   /**
    * @remarks
-   * The alias of the baseline type.
+   * The alias of the baseline category.
    * 
    * @example
-   * Identity authentication
+   * 身份鉴别
    */
   alias?: string;
   /**
    * @remarks
-   * The information about the baseline.
+   * The list of baseline main items.
    */
   baselineNameList?: DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassListBaselineNameList[];
   /**
    * @remarks
-   * The key of the baseline type.
+   * The type key of the baseline category.
    * 
    * @example
    * identification
@@ -175,7 +175,7 @@ export class DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassList
 export class DescribeAllImageBaselineResponseBodyImageBaselines extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of baseline types.
+   * The list of baseline categories.
    */
   baselineClassList?: DescribeAllImageBaselineResponseBodyImageBaselinesBaselineClassList[];
   static names(): { [key: string]: string } {
@@ -205,12 +205,12 @@ export class DescribeAllImageBaselineResponseBodyImageBaselines extends $dara.Mo
 export class DescribeAllImageBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The baselines that are used in image baseline checks.
+   * The details of the image baseline check list.
    */
   imageBaselines?: DescribeAllImageBaselineResponseBodyImageBaselines;
   /**
    * @remarks
-   * The ID of the request, which is used to query logs and troubleshoot issues.
+   * The ID of the request. The ID is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 1A975D03-5F49-5354-B2CB-3918D5DA****

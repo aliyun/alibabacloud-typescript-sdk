@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSyncAssetTaskListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1. Pages start from page 1.
+   * The page number of the page to return. Default value: 1, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeSyncAssetTaskListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The timestamp when the IDC scan task ends. Unit: milliseconds.
+   * The end timestamp of the IDC scan task to query. Unit: milliseconds.
    * 
    * @example
    * 1662430077000
@@ -21,9 +21,8 @@ export class DescribeSyncAssetTaskListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paged query. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -31,7 +30,7 @@ export class DescribeSyncAssetTaskListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The timestamp when the IDC scan task starts. Unit: milliseconds.
+   * The start timestamp of the IDC scan task to query. Unit: milliseconds.
    * 
    * @example
    * 1652063828796
@@ -39,7 +38,7 @@ export class DescribeSyncAssetTaskListRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The name of the IDC scan task.
+   * The task name.
    * 
    * @example
    * IDC_PROBE_SCAN***

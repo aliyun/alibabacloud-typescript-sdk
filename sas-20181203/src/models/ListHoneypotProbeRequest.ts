@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHoneypotProbeRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number of the page to return. Minimum value: **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -21,10 +21,9 @@ export class ListHoneypotProbeRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * en
@@ -32,9 +31,8 @@ export class ListHoneypotProbeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page during paging.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -42,18 +40,17 @@ export class ListHoneypotProbeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the probe. Valid values:
-   * 
-   * *   **installed**: installed
-   * *   **install_failed**: installation failed
-   * *   **online**: online
-   * *   **offline**: offline
-   * *   **unnormal**: abnormal
-   * *   **unprobe**: unauthorized
-   * *   **uninstalling**: being uninstalled
-   * *   **uninstalled**: uninstalled
-   * *   **uninstall_failed**: uninstallation failed
-   * *   **not_exist**: not installed
+   * The probe status. Valid values:
+   * - **installed**: Installation succeeded.
+   * - **install_failed**: Installation failed.
+   * - **online**: Normal.
+   * - **offline**: Offline.
+   * - **unnormal**: Service exception.
+   * - **unprobe**: Unauthorized.
+   * - **uninstalling**: Uninstalling.
+   * - **uninstalled**: Uninstallation succeeded.
+   * - **uninstall_failed**: Uninstallation failed.
+   * - **not_exist**: Not installed.
    * 
    * @example
    * online
@@ -61,10 +58,10 @@ export class ListHoneypotProbeRequest extends $dara.Model {
   probeStatus?: string;
   /**
    * @remarks
-   * The type of the probe. Valid values:
+   * The probe type. Valid values:
    * 
-   * *   **host_probe**: host probe
-   * *   **vpc_black_hole_probe**: VPC probe
+   * - **host_probe**: host probe
+   * - **vpc_black_hole_probe**: VPC blackhole probe.
    * 
    * @example
    * host_probe

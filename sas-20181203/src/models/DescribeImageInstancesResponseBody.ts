@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts that are generated for the image.
+   * The number of security alerts for the image.
    * 
    * @example
    * 0
@@ -13,10 +13,9 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   alarmCount?: number;
   /**
    * @remarks
-   * Indicates whether alerts are generated for the image. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * Indicates whether security alerts exist for the image. Valid values:
+   * - **YES**: security alerts exist.
+   * - **NO**: no security alerts exist.
    * 
    * @example
    * NO
@@ -24,10 +23,9 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   alarmStatus?: string;
   /**
    * @remarks
-   * Indicates whether the image was deployed. Valid values:
-   * 
-   * *   **0**: The image was not deployed.
-   * *   **1**: The image was deployed.
+   * Indicates whether the image has been deployed. Valid values:
+   * - **0**: not deployed.
+   * - **1**: deployed.
    * 
    * @example
    * 1
@@ -43,7 +41,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   digest?: string;
   /**
    * @remarks
-   * The address of the image.
+   * The endpoint addresses of the image resource.
    * 
    * @example
    * []
@@ -59,10 +57,10 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   hcCount?: number;
   /**
    * @remarks
-   * Indicates whether baseline risks exist. Valid values:
+   * The baseline risk status. Valid values:
    * 
-   * *   **NO**
-   * *   **YES**
+   * - **NO**: no baseline risk exists.
+   * - **YES**: baseline risk exists.
    * 
    * @example
    * NO
@@ -70,7 +68,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   hcStatus?: string;
   /**
    * @remarks
-   * The timestamp generated when the image was created. Unit: milliseconds.
+   * The timestamp when the image was created. Unit: milliseconds.
    * 
    * @example
    * 1600069948849
@@ -94,7 +92,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   imageSize?: string;
   /**
    * @remarks
-   * The timestamp generated when the image was updated. Unit: milliseconds.
+   * The timestamp when the image was updated. Unit: milliseconds.
    * 
    * @example
    * 1600069948849
@@ -102,7 +100,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   imageUpdate?: string;
   /**
    * @remarks
-   * The instance ID of the image.
+   * The instance ID of the image asset.
    * 
    * @example
    * 39010****
@@ -110,7 +108,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The timestamp when the last scan was performed. Unit: milliseconds.
+   * The timestamp of the latest scan. Unit: milliseconds.
    * 
    * @example
    * 1721363159000
@@ -118,7 +116,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   lastScanTime?: number;
   /**
    * @remarks
-   * The region ID of the image.
+   * The ID of the region where the image is located.
    * 
    * @example
    * cn-hangzhou
@@ -126,12 +124,11 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   regionId?: string;
   /**
    * @remarks
-   * The type of the image. Valid values:
-   * 
-   * *   **acr**
-   * *   **harbor**
-   * *   **quay**
-   * *   **CI/CD**
+   * The registry type of the image. Valid values:
+   * - **acr**: ACR.
+   * - **harbor**: Harbor.
+   * - **quay**: Quay.
+   * - **CI/CD**: CI/CD repository type.
    * 
    * @example
    * acr
@@ -155,7 +152,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * N/A
@@ -163,10 +160,10 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   repoNamespace?: string;
   /**
    * @remarks
-   * The type of the repository. Valid values:
+   * The repository type. Valid values:
    * 
-   * *   **private**
-   * *   **public**
+   * - **private**: private repository.
+   * - **public**: public repository.
    * 
    * @example
    * private
@@ -174,10 +171,10 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   repoType?: string;
   /**
    * @remarks
-   * Indicates whether risks exist. Valid values:
+   * Indicates whether a risk exists. Valid values:
    * 
-   * *   **NO**
-   * *   **YES**
+   * - **NO**: no risk.
+   * - **YES**: risk exists.
    * 
    * @example
    * NO
@@ -185,7 +182,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   riskStatus?: string;
   /**
    * @remarks
-   * The scan progress of the image. Valid values: 0 to 100.
+   * The scan progress of the image. Value range: 0 to 100.
    * 
    * @example
    * 100
@@ -195,9 +192,9 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
    * @remarks
    * The error code of the image scan result. Valid values:
    * 
-   * *   **TASK_NOT_EXISTS**: The image scan task does not exist.
-   * *   **TASK_NOT_SUPPORT_REGION**: The image scan task cannot be performed in the current region.
-   * *   **forbid_create_repeat_task**: The image scan task already exists.
+   * - **TASK_NOT_EXISTS**: the task does not exist.
+   * - **TASK_NOT_SUPPORT_REGION**: the task does not support the region.
+   * - **forbid_create_repeat_task**: repeated tasks are not allowed.
    * 
    * @example
    * TASK_NOT_SUPPORT_REGION
@@ -205,22 +202,21 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   scaResult?: string;
   /**
    * @remarks
-   * The scan status of the image. Valid values:
-   * 
-   * *   **INIT**: The image scan task is pending startup.
-   * *   **START**: The image scan task is started.
-   * *   **MESSAGE_SEND**: The message about the image scan task is sent.
-   * *   **START_RUN**: The image analysis task is started.
-   * *   **DOWNLOAD**: The image scan result is downloaded.
-   * *   **PRE_ANALYZER**: The image pre-analysis is started.
-   * *   **WEB_SHELL_ANALYZER**: The WebShell analysis of the image is complete.
-   * *   **CVE_ANALYZER**: The Common Vulnerabilities and Exposures (CVE) analysis of the image is complete.
-   * *   **BIN_ANALYZER**: The binary analysis of the image is complete.
-   * *   **OTHER_ANALYZER**: The extended analysis of the image is complete.
-   * *   **SUCCESS**: The image scan task is complete.
-   * *   **PRE_ANALYZER_SUCCESS**: The image pre-analysis is complete.
-   * *   **FAIL**: The image scan task failed.
-   * *   **TIMEOUT**: The image scan task timed out.
+   * The image scan status. Valid values:
+   * - **INIT**: image scan pending.
+   * - **START**: image scan started.
+   * - **MESSAGE_SEND**: image scan message sent.
+   * - **START_RUN**: image analysis task started.
+   * - **DOWNLOAD**: image scan downloaded.
+   * - **PRE_ANALYZER**: image pre-analysis started.
+   * - **WEB_SHELL_ANALYZER**: image WebShell analysis completed.
+   * - **CVE_ANALYZER**: image CVE analysis completed.
+   * - **BIN_ANALYZER**: image binary analysis completed.
+   * - **OTHER_ANALYZER**: image extended analysis completed.
+   * - **SUCCESS**: image scan completed.
+   * - **PRE_ANALYZER_SUCCESS**: image pre-analysis completed.
+   * - **FAIL**: image scan failed.
+   * - **TIMEOUT**: image scan timed out.
    * 
    * @example
    * SUCCESS
@@ -228,7 +224,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   scaStatus?: string;
   /**
    * @remarks
-   * The usage label of the image.
+   * The business tag of the image.
    * 
    * @example
    * PAI
@@ -236,9 +232,8 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   sourceBizTag?: string;
   /**
    * @remarks
-   * The status of the image. Valid values:
-   * 
-   * *   **NORMAL**
+   * The image status. Valid values:
+   * - **NORMAL**: normal.
    * 
    * @example
    * NORMAL
@@ -271,9 +266,8 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
   /**
    * @remarks
    * Indicates whether vulnerabilities exist in the image. Valid values:
-   * 
-   * *   **YES**
-   * *   **NO**
+   * - **YES**: vulnerabilities exist.
+   * - **NO**: no vulnerabilities exist.
    * 
    * @example
    * NO
@@ -359,7 +353,7 @@ export class DescribeImageInstancesResponseBodyImageInstanceList extends $dara.M
 export class DescribeImageInstancesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of images returned on the current page.
+   * The number of images displayed on the current page of the returned results.
    * 
    * @example
    * 4
@@ -367,7 +361,7 @@ export class DescribeImageInstancesResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in the paged query.
    * 
    * @example
    * 1
@@ -375,7 +369,7 @@ export class DescribeImageInstancesResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries of image information displayed on each page in the paged query.
    * 
    * @example
    * 20
@@ -383,7 +377,7 @@ export class DescribeImageInstancesResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of images.
    * 
    * @example
    * 69
@@ -419,17 +413,17 @@ export class DescribeImageInstancesResponseBodyPageInfo extends $dara.Model {
 export class DescribeImageInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the images.
+   * The list of image information.
    */
   imageInstanceList?: DescribeImageInstancesResponseBodyImageInstanceList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: DescribeImageInstancesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * BE120DAB-F4E7-4C53-ADC3-A97578ABF384

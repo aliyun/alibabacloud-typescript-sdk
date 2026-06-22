@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSystemAggregationRulesResponseBodyAggregationList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the aggregation type.
+   * The ID of the rule cluster.
    * 
    * @example
    * 1
@@ -13,15 +13,15 @@ export class ListSystemAggregationRulesResponseBodyAggregationList extends $dara
   id?: number;
   /**
    * @remarks
-   * The name of the aggregation type.
+   * The name of the rule cluster.
    * 
    * @example
-   * Remote control\\*\\*\\*\\*
+   * 远程控制****
    */
   name?: string;
   /**
    * @remarks
-   * The number of rules that are of the aggregation type.
+   * The number of rules in the cluster.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class ListSystemAggregationRulesResponseBodyAggregationList extends $dara
 export class ListSystemAggregationRulesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class ListSystemAggregationRulesResponseBodyPageInfo extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -71,7 +71,7 @@ export class ListSystemAggregationRulesResponseBodyPageInfo extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 30
@@ -105,17 +105,17 @@ export class ListSystemAggregationRulesResponseBodyPageInfo extends $dara.Model 
 export class ListSystemAggregationRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the details about the aggregation types.
+   * The result list.
    */
   aggregationList?: ListSystemAggregationRulesResponseBodyAggregationList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: ListSystemAggregationRulesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 6800B790-B10A-5C2F-BEB3-F1D5CE61****

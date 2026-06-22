@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRebootStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUIDs of the servers that you restart. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the servers to query for restart status. Separate multiple UUIDs with commas (,).
    * 
    * This parameter is required.
    * 

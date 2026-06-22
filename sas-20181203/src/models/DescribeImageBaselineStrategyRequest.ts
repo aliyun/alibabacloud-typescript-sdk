@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageBaselineStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,10 +15,9 @@ export class DescribeImageBaselineStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The data source. Default value: default. Valid values:
-   * 
-   * *   **default**: queries the information about a baseline check policy for images.
-   * *   **agentless**: queries the information about a baseline check policy for agentless detection.
+   * The data source. If this parameter is left empty, the image baseline policy is queried by default. Valid values:
+   * - **default**: image
+   * - **agentless**: agentless.
    * 
    * @example
    * agentless

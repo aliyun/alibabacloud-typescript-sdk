@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID of the container on which the malicious image sample is detected.
+   * The cluster ID of the server for which you want to query exception events.
    * 
    * @example
    * c556c8133b5ad4378b7fc533ddbda****
@@ -13,7 +13,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number of the page to return. Minimum value: **1**. Default value: **1**, which indicates that the first page is returned.
    * 
    * This parameter is required.
    * 
@@ -23,9 +23,8 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the malicious image sample that you want to query.
-   * 
-   * >  Fuzzy match is supported.
+   * The name of the malicious file that you want to query.
+   * > Fuzzy match is supported.
    * 
    * @example
    * Mining
@@ -57,10 +56,9 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -68,11 +66,10 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The severity of the malicious image sample that you want to query. You can enter multiple severities. Separate the severities with commas (,). Valid values:
-   * 
-   * *   **serious**
-   * *   **suspicious**
-   * *   **remind**
+   * The severity levels of the malicious samples in container images that you want to query. Separate multiple values with commas (,). Valid values:
+   * - **serious**: urgent
+   * - **suspicious**: suspicious
+   * - **remind**: reminder.
    * 
    * @example
    * serious
@@ -80,7 +77,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   levels?: string;
   /**
    * @remarks
-   * The MD5 hash value of the malicious image sample.
+   * The MD5 hash of the malicious file.
    * 
    * @example
    * d836968041f7683b5459****
@@ -88,7 +85,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   maliciousMd5?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The maximum number of entries per page in a paging query. Default value: **20**.
    * 
    * This parameter is required.
    * 
@@ -99,8 +96,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the image repository.
-   * 
-   * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
+   * > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry to obtain the value of the **RepoId** response parameter.
    * 
    * @example
    * crr-vridcl4****
@@ -108,9 +104,8 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The ID of the container image.
-   * 
-   * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
+   * The instance ID of the container image.
+   * > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry to obtain the value of the **InstanceId** response parameter.
    * 
    * @example
    * cri-datvailb****
@@ -119,8 +114,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the image repository.
-   * 
-   * >  Fuzzy match is supported.
+   * > Fuzzy match is supported.
    * 
    * @example
    * centos
@@ -128,9 +122,8 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
-   * 
-   * >  Fuzzy match is supported.
+   * The namespace of the image repository.
+   * > Fuzzy match is supported.
    * 
    * @example
    * hanghai-namespace
@@ -139,19 +132,18 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the image repository. Valid values:
-   * 
-   * *   **cn-beijing**: China (Beijing)
-   * *   **cn-zhangjiakou**: China (Zhangjiakou)
-   * *   **cn-hangzhou**: China (Hangzhou)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **cn-hongkong**: China (Hong Kong)
-   * *   **ap-southeast-1**: Singapore
-   * *   **ap-southeast-5**: Indonesia (Jakarta)
-   * *   **us-east-1**: US (Virginia)
-   * *   **us-west-1**: US (Silicon Valley)
-   * *   **eu-central-1**: Germany (Frankfurt)
-   * *   **eu-west-1**: UK (London)
+   * - **cn-beijing**: China (Beijing)
+   * - **cn-zhangjiakou**: China (Zhangjiakou)
+   * - **cn-hangzhou**: China (Hangzhou)
+   * - **cn-shanghai**: China (Shanghai)
+   * - **cn-shenzhen**: China (Shenzhen)
+   * - **cn-hongkong**: Hong Kong (China)
+   * - **ap-southeast-1**: Singapore
+   * - **ap-southeast-5**: Indonesia (Jakarta)
+   * - **us-east-1**: US (Virginia)
+   * - **us-west-1**: US (Silicon Valley)
+   * - **eu-central-1**: Germany (Frankfurt)
+   * - **eu-west-1**: UK (London).
    * 
    * @example
    * cn-shanghai
@@ -159,7 +151,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $dara.Model {
   repoRegionId?: string;
   /**
    * @remarks
-   * The types of the assets that you want to scan.
+   * The collection of scan ranges.
    */
   scanRange?: string[];
   static names(): { [key: string]: string } {

@@ -6,16 +6,22 @@ export class DescribeRiskCheckResultResponseBodyListRiskItemResources extends $d
   /**
    * @remarks
    * The details about the check results.
+   * 
+   * @example
+   * {   "type": "link",   "value": "未开启多因素认证，存在风险\\n",   "url": "https://***.aliyun.com/#/secure\\n" }
    */
   contentResource?: { [key: string]: any };
   /**
    * @remarks
    * The title in the details. Valid values:
    * 
-   * *   **bestPractice**: description
-   * *   **influence**: risk
-   * *   **suggestion**: solution
-   * *   **helpResource**: reference
+   * - **bestPractice**: description
+   * 
+   * - **influence**: risk
+   * 
+   * - **suggestion**: solution
+   * 
+   * - **helpResource**: reference
    * 
    * @example
    * bestPractice
@@ -84,8 +90,9 @@ export class DescribeRiskCheckResultResponseBodyList extends $dara.Model {
    * @remarks
    * Indicates whether the risks that are detected based on the check item can be fixed. Valid values:
    * 
-   * *   **enabled**: yes
-   * *   **disabled**: no
+   * - **enabled**: yes
+   * 
+   * - **disabled**: no
    * 
    * @example
    * disabled
@@ -108,9 +115,11 @@ export class DescribeRiskCheckResultResponseBodyList extends $dara.Model {
    * @remarks
    * The risk level of the check item. Valid values:
    * 
-   * *   **high**
-   * *   **medium**
-   * *   **low**
+   * - **high**
+   * 
+   * - **medium**
+   * 
+   * - **low**
    * 
    * @example
    * high
@@ -128,8 +137,9 @@ export class DescribeRiskCheckResultResponseBodyList extends $dara.Model {
    * @remarks
    * Indicates whether the check item is supported by the edition of Security Center that you purchase. Valid values:
    * 
-   * *   **enabled**: yes
-   * *   **disable**: no
+   * - **enabled**: yes
+   * 
+   * - **disable**: no
    * 
    * @example
    * enabled
@@ -139,12 +149,17 @@ export class DescribeRiskCheckResultResponseBodyList extends $dara.Model {
    * @remarks
    * The status of the check results. Valid values:
    * 
-   * *   **pass**
-   * *   **failed**
-   * *   **running**
-   * *   **waiting**
-   * *   **ignored**
-   * *   **falsePositive**
+   * - **pass**
+   * 
+   * - **failed**
+   * 
+   * - **running**
+   * 
+   * - **waiting**
+   * 
+   * - **ignored**
+   * 
+   * - **falsePositive**
    * 
    * @example
    * pass
@@ -170,12 +185,17 @@ export class DescribeRiskCheckResultResponseBodyList extends $dara.Model {
    * @remarks
    * The type of the check item. Valid values:
    * 
-   * *   Identity authentication and permissions
-   * *   Network access control
-   * *   Log audit
-   * *   Data security
-   * *   Monitoring and alerting
-   * *   Basic security protection
+   * - Identity authentication and permissions
+   * 
+   * - Network access control
+   * 
+   * - Log audit
+   * 
+   * - Data security
+   * 
+   * - Monitoring and alerting
+   * 
+   * - Basic security protection
    * 
    * @example
    * Log audit

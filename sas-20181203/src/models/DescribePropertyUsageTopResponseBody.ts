@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePropertyUsageTopResponseBodyTopStatisticItems extends $dara.Model {
   /**
    * @remarks
-   * The quantity.
+   * The count.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePropertyUsageTopResponseBodyTopStatisticItems extends $dara
   count?: number;
   /**
    * @remarks
-   * The statistical item.
+   * The statistics item.
    * 
    * @example
    * openssl
@@ -53,7 +53,7 @@ export class DescribePropertyUsageTopResponseBody extends $dara.Model {
   itemCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 16AA5B62-A3C1-520B-B289-4BD971CC17AB
@@ -61,18 +61,18 @@ export class DescribePropertyUsageTopResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistical results.
+   * The collection of statistics results.
    */
   topStatisticItems?: DescribePropertyUsageTopResponseBodyTopStatisticItems[];
   /**
    * @remarks
-   * The type of the asset fingerprint. Valid value:
+   * The Asset Fingerprints type. Valid values:
    * 
-   * *   **port**: port
-   * *   **process**: process
-   * *   **software**: software
-   * *   **user**: account
-   * *   **sca**: middleware
+   * - **port**: port
+   * - **process**: process
+   * - **software**: software
+   * - **user**: account
+   * - **sca**: middleware.
    * 
    * @example
    * sca

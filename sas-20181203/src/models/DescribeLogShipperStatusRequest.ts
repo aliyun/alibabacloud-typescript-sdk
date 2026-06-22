@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogShipperStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request source. Set the value to **sas**.
+   * The request source identifier. Set this parameter to **sas**.
    * 
    * @example
    * sas

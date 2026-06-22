@@ -15,7 +15,7 @@ export class ModifyHybridProxyClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remarks of the proxy cluster.
    * 
    * This parameter is required.
    * 

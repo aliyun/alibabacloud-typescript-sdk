@@ -7,10 +7,13 @@ export class GetOnceTaskResultInfoResponseBodyTaskInfo extends $dara.Model {
    * @remarks
    * The status of the task. Valid values:
    * 
-   * *   **INIT**: The task is not started.
-   * *   **START**: The task is started.
-   * *   **SUCCESS**: The task is complete.
-   * *   **TIMEOUT**: The task times out.
+   * - **INIT**: The task is pending start.
+   * 
+   * - **START**: The task is running.
+   * 
+   * - **SUCCESS**: The task is completed.
+   * 
+   * - **TIMEOUT**: The task has timed out.
    * 
    * @example
    * START
@@ -40,7 +43,7 @@ export class GetOnceTaskResultInfoResponseBodyTaskInfo extends $dara.Model {
 export class GetOnceTaskResultInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution time of the task.
+   * The time when the task was executed.
    * 
    * @example
    * 1671184531000
@@ -48,7 +51,7 @@ export class GetOnceTaskResultInfoResponseBody extends $dara.Model {
   collectTime?: number;
   /**
    * @remarks
-   * The number of tasks that were completed.
+   * The number of tasks that have been completed.
    * 
    * @example
    * 47
@@ -56,7 +59,7 @@ export class GetOnceTaskResultInfoResponseBody extends $dara.Model {
   finishCount?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. This uniquely identifies the request and can be used for troubleshooting.
    * 
    * @example
    * CE500770-42D3-442E-9DDD-156E0F9F****
@@ -64,7 +67,7 @@ export class GetOnceTaskResultInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the scan task.
+   * The ID of the one-time task.
    * 
    * @example
    * e7b70a4b030db086db52231f1b58****
@@ -72,7 +75,7 @@ export class GetOnceTaskResultInfoResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The information about the task.
+   * Details of the task.
    */
   taskInfo?: GetOnceTaskResultInfoResponseBodyTaskInfo;
   /**

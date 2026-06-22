@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetBackupAutoConfigStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the anti-ransomware policy for servers can be automatically configured by the managed anti-ransomware feature. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
+   * Indicates whether the managed service supports configuring anti-ransomware backup policies. Valid values:
+   * - **false**: Not supported.
+   * - **true**: Supported.
    * 
    * @example
    * false
@@ -38,12 +37,12 @@ export class GetBackupAutoConfigStatusResponseBodyData extends $dara.Model {
 export class GetBackupAutoConfigStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The response data.
    */
   data?: GetBackupAutoConfigStatusResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 898F7AA7-CECD-5EC7-AF4D-664C601B****

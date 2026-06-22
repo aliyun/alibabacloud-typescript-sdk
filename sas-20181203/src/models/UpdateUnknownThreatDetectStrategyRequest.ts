@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateUnknownThreatDetectStrategyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of days the model learns for after its creation.
+   * 
    * @example
    * 1
    */
   durationDaysAfterInit?: number;
   /**
+   * @remarks
+   * The number of consecutive days without new processes before the model stops learning.
+   * 
    * @example
    * 1
    */
   durationDaysAfterStop?: number;
   /**
    * @remarks
+   * The ID of the unknown threat detection strategy to update.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,11 +30,21 @@ export class UpdateUnknownThreatDetectStrategyRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the unknown threat detection strategy.
+   * 
    * @example
    * strategy****
    */
   name?: string;
   /**
+   * @remarks
+   * The whitelist mode. Valid values are:
+   * 
+   * - **hash**: process hash
+   * 
+   * - **path**: process path
+   * 
    * @example
    * hash
    */

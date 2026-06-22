@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustomBlockRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address that you want to specify in the policy.
+   * The IP address blocked for brute-force attacks prevention.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,9 @@ export class ModifyCustomBlockRecordRequest extends $dara.Model {
   blockIp?: string;
   /**
    * @remarks
-   * The traffic direction that you want to specify in the policy. Valid values:
-   * 
-   * *   **in**: inbound
-   * *   **out**: outbound
+   * The direction in which the brute-force attacks blocking policy blocks the IP address on the server. Valid values:
+   * - **in**: inbound
+   * - **out**: outbound.
    * 
    * This parameter is required.
    * 
@@ -28,7 +27,7 @@ export class ModifyCustomBlockRecordRequest extends $dara.Model {
   bound?: string;
   /**
    * @remarks
-   * The expiration time of the policy.
+   * The expiration time of the blocking record.
    * 
    * This parameter is required.
    * 
@@ -39,7 +38,7 @@ export class ModifyCustomBlockRecordRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The UUIDs of servers.
+   * The list of servers.
    * 
    * This parameter is required.
    * 

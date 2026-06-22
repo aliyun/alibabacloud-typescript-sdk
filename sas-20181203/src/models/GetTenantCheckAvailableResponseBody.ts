@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTenantCheckAvailableResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when you can submit a quick scan task.
+   * The timestamp of the next time when a one-click scan can be submitted.
    * 
    * @example
    * 1725530005357
@@ -13,11 +13,13 @@ export class GetTenantCheckAvailableResponseBodyData extends $dara.Model {
   nextScanTime?: number;
   /**
    * @remarks
-   * The status of the quick scan task. Enumerated values:
+   * The current status of the one-click scan. Valid values:
    * 
-   * *   0: You can submit a quick scan task.
-   * *   1: The current task is not complete. You cannot submit a quick scan task.
-   * *   2: The free quota for this week is exhausted. You must wait for the next free scan period.
+   * - 0: The one-click scan can be submitted.
+   * 
+   * - 1: The current task is not complete. The scan cannot be submitted.
+   * 
+   * - 2: The free scan quota for this week has been used. Wait until the next free scan time.
    * 
    * @example
    * 0
@@ -49,12 +51,12 @@ export class GetTenantCheckAvailableResponseBodyData extends $dara.Model {
 export class GetTenantCheckAvailableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: GetTenantCheckAvailableResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 69BFFCDE-37D6-5A49-A8BC-BB03AC83****

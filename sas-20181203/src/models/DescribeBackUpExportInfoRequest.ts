@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackUpExportInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -13,9 +13,9 @@ export class DescribeBackUpExportInfoRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The type of archived information. Valid values:
+   * The type of archive data to export. Valid values:
    * 
-   * *   **suspiciousExport**: alert event
+   * - **suspiciousExport**: security alerts.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,10 @@ export class DescribeBackUpExportInfoRequest extends $dara.Model {
   exportType?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language type for requests and responses. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -36,7 +36,7 @@ export class DescribeBackUpExportInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The maximum number of entries to return on each page in a paged query. Default value: 1.
    * 
    * @example
    * 20

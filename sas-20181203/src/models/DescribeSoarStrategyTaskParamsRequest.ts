@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSoarStrategyTaskParamsRequest extends $dara.Model {
   /**
    * @remarks
-   * Strategy task ID.
-   * > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+   * The ID of the policy task.
+   * >Call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain this parameter.
    * 
    * @example
    * 100

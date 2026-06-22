@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGraph4InvestigationOnlineRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert event. You can call [DescribeSuspEvents](~~DescribeSuspEvents~~) to obtain the alert event ID, with the value path being: data.SuspEvents[index].UniqueInfo.
+   * The ID of the alert event. You can call [DescribeSuspEvents](~~DescribeSuspEvents~~) to obtain the alert event ID. The value is in the data.SuspEvents[index].UniqueInfo path.
    * 
    * @example
    * 786fc80896b25422b5324cb6e57bxxxx
@@ -13,7 +13,7 @@ export class DescribeGraph4InvestigationOnlineRequest extends $dara.Model {
   anomalyId?: string;
   /**
    * @remarks
-   * The UUID of the alert event asset. You can call [DescribeSuspEvents](~~DescribeSuspEvents~~) to obtain the asset UUID, with the value path being: data.SuspEvents[index].Uuid.
+   * The UUID of the asset associated with the alert event. You can call [DescribeSuspEvents](~~DescribeSuspEvents~~) to obtain the asset UUID. The value is in the data.SuspEvents[index].Uuid path.
    * 
    * @example
    * 3502e4b0-f362-4059-84a2-f47fa2b5exxx
@@ -21,10 +21,10 @@ export class DescribeGraph4InvestigationOnlineRequest extends $dara.Model {
   anomalyUuid?: string;
   /**
    * @remarks
-   * Sets the language type for the request and response messages. The default is **zh**. Values:
+   * The language type for the request and response. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -32,7 +32,7 @@ export class DescribeGraph4InvestigationOnlineRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The namespace of the graph, which is fixed as: hundun_dc_online.
+   * The namespace of the graph. Set this parameter to hundun_dc_online.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class DescribeGraph4InvestigationOnlineRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Vertex ID. This does not need to be proactively provided.
+   * The vertex ID. You do not need to specify this parameter.
    * 
    * @example
    * 29872354f741b1b044b8a9b4e2ab****

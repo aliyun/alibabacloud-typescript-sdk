@@ -16,7 +16,7 @@ export class AddSasModuleTrialResponseBodyDataTrialRecordList extends $dara.Mode
    * The list of quotas. This parameter is available if the value of the ModuleCode parameter is cloudSiem. The value of this parameter consists of the log storage capacity for the threat analysis and response feature and the log data to add. Units: GB and GB-day.
    * 
    * @example
-   * [1,100]
+   * [100,1]
    */
   authLimitList?: string;
   /**

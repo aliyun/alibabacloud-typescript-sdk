@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleListPathConfDTOList extends $dara.Model {
   /**
    * @remarks
-   * The backup paths.
+   * The backup path.
    * 
    * @example
    * /tmp/test
@@ -13,10 +13,9 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   backupPath?: string;
   /**
    * @remarks
-   * The prevention mode. Valid values:
-   * 
-   * *   **block**
-   * *   **audit**
+   * The action to take. Valid values:
+   * - **block**: Block.
+   * - **audit**: Alert.
    * 
    * @example
    * audit
@@ -24,7 +23,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   defenseMode?: string;
   /**
    * @remarks
-   * The protected path.
+   * The defense path.
    * 
    * @example
    * /usr/test/
@@ -32,7 +31,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   defensePath?: string;
   /**
    * @remarks
-   * The file that is excluded.
+   * The excluded file.
    * 
    * @example
    * php
@@ -40,7 +39,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   excludeFile?: string;
   /**
    * @remarks
-   * The path to the file that is excluded.
+   * The excluded file path.
    * 
    * @example
    * /usr/tt
@@ -48,7 +47,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   excludeFilePath?: string;
   /**
    * @remarks
-   * The type of the file that is excluded.
+   * The excluded file type.
    * 
    * @example
    * jsp
@@ -56,10 +55,9 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   excludeFileType?: string;
   /**
    * @remarks
-   * The protection mode. Valid values:
-   * 
-   * *   **0**: basic mode (whitelist)
-   * *   **1**: complex mode (blacklist)
+   * The defense mode. Valid values:
+   * - **0**: Basic pattern (whitelist).
+   * - **1**: Advanced pattern (blacklist).
    * 
    * @example
    * 0
@@ -67,7 +65,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   guardType?: number;
   /**
    * @remarks
-   * The file that is included.
+   * The included file.
    * 
    * @example
    * /usr/test
@@ -75,7 +73,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   includeFile?: string;
   /**
    * @remarks
-   * The type of the file that is included.
+   * The type of the included file.
    * 
    * @example
    * php
@@ -83,7 +81,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   includeFileType?: string;
   /**
    * @remarks
-   * The processes that are added to the whitelist.
+   * The list of whitelisted processes.
    */
   processPathList?: string[];
   static names(): { [key: string]: string } {
@@ -139,7 +137,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   aliUid?: number;
   /**
    * @remarks
-   * The number of the applications.
+   * The number of configured applications.
    * 
    * @example
    * 10
@@ -163,7 +161,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   gmtModified?: number;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 420336648
@@ -171,12 +169,12 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   id?: number;
   /**
    * @remarks
-   * The paths that are protected.
+   * The list of rule defense paths.
    */
   pathConfDTOList?: ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleListPathConfDTOList[];
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test2
@@ -184,10 +182,10 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
   ruleName?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The rule status. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -234,7 +232,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleLi
 export class ListSasContainerWebDefenseRuleResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page in a paged query.
    * 
    * @example
    * 4
@@ -242,7 +240,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -250,7 +248,7 @@ export class ListSasContainerWebDefenseRuleResponseBodyPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -294,17 +292,17 @@ export class ListSasContainerWebDefenseRuleResponseBodyPageInfo extends $dara.Mo
 export class ListSasContainerWebDefenseRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The rules for container tamper-proofing.
+   * The list of container file defense rules.
    */
   containerWebDefenseRuleList?: ListSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRuleList[];
   /**
    * @remarks
-   * The pagination information.
+   * The pagination information of the query result.
    */
   pageInfo?: ListSasContainerWebDefenseRuleResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID, which is used to query logs and troubleshoot issues.
+   * The request ID. It is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 8C376***AE74FB4

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAttackPathWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * Attack path whitelist ID.
-   * > You can call [ListAttackPathWhitelist](~~ListAttackPathWhitelist~~) to query the attack path whitelist ID.
+   * The ID of the attack path whitelist entry.
+   * > You can call [ListAttackPathWhitelist](~~ListAttackPathWhitelist~~) to query attack path whitelist IDs.
    * 
    * This parameter is required.
    * 

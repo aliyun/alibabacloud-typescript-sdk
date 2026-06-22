@@ -5,14 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginForUuidShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The plug-in types.
+   * The list of plugin types.
    */
   typesShrink?: string;
   /**
    * @remarks
    * The UUID of the server.
-   * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

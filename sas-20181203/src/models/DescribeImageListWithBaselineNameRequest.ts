@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the image baseline.
+   * The name of the image baseline check result.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,8 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   baselineNameKey?: string;
   /**
    * @remarks
-   * The ID of the container cluster.
-   * 
-   * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+   * The ID of the container cluster to query.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
    * 
    * @example
    * cc20a1024011c44b6a8710d6f8b****
@@ -25,7 +24,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * docker-law
@@ -33,7 +32,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The ID of the container.
+   * The container ID.
    * 
    * @example
    * c08d5fc1a329a4b88950a253d082f****
@@ -41,7 +40,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   containerId?: string;
   /**
    * @remarks
-   * The search condition for the image baseline.
+   * The query condition for the baseline.
    * 
    * @example
    * Unauthorized access
@@ -49,10 +48,10 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The type of the search condition. Valid values:
+   * The query type for the baseline. Valid values:
    * 
-   * *   **BaselineNameAlias**: baseline name
-   * *   **BaselineClassAlias**: baseline category
+   * - **BaselineNameAlias**: baseline name
+   * - **BaselineClassAlias**: baseline category.
    * 
    * @example
    * BaselineNameAlias
@@ -60,7 +59,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   criteriaType?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -68,7 +67,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the image to which the container belongs.
+   * The container image name.
    * 
    * @example
    * registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
@@ -76,7 +75,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The SHA-256 value of the image digest.
+   * The SHA256 value of the image digest.
    * 
    * @example
    * 2e6daffce524ffeae66cccaa90c8fc47de912346dcec295c27395b6d66db6423
@@ -84,10 +83,10 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   imageDigest?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -103,7 +102,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * Settings for paged query paging. The number of image baseline check result details to display per page. Default value: **10**, which indicates that 10 image baseline check result details are displayed per page.
    * 
    * @example
    * 10
@@ -135,7 +134,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * libssh2
@@ -143,7 +142,7 @@ export class DescribeImageListWithBaselineNameRequest extends $dara.Model {
   repoNamespace?: string;
   /**
    * @remarks
-   * The types of the assets that you want to scan.
+   * The collection of scan ranges.
    */
   scanRange?: string[];
   static names(): { [key: string]: string } {

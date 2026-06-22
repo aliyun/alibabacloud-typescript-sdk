@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAffectedAssetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,11 +13,10 @@ export class DescribeAffectedAssetsRequest extends $dara.Model {
   current?: string;
   /**
    * @remarks
-   * The severity. Separate multiple severities with commas (,). Valid values:
-   * 
-   * *   serious
-   * *   suspicious
-   * *   remind
+   * The severity level. Separate multiple values with commas (,). Valid values:
+   * - serious: urgent
+   * - suspicious: suspicious
+   * - remind: reminder.
    * 
    * @example
    * serious,suspicious,remind
@@ -25,9 +24,8 @@ export class DescribeAffectedAssetsRequest extends $dara.Model {
   levels?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paginated query. Default value: 20. If this parameter is left empty, 20 entries are returned.
+   * >Do not leave PageSize empty.
    * 
    * @example
    * 10
