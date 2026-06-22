@@ -125,8 +125,10 @@ export { DescribeOutgoingRiskTrendResponseBodyDataList } from './DescribeOutgoin
 export { DescribeOutgoingTagResponseBodyTagList } from './DescribeOutgoingTagResponseBody';
 export { DescribePageDocumentsResponseBodyDocs } from './DescribePageDocumentsResponseBody';
 export { DescribePageDocumentsResponseBodyMore } from './DescribePageDocumentsResponseBody';
+export { DescribePostpayBillResponseBodyBillList } from './DescribePostpayBillResponseBody';
 export { DescribePostpayTrafficDetailResponseBodyTrafficList } from './DescribePostpayTrafficDetailResponseBody';
 export { DescribePrefixListsResponseBodyPrefixList } from './DescribePrefixListsResponseBody';
+export { DescribePrepayBillTotalResponseBodyBillList } from './DescribePrepayBillTotalResponseBody';
 export { DescribePrivateDnsEndpointListResponseBodyAccessInstanceList } from './DescribePrivateDnsEndpointListResponseBody';
 export { DescribePrivateDnsStatisticsResponseBodyPrivateDnsRegionList } from './DescribePrivateDnsStatisticsResponseBody';
 export { DescribeRegionInfoResponseBodyDataList } from './DescribeRegionInfoResponseBody';
@@ -673,6 +675,9 @@ export { DescribePolicyAdvancedConfigResponse } from './DescribePolicyAdvancedCo
 export { DescribePolicyPriorUsedRequest } from './DescribePolicyPriorUsedRequest';
 export { DescribePolicyPriorUsedResponseBody } from './DescribePolicyPriorUsedResponseBody';
 export { DescribePolicyPriorUsedResponse } from './DescribePolicyPriorUsedResponse';
+export { DescribePostpayBillRequest } from './DescribePostpayBillRequest';
+export { DescribePostpayBillResponseBody } from './DescribePostpayBillResponseBody';
+export { DescribePostpayBillResponse } from './DescribePostpayBillResponse';
 export { DescribePostpayEnabledProtectionRequest } from './DescribePostpayEnabledProtectionRequest';
 export { DescribePostpayEnabledProtectionResponseBody } from './DescribePostpayEnabledProtectionResponseBody';
 export { DescribePostpayEnabledProtectionResponse } from './DescribePostpayEnabledProtectionResponse';
@@ -694,6 +699,9 @@ export { DescribePostpayUserVpcStatusResponse } from './DescribePostpayUserVpcSt
 export { DescribePrefixListsRequest } from './DescribePrefixListsRequest';
 export { DescribePrefixListsResponseBody } from './DescribePrefixListsResponseBody';
 export { DescribePrefixListsResponse } from './DescribePrefixListsResponse';
+export { DescribePrepayBillTotalRequest } from './DescribePrepayBillTotalRequest';
+export { DescribePrepayBillTotalResponseBody } from './DescribePrepayBillTotalResponseBody';
+export { DescribePrepayBillTotalResponse } from './DescribePrepayBillTotalResponse';
 export { DescribePrivateDnsDomainNameListRequest } from './DescribePrivateDnsDomainNameListRequest';
 export { DescribePrivateDnsDomainNameListResponseBody } from './DescribePrivateDnsDomainNameListResponseBody';
 export { DescribePrivateDnsDomainNameListResponse } from './DescribePrivateDnsDomainNameListResponse';

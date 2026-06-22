@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends $dara.Model {
   /**
    * @remarks
-   * The status of the basic policies.
+   * The status of the Basic Policies switch.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends 
   basicRules?: number;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 134646920647****
@@ -21,7 +21,7 @@ export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends 
   memberUid?: string;
   /**
    * @remarks
-   * The status of the virtual patching policies.
+   * The status of the virtual patches switch.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends 
   patchRules?: number;
   /**
    * @remarks
-   * The policy for the block mode.
+   * The rule class for Block Mode.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends 
   ruleClass?: number;
   /**
    * @remarks
-   * The protection mode.
+   * The defense mode.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends 
   runMode?: number;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the virtual private cloud (VPC) firewall.
    * 
    * @example
    * cen-h678sl4wv3yd5v****
@@ -53,12 +53,12 @@ export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends 
   vpcFirewallId?: string;
   /**
    * @remarks
-   * The list of instance IDs of the VPC firewalls.
+   * The list of instance IDs of virtual private cloud (VPC) firewalls.
    */
   vpcFirewallIdList?: string[];
   /**
    * @remarks
-   * The instance name of the VPC firewall.
+   * The instance name of the virtual private cloud (VPC) firewall.
    * 
    * @example
    * vpc-test
@@ -105,7 +105,7 @@ export class DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList extends 
 export class DescribeVfwIPSConfigListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class DescribeVfwIPSConfigListResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -121,7 +121,7 @@ export class DescribeVfwIPSConfigListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******
@@ -129,7 +129,7 @@ export class DescribeVfwIPSConfigListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -137,7 +137,7 @@ export class DescribeVfwIPSConfigListResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of configurations.
+   * The configuration list.
    */
   vfwIpsSwitchConfigList?: DescribeVfwIPSConfigListResponseBodyVfwIpsSwitchConfigList[];
   static names(): { [key: string]: string } {

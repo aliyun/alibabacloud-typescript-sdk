@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the request and response. Valid values:
+   * The language type for the request and response messages. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -17,7 +17,7 @@ export class DescribeSecurityProxyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account within the current Alibaba Cloud account.
+   * The UID of the member accounts of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -25,7 +25,7 @@ export class DescribeSecurityProxyRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * @example
    * ngw-zm0h3c1exm5bifuorg8c5
@@ -41,7 +41,7 @@ export class DescribeSecurityProxyRequest extends $dara.Model {
   pageNo?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page. The maximum value is 50.
+   * The maximum number of entries per page in a paged query. Maximum value: 50.
    * 
    * @example
    * 10
@@ -57,7 +57,7 @@ export class DescribeSecurityProxyRequest extends $dara.Model {
   proxyId?: string;
   /**
    * @remarks
-   * The name of the NAT firewall. The name must be 4 to 50 characters in length. It can contain letters, digits, underscores (_), and Chinese characters. It cannot start with an underscore (_).
+   * The name of the NAT firewall. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
    * 
    * @example
    * nat-idmp-fir
@@ -73,21 +73,15 @@ export class DescribeSecurityProxyRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The status of the Cloud Firewall. Valid values:
+   * The status of Cloud Firewall. Valid values:
    * 
-   * - **configuring**: The firewall is being created.
-   * 
-   * - **deleting**: The firewall is being deleted.
-   * 
-   * - **normal**: The firewall is running.
-   * 
-   * - **abnormal**: The firewall is not running as expected.
-   * 
-   * - **opening**: The firewall is being enabled.
-   * 
-   * - **closing**: The firewall is being disabled.
-   * 
-   * - **closed**: The firewall is disabled.
+   * - **configuring**: Being created.
+   * - **deleting**: Being deleted.
+   * - **normal**: Normal.
+   * - **abnormal**: Abnormal.
+   * - **opening**: Being enabled.
+   * - **closing**: Being disabled.
+   * - **closed**: Disabled.
    * 
    * @example
    * normal
@@ -95,7 +89,7 @@ export class DescribeSecurityProxyRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****

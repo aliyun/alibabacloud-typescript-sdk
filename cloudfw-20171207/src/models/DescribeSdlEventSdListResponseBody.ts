@@ -13,7 +13,7 @@ export class DescribeSdlEventSdListResponseBodySdlEventSensitiveDataList extends
   sensitiveData?: string;
   /**
    * @remarks
-   * The number of times the sensitive data appears.
+   * The number of occurrences of the sensitive data.
    * 
    * @example
    * 6
@@ -21,7 +21,7 @@ export class DescribeSdlEventSdListResponseBodySdlEventSensitiveDataList extends
   sensitiveDataCnt?: number;
   /**
    * @remarks
-   * The sensitivity level of the data.
+   * The level of the sensitive data.
    * 
    * @example
    * S3
@@ -29,7 +29,7 @@ export class DescribeSdlEventSdListResponseBodySdlEventSensitiveDataList extends
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The type of sensitive data.
+   * The type of the sensitive data.
    * 
    * @example
    * id_card
@@ -85,7 +85,7 @@ export class DescribeSdlEventSdListResponseBodySdlEventSensitiveDataList extends
 export class DescribeSdlEventSdListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******
@@ -93,12 +93,12 @@ export class DescribeSdlEventSdListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of sensitive data from the data breach.
+   * The list of sensitive data involved in data leaks.
    */
   sdlEventSensitiveDataList?: DescribeSdlEventSdListResponseBodySdlEventSensitiveDataList[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 6

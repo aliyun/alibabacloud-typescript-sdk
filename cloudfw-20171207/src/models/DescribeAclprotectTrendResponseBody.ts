@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
   /**
    * @remarks
-   * The total number of sessions that trigger the alert action in access control policies at the specified point in time.
+   * The total number of sessions that matched an ACL policy and triggered the monitor (alert) action at this point in time.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
   alertCnt?: number;
   /**
    * @remarks
-   * The total number of sessions that are allowed by access control policies at the specified point in time.
+   * The total number of sessions that matched an ACL policy and were allowed at this point in time.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
   passCnt?: number;
   /**
    * @remarks
-   * The number of sessions blocked by access control policies for internet traffic on the current day.
+   * The number of Internet access control interceptions on the day.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
   protectCnt?: number;
   /**
    * @remarks
-   * The timestamp that indicates the start of the query time range. Unit: seconds.
+   * The timestamp of 00:00 on each day. Unit: seconds. Indicates the date.
    * 
    * @example
    * 1697299200
@@ -65,7 +65,7 @@ export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
 export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of inbound sessions blocked by access control policies for internet traffic.
+   * The number of inbound interceptions by Internet access control.
    * 
    * @example
    * 100
@@ -77,11 +77,13 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
    * 
    * @example
    * 0
+   * 
+   * @deprecated
    */
   interVPCProtectCnt?: number;
   /**
    * @remarks
-   * The interval between data points. Unit: seconds.
+   * The interval at which data is returned. Unit: seconds. A result is returned at each interval.
    * 
    * @example
    * 86400
@@ -89,7 +91,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The number of outbound sessions blocked by access control policies for internet traffic.
+   * The number of outbound interceptions by Internet access control.
    * 
    * @example
    * 200
@@ -97,7 +99,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   outProtectCnt?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9063AB86-6FFA-5B2D-A16D-697C966DECA3
@@ -105,7 +107,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of sessions that trigger the alert action in access control policies in the query time range.
+   * The cumulative total of AlertCnt across all time points within the query time range. This value indicates the total number of sessions that matched an ACL policy and triggered the monitor (alert) action during the entire time period.
    * 
    * @example
    * 100
@@ -113,7 +115,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   totalAlertCnt?: number;
   /**
    * @remarks
-   * The total number of sessions that are allowed by access control policies in the query time range.
+   * The cumulative total of PassCnt across all time points within the query time range. This value indicates the total number of sessions that matched an ACL policy and were allowed during the entire time period.
    * 
    * @example
    * 100
@@ -121,7 +123,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   totalPassCnt?: number;
   /**
    * @remarks
-   * The total number of sessions blocked by access control policies for internet traffic.
+   * The total number of Internet access control interceptions.
    * 
    * @example
    * 300
@@ -129,7 +131,7 @@ export class DescribeACLProtectTrendResponseBody extends $dara.Model {
   totalProtectCnt?: number;
   /**
    * @remarks
-   * The trend of sessions blocked by access control policies for internet traffic.
+   * The list of Internet access control intercept trend data.
    */
   trendList?: DescribeACLProtectTrendResponseBodyTrendList[];
   static names(): { [key: string]: string } {

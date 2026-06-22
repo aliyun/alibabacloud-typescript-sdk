@@ -7,7 +7,7 @@ export class DeleteAddressBookRequest extends $dara.Model {
    * @remarks
    * The unique ID of the address book.
    * 
-   * > To obtain this ID, call the [DescribeAddressBook](~~DescribeAddressBook~~) operation.
+   * > You can call the [DescribeAddressBook](~~DescribeAddressBook~~) operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,10 @@ export class DeleteAddressBookRequest extends $dara.Model {
   groupUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response.
+   * The language type. Valid values:
+   * 
+   * - **en**: English
+   * - **zh**: Chinese (default).
    * 
    * @example
    * zh

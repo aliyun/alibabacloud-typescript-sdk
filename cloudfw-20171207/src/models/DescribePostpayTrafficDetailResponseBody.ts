@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.Model {
   /**
    * @remarks
-   * The inbound network throughput, in bytes.
+   * The inbound network throughput (total bytes). Unit: bytes.
    * 
    * @example
    * 1115096939
@@ -21,7 +21,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The asset type. This value is valid only for the Internet border.
+   * The asset type. This value takes effect only for Internet border traffic.
    * 
    * @example
    * EcsPublicIP
@@ -29,7 +29,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   instanceType?: string;
   /**
    * @remarks
-   * The outbound network throughput, in bytes.
+   * The outbound network throughput (total bytes). Unit: bytes.
    * 
    * @example
    * 100000000
@@ -37,7 +37,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   outBytes?: number;
   /**
    * @remarks
-   * The protection duration, in hours.
+   * The protection duration. Unit: hours.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   protectionDuration?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -53,7 +53,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the resource. For Internet border traffic, this is the public IP address of the asset. For NAT border traffic, this is the instance ID of the firewall.
+   * The resource ID. For Internet border traffic, this is the public IP address of the asset. For NAT border traffic, this is the firewall instance ID of the asset.
    * 
    * @example
    * 39.106.146.214
@@ -61,7 +61,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   resourceId?: string;
   /**
    * @remarks
-   * The total network throughput for both inbound and outbound traffic, in bytes.
+   * The total network throughput in both inbound and outbound directions (total bytes sent and received). Unit: bytes.
    * 
    * @example
    * 1215096939
@@ -77,13 +77,12 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
   trafficDay?: string;
   /**
    * @remarks
-   * The type of the firewall border for which traffic is queried. Valid values:
-   * 
-   * - **EIP_TRAFFIC**: traffic on the Internet border.
-   * 
-   * - **NatGateway_TRAFFIC**: traffic on the NAT border.
-   * 
-   * - **VPC_TRAFFIC**: traffic on the VPC border.
+   * The type of traffic boundary for statistics. Valid values:
+   *           
+   * - **EIP_TRAFFIC**: Internet border traffic.
+   *   
+   * - **NatGateway_TRAFFIC**: NAT border traffic.
+   * - **VPC_TRAFFIC**: VPC border traffic.
    * 
    * @example
    * EIP_TRAFFIC
@@ -131,7 +130,7 @@ export class DescribePostpayTrafficDetailResponseBodyTrafficList extends $dara.M
 export class DescribePostpayTrafficDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0525EADE-C112-5702-A5BC-0E2F6F94DB23
@@ -147,7 +146,7 @@ export class DescribePostpayTrafficDetailResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of traffic statistics.
+   * The traffic statistics list.
    */
   trafficList?: DescribePostpayTrafficDetailResponseBodyTrafficList[];
   static names(): { [key: string]: string } {

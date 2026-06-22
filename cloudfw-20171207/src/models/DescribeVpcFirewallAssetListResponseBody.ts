@@ -37,7 +37,7 @@ export class DescribeVpcFirewallAssetListResponseBodyDataList extends $dara.Mode
   inBytes?: number;
   /**
    * @remarks
-   * The number of intrusion prevention system (IPS) hits.
+   * The number of IPS hits.
    * 
    * @example
    * 10
@@ -66,7 +66,7 @@ export class DescribeVpcFirewallAssetListResponseBodyDataList extends $dara.Mode
   regionNo?: string;
   /**
    * @remarks
-   * The threat level.
+   * The risk level.
    * 
    * @example
    * 3
@@ -74,7 +74,7 @@ export class DescribeVpcFirewallAssetListResponseBodyDataList extends $dara.Mode
   riskLevel?: number;
   /**
    * @remarks
-   * The reason for the threat.
+   * The risk reason.
    * 
    * @example
    * test
@@ -145,12 +145,12 @@ export class DescribeVpcFirewallAssetListResponseBodyDataList extends $dara.Mode
 export class DescribeVpcFirewallAssetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The data list.
    */
   dataList?: DescribeVpcFirewallAssetListResponseBodyDataList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 924A6CCC-4EAD-5554-8AD0-45F5ED56****
@@ -158,7 +158,7 @@ export class DescribeVpcFirewallAssetListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 30

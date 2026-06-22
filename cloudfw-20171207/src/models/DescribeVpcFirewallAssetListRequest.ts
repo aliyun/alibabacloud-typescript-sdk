@@ -37,7 +37,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The instance ID of the ECS instance.
    * 
    * @example
    * i-hp3ez3rs9bxwt034****
@@ -71,7 +71,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   IPProtocol?: string;
   /**
    * @remarks
-   * Specifies whether to count only the traffic to AI services.
+   * Specifies whether to collect statistics only on traffic that accesses AI services.
    * 
    * @example
    * true
@@ -79,7 +79,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   isAITraffic?: string;
   /**
    * @remarks
-   * The language of the request and response.
+   * The language type of the request and response messages.
    * 
    * @example
    * zh
@@ -95,7 +95,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -103,7 +103,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the peer VPC instance.
+   * The instance ID of the peer VPC.
    * 
    * @example
    * vpc-90rq0anm6t8vbwbo****
@@ -119,7 +119,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The threat level.
+   * The risk level.
    * 
    * @example
    * 3
@@ -127,7 +127,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The sorting method.
+   * The sort method.
    * 
    * @example
    * SessionCount
@@ -145,7 +145,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The instance ID of the VPC-connected instance.
    * 
    * This parameter is required.
    * 

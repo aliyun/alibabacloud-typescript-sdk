@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The language of the request and response.
+   * The language type for the request and response messages.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The description of the member account.
+   * The remarks of the Cloud Firewall member accounts.
    * 
    * @example
    * renewal
@@ -29,7 +29,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   memberDesc?: string;
   /**
    * @remarks
-   * The display name of the member account.
+   * The name of the Cloud Firewall member accounts.
    * 
    * @example
    * cloudfirewall_2
@@ -37,7 +37,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   memberDisplayName?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 258039427902****
@@ -45,7 +45,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The IP address of the requester.
    * 
    * @example
    * 47.100.170.XXX

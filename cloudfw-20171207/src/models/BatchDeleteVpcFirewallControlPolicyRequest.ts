@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteVpcFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of UUIDs of the access control policies.
+   * The list of ACL UUIDs.
    * 
    * This parameter is required.
    */
   aclUuidList?: string[];
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the virtual private cloud (VPC) firewall.
    * 
    * This parameter is required.
    * 

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySensitiveSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * The language type. Valid values:
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -17,7 +15,7 @@ export class ModifySensitiveSwitchRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of sensitive data.
+   * The type.
    * 
    * @example
    * id_card
@@ -25,11 +23,9 @@ export class ModifySensitiveSwitchRequest extends $dara.Model {
   sensitiveCategory?: string;
   /**
    * @remarks
-   * The status of the switch. Valid values:
-   * 
-   * - **1**: on.
-   * 
-   * - **0**: off.
+   * The status. Valid values:
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1

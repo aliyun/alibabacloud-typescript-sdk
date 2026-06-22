@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeSdlEventSdListRequest extends $dara.Model {
+export class DescribePostpayBillRequest extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -13,23 +13,30 @@ export class DescribeSdlEventSdListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The destination IP address.
+   * The end time of the query, expressed as a UNIX timestamp in seconds.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * 47.100.102.XXX
+   * 1646063922
    */
-  dstIp?: string;
+  endTime?: string;
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp in seconds.
+   * The time interval for querying data. This is an enumerated value. Valid values:
+   * 
+   * - 3600: queries hourly data.
+   * - 86400: queries daily data.
    * 
    * @example
-   * 1761185080
+   * 60
    */
-  endTime?: number;
+  interval?: number;
   /**
    * @remarks
-   * The language type of the received message.
+   * The language. This is an enumerated value.
+   * Default value: zh.
+   * Valid values: en.
    * 
    * @example
    * zh
@@ -37,7 +44,7 @@ export class DescribeSdlEventSdListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paged query. Default value: 10.
    * 
    * @example
    * 10
@@ -45,51 +52,33 @@ export class DescribeSdlEventSdListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The source IP address.
+   * The start time of the query, expressed as a UNIX timestamp in seconds.
    * 
-   * @example
-   * 172.16.0.XXX
-   */
-  srcIp?: string;
-  /**
-   * @remarks
-   * The start time. The value is a UNIX timestamp in seconds.
+   * This parameter is required.
    * 
    * @example
    * 1656664560
    */
-  startTime?: number;
-  /**
-   * @remarks
-   * The unique identifier ID.
-   * 
-   * @example
-   * aa58cdf6-6cf8-493c-912d-97619a24****
-   */
-  uuid?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
-      dstIp: 'DstIp',
       endTime: 'EndTime',
+      interval: 'Interval',
       lang: 'Lang',
       pageSize: 'PageSize',
-      srcIp: 'SrcIp',
       startTime: 'StartTime',
-      uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
-      dstIp: 'string',
-      endTime: 'number',
+      endTime: 'string',
+      interval: 'number',
       lang: 'string',
       pageSize: 'number',
-      srcIp: 'string',
-      startTime: 'number',
-      uuid: 'string',
+      startTime: 'string',
     };
   }
 

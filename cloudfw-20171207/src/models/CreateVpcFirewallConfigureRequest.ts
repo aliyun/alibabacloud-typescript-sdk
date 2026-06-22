@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcFirewallConfigureRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the VPC firewall after it is created. Valid values:
+   * Settings for the enabling status of the virtual private cloud (VPC) firewall after it is created. Valid values:
    * 
-   * - **open** (default): The VPC firewall is automatically enabled after it is created.
+   * - **open** (default): Protection is automatically enabled after the VPC firewall is created.
    * 
-   * - **close**: The VPC firewall is not automatically enabled after it is created. To enable the firewall, call the [ModifyVpcFirewallSwitchStatus](https://help.aliyun.com/document_detail/342935.html) operation.
+   * - **close**: Protection is not automatically enabled after the VPC firewall is created. You can invoke the [ModifyVpcFirewallSwitchStatus](https://help.aliyun.com/document_detail/342935.html) operation to enable protection.
    * 
    * This parameter is required.
    * 
@@ -31,11 +31,10 @@ export class CreateVpcFirewallConfigureRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The CIDR blocks of the local VPC. The value is a JSON string that contains the following parameters:
+   * The CIDR block list of the local VPC, in JSON format. This parameter contains the following fields:
    * 
-   * - **RouteTableId**: The ID of the route table for the local VPC.
-   * 
-   * - RouteEntryList: The route entries. The value is a JSON string that contains DestinationCidr (the destination CIDR block of the local VPC) and **NextHopInstanceId** (the ID of the next hop instance of the local VPC).
+   * - **RouteTableId**: the route table ID of the local VPC.
+   * - **RouteEntryList**: specified in JSON format. This field contains DestinationCidr (the destination CIDR block of the local VPC) and NextHopInstanceId (the next hop instance ID of the local VPC).
    * 
    * This parameter is required.
    * 
@@ -57,7 +56,7 @@ export class CreateVpcFirewallConfigureRequest extends $dara.Model {
    * @remarks
    * The region ID of the local VPC.
    * 
-   * > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * This parameter is required.
    * 
@@ -67,7 +66,7 @@ export class CreateVpcFirewallConfigureRequest extends $dara.Model {
   localVpcRegion?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the Alibaba Cloud member account.
    * 
    * @example
    * 258039427902****
@@ -75,11 +74,9 @@ export class CreateVpcFirewallConfigureRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The CIDR blocks of the peer VPC. The value is a JSON string that contains the following parameters:
-   * 
-   * - **RouteTableId**: The ID of the route table for the peer VPC.
-   * 
-   * - RouteEntryList: The route entries. The value is a JSON string that contains DestinationCidr (the destination CIDR block of the peer VPC) and **NextHopInstanceId** (the ID of the next hop instance of the peer VPC).
+   * The CIDR block list of the peer VPC, in JSON format. This parameter contains the following fields:
+   * - **RouteTableId**: the route table ID of the peer VPC.
+   * - **RouteEntryList**: specified in JSON format. This field contains DestinationCidr (the destination CIDR block of the peer VPC) and NextHopInstanceId (the next hop instance ID of the peer VPC).
    * 
    * This parameter is required.
    * 
@@ -100,8 +97,7 @@ export class CreateVpcFirewallConfigureRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the peer VPC.
-   * 
-   * > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * This parameter is required.
    * 
@@ -111,7 +107,7 @@ export class CreateVpcFirewallConfigureRequest extends $dara.Model {
   peerVpcRegion?: string;
   /**
    * @remarks
-   * The instance name of the VPC firewall.
+   * The instance name of the virtual private cloud (VPC) firewall.
    * 
    * This parameter is required.
    * 

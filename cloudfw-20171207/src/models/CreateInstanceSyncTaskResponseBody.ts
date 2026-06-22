@@ -13,7 +13,7 @@ export class CreateInstanceSyncTaskResponseBody extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D19D8F70-D64B-5A95-905A-6073BF4A****

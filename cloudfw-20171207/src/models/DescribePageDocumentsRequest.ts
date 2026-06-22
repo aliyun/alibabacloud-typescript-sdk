@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePageDocumentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language.
+   * The language type. Valid values:
+   * - **en**: English.
+   * - **zh**: Chinese.
    * 
    * @example
    * zh
@@ -13,7 +15,10 @@ export class DescribePageDocumentsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page name.
+   * The page name. Valid values:
+   * - **overview**: overview page
+   * - **access**: access control page
+   * - **switch**: firewall page.
    * 
    * This parameter is required.
    * 
@@ -23,7 +28,7 @@ export class DescribePageDocumentsRequest extends $dara.Model {
   pageName?: string;
   /**
    * @remarks
-   * The tracing code for the source.
+   * The tracing code.
    * 
    * This parameter is required.
    * 
@@ -33,7 +38,7 @@ export class DescribePageDocumentsRequest extends $dara.Model {
   sourceCode?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the request.
    * 
    * @example
    * 223.167.221.XXX

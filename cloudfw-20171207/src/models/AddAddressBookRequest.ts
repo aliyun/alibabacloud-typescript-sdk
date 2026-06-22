@@ -87,9 +87,8 @@ export class AddAddressBookRequestTagList extends $dara.Model {
 export class AddAddressBookRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACK cluster connector. You can obtain this value from the following operation:
-   * 
-   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Queries a list of ACK cluster connectors.
+   * The ACK cluster connector ID. You can obtain the value from:
+   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): queries a list of ACK cluster connectors.
    * 
    * @example
    * ac-7c1bad6c3cc84c33baab1
@@ -99,27 +98,26 @@ export class AddAddressBookRequest extends $dara.Model {
    * @remarks
    * The list of ACK cluster pod labels.
    * 
-   * > You can specify a maximum of 10 labels.
+   * > A maximum of 10 labels are supported.
    */
   ackLabels?: AddAddressBookRequestAckLabels[];
   /**
    * @remarks
    * The list of ACK cluster pod namespaces.
-   * 
-   * > You can specify a maximum of 10 namespaces.
+   * > A maximum of 10 namespaces are supported.
    */
   ackNamespaces?: string[];
   /**
    * @remarks
-   * The list of addresses in the address book. Separate multiple addresses with commas (,). For each address, separate the address and its description with a space.
+   * The address list of the address book. Multiple addresses are separated by commas, and within each address element, the address and its description are separated by a space.
    * 
    * > This parameter is required when GroupType is set to `ip`, `port`, or `domain`.
    * 
-   * - If you set GroupType to `ip`, enter IP addresses in the list. Example: 192.0.XX.XX/32 development segment,10.0.0.X/24,192.0.XX.XX/24 test segment.
+   * - When GroupType is set to `ip`, enter IP addresses in the address list. Example: 192.0.XX.XX/32 development network segment, 10.0.0.X/24,192.0.XX.XX/24 test network segment.
    * 
-   * - If you set GroupType to `port`, enter ports or port ranges in the list. Example: 80 HTTP port,100/200,3306 database port.
+   * - When GroupType is set to `port`, enter ports or port ranges in the address list. Example: 80 HTTP port, 100/200,3306 database port.
    * 
-   * - If you set GroupType to `domain`, enter domain names in the list. Example: example.com test domain name,aliyundoc.com,www\\.aliyun.com Alibaba Cloud official website.
+   * - When GroupType is set to `domain`, enter domain names in the address list. Example: example.com test domain, aliyundoc.com,www.aliyun.com Alibaba Cloud official website.
    * 
    * @example
    * 192.0.XX.XX/32 ,192.0.XX.XX/24
@@ -127,7 +125,7 @@ export class AddAddressBookRequest extends $dara.Model {
   addressList?: string;
   /**
    * @remarks
-   * Specifies whether to automatically add the public IP addresses of ECS instances that match the specified tags to the address book.
+   * Specifies whether to automatically add the public IP addresses of ECS instances that match new tags to the address book.
    * 
    * @example
    * 1
@@ -165,7 +163,7 @@ export class AddAddressBookRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The language of the address book description.
+   * The language type of the address book description.
    * 
    * @example
    * zh
@@ -173,7 +171,7 @@ export class AddAddressBookRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX
@@ -188,7 +186,7 @@ export class AddAddressBookRequest extends $dara.Model {
   tagList?: AddAddressBookRequestTagList[];
   /**
    * @remarks
-   * The logical relationship between multiple ECS tags.
+   * The logical relationship among multiple ECS tags to be matched.
    * 
    * @example
    * and

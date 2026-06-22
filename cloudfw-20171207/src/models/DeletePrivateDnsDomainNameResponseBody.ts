@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePrivateDnsDomainNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 850A84D6-0DE4-4797-A1E8-0009012****

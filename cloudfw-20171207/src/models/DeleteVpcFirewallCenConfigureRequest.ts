@@ -7,8 +7,9 @@ export class DeleteVpcFirewallCenConfigureRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Valid values:
    * 
-   * - **zh**: Chinese (default)
-   * - **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class DeleteVpcFirewallCenConfigureRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member account of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -24,7 +25,7 @@ export class DeleteVpcFirewallCenConfigureRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The list of instance IDs of the VPC firewalls.
+   * The instance IDs of VPC firewalls.
    * 
    * This parameter is required.
    */

@@ -7,9 +7,9 @@ export class DescribeThreatIntelligenceSwitchResponseBodyCategoryList extends $d
    * @remarks
    * The action of the rule. Valid values:
    * 
-   * **alert**: Monitor.
+   *  **alert**: monitor mode.
    * 
-   * **drop**: Block.
+   *  **drop**: Block Mode.
    * 
    * @example
    * alert
@@ -17,7 +17,7 @@ export class DescribeThreatIntelligenceSwitchResponseBodyCategoryList extends $d
   action?: string;
   /**
    * @remarks
-   * The description of the category.
+   * The category description.
    * 
    * @example
    * Tor Export Malicious IP
@@ -33,7 +33,7 @@ export class DescribeThreatIntelligenceSwitchResponseBodyCategoryList extends $d
   categoryId?: string;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
    * Tor Export Malicious IP
@@ -49,11 +49,11 @@ export class DescribeThreatIntelligenceSwitchResponseBodyCategoryList extends $d
   categoryParentId?: string;
   /**
    * @remarks
-   * The status of the switch. Valid values:
+   * The enabling status. Valid values:
    * 
-   * **1**: enabled.
+   *  **1**: enabled.
    * 
-   * **0**: disabled.
+   *  **0**: disabled.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class DescribeThreatIntelligenceSwitchResponseBody extends $dara.Model {
   categoryList?: DescribeThreatIntelligenceSwitchResponseBodyCategoryList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6B8E0379-2629-59A1-B811-96F3E****
@@ -106,7 +106,7 @@ export class DescribeThreatIntelligenceSwitchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 24

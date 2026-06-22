@@ -21,7 +21,7 @@ export class DescribeTrafficLogResponseBodyDataListDstVpc extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The instance name of the VPC.
+   * The VPC instance name.
    * 
    * @example
    * yi-vpc
@@ -71,7 +71,7 @@ export class DescribeTrafficLogResponseBodyDataListRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The source of the rule.
+   * The rule source.
    * 
    * @example
    * 3
@@ -155,7 +155,7 @@ export class DescribeTrafficLogResponseBodyDataListSrcVpc extends $dara.Model {
 export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the pre-matched ACL policy. If you leave this parameter empty, all policies are matched.
+   * The policy ID of the ACL pre-match. If this parameter is empty, all policies are included.
    * 
    * @example
    * 2
@@ -163,7 +163,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   aclPreRuleId?: string;
   /**
    * @remarks
-   * The name of the pre-matched ACL policy.
+   * The policy name of the ACL pre-match.
    * 
    * @example
    * test
@@ -171,13 +171,13 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   aclPreRuleName?: string;
   /**
    * @remarks
-   * The pre-matching status of the ACL. Valid values:
+   * The ACL pre-match status. Valid values:
    * 
-   * **app_unknown**: The application is not detected.
+   * **app_unknown**: application not identified
    * 
-   * **domain_unknown**: The domain name is not detected.
+   * **domain_unknown**: domain name not identified
    * 
-   * **normal**: Normal.
+   * **normal**: normal.
    * 
    * @example
    * normal
@@ -185,23 +185,23 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   aclPreState?: string;
   /**
    * @remarks
-   * The API status. Valid values:
+   * The application identification status. Valid values:
    * 
-   * **none**: Initial state.
+   * **none**: initial state
    * 
-   * **policy_discard**: The connection failed to be established and was blocked by a user-defined ACL or threat intelligence.
+   * **policy_discard**: connection establishment failed because the connection was blocked by a user ACL or threat intelligence rule
    * 
-   * **tcp_not_establish**: TCP connection failed.
+   * **tcp_not_establish**: TCP connection establishment failed
    * 
-   * **no_payload**: The connection is established, but deep packet inspection has analyzed zero payloads.
+   * **no_payload**: connection established, but DPI has analyzed 0 payloads
    * 
-   * **analysing**: Detecting.
+   * **analysing**: identification in progress
    * 
-   * **unknown_loose**: Loose mode. Detection failed. The system continues to detect.
+   * **unknown_loose**: loose mode, identification failed, continuing identification
    * 
-   * **unknown_strict**: Strict mode. Detection failed.
+   * **unknown_strict**: strict mode, identification failed
    * 
-   * **success**: Detection successful.
+   * **success**: identification succeeded.
    * 
    * @example
    * success
@@ -249,7 +249,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   cityId?: string;
   /**
    * @remarks
-   * The reason for closing.
+   * The close reason.
    * 
    * @example
    * tcp_fin
@@ -257,7 +257,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   closeReason?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service instance.
+   * The cloud service instance ID.
    * 
    * @example
    * ngw-*
@@ -274,10 +274,8 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The traffic direction. Valid values:
-   * 
-   * - **in**: inbound traffic.
-   * 
-   * - **out**: outbound traffic.
+   * - **in**: inbound.
+   * - **out**: outbound.
    * 
    * @example
    * in
@@ -293,7 +291,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The URL in the flow log.
+   * The URL of the flow log.
    * 
    * @example
    * xxx.com
@@ -301,7 +299,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   domainUrl?: string;
   /**
    * @remarks
-   * The destination IP address found. This indicates that the intrusion prevention event includes this destination IP address.
+   * The destination IP address. Indicates that the intrusion prevention event contains this destination IP address.
    * 
    * @example
    * 2.2.2.2
@@ -317,12 +315,12 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   dstPort?: number;
   /**
    * @remarks
-   * The list of destination VPC information.
+   * The destination VPC information.
    */
   dstVpc?: DescribeTrafficLogResponseBodyDataListDstVpc;
   /**
    * @remarks
-   * The end time of the data. This value is a UNIX timestamp. Unit: seconds.
+   * The end time of the data. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1751423363
@@ -330,7 +328,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Other extension data.
+   * The additional extension data.
    * 
    * @example
    * None
@@ -338,7 +336,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   ext?: string;
   /**
    * @remarks
-   * The inbound traffic.
+   * The inbound traffic in bytes.
    * 
    * @example
    * 125
@@ -346,7 +344,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   inBytes?: string;
   /**
    * @remarks
-   * The number of inbound messages.
+   * The number of inbound packets.
    * 
    * @example
    * 12
@@ -362,7 +360,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The ISP.
+   * The Internet service provider (ISP).
    * 
    * @example
    * FOP Dmytro Nedilskyi
@@ -386,7 +384,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The UID of the Cloud Firewall member account.
+   * The UID of the Cloud Firewall member accounts.
    * 
    * @example
    * 14151892****7022
@@ -394,7 +392,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The outbound traffic.
+   * The outbound traffic in bytes.
    * 
    * @example
    * 230
@@ -402,7 +400,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   outBytes?: string;
   /**
    * @remarks
-   * The number of outbound messages.
+   * The number of outbound packets.
    * 
    * @example
    * 11
@@ -467,29 +465,21 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The final result of the traffic. Valid values:
-   * 
-   * - **pass**: The traffic is allowed.
-   * 
-   * - **alert**: An alert is generated.
-   * 
-   * - **drop**: The traffic is dropped.
+   * - **0**: Allow.
+   * - **1**: Alert.
+   * - **2**: Drop.
    * 
    * @example
-   * pass
+   * 0
    */
   ruleResult?: number;
   /**
    * @remarks
-   * The source of the detection rule that is matched. Valid values:
-   * 
+   * The source of the matched detection rule. Valid values:
    * - **0**: None.
-   * 
    * - **1**: Basic protection.
-   * 
-   * - **2**: Virtual patching.
-   * 
+   * - **2**: Virtual patches.
    * - **3**: Access control.
-   * 
    * - **4**: Threat intelligence.
    * 
    * @example
@@ -498,7 +488,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   ruleSource?: string;
   /**
    * @remarks
-   * The list of rules.
+   * The rule list.
    */
   rules?: DescribeTrafficLogResponseBodyDataListRules[];
   /**
@@ -511,7 +501,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   srcIP?: string;
   /**
    * @remarks
-   * The port of the data source.
+   * The source port.
    * 
    * @example
    * 20206
@@ -532,7 +522,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   srcVpc?: DescribeTrafficLogResponseBodyDataListSrcVpc;
   /**
    * @remarks
-   * The start time of the data. This value is a UNIX timestamp. Unit: seconds.
+   * The start time of the data. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1751423362
@@ -540,7 +530,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The ID of the rule that is matched by the TLS inspection.
+   * The ID of the matched TLS inspection rule.
    * 
    * @example
    * tir-xxx
@@ -548,7 +538,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   tlsRuleId?: string;
   /**
    * @remarks
-   * The name of the rule that is matched by the TLS inspection.
+   * The name of the matched TLS inspection rule.
    * 
    * @example
    * test
@@ -556,7 +546,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   tlsRuleName?: string;
   /**
    * @remarks
-   * The ID of the TLS inspection scope.
+   * The TLS inspection scope ID.
    * 
    * @example
    * tls-xxx
@@ -564,7 +554,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   tlsScopeId?: string;
   /**
    * @remarks
-   * The instance ID of the VPC border firewall.
+   * The instance ID of the virtual private cloud (VPC) firewall.
    * 
    * @example
    * vfw-4045ca7***
@@ -715,7 +705,7 @@ export class DescribeTrafficLogResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -762,12 +752,12 @@ export class DescribeTrafficLogResponseBody extends $dara.Model {
   dataList?: DescribeTrafficLogResponseBodyDataList[];
   /**
    * @remarks
-   * The paging information.
+   * The pagination information.
    */
   pageInfo?: DescribeTrafficLogResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 633D92D1-768A-547F-8ADC-2870CF0A99F6

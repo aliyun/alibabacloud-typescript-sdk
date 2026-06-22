@@ -15,7 +15,7 @@ export class DescribeAccessInstanceRegionListRequest extends $dara.Model {
    * @remarks
    * The type of the synchronization node. Valid values:
    * 
-   * - **PrivateDns**: private DNS.
+   * - **PrivateDns**: Private DNS resolution.
    * 
    * - **AckClusterConnector**: ACK cluster connector.
    * 

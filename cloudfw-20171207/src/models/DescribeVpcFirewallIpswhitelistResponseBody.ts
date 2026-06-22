@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara.Model {
   /**
    * @remarks
-   * The type of the list. Valid values:
-   * 
-   * - **1**: custom
-   * 
-   * - **2**: address book
+   * The list type. Valid values:
+   * - **1**: user-defined type
+   * - **2**: address book type.
    * 
    * @example
    * 1
@@ -17,7 +15,7 @@ export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara
   listType?: number;
   /**
    * @remarks
-   * The value of the list.
+   * The value of the corresponding list type.
    * 
    * @example
    * 10.10.200.4/32,10.10.200.25/32
@@ -25,7 +23,7 @@ export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara
   listValue?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the VPC border firewall.
    * 
    * @example
    * cen-l6t5yj5fi762******
@@ -33,16 +31,14 @@ export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara
   vpcFirewallId?: string;
   /**
    * @remarks
-   * The content of the list.
+   * The content of the list type array.
    */
   whiteListValue?: string[];
   /**
    * @remarks
-   * The type of the whitelist. Valid values:
-   * 
-   * - **1**: destination
-   * 
-   * - **2**: source
+   * The whitelist type. Valid values:
+   * - **1**: destination type
+   * - **2**: source type.
    * 
    * @example
    * 1
@@ -83,7 +79,7 @@ export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara
 export class DescribeVpcFirewallIPSWhitelistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B5EE02F9****AA49****F9F8D69483C1
@@ -91,7 +87,7 @@ export class DescribeVpcFirewallIPSWhitelistResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the IPS whitelist for the VPC firewall.
+   * The details of the VPC border firewall IPS whitelist.
    */
   whitelists?: DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists[];
   static names(): { [key: string]: string } {

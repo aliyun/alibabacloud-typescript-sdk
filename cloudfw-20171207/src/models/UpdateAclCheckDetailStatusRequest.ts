@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAclCheckDetailStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language.
    * 
    * @example
    * zh
@@ -13,7 +13,7 @@ export class UpdateAclCheckDetailStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The new status of the ACL policy. Valid values:
+   * The modified status.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateAclCheckDetailStatusRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the ACL check task.
+   * The ACL check task ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateAclCheckDetailStatusRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The unique ID of the ACL policy whose status you want to update.
+   * The unique identifier ID of the ACL policy in the ACL check details.
    * 
    * This parameter is required.
    * 

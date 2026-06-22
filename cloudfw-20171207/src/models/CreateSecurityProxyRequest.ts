@@ -15,7 +15,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   destinationCidr?: string;
   /**
    * @remarks
-   * The next hop of the original NAT Gateway.
+   * The next hop address of the original NAT gateway.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The network type of the next hop. Set the value to NatGateway.
+   * The network type of the next hop. Valid values: NatGateway.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The route table that contains the default route of the NAT Gateway.
+   * The route table that contains the default route of the NAT gateway.
    * 
    * This parameter is required.
    * 
@@ -74,10 +74,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * The security protection switch. Valid values:
-   * 
-   * - **open**: on
-   * 
-   * - **close**: off
+   * - **open**: enabled
+   * - **close**: disabled.
    * 
    * @example
    * close
@@ -85,11 +83,18 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   firewallSwitch?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The zone of the firewall vSwitch.
+   * 
+   * @example
+   * cn-beijing-b
+   */
+  fwVswitchZoneId?: string;
+  /**
+   * @remarks
+   * The language of the content within the response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -97,7 +102,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * This parameter is required.
    * 
@@ -107,14 +112,14 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The list of routes of the NAT Gateway that you want to switch.
+   * The list of routes to be switched for the NAT gateway.
    * 
    * This parameter is required.
    */
   natRouteEntryList?: CreateSecurityProxyRequestNatRouteEntryList[];
   /**
    * @remarks
-   * The name of the NAT firewall. The name must be 4 to 50 characters in length. It can contain letters, digits, Chinese characters, and underscores (_). The name cannot start with an underscore (_).
+   * The name of the NAT firewall. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
    * 
    * This parameter is required.
    * 
@@ -126,7 +131,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPC.
    * 
-   * > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * This parameter is required.
    * 
@@ -138,9 +143,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable strict mode.
    * 
-   * - 1: enables strict mode
-   * 
-   * - 0: disables strict mode
+   * - 1: Enable strict mode.
+   * - 0: Disable strict mode.
    * 
    * @example
    * 0
@@ -148,7 +152,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   strictMode?: number;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The instance ID of the VPC.
    * 
    * This parameter is required.
    * 
@@ -158,11 +162,9 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Specifies whether to use the automatic vSwitch selection feature. Valid values:
-   * 
+   * Specifies whether to use the automatic vSwitch mode. Valid values:
    * - **true**: automatic mode
-   * 
-   * - **false**: manual mode
+   * - **false**: manual mode.
    * 
    * @example
    * true
@@ -170,7 +172,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   vswitchAuto?: string;
   /**
    * @remarks
-   * The CIDR block of the vSwitch. This parameter is required if you use the automatic vSwitch selection feature.
+   * The CIDR block of the vSwitch. This parameter is required when the vSwitch is in automatic mode.
    * 
    * @example
    * 0.0.0.0/0
@@ -178,7 +180,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   vswitchCidr?: string;
   /**
    * @remarks
-   * The ID of the vSwitch. This parameter is required if you use the manual vSwitch selection feature.
+   * The vSwitch ID. This parameter is required when the vSwitch is in manual mode.
    * 
    * @example
    * vsw-bp1sqg9w******
@@ -187,6 +189,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       firewallSwitch: 'FirewallSwitch',
+      fwVswitchZoneId: 'FwVswitchZoneId',
       lang: 'Lang',
       natGatewayId: 'NatGatewayId',
       natRouteEntryList: 'NatRouteEntryList',
@@ -203,6 +206,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       firewallSwitch: 'string',
+      fwVswitchZoneId: 'string',
       lang: 'string',
       natGatewayId: 'string',
       natRouteEntryList: { 'type': 'array', 'itemType': CreateSecurityProxyRequestNatRouteEntryList },

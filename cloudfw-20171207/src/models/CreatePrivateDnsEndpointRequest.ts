@@ -15,12 +15,9 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   accessInstanceName?: string;
   /**
    * @remarks
-   * The type of the Cloud Firewall. Valid values:
-   * 
+   * The type of cloud firewall. Valid values:
    * - **internet**
-   * 
    * - **vpc**
-   * 
    * - **nat**
    * 
    * This parameter is required.
@@ -29,9 +26,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The IP protocol. Valid values:
-   * 
    * - **TCP**
-   * 
    * - **UDP**
    * 
    * @example
@@ -40,7 +35,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the Alibaba Cloud member account.
    * 
    * @example
    * 258039427902****
@@ -56,7 +51,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The primary DNS server.
+   * The primary DNS.
    * 
    * @example
    * 1.1.1.1
@@ -80,10 +75,8 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   primaryVSwitchIp?: string;
   /**
    * @remarks
-   * The type of the private DNS. Valid values:
-   * 
+   * The type of private DNS. Valid values:
    * - **PrivateZone**
-   * 
    * - **Custom** (default)
    * 
    * This parameter is required.
@@ -104,7 +97,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The standby DNS server.
+   * The standby DNS.
    * 
    * @example
    * 1.1.1.2
@@ -128,7 +121,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   standbyVSwitchIp?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC instance ID.
    * 
    * This parameter is required.
    * 

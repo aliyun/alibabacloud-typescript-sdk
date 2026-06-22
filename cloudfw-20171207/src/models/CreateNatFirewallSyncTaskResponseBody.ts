@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatFirewallSyncTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3E048D45-A563-5F81-9D97-536B4A84****

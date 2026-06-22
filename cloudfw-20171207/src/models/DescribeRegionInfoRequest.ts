@@ -8,7 +8,6 @@ export class DescribeRegionInfoRequest extends $dara.Model {
    * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -17,7 +16,7 @@ export class DescribeRegionInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source tracking code.
+   * The tracing code.
    * 
    * This parameter is required.
    * 
@@ -27,7 +26,7 @@ export class DescribeRegionInfoRequest extends $dara.Model {
   sourceCode?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the request.
    * 
    * @example
    * 59.82.59.XX

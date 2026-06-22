@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVpcFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the access control policy for the VPC firewall.
+   * The unique ID of the access control policy for the virtual private cloud (VPC) firewall.
    * 
-   * When you delete an access control policy, you must provide the UUID of the policy. You can call the [DescribeVpcFirewallControlPolicy](https://help.aliyun.com/document_detail/159758.html) operation to query the UUID.
+   * To delete an access control policy, you must provide the unique ID of the policy. You can call the [DescribeVpcFirewallControlPolicy](https://help.aliyun.com/document_detail/159758.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,10 @@ export class DeleteVpcFirewallControlPolicyRequest extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and response.
+   * The language of the request and response.
    * 
    * - **zh**: Chinese
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -28,16 +28,17 @@ export class DeleteVpcFirewallControlPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the policy group for the VPC firewall. You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to query the ID.
+   * The ID of the access control policy group for the virtual private cloud (VPC) firewall. You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to obtain the ID.
    * 
    * Valid values:
    * 
-   * - If the VPC firewall is used to protect a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance.
+   * - If the VPC firewall protects a CEN instance, the value is the instance ID of the CEN instance.
    * 
-   *   Example: cen-ervw0g12b5jbw\\*\\*\\*\\*
-   * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall instance.
+   *    Example: cen-ervw0g12b5jbw\\*\\*\\*
    * 
-   *   Example: vfw-a42bbb7b887148c9\\*\\*\\*\\*
+   * - If the VPC firewall protects an Express Connect circuit, the value is the instance ID of the VPC firewall.
+   *   
+   *   Example: vfw-a42bbb7b887148c9\\*\\*\\*.
    * 
    * This parameter is required.
    * 

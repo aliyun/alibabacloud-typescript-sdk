@@ -2,58 +2,62 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeVfwIPSConfigListRequest extends $dara.Model {
+export class DescribePrepayBillTotalRequest extends $dara.Model {
+  /**
+   * @example
+   * sdl
+   */
+  billType?: string;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
   /**
    * @remarks
-   * The language type.
+   * This parameter is required.
    * 
+   * @example
+   * 1646063922
+   */
+  endTime?: string;
+  /**
    * @example
    * zh
    */
   lang?: string;
   /**
-   * @remarks
-   * The current page number.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNo?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * This parameter is required.
-   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
+   * This parameter is required.
    * 
    * @example
-   * vfw-m5e7dbc4y****
+   * 1656750960
    */
-  vpcFirewallId?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      billType: 'BillType',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
       lang: 'Lang',
-      pageNo: 'PageNo',
       pageSize: 'PageSize',
-      vpcFirewallId: 'VpcFirewallId',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billType: 'string',
+      currentPage: 'number',
+      endTime: 'string',
       lang: 'string',
-      pageNo: 'number',
       pageSize: 'number',
-      vpcFirewallId: 'string',
+      startTime: 'string',
     };
   }
 

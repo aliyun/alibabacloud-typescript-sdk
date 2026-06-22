@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclRuleCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class DescribeAclRuleCountRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the requester.
+   * The source IP address of the request.
    * 
    * @example
    * 27.151.85.XX

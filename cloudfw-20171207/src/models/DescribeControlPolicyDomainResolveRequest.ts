@@ -13,7 +13,7 @@ export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The type of the Cloud Firewall instance.
+   * The Cloud Firewall type.
    * 
    * @example
    * internet
@@ -21,7 +21,7 @@ export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   firewallType?: string;
   /**
    * @remarks
-   * The supported ip version.
+   * The supported IP address version.
    * 
    * @example
    * 4
@@ -29,7 +29,9 @@ export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   ipVersion?: number;
   /**
    * @remarks
-   * The language of the request and response.
+   * The language type. Valid values:
+   * - **en**: English
+   * - **zh**: Chinese.
    * 
    * @example
    * zh

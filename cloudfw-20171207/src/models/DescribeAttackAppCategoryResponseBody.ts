@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAttackAppCategoryResponseBodyAppCategories extends $dara.Model {
   /**
    * @remarks
-   * A list of attack applications.
+   * The list of attack applications.
    */
   attackApps?: string[];
   /**
@@ -45,12 +45,12 @@ export class DescribeAttackAppCategoryResponseBodyAppCategories extends $dara.Mo
 export class DescribeAttackAppCategoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of attack application categories.
+   * The list of attack application categories.
    */
   appCategories?: DescribeAttackAppCategoryResponseBodyAppCategories[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID of the returned result.
    * 
    * @example
    * B14757D0-4640-4B44-AC67-7F558FE****

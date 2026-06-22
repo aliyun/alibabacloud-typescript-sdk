@@ -7,7 +7,7 @@ export class DeleteNatFirewallControlPolicyRequest extends $dara.Model {
    * @remarks
    * The unique ID of the access control policy.
    * 
-   * To delete an access control policy, provide its unique ID. You can call the DescribeNatFirewallControlPolicy operation to obtain the ID.
+   * To delete a security access control policy, you must provide the unique ID of the policy. You can call the DescribeNatFirewallControlPolicy operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class DeleteNatFirewallControlPolicyRequest extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The traffic direction that the access control policy manages.
+   * The direction of traffic that the access control policy controls.
    * 
-   * Valid value:
+   * Valid values:
    * 
    * - **out**: outbound traffic.
    * 
@@ -31,10 +31,9 @@ export class DeleteNatFirewallControlPolicyRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -43,7 +42,7 @@ export class DeleteNatFirewallControlPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * This parameter is required.
    * 

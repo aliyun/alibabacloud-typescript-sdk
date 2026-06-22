@@ -13,11 +13,10 @@ export class UpdatePostpayUserInternetStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response messages. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -25,9 +24,9 @@ export class UpdatePostpayUserInternetStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of operation. Currently, only the \\`open\\` operation is supported.
+   * The operation type. Currently, only the activation operation is supported.
    * 
-   * - open: enables the firewall.
+   * - open: activation.
    * 
    * @example
    * open

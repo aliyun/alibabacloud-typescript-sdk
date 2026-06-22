@@ -13,10 +13,9 @@ export class DescribePostpayUserVpcStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the content within the response. Valid values:
    * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example

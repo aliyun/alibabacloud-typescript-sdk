@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSlsLogDispatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 850A84D6************00090125EEB1

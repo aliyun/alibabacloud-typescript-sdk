@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the access control policy for the Internet firewall.
+   * The unique identity ID of the access control policy for the Internet Border firewall.
    * 
    * @example
    * 00281255-d220-4db1-8f4f-c4df221ad84c
@@ -13,7 +13,7 @@ export class AddControlPolicyResponseBody extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D

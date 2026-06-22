@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUnprotectedPortTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. Use a UNIX timestamp in seconds.
+   * The end time. Specify a UNIX timestamp in seconds.
    * 
    * @example
    * 1751210395
@@ -13,7 +13,9 @@ export class DescribeUnprotectedPortTrendRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the response message.
+   * The language of the response. Valid values:
+   * - **en**: English
+   * - **zh**: Chinese.
    * 
    * @example
    * zh
@@ -21,7 +23,7 @@ export class DescribeUnprotectedPortTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the request.
    * 
    * @example
    * 61.155.60.XXX
@@ -29,7 +31,7 @@ export class DescribeUnprotectedPortTrendRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start time. Use a UNIX timestamp in seconds.
+   * The start time. Specify a UNIX timestamp in seconds.
    * 
    * @example
    * 1655778046

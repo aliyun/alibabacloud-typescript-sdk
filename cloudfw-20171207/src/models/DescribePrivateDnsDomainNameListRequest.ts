@@ -23,7 +23,7 @@ export class DescribePrivateDnsDomainNameListRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribePrivateDnsDomainNameListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of entries per page.
    * 
    * @example
    * 10

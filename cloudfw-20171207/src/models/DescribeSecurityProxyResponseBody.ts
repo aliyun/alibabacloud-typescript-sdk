@@ -13,7 +13,7 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The details of the exception.
+   * The error details.
    * 
    * @example
    * “”
@@ -21,7 +21,7 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The UID of the Cloud Firewall member account.
+   * The UID of the Cloud Firewall member accounts.
    * 
    * @example
    * 1797733170015112
@@ -29,7 +29,7 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * @example
    * ngw-2zex8sf4s5vus8rq3rjqo
@@ -37,7 +37,7 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT Gateway.
+   * The name of the NAT gateway.
    * 
    * @example
    * ecs-slb-eip-waf
@@ -74,21 +74,14 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   snatIpList?: string[];
   /**
    * @remarks
-   * The status of the Cloud Firewall. Valid values:
-   * 
-   * - **configuring**: The firewall is being created.
-   * 
-   * - **deleting**: The firewall is being deleted.
-   * 
-   * - **normal**: The firewall is running.
-   * 
-   * - **abnormal**: The firewall is not running as expected.
-   * 
-   * - **opening**: The firewall is being enabled.
-   * 
-   * - **closing**: The firewall is being disabled.
-   * 
-   * - **closed**: The firewall is disabled.
+   * The status of Cloud Firewall. Valid values:
+   * - **configuring**: Being created.
+   * - **deleting**: Being deleted.
+   * - **normal**: Normal.
+   * - **abnormal**: Abnormal.
+   * - **opening**: Being enabled.
+   * - **closing**: Being disabled.
+   * - **closed**: Disabled.
    * 
    * @example
    * normal
@@ -96,7 +89,9 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the strict mode is enabled. 1: The strict mode is enabled. 0: The strict mode is disabled.
+   * Indicates whether strict mode is enabled. Valid values:
+   * - 1: Strict mode is enabled.
+   * - 0: Strict mode is disabled.
    * 
    * @example
    * 0
@@ -104,7 +99,7 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   strictMode?: number;
   /**
    * @remarks
-   * The ID of the vSwitch to which the Cloud Firewall instance belongs.
+   * The ID of the vSwitch to which the Cloud Firewall interface belongs.
    * 
    * @example
    * vsw-5gu2qqfmjmwl8ktzgfekl
@@ -112,7 +107,7 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-wz9xn35tq33hunzvpu0se
@@ -120,7 +115,7 @@ export class DescribeSecurityProxyResponseBodyProxyList extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The instance name of the VPC.
+   * The name of the VPC instance.
    * 
    * @example
    * vpc-bp1kw9igsq0yyzeanqamx
@@ -184,7 +179,7 @@ export class DescribeSecurityProxyResponseBody extends $dara.Model {
   proxyList?: DescribeSecurityProxyResponseBodyProxyList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****

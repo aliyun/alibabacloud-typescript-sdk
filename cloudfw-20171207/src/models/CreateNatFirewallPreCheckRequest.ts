@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatFirewallPreCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response message. Valid values:
+   * The language of the content within the response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -17,7 +16,7 @@ export class CreateNatFirewallPreCheckRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * This parameter is required.
    * 
@@ -27,9 +26,9 @@ export class CreateNatFirewallPreCheckRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The region ID of the NAT Gateway.
+   * The region ID of the NAT gateway.
    * 
-   * > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * This parameter is required.
    * 
@@ -39,7 +38,7 @@ export class CreateNatFirewallPreCheckRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The instance ID of the VPC-connected instance.
    * 
    * This parameter is required.
    * 

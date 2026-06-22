@@ -13,7 +13,7 @@ export class DescribePageDocumentsResponseBodyDocs extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The URL of the document.
+   * The document path.
    * 
    * @example
    * https://notify-center-test.ybaobx.com/webhook/arms
@@ -53,7 +53,7 @@ export class DescribePageDocumentsResponseBodyMore extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The URL of the document.
+   * The document path.
    * 
    * @example
    * https://zjysfy.womanhospital.cn/pub/hos/0/noneBackGround.png
@@ -85,12 +85,12 @@ export class DescribePageDocumentsResponseBodyMore extends $dara.Model {
 export class DescribePageDocumentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of documents.
+   * The document list.
    */
   docs?: DescribePageDocumentsResponseBodyDocs[];
   /**
    * @remarks
-   * The URL of the image.
+   * The image URL.
    * 
    * @example
    * https://img.alicdn.com/tfs/TB1E4FCAuT2gK0jSZFvXXXnFXXa-3399-662.png
@@ -106,7 +106,7 @@ export class DescribePageDocumentsResponseBody extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * Additional information.
+   * The list of additional resources.
    */
   more?: DescribePageDocumentsResponseBodyMore;
   /**

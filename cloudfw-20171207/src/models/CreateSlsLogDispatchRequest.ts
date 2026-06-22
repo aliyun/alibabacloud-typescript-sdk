@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSlsLogDispatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the Simple Log Service project.
+   * The SLS region ID.
    * 
    * @example
    * ap-southeast-1
@@ -13,7 +13,7 @@ export class CreateSlsLogDispatchRequest extends $dara.Model {
   slsRegionId?: string;
   /**
    * @remarks
-   * The log retention period. Unit: days.
+   * The storage duration of logs. Unit: days.
    * 
    * @example
    * 20

@@ -13,12 +13,12 @@ export class DescribeControlPolicyDomainResolveResponseBodyResolveResult extends
   domain?: string;
   /**
    * @remarks
-   * The list of ip addresses.
+   * The IP address list.
    */
   ipAddrList?: string[];
   /**
    * @remarks
-   * The supported ip version.
+   * The supported IP address version.
    * 
    * @example
    * 4
@@ -26,7 +26,7 @@ export class DescribeControlPolicyDomainResolveResponseBodyResolveResult extends
   ipVersion?: number;
   /**
    * @remarks
-   * The update time, provided as a unix timestamp in seconds.
+   * The update time. The value is a UNIX timestamp in seconds, which represents the number of seconds that have elapsed since January 1, 1970 (UTC).
    * 
    * @example
    * 1579091739
@@ -73,7 +73,7 @@ export class DescribeControlPolicyDomainResolveResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The domain resolution results.
+   * The domain name resolution results.
    */
   resolveResult?: DescribeControlPolicyDomainResolveResponseBodyResolveResult[];
   static names(): { [key: string]: string } {

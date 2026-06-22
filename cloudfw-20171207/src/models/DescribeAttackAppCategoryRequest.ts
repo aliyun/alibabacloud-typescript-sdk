@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAttackAppCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the request and response messages. Valid values:
+   * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 

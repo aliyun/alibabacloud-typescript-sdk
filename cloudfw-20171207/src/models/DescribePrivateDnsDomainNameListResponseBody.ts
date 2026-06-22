@@ -10,7 +10,7 @@ export class DescribePrivateDnsDomainNameListResponseBody extends $dara.Model {
   domainNameList?: string[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -18,7 +18,7 @@ export class DescribePrivateDnsDomainNameListResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -26,7 +26,7 @@ export class DescribePrivateDnsDomainNameListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 822B9125-6E1A-551C-8EAF-6E7AE74****

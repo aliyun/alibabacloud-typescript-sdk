@@ -13,7 +13,7 @@ export class AddDomainResolveRealtimeTaskRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The type of the Cloud Firewall.
+   * The Cloud Firewall type.
    * 
    * @example
    * internet

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteVpcFirewallControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B2841452-CB8D-4F7D-B247-38E1CF7334F8

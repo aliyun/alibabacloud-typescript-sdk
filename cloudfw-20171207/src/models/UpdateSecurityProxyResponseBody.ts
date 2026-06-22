@@ -13,7 +13,7 @@ export class UpdateSecurityProxyResponseBody extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9E2CCAB4-E789-5BC9-88DC-5CE0358E****

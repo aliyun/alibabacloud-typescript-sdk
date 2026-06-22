@@ -17,7 +17,7 @@ export class DeleteDownloadTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the file download task.
+   * The task ID of the file download task.
    * 
    * @example
    * 4376

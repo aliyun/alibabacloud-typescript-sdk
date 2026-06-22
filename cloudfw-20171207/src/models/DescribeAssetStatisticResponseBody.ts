@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic extends $dara.Model {
   /**
    * @remarks
-   * List of member accounts in the region.
+   * The list of members in the region.
    */
   memberList?: string[];
   /**
    * @remarks
-   * Region information
+   * The region information.
    * 
    * @example
    * cn-hangzhou
@@ -45,12 +45,12 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGe
 export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic extends $dara.Model {
   /**
    * @remarks
-   * List of member accounts in the region.
+   * The list of members in the region.
    */
   memberList?: string[];
   /**
    * @remarks
-   * Region information
+   * The region information.
    * 
    * @example
    * cn-shanghai
@@ -85,17 +85,17 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTo
 export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic extends $dara.Model {
   /**
    * @remarks
-   * Internet-facing firewall instance usage by region.
+   * The region-specific statistics for the Internet firewall.
    */
   cfwGeneralInstanceRegionStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic[];
   /**
    * @remarks
-   * Total Internet-facing firewall instances by region.
+   * The region-specific statistics for all Internet firewall instances.
    */
   cfwTotalGeneralInstanceRegionStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic[];
   /**
    * @remarks
-   * Total number of Internet-facing firewall instances.
+   * The total number of instances for the Internet firewall.
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   totalCfwGeneralInstanceCnt?: number;
   /**
    * @remarks
-   * Number of Internet-facing firewall instances with protection enabled.
+   * The number of instances with the Internet firewall enabled.
    * 
    * @example
    * 1
@@ -111,7 +111,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   totalCfwGeneralInstanceUsedCnt?: number;
   /**
    * @remarks
-   * Total number of general instances used.
+   * The total quota.
    * 
    * @example
    * 1
@@ -119,7 +119,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   totalGeneralInstanceUsedCnt?: number;
   /**
    * @remarks
-   * Total number of NAT firewall instances.
+   * The total number of instances for the NAT firewall.
    * 
    * @example
    * 1
@@ -127,7 +127,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   totalNatGeneralInstanceCnt?: number;
   /**
    * @remarks
-   * Number of NAT firewall instances with protection enabled.
+   * The number of instances with the NAT firewall enabled.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   totalNatGeneralInstanceUsedCnt?: number;
   /**
    * @remarks
-   * Number of VPC firewall instances with protection enabled.
+   * The number of instances with the VPC firewall enabled.
    * 
    * @example
    * 1
@@ -185,7 +185,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
 export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $dara.Model {
   /**
    * @remarks
-   * Maximum number of public IP addresses that can be protected.
+   * The quota for protected public IP addresses.
    * 
    * @example
    * 20
@@ -193,7 +193,7 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $da
   ipNumSpec?: number;
   /**
    * @remarks
-   * Number of public IP addresses with protection enabled.
+   * The number of public IP addresses with protection enabled.
    * 
    * @example
    * 10
@@ -201,7 +201,7 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $da
   ipNumUsed?: number;
   /**
    * @remarks
-   * The number of IP specifications for sensitive data.
+   * The quota for sensitive data IP addresses.
    * 
    * @example
    * 0
@@ -209,7 +209,7 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $da
   sensitiveDataIpNumSpec?: number;
   /**
    * @remarks
-   * Number of public IP addresses currently scanned for sensitive data.
+   * The number of sensitive data IP addresses with protection enabled.
    * 
    * @example
    * 0
@@ -245,7 +245,7 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $da
 export class DescribeAssetStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether automatic traffic diversion is enabled. Valid values:- **true**: enabled- **false**: disabled
+   * Indicates whether automatic traffic redirection is enabled. Valid values:- **true**: Enabled.- **false**: Disabled.
    * 
    * @example
    * true
@@ -253,12 +253,12 @@ export class DescribeAssetStatisticResponseBody extends $dara.Model {
   autoResourceEnable?: boolean;
   /**
    * @remarks
-   * Specifications for general instances in version 2.0.
+   * The general instance specifications for version 2.0.
    */
   generalInstanceSpecStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic;
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * 850A84******25g4d2
@@ -266,7 +266,7 @@ export class DescribeAssetStatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Resource specification usage statistics.
+   * The consumed quota statistics information.
    */
   resourceSpecStatistic?: DescribeAssetStatisticResponseBodyResourceSpecStatistic;
   static names(): { [key: string]: string } {

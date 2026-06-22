@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The action that Cloud Firewall performs on the traffic. Valid values:
+   * The action that Cloud Firewall performs on the traffic in the virtual private cloud (VPC) firewall access control policy. Valid values:
    * 
-   * - **accept**: Allows the traffic.
-   * 
-   * - **drop**: Denies the traffic.
-   * 
-   * - **log**: Monitors the traffic.
+   * - **accept**: allows the traffic.
+   * - **drop**: denies the traffic.
+   * - **log**: monitors the traffic.
    * 
    * This parameter is required.
    * 
@@ -21,37 +19,23 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   aclAction?: string;
   /**
    * @remarks
-   * The application type that the access control policy supports. Valid values:
+   * The application type supported by the virtual private cloud (VPC) firewall access control policy. Valid values:
    * 
    * - **FTP**
-   * 
    * - **HTTP**
-   * 
    * - **HTTPS**
-   * 
    * - **MySQL**
-   * 
    * - **SMTP**
-   * 
    * - **SMTPS**
-   * 
    * - **RDP**
-   * 
    * - **VNC**
-   * 
    * - **SSH**
-   * 
    * - **Redis**
-   * 
    * - **MQTT**
-   * 
    * - **MongoDB**
-   * 
    * - **Memcache**
-   * 
    * - **SSL**
-   * 
-   * - **ANY** (all application types)
+   * - **ANY**: all application types.
    * 
    * @example
    * HTTP
@@ -61,12 +45,12 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The list of application types that the access control policy supports.
+   * The application types supported by the access control policy.
    */
   applicationNameList?: string[];
   /**
    * @remarks
-   * The description of the access control policy.
+   * The description of the virtual private cloud (VPC) firewall access control policy.
    * 
    * This parameter is required.
    * 
@@ -76,7 +60,7 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination port in the access control policy.
+   * The destination port of traffic in the virtual private cloud (VPC) firewall access control policy.
    * 
    * > Set this parameter when **DestPortType** is set to `port`.
    * 
@@ -86,7 +70,7 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   destPort?: string;
   /**
    * @remarks
-   * The name of the destination port address book in the access control policy.
+   * The name of the destination port address book of traffic in the virtual private cloud (VPC) firewall access control policy.
    * 
    * > Set this parameter when **DestPortType** is set to `group`.
    * 
@@ -96,11 +80,10 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   destPortGroup?: string;
   /**
    * @remarks
-   * The type of the destination port in the access control policy. Valid values:
+   * The type of the destination port of traffic in the virtual private cloud (VPC) firewall access control policy. Valid values:
    * 
    * - **port**: port
-   * 
-   * - **group**: port address book
+   * - **group**: port address book.
    * 
    * @example
    * port
@@ -108,13 +91,13 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   destPortType?: string;
   /**
    * @remarks
-   * The destination address in the access control policy. Valid values:
+   * The destination address of traffic in the virtual private cloud (VPC) firewall access control policy. Valid values:
    * 
-   * - If **DestinationType** is `net`, set this parameter to a destination CIDR block.
+   * - If **DestinationType** is set to `net`, the value of **Destination** is a destination CIDR block.
    * 
-   * - If **DestinationType** is `group`, set this parameter to the name of a destination address book.
+   * - If **DestinationType** is set to `group`, the value of **Destination** is a destination address book name.
    * 
-   * - If **DestinationType** is `domain`, set this parameter to a destination domain name.
+   * - If **DestinationType** is set to `domain`, the value of **Destination** is a destination domain name.
    * 
    * This parameter is required.
    * 
@@ -124,13 +107,11 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   destination?: string;
   /**
    * @remarks
-   * The type of the destination address in the access control policy. Valid values:
+   * The type of the destination address in the virtual private cloud (VPC) firewall access control policy. Valid values:
    * 
-   * - **net**: CIDR block
-   * 
-   * - **group**: address book
-   * 
-   * - **domain**: domain name
+   * - **net**: destination CIDR block
+   * - **group**: destination address book
+   * - **domain**: destination domain name.
    * 
    * This parameter is required.
    * 
@@ -140,13 +121,11 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The domain name resolution method for the access control policy. Valid values:
+   * The domain name resolution method of the access control policy. Valid values:
    * 
-   * - **FQDN**: FQDN-based
-   * 
-   * - **DNS**: DNS-based dynamic resolution
-   * 
-   * - **FQDN_AND_DNS**: FQDN-based and DNS-based dynamic resolution
+   * * **FQDN**: FQDN-based resolution
+   * * **DNS**: DNS-based dynamic resolution
+   * * **FQDN_AND_DNS**: FQDN-based and DNS-based dynamic resolution.
    * 
    * @example
    * FQDN
@@ -154,9 +133,8 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   domainResolveType?: string;
   /**
    * @remarks
-   * The end time of the policy validity period. This value is a UNIX timestamp. The time must be on the hour or half-hour and must be at least 30 minutes later than the start time.
-   * 
-   * > If RepeatType is \\`Permanent\\`, leave this parameter empty. If RepeatType is \\`None\\`, \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`, set this parameter.
+   * The end time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour and must be at least 30 minutes later than the start time.
+   * > If RepeatType is set to Permanent, EndTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must be specified.
    * 
    * @example
    * 1694764800
@@ -167,8 +145,7 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
    * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -176,7 +153,7 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of a member account of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -184,9 +161,9 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The priority of the access control policy.
+   * The priority of the virtual private cloud (VPC) firewall access control policy.
    * 
-   * The priority starts from 1. A smaller value indicates a higher priority.
+   * The priority value starts from 1 and increases by increment. A smaller value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -196,15 +173,12 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   newOrder?: string;
   /**
    * @remarks
-   * The protocol type in the access control policy. Valid values:
+   * The security protocol type of traffic in the virtual private cloud (VPC) firewall access control policy. Valid values:
    * 
-   * - **ANY** (Set this value if you are unsure of the protocol type.)
-   * 
+   * - **ANY**: any protocol type. Set this value if the protocol type is uncertain.
    * - **TCP**
-   * 
    * - **UDP**
-   * 
-   * - **ICMP**
+   * - **ICMP**.
    * 
    * This parameter is required.
    * 
@@ -214,11 +188,10 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   proto?: string;
   /**
    * @remarks
-   * The status of the access control policy. The policy is enabled by default after it is created. Valid values:
+   * Specifies whether to enable the access control policy. The policy is enabled by default after it is created. Valid values:
    * 
-   * - **true**: Enables the access control policy.
-   * 
-   * - **false**: Disables the access control policy.
+   * - **true**: enables the access control policy.
+   * - **false**: does not enable the access control policy.
    * 
    * @example
    * true
@@ -226,24 +199,21 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   release?: string;
   /**
    * @remarks
-   * The days of the week or month on which the policy is recurrently active.
-   * 
-   * - If RepeatType is `Permanent`, `None`, or `Daily`, leave this parameter empty. Example: \\`[]\\`
-   * 
-   * - If RepeatType is \\`Weekly\\`, set this parameter. Example: \\`[0, 6]\\`
-   * 
-   * > If RepeatType is set to \\`Weekly\\`, the values in RepeatDays cannot be duplicates.
-   * 
-   * - If **RepeatType** is \\`Monthly\\`, set this parameter. Example: \\`[1, 31]\\`
-   * 
-   * > If RepeatType is set to \\`Monthly\\`, the values in RepeatDays cannot be duplicates.
+   * The days of the recurrence for the policy validity period of the access control policy.
+   * - If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty collection.
+   *   Example: []
+   * - If RepeatType is set to Weekly, RepeatDays cannot be empty.
+   *   Example: [0, 6]
+   * > If RepeatType is set to Weekly, the values in RepeatDays cannot be repeated.
+   * - If RepeatType is set to `Monthly`, RepeatDays cannot be empty.
+   *   Example: [1, 31]
+   * > If RepeatType is set to Monthly, the values in RepeatDays cannot be repeated.
    */
   repeatDays?: number[];
   /**
    * @remarks
-   * The recurring end time of the policy validity period. For example: \\`23:30\\`. The time must be on the hour or half-hour and must be at least 30 minutes later than the recurring start time.
-   * 
-   * > If RepeatType is \\`Permanent\\` or \\`None\\`, leave this parameter empty. If RepeatType is \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`, set this parameter.
+   * The recurrence end time of the policy validity period for the access control policy. Example: 23:30. The value must be on the hour or on the half hour and must be at least 30 minutes later than the recurrence start time.
+   * > If RepeatType is set to Permanent or None, RepeatEndTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must be specified. The format is HH:MM (24-hour clock), such as 08:00.
    * 
    * @example
    * 23:30
@@ -251,9 +221,8 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   repeatEndTime?: string;
   /**
    * @remarks
-   * The recurring start time of the policy validity period. For example: \\`08:00\\`. The time must be on the hour or half-hour and must be at least 30 minutes earlier than the recurring end time.
-   * 
-   * > If RepeatType is \\`Permanent\\` or \\`None\\`, leave this parameter empty. If RepeatType is \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`, set this parameter.
+   * The recurrence start time of the policy validity period for the access control policy. Example: 08:00. The value must be on the hour or on the half hour and must be at least 30 minutes earlier than the recurrence end time.
+   * > If RepeatType is set to Permanent or None, RepeatStartTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatStartTime must be specified. The format is HH:MM (24-hour clock), such as 08:00.
    * 
    * @example
    * 08:00
@@ -261,17 +230,12 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   repeatStartTime?: string;
   /**
    * @remarks
-   * The recurrence type for the policy validity period. Valid values:
-   * 
-   * - **Permanent** (default): always
-   * 
-   * - **None**: one-time
-   * 
-   * - **Daily**: daily
-   * 
-   * - **Weekly**: weekly
-   * 
-   * - **Monthly**: monthly
+   * The recurrence type of the policy validity period for the access control policy. Valid values:
+   * - **Permanent** (default): The policy is always valid.
+   * - **None**: The policy is valid for a specified single time period.
+   * - **Daily**: The policy is valid on a daily basis.
+   * - **Weekly**: The policy is valid on a weekly basis.
+   * - **Monthly**: The policy is valid on a monthly basis.
    * 
    * @example
    * Permanent
@@ -279,11 +243,10 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   repeatType?: string;
   /**
    * @remarks
-   * The source address in the access control policy.
+   * The source address in the virtual private cloud (VPC) firewall access control policy.
    * 
-   * - If SourceType is `net`, set this parameter to a source CIDR block.
-   * 
-   * - If SourceType is `group`, set this parameter to the name of a source address book.
+   * - If SourceType is set to `net`, the value of Source is a source CIDR block.
+   * - If SourceType is set to `group`, the value of Source is a source address book name.
    * 
    * This parameter is required.
    * 
@@ -293,11 +256,11 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The type of the source address in the access control policy. Valid values:
+   * The type of the source address in the virtual private cloud (VPC) firewall access control policy. Valid values:
    * 
-   * - **net**: CIDR block
+   * - **net**: source CIDR block
    * 
-   * - **group**: address book
+   * - **group**: source address book.
    * 
    * This parameter is required.
    * 
@@ -307,9 +270,8 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The start time of the policy validity period. This value is a UNIX timestamp. The time must be on the hour or half-hour and must be at least 30 minutes earlier than the end time.
-   * 
-   * > If RepeatType is \\`Permanent\\`, leave this parameter empty. If RepeatType is \\`None\\`, \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`, set this parameter.
+   * The start time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour and must be at least 30 minutes earlier than the end time.
+   * > If RepeatType is set to Permanent, StartTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must be specified.
    * 
    * @example
    * 1694761200
@@ -317,13 +279,12 @@ export class CreateVpcFirewallControlPolicyRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The ID of the policy group for the VPC border firewall.
+   * The ID of the virtual private cloud (VPC) firewall access control policy group.
+   * - If the VPC firewall protects traffic between two VPCs connected through CEN, the value of this parameter is the CEN instance ID.
+   *   
+   * - If the VPC firewall protects traffic between two VPCs connected through Express Connect, the value of this parameter is the VPC firewall instance ID.
    * 
-   * - If the VPC border firewall protects traffic between two VPCs that are connected using a CEN instance, set this parameter to the ID of the CEN instance.
-   * 
-   * - If the VPC border firewall protects traffic between two VPCs that are connected using an Express Connect circuit, set this parameter to the ID of the VPC border firewall instance.
-   * 
-   * > Call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to get this ID.
+   * > You can invoke the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

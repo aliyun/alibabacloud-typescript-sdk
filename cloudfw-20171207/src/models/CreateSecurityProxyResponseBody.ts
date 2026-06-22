@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityProxyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the NAT firewall.
+   * The NAT firewall ID.
    * 
    * @example
    * proxy-nat97a******
@@ -13,7 +13,7 @@ export class CreateSecurityProxyResponseBody extends $dara.Model {
   proxyId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******

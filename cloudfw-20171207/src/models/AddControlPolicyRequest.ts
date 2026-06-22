@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The action to perform on traffic that matches the access control policy. Valid values:
+   * The action that is set in the access control policy. Settings the method in which traffic passes through Cloud Firewall. Valid values:
    * 
-   * - **accept**: allows the traffic.
-   * 
-   * - **drop**: denies the traffic.
-   * 
+   * - **accept**: allows the access.
+   * - **drop**: deny the access.
    * - **log**: monitors the traffic.
    * 
    * This parameter is required.
@@ -21,41 +19,25 @@ export class AddControlPolicyRequest extends $dara.Model {
   aclAction?: string;
   /**
    * @remarks
-   * The application type that the access control policy supports. Valid values:
-   * 
+   * The application type supported by the access control policy. Valid values:
    * - **FTP**
-   * 
    * - **HTTP**
-   * 
    * - **HTTPS**
-   * 
    * - **Memcache**
-   * 
    * - **MongoDB**
-   * 
    * - **MQTT**
-   * 
    * - **MySQL**
-   * 
    * - **RDP**
-   * 
    * - **Redis**
-   * 
    * - **SMTP**
-   * 
    * - **SMTPS**
-   * 
    * - **SSH**
-   * 
    * - **SSL_No_Cert**
-   * 
    * - **SSL**
-   * 
    * - **VNC**
+   * - **ANY**: all application types
    * 
-   * - **ANY** (all application types)
-   * 
-   * > The available application types depend on the protocol type (\\`Proto\\`). If you set \\`Proto\\` to \\`TCP\\`, you can set \\`ApplicationName\\` to any of the listed application types. If you set \\`Proto\\` to \\`UDP\\`, \\`ICMP\\`, or \\`ANY\\`, you can set \\`ApplicationName\\` only to \\`ANY\\`. Specify either \\`ApplicationNameList\\` or \\`ApplicationName\\`.
+   * > The valid values of ApplicationName depend on the value of the protocol type (Proto). If Proto is set to TCP, ApplicationName can be set to any of the preceding application types. If Proto is set to UDP, ICMP, or ANY, ApplicationName can be set only to ANY. You must specify either ApplicationNameList or ApplicationName. You cannot leave both of them empty.
    * 
    * @example
    * ANY
@@ -65,7 +47,7 @@ export class AddControlPolicyRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The application types that the access control policy supports.
+   * The application types supported by the access control policy.
    */
   applicationNameList?: string[];
   /**
@@ -82,15 +64,15 @@ export class AddControlPolicyRequest extends $dara.Model {
    * @remarks
    * The destination port in the access control policy. Valid values:
    * 
-   * - If \\`Proto\\` is \\`ICMP\\`, leave this parameter empty.
+   * - If the protocol type is ICMP, the value of DestPort is empty.
+   *    
+   * > If the protocol type is ICMP, access control on the destination port is not supported.
    * 
-   * > If the protocol type is ICMP, you cannot control access based on the destination port.
+   * - If the protocol type is TCP, UDP, or ANY, and the destination port type (DestPortType) is group, the value of DestPort is empty.
    * 
-   * - If \\`Proto\\` is \\`TCP\\`, \\`UDP\\`, or \\`ANY\\`, and \\`DestPortType\\` is \\`group\\`, leave this parameter empty.
+   * > If the destination port type of the access control policy is set to group (port address book), you do not need to specify a destination port number. All ports that the access control policy manages are included in the port address book.
    * 
-   * > If you set \\`DestPortType\\` to \\`group\\` (port address book), you do not need to specify a destination port number. The port address book contains all the destination ports that the policy manages.
-   * 
-   * - If \\`Proto\\` is \\`TCP\\`, \\`UDP\\`, or \\`ANY\\`, and \\`DestPortType\\` is \\`port\\`, set this parameter to the destination port number.
+   * - If the protocol type is TCP, UDP, or ANY, and the destination port type (DestPortType) is port, the value of DestPort is the destination port number.
    * 
    * @example
    * 80
@@ -98,9 +80,10 @@ export class AddControlPolicyRequest extends $dara.Model {
   destPort?: string;
   /**
    * @remarks
-   * The name of the destination port address book for the traffic in the access control policy.
+   * The name of the destination port address book in the access control policy.
    * 
-   * > If you set \\`DestPortType\\` to \\`group\\`, you must specify this parameter.
+   * 
+   * > If DestPortType is set to group, you must specify the destination port address book name.
    * 
    * @example
    * my_port_group
@@ -108,13 +91,12 @@ export class AddControlPolicyRequest extends $dara.Model {
   destPortGroup?: string;
   /**
    * @remarks
-   * The type of the destination port for the traffic in the access control policy.
+   * The type of the destination port in the access control policy.
    * 
    * Valid values:
    * 
    * - **port**: port
-   * 
-   * - **group**: port address book
+   * - **group**: port address book.
    * 
    * @example
    * port
@@ -125,24 +107,23 @@ export class AddControlPolicyRequest extends $dara.Model {
    * The destination address in the access control policy.
    * 
    * Valid values:
-   * 
-   * - If \\`DestinationType\\` is \\`net\\`, set this parameter to the destination CIDR block.
-   * 
+   * - If DestinationType is set to net, the value of Destination is a destination CIDR block.
+   *   
    *   Example: 1.2.XX.XX/24
    * 
-   * - If \\`DestinationType\\` is \\`group\\`, set this parameter to the name of the destination address book.
+   * - If DestinationType is set to group, the value of Destination is a destination address book name.
    * 
    *   Example: db_group
    * 
-   * - If \\`DestinationType\\` is \\`domain\\`, set this parameter to the destination domain name.
+   * - If DestinationType is set to domain, the value of Destination is a destination domain name.
    * 
-   *   Example: \\*.aliyuncs.com
+   *   Example: *.aliyuncs.com
    * 
-   * - If \\`DestinationType\\` is \\`location\\`, set this parameter to the destination region.
+   * - If DestinationType is set to location, the value of Destination is a destination region.
    * 
-   *   Example: ["BJ11", "ZB"]
+   *   Example: ["BJ11", "ZB"\\]
    * 
-   * > For more information about region codes, see [Region codes](https://help.aliyun.com/document_detail/2854161.html).
+   * > If Destination is set to a destination region, for more information, see [Region codes](https://help.aliyun.com/document_detail/2854161.html).
    * 
    * This parameter is required.
    * 
@@ -155,12 +136,9 @@ export class AddControlPolicyRequest extends $dara.Model {
    * The type of the destination address in the access control policy. Valid values:
    * 
    * - **net**: destination CIDR block
-   * 
    * - **group**: destination address book
-   * 
    * - **domain**: destination domain name
-   * 
-   * - **location**: destination region
+   * - **location**: destination region.
    * 
    * This parameter is required.
    * 
@@ -170,11 +148,10 @@ export class AddControlPolicyRequest extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The direction of the traffic to which the access control policy applies. Valid values:
+   * The traffic direction of the access control policy. Valid values:
    * 
    * - **in**: inbound traffic
-   * 
-   * - **out**: outbound traffic
+   * - **out**: outbound traffic.
    * 
    * This parameter is required.
    * 
@@ -184,13 +161,11 @@ export class AddControlPolicyRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The domain name resolution method for the access control policy. Valid values:
+   * The domain name resolution method of the access control policy. Valid values:
    * 
-   * - **FQDN**: based on FQDN
-   * 
-   * - **DNS**: based on dynamic DNS resolution
-   * 
-   * - **FQDN_AND_DNS**: based on FQDN and dynamic DNS resolution
+   * * **FQDN**: FQDN-based resolution
+   * * **DNS**: DNS-based dynamic resolution
+   * * **FQDN_AND_DNS**: FQDN-based and DNS-based dynamic resolution.
    * 
    * @example
    * FQDN
@@ -198,9 +173,8 @@ export class AddControlPolicyRequest extends $dara.Model {
   domainResolveType?: string;
   /**
    * @remarks
-   * The time when the policy becomes ineffective. This is a UNIX timestamp. The time must be on the hour or half-hour, and at least 30 minutes after the start time.
-   * 
-   * > If \\`RepeatType\\` is \\`Permanent\\`, leave this parameter empty. This parameter is required if \\`RepeatType\\` is \\`None\\`, \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`.
+   * The end time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the start time.
+   * > If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter is required.
    * 
    * @example
    * 1694764800
@@ -208,13 +182,13 @@ export class AddControlPolicyRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The IP version supported.
+   * The IP address version supported.
    * 
    * Valid values:
    * 
    * - **4**: IPv4
    * 
-   * - **6**: IPv6
+   * - **6**: IPv6.
    * 
    * @example
    * 6
@@ -225,8 +199,7 @@ export class AddControlPolicyRequest extends $dara.Model {
    * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -234,7 +207,7 @@ export class AddControlPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The priority of the access control policy. The priority starts from 1. A smaller value indicates a higher priority.
+   * The priority of the access control policy. The priority value starts from 1. A smaller value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -244,17 +217,14 @@ export class AddControlPolicyRequest extends $dara.Model {
   newOrder?: string;
   /**
    * @remarks
-   * The protocol type of the traffic in the access control policy. Valid values:
+   * The protocol type in the access control policy. Valid values:
    * 
-   * - **ANY** (any protocol)
-   * 
+   * - **ANY**: any protocol
    * - **TCP**
-   * 
    * - **UDP**
-   * 
    * - **ICMP**
    * 
-   * > If the traffic direction is \\`out\\` and the destination is a domain-based threat intelligence or cloud service address book, you can set the protocol only to \\`TCP\\`. The supported applications are HTTP, HTTPS, SMTP, SMTPS, and SSL.
+   * > If the traffic direction is outbound and the destination address is a threat intelligence address book or cloud service address book of the domain name type, only TCP is supported. The application type can be set to HTTP, HTTPS, SMTP, SMTPS, or SSL.
    * 
    * This parameter is required.
    * 
@@ -264,11 +234,10 @@ export class AddControlPolicyRequest extends $dara.Model {
   proto?: string;
   /**
    * @remarks
-   * The status of the access control policy. By default, the policy is enabled after it is created. Valid values:
+   * Specifies whether to enable the access control policy. The policy is enabled by default after it is created. Valid values:
+   * - **true**: enables the access control policy.
    * 
-   * - **true**: enables the access control policy
-   * 
-   * - **false**: disables the access control policy
+   * - **false**: disables the access control policy.
    * 
    * @example
    * true
@@ -276,27 +245,22 @@ export class AddControlPolicyRequest extends $dara.Model {
   release?: string;
   /**
    * @remarks
-   * The days of the week or month when the policy is active.
-   * 
-   * - If \\`RepeatType\\` is \\`Permanent\\`, \\`None\\`, or \\`Daily\\`, leave this parameter empty.
+   * The days of the recurrence for the policy validity period of the access control policy.
+   * - If RepeatType is set to `Permanent`, `None`, or `Daily`, the value of RepeatDays is an empty array.
    *   Example: []
-   * 
-   * - This parameter is required if \\`RepeatType\\` is \\`Weekly\\`.
+   * - If RepeatType is set to Weekly, the value of RepeatDays must not be empty.
    *   Example: [0, 6]
-   * 
-   * > If you set \\`RepeatType\\` to \\`Weekly\\`, the values in \\`RepeatDays\\` cannot be duplicates.
-   * 
-   * - This parameter is required if \\`RepeatType\\` is \\`Monthly\\`.
+   * > If RepeatType is set to Weekly, the values in RepeatDays cannot be repeated.
+   * - If RepeatType is set to `Monthly`, the value of RepeatDays must not be empty.
    *   Example: [1, 31]
-   * 
-   * > If you set \\`RepeatType\\` to \\`Monthly\\`, the values in \\`RepeatDays\\` cannot be duplicates.
+   * > If RepeatType is set to Monthly, the values in RepeatDays cannot be repeated.
    */
   repeatDays?: number[];
   /**
    * @remarks
-   * The end time of the recurrence. Example: 23:30. The time must be on the hour or half-hour, and at least 30 minutes after the start time.
-   * 
-   * > If \\`RepeatType\\` is \\`Permanent\\` or \\`None\\`, leave this parameter empty. This parameter is required if \\`RepeatType\\` is \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`.
+   * The recurrence end time of the policy validity period for the access control policy. Example: 23:30. The value must be on the hour or on the half hour, and at least 30 minutes later than the recurrence start time.
+   * > If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter is required.
+   * > The time is in the HH:mm format (24-hour clock). Example: 08:00 or 23:30.
    * 
    * @example
    * 23:30
@@ -304,9 +268,9 @@ export class AddControlPolicyRequest extends $dara.Model {
   repeatEndTime?: string;
   /**
    * @remarks
-   * The start time of the recurrence. Example: 08:00. The time must be on the hour or half-hour, and at least 30 minutes before the end time.
-   * 
-   * > If \\`RepeatType\\` is \\`Permanent\\` or \\`None\\`, leave this parameter empty. This parameter is required if \\`RepeatType\\` is \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`.
+   * The recurrence start time of the policy validity period for the access control policy. Example: 08:00. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the recurrence end time.
+   * > If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter is required.
+   * > The time is in the HH:mm format (24-hour clock). Example: 08:00 or 23:30.
    * 
    * @example
    * 08:00
@@ -314,17 +278,12 @@ export class AddControlPolicyRequest extends $dara.Model {
   repeatStartTime?: string;
   /**
    * @remarks
-   * The recurrence type for the policy\\"s effective period. Valid values:
-   * 
-   * - **Permanent** (default): always
-   * 
-   * - **None**: one-time
-   * 
-   * - **Daily**: daily
-   * 
-   * - **Weekly**: weekly
-   * 
-   * - **Monthly**: monthly
+   * The recurrence type of the policy validity period for the access control policy. Valid values:
+   * - **Permanent** (default): The policy is always valid.
+   * - **None**: The policy is valid for a specified single time period.
+   * - **Daily**: The policy is valid on a daily basis.
+   * - **Weekly**: The policy is valid on a weekly basis.
+   * - **Monthly**: The policy is valid on a monthly basis.
    * 
    * @example
    * Permanent
@@ -334,19 +293,19 @@ export class AddControlPolicyRequest extends $dara.Model {
    * @remarks
    * The source address in the access control policy. Valid values:
    * 
-   * - If \\`SourceType\\` is \\`net\\`, set this parameter to the source CIDR block.
+   * - If SourceType is set to net, the value of Source is a source CIDR block.
    * 
    *   Example: 1.1.XX.XX/24
    * 
-   * - If \\`SourceType\\` is \\`group\\`, set this parameter to the name of the source address book.
+   * - If SourceType is set to group, the value of Source is a source address book name.
    * 
    *   Example: db_group
    * 
-   * - If \\`SourceType\\` is \\`location\\`, set this parameter to the source region.
+   * - If SourceType is set to location, the value of Source is a source region.
    * 
-   *   Example: ["BJ11", "ZB"]
+   *   Example: ["BJ11", "ZB"\\]
    * 
-   * > For more information about region codes, see [Region codes](https://help.aliyun.com/document_detail/2854161.html).
+   * > If Source is set to a source region, for more information, see [Region codes](https://help.aliyun.com/document_detail/2854161.html).
    * 
    * This parameter is required.
    * 
@@ -356,7 +315,7 @@ export class AddControlPolicyRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The source IP address of the traffic.
+   * The source IP address of the request.
    * 
    * @example
    * 192.0.XX.XX
@@ -367,12 +326,9 @@ export class AddControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the source address in the access control policy. Valid values:
-   * 
    * - **net**: source CIDR block
-   * 
    * - **group**: source address book
-   * 
-   * - **location**: source region
+   * - **location**: source region.
    * 
    * This parameter is required.
    * 
@@ -382,9 +338,8 @@ export class AddControlPolicyRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The time when the policy becomes effective. This is a UNIX timestamp. The time must be on the hour or half-hour, and at least 30 minutes before the end time.
-   * 
-   * > If \\`RepeatType\\` is \\`Permanent\\`, leave this parameter empty. This parameter is required if \\`RepeatType\\` is \\`None\\`, \\`Daily\\`, \\`Weekly\\`, or \\`Monthly\\`.
+   * The start time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
+   * > If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter is required.
    * 
    * @example
    * 1694761200

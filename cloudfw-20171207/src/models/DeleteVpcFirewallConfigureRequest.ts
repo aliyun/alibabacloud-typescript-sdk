@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVpcFirewallConfigureRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
+   * 
    * - **en**: English.
    * 
    * @example
@@ -16,7 +17,7 @@ export class DeleteVpcFirewallConfigureRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account of the current Alibaba Cloud account.
+   * The UID of one of the member accounts of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -24,7 +25,7 @@ export class DeleteVpcFirewallConfigureRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The list of instance IDs of the VPC firewalls that you want to delete.
+   * The list of instance IDs of the virtual private cloud (VPC) firewalls to delete.
    * 
    * This parameter is required.
    */
