@@ -13,7 +13,7 @@ export class CreateDecodeBlindWatermarkTaskResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4A7A2D0E-D8B8-4DA0-8127-EB32C6600ADE

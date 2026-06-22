@@ -14,6 +14,9 @@ export class GetDecodeBlindWatermarkResultResponseBody extends $dara.Model {
   /**
    * @remarks
    * The watermark content.
+   * 
+   * @example
+   * Copyright Alibaba Cloud
    */
   content?: string;
   /**

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DatasetConfig } from "./DatasetConfig";
 
 
 export class UpdateProjectRequestTag extends $dara.Model {
@@ -43,6 +44,7 @@ export class UpdateProjectRequestTag extends $dara.Model {
 }
 
 export class UpdateProjectRequest extends $dara.Model {
+  datasetConfig?: DatasetConfig;
   /**
    * @remarks
    * The maximum number of bindings for each dataset. Valid values: 1 to 10.
@@ -54,8 +56,7 @@ export class UpdateProjectRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of metadata entities in each dataset.
-   * 
-   * >  This is a precautionary setting that does not impose practical limitations.
+   * >This is a reserved parameter and is not enforced during use.
    * 
    * @example
    * 10000000000
@@ -71,9 +72,8 @@ export class UpdateProjectRequest extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships in a dataset.
-   * 
-   * >  This is a precautionary setting that does not impose practical limitations.
+   * The maximum number of metadata relationships in each dataset.
+   * >This is a reserved parameter and is not enforced during use.
    * 
    * @example
    * 100000000000
@@ -81,7 +81,7 @@ export class UpdateProjectRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum size of files in each dataset. If the maximum size is exceeded, indexes can no longer be added. Unit: bytes.
+   * The maximum total file size in each dataset. After the limit is exceeded, no more indexes can be added. Unit: bytes.
    * 
    * @example
    * 90000000000000000
@@ -89,7 +89,7 @@ export class UpdateProjectRequest extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The description of the project. The description must be 1 to 256 characters in length.
+   * The project description. The description must be 1 to 256 characters in length.
    * 
    * @example
    * immtest
@@ -105,7 +105,7 @@ export class UpdateProjectRequest extends $dara.Model {
   projectMaxDatasetCount?: number;
   /**
    * @remarks
-   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * The project name. For information about how to obtain the project name, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -115,9 +115,9 @@ export class UpdateProjectRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The name of the Resource Access Management (RAM) role. You must grant the RAM role to Intelligent Media Management (IMM) before IMM can access other cloud resources such as Object Storage Service (OSS).
+   * The service role that grants Intelligent Media Management (IMM) permissions to access other cloud resources such as Object Storage Service (OSS).
    * 
-   * You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * To customize a service role, create a regular service role in the Resource Access Management (RAM) console and grant permissions to the role. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
    * 
    * @example
    * AliyunIMMDefaultRole
@@ -125,19 +125,20 @@ export class UpdateProjectRequest extends $dara.Model {
   serviceRole?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: UpdateProjectRequestTag[];
   /**
    * @remarks
-   * The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
    * 
    * @example
-   * AliyunIMMDefaultRole
+   * Official:ImageManagement
    */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      datasetConfig: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -154,6 +155,7 @@ export class UpdateProjectRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      datasetConfig: DatasetConfig,
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',
@@ -169,6 +171,9 @@ export class UpdateProjectRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.datasetConfig && typeof (this.datasetConfig as any).validate === 'function') {
+      (this.datasetConfig as any).validate();
+    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }

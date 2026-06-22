@@ -78,6 +78,9 @@ export class LocationDateCluster extends $dara.Model {
   /**
    * @remarks
    * The custom title.
+   * 
+   * @example
+   * 杭州一日游
    */
   title?: string;
   /**

@@ -46,6 +46,9 @@ export class SubtitleStream extends $dara.Model {
   /**
    * @remarks
    * The subtitle content.
+   * 
+   * @example
+   * 欢迎
    */
   content?: string;
   /**

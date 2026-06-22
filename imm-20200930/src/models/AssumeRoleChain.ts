@@ -14,7 +14,16 @@ export class AssumeRoleChain extends $dara.Model {
    * The policy.
    * 
    * @example
-   * test
+   * {
+   *   "Statement": [
+   *     {
+   *       "Action": "oss:*",
+   *       "Effect": "Allow",
+   *       "Resource": "*"
+   *     }
+   *   ],
+   *   "Version": "1"
+   * }
    */
   policy?: string;
   static names(): { [key: string]: string } {

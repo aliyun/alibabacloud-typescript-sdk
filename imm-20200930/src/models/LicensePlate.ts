@@ -20,6 +20,9 @@ export class LicensePlate extends $dara.Model {
   /**
    * @remarks
    * The license plate number.
+   * 
+   * @example
+   * 鲁A8***8
    */
   content?: string;
   static names(): { [key: string]: string } {

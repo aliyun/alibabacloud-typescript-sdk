@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TargetImageAnimations extends $dara.Model {
   /**
    * @remarks
-   * The format of the animated image. Valid values:
-   * 
-   * *   gif
-   * *   webp
+   * Format
    * 
    * This parameter is required.
    * 
@@ -18,7 +15,7 @@ export class TargetImageAnimations extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The frame rate of the animated image. You can use this parameter together with the Interval parameter to slow down the animation.
+   * Animation frame rate, in frames per second
    * 
    * @example
    * 25
@@ -26,10 +23,7 @@ export class TargetImageAnimations extends $dara.Model {
   frameRate?: number;
   /**
    * @remarks
-   * The height of the animated image. By default, the animated image has the same height as the source video. The value of the parameter can be an integer or a decimal.
-   * 
-   * *   An integer: the number of pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio relative to the height of the target image resolution. Valid values: (0,1).
+   * Height
    * 
    * @example
    * 960
@@ -37,7 +31,7 @@ export class TargetImageAnimations extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The time interval for extracting frames. Unit: seconds.
+   * Time interval between animation frames, in seconds
    * 
    * @example
    * 0.5
@@ -45,7 +39,7 @@ export class TargetImageAnimations extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The number of extracted frames. The default value is 0, which indicates that frames are extracted until the end of the video.
+   * Total number of animation frames to generate
    * 
    * @example
    * 100
@@ -53,12 +47,7 @@ export class TargetImageAnimations extends $dara.Model {
   number?: number;
   /**
    * @remarks
-   * The resizing mode. Valid values:
-   * 
-   * *   stretch: stretches the image to fill the entire space. This is the default value.
-   * *   crop: resizes and crops the image.
-   * *   fill: resizes the image and keeps the black border.
-   * *   fit: resizes the image and removes the black border.
+   * Scaling method
    * 
    * @example
    * crop
@@ -66,7 +55,7 @@ export class TargetImageAnimations extends $dara.Model {
   scaleType?: string;
   /**
    * @remarks
-   * The start time for extracting frames. Unit: seconds. Default value: 0.
+   * StartTime
    * 
    * @example
    * 0
@@ -74,9 +63,7 @@ export class TargetImageAnimations extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The URI of the animated image.
-   * 
-   * The OSS URI follows the oss://bucket/object format, where bucket is the name of the bucket in the same region as the current project and object is the path of the object with the extension included.
+   * The URI of the animation.
    * 
    * This parameter is required.
    * 
@@ -86,10 +73,7 @@ export class TargetImageAnimations extends $dara.Model {
   URI?: string;
   /**
    * @remarks
-   * The width of the animated image. By default, the animated image has the same width as the source video. The value of the parameter can be an integer or a decimal.
-   * 
-   * *   An integer: the number of pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio relative to the width of the target image resolution. Valid values: (0,1).
+   * Output width, in pixels
    * 
    * @example
    * 1280
@@ -135,10 +119,7 @@ export class TargetImageAnimations extends $dara.Model {
 export class TargetImageSnapshots extends $dara.Model {
   /**
    * @remarks
-   * The format of the frame. Valid values:
-   * 
-   * *   jpg
-   * *   png
+   * Image format
    * 
    * This parameter is required.
    * 
@@ -148,10 +129,7 @@ export class TargetImageSnapshots extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The height of the frame image. By default, the image has the same height as the source video. The value of the parameter can be an integer or a decimal.
-   * 
-   * *   An integer: the number of pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio relative to the height of the target image resolution. Valid values: (0,1).
+   * Output height, in pixels
    * 
    * @example
    * 960
@@ -159,7 +137,7 @@ export class TargetImageSnapshots extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The time interval of frame capturing in seconds.
+   * Time interval between snapshots, in seconds
    * 
    * @example
    * 0.5
@@ -172,7 +150,7 @@ export class TargetImageSnapshots extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The number of frames. The default value is 0, which indicates that frames are captured until the end of the video.
+   * The sequence number of the snapshot.
    * 
    * @example
    * 10
@@ -180,12 +158,7 @@ export class TargetImageSnapshots extends $dara.Model {
   number?: number;
   /**
    * @remarks
-   * The resizing mode. Valid values:
-   * 
-   * *   stretch: stretches the image to fill the entire space. This is the default value.
-   * *   crop: resizes and crops the image.
-   * *   fill: resizes the image and keeps the black border.
-   * *   fit: resizes the image and removes the black border.
+   * Scaling method
    * 
    * @example
    * crop
@@ -193,7 +166,7 @@ export class TargetImageSnapshots extends $dara.Model {
   scaleType?: string;
   /**
    * @remarks
-   * The time in seconds at which frame capturing starts. The default value is 0, which indicates that frame capturing starts at the beginning of the video.
+   * The start time of the snapshot.
    * 
    * @example
    * 0
@@ -206,9 +179,7 @@ export class TargetImageSnapshots extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * The OSS URI of the frame.
-   * 
-   * The OSS URI follows the oss://bucket/object format, where bucket is the name of the bucket in the same region as the current project and object is the path of the object with the extension included.
+   * OSS URI where snapshots are stored
    * 
    * This parameter is required.
    * 
@@ -218,10 +189,7 @@ export class TargetImageSnapshots extends $dara.Model {
   URI?: string;
   /**
    * @remarks
-   * The width of the frame image. By default, the image has the same width as the source video. The value of the parameter can be an integer or a decimal.
-   * 
-   * *   An integer: the number of pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio relative to the width of the target image resolution. Valid values: (0,1).
+   * The width of the snapshot.
    * 
    * @example
    * 1280
@@ -269,10 +237,7 @@ export class TargetImageSnapshots extends $dara.Model {
 export class TargetImageSprites extends $dara.Model {
   /**
    * @remarks
-   * The format of the sprite. Valid values:
-   * 
-   * *   jpg
-   * *   png
+   * Image format
    * 
    * This parameter is required.
    * 
@@ -282,7 +247,7 @@ export class TargetImageSprites extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The time interval of frame capturing in seconds.
+   * Time interval between sprites, in seconds
    * 
    * @example
    * 1
@@ -290,7 +255,7 @@ export class TargetImageSprites extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The margin between the small images and the edges of the sprite. Default value: 2.
+   * Margin around the sprite grid, in pixels
    * 
    * @example
    * 2
@@ -303,7 +268,7 @@ export class TargetImageSprites extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The number of small images in the sprite. The default value is 0, which indicates that frames are captured until the end of the video.
+   * Total number of sprites to generate
    * 
    * @example
    * 0
@@ -311,7 +276,7 @@ export class TargetImageSprites extends $dara.Model {
   number?: number;
   /**
    * @remarks
-   * The padding between small images. Default value: 2.
+   * Padding between sprite tiles, in pixels
    * 
    * @example
    * 2
@@ -319,10 +284,7 @@ export class TargetImageSprites extends $dara.Model {
   pad?: number;
   /**
    * @remarks
-   * The height of individual small images. The default value is 1. The value can be an integer or a decimal.
-   * 
-   * *   An integer: the number of pixels. Valid values: (1,4096).
-   * *   A decimal: the ratio relative to the height of the target video resolution. Valid values: (0,1].
+   * Output height after scaling, in pixels
    * 
    * @example
    * 960
@@ -330,12 +292,7 @@ export class TargetImageSprites extends $dara.Model {
   scaleHeight?: number;
   /**
    * @remarks
-   * The resizing mode. Valid values:
-   * 
-   * *   stretch: stretches the image to fill the entire space. This is the default value.
-   * *   crop: resizes and crops the image.
-   * *   fill: resizes the image and keeps the black border.
-   * *   fit: resizes the image and removes the black border.
+   * Scaling method
    * 
    * @example
    * crop
@@ -343,10 +300,7 @@ export class TargetImageSprites extends $dara.Model {
   scaleType?: string;
   /**
    * @remarks
-   * The width of individual small images. The default value is 1. The value can be an integer or a decimal.
-   * 
-   * *   An integer: the number of pixels. Valid values: (1,4096).
-   * *   A decimal: the ratio relative to the width of the target video resolution. Valid values: (0,1].
+   * Output width after scaling, in pixels
    * 
    * @example
    * 1280
@@ -354,7 +308,7 @@ export class TargetImageSprites extends $dara.Model {
   scaleWidth?: number;
   /**
    * @remarks
-   * The time in seconds at which frame capturing starts. The default value is 0, which indicates that frame capturing starts at the beginning of the video.
+   * StartTime
    * 
    * @example
    * 0
@@ -367,7 +321,7 @@ export class TargetImageSprites extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * The number of small images in each column. Default value: 6.
+   * Height of each sprite tile, in pixels
    * 
    * @example
    * 6
@@ -375,7 +329,7 @@ export class TargetImageSprites extends $dara.Model {
   tileHeight?: number;
   /**
    * @remarks
-   * The number of small images in each row. Default value: 6.
+   * Width of each sprite tile, in pixels
    * 
    * @example
    * 6
@@ -383,9 +337,7 @@ export class TargetImageSprites extends $dara.Model {
   tileWidth?: number;
   /**
    * @remarks
-   * The URI of the sprite in Object Storage Service (OSS).
-   * 
-   * The OSS URI follows the oss://bucket/object format, where bucket is the name of the bucket in the same region as the current project and object is the path of the object with the extension included.
+   * URI
    * 
    * This parameter is required.
    * 
@@ -443,17 +395,17 @@ export class TargetImageSprites extends $dara.Model {
 export class TargetImage extends $dara.Model {
   /**
    * @remarks
-   * The animated images.
+   * Animations
    */
   animations?: TargetImageAnimations[];
   /**
    * @remarks
-   * The frames.
+   * Snapshots
    */
   snapshots?: TargetImageSnapshots[];
   /**
    * @remarks
-   * The sprites.
+   * Sprites
    */
   sprites?: TargetImageSprites[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TargetVideoFilterVideoDelogos extends $dara.Model {
   /**
    * @remarks
-   * The duration of the blur in seconds. By default, the blur lasts until the end of the video.
+   * The duration for which the mosaic is displayed, in seconds (s). By default, the mosaic is displayed until the end of the video.
    * 
    * @example
    * 15
@@ -13,11 +13,13 @@ export class TargetVideoFilterVideoDelogos extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The value of the parameter can be an integer or a decimal.
+   * The meaning of this parameter varies depending on whether the value is an integer or a decimal:
    * 
-   * *   0: indicates that both the offset in pixels and the ratio of the horizontal offset relative to the height of the target resolution are 0. This is the default value.
-   * *   An integer: the offset in pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio of the horizontal offset relative to the height of the target resolution. Valid values: (0,1).
+   * - 0 (default): The pixel offset is 0. The ratio of the horizontal offset to the output video width is also 0.
+   * 
+   * - Integer: The offset in pixels (px). The value ranges from 1 to 4096.
+   * 
+   * - Decimal: The ratio of the horizontal offset to the output video width. The value ranges from (0, 1).
    * 
    * @example
    * 0
@@ -25,11 +27,13 @@ export class TargetVideoFilterVideoDelogos extends $dara.Model {
   dx?: number;
   /**
    * @remarks
-   * Default value: 0. The value of the parameter can be an integer or a decimal.
+   * The default value is 0. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
    * 
-   * *   0: indicates that both the offset in pixels and the ratio of the vertical offset relative to the height of the target resolution are 0. This is the default value.
-   * *   An integer: the offset in pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio of the vertical offset relative to the height of the target resolution. Valid values: (0,1).
+   * - 0 (default): The pixel offset is 0. The ratio of the vertical offset to the output video height is also 0.
+   * 
+   * - Integer: The offset in pixels (px). The value ranges from 1 to 4096.
+   * 
+   * - Decimal: The ratio of the vertical offset to the output video height. The value ranges from (0, 1).
    * 
    * @example
    * 0
@@ -37,10 +41,11 @@ export class TargetVideoFilterVideoDelogos extends $dara.Model {
   dy?: number;
   /**
    * @remarks
-   * The height of the blur. The default value is 1.0, which specifies that the blur is as high as the video. The value can be a decimal or an integer.
+   * The height of the mosaic. The default value is the decimal 1.0, which means it fills the entire height of the output video. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
    * 
-   * *   An integer: the number of pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio relative to the height of the target resolution. Valid values: (0,1).
+   * - Integer: The height in pixels (px). The value ranges from 1 to 4096.
+   * 
+   * - Decimal: The ratio of the mosaic height to the output video height. The value ranges from (0, 1).
    * 
    * @example
    * 40
@@ -48,12 +53,15 @@ export class TargetVideoFilterVideoDelogos extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The reference position of the blur. Valid values:
+   * The reference position for adding the mosaic. Valid values:
    * 
-   * *   topleft: the upper-left corner. This is the default value.
-   * *   topright: the upper-right corner.
-   * *   bottomright: the lower-right corner.
-   * *   bottomleft: the lower-left corner.
+   * - topleft (default): The top-left corner.
+   * 
+   * - topright: The top-right corner.
+   * 
+   * - bottomright: The bottom-right corner.
+   * 
+   * - bottomleft: The bottom-left corner.
    * 
    * @example
    * topleft
@@ -61,7 +69,7 @@ export class TargetVideoFilterVideoDelogos extends $dara.Model {
   referPos?: string;
   /**
    * @remarks
-   * The start time of blurring (in seconds). By default, the blur begins at the start time of the video.
+   * The start time for adding the mosaic, in seconds (s). By default, the mosaic is added from the beginning of the video.
    * 
    * @example
    * 0
@@ -69,10 +77,11 @@ export class TargetVideoFilterVideoDelogos extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The width of the blur. The default value is 1.0, which specifies that the blur is as wide as the video. The value can be a decimal or an integer.
+   * The width of the mosaic. The default value is the decimal 1.0, which means it fills the entire width of the output video. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
    * 
-   * *   An integer: the number of pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio relative to the width of the target resolution. Valid values: (0,1).
+   * - Integer: The width in pixels (px). The value ranges from 1 to 4096.
+   * 
+   * - Decimal: The ratio of the mosaic width to the output video width. The value ranges from (0, 1).
    * 
    * @example
    * 100
@@ -114,18 +123,22 @@ export class TargetVideoFilterVideoDelogos extends $dara.Model {
 export class TargetVideoFilterVideoDesensitizationFace extends $dara.Model {
   /**
    * @remarks
-   * The minimum confidence threshold. Valid values: 0 to 1. Default value: 0.
+   * The confidence threshold for facial recognition. This sets the lower limit for the confidence level. If the confidence level of a detected face is below this threshold, the face is not desensitized.
+   * 
+   * - Value range: 0.0 to 1.0.
+   * 
+   * - Default value: 0.0 (no confidence filtering).
    * 
    * @example
-   * 0
+   * 0.4
    */
   confidence?: number;
   /**
    * @remarks
-   * This parameter does not take effect if the width or height of the bounding box of a face falls below the specified minimum threshold. Default value: 0.
+   * The minimum face size threshold. This sets the minimum size for a face to be desensitized. If the width or height of a detected face is smaller than this threshold, the face is not desensitized. The unit is pixels. The default value is 0, which means there is no restriction on face size.
    * 
    * @example
-   * 0
+   * 0.4
    */
   minSize?: number;
   static names(): { [key: string]: string } {
@@ -154,18 +167,22 @@ export class TargetVideoFilterVideoDesensitizationFace extends $dara.Model {
 export class TargetVideoFilterVideoDesensitizationLicensePlate extends $dara.Model {
   /**
    * @remarks
-   * The minimum confidence threshold. Valid values: 0 to 1. Default value: 0.
+   * The confidence threshold for license plate recognition. This sets the lower limit for the confidence level. If the confidence level of a detected license plate is below this threshold, the license plate is not desensitized.
+   * 
+   * - Value range: 0.0 to 1.0.
+   * 
+   * - Default value: 0.0 (no confidence filtering).
    * 
    * @example
-   * 0
+   * 0.4
    */
   confidence?: number;
   /**
    * @remarks
-   * The minimum threshold for license plate size. This parameter does not take effect if the width or height of the bounding box of a license plate falls below the specified minimum threshold. Default value: 0.
+   * The minimum license plate size threshold. This sets the minimum size for a license plate to be desensitized. If the width or height of a detected license plate is smaller than this threshold, the license plate is not desensitized. The unit is pixels. The default value is 0, which means there is no restriction on license plate size.
    * 
    * @example
-   * 0
+   * 0.4
    */
   minSize?: number;
   static names(): { [key: string]: string } {
@@ -194,12 +211,16 @@ export class TargetVideoFilterVideoDesensitizationLicensePlate extends $dara.Mod
 export class TargetVideoFilterVideoDesensitization extends $dara.Model {
   /**
    * @remarks
-   * The settings for face anonymization.
+   * The facial desensitization configuration.
+   * 
+   * > This feature is in public preview. If you have any questions, join the DingTalk group for feedback. For the DingTalk group number, see [Contact us](https://help.aliyun.com/document_detail/84454.html).
    */
   face?: TargetVideoFilterVideoDesensitizationFace;
   /**
    * @remarks
-   * The settings for license plate anonymization.
+   * The license plate desensitization configuration.
+   * 
+   * > This feature is in public preview. If you have any questions, join the DingTalk group for feedback. For the DingTalk group number, see [Contact us](https://help.aliyun.com/document_detail/84454.html).
    */
   licensePlate?: TargetVideoFilterVideoDesensitizationLicensePlate;
   static names(): { [key: string]: string } {
@@ -234,9 +255,11 @@ export class TargetVideoFilterVideoDesensitization extends $dara.Model {
 export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   /**
    * @remarks
-   * The color of the text watermark border. You can specify a color name, such as "red" or "green", or an RGB color code. The default color is #000000.
+   * The outline color of the watermark text. The format is #RRGGBB. The default value is #000000. You can also enter values such as "red" or "green".
    * 
-   * > This parameter takes effect only when the Type parameter is set to text.
+   * >Notice: 
+   * 
+   * This parameter is effective only when the `Type` parameter is set to `text`.
    * 
    * @example
    * red
@@ -244,9 +267,11 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   borderColor?: string;
   /**
    * @remarks
-   * The width of the text watermark border. Unit: pixels. The value must be an integer within the [0,4096] range. Default value: 0.
+   * The outline width for the text watermark, in pixels (px). The value must be an integer from 0 to 4096. The default value is 0.
    * 
-   * > This parameter takes effect only when the Type parameter is set to text.
+   * >Notice: 
+   * 
+   * This parameter is effective only when the `Type` parameter is set to `text`.
    * 
    * @example
    * 2
@@ -254,9 +279,11 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   borderWidth?: number;
   /**
    * @remarks
-   * The content of the text watermark. By default, this parameter is left empty.
+   * The content of the text watermark. The default value is empty.
    * 
-   * > This parameter takes effect only when the Type parameter is set to text.
+   * >Notice: 
+   * 
+   * This parameter is effective only when the `Type` parameter is set to `text`.
    * 
    * @example
    * example
@@ -264,7 +291,7 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The duration of watermarking (in seconds). By default, the watermark lasts until the video ends.
+   * The duration for which the watermark is displayed, in seconds (s). By default, the watermark is displayed until the end of the video.
    * 
    * @example
    * 0
@@ -272,11 +299,13 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The value of the parameter can be an integer or a decimal.
+   * The meaning of this parameter varies depending on whether the value is an integer or a decimal:
    * 
-   * *   0: indicates that both the offset in pixels and the ratio of the horizontal offset relative to the height of the target resolution are 0. This is the default value.
-   * *   An integer: the offset in pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio of the horizontal offset relative to the height of the target resolution. Valid values: (0,1).
+   * - 0 (default): The pixel offset is 0. The ratio of the horizontal offset to the output video width is also 0.
+   * 
+   * - Integer: The offset in pixels (px). The value ranges from 1 to 4096.
+   * 
+   * - Decimal: The ratio of the horizontal offset to the output video width. The value ranges from (0, 1).
    * 
    * @example
    * 0
@@ -284,11 +313,13 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   dx?: number;
   /**
    * @remarks
-   * The value of the parameter can be an integer or a decimal.
+   * The meaning of this parameter varies depending on whether the value is an integer or a decimal:
    * 
-   * *   0: indicates that both the offset in pixels and the ratio of the vertical offset relative to the height of the target resolution are 0. This is the default value.
-   * *   An integer: the offset in pixels. Valid values: [1,4096].
-   * *   A decimal: the ratio of the vertical offset relative to the height of the target resolution. Valid values: (0,1).
+   * - 0 (default): The pixel offset is 0. The ratio of the vertical offset to the output video height is also 0.
+   * 
+   * - Integer: The offset in pixels (px). The value ranges from 1 to 4096.
+   * 
+   * - Decimal: The ratio of the vertical offset to the output video height. The value ranges from (0, 1).
    * 
    * @example
    * 0
@@ -296,9 +327,11 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   dy?: number;
   /**
    * @remarks
-   * The font transparency of the text watermark. Valid values: (0,1]. Default value: 1, which specifies that the text watermark is fully opaque.
+   * The font opacity of the text watermark. The value ranges from (0, 1]. The default value is 1, which means fully opaque.
    * 
-   * > This parameter takes effect only when the Type parameter is set to text.
+   * >Notice: 
+   * 
+   * This parameter is effective only when the `Type` parameter is set to `text`.
    * 
    * @example
    * 0.8
@@ -306,9 +339,11 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   fontApha?: number;
   /**
    * @remarks
-   * The color of the text watermark. You can specify a color name, such as "red" or "green", or an RGB color code. The default color is #000000.
+   * The font color of the watermark text. The format is #RRGGBB. The default value is #000000. You can also enter values such as "red" or "green".
    * 
-   * > This parameter takes effect only when the Type parameter is set to text.
+   * >Notice: 
+   * 
+   * This parameter is effective only when the `Type` parameter is set to `text`.
    * 
    * @example
    * red
@@ -316,14 +351,19 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   fontColor?: string;
   /**
    * @remarks
-   * The font of the text watermark. Valid values:
+   * The font name for the text watermark. Valid values:
    * 
-   * *   SourceHanSans-Regular (default)
-   * *   SourceHanSans-Bold
-   * *   SourceHanSerif-Regular
-   * *   SourceHanSerif-Bold
+   * - SourceHanSans-Regular (default)
    * 
-   * > This parameter takes effect only when the Type parameter is set to text.
+   * - SourceHanSans-Bold
+   * 
+   * - SourceHanSerif-Regular
+   * 
+   * - SourceHanSerif-Bold
+   * 
+   * >Notice: 
+   * 
+   * This parameter is effective only when the `Type` parameter is set to `text`.
    * 
    * @example
    * SourceHanSans-Bold
@@ -331,9 +371,11 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   fontName?: string;
   /**
    * @remarks
-   * The size of the text watermark. Default value: 16. The value must be an integer within the (4,120) range.
+   * The font size for the text watermark. The default value is 16. The value must be an integer in the range (4, 120).
    * 
-   * > This parameter takes effect only when the Type parameter is set to text.
+   * >Notice: 
+   * 
+   * This parameter is effective only when the `Type` parameter is set to `text`.
    * 
    * @example
    * 18
@@ -341,10 +383,11 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   fontSize?: number;
   /**
    * @remarks
-   * The height of the image watermark. By default, the height is the same as the height of the original watermark file. The value of the parameter can be an integer or a decimal.
+   * The height of the watermark image. By default, this is the height of the original watermark image. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
    * 
-   * *   An integer: the number of pixels excluding the height of the logo. Valid values: [1,4096].
-   * *   A decimal: the ratio relative to the height of the target resolution. Valid values: (0,1).
+   * - Integer: The height of the watermark in pixels (px). The value ranges from 1 to 4096.
+   * 
+   * - Decimal: The ratio of the watermark height to the output video height. The value ranges from (0, 1).
    * 
    * @example
    * 40
@@ -354,10 +397,13 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
    * @remarks
    * The reference position for adding the watermark. Valid values:
    * 
-   * *   topleft: the upper-left corner. This is the default value.
-   * *   topright: the upper-right corner.
-   * *   bottomright: the lower-right corner.
-   * *   bottomleft: the lower-left corner.
+   * - topleft (default): The top-left corner.
+   * 
+   * - topright: The top-right corner.
+   * 
+   * - bottomright: The bottom-right corner.
+   * 
+   * - bottomleft: The bottom-left corner.
    * 
    * @example
    * topleft
@@ -365,7 +411,7 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   referPos?: string;
   /**
    * @remarks
-   * The start time of watermarking (in seconds). By default, the watermark begins at the start time of the video.
+   * The start time for adding the watermark, in seconds (s). By default, the watermark is added from the beginning of the video.
    * 
    * @example
    * 0
@@ -375,8 +421,9 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
    * @remarks
    * The watermark type. Valid values:
    * 
-   * *   text: a text watermark. This is the default value.
-   * *   file: a still or animated image watermark.
+   * - text (default): A text watermark.
+   * 
+   * - file: An image or animated image watermark.
    * 
    * @example
    * text
@@ -384,22 +431,25 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URI of the watermark file. The watermark file can be a PNG or MOV file.
+   * The OSS URL of the watermark file. Supported formats are PNG and MOV.
    * 
-   * The URI is in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * The OSS URL must follow the format `oss://<bucket>/<object>`, where `<bucket>` is the name of an OSS bucket in the same region as the current project, and `<object>` is the full path of the file, including the file name extension.
    * 
-   * > This parameter takes effect only when the Type parameter is set to file.
+   * >Notice: 
+   * 
+   * This parameter is effective only when the `Type` parameter is set to `file`.
    * 
    * @example
-   * oss://test-bucket/watermark
+   * oss://test-bucket/watermark.jpg
    */
   URI?: string;
   /**
    * @remarks
-   * The width of the image watermark. By default, the width is the same as the width of the original watermark file. The value of the parameter can be an integer or a decimal.
+   * The width of the watermark image. By default, this is the width of the original watermark image. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
    * 
-   * *   An integer: the number of pixels excluding the width of the logo. Valid values: [1,4096].
-   * *   A decimal: the ratio relative to the width of the target resolution. Valid values: (0,1).
+   * - Integer: The width of the watermark in pixels (px). The value ranges from 1 to 4096.
+   * 
+   * - Decimal: The ratio of the watermark width to the output video width. The value ranges from (0, 1).
    * 
    * @example
    * 80
@@ -459,29 +509,27 @@ export class TargetVideoFilterVideoWatermarks extends $dara.Model {
 export class TargetVideoFilterVideo extends $dara.Model {
   /**
    * @remarks
-   * The configurations for blurring a rectangular area of the video. This parameter is used to remove logos from videos, such as TV channel logos.
+   * Blurs a rectangular area of the video to remove logos, station icons, and other elements.
    */
   delogos?: TargetVideoFilterVideoDelogos[];
   /**
    * @remarks
-   * The video anonymization settings.
+   * The video desensitization configuration.
    * 
-   * > 
+   * >Notice: 
    * 
-   * *   This parameter only applies to the CreateMediaConvertTask operation.
+   * - This parameter applies only to the CreateMediaConvertTask API.
    */
   desensitization?: TargetVideoFilterVideoDesensitization;
   /**
    * @remarks
-   * The video playback speed. Valid values: [0.5,1.0]. Default value: 1.0.
+   * The video playback speed setting. The value ranges from 0.5 to 1.0. The default value is 1.0.
    * 
-   * > 
+   * > - This is the ratio of the default playback speed of the transcoded media file to that of the source media file. This is not a high-speed transcoding feature.
    * 
-   * *   This parameter specifies the ratio of the playback speed of the output media file to the default playback speed of the source media file. It does not indicate transcoding acceleration.
+   * >Notice: 
    * 
-   * > 
-   * 
-   * *   This parameter only applies to the CreateMediaConvertTask operation.
+   * - This parameter applies only to the CreateMediaConvertTask API.
    * 
    * @example
    * 1.0
@@ -489,7 +537,7 @@ export class TargetVideoFilterVideo extends $dara.Model {
   speed?: number;
   /**
    * @remarks
-   * The video watermarks.
+   * A list of video watermarks.
    */
   watermarks?: TargetVideoFilterVideoWatermarks[];
   static names(): { [key: string]: string } {
@@ -531,10 +579,11 @@ export class TargetVideoFilterVideo extends $dara.Model {
 export class TargetVideoTranscodeVideo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable adaptation to resolution based on long and short sides. Valid values:
+   * Specifies whether to enable adaptive resolution for long and short edges. Valid values:
    * 
-   * *   true: The format of the **Resolution** parameter is `LongSide×ShortSide`. This is the default value.
-   * *   false: The format of the **Resolution** parameter is `Width×Height`.
+   * - true: Yes. In this case, the format for the **Resolution** parameter is `long edge × short edge`.
+   * 
+   * - false (default): No. In this case, the format for the **Resolution** parameter is `width × height`.
    * 
    * @example
    * true
@@ -542,7 +591,7 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   adaptiveResolutionDirection?: boolean;
   /**
    * @remarks
-   * The number of consecutive B frames. Default value: 3.
+   * The number of consecutive B-frames. The default value is 3.
    * 
    * @example
    * 3
@@ -550,9 +599,9 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   BFrames?: number;
   /**
    * @remarks
-   * The bitrate of the video stream. Unit: bit/s.
+   * The video stream bitrate in bits per second (bit/s).
    * 
-   * > This parameter and the **CRF** parameter are mutually exclusive. If you leave both the parameters empty, the **CRF** parameter with a value of 23 applies.
+   * > This parameter is mutually exclusive with **CRF**. If both this parameter and the **CRF** parameter are empty, the system encodes the video with a CRF value of 23.
    * 
    * @example
    * 128000
@@ -562,16 +611,19 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
    * @remarks
    * The video bitrate option. Valid values:
    * 
-   * *   fixed: always uses the target bitrate.
-   * *   adaptive: uses the source bitrate when the source bitrate is less than the target bitrate.
-   * *   fall: returns a failure when the source bitrate is less than the target bitrate.
+   * - fixed: Always uses the specified target video bitrate.
+   * 
+   * - adaptive: Uses the source video bitrate if it is lower than the specified target video bitrate.
+   * 
+   * - fall: The task fails if the source video bitrate is lower than the specified target video bitrate.
    * 
    * Default value:
    * 
-   * *   fixed for the CreateMediaConvert operation.
-   * *   adaptive for the GenerateVideoPlaylist operation.
+   * - For the CreateMediaConvert API, the default value is fixed.
    * 
-   * > This parameter must be used together with the **Bitrate** parameter.
+   * - For the GenerateVideoPlaylist API, the default value is adaptive.
+   * 
+   * > This parameter must be set together with the **Bitrate** parameter.
    * 
    * @example
    * fixed
@@ -579,9 +631,9 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   bitrateOption?: string;
   /**
    * @remarks
-   * The size of the buffer for decoding when the dynamic bitrate is used. Unit: bit/s.
+   * The size of the decoding buffer for dynamic bitrate, in bits per second (bps).
    * 
-   * > This parameter must be used together with the **CRF** parameter.
+   * > This parameter is effective only when used with the **CRF** parameter.
    * 
    * @example
    * 4000000
@@ -589,7 +641,7 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   bufferSize?: number;
   /**
    * @remarks
-   * The constant rate factor (CRF) of the video. The value of this parameter falls within the [0,51] range. A greater indicates lower quality. We recommend that you specify a value within the [18,38] range. This parameter and the **Bitrate** parameter are mutually exclusive.
+   * Specifies the Constant Rate Factor (CRF) mode. This parameter is mutually exclusive with **Bitrate**. The value ranges from 0 to 51. A larger value indicates lower image quality. A value from 18 to 38 is recommended.
    * 
    * @example
    * 18
@@ -597,15 +649,18 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   CRF?: number;
   /**
    * @remarks
-   * The video coding format. Valid values:
+   * The video encoding format. Valid values:
    * 
-   * *   copy, h264, h265, and vp9 for the CreateMediaConvert operation. The default value is copy.
+   * - For the CreateMediaConvert API: copy (default), h264, h265, and vp9.
    * 
-   *     **
    * 
-   *     **Warning **When you set the parameter to copy, the video stream is directly copied into the output file and all other parameters in TranscodeVideo do not take effect. The copy value is commonly used in container format conversion scenarios. You cannot use this value in video merging scenarios.
+   *   >Warning: 
    * 
-   * *   h264 and h265 for the GenerateVideoPlaylist operation. The default value is h264.
+   *   If you set this parameter to copy, the system directly copies the video stream to the output file. In this case, the other parameters under **TranscodeVideo** are invalid. The copy value cannot be used for video concatenation and is typically used for container format conversion.
+   * 
+   *   
+   * 
+   * - For the GenerateVideoPlaylist API: h264 (default) and h265.
    * 
    * @example
    * h264
@@ -613,7 +668,7 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   codec?: string;
   /**
    * @remarks
-   * The target frame rate. By default, the target frame rate is the same as the source frame rate.
+   * The video frame rate. By default, this is the same as the source video.
    * 
    * @example
    * 25
@@ -623,16 +678,19 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
    * @remarks
    * The frame rate option. Valid values:
    * 
-   * *   fixed: always uses the target frame rate.
-   * *   adaptive: uses the source frame rate when the source frame rate is less than the target frame rate.
-   * *   fall: returns a failure if the source frame rate is less than the target frame rate.
+   * - fixed: Always uses the specified target video frame rate.
+   * 
+   * - adaptive: Uses the source video frame rate if it is lower than the specified target video frame rate.
+   * 
+   * - fall: The task fails if the source video frame rate is lower than the specified target video frame rate.
    * 
    * Default value:
    * 
-   * *   fixed for the CreateMediaConvert operation.
-   * *   adaptive for the GenerateVideoPlaylist operation.
+   * - For the CreateMediaConvert API, the default value is fixed.
    * 
-   * > This parameter must be used together with the **FrameRate** parameter.
+   * - For the GenerateVideoPlaylist API, the default value is adaptive.
+   * 
+   * > This parameter must be set together with the **FrameRate** parameter.
    * 
    * @example
    * fixed
@@ -640,9 +698,9 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   frameRateOption?: string;
   /**
    * @remarks
-   * The keyframe interval. Default value: 150.
+   * The size of the Group of Pictures (GOP) in frames. The default value is 150.
    * 
-   * > This parameter is not available to the GenerateVideoPlaylist operation.
+   * > This parameter is not supported by the GenerateVideoPlaylist API.
    * 
    * @example
    * 60
@@ -650,9 +708,9 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   GOPSize?: number;
   /**
    * @remarks
-   * The maximum bitrate when the dynamic bitrate is used. If you specify this parameter, you must also specify the BufferSize parameter.
+   * The maximum bitrate limit for dynamic bitrate. When you use this parameter, you must also specify the BufferSize parameter.
    * 
-   * > This parameter must be used together with the **CRF** parameter.
+   * > This parameter is effective only when used with the **CRF** parameter.
    * 
    * @example
    * 128000
@@ -660,17 +718,23 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   maxBitrate?: number;
   /**
    * @remarks
-   * The pixel format. By default, the pixel format matches that of the source video. Valid values:
+   * The pixel format. By default, this is the same as the source video. Valid values:
    * 
-   * *   yuv420p
-   * *   yuv422p
-   * *   yuv444p
-   * *   yuv420p10le
-   * *   yuv422p10le
-   * *   yuv444p10le
-   * *   yuva420p
+   * - yuv420p
    * 
-   * > You can set the parameter to yuva420p only when you call the CreateMediaConvert operation and set the **Codec** parameter to vp9.
+   * - yuv422p
+   * 
+   * - yuv444p
+   * 
+   * - yuv420p10le
+   * 
+   * - yuv422p10le
+   * 
+   * - yuv444p10le
+   * 
+   * - yuva420p
+   * 
+   * > The yuva420p value is available only for the CreateMediaConvert API, and the **Codec** parameter must be set to vp9.
    * 
    * @example
    * yuv420p
@@ -678,7 +742,7 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   pixelFormat?: string;
   /**
    * @remarks
-   * The number of reference frames. Default value: 2.
+   * The number of reference frames. The default value is 2.
    * 
    * @example
    * 2
@@ -686,12 +750,13 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   refs?: number;
   /**
    * @remarks
-   * The target resolution in the `WidthxHeight` format. By default, the target resolution is the same as the source resolution. You can specify both width and height, or only one of them. You can use this parameter together with the **AdaptiveResolutionDirection** parameter to set both the long side and short side or one of them. The value of each side falls within the range of (0,4096].
+   * The resolution of the output video in the format of `width × height`. By default, this is the same as the playback resolution of the source video. You can configure both width and height, or only width or height. You can also use this parameter with the **AdaptiveResolutionDirection** parameter to configure both the long and short edges, or only the long or short edge. The value for a single edge ranges from (0, 4096].
    * 
-   * *   Example 1: If **AdaptiveResolutionDirection** is set to false, `1280x720` specifies a width of 1280 pixels and a height of 720 pixels, `1280x` specifies a width of 1280 pixels and the same height as the source video, and `x720` specifies a height of 720 pixels and the same width as the source video.
-   * *   Example 2: If **AdaptiveResolutionDirection** is set to true, `1280x720` specifies a long side of 1280 pixels and a short side of 720 pixels, `1280x` specifies a long side of 1280 pixels and the same short side as the source video, and `x720` specifies a short side of 720 pixels and the same long side as the source video.
+   * - Example 1: If **AdaptiveResolutionDirection** is set to false, `1280x720` sets the width to 1280 and the height to 720. `1280x` sets the width to 1280 and keeps the height the same as the source video. `x720` sets the height to 720 and keeps the width the same as the source video.
    * 
-   * > If the source video contains rotation information, the width, height, long side, and short side depend on the frame after rotation (the playback resolution).
+   * - Example 2: If **AdaptiveResolutionDirection** is set to true, `1280x720` sets the long edge to 1280 and the short edge to 720. `1280x` sets the long edge to 1280 and keeps the short edge the same as the source video. `x720` sets the short edge to 720 and keeps the long edge the same as the source video.
+   * 
+   * > If the source video contains rotation information, the width, height, long edge, and short edge are determined based on the rotated video, which means the playback resolution is used.
    * 
    * @example
    * 640x480
@@ -701,16 +766,19 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
    * @remarks
    * The resolution option. Valid values:
    * 
-   * *   fixed: always uses the target video resolution.
-   * *   adaptive: uses the source video resolution when the source video resolution is less than the target video resolution.
-   * *   fall: returns a failure when the source video resolution is less than the target video resolution.
+   * - fixed: Always uses the specified target video resolution.
+   * 
+   * - adaptive: Uses the source video resolution if its area is smaller than the area of the specified target video resolution.
+   * 
+   * - fall: The task fails if the area of the source video resolution is smaller than the area of the specified target video resolution.
    * 
    * Default value:
    * 
-   * *   fixed for the CreateMediaConvert operation.
-   * *   adaptive for the GenerateVideoPlaylist operation.
+   * - For the CreateMediaConvert API, the default value is fixed.
    * 
-   * > This parameter must be used together with the **Resolution** parameter.
+   * - For the GenerateVideoPlaylist API, the default value is adaptive.
+   * 
+   * > This parameter must be set together with the **Resolution** parameter.
    * 
    * @example
    * fixed
@@ -718,12 +786,15 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   resolutionOption?: string;
   /**
    * @remarks
-   * The degrees to rotate the video clockwise. Valid values:
+   * The clockwise rotation angle of the video in degrees. Valid values:
    * 
-   * *   0 (default)
-   * *   90
-   * *   180
-   * *   270
+   * - 0 (default)
+   * 
+   * - 90
+   * 
+   * - 180
+   * 
+   * - 270
    * 
    * @example
    * 90
@@ -731,19 +802,39 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   rotation?: number;
   /**
    * @remarks
-   * The resizing mode. Valid values:
+   * The scaling mode. Valid values:
    * 
-   * *   stretch: forcibly stretches the video based on the specified width and height or long side and short side to fill any remaining space. This is the default value.
-   * *   crop: proportionally resizes the video to the minimum resolution outside the rectangular shape based on the specified width and height or long side and short side, and crops the parts beyond the rectangular shape from the center.
-   * *   fill: proportionally resizes the video to the maximum resolution within the rectangular shape based on the specified width and height or long side and short side, and fills empty space with black from the center.
-   * *   fit: proportionally resizes the video to the maximum resolution that fits within the specified width and height or long side and short side.
+   * - stretch (default): Fixes the width and height or the long and short edges, and forces scaling to stretch and fill any blank areas.
    * 
-   * > This parameter must be used together with the **Resolution** parameter.
+   * - crop: Scales the video proportionally to the minimum resolution that extends beyond the specified rectangle (defined by width/height or long/short edges), and then center-crops the excess parts.
+   * 
+   * - fill: Scales the video proportionally to the maximum resolution that fits within the specified rectangle (defined by width/height or long/short edges), and then center-fills any blank areas with black.
+   * 
+   * - fit: Scales the video proportionally to the maximum resolution that fits within the specified rectangle (defined by width/height or long/short edges).
+   * 
+   * > This parameter must be set together with the **Resolution** parameter.
    * 
    * @example
    * crop
    */
   scaleType?: string;
+  /**
+   * @remarks
+   * Enables the Narrowband HD mode. Set the value as follows:
+   * 
+   * 0: The default value. Disables the mode.
+   * 
+   * 1: Enables transcoding in Narrowband HD mode.
+   * 
+   * > For best results, use the officially recommended Bitrate or CRF parameters for video transcoding and encoding in Narrowband HD mode.
+   * 
+   * >Notice: 
+   * 
+   * Narrowband HD only supports the h.264/h.265 format, yuv420p, and an 8-bit depth. It does not support transcoding output for multiple target videos or video concatenation. For more information, see [Introduction to Narrowband HD](https://help.aliyun.com/document_detail/2984556.html).
+   * 
+   * @example
+   * 0
+   */
   videoSlim?: number;
   static names(): { [key: string]: string } {
     return {
@@ -805,8 +896,9 @@ export class TargetVideo extends $dara.Model {
    * @remarks
    * Specifies whether to disable video stream generation. Valid values:
    * 
-   * *   true: disables video stream generation. No video stream is included in the output file.
-   * *   false: does not disable video stream generation. This is the default value.
+   * - true: Disables video stream generation. The output file will not contain a video stream.
+   * 
+   * - false (default): Enables video stream generation.
    * 
    * @example
    * false
@@ -814,25 +906,25 @@ export class TargetVideo extends $dara.Model {
   disableVideo?: boolean;
   /**
    * @remarks
-   * The video processing parameters. This parameter is invalid if **TranscodeVideo** is left empty or **TranscodeVideo.Codec** is set to copy.
+   * The video processing parameters. This parameter is invalid if **TranscodeVideo** is empty or if **TranscodeVideo.Codec** is set to copy.
    * 
-   * > This parameter is not available to the GenerateVideoPlaylist operation.
+   * > You cannot set this parameter for the GenerateVideoPlaylist API.
    */
   filterVideo?: TargetVideoFilterVideo;
   /**
    * @remarks
-   * The index numbers of video streams. If you do not specify this parameter, the first video stream (the one with the smallest index number) is processed. If the array contains an element greater than 100, all video streams are processed.
+   * A list of index numbers for the source video streams to process. If you leave this parameter empty (default), the system processes the video stream with the smallest index number (the first video stream). If you set the index number to a value greater than 100, the system processes all video streams.
    * 
-   * *   For example, you can set the parameter to `[0,1]` to process video streams with index numbers 0 and 1, `[1]` to process only the video stream with the index number 1, and `[101]` to process all video streams.
+   * - Example: `[0,1]` processes video streams with index numbers 0 and 1. `[1]` processes the video stream with index number 1. `[101]` processes all video streams.
    * 
-   * > If you specify an index number but no video stream with the index number is found, the index number is ignored.
+   * > The system only processes video streams with existing index numbers. If a video stream corresponding to an index number does not exist, the system ignores that index number.
    */
   stream?: number[];
   /**
    * @remarks
-   * The video transcoding parameters. If you do not specify this parameter, no video streams are included in the output file.
+   * The video transcoding parameters. An empty value disables video processing. The output file will not contain a video stream.
    * 
-   * > We recommend that you do not use this parameter to disable video stream generation.
+   * > Do not disable video processing by leaving this parameter empty.
    */
   transcodeVideo?: TargetVideoTranscodeVideo;
   static names(): { [key: string]: string } {

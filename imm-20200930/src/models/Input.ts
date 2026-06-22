@@ -6,7 +6,7 @@ import { InputOSS } from "./InputOss";
 export class Input extends $dara.Model {
   /**
    * @remarks
-   * The input data source from Object Storage Service (OSS).
+   * The OSS data source.
    */
   OSS?: InputOSS;
   static names(): { [key: string]: string } {

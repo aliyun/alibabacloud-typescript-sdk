@@ -7,9 +7,25 @@ import { DocumentParseSummaryOption } from "./DocumentParseSummaryOption";
 
 
 export class DocumentParseOption extends $dara.Model {
+  /**
+   * @remarks
+   * Document parsing keyword extraction options
+   */
   keyword?: DocumentParseKeywordOption;
+  /**
+   * @remarks
+   * Document parsing guidance options
+   */
   narrator?: DocumentParseNarratorOption;
+  /**
+   * @remarks
+   * Document parsing question generation options
+   */
   question?: DocumentParseQuestionOption;
+  /**
+   * @remarks
+   * Document parsing summary options
+   */
   summary?: DocumentParseSummaryOption;
   static names(): { [key: string]: string } {
     return {

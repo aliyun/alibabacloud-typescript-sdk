@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDRMLicenseRequest extends $dara.Model {
-  /**
-   * @example
-   * AESzB8SQgpACioSEJ3yqiFwruAOUgIvlCx*****
-   */
   keyId?: string;
-  /**
-   * @example
-   * http://1111111111.mns.cn-hangzhou.aliyuncs.com
-   */
   notifyEndpoint?: string;
-  /**
-   * @example
-   * topic1
-   */
   notifyTopicName?: string;
-  /**
-   * @example
-   * immtest
-   */
   projectName?: string;
-  /**
-   * @example
-   * widevine
-   */
   protectionSystem?: string;
   static names(): { [key: string]: string } {
     return {

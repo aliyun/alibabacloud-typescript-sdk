@@ -16,7 +16,7 @@ export class Message extends $dara.Model {
    * The content of the question.
    * 
    * @example
-   * Hello, which park is closest to me?
+   * 你好，哪个公园距离我最近？
    */
   content?: string;
   /**
@@ -56,7 +56,7 @@ export class Message extends $dara.Model {
    * The answer.
    * 
    * @example
-   * Hello, I\\"m your assistant.
+   * 你好，我是你的助手
    */
   reply?: string;
   /**
@@ -96,7 +96,7 @@ export class Message extends $dara.Model {
    * The topic in the question.
    * 
    * @example
-   * The value varies based on the value of the AssistantType parameter.
+   * 根据 AssistantType 不同具体含义不同。
    */
   topic?: string;
   static names(): { [key: string]: string } {

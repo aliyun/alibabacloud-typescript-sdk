@@ -6,6 +6,9 @@ export class EncodeBlindWatermarkRequest extends $dara.Model {
   /**
    * @remarks
    * The text content of watermarks. It can be up to 256 characters in length.
+   * 
+   * @example
+   * Copyright Alibaba Cloud
    */
   content?: string;
   /**

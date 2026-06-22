@@ -12,6 +12,9 @@ export class DetectImageTextsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The full Optical Character Recognition (OCR) text, which is spliced by using the content of OCRContents.
+   * 
+   * @example
+   * Intelligent Media Management.
    */
   OCRTexts?: string;
   /**

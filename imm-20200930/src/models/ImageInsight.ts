@@ -9,6 +9,9 @@ export class ImageInsight extends $dara.Model {
    * 
    * >  Not supported.
    * 
+   * @example
+   * 无。
+   * 
    * **if can be null:**
    * true
    */
@@ -16,6 +19,9 @@ export class ImageInsight extends $dara.Model {
   /**
    * @remarks
    * The description of the image.
+   * 
+   * @example
+   * 图片中有一人，穿着深色西装外套，内搭白色衬衫。背景为渐变的浅蓝色至灰色。
    * 
    * **if can be null:**
    * true

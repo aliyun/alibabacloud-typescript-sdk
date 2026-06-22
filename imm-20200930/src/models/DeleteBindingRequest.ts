@@ -8,7 +8,7 @@ export class DeleteBindingRequest extends $dara.Model {
    * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * @example
-   * dataset001
+   * test-dataset
    */
   datasetName?: string;
   /**
@@ -18,17 +18,17 @@ export class DeleteBindingRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
    * The URI of the OSS bucket to which the dataset is bound.
    * 
-   * Specify the value in the oss://${Bucket} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project.
+   * Specify the value in the oss\\://${Bucket} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project.
    * 
    * @example
-   * oss://examplebucket
+   * oss://test-bucket
    */
   URI?: string;
   static names(): { [key: string]: string } {

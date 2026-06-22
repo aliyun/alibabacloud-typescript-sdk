@@ -10,7 +10,7 @@ export class RemoveStoryFilesRequestFiles extends $dara.Model {
    * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the files that have an extension.
    * 
    * @example
-   * oss://bucket1/object
+   * oss://test-bucket/test-object
    */
   URI?: string;
   static names(): { [key: string]: string } {

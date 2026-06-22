@@ -57,12 +57,12 @@ export class GetImageModerationResultResponseBodyModerationResultFramesBlockFram
 export class GetImageModerationResultResponseBodyModerationResultFrames extends $dara.Model {
   /**
    * @remarks
-   * The violated frames.
+   * The frames that violate content policies.
    */
   blockFrames?: GetImageModerationResultResponseBodyModerationResultFramesBlockFrames[];
   /**
    * @remarks
-   * The total number of detected frames.
+   * The total number of frames that were moderated.
    * 
    * @example
    * 30
@@ -97,21 +97,23 @@ export class GetImageModerationResultResponseBodyModerationResultFrames extends 
 export class GetImageModerationResultResponseBodyModerationResult extends $dara.Model {
   /**
    * @remarks
-   * List of categories.
+   * The list of categories.
    */
   categories?: string[];
   /**
    * @remarks
-   * The information about video and motion detection frames.
+   * The frame information for video or animated image moderation.
    */
   frames?: GetImageModerationResultResponseBodyModerationResultFrames;
   /**
    * @remarks
-   * The recommended operation. Valid values:
+   * The recommended action. Valid values:
    * 
-   * *   pass: The image has passed the check. No action is required.
-   * *   review: The image contains suspected violations and requires human review.
-   * *   block: The image contains violations. Further actions, such as deleting or blocking the image, are recommended.
+   * - pass: The image is normal. No further action is required.
+   * 
+   * - review: The moderation result is uncertain. Manual review is required.
+   * 
+   * - block: The image violates content policies. Further action is recommended, such as deleting or restricting the image.
    * 
    * @example
    * block
@@ -119,7 +121,7 @@ export class GetImageModerationResultResponseBodyModerationResult extends $dara.
   suggestion?: string;
   /**
    * @remarks
-   * The OSS URI of the file. The URI follows the oss://${bucketname}/${objectname} format. bucketname indicates the name of an OSS bucket that is in the same region as the current project, and objectname is the file path.
+   * The storage location of the OSS file. The address follows the format oss://${bucketname}/${objectname}, where bucketname is the name of an OSS bucket in the same region as the current project, and objectname is the file path.
    * 
    * @example
    * oss://test-bucket/test-object
@@ -169,7 +171,7 @@ export class GetImageModerationResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The end time of the task. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
    * 
    * @example
    * 2023-04-03T09:44:32Z
@@ -193,12 +195,12 @@ export class GetImageModerationResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The result of the image compliance detection task.
+   * The content moderation result.
    */
   moderationResult?: GetImageModerationResultResponseBodyModerationResult;
   /**
    * @remarks
-   * The name of the project.
+   * The project name.
    * 
    * @example
    * test-project
@@ -214,7 +216,7 @@ export class GetImageModerationResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The start time of the task. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
    * 
    * @example
    * 2023-04-03T09:44:31.029Z
@@ -222,11 +224,11 @@ export class GetImageModerationResultResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The running status of the task. Valid values:
    * 
-   * *   Running
-   * *   Succeeded
-   * *   Failed
+   * - Running: The task is running.
+   * - Succeeded: The task is completed successfully.
+   * - Failed: The task failed.
    * 
    * @example
    * Succeeded
@@ -242,7 +244,7 @@ export class GetImageModerationResultResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * ImageModeration
@@ -250,7 +252,7 @@ export class GetImageModerationResultResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The custom information.
+   * The custom user data.
    * 
    * @example
    * {

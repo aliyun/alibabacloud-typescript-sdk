@@ -10,7 +10,7 @@ export class DeleteStoryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dataset001
+   * test-dataset
    */
   datasetName?: string;
   /**
@@ -30,7 +30,7 @@ export class DeleteStoryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   static names(): { [key: string]: string } {

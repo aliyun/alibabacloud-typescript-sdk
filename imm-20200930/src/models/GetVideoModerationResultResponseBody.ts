@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames extends $dara.Model {
   /**
    * @remarks
-   * The label of the violation.
+   * The violation label.
    * 
    * @example
    * {"teat":"val"}
@@ -21,7 +21,7 @@ export class GetVideoModerationResultResponseBodyModerationResultFramesBlockFram
   offset?: number;
   /**
    * @remarks
-   * The confidence level of the violation.
+   * The confidence score of the violation.
    * 
    * @example
    * 10
@@ -55,12 +55,12 @@ export class GetVideoModerationResultResponseBodyModerationResultFramesBlockFram
 export class GetVideoModerationResultResponseBodyModerationResultFrames extends $dara.Model {
   /**
    * @remarks
-   * The information about violated frames.
+   * The frames that contain violations.
    */
   blockFrames?: GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames[];
   /**
    * @remarks
-   * The total number of detected frames.
+   * The total number of frames inspected.
    * 
    * @example
    * 12
@@ -100,16 +100,16 @@ export class GetVideoModerationResultResponseBodyModerationResult extends $dara.
   categories?: string[];
   /**
    * @remarks
-   * The information about video and motion detection frames.
+   * The frame-related information for video and animated image moderation.
    */
   frames?: GetVideoModerationResultResponseBodyModerationResultFrames;
   /**
    * @remarks
-   * The recommended operation. Valid values:
+   * The moderation result suggestion. Valid values:
    * 
-   * *   pass: The image has passed the check. No action is required.
-   * *   review: The image contains suspected violations and requires human review.
-   * *   block: The image contains violations. Further actions, such as deleting or blocking the image, are recommended.
+   * - **block**: Violation detected.
+   * - **review**: Suspected violation.
+   * - **pass**: Passed.
    * 
    * @example
    * block
@@ -117,7 +117,7 @@ export class GetVideoModerationResultResponseBodyModerationResult extends $dara.
   suggestion?: string;
   /**
    * @remarks
-   * The OSS URI of the file. The URI follows the oss://${bucketname}/${objectname} format. bucketname indicates the name of an OSS bucket that is in the same region as the current project, and objectname is the file path.
+   * The file URI. The storage address of the OSS file. The address follows the format `oss://${bucketname}/${objectname}`, where `bucketname` is the name of an OSS bucket in the same region as the current project, and `objectname` is the file path.
    * 
    * @example
    * oss://test-bucket/test-object
@@ -159,7 +159,7 @@ export class GetVideoModerationResultResponseBodyModerationResult extends $dara.
 export class GetVideoModerationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code of the task.
+   * The task error code.
    * 
    * @example
    * ResourceNotFound
@@ -167,7 +167,7 @@ export class GetVideoModerationResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The time when the task ended. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
    * 
    * @example
    * 2023-04-03T10:20:56.87Z
@@ -183,7 +183,7 @@ export class GetVideoModerationResultResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The error message of the task.
+   * The task error message.
    * 
    * @example
    * The specified resource TaskId is not found.
@@ -191,7 +191,7 @@ export class GetVideoModerationResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The result of the image compliance detection task.
+   * The content moderation details.
    */
   moderationResult?: GetVideoModerationResultResponseBodyModerationResult;
   /**
@@ -212,7 +212,7 @@ export class GetVideoModerationResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The time when the task started. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
    * 
    * @example
    * 2023-04-03T10:20:41.432Z
@@ -222,9 +222,9 @@ export class GetVideoModerationResultResponseBody extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   Running: The task is running.
-   * *   Succeeded: The task is successful.
-   * *   Failed: The task failed.
+   * - Running: The task is running.
+   * - Succeeded: The task succeeded.
+   * - Failed: The task failed.
    * 
    * @example
    * Succeeded
@@ -240,7 +240,7 @@ export class GetVideoModerationResultResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * VideoModeration
@@ -248,7 +248,7 @@ export class GetVideoModerationResultResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * {

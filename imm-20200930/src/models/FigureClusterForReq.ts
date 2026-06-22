@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FigureClusterForReqCoverFigures extends $dara.Model {
   /**
    * @remarks
-   * The person ID.
+   * The figure ID.
    * 
    * @example
    * 2cb3c51e-b406-4b0c-af1b-897d88e1****
@@ -35,7 +35,7 @@ export class FigureClusterForReqCoverFigures extends $dara.Model {
 export class FigureClusterForReqCover extends $dara.Model {
   /**
    * @remarks
-   * The persons.
+   * The figure list.
    */
   figures?: FigureClusterForReqCoverFigures[];
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class FigureClusterForReqCover extends $dara.Model {
 export class FigureClusterForReq extends $dara.Model {
   /**
    * @remarks
-   * The cover image.
+   * The cover of the cluster.
    */
   cover?: FigureClusterForReqCover;
   /**
@@ -78,7 +78,7 @@ export class FigureClusterForReq extends $dara.Model {
   customId?: string;
   /**
    * @remarks
-   * The custom labels. You can search for the cluster by label.
+   * A key-value map of custom labels that can be used to search for the figure cluster.
    * 
    * @example
    * {"Bucket": "examplebucket"}
@@ -86,7 +86,7 @@ export class FigureClusterForReq extends $dara.Model {
   customLabels?: { [key: string]: any };
   /**
    * @remarks
-   * The version of the metadata lock. A metadata lock version can be obtained by using a get or list operation. If you include the MetaLockVersion parameter in a request to update the cluster, the server checks consistency between the MetaLockVersion parameter value sent in the request and the one on the server side and updates the cluster only when they are consistent. This parameter is used to prevent update conflicts in concurrent scenarios. The initial version is 0. The version is automatically increased by 1 after each successful update.
+   * The metadata lock version. This parameter enables optimistic locking to prevent conflicting updates during high concurrency. To ensure data consistency, pass the current MetaLockVersion value when updating a figure cluster. You can retrieve this value from a Get or List operation. The service proceeds with the update only if the provided version matches the system\\"s current version. The initial value is 0 and is incremented by 1 after each successful update.
    * 
    * @example
    * 1
@@ -94,7 +94,7 @@ export class FigureClusterForReq extends $dara.Model {
   metaLockVersion?: number;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * abc
@@ -102,7 +102,7 @@ export class FigureClusterForReq extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the face cluster.
+   * The object ID of the cluster.
    * 
    * @example
    * Cluster-99b1c333-86dc-45da-8c6****

@@ -10,7 +10,7 @@ export class SemanticQueryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * immDatatest
+   * test-dataset
    */
   datasetName?: string;
   /**
@@ -18,7 +18,7 @@ export class SemanticQueryRequest extends $dara.Model {
    * The maximum number of entries to return. Valid values: 1 to 1000.
    * 
    * @example
-   * 10
+   * 20
    */
   maxResults?: number;
   /**
@@ -33,7 +33,7 @@ export class SemanticQueryRequest extends $dara.Model {
    * This parameter is no longer available.
    * 
    * @example
-   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   * Reserved. Not supported yet.
    */
   nextToken?: string;
   /**
@@ -43,7 +43,7 @@ export class SemanticQueryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   /**
@@ -57,9 +57,9 @@ export class SemanticQueryRequest extends $dara.Model {
   /**
    * @remarks
    * > Either this parameter or the Query parameter must be specified. This parameter is valid only for image searches on datasets configured with a search-by-image workflow.
-   * >
+   * 
    * URI of the source data for retrieval.
-   * The URI must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
+   * The URI must be in the oss\\://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
    * 
    * Contact us if you need to configure a workflow template.
    * 
@@ -69,7 +69,7 @@ export class SemanticQueryRequest extends $dara.Model {
   sourceURI?: string;
   /**
    * @remarks
-   * >  Either this parameter or the SourceURI parameter must be specified.
+   * > Either this parameter or the SourceURI parameter must be specified.
    * 
    * The content of the query that you input.
    */

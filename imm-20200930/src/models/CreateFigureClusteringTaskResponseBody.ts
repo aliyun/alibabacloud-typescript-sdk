@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFigureClusteringTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The event ID.
+   * The ID of the event.
    * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16****
@@ -13,7 +13,7 @@ export class CreateFigureClusteringTaskResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
@@ -21,7 +21,7 @@ export class CreateFigureClusteringTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * formatconvert-00bec802-073a-4b61-ba3b-39bc****

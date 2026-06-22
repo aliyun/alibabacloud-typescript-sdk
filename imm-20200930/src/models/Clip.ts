@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Clip extends $dara.Model {
+  /**
+   * @remarks
+   * The time range of the event clip
+   */
   timeRange?: number[];
   static names(): { [key: string]: string } {
     return {

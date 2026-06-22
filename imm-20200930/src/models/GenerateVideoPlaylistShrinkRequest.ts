@@ -5,34 +5,35 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * **If you have no special requirements, leave this parameter empty.**
+   * **If you do not have special requirements, leave this parameter empty.**
    * 
-   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   * The chained authorization configuration. This parameter is not required. For more information, see [Use chained authorization to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfigShrink?: string;
   /**
    * @remarks
-   * The OSS path of the master playlist.
+   * The OSS URI of the Master Playlist.
    * 
-   * The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that is suffixed with .m3u8.
+   * The OSS URI must be in the format of oss\\://${Bucket}/${Object}. ${Bucket} is the name of the OSS bucket that is in the same region as the current project. ${Object} is the full path of the file with the .m3u8 file name extension.
    * 
-   * >  If a playlist contains subtitles or multiple outputs, the MasterURI parameter is required and the URI of subtitle files or outputs must be in the directory specified by the MasterURI parameter or its subdirectory.
+   * > If the playlist has subtitle inputs or multiple target outputs, MasterURI is required. The subtitle URI or target URI must be in the same directory as or a subdirectory of the directory specified by MasterURI.
    * 
    * @example
-   * oss://bucket/object/master.m3u8
+   * oss://test-bucket/test-object/master.m3u8
    */
   masterURI?: string;
   /**
    * @remarks
-   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   * The message notification configuration. For more information, click Notification. For more information about the format of asynchronous notification messages, see [Asynchronous notification message format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
    * @remarks
-   * The overwrite policy when the media playlist exists. Valid values:
+   * The policy to overwrite an existing Media Playlist. Valid values:
    * 
-   * *   overwrite (default): overwrites an existing media playlist.
-   * *   skip-existing: skips generation and retains the existing media playlist.
+   * - overwrite (default): Overwrites the existing Media Playlist.
+   * 
+   * - skip-existing: Skips the generation and retains the existing Media Playlist.
    * 
    * @example
    * overwrite
@@ -40,7 +41,7 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   overwritePolicy?: string;
   /**
    * @remarks
-   * The project name.[](~~478153~~)
+   * The project name. For more information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -50,12 +51,13 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The period of time during which the playlist is generated. Unit: seconds.
+   * The duration for which the playlist is generated. Unit: seconds (s). Valid values:
    * 
-   * *   If you set this parameter to 0 (default) or leave this parameter empty, a playlist is generated until the end time of the source video.
-   * *   If you set this parameter to a value greater than 0, a playlist is generated for the specified period of time from the start time that you specify.
+   * - 0 (default) or empty: continues to the end of the source video.
    * 
-   * >  If you set this parameter to a value that exceeds the end time of a source video, use the default value.
+   * - Greater than 0: lasts for the specified duration from the start time.
+   * 
+   * > If the specified duration extends beyond the end of the source video, the default value is used.
    * 
    * @example
    * 0
@@ -63,12 +65,13 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   sourceDuration?: number;
   /**
    * @remarks
-   * The time when the playlist starts to generate. Unit: seconds.
+   * The start time for generating the playlist. Unit: seconds (s). Valid values:
    * 
-   * *   If you set this parameter to 0 (default) or leave this parameter empty, the start time of the source video is used as the time when a playlist starts to generate.
-   * *   If you set this parameter to a value greater than 0, the time when a playlist starts to generate is the specified point in time.
+   * - 0 (default) or empty: starts from the beginning of the source video.
    * 
-   * >  If you use this parameter together with the **SourceDuration** parameter, a playlist can be generated based on the partial content of a source video.
+   * - Greater than 0: starts from the specified time point in the source video.
+   * 
+   * > You can set this parameter together with the **SourceDuration** parameter to generate a playlist for a specific part of the source video.
    * 
    * @example
    * 0
@@ -76,26 +79,26 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   sourceStartTime?: number;
   /**
    * @remarks
-   * The subtitle files. By default, this parameter is left empty. Up to two subtitle files are supported.
+   * The list of subtitles to add. The default value is empty. You can add up to two subtitles.
    */
   sourceSubtitlesShrink?: string;
   /**
    * @remarks
-   * The OSS path of the video file.
+   * The OSS URI of the video.
    * 
-   * The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
+   * The OSS URI must be in the format of oss\\://${Bucket}/${Object}. ${Bucket} is the name of the OSS bucket that is in the same region as the current project. ${Object} is the full path of the file, including the file name extension.
    * 
-   * >  Only OSS buckets of the Standard storage class are supported. OSS buckets for which hotlink protection whitelists are configured are not supported.
+   * > Only OSS Standard storage buckets are supported. Buckets with hotlink protection whitelists are not supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * oss://imm-test/testcases/video.mp4
+   * oss://test-bucket/test-source-object/video.mp4
    */
   sourceURI?: string;
   /**
    * @remarks
-   * The [tags](https://help.aliyun.com/document_detail/106678.html) that you want to add to a TS file in OSS. You can use tags to manage the lifecycles of TS files in OSS.
+   * Adds OSS object [tags](https://help.aliyun.com/document_detail/106678.html) to the generated TS files. You can use tags to control the lifecycle of OSS files.
    * 
    * @example
    * {"key1": "value1", "key2": "value2"}
@@ -103,16 +106,16 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The array of live transcoding playlists. The maximum length of the array is 6. Each element corresponds to at most one video media playlist and one or more subtitle media playlists.
+   * An array of live transcoding playlists. The maximum array length is 6. Each target corresponds to a maximum of one video Media Playlist and one or more subtitle Media Playlists.
    * 
-   * >  If the array contains more than one element, the **MasterURI** parameter cannot be left empty.
+   * > If you configure more than one target, the **MasterURI** parameter must not be empty.
    * 
    * This parameter is required.
    */
   targetsShrink?: string;
   /**
    * @remarks
-   * The custom user information, which is returned in asynchronous notifications to help you handle the notifications in the system. The maximum length of a notification is 2048 bytes.
+   * The custom information. This information is returned in the asynchronous notification message to help you associate the message with your services. The maximum length is 2,048 bytes.
    * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}

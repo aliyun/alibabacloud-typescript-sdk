@@ -4,16 +4,22 @@ import { PersonReferenceConfig } from "./PersonReferenceConfig";
 
 
 export class VideoInsightsCaptionConfig extends $dara.Model {
+  enable?: boolean;
   personReference?: PersonReferenceConfig;
+  prompt?: string;
   static names(): { [key: string]: string } {
     return {
+      enable: 'Enable',
       personReference: 'PersonReference',
+      prompt: 'Prompt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enable: 'boolean',
       personReference: PersonReferenceConfig,
+      prompt: 'string',
     };
   }
 

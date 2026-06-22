@@ -13,7 +13,7 @@ export class GetTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The time when the task ended. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
    * 
    * @example
    * 2021-12-24T03:01:49.480109219Z
@@ -37,9 +37,10 @@ export class GetTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The task progress. Valid values: 0 to 100. Unit: %.
+   * The task progress. Valid values: 0 to 100. Unit: percent (%).
    * 
-   * >  This parameter is valid only if the task is in the `Running` state.``
+   * > -  The GetTask operation does not support this parameter.
+   * > -  This parameter is meaningful only when the task status `State` is `Running`.
    * 
    * @example
    * 100
@@ -50,7 +51,7 @@ export class GetTaskResponseBody extends $dara.Model {
    * The project name.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   /**
@@ -63,7 +64,7 @@ export class GetTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The time when the task started. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
    * 
    * @example
    * 2021-12-24T03:01:41.662060377Z
@@ -71,11 +72,13 @@ export class GetTaskResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The running status of the task. Valid values:
    * 
-   * *   RUNNING: The task is running.
-   * *   Succeeded: The task is successful.
-   * *   Failed: The task failed.
+   * - Running: The task is running.
+   * 
+   * - Succeeded: The task is completed.
+   * 
+   * - Failed: The task failed.
    * 
    * @example
    * Running
@@ -83,7 +86,7 @@ export class GetTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags. This parameter is returned only if you specified Tags when you created the task.
+   * The task tags. These are the tags that the user passed in when creating the task.
    * 
    * @example
    * {"test": "val1"}
@@ -99,7 +102,7 @@ export class GetTaskResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The initial request parameters used to create the task.
+   * The original request parameters used to create the task.
    * 
    * @example
    * {
@@ -112,15 +115,15 @@ export class GetTaskResponseBody extends $dara.Model {
   taskRequestDefinition?: string;
   /**
    * @remarks
-   * The type of the task. For more information, see [Task types](https://help.aliyun.com/document_detail/2743993.html).
+   * The type of the task. For valid values, see [Task type list](https://help.aliyun.com/document_detail/2743993.html).
    * 
    * @example
-   * VideoLabelClassification
+   * FileCompression
    */
   taskType?: string;
   /**
    * @remarks
-   * The user data of the task.
+   * The custom information specified by the user.
    * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}

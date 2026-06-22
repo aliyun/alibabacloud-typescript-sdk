@@ -8,12 +8,12 @@ import { FastFailPolicy } from "./FastFailPolicy";
 export class CreateBatchRequestActions extends $dara.Model {
   /**
    * @remarks
-   * The policy configurations for handling failures.
+   * The fast-fail policy configuration.
    */
   fastFailPolicy?: FastFailPolicy;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateBatchRequestActions extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The template parameters.
+   * A list of template parameters.
    */
   parameters?: string[];
   static names(): { [key: string]: string } {
@@ -60,7 +60,7 @@ export class CreateBatchRequestActions extends $dara.Model {
 export class CreateBatchRequestNotification extends $dara.Model {
   /**
    * @remarks
-   * The SMQ notification settings.
+   * The parameters for MNS notifications.
    */
   MNS?: MNS;
   static names(): { [key: string]: string } {
@@ -90,28 +90,29 @@ export class CreateBatchRequestNotification extends $dara.Model {
 export class CreateBatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The templates.
+   * A list of processing templates.
    * 
    * This parameter is required.
    */
   actions?: CreateBatchRequestActions[];
   /**
    * @remarks
-   * The data source configurations.
+   * The input data source configuration.
    * 
    * This parameter is required.
    */
   input?: Input;
   /**
    * @remarks
-   * The notification settings. The operation supports multiple messaging middleware options. For more information about notification messages, see Asynchronous message examples. You can use one of the following methods to receive notification messages:
+   * The notification recipient. Multiple middleware services are supported. For details about the message format, see Asynchronous notification message. Select one of the following methods to receive messages:
    * 
-   * In the region in which the IMM project is located, use EventBridge to receive task notifications. For more information, see IMM events. In the region in which the IMM project is located, configure a Simple Message Queue (SMQ) subscription to receive task notifications.
+   * Activate and access EventBridge in the same region as Intelligent Media Management (IMM) to promptly receive task notifications. For more information, see IMM events.
+   * Activate MNS in the same region as IMM and configure a subscription.
    */
   notification?: CreateBatchRequestNotification;
   /**
    * @remarks
-   * The name of the project.[](~~478153~~)
+   * The project name. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -121,19 +122,19 @@ export class CreateBatchRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The service role. IMM assumes the service role so that it can access resources in other cloud services, such as OSS. Default value: AliyunIMMBatchTriggerRole.
+   * The service role that grants IMM the permissions to access other cloud resources, such as OSS. The default value is AliyunIMMBatchTriggerRole.
    * 
-   * You can also create a custom service role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Create a regular service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a role](https://help.aliyun.com/document_detail/116147.html).
+   * To use a custom service role, create a service role and grant permissions to the role in the RAM console. For more information, see [Create a service role](https://help.aliyun.com/document_detail/116800.html) and [Grant permissions to a RAM role](https://help.aliyun.com/document_detail/116147.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * AliyunIMMDefaultRole
+   * AliyunIMMBatchTriggerRole
    */
   serviceRole?: string;
   /**
    * @remarks
-   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * Custom tags used to search and filter asynchronous tasks.
    * 
    * @example
    * {"key": "val"}

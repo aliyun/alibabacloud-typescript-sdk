@@ -6,6 +6,9 @@ export class App extends $dara.Model {
   /**
    * @remarks
    * AppDescription
+   * 
+   * @example
+   * 中国最大的电商购物商城
    */
   appDescription?: string;
   /**
@@ -27,6 +30,9 @@ export class App extends $dara.Model {
   /**
    * @remarks
    * AppName
+   * 
+   * @example
+   * 淘宝
    */
   appName?: string;
   /**

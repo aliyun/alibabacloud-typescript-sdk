@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDatasetShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset configuration.
+   */
   datasetConfigShrink?: string;
   /**
    * @remarks
-   * The maximum number of bindings per dataset. The range is 1~10, with a default value of 10.
+   * The maximum number of bindings for each dataset. Valid values: 1 to 10. The default value is 10.
    * 
    * @example
    * 10
@@ -14,7 +18,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities in each dataset. The default value is 10000000000.
+   * The maximum number of metadata entities in each dataset. The default value is 10,000,000,000.
    * 
    * @example
    * 10000000000
@@ -22,7 +26,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files in each dataset. The range is 1~100000000, with a default value of 100000000.
+   * The maximum number of files in each dataset. Valid values: 1 to 100,000,000. The default value is 100,000,000.
    * 
    * @example
    * 100000000
@@ -30,7 +34,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships in each dataset. The default value is 100000000000.
+   * The maximum number of metadata relationships in each dataset. The default value is 100,000,000,000.
    * 
    * @example
    * 100000000000
@@ -38,7 +42,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total size of files in each dataset. Once the limit is exceeded, no more indexes can be added. The default value is 90000000000000000, in bytes.
+   * The maximum total size of files in each dataset. You cannot add more indexes after exceeding this limit. The default value is 90,000,000,000,000,000 bytes.
    * 
    * @example
    * 90000000000000000
@@ -46,10 +50,13 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The name of the dataset, which must be unique under the same Project. Naming rules are as follows:
-   * - Length should be 1~128 characters.
-   * - Can only contain English letters, numbers, hyphens (-), and underscores (_).
-   * - Must start with an English letter or underscore (_).
+   * The dataset name. It must be unique within the same project. Naming conventions are as follows:
+   * 
+   * - Length: 1 to 128 characters.
+   * 
+   * - Only English letters, digits, hyphens (-), and underscores (_) are allowed.
+   * 
+   * - Must start with an English letter or an underscore (_).
    * 
    * This parameter is required.
    * 
@@ -59,7 +66,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * Description of the dataset. The length should be 1~256 English or Chinese characters, with a default value of empty.
+   * The description of the dataset. Length: 1 to 256 English or Chinese characters. The default value is empty.
    * 
    * @example
    * immtest
@@ -67,7 +74,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the project. For more information on how to obtain it, see [Create Project](https://help.aliyun.com/document_detail/478153.html).
+   * The project name. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -77,7 +84,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Workflow template ID. For more information, see [Workflow Templates and Operators](https://help.aliyun.com/document_detail/466304.html). The default value is empty.
+   * The workflow template ID. For more information, see [Workflow Templates and Operators](https://help.aliyun.com/document_detail/466304.html). The default value is empty.
    * 
    * @example
    * Official:ImageManagement

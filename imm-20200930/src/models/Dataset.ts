@@ -7,7 +7,7 @@ import { WorkflowParameter } from "./WorkflowParameter";
 export class Dataset extends $dara.Model {
   /**
    * @remarks
-   * The current number of OSS buckets that are bound to the dataset.
+   * Number of OSS buckets currently attached to the dataset.
    * 
    * @example
    * 2
@@ -15,16 +15,20 @@ export class Dataset extends $dara.Model {
   bindCount?: number;
   /**
    * @remarks
-   * The timestamp when the dataset was created. The timestamp must be in the RFC3339Nano format.
+   * Timestamp of dataset creation in RFC3339Nano format.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Dataset configuration.
+   */
   datasetConfig?: DatasetConfig;
   /**
    * @remarks
-   * The maximum number of bindings for the dataset.
+   * Maximum number of bindings per dataset.
    * 
    * @example
    * 10
@@ -32,7 +36,7 @@ export class Dataset extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities for the dataset.
+   * Maximum number of metadata entities in the dataset.
    * 
    * @example
    * 10000000000
@@ -40,7 +44,7 @@ export class Dataset extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files for the dataset.
+   * Maximum number of files in the dataset.
    * 
    * @example
    * 100000000
@@ -48,7 +52,7 @@ export class Dataset extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships for the dataset.
+   * Maximum number of metadata relations in the dataset.
    * 
    * @example
    * 100000000000
@@ -56,7 +60,7 @@ export class Dataset extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total size of files in the dataset. Unit: bytes.
+   * Maximum total file size in the dataset, in bytes.
    * 
    * @example
    * 90000000000000000
@@ -64,7 +68,7 @@ export class Dataset extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The name of the dataset.
+   * Dataset name.
    * 
    * @example
    * dataset001
@@ -72,12 +76,15 @@ export class Dataset extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The dataset description.
+   * Dataset description.
+   * 
+   * @example
+   * 测试数据集
    */
   description?: string;
   /**
    * @remarks
-   * The current number of files in the dataset.
+   * Current number of files in the dataset.
    * 
    * @example
    * 10
@@ -85,7 +92,7 @@ export class Dataset extends $dara.Model {
   fileCount?: number;
   /**
    * @remarks
-   * The name of the project.
+   * Project name.
    * 
    * @example
    * immtest
@@ -93,15 +100,15 @@ export class Dataset extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The ID of the workflow template.
+   * Workflow template ID.
    * 
    * @example
-   * DefaultId
+   * Official:ImageManagement
    */
   templateId?: string;
   /**
    * @remarks
-   * The total size of files in the dataset. Unit: bytes.
+   * Total file size in the dataset, in bytes.
    * 
    * @example
    * 100000
@@ -109,9 +116,9 @@ export class Dataset extends $dara.Model {
   totalFileSize?: number;
   /**
    * @remarks
-   * The timestamp when the dataset was last modified. The timestamp must be in the RFC3339Nano format.
+   * Timestamp of the last dataset update in RFC3339Nano format.
    * 
-   * >  If a dataset has never been modified after it was created, the timestamp when the dataset was last modified is the same as the timestamp when the dataset was created.
+   * > If the dataset has never been updated since creation, the update timestamp equals the creation timestamp.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -119,7 +126,7 @@ export class Dataset extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * 自定义参数
+   * Custom parameters.
    * 
    * **if can be null:**
    * true

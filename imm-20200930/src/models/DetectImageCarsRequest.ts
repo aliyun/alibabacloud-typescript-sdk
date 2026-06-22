@@ -30,7 +30,7 @@ export class DetectImageCarsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * oss://test-bucket/test-object
+   * oss://test-bucket/test-object.jpg
    */
   sourceURI?: string;
   static names(): { [key: string]: string } {

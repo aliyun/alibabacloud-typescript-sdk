@@ -9,12 +9,12 @@ import { FastFailPolicy } from "./FastFailPolicy";
 export class DataIngestionActions extends $dara.Model {
   /**
    * @remarks
-   * The on-error policy that is used to quickly troubleshoot an error.
+   * The configuration of the fast-fail policy for data processing.
    */
   fastFailPolicy?: FastFailPolicy;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * doc/convert
@@ -59,7 +59,7 @@ export class DataIngestionActions extends $dara.Model {
 export class DataIngestionNotification extends $dara.Model {
   /**
    * @remarks
-   * The Simple Message Queue (SMQ) endpoint.
+   * The MNS Endpoint.
    * 
    * @example
    * http://1111111111.mns.cn-hangzhou.aliyuncs.com
@@ -77,7 +77,7 @@ export class DataIngestionNotification extends $dara.Model {
   rocketMQ?: RocketMQ;
   /**
    * @remarks
-   * The SMQ topic.
+   * The MNS topic.
    * 
    * @example
    * topic1
@@ -119,7 +119,7 @@ export class DataIngestionNotification extends $dara.Model {
 export class DataIngestionStatistic extends $dara.Model {
   /**
    * @remarks
-   * The number of files that are skipped.
+   * The number of skipped files.
    * 
    * @example
    * 0
@@ -127,7 +127,7 @@ export class DataIngestionStatistic extends $dara.Model {
   skipFiles?: number;
   /**
    * @remarks
-   * The number of files that fail to be submitted.
+   * The number of failed submissions.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class DataIngestionStatistic extends $dara.Model {
   submitFailure?: number;
   /**
    * @remarks
-   * The number of files that are submitted.
+   * The number of successful submissions.
    * 
    * @example
    * 10
@@ -169,7 +169,7 @@ export class DataIngestionStatistic extends $dara.Model {
 export class DataIngestion extends $dara.Model {
   /**
    * @remarks
-   * The templates.
+   * A list of processing templates.
    */
   actions?: DataIngestionActions[];
   /**
@@ -198,12 +198,12 @@ export class DataIngestion extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The information about the data source.
+   * The data source information.
    */
   input?: Input;
   /**
    * @remarks
-   * The task execution location.
+   * The task execution position.
    * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
@@ -224,7 +224,7 @@ export class DataIngestion extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The service-linked role.
+   * The service authorization role.
    * 
    * @example
    * AliyunIMMBatchTriggerRole
@@ -232,13 +232,17 @@ export class DataIngestion extends $dara.Model {
   serviceRole?: string;
   /**
    * @remarks
-   * The status of the batch processing task.
+   * The state of the batch processing task:
    * 
-   * *   Ready: The task is created.
-   * *   Running: The task is running.
-   * *   Failed: The task fails and cannot be automatically recovered.
-   * *   Suspended: The task is suspended.
-   * *   Succeeded: The task is successful.
+   * - Ready: The task is ready. A newly created task is in the Ready state.
+   * 
+   * - Running: The task is running. This is the state of a task that is executing normally.
+   * 
+   * - Failed: The task failed. An error occurred during task execution, and the task cannot be automatically recovered.
+   * 
+   * - Suspended: The task is paused.
+   * 
+   * - Succeeded: The task is complete.
    * 
    * @example
    * Succeeded
@@ -246,7 +250,7 @@ export class DataIngestion extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The statistical information.
+   * The statistics information.
    */
   statistic?: DataIngestionStatistic;
   /**
@@ -256,7 +260,7 @@ export class DataIngestion extends $dara.Model {
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the task was updated.
+   * The time when the task was last updated.
    * 
    * @example
    * 2021-12-18T07:40:29Z

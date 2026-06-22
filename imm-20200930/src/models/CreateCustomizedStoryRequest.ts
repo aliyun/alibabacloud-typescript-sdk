@@ -10,7 +10,7 @@ export class CreateCustomizedStoryRequestCover extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * oss://bucket1/cover
+   * oss://test-bucket/test-object.jpg
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -42,7 +42,14 @@ export class CreateCustomizedStoryRequestFiles extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * [{"URI":"oss://bucket1/file1"}]
+   * [
+   *       {
+   *             "URI": "oss://test-bucket/test-object_1.jpg"
+   *       },
+   * {
+   *             "URI": "oss://test-bucket/test-object_2.jpg"
+   *       }
+   * ]
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +86,9 @@ export class CreateCustomizedStoryRequest extends $dara.Model {
    * The custom labels. You can specify labels to help you identify and retrieve the story.
    * 
    * @example
-   * {"Bucket": "examplebucket"}
+   * {
+   *       "MyStoryLabel": "HolidayStory"
+   * }
    */
   customLabels?: { [key: string]: any };
   /**

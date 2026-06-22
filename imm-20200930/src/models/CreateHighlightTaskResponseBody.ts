@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateHighlightTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16Es****
    */
   eventId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * Highlight-4d51241b-04d4-4343-aa25-****
    */

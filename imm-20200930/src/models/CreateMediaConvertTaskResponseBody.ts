@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMediaConvertTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Event ID.
+   * The ID of the event.
    * 
    * @example
    * 0ED-1Bz8z71k5TtsUejT4UJ16Es****
@@ -13,7 +13,7 @@ export class CreateMediaConvertTaskResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
@@ -21,7 +21,7 @@ export class CreateMediaConvertTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The ID of the task.
    * 
    * @example
    * MediaConvert-adb1ee28-c4c9-42a7-9f54-3b8eadcb****

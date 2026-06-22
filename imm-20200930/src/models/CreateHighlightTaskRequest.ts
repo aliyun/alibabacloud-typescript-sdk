@@ -9,13 +9,18 @@ import { TargetVideo } from "./TargetVideo";
 export class CreateHighlightTaskRequestEditBackgroundMusics extends $dara.Model {
   /**
    * @remarks
+   * The URI of the background music (OSS URI). Only audio files are supported.
+   * 
    * This parameter is required.
    * 
    * @example
-   * oss://test-bucket/test-object
+   * oss://test-bucket/test-object/test.mp3
    */
   URI?: string;
   /**
+   * @remarks
+   * The volume intensity of the background music. Valid values: [0, 10]. Default value: 0.2. A value of 1 indicates the original volume.
+   * 
    * @example
    * 0.2
    */
@@ -45,19 +50,29 @@ export class CreateHighlightTaskRequestEditBackgroundMusics extends $dara.Model 
 
 export class CreateHighlightTaskRequestEditTransitions extends $dara.Model {
   /**
+   * @remarks
+   * The transition duration. Unit: seconds. If the transition duration is greater than the clip duration minus 1, the transition effect on that clip does not take effect.
+   * Valid values: [0, 5].
+   * 
    * @example
    * 0
    */
   duration?: number;
   /**
    * @remarks
+   * The transition effect. For more information, see [Transition effects](https://www.alibabacloud.com/help/en/imm/developer-reference/transition-effect).
+   * 
    * This parameter is required.
    * 
    * @example
-   * directional
+   * fade
    */
   transition?: string;
   /**
+   * @remarks
+   * The transition weight. Valid values: [1, 100]. Default value: 50.
+   * This parameter takes effect when TransitionMode is set to Random.
+   * 
    * @example
    * 50
    */
@@ -90,13 +105,19 @@ export class CreateHighlightTaskRequestEditTransitions extends $dara.Model {
 export class CreateHighlightTaskRequestEditVfxEffects extends $dara.Model {
   /**
    * @remarks
+   * The visual effect. For more information, see [Effects](https://www.alibabacloud.com/help/en/imm/developer-reference/effects).
+   * 
    * This parameter is required.
    * 
    * @example
-   * open
+   * letterboxed
    */
   vfxEffect?: string;
   /**
+   * @remarks
+   * The effect weight. Valid values: [1, 100]. Default value: 50.
+   * This parameter takes effect when VfxEffectMode is set to Random.
+   * 
    * @example
    * 50
    */
@@ -126,13 +147,31 @@ export class CreateHighlightTaskRequestEditVfxEffects extends $dara.Model {
 
 export class CreateHighlightTaskRequestEdit extends $dara.Model {
   /**
+   * @remarks
+   * The background music mode. Default value: Closed. Valid values:
+   * 
+   * - Random: custom background music, randomly selected based on weight.
+   * 
+   * - Sequential: custom background music, applied in order.
+   * 
+   * - Closed: no background music.
+   * 
    * @example
    * Closed
    */
   backgroundMusicMode?: string;
+  /**
+   * @remarks
+   * The background music tracks. This parameter takes effect when BackgroundMusicMode is set to Random or Sequential.
+   * **The maximum number is 1.**.
+   */
   backgroundMusics?: CreateHighlightTaskRequestEditBackgroundMusics[];
   /**
    * @remarks
+   * The editing mode. Valid values:
+   * 
+   * - Sequential: sequential mode.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -140,16 +179,49 @@ export class CreateHighlightTaskRequestEdit extends $dara.Model {
    */
   mode?: string;
   /**
+   * @remarks
+   * The transition mode. Default value: Closed. Valid values:
+   * 
+   * - Auto: automatic transition.
+   * 
+   * - Random: custom transition, randomly selected based on weight.
+   * 
+   * - Sequential: custom transition, applied in order.
+   * 
+   * - Closed: no transition.
+   * 
    * @example
    * Closed
    */
   transitionMode?: string;
+  /**
+   * @remarks
+   * The transition effects.
+   * This parameter takes effect when TransitionMode is set to Random or Sequential.
+   * A maximum of 10 transitions are supported.
+   */
   transitions?: CreateHighlightTaskRequestEditTransitions[];
   /**
+   * @remarks
+   * The effect mode. Default value: Closed. Valid values:
+   * 
+   * - Auto: automatic effect.
+   * 
+   * - Random: custom effect, randomly selected based on weight.
+   * 
+   * - Sequential: custom effect, applied in order.
+   * 
+   * - Closed: no effect.
+   * 
    * @example
    * Closed
    */
   vfxEffectMode?: string;
+  /**
+   * @remarks
+   * The visual effects. This parameter takes effect when VfxEffectMode is set to Random or Sequential.
+   * A maximum of 10 effects are supported.
+   */
   vfxEffects?: CreateHighlightTaskRequestEditVfxEffects[];
   static names(): { [key: string]: string } {
     return {
@@ -196,6 +268,18 @@ export class CreateHighlightTaskRequestEdit extends $dara.Model {
 export class CreateHighlightTaskRequestHighlight extends $dara.Model {
   /**
    * @remarks
+   * The highlight content. Valid values:
+   * 
+   * - Pets
+   * 
+   * - People
+   * 
+   * - Sports
+   * 
+   * - Meetings
+   * 
+   * The value cannot exceed 100 characters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -225,16 +309,29 @@ export class CreateHighlightTaskRequestHighlight extends $dara.Model {
 
 export class CreateHighlightTaskRequestOutputSegment extends $dara.Model {
   /**
+   * @remarks
+   * The segment duration. Unit: seconds.
+   * 
    * @example
    * 1
    */
   duration?: number;
   /**
+   * @remarks
+   * The media segmentation format. Valid values:
+   * 
+   * - hls
+   * 
+   * - dash.
+   * 
    * @example
    * hls
    */
   format?: string;
   /**
+   * @remarks
+   * The start number. Only hls is supported. Default value: 0.
+   * 
    * @example
    * 0
    */
@@ -265,31 +362,62 @@ export class CreateHighlightTaskRequestOutputSegment extends $dara.Model {
 }
 
 export class CreateHighlightTaskRequestOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The audio processing parameter settings.
+   * >Notice: If Audio is empty, the first audio stream (if any) is directly copied to the output file.
+   */
   audio?: TargetAudio;
   /**
+   * @remarks
+   * The media container type. This parameter is required when Type is set to Concat or Compose. Valid values:
+   * 
+   * - Audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, flv
+   * 
+   * >Notice: Container and URI must be specified together..
+   * 
    * @example
    * mp4
    */
   container?: string;
   /**
+   * @remarks
+   * The maximum duration of the clipped video. Unit: seconds.
+   * 
    * @example
    * 10.0
    */
   maxDuration?: number;
+  /**
+   * @remarks
+   * The media segmentation settings. By default, no segmentation is performed.
+   */
   segment?: CreateHighlightTaskRequestOutputSegment;
   /**
+   * @remarks
+   * The playback speed of the media. Valid values: [0.5, 1.0]. Default value: 1.0.
+   * 
+   * > This value is the ratio of the default playback speed of the transcoded media file to that of the source media file. This is not speed-adjusted transcoding.
+   * 
    * @example
    * 1.0
    */
   speed?: number;
   /**
    * @remarks
+   * The URI of the output file.
+   * 
    * This parameter is required.
    * 
    * @example
    * oss://test-bucket/test-target-object.mp4
    */
   URI?: string;
+  /**
+   * @remarks
+   * The video processing parameter settings.
+   * >Notice: If Video is empty, the first video stream (if any) is directly copied to the output file.
+   */
   video?: TargetVideo;
   static names(): { [key: string]: string } {
     return {
@@ -335,17 +463,27 @@ export class CreateHighlightTaskRequestOutput extends $dara.Model {
 
 export class CreateHighlightTaskRequestSources extends $dara.Model {
   /**
+   * @remarks
+   * The duration of the media clip. Unit: seconds. Default value: 0, which indicates the end of the video.
+   * This parameter takes effect only when Type is set to Concat.
+   * 
    * @example
    * 0
    */
   duration?: number;
   /**
+   * @remarks
+   * The start time of the media resource. Valid values: [0, video duration].
+   * This parameter takes effect only when Type is set to Concat.
+   * 
    * @example
    * 0
    */
   startTime?: number;
   /**
    * @remarks
+   * The URI of the media resource (OSS URI). Only videos are supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -378,22 +516,49 @@ export class CreateHighlightTaskRequestSources extends $dara.Model {
 }
 
 export class CreateHighlightTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**.
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The editing configuration.
+   */
   edit?: CreateHighlightTaskRequestEdit;
+  /**
+   * @remarks
+   * The highlight configuration.
+   */
   highlight?: CreateHighlightTaskRequestHighlight;
   /**
+   * @remarks
+   * The highlight recognition mode. Valid values:
+   * 
+   * - Scene: scene and frame recognition.
+   * 
+   * - Average (default): average slice recognition.
+   * 
    * @example
    * Average
    */
   mode?: string;
+  /**
+   * @remarks
+   * The message notification configuration. For more information, click Notification. For the format of asynchronous notification messages, see [Asynchronous notification message format](https://www.alibabacloud.com/help/en/imm/developer-reference/asynchronous-notification-message-examples).
+   */
   notification?: Notification;
   /**
    * @remarks
+   * The output configuration.
+   * 
    * This parameter is required.
    */
   output?: CreateHighlightTaskRequestOutput;
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -402,16 +567,30 @@ export class CreateHighlightTaskRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The list of media resources to process.
+   * A maximum of 10 videos are supported.
+   * 
    * This parameter is required.
    */
   sources?: CreateHighlightTaskRequestSources[];
   /**
+   * @remarks
+   * The custom tags used to search for and filter asynchronous tasks.
+   * 
    * @example
    * {"test":"val1"}
    */
   tags?: { [key: string]: any };
   /**
    * @remarks
+   * The processing type. Valid values:
+   * 
+   * - Retrieval: highlight extraction.
+   * 
+   * - Concat: video composition.
+   * 
+   * - Compose: one-click video creation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -419,6 +598,9 @@ export class CreateHighlightTaskRequest extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The custom user data, which is returned in asynchronous message notifications.
+   * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
    */

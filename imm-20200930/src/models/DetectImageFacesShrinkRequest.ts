@@ -17,7 +17,7 @@ export class DetectImageFacesShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   /**

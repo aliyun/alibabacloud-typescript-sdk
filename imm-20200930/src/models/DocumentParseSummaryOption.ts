@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DocumentParseSummaryOption extends $dara.Model {
+  /**
+   * @remarks
+   * Document chapter summary
+   */
   chapterSummarize?: boolean;
+  /**
+   * @remarks
+   * Article summary
+   */
   summarize?: boolean;
   static names(): { [key: string]: string } {
     return {

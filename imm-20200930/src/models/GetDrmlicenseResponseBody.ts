@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDRMLicenseResponseBody extends $dara.Model {
-  /**
-   * @example
-   * IEEE1284DeviceID
-   */
   deviceInfo?: string;
-  /**
-   * @example
-   * AESzB8SQgpACioSEJ3yqiFwruAOUgIvlCx*****
-   */
   license?: string;
-  /**
-   * @example
-   * 896ABAD1-C452-4BED-B5E0-302955F*****
-   */
   requestId?: string;
-  /**
-   * @example
-   * 200
-   */
   states?: number;
   static names(): { [key: string]: string } {
     return {

@@ -6,9 +6,13 @@ import { CroppingSuggestion } from "./CroppingSuggestion";
 export class DetectImageCroppingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The image cropping suggestions.
+   * The array of image cropping information.
    */
   croppings?: CroppingSuggestion[];
+  /**
+   * @remarks
+   * The list of objects included in the cropping region, corresponding to the InclusionHints input parameter. This field is empty if no objects are included.
+   */
   matchedInclusionHints?: string[];
   /**
    * @remarks

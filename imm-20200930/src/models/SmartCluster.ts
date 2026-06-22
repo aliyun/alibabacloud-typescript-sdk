@@ -7,7 +7,7 @@ export class SmartCluster extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The creation time.
    * 
    * @example
    * 2022-01-14T10:17:18.102700407+08:00
@@ -15,7 +15,7 @@ export class SmartCluster extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * MyDataset
@@ -23,12 +23,12 @@ export class SmartCluster extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The description of the cluster.
+   * The group description.
    */
   description?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The group name.
    * 
    * @example
    * MySmartCluster1
@@ -36,7 +36,7 @@ export class SmartCluster extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The smart cluster ID.
    * 
    * @example
    * SmartCluster-12cd1645-deae-4b5e-9434-613747b75f6d
@@ -44,7 +44,7 @@ export class SmartCluster extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The status of the cluster.
+   * The group status. Valid values are `Succeeded`, `Failed`, and `Running`.
    * 
    * @example
    * Succeeded
@@ -52,7 +52,7 @@ export class SmartCluster extends $dara.Model {
   objectStatus?: string;
   /**
    * @remarks
-   * The type of the cluster.
+   * The group type. The value is always `smart-cluster`.
    * 
    * @example
    * smart-cluster
@@ -68,7 +68,7 @@ export class SmartCluster extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The project name.
    * 
    * @example
    * MyProject
@@ -83,7 +83,7 @@ export class SmartCluster extends $dara.Model {
   rules?: SmartClusterRule[];
   /**
    * @remarks
-   * The time when the cluster was updated.
+   * The update time.
    * 
    * @example
    * 2022-01-14T10:17:18.102700407+08:00

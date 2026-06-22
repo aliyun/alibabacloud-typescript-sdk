@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateWebofficeTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Weboffice access token.
+   * The Weboffice access credential.
    * 
    * @example
    * 2d73dd5d87524c5e8a194c3eb5********
@@ -13,7 +13,7 @@ export class GenerateWebofficeTokenResponseBody extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * Expiration time of the access token. The expiration time is 30 minutes.
+   * The expiration time of the access credential. The credential expires in 30 minutes. Format: YYYY-MM-DDTHH:mm:ss.
    * 
    * @example
    * 2021-08-30T13:13:11.347146982Z
@@ -21,7 +21,7 @@ export class GenerateWebofficeTokenResponseBody extends $dara.Model {
   accessTokenExpiredTime?: string;
   /**
    * @remarks
-   * Weboffice refresh token.
+   * The Weboffice refresh credential.
    * 
    * @example
    * e374995ec532432bb678074d36********
@@ -29,7 +29,7 @@ export class GenerateWebofficeTokenResponseBody extends $dara.Model {
   refreshToken?: string;
   /**
    * @remarks
-   * Expiration time of the refresh token. The expiration time is 1 day.
+   * The expiration time of the refresh credential. The credential expires in 1 day. Format: YYYY-MM-DDTHH:mm:ss.
    * 
    * @example
    * 2021-08-31T12:43:11.347146982Z
@@ -37,7 +37,7 @@ export class GenerateWebofficeTokenResponseBody extends $dara.Model {
   refreshTokenExpiredTime?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1759315A-CB33-0A75-A72B-62D7********
@@ -45,8 +45,8 @@ export class GenerateWebofficeTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Weboffice entry URL. Used for online preview or editing of documents.
-   * > Cannot be opened directly in a browser; it needs to be used with the Weboffice JS-SDK and access token (AccessToken) to preview or edit documents. For more information, see [Getting Started](https://help.aliyun.com/document_detail/468066.html).
+   * The Weboffice entry URL for previewing or editing documents online.
+   * > This URL cannot be opened directly in a browser. You must use it together with the Weboffice JS-SDK and the access credential (AccessToken) to preview or edit documents. For more information, see [Getting Started](https://help.aliyun.com/document_detail/468066.html).
    * 
    * @example
    * https://office-cn-shanghai.imm.aliyuncs.com/office/s/dd221b2cdb44fb66e9070d1d70a8b9bbb6d6fff7?_w_tokentype=1

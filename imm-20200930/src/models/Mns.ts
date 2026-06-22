@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MNS extends $dara.Model {
   /**
    * @remarks
-   * The SMQ topic. You can check topics within a region in the [SMQ console](https://mns.console.aliyun.com/). This parameter is required if you want to use SMQ for notifications.
+   * Specifies the name of the ApsaraMQ for MNS topic, which can be found in the topic list for the current region in the left-side navigation pane of the [ApsaraMQ for MNS console](https://mns.console.aliyun.com/). This parameter is required for ApsaraMQ for MNS message notification.
    * 
    * @example
    * topic1

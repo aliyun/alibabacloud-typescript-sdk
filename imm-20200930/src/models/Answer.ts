@@ -9,7 +9,7 @@ export class Answer extends $dara.Model {
    * The answer.
    * 
    * @example
-   * Hello
+   * 你好
    */
   content?: string;
   /**

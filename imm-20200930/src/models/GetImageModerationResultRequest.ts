@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageModerationResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the project.
+   * The project name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetImageModerationResultRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * This parameter is required.
    * 

@@ -15,7 +15,9 @@ export class CreateCustomizedStoryShrinkRequest extends $dara.Model {
    * The custom labels. You can specify labels to help you identify and retrieve the story.
    * 
    * @example
-   * {"Bucket": "examplebucket"}
+   * {
+   *       "MyStoryLabel": "HolidayStory"
+   * }
    */
   customLabelsShrink?: string;
   /**

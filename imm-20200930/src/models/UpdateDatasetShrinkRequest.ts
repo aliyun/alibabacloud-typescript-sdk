@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateDatasetShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset configuration.
+   */
   datasetConfigShrink?: string;
   /**
    * @remarks
-   * The maximum number of bindings per dataset. The value range is from 1 to 10.
+   * The maximum number of bindings for the dataset. Valid values: 1 to 10.
    * 
    * @example
    * 10
@@ -14,8 +18,9 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities (including data files, file relationships, clustering groups, etc.) per dataset, with a maximum value of 2^63-1.
-   * >Reserved parameter, no actual restriction in use.
+   * The maximum number of metadata entities, such as data files, file relationships, and cluster groups, in the dataset. The maximum value is 2^63 - 1.
+   * 
+   * > This parameter is reserved and not enforced in practice.
    * 
    * @example
    * 10000000000
@@ -23,7 +28,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files per dataset. The value range is from 1 to 100000000.
+   * The maximum number of files in the dataset. Valid values: 1 to 100000000.
    * 
    * @example
    * 100000000
@@ -31,8 +36,9 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships per dataset, with a maximum value of 2^63-1.
-   * >Reserved parameter, no actual restriction in use.
+   * The maximum number of metadata relationships in the dataset. The maximum value is 2^63 - 1.
+   * 
+   * > This parameter is reserved and not enforced in practice.
    * 
    * @example
    * 100000000000
@@ -40,7 +46,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total size of files in each dataset. Once the limit is exceeded, no more indexes can be added. The maximum value is 2^63-1, measured in bytes.
+   * The maximum total size of all files in the dataset, in bytes. If this limit is exceeded, you can no longer add new index entries. The maximum value is 2^63 - 1.
    * 
    * @example
    * 90000000000000000
@@ -48,7 +54,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * Dataset name, for how to obtain it, please refer to [Create Dataset](https://help.aliyun.com/document_detail/478160.html).
+   * The dataset name. For information about how to obtain the dataset name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * This parameter is required.
    * 
@@ -58,7 +64,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * Description of the dataset.
+   * The dataset description.
    * 
    * @example
    * immtest
@@ -66,7 +72,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Project name, for how to obtain it, please refer to [Create Project](https://help.aliyun.com/document_detail/478153.html).
+   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -76,7 +82,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Workflow template ID. For more information, please refer to [Workflow Templates and Operators](https://help.aliyun.com/document_detail/466304.html).
+   * The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
    * 
    * @example
    * Official:ImageManagement
@@ -84,7 +90,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * Invalid parameter.
+   * This parameter is invalid.
    */
   workflowParametersShrink?: string;
   static names(): { [key: string]: string } {

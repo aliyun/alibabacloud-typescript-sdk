@@ -6,12 +6,12 @@ import { Dataset } from "./Dataset";
 export class CreateDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Dataset information.
+   * The dataset information.
    */
   dataset?: Dataset;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 6D74B3A9-5AC0-49F9-914D-E01589D3****

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DocumentParseNarratorOption extends $dara.Model {
+  /**
+   * @remarks
+   * The summary of the document.
+   */
   narrate?: boolean;
   static names(): { [key: string]: string } {
     return {

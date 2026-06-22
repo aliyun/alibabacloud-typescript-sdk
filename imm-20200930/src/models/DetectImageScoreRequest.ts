@@ -18,7 +18,7 @@ export class DetectImageScoreRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   /**
@@ -28,7 +28,7 @@ export class DetectImageScoreRequest extends $dara.Model {
    * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
    * 
    * @example
-   * oss://bucketname/objectname
+   * oss://examplebucket/sampleobject.jpg
    */
   sourceURI?: string;
   static names(): { [key: string]: string } {

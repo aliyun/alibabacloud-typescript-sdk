@@ -113,6 +113,9 @@ export class QueryLocationDateClustersRequest extends $dara.Model {
   /**
    * @remarks
    * The characters that are included in the titles of spatiotemporal clusters to be queried. Matches are found by using fuzzy matching.
+   * 
+   * @example
+   * Hangzhou
    */
   title?: string;
   /**

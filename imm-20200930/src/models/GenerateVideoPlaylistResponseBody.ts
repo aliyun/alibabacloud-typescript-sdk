@@ -13,7 +13,7 @@ export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $dara.Model 
   channels?: number;
   /**
    * @remarks
-   * The token of the audio media playlist. You can use this parameter to generate the path of a TS file.
+   * The token generated for the audio Media Playlist. You can use this parameter to construct the URI of the generated TS file.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******
@@ -21,10 +21,10 @@ export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $dara.Model 
   token?: string;
   /**
    * @remarks
-   * The OSS path of the audio media playlist.
+   * The OSS URI of the audio Media Playlist.
    * 
    * @example
-   * oss://imm-test/testcases/video.m3u8
+   * oss://test-bucket/test-object/output-audio.m3u8
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $dara.Model 
 export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $dara.Model {
   /**
    * @remarks
-   * The serial number of the subtitle stream. The value starts from 0.
+   * The sequence number of the subtitle stream, starting from 0.
    * 
    * @example
    * 1
@@ -65,17 +65,17 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $dara.Mod
    * @remarks
    * The language of the subtitle stream.
    * 
-   * >  The language is derived from the subtitle stream information in the OSS path specified by the SourceURI parameter for a source video. If no language information exists in the source video, null is returned.
+   * > The language is obtained from the subtitle stream information of the source video specified by SourceURI. If the source video does not contain language information, this parameter is empty.
    * 
    * @example
-   * en
+   * eng
    */
   language?: string;
   /**
    * @remarks
-   * The token of the subtitle media playlist. You can use this parameter to generate the path of a subtitle file.
+   * The token generated for the subtitle Media Playlist. You can use this parameter to construct the URI of the generated subtitle file.
    * 
-   * >  You can generate the path of a transcoded subtitle file based on the returned token value. The path must be in the oss://${Bucket}/${Object}-${Token}_${Index}.ts format. oss://${Bucket}/${Object} specifies the URI specified by input parameters for output files. ${Token} specifies the returned token value, and ${Index} specifies the serial number of a subtitle file.
+   * > You can use the returned token value to construct the URI of the transcoded subtitle file. The format is oss\\://${Bucket}/${Object}-${Token}_${Index}.ts. oss\\://${Bucket}/${Object} is the subtitle URI specified in the request parameters. ${Token} is the returned parameter. ${Index} is the sequence number of the subtitle.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******
@@ -83,10 +83,10 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $dara.Mod
   token?: string;
   /**
    * @remarks
-   * The OSS path of the subtitle media playlist.
+   * The OSS URI of the subtitle Media Playlist.
    * 
    * @example
-   * oss://imm-test/testcases/vide_0.m3u8
+   * oss://test-bucket/test-object/output-subtitle.m3u8
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -135,9 +135,9 @@ export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $dara.Model 
   resolution?: string;
   /**
    * @remarks
-   * The token of the video media playlist. You can use this parameter to generate the path of a TS file.
+   * The token generated for the video Media Playlist. You can use this parameter to construct the URI of the generated TS file.
    * 
-   * >  You can generate the path of a transcoded TS file based on the value of this parameter. The path must be in the oss://${Bucket}/${Object}-${Token}-${Index}.ts format. oss://${Bucket}/${Object} specifies the URI specified by input parameters for output files. ${Token} specifies the returned token, and ${Index} specifies the serial number of a TS file.
+   * > You can use the returned token value to construct the URI of the transcoded TS file. The format is oss\\://${Bucket}/${Object}-${Token}-${Index}.ts. oss\\://${Bucket}/${Object} is the target URI specified in the request parameters. ${Token} is the returned parameter. ${Index} is the sequence number of the TS file.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******
@@ -145,10 +145,10 @@ export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $dara.Model 
   token?: string;
   /**
    * @remarks
-   * The OSS path of the video media playlist.
+   * The OSS URI of the video Media Playlist.
    * 
    * @example
-   * oss://imm-test/testcases/video.m3u8
+   * oss://test-bucket/test-object/output-video.m3u8
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -181,12 +181,12 @@ export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $dara.Model 
 export class GenerateVideoPlaylistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The audio media playlist files.
+   * The list of audio Media Playlist files.
    */
   audioPlaylist?: GenerateVideoPlaylistResponseBodyAudioPlaylist[];
   /**
    * @remarks
-   * The total duration of the generated video.
+   * The total duration of the output video.
    * 
    * @example
    * 1082
@@ -194,7 +194,7 @@ export class GenerateVideoPlaylistResponseBody extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The OSS path of the master playlist.
+   * The OSS URI of the Master Playlist.
    * 
    * @example
    * oss://test-bucket/test-object/master.m3u8
@@ -210,12 +210,12 @@ export class GenerateVideoPlaylistResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The subtitle media playlist files.
+   * The list of subtitle Media Playlist files.
    */
   subtitlePlaylist?: GenerateVideoPlaylistResponseBodySubtitlePlaylist[];
   /**
    * @remarks
-   * The token of the master playlist.
+   * The token of the Master Playlist.
    * 
    * @example
    * 92376fbb-171f-4259-913f-705f7ee0****
@@ -223,7 +223,7 @@ export class GenerateVideoPlaylistResponseBody extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The video media playlist files.
+   * The list of video Media Playlist files.
    */
   videoPlaylist?: GenerateVideoPlaylistResponseBodyVideoPlaylist[];
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class ExtractDocumentTextResponseBody extends $dara.Model {
    * The text content of the document.
    * 
    * @example
-   * 测试内容。
+   * Test content.
    */
   documentText?: string;
   /**

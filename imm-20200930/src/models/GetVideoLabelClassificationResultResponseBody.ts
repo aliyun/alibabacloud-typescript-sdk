@@ -6,7 +6,7 @@ import { Label } from "./Label";
 export class GetVideoLabelClassificationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code of the task.
+   * The task error code.
    * 
    * @example
    * ResourceNotFound
@@ -14,7 +14,7 @@ export class GetVideoLabelClassificationResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The time when the task ended. The time is in the ISO 8601 UTC timestamp format with millisecond-level precision.
    * 
    * @example
    * 2021-12-24T03:00:42.134971294Z
@@ -30,12 +30,12 @@ export class GetVideoLabelClassificationResultResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The labels.
+   * The list of labels.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The error message of the task.
+   * The task error message.
    * 
    * @example
    * The specified resource project is not found.
@@ -59,7 +59,7 @@ export class GetVideoLabelClassificationResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The time when the task started. The time is in the ISO 8601 UTC timestamp format with millisecond-level precision.
    * 
    * @example
    * 2021-12-24T03:00:38.892462383Z
@@ -83,7 +83,7 @@ export class GetVideoLabelClassificationResultResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * VideoLabelClassification
@@ -91,7 +91,7 @@ export class GetVideoLabelClassificationResultResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The custom information.
+   * The user-defined information.
    * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}

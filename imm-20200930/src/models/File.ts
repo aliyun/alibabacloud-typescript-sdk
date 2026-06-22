@@ -18,7 +18,7 @@ import { VideoStream } from "./VideoStream";
 export class File extends $dara.Model {
   /**
    * @remarks
-   * The origin allowed in cross-origin requests.
+   * The allowed origins for cross-origin requests.
    * 
    * @example
    * https://aliyundoc.com
@@ -26,7 +26,7 @@ export class File extends $dara.Model {
   accessControlAllowOrigin?: string;
   /**
    * @remarks
-   * The method to be used in the actual cross-origin request.
+   * The allowed methods for the cross-origin request.
    * 
    * @example
    * PUT
@@ -34,7 +34,7 @@ export class File extends $dara.Model {
   accessControlRequestMethod?: string;
   /**
    * @remarks
-   * The addresses.
+   * The address information.
    */
   addresses?: Address[];
   /**
@@ -47,7 +47,7 @@ export class File extends $dara.Model {
   album?: string;
   /**
    * @remarks
-   * The singer.
+   * The album artist.
    * 
    * @example
    * Jane
@@ -63,17 +63,17 @@ export class File extends $dara.Model {
   artist?: string;
   /**
    * @remarks
-   * The audio covers.
+   * The cover images for the audio.
    */
   audioCovers?: Image[];
   /**
    * @remarks
-   * The list of audio streams.
+   * A list of audio streams.
    */
   audioStreams?: AudioStream[];
   /**
    * @remarks
-   * The bitrate. Unit: bit/s.
+   * The bitrate, in bit/s.
    * 
    * @example
    * 13091201
@@ -81,9 +81,9 @@ export class File extends $dara.Model {
   bitrate?: number;
   /**
    * @remarks
-   * The caching behavior of the web page when the object is downloaded.
+   * The web cache behavior that the browser should use when the object is downloaded.
    * 
-   * This parameter corresponds to the Cache-Control HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+   * This parameter is returned only if the Cache-Control HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
    * 
    * @example
    * no-cache
@@ -99,9 +99,9 @@ export class File extends $dara.Model {
   composer?: string;
   /**
    * @remarks
-   * The name of the object during the download.
+   * The name of the object when it is downloaded.
    * 
-   * This parameter corresponds to the Content-Disposition HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+   * This parameter is returned only if the Content-Disposition HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
    * 
    * @example
    * attachment; filename =test.jpg
@@ -109,9 +109,9 @@ export class File extends $dara.Model {
   contentDisposition?: string;
   /**
    * @remarks
-   * The content encoding format of the object when the object is downloaded.
+   * The content encoding format of the object when it is downloaded.
    * 
-   * This parameter corresponds to the Content-Encoding HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+   * This parameter is returned only if the Content-Encoding HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
    * 
    * @example
    * UTF-8
@@ -121,7 +121,7 @@ export class File extends $dara.Model {
    * @remarks
    * The language of the object content.
    * 
-   * This parameter corresponds to the Content-Language HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+   * This parameter is returned only if the Content-Language HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
    * 
    * @example
    * zh-CN
@@ -129,7 +129,7 @@ export class File extends $dara.Model {
   contentLanguage?: string;
   /**
    * @remarks
-   * The MD5 value.
+   * The MD5 hash of the object content.
    * 
    * @example
    * HZwoCnxPZ/fvhz4oRJ2+Fw==
@@ -137,7 +137,7 @@ export class File extends $dara.Model {
   contentMd5?: string;
   /**
    * @remarks
-   * The Multipurpose Internet Mail Extensions (MIME) type of the file.
+   * The content type of the file (MIME type).
    * 
    * @example
    * image/jpeg
@@ -145,7 +145,7 @@ export class File extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The RFC3339Nano timestamp when the metadata was created.
+   * The time when the metadata was created. The time is in the RFC3339Nano format.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -155,12 +155,12 @@ export class File extends $dara.Model {
    * @remarks
    * The cropping suggestions for the image.
    * 
-   * > Not supported.
+   * > This feature is not supported.
    */
   croppingSuggestions?: CroppingSuggestion[];
   /**
    * @remarks
-   * The custom ID of the file. When the cluster is indexed into the dataset, the custom ID is stored as the data attribute. You can map the custom ID to other data in your business system. Configure this parameter based on your business requirements. For example, you can associate a URI with an ID in your system. We recommend that you set this parameter to a globally unique value.
+   * The custom ID of the file, which you can use to associate the file with an ID in your business system. When the file is indexed into a dataset, this ID is stored as a metadata attribute. We recommend using a globally unique value.
    * 
    * @example
    * member-image-id-0001
@@ -168,7 +168,7 @@ export class File extends $dara.Model {
   customId?: string;
   /**
    * @remarks
-   * The custom labels of the file. This parameter is optional. The parameter stores custom key-value labels, which can be used to filter data.
+   * Custom key-value labels for the file. This parameter is optional and can be used to store business-specific data and to filter queries.
    * 
    * @example
    * {
@@ -180,7 +180,7 @@ export class File extends $dara.Model {
   customLabels?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+   * The dataset name. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * @example
    * test-dataset
@@ -188,7 +188,7 @@ export class File extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The total duration of the video. Unit: seconds.
+   * The total duration of the video, in seconds.
    * 
    * @example
    * 15.263000
@@ -196,7 +196,7 @@ export class File extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The ETag of the object. ETags are used to identify the content of objects.
+   * An ETag is generated when an object is created. The ETag identifies the content of an object.
    * 
    * @example
    * "1D9C280A7C4F67F7EF873E28449****"
@@ -204,7 +204,7 @@ export class File extends $dara.Model {
   ETag?: string;
   /**
    * @remarks
-   * The original EXIF information about the image. The EXIF information is stored in the serialized JSON format. For more information, see [Query image information](https://help.aliyun.com/document_detail/44975.html).
+   * The original EXIF information of the image, stored as a serialized JSON object. For more information, see [Obtain image information](https://help.aliyun.com/document_detail/44975.html).
    * 
    * @example
    * {"Compression":{"value":"6"},"DateTime":{"value":"2020:08:19 17:11:11"}}
@@ -212,12 +212,12 @@ export class File extends $dara.Model {
   EXIF?: string;
   /**
    * @remarks
-   * The document elements that match the current query content when you call the SemanticQuery operation for semantic search.
+   * A list of document fragments that match the current search content when you use the SemanticQuery API to perform a semantic search.
    */
   elements?: Element[];
   /**
    * @remarks
-   * The number of persons.
+   * The number of figures.
    * 
    * @example
    * 10
@@ -225,12 +225,12 @@ export class File extends $dara.Model {
   figureCount?: number;
   /**
    * @remarks
-   * The list of persons. The persons are detected via AI models.
+   * A list of figures detected by the AI model.
    */
   figures?: Figure[];
   /**
    * @remarks
-   * The RFC3339Nano timestamp when the file was accessed.
+   * The time when the file was last accessed. The time is in the RFC3339Nano format.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -238,7 +238,7 @@ export class File extends $dara.Model {
   fileAccessTime?: string;
   /**
    * @remarks
-   * The RFC3339Nano timestamp when the file was created.
+   * The time when the file was created. The time is in the RFC3339Nano format.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -246,7 +246,7 @@ export class File extends $dara.Model {
   fileCreateTime?: string;
   /**
    * @remarks
-   * The hash value of the file.
+   * The hash of the file.
    * 
    * @example
    * 1d9c280a7c4f67f7ef873e28449dbe17
@@ -254,7 +254,7 @@ export class File extends $dara.Model {
   fileHash?: string;
   /**
    * @remarks
-   * The RFC3339Nano timestamp when the file was last modified.
+   * The time when the file was last modified. The time is in the RFC3339Nano format.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -262,7 +262,7 @@ export class File extends $dara.Model {
   fileModifiedTime?: string;
   /**
    * @remarks
-   * The name of the object. For an OSS object, the value of this parameter is the object name.
+   * The name of the file. For an OSS object, this parameter is the ObjectKey.
    * 
    * @example
    * sampleobject.jpg
@@ -286,7 +286,7 @@ export class File extends $dara.Model {
   formatName?: string;
   /**
    * @remarks
-   * The height of the image. Unit: pixels.
+   * The height of the image, in pixels (px).
    * 
    * @example
    * 500
@@ -294,12 +294,12 @@ export class File extends $dara.Model {
   imageHeight?: number;
   /**
    * @remarks
-   * The score of the image. The score is calculated by using AI models.
+   * The image score information, detected by an AI model.
    */
   imageScore?: ImageScore;
   /**
    * @remarks
-   * The width of the image. Unit: pixels.
+   * The width of the image, in pixels (px).
    * 
    * @example
    * 270
@@ -309,7 +309,7 @@ export class File extends $dara.Model {
    * @remarks
    * Summary and description of the file.
    * 
-   * > Not supported.
+   * > Currently not supported
    * 
    * **if can be null:**
    * true
@@ -317,12 +317,12 @@ export class File extends $dara.Model {
   insights?: Insights;
   /**
    * @remarks
-   * The labels of the file. The labels are detected via AI models.
+   * A list of AI-detected labels for the file.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The language specified by using a BCP 47 language tag.
+   * The language in BCP 47 format.
    * 
    * @example
    * eng
@@ -330,7 +330,7 @@ export class File extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The latitude and longitude.
+   * The GPS latitude and longitude.
    * 
    * @example
    * 30.134390,120.074997
@@ -340,24 +340,15 @@ export class File extends $dara.Model {
    * @remarks
    * The media type of the file.
    * 
-   * Valid values:
-   * 
-   * *   image
-   * *   other
-   * *   document
-   * *   archive
-   * *   audio
-   * *   video
-   * 
    * @example
    * image
    */
   mediaType?: string;
   /**
    * @remarks
-   * The Optical Character Recognition (OCR) results.
+   * The OCR results.
    * 
-   * > Not supported.
+   * > This feature is not supported.
    */
   OCRContents?: OCRContents[];
   /**
@@ -365,12 +356,12 @@ export class File extends $dara.Model {
    * The text detected in the image.
    * 
    * @example
-   * Alibaba Cloud IMM
+   * 阿里云IMM
    */
   OCRTexts?: string;
   /**
    * @remarks
-   * The CRC64 value.
+   * The CRC-64 value of the object.
    * 
    * @example
    * 559890638950338001
@@ -378,7 +369,7 @@ export class File extends $dara.Model {
   OSSCRC64?: string;
   /**
    * @remarks
-   * The delete marker of the object.
+   * The OSS delete marker.
    * 
    * @example
    * CAEQMhiBgIDXiaaB0BYiIGQzYmRkZGUxMTM1ZDRjOTZhNjk4YjRjMTAyZjhl****
@@ -388,7 +379,7 @@ export class File extends $dara.Model {
    * @remarks
    * The expiration time of the OSS object.
    * 
-   * This parameter corresponds to the Expires HTTP header of the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+   * This parameter is returned only if the Expires HTTP header is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
    * 
    * @example
    * 2120-01-01T12:00:00.000Z
@@ -396,7 +387,7 @@ export class File extends $dara.Model {
   OSSExpiration?: string;
   /**
    * @remarks
-   * The type of the OSS object. Set the value to `Normal`.
+   * The type of the OSS object. A common value is `Normal`.
    * 
    * @example
    * Normal
@@ -404,7 +395,7 @@ export class File extends $dara.Model {
   OSSObjectType?: string;
   /**
    * @remarks
-   * The storage class of the OSS bucket.
+   * The storage class of the OSS object.
    * 
    * @example
    * Standard
@@ -412,9 +403,9 @@ export class File extends $dara.Model {
   OSSStorageClass?: string;
   /**
    * @remarks
-   * The tag of the object.
+   * The tags of the OSS object.
    * 
-   * For more information, see [Add tags to an object](https://help.aliyun.com/document_detail/106678.html).
+   * For more information, see [Object tagging](https://help.aliyun.com/document_detail/106678.html).
    * 
    * @example
    * {"key": "val"}
@@ -422,9 +413,9 @@ export class File extends $dara.Model {
   OSSTagging?: { [key: string]: any };
   /**
    * @remarks
-   * The number of OSS object tags.
+   * The number of tags on the OSS object.
    * 
-   * This parameter is available only if tags are added to the corresponding OSS object. For more information, see [Add tags to an object](https://help.aliyun.com/document_detail/106678.html).
+   * This parameter is returned only if tags are set for the OSS object. For more information, see [Object tagging](https://help.aliyun.com/document_detail/106678.html).
    * 
    * @example
    * 2
@@ -432,7 +423,7 @@ export class File extends $dara.Model {
   OSSTaggingCount?: number;
   /**
    * @remarks
-   * The URI of the OSS object. This parameter is available only if the value of the URI parameter is the URI of a file in Photo and Drive Service.
+   * The URI of the OSS file. This parameter is returned only if the URI is a PDS address.
    * 
    * @example
    * oss://examplebucket/sampleobject.jpg
@@ -440,9 +431,9 @@ export class File extends $dara.Model {
   OSSURI?: string;
   /**
    * @remarks
-   * The user metadata of the OSS object.
+   * The user-defined metadata of the OSS object.
    * 
-   * This parameter is available only if user metadata is configured for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+   * This parameter is returned only if user-defined metadata is set for the OSS object. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
    * 
    * @example
    * {"key": "val"}
@@ -450,9 +441,9 @@ export class File extends $dara.Model {
   OSSUserMeta?: { [key: string]: any };
   /**
    * @remarks
-   * The version of the object.
+   * The version ID of the OSS object.
    * 
-   * This parameter is available only if versioning is enabled for the bucket. For more information, see [Overview](https://help.aliyun.com/document_detail/109695.html).
+   * This parameter is returned only if versioning is enabled for the bucket. For more information, see [Overview of versioning](https://help.aliyun.com/document_detail/109695.html).
    * 
    * @example
    * CAEQNhiBgMDJgZCA0BYiIDc4MGZjZGI2OTBjOTRmNTE5NmU5NmFhZjhjYmY0****
@@ -476,7 +467,7 @@ export class File extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The status of the object.
+   * File index status.
    * 
    * @example
    * Indexed
@@ -484,7 +475,7 @@ export class File extends $dara.Model {
   objectStatus?: string;
   /**
    * @remarks
-   * The type of the object. Set the value to **file**.
+   * The type of the object. The value is always **file**.
    * 
    * @example
    * file
@@ -492,9 +483,9 @@ export class File extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The image rotation angle. You can obtain the value from the exchangeable image file format (EXIF).
+   * The rotation value of the image, read from its EXIF data.
    * 
-   * If the EXIF metadata does not contain the image rotation angle, this parameter is not included in the response.
+   * This parameter is returned only if this value is available in the EXIF data.
    * 
    * @example
    * 0
@@ -512,7 +503,7 @@ export class File extends $dara.Model {
    * @remarks
    * The number of pages.
    * 
-   * > Not supported.
+   * > This feature is not supported.
    * 
    * @example
    * 5
@@ -528,7 +519,7 @@ export class File extends $dara.Model {
   performer?: string;
   /**
    * @remarks
-   * The time when the image was taken.
+   * The time when the photo was taken.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -544,7 +535,7 @@ export class File extends $dara.Model {
   programCount?: number;
   /**
    * @remarks
-   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * The project name. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * @example
    * test-project
@@ -552,7 +543,7 @@ export class File extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The reason why the file failed to run the index.
+   * The reason the file failed to be indexed.
    * 
    * @example
    * [InternalError] The request has been failed due to some unknown error. status: 500, requestId: CC5ACFBD-BB7A-496D-A9D6-****
@@ -560,19 +551,19 @@ export class File extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The elements in the video segment, which are scene elements that you can extract from the video by using an AI model.
+   * A list of scene elements extracted from the video by the AI model during analysis.
    */
   sceneElements?: SceneElement[];
   /**
    * @remarks
-   * The reasons for which the current file is included in the search results when you call the SemanticQuery operation for semantic search.
+   * Indicates why this file was returned when you use the SemanticQuery API to perform a semantic search.
    */
   semanticTypes?: string[];
   /**
    * @remarks
-   * The encryption method of the object.
+   * The encryption algorithm of the object.
    * 
-   * This parameter is available only if server encryption is configured for the OSS bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
+   * This parameter is returned only if server-side encryption is enabled for the bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
    * 
    * @example
    * SM4
@@ -580,9 +571,9 @@ export class File extends $dara.Model {
   serverSideDataEncryption?: string;
   /**
    * @remarks
-   * The encryption method on the server side.
+   * The server-side encryption method.
    * 
-   * This parameter is available only if server encryption is configured for the OSS bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
+   * This parameter is returned only if server-side encryption is enabled for the bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
    * 
    * @example
    * AES256
@@ -590,7 +581,7 @@ export class File extends $dara.Model {
   serverSideEncryption?: string;
   /**
    * @remarks
-   * The algorithm that is used to encrypt the file on the server side.
+   * The encryption algorithm used for server-side encryption with customer-provided keys.
    * 
    * @example
    * SM4
@@ -598,9 +589,9 @@ export class File extends $dara.Model {
   serverSideEncryptionCustomerAlgorithm?: string;
   /**
    * @remarks
-   * The ID of the customer master key (CMK) managed by Key Management Service (KMS).
+   * The ID of the customer master key (CMK) that is managed by KMS.
    * 
-   * This parameter is available only if server encryption is configured for the OSS bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
+   * This parameter is returned only if server-side encryption is enabled for the bucket. For more information, see [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
    * 
    * @example
    * 9468da86-3509-4f8d-a61e-6eab1eac****
@@ -608,7 +599,7 @@ export class File extends $dara.Model {
   serverSideEncryptionKeyId?: string;
   /**
    * @remarks
-   * The size of the object. Unit: bytes.
+   * The size of the file, in bytes.
    * 
    * @example
    * 1000
@@ -616,7 +607,7 @@ export class File extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The time of the first frame. Unit: seconds.
+   * The start time of the first frame, in seconds.
    * 
    * @example
    * 0.000000
@@ -632,14 +623,14 @@ export class File extends $dara.Model {
   streamCount?: number;
   /**
    * @remarks
-   * The list of subtitle streams.
+   * A list of subtitle streams.
    */
   subtitles?: SubtitleStream[];
   /**
    * @remarks
-   * The time zone.
+   * The timezone.
    * 
-   * >  Not supported.
+   * > This feature is not supported.
    * 
    * @example
    * ""
@@ -657,7 +648,7 @@ export class File extends $dara.Model {
    * @remarks
    * A reserved parameter.
    * 
-   * > Not supported.
+   * > This feature is not supported.
    * 
    * @example
    * -
@@ -665,19 +656,19 @@ export class File extends $dara.Model {
   travelClusterId?: string;
   /**
    * @remarks
-   * The URI of the file.
+   * The address of the file.
    * 
-   * The URI of an OSS object follows the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+   * An OSS URI must be in the `oss://${Bucket}/${Object}` format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the full path to the object, including the file extension.
    * 
-   * The URI of a file in Photo and Drive Service follows the pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision} format.
+   * A PDS URI must be in the `pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision}` format.
    * 
    * @example
-   * oss://examplebucket/sampleobject.jpg
+   * oss://test-bucket/test-object.jpg
    */
   URI?: string;
   /**
    * @remarks
-   * The RFC3339Nano timestamp when the metadata was modified.
+   * The time when the metadata was last updated. The time is in the RFC3339Nano format.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -685,7 +676,7 @@ export class File extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The height of the video. Unit: pixels.
+   * The height of the video, in pixels (px).
    * 
    * @example
    * 1920
@@ -693,12 +684,12 @@ export class File extends $dara.Model {
   videoHeight?: number;
   /**
    * @remarks
-   * The list of video streams.
+   * A list of video streams.
    */
   videoStreams?: VideoStream[];
   /**
    * @remarks
-   * The width of the video. Unit: pixels.
+   * The width of the video, in pixels (px).
    * 
    * @example
    * 1080

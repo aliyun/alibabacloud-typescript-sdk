@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DocumentParseQuestionOption extends $dara.Model {
   /**
+   * @remarks
+   * Number of questions (range: 0 to 10)
+   * 
    * @example
    * 1
    */
   count?: number;
+  /**
+   * @remarks
+   * Whether to extract
+   */
   extract?: boolean;
   static names(): { [key: string]: string } {
     return {

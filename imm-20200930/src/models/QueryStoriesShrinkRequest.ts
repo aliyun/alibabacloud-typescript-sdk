@@ -59,8 +59,9 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
-   * *   asc: in ascending order.
-   * *   desc: in descending order.
+   * - asc: in ascending order.
+   * 
+   * - desc: in descending order.
    * 
    * @example
    * asc
@@ -80,10 +81,13 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
    * @remarks
    * The sort field. Valid values:
    * 
-   * *   CreateTime: sorts by story creation time.
-   * *   StoryName: sorts by story name.
-   * *   StoryStartTime: sorts by story start time.
-   * *   StoryEndTime: sorts by story end time.
+   * - CreateTime: sorts by story creation time.
+   * 
+   * - StoryName: sorts by story name.
+   * 
+   * - StoryStartTime: sorts by story start time.
+   * 
+   * - StoryEndTime: sorts by story end time.
    * 
    * @example
    * CreateTime
@@ -127,8 +131,9 @@ export class QueryStoriesShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return empty stories. Valid values:
    * 
-   * *   true (The default value)
-   * *   false
+   * - true (The default value)
+   * 
+   * - false
    * 
    * @example
    * true

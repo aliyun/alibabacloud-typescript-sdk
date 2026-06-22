@@ -20,6 +20,9 @@ export class OCRContents extends $dara.Model {
   /**
    * @remarks
    * The content.
+   * 
+   * @example
+   * 欢迎使用智能媒体管理
    */
   contents?: string;
   /**

@@ -33,7 +33,7 @@ export class TrimPolicy extends $dara.Model {
    * *   false
    * 
    * @example
-   * true
+   * false
    */
   disableDeleteUnusedPicture?: boolean;
   /**

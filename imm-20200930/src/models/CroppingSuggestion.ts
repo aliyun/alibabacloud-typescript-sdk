@@ -22,7 +22,7 @@ export class CroppingSuggestion extends $dara.Model {
    * The confidence score. Valid values: 0 to 1. A higher score indicates greater confidence in the result.
    * 
    * @example
-   * 0.7079545259475708
+   * 0.742
    */
   confidence?: number;
   static names(): { [key: string]: string } {

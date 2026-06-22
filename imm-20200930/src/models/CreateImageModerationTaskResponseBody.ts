@@ -13,7 +13,7 @@ export class CreateImageModerationTaskResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****

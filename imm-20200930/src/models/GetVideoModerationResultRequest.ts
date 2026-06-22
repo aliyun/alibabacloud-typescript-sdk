@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoModerationResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The project name.[](~~478153~~)
+   * The project name.
    * 
    * This parameter is required.
    * 

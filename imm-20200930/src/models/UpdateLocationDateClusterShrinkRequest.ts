@@ -54,6 +54,9 @@ export class UpdateLocationDateClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the cluster. The name can be used to search for the cluster. The value can be up to 1,024 bytes in size.
+   * 
+   * @example
+   * One-day trip in Hangzhou
    */
   title?: string;
   static names(): { [key: string]: string } {

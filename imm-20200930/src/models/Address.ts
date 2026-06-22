@@ -6,21 +6,33 @@ export class Address extends $dara.Model {
   /**
    * @remarks
    * The full address.
+   * 
+   * @example
+   * 中国浙江省杭州市余杭区文一西路969号
    */
   addressLine?: string;
   /**
    * @remarks
    * The city.
+   * 
+   * @example
+   * 杭州市
    */
   city?: string;
   /**
    * @remarks
    * The country or region.
+   * 
+   * @example
+   * 中国
    */
   country?: string;
   /**
    * @remarks
    * The district.
+   * 
+   * @example
+   * 余杭区
    */
   district?: string;
   /**
@@ -28,17 +40,23 @@ export class Address extends $dara.Model {
    * The BCP 47 language code.
    * 
    * @example
-   * zh-hans
+   * zh-Hans
    */
   language?: string;
   /**
    * @remarks
    * The province.
+   * 
+   * @example
+   * 浙江省
    */
   province?: string;
   /**
    * @remarks
    * The street.
+   * 
+   * @example
+   * 文一西路
    */
   township?: string;
   static names(): { [key: string]: string } {

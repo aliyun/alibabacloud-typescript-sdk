@@ -10,7 +10,7 @@ export class ElementContent extends $dara.Model {
    * If the value of the Type parameter is image or link, this parameter indicates the placeholder text.
    * 
    * @example
-   * Text
+   * 文本片段
    */
   content?: string;
   /**

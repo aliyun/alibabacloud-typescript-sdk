@@ -18,7 +18,7 @@ export class DetectImageCodesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   /**
@@ -30,7 +30,7 @@ export class DetectImageCodesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * oss://bucketname/objectname
+   * oss://test-bucket/test-object.jpg
    */
   sourceURI?: string;
   static names(): { [key: string]: string } {

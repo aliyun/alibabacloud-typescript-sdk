@@ -6,7 +6,7 @@ import { Project } from "./Project";
 export class ListProjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The credential for querying subsequent pages when the total number of expected projects exceeds the specified MaxResults value. This parameter has a value only when not all projects are returned.
    * 
    * @example
    * MTIzNDU2Nzg6aW1tdGVzdDAx
@@ -14,7 +14,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The projects.
+   * The array of projects. Returns information about the projects.
    */
   projects?: Project[];
   /**

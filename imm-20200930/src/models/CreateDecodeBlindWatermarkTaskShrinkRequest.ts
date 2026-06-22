@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The quality of the output image. This parameter is also available in the earlier DecodeBlindWatermark operation.
+   * A parameter from the earlier DecodeBlindWatermark API. It specifies the quality of the output image. The default value is 90. The value must be in the range of 70 to 100.
    * 
-   * Higher image quality indicates a larger image size and higher watermark resolution quality.
+   * A higher quality results in a larger image size and better watermark parsing quality.
    * 
    * @example
    * 90
@@ -15,9 +15,9 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $dara.Model {
   imageQuality?: number;
   /**
    * @remarks
-   * The watermark algorithm model. This parameter is also available in the earlier DecodeBlindWatermark operation. Valid values: FFT, FFT_FULL, DWT, and DWT_IBG. Default value: FFT.
+   * A parameter from the earlier DecodeBlindWatermark API. It specifies the watermark algorithm model. Valid values include FFT, FFT_FULL, DWT, and DWT_IBG. The default value is FFT.
    * 
-   * If this parameter is left empty, the CreateDecodeBlindWatermarkTask operation is called. Otherwise, the earlier DecodeBlindWatermark operation is called.
+   * If this parameter is left empty, the new version of the blind watermarking feature is used. Otherwise, the earlier version is used.
    * 
    * @example
    * FFT
@@ -25,16 +25,16 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   * The notification configuration. For more information, click Notification. For the format of asynchronous notification messages, see [Asynchronous notification message format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
    * @remarks
-   * The OSS URI of the image before the blind watermark is added. This parameter is also available in the earlier DecodeBlindWatermark operation.
+   * A parameter from the earlier DecodeBlindWatermark API. It specifies the OSS URI of the image before the blind watermark was added.
    * 
-   * Do not specify this parameter when you set the Model parameter to DWT or DWT_IBG.
+   * This parameter is not required when Model is set to DWT or DWT_IBG.
    * 
-   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * The OSS URI must be in the `oss://<bucket>/<object>` format. `<bucket>` is the name of the OSS bucket that is in the same region as the current project. `<object>` is the full path of the file, including the file name extension.
    * 
    * @example
    * oss://imm-test/testcases/watermarktestbefore.jpg
@@ -42,9 +42,8 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $dara.Model {
   originalImageURI?: string;
   /**
    * @remarks
-   * The name of the project.[](~~478153~~)
-   * 
-   * >  The project specified in the request must match the one in the EncodeBlindWatermark request to encode the blind watermark.
+   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
+   * >Notice: The project name must be the same as the one used to add the blind watermark with the [EncodeBlindWatermark](https://help.aliyun.com/document_detail/2743655.html) operation. Otherwise, the watermark cannot be extracted.
    * 
    * This parameter is required.
    * 
@@ -54,9 +53,9 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The OSS URI of the image.
+   * The Object Storage Service (OSS) URI of the image.
    * 
-   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * The OSS URI must be in the `oss://<bucket>/<object>` format. `<bucket>` is the name of the OSS bucket that is in the same region as the current project. `<object>` is the full path of the file, including the file name extension.
    * 
    * This parameter is required.
    * 
@@ -66,11 +65,13 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $dara.Model {
   sourceURI?: string;
   /**
    * @remarks
-   * The level of watermark extraction. A higher level indicates a longer time and a higher quality. Valid values:
+   * The watermark extraction level, which controls the extraction precision. A higher level indicates a longer processing time and a better extraction effect. Valid values:
    * 
-   * *   low
-   * *   medium
-   * *   high
+   * - low
+   * 
+   * - medium
+   * 
+   * - high
    * 
    * @example
    * low
@@ -78,9 +79,9 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $dara.Model {
   strengthLevel?: string;
   /**
    * @remarks
-   * The OSS URI of the output image. This parameter is also available in the earlier DecodeBlindWatermark operation.
+   * A parameter from the earlier DecodeBlindWatermark API. It specifies the OSS URI where the image is saved after the blind watermark is parsed.
    * 
-   * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
+   * The OSS URI must be in the `oss://<bucket>/<object>` format. `<bucket>` is the name of the OSS bucket that is in the same region as the current project. `<object>` is the full path of the file, including the file name extension.
    * 
    * @example
    * oss://target/targetobject.jpg
@@ -88,9 +89,9 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $dara.Model {
   targetURI?: string;
   /**
    * @remarks
-   * The type of the watermark. Valid value: text.
+   * The type of the embedded watermark. Valid value: text
    * 
-   * No image watermarks are supported.
+   * (Image watermarks are not supported. Therefore, this parameter can only be set to text.)
    * 
    * @example
    * text

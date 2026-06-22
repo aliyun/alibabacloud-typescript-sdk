@@ -6,26 +6,41 @@ export class AddressForStory extends $dara.Model {
   /**
    * @remarks
    * The city.
+   * 
+   * @example
+   * 杭州市
    */
   city?: string;
   /**
    * @remarks
    * The country.
+   * 
+   * @example
+   * 中国
    */
   country?: string;
   /**
    * @remarks
    * The district.
+   * 
+   * @example
+   * 滨江区
    */
   district?: string;
   /**
    * @remarks
    * The province.
+   * 
+   * @example
+   * 浙江省
    */
   province?: string;
   /**
    * @remarks
    * The township.
+   * 
+   * @example
+   * 长河街道
    */
   township?: string;
   static names(): { [key: string]: string } {

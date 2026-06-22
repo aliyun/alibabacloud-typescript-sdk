@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLocationDateClusteringTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the dataset.[](~~478160~~)
+   * The dataset name. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * This parameter is required.
    * 
@@ -15,30 +15,28 @@ export class CreateLocationDateClusteringTaskShrinkRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The date configurations for clustering.
-   * 
-   * >  Adjusting these configurations affects existing spatiotemporal clusters for the dataset.
+   * The date clustering settings.
+   * >Notice: Modifying this setting also affects existing spatio-temporal clusters in your `Dataset`.
    * 
    * This parameter is required.
    */
   dateOptionsShrink?: string;
   /**
    * @remarks
-   * The geolocation configurations for clustering.
-   * 
-   * >  Adjusting these configurations affects existing spatiotemporal clusters for the dataset.
+   * The location clustering settings.
+   * >Notice: Modifying this setting also affects existing spatio-temporal clusters in your `Dataset`.
    * 
    * This parameter is required.
    */
   locationOptionsShrink?: string;
   /**
    * @remarks
-   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   * The message notification configuration. For more information, see Notification. For the format of asynchronous notification messages, see [Asynchronous notification message format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
    * @remarks
-   * The name of the project.[](~~478153~~)
+   * The project name. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -48,7 +46,7 @@ export class CreateLocationDateClusteringTaskShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * Custom tags used to search for and filter asynchronous tasks.
    * 
    * @example
    * {
@@ -58,7 +56,7 @@ export class CreateLocationDateClusteringTaskShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * Custom information that is returned in the asynchronous notification message. This helps you associate the notification message with your system. The maximum length is 2,048 bytes.
    * 
    * @example
    * test-data

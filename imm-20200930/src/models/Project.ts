@@ -1,11 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DatasetConfig } from "./DatasetConfig";
 
 
 export class ProjectTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * 标签键。
    * 
    * @example
    * TestKey
@@ -13,7 +14,7 @@ export class ProjectTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * 标签值。
    * 
    * @example
    * TestValue
@@ -45,12 +46,13 @@ export class ProjectTags extends $dara.Model {
 export class Project extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the project was created. The timestamp is in the RFC3339Nano format.
+   * The timestamp when the project was created, in RFC3339Nano format.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
    */
   createTime?: string;
+  datasetConfig?: DatasetConfig;
   /**
    * @remarks
    * The current number of datasets in the project.
@@ -61,7 +63,7 @@ export class Project extends $dara.Model {
   datasetCount?: number;
   /**
    * @remarks
-   * The maximum number of bindings that a dataset can have. Valid values: 1 to 10. Default value: 10.
+   * The maximum number of bindings per dataset. Valid values: 1 to 10. Default value: 10.
    * 
    * @example
    * 10
@@ -69,9 +71,9 @@ export class Project extends $dara.Model {
   datasetMaxBindCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata entities in a dataset. Default value: 10000000000.
+   * The maximum number of metadata entities per dataset. Default value: 10000000000.
    * 
-   * >  This parameter is reserved and does not actually apply a limit.
+   * > This field is reserved for future use and is not enforced.
    * 
    * @example
    * 10000000000
@@ -79,7 +81,7 @@ export class Project extends $dara.Model {
   datasetMaxEntityCount?: number;
   /**
    * @remarks
-   * The maximum number of files in a dataset. Valid values: 1 to 100000000. Default value: 100000000.
+   * The maximum number of files per dataset. Valid values: 1 to 100000000. Default value: 100000000.
    * 
    * @example
    * 100000000
@@ -87,9 +89,9 @@ export class Project extends $dara.Model {
   datasetMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of metadata relationships in a dataset. Default value: 100000000000.
+   * The maximum number of metadata relationships per dataset. Default value: 100000000000.
    * 
-   * >  This parameter is reserved and does not actually apply a limit.
+   * > This field is reserved for future use and is not enforced.
    * 
    * @example
    * 100000000000
@@ -97,7 +99,7 @@ export class Project extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum total file size for a dataset. If the total file size exceeds this limit, indexes can no longer be added. Default value: 90000000000000000. Unit: bytes.
+   * The maximum total file size per dataset, in bytes. After this limit is exceeded, no more indexes can be added. Default value: 90000000000000000.
    * 
    * @example
    * 90000000000000000
@@ -106,14 +108,18 @@ export class Project extends $dara.Model {
   /**
    * @remarks
    * The project description.
+   * 
+   * @example
+   * test project
    */
   description?: string;
   /**
    * @remarks
-   * The maximum number of tasks that the project can process per second. This corresponds to the maximum number of operators that can run in parallel in the project. Default value: 100.
+   * The maximum number of tasks that the project can process per second. This specifies the maximum number of operators that can run in parallel at the same time across the project. Default value: 100.
    * 
-   * *   If the number of synchronous tasks that run in parallel exceeds this limit, the task execution time will be extended until a timeout occurs.
-   * *   If the number of asynchronous tasks that run in parallel exceeds this limit, the tasks will be queued. This causes delayed task completion. If a task remains in the queue for longer than the specified time limit (usually dozens of seconds), the task will fail.
+   * - Synchronous tasks: if the number of concurrent tasks exceeds this limit, task execution time increases until a timeout occurs.
+   * 
+   * - Asynchronous tasks: if the number of concurrent tasks exceeds this limit, tasks are queued for a period of time, which delays task completion. If the queuing time also exceeds the limit (typically tens of minutes), the task returns a failure.
    * 
    * @example
    * 100
@@ -129,7 +135,7 @@ export class Project extends $dara.Model {
   fileCount?: number;
   /**
    * @remarks
-   * The maximum number of datasets that a project can contain. Valid values: 1 to 1000000000. Default value: 1000000000.
+   * The maximum number of datasets in the project. Valid values: 1 to 1000000000. Default value: 1000000000.
    * 
    * @example
    * 1000000000
@@ -137,7 +143,7 @@ export class Project extends $dara.Model {
   projectMaxDatasetCount?: number;
   /**
    * @remarks
-   * The name of the project.
+   * The project name.
    * 
    * @example
    * immtest
@@ -145,7 +151,7 @@ export class Project extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The maximum number of requests that can be processed by the project per second. This corresponds to the maximum number of API operations that can be called in the project per second. Default value: 100.
+   * The maximum number of requests that the project can process per second. This specifies the maximum number of API calls allowed per second for all APIs in the project. Default value: 100.
    * 
    * @example
    * 100
@@ -161,20 +167,20 @@ export class Project extends $dara.Model {
   serviceRole?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tags?: ProjectTags[];
   /**
    * @remarks
-   * The ID of the workflow template.
+   * The workflow template ID.
    * 
    * @example
-   * DefaultId
+   * Official:ImageManagement
    */
   templateId?: string;
   /**
    * @remarks
-   * The current total size of files in the project. Unit: bytes.
+   * The current total file size in the project, in bytes.
    * 
    * @example
    * 100000
@@ -182,9 +188,9 @@ export class Project extends $dara.Model {
   totalFileSize?: number;
   /**
    * @remarks
-   * The timestamp when the project was last modified. The timestamp is in the RFC3339Nano format.
+   * The timestamp when the project was last modified, in RFC3339Nano format.
    * 
-   * >  If a project is not modified after it is created, the timestamp when the project was created is the same as the timestamp when the project was last modified.
+   * > If the project has not been updated since creation, this timestamp is the same as the creation timestamp.
    * 
    * @example
    * 2021-06-29T14:50:13.011643661+08:00
@@ -193,6 +199,7 @@ export class Project extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      datasetConfig: 'DatasetConfig',
       datasetCount: 'DatasetCount',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
@@ -216,6 +223,7 @@ export class Project extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      datasetConfig: DatasetConfig,
       datasetCount: 'number',
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
@@ -237,6 +245,9 @@ export class Project extends $dara.Model {
   }
 
   validate() {
+    if(this.datasetConfig && typeof (this.datasetConfig as any).validate === 'function') {
+      (this.datasetConfig as any).validate();
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }

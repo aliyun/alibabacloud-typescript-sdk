@@ -13,7 +13,7 @@ export class CreateLocationDateClusteringTaskResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B121940C-9794-4EE3-8D6E-F8EC525F****

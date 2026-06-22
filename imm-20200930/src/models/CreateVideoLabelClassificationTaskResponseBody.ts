@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVideoLabelClassificationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The event ID of the current task. You can use [EventBridge](https://www.alibabacloud.com/en/product/eventbridge) to query the ID and obtain the task information notification.
+   * The event ID of the task. You can use this ID to query task information notifications in the [EventBridge](https://www.aliyun.com/product/aliware/eventbridge) service.
    * 
    * @example
    * 03F-1Qt1Yn5RZZ0Zh3ZdYlDblv7****
@@ -13,7 +13,7 @@ export class CreateVideoLabelClassificationTaskResponseBody extends $dara.Model 
   eventId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
@@ -21,7 +21,7 @@ export class CreateVideoLabelClassificationTaskResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The ID of the current task. You can call the [GetTask](~~GetTask~~) operation to view the task information or the [GetVideoLabelClassificationResult](https://help.aliyun.com/document_detail/478224.html) operation to obtain the result of the video label detection task.
+   * The ID of the task. You can use the [GetTask](https://help.aliyun.com/document_detail/478241.html) operation to view task information or the [GetVideoLabelClassificationResult](https://help.aliyun.com/document_detail/478224.html) operation to obtain the results of the video label detection task.
    * 
    * @example
    * VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec*****

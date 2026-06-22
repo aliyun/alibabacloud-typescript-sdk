@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The event ID.
+   * The ID of the event.
    * 
    * @example
    * 392-1CqzvESGTEeNZ2OWFbRKIM****
@@ -13,7 +13,7 @@ export class CreateStoryResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
@@ -21,7 +21,7 @@ export class CreateStoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * CreateStory-4ef6ff43-edf3-4612-9cc4-0c7f9e19****

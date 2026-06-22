@@ -37,7 +37,7 @@ export class ListTasksRequest extends $dara.Model {
    * *   desc: in descending order.
    * 
    * @example
-   * ASC
+   * asc
    */
   order?: string;
   /**

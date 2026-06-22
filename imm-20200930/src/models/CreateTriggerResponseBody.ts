@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the trigger.
+   * The data ingestion ID.
    * 
    * @example
    * trigger-9f72636a-0f0c-4baf-ae78-38b27b******

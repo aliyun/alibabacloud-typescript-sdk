@@ -14,7 +14,7 @@ export class ContextualFile extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Name of the dataset
+   * The dataset name.
    * 
    * @example
    * test-dataset
@@ -22,21 +22,12 @@ export class ContextualFile extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * Elements
+   * Elements.
    */
   elements?: Element[];
   /**
    * @remarks
-   * Media type of the current file
-   * 
-   * Valid values:
-   * 
-   * *   image
-   * *   other
-   * *   document
-   * *   archive
-   * *   audio
-   * *   video
+   * The media type of the file.
    * 
    * @example
    * document
@@ -44,7 +35,7 @@ export class ContextualFile extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * The URI of the OSS object. This parameter is available only if the value of the URI parameter is the URI of a file in Photo and Drive Service.
+   * The URI path of the OSS file. This parameter is used only when the URI is a PDS address.
    * 
    * @example
    * oss://test-bucket/test-object.jpg
@@ -52,7 +43,7 @@ export class ContextualFile extends $dara.Model {
   OSSURI?: string;
   /**
    * @remarks
-   * The identifier of the corresponding file that exists in the dataset.
+   * The identifier of the file in the dataset.
    * 
    * @example
    * 0939d7ed-73fa-4009-bbe6-fbbe07b92b2e
@@ -60,7 +51,7 @@ export class ContextualFile extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 1482910009923706
@@ -68,7 +59,7 @@ export class ContextualFile extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * Name of the project
+   * The project name.
    * 
    * @example
    * test-project
@@ -76,7 +67,9 @@ export class ContextualFile extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * URI of the file. Specify the OSS URI in the oss://${bucketname}/${objectname} format, where ${bucketname} is the name of the bucket in the same region as the current project and ${objectname} is the path of the object. The URI of a file in Photo and Drive Service follows the pds://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision} format.
+   * The URI of the file.
+   * The format of an OSS URI is oss\\://${bucketname}/${objectname}. ${bucketname} is the name of an OSS bucket in the same region as the current project. ${objectname} is the file path.
+   * The format of a PDS URI is pds\\://domains/${domain}/drives/${drive}/files/${file}/revisions/${revision}.
    * 
    * @example
    * oss://test-bucket

@@ -6,6 +6,9 @@ export class RegionType extends $dara.Model {
   /**
    * @remarks
    * The name of the region.
+   * 
+   * @example
+   * 华北2（北京）
    */
   localName?: string;
   /**

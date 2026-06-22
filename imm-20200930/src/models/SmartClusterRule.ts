@@ -6,13 +6,13 @@ export class SmartClusterRule extends $dara.Model {
   baseURIs?: string[];
   /**
    * @remarks
-   * Keywords
+   * An array of keywords for clustering.
    */
   keywords?: string[];
   ruleType?: string;
   /**
    * @remarks
-   * Sensitivity
+   * The sensitivity for clustering, ranging from 0.0 to 1.0.
    * 
    * @example
    * 0.5

@@ -7,17 +7,17 @@ export class CreateImageToPDFTaskShrinkRequest extends $dara.Model {
    * @remarks
    * **If you have no special requirements, leave this parameter empty.**
    * 
-   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   * The chained authorization configuration. For more information, see [Use chained authorization to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfigShrink?: string;
   /**
    * @remarks
-   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   * The message notification configuration. For more information, click Notification. For the format of asynchronous notification messages, see [Asynchronous notification message format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
    * @remarks
-   * The name of the project.[](~~478153~~)
+   * The name of the project. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -27,14 +27,14 @@ export class CreateImageToPDFTaskShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The list of images. The sequence of image URIs in the list determines the order in which they are converted.
+   * A list of input images. The images are converted in the order of their URIs in this list.
    * 
    * This parameter is required.
    */
   sourcesShrink?: string;
   /**
    * @remarks
-   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * Custom tags used to search for and filter asynchronous tasks.
    * 
    * @example
    * {
@@ -44,9 +44,9 @@ export class CreateImageToPDFTaskShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The OSS URI of the output file.
+   * The OSS address where the output PDF file is stored.
    * 
-   * Specify the OSS URI in the oss://${bucketname}/${objectname} format, where ${bucketname} is the name of the bucket in the same region as the current project and ${objectname} is the path of the object with the extension included.
+   * The address must be in the \\`oss\\://${bucketname}/${objectname}\\` format. \\`${bucketname}\\` must be an OSS bucket in the same region as the project. \\`${objectname}\\` must be the path of the file, including the file name.
    * 
    * This parameter is required.
    * 
@@ -56,7 +56,7 @@ export class CreateImageToPDFTaskShrinkRequest extends $dara.Model {
   targetURI?: string;
   /**
    * @remarks
-   * The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+   * Custom user information that is returned in the asynchronous notification message. This helps you associate the notification message with your system. The maximum length is 2048 bytes.
    * 
    * @example
    * test-data

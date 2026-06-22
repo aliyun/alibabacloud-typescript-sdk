@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOSSBucketAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the dataset was created.
+   * The time when the dataset was created. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
    * 
    * @example
    * ""2023-12-19T17:29:34.790931971+08:00"
@@ -13,15 +13,15 @@ export class GetOSSBucketAttachmentResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the dataset.
+   * The dataset description.
    * 
    * @example
-   * "Dataset"
+   * "数据集"
    */
   description?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The name of the bound project.
    * 
    * @example
    * immtest
@@ -37,7 +37,7 @@ export class GetOSSBucketAttachmentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the dataset was last updated.
+   * The time when the dataset was last updated. The value is a UTC timestamp in ISO 8601 format with millisecond precision.
    * 
    * @example
    * "2023-12-19T17:29:34.790931971+08:00"

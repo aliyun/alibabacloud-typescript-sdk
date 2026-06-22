@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshWebofficeTokenShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Weboffice access token. Obtain it through the [GenerateWebofficeToken](https://help.aliyun.com/document_detail/478226.html) or [RefreshWebofficeToken](https://help.aliyun.com/document_detail/478227.html) interfaces.
+   * The Weboffice access token. You can obtain the token by calling the [GenerateWebofficeToken](https://help.aliyun.com/document_detail/478226.html) or [RefreshWebofficeToken](https://help.aliyun.com/document_detail/478227.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,14 +15,14 @@ export class RefreshWebofficeTokenShrinkRequest extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * **If there are no special requirements, leave it blank.**
+   * **Leave this parameter empty unless you have special requirements.**
    * 
-   * Chained authorization configuration, optional. For more information, see [Access Other Entity Resources Using Chained Authorization](https://help.aliyun.com/document_detail/465340.html).
+   * The China authorization configuration. This parameter is optional. For more information, see [Use chained authorization to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfigShrink?: string;
   /**
    * @remarks
-   * Project name. For more information on how to obtain it, see [Create Project](https://help.aliyun.com/document_detail/478153.html).
+   * The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class RefreshWebofficeTokenShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Weboffice refresh token. Obtain it through the [GenerateWebofficeToken](https://help.aliyun.com/document_detail/478226.html) or [RefreshWebofficeToken](https://help.aliyun.com/document_detail/478227.html) interfaces.
+   * The Weboffice refresh token. You can obtain the token by calling the [GenerateWebofficeToken](https://help.aliyun.com/document_detail/478226.html) or [RefreshWebofficeToken](https://help.aliyun.com/document_detail/478227.html) operation.
    * 
    * This parameter is required.
    * 

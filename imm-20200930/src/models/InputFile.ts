@@ -213,7 +213,7 @@ export class InputFile extends $dara.Model {
    * >  URIs that start with HTTP are not supported.
    * 
    * @example
-   * oss://examplebucket/sampleobject.jpg
+   * oss://test-bucket/test-object
    */
   URI?: string;
   static names(): { [key: string]: string } {

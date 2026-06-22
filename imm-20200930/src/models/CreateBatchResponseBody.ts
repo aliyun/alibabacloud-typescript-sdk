@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the batch processing task.
+   * The batch processing task ID.
    * 
    * @example
    * batch-4eb9223f-3e88-42d3-a578-3f2852******

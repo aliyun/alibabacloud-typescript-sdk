@@ -34,7 +34,7 @@ export class DeleteFileMetaRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * oss://examplebucket/exampleobject.txt
+   * oss://test-bucket/test-object
    */
   URI?: string;
   static names(): { [key: string]: string } {

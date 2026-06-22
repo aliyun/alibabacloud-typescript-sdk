@@ -7,6 +7,9 @@ export class ContextualMessage extends $dara.Model {
   /**
    * @remarks
    * The message content.
+   * 
+   * @example
+   * 你好
    */
   content?: string;
   /**

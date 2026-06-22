@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateProjectShrinkRequest extends $dara.Model {
+  datasetConfigShrink?: string;
   /**
    * @remarks
    * The maximum number of bindings for each dataset. Valid values: 1 to 10. Default value: 10.
@@ -14,8 +15,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of metadata entities in each dataset. Default value: 10000000000.
-   * 
-   * >  This is a precautionary setting that does not impose practical limitations.
+   * >This parameter is reserved for future use and is not enforced.
    * 
    * @example
    * 10000000000
@@ -32,8 +32,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of metadata relationships in each dataset. Default value: 100000000000.
-   * 
-   * >  This is a precautionary setting that does not impose practical limitations.
+   * >This parameter is reserved for future use and is not enforced.
    * 
    * @example
    * 100000000000
@@ -41,7 +40,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxRelationCount?: number;
   /**
    * @remarks
-   * The maximum size of files in each dataset. If the maximum size is exceeded, no indexes can be added. Unit: bytes. Default value: 90000000000000000.
+   * The maximum total file size in each dataset. After the limit is exceeded, no more indexes can be added. Unit: bytes. Default value: 90000000000000000.
    * 
    * @example
    * 90000000000000000
@@ -49,7 +48,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   datasetMaxTotalFileSize?: number;
   /**
    * @remarks
-   * The description of the project. The description must be 1 to 256 characters in length. You can leave this parameter empty.
+   * The project description. The description can be 1 to 256 characters in length. Default value: empty.
    * 
    * @example
    * immtest
@@ -65,11 +64,13 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   projectMaxDatasetCount?: number;
   /**
    * @remarks
-   * The name of the project. The name must meet the following requirements:
+   * The project name. The naming rules are as follows:
    * 
-   * *   The name must be 1 to 128 characters in length
-   * *   and can contain only letters, digits, hyphens (-), and underscores (_).
-   * *   The name must start with a letter or an underscores (_).
+   * - The name must be 1 to 128 characters in length.
+   * 
+   * - The name can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The name must start with a letter or an underscore (_).
    * 
    * This parameter is required.
    * 
@@ -79,9 +80,9 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The name of the Resource Access Management (RAM) role. You must attach the RAM role to IMM to allow IMM to access other cloud resources, such as Object Storage Service (OSS). Default value: `AliyunIMMDefaultRole`.
+   * The service role that grants IMM permissions to access other Alibaba Cloud resources such as Object Storage Service (OSS). Default value: `AliyunIMMDefaultRole`.
    * 
-   * You can also create a custom role in the RAM console and grant the required permissions to the role based on your business requirements. For more information, see [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/477257.html).
+   * To customize a service role, create a regular service role in the Resource Access Management (RAM) console and grant permissions to the role. For more information, see [Grant permissions to a role](https://help.aliyun.com/document_detail/477258.html).
    * 
    * @example
    * AliyunIMMDefaultRole
@@ -89,19 +90,20 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   serviceRole?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tagShrink?: string;
   /**
    * @remarks
-   * The ID of the workflow template. You can leave this parameter empty. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+   * The workflow template ID. Default value: empty. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
    * 
    * @example
-   * Official:AllFunction
+   * Official:ImageManagement
    */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      datasetConfigShrink: 'DatasetConfig',
       datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
@@ -118,6 +120,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      datasetConfigShrink: 'string',
       datasetMaxBindCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxFileCount: 'number',

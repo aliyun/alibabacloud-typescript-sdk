@@ -38,7 +38,7 @@ export class DetectImageBodiesShrinkRequest extends $dara.Model {
    * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the file that has an extension.
    * 
    * @example
-   * oss://test-bucket/test-object
+   * oss://test-bucket/test-object.jpg
    */
   sourceURI?: string;
   static names(): { [key: string]: string } {
