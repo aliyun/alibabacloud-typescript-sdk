@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCommerceSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
    * None
@@ -13,10 +13,11 @@ export class UpdateCommerceSettingResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request is successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -24,7 +25,7 @@ export class UpdateCommerceSettingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The response message. This parameter is returned when an error occurs.
    * 
    * @example
    * None
@@ -40,10 +41,11 @@ export class UpdateCommerceSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: successful.
+   * 
+   * - **false**: failed.
    * 
    * @example
    * true

@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListDmTagRequest extends $dara.Model {
   /**
    * @example
-   * a
+   * 示例值
    */
   keyword?: string;
   ownerId?: number;
   /**
    * @example
-   * 1
+   * 82
    */
   pageIndex?: number;
   /**
    * @example
-   * 10
+   * 89
    */
   pageSize?: number;
   resourceOwnerAccount?: string;

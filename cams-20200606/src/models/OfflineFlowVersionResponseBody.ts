@@ -3,50 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OfflineFlowVersionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Access denied details; this field is only returned when RAM verification fails.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Status code.
-   * 
    * @example
    * 示例值示例值
    */
   code?: string;
   /**
-   * @remarks
-   * Error message.
-   * 
    * @example
    * 示例值示例值
    */
   message?: string;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 示例值示例值
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Content of the returned data.
-   * 
-   * @example
-   * 无
-   */
   response?: { [key: string]: any };
   /**
-   * @remarks
-   * Indicates whether the operation was successful. true means success, false means failure.
-   * 
    * @example
    * true
    */

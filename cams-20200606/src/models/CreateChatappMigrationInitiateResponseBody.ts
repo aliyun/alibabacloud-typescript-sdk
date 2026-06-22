@@ -5,23 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChatappMigrationInitiateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the mobile number.
+   * The ID of the phone number.
    * 
    * @example
-   * 82828893332
+   * 8282889****
    */
   id?: string;
   /**
    * @remarks
-   * The mobile number.
+   * The phone number.
    * 
    * @example
-   * 8613900001234
+   * 861390000****
    */
   phoneNumber?: string;
   /**
    * @remarks
-   * The state of the mobile number. Only MIGRATING may be returned, which indicates that the mobile number is being migrated.
+   * The status of the phone number.
+   * Valid value: MIGRATING: The phone number is being migrated.
    * 
    * @example
    * MIGRATING
@@ -55,7 +56,7 @@ export class CreateChatappMigrationInitiateResponseBodyData extends $dara.Model 
 export class CreateChatappMigrationInitiateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the request denial..
+   * Details about the access denial.
    * 
    * @example
    * None
@@ -63,10 +64,11 @@ export class CreateChatappMigrationInitiateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The status code of the request.
    * 
-   * *   A value of OK indicates that the request was successful.
-   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -74,12 +76,12 @@ export class CreateChatappMigrationInitiateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: CreateChatappMigrationInitiateResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * SUCCESS
@@ -87,7 +89,7 @@ export class CreateChatappMigrationInitiateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****

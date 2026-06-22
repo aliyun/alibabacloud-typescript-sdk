@@ -4,35 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFlowVersionRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   /**
-   * @remarks
-   * Flow code.
-   * 
    * @example
-   * f4912c16943b4dfba44bd6fedacf****
+   * 示例值
    */
   flowCode?: string;
   /**
-   * @remarks
-   * Flow version
-   * 
    * @example
-   * 1
+   * 示例值示例值
    */
   flowVersion?: string;
   ownerId?: number;

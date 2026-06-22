@@ -20,23 +20,19 @@ export class ListMarketingFlowRequest extends $dara.Model {
   activityStatus?: string;
   /**
    * @example
-   * ALICOM_OPAAS
+   * 示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   ownerId?: number;
   /**
    * @example
-   * 1
+   * 示例值示例值示例值
    */
   pageIndex?: string;
   /**
    * @example
-   * 1
+   * 示例值示例值
    */
   pageSize?: string;
   /**

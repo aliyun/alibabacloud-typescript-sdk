@@ -8,7 +8,7 @@ export class GeneratePresignedUrlRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * /aaa/111/aa.png
+   * 示例值示例值
    */
   filePath?: string;
   ownerId?: number;

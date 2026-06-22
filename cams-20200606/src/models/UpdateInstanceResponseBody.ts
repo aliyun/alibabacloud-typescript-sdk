@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The channel type.
+   * 
    * @example
    * VIBER
    */
   channelType?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * des
    */
   description?: string;
   /**
+   * @remarks
+   * The instance description.
+   * 
    * @example
    * des
    */
   instanceDescription?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 293992992
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * ins
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The ID of the region where the instance is located.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   resourceRegionId?: string;
   /**
+   * @remarks
+   * The time when the instance information was submitted.
+   * 
    * @example
    * 2020-12-01 00:00:00
    */
@@ -73,27 +94,54 @@ export class UpdateInstanceResponseBodyData extends $dara.Model {
 
 export class UpdateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details about why access was denied.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code of the response.
+   * 
+   * - `OK` indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: UpdateInstanceResponseBodyData;
   /**
+   * @remarks
+   * The response message. If the request fails, this field contains error details.
+   * 
    * @example
    * NULL
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. Use this ID to troubleshoot issues.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * false
    */

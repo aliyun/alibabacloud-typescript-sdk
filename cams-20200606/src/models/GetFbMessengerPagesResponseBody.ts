@@ -37,14 +37,10 @@ export class GetFbMessengerPagesResponseBodyData extends $dara.Model {
 }
 
 export class GetFbMessengerPagesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * ok
    */
   code?: string;
   data?: GetFbMessengerPagesResponseBodyData[];

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWhatsappConversionApiRequest extends $dara.Model {
   /**
    * @example
-   * code
+   * 示例值
    */
   code?: string;
   /**
    * @example
-   * 131
+   * 示例值示例值
    */
   instanceId?: string;
   ownerId?: number;

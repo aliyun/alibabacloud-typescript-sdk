@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFlowJSONAssetResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Flow ID.
+   * The flow ID.
    * 
    * @example
-   * 84848847****
+   * 92675332812643****
    */
   flowId?: string;
   static names(): { [key: string]: string } {
@@ -36,7 +36,7 @@ export class UpdateFlowJSONAssetResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The result returns OK as normal.
+   * The response code. A value of OK indicates a successful request.
    * 
    * @example
    * OK
@@ -49,7 +49,7 @@ export class UpdateFlowJSONAssetResponseBody extends $dara.Model {
   data?: UpdateFlowJSONAssetResponseBodyData;
   /**
    * @remarks
-   * Error description information.
+   * The error message.
    * 
    * @example
    * None

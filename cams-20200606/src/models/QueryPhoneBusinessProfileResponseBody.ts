@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Regarding.
+   * The business profile.
    * 
    * @example
    * business profile
@@ -32,7 +32,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
    * The email address.
    * 
    * @example
-   * aa@aliyun.com
+   * example@aliyun.com
    */
   email?: string;
   /**
@@ -40,7 +40,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
    * The profile picture.
    * 
    * @example
-   * https://....img
+   * https://example.img
    */
   profilePictureUrl?: string;
   /**
@@ -53,7 +53,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
   vertical?: string;
   /**
    * @remarks
-   * The website.
+   * The websites.
    */
   websites?: string[];
   static names(): { [key: string]: string } {
@@ -103,10 +103,11 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code of the request.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - OK indicates that the request is successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -114,12 +115,12 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: QueryPhoneBusinessProfileResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * None
@@ -127,7 +128,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -135,10 +136,11 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call is successful.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: successful.
+   * 
+   * - **false**: failed.
    * 
    * @example
    * true

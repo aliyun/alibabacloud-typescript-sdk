@@ -4,33 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateChatFlowLogSettingRequest extends $dara.Model {
   /**
-   * @remarks
-   * Flow code.
-   * 
    * @example
-   * f4912c16943b4dfba44bd6fedacf****
+   * 示例值示例值示例值
    */
   flowCode?: string;
   /**
-   * @remarks
-   * Setting ID.
-   * 
    * @example
-   * 100
+   * 74
    */
   id?: number;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * Log enable status, enum values:
-   * - ENABLED: Enabled, enables log writing
-   * - DISABLED: Create or retain related resources, but do not enable log writing
-   * - DELETED: Delete, and decide whether to delete related resources based on options
-   * 
    * @example
-   * ENABLED
+   * 示例值
    */
   status?: string;
   static names(): { [key: string]: string } {

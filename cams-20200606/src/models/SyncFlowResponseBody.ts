@@ -3,14 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SyncFlowResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 66
    */
   code?: number;
   /**

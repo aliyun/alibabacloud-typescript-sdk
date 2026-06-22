@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowNodeGroupResponseBodyDataModel extends $dara.Model {
   /**
    * @example
-   * 0
+   * 示例值示例值
    */
   code?: string;
   /**
    * @example
-   * {}
+   * 示例值示例值
    */
   publicExtend?: string;
   static names(): { [key: string]: string } {
@@ -63,26 +63,18 @@ export class ListFlowNodeGroupResponseBodyData extends $dara.Model {
 }
 
 export class ListFlowNodeGroupResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 43
    */
   code?: number;
   data?: ListFlowNodeGroupResponseBodyData;
   /**
    * @example
-   * successful
+   * 示例值示例值
    */
   message?: string;
-  /**
-   * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
-   */
   requestId?: string;
   /**
    * @example

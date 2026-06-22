@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class FlowBindPhoneRequest extends $dara.Model {
   /**
    * @remarks
-   * Message channel Code
-   * 
    * This parameter is required.
    * 
    * @example
@@ -15,8 +13,6 @@ export class FlowBindPhoneRequest extends $dara.Model {
   channelCode?: string;
   /**
    * @remarks
-   * Message channel Type
-   * 
    * This parameter is required.
    * 
    * @example
@@ -25,8 +21,6 @@ export class FlowBindPhoneRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * Flow code.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -34,25 +28,16 @@ export class FlowBindPhoneRequest extends $dara.Model {
    */
   flowCode?: string;
   /**
-   * @remarks
-   * Flow version
-   * 
    * @example
-   * 1
+   * 示例值示例值示例值
    */
   flowVersion?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * Phone numbers or PageIds under the channel instance, etc.
-   */
   phoneNumbers?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * WABA account ID, or PageId for other channel types, etc.
-   * 
    * This parameter is required.
    * 
    * @example

@@ -21,10 +21,6 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * 示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   /**
    * @example
@@ -50,10 +46,6 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * 示例值
    */
   paramFlag?: string;
-  /**
-   * @example
-   * {}
-   */
   params?: { [key: string]: any };
   /**
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMarketingFlowRequest extends $dara.Model {
   /**
    * @example
-   * 1111
+   * 示例值示例值
    */
   activityCode?: string;
   /**

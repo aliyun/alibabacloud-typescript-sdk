@@ -3,34 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateMarketingFLowResponseBody extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
-  /**
-   * @example
-   * True
-   */
   data?: { [key: string]: any };
   /**
    * @example
-   * true
+   * 示例值示例值
    */
   message?: string;
   /**
    * @example
-   * ewtrew-fghdfg43564ZZ
+   * 示例值示例值
    */
   requestId?: string;
   /**
    * @example
-   * true
+   * false
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -3,29 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnbindDmAccountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
   /**
    * @example
-   * NONE
+   * 示例值
    */
   data?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   message?: string;
   /**
    * @example
-   * xx-xx***
+   * 示例值示例值
    */
   requestId?: string;
   /**

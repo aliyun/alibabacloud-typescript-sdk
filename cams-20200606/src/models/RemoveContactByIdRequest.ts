@@ -8,7 +8,7 @@ export class RemoveContactByIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 3456456346**
+   * 示例值示例值示例值
    */
   contactId?: string;
   /**
@@ -16,7 +16,7 @@ export class RemoveContactByIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 46546546546**
+   * 示例值
    */
   groupId?: string;
   ownerId?: number;

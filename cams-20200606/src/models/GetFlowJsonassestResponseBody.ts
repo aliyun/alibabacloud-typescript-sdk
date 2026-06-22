@@ -8,15 +8,15 @@ export class GetFlowJSONAssestResponseBodyData extends $dara.Model {
    * The file path.
    * 
    * @example
-   * https://url.com/json.json
+   * https://bucket-*****-ap-southeast-1.aliyuncs.com/9658820125168****.json
    */
   filePath?: string;
   /**
    * @remarks
-   * The Flow ID.
+   * The flow ID.
    * 
    * @example
-   * flow_id_arms
+   * 92675332812643****
    */
   flowId?: string;
   static names(): { [key: string]: string } {
@@ -46,7 +46,7 @@ export class GetFlowJSONAssestResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -59,7 +59,7 @@ export class GetFlowJSONAssestResponseBody extends $dara.Model {
   data?: GetFlowJSONAssestResponseBodyData;
   /**
    * @remarks
-   * Error description information.
+   * The error message.
    * 
    * @example
    * None

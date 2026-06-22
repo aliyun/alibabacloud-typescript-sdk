@@ -6,7 +6,7 @@ export class DeleteFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -17,7 +17,7 @@ export class DeleteFlowResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * None
+   * 无
    */
   message?: string;
   /**

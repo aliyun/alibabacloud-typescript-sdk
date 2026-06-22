@@ -15,7 +15,7 @@ export class ListDmAccountResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @example
-   * a@b.com
+   * 示例值示例值
    */
   mailAddressId?: string;
   /**
@@ -51,25 +51,21 @@ export class ListDmAccountResponseBodyData extends $dara.Model {
 }
 
 export class ListDmAccountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
   data?: ListDmAccountResponseBodyData[];
   /**
    * @example
-   * None
+   * 示例值示例值示例值
    */
   message?: string;
   /**
    * @example
-   * xis-sx***
+   * 示例值
    */
   requestId?: string;
   /**

@@ -4,46 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateChatFlowShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
-   * @remarks
-   * Flow trigger type
-   * 
    * @example
-   * TriggeredByWhatsApp
+   * 示例值
    */
   flowTriggerType?: string;
   ownerId?: number;
   /**
-   * @remarks
-   * Flow remarks
-   * 
    * @example
-   * ChatFlow for WhatsApp Customer Service Auto-Reply.
+   * 示例值示例值
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * Flow title
-   * 
    * @example
-   * Auto Reply
+   * 示例值
    */
   title?: string;
   static names(): { [key: string]: string } {

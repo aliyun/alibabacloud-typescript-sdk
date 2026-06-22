@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateChatFlowLogSettingRequest extends $dara.Model {
   /**
-   * @remarks
-   * Process code.
-   * 
    * @example
    * 示例值
    */

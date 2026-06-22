@@ -3,29 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCustomerSiteResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
   /**
    * @example
-   * cn
+   * 示例值
    */
   data?: string;
   /**
    * @example
-   * success
+   * 示例值
    */
   message?: string;
   /**
    * @example
-   * 3R938***
+   * 示例值示例值示例值
    */
   requestId?: string;
   static names(): { [key: string]: string } {

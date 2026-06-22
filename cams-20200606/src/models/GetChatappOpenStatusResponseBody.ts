@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetChatappOpenStatusResponseBody extends $dara.Model {
-  /**
-   * @example
-   * OK
-   */
   code?: string;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @example
-   * true
-   */
   openStatus?: boolean;
-  /**
-   * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

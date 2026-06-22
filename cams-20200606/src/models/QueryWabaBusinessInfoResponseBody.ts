@@ -8,7 +8,7 @@ export class QueryWabaBusinessInfoResponseBodyData extends $dara.Model {
    * The Business Manager ID.
    * 
    * @example
-   * 192882828733
+   * 19288282****
    */
   businessId?: string;
   /**
@@ -70,15 +70,16 @@ export class QueryWabaBusinessInfoResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * None
+   * 无
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The HTTP status code returned.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the call is successful.
+   * 
+   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -94,7 +95,7 @@ export class QueryWabaBusinessInfoResponseBody extends $dara.Model {
    * The error message returned.
    * 
    * @example
-   * None.
+   * 无
    */
   message?: string;
   /**
@@ -109,8 +110,9 @@ export class QueryWabaBusinessInfoResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false

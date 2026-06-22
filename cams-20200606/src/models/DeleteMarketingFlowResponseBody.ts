@@ -3,29 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMarketingFlowResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 200
+   * 示例值示例值
    */
   code?: string;
   /**
    * @example
-   * {}
+   * 示例值
    */
   data?: string;
   /**
    * @example
-   * success
+   * 示例值示例值
    */
   message?: string;
   /**
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 示例值
    */
   requestId?: string;
   /**

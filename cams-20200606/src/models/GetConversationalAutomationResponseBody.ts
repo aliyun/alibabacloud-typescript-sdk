@@ -61,7 +61,7 @@ export class GetConversationalAutomationResponseBodyData extends $dara.Model {
    * The phone number of the enterprise.
    * 
    * @example
-   * 86138****
+   * 861380000****
    */
   phoneNumber?: string;
   /**
@@ -108,15 +108,16 @@ export class GetConversationalAutomationResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * None
+   * 无
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The response code.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - The value OK indicates that the request was successful.
+   * 
+   * - For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -132,7 +133,7 @@ export class GetConversationalAutomationResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * None
+   * 无
    */
   message?: string;
   /**
@@ -147,8 +148,9 @@ export class GetConversationalAutomationResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

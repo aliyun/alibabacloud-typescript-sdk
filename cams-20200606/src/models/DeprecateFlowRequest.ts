@@ -4,21 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeprecateFlowRequest extends $dara.Model {
   /**
-   * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account.
-   * 
    * @example
-   * 38877483
+   * 示例值示例值
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The Flow ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * flow_001
+   * 示例值示例值
    */
   flowId?: string;
   ownerId?: number;

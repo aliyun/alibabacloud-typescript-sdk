@@ -8,10 +8,6 @@ export class UpdateContactByIdRequest extends $dara.Model {
    * 示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   /**
    * @remarks

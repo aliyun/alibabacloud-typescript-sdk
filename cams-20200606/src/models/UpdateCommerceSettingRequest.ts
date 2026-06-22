@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCommerceSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to display the shopping cart button. Valid values:
+   * Specifies whether to enable the shopping cart. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enable the shopping cart.
+   * 
+   * - false: Disable the shopping cart.
    * 
    * This parameter is required.
    * 
@@ -18,10 +19,11 @@ export class UpdateCommerceSettingRequest extends $dara.Model {
   cartEnable?: boolean;
   /**
    * @remarks
-   * Specifies whether to display the catalog button. Valid values:
+   * Specifies whether to enable the product catalog. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enable the product catalog.
+   * 
+   * - false: Disable the product catalog.
    * 
    * This parameter is required.
    * 
@@ -31,12 +33,12 @@ export class UpdateCommerceSettingRequest extends $dara.Model {
   catalogVisible?: boolean;
   /**
    * @remarks
-   * The space ID of the user within the independent software vendor (ISV) account.
+   * The Space ID of the Independent Software Vendor (ISV) sub-customer.
    * 
    * This parameter is required.
    * 
    * @example
-   * 293483938849493
+   * 29348393884****
    */
   custSpaceId?: string;
   ownerId?: number;

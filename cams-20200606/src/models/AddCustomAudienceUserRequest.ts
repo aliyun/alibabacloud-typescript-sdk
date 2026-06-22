@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddCustomAudienceUserRequestUsers extends $dara.Model {
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
-   * a@test.com
+   * Example
    */
   email?: string;
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
-   * 86138***
+   * Example
    */
   phone?: string;
   static names(): { [key: string]: string } {
@@ -39,6 +45,8 @@ export class AddCustomAudienceUserRequestUsers extends $dara.Model {
 export class AddCustomAudienceUserRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Meta ad account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,12 +54,17 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
    */
   adAccountId?: string;
   /**
+   * @remarks
+   * Indicates whether this is the last batch of data.
+   * 
    * @example
    * false
    */
   batchLastFlag?: boolean;
   /**
    * @remarks
+   * The space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,6 +73,8 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The ID of the custom audience.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67,6 +82,9 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
    */
   customAudienceId?: string;
   /**
+   * @remarks
+   * The estimated total number of users.
+   * 
    * @example
    * 26
    */
@@ -74,6 +92,8 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The Page ID for Messenger.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -84,6 +104,8 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * A list of users.
+   * 
    * This parameter is required.
    */
   users?: AddCustomAudienceUserRequestUsers[];

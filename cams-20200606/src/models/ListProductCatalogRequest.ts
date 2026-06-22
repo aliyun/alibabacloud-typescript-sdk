@@ -26,7 +26,7 @@ export class ListProductCatalogRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 28
+   * 105048970863****
    */
   businessId?: number;
   /**
@@ -34,13 +34,12 @@ export class ListProductCatalogRequest extends $dara.Model {
    * The space ID of the user within the independent software vendor (ISV) account.
    * 
    * @example
-   * 293483938849493
+   * C29398882929
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The fields. Separate multiple fields with commas (,).
-   * see  [catalog fields](https://help.aliyun.com/document_detail/2579419.html)
+   * The fields. Separate multiple fields with commas (,). see [catalog fields](https://help.aliyun.com/document_detail/2579419.html)
    * 
    * @example
    * id,name

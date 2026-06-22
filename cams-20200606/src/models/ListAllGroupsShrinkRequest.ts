@@ -5,13 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllGroupsShrinkRequest extends $dara.Model {
   /**
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;

@@ -8,10 +8,6 @@ export class AddContactsShrinkRequest extends $dara.Model {
    * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
    * @example

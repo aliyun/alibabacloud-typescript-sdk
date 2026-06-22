@@ -4,33 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The channel type.
+   * 
    * @example
-   * 示例值
+   * example
    */
   channelType?: string;
   /**
+   * @remarks
+   * The description of the instance.
+   * 
    * @example
    * des
    */
   instanceDescription?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 2999292
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * ins
    */
   instanceName?: number;
   /**
+   * @remarks
+   * The ID of the region where the resource is located.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   resourceRegionId?: string;
   /**
+   * @remarks
+   * The time when the request was submitted.
+   * 
    * @example
-   * 示例值
+   * example
    */
   submitTime?: string;
   static names(): { [key: string]: string } {
@@ -65,24 +83,47 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
 }
 
 export class CreateInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code. A value of `OK` indicates that the request was successful.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: CreateInstanceResponseBodyData;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * NULL
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 2992939*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of `true` indicates success and `false` indicates failure.
+   * 
    * @example
    * false
    */

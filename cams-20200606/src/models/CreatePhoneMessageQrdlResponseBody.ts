@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL of the deep link.
+   * The deep link URL.
    * 
    * @example
    * https://wa.qrdl/
@@ -13,7 +13,7 @@ export class CreatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   deepLinkUrl?: string;
   /**
    * @remarks
-   * The format of the generated image.
+   * The type of the generated image.
    * 
    * @example
    * PNG
@@ -24,7 +24,7 @@ export class CreatePhoneMessageQrdlResponseBodyData extends $dara.Model {
    * The phone number.
    * 
    * @example
-   * 8613800
+   * 86138009****
    */
   phoneNumber?: string;
   /**
@@ -45,7 +45,7 @@ export class CreatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   qrImageUrl?: string;
   /**
    * @remarks
-   * The mode of the quick-response (QR) code.
+   * The code.
    * 
    * @example
    * D9II3***
@@ -86,7 +86,7 @@ export class CreatePhoneMessageQrdlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -102,7 +102,7 @@ export class CreatePhoneMessageQrdlResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * none
+   * None
    */
   message?: string;
   /**

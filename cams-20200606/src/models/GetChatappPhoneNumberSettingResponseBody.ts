@@ -37,25 +37,21 @@ export class GetChatappPhoneNumberSettingResponseBodyModel extends $dara.Model {
 }
 
 export class GetChatappPhoneNumberSettingResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值
    */
   code?: string;
   /**
    * @example
-   * success
+   * 示例值示例值
    */
   message?: string;
   model?: GetChatappPhoneNumberSettingResponseBodyModel;
   /**
    * @example
-   * 42602478-F7C1-58D2-AFFE-88F7A18***6
+   * 示例值示例值
    */
   requestId?: string;
   /**

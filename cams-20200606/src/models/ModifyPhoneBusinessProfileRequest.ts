@@ -16,7 +16,7 @@ export class ModifyPhoneBusinessProfileRequest extends $dara.Model {
    * The address.
    * 
    * @example
-   * The phone number.
+   * Sichuan
    */
   address?: string;
   /**
@@ -53,7 +53,7 @@ export class ModifyPhoneBusinessProfileRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 8613800001234
+   * 861380000****
    */
   phoneNumber?: string;
   /**
@@ -70,7 +70,7 @@ export class ModifyPhoneBusinessProfileRequest extends $dara.Model {
    * @remarks
    * The industry.
    * 
-   * >  Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
+   * > Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
    * 
    * @example
    * OTHER

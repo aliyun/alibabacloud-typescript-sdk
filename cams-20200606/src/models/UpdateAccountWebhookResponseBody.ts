@@ -8,15 +8,16 @@ export class UpdateAccountWebhookResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * None
+   * 无
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The HTTP status code returned.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the call is successful.
+   * 
+   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK

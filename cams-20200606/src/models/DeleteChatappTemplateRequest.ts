@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChatappTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the RAM user within the ISV account.
+   * The Space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * @example
    * 28251486512358****
@@ -13,9 +13,9 @@ export class DeleteChatappTemplateRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+   * The WhatsApp Business Account (WABA) ID of the Independent Software Vendor (ISV) customer.
    * 
-   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+   * > This parameter is deprecated. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -23,7 +23,7 @@ export class DeleteChatappTemplateRequest extends $dara.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
+   * The ISV verification code, which is used to verify whether the user is authorized by the ISV.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -31,7 +31,7 @@ export class DeleteChatappTemplateRequest extends $dara.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The template language.
+   * The language.
    * 
    * @example
    * zh_CN
@@ -42,7 +42,7 @@ export class DeleteChatappTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The template code.
+   * The code of the template.
    * 
    * @example
    * 744c4b5c79c9432497a075bdfca3****
@@ -50,7 +50,7 @@ export class DeleteChatappTemplateRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * test_name
@@ -58,7 +58,7 @@ export class DeleteChatappTemplateRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The template type. This parameter is required if you delete a template in a language.
+   * The type of the template. This parameter is required when you delete a template for a specific language.
    * 
    * @example
    * WHATSAPP

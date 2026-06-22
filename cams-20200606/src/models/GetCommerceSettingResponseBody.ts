@@ -7,8 +7,9 @@ export class GetCommerceSettingResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the shopping cart button is displayed. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -18,8 +19,9 @@ export class GetCommerceSettingResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the catalog button is displayed. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -54,15 +56,16 @@ export class GetCommerceSettingResponseBody extends $dara.Model {
    * Access denied for detailed information.
    * 
    * @example
-   * None
+   * 无
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The response code.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - The value OK indicates that the request was successful.
+   * 
+   * - Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -78,7 +81,7 @@ export class GetCommerceSettingResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * None
+   * 无
    */
   message?: string;
   /**
@@ -93,8 +96,9 @@ export class GetCommerceSettingResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

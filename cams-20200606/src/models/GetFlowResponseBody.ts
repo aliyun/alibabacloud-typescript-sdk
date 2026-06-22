@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The categories of the Flow.
+   * The list of categories.
    */
   categories?: string[];
   /**
    * @remarks
-   * The version number of the API.
+   * The API version.
    * 
    * @example
    * 3.0
@@ -23,18 +23,18 @@ export class GetFlowResponseBodyData extends $dara.Model {
   endpointUri?: string;
   /**
    * @remarks
-   * The Flow ID.
+   * The flow ID.
    * 
    * @example
-   * flow_id_arms
+   * 92675332812643****
    */
   flowId?: string;
   /**
    * @remarks
-   * The Flow name.
+   * The flow name.
    * 
    * @example
-   * dnjn
+   * flow_001
    */
   flowName?: string;
   /**
@@ -55,7 +55,7 @@ export class GetFlowResponseBodyData extends $dara.Model {
   previewUrl?: string;
   /**
    * @remarks
-   * The time when the preview URL expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The expiration time of the preview URL.
    * 
    * @example
    * 1700617436633
@@ -63,33 +63,7 @@ export class GetFlowResponseBodyData extends $dara.Model {
   previewUrlExpires?: number;
   /**
    * @remarks
-   * The state of the Flow.
-   * 
-   * Valid values:
-   * 
-   * *   PUBLISHED
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DRAFT
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DEPRECATED
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The status of the flow.
    * 
    * @example
    * DRAFT
@@ -139,7 +113,7 @@ export class GetFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -163,7 +137,7 @@ export class GetFlowResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * DAC72B08-3327-33EF-BEDC-8EC3E83A6575
    */
   requestId?: string;
   static names(): { [key: string]: string } {

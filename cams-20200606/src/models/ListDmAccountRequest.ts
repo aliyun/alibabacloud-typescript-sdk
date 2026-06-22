@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class ListDmAccountRequest extends $dara.Model {
   /**
    * @example
-   * a
+   * 示例值
    */
   keyword?: string;
   ownerId?: number;
   /**
    * @example
-   * 1
+   * 83
    */
   pageIndex?: number;
   /**
    * @example
-   * 10
+   * 86
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @example
-   * batch
+   * 示例值示例值
    */
   sendType?: string;
   static names(): { [key: string]: string } {

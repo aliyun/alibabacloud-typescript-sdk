@@ -21,7 +21,7 @@ export class CopyTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 12456
+   * 示例值
    */
   sceneTemplateCode?: string;
   /**

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChatGroupInviteLinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The business number. Call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation to obtain the business number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,21 @@ export class DeleteChatGroupInviteLinkRequest extends $dara.Model {
    */
   businessNumber?: string;
   /**
+   * @remarks
+   * The channel type. Set this parameter to the following value:
+   * 
+   * - **WHATSAPP**.
+   * 
+   * > Only the WhatsApp channel is supported.
+   * 
    * @example
    * WHATSAPP
    */
   channelType?: string;
   /**
    * @remarks
+   * The space ID or instance ID for an ISV\\"s sub-customer. This ID also serves as the channel ID. You can find this ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +37,8 @@ export class DeleteChatGroupInviteLinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The group ID. Call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation to obtain the group ID.
+   * 
    * This parameter is required.
    * 
    * @example

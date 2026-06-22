@@ -5,37 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstagramPostsResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 2024-09-30T15:53:01+08:00
+   * 示例值
    */
   createdTime?: string;
   /**
    * @example
-   * https://xxxxxxxx
+   * 示例值示例值
    */
   fullPicture?: string;
   /**
    * @example
-   * 111
+   * 示例值
    */
   id?: string;
   /**
    * @example
-   * image
+   * 示例值示例值
    */
   mediaType?: string;
   /**
    * @example
-   * https://qjck.oss-cn-shanghai.aliyuncs.com/xcx/2025-08-29/0bfa1c8d-d35f-2dd5-e082-7b00***ee9.jpg?x-oss-process=image/resize,m_lfit,w_1200
+   * 示例值示例值示例值
    */
   mediaUrl?: string;
   /**
    * @example
-   * success
+   * 示例值示例值
    */
   message?: string;
   /**
    * @example
-   * https://xxxxxxxx
+   * 示例值示例值
    */
   permalinkUrl?: string;
   static names(): { [key: string]: string } {
@@ -72,25 +72,21 @@ export class ListInstagramPostsResponseBodyData extends $dara.Model {
 }
 
 export class ListInstagramPostsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
   data?: ListInstagramPostsResponseBodyData[];
   /**
    * @example
-   * success
+   * 示例值
    */
   message?: string;
   /**
    * @example
-   * 90E63D28-E31D-1EB2-8939-A***66411B2O
+   * 示例值示例值
    */
   requestId?: string;
   /**

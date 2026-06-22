@@ -3,52 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateChatFlowResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Access denied details, this field is returned only when RAM verification fails.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Error code
-   * 
    * @example
    * 示例值
    */
   code?: string;
-  /**
-   * @remarks
-   * Returned data object.
-   */
   data?: { [key: string]: any };
   /**
-   * @remarks
-   * Error message.
-   * 
    * @example
    * 示例值示例值
    */
   message?: string;
   /**
-   * @remarks
-   * Unique request ID.
-   * 
    * @example
    * 示例值
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Response data
-   */
   response?: { [key: string]: any };
   /**
-   * @remarks
-   * Whether the call was successful.
-   * 
    * @example
    * true
    */

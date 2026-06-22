@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryWabaBusinessInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * The space ID of ISV sub-customer.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class QueryWabaBusinessInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 293848822333
+   * 29384882****
    */
   wabaId?: string;
   static names(): { [key: string]: string } {

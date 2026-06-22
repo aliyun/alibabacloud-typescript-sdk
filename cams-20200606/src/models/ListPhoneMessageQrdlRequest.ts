@@ -4,22 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPhoneMessageQrdlRequest extends $dara.Model {
   /**
-   * @remarks
-   * The space ID of the user within the independent software vendor (ISV) account.
-   * 
    * @example
-   * 9383883
+   * 示例值
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The phone number. Add the country code before the phone number.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 861380000
+   * 示例值
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

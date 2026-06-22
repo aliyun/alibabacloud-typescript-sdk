@@ -4,30 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The contact email address.
+   * 
    * @example
    * 123@alibaba.com
    */
   contactMail?: string;
   /**
+   * @remarks
+   * The country code.
+   * 
+   * > For a list of country codes, see [Country Codes](https://help.aliyun.com/document_detail/608210.html).
+   * 
    * @example
    * 1
    */
   countryId?: string;
   /**
    * @remarks
-   * fb bmId
+   * The Facebook Business Manager ID.
    * 
    * @example
-   * 3939982828
+   * 393998****
    */
   facebookBmId?: string;
   /**
+   * @remarks
+   * The description of the instance.
+   * 
    * @example
    * ins
    */
   instanceDescription?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +49,8 @@ export class UpdateInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,18 +58,27 @@ export class UpdateInstanceRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable automatic audit confirmation.
+   * 
    * @example
    * Y
    */
   isConfirmAudit?: string;
   /**
+   * @remarks
+   * The URL of the Independent Software Vendor (ISV) agreement file.
+   * 
    * @example
    * https://aa.com/a.pdf
    */
   isvTerms?: string;
   /**
+   * @remarks
+   * The company address.
+   * 
    * @example
-   * 长沙麓谷
+   * example
    */
   officeAddress?: string;
   static names(): { [key: string]: string } {

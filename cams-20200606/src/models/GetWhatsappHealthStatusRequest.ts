@@ -27,9 +27,11 @@ export class GetWhatsappHealthStatusRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   template: message template
-   * *   phone: phone number
-   * *   waba: WhatsApp Business Account (WABA)
+   * - template: message template
+   * 
+   * - phone: phone number
+   * 
+   * - waba: WhatsApp Business Account (WABA)
    * 
    * This parameter is required.
    * 

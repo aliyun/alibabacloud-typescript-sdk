@@ -14,10 +14,6 @@ export class ModifyChatappTemplatePropertiesResponseBody extends $dara.Model {
    * 示例值示例值
    */
   message?: string;
-  /**
-   * @example
-   * true
-   */
   model?: { [key: string]: any };
   /**
    * @example

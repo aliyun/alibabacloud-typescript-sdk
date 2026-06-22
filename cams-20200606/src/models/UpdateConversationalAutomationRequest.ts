@@ -8,7 +8,7 @@ export class UpdateConversationalAutomationRequestCommands extends $dara.Model {
    * The description of the command.
    * 
    * @example
-   * Command 1.
+   * Command 1
    */
   commandDescription?: string;
   /**

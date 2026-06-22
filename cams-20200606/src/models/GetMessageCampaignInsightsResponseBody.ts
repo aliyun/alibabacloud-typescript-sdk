@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2025-07-01
    */
   dateStart?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2025-07-29
    */
   dateStop?: string;
   /**
+   * @remarks
+   * The average cost per delivered message.
+   * 
    * @example
    * 2755
    */
   marketingMessagesCostPerDelivered?: string;
   /**
+   * @remarks
+   * The average cost per message link click. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
+   * 
    * @example
    * 268
    */
   marketingMessagesCostPerLinkBtnClick?: string;
   /**
+   * @remarks
+   * The number of messages that are sent by the business and successfully delivered to users. Some messages may fail to deliver if a user\\"s device is unavailable. This metric excludes messages delivered to Europe and Japan. In some cases, this metric is an estimate. The value may differ from the data on your bill due to minor discrepancies during data processing.
+   * 
    * @example
    * 2755
    */
   marketingMessagesDelivered?: string;
   /**
+   * @remarks
+   * The message delivery rate.
+   * 
    * @example
    * 79.419238
    */
   marketingMessagesDeliveryRate?: string;
   /**
+   * @remarks
+   * The number of times users click or tap a marketing message that take users to an on-Meta or off-Meta destination, as specified by the advertiser. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
+   * 
    * @example
    * 268
    */
   marketingMessagesLinkBtnClick?: string;
   /**
+   * @remarks
+   * The percentage of delivered messages that received a link click. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
+   * 
    * @example
    * 79.419238
    */
   marketingMessagesLinkBtnClickRate?: string;
   /**
+   * @remarks
+   * The number of read messages divided by the number of delivered messages. The read status of some messages may not be captured if a customer disables read receipts. This metric excludes messages sent to Europe and Japan.
+   * 
    * @example
    * 79.419238
    */
   marketingMessagesReadRate?: string;
   /**
+   * @remarks
+   * The total amount spent on a campaign, message group, or message during over its lifetime.
+   * 
    * @example
    * 38.87
    */
@@ -94,27 +124,54 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
 
 export class GetMessageCampaignInsightsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details about the access denial.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code. Valid values:
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetMessageCampaignInsightsResponseBodyData[];
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * s39**
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: successful.
+   * 
+   * - false: failed.
+   * 
    * @example
    * true
    */

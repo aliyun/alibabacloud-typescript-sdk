@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RequestWhatsappConversionApiShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The space ID or instance ID of the customer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,12 +16,18 @@ export class RequestWhatsappConversionApiShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The PageId of Meta.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1939848838
    */
   pageId?: string;
+  /**
+   * @remarks
+   * The request data.
+   */
   requestDataShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateWabaMmlStatusResponseBody extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   accessDeniedDetail?: string;
   /**
    * @example
@@ -18,10 +14,6 @@ export class UpdateWabaMmlStatusResponseBody extends $dara.Model {
    * 示例值示例值示例值
    */
   message?: string;
-  /**
-   * @example
-   * 1
-   */
   model?: { [key: string]: any };
   /**
    * @example

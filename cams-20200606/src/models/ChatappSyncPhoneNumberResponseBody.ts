@@ -225,19 +225,19 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
    * 
    * Valid values:
    * 
-   * *   REVOKED: The review application is revoked.
-   * *   MORE_INFORMATION_REQUESTED: More information needs to be provided.
-   * *   VERIFIED: The phone number passes the verification.
-   * *   REJECTED: The phone number fails to pass the verification.
+   * - REVOKED: The review application is revoked.
+   * 
+   * - MORE_INFORMATION_REQUESTED: More information needs to be provided.
+   * 
+   * - VERIFIED: The phone number passes the verification.
+   * 
+   * - REJECTED: The phone number fails to pass the verification.
    * 
    * @example
    * VERIFIED
    */
   codeVerificationStatus?: string;
   /**
-   * @remarks
-   * Indicates whether it is a WhatsApp Official Business Account (OBA).
-   * 
    * @example
    * N
    */
@@ -247,7 +247,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
    * The number of phone numbers to which messages can be sent in a day.
    * 
    * @example
-   * TIER_10
+   * TIER_10K
    */
   messagingLimitTier?: string;
   /**
@@ -271,7 +271,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
    * The phone number.
    * 
    * @example
-   * 8613800001234
+   * 861380000****
    */
   phoneNumber?: string;
   /**
@@ -280,9 +280,11 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
    * 
    * Valid values:
    * 
-   * *   RED
-   * *   YELLOW
-   * *   GREEN
+   * - RED
+   * 
+   * - YELLOW
+   * 
+   * - GREEN
    * 
    * @example
    * GREEN
@@ -294,17 +296,27 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
    * 
    * Valid values:
    * 
-   * *   MIGRATED
-   * *   FLAGGED
-   * *   DISCONNECTED
-   * *   UNVERIFIED
-   * *   BANNED
-   * *   RATE_LIMITED
-   * *   PENDING
-   * *   CONNECTED
-   * *   UNKNOWN
-   * *   DELETED
-   * *   RESTRICTED
+   * - MIGRATED
+   * 
+   * - FLAGGED
+   * 
+   * - DISCONNECTED
+   * 
+   * - UNVERIFIED
+   * 
+   * - BANNED
+   * 
+   * - RATE_LIMITED
+   * 
+   * - PENDING
+   * 
+   * - CONNECTED
+   * 
+   * - UNKNOWN
+   * 
+   * - DELETED
+   * 
+   * - RESTRICTED
    * 
    * @example
    * PENDING
@@ -323,7 +335,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
    * The status report queue.
    * 
    * @example
-   * alicom-09399200-queue
+   * alicom-0939****-queue
    */
   statusQueue?: string;
   /**
@@ -339,7 +351,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
    * The mobile originated (MO) message queue.
    * 
    * @example
-   * alicom-09399200-queue
+   * alicom-0939****-queue
    */
   upQueue?: string;
   /**
@@ -406,15 +418,16 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * None
+   * 无
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The HTTP status code returned.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the call is successful.
+   * 
+   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -425,7 +438,7 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
    * The error message returned.
    * 
    * @example
-   * None.
+   * 无
    */
   message?: string;
   /**
@@ -445,8 +458,9 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**: The call was successful.
-   * *   **false**: The call failed.
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true

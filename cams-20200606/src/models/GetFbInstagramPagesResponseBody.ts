@@ -58,14 +58,10 @@ export class GetFbInstagramPagesResponseBodyData extends $dara.Model {
 }
 
 export class GetFbInstagramPagesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * ok
    */
   code?: string;
   data?: GetFbInstagramPagesResponseBodyData[];

@@ -4,54 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFlowVersionShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
-   * @remarks
-   * Flow code.
-   * 
    * @example
-   * f4912c16943b4dfba44bd6fedacf****
+   * 示例值示例值
    */
   flowCode?: string;
   ownerId?: number;
   /**
-   * @remarks
-   * Current page number.
-   * 
    * @example
-   * 1
+   * 97
    */
   pageNo?: number;
   /**
-   * @remarks
-   * Page size.
-   * 
    * @example
-   * 5
+   * 97
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * Flow version status.
-   * 
    * @example
-   * DRAFT
+   * 示例值示例值
    */
   status?: string;
   static names(): { [key: string]: string } {

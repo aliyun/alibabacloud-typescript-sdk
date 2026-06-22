@@ -4,11 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadChatFlowLogSettingRequest extends $dara.Model {
   /**
-   * @remarks
-   * Process code.
-   * 
    * @example
-   * f4912c16943b4dfba44bd6fedacf****
+   * 示例值示例值
    */
   flowCode?: string;
   ownerId?: number;

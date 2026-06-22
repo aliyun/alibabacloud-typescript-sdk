@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMessengerPageResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example

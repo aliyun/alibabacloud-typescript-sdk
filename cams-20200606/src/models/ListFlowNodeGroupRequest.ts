@@ -9,7 +9,7 @@ export class ListFlowNodeGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 85
    */
   pageNo?: number;
   /**
@@ -17,7 +17,7 @@ export class ListFlowNodeGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10
+   * 84
    */
   pageSize?: number;
   resourceOwnerAccount?: string;

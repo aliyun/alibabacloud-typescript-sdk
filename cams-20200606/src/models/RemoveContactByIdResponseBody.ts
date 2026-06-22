@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RemoveContactByIdResponseBody extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   accessDeniedDetail?: string;
   /**
    * @example

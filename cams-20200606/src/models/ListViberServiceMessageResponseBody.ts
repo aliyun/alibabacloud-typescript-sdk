@@ -19,12 +19,12 @@ export class ListViberServiceMessageResponseBodyData extends $dara.Model {
   messageDestinationInternationalCountry?: string[];
   /**
    * @example
-   * 25644
+   * 示例值示例值示例值
    */
   serviceId?: string;
   /**
    * @example
-   * stop
+   * 示例值示例值示例值
    */
   state?: string;
   static names(): { [key: string]: string } {
@@ -75,25 +75,21 @@ export class ListViberServiceMessageResponseBodyData extends $dara.Model {
 }
 
 export class ListViberServiceMessageResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值
    */
   code?: string;
   data?: ListViberServiceMessageResponseBodyData[];
   /**
    * @example
-   * successful
+   * 示例值示例值示例值
    */
   message?: string;
   /**
    * @example
-   * ddhjdn-dnjdnkdjknd**
+   * 示例值示例值
    */
   requestId?: string;
   /**

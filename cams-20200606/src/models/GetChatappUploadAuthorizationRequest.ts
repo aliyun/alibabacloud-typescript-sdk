@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatappUploadAuthorizationRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * The space ID of ISV sub-customer.
    * 
    * This parameter is required.
    * 
    * @example
-   * 293483938849493
+   * 29348393884****
    */
   custSpaceId?: string;
   ownerId?: number;

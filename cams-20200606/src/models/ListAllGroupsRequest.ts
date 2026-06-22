@@ -5,13 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllGroupsRequest extends $dara.Model {
   /**
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   ownerId?: number;
   resourceOwnerAccount?: string;

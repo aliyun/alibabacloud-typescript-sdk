@@ -5,20 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class GetGroupExistShrinkRequest extends $dara.Model {
   /**
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * aaa
+   * 示例值示例值
    */
   groupName?: string;
   ownerId?: number;

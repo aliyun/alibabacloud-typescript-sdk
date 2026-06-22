@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChangeResourceGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 90E63D28-E31D-1EB2-8939-A94866411B2O
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

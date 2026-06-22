@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddChatGroupInviteLinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The business phone number. To obtain this number, call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,21 @@ export class AddChatGroupInviteLinkRequest extends $dara.Model {
    */
   businessNumber?: string;
   /**
+   * @remarks
+   * The type. Valid value:
+   * 
+   * - **WHATSAPP**.
+   * 
+   * > Currently, only the WhatsApp channel type is supported.
+   * 
    * @example
    * WHATSAPP
    */
   channelType?: string;
   /**
    * @remarks
+   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID. View the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +37,8 @@ export class AddChatGroupInviteLinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The group ID. To obtain this ID, call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

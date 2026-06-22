@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessengerSubscriptionTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The space ID of the ISV sub-customer or the instance ID. View the ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ListMessengerSubscriptionTokenRequest extends $dara.Model {
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The custom audience ID.
+   * 
    * @example
    * 233**
    */
   customAudienceId?: string;
   /**
+   * @remarks
+   * The number of entries to return. Valid values: 1 to 1000.
+   * 
    * @example
    * 67
    */
@@ -24,6 +32,8 @@ export class ListMessengerSubscriptionTokenRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The page ID for Messenger.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +41,9 @@ export class ListMessengerSubscriptionTokenRequest extends $dara.Model {
    */
   pageId?: string;
   /**
+   * @remarks
+   * The pagination key.
+   * 
    * @example
    * 2ie**
    */
@@ -39,6 +52,8 @@ export class ListMessengerSubscriptionTokenRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The token type.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,19 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The category of the Viber message template. Valid values:
-   * 
-   * *   **text**: the template that contains only text
-   * *   **image**: the template that contains only images
-   * *   **text_image_button**: the template that contains text, images, and buttons
-   * *   **text_button**: the template that contains text and buttons
-   * *   **document**: the template that contains only documents
-   * *   **video**: the template that contains only videos
-   * *   **text_video**: the template that contains text and videos
-   * *   **text_video_button**: the template that contains text, videos, and buttons
-   * *   **text_image**: the template that contains text and images
-   * 
-   * > This parameter applies only to Viber message templates.
+   * The templatetype is immutable.
    * 
    * @example
    * text
@@ -26,16 +14,16 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   categoryChangePaused?: boolean;
   /**
    * @remarks
-   * The components of the message template.
+   * A list of message template components.
    * 
-   * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, you do not need to set the Text sub-parameter of the Components parameter because the value is automatically generated.
+   * > When Category is AUTHENTICATION, Components cannot contain a node with Type set to HEADER. If Type is BODY or FOOTER, the Text content is empty and is automatically generated.
    * 
    * This parameter is required.
    */
   componentsShrink?: string;
   /**
    * @remarks
-   * The space ID of the user within the ISV account.
+   * The Space ID of the ISV sub-customer, or the instance ID of a direct customer.
    * 
    * @example
    * 28251486512358****
@@ -43,24 +31,24 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
+   * The WhatsApp Business Account (WABA) ID of the independent software vendor (ISV) customer.
    * 
-   * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+   * > This parameter is deprecated. Use CustSpaceId instead.
    * 
    * @example
-   * 659216218162179
+   * 65921621816****
    * 
    * @deprecated
    */
   custWabaId?: string;
   /**
    * @remarks
-   * The examples of variables that are used when you create the message template.
+   * The template example.
    */
   exampleShrink?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The ISV verification code. This code is used to verify that the RAM user is authorized by the ISV.
    * 
    * @example
    * ksiekdki39ksks93939
@@ -68,7 +56,7 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For a list of language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * This parameter is required.
    * 
@@ -78,9 +66,11 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Validity period of authentication template message sending in WhatsApp
+   * The time-to-live (TTL) of the template message in seconds.
    * 
-   * >This attribute requires providing waba in advance to Alibaba operators to open the whitelist, otherwise it will result in template submission failure
+   * - For AUTHENTICATION templates, the value ranges from 30 to 900.
+   * 
+   * - For UTILITY templates, the value ranges from 30 to 43,200.
    * 
    * @example
    * 120
@@ -96,7 +86,7 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * Template name.
+   * The template name.
    * 
    * @example
    * test_name
@@ -104,11 +94,9 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type of the message template.
+   * The template type.
    * 
-   * *   **WHATSAPP**
-   * *   **VIBER**
-   * *   LINE: the Line message template. This type of message template will be released later.
+   * - **WHATSAPP**
    * 
    * @example
    * WHATSAPP

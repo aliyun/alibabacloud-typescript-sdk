@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerChatFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The declared occurrence time of the event, usually the time when the request was constructed, in milliseconds timestamp.
+   * The time when the event occurs. This is when the flow is triggered and is typically the time when the request is created. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1731502129000
@@ -13,15 +13,18 @@ export class TriggerChatFlowRequest extends $dara.Model {
   claimTimeMillis?: number;
   /**
    * @remarks
-   * Input parameters in Key-Value format. The Key must match the input strategy configured at the start node of your flow.
+   * The input parameters in a key-value format. The keys must match the input parameter policy configured in the start node of the flow. To view the variable names in the start node, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the name of the flow, and open the orchestration canvas.
    * 
    * @example
-   * {"my_biz_data_0": "hi", "my_biz_data_1": "1024"}
+   * {
+   *   "my_biz_data_0": "hi",
+   *   "my_biz_data_1": "1024"
+   * }
    */
   data?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the event should be discarded, i.e., the expiration time. If this field is specified, the message will be discarded if it exceeds this time, in milliseconds timestamp.
+   * The time when the event expires. If you specify this parameter, the trigger is canceled if the request is not processed before this time. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1731502729000
@@ -29,17 +32,17 @@ export class TriggerChatFlowRequest extends $dara.Model {
   discardTimeMillis?: number;
   /**
    * @remarks
-   * Flow code.
+   * The code of the flow. View the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * This parameter is required.
    * 
    * @example
-   * f4912c16943b4dfba44bd6fedacf8c70
+   * 9ccc41**************************
    */
   flowCode?: string;
   /**
    * @remarks
-   * External system transaction number, used to associate with external business system transactions. You can retrieve this parameter within the flow after triggering.
+   * A custom serial number from an external system. Use this parameter to associate the trigger with an external business process. After the flow is triggered, you can retrieve this parameter from within the flow.
    * 
    * @example
    * 8d4acf7e-e360-eb83-6d74-fcf9c4538fda
@@ -50,7 +53,7 @@ export class TriggerChatFlowRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Unique event ID used for idempotent triggers. Do not include any business semantics; you can retrieve this parameter within the flow after triggering.
+   * A custom unique ID for the event, used to ensure idempotence. Do not include business semantics in the ID. After the flow is triggered, you can retrieve this parameter from within the flow.
    * 
    * @example
    * c68622e6-5f0d-c8a4-af41-e949c2a7580e

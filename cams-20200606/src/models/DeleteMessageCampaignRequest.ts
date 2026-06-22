@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMessageCampaignRequest extends $dara.Model {
   /**
    * @remarks
+   * The Meta ad account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteMessageCampaignRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
+   * The campaign ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteMessageCampaignRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
+   * The space ID of an Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +36,8 @@ export class DeleteMessageCampaignRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The Page ID of Messenger.
+   * 
    * This parameter is required.
    * 
    * @example

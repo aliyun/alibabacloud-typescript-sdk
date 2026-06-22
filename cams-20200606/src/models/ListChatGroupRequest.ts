@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatGroupRequestPage extends $dara.Model {
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListChatGroupRequestPage extends $dara.Model {
   index?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class ListChatGroupRequestPage extends $dara.Model {
 export class ListChatGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The business number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,12 +58,19 @@ export class ListChatGroupRequest extends $dara.Model {
    */
   businessNumber?: string;
   /**
+   * @remarks
+   * The channel type. Valid value: **WHATSAPP**.
+   * 
+   * > Only the WhatsApp channel is supported.
+   * 
    * @example
    * WHATSAPP
    */
   channelType?: string;
   /**
    * @remarks
+   * The instance ID (or SpaceId) of an ISV sub-customer, which also serves as the channel ID. You can find it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,29 +78,58 @@ export class ListChatGroupRequest extends $dara.Model {
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The Telegram group link.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   groupLink?: string;
   /**
+   * @remarks
+   * The group status. Valid values:
+   * 
+   * - ACTIVE: In use.
+   * 
+   * - INACTIVE: Not activated.
+   * 
+   * - SUSPENDED: Suspended.
+   * 
+   * - CREATING: Being created.
+   * 
+   * - DELETING: Being deleted.
+   * 
+   * - UPDATING: Being updated.
+   * 
    * @example
    * ACTIVE
    */
   groupStatus?: string;
   /**
+   * @remarks
+   * The Telegram group type.
+   * 
    * @example
-   * 示例值
+   * example
    */
   groupType?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The paging information.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Example value
    */
   page?: ListChatGroupRequestPage;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The group title.
+   * 
    * @example
    * test
    */

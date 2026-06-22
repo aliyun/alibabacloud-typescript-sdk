@@ -5,24 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDirectSendMessageSampleShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The SpaceId of an ISV sub-customer or the instance ID of a direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
    * cams-xx**
    */
   custSpaceId?: string;
+  /**
+   * @remarks
+   * The body of an interactive message.
+   */
   interactiveShrink?: string;
   /**
+   * @remarks
+   * The body of a text message.
+   * 
    * @example
    * {"text": "This is a direct send message"}
    */
   textShrink?: string;
   /**
    * @remarks
+   * The type of the direct message content. Valid values:
+   * 
+   * - interactive
+   * 
+   * - text
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * interactive
    */
   type?: string;
   static names(): { [key: string]: string } {

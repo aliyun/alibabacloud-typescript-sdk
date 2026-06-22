@@ -4,75 +4,42 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListChatFlowRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   /**
-   * @remarks
-   * Flow trigger type, enum values:
-   * - TriggeredManually
-   * - TriggeredByWhatsApp
-   * - TriggeredByInstagram
-   * - TriggeredByViber
-   * - TriggeredByMessenger
-   * 
    * @example
    * 示例值
    */
   flowTriggerType?: string;
   /**
-   * @remarks
-   * Search keyword.
-   * 
    * @example
    * 示例值示例值
    */
   keyword?: string;
   ownerId?: number;
   /**
-   * @remarks
-   * Page number
-   * 
    * @example
-   * 1
+   * 41
    */
   pageNo?: number;
   /**
-   * @remarks
-   * Page size.
-   * 
    * @example
-   * 20
+   * 42
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * Whether to return the online status
-   * 
    * @example
    * true
    */
   returnWithOnlineVersion?: boolean;
   /**
-   * @remarks
-   * Flow status
-   * 
    * @example
-   * NORMAL
+   * 示例值示例值示例值
    */
   status?: string;
   static names(): { [key: string]: string } {

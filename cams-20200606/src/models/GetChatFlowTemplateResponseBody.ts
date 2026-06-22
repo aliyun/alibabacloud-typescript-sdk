@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetChatFlowTemplateResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * Content of the returned data.
-   * 
-   * @example
-   * 无
-   */
   response?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -36,50 +29,11 @@ export class GetChatFlowTemplateResponseBodyData extends $dara.Model {
 }
 
 export class GetChatFlowTemplateResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Access denied details, this field is returned only when RAM verification fails.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * System returned error code. For more details on error codes, please refer to the error code documentation.
-   * 
-   * @example
-   * OK
-   */
   code?: string;
-  /**
-   * @remarks
-   * Returned data.
-   */
   data?: GetChatFlowTemplateResponseBodyData;
-  /**
-   * @remarks
-   * Error message.
-   * 
-   * @example
-   * 无
-   */
   message?: string;
-  /**
-   * @remarks
-   * Unique request ID.
-   * 
-   * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the operation was successful. Values: true: success; false: failure.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

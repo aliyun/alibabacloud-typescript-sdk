@@ -8,7 +8,7 @@ export class ListPageAdAccountRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cams-**
+   * 示例值示例值
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -17,7 +17,7 @@ export class ListPageAdAccountRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 230***
+   * 示例值示例值
    */
   pageId?: string;
   resourceOwnerAccount?: string;

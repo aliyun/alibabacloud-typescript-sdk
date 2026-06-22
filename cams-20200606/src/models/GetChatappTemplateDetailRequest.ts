@@ -15,7 +15,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
    * @remarks
    * The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
    * 
-   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+   * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -61,9 +61,11 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
    * @remarks
    * The type of the message template. Valid values:
    * 
-   * *   **WHATSAPP**
-   * *   **VIBER**
-   * *   LINE (developing)
+   * - **WHATSAPP**
+   * 
+   * - **VIBER**
+   * 
+   * - LINE (developing)
    * 
    * @example
    * WHATSAPP

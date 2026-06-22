@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllGroupsResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 1789000
+   * 示例值示例值示例值
    */
   gmtCreate?: string;
   /**
    * @example
-   * aaa
+   * 示例值示例值
    */
   groupName?: string;
   /**
    * @example
-   * 5435
+   * 示例值示例值
    */
   id?: string;
   static names(): { [key: string]: string } {
@@ -44,25 +44,21 @@ export class ListAllGroupsResponseBodyData extends $dara.Model {
 }
 
 export class ListAllGroupsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
   data?: ListAllGroupsResponseBodyData[];
   /**
    * @example
-   * success
+   * 示例值示例值
    */
   message?: string;
   /**
    * @example
-   * 608F9CCA-B5EB-3D72-XXXXB25D6D75BDEC
+   * 示例值
    */
   requestId?: string;
   /**

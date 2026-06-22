@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAuditRequestRequestAuditRecordCompanyAddress extends $dara.Model {
   /**
+   * @remarks
+   * Company address.
+   * 
    * @example
    * 123 Sunshine Street, City, Country
    */
   companyAddress?: string;
   /**
+   * @remarks
+   * Company address title.
+   * 
    * @example
    * xxx company
    */
@@ -38,11 +44,17 @@ export class UpdateAuditRequestRequestAuditRecordCompanyAddress extends $dara.Mo
 
 export class UpdateAuditRequestRequestAuditRecordCompanyTel extends $dara.Model {
   /**
+   * @remarks
+   * Company phone number.
+   * 
    * @example
    * 07364245xxxx
    */
   companyTelNumber?: string;
   /**
+   * @remarks
+   * Phone number title.
+   * 
    * @example
    * xxx
    */
@@ -72,145 +84,242 @@ export class UpdateAuditRequestRequestAuditRecordCompanyTel extends $dara.Model 
 
 export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   /**
+   * @remarks
+   * Age limit.
+   * 
    * @example
    * unlimited
    */
   ageLimit?: string;
   /**
+   * @remarks
+   * Application reason.
+   * 
    * @example
    * reason
    */
   applyReason?: string;
   /**
+   * @remarks
+   * Business account name.
+   * 
    * @example
    * testaccount
    */
   businessAccountName?: string;
   /**
+   * @remarks
+   * Business license registration number.
+   * 
    * @example
    * 9211515**345
    */
   businessLicenseRegistrationNumber?: string;
+  /**
+   * @remarks
+   * Company addresses.
+   */
   companyAddress?: UpdateAuditRequestRequestAuditRecordCompanyAddress[];
   /**
+   * @remarks
+   * Company English name.
+   * 
    * @example
    * baidu
    */
   companyEnglishName?: string;
   /**
+   * @remarks
+   * Company legal name.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   companyLegalName?: string;
   /**
+   * @remarks
+   * Company legal person name.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   companyLegalPerson?: string;
   /**
+   * @remarks
+   * Company profile.
+   * 
    * @example
    * xxx
    */
   companyProfile?: string;
   /**
+   * @remarks
+   * Company registered country or region.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   companyRegisteredCountry?: string;
+  /**
+   * @remarks
+   * Company phone numbers.
+   */
   companyTel?: UpdateAuditRequestRequestAuditRecordCompanyTel[];
   /**
+   * @remarks
+   * Complete address of headquarters.
+   * 
    * @example
    * xxxstreet
    */
   completeAddressOfHeadquarters?: string;
   /**
+   * @remarks
+   * Contact mailbox.
+   * 
    * @example
    * 5**8585@gmail.com
    */
   contactEmail?: string;
   /**
+   * @remarks
+   * Contact mailbox.
+   * 
    * @example
    * xxxx@gamil.com
    */
   contactMail?: string;
   /**
+   * @remarks
+   * Contact name.
+   * 
    * @example
    * mary
    */
   contactName?: string;
   /**
+   * @remarks
+   * Contact phone number.
+   * 
    * @example
    * 861515115***
    */
   contactPhone?: string;
   /**
+   * @remarks
+   * Contact position.
+   * 
    * @example
    * job
    */
   contactPosition?: string;
   /**
+   * @remarks
+   * Enable auto-reply (this field is deprecated).
+   * 
    * @example
    * N/A‌
    */
   enableAutoReply?: string;
   /**
+   * @remarks
+   * Industry description.
+   * 
    * @example
    * description
    */
   industryDescription?: string;
   /**
+   * @remarks
+   * Industry involved.
+   * 
    * @example
    * telecommunicationsAndIT
    */
   industryInvolved?: string;
   /**
+   * @remarks
+   * Letter of guarantee (download address).
+   * 
    * @example
-   * 示例值示例值示例值
+   * https://xxx.xxx.xxx
    */
   letterGuarantee?: string;
   /**
    * @remarks
-   * logo
+   * Logo
    */
   logo?: string[];
+  /**
+   * @remarks
+   * Local destination countries or regions.
+   */
   messageDestinationCountry?: string[];
+  /**
+   * @remarks
+   * International destination countries and regions.
+   */
   messageDestinationInternationalCountry?: string[];
   /**
+   * @remarks
+   * Commercial message dialogue introduction.
+   * 
    * @example
    * hello!
    */
   messageDialogueIntroduction?: string;
   /**
+   * @remarks
+   * Commercial message enable date (GMT).
+   * 
    * @example
    * 2025-11-07
    */
   messageEnableDate?: string;
   /**
+   * @remarks
+   * Commercial message dialogue name.
+   * 
    * @example
    * test
    */
   messageSessionName?: string;
   /**
+   * @remarks
+   * Supplementary material address.
+   * 
    * @example
    * https://xxx.xxx.com
    */
   otherLetterGuarantee?: string;
   /**
+   * @remarks
+   * Recovery date.
+   * 
    * @example
    * 2025-11-07
    */
   recoveryDate?: string;
   /**
+   * @remarks
+   * Reply content (deprecated).
+   * 
    * @example
    * N/A
    */
   replyContent?: string;
   /**
+   * @remarks
+   * Deprecated.
+   * 
    * @example
    * N/A
    */
   suspensionDate?: string;
   /**
+   * @remarks
+   * Company website.
+   * 
    * @example
    * https://www.xxx.xxx.com
    */
@@ -316,16 +425,23 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
 export class UpdateAuditRequestRequest extends $dara.Model {
   /**
    * @remarks
+   * Viber audit items.
+   * 
    * This parameter is required.
    */
   auditRecord?: UpdateAuditRequestRequestAuditRecord;
   /**
+   * @remarks
+   * The audit result.
+   * 
    * @example
    * unAudit
    */
   auditResult?: string;
   /**
    * @remarks
+   * The Space ID of the ISV sub-customer or the instance ID. View it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -339,6 +455,8 @@ export class UpdateAuditRequestRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The request number.
+   * 
    * This parameter is required.
    * 
    * @example

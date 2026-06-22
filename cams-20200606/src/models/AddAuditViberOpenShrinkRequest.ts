@@ -3,18 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddAuditViberOpenShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The audit record.
+   */
   auditRecordShrink?: string;
   /**
+   * @remarks
+   * The audit result.
+   * 
    * @example
-   * 示例值
+   * example
    */
   auditResult?: string;
   /**
    * @remarks
+   * The Space ID of the ISV sub-customer.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * example
    */
   custSpaceId?: string;
   /**

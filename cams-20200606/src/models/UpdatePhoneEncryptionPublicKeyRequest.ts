@@ -4,40 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePhoneEncryptionPublicKeyRequest extends $dara.Model {
   /**
-   * @remarks
-   * SpaceId/instanceId of ISV sub clients.
-   * 
    * @example
-   * 399382882
+   * 示例值示例值
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * Encrypt the public key.
-   * 
    * This parameter is required.
    * 
    * @example
-   * -----BEGIN PUBLIC KEY-----
-   * AAA
-   * BBB
-   * CCC
-   * DDD
-   * EEE
-   * FFF
-   * GGG
-   * -----END PUBLIC KEY-----
+   * 示例值示例值示例值
    */
   encryptionPublicKey?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The phone number.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 86138000
+   * 示例值示例值
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

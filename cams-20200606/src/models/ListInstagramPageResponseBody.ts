@@ -213,14 +213,10 @@ export class ListInstagramPageResponseBodyData extends $dara.Model {
 }
 
 export class ListInstagramPageResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * ok
    */
   code?: string;
   data?: ListInstagramPageResponseBodyData;

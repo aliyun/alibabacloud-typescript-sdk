@@ -4,17 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlowUnbindPhoneRequest extends $dara.Model {
   /**
-   * @remarks
-   * Message channel type
-   * 
    * @example
    * 示例值示例值
    */
   channelType?: string;
   /**
    * @remarks
-   * Flow code.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -22,18 +17,11 @@ export class FlowUnbindPhoneRequest extends $dara.Model {
    */
   flowCode?: string;
   /**
-   * @remarks
-   * Flow version
-   * 
    * @example
    * 示例值示例值示例值
    */
   flowVersion?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * Phone numbers or PageIds under the channel instance, etc.
-   */
   phoneNumbers?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

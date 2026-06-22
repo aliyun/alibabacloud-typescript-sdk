@@ -13,7 +13,7 @@ export class CreateMessengerPageShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * EAA****
+   * 示例值
    */
   authenticationCode?: string;
   /**
@@ -21,7 +21,7 @@ export class CreateMessengerPageShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 293***
+   * 示例值示例值
    */
   businessId?: string;
   /**
@@ -29,7 +29,7 @@ export class CreateMessengerPageShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cams-s***
+   * 示例值示例值
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -38,7 +38,7 @@ export class CreateMessengerPageShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 19283***
+   * 示例值示例值示例值
    */
   pageId?: string;
   resourceOwnerAccount?: string;

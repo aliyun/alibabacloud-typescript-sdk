@@ -3,43 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlowUnbindPhoneResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Access denied details, this field is returned only when RAM verification fails.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Request status code.
-   * 
    * @example
    * 示例值示例值
    */
   code?: string;
   /**
-   * @remarks
-   * Error message.
-   * 
    * @example
    * 示例值示例值示例值
    */
   message?: string;
   /**
-   * @remarks
-   * Request result data.
-   * 
    * @example
    * false
    */
   model?: boolean;
   requestId?: string;
   /**
-   * @remarks
-   * Whether the operation was successful. Values: true: success; false: failure.
-   * 
    * @example
    * true
    */

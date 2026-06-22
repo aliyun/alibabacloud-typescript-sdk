@@ -5,42 +5,42 @@ import * as $dara from '@darabonba/typescript';
 export class ListFacebookPostsResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 2025-04-08T10:44:48
+   * 示例值示例值
    */
   createdTime?: string;
   /**
    * @example
-   * N/A
+   * 示例值示例值
    */
   fullPicture?: string;
   /**
    * @example
-   * 1
+   * 示例值示例值示例值
    */
   id?: string;
   /**
    * @example
-   * 1
+   * 示例值示例值
    */
   mediaType?: string;
   /**
    * @example
-   * https://xxxxxx07
+   * 示例值示例值示例值
    */
   mediaUrl?: string;
   /**
    * @example
-   * success
+   * 示例值
    */
   message?: string;
   /**
    * @example
-   * https://xxxxxxx
+   * 示例值
    */
   permalinkUrl?: string;
   /**
    * @example
-   * 453645465***
+   * 示例值示例值
    */
   requestNo?: string;
   static names(): { [key: string]: string } {
@@ -79,25 +79,21 @@ export class ListFacebookPostsResponseBodyData extends $dara.Model {
 }
 
 export class ListFacebookPostsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值示例值
    */
   code?: string;
   data?: ListFacebookPostsResponseBodyData[];
   /**
    * @example
-   * success
+   * 示例值
    */
   message?: string;
   /**
    * @example
-   * 90E63D28-E31D-1EB2-8939-A94866***
+   * 示例值
    */
   requestId?: string;
   /**

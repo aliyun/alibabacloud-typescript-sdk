@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappMigrationVerifiedRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * The Space ID of the Independent Software Vendor (ISV) sub-customer.
    * 
    * This parameter is required.
    * 
    * @example
-   * 293483938849493
+   * 29348393884****
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -21,7 +21,7 @@ export class ChatappMigrationVerifiedRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 861380001234
+   * 86138000****
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;
@@ -33,7 +33,7 @@ export class ChatappMigrationVerifiedRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 828798
+   * 8287**
    */
   verifyCode?: string;
   static names(): { [key: string]: string } {

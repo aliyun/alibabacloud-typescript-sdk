@@ -223,45 +223,26 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
    * @remarks
    * The verification status of the phone number.
    * 
-   * Valid values:
-   * 
-   * *   REVOKED: The review application is revoked.
-   * *   MORE_INFORMATION_REQUESTED: More information needs to be provided.
-   * *   VERIFIED: The phone number passes the verification.
-   * *   REJECTED: The phone number fails to pass the verification.
-   * 
    * @example
    * VERIFIED
    */
   codeVerificationStatus?: string;
   /**
-   * @remarks
-   * Indicates whether it is a WhatsApp Official Business Account (OBA).
-   * 
    * @example
    * N
    */
   isOfficial?: string;
   /**
    * @remarks
-   * The number of phone numbers to which messages can be sent in a day.
-   * 
-   * Valid values:
-   * 
-   * *   TIER_100K: 100,000
-   * *   TIER_UNLIMITED: unlimited
-   * *   TIER_250: 250
-   * *   TIER_1K: 1,000
-   * *   TIER_50: 50
-   * *   TIER_10K: 10,000
+   * The messaging limit tier of the phone number.
    * 
    * @example
-   * TIER_10
+   * TIER_10K
    */
   messagingLimitTier?: string;
   /**
    * @remarks
-   * The review status of the name.
+   * The status of the name.
    * 
    * @example
    * Approval
@@ -269,7 +250,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   nameStatus?: string;
   /**
    * @remarks
-   * The review status of the new display name of the enterprise.
+   * The review status of the new name.
    * 
    * @example
    * Approval
@@ -280,19 +261,12 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
    * The phone number.
    * 
    * @example
-   * 8613800000
+   * 861380000****
    */
   phoneNumber?: string;
   /**
    * @remarks
    * The quality rating of the phone number.
-   * 
-   * Valid values:
-   * 
-   * *   RED: low
-   * *   YELLOW: medium
-   * *   UNKNOWN: unknown
-   * *   GREEN: high
    * 
    * @example
    * GREEN
@@ -300,21 +274,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   qualityRating?: string;
   /**
    * @remarks
-   * The state of the phone number.
-   * 
-   * Valid values:
-   * 
-   * *   MIGRATED
-   * *   FLAGGED
-   * *   DISCONNECTED
-   * *   UNVERIFIED
-   * *   BANNED
-   * *   RATE_LIMITED
-   * *   PENDING
-   * *   CONNECTED
-   * *   UNKNOWN
-   * *   DELETED
-   * *   RESTRICTED
+   * The status of the phone number.
    * 
    * @example
    * CONNECTED
@@ -322,7 +282,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The URL that receives the status reports.
+   * The callback URL for delivery receipts.
    * 
    * @example
    * https://ali.com/status
@@ -330,7 +290,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   statusCallbackUrl?: string;
   /**
    * @remarks
-   * The status report queue.
+   * The queue for delivery receipts of mobile terminated messages.
    * 
    * @example
    * Alicom-Queue-****-ChatAppStatus
@@ -338,7 +298,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   statusQueue?: string;
   /**
    * @remarks
-   * The URL that receives the MO messages.
+   * The callback URL for mobile originated messages.
    * 
    * @example
    * https://ali.com/inbound
@@ -346,7 +306,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   upCallbackUrl?: string;
   /**
    * @remarks
-   * The mobile originated (MO) message queue.
+   * The queue for mobile originated messages.
    * 
    * @example
    * Alicom-Queue-****-ChatAppInbound
@@ -354,7 +314,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   upQueue?: string;
   /**
    * @remarks
-   * The display name of the enterprise to which the phone number belongs.
+   * The name used for the request.
    * 
    * @example
    * Alibaba
@@ -413,7 +373,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
 export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
    * None
@@ -421,10 +381,11 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The request status code.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -437,7 +398,7 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * SUCCESS
@@ -445,24 +406,18 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The phone numbers.
+   * The list of phone numbers.
    */
   phoneNumbers?: QueryChatappPhoneNumbersResponseBodyPhoneNumbers[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
-   * 
    * @example
    * true
    */

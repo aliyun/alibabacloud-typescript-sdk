@@ -54,18 +54,18 @@ export class ListPageAdAccountResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
   data?: ListPageAdAccountResponseBodyData[];
   /**
    * @example
-   * OK
+   * 示例值示例值示例值
    */
   message?: string;
   /**
    * @example
-   * 39**
+   * 示例值示例值示例值
    */
   requestId?: string;
   /**

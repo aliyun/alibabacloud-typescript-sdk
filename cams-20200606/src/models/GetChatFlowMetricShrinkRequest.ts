@@ -4,53 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetChatFlowMetricShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
-   * @remarks
-   * Flow code.
-   * 
    * @example
-   * f4912c16943b4dfba44bd6fedacf****
+   * 示例值示例值
    */
   flowCode?: string;
   /**
-   * @remarks
-   * Flow version.
-   * 
    * @example
-   * 1
+   * 示例值示例值
    */
   flowVersion?: string;
   /**
-   * @remarks
-   * Start timestamp in seconds.
-   * 
    * @example
-   * 1751299200
+   * 31
    */
   from?: number;
   /**
    * @remarks
-   * Metric name.
-   * 
    * This parameter is required.
    * 
    * @example
-   * nodeUsageStatistics
+   * 示例值示例值
    */
   metricName?: string;
   metricParamShrink?: string;
@@ -58,11 +37,8 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * End timestamp in seconds.
-   * 
    * @example
-   * 1751385599
+   * 81
    */
   to?: number;
   static names(): { [key: string]: string } {

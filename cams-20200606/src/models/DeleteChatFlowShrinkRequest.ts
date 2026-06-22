@@ -4,25 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteChatFlowShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
-   * @remarks
-   * Process code.
-   * 
    * @example
    * 示例值
    */

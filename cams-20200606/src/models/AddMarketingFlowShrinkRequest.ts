@@ -21,10 +21,6 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * 示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
    * @example
@@ -50,10 +46,6 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * 示例值
    */
   paramFlag?: string;
-  /**
-   * @example
-   * {}
-   */
   paramsShrink?: string;
   /**
    * @example

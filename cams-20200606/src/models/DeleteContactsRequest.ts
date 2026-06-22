@@ -5,32 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactsRequest extends $dara.Model {
   /**
    * @example
-   * ALICOM_OPAAS
+   * 示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   /**
    * @example
-   * 1507486****
+   * 示例值示例值
    */
   contactDetails?: string;
   /**
    * @example
-   * hahaha
+   * 示例值示例值示例值
    */
   contactName?: string;
   /**
    * @example
-   * China
+   * 示例值
    */
   country?: string;
   /**
    * @example
-   * http://****
+   * 示例值示例值示例值
    */
   filePath?: string;
   ownerId?: number;

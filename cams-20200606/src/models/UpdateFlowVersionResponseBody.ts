@@ -3,50 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateFlowVersionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of access denial.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Status code.
-   * 
    * @example
    * 示例值
    */
   code?: string;
   /**
-   * @remarks
-   * Error message.
-   * 
    * @example
    * 示例值示例值示例值
    */
   message?: string;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 示例值示例值示例值
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Content of the returned data.
-   * 
-   * @example
-   * 无
-   */
   response?: { [key: string]: any };
   /**
-   * @remarks
-   * Indicates whether the operation was successful. Values: true for success, false for failure.
-   * 
    * @example
    * true
    */

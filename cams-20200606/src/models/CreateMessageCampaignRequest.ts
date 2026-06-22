@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMessageCampaignRequest extends $dara.Model {
   /**
    * @remarks
+   * The Meta ad account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateMessageCampaignRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
+   * The budget, in cents.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateMessageCampaignRequest extends $dara.Model {
   budget?: number;
   /**
    * @remarks
+   * The budget type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CreateMessageCampaignRequest extends $dara.Model {
   budgetType?: string;
   /**
    * @remarks
+   * The space ID of an Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,15 +45,19 @@ export class CreateMessageCampaignRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The budget name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Example
    */
   name?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The Messenger Page ID.
+   * 
    * This parameter is required.
    * 
    * @example

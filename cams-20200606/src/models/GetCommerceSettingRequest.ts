@@ -10,7 +10,7 @@ export class GetCommerceSettingRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 293483938849493
+   * 29348393884****
    */
   custSpaceId?: string;
   ownerId?: number;

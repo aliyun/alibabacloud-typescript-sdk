@@ -5,15 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class EnableWhatsappROIMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
-   * NONE
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The value OK indicates that the request was successful.
+   * The status code of the request. Valid values:
+   * 
+   * - A value of OK indicates that the request is successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -32,7 +36,7 @@ export class EnableWhatsappROIMetricResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 608F9CCA-B5EB-3D72-8047-B25D6D75BDEC
    */
   requestId?: string;
   static names(): { [key: string]: string } {

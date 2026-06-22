@@ -3,29 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPledgeTemplateAddressResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值
    */
   code?: string;
-  /**
-   * @example
-   * https://******
-   */
   data?: { [key: string]: any };
   /**
    * @example
-   * success
+   * 示例值示例值示例值
    */
   message?: string;
   /**
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 示例值示例值
    */
   requestId?: string;
   /**

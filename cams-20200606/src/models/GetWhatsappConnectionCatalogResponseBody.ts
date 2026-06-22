@@ -8,15 +8,16 @@ export class GetWhatsappConnectionCatalogResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * None
+   * 无
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The response code.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - The value OK indicates that the request was successful.
+   * 
+   * - Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -27,7 +28,7 @@ export class GetWhatsappConnectionCatalogResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * success
+   * 无
    */
   message?: string;
   /**
@@ -35,7 +36,7 @@ export class GetWhatsappConnectionCatalogResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * {"id":"200292992"}
+   * {"id":"200292992","name":"Alibaba_catalog"}
    */
   model?: { [key: string]: any };
   /**
@@ -50,8 +51,9 @@ export class GetWhatsappConnectionCatalogResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false

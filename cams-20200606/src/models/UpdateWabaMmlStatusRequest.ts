@@ -24,8 +24,6 @@ export class UpdateWabaMmlStatusRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * waba Id。
-   * 
    * This parameter is required.
    * 
    * @example

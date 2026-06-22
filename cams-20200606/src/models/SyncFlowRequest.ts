@@ -10,7 +10,7 @@ export class SyncFlowRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cams-kei****
+   * 示例值示例值
    */
   custSpaceId?: string;
   ownerId?: number;

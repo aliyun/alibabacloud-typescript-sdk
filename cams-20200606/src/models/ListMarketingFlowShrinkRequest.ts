@@ -20,23 +20,19 @@ export class ListMarketingFlowShrinkRequest extends $dara.Model {
   activityStatus?: string;
   /**
    * @example
-   * ALICOM_OPAAS
+   * 示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   ownerId?: number;
   /**
    * @example
-   * 1
+   * 示例值示例值示例值
    */
   pageIndex?: string;
   /**
    * @example
-   * 1
+   * 示例值示例值
    */
   pageSize?: string;
   /**

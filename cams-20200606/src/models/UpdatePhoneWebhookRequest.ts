@@ -16,8 +16,10 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
   /**
    * @remarks
    * Whether to use HTTP to receive receipts. Value:
-   * *   Y: Yes.
-   * *   N: No.
+   * 
+   * - Y: Yes.
+   * 
+   * - N: No.
    * 
    * @example
    * Y
@@ -31,14 +33,16 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 8613800001234
+   * 861380000****
    */
   phoneNumber?: string;
   /**
    * @remarks
    * Whether to use queue method to receive receipts. Value:
-   * *   Y: Yes.
-   * *   N: No.
+   * 
+   * - Y: Yes.
+   * 
+   * - N: No.
    * 
    * @example
    * N

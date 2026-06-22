@@ -4,22 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhoneEncryptionPublicKeyRequest extends $dara.Model {
   /**
-   * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
-   * 
    * @example
-   * 393838848
+   * 示例值
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The phone number.
-   * 
    * This parameter is required.
    * 
    * @example
-   * flow_001
+   * 示例值示例值
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

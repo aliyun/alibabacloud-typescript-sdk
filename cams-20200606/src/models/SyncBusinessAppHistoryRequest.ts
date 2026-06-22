@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SyncBusinessAppHistoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The SpaceId of the ISV sub-client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class SyncBusinessAppHistoryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The business number.
+   * 
    * This parameter is required.
    * 
    * @example

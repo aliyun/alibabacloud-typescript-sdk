@@ -5,18 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatFlowTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * This parameter is required.
    * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值
    */
   bizCode?: string;
   /**
-   * @remarks
-   * Template ID
-   * 
    * @example
    * 2
    */

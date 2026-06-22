@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListChatGroupParticipantsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The phone number of the group member.
+   * 
    * @example
    * 861382***
    */
@@ -30,8 +33,15 @@ export class ListChatGroupParticipantsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListChatGroupParticipantsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of group members.
+   */
   list?: ListChatGroupParticipantsResponseBodyDataList[];
   /**
+   * @remarks
+   * The total number of participants.
+   * 
    * @example
    * 8
    */
@@ -63,24 +73,55 @@ export class ListChatGroupParticipantsResponseBodyData extends $dara.Model {
 }
 
 export class ListChatGroupParticipantsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code. Valid values:
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other values, see the [error code list](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListChatGroupParticipantsResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * E9d9****
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

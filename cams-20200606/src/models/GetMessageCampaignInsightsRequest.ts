@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageCampaignInsightsRequest extends $dara.Model {
   /**
    * @remarks
+   * The Meta ad account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetMessageCampaignInsightsRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
+   * The ID of the campaign.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetMessageCampaignInsightsRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
+   * The Space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of the direct customers. This is the channel ID. You can find the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +36,8 @@ export class GetMessageCampaignInsightsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The Page ID.
+   * 
    * This parameter is required.
    * 
    * @example

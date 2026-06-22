@@ -6,7 +6,7 @@ export class DeprecateFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The result returns OK as normal.
+   * OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -14,7 +14,7 @@ export class DeprecateFlowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error description information.
+   * The error message.
    * 
    * @example
    * None

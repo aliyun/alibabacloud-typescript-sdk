@@ -8,10 +8,6 @@ export class AddGroupShrinkRequest extends $dara.Model {
    * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
    * @example
@@ -33,10 +29,6 @@ export class AddGroupShrinkRequest extends $dara.Model {
    * 示例值示例值
    */
   email?: string;
-  /**
-   * @example
-   * src/main/resources/config/promql_node.yaml
-   */
   filePath?: string;
   /**
    * @remarks

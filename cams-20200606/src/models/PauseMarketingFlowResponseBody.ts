@@ -3,14 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PauseMarketingFLowResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
   /**

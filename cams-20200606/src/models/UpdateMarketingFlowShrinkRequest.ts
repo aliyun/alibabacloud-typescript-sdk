@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMarketingFLowShrinkRequest extends $dara.Model {
   /**
    * @example
-   * 115311507XXXX49888
+   * 示例值示例值
    */
   activityCode?: string;
   /**
@@ -15,18 +15,22 @@ export class UpdateMarketingFLowShrinkRequest extends $dara.Model {
   activityDesc?: string;
   /**
    * @example
-   * 674574575658675XX
+   * 示例值示例值示例值
    */
   activityId?: string;
   /**
    * @example
-   * test
+   * 示例值示例值示例值
    */
   activityName?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
   cronExpression?: string;
   /**
    * @example
-   * 2025-11-26 09:59:00
+   * 示例值示例值
    */
   endDate?: string;
   /**
@@ -34,7 +38,7 @@ export class UpdateMarketingFLowShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 示例值示例值示例值
    */
   executionType?: string;
   ownerId?: number;
@@ -43,31 +47,27 @@ export class UpdateMarketingFLowShrinkRequest extends $dara.Model {
    * 示例值
    */
   paramFlag?: string;
-  /**
-   * @example
-   * {"testEmail":"wy****999@alibaba-inc.com"}
-   */
   paramsShrink?: string;
   /**
    * @example
-   * cf-kr3k31**mfeir8w
+   * 示例值
    */
   relatedFlowCode?: string;
   /**
    * @example
-   * testflow
+   * 示例值示例值
    */
   relatedFlowName?: string;
   /**
    * @example
-   * 114345654645XX
+   * 42
    */
   relatedGroupId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @example
-   * 2025-11-25 09:59:00
+   * 示例值示例值
    */
   startDate?: string;
   static names(): { [key: string]: string } {

@@ -5,30 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class MoveContactToGroupShrinkRequest extends $dara.Model {
   /**
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * [{"id":1}]
+   * 示例值示例值
    */
   contacts?: string;
   /**
    * @example
-   * [{"id":1}]
+   * 示例值
    */
   linkExistGroups?: string;
   /**
    * @example
-   * [{"groupName":"aaa"}]
+   * 示例值示例值示例值
    */
   linkNewGroups?: string;
   ownerId?: number;

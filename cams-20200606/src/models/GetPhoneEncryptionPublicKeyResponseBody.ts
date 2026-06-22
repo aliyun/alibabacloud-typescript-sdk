@@ -8,23 +8,16 @@ export class GetPhoneEncryptionPublicKeyResponseBodyData extends $dara.Model {
    * The public key.
    * 
    * @example
-   * -----BEGIN PUBLIC KEY-----
-   * AAA
-   * BBB
-   * CCC
-   * DDD
-   * EEE
-   * FFF
-   * GGG
-   * -----END PUBLIC KEY-----
+   * -----BEGIN PUBLIC KEY-----\\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt+PMrYw4zUDEk+VeTrp0\\n8LZaoVpiVFErX7iuoDjUs4F9vkxMQuIABjcXw\\/swzTMEopLORQV28uqN\\/2\\/x9hjU\\****\\/Zwa\\/Vk5Svp4\\niVY4e22FsJCCWUEMvayO8Q+3UGq0eXXQ+8SlUWEMq1VaJ4pwCLsMnmgybA+VmJxi\\nkwIDAQAB\\n-----END PUBLIC KEY-----"
    */
   encryptionPublicKey?: string;
   /**
    * @remarks
-   * The validity state of the public key. Valid values:
+   * The status of the public key. Valid values:
    * 
-   * *   MISMATCH: The public key is invalid.
-   * *   VALID: The public key is valid.
+   * - MISMATCH: The public key is invalid.
+   * 
+   * - VALID: The public key is valid.
    * 
    * @example
    * VALID
@@ -35,7 +28,7 @@ export class GetPhoneEncryptionPublicKeyResponseBodyData extends $dara.Model {
    * The phone number.
    * 
    * @example
-   * 86138000**
+   * 861526377****
    */
   phoneNumber?: string;
   static names(): { [key: string]: string } {
@@ -67,10 +60,7 @@ export class GetPhoneEncryptionPublicKeyResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
-   * 
-   * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -83,7 +73,7 @@ export class GetPhoneEncryptionPublicKeyResponseBody extends $dara.Model {
   data?: GetPhoneEncryptionPublicKeyResponseBodyData;
   /**
    * @remarks
-   * Error description information.
+   * The error message.
    * 
    * @example
    * None
@@ -94,7 +84,7 @@ export class GetPhoneEncryptionPublicKeyResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * DAC72B08-3327-33EF-BEDC-8EC3E83A6575
    */
   requestId?: string;
   static names(): { [key: string]: string } {

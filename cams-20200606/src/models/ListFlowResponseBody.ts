@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The categories of the Flows.
+   * The categories.
    */
   categories?: string[];
   /**
    * @remarks
-   * The Flow ID.
+   * The flow ID.
    * 
    * @example
-   * 3939393***
+   * 92675332812643****
    */
   flowId?: string;
   /**
    * @remarks
-   * The Flow name.
+   * The name of the flow.
    * 
    * @example
    * flow-02020
@@ -56,7 +56,7 @@ export class ListFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -64,7 +64,7 @@ export class ListFlowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned data object.
    */
   data?: ListFlowResponseBodyData[];
   /**
@@ -72,7 +72,7 @@ export class ListFlowResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * None
+   * 无
    */
   message?: string;
   /**

@@ -3,50 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadChatFlowLogSettingResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Access denied details.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Status code.
-   * 
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
-  /**
-   * @remarks
-   * Returned data.
-   * 
-   * @example
-   * 无
-   */
   data?: { [key: string]: any };
   /**
-   * @remarks
-   * Error message.
-   * 
    * @example
-   * 无
+   * 示例值示例值
    */
   message?: string;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 示例值示例值
    */
   requestId?: string;
   /**
-   * @remarks
-   * Whether the operation was successful. Values: true: success; false: failure.
-   * 
    * @example
    * true
    */

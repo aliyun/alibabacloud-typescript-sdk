@@ -16,7 +16,7 @@ export class GetFbMessengerPagesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * inst-8t47hh***5pyj0ps
+   * 示例值
    */
   instanceId?: string;
   ownerId?: number;

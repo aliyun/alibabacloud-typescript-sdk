@@ -3,50 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlowBindPhoneResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of access denial; this field is returned only when RAM verification fails.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Status code.
-   * 
    * @example
    * 示例值示例值
    */
   code?: string;
   /**
-   * @remarks
-   * Error description message.
-   * 
    * @example
    * 示例值示例值
    */
   message?: string;
   /**
-   * @remarks
-   * Return result.
-   * 
    * @example
    * false
    */
   model?: boolean;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 示例值示例值示例值
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the operation was successful. Values: true: success; false: failure.
-   * 
    * @example
    * true
    */

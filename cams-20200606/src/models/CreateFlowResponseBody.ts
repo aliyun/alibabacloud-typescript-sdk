@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The categories of the Flow.
+   * The list of categories.
    */
   categories?: string[];
   /**
    * @remarks
-   * The Flow ID.
+   * The flow ID.
    * 
    * @example
    * 333993838***
@@ -18,7 +18,7 @@ export class CreateFlowResponseBodyData extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The name of the Flow.
+   * The name of the flow.
    * 
    * @example
    * test1
@@ -56,7 +56,7 @@ export class CreateFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * The response code. A value of OK indicates that the request was successful.
    * 
    * @example
    * OK

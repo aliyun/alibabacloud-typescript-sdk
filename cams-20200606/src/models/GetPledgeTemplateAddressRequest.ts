@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetPledgeTemplateAddressRequest extends $dara.Model {
   /**
    * @example
-   * cams-x***
+   * 示例值
    */
   custSpaceId?: string;
   /**
    * @example
-   * it
+   * 示例值示例值
    */
   industryType?: string;
   ownerId?: number;

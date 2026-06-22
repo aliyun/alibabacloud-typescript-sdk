@@ -44,10 +44,6 @@ export class BindMessengerPageResponseBodyData extends $dara.Model {
 }
 
 export class BindMessengerPageResponseBody extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   accessDeniedDetail?: string;
   /**
    * @example

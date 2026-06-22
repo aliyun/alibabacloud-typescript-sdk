@@ -5,28 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListBindingRelationsForFlowVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel type. Values:
-   * - INSTAGRAM
-   * - WHATSAPP
-   * - MESSENGER
-   * 
-   * 
-   * <props="intl">- VIBER
-   * 
    * This parameter is required.
    * 
    * @example
-   * WHATSAPP
+   * 示例值
    */
   channelType?: string;
   /**
    * @remarks
-   * Process code. View the process code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 9ccc41**************************
+   * 示例值示例值
    */
   flowCode?: string;
   ownerId?: number;

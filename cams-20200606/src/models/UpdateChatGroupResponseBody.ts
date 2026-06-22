@@ -3,28 +3,58 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateChatGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code. Valid values:
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * EA399***
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of affected rows.
+   * 
    * @example
    * 1
    */
   result?: number;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
+   * 
    * @example
    * false
    */

@@ -8,7 +8,7 @@ export class GetWhatsappConnectionCatalogRequest extends $dara.Model {
    * The space ID of the user within the ISV account.
    * 
    * @example
-   * C2020939922929292
+   * C20209399229****
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -21,7 +21,7 @@ export class GetWhatsappConnectionCatalogRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 292939399393
+   * 29293939****
    */
   wabaId?: string;
   static names(): { [key: string]: string } {

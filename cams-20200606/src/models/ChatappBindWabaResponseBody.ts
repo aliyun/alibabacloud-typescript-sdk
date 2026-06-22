@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappBindWabaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the user within the independent software vendor (ISV) account.
+   * The customer\\"s Space ID.
    * 
    * @example
-   * C02029392939939
+   * C0202939293****
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The ID of the WhatsApp Business Account (WABA).
+   * The WABA ID.
    * 
    * @example
-   * 2939828282
+   * 293982****
    */
   wabaId?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ChatappBindWabaResponseBodyData extends $dara.Model {
 export class ChatappBindWabaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
    * None
@@ -53,10 +53,11 @@ export class ChatappBindWabaResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The request status code.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -69,7 +70,7 @@ export class ChatappBindWabaResponseBody extends $dara.Model {
   data?: ChatappBindWabaResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * None
@@ -77,7 +78,7 @@ export class ChatappBindWabaResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -85,10 +86,11 @@ export class ChatappBindWabaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: successful.
+   * 
+   * - **false**: failed.
    * 
    * @example
    * true

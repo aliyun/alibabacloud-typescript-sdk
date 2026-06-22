@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The channel type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,30 +14,41 @@ export class CreateInstanceRequest extends $dara.Model {
    */
   channelType?: string;
   /**
+   * @remarks
+   * The contact email address.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   contactMail?: string;
   /**
+   * @remarks
+   * The country code.
+   * 
    * @example
    * 1
    */
   countryId?: string;
   /**
    * @remarks
-   * FacebookBmId
+   * The ID of the Facebook Business Manager (BM).
    * 
    * @example
    * 393992929
    */
   facebookBmId?: string;
   /**
+   * @remarks
+   * The description of the instance.
+   * 
    * @example
    * ins
    */
   instanceDescription?: string;
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,23 +56,35 @@ export class CreateInstanceRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Specifies whether to confirm the audit.
+   * 
    * @example
    * Y
    */
   isConfirmAudit?: string;
   /**
+   * @remarks
+   * The URL of the ISV terms file.
+   * 
    * @example
    * https://a.com/1.pdf
    */
   isvTerms?: string;
   /**
+   * @remarks
+   * The office address of the business.
+   * 
    * @example
-   * 长沙麓谷
+   * example
    */
   officeAddress?: string;
   /**
+   * @remarks
+   * The ID of the resource group that contains the instance.
+   * 
    * @example
-   * 示例值
+   * example
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

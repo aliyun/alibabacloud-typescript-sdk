@@ -6,7 +6,7 @@ export class CreateWhatsappConversionApiResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   code?: string;
   /**

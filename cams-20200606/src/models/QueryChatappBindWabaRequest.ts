@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class QueryChatappBindWabaRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the user under the ISV account.
+   * The space ID of the ISV sub-customer.
    * 
    * @example
-   * 293483938849493
+   * 293483****49493
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The ISV verification code, used to verify that the sub-account is authorized.
    * 
    * @example
-   * aksik93kdkkxmwol93939
+   * aksik93kdkkxmwol9****
    */
   isvCode?: string;
   ownerId?: number;

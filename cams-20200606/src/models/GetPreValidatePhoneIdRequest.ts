@@ -10,17 +10,17 @@ export class GetPreValidatePhoneIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 861380000
+   * 86138****
    */
   phoneNumber?: string;
   /**
    * @remarks
-   * The verification code provided when you purchased the pre-registered phone number.
+   * The verification code provided when you purchased the pre-validated phone number.
    * 
    * This parameter is required.
    * 
    * @example
-   * 208393
+   * 2083**
    */
   verifyCode?: string;
   static names(): { [key: string]: string } {

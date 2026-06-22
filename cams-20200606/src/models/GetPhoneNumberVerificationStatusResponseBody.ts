@@ -13,10 +13,10 @@ export class GetPhoneNumberVerificationStatusResponseBodyData extends $dara.Mode
   codeVerificationStatus?: string;
   /**
    * @remarks
-   * The ID of the number.
+   * The ID of the phone number.
    * 
    * @example
-   * 2224342624
+   * 222434****
    */
   id?: string;
   /**
@@ -24,7 +24,7 @@ export class GetPhoneNumberVerificationStatusResponseBodyData extends $dara.Mode
    * The phone number.
    * 
    * @example
-   * 8613900001234
+   * 861390000****
    */
   phoneNumber?: string;
   static names(): { [key: string]: string } {
@@ -56,10 +56,11 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The request status code.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -67,12 +68,12 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetPhoneNumberVerificationStatusResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * None
@@ -80,7 +81,7 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2D

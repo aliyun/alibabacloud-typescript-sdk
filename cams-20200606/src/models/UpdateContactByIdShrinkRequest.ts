@@ -8,10 +8,6 @@ export class UpdateContactByIdShrinkRequest extends $dara.Model {
    * 示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
    * @remarks

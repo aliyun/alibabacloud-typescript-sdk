@@ -8,15 +8,15 @@ export class GetPreValidatePhoneIdResponseBodyData extends $dara.Model {
    * The phone number.
    * 
    * @example
-   * 929833
+   * 92****
    */
   phoneNumber?: string;
   /**
    * @remarks
-   * The ID of the phone number.
+   * The phone number ID.
    * 
    * @example
-   * 8613800000000
+   * 861380000****
    */
   phoneNumberId?: string;
   static names(): { [key: string]: string } {
@@ -45,10 +45,11 @@ export class GetPreValidatePhoneIdResponseBodyData extends $dara.Model {
 export class GetPreValidatePhoneIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://www.alibabacloud.com/help/en/cams/latest/api-error-codes).
    * 
    * @example
    * OK

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The categories of the Flow.
+   * The flow categories.
    */
   categories?: string[];
   /**
@@ -15,18 +15,18 @@ export class ModifyFlowResponseBodyData extends $dara.Model {
   endpointUri?: string;
   /**
    * @remarks
-   * The Flow ID.
+   * The flow ID.
    * 
    * @example
-   * 3939399****
+   * 92675332812643****
    */
   flowId?: string;
   /**
    * @remarks
-   * The Flow name.
+   * The flow name.
    * 
    * @example
-   * flow-00203
+   * flow_001
    */
   flowName?: string;
   static names(): { [key: string]: string } {
@@ -63,7 +63,7 @@ export class ModifyFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * A value of OK indicates that the request was successful.
    * 
    * @example
    * OK

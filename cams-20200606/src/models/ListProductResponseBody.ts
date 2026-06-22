@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductResponseBodyModelPagingCursors extends $dara.Model {
   /**
    * @remarks
-   * The cursor that points to the end of the page of the returned data.
+   * The cursor that points to the next page.
    * 
    * @example
    * sjsuueu83838
@@ -13,7 +13,7 @@ export class ListProductResponseBodyModelPagingCursors extends $dara.Model {
   after?: string;
   /**
    * @remarks
-   * The cursor that points to the beginning of the page of the returned data.
+   * The cursor that points to the previous page.
    * 
    * @example
    * sjjsjdjjdjd83883
@@ -45,7 +45,7 @@ export class ListProductResponseBodyModelPagingCursors extends $dara.Model {
 export class ListProductResponseBodyModelPaging extends $dara.Model {
   /**
    * @remarks
-   * The cursors for pagination.
+   * The cursors for paging.
    */
   cursors?: ListProductResponseBodyModelPagingCursors;
   static names(): { [key: string]: string } {
@@ -80,7 +80,7 @@ export class ListProductResponseBodyModel extends $dara.Model {
   data?: { [key: string]: any }[];
   /**
    * @remarks
-   * The pagination details.
+   * Paging details.
    */
   paging?: ListProductResponseBodyModelPaging;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class ListProductResponseBodyModel extends $dara.Model {
 export class ListProductResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
    * None
@@ -123,10 +123,11 @@ export class ListProductResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -134,7 +135,7 @@ export class ListProductResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The message returned if the request fails.
    * 
    * @example
    * None
@@ -142,7 +143,7 @@ export class ListProductResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   model?: ListProductResponseBodyModel;
   /**
@@ -155,10 +156,11 @@ export class ListProductResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: successful.
+   * 
+   * - **false**: failed.
    * 
    * @example
    * true

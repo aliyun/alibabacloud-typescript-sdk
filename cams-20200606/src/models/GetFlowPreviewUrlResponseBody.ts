@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetFlowPreviewUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Flow ID.
+   * The flow ID.
    * 
    * @example
-   * 6dd31e1b7cc940fc99e293d9952b5b79
+   * 92675332812643****
    */
   flowId?: string;
   /**
@@ -16,12 +16,12 @@ export class GetFlowPreviewUrlResponseBodyData extends $dara.Model {
    * The temporary preview URL.
    * 
    * @example
-   * https://url
+   * https://business.facebook.com/****
    */
   previewUrl?: string;
   /**
    * @remarks
-   * The time when the preview URL expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The expiration time of the preview URL.
    * 
    * @example
    * 1700617436633
@@ -56,7 +56,7 @@ export class GetFlowPreviewUrlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -64,7 +64,7 @@ export class GetFlowPreviewUrlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned data object.
    */
   data?: GetFlowPreviewUrlResponseBodyData;
   /**

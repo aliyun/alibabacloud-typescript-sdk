@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWhatsappConversionApiRequest extends $dara.Model {
   /**
    * @example
-   * chatbot-cn-VBe6QXXX
+   * 示例值示例值
    */
   instanceId?: string;
   ownerId?: number;

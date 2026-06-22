@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyChatappTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The code of the message template.
+   * The template code.
    * 
    * @example
    * 8472929283883
@@ -13,7 +13,7 @@ export class ModifyChatappTemplateResponseBodyData extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The name of the message template.
+   * The template name.
    * 
    * @example
    * hello_whatsapp
@@ -45,7 +45,7 @@ export class ModifyChatappTemplateResponseBodyData extends $dara.Model {
 export class ModifyChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
    * None
@@ -53,10 +53,11 @@ export class ModifyChatappTemplateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The request status code.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates a successful request.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -64,20 +65,20 @@ export class ModifyChatappTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ModifyChatappTemplateResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
-   * NONE
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****

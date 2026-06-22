@@ -5,49 +5,48 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerChatFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of access denial
+   * Details about the access denied error.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
-   * 无
+   * OK
    */
   code?: string;
   /**
    * @remarks
-   * Returned data.
-   * 
-   * @example
-   * {}
+   * The returned data.
    */
   data?: { [key: string]: any };
   /**
    * @remarks
-   * Error description message.
+   * The error message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
-   * 无
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
    * @remarks
-   * Whether the call was successful.
-   * - **true**: Call succeeded.
-   * - **false**: Call failed.
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

@@ -5,28 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class GetDownloadExcelListShrinkRequest extends $dara.Model {
   /**
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
    * @example
-   * aa
+   * 示例值示例值
    */
   condition?: string;
   countryNamesShrink?: string;
   /**
    * @example
-   * 2025-12-01
+   * 示例值示例值
    */
   endDate?: string;
   /**
    * @example
-   * 111
+   * 示例值
    */
   groupId?: string;
   groupIdsShrink?: string;
@@ -35,7 +31,7 @@ export class GetDownloadExcelListShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @example
-   * 2025-11-01
+   * 示例值示例值
    */
   startDate?: string;
   static names(): { [key: string]: string } {

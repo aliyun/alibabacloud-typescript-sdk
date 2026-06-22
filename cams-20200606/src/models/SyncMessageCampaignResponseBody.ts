@@ -3,23 +3,48 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SyncMessageCampaignResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code of the request. A value of OK indicates that the request was successful.
+   * 
+   * For other error codes, see Error Codes.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 233**
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

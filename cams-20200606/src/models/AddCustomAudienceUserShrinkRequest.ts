@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Meta ad account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
    */
   adAccountId?: string;
   /**
+   * @remarks
+   * Indicates whether this is the last batch of data.
+   * 
    * @example
    * false
    */
   batchLastFlag?: boolean;
   /**
    * @remarks
+   * The space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The ID of the custom audience.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +42,9 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
    */
   customAudienceId?: string;
   /**
+   * @remarks
+   * The estimated total number of users.
+   * 
    * @example
    * 26
    */
@@ -40,6 +52,8 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The Page ID for Messenger.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +64,8 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * A list of users.
+   * 
    * This parameter is required.
    */
   usersShrink?: string;

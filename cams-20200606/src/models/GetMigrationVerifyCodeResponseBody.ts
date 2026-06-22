@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetMigrationVerifyCodeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the number.
+   * The phone number ID.
    * 
    * @example
-   * 82828893332
+   * 8282889****
    */
   id?: string;
   /**
    * @remarks
-   * Phone number.
+   * The phone number.
    * 
    * @example
-   * 8613800001234
+   * 861380000****
    */
   phoneNumber?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class GetMigrationVerifyCodeResponseBodyData extends $dara.Model {
 export class GetMigrationVerifyCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
    * None
@@ -53,10 +53,11 @@ export class GetMigrationVerifyCodeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The request status code.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -77,7 +78,7 @@ export class GetMigrationVerifyCodeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O

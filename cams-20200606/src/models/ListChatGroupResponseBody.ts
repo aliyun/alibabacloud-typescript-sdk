@@ -4,61 +4,94 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListChatGroupResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The business number.
+   * 
    * @example
    * 8613800**
    */
   businessNumber?: string;
   /**
+   * @remarks
+   * The role of the bot in the group.
+   * 
    * @example
-   * 示例值
+   * example
    */
   businessRole?: string;
   /**
+   * @remarks
+   * The group description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The time the group was last updated.
+   * 
    * @example
    * 94
    */
   gmtModifier?: number;
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
    * EA30d***
    */
   groupId?: string;
   /**
+   * @remarks
+   * The group link.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   groupLink?: string;
   /**
+   * @remarks
+   * The group status.
+   * 
    * @example
    * ACTIVE
    */
   groupStatus?: string;
   /**
+   * @remarks
+   * The group type.
+   * 
    * @example
-   * 示例值示例值示例值
+   * example
    */
   groupType?: string;
   /**
+   * @remarks
+   * The group invitation link.
+   * 
    * @example
    * https://chat.whatsapp.com/***
    */
   inviteLink?: string;
   /**
-   * @example
-   * https://aliyun.com/png.jpg
+   * @remarks
+   * The group\\"s profile picture.
    */
   profilePictureFile?: string;
   /**
+   * @remarks
+   * The group subject.
+   * 
    * @example
-   * 示例值示例值
+   * This is a test subject
    */
   subject?: string;
   /**
+   * @remarks
+   * The total number of group participants.
+   * 
    * @example
    * 35
    */
@@ -107,8 +140,15 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
 }
 
 export class ListChatGroupResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The group list.
+   */
   list?: ListChatGroupResponseBodyDataList[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 51
    */
@@ -140,24 +180,55 @@ export class ListChatGroupResponseBodyData extends $dara.Model {
 }
 
 export class ListChatGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the access denied error.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * - `OK`: The request succeeded.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListChatGroupResponseBodyData;
   /**
+   * @remarks
+   * The response message. This parameter is returned only when an error occurs.
+   * 
    * @example
-   * 示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

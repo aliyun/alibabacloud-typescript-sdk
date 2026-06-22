@@ -6,7 +6,7 @@ export class UpdatePhoneEncryptionPublicKeyResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The result returns OK as normal.
+   * The status code of the request. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -14,7 +14,7 @@ export class UpdatePhoneEncryptionPublicKeyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error description information.
+   * The error message.
    * 
    * @example
    * None
@@ -22,7 +22,7 @@ export class UpdatePhoneEncryptionPublicKeyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O

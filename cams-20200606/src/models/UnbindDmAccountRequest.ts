@@ -8,7 +8,7 @@ export class UnbindDmAccountRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cams-*
+   * 示例值
    */
   custSpaceId?: string;
   ownerId?: number;

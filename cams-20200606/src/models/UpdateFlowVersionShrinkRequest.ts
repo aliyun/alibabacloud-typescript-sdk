@@ -4,52 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFlowVersionShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
-   * @remarks
-   * Flow code.
-   * 
    * @example
-   * f4912c16943b4dfba44bd6fedacf****
+   * 示例值
    */
   flowCode?: string;
   /**
-   * @remarks
-   * Flow version
-   * 
    * @example
-   * 1
+   * 示例值示例值示例值
    */
   flowVersion?: string;
   /**
-   * @remarks
-   * DSL data of the flow version
-   * 
    * @example
-   * {}
+   * 示例值示例值
    */
   flowViewModel?: string;
   ownerId?: number;
   /**
-   * @remarks
-   * Version remarks
-   * 
    * @example
-   * Fix Send WhatsApp Message Error
+   * 示例值示例值示例值
    */
   remark?: string;
   resourceOwnerAccount?: string;

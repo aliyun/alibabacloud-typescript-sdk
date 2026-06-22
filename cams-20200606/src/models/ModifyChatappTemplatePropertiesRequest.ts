@@ -18,7 +18,7 @@ export class ModifyChatappTemplatePropertiesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cams-idk***
+   * 示例值示例值
    */
   custSpaceId?: string;
   /**
@@ -26,7 +26,7 @@ export class ModifyChatappTemplatePropertiesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * zh_CN
+   * 示例值示例值示例值
    */
   language?: string;
   ownerId?: number;
@@ -37,7 +37,7 @@ export class ModifyChatappTemplatePropertiesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 929938***
+   * 示例值示例值示例值
    */
   templateCode?: string;
   /**
@@ -45,7 +45,7 @@ export class ModifyChatappTemplatePropertiesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * WHATSAPP
+   * 示例值示例值
    */
   templateType?: string;
   static names(): { [key: string]: string } {

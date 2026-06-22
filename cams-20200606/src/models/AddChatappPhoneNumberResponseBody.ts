@@ -5,15 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class AddChatappPhoneNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * com.alicom.access.oxs.client.channel.aliyun.flow.AyFlowExecuteService
+   * Details about the access denial.
    * 
    * @example
-   * http://pop_access_slb_sgvpc/#vpc
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The phone number.
+   * The status code of the request.
+   * 
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -21,7 +25,7 @@ export class AddChatappPhoneNumberResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * com.alicom.access.oxs.client.channel.aliyun.flow.dto.AyCommonApiRequest
+   * The error message.
    * 
    * @example
    * None
@@ -29,7 +33,7 @@ export class AddChatappPhoneNumberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * formData
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****
@@ -37,7 +41,11 @@ export class AddChatappPhoneNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 13800000000
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: successful.
+   * 
+   * - **false**: failed.
    * 
    * @example
    * false

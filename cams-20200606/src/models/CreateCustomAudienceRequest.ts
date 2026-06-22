@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAudienceRequest extends $dara.Model {
   /**
    * @remarks
+   * The Meta ad account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class CreateCustomAudienceRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
+   * The Space ID of the ISV sub-customer, or the instance ID of the direct customer. View the Space ID on the
+   * 
+   * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +26,25 @@ export class CreateCustomAudienceRequest extends $dara.Model {
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * desc
    */
   description?: string;
   /**
+   * @remarks
+   * The file path.
+   * 
    * @example
    * bucket/file.xlsx
    */
   filePath?: string;
   /**
    * @remarks
+   * The name of the custom audience.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +54,8 @@ export class CreateCustomAudienceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The Page ID for Messenger.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +66,8 @@ export class CreateCustomAudienceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The upload method.
+   * 
    * This parameter is required.
    * 
    * @example

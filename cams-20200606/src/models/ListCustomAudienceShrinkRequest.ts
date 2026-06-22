@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomAudienceShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Meta ad account ID.
+   * 
    * @example
    * 339**
    */
   adAccountId?: string;
   /**
    * @remarks
+   * The Space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of the direct customers. This is the channel ID. Find the ID on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +22,17 @@ export class ListCustomAudienceShrinkRequest extends $dara.Model {
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The ID of the custom audience.
+   * 
    * @example
    * 239**
    */
   customAudienceId?: string;
   /**
+   * @remarks
+   * The name of the custom audience.
+   * 
    * @example
    * name
    */
@@ -29,11 +40,15 @@ export class ListCustomAudienceShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The pagination settings.
+   * 
    * This parameter is required.
    */
   pageShrink?: string;
   /**
    * @remarks
+   * The Page ID for Messenger.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +58,9 @@ export class ListCustomAudienceShrinkRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The token type.
+   * 
    * @example
    * custom
    */

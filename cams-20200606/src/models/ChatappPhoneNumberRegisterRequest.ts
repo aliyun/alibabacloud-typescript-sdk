@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappPhoneNumberRegisterRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * The Space ID of the Independent Software Vendor (ISV) sub-customer.
    * 
    * This parameter is required.
    * 
    * @example
-   * 939283893939***
+   * 93928389****
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -21,7 +21,7 @@ export class ChatappPhoneNumberRegisterRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 8613800001234
+   * 861380000****
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

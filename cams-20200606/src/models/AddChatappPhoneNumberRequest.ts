@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddChatappPhoneNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * The country code.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   cc?: string;
   /**
    * @remarks
-   * Adds a phone number for a WhatsApp Business account (WABA).
+   * The Space ID of the Independent Software Vendor (ISV) sub-customer.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * AddChatappPhoneNumber
+   * The phone number.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,9 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * cams:ChatappPhoneNumberRegister
+   * The pre-verified phone number.
+   * 
+   * > This parameter is deprecated.
    * 
    * @example
    * 1020****
@@ -48,7 +50,7 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Private
+   * The name of the phone number.
    * 
    * This parameter is required.
    * 

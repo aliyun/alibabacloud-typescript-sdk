@@ -4,21 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublishFlowRequest extends $dara.Model {
   /**
-   * @remarks
-   * The space ID of the user within the independent software vendor (ISV) account.
-   * 
    * @example
-   * 28251486512358****
+   * 示例值示例值示例值
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The Flow ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * flow_001
+   * 示例值示例值示例值
    */
   flowId?: string;
   ownerId?: number;

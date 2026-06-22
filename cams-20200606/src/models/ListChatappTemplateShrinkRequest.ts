@@ -7,19 +7,19 @@ export class ListChatappTemplateShrinkRequest extends $dara.Model {
    * @remarks
    * The review state of the template. Valid values:
    * 
-   * *   **pass**: The template is approved.
-   * *   **fail**: The template is rejected.
-   * *   **auditing**: The template is being reviewed.
-   * *   **unaudit**: The review is suspended.
+   * - **pass**: The template is approved.
+   * 
+   * - **fail**: The template is rejected.
+   * 
+   * - **auditing**: The template is being reviewed.
+   * 
+   * - **unaudit**: The review is suspended.
    * 
    * @example
    * pass
    */
   auditStatus?: string;
   /**
-   * @remarks
-   * The category of the message template.
-   * 
    * @example
    * AUTHENTICATION
    */
@@ -44,7 +44,7 @@ export class ListChatappTemplateShrinkRequest extends $dara.Model {
    * @remarks
    * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
    * 
-   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+   * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -91,8 +91,9 @@ export class ListChatappTemplateShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the message template.
    * 
-   * *   **WHATSAPP**
-   * *   **VIBER**
+   * - **WHATSAPP**
+   * 
+   * - **VIBER**
    * 
    * @example
    * WHATSAPP

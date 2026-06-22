@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMMLActiveRequest extends $dara.Model {
   /**
    * @example
-   * erer-retreerew**
+   * 示例值示例值
    */
   custSpaceId?: string;
   ownerId?: number;

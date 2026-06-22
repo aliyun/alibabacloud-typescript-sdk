@@ -3,28 +3,58 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteChatGroupInviteLinkResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code. Valid values:
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 3R938***
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of affected rows.
+   * 
    * @example
-   * 0
+   * 1
    */
   result?: number;
   /**
+   * @remarks
+   * Indicates if the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

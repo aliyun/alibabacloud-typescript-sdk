@@ -6,7 +6,7 @@ export class PublishFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -22,10 +22,10 @@ export class PublishFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * DAC72B08-3327-33EF-BEDC-8EC3E83A6575
    */
   requestId?: string;
   static names(): { [key: string]: string } {

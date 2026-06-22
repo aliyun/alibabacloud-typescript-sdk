@@ -8,10 +8,6 @@ export class AddContactsRequest extends $dara.Model {
    * 示例值示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   /**
    * @example

@@ -6,10 +6,11 @@ export class GetPermissionByCodeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The status code of the request.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -17,7 +18,7 @@ export class GetPermissionByCodeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error description information.
+   * The error message.
    * 
    * @example
    * SUCCESS

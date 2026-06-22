@@ -13,7 +13,7 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
   deliveredCount?: number;
   /**
    * @remarks
-   * The end of the time range that you queried.
+   * The end time of metric collection. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1667196043904
@@ -21,12 +21,7 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * The granularity of the metric.
-   * 
-   * Valid values:
-   * 
-   * *   DAILY
-   * *   HALF_HOUR
+   * The granularity of the metrics.
    * 
    * @example
    * DAILY
@@ -37,7 +32,7 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
    * The business phone number.
    * 
    * @example
-   * 861380000
+   * 861380000****
    */
   phoneNumber?: string;
   /**
@@ -50,7 +45,7 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
   sentCount?: number;
   /**
    * @remarks
-   * The beginning of the time range that you queried.
+   * The start time of metric collection. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1669619491000
@@ -90,15 +85,19 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
 export class GetChatappPhoneNumberMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
-   * NONE
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The value OK indicates that the request was successful.
+   * The status code of the request. Valid values:
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -122,7 +121,7 @@ export class GetChatappPhoneNumberMetricResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 1612C226-E271-4CFE-9F18-4066D******
+   * 608F9CCA-B5EB-3D72-8047-B25D6D75BDEC
    */
   requestId?: string;
   static names(): { [key: string]: string } {

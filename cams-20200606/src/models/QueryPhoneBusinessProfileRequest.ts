@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPhoneBusinessProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the user within the independent software vendor (ISV) account.
+   * The Space ID of the independent software vendor (ISV) sub-customer.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2934839388494***
+   * 293483938849****
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -21,7 +21,7 @@ export class QueryPhoneBusinessProfileRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 8613800001234
+   * 861380000****
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

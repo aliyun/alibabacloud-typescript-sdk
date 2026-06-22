@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductRequest extends $dara.Model {
   /**
    * @remarks
-   * The cursor that points to the end of the page of the returned data.
+   * The cursor that points to the start of the next page of results.
    * 
    * @example
    * kdkii48jfjjei3
@@ -13,7 +13,7 @@ export class ListProductRequest extends $dara.Model {
   after?: string;
   /**
    * @remarks
-   * The cursor that points to the beginning of the page of the returned data.
+   * The cursor that points to the end of the previous page of results.
    * 
    * @example
    * wiidkd939kek93
@@ -21,27 +21,26 @@ export class ListProductRequest extends $dara.Model {
   before?: string;
   /**
    * @remarks
-   * The catalog ID.
+   * The catalog ID. You can get it from the Meta platform.
    * 
    * This parameter is required.
    * 
    * @example
-   * 29398389292
+   * 2939838xxxx
    */
   catalogId?: string;
   /**
    * @remarks
-   * The space ID of the user within the independent software vendor (ISV) account.
+   * The Space ID of the ISV sub-customer.
    * 
    * @example
-   * C29398388383
+   * C2939838xxxx
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The fields. Separate multiple fields with commas (,).
-   * 
-   *  see [product fields](https://help.aliyun.com/document_detail/2579419.html)
+   * A list of fields to return. Separate multiple fields with a comma (,).
+   * For more information, see [Product fields](https://help.aliyun.com/document_detail/2579419.html).
    * 
    * @example
    * id,name
@@ -49,7 +48,7 @@ export class ListProductRequest extends $dara.Model {
   fields?: string;
   /**
    * @remarks
-   * The number of products to be queried. Valid values: 1 to 1000.
+   * The number of items to return. Valid values: 1 to 1000.
    * 
    * @example
    * 73
@@ -60,12 +59,12 @@ export class ListProductRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the WhatsApp Business account (WABA).
+   * The WhatsApp Business Account (WABA) ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 38487474747
+   * 3848747xxxx
    */
   wabaId?: string;
   static names(): { [key: string]: string } {

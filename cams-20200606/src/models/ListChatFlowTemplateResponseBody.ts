@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListChatFlowTemplateResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * Content of the returned data.
-   * 
-   * @example
-   * 无
-   */
   response?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -36,50 +29,11 @@ export class ListChatFlowTemplateResponseBodyData extends $dara.Model {
 }
 
 export class ListChatFlowTemplateResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Access denied details.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * Status code.
-   * 
-   * @example
-   * OK
-   */
   code?: string;
-  /**
-   * @remarks
-   * Returned data object.
-   */
   data?: ListChatFlowTemplateResponseBodyData;
-  /**
-   * @remarks
-   * Error message.
-   * 
-   * @example
-   * 无
-   */
   message?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the operation was successful. Values: true: success; false: failure.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

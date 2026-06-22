@@ -4,44 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class OfflineFlowVersionShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
-   * @remarks
-   * Flow code.
-   * 
    * @example
-   * f4912c16943b4dfba44bd6fedacf****
+   * 示例值示例值
    */
   flowCode?: string;
   /**
-   * @remarks
-   * Flow version
-   * 
    * @example
-   * 1
+   * 示例值示例值
    */
   flowVersion?: string;
   ownerId?: number;
   /**
-   * @remarks
-   * Flow remarks
-   * 
    * @example
-   * We don\\"t need this old version.
+   * 示例值
    */
   remark?: string;
   resourceOwnerAccount?: string;

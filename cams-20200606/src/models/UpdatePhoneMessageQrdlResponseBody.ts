@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Deep link address.
+   * The deep link URL.
    * 
    * @example
    * https://wa.msg/
@@ -13,7 +13,7 @@ export class UpdatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   deepLinkUrl?: string;
   /**
    * @remarks
-   * Generate image types.
+   * The type of the generated image.
    * 
    * @example
    * PNG
@@ -21,15 +21,15 @@ export class UpdatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   generateQrImage?: string;
   /**
    * @remarks
-   * Number.
+   * The phone number.
    * 
    * @example
-   * 8613800
+   * 86158********
    */
   phoneNumber?: string;
   /**
    * @remarks
-   * Message content.
+   * The message content.
    * 
    * @example
    * Hello
@@ -37,7 +37,7 @@ export class UpdatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   prefilledMessage?: string;
   /**
    * @remarks
-   * QR code address.
+   * The URL of the QR code.
    * 
    * @example
    * https://img.png
@@ -45,10 +45,10 @@ export class UpdatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   qrImageUrl?: string;
   /**
    * @remarks
-   * QR code encoding.
+   * The code.
    * 
    * @example
-   * DEDEE998
+   * D9AA3***
    */
   qrdlCode?: string;
   static names(): { [key: string]: string } {
@@ -86,7 +86,7 @@ export class UpdatePhoneMessageQrdlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The result returns OK as normal.
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -99,7 +99,7 @@ export class UpdatePhoneMessageQrdlResponseBody extends $dara.Model {
   data?: UpdatePhoneMessageQrdlResponseBodyData;
   /**
    * @remarks
-   * Error description information.
+   * The error message.
    * 
    * @example
    * None

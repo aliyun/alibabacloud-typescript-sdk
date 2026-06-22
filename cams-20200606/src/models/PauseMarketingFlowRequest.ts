@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class PauseMarketingFLowRequest extends $dara.Model {
   /**
    * @example
-   * 439859845**234
+   * 示例值示例值
    */
   activityCode?: string;
   /**
    * @example
-   * N/A
+   * 示例值示例值
    */
   activityId?: string;
   ownerId?: number;

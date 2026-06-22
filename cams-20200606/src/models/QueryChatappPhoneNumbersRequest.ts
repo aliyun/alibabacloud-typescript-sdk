@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class QueryChatappPhoneNumbersRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the RAM user within the ISV account.
+   * The Space ID of the ISV sub-customer.
    * 
    * @example
-   * 293483938849493
+   * 29348393884****
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The independent software vendor (ISV) verification code, which is used to verify whether the RAM user is authorized by the ISV account.
+   * The verification code of the Independent Software Vendor (ISV). This code is used to verify if the user is authorized by the ISV.
    * 
    * @example
-   * aksik93kdkkxmwol93939
+   * aksik93kdkkxmwol9****
    */
   isvCode?: string;
   ownerId?: number;
@@ -24,7 +24,7 @@ export class QueryChatappPhoneNumbersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The state of the phone number.
+   * The status of the phone number.
    * 
    * @example
    * VERIFIED

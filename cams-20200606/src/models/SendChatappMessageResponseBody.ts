@@ -3,13 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendChatappMessageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code of the request.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates a successful request.
+   * 
+   * - For other status codes, see [error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -17,7 +25,7 @@ export class SendChatappMessageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * User not authorized to operate on the specified resource.
@@ -25,7 +33,7 @@ export class SendChatappMessageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the message that was sent.
+   * The ID of the message.
    * 
    * @example
    * 61851ccb2f1365b16aee****
@@ -36,7 +44,7 @@ export class SendChatappMessageResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A94866411B2O
+   * 90E63D28-E31D-1EB2-8939-A94866******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

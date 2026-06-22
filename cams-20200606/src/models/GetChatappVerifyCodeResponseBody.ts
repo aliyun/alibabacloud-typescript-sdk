@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatappVerifyCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
    * None
@@ -13,10 +13,11 @@ export class GetChatappVerifyCodeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code of the request.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the request is successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -24,15 +25,15 @@ export class GetChatappVerifyCodeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
-   * None.
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1612C226-E271-4CFE-9F18-4066D550F91B
@@ -40,10 +41,11 @@ export class GetChatappVerifyCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call is successful.
    * 
-   * *   **true**: The call was successful.
-   * *   **false**: The call failed.
+   * - **true**: successful.
+   * 
+   * - **false**: failed.
    * 
    * @example
    * true

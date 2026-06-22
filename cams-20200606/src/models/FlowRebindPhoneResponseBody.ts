@@ -3,50 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlowRebindPhoneResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Access denied details.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Status code.
-   * 
    * @example
    * 示例值示例值
    */
   code?: string;
   /**
-   * @remarks
-   * Error message.
-   * 
    * @example
    * 示例值示例值示例值
    */
   message?: string;
   /**
-   * @remarks
-   * Request result data.
-   * 
    * @example
    * false
    */
   model?: boolean;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 示例值示例值
    */
   requestId?: string;
   /**
-   * @remarks
-   * Whether the operation was successful. Values: true: success; false: failure.
-   * 
    * @example
    * true
    */

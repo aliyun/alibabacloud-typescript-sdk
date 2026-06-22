@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL of the deep link.
+   * The deep link URL.
    * 
    * @example
    * https://wa.msg/
@@ -13,7 +13,7 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
   deepLinkUrl?: string;
   /**
    * @remarks
-   * The format of the generated image.
+   * The type of the generated image.
    * 
    * @example
    * PNG
@@ -24,7 +24,7 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
    * The phone number.
    * 
    * @example
-   * 8613800
+   * 86138009****
    */
   phoneNumber?: string;
   /**
@@ -45,7 +45,7 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
   qrImageUrl?: string;
   /**
    * @remarks
-   * The mode of the quick-response (QR) code.
+   * The code.
    * 
    * @example
    * IUIED999
@@ -86,7 +86,7 @@ export class ListPhoneMessageQrdlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request was successful.
+   * A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -94,15 +94,15 @@ export class ListPhoneMessageQrdlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned data object.
    */
   data?: ListPhoneMessageQrdlResponseBodyData[];
   /**
    * @remarks
-   * Error description information.
+   * The error message.
    * 
    * @example
-   * None
+   * 无
    */
   message?: string;
   /**

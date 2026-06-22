@@ -8,12 +8,12 @@ export class ListFlowNodePrototypeV2Request extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ALICOM_OPAAS
+   * 示例值示例值示例值
    */
   bizCode?: string;
   /**
    * @example
-   * Core
+   * 示例值示例值
    */
   groupCode?: string;
   /**
@@ -27,7 +27,7 @@ export class ListFlowNodePrototypeV2Request extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 6
    */
   pageNo?: number;
   /**
@@ -35,7 +35,7 @@ export class ListFlowNodePrototypeV2Request extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 20
+   * 7
    */
   pageSize?: number;
   resourceOwnerAccount?: string;

@@ -7,10 +7,13 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
    * @remarks
    * The review state of the template. Valid values:
    * 
-   * *   **pass**: The template is approved.
-   * *   **fail**: The template is rejected.
-   * *   **auditing**: The template is being reviewed.
-   * *   **unaudit**: The review is suspended.
+   * - **pass**: The template is approved.
+   * 
+   * - **fail**: The template is rejected.
+   * 
+   * - **auditing**: The template is being reviewed.
+   * 
+   * - **unaudit**: The review is suspended.
    * 
    * @example
    * pass
@@ -20,24 +23,34 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
    * @remarks
    * The category of the WhatsApp message template. Valid values:
    * 
-   * *   **UTILITY**
-   * *   **MARKETING**
-   * *   **AUTHENTICATION**
+   * - **UTILITY**
+   * 
+   * - **MARKETING**
+   * 
+   * - **AUTHENTICATION**
    * 
    * The category of the Viber template. Valid values:
    * 
-   * *   **text**: template that contains only text
-   * *   **image**: template that contains only images
-   * *   **text_image_button**: template that contains text, images, and buttons
-   * *   **text_button**: template that contains text and buttons
-   * *   **document**: template that contains only documents
-   * *   **video**: template that contains only videos
-   * *   **text_video**: template that contains text and videos
-   * *   **text_video_button**: template that contains text, videos, and buttons
-   * *   **text_image**: template that contains text and images
+   * - **text**: template that contains only text
+   * 
+   * - **image**: template that contains only images
+   * 
+   * - **text_image_button**: template that contains text, images, and buttons
+   * 
+   * - **text_button**: template that contains text and buttons
+   * 
+   * - **document**: template that contains only documents
+   * 
+   * - **video**: template that contains only videos
+   * 
+   * - **text_video**: template that contains text and videos
+   * 
+   * - **text_video_button**: template that contains text, videos, and buttons
+   * 
+   * - **text_image**: template that contains text and images
    * 
    * @example
-   * TRANSACTIONAL
+   * UTILITY
    */
   category?: string;
   /**
@@ -129,15 +142,16 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * None
+   * 无
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The HTTP status code returned.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the call is successful.
+   * 
+   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -165,12 +179,6 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
-   * 
    * @example
    * false
    */

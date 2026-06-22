@@ -3,50 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetChatFlowMetricResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of access denial.
-   * 
-   * @example
-   * 无
-   */
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * Status code.
-   * 
    * @example
-   * OK
+   * 示例值示例值示例值
    */
   code?: string;
-  /**
-   * @remarks
-   * Returned data object.
-   * 
-   * @example
-   * 无
-   */
   data?: { [key: string]: any };
   /**
-   * @remarks
-   * Error message.
-   * 
    * @example
-   * 无
+   * 示例值示例值
    */
   message?: string;
-  /**
-   * @remarks
-   * Unique request ID.
-   * 
-   * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
-   */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the operation was successful. Values: true: success; false: failure.
-   * 
    * @example
    * false
    */

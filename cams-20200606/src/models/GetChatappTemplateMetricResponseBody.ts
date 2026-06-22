@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatappTemplateMetricResponseBodyDataCliented extends $dara.Model {
   /**
    * @remarks
-   * The text on the button.
+   * The button text.
    * 
    * @example
-   * Open url
+   * reply
    */
   buttonContent?: string;
   /**
@@ -21,13 +21,13 @@ export class GetChatappTemplateMetricResponseBodyDataCliented extends $dara.Mode
   count?: number;
   /**
    * @remarks
-   * The button type.
+   * The button type. Valid values:
    * 
-   * Valid values:
+   * - phone_number_button: The call button.
    * 
-   * *   phone_number_button
-   * *   url_button
-   * *   quick_relpy_button
+   * - url_button: The URL button.
+   * 
+   * - quick_reply_button: The auto-reply button.
    * 
    * @example
    * quick_reply_button
@@ -61,7 +61,7 @@ export class GetChatappTemplateMetricResponseBodyDataCliented extends $dara.Mode
 export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The statistics on button clicks.
+   * The statistics about button clicks.
    */
   cliented?: GetChatappTemplateMetricResponseBodyDataCliented[];
   /**
@@ -74,7 +74,7 @@ export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
   deliveredCount?: number;
   /**
    * @remarks
-   * The end of the time range you queried.
+   * The end time for metric collection. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1668138331485
@@ -82,7 +82,7 @@ export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * The template language.
+   * The language of the template.
    * 
    * @example
    * en
@@ -106,7 +106,7 @@ export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
   sentCount?: number;
   /**
    * @remarks
-   * The beginning of the time range you queried.
+   * The start time for metric collection. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1673919240001
@@ -117,7 +117,7 @@ export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
    * The template code.
    * 
    * @example
-   * 83837774838*****
+   * 1100***************
    */
   templateCode?: string;
   static names(): { [key: string]: string } {
@@ -169,7 +169,11 @@ export class GetChatappTemplateMetricResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The value OK indicates that the request was successful.
+   * The status code of the request. Valid values:
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -177,7 +181,7 @@ export class GetChatappTemplateMetricResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   data?: GetChatappTemplateMetricResponseBodyData[];
   /**
@@ -193,7 +197,7 @@ export class GetChatappTemplateMetricResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 608F9CCA-B5EB-3D72-8047-B25D6D75BDEC
    */
   requestId?: string;
   static names(): { [key: string]: string } {

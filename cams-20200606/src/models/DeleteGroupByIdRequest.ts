@@ -8,7 +8,7 @@ export class DeleteGroupByIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 112
+   * 示例值示例值示例值
    */
   groupId?: string;
   ownerId?: number;

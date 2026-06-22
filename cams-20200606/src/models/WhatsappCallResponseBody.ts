@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class WhatsappCallResponseBodyModel extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier for each call.
+   * 
    * @example
-   * 示例值示例值
+   * wamid-xx**
    */
   callId?: string;
   static names(): { [key: string]: string } {
@@ -30,24 +33,55 @@ export class WhatsappCallResponseBodyModel extends $dara.Model {
 }
 
 export class WhatsappCallResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 示例值示例值示例值
+   * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
-   * 示例值示例值示例值
+   * None
    */
   message?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   model?: WhatsappCallResponseBodyModel;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值
+   * xik-x**
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
+   * 
    * @example
    * false
    */

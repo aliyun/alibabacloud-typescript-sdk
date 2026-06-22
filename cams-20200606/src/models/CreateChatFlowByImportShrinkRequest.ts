@@ -4,34 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateChatFlowByImportShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Business tenant code, default is “ALICOM_OPAAS”.
-   * 
    * @example
    * 示例值示例值
    */
   bizCode?: string;
-  /**
-   * @remarks
-   * Business extension information, default is “{}”.
-   * 
-   * @example
-   * {}
-   */
   bizExtendShrink?: string;
   /**
-   * @remarks
-   * Imported flow DSL data
-   * 
    * @example
    * 示例值示例值
    */
   flowViewModel?: string;
   ownerId?: number;
   /**
-   * @remarks
-   * Flow remarks
-   * 
    * @example
    * 示例值示例值
    */
@@ -39,9 +23,6 @@ export class CreateChatFlowByImportShrinkRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * Flow title
-   * 
    * @example
    * 示例值示例值示例值
    */

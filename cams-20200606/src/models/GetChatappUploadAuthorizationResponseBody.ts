@@ -32,7 +32,7 @@ export class GetChatappUploadAuthorizationResponseBodyData extends $dara.Model {
    * The directory to which the file is uploaded in Object Storage Service (OSS).
    * 
    * @example
-   * 1000102939
+   * 100010****
    */
   dir?: string;
   /**
@@ -56,7 +56,7 @@ export class GetChatappUploadAuthorizationResponseBodyData extends $dara.Model {
    * The security token.
    * 
    * @example
-   * dkdieiii**
+   * dkdieiii****
    */
   securityToken?: string;
   static names(): { [key: string]: string } {
@@ -98,15 +98,16 @@ export class GetChatappUploadAuthorizationResponseBody extends $dara.Model {
    * Access denied for detailed information.
    * 
    * @example
-   * None
+   * 无
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The HTTP status code returned.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of OK indicates that the call is successful.
+   * 
+   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -122,7 +123,7 @@ export class GetChatappUploadAuthorizationResponseBody extends $dara.Model {
    * The error message returned.
    * 
    * @example
-   * None
+   * 无
    */
   message?: string;
   /**

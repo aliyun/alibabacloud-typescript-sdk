@@ -4,31 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddAuditViberOpenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed information about the access denial.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response status code.
+   * 
+   * - `OK`: The request succeeded.
+   * 
+   * - For other values, see [Error Codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * 122
    */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * A message describing the result of the request.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 2121-112
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request succeeded.
+   * 
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

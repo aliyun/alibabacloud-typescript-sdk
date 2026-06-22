@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteContactsByIdsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * None
-   */
   accessDeniedDetail?: string;
   /**
    * @example
@@ -18,10 +14,6 @@ export class DeleteContactsByIdsResponseBody extends $dara.Model {
    * 示例值示例值
    */
   message?: string;
-  /**
-   * @example
-   * True
-   */
   model?: { [key: string]: any };
   /**
    * @example

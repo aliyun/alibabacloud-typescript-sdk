@@ -8,7 +8,7 @@ export class GetAuditRequestByTypeUnAuditRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cams-***
+   * 示例值
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -17,7 +17,7 @@ export class GetAuditRequestByTypeUnAuditRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * viberOpen
+   * 示例值
    */
   requestType?: string;
   resourceOwnerAccount?: string;

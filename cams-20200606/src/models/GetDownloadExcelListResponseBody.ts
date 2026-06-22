@@ -3,29 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDownloadExcelListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 200
+   * 示例值示例值
    */
   code?: string;
   /**
    * @example
-   * {}
+   * 示例值示例值
    */
   data?: string;
   /**
    * @example
-   * success
+   * 示例值
    */
   message?: string;
   /**
    * @example
-   * 39***
+   * 示例值示例值
    */
   requestId?: string;
   /**

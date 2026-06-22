@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetMigrationVerifyCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * The Space ID of the Independent Software Vendor (ISV) sub-customer.
    * 
    * This parameter is required.
    * 
    * @example
-   * 293483938849493
+   * 29348393884****
    */
   custSpaceId?: string;
   /**
@@ -25,7 +25,7 @@ export class GetMigrationVerifyCodeRequest extends $dara.Model {
   locale?: string;
   /**
    * @remarks
-   * The method to obtain the verification code. Valid values: SMS and VOICE.
+   * The verification method.
    * 
    * This parameter is required.
    * 
@@ -36,12 +36,12 @@ export class GetMigrationVerifyCodeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Phone number.
+   * The phone number.
    * 
    * This parameter is required.
    * 
    * @example
-   * 8613800001234
+   * 861380000****
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

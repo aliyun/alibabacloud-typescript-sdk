@@ -5,42 +5,38 @@ import * as $dara from '@darabonba/typescript';
 export class ListMarketingFlowResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 3243243***
+   * 示例值示例值
    */
   activityCode?: string;
   /**
    * @example
-   * aaa
+   * 示例值示例值
    */
   activityDesc?: string;
   /**
    * @example
-   * aaa
+   * 示例值示例值示例值
    */
   activityName?: string;
   /**
    * @example
-   * active
+   * 示例值示例值示例值
    */
   activityStatus?: string;
   /**
    * @example
-   * {}
+   * 示例值示例值
    */
   bizCode?: string;
-  /**
-   * @example
-   * {}
-   */
   bizExtend?: { [key: string]: any };
   /**
    * @example
-   * 0 0 4 1/1 * ?
+   * 示例值
    */
   cronExpression?: string;
   /**
    * @example
-   * 2025-01-01 XX1:11:11
+   * 示例值
    */
   endDate?: string;
   /**
@@ -50,12 +46,12 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   executionType?: string;
   /**
    * @example
-   * 2025-XX-01 11:11:11
+   * 示例值
    */
   gmtCreate?: string;
   /**
    * @example
-   * N/A
+   * 示例值
    */
   gmtModifier?: string;
   /**
@@ -68,29 +64,25 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
    * Y
    */
   paramFlag?: string;
-  /**
-   * @example
-   * {\\"CustomerLimit\\":false}
-   */
   params?: { [key: string]: any };
   /**
    * @example
-   * dsafdsf***
+   * 示例值示例值
    */
   relatedFlowCode?: string;
   /**
    * @example
-   * aaa
+   * 示例值示例值
    */
   relatedFlowName?: string;
   /**
    * @example
-   * 54354**
+   * 示例值
    */
   relatedGroupId?: string;
   /**
    * @example
-   * AAA
+   * 示例值示例值
    */
   relatedGroupName?: string;
   /**
@@ -100,12 +92,12 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   specificTime?: string;
   /**
    * @example
-   * 2025-01-XX 11:11:11
+   * 示例值示例值
    */
   startDate?: string;
   /**
    * @example
-   * 1111
+   * 示例值示例值示例值
    */
   tenantCode?: string;
   static names(): { [key: string]: string } {
@@ -176,14 +168,10 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
 }
 
 export class ListMarketingFlowResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 2993***
    */
   code?: string;
   data?: ListMarketingFlowResponseBodyData[];
@@ -194,7 +182,7 @@ export class ListMarketingFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @example
-   * CB6122C9-09B5-5926-**476A96CB0
+   * OK
    */
   requestId?: string;
   /**

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddAuditViberOpenRequestAuditRecordCompanyAddress extends $dara.Model {
   /**
+   * @remarks
+   * The company address.
+   * 
    * @example
    * address
    */
   companyAddress?: string;
   /**
+   * @remarks
+   * The title of the company address.
+   * 
    * @example
    * title
    */
@@ -38,11 +44,17 @@ export class AddAuditViberOpenRequestAuditRecordCompanyAddress extends $dara.Mod
 
 export class AddAuditViberOpenRequestAuditRecordCompanyTel extends $dara.Model {
   /**
+   * @remarks
+   * The company phone number.
+   * 
    * @example
    * 156********
    */
   companyTelNumber?: string;
   /**
+   * @remarks
+   * The title of the company phone number.
+   * 
    * @example
    * title
    */
@@ -72,128 +84,220 @@ export class AddAuditViberOpenRequestAuditRecordCompanyTel extends $dara.Model {
 
 export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   /**
+   * @remarks
+   * The age limit.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   ageLimit?: string;
   /**
+   * @remarks
+   * The name of the business account.
+   * 
    * @example
-   * 示例值示例值示例值
+   * example
    */
   businessAccountName?: string;
   /**
+   * @remarks
+   * The registration number of the business license.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   businessLicenseRegistrationNumber?: string;
+  /**
+   * @remarks
+   * A list of company addresses.
+   */
   companyAddress?: AddAuditViberOpenRequestAuditRecordCompanyAddress[];
   /**
+   * @remarks
+   * The English name of the company.
+   * 
    * @example
    * 7Pj6
    */
   companyEnglishName?: string;
   /**
+   * @remarks
+   * The legal name of the company.
+   * 
    * @example
-   * 示例值
+   * abc
    */
   companyLegalName?: string;
   /**
+   * @remarks
+   * The legal representative of the company.
+   * 
    * @example
    * jerry
    */
   companyLegalPerson?: string;
   /**
+   * @remarks
+   * The company profile.
+   * 
    * @example
    * CompanyProfile
    */
   companyProfile?: string;
   /**
+   * @remarks
+   * The country where the company is registered.
+   * 
    * @example
    * cn
    */
   companyRegisteredCountry?: string;
+  /**
+   * @remarks
+   * A list of company phone number objects.
+   */
   companyTel?: AddAuditViberOpenRequestAuditRecordCompanyTel[];
   /**
+   * @remarks
+   * The complete address of the headquarters.
+   * 
    * @example
-   * 示例值示例值示例值
+   * example
    */
   completeAddressOfHeadquarters?: string;
   /**
+   * @remarks
+   * The email address of the contact person.
+   * 
    * @example
    * 7151***5@qq.com
    */
   contactEmail?: string;
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * 123@123.com
    */
   contactMail?: string;
   /**
+   * @remarks
+   * The name of the contact person.
+   * 
    * @example
    * mary
    */
   contactName?: string;
   /**
+   * @remarks
+   * The phone number of the contact person.
+   * 
    * @example
    * 8615115**777
    */
   contactPhone?: string;
   /**
+   * @remarks
+   * The position of the contact person.
+   * 
    * @example
-   * 职员
+   * example
    */
   contactPosition?: string;
   /**
+   * @remarks
+   * Specifies whether to enable auto-reply.
+   * 
    * @example
-   * 示例值
+   * example
    */
   enableAutoReply?: string;
   /**
+   * @remarks
+   * A description of the industry.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   industryDescription?: string;
   /**
+   * @remarks
+   * The industry involved.
+   * 
    * @example
    * NFUwytiBnm11
    */
   industryInvolved?: string;
   /**
+   * @remarks
+   * The letter of guarantee.
+   * 
    * @example
    * tiCaYNHR8ttt
    */
   letterGuarantee?: string;
+  /**
+   * @remarks
+   * A list of logos.
+   */
   logo?: string[];
+  /**
+   * @remarks
+   * A list of destination countries/regions for messages.
+   */
   messageDestinationCountry?: string[];
+  /**
+   * @remarks
+   * A list of destination countries/regions for international messages.
+   */
   messageDestinationInternationalCountry?: string[];
   /**
+   * @remarks
+   * The introduction in the message dialog box.
+   * 
    * @example
-   * 示例值示例值示例值
+   * example
    */
   messageDialogueIntroduction?: string;
   /**
+   * @remarks
+   * The date when messaging is enabled.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   messageEnableDate?: string;
   /**
+   * @remarks
+   * The name of the message session.
+   * 
    * @example
    * nPHK8uaRo
    */
   messageSessionName?: string;
   /**
+   * @remarks
+   * Other letters of guarantee.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   otherLetterGuarantee?: string;
   /**
+   * @remarks
+   * The content of the reply.
+   * 
    * @example
    * hello
    */
   replyContent?: string;
   /**
+   * @remarks
+   * The website address.
+   * 
    * @example
-   * 示例值示例值
+   * example
    */
   webAddress?: string;
   static names(): { [key: string]: string } {
@@ -289,18 +393,27 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
 }
 
 export class AddAuditViberOpenRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The audit record.
+   */
   auditRecord?: AddAuditViberOpenRequestAuditRecord;
   /**
+   * @remarks
+   * The audit result.
+   * 
    * @example
-   * 示例值
+   * example
    */
   auditResult?: string;
   /**
    * @remarks
+   * The Space ID of the ISV sub-customer.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * example
    */
   custSpaceId?: string;
   /**

@@ -5,17 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The review state of the WhatsApp Business account (WABA).
+   * The account review status. Valid values:
    * 
-   * >  Valid values:
+   * - `PENDING`: The account is under review.
    * 
-   * *   PENDING: The WABA is to be reviewed.
+   * - `APPROVED`: The account is approved.
    * 
-   * *   APPROVED: The WABA was approved.
+   * - `REJECTED`: The account is rejected.
    * 
-   * *   REJECTED: The WABA was rejected.
-   * 
-   * *   DISABLED: The WABA was forbidden.
+   * - `DISABLED`: The account is disabled.
    * 
    * @example
    * APPROVED
@@ -23,12 +21,12 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   accountReviewStatus?: string;
   /**
    * @remarks
-   * WABA related information.
+   * Details about the WABA account.
    */
   authInternationalRateEligibility?: { [key: string]: any };
   /**
    * @remarks
-   * The business ID.
+   * The Business platform ID.
    * 
    * @example
    * 19293988***
@@ -36,7 +34,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   businessId?: string;
   /**
    * @remarks
-   * The business name.
+   * The Business platform name.
    * 
    * @example
    * Alibaba
@@ -52,7 +50,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The ID of the WhatsApp Business account.
+   * The WABA account ID.
    * 
    * @example
    * 20393988393993***
@@ -65,7 +63,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   isOnBizApp?: string;
   /**
    * @remarks
-   * The Marketing Messaging Lite status.
+   * The MML status.
    * 
    * @example
    * Y
@@ -73,15 +71,15 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   marketingMessageLiteStatus?: string;
   /**
    * @remarks
-   * The namespace of the message template.
+   * The template namespace.
    * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 93e6b26e_8a67_4163_a093_ebfe645a66b0
    */
   messageTemplateNamespace?: string;
   /**
    * @remarks
-   * The name of the WhatsApp Business account.
+   * The WABA account name.
    * 
    * @example
    * Alibaba
@@ -89,7 +87,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The start time when the authentication-international rate applies.
+   * The international rate capability qualification.
    * 
    * @example
    * "start_time":1721952000
@@ -142,7 +140,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
 export class QueryChatappBindWabaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
    * None
@@ -150,10 +148,11 @@ export class QueryChatappBindWabaResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The request status code.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - A value of `OK` indicates the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -161,12 +160,12 @@ export class QueryChatappBindWabaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: QueryChatappBindWabaResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * SUCCESS
@@ -174,7 +173,7 @@ export class QueryChatappBindWabaResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****
@@ -182,10 +181,11 @@ export class QueryChatappBindWabaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful:
    * 
-   * *   **true**
-   * *   **false**
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true
